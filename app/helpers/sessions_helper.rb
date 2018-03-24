@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionsHelper
   def prefilled_username
     uri = Addressable::URI.parse(session["user_return_to"])
@@ -13,7 +15,7 @@ module SessionsHelper
   end
 
   def display_password_reset_link?
-    devise_mapping.recoverable? && controller_name != "passwords"
+    AppConfig.mail.enable? && devise_mapping.recoverable? && controller_name != "passwords"
   end
 
   def flash_class(name)

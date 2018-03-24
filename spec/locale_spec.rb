@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe 'locale files' do
   describe "cldr/plurals.rb" do

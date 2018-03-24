@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Service < ActiveRecord::Base
+class Service < ApplicationRecord
   attr_accessor :provider, :info, :access_level
 
   belongs_to :user
@@ -12,8 +14,8 @@ class Service < ActiveRecord::Base
     nil
   end
 
-  def delete_post(post)
-    #don't do anything (should be overriden by service extensions)
+  def post_opts(post)
+    # don't do anything (should be overridden by service extensions)
   end
 
   class << self
@@ -24,7 +26,7 @@ class Service < ActiveRecord::Base
 
     def first_from_omniauth( auth_hash )
       @@auth = auth_hash
-      where( type: service_type, uid: options[:uid] ).first
+      find_by(type: service_type, uid: options[:uid])
     end
 
     def initialize_from_omniauth( auth_hash )

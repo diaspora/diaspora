@@ -1,0 +1,20 @@
+body {
+  #main-stream .stream-element {
+    border: 0;
+    border-bottom: 1px solid $border-grey;
+    margin-bottom: 10px;
+  }
+
+  .profile_header > div {
+    border-bottom: 1px solid $border-grey;
+  }
+
+  .left-navbar .hoverable { border-bottom: 0; }
+
+  .profile-sidebar,
+  .left-navbar-fixed-background,
+  &.page-tags .left-navbar-fixed-background,
+  .left-navbar {
+    border-right: 1px solid $border-grey;
+  }
+}

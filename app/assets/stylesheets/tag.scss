@@ -3,15 +3,15 @@
   font-weight: bold;
   &:hover {
     text-decoration: underline;
-    background-color: lighten($blue, 47%);
+    background-color: lighten($link-color, 47%);
   }
 }
 
-a.tag { color: $blue; }
+a.tag { color: $link-color; }
 
 h1.tag {
-  border-bottom: 2px dotted $blue;
-  &:hover { border-bottom: 2px dotted $blue; }
+  border-bottom: 2px dotted $link-color;
+  &:hover { border-bottom: 2px dotted $link-color; }
 }
 
 .info {
@@ -23,21 +23,21 @@ h1.tag {
   }
 }
 .page-tags {
-  background-color: $sidebars-background;
   #tags_show {
-    #left-navbar-fixed-background { border-right: none; }
-    .col-md-3 {
-      h4 { margin: 25px 0 15px; }
-      .side_stream #people_stream {
+    .sidebar {
+      h3 {
+        font-size: 13px;
+        line-height: 1.1;
+      }
+
+      .side_stream #people-stream {
         .name { display: block; }
         .name, .diaspora_handle {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+          word-break: break-all;
         }
       }
     }
-    .col-md-7 {
+    .col-md-9 {
       .tag-following-action {
         max-width: 100%;
         input[type="submit"] {

@@ -24,22 +24,12 @@ en_1337:
       hide: "H1D3 5P4M5!"
       show: "5H0W 4LL 5P4M5!"
     confirm_dialog: "5UR3?"
-    failed_to_like: "F41L3D 2 <3!"
     failed_to_post_message: "F41L3D 2 53ND 5P4M!"
     getting_started:
       hey: "H3Y, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "F1ND N00B5 0R #74G5"
-    infinite_scroll:
-      no_more: "EOF"
-    publisher:
-      at_least_one_aspect: "Y0U MU57 PUBL15H 70 47 L3457 1 4SP3C7"
-      limited: "L1M173D - Y0UR 5P4M W1LL 0NLY B3 533N BY N00B5 U 4R3 5H4R1NG W17H!"
-      public: "PUBL1C - Y0UR 5P4M W1LL B3 V151BL3 2 3V3RY0N3 4ND F0UND BY S34RCH 3NG1N35!"
-    reshares:
-      duplicate: "U H4V3 4LR34DY R35P4MM3D 7HI5!"
-    search_for: "S34RCH F0R <%= name %>"
     show_more: "5H0W M0R3!"
     stream:
       likes:
@@ -67,20 +57,22 @@ en_1337:
       wasnt_that_interesting: "0K, 1 5UPP053 #<%= tagName %> W45N7 7H47 1N73R3571NG..."
     timeago:
       day: "4 D4Y"
-      days: "%d D4Y5"
+      days:
+        other: "%d D4Y5"
       hour: "4B0U7 4N H0UR"
-      hours: "4B0U7 %d H0UR5"
+      hours:
+        other: "4B0U7 %d H0UR5"
       minute: "4B0U7 4 M1NU73"
-      minutes: "%d M1NU735"
+      minutes:
+        other: "%d M1NU735"
       month: "4B0U7 4 M0N7H"
-      months: "%d M0N7H5"
+      months:
+        other: "%d M0N7H5"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "L355 7H3N 4 M1NU73"
       suffixAgo: "4G0"
       suffixFromNow: "FR0M N0W"
       year: "4B0U7 4 Y34R"
-      years: "%d Y34R5"
-    videos:
-      unknown: "UNK0WN V1D30 7YP3"
-      watch: "W47CH 7H15 V1D30 0N <%= provider %>"
+      years:
+        other: "%d Y34R5"

@@ -9,4 +9,4 @@
             %h2#pod-name
               = AppConfig.settings.pod_name
 
-            = render partial: 'form'
+            = render partial: "form", locals: {mobile: false}

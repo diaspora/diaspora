@@ -38,20 +38,30 @@ app.views.Base = Backbone.View.extend({
   renderTemplate : function(){
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter;
     this.template = HandlebarsTemplates[this.templateName+"_tpl"];
-    if(!this.template) {
-      console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified");
+
+    if (this.templateName === false) {
       return;
+    }
+
+    if (!this.templateName) {
+      throw new Error("No templateName set, set to false to ignore.");
+    }
+
+    if (!this.template) {
+      throw new Error("Invalid templateName provided: " + this.templateName);
     }
 
     this.$el
       .html(this.template(presenter))
       .attr("data-template", _.last(this.templateName.split("/")));
 
-    // add avatar fallback if it can't be loaded
-    this.$el.find(this.avatars.selector).error(this.avatars.fallback);
+    this.setupAvatarFallback(this.$el);
 
     // add placeholder support for old browsers
     this.$("input, textarea").placeholder();
+
+    // init autosize plugin
+    autosize(this.$("textarea"));
 
     this.postRenderTemplate();
   },
@@ -62,7 +72,8 @@ app.views.Base = Backbone.View.extend({
     var self = this;
     _.each(this.subviews, function(property, selector){
       var view = _.isFunction(self[property]) ? self[property]() : self[property];
-      if(view) {
+      if (view && self.$(selector).length > 0) {
+        self.$(selector).empty();
         self.$(selector).html(view.render().el);
         view.delegateEvents();
       }
@@ -120,19 +131,20 @@ app.views.Base = Backbone.View.extend({
 
   destroyModel: function(evt) {
     evt && evt.preventDefault();
-    var self = this;
     var url = this.model.urlRoot + "/" + this.model.id;
 
     if( confirm(_.result(this, "destroyConfirmMsg")) ) {
       this.$el.addClass("deleting");
-      this.model.destroy({ url: url })
-        .done(function() {
-          self.remove();
-        })
-        .fail(function() {
-          self.$el.removeClass("deleting");
+      this.model.destroy({
+        url: url,
+        success: function() {
+          this.remove();
+        }.bind(this),
+        error: function() {
+          this.$el.removeClass("deleting");
           app.flashMessages.error(Diaspora.I18n.t("failed_to_remove"));
-        });
+        }.bind(this)
+      });
     }
   },
 
@@ -141,6 +153,10 @@ app.views.Base = Backbone.View.extend({
       $(this).attr("src", ImagePaths.get("user/default.png"));
     },
     selector: "img.avatar"
+  },
+
+  setupAvatarFallback: function(el) {
+    el.find(this.avatars.selector).on("error", this.avatars.fallback);
   }
 });
 

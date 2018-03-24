@@ -6,6 +6,11 @@
 
 eo:
   javascripts:
+    admin:
+      pods:
+        version_failed:
+          one: "Estas unu pod (Diaspora-servilo) kiu ne havas version (malnova pod, sen NodeInfo)."
+          other: "Estas <%= count %> pods (Diaspora-serviloj) kiuj ne havas version (malnova pod, sen NodeInfo)."
     and: "kaj"
     aspect_dropdown:
       add_to_aspect: "Aldoni kontakton"
@@ -30,7 +35,6 @@ eo:
     confirm_dialog: "Ĉu vi certas?"
     delete: "Forviŝi"
     edit: "Redakti"
-    failed_to_like: "Ne povis ŝati!"
     failed_to_post_message: "Ne povis afiŝi mesaĝon!"
     getting_started:
       alright_ill_wait: "En ordo, mi atendos."
@@ -51,8 +55,6 @@ eo:
       settings: "Agordoj"
       view_all: "Vidi ĉiujn"
     ignore: "Ignori"
-    infinite_scroll:
-      no_more: "Neniu plua afiŝo."
     my_activity: "Mia aktiveco"
     my_aspects: "Viaj aspektoj"
     my_stream: "Torento"
@@ -61,15 +63,9 @@ eo:
     photo_uploader:
       completed: "<%= file %> kompletita"
       looking_good: "Diable, vi aspektas bonege!"
-    publisher:
-      at_least_one_aspect: "Vi devas konigi al almenaŭ unu aspekton"
-      limited: "Malpublika - via afiŝo nur videblos de homoj, al kiuj vi konigas aferojn"
-      public: "Publika - via afiŝo videblos al ĉiuj kaj troveblos de retserĉprogramoj."
     reshares:
-      duplicate: "Nu, ĉu tiel bone? Vi jam rekonigis tiun afiŝon!"
       post: "Ĉu vi deziras rekonigi la mesaĝon de <%= name %>?"
       successful: "La afiŝo estis sukcese rekonigita!"
-    search_for: "Serĉi por <%= name %>"
     show_more: "vidi plu"
     stream:
       comment: "Komenti"
@@ -109,29 +105,24 @@ eo:
       wasnt_that_interesting: "Nu, mi supozas, ke #<%= tagName %> ne estis tiel interesa..."
     timeago:
       day: "unu tago"
-      days: "%d tagoj"
+      days:
+        other: "%d tagoj"
       hour: "ĉirkaŭ unu horo"
-      hours: "ĉirkaŭ %d horoj"
+      hours:
+        other: "ĉirkaŭ %d horoj"
       minute: "ĉirkaŭ unu minuto"
-      minutes: "%d minutoj"
+      minutes:
+        other: "%d minutoj"
       month: "ĉirkaŭ unu monato"
-      months: "%d monatoj"
+      months:
+        other: "%d monatoj"
       prefixAgo: "antaŭ "
       prefixFromNow: "post "
       seconds: "malpli ol unu minuto"
       suffixAgo: ""
       suffixFromNow: "ekde nun"
       year: "ĉirkaŭ unu jaro"
-      years: "%d jaroj"
-    videos:
-      unknown: "nekonata tipo de videaĵo"
-      watch: "Vidi tiun ĉi filmon ĉe <%= provider %>"
+      years:
+        other: "%d jaroj"
     viewer:
-      comment: "Komenti"
-      follow_post: "Sekvi mesaĝon"
-      home: "Ĉefpaĝo"
-      like: "Ŝati"
-      reshare: "Rekonigi"
       reshared: "Rekonigita"
-      stop_following_post: "Ne plu sekvi mesaĝon"
-      unlike: "Ne plu ŝati"

@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
-require 'spec_helper'
 
 describe NotifierHelper, :type => :helper do
   describe '#post_message' do
@@ -15,6 +15,20 @@ describe NotifierHelper, :type => :helper do
 
     it 'strip markdown in the post' do
       expect(post_message(@markdown_post)).to eq(@striped_markdown_post)
+    end
+
+    it "falls back to the title if the post has no text" do
+      photo = FactoryGirl.build(:photo, public: true)
+      photo_post = FactoryGirl.build(:status_message, author: photo.author, text: "", photos: [photo], public: true)
+      expect(helper.post_message(photo_post))
+        .to eq(I18n.t("posts.show.photos_by", count: 1, author: photo_post.author_name))
+    end
+
+    it "falls back to the title, if the root post was deleted" do
+      reshare = FactoryGirl.create(:reshare)
+      reshare.root.destroy
+      expect(helper.post_message(Reshare.find(reshare.id)))
+        .to eq(I18n.t("posts.show.reshare_by", author: reshare.author_name))
     end
   end
 

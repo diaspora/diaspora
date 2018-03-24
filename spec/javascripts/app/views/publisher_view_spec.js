@@ -6,21 +6,17 @@
 describe("app.views.Publisher", function() {
   context("standalone", function() {
     beforeEach(function() {
-      // TODO should be jasmine helper
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs(factory.userAttrs());
 
       spec.loadFixture("aspects_index");
       this.view = new app.views.Publisher({
         standalone: true
       });
+      this.view.open();
     });
 
     it("hides the close button in standalone mode", function() {
-      expect(this.view.$("#hide_publisher").is(":visible")).toBeFalsy();
-    });
-
-    it("hides the post preview button in standalone mode", function() {
-      expect(this.view.$(".post_preview_button").is(":visible")).toBeFalsy();
+      expect(this.view.$(".md-cancel").is(":visible")).toBeFalsy();
     });
 
     it("hides the manage services link in standalone mode", function() {
@@ -40,11 +36,19 @@ describe("app.views.Publisher", function() {
 
   context("plain publisher", function() {
     beforeEach(function() {
-      // TODO should be jasmine helper
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs(factory.userAttrs());
 
       spec.loadFixture("aspects_index");
       this.view = new app.views.Publisher();
+    });
+
+    describe("#initSubviews", function() {
+      it("calls checkSubmitAvailability if the publisher is prefilled with mentions", function() {
+        spyOn(this.view, "checkSubmitAvailability");
+        this.view.prefillMention = "user@example.org";
+        this.view.initSubviews();
+        expect(this.view.checkSubmitAvailability).toHaveBeenCalled();
+      });
     });
 
     describe("#open", function() {
@@ -72,9 +76,58 @@ describe("app.views.Publisher", function() {
       });
 
       it("resets the element's height", function() {
-        $(this.view.el).find("#status_message_fake_text").height(100);
+        $(this.view.el).find("#status_message_text").height(100);
         this.view.close($.Event());
-        expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
+        expect($(this.view.el).find("#status_message_text").attr("style")).not.toContain("height");
+      });
+
+      it("calls autosize.update", function() {
+        spyOn(autosize, "update");
+        this.view.close($.Event());
+        expect(autosize.update).toHaveBeenCalledWith(this.view.inputEl);
+      });
+
+      it("should hide the poll container correctly", function() {
+        this.view.$el.find(".poll-creator").click();
+        expect(this.view.$el.find(".publisher-textarea-wrapper")).toHaveClass("with-poll");
+        expect(this.view.$el.find(".poll-creator-container")).toBeVisible();
+        this.view.close();
+        expect(this.view.$el.find(".publisher-textarea-wrapper")).not.toHaveClass("with-poll");
+        expect(this.view.$el.find(".poll-creator-container")).not.toBeVisible();
+        this.view.open();
+        expect(this.view.$el.find(".publisher-textarea-wrapper")).not.toHaveClass("with-poll");
+        expect(this.view.$el.find(".poll-creator-container")).not.toBeVisible();
+        this.view.$el.find(".poll-creator").click();
+        expect(this.view.$el.find(".publisher-textarea-wrapper")).toHaveClass("with-poll");
+        expect(this.view.$el.find(".poll-creator-container")).toBeVisible();
+      });
+
+      it("should close the publisher when clicking outside", function() {
+        expect("#publisher").not.toHaveClass("closed");
+        $("body").click();
+        expect("#publisher").toHaveClass("closed");
+      });
+
+      it("should not close the publisher when clicking inside", function() {
+        expect("#publisher").not.toHaveClass("closed");
+        $("#publisher").find(".publisher-textarea-wrapper").click();
+        expect("#publisher").not.toHaveClass("closed");
+        $("#publisher").find(".aspect-dropdown button").click();
+        expect("#publisher").not.toHaveClass("closed");
+      });
+
+      it("should not close the publisher when clicking inside on a mobile", function() {
+        // Bootstrap inserts a .dropdown-backdrop next to the dropdown menu
+        // that take the whole page when it detects a mobile.
+        // Clicking on this element should not close the publisher.
+        // See https://github.com/diaspora/diaspora/issues/6979.
+        $("#publisher").find(".aspect-dropdown").append("<div class='dropdown-backdrop'></div>")
+          .css({position: "fixed", left: 0, right: 0, bottom: 0, top: 0, "z-index": 990});
+        expect("#publisher").not.toHaveClass("closed");
+        $("#publisher").find(".aspect-dropdown button").click();
+        expect("#publisher").not.toHaveClass("closed");
+        $("#publisher").find(".dropdown-backdrop").click();
+        expect("#publisher").not.toHaveClass("closed");
       });
     });
 
@@ -86,11 +139,11 @@ describe("app.views.Publisher", function() {
         expect(this.view.close).toHaveBeenCalled();
       });
 
-      it("calls removePostPreview", function(){
-        spyOn(this.view, "removePostPreview");
+      it("calls hidePreview", function() {
+        spyOn(this.view.markdownEditor, "hidePreview");
 
         this.view.clear($.Event());
-        expect(this.view.removePostPreview).toHaveBeenCalled();
+        expect(this.view.markdownEditor.hidePreview).toHaveBeenCalled();
       });
 
       it("clears all textareas", function(){
@@ -134,15 +187,16 @@ describe("app.views.Publisher", function() {
         this.view.clear($.Event());
         expect($("#location").length).toBe(0);
       });
+
+      it("removes the 'submitting' class from the textarea wrapper", function(){
+        this.view.wrapperEl.addClass("submitting");
+        expect(this.view.wrapperEl).toHaveClass("submitting");
+        this.view.clear($.Event());
+        expect(this.view.wrapperEl).not.toHaveClass("submitting");
+      });
     });
 
     describe("createStatusMessage", function(){
-      it("calls handleTextchange to complete missing mentions", function(){
-        spyOn(this.view, "handleTextchange");
-        this.view.createStatusMessage($.Event());
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
       it("adds the status message to the stream", function() {
         app.stream = { addNow: $.noop };
         spyOn(app.stream, "addNow");
@@ -150,50 +204,18 @@ describe("app.views.Publisher", function() {
         jasmine.Ajax.requests.mostRecent().respondWith({ status: 200, responseText: "{\"id\": 1}" });
         expect(app.stream.addNow).toHaveBeenCalled();
       });
-    });
 
-    describe("createPostPreview", function(){
-      beforeEach(function() {
-        app.stream = { addNow: $.noop };
-      });
-
-      it("calls handleTextchange to complete missing mentions", function(){
-        spyOn(this.view, "handleTextchange");
-        this.view.createPostPreview($.Event());
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
-      it("calls removePostPreview to remove the last preview", function(){
-        spyOn(this.view, "removePostPreview");
-        this.view.createPostPreview($.Event());
-        expect(this.view.removePostPreview).toHaveBeenCalled();
-      });
-
-      it("adds the status message to the stream", function() {
-        spyOn(app.stream, "addNow");
-        this.view.createPostPreview($.Event());
-        expect(app.stream.addNow).toHaveBeenCalled();
-      });
-
-      it("sets recentPreview", function(){
-        expect(this.view.recentPreview).toBeUndefined();
-        this.view.createPostPreview($.Event());
-        expect(this.view.recentPreview).toBeDefined();
-      });
-
-      it("calls modifyPostPreview to apply the preview style to the post", function(){
-        spyOn(this.view, "modifyPostPreview");
-        this.view.createPostPreview($.Event());
-        expect(this.view.modifyPostPreview).toHaveBeenCalled();
+      it("adds the 'submitting' class from the textarea wrapper", function(){
+        expect(this.view.wrapperEl).not.toHaveClass("submitting");
+        this.view.createStatusMessage($.Event());
+        expect(this.view.wrapperEl).toHaveClass("submitting");
       });
     });
 
     describe('#setText', function() {
       it("sets the content text", function() {
         this.view.setText("FOO bar");
-
         expect(this.view.inputEl.val()).toEqual("FOO bar");
-        expect(this.view.hiddenInputEl.val()).toEqual("FOO bar");
       });
     });
 
@@ -204,17 +226,14 @@ describe("app.views.Publisher", function() {
 
         expect(this.view.disabled).toBeTruthy();
         expect(this.view.inputEl.prop("disabled")).toBeTruthy();
-        expect(this.view.hiddenInputEl.prop("disabled")).toBeTruthy();
       });
 
       it("disables submitting", function() {
         this.view.setText("TESTING");
         expect(this.view.submitEl.prop("disabled")).toBeFalsy();
-        expect(this.view.previewEl.prop("disabled")).toBeFalsy();
 
         this.view.setEnabled(false);
         expect(this.view.submitEl.prop("disabled")).toBeTruthy();
-        expect(this.view.previewEl.prop("disabled")).toBeTruthy();
       });
     });
 
@@ -225,8 +244,20 @@ describe("app.views.Publisher", function() {
         var submitCallback = jasmine.createSpy().and.returnValue(false);
         form.submit(submitCallback);
 
-        var e = $.Event("keydown", { keyCode: 13 });
-        e.ctrlKey = true;
+        var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: true });
+        this.view.keyDown(e);
+
+        expect(submitCallback).toHaveBeenCalled();
+        expect($(this.view.el)).not.toHaveClass("closed");
+      });
+
+      it("should submit the form when cmd+enter is pressed", function() {
+        this.view.render();
+        var form = this.view.$("form");
+        var submitCallback = jasmine.createSpy().and.returnValue(false);
+        form.submit(submitCallback);
+
+        var e = $.Event("keydown", {which: Keycodes.ENTER, metaKey: true});
         this.view.keyDown(e);
 
         expect(submitCallback).toHaveBeenCalled();
@@ -234,11 +265,32 @@ describe("app.views.Publisher", function() {
       });
     });
 
-    describe("_beforeUnload", function(){
-      beforeEach(function(){
-        Diaspora.I18n.load({ confirm_unload: "Please confirm that you want to leave this page - data you have entered won't be saved."});
+    describe("tryClose", function() {
+      it("doesn't close the publisher if it is submittable", function() {
+        spyOn(this.view, "_submittable").and.returnValue(true);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).not.toHaveBeenCalled();
       });
 
+      it("doesn't close the publisher if it is in preview mode", function() {
+        spyOn(this.view, "_submittable").and.returnValue(false);
+        spyOn(this.view.markdownEditor, "isPreviewMode").and.returnValue(true);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).not.toHaveBeenCalled();
+      });
+
+      it("closes the publisher if it is neither submittable nor in preview mode", function() {
+        spyOn(this.view, "_submittable").and.returnValue(false);
+        spyOn(this.view.markdownEditor, "isPreviewMode").and.returnValue(false);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).toHaveBeenCalled();
+      });
+    });
+
+    describe("_beforeUnload", function(){
       it("calls _submittable", function(){
         spyOn(this.view, "_submittable");
         $(window).trigger('beforeunload');
@@ -337,14 +389,8 @@ describe("app.views.Publisher", function() {
 
   context("aspect selection", function(){
     beforeEach( function(){
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs(factory.userAttrs());
       spec.loadFixture("status_message_new");
-      Diaspora.I18n.load({ stream: { public: 'Public' }});
-
-      this.viewAspectSelector = new app.views.PublisherAspectSelector({
-        el: $(".public_toggle .aspect_dropdown"),
-        form: $(".content_creation form")
-      });
 
       this.view = new app.views.Publisher();
       this.view.open();
@@ -357,13 +403,13 @@ describe("app.views.Publisher", function() {
 
     describe("toggles the selected entry visually", function(){
       it("click on the first aspect", function(){
-        this.view.$(".aspect_dropdown li.aspect_selector:first").click();
+        this.view.$(".aspect-dropdown li.aspect_selector:first").click();
         expect($("#publisher #visibility-icon")).not.toHaveClass("entypo-globe");
         expect($("#publisher #visibility-icon")).toHaveClass("entypo-lock");
       });
 
       it("click on public", function(){
-        this.view.$(".aspect_dropdown li.public").click();
+        this.view.$(".aspect-dropdown li.public").click();
         expect($("#publisher #visibility-icon")).toHaveClass("entypo-globe");
         expect($("#publisher #visibility-icon")).not.toHaveClass("entypo-lock");
       });
@@ -384,7 +430,7 @@ describe("app.views.Publisher", function() {
         expect(selected.length).toBe(1);
         expect(selected.first().val()).toBe('all_aspects');
 
-        var evt = $.Event("click", { target: $('.aspect_dropdown li.aspect_selector:last') });
+        var evt = $.Event("click", { target: $('.aspect-dropdown li.aspect_selector:last') });
         this.view.viewAspectSelector.toggleAspect(evt);
 
         selected = $('input[name="aspect_ids[]"]');
@@ -395,20 +441,20 @@ describe("app.views.Publisher", function() {
       it("toggles the same item", function() {
         expect($('input[name="aspect_ids[]"][value="42"]').length).toBe(0);
 
-        var evt = $.Event("click", { target: $('.aspect_dropdown li.aspect_selector:last') });
+        var evt = $.Event("click", { target: $('.aspect-dropdown li.aspect_selector:last') });
         this.view.viewAspectSelector.toggleAspect(evt);
         expect($('input[name="aspect_ids[]"][value="42"]').length).toBe(1);
 
-        evt = $.Event("click", { target: $('.aspect_dropdown li.aspect_selector:last') });
+        evt = $.Event("click", { target: $('.aspect-dropdown li.aspect_selector:last') });
         this.view.viewAspectSelector.toggleAspect(evt);
         expect($('input[name="aspect_ids[]"][value="42"]').length).toBe(0);
       });
 
       it("keeps other fields with different values", function() {
         $('.dropdown-menu').append('<li data-aspect_id="99" class="aspect_selector" />');
-        var evt = $.Event("click", { target: $('.aspect_dropdown li.aspect_selector:eq(-2)') });
+        var evt = $.Event("click", { target: $('.aspect-dropdown li.aspect_selector:eq(-2)') });
         this.view.viewAspectSelector.toggleAspect(evt);
-        evt = $.Event("click", { target: $('.aspect_dropdown li.aspect_selector:eq(-1)') });
+        evt = $.Event("click", { target: $('.aspect-dropdown li.aspect_selector:eq(-1)') });
         this.view.viewAspectSelector.toggleAspect(evt);
 
         expect($('input[name="aspect_ids[]"][value="42"]').length).toBe(1);
@@ -419,8 +465,7 @@ describe("app.views.Publisher", function() {
 
   context("locator", function() {
     beforeEach(function() {
-      // should be jasmine helper
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs(factory.userAttrs());
 
       spec.loadFixture("aspects_index");
       this.view = new app.views.Publisher();
@@ -430,7 +475,7 @@ describe("app.views.Publisher", function() {
       it("Show location", function(){
 
         // inserts location to the DOM; it is the location's view element
-        setFixtures('<div id="location_container"></div>');
+        setFixtures('<div class="location-container"></div>');
 
         // creates a fake Locator
         OSM = {};
@@ -460,8 +505,7 @@ describe("app.views.Publisher", function() {
     describe('#avoidEnter', function(){
       it("Avoid submitting the form when pressing enter", function(){
         // simulates the event object
-        var evt = {};
-        evt.keyCode = 13;
+        var evt = $.Event("keydown", { which: Keycodes.ENTER });
 
         // should return false in order to avoid the form submition
         expect(this.view.avoidEnter(evt)).toBeFalsy();
@@ -475,20 +519,19 @@ describe("app.views.Publisher", function() {
       setFixtures(
         '<div id="publisher">'+
         '  <div class="content_creation"><form>'+
-        '    <div id="publisher_textarea_wrapper"></div>'+
+        '    <div id="publisher-textarea-wrapper"></div>'+
         '    <div id="photodropzone"></div>'+
         '    <input type="submit" />'+
-        '    <button class="post_preview_button" />'+
         '  </form></div>'+
         '</div>'
       );
     });
 
-    it('initializes the file uploader plugin', function() {
-      spyOn(qq, 'FileUploaderBasic');
+    it("initializes the FineUploader plugin", function() {
+      spyOn(qq, "FineUploaderBasic");
       new app.views.Publisher();
 
-      expect(qq.FileUploaderBasic).toHaveBeenCalled();
+      expect(qq.FineUploaderBasic).toHaveBeenCalled();
     });
 
     context('event handlers', function() {
@@ -527,13 +570,11 @@ describe("app.views.Publisher", function() {
 
         it('disables the publisher buttons', function() {
           expect(this.view.submitEl.prop("disabled")).toBeTruthy();
-          expect(this.view.previewEl.prop("disabled")).toBeTruthy();
         });
       });
 
       context('successful completion', function() {
         beforeEach(function() {
-          Diaspora.I18n.load({ photo_uploader: { completed: '<%= file %> completed' }});
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
           this.uploader.onComplete(null, 'test.jpg', {
@@ -565,13 +606,11 @@ describe("app.views.Publisher", function() {
 
         it('re-enables the buttons', function() {
           expect(this.view.submitEl.prop("disabled")).toBeFalsy();
-          expect(this.view.previewEl.prop("disabled")).toBeFalsy();
         });
       });
 
       context('unsuccessful completion', function() {
         beforeEach(function() {
-          Diaspora.I18n.load({ photo_uploader: { completed: '<%= file %> completed' }});
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
           this.uploader.onComplete(null, 'test.jpg', {
@@ -590,7 +629,7 @@ describe("app.views.Publisher", function() {
     });
 
     context('photo removal', function() {
-      beforeEach(function() {
+      beforeEach(function(done) {
         this.view = new app.views.Publisher();
         this.view.wrapperEl.addClass("with_attachments");
         this.view.photozoneEl.html(
@@ -602,6 +641,7 @@ describe("app.views.Publisher", function() {
         );
 
         spyOn(jQuery, 'ajax').and.callFake(function(opts) { opts.success(); });
+        this.view.viewUploader.on("change", done);
         this.view.photozoneEl.find(".x").click();
       });
 
@@ -619,6 +659,4 @@ describe("app.views.Publisher", function() {
       });
     });
   });
-
 });
-

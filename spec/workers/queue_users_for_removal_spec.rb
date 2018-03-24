@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe Workers::QueueUsersForRemoval do
   describe 'remove_old_users is active' do

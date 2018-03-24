@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.comment{data:{guid:comment.id}, class: ("hidden" if(defined? hidden))}
+%li.comment{id: comment.guid, class: ("hidden" if defined? hidden)}
   .content
     .media
       .media-left

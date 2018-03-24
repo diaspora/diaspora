@@ -40,7 +40,7 @@ stylesheets:
 #   - helpers/**/*.jsview
 #
 helpers:
-  - helpers/**/*.js
+  - jasmine_helpers/**/*.js
 
 # spec_files
 #
@@ -53,6 +53,7 @@ helpers:
 #   - **/*[sS]pec.js
 #
 spec_files:
+  - onerror-fail.js
   - "**/**/*[sS]pec.js"
 
 # src_dir

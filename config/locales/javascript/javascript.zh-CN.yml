@@ -25,7 +25,6 @@ zh-CN:
       show: "显示所有评论"
     confirm_dialog: "您确定吗？"
     delete: "删除"
-    failed_to_like: "赞失败"
     failed_to_post_message: "发布消息失败！"
     getting_started:
       alright_ill_wait: "以后再说"
@@ -47,23 +46,15 @@ zh-CN:
       view_all: "查看所有"
     ignore: "忽略"
     ignore_user: "忽略此用户？"
-    infinite_scroll:
-      no_more: "暂无更多的内容。"
     my_activity: "我的活动"
     my_stream: "动态"
     people:
       not_found: "找不到任何人…"
     photo_uploader:
       looking_good: "天啊，您太棒了！"
-    publisher:
-      at_least_one_aspect: "发布时请选择至少一个情景"
-      limited: "限制 - 只有您想分享的人才看得到您的内容"
-      public: "公开 - 所有人都能看到您的内容，包括搜索引擎"
     reshares:
-      duplicate: "您已经转发过了。"
       post: "要转发 <%= name %> 的内容吗？"
       successful: "转发成功"
-    search_for: "搜索 <%= name %>"
     show_more: "查看更多"
     stream:
       comment: "评论"
@@ -92,29 +83,24 @@ zh-CN:
       wasnt_that_interesting: "我想 #<%= tagName %> 并不全那么有趣。"
     timeago:
       day: "1 天"
-      days: "%d 天"
+      days:
+        other: "%d 天"
       hour: "约 1 小时"
-      hours: "约 %d 小时"
+      hours:
+        other: "约 %d 小时"
       minute: "约 1 分钟"
-      minutes: "%d 分钟"
+      minutes:
+        other: "%d 分钟"
       month: "约 1 个月"
-      months: "%d 个月"
+      months:
+        other: "%d 个月"
       prefixAgo: "在"
       prefixFromNow: "距今"
       seconds: "少于 1 分钟"
       suffixAgo: "前"
       suffixFromNow: "后"
       year: "约 1 年"
-      years: "%d 年"
-    videos:
-      unknown: "未知视频格式"
-      watch: "在 <%= provider %> 上看观看视频"
+      years:
+        other: "%d 年"
     viewer:
-      comment: "评论"
-      follow_post: "关注内容"
-      home: "主页"
-      like: "赞"
-      reshare: "转发"
       reshared: "转发的"
-      stop_following_post: "停止关注内容"
-      unlike: "取消赞"

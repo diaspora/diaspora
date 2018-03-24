@@ -1,16 +1,7 @@
 describe("app.views.AspectsDropdown", function(){
   beforeEach(function() {
     spec.loadFixture("bookmarklet");
-    Diaspora.I18n.reset({
-      'aspect_dropdown': {
-        'select_aspects': "Select aspects",
-        'all_aspects': "All aspects",
-        'toggle': {
-          'zero': "Select aspects",
-          'one': "In <%= count %> aspect",
-          'other': "In <%= count %> aspects"
-    }}});
-    this.view = new app.views.AspectsDropdown({el: $('.aspect_dropdown')});
+    this.view = new app.views.AspectsDropdown({el: $('.aspect-dropdown')});
   });
 
   context('_toggleCheckbox', function() {

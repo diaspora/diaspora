@@ -14,13 +14,21 @@ $(document).ready(function(){
     $("#new_status_message .counter").remove();
 
     $.each(selectedServices, function() {
-      serviceMaxChars = parseInt($(this).attr("maxchar"));
+      serviceMaxChars = parseInt($(this).attr("maxchar"), 10);
       if(publisherMaxChars > serviceMaxChars) {
         publisherMaxChars = serviceMaxChars;
       }
     });
 
-    $("#status_message_text").charCount({allowed: publisherMaxChars, warning: publisherMaxChars/10 });
+    if (selectedServices.length > 0) {
+      var counter = $("<span class='counter'></span>");
+      $("#status_message_text").after(counter);
+      $("#status_message_text").charCount({
+        allowed: publisherMaxChars,
+        warning: publisherMaxChars / 10,
+        counter: counter
+      });
+    }
 
     if(hiddenField.length > 0) { hiddenField.remove(); }
     else {
@@ -39,5 +47,5 @@ $(document).ready(function(){
     $("#new_status_message").submit();
   });
 
-  autosize($("#status_message_text"));
+  new Diaspora.MarkdownEditor("#status_message_text");
 });

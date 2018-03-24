@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserPresenter
   attr_accessor :user, :aspects_ids
 

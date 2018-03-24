@@ -1,16 +1,22 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 ENV["RAILS_ENV"] ||= "test"
+
+require 'coveralls'
+Coveralls.wear!('rails')
+
 require File.join(File.dirname(__FILE__), "..", "config", "environment")
 require Rails.root.join("spec", "helper_methods")
-require Rails.root.join("spec", "spec-doc")
 require "rspec/rails"
 require "webmock/rspec"
 require "factory_girl"
 require "sidekiq/testing"
 require "shoulda/matchers"
+require "diaspora_federation/schemas"
 
 include HelperMethods
 
@@ -20,12 +26,6 @@ end
 
 ProcessedImage.enable_processing = false
 UnprocessedImage.enable_processing = false
-Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
-Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
-
-def set_up_friends
-  [local_luke, local_leia, remote_raphael]
-end
 
 def alice
   @alice ||= User.find_by(username: "alice")
@@ -59,8 +59,28 @@ def photo_fixture_name
   @photo_fixture_name = File.join(File.dirname(__FILE__), "fixtures", "button.png")
 end
 
-# Force fixture rebuild
-FileUtils.rm_f(Rails.root.join("tmp", "fixture_builder.yml"))
+def jwks_file_path
+  @jwks_file = File.join(File.dirname(__FILE__), "fixtures", "jwks.json")
+end
+
+def valid_client_assertion_path
+  @valid_client_assertion = File.join(File.dirname(__FILE__), "fixtures", "valid_client_assertion.txt")
+end
+
+def client_assertion_with_tampered_sig_path
+  @client_assertion_with_tampered_sig = File.join(File.dirname(__FILE__), "fixtures",
+                                                  "client_assertion_with_tampered_sig.txt")
+end
+
+def client_assertion_with_nonexistent_kid_path
+  @client_assertion_with_nonexistent_kid = File.join(File.dirname(__FILE__), "fixtures",
+                                                     "client_assertion_with_nonexistent_kid.txt")
+end
+
+def client_assertion_with_nonexistent_client_id_path
+  @client_assertion_with_nonexistent_client_id = File.join(File.dirname(__FILE__), "fixtures",
+                                                           "client_assertion_with_nonexistent_client_id.txt")
+end
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -70,8 +90,14 @@ support_files.each {|f| require f }
 require fixture_builder_file
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, :type => :controller
+  config.fixture_path = Rails.root.join("spec", "fixtures")
+  config.global_fixtures = :all
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
   config.mock_with :rspec
+
+  config.example_status_persistence_file_path = "tmp/rspec-persistance.txt"
 
   config.render_views
   config.use_transactional_fixtures = true
@@ -80,10 +106,7 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = :en
     stub_request(:post, "https://pubsubhubbub.appspot.com/")
-    disable_typhoeus
     $process_queue = false
-    allow_any_instance_of(Postzord::Dispatcher::Public).to receive(:deliver_to_remote)
-    allow_any_instance_of(Postzord::Dispatcher::Private).to receive(:deliver_to_remote)
   end
 
   config.expect_with :rspec do |expect_config|
@@ -104,12 +127,33 @@ RSpec.configure do |config|
     ActionMailer::Base.deliveries.clear
   end
 
+  # Reset gon
+  config.after(:each) do
+    RequestStore.store[:gon].gon.clear unless RequestStore.store[:gon].nil?
+  end
+
   config.include FactoryGirl::Syntax::Methods
+
+  config.include JSON::SchemaMatchers
+  config.json_schemas[:archive_schema] = "lib/schemas/archive-format.json"
+
+  JSON::Validator.add_schema(
+    JSON::Schema.new(
+      DiasporaFederation::Schemas.federation_entities,
+      Addressable::URI.parse(DiasporaFederation::Schemas::FEDERATION_ENTITIES_URI)
+    )
+  )
 end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
+  end
+end
+
+shared_context suppress_csrf_verification: :none do
+  before do
+    ActionController::Base.allow_forgery_protection = true
   end
 end

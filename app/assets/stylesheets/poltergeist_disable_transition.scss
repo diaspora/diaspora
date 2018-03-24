@@ -1,0 +1,9 @@
+// Overrides used for poltergeist tests
+// scss-lint:disable all
+* {
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+// scss-lint:enable all

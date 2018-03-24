@@ -1,13 +1,12 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe EmailInviter do
   before do
-    @user = double(:invitation_code => 'coolcodebro', :present? => true, 
-                 :email => 'foo@bar.com')
+    @user = double(invitation_code: "coolcodebro", present?: true, email: "foo@bar.com")
     @emails = "mbs333@gmail.com, foo1@bar.com maxwell@dude.com"
   end
 
-  it 'has a list of emails' do 
+  it "has a list of emails" do
     inviter = EmailInviter.new(@emails, @user)
     expect(inviter.emails).not_to be_empty
   end
@@ -20,12 +19,6 @@ describe EmailInviter do
   it 'has an inviter' do
     inviter = EmailInviter.new(@emails, @user)
     expect(inviter.inviter).not_to be_nil
-  end
-
-  it 'can have a message' do
-    message = "you guys suck hard"
-    inviter = EmailInviter.new("emails", @user, :message =>  message)
-    expect(inviter.message).to eq(message) 
   end
 
   describe '#emails' do

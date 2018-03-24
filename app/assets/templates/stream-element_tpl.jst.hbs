@@ -1,63 +1,45 @@
 <div class="media {{#if showPost}} {{#if nsfw}} shield-off {{/if}} {{else}} shield-active {{/if}}">
-  {{#with author}}
-    <a href="/people/{{guid}}" class="img {{{hovercardable this}}}">
-      {{{personImage this}}}
-    </a>
-  {{/with}}
+
+  {{#unless preview}}
+    {{#with author}}
+      <a href="/people/{{guid}}" class="img {{{hovercardable this}}}">
+        {{{personImage this}}}
+      </a>
+    {{/with}}
+  {{/unless}}
 
   <div class="bd">
-    {{#if loggedIn}}
-      <div class="control-icons">
-        {{#if authorIsCurrentUser}}
-          <a href="#" rel="nofollow" class="delete remove_post" title="{{t "delete"}}">
-            <i class="entypo-trash"></i>
+    {{#unless preview}}
+      {{#if loggedIn}}
+        <div class="post-controls"></div>
+      {{/if}}
+
+      <div>
+        {{#linkToAuthor author}}
+          {{~name~}}
+        {{/linkToAuthor}}
+
+        <span class="details gray">
+          -
+          <a href="/posts/{{id}}">
+            <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
           </a>
-        {{else}}
-          <a href="#" rel="nofollow" data-type="Post" class="post_report" title="{{t "report.name"}}">
-            <i class="entypo-warning"></i>
+
+          <a href="/posts/{{guid}}" class="permalink" title="{{t "stream.permalink"}}">
+            <i class="entypo-link"></i>
           </a>
-          <a href="#" rel="nofollow" class="block_user" title="{{t "ignore"}}">
-            <i class="entypo-block"></i>
-          </a>
-          {{#if participation}}
-            <a href="#" rel="nofollow" class="destroy_participation" title="{{t "stream.disable_post_notifications"}}">
-              <i class="entypo-bell"></i>
-            </a>
-          {{else}}
-            <a href="#" rel="nofollow" class="create_participation" title="{{t "stream.enable_post_notifications"}}">
-              <i class="entypo-bell"></i>
-            </a>
-          {{/if}}
-          <a href="#" rel="nofollow" class="delete hide_post" title="{{t "stream.hide"}}">
-            <i class="entypo-cross"></i>
-          </a>
-        {{/if}}
+        </span>
       </div>
-    {{/if}}
-
-    <div>
-      {{#linkToAuthor author}}
-        {{name}}
-      {{/linkToAuthor}}
-
-      <span class="details gray">
-        -
-        <a href="/posts/{{id}}">
-          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
-        </a>
-
-        <a href="/posts/{{id}}" class="permalink" title="{{t "stream.permalink"}}">
-          <i class="entypo-link"></i>
-        </a>
-      </span>
-    </div>
+    {{/unless}}
 
     <div class="post-content"> </div>
     <div class="status-message-location nsfw-hidden"> </div>
 
-    <div class="feedback nsfw-hidden"> </div>
-    <div class="likes nsfw-hidden"> </div>
-    <div class="reshares nsfw-hidden"> </div>
-    <div class="comments nsfw-hidden"> </div>
+    {{#unless preview}}
+      <div class="feedback nsfw-hidden"> </div>
+      <div class="likes nsfw-hidden"> </div>
+      <div class="reshares nsfw-hidden"> </div>
+      <div class="comments nsfw-hidden"> </div>
+    {{/unless}}
   </div>
 </div>

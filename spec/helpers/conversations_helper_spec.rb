@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe ConversationsHelper, :type => :helper do
   before do

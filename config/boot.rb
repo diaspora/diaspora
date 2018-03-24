@@ -1,9 +1,8 @@
-# Set up gems listed in the Gemfile.
-ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
-require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
+# frozen_string_literal: true
 
-# Ensure Builder is loaded
-require 'active_support/builder' unless defined?(Builder)
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
+
+require "bundler/setup" # Set up gems listed in the Gemfile.
 
 # Load configuration early
-require_relative 'load_config'
+require_relative "load_config"

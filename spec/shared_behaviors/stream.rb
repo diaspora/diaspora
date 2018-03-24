@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 shared_examples_for 'it is a stream' do
   context 'required methods for display' do
@@ -16,14 +16,6 @@ shared_examples_for 'it is a stream' do
 
     it '#publisher_opts' do
       expect(@stream.send(:publisher_opts)).not_to be_nil
-    end
-
-    it 'has a #contacts title' do
-      expect(@stream.contacts_title).not_to be_nil
-    end
-
-    it 'has a contacts link' do
-      expect(@stream.contacts_link).not_to be_nil
     end
 
     it 'should make the stream a time object' do

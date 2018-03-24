@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Diaspora
   # Takes a raw message text and converts it to
   # various desired target formats, respecting
@@ -43,12 +45,6 @@ module Diaspora
       def escape
         if options[:escape]
           @message = ERB::Util.html_escape_once message
-
-          # Special case Hex entities since escape_once
-          # doesn't catch them.
-          # TODO: Watch for https://github.com/rails/rails/pull/9102
-          # on whether this can be removed
-          @message = message.gsub(/&amp;(#[xX][\dA-Fa-f]{1,4});/, '&\1;')
         end
       end
 
@@ -78,14 +74,14 @@ module Diaspora
         end
 
         if options[:disable_hovercards] || options[:link_all_mentions]
-          @message = Diaspora::Mentionable.filter_for_aspects message, nil
+          @message = Diaspora::Mentionable.filter_people message, []
         else
           make_mentions_plain_text
         end
       end
 
       def make_mentions_plain_text
-        @message = Diaspora::Mentionable.format message, [], plain_text: true
+        @message = Diaspora::Mentionable.format message, options[:mentioned_people], plain_text: true
       end
 
       def render_tags
@@ -98,6 +94,13 @@ module Diaspora
 
       def normalize
         @message = self.class.normalize(@message)
+      end
+
+      def diaspora_links
+        @message = @message.gsub(DiasporaFederation::Federation::DiasporaUrlParser::DIASPORA_URL_REGEX) {|match_str|
+          guid = Regexp.last_match(3)
+          Regexp.last_match(2) == "post" && Post.exists?(guid: guid) ? AppConfig.url_to("/posts/#{guid}") : match_str
+        }
       end
     end
 
@@ -126,7 +129,7 @@ module Diaspora
 
     delegate :empty?, :blank?, :present?, to: :raw
 
-    # @param [String] raw_message Raw input text
+    # @param [String] text Raw input text
     # @param [Hash] opts Global options affecting output
     # @option opts [Array<Person>] :mentioned_people ([]) List of people
     #   allowed to mention
@@ -153,8 +156,8 @@ module Diaspora
     #   to Redcarpet
     # @option opts [Hash] :markdown_render_options Override default options
     #   passed to the Redcarpet renderer
-    def initialize raw_message, opts={}
-      @raw_message = raw_message
+    def initialize(text, opts={})
+      @text = text
       @options = DEFAULTS.deep_merge opts
     end
 
@@ -162,6 +165,7 @@ module Diaspora
     def plain_text opts={}
       process(opts) {
         make_mentions_plain_text
+        diaspora_links
         squish
         append_and_truncate
       }
@@ -171,6 +175,7 @@ module Diaspora
     def plain_text_without_markdown opts={}
       process(opts) {
         make_mentions_plain_text
+        diaspora_links
         strip_markdown
         squish
         append_and_truncate
@@ -181,6 +186,7 @@ module Diaspora
     def plain_text_for_json opts={}
       process(opts) {
         normalize
+        diaspora_links
         camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
       }
     end
@@ -190,6 +196,7 @@ module Diaspora
       process(opts) {
         escape
         normalize
+        diaspora_links
         render_mentions
         render_tags
         squish
@@ -202,6 +209,7 @@ module Diaspora
       process(opts) {
         process_newlines
         normalize
+        diaspora_links
         camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
         markdownify
         render_mentions
@@ -217,12 +225,12 @@ module Diaspora
     #   this length. If not given defaults to 70.
     def title opts={}
       # Setext-style header
-      heading = if /\A(?<setext_content>.{1,200})\n(?:={1,200}|-{1,200})(?:\r?\n|$)/ =~ @raw_message.lstrip
-        setext_content
-      # Atx-style header
-      elsif /\A\#{1,6}\s+(?<atx_content>.{1,200}?)(?:\s+#+)?(?:\r?\n|$)/ =~ @raw_message.lstrip
-        atx_content
-      end
+      heading = if /\A(?<setext_content>.{1,200})\n(?:={1,200}|-{1,200})(?:\r?\n|$)/ =~ @text.lstrip
+                  setext_content
+                # Atx-style header
+                elsif /\A\#{1,6}\s+(?<atx_content>.{1,200}?)(?:\s+#+)?(?:\r?\n|$)/ =~ @text.lstrip
+                  atx_content
+                end
 
       heading &&= self.class.new(heading).plain_text_without_markdown
 
@@ -242,7 +250,7 @@ module Diaspora
     end
 
     def raw
-      @raw_message
+      @text
     end
 
     def to_s
@@ -251,8 +259,8 @@ module Diaspora
 
     private
 
-    def process opts, &block
-      Processor.process(@raw_message, @options.deep_merge(opts), &block)
+    def process(opts, &block)
+      Processor.process(@text, @options.deep_merge(opts), &block)
     end
   end
 end

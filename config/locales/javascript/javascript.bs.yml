@@ -32,11 +32,8 @@ bs:
       no_comments: "Još uvijek nema komentara."
       show: "pokaži sve komentare"
     confirm_dialog: "Jeste sigurni?"
-    conversation:
-      participants: "Učesnici"
     delete: "Izbriši"
     edit: "Uredi"
-    failed_to_like: "Neuspješno sviđanje"
     failed_to_post_message: "Neuspješno objavljivanje poruke!"
     getting_started:
       alright_ill_wait: "Dobro, čekat ću."
@@ -58,9 +55,6 @@ bs:
       view_all: "Pogledaj sve"
     ignore: "Ignoriši"
     ignore_user: "Ignoriši ovog korisnika?"
-    infinite_scroll:
-      no_more: "Nema više objava."
-      no_more_contacts: "Nema više kontakata."
     my_activity: "Moja Aktivnost"
     my_aspects: "Moji Aspekti"
     my_stream: "Tok"
@@ -73,22 +67,16 @@ bs:
       looking_good: "Bože, izgledate fenomenalno!"
       size_error: "{file} je prevelika, maksimalna veličina datoteke je {sizeLimit}."
     publisher:
-      at_least_one_aspect: "Morate objaviti za najmanje jedan aspekt"
-      limited: "Ograničeno - vaša objava će biti vidljiva od ljudi s kojima dijelite"
       near_from: "Objavljeno sa: <%= location %>"
-      public: "Javno - vaša objava će biti vidljiva svima i može biti pronađena od pretraživača"
     reshares:
-      duplicate: "Tako dobro, ha?  Već ste ponovo dijelili tu objavu!"
       post: "Ponovo dijeli objavu od <%= name %>?"
       successful: "Objava je uspješno ponovo dijeljenja!"
-    search_for: "Traži za <%= name %>"
     show_more: "pokaži više"
     stream:
       comment: "Komentar"
       follow: "Prati"
       followed_tag:
         add_a_tag: "Dodaj oznaku"
-        contacts_title: "Ljudi kojima se ova oznaka sviđa"
         follow: "Pratite"
         title: "#Praćene Oznake"
       hide: "Sakrij"
@@ -128,29 +116,24 @@ bs:
       wasnt_that_interesting: "Uredu, pretpostavljam da #<%= tagName %> nije bilo tako interesantno..."
     timeago:
       day: "dan"
-      days: "%d dana"
+      days:
+        other: "%d dana"
       hour: "oko sat"
-      hours: "oko %d sati"
+      hours:
+        other: "oko %d sati"
       minute: "oko minute"
-      minutes: "%d minuta"
+      minutes:
+        other: "%d minuta"
       month: "oko mjesec"
-      months: "%d mjeseci"
+      months:
+        other: "%d mjeseci"
       prefixAgo: "prije"
       prefixFromNow: "u"
       seconds: "manje od minute"
       suffixAgo: "prije"
       suffixFromNow: "od sada"
       year: "oko godina"
-      years: "%d godina"
-    videos:
-      unknown: "Nepoznat video tip"
-      watch: "Pogledajte ovaj video na <%= provider %>"
+      years:
+        other: "%d godina"
     viewer:
-      comment: "Komentar"
-      follow_post: "Prati objavu"
-      home: "POČETNA"
-      like: "Sviđa mi se"
-      reshare: "Ponovo dijeli"
       reshared: "Ponovo dijeljeno"
-      stop_following_post: "Zaustavi praćenje objave"
-      unlike: "Skini sviđanje"

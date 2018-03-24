@@ -1,6 +1,7 @@
 describe("app.pages.SinglePostViewer", function(){
   beforeEach(function() {
-    window.gon={};gon.post = {id: 42};
+    window.gon = {};
+    gon.post = $.parseJSON(spec.readFixture("post_json"));
     this.view = new app.pages.SinglePostViewer();
   });
 

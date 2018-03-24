@@ -107,10 +107,10 @@ $default-border-radius: 3px;
       opacity: 0.9;
 
       a {
-        color: lighten($blue, 25%);
+        color: lighten($link-color, 25%);
       }
       a:visited {
-        color: $blue;
+        color: $link-color;
       }
     }
     .desc {
@@ -118,5 +118,23 @@ $default-border-radius: 3px;
       line-height: .97em;
       max-height: 35px;
     }
+  }
+}
+
+@mixin selectable-list() {
+  .glyphicon-ok,
+  .glyphicon-refresh {
+    display: none;
+    padding-right: 5px;
+  }
+
+  &.selected {
+    .glyphicon-ok { display: inline-block;}
+    .glyphicon-refresh { display: none;}
+  }
+
+  &.loading {
+    .glyphicon-refresh { display: inline-block;}
+    .glyphicon-ok { display: none;}
   }
 }

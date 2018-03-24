@@ -10,20 +10,41 @@
   overflow: hidden;
   a {
     color: #000;
-    img {
-      margin: 5px 5px 5px 0px;
-      float: left;
-      max-width: 150px;
-      padding-right: 5px;
-    }
     .og-title {
-      margin-bottom: 5px;
       font-weight: bold;
     }
   }
   a:hover {
-    color: $blue;
+    color: $link-color;
   }
+
+  .thumb {
+    float: left;
+    margin: 5px;
+    margin-left: 0;
+    max-width: 150px;
+    padding-right: 5px;
+
+    .video-overlay {
+      cursor: pointer;
+      height: 145px;
+      width: 145px;
+    }
+
+    .overlay {
+      background-color: rgba($black, .2);
+      background-image: image-url('buttons/playbtn.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 60px 60px;
+      display: inline-block;
+      height: 145px;
+      position: relative;
+      top: -145px;
+      width: 145px;
+    }
+  }
+
   .og-description {
     color: $text-grey;
   }

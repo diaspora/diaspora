@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -20,7 +22,7 @@ module PostsHelper
   def post_iframe_url(post_id, opts={})
     opts[:width] ||= 516
     opts[:height] ||= 315
-    host = AppConfig.pod_uri.authority
-   "<iframe src='#{Rails.application.routes.url_helpers.post_url(post_id, :host => host)}' width='#{opts[:width]}px' height='#{opts[:height]}px' frameBorder='0'></iframe>".html_safe
+    "<iframe src='#{AppConfig.url_to(Rails.application.routes.url_helpers.post_path(post_id))}' " \
+      "width='#{opts[:width]}px' height='#{opts[:height]}px' frameBorder='0'></iframe>".html_safe
   end
 end

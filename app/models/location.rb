@@ -1,13 +1,12 @@
-class Location < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Location < ApplicationRecord
   before_validation :split_coords, on: :create
   validates_presence_of :lat, :lng
 
   attr_accessor :coordinates
 
   include Diaspora::Federated::Base
-  xml_attr :address
-  xml_attr :lat
-  xml_attr :lng
 
   belongs_to :status_message
 

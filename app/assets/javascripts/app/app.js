@@ -47,6 +47,7 @@ var app = {
 
     this.setupDummyPreloads();
     this.setupUser();
+    this.setupAspects();
     this.setupHeader();
     this.setupBackboneLinks();
     this.setupGlobalViews();
@@ -57,11 +58,6 @@ var app = {
 
   hasPreload : function(prop) {
     return !!(window.gon.preloads && window.gon.preloads[prop]); //returning boolean variable so that parsePreloads, which cleans up properly is used instead
-  },
-
-  setPreload : function(prop, val) {
-    window.gon.preloads = window.gon.preloads || {};
-    window.gon.preloads[prop] = val;
   },
 
   parsePreload : function(prop) {
@@ -83,8 +79,13 @@ var app = {
     app.currentUser = app.user(window.gon.user) || new app.models.User();
   },
 
+  setupAspects: function() {
+    app.aspects = new app.collections.Aspects(app.currentUser.get("aspects"));
+  },
+
   setupHeader: function() {
     if(app.currentUser.authenticated()) {
+      app.notificationsCollection = new app.collections.Notifications();
       app.header = new app.views.Header();
       $("header").prepend(app.header.el);
       app.header.render();
@@ -103,35 +104,21 @@ var app = {
 
       evt.preventDefault();
       var link = $(this);
-      if(link.data("stream-title") && link.data("stream-title").length) {
-        $(".stream_title").text(link.data("stream-title"));
-      } else {
-        $(".stream_title").text(link.text());
-      }
-
       $("html, body").animate({scrollTop: 0});
 
       // app.router.navigate doesn't tell us if it changed the page,
       // so we use Backbone.history.navigate instead.
       var change = Backbone.history.navigate(link.attr("href").substring(1) ,true);
       if(change === undefined) { Backbone.history.loadUrl(link.attr("href").substring(1)); }
+      app.notificationsCollection.fetch();
     });
   },
 
   setupGlobalViews: function() {
     app.hovercard = new app.views.Hovercard();
-    $('.aspect_membership_dropdown').each(function(){
-      new app.views.AspectMembership({el: this});
-    });
     app.sidebar = new app.views.Sidebar();
     app.backToTop = new app.views.BackToTop({el: $(document)});
     app.flashMessages = new app.views.FlashMessages({el: $("#flash-container")});
-  },
-
-  /* mixpanel wrapper function */
-  instrument : function(type, name, object, callback) {
-    if(!window.mixpanel) { return; }
-    window.mixpanel[type](name, object, callback);
   },
 
   setupDisabledLinks: function() {
@@ -143,6 +130,9 @@ var app = {
   setupForms: function() {
     // add placeholder support for old browsers
     $("input, textarea").placeholder();
+
+    // init autosize plugin
+    autosize($("textarea"));
 
     // setup remote forms
     $(document).on("ajax:success", "form[data-remote]", function() {

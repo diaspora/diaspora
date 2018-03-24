@@ -1,0 +1,35 @@
+.application-img {
+  float: left;
+  margin: 9px 0;
+  max-height: 60px;
+  text-align: center;
+  width: 60px;
+
+  [class^="entypo-"] {
+    font-size: 60px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    &::before {
+      position: relative;
+      top: -15px;
+    }
+  }
+}
+
+.application-authorizations {
+  display: inline-block;
+  float: right;
+  padding: 0 0 15px 15px;
+  width: calc(100% - 60px);
+}
+
+.application-tos-policy > b {
+  &:first-child { margin-right: 5px; }
+  &:nth-child(2) { margin-left: 5px; }
+}
+
+.user-consent { margin-top: 20px; }
+.approval-button { display: inline; }

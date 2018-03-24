@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -15,9 +17,9 @@ class MessagesController < ApplicationController
     message = current_user.build_message(conversation, opts)
 
     if message.save
-      logger.info "event=create type=comment user=#{current_user.diaspora_handle} status=success " \
+      logger.info "event=create type=message user=#{current_user.diaspora_handle} status=success " \
                   "message=#{message.id} chars=#{params[:message][:text].length}"
-      Postzord::Dispatcher.build(current_user, message).post
+      Diaspora::Federation::Dispatcher.defer_dispatch(current_user, message)
     else
       flash[:error] = I18n.t('conversations.new_conversation.fail')
     end

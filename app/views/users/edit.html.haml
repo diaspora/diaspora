@@ -1,2 +1,8 @@
 .container-fluid
-  = render "edit"
+  .row
+    .col-md-3
+      .sidebar
+        = render "shared/settings_nav"
+    .col-md-9
+      .framed-content
+        = render "edit", email_prefs: @email_prefs

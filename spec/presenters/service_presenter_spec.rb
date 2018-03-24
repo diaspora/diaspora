@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe ServicePresenter do
   describe '#as_json' do

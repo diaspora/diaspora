@@ -9,14 +9,6 @@ describe("app.views.Contact", function(){
       aspect_memberships: [{id: 23, aspect: this.aspect1}]
     });
     this.view = new app.views.Contact({ model: this.model });
-    Diaspora.I18n.load({
-      contacts: {
-        add_contact: "Add contact",
-        remove_contact: "Remove contact",
-        error_add: "Couldn't add <%= name %> to the aspect :(",
-        error_remove: "Couldn't remove <%= name %> from the aspect :("
-      }
-    });
   });
 
   context("#presenter", function() {
@@ -37,7 +29,7 @@ describe("app.views.Contact", function(){
       this.view.$el.append($("<div id='flash-container'/>"));
       app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
       this.button = this.view.$el.find(".contact_add-to-aspect");
-      this.contact = this.view.$el.find(".stream_element.contact");
+      this.contact = this.view.$el.find(".stream-element.contact");
       this.aspectMembership = {id: 42, aspect: app.aspect.toJSON()};
       this.response = JSON.stringify(this.aspectMembership);
     });
@@ -101,7 +93,7 @@ describe("app.views.Contact", function(){
       this.view.$el.append($("<div id='flash-container'/>"));
       app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
       this.button = this.view.$el.find(".contact_remove-from-aspect");
-      this.contact = this.view.$el.find(".stream_element.contact");
+      this.contact = this.view.$el.find(".stream-element.contact");
       this.aspectMembership = this.model.aspectMemberships.first().toJSON();
       this.response = JSON.stringify(this.aspectMembership);
     });

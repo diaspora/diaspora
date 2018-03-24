@@ -1,7 +1,9 @@
 
+# frozen_string_literal: true
+
 module Admin
   class PodsController < AdminController
-    respond_to :html, :json
+    respond_to :html, :json, :mobile
 
     def index
       pods_json = PodPresenter.as_collection(Pod.all)
@@ -10,10 +12,12 @@ module Admin
         format.html do
           gon.preloads[:pods] = pods_json
           gon.unchecked_count = Pod.unchecked.count
+          gon.version_failed_count = Pod.version_failed.count
           gon.error_count = Pod.check_failed.count
 
           render "admins/pods"
         end
+        format.mobile { render "admins/pods" }
         format.json { render json: pods_json }
       end
     end

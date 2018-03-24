@@ -22,7 +22,7 @@ Feature: mentioning a contact from their profile page
     Scenario: mentioning while posting to all aspects
       Given I am on "alice@alice.alice"'s page
       And I want to mention her from the profile
-      And I append "I am eating a yogurt" to the publisher
+      And I append "I am eating a yogurt" to the publisher in the mention modal
       And I press "Share" in the mention modal
       Then I should see a flash message indicating success
       When I am on the aspects page
@@ -36,10 +36,10 @@ Feature: mentioning a contact from their profile page
     Scenario: mentioning while posting to just one aspect
       Given I am on "alice@alice.alice"'s page
       And I want to mention her from the profile
+      And I append "I am eating a yogurt" to the publisher in the mention modal
       And I press the aspect dropdown in the mention modal
       And I toggle the aspect "NotPostingThingsHere" in the mention modal
       And I press the aspect dropdown in the mention modal
-      And I append "I am eating a yogurt" to the publisher
       And I press "Share" in the mention modal
       Then I should see a flash message indicating success
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Stream::Multi < Stream::Base
 
   # @return [String] URL
@@ -8,11 +10,6 @@ class Stream::Multi < Stream::Base
   # @return [String]
   def title
     I18n.t('streams.multi.title')
-  end
-
-  # @return [String]
-  def contacts_title
-    I18n.t('streams.multi.contacts_title')
   end
 
   def posts
@@ -28,11 +25,12 @@ class Stream::Multi < Stream::Base
   end
 
   private
+
   def publisher_opts
     if welcome?
-      {:open => true, :prefill => publisher_prefill, :public => true}
+      {open: true, prefill: publisher_prefill, public: true}
     else
-      super
+      {public: user.post_default_public}
     end
   end
 
@@ -48,7 +46,7 @@ class Stream::Multi < Stream::Base
 
     if inviter = self.user.invited_by.try(:person)
       prefill << I18n.t("shared.publisher.new_user_prefill.invited_by")
-      prefill << "@{#{inviter.name} ; #{inviter.diaspora_handle}}!"
+      prefill << "@{#{inviter.diaspora_handle}}!"
     end
 
     prefill

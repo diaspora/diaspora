@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UserCukeHelpers
 
   # creates a new user object from the factory with some default attributes
@@ -32,7 +34,7 @@ module UserCukeHelpers
   # integration_sessions controller (automatic)
   def automatic_login
     @me ||= FactoryGirl.create(:user_with_aspect, :getting_started => false)
-    visit(new_integration_sessions_path(:user_id => @me.id))
+    visit(new_integration_sessions_path(user_id: @me.id))
     click_button "Login"
   end
 
@@ -43,25 +45,23 @@ module UserCukeHelpers
   end
 
   # checks the page content to see, if the login was successful
-  def confirm_login
-    page.has_content?("#{@me.first_name} #{@me.last_name}")
-  end
-
-  # checks the mobile page content to see, if the login was successful
-  def confirm_login_mobile
-    page.has_css?("#notification_badge")
+  def confirm_login(mobile)
+    if mobile
+      expect(page).to have_css "#menu-badge"
+    else
+      expect(find("#user-menu")).to have_content "#{@me.first_name} #{@me.last_name}"
+    end
   end
 
   # delete all cookies, destroying the current session
   def logout
-    $browser.delete_cookie('_session', 'path=/') if $browser
-    $browser.delete_all_visible_cookies if $browser
+    page.driver.clear_cookies
   end
 
   # go to user menu, expand it, and click logout
   def manual_logout
-    find("#user_menu .dropdown-toggle").click
-    find("#user_menu li:last-child a").click
+    find("#user-menu .dropdown-toggle").click
+    find("#user-menu li:last-child a").click
   end
 
   def manual_logout_mobile
@@ -71,8 +71,8 @@ module UserCukeHelpers
 
   def fill_in_new_user_form
     @username = "ohai"
-    fill_in('user_username', with: @username)
     fill_in('user_email', with: "#{@username}@example.com")
+    fill_in('user_username', with: @username)
     fill_in('user_password', with: 'secret')
     fill_in('user_password_confirmation', with: 'secret')
 

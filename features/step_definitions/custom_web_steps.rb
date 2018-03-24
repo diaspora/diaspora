@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ScreenshotCukeHelpers
 
   def set_screenshot_location(path)
@@ -12,8 +14,8 @@ module ScreenshotCukeHelpers
 
     sleep 0.5
 
-    browser.manage.window.resize_to(1280, 1024)
-    browser.save_screenshot(pic)
+    page.driver.resize(1280, 1024)
+    save_screenshot(pic)
   end
 
   def take_screenshots_without_login
@@ -29,16 +31,15 @@ module ScreenshotCukeHelpers
 
   def take_screenshots_with_login
     pages = {
-      'stream'        => 'stream',
-      'activity'      => 'activity_stream',
-      'mentions'      => 'mentioned_stream',
-      'aspects'       => 'aspects_stream',
-      'tags'          => 'followed_tags_stream',
-      'contacts'      => 'contacts',
-      'settings'      => 'edit_user',
-      'notifications' => 'notifications',
-      'conversations' => 'conversations',
-      'logout'        => 'destroy_user_session'
+      "stream"        => "stream",
+      "activity"      => "activity_stream",
+      "mentions"      => "mentioned_stream",
+      "aspects"       => "aspects_stream",
+      "tags"          => "followed_tags_stream",
+      "contacts"      => "contacts",
+      "settings"      => "edit_user",
+      "notifications" => "notifications",
+      "conversations" => "conversations"
     }
 
     pages.each do |name, path|
@@ -65,7 +66,7 @@ And /^I expand the publisher$/ do
 end
 
 And /^I close the publisher$/ do
- find("#publisher #hide_publisher").click
+  find("#publisher .md-cancel").click
 end
 
 Then /^the publisher should be expanded$/ do
@@ -73,7 +74,7 @@ Then /^the publisher should be expanded$/ do
 end
 
 Then /^the text area wrapper mobile should be with attachments$/ do
-  find("#publisher_textarea_wrapper")["class"].should include("with_attachments")
+  find("#publisher-textarea-wrapper")["class"].should include("with_attachments")
 end
 
 And /^I want to mention (?:him|her) from the profile$/ do
@@ -88,8 +89,8 @@ And /^I hover over the "([^"]+)"$/ do |element|
 end
 
 When /^I prepare the deletion of the first post$/ do
-  find(".stream .stream_element", match: :first).hover
-  within(find(".stream .stream_element", match: :first)) do
+  find(".stream .stream-element", match: :first).hover
+  within(find(".stream .stream-element", match: :first)) do
     ctrl = find(".control-icons")
     ctrl.hover
     ctrl.find(".remove_post").click
@@ -97,8 +98,8 @@ When /^I prepare the deletion of the first post$/ do
 end
 
 When /^I prepare hiding the first post$/ do
-  find(".stream .stream_element", match: :first).hover
-  within(find(".stream .stream_element", match: :first)) do
+  find(".stream .stream-element", match: :first).hover
+  within(find(".stream .stream-element", match: :first)) do
     ctrl = find(".control-icons")
     ctrl.hover
     ctrl.find(".hide_post").click
@@ -106,13 +107,16 @@ When /^I prepare hiding the first post$/ do
 end
 
 When /^I click to delete the first post$/ do
-  step "I prepare the deletion of the first post"
-  step "I confirm the alert"
+  accept_alert do
+    step "I prepare the deletion of the first post"
+  end
+  expect(find(".stream")).to have_no_css(".stream-element.loaded.deleting")
 end
 
 When /^I click to hide the first post$/ do
-  step "I prepare hiding the first post"
-  step "I confirm the alert"
+  accept_alert do
+    step "I prepare hiding the first post"
+  end
 end
 
 When /^I click to delete the first comment$/ do
@@ -123,7 +127,7 @@ end
 
 When /^I click to delete the first uploaded photo$/ do
   page.execute_script("$('#photodropzone .x').css('display', 'block');")
-  find("#photodropzone .x", match: :first).click
+  find("#photodropzone .x", match: :first).trigger "click"
 end
 
 And /^I click on selector "([^"]*)"$/ do |selector|
@@ -134,12 +138,24 @@ And /^I click on the first selector "([^"]*)"$/ do |selector|
   find(selector, match: :first).click
 end
 
-And /^I confirm the alert$/ do
-  page.driver.browser.switch_to.alert.accept
+And /^I confirm the alert after (.*)$/ do |action|
+  accept_alert do
+    step action
+  end
 end
 
-And /^I reject the alert$/ do
-  page.driver.browser.switch_to.alert.dismiss
+And /^I reject the alert after (.*)$/ do |action|
+  dismiss_confirm do
+    step action
+  end
+end
+
+And /^I should not see any alert after (.*)$/ do |action|
+  expect {
+    accept_alert do
+      step action
+    end
+  }.to raise_error(Capybara::ModalNotFound)
 end
 
 When /^(.*) in the mention modal$/ do |action|
@@ -162,7 +178,13 @@ end
 
 Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    current_scope.should have_css selector
+    expect(current_scope).to have_css(selector)
+  end
+end
+
+Then /^I should see (\d+) "([^\"]*)"(?: within "([^\"]*)")?$/ do |count, selector, scope_selector|
+  with_scope(scope_selector) do
+    expect(current_scope).to have_selector(selector, count: count)
   end
 end
 
@@ -180,12 +202,6 @@ When /^I have turned off jQuery effects$/ do
   page.execute_script("$.fx.off = true")
 end
 
-When /^I search for "([^\"]*)"$/ do |search_term|
-  fill_in "q", :with => search_term
-  find_field("q").native.send_key(:enter)
-  have_content(search_term)
-end
-
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"$/ do |field, selector, value|
   with_scope(selector) do
     field = find_field(field)
@@ -196,67 +212,40 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
-  has_css?("#people_stream .stream_element", :count => n_posts.to_i).should be true
+  has_css?("#people-stream .stream-element", count: n_posts.to_i).should be true
 end
 
 And /^I scroll down$/ do
   page.execute_script("window.scrollBy(0,3000000)")
 end
-And /^I scroll down on the notifications dropdown$/ do
-  page.execute_script("$('.notifications').scrollTop(350)")
-end
 
 Then /^I should have scrolled down$/ do
-  page.evaluate_script("window.pageYOffset").should > 0
-end
-
-Then /^I should have scrolled down on the notification dropdown$/ do
-  page.evaluate_script("$('.notifications').scrollTop()").should > 0
-end
-
-
-Then /^the notification dropdown should be visible$/ do
-  expect(find(:css, "#notification-dropdown")).to be_visible
-end
-
-Then /^the notification dropdown scrollbar should be visible$/ do
-  find(:css, ".ps-active-y").should be_visible
-end
-
-Then /^there should be (\d+) notifications loaded$/ do |n|
-  result = page.evaluate_script("$('.media.stream_element').length")
-  result.should == n.to_i
-end
-
-And "I wait for notifications to load" do
-  page.should_not have_selector(".loading")
+  expect(page.evaluate_script("window.pageYOffset")).to be > 0
 end
 
 When /^I resize my window to 800x600$/ do
-  page.execute_script <<-JS
-    window.resizeTo(800,600);
-  JS
+  page.driver.resize(800, 600)
 end
 
 Then 'I should see an image attached to the post' do
-  step %{I should see a "img" within ".stream_element div.photo_attachments"}
+  step %(I should see a "img" within ".stream-element div.photo-attachments")
 end
 
 Then 'I press the attached image' do
-  step %{I press the 1st "img" within ".stream_element div.photo_attachments"}
+  step %(I press the 1st "img" within ".stream-element div.photo-attachments")
 end
 
 And "I wait for the popovers to appear" do
-  page.should have_selector(".popover", count: 3)
+  expect(page).to have_selector(".popover", count: 3)
 end
 
 And /^I click close on all the popovers$/ do
-  page.execute_script("$('.popover .close')[0].click();")
-  expect(page).to have_selector(".popover", count: 2)
-  page.execute_script("$('.popover .close')[0].click();")
-  expect(page).to have_selector(".popover", count: 1)
-  page.execute_script("$('.popover .close').click();")
-  expect(page).to_not have_selector(".popover .close")
+  find(".popover .close", match: :first).click
+  expect(page).to have_selector(".popover", count: 2, visible: false)
+  find(".popover .close", match: :first).click
+  expect(page).to have_selector(".popover", count: 1, visible: false)
+  find(".popover .close", match: :first).click
+  expect(page).to_not have_selector(".popover", visible: false)
 end
 
 Then /^I should see a flash message indicating success$/ do
@@ -307,6 +296,14 @@ Then /^I should see the Bitcoin address$/ do
   find("#bitcoin_address")['value'].should == "AAAAAA"
 end
 
+Given /^I have configured a Liberapay username$/ do
+  AppConfig.settings.liberapay_username = "BBBBBB"
+end
+
+Then /^I should see the Liberapay donate button$/ do
+  find("#liberapay-button")["href"].should == "https://liberapay.com/BBBBBB/donate"
+end
+
 Given /^"([^"]*)" is hidden$/ do |selector|
   page.should have_selector(selector, visible: false)
   page.should_not have_selector(selector)
@@ -314,9 +311,4 @@ end
 
 Then(/^I should have a validation error on "(.*?)"$/) do |field_list|
   check_fields_validation_error field_list
-end
-
-And /^I active the first hovercard after loading the notifications page$/ do
-  page.should have_css '.notifications .hovercardable'
-  first('.notifications .hovercardable').hover
 end

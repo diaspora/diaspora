@@ -1,31 +1,19 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Profile < ActiveRecord::Base
+class Profile < ApplicationRecord
   self.include_root_in_json = false
 
   include Diaspora::Federated::Base
   include Diaspora::Taggable
 
   attr_accessor :tag_string
-  acts_as_taggable_on :tags
+  acts_as_ordered_taggable
   extract_tags_from :tag_string
   validates :tag_list, :length => { :maximum => 5 }
-
-  xml_attr :diaspora_handle
-  xml_attr :first_name
-  xml_attr :last_name
-  xml_attr :image_url
-  xml_attr :image_url_small
-  xml_attr :image_url_medium
-  xml_attr :birthday
-  xml_attr :gender
-  xml_attr :bio
-  xml_attr :location
-  xml_attr :searchable
-  xml_attr :nsfw
-  xml_attr :tag_string
 
   before_save :strip_names
   after_validation :strip_names
@@ -50,17 +38,12 @@ class Profile < ActiveRecord::Base
     self.construct_full_name
   end
 
-  def subscribers(user)
-    Person.joins(:contacts).where(:contacts => {:user_id => user.id})
+  def subscribers
+    Person.joins(:contacts).where(contacts: {user_id: person.owner_id})
   end
 
-  def receive(user, person)
-    person.reload # make sure to have old profile referenced
-    logger.info "event=receive payload_type=profile sender=#{person.diaspora_handle} to=#{user.diaspora_handle}"
-    profiles_attr = self.attributes.merge('tag_string' => self.tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
-    person.profile.update_attributes(profiles_attr)
-
-    person.profile
+  def public?
+    public_details?
   end
 
   def diaspora_handle
@@ -113,20 +96,16 @@ class Profile < ActiveRecord::Base
   end
 
   def date= params
-    if ['month', 'day'].all? { |key| params[key].present?  }
-      params['year'] = '1000' if params['year'].blank?
-      if Date.valid_civil?(params['year'].to_i, params['month'].to_i, params['day'].to_i)
-        self.birthday = Date.new(params['year'].to_i, params['month'].to_i, params['day'].to_i)
+    if %w(month day).all? {|key| params[key].present? }
+      params["year"] = "1004" if params["year"].blank?
+      if Date.valid_civil?(params["year"].to_i, params["month"].to_i, params["day"].to_i)
+        self.birthday = Date.new(params["year"].to_i, params["month"].to_i, params["day"].to_i)
       else
         @invalid_birthday_date = true
       end
-    elsif [ 'year', 'month', 'day'].all? { |key| params[key].blank? }
+    elsif %w(year month day).all? {|key| params[key].blank? }
       self.birthday = nil
     end
-  end
-
-  def formatted_birthday
-    birthday.to_s(:long).gsub(', 1000', '') if birthday.present?
   end
 
   def bio_message
@@ -138,12 +117,7 @@ class Profile < ActiveRecord::Base
   end
 
   def tag_string
-    if @tag_string
-      @tag_string
-    else
-      tags = self.tags.pluck(:name)
-      tags.inject(""){|string, tag| string << "##{tag} " }
-    end
+    @tag_string ||= tags.pluck(:name).map {|tag| "##{tag}" }.join(" ")
   end
 
   # Constructs a full name by joining #first_name and #last_name
@@ -154,6 +128,7 @@ class Profile < ActiveRecord::Base
   end
 
   def tombstone!
+    @tag_string = nil
     self.taggings.delete_all
     clearable_fields.each do |field|
       self[field] = nil

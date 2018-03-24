@@ -1,11 +1,11 @@
 describe("app.views.Header", function() {
   beforeEach(function() {
-    this.userAttrs = {name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}};
+    this.userAttrs = {name: "alice", avatar: {small: "http://avatar.com/photo.jpg"}, guid: "foo" };
 
     loginAs(this.userAttrs);
 
     spec.loadFixture("aspects_index");
-    gon.appConfig = {settings: {podname: "MyPod"}};
+    app.notificationsCollection = new app.collections.Notifications();
     this.view = new app.views.Header().render();
   });
 
@@ -44,13 +44,13 @@ describe("app.views.Header", function() {
       it("displays if the current user is an admin", function(){
         loginAs(_.extend(this.userAttrs, {admin : true}));
         this.view.render();
-        expect(this.view.$("#user_menu").html()).toContain("/admins");
+        expect(this.view.$("#user-menu").html()).toContain("/admins");
       });
 
       it("does not display if the current user is not an admin", function(){
         loginAs(_.extend(this.userAttrs, {admin : false}));
         this.view.render();
-        expect(this.view.$("#user_menu").html()).not.toContain("/admins");
+        expect(this.view.$("#user-menu").html()).not.toContain("/admins");
       });
     });
   });

@@ -1,11 +1,6 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe Diaspora::MessageRenderer do
-  MESSAGE_NORMALIZTIONS = {
-    "\u202a#\u200eUSA\u202c" => "#USA",
-    "ള്‍"                     => "ള്‍"
-  }
-
   def message(text, opts={})
     Diaspora::MessageRenderer.new(text, opts)
   end
@@ -100,6 +95,31 @@ describe Diaspora::MessageRenderer do
         end
       end
     end
+
+    context "with diaspora:// links" do
+      it "replaces diaspora:// links with pod-local links" do
+        target = FactoryGirl.create(:status_message)
+        expect(
+          message("Have a look at diaspora://#{target.diaspora_handle}/post/#{target.guid}.").html
+        ).to match(/Have a look at #{AppConfig.url_to("/posts/#{target.guid}")}./)
+      end
+
+      it "doesn't touch invalid diaspora:// links" do
+        text = "You can create diaspora://author/type/guid links!"
+        expect(message(text).html).to match(/#{text}/)
+      end
+
+      it "ignores a diaspora:// links with a unknown guid" do
+        text = "Try this: `diaspora://unknown@localhost:3000/post/thislookslikeavalidguid123456789`"
+        expect(message(text).html).to match(/#{text}/)
+      end
+
+      it "ignores a diaspora:// links with an invalid entity type" do
+        target = FactoryGirl.create(:status_message)
+        text = "Try this: `diaspora://#{target.diaspora_handle}/posts/#{target.guid}`"
+        expect(message(text).html).to match(/#{text}/)
+      end
+    end
   end
 
   describe "#markdownified" do
@@ -128,8 +148,11 @@ describe Diaspora::MessageRenderer do
     end
 
     it "normalizes" do
-      MESSAGE_NORMALIZTIONS.each do |input, output|
-        expect(message(input).plain_text_for_json).to eq output
+      {
+        "\u202a#\u200eUSA\u202c" => "<p><a class=\"tag\" href=\"/tags/USA\">#USA</a></p>\n",
+        "ള്‍"                    => "<p>ള്‍</p>\n"
+      }.each do |input, output|
+        expect(message(input).markdownified).to eq output
       end
     end
 
@@ -169,7 +192,7 @@ describe Diaspora::MessageRenderer do
       it 'should process text with both a hashtag and a link' do
         expect(
           message("Test #tag?\nhttps://joindiaspora.com\n").markdownified
-        ).to eq %{<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" rel="nofollow" target="_blank">https://joindiaspora.com</a></p>\n}
+        ).to eq %{<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" rel="nofollow noopener noreferrer" target="_blank">https://joindiaspora.com</a></p>\n}
       end
 
       it 'should process text with a header' do
@@ -179,6 +202,25 @@ describe Diaspora::MessageRenderer do
       it 'should leave HTML entities intact' do
         entities = '&amp; &szlig; &#x27; &#39; &quot;'
         expect(message(entities).markdownified).to eq "<p>#{entities}</p>\n"
+      end
+
+      context "with diaspora:// links" do
+        it "replaces diaspora:// links with pod-local links" do
+          target1 = FactoryGirl.create(:status_message)
+          target2 = FactoryGirl.create(:status_message)
+          text = "Have a look at [this post](diaspora://#{target1.diaspora_handle}/post/#{target1.guid}) and " \
+                 "this one too diaspora://#{target2.diaspora_handle}/post/#{target2.guid}."
+
+          rendered = message(text).markdownified
+
+          expect(rendered).to match(%r{at <a href="#{AppConfig.url_to("/posts/#{target1.guid}")}">this post</a> and})
+          expect(rendered).to match(/this one too #{AppConfig.url_to("/posts/#{target2.guid}")}./)
+        end
+
+        it "doesn't touch invalid diaspora:// links" do
+          text = "You can create diaspora://author/type/guid links!"
+          expect(message(text).markdownified).to match(/#{text}/)
+        end
       end
     end
   end
@@ -192,6 +234,42 @@ describe Diaspora::MessageRenderer do
     it 'does not destroy hashtag that starts a line' do
       text = "#hashtag message"
       expect(message(text).plain_text_without_markdown).to eq text
+    end
+
+    context "with mention" do
+      it "contains the name of the mentioned person" do
+        msg = message("@{#{alice.diaspora_handle}} is cool", mentioned_people: alice.person)
+        expect(msg.plain_text_without_markdown).to eq "@#{alice.name} is cool"
+      end
+
+      it "uses the name from mention when the mention contains a name" do
+        msg = message("@{Alice; #{alice.diaspora_handle}} is cool", mentioned_people: alice.person)
+        expect(msg.plain_text_without_markdown).to eq "@Alice is cool"
+      end
+
+      it "uses the diaspora ID when the person cannot be found" do
+        msg = message("@{#{alice.diaspora_handle}} is cool", mentioned_people: [])
+        expect(msg.plain_text_without_markdown).to eq "@#{alice.diaspora_handle} is cool"
+      end
+    end
+
+    context "with diaspora:// links" do
+      it "replaces diaspora:// links with pod-local links" do
+        target1 = FactoryGirl.create(:status_message)
+        target2 = FactoryGirl.create(:status_message)
+        text = "Have a look at [this post](diaspora://#{target1.diaspora_handle}/post/#{target1.guid}) and " \
+               "this one too diaspora://#{target2.diaspora_handle}/post/#{target2.guid}."
+
+        rendered = message(text).plain_text_without_markdown
+
+        expect(rendered).to match(/look at this post \(#{AppConfig.url_to("/posts/#{target1.guid}")}\) and/)
+        expect(rendered).to match(/this one too #{AppConfig.url_to("/posts/#{target2.guid}")}./)
+      end
+
+      it "doesn't touch invalid diaspora:// links" do
+        text = "You can create diaspora://author/type/guid links!"
+        expect(message(text).plain_text_without_markdown).to match(/#{text}/)
+      end
     end
   end
 
@@ -224,8 +302,30 @@ describe Diaspora::MessageRenderer do
 
   describe "#plain_text_for_json" do
     it "normalizes" do
-      MESSAGE_NORMALIZTIONS.each do |input, output|
+      {
+        "\u202a#\u200eUSA\u202c" => "#USA",
+        "ള്‍"                    => "ള്‍"
+      }.each do |input, output|
         expect(message(input).plain_text_for_json).to eq output
+      end
+    end
+
+    context "with diaspora:// links" do
+      it "replaces diaspora:// links with pod-local links" do
+        target1 = FactoryGirl.create(:status_message)
+        target2 = FactoryGirl.create(:status_message)
+        text = "Have a look at [this post](diaspora://#{target1.diaspora_handle}/post/#{target1.guid}) and " \
+               "this one too diaspora://#{target2.diaspora_handle}/post/#{target2.guid}."
+
+        rendered = message(text).plain_text_for_json
+
+        expect(rendered).to match(/look at \[this post\]\(#{AppConfig.url_to("/posts/#{target1.guid}")}\) and/)
+        expect(rendered).to match(/this one too #{AppConfig.url_to("/posts/#{target2.guid}")}./)
+      end
+
+      it "doesn't touch invalid diaspora:// links" do
+        text = "You can create diaspora://author/type/guid links!"
+        expect(message(text).plain_text_for_json).to match(/#{text}/)
       end
     end
   end

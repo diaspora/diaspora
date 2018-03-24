@@ -1,4 +1,6 @@
-class TagFollowing < ActiveRecord::Base
+# frozen_string_literal: true
+
+class TagFollowing < ApplicationRecord
   belongs_to :user
   belongs_to :tag, :class_name => "ActsAsTaggableOn::Tag"
 

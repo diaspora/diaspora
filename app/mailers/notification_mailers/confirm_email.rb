@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailers
   class ConfirmEmail < NotificationMailers::Base
     def set_headers

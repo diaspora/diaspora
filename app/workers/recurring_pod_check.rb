@@ -1,11 +1,8 @@
+# frozen_string_literal: true
 
 module Workers
   class RecurringPodCheck < Base
-    include Sidetiq::Schedulable
-
-    sidekiq_options queue: :maintenance
-
-    recurrence { daily }
+    sidekiq_options queue: :low
 
     def perform
       Pod.check_all!

@@ -8,18 +8,12 @@
       %nav.navbar.navbar-inverse.navbar-fixed-top
         .container-fluid
           .row
-            .col-lg-10.col-lg-offset-1
-              .navbar-header
-                %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar-collapse"}}
-                  %span.sr-only
-                    = t("layouts.header.toggle_navigation")
-                  %span.icon-bar
-                  %span.icon-bar
-                  %span.icon-bar
-                = link_to AppConfig.settings.pod_name, root_path, class: "navbar-brand"
-
-              .collapse.navbar-collapse#navbar-collapse
-                %ul.nav.navbar-nav.navbar-right
-                  - if AppConfig.settings.enable_registrations? && !current_page?(controller: "/registrations", action: :new)
-                    %li= link_to t("devise.shared.links.sign_up"), new_user_registration_path, class: 'login'
-                  %li= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'login'
+            .col-md-12
+              .not-connected-menu
+                .navbar-header.navbar-left
+                  .hidden-xs
+                    = link_to AppConfig.settings.pod_name, root_path, class: "navbar-brand"
+                  .visible-xs-block.header-title
+                    = link_to(image_tag("branding/logos/asterisk_white_mobile.png", class: "img-responsive"),
+                        root_path, class: "navbar-brand")
+                = render "layouts/header_not_connected"

@@ -12,6 +12,7 @@ nl:
         resend_confirmation: "Stuur bevestigingsinstructies nogmaals"
       send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je account te activeren."
     failure:
+      already_authenticated: "Je bent al ingelogd."
       inactive: "Je account is nog niet geactiveerd."
       invalid: "Gebruikersnaam of wachtwoord ongeldig."
       invalid_token: "Ongeldig authenticatietoken."
@@ -34,6 +35,8 @@ nl:
         accept_at: "op %{url}, je kunt deze accepteren via onderstaande link."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} heeft je uitgenodigd om lid te worden van diaspora*"
+      password_change:
+        subject: "Wachtwoord gewijzigd"
       reset_password_instructions:
         change: "Wijzig mijn wachtwoord"
         ignore: "Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren."
@@ -64,6 +67,7 @@ nl:
       signed_up: "Je bent succesvol geregistreerd. Indien aangevinkt is er een bevestiging naar je e-mail gestuurd."
       updated: "Je account is succesvol geüpdate."
     sessions:
+      already_signed_out: "Succesvol uitgelogd."
       new:
         login: "Inloggen"
         modern_browsers: "ondersteunt alleen moderne browsers."
@@ -79,7 +83,7 @@ nl:
         receive_confirmation: "Geen bevestigingsinstructies ontvangen?"
         receive_unlock: "Geen ontgrendelinstructies ontvangen?"
         sign_in: "Inloggen"
-        sign_up: "Registreer"
+        sign_up: "Creëer een account"
         sign_up_closed: "Vrij registreren is momenteel niet mogelijk."
     unlocks:
       new:
@@ -89,5 +93,6 @@ nl:
   errors:
     messages:
       already_confirmed: "is al geactiveerd"
+      expired: "is vervallen, vraag een nieuwe aan"
       not_found: "niet gevonden"
       not_locked: "is niet geblokkeerd"

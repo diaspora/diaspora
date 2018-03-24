@@ -8,6 +8,13 @@ describe("app.models.Contact", function() {
                    });
   });
 
+  describe("initialize", function() {
+    it("sets person object with contact reference", function() {
+      expect(this.contact.person.get("name")).toEqual("aaa");
+      expect(this.contact.person.contact).toEqual(this.contact);
+    });
+  });
+
   describe("inAspect", function(){
     it("returns true if the contact has been added to the aspect", function(){
       expect(this.contact.inAspect(this.aspect.id)).toBeTruthy();

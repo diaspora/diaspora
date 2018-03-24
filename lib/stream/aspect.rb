@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -26,13 +28,6 @@ class Stream::Aspect < Stream::Base
       a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.any?
       a
     end.call
-  end
-
-  # Maps ids into an array from #aspects
-  #
-  # @return [Array<Integer>] Aspect ids
-  def aspect_ids
-    @aspect_ids ||= aspects.map { |a| a.id }
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
@@ -82,30 +77,7 @@ class Stream::Aspect < Stream::Base
   #
   # @return [Boolean]
   def for_all_aspects?
-    @all_aspects ||= aspect_ids.length == user.aspects.size
-  end
-
-  # Provides a translated title for contacts box on the right pane.
-  #
-  # @return [String]
-  def contacts_title
-    if self.for_all_aspects? || self.aspect_ids.size > 1
-      I18n.t('_contacts')
-    else
-     "#{self.aspect.name} (#{self.people.size})"
-    end
-  end
-
-  # Provides a link to the user to the contacts page that corresponds with
-  # the stream's active aspects.
-  #
-  # @return [String] Link to contacts
-  def contacts_link
-    if for_all_aspects? || aspect_ids.size > 1
-      Rails.application.routes.url_helpers.contacts_path
-    else
-      Rails.application.routes.url_helpers.contacts_path(:a_id => aspect.id)
-    end
+    @all_aspects ||= aspects.size == user.aspects.size
   end
 
   # This is perfomance optimization, as everyone in your aspect stream you have
@@ -115,5 +87,11 @@ class Stream::Aspect < Stream::Base
   # @return [Boolean]
   def can_comment?(post)
     true
+  end
+
+  private
+
+  def aspect_ids
+    @aspect_ids ||= aspects.map(&:id)
   end
 end

@@ -1,36 +1,34 @@
+# frozen_string_literal: true
+
 require "rubygems"
 
 ENV["RAILS_ENV"] ||= "test"
 
- # Have all rests run with english browser locale
+# Have all rests run with english browser locale
 ENV["LANG"] = "C"
+
+require 'coveralls'
+Coveralls.wear!('rails')
 
 require "cucumber/rails"
 
 require "capybara/rails"
 require "capybara/cucumber"
 require "capybara/session"
-require "selenium/webdriver"
+require "capybara/poltergeist"
+
+require "cucumber/api_steps"
 
 # Ensure we know the appservers port
 Capybara.server_port = AppConfig.pod_uri.port
 Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
 Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
-# Use a version of Firefox defined by environment variable, if set
-Selenium::WebDriver::Firefox::Binary.path = ENV["FIREFOX_BINARY_PATH"] || Selenium::WebDriver::Firefox::Binary.path
-
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, timeout: 30)
 end
 
-Capybara.register_driver :mobile do |app|
-  profile = Selenium::WebDriver::Firefox::Profile.new
-  profile["general.useragent.override"] = "Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0"
-  Capybara::Selenium::Driver.new(app, profile: profile)
-end
-
-Capybara.default_driver = :selenium
+Capybara.javascript_driver = :poltergeist
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
@@ -39,10 +37,10 @@ Capybara.default_driver = :selenium
 Capybara.default_selector = :css
 
 # We have a ridiculously high wait time to account for build machines of various beefiness.
-# Capybara.default_max_wait_time = 30
+Capybara.default_max_wait_time = 30
 
 # While there are a lot of failures, wait less, avoiding travis timeout
-Capybara.default_max_wait_time = 15
+# Capybara.default_max_wait_time = 15
 
 # If you set this to false, any error raised from within your app will bubble
 # up to your step definition and out to cucumber unless you catch it somewhere
@@ -55,8 +53,11 @@ Capybara.default_max_wait_time = 15
 # of your scenarios, as this makes it hard to discover errors in your application.
 ActionController::Base.allow_rescue = false
 
+# TODO: Temporary fix for rails 5, remove the next line after a new version of database_cleaner is released.
+# See https://github.com/DatabaseCleaner/database_cleaner/issues/445
+Cucumber::Rails::Database.javascript_strategy = :truncation, {except: %w[ar_internal_metadata]}
 Cucumber::Rails::Database.autorun_database_cleaner = true
-Cucumber::Rails::World.use_transactional_fixtures = false
+Cucumber::Rails::World.use_transactional_tests = false
 
 require File.join(File.dirname(__FILE__), "integration_sessions_controller")
 require File.join(File.dirname(__FILE__), "poor_mans_webmock")
@@ -68,7 +69,14 @@ require Rails.root.join('spec', 'support', 'inlined_jobs')
 require Rails.root.join('spec', 'support', 'user_methods')
 include HelperMethods
 
-Before do
+Before do |scenario|
   Devise.mailer.deliveries = []
-  page.driver.browser.manage.window.resize_to(1024, 500)
+  page.driver.headers = if scenario.source_tag_names.include? "@mobile"
+                          {"User-Agent" => "Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0"}
+                        else
+                          {}
+                        end
+
+  # Reset overridden settings
+  AppConfig.reset_dynamic!
 end

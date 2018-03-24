@@ -1,13 +1,25 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
-require 'spec_helper'
 
 describe PeopleHelper, :type => :helper do
   before do
     @user = alice
     @person = FactoryGirl.create(:person)
+  end
+
+  describe "#birthday_format" do
+    it "contains the birth year if available" do
+      birthday = Date.new 2016, 3, 5
+      expect(birthday_format(birthday)).to include "2016"
+    end
+
+    it "does not contain the birth year if placeholder year is used" do
+      birthday = Date.new 1004, 3, 5
+      expect(birthday_format(birthday)).not_to include "1004"
+    end
   end
 
   describe "#person_image_link" do
@@ -65,6 +77,11 @@ describe PeopleHelper, :type => :helper do
     it 'links by id for a local user' do
       expect(person_link(@user.person)).to include "href='#{person_path(@user.person)}'"
     end
+
+    it "recognizes the 'display_name' option" do
+      display_name = "string used as a name"
+      expect(person_link(@person, display_name: display_name)).to match(%r{<a [^>]+>#{display_name}</a>})
+    end
   end
 
   describe '#local_or_remote_person_path' do
@@ -74,10 +91,8 @@ describe PeopleHelper, :type => :helper do
 
     it "links by id if there is a period in the user's username" do
       @user.username = "invalid.username"
-      expect(@user.save(:validate => false)).to eq(true)
-      person = @user.person
-      person.diaspora_handle = "#{@user.username}@#{AppConfig.pod_uri.authority}"
-      person.save!
+      @user.person.diaspora_handle = "#{@user.username}@#{AppConfig.pod_uri.authority}"
+      expect(@user.save(validate: false)).to eq(true)
 
       expect(local_or_remote_person_path(@user.person)).to eq(person_path(@user.person))
     end

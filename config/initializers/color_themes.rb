@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Generate the path to the .yml file with the available color themes.
 color_themes_file = Rails.root.join("config/color_themes.yml")
 # Check in case config/color_themes.yml does not exist.
@@ -8,12 +10,10 @@ if color_themes_file.exist?
   # else include the original theme.
   AVAILABLE_COLOR_THEMES =
     if color_themes["available"].length > 0
-      color_themes["available"]
+      color_themes["available"].freeze
     else
-      {"original" => "Original Dark"}
+      ["original"].freeze
     end
 else
-  AVAILABLE_COLOR_THEMES = {"original" => "Original Dark"}
+  AVAILABLE_COLOR_THEMES = ["original"].freeze
 end
-# Get all codes from available themes into a separate variable, so that they can be called easier.
-AVAILABLE_COLOR_THEME_CODES = AVAILABLE_COLOR_THEMES.keys

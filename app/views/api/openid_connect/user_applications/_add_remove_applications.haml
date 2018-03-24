@@ -1,0 +1,14 @@
+- if @user_apps.applications?
+  %ul.list-group
+    - @user_apps.user_applications.each do |app|
+      %li.list-group-item.authorized-application
+        = render "grants_list", app: app
+        = form_for "application", url: "#{api_openid_connect_authorization_path(app.id)}",
+            html: {method: :delete, class: "form-horizontal"} do |f|
+          .clearfix= f.submit t("api.openid_connect.user_applications.revoke_autorization"),
+            class: "btn btn-danger pull-right app-revoke"
+
+- else
+  .well
+    %h4
+      = t("api.openid_connect.user_applications.no_applications")

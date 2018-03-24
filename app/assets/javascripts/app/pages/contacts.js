@@ -8,8 +8,8 @@ app.pages.Contacts = Backbone.View.extend({
     "click #contacts_visibility_toggle" : "toggleContactVisibility",
     "click #chat_privilege_toggle" : "toggleChatPrivilege",
     "click #change_aspect_name" : "showAspectNameForm",
-    "keyup #contact_list_search" : "searchContactList",
-    "click .conversation_button": "showMessageModal"
+    "click .conversation_button": "showMessageModal",
+    "click .invitations-button": "showInvitationsModal"
   },
 
   initialize: function(opts) {
@@ -17,7 +17,7 @@ app.pages.Contacts = Backbone.View.extend({
     this.chatToggle = $("#chat_privilege_toggle i");
     this.stream = opts.stream;
     this.stream.render();
-    $("#people_stream.contacts .header i").tooltip({"placement": "bottom"});
+    $("#people-stream.contacts .header i").tooltip({"placement": "bottom"});
     $(document).on("ajax:success", "form.edit_aspect", this.updateAspectName);
     app.events.on("aspect:create", function(){ window.location.reload() });
     app.events.on("aspect_membership:create", this.addAspectMembership, this);
@@ -66,6 +66,8 @@ app.pages.Contacts = Backbone.View.extend({
 
   showAspectNameForm: function() {
     $(".header > h3").hide();
+    var aspectName = $.trim($(".header h3 #aspect_name").text());
+    $("#aspect_name_form #aspect_name").val(aspectName);
     $(".header > #aspect_name_form").show();
   },
 
@@ -76,12 +78,18 @@ app.pages.Contacts = Backbone.View.extend({
     $(".header > h3").show();
   },
 
-  searchContactList: function(e) {
-    this.stream.search($(e.target).val());
+  showMessageModal: function(){
+    $("#conversationModal").on("modal:loaded", function() {
+      var people = _.pluck(app.contacts.filter(function(contact) {
+        return contact.person.get("relationship") === "mutual" && contact.inAspect(app.aspect.get("id"));
+      }), "person");
+      new app.views.ConversationsForm({prefill: people});
+    });
+    app.helpers.showModal("#conversationModal");
   },
 
-  showMessageModal: function(){
-    app.helpers.showModal("#conversationModal");
+  showInvitationsModal: function() {
+    app.helpers.showModal("#invitationsModal");
   },
 
   setupAspectSorting: function() {

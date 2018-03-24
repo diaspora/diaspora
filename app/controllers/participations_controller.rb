@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ParticipationsController < ApplicationController
   before_action :authenticate_user!
 
@@ -5,9 +7,9 @@ class ParticipationsController < ApplicationController
     post = current_user.find_visible_shareable_by_id(Post, params[:post_id])
     if post
       current_user.participate! post
-      render nothing: true, status: :created
+      head :created
     else
-      render nothing: true, status: :forbidden
+      head :forbidden
     end
   end
 
@@ -15,9 +17,9 @@ class ParticipationsController < ApplicationController
     participation = current_user.participations.find_by target_id: params[:post_id]
     if participation
       participation.destroy
-      render nothing: true, status: :ok
+      head :ok
     else
-      render nothing: true, status: :unprocessable_entity
+      head :unprocessable_entity
     end
   end
 end

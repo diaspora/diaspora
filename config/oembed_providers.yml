@@ -19,3 +19,9 @@ mixcloud:
   urls:
     - http://www.mixcloud.com/*/*
     - https://www.mixcloud.com/*/*
+
+mediacccde:
+  endpoint: "https://media.ccc.de/public/oembed/"
+  urls:
+    - http://media.ccc.de/v/*
+    - https://media.ccc.de/v/*

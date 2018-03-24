@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NavigationHelpers
   def path_to(page_name)
     case page_name
@@ -7,6 +9,8 @@ module NavigationHelpers
       stream_path
     when /^the mobile path$/
       force_mobile_path
+    when /^the user applications page$/
+      api_openid_connect_user_applications_path
     when /^the tag page for "([^\"]*)"$/
       tag_path(Regexp.last_match(1))
     when /^its ([\w ]+) page$/
@@ -64,7 +68,11 @@ module NavigationHelpers
   end
 
   def confirm_on_page(page_name)
-    expect(page).to have_path(path_to(page_name))
+    if page_name == "my profile page"
+      expect(page).to have_path_in([person_path(@me.person), user_profile_path(@me.username)])
+    else
+      expect(page).to have_path(path_to(page_name))
+    end
   end
 end
 

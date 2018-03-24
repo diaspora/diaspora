@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DebuggingCukeHelpers
   def start_debugging
     require 'pry'

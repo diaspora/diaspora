@@ -28,11 +28,8 @@ vi:
       hide: "ẩn các bình luận"
       show: "hiện tất cả bình luận"
     confirm_dialog: "Bạn có chắc không?"
-    conversation:
-      participants: "Người tham gia"
     delete: "Xoá"
     edit: "Chỉnh sửa"
-    failed_to_like: "Không thích được!"
     failed_to_post_message: "Đăng tin thất bại!"
     getting_started:
       alright_ill_wait: "Được rồi, tôi sẽ chờ."
@@ -54,9 +51,6 @@ vi:
       view_all: "Xem tất cả"
     ignore: "Bỏ qua"
     ignore_user: "Bỏ qua người này?"
-    infinite_scroll:
-      no_more: "Không còn bài đăng nào nữa."
-      no_more_contacts: "Không có liên lạc."
     my_activity: "Hoạt động của tôi"
     my_aspects: "Các mối quan hệ của tôi"
     my_stream: "Luồng"
@@ -69,15 +63,10 @@ vi:
       looking_good: "Ôi, trông bạn thật tuyệt!"
       size_error: "Tập tin {file} quá lớn, dung lượng tối đa là {sizeLimit}."
     publisher:
-      at_least_one_aspect: "Bạn phải công khai ít nhất một mối quan hệ"
-      limited: "Giới hạn - bài đăng của bạn được những người chỉ định nhìn thấy"
       near_from: "Gửi từ: <%= location %>"
-      public: "Công khai - bài đăng của bạn được mọi người và máy tìm kiếm nhìn thấy"
     reshares:
-      duplicate: "Bạn đã chia sẻ lại tin đó!"
       post: "Chia sẻ lại bài đăng của <%= name %>?"
       successful: "Đã chia sẻ lại bài đăng!"
-    search_for: "Tìm <%= name %>"
     show_more: "hiện thêm"
     stream:
       comment: "Bình luận"
@@ -113,28 +102,24 @@ vi:
       wasnt_that_interesting: "Tôi cho rằng #<%= tagName %> không thú vị..."
     timeago:
       day: "một ngày"
-      days: "%d ngày"
+      days:
+        other: "%d ngày"
       hour: "khoảng một giờ"
-      hours: "khoảng %d giờ"
+      hours:
+        other: "khoảng %d giờ"
       minute: "khoảng một phút"
-      minutes: "%d phút"
+      minutes:
+        other: "%d phút"
       month: "khoảng một tháng"
-      months: "%d tháng"
+      months:
+        other: "%d tháng"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "ít hơn một phút"
       suffixAgo: "trước"
       suffixFromNow: "kể từ đây"
       year: "khoảng một năm"
-      years: "%d năm"
-    videos:
-      unknown: "Chưa biết kiểu video"
-      watch: "Xem video này trên <%= provider %>"
+      years:
+        other: "%d năm"
     viewer:
-      comment: "Bình luận"
-      follow_post: "Theo dõi bài đăng"
-      like: "Thích"
-      reshare: "Chia sẻ lại"
       reshared: "Đã chia sẻ lại"
-      stop_following_post: "Dừng theo dõi bài đăng"
-      unlike: "Bỏ thích"

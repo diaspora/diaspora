@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UsersHelper
   def owner_image_tag(size=nil)
     person_image_tag(current_user.person, size)
@@ -31,13 +33,13 @@ module UsersHelper
   # specified from AVAILABLE_COLOR_THEMES in
   # config/initializers/color_themes.rb.
   #
-  # @example if AVAILABLE_COLOR_THEMES = {"original"=>"Original dark", "dark_green" => "Dark green"}
+  # @example if AVAILABLE_COLOR_THEMES = ["original", "dark_green"]
   #   available_color_themes
-  #   #=> [["Original dark", "original"], ["Dark green", "dark_green"]]
+  #   #=> [["Original gray", "original"], ["Dark green", "dark_green"]]
   def available_color_themes
     opts = []
-    AVAILABLE_COLOR_THEMES.map do |theme_code, theme_name|
-      opts << [theme_name, theme_code]
+    AVAILABLE_COLOR_THEMES.map do |theme_code|
+      opts << [I18n.t("color_themes.#{theme_code}"), theme_code]
     end
     opts
   end

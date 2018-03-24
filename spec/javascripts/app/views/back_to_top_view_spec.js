@@ -17,7 +17,7 @@ describe("app.views.BackToTop", function() {
     it("scrolls to the top of the page", function() {
       var spy = spyOn($.fn, "animate");
       this.view.backToTop($.Event());
-      expect(spy).toHaveBeenCalledWith({scrollTop: 0});
+      expect(spy).toHaveBeenCalledWith({scrollTop: 0}, jasmine.any(Function));
     });
   });
 

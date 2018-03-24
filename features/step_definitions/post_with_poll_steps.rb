@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then /^I should see ([1-9]+) options?$/ do |number|
   find("#poll_creator_container").all(".poll-answer").count.should eql(number.to_i)
 end
@@ -13,19 +15,19 @@ end
 When /^I fill in the following for the options:$/ do |table|
   i = 0
   table.raw.flatten.each do |value|
-    all(".poll-answer input")[i].set(value)
+    all(".poll-answer input")[i].native.send_keys(value)
     i+=1
   end
 end
 
 When /^I check the first option$/ do
-  page.should have_css('.poll_form input')
-  first(".poll_form input").click
+  page.should have_css(".poll-form input")
+  first(".poll-form input").click
 end
 
 When(/^I fill in values for the first two options$/) do
   all(".poll-answer input").each_with_index do |answer, i|
-    answer.set "answer option #{i}"
+    answer.native.send_keys "answer option #{i}"
   end
 end
 

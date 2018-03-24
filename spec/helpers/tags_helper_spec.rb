@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe TagsHelper, :type => :helper do
   describe '#looking_for_tag_link' do

@@ -30,11 +30,8 @@ he:
       no_comments: "אין תגובות כרגע."
       show: "הצגת כל התגובות"
     confirm_dialog: "האם אתם בטוחים?"
-    conversation:
-      participants: "משתתפים"
     delete: "מחיקה"
     edit: "עריכה"
-    failed_to_like: "הסימון ב'אהבתי' נכשל!"
     failed_to_post_message: "פרסום ההודעה נכשל!"
     failed_to_remove: "הנסיון להסיר את הערך נכשל!"
     getting_started:
@@ -59,9 +56,6 @@ he:
       view_all: "הצגת הכל"
     ignore: "התעלמות"
     ignore_user: "להתעלם ממשמש זה?"
-    infinite_scroll:
-      no_more: "אין הודעות נוספות."
-      no_more_contacts: "אין אנשי קשר נוספים."
     my_activity: "הפעילות שלי"
     my_aspects: "ההיבטים שלי"
     my_stream: "חדשות"
@@ -87,24 +81,18 @@ he:
       vote: "הצבעה"
     publisher:
       add_option: "הוספת אפשרות"
-      at_least_one_aspect: "יש לפרסם להיבט אחד לפחות"
-      limited: "מוגבל - הודעתך תהיה גלויה רק לאנשים שאיתם בחרת לשתף"
       near_from: "פורסם מ<%= location %>"
       option: "אפשרות <%= nr %>"
-      public: "ציבורי - הודעתך תהיה גלויה לכולם וניתן יהיה למצוא אותה במנועי חיפוש"
       question: "שאלה"
     reshares:
-      duplicate: "כבר שיתפת מחדש את ההודעה הזו."
       post: "האם לשתף מחדש את ההודעה של <%= name %>?"
       successful: "ההודעה שותפה מחדש בהצלחה!"
-    search_for: "חיפוש אחר <%= name %>"
     show_more: "הצגת עוד"
     stream:
       comment: "תגובה"
       follow: "עקיבה"
       followed_tag:
         add_a_tag: "הוספת תגית"
-        contacts_title: "אנשים שמשתמשים בתגיות הללו"
         follow: "עקיבה"
         title: "תגיות נעקבות"
       hide: "הסתר"
@@ -139,29 +127,24 @@ he:
       wasnt_that_interesting: "בסדר, כנראה שהתגית #<%= tagName %> לא הייתה מעניינת במיוחד..."
     timeago:
       day: "יום"
-      days: "%d ימים"
+      days:
+        other: "%d ימים"
       hour: "כשעה"
-      hours: "כ-%d שעות"
+      hours:
+        other: "כ-%d שעות"
       minute: "כדקה"
-      minutes: "%d דקות"
+      minutes:
+        other: "%d דקות"
       month: "כחודש"
-      months: "%d חודשים"
+      months:
+        other: "%d חודשים"
       prefixAgo: "לפני"
       prefixFromNow: "מעכשיו"
       seconds: "פחות מדקה"
       suffixAgo: ""
       suffixFromNow: "מעכשיו"
       year: "כשנה"
-      years: "%d שנים"
-    videos:
-      unknown: "סוג הסרטון אינו מוכר"
-      watch: "צפייה בסרטון זה באתר <%= provider %>"
+      years:
+        other: "%d שנים"
     viewer:
-      comment: "תגובה"
-      follow_post: "עקיבה אחר ההודעה"
-      home: "בית"
-      like: "אהבתי"
-      reshare: "שיתוף מחדש"
       reshared: "בוצע שיתוף מחדש"
-      stop_following_post: "הפסקת עקיבה אחר ההודעה"
-      unlike: "לא אהבתי"

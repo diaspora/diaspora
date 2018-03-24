@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe StreamsController, :type => :controller do
   describe '#multi' do
     before do
-      sign_in :user, alice
+      allow(Workers::SendPublic).to receive(:perform_async)
+      sign_in alice, scope: :user
     end
 
     it 'generates the stream_json fixture', :fixture => true do

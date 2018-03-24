@@ -30,11 +30,8 @@ es-MX:
       no_comments: "Aún no hay comentarios."
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
-    conversation:
-      participants: "Participantes"
     delete: "Borrar"
     edit: "Editar"
-    failed_to_like: "¡No se pudo marcar como «Me gusta»!"
     failed_to_post_message: "¡No se pudo publicar el mensaje!"
     failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
     getting_started:
@@ -58,9 +55,6 @@ es-MX:
       view_all: "Ver todo"
     ignore: "Ignorar"
     ignore_user: "¿Ignorar a este usuario?"
-    infinite_scroll:
-      no_more: "No hay más publicaciones."
-      no_more_contacts: "No hay más contactos."
     my_activity: "Mi actividad"
     my_aspects: "Mis aspectos"
     my_stream: "Entrada"
@@ -74,22 +68,16 @@ es-MX:
       looking_good: "¡Ah, te ves increíble!"
       size_error: "El archivo {file} es demasiado grande, el tamaño máximo de un archivo es {sizeLimit}."
     publisher:
-      at_least_one_aspect: "Debes publicar al menos en un aspecto"
-      limited: "Limitado – tu publicación solo será vista por ia gente con quien compartes"
       near_from: "Publicado desde: <%= location %>"
-      public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
     reshares:
-      duplicate: "Qué bien, ¿eh? ¡Ya has compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡La publicación se compartió exitosamente!"
-    search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:
       comment: "Comentar"
       follow: "Seguir"
       followed_tag:
         add_a_tag: "Añadir una etiqueta"
-        contacts_title: "Personas siguiendo estas etiquetas"
         follow: "Seguir"
         title: "#Etiquetas seguidas"
       hide: "Ocultar"
@@ -123,29 +111,24 @@ es-MX:
       wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante…"
     timeago:
       day: "un día"
-      days: "%d días"
+      days:
+        other: "%d días"
       hour: "una hora aproximadamente"
-      hours: "%d horas aproximadamente"
+      hours:
+        other: "%d horas aproximadamente"
       minute: "un minuto aproximadamente"
-      minutes: "%d minutos"
+      minutes:
+        other: "%d minutos"
       month: "un mes aproximadamente"
-      months: "%d meses"
+      months:
+        other: "%d meses"
       prefixAgo: "hace"
       prefixFromNow: "dentro de"
       seconds: "menos de un minuto"
       suffixAgo: ""
       suffixFromNow: "desde ahora"
       year: "un año aproximadamente"
-      years: "%d años"
-    videos:
-      unknown: "Tipo de video desconocido"
-      watch: "Ver este video en <%= provider %>"
+      years:
+        other: "%d años"
     viewer:
-      comment: "Comentar"
-      follow_post: "Seguir esta publicación"
-      home: "INICIO"
-      like: "Me gusta"
-      reshare: "Compartir"
       reshared: "Compartido"
-      stop_following_post: "Dejar de seguir esta publicación"
-      unlike: "No me gusta"

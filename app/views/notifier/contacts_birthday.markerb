@@ -1,0 +1,6 @@
+
+<%= t(".birthday", name: @notification.person.name) %>
+
+[<%= t(".view_profile", name: @notification.person.name) %>][1]
+
+[1]: <%= local_or_remote_person_path(@notification.person, absolute: true) %>

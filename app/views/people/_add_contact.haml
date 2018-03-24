@@ -1,9 +1,10 @@
 .well
-  = t('.invited_by')
+  %strong
+    = t(".invited_by")
   .media
     .pull-right
-      = aspect_membership_dropdown(contact, inviter, false)
+      = render partial: "aspect_memberships/aspect_membership_dropdown"
     .media-left
-      = person_image_link(inviter, size: :thumb_small, class: "media-object")
+      = person_image_link(@person, size: :thumb_small, class: "media-object")
     .media-body
-      = person_link(inviter)
+      = person_link(@person)

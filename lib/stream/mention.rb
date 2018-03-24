@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -14,9 +16,5 @@ class Stream::Mention < Stream::Base
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     @posts ||= StatusMessage.where_person_is_mentioned(self.user.person)
-  end
-
-  def contacts_title
-    I18n.translate('streams.mentions.contacts_title')
   end
 end

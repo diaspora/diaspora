@@ -35,7 +35,6 @@ fy:
     my_activity: "Myn Aktiviteit"
     photo_uploader:
       looking_good: "Heare GOD noch oan ta, do sjochst der fantastysk út!"
-    search_for: "Sykje nei <%= name %>"
     show_more: "toan mear"
     stream:
       comment: "Reaksje"
@@ -62,17 +61,20 @@ fy:
       unlike: "Net mear Leuk"
     timeago:
       day: "in dei"
-      days: "%d dagen"
+      days:
+        other: "%d dagen"
       hour: "likernôch in oere"
-      hours: "likernôch %d oeren"
-      minutes: "%d minuten"
+      hours:
+        other: "likernôch %d oeren"
+      minutes:
+        other: "%d minuten"
       month: "likernôch in moanne"
-      months: "%d moannen"
+      months:
+        other: "%d moannen"
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: "lyn"
       suffixFromNow: ""
       year: "likernôch in jier"
-      years: "%d jierren"
-    videos:
-      watch: "Dizze fideo op <%= provider %> besjen"
+      years:
+        other: "%d jierren"

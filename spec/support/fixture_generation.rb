@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JasmineFixtureGeneration
   # Saves the markup to a fixture file using the given name
   def save_fixture(markup, name, fixture_path=nil )
@@ -44,3 +46,6 @@ RSpec::Rails::ControllerExampleGroup.class_eval do
   include JasmineFixtureGeneration
 end
 
+RSpec::Rails::HelperExampleGroup.class_eval do
+  include JasmineFixtureGeneration
+end

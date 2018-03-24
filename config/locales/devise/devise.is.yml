@@ -54,13 +54,13 @@ is:
       new:
         email: "Netfang"
         forgot_password: "Gleymdirðu lykilorðinu þínu?"
-        no_account: "Enginn notandi með þetta netfang ert til. Ef þú ert að bíða eftir boði, þá erum við að senda þau út eins fljótt og auðið er"
+        no_account: "Enginn notandi með þetta netfang ert til"
         reset_password: "Endurstilla lykilorð"
         send_password_instructions: "Senda mér leiðbeiningar um hvernig ég get endurstillt lykilorðið mitt"
       send_instructions: "Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur endurstillt lykilorð þitt."
       updated: "Lykilorði þínu hefur hér með verið breytt. Þú ert nú skráð/ur inn."
     registrations:
-      destroyed: "Bæ! Aðgangur þinn hefur hér með verið afturkallaður. Við vonumst til þess að sjá þig brátt aftur."
+      destroyed: "Bæ! Aðgangi þínum hefur verið eytt. Við vonumst samt til þess að sjá þig bráðum aftur."
       signed_up: "Þú hefur hér með stofnað aðgang. Staðfesting var send á tölvupóstfang þitt, ef kveikt er á þeim möguleika."
       updated: "Þú hefur nú uppfært aðgang þinn."
     sessions:

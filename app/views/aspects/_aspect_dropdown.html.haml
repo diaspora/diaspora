@@ -1,0 +1,48 @@
+-# locals: selected_aspects. Note: all_aspects is a global in the ApplicationController
+:ruby
+  dropdown_css = {"data-toggle" => "dropdown"}
+  if current_user.getting_started?
+    dropdown_css[:title] = popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}")
+    dropdown_css["data-content"] = t("shared.public_explain.visibility_dropdown")
+  end
+
+.btn-group.aspect-dropdown
+  %button.btn.btn-default.dropdown-toggle{dropdown_css}
+    - if public_selected?(selected_aspects)
+      %i.entypo-globe.small#visibility-icon
+      %span.text
+        = t("public")
+    - else
+      %i.entypo-lock.small#visibility-icon
+      %span.text
+        - if all_aspects_selected?(selected_aspects)
+          = t("all_aspects")
+        - elsif selected_aspects.size == 1
+          = selected_aspects.first.name
+        - else
+          = t("shared.aspect_dropdown.toggle", count: selected_aspects.size)
+    %span.caret
+  %ul.dropdown-menu.pull-right{unSelectable: "on"}
+
+    %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if public_selected?(selected_aspects))}
+      %a
+        %span.status_indicator
+          %i.glyphicon.glyphicon-ok
+        %span.text
+          = t("public")
+    %li.all_aspects.radio{"data-aspect_id" => "all_aspects",
+      :class => ("selected" if all_aspects_selected?(selected_aspects))}
+      %a
+        %span.status_indicator
+          %i.glyphicon.glyphicon-ok
+        %span.text
+          = t("all_aspects")
+    %li.divider
+    - all_aspects.each do |aspect|
+      %li.aspect_selector{"data-aspect_id" => aspect.id,
+        :class => ("selected" if aspect_selected?(aspect, selected_aspects))}
+        %a
+          %span.status_indicator
+            %i.glyphicon.glyphicon-ok
+          %span.text
+            = aspect.name

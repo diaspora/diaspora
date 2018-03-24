@@ -1,11 +1,12 @@
-#publisher {
+.publisher {
   z-index: 1;
   color: $text-grey;
   margin: 0;
+  margin-bottom: 20px;
 
   &.closed {
     #button_container,
-    #location_container,
+    .location-container,
     #hide_publisher,
     #photodropzone_container,
     .counter,
@@ -13,11 +14,10 @@
       display: none !important;
     }
 
-    #publisher_textarea_wrapper { border: 1px solid $border-grey !important; }
+    #publisher-textarea-wrapper { border: 1px solid $border-grey !important; }
   }
 
   .container-fluid{ padding: 0; }
-  .mentions-autocomplete-list ul { width: 100% !important; }
 
   form {
     margin: 0;
@@ -30,6 +30,7 @@
 
     .options_and_submit {
       padding: 10px 0;
+
       #publisher-service-icons {
         text-decoration: none;
 
@@ -41,7 +42,7 @@
         .service_icon { padding: 6px 5px; }
         .btn.btn-link.question_mark:hover .entypo-cog { color: $black; }
         .dim { opacity: 0.3; }
-        .social_media_logos-wordpress-16x16 {
+        .social-media-logos-wordpress-16x16 {
           display: inline-block;
           height: 16px;
           width: 16px;
@@ -52,8 +53,8 @@
         .btn-toolbar {
           width: 100%;
           display: flex;
-          .btn, .aspect_dropdown{ flex-grow: 1; }
-          .aspect_dropdown .btn { width: 100%; }
+          .btn, .aspect-dropdown{ flex-grow: 1; }
+          .aspect-dropdown .btn { width: 100%; }
         }
         .btn-group:first-child { margin: 0; }
         .dropdown-menu.pull-right {
@@ -63,7 +64,7 @@
       }
     }
 
-    #publisher_textarea_wrapper {
+    #publisher-textarea-wrapper {
       background-color: white;
       border-radius: 3px;
       border: 1px solid $border-dark-grey;
@@ -75,15 +76,14 @@
       }
 
       textarea {
-        border: none;
-        margin: 0;
-        box-shadow: none;
-        resize: none;
+        background: transparent;
+        border: 0 solid $light-grey;
         height: 50px;
+        resize: none;
       }
 
       &.active textarea {
-        min-height: 70px;
+        min-height: 90px;
       }
 
       .markdownIndications {
@@ -91,11 +91,7 @@
         padding-left: 10px;
         margin-bottom: 0;
         color: lighten($text-grey,20%);
-        a { color: lighten($blue,20%); }
-      }
-
-      .mentions-input-box .mentions {
-        line-height: $line-height-base !important;
+        a { color: lighten($link-color, 20%); }
       }
 
       &.with_attachments #photodropzone_container {
@@ -103,7 +99,6 @@
       }
 
       #poll_creator_container {
-        display: none;
         border-top: 1px dashed $border-grey;
         padding:4px 6px 4px 6px;
         box-sizing: border-box;
@@ -118,22 +113,6 @@
         }
       }
 
-      &.with_location .loader {
-        height: 20px;
-        width: 20px;
-      }
-      &.with_location #location_container {
-        height: 30px;
-        margin-bottom: 0;
-        border-top: 1px dashed $border-grey;
-        input[type='text'] {
-          border: none;
-          color: $text-grey;
-          height: 20px;
-          margin-bottom: 0;
-          padding: 0;
-        }
-      }
       &.active #button_container {
         border-top: 1px solid $border-grey;
       }
@@ -201,63 +180,102 @@
         text-align: center;
       }
 
-      #publisher-images {
-        margin-right: 5px;
-        #file-upload,
-        #locator,
-        #poll_creator,
-        #hide_location {
-          text-decoration: none !important;
-          font-size: 16px;
-          line-height: $line-height-computed;
-          padding: 4px 2px;
-          i {
-            color: $text-grey;
-          }
-          &:hover{
-            i { color: black; }
-          }
-          input[type='file'] {
-            cursor: pointer;
-            &::-webkit-file-upload-button {
-              cursor: pointer;
-            }
-          }
-        }
-        #hide_location {
-          display: none;
-        }
-      }
-      &.with_location #publisher-images {
-        #hide_location { display: inline-block; }
-        #locator { display: none; }
-      }
-
-      .counter {
-        height: 30px;
-        line-height: 30px;
-        position: absolute;
-        right: 10px;
-        bottom: -25px;
-      }
-      &.with_location .counter {
-        bottom: -62px;
-      }
-      .warning {
-        color: orange;
-      }
-      .exceeded {
-        color: red;
-      }
     }
   }
 
-  .aspect_dropdown {
+  .aspect-dropdown {
     .radio {
       min-height: 0;
       padding-left: 0;
       margin-top: 0;
       margin-bottom: 0;
     }
+  }
+
+  .md-editor,
+  .md-editor.active {
+    border: 0;
+  }
+
+  .md-preview {
+    // This rule is required until we switch to the newer release of bootstrap-markdown with
+    // the following commit in:
+    // https://github.com/toopay/bootstrap-markdown/commit/14a21c3837140144b27efc19c795d1a37fad70fb
+    min-height: 90px;
+
+    .stream-element .post-content .markdown-content {
+      padding-top: 0;
+    }
+  }
+}
+
+.publisher-textarea-wrapper {
+  position: relative;
+
+  &:not(.with-location) .location-container,
+  &.markdown-preview .location-container,
+  &:not(.with-poll) .poll-creator-container,
+  &.markdown-preview .poll-creator-container,
+  &.markdown-preview .photodropzone-container,
+  &.markdown-preview .publisher-buttonbar {
+    display: none;
+  }
+
+  &.with-location .loader {
+    height: 20px;
+    width: 20px;
+  }
+
+  &.with-location .location-container {
+    border-top: 1px dashed $border-grey;
+    height: 30px;
+    margin-bottom: 0;
+
+    [type='text'] {
+      border: 0;
+      color: $text-grey;
+      height: 20px;
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+
+  .counter {
+    line-height: 30px;
+    margin-right: 10px;
+  }
+
+  &:not(.with-location) .publisher-buttonbar {
+    .hide-location { display: none; }
+    .locator { display: inline-block; }
+  }
+
+  &.with-location .publisher-buttonbar {
+    .hide-location { display: inline-block; }
+    .locator { display: none; }
+  }
+
+  .twitter-typeahead {
+    // Override inline rule of Typeahead
+    // scss-lint:disable ImportantRule
+    position: absolute !important;
+    // scss-lint:enable ImportantRule
+  }
+}
+
+.publisher-buttonbar {
+  float: right;
+  margin-right: 5px;
+
+  .btn.btn-link {
+    font-size: 16px;
+    line-height: $line-height-computed;
+    padding: 4px 2px;
+    text-decoration: none;
+    i { color: $text-grey; }
+  }
+
+  .btn.btn-link:hover {
+    i { color: $black; }
   }
 }

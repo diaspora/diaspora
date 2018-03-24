@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -102,25 +104,15 @@ module Diaspora; module Fetcher; class Public
 
         logger.debug "post: #{post.to_s[0..250]}"
 
-        # disable some stuff we don't want for bulk inserts
-        StatusMessage.skip_callback :create, :set_guid
-
         entry = StatusMessage.diaspora_initialize(
-          :author => @person,
-          :public => true
+          author:                @person,
+          public:                true,
+          guid:                  post["guid"],
+          text:                  post["text"],
+          provider_display_name: post["provider_display_name"],
+          created_at:            ActiveSupport::TimeZone.new("UTC").parse(post["created_at"]).to_datetime,
         )
-        entry.assign_attributes({
-          :guid => post['guid'],
-          :text => post['text'],
-          :provider_display_name => post['provider_display_name'],
-          :created_at => ActiveSupport::TimeZone.new('UTC').parse(post['created_at']).to_datetime,
-          :interacted_at => ActiveSupport::TimeZone.new('UTC').parse(post['interacted_at']).to_datetime,
-          :frame_name => post['frame_name']
-        })
         entry.save
-
-        # re-enable everything we disabled before
-        StatusMessage.set_callback :create, :set_guid
 
       end
       set_fetch_status Public::Status_Processed

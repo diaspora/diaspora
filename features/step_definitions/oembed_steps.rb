@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given /^I have several oEmbed data in cache$/ do
   scenarios = {
     "photo" => {
@@ -125,10 +127,10 @@ end
 Then /^I should see a video player$/ do
   visit aspects_path
   find('.post-content .oembed')
-  find('.stream_container').should have_css('.post-content .oembed img')
+  find('.stream-container').should have_css('.post-content .oembed img')
 end
 
 Then /^I should not see a video player$/ do
-  find('.stream_container').should_not have_css('.post-content .oembed img')
+  find('.stream-container').should_not have_css('.post-content .oembed img')
 end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -9,8 +11,8 @@ class ProcessedImage < CarrierWave::Uploader::Base
     "uploads/images"
   end
 
-  def extension_white_list
-    %w(jpg jpeg png gif tiff)
+  def extension_whitelist
+    %w[jpg jpeg png gif]
   end
 
   def filename
@@ -18,16 +20,15 @@ class ProcessedImage < CarrierWave::Uploader::Base
   end
 
   version :thumb_small do
-    process :resize_to_fill => [50,50]
+    process resize_to_fill: [50, 50]
   end
   version :thumb_medium do
-    process :resize_to_limit => [100,100]
+    process resize_to_limit: [100, 100]
   end
   version :thumb_large do
-    process :resize_to_limit => [300,300]
+    process resize_to_limit: [300, 1500]
   end
   version :scaled_full do
-    process :resize_to_limit => [700,nil]
+    process resize_to_limit: [700, nil]
   end
-
 end

@@ -9,14 +9,6 @@ describe("app.pages.Contacts", function(){
         collection: app.contacts
       }
     });
-    Diaspora.I18n.load({
-      contacts: {
-        aspect_list_is_visible: "Contacts in this aspect are able to see each other.",
-        aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other.",
-        aspect_chat_is_enabled: "Contacts in this aspect are able to chat with you.",
-        aspect_chat_is_not_enabled: "Contacts in this aspect are not able to chat with you.",
-      }
-    });
   });
 
   context('toggle chat privilege', function() {
@@ -87,18 +79,12 @@ describe("app.pages.Contacts", function(){
       this.button.trigger('click');
       expect($('.header > h3').css('display')).toBe('none');
     });
-  });
 
-  context('search contact list', function() {
-    beforeEach(function() {
-      this.searchinput = $('#contact_list_search');
-    });
-
-    it('calls stream.search', function() {
-      this.view.stream.search = jasmine.createSpy();
-      this.searchinput.val("Username");
-      this.searchinput.trigger('keyup');
-      expect(this.view.stream.search).toHaveBeenCalledWith("Username");
+    it("sets the current aspect name as the default value in the form", function() {
+      $(".header > h3 #aspect_name").text("My awesome unicorn aspect");
+      expect($("#aspect_name_form input[name='aspect[name]']").val()).not.toBe("My awesome unicorn aspect");
+      this.button.trigger("click");
+      expect($("#aspect_name_form input[name='aspect[name]']").val()).toBe("My awesome unicorn aspect");
     });
   });
 
@@ -289,6 +275,32 @@ describe("app.pages.Contacts", function(){
           "[data-aspect-id='" + this.data.membership.aspectId + "']", -1
         );
       });
+    });
+  });
+
+  describe("showMessageModal", function() {
+    beforeEach(function() {
+      spec.content().append("<div id='conversationModal'/>");
+    });
+
+    it("calls app.helpers.showModal", function() {
+      spyOn(app.helpers, "showModal");
+      this.view.showMessageModal();
+      expect(app.helpers.showModal).toHaveBeenCalled();
+    });
+
+    it("initializes app.views.ConversationsForm with correct parameters when modal is loaded", function() {
+      spyOn(app.views.ConversationsForm.prototype, "initialize");
+      app.aspect = new app.models.Aspect(app.contacts.first().get("aspect_memberships")[0].aspect);
+      this.view.showMessageModal();
+      $("#conversationModal").trigger("modal:loaded");
+      expect(app.views.ConversationsForm.prototype.initialize).toHaveBeenCalled();
+
+      var prefill = app.views.ConversationsForm.prototype.initialize.calls.mostRecent().args[0].prefill;
+      var contacts = app.contacts.filter(function(contact) {
+        return contact.person.get("relationship") === "mutual" && contact.inAspect(app.aspect.get("id"));
+      });
+      expect(_.pluck(prefill, "id")).toEqual(contacts.map(function(contact) { return contact.person.id; }));
     });
   });
 });

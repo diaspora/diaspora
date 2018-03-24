@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 And /^I click to hide the post/ do
   find('.hide_post').click
 end

@@ -1,0 +1,1674 @@
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   .gitignore
+	deleted:    .hound.yml
+	deleted:    .jshintignore
+	deleted:    .jshintrc
+	modified:   .rspec
+	modified:   .rubocop.yml
+	modified:   .ruby-version
+	modified:   .scss-lint.yml
+	modified:   .travis.yml
+	modified:   CODE_OF_CONDUCT.md
+	modified:   Changelog.md
+	deleted:    GNU-AGPL-3.0
+	modified:   Gemfile
+	modified:   Gemfile.lock
+	modified:   Guardfile
+	modified:   README.md
+	modified:   Rakefile
+	deleted:    app/assets/images/branding/logos/header-logo_hover.png
+	deleted:    app/assets/images/branding/logos/logo.png
+	deleted:    app/assets/images/branding/logos/logo_small.png
+	deleted:    app/assets/images/landing/cog.png
+	deleted:    app/assets/images/landing/pen_write.png
+	deleted:    app/assets/images/landing/smiley_laughing.png
+	deleted:    app/assets/images/mobile/arrow_down_small.png
+	deleted:    app/assets/images/mobile/arrow_up_small.png
+	deleted:    app/assets/images/mobile/asterisk_white_mobile.png
+	deleted:    app/assets/images/mobile/check_yes_ok.png
+	deleted:    app/assets/images/social_media_logos/Readme.txt
+	deleted:    app/assets/images/social_media_logos/facebook-16x16.png
+	deleted:    app/assets/images/social_media_logos/facebook-24x24.png
+	deleted:    app/assets/images/social_media_logos/facebook-32x32.png
+	deleted:    app/assets/images/social_media_logos/tumblr-16x16.png
+	deleted:    app/assets/images/social_media_logos/tumblr-24x24.png
+	deleted:    app/assets/images/social_media_logos/tumblr-32x32.png
+	deleted:    app/assets/images/social_media_logos/twitter-16x16.png
+	deleted:    app/assets/images/social_media_logos/twitter-24x24.png
+	deleted:    app/assets/images/social_media_logos/twitter-32x32.png
+	deleted:    app/assets/images/social_media_logos/wordpress-16x16.png
+	deleted:    app/assets/images/social_media_logos/wordpress-24x24.png
+	deleted:    app/assets/images/social_media_logos/wordpress-32x32.png
+	deleted:    app/assets/images/user/uma.jpg
+	deleted:    app/assets/images/user/wolf.jpg
+	modified:   app/assets/javascripts/app/app.js
+	modified:   app/assets/javascripts/app/collections/aspect_memberships.js
+	modified:   app/assets/javascripts/app/collections/aspects.js
+	modified:   app/assets/javascripts/app/collections/reshares.js
+	modified:   app/assets/javascripts/app/helpers/handlebars-helpers.js
+	modified:   app/assets/javascripts/app/helpers/modal_helper.js
+	deleted:    app/assets/javascripts/app/helpers/open_graph.js
+	modified:   app/assets/javascripts/app/helpers/text_formatter.js
+	modified:   app/assets/javascripts/app/models/aspect_membership.js
+	modified:   app/assets/javascripts/app/models/contact.js
+	modified:   app/assets/javascripts/app/models/person.js
+	modified:   app/assets/javascripts/app/models/post.js
+	modified:   app/assets/javascripts/app/models/post/interactions.js
+	modified:   app/assets/javascripts/app/models/stream.js
+	modified:   app/assets/javascripts/app/models/stream_aspects.js
+	modified:   app/assets/javascripts/app/pages/admin_dashboard.js
+	modified:   app/assets/javascripts/app/pages/admin_pods.js
+	modified:   app/assets/javascripts/app/pages/contacts.js
+	modified:   app/assets/javascripts/app/pages/profile.js
+	modified:   app/assets/javascripts/app/pages/settings.js
+	modified:   app/assets/javascripts/app/pages/single-post-viewer.js
+	modified:   app/assets/javascripts/app/router.js
+	modified:   app/assets/javascripts/app/views.js
+	modified:   app/assets/javascripts/app/views/aspect_create_view.js
+	modified:   app/assets/javascripts/app/views/aspect_membership_view.js
+	modified:   app/assets/javascripts/app/views/aspects_list_view.js
+	modified:   app/assets/javascripts/app/views/back_to_top_view.js
+	modified:   app/assets/javascripts/app/views/comment_stream_view.js
+	modified:   app/assets/javascripts/app/views/comment_view.js
+	modified:   app/assets/javascripts/app/views/contact_stream_view.js
+	modified:   app/assets/javascripts/app/views/contact_view.js
+	modified:   app/assets/javascripts/app/views/content_view.js
+	modified:   app/assets/javascripts/app/views/conversations_form_view.js
+	deleted:    app/assets/javascripts/app/views/conversations_view.js
+	deleted:    app/assets/javascripts/app/views/feedback_actions.js
+	modified:   app/assets/javascripts/app/views/feedback_view.js
+	modified:   app/assets/javascripts/app/views/flash_messages_view.js
+	modified:   app/assets/javascripts/app/views/header_view.js
+	modified:   app/assets/javascripts/app/views/help_view.js
+	modified:   app/assets/javascripts/app/views/hovercard_view.js
+	modified:   app/assets/javascripts/app/views/infinite_stream_view.js
+	modified:   app/assets/javascripts/app/views/likes_info_view.js
+	modified:   app/assets/javascripts/app/views/location_stream.js
+	modified:   app/assets/javascripts/app/views/notification_dropdown_view.js
+	modified:   app/assets/javascripts/app/views/notifications_view.js
+	deleted:    app/assets/javascripts/app/views/photo_viewer.js
+	modified:   app/assets/javascripts/app/views/photos_view.js
+	modified:   app/assets/javascripts/app/views/pod_entry_view.js
+	modified:   app/assets/javascripts/app/views/poll_view.js
+	modified:   app/assets/javascripts/app/views/profile_header_view.js
+	modified:   app/assets/javascripts/app/views/publisher/getting_started_view.js
+	modified:   app/assets/javascripts/app/views/publisher/services_view.js
+	modified:   app/assets/javascripts/app/views/publisher/uploader_view.js
+	modified:   app/assets/javascripts/app/views/publisher_view.js
+	modified:   app/assets/javascripts/app/views/reshares_info_view.js
+	modified:   app/assets/javascripts/app/views/search_view.js
+	modified:   app/assets/javascripts/app/views/sidebar.js
+	modified:   app/assets/javascripts/app/views/single-post-viewer/single_post_actions.js
+	modified:   app/assets/javascripts/app/views/single-post-viewer/single_post_comment_stream.js
+	modified:   app/assets/javascripts/app/views/single-post-viewer/single_post_content_view.js
+	modified:   app/assets/javascripts/app/views/single-post-viewer/single_post_interactions.js
+	modified:   app/assets/javascripts/app/views/single-post-viewer/single_post_moderation.js
+	modified:   app/assets/javascripts/app/views/stream/shortcuts.js
+	deleted:    app/assets/javascripts/app/views/stream_faces_view.js
+	modified:   app/assets/javascripts/app/views/stream_post_views.js
+	modified:   app/assets/javascripts/app/views/stream_view.js
+	modified:   app/assets/javascripts/app/views/tag_following_list_view.js
+	modified:   app/assets/javascripts/app/views/tags_view.js
+	modified:   app/assets/javascripts/contact-list.js
+	modified:   app/assets/javascripts/helpers/i18n.js
+	deleted:    app/assets/javascripts/ie.js
+	deleted:    app/assets/javascripts/inbox.js
+	modified:   app/assets/javascripts/jasmine-load-all.js
+	modified:   app/assets/javascripts/jsxc.js
+	modified:   app/assets/javascripts/main.js
+	deleted:    app/assets/javascripts/mentions.js
+	modified:   app/assets/javascripts/mobile/mobile.js
+	modified:   app/assets/javascripts/mobile/mobile_comments.js
+	modified:   app/assets/javascripts/mobile/mobile_file_uploader.js
+	modified:   app/assets/javascripts/mobile/publisher.js
+	modified:   app/assets/javascripts/osmlocator.js
+	modified:   app/assets/javascripts/pages/users-getting-started.js
+	modified:   app/assets/javascripts/widgets/timeago.js
+	modified:   app/assets/stylesheets/_application.scss
+	modified:   app/assets/stylesheets/_flash_messages.scss
+	modified:   app/assets/stylesheets/_mixins.scss
+	modified:   app/assets/stylesheets/admin.scss
+	modified:   app/assets/stylesheets/aspects.scss
+	modified:   app/assets/stylesheets/base.scss
+	modified:   app/assets/stylesheets/bootstrap-complete.scss
+	modified:   app/assets/stylesheets/bootstrap-variables.scss
+	modified:   app/assets/stylesheets/color-variables.scss
+	modified:   app/assets/stylesheets/color_themes/_color_theme_override.scss
+	modified:   app/assets/stylesheets/color_themes/dark_green/_style.scss
+	modified:   app/assets/stylesheets/color_themes/egyptian_blue/_style.scss
+	modified:   app/assets/stylesheets/color_themes/magenta/_style.scss
+	deleted:    app/assets/stylesheets/color_themes/original/_style.scss
+	modified:   app/assets/stylesheets/color_themes/original/desktop.scss
+	modified:   app/assets/stylesheets/color_themes/original/mobile.scss
+	modified:   app/assets/stylesheets/comments.scss
+	modified:   app/assets/stylesheets/contacts.scss
+	modified:   app/assets/stylesheets/conversations.scss
+	modified:   app/assets/stylesheets/footer.scss
+	modified:   app/assets/stylesheets/forms.scss
+	modified:   app/assets/stylesheets/gallery.scss
+	modified:   app/assets/stylesheets/getting-started.scss
+	modified:   app/assets/stylesheets/header.scss
+	modified:   app/assets/stylesheets/help.scss
+	modified:   app/assets/stylesheets/home.scss
+	modified:   app/assets/stylesheets/hovercard.scss
+	modified:   app/assets/stylesheets/icons.scss
+	modified:   app/assets/stylesheets/interactions.scss
+	modified:   app/assets/stylesheets/invitations.scss
+	modified:   app/assets/stylesheets/map.scss
+	modified:   app/assets/stylesheets/markdown-content.scss
+	modified:   app/assets/stylesheets/media-box.scss
+	deleted:    app/assets/stylesheets/mentions.scss
+	modified:   app/assets/stylesheets/mobile/comments.scss
+	modified:   app/assets/stylesheets/mobile/conversations.scss
+	modified:   app/assets/stylesheets/mobile/header.scss
+	modified:   app/assets/stylesheets/mobile/mobile.scss
+	modified:   app/assets/stylesheets/mobile/settings.scss
+	modified:   app/assets/stylesheets/mobile/stream_element.scss
+	modified:   app/assets/stylesheets/mobile/tags.scss
+	modified:   app/assets/stylesheets/navbar_left.scss
+	deleted:    app/assets/stylesheets/navbar_right.scss
+	modified:   app/assets/stylesheets/notifications.scss
+	modified:   app/assets/stylesheets/opengraph.scss
+	modified:   app/assets/stylesheets/people.scss
+	modified:   app/assets/stylesheets/poll.scss
+	modified:   app/assets/stylesheets/post-content.scss
+	modified:   app/assets/stylesheets/profile.scss
+	modified:   app/assets/stylesheets/publisher.scss
+	modified:   app/assets/stylesheets/registration.scss
+	deleted:    app/assets/stylesheets/report.scss
+	modified:   app/assets/stylesheets/rtl.scss
+	modified:   app/assets/stylesheets/settings.scss
+	modified:   app/assets/stylesheets/single-post-view.scss
+	modified:   app/assets/stylesheets/sprites.scss
+	deleted:    app/assets/stylesheets/stream-faces.scss
+	modified:   app/assets/stylesheets/stream.scss
+	modified:   app/assets/stylesheets/stream_element.scss
+	modified:   app/assets/stylesheets/tag.scss
+	modified:   app/assets/stylesheets/typeahead.scss
+	deleted:    app/assets/templates/activity-streams-photo_tpl.jst.hbs
+	modified:   app/assets/templates/aspect_create_modal_tpl.jst.hbs
+	modified:   app/assets/templates/comment-stream_tpl.jst.hbs
+	modified:   app/assets/templates/contact_tpl.jst.hbs
+	modified:   app/assets/templates/faq_getting_help_tpl.jst.hbs
+	modified:   app/assets/templates/faq_posts_and_posting_tpl.jst.hbs
+	modified:   app/assets/templates/feedback_tpl.jst.hbs
+	modified:   app/assets/templates/flash_messages_tpl.jst.hbs
+	modified:   app/assets/templates/header_tpl.jst.hbs
+	modified:   app/assets/templates/help_tpl.jst.hbs
+	modified:   app/assets/templates/hovercard_tpl.jst.hbs
+	modified:   app/assets/templates/opengraph_tpl.jst.hbs
+	deleted:    app/assets/templates/photo-viewer_tpl.jst.hbs
+	modified:   app/assets/templates/photo_tpl.jst.hbs
+	modified:   app/assets/templates/pod_table_entry_tpl.jst.hbs
+	modified:   app/assets/templates/poll_tpl.jst.hbs
+	modified:   app/assets/templates/profile_header_tpl.jst.hbs
+	modified:   app/assets/templates/profile_sidebar_tpl.jst.hbs
+	modified:   app/assets/templates/reshare_tpl.jst.hbs
+	modified:   app/assets/templates/search_suggestion_tpl.jst.hbs
+	modified:   app/assets/templates/single-post-viewer/single-post-actions_tpl.jst.hbs
+	modified:   app/assets/templates/single-post-viewer/single-post-content_tpl.jst.hbs
+	modified:   app/assets/templates/single-post-viewer/single-post-interactions_tpl.jst.hbs
+	modified:   app/assets/templates/single-post-viewer/single-post-moderation_tpl.jst.hbs
+	modified:   app/assets/templates/single-post-viewer_tpl.jst.hbs
+	modified:   app/assets/templates/status-message_tpl.jst.hbs
+	modified:   app/assets/templates/stream-element_tpl.jst.hbs
+	deleted:    app/assets/templates/stream-faces_tpl.jst.hbs
+	modified:   app/controllers/admin/admin_controller.rb
+	modified:   app/controllers/admin/pods_controller.rb
+	modified:   app/controllers/admin/users_controller.rb
+	modified:   app/controllers/admins_controller.rb
+	deleted:    app/controllers/api/v1/tokens_controller.rb
+	modified:   app/controllers/application_controller.rb
+	modified:   app/controllers/aspect_memberships_controller.rb
+	modified:   app/controllers/aspects_controller.rb
+	modified:   app/controllers/blocks_controller.rb
+	modified:   app/controllers/comments_controller.rb
+	modified:   app/controllers/contacts_controller.rb
+	modified:   app/controllers/conversation_visibilities_controller.rb
+	modified:   app/controllers/conversations_controller.rb
+	modified:   app/controllers/help_controller.rb
+	modified:   app/controllers/home_controller.rb
+	modified:   app/controllers/invitation_codes_controller.rb
+	modified:   app/controllers/invitations_controller.rb
+	modified:   app/controllers/likes_controller.rb
+	modified:   app/controllers/messages_controller.rb
+	modified:   app/controllers/node_info_controller.rb
+	modified:   app/controllers/notifications_controller.rb
+	modified:   app/controllers/participations_controller.rb
+	modified:   app/controllers/people_controller.rb
+	modified:   app/controllers/photos_controller.rb
+	modified:   app/controllers/poll_participations_controller.rb
+	modified:   app/controllers/posts_controller.rb
+	modified:   app/controllers/profiles_controller.rb
+	deleted:    app/controllers/publics_controller.rb
+	modified:   app/controllers/registrations_controller.rb
+	modified:   app/controllers/report_controller.rb
+	modified:   app/controllers/reshares_controller.rb
+	modified:   app/controllers/search_controller.rb
+	modified:   app/controllers/services_controller.rb
+	modified:   app/controllers/sessions_controller.rb
+	modified:   app/controllers/share_visibilities_controller.rb
+	modified:   app/controllers/social_relay_controller.rb
+	modified:   app/controllers/status_messages_controller.rb
+	modified:   app/controllers/streams_controller.rb
+	modified:   app/controllers/tag_followings_controller.rb
+	modified:   app/controllers/tags_controller.rb
+	modified:   app/controllers/terms_controller.rb
+	modified:   app/controllers/users_controller.rb
+	deleted:    app/helpers/analytics_helper.rb
+	modified:   app/helpers/application_helper.rb
+	modified:   app/helpers/aspect_global_helper.rb
+	modified:   app/helpers/contacts_helper.rb
+	modified:   app/helpers/conversations_helper.rb
+	modified:   app/helpers/error_messages_helper.rb
+	modified:   app/helpers/getting_started_helper.rb
+	modified:   app/helpers/interim_stream_hackiness_helper.rb
+	modified:   app/helpers/invitation_codes_helper.rb
+	modified:   app/helpers/jsxc_helper.rb
+	modified:   app/helpers/language_helper.rb
+	modified:   app/helpers/layout_helper.rb
+	modified:   app/helpers/mobile_helper.rb
+	modified:   app/helpers/notifications_helper.rb
+	modified:   app/helpers/notifier_helper.rb
+	modified:   app/helpers/o_embed_helper.rb
+	modified:   app/helpers/open_graph_helper.rb
+	modified:   app/helpers/people_helper.rb
+	modified:   app/helpers/posts_helper.rb
+	modified:   app/helpers/profile_helper.rb
+	modified:   app/helpers/publisher_helper.rb
+	modified:   app/helpers/report_helper.rb
+	modified:   app/helpers/services_helper.rb
+	modified:   app/helpers/sessions_helper.rb
+	modified:   app/helpers/statistics_helper.rb
+	modified:   app/helpers/stream_helper.rb
+	modified:   app/helpers/tags_helper.rb
+	modified:   app/helpers/users_helper.rb
+	modified:   app/mailers/diaspora_devise_mailer.rb
+	modified:   app/mailers/export_mailer.rb
+	modified:   app/mailers/maintenance.rb
+	modified:   app/mailers/notification_mailers/also_commented.rb
+	modified:   app/mailers/notification_mailers/base.rb
+	modified:   app/mailers/notification_mailers/comment_on_post.rb
+	modified:   app/mailers/notification_mailers/confirm_email.rb
+	modified:   app/mailers/notification_mailers/liked.rb
+	modified:   app/mailers/notification_mailers/mentioned.rb
+	modified:   app/mailers/notification_mailers/private_message.rb
+	modified:   app/mailers/notification_mailers/reshared.rb
+	modified:   app/mailers/notification_mailers/started_sharing.rb
+	modified:   app/mailers/notifier.rb
+	modified:   app/mailers/report_mailer.rb
+	modified:   app/models/account_deletion.rb
+	modified:   app/models/acts_as_taggable_on-tag.rb
+	modified:   app/models/aspect.rb
+	modified:   app/models/aspect_membership.rb
+	modified:   app/models/aspect_visibility.rb
+	modified:   app/models/block.rb
+	modified:   app/models/comment.rb
+	modified:   app/models/contact.rb
+	modified:   app/models/conversation.rb
+	modified:   app/models/conversation_visibility.rb
+	deleted:    app/models/invitation.rb
+	modified:   app/models/invitation_code.rb
+	modified:   app/models/like.rb
+	modified:   app/models/location.rb
+	modified:   app/models/mention.rb
+	modified:   app/models/message.rb
+	modified:   app/models/notification.rb
+	modified:   app/models/notification_actor.rb
+	modified:   app/models/notifications/also_commented.rb
+	modified:   app/models/notifications/comment_on_post.rb
+	modified:   app/models/notifications/liked.rb
+	modified:   app/models/notifications/mentioned.rb
+	modified:   app/models/notifications/private_message.rb
+	deleted:    app/models/notifications/request_accepted.rb
+	modified:   app/models/notifications/reshared.rb
+	modified:   app/models/notifications/started_sharing.rb
+	modified:   app/models/o_embed_cache.rb
+	modified:   app/models/open_graph_cache.rb
+	modified:   app/models/participation.rb
+	modified:   app/models/person.rb
+	modified:   app/models/photo.rb
+	modified:   app/models/pod.rb
+	modified:   app/models/poll.rb
+	modified:   app/models/poll_answer.rb
+	modified:   app/models/poll_participation.rb
+	modified:   app/models/post.rb
+	modified:   app/models/profile.rb
+	modified:   app/models/report.rb
+	modified:   app/models/reshare.rb
+	modified:   app/models/role.rb
+	modified:   app/models/service.rb
+	modified:   app/models/services/facebook.rb
+	modified:   app/models/services/tumblr.rb
+	modified:   app/models/services/twitter.rb
+	modified:   app/models/services/wordpress.rb
+	modified:   app/models/share_visibility.rb
+	modified:   app/models/status_message.rb
+	modified:   app/models/tag_following.rb
+	modified:   app/models/user.rb
+	modified:   app/models/user/connecting.rb
+	modified:   app/models/user/querying.rb
+	modified:   app/models/user/social_actions.rb
+	modified:   app/models/user_preference.rb
+	modified:   app/presenters/aspect_membership_presenter.rb
+	modified:   app/presenters/aspect_presenter.rb
+	modified:   app/presenters/avatar_presenter.rb
+	modified:   app/presenters/base_presenter.rb
+	modified:   app/presenters/block_presenter.rb
+	modified:   app/presenters/comment_presenter.rb
+	modified:   app/presenters/contact_presenter.rb
+	deleted:    app/presenters/extreme_post_presenter.rb
+	deleted:    app/presenters/hovercard_presenter.rb
+	modified:   app/presenters/last_three_comments_decorator.rb
+	modified:   app/presenters/node_info_presenter.rb
+	modified:   app/presenters/o_embed_presenter.rb
+	modified:   app/presenters/person_presenter.rb
+	modified:   app/presenters/photo_presenter.rb
+	modified:   app/presenters/pod_presenter.rb
+	modified:   app/presenters/post_interaction_presenter.rb
+	modified:   app/presenters/post_presenter.rb
+	modified:   app/presenters/profile_presenter.rb
+	modified:   app/presenters/service_presenter.rb
+	modified:   app/presenters/social_relay_presenter.rb
+	deleted:    app/presenters/statistics_presenter.rb
+	modified:   app/presenters/user_presenter.rb
+	modified:   app/serializers/export/aspect_serializer.rb
+	deleted:    app/serializers/export/comment_serializer.rb
+	modified:   app/serializers/export/contact_serializer.rb
+	deleted:    app/serializers/export/post_serializer.rb
+	deleted:    app/serializers/export/profile_serializer.rb
+	modified:   app/serializers/export/user_serializer.rb
+	modified:   app/services/comment_service.rb
+	modified:   app/services/post_service.rb
+	modified:   app/services/status_message_creation_service.rb
+	modified:   app/uploaders/exported_photos.rb
+	modified:   app/uploaders/exported_user.rb
+	modified:   app/uploaders/processed_image.rb
+	modified:   app/uploaders/secure_uploader.rb
+	modified:   app/uploaders/unprocessed_image.rb
+	modified:   app/views/admins/_admin_bar.haml
+	modified:   app/views/admins/_user_entry.haml
+	modified:   app/views/admins/dashboard.html.haml
+	modified:   app/views/admins/pods.html.haml
+	modified:   app/views/admins/stats.html.haml
+	modified:   app/views/admins/user_search.html.haml
+	modified:   app/views/admins/weekly_user_stats.haml
+	modified:   app/views/aspect_memberships/_aspect_membership_dropdown.haml
+	modified:   app/views/aspect_memberships/_aspect_membership_dropdown.mobile.haml
+	modified:   app/views/aspects/_aspect_listings.haml
+	modified:   app/views/aspects/_aspect_stream.haml
+	modified:   app/views/aspects/_no_contacts_message.haml
+	deleted:    app/views/aspects/_no_posts_message.haml
+	modified:   app/views/comments/_comment.mobile.haml
+	modified:   app/views/comments/_new_comment.mobile.haml
+	modified:   app/views/comments/index.mobile.haml
+	modified:   app/views/comments/new.mobile.haml
+	modified:   app/views/contacts/_header.html.haml
+	modified:   app/views/contacts/_sidebar.html.haml
+	modified:   app/views/contacts/index.html.haml
+	modified:   app/views/contacts/index.mobile.haml
+	modified:   app/views/contacts/spotlight.haml
+	modified:   app/views/conversations/_conversation.haml
+	modified:   app/views/conversations/_conversation.mobile.haml
+	deleted:    app/views/conversations/_message.haml
+	modified:   app/views/conversations/_messages.haml
+	modified:   app/views/conversations/_new.haml
+	modified:   app/views/conversations/_show.haml
+	deleted:    app/views/conversations/create.js.erb
+	modified:   app/views/conversations/index.haml
+	modified:   app/views/conversations/index.mobile.haml
+	modified:   app/views/conversations/new.html.haml
+	modified:   app/views/conversations/new.mobile.haml
+	deleted:    app/views/conversations/show.js.erb
+	modified:   app/views/devise/passwords/edit.mobile.haml
+	modified:   app/views/devise/passwords/new.haml
+	modified:   app/views/devise/passwords/new.mobile.haml
+	modified:   app/views/devise/shared/_links.haml
+	modified:   app/views/errors/error_500.haml
+	deleted:    app/views/errors/not_public.haml
+	modified:   app/views/home/default.haml
+	modified:   app/views/invitations/new.html.haml
+	modified:   app/views/layouts/_drawer.mobile.haml
+	modified:   app/views/layouts/_footer.html.haml
+	modified:   app/views/layouts/_header.html.haml
+	modified:   app/views/layouts/_header.mobile.haml
+	deleted:    app/views/layouts/_open_graph.haml
+	modified:   app/views/layouts/application.html.haml
+	modified:   app/views/layouts/application.mobile.haml
+	modified:   app/views/layouts/error_page.haml
+	deleted:    app/views/layouts/notifier.html.erb
+	deleted:    app/views/likes/_likes.haml
+	deleted:    app/views/likes/index.html.haml
+	modified:   app/views/node_info/_statistics.haml
+	modified:   app/views/notifications/_notification.haml
+	modified:   app/views/notifications/_notification.mobile.haml
+	modified:   app/views/notifications/index.html.haml
+	modified:   app/views/notifications/index.mobile.haml
+	modified:   app/views/notifier/also_commented.markerb
+	modified:   app/views/notifier/comment_on_post.markerb
+	modified:   app/views/notifier/invite.markerb
+	modified:   app/views/notifier/mentioned.markerb
+	modified:   app/views/people/_add_contact.haml
+	deleted:    app/views/people/_aspect_membership_dropdown.haml
+	modified:   app/views/people/_index.html.haml
+	modified:   app/views/people/_person.html.haml
+	modified:   app/views/people/_person.mobile.haml
+	modified:   app/views/people/_relationship_action.haml
+	modified:   app/views/people/contacts.haml
+	modified:   app/views/people/index.html.haml
+	modified:   app/views/people/index.mobile.haml
+	modified:   app/views/people/show.html.haml
+	modified:   app/views/people/show.mobile.haml
+	deleted:    app/views/people/tag_index.js.erb
+	modified:   app/views/photos/_index.mobile.haml
+	modified:   app/views/photos/_new_profile_photo.haml
+	deleted:    app/views/photos/edit.html.haml
+	modified:   app/views/photos/show.mobile.haml
+	deleted:    app/views/posts/_photo.html.haml
+	deleted:    app/views/posts/destroy.js.erb
+	modified:   app/views/posts/show.html.haml
+	modified:   app/views/posts/show.mobile.haml
+	modified:   app/views/profiles/_edit_private.haml
+	modified:   app/views/profiles/_edit_public.haml
+	modified:   app/views/profiles/edit.haml
+	modified:   app/views/profiles/edit.mobile.haml
+	deleted:    app/views/publisher/_aspect_dropdown.html.haml
+	modified:   app/views/publisher/_publisher.html.haml
+	modified:   app/views/publisher/_publisher.mobile.haml
+	modified:   app/views/registrations/_form.haml
+	modified:   app/views/registrations/new.haml
+	modified:   app/views/registrations/new.mobile.haml
+	modified:   app/views/report/index.html.haml
+	modified:   app/views/report/report_email.markerb
+	modified:   app/views/reshares/_reshare.mobile.haml
+	modified:   app/views/services/index.html.haml
+	modified:   app/views/services/index.mobile.haml
+	modified:   app/views/sessions/new.html.haml
+	modified:   app/views/sessions/new.mobile.haml
+	modified:   app/views/shared/_donatepod.html.haml
+	modified:   app/views/shared/_invitations.haml
+	modified:   app/views/shared/_links.haml
+	modified:   app/views/shared/_photo_area.mobile.haml
+	modified:   app/views/shared/_post_info.mobile.haml
+	deleted:    app/views/shared/_post_stats.mobile.haml
+	deleted:    app/views/shared/_right_sections.html.haml
+	modified:   app/views/shared/_settings_nav.haml
+	modified:   app/views/shared/_settings_nav.mobile.haml
+	modified:   app/views/shared/_stream.haml
+	modified:   app/views/shared/_stream_element.mobile.haml
+	modified:   app/views/simple_captcha/_simple_captcha.mobile.haml
+	modified:   app/views/status_messages/_status_message.mobile.haml
+	modified:   app/views/status_messages/bookmarklet.html.haml
+	modified:   app/views/status_messages/bookmarklet.mobile.haml
+	modified:   app/views/status_messages/new.html.haml
+	modified:   app/views/status_messages/new.mobile.haml
+	modified:   app/views/streams/main_stream.html.haml
+	modified:   app/views/streams/main_stream.mobile.haml
+	modified:   app/views/tags/show.haml
+	modified:   app/views/tags/show.mobile.haml
+	deleted:    app/views/tags/update.js.erb
+	modified:   app/views/users/_blocked_person.haml
+	modified:   app/views/users/_close_account_modal.haml
+	modified:   app/views/users/_edit.haml
+	modified:   app/views/users/_privacy_settings.haml
+	modified:   app/views/users/edit.html.haml
+	modified:   app/views/users/edit.mobile.haml
+	modified:   app/views/users/getting_started.haml
+	modified:   app/views/users/getting_started.mobile.haml
+	modified:   app/views/users/privacy_settings.html.haml
+	modified:   app/views/users/privacy_settings.mobile.haml
+	modified:   app/views/users/public.atom.builder
+	modified:   app/workers/base.rb
+	modified:   app/workers/clean_cached_files.rb
+	modified:   app/workers/deferred_dispatch.rb
+	modified:   app/workers/delete_account.rb
+	modified:   app/workers/delete_post_from_service.rb
+	modified:   app/workers/export_photos.rb
+	modified:   app/workers/export_user.rb
+	modified:   app/workers/fetch_profile_photo.rb
+	modified:   app/workers/fetch_public_posts.rb
+	modified:   app/workers/fetch_webfinger.rb
+	modified:   app/workers/gather_o_embed_data.rb
+	modified:   app/workers/gather_open_graph_data.rb
+	deleted:    app/workers/http_multi.rb
+	modified:   app/workers/mail/also_commented.rb
+	modified:   app/workers/mail/comment_on_post.rb
+	modified:   app/workers/mail/confirm_email.rb
+	modified:   app/workers/mail/invite_email.rb
+	modified:   app/workers/mail/liked.rb
+	modified:   app/workers/mail/mentioned.rb
+	modified:   app/workers/mail/private_message.rb
+	modified:   app/workers/mail/report_worker.rb
+	modified:   app/workers/mail/reshared.rb
+	modified:   app/workers/mail/started_sharing.rb
+	deleted:    app/workers/notify_local_users.rb
+	modified:   app/workers/post_to_service.rb
+	modified:   app/workers/process_photo.rb
+	modified:   app/workers/publish_to_hub.rb
+	modified:   app/workers/queue_users_for_removal.rb
+	deleted:    app/workers/receive.rb
+	deleted:    app/workers/receive_encrypted_salmon.rb
+	deleted:    app/workers/receive_local_batch.rb
+	deleted:    app/workers/receive_unencrypted_salmon.rb
+	modified:   app/workers/recurring_pod_check.rb
+	modified:   app/workers/remove_old_user.rb
+	deleted:    app/workers/resend_invitation.rb
+	modified:   app/workers/reset_password.rb
+	modified:   bin/cucumber
+	modified:   bin/rails
+	modified:   bin/rake
+	modified:   bin/rspec
+	modified:   bin/spring
+	modified:   config.ru
+	deleted:    config/.jshint.json
+	deleted:    config/.jshint_ignore
+	modified:   config/application.rb
+	modified:   config/asset_sync.rb
+	modified:   config/boot.rb
+	modified:   config/color_themes.yml
+	modified:   config/cucumber.yml
+	modified:   config/database.yml.example
+	modified:   config/defaults.yml
+	modified:   config/diaspora.yml.example
+	modified:   config/environment.rb
+	modified:   config/environments/development.rb
+	modified:   config/environments/integration.rb
+	modified:   config/environments/production.rb
+	modified:   config/environments/test.rb
+	modified:   config/eye.rb
+	modified:   config/initializers/acts_as_taggable_on.rb
+	modified:   config/initializers/asset_sync.rb
+	modified:   config/initializers/assets.rb
+	modified:   config/initializers/carrierwave.rb
+	modified:   config/initializers/color_themes.rb
+	modified:   config/initializers/cors.rb
+	modified:   config/initializers/devise.rb
+	modified:   config/initializers/diaspora_federation.rb
+	modified:   config/initializers/enforce_ssl.rb
+	modified:   config/initializers/entypo.rb
+	modified:   config/initializers/faraday.rb
+	modified:   config/initializers/filter_parameter_logging.rb
+	modified:   config/initializers/haml.rb
+	modified:   config/initializers/handlebars_assets.rb
+	modified:   config/initializers/ignore_ssl_in_development.rb
+	modified:   config/initializers/json_escape.rb
+	modified:   config/initializers/jsroutes.rb
+	modified:   config/initializers/load_analyitics.rb
+	modified:   config/initializers/load_libraries.rb
+	modified:   config/initializers/locale.rb
+	modified:   config/initializers/mailer_config.rb
+	modified:   config/initializers/maintenance.rb
+	modified:   config/initializers/markerb.rb
+	modified:   config/initializers/oembed.rb
+	modified:   config/initializers/omniauth.rb
+	modified:   config/initializers/open_graph_reader.rb
+	modified:   config/initializers/patch_openssl_pkey.rb
+	deleted:    config/initializers/rails_admin.rb
+	modified:   config/initializers/rspec_generator.rb
+	modified:   config/initializers/session_store.rb
+	modified:   config/initializers/set_session_secret.rb
+	modified:   config/initializers/set_up_image_redirects.rb
+	modified:   config/initializers/setup_simple_captcha.rb
+	modified:   config/initializers/sidekiq.rb
+	modified:   config/initializers/version_header.rb
+	modified:   config/initializers/will_paginate.rb
+	modified:   config/initializers/wrap_parameters.rb
+	modified:   config/load_config.rb
+	modified:   config/locale_settings.yml
+	modified:   config/locales/cldr/README.md
+	modified:   config/locales/cldr/plurals.rb
+	modified:   config/locales/devise/devise.ar.yml
+	modified:   config/locales/devise/devise.cs.yml
+	modified:   config/locales/devise/devise.da.yml
+	modified:   config/locales/devise/devise.de.yml
+	modified:   config/locales/devise/devise.de_formal.yml
+	modified:   config/locales/devise/devise.en.yml
+	modified:   config/locales/devise/devise.en_valspeak.yml
+	modified:   config/locales/devise/devise.es-AR.yml
+	modified:   config/locales/devise/devise.es-CL.yml
+	modified:   config/locales/devise/devise.es.yml
+	modified:   config/locales/devise/devise.fr.yml
+	modified:   config/locales/devise/devise.hu.yml
+	modified:   config/locales/devise/devise.hy.yml
+	modified:   config/locales/devise/devise.ia.yml
+	modified:   config/locales/devise/devise.is.yml
+	modified:   config/locales/devise/devise.it.yml
+	modified:   config/locales/devise/devise.ja.yml
+	modified:   config/locales/devise/devise.nb.yml
+	modified:   config/locales/devise/devise.nds.yml
+	modified:   config/locales/devise/devise.nl.yml
+	modified:   config/locales/devise/devise.pl.yml
+	modified:   config/locales/devise/devise.pt-BR.yml
+	modified:   config/locales/devise/devise.pt-PT.yml
+	modified:   config/locales/devise/devise.sk.yml
+	modified:   config/locales/devise/devise.sv.yml
+	modified:   config/locales/devise/devise.te.yml
+	modified:   config/locales/devise/devise.uk.yml
+	modified:   config/locales/devise/devise.zh-TW.yml
+	modified:   config/locales/diaspora/af.yml
+	modified:   config/locales/diaspora/ar.yml
+	modified:   config/locales/diaspora/art-nvi.yml
+	modified:   config/locales/diaspora/ast.yml
+	modified:   config/locales/diaspora/az.yml
+	modified:   config/locales/diaspora/be.yml
+	modified:   config/locales/diaspora/bg.yml
+	modified:   config/locales/diaspora/br.yml
+	modified:   config/locales/diaspora/bs.yml
+	modified:   config/locales/diaspora/cs.yml
+	modified:   config/locales/diaspora/cy.yml
+	modified:   config/locales/diaspora/da.yml
+	modified:   config/locales/diaspora/de.yml
+	modified:   config/locales/diaspora/de_formal.yml
+	modified:   config/locales/diaspora/el.yml
+	modified:   config/locales/diaspora/en.yml
+	modified:   config/locales/diaspora/en_1337.yml
+	modified:   config/locales/diaspora/en_pirate.yml
+	modified:   config/locales/diaspora/en_shaw.yml
+	modified:   config/locales/diaspora/en_valspeak.yml
+	modified:   config/locales/diaspora/eo.yml
+	modified:   config/locales/diaspora/es-AR.yml
+	modified:   config/locales/diaspora/es-BO.yml
+	modified:   config/locales/diaspora/es-CL.yml
+	modified:   config/locales/diaspora/es-CO.yml
+	modified:   config/locales/diaspora/es-MX.yml
+	modified:   config/locales/diaspora/es.yml
+	modified:   config/locales/diaspora/et.yml
+	modified:   config/locales/diaspora/eu.yml
+	modified:   config/locales/diaspora/fa.yml
+	modified:   config/locales/diaspora/fi.yml
+	modified:   config/locales/diaspora/fil.yml
+	modified:   config/locales/diaspora/fr.yml
+	modified:   config/locales/diaspora/fy.yml
+	modified:   config/locales/diaspora/ga.yml
+	modified:   config/locales/diaspora/gd.yml
+	modified:   config/locales/diaspora/he.yml
+	modified:   config/locales/diaspora/hi.yml
+	modified:   config/locales/diaspora/hu.yml
+	modified:   config/locales/diaspora/hy.yml
+	modified:   config/locales/diaspora/ia.yml
+	modified:   config/locales/diaspora/id.yml
+	modified:   config/locales/diaspora/io.yml
+	modified:   config/locales/diaspora/is.yml
+	modified:   config/locales/diaspora/it.yml
+	modified:   config/locales/diaspora/ja.yml
+	modified:   config/locales/diaspora/ka.yml
+	modified:   config/locales/diaspora/kk.yml
+	modified:   config/locales/diaspora/kn.yml
+	modified:   config/locales/diaspora/ko.yml
+	modified:   config/locales/diaspora/lt.yml
+	modified:   config/locales/diaspora/lv.yml
+	modified:   config/locales/diaspora/mk.yml
+	modified:   config/locales/diaspora/ml.yml
+	modified:   config/locales/diaspora/ms.yml
+	modified:   config/locales/diaspora/nb.yml
+	modified:   config/locales/diaspora/nds.yml
+	modified:   config/locales/diaspora/ne.yml
+	modified:   config/locales/diaspora/nl.yml
+	modified:   config/locales/diaspora/nn.yml
+	modified:   config/locales/diaspora/pa.yml
+	modified:   config/locales/diaspora/pl.yml
+	modified:   config/locales/diaspora/pt-BR.yml
+	modified:   config/locales/diaspora/pt-PT.yml
+	modified:   config/locales/diaspora/ro.yml
+	modified:   config/locales/diaspora/ru.yml
+	modified:   config/locales/diaspora/sc.yml
+	modified:   config/locales/diaspora/si.yml
+	modified:   config/locales/diaspora/sk.yml
+	modified:   config/locales/diaspora/sl.yml
+	modified:   config/locales/diaspora/sr.yml
+	modified:   config/locales/diaspora/sv.yml
+	modified:   config/locales/diaspora/ta.yml
+	modified:   config/locales/diaspora/te.yml
+	modified:   config/locales/diaspora/tr.yml
+	modified:   config/locales/diaspora/uk.yml
+	modified:   config/locales/diaspora/ur-PK.yml
+	modified:   config/locales/diaspora/vi.yml
+	modified:   config/locales/diaspora/wo.yml
+	modified:   config/locales/diaspora/yi.yml
+	modified:   config/locales/diaspora/zh-CN.yml
+	modified:   config/locales/diaspora/zh-TW.yml
+	modified:   config/locales/javascript/javascript.ar.yml
+	modified:   config/locales/javascript/javascript.art-nvi.yml
+	modified:   config/locales/javascript/javascript.bg.yml
+	modified:   config/locales/javascript/javascript.br.yml
+	modified:   config/locales/javascript/javascript.bs.yml
+	modified:   config/locales/javascript/javascript.cs.yml
+	modified:   config/locales/javascript/javascript.cy.yml
+	modified:   config/locales/javascript/javascript.da.yml
+	modified:   config/locales/javascript/javascript.de.yml
+	modified:   config/locales/javascript/javascript.de_formal.yml
+	modified:   config/locales/javascript/javascript.el.yml
+	modified:   config/locales/javascript/javascript.en.yml
+	modified:   config/locales/javascript/javascript.en_1337.yml
+	modified:   config/locales/javascript/javascript.en_pirate.yml
+	modified:   config/locales/javascript/javascript.en_shaw.yml
+	modified:   config/locales/javascript/javascript.en_valspeak.yml
+	modified:   config/locales/javascript/javascript.eo.yml
+	modified:   config/locales/javascript/javascript.es-AR.yml
+	modified:   config/locales/javascript/javascript.es-CL.yml
+	modified:   config/locales/javascript/javascript.es-MX.yml
+	modified:   config/locales/javascript/javascript.es.yml
+	modified:   config/locales/javascript/javascript.et.yml
+	modified:   config/locales/javascript/javascript.eu.yml
+	modified:   config/locales/javascript/javascript.fi.yml
+	modified:   config/locales/javascript/javascript.fil.yml
+	modified:   config/locales/javascript/javascript.fr.yml
+	modified:   config/locales/javascript/javascript.fy.yml
+	modified:   config/locales/javascript/javascript.ga.yml
+	modified:   config/locales/javascript/javascript.he.yml
+	modified:   config/locales/javascript/javascript.hu.yml
+	modified:   config/locales/javascript/javascript.hy.yml
+	modified:   config/locales/javascript/javascript.ia.yml
+	modified:   config/locales/javascript/javascript.id.yml
+	modified:   config/locales/javascript/javascript.is.yml
+	modified:   config/locales/javascript/javascript.it.yml
+	modified:   config/locales/javascript/javascript.ja.yml
+	modified:   config/locales/javascript/javascript.ka.yml
+	modified:   config/locales/javascript/javascript.ko.yml
+	modified:   config/locales/javascript/javascript.lt.yml
+	modified:   config/locales/javascript/javascript.ml.yml
+	modified:   config/locales/javascript/javascript.ms.yml
+	modified:   config/locales/javascript/javascript.nb.yml
+	modified:   config/locales/javascript/javascript.nds.yml
+	modified:   config/locales/javascript/javascript.ne.yml
+	modified:   config/locales/javascript/javascript.nl.yml
+	modified:   config/locales/javascript/javascript.nn.yml
+	modified:   config/locales/javascript/javascript.pl.yml
+	modified:   config/locales/javascript/javascript.pt-BR.yml
+	modified:   config/locales/javascript/javascript.pt-PT.yml
+	modified:   config/locales/javascript/javascript.ro.yml
+	modified:   config/locales/javascript/javascript.ru.yml
+	modified:   config/locales/javascript/javascript.sc.yml
+	modified:   config/locales/javascript/javascript.si.yml
+	modified:   config/locales/javascript/javascript.sk.yml
+	modified:   config/locales/javascript/javascript.sl.yml
+	modified:   config/locales/javascript/javascript.sr.yml
+	modified:   config/locales/javascript/javascript.sv.yml
+	modified:   config/locales/javascript/javascript.te.yml
+	modified:   config/locales/javascript/javascript.tr.yml
+	modified:   config/locales/javascript/javascript.uk.yml
+	modified:   config/locales/javascript/javascript.vi.yml
+	modified:   config/locales/javascript/javascript.wo.yml
+	modified:   config/locales/javascript/javascript.zh-CN.yml
+	modified:   config/locales/javascript/javascript.zh-TW.yml
+	modified:   config/logging.rb
+	modified:   config/oembed_providers.yml
+	modified:   config/routes.rb
+	deleted:    config/selenium.yml
+	modified:   config/sidekiq.yml
+	modified:   config/unicorn.rb
+	deleted:    config/vines/README
+	modified:   db/migrate/0000_create_schema.rb
+	deleted:    db/migrate/20130207231310_add_facebook_id_to_post.rb
+	deleted:    db/migrate/20130404211624_fix_default_image_url_from_profile.rb
+	deleted:    db/migrate/20130429073928_add_tweet_id_to_post.rb
+	deleted:    db/migrate/20130608171134_add_open_graph_cache.rb
+	deleted:    db/migrate/20130613203350_remove_limit_from_root_guid_in_posts.rb
+	deleted:    db/migrate/20130717104359_migrate_activity_stream_to_status_message.rb
+	deleted:    db/migrate/20130801063213_add_tumblr_post_ids_to_posts.rb
+	deleted:    db/migrate/20131017093025_create_post_reports.rb
+	deleted:    db/migrate/20131213171804_create_simple_captcha_data.rb
+	deleted:    db/migrate/20140121132816_add_post_type_to_post_report.rb
+	deleted:    db/migrate/20140214104217_rename_post_report_to_report.rb
+	deleted:    db/migrate/20140222162826_devise_add_lastseenable_user.rb
+	deleted:    db/migrate/20140308154022_create_polls.rb
+	deleted:    db/migrate/20140422134050_rename_post_columns_to_item.rb
+	deleted:    db/migrate/20140422134627_change_user_id_type_to_integer.rb
+	deleted:    db/migrate/20140601102543_add_taggings_counter_cache_to_tags.acts_as_taggable_on_engine.rb
+	deleted:    db/migrate/20140801101230_create_chat_contacts.rb
+	deleted:    db/migrate/20140801101352_create_chat_fragments.rb
+	deleted:    db/migrate/20140824230505_add_completed_at_to_account_deletions.rb
+	deleted:    db/migrate/20140826165533_increase_simple_captcha_limit.rb
+	deleted:    db/migrate/20140906192846_fix_open_graph_data.rb
+	deleted:    db/migrate/20141001162851_add_remove_after_to_users.rb
+	deleted:    db/migrate/20141007003922_add_chat_enabled_to_aspects.rb
+	deleted:    db/migrate/20141024170120_create_chat_offline_messages.rb
+	deleted:    db/migrate/20141209041241_drop_open_graph_caches_with_invalid_urls.rb
+	deleted:    db/migrate/20141216213423_purge_orphan_conversations.rb
+	deleted:    db/migrate/20141227120907_add_export_to_user.rb
+	deleted:    db/migrate/20141230214830_user_pref_strip_exif.rb
+	deleted:    db/migrate/20150106050733_set_mysql_to_unicode_mb4.rb
+	deleted:    db/migrate/20150209230946_disable_mail_for_closed_account.rb
+	deleted:    db/migrate/20150220001357_add_photos_export_to_user.rb
+	deleted:    db/migrate/20150403192408_remove_deleted_aspects_from_auto_follow_back.rb
+	deleted:    db/migrate/20150403212139_fix_wrong_only_sharing.rb
+	deleted:    db/migrate/20150404193023_participation_counter.rb
+	deleted:    db/migrate/20150523004437_enable_color_themes.rb
+	deleted:    db/migrate/20150531005120_cleanup_default_avatars.rb
+	deleted:    db/migrate/20150607143809_fix_photo_public_flag.rb
+	deleted:    db/migrate/20150630221004_add_public_to_profiles.rb
+	deleted:    db/migrate/20150724152052_remove_favorites_from_posts.rb
+	deleted:    db/migrate/20150731123114_add_status_to_pods.rb
+	deleted:    db/migrate/20150828132451_remove_duplicate_and_empty_pods.rb
+	deleted:    db/migrate/20151003142048_update_report_item_types.rb
+	deleted:    db/schema.rb
+	deleted:    features/desktop/accepts_invitation.feature
+	modified:   features/desktop/activity_stream.feature
+	modified:   features/desktop/aspect_navigation.feature
+	modified:   features/desktop/blocks_user.feature
+	deleted:    features/desktop/change_email.feature
+	modified:   features/desktop/change_password.feature
+	modified:   features/desktop/closes_account.feature
+	modified:   features/desktop/comments.feature
+	modified:   features/desktop/connects_users.feature
+	modified:   features/desktop/contacts.feature
+	modified:   features/desktop/conversations.feature
+	modified:   features/desktop/donations.feature
+	modified:   features/desktop/download_photos.feature
+	modified:   features/desktop/edits_profile.feature
+	modified:   features/desktop/follows_tags.feature
+	modified:   features/desktop/hovercards.feature
+	modified:   features/desktop/invitations.feature
+	modified:   features/desktop/keyboard_navigation.feature
+	modified:   features/desktop/likes.feature
+	modified:   features/desktop/manages_aspects.feature
+	modified:   features/desktop/mentions.feature
+	modified:   features/desktop/mentions_from_profile_page.feature
+	modified:   features/desktop/not_safe_for_work.feature
+	modified:   features/desktop/notifications.feature
+	modified:   features/desktop/oembed.feature
+	modified:   features/desktop/photo_gallery.feature
+	modified:   features/desktop/post_preview.feature
+	modified:   features/desktop/post_with_a_poll.feature
+	modified:   features/desktop/posts_from_main_page.feature
+	modified:   features/desktop/posts_from_profile_page.feature
+	modified:   features/desktop/profile_photos.feature
+	modified:   features/desktop/public_stream.feature
+	modified:   features/desktop/reshare.feature
+	modified:   features/desktop/search.feature
+	modified:   features/desktop/signs_up.feature
+	modified:   features/desktop/single_post_view_moderation.feature
+	modified:   features/mobile/activity_stream.feature
+	modified:   features/mobile/change_password.feature
+	modified:   features/mobile/closes_account.feature
+	modified:   features/mobile/conversations.feature
+	modified:   features/mobile/drawer.feature
+	modified:   features/mobile/edits_profile.feature
+	modified:   features/mobile/getting_started.feature
+	modified:   features/mobile/home.feature
+	modified:   features/mobile/invitations.feature
+	modified:   features/mobile/logged_out_browsing.feature
+	modified:   features/mobile/more-button.feature
+	modified:   features/mobile/multiphoto.feature
+	modified:   features/mobile/not_safe_for_work.feature
+	modified:   features/mobile/people_aspects.feature
+	modified:   features/mobile/posts_from_main_page.feature
+	modified:   features/mobile/reactions.feature
+	modified:   features/mobile/reshare.feature
+	modified:   features/mobile/signs_up.feature
+	modified:   features/mobile/tags.feature
+	modified:   features/step_definitions/aspects_steps.rb
+	modified:   features/step_definitions/comment_steps.rb
+	modified:   features/step_definitions/conversations_steps.rb
+	modified:   features/step_definitions/custom_web_steps.rb
+	modified:   features/step_definitions/debug_steps.rb
+	modified:   features/step_definitions/gallery_steps.rb
+	modified:   features/step_definitions/hovercard_steps.rb
+	modified:   features/step_definitions/keyboard_navigation_steps.rb
+	modified:   features/step_definitions/location_steps.rb
+	modified:   features/step_definitions/mention_steps.rb
+	modified:   features/step_definitions/message_steps.rb
+	modified:   features/step_definitions/mobile_steps.rb
+	modified:   features/step_definitions/modal_steps.rb
+	modified:   features/step_definitions/notifications_steps.rb
+	modified:   features/step_definitions/oembed_steps.rb
+	modified:   features/step_definitions/post_preview_steps.rb
+	modified:   features/step_definitions/post_with_poll_steps.rb
+	modified:   features/step_definitions/posts_steps.rb
+	modified:   features/step_definitions/profile_steps.rb
+	modified:   features/step_definitions/search_steps.rb
+	modified:   features/step_definitions/session_steps.rb
+	modified:   features/step_definitions/single_post_view_steps.rb
+	modified:   features/step_definitions/stream_steps.rb
+	modified:   features/step_definitions/tag_steps.rb
+	modified:   features/step_definitions/user_steps.rb
+	modified:   features/step_definitions/web_steps.rb
+	modified:   features/support/application_cuke_helpers.rb
+	modified:   features/support/env.rb
+	modified:   features/support/integration_sessions_controller.rb
+	modified:   features/support/matchers.rb
+	modified:   features/support/paths.rb
+	modified:   features/support/poor_mans_webmock.rb
+	modified:   features/support/publishing_cuke_helpers.rb
+	modified:   features/support/user_cuke_helpers.rb
+	modified:   features/support/webmock.rb
+	modified:   graphics/README.md
+	modified:   lib/account_deleter.rb
+	deleted:    lib/assets/javascripts/fileuploader-custom.js
+	deleted:    lib/assets/javascripts/jquery.mentionsInput.js
+	modified:   lib/assets/javascripts/posix-bracket-expressions.js
+	modified:   lib/bookmarklet_renderer.rb
+	modified:   lib/configuration_methods.rb
+	modified:   lib/connection_tester.rb
+	modified:   lib/diaspora.rb
+	modified:   lib/diaspora/camo.rb
+	modified:   lib/diaspora/commentable.rb
+	deleted:    lib/diaspora/encryptable.rb
+	modified:   lib/diaspora/exceptions.rb
+	modified:   lib/diaspora/exporter.rb
+	modified:   lib/diaspora/federated.rb
+	modified:   lib/diaspora/federated/base.rb
+	deleted:    lib/diaspora/federated/relayable_retraction.rb
+	deleted:    lib/diaspora/federated/request.rb
+	modified:   lib/diaspora/federated/retraction.rb
+	deleted:    lib/diaspora/federated/shareable.rb
+	deleted:    lib/diaspora/federated/signed_retraction.rb
+	modified:   lib/diaspora/fetcher.rb
+	modified:   lib/diaspora/fetcher/public.rb
+	deleted:    lib/diaspora/fetcher/single.rb
+	deleted:    lib/diaspora/guid.rb
+	modified:   lib/diaspora/likeable.rb
+	modified:   lib/diaspora/logging.rb
+	modified:   lib/diaspora/markdownify.rb
+	modified:   lib/diaspora/markdownify/email.rb
+	modified:   lib/diaspora/markdownify/html.rb
+	modified:   lib/diaspora/mentionable.rb
+	modified:   lib/diaspora/message_renderer.rb
+	deleted:    lib/diaspora/parser.rb
+	modified:   lib/diaspora/relayable.rb
+	modified:   lib/diaspora/shareable.rb
+	modified:   lib/diaspora/taggable.rb
+	modified:   lib/direction_detector.rb
+	modified:   lib/email_inviter.rb
+	deleted:    lib/encryptor.rb
+	modified:   lib/error_page_renderer.rb
+	modified:   lib/evil_query.rb
+	deleted:    lib/federated/generator.rb
+	deleted:    lib/federated/relayable.rb
+	deleted:    lib/hydra_wrapper.rb
+	modified:   lib/i18n_interpolation_fallbacks.rb
+	deleted:    lib/messagebus/mailer.rb
+	modified:   lib/node_info.rb
+	deleted:    lib/postzord.rb
+	deleted:    lib/postzord/dispatcher.rb
+	deleted:    lib/postzord/dispatcher/private.rb
+	deleted:    lib/postzord/dispatcher/public.rb
+	deleted:    lib/postzord/receiver.rb
+	deleted:    lib/postzord/receiver/local_batch.rb
+	deleted:    lib/postzord/receiver/private.rb
+	deleted:    lib/postzord/receiver/public.rb
+	modified:   lib/publisher.rb
+	modified:   lib/pubsubhubbub.rb
+	deleted:    lib/rack/chrome_frame.rb
+	deleted:    lib/salmon.rb
+	deleted:    lib/salmon/encrypted_slap.rb
+	deleted:    lib/salmon/magic_sig_envelope.rb
+	deleted:    lib/salmon/slap.rb
+	modified:   lib/share_visibility_converter.rb
+	modified:   lib/sidekiq_middlewares.rb
+	modified:   lib/stream.rb
+	modified:   lib/stream/activity.rb
+	modified:   lib/stream/aspect.rb
+	modified:   lib/stream/base.rb
+	modified:   lib/stream/comments.rb
+	modified:   lib/stream/followed_tag.rb
+	modified:   lib/stream/likes.rb
+	modified:   lib/stream/mention.rb
+	modified:   lib/stream/multi.rb
+	modified:   lib/stream/person.rb
+	modified:   lib/stream/public.rb
+	modified:   lib/stream/tag.rb
+	deleted:    lib/tasks/accounts.rake
+	modified:   lib/tasks/assets.rake
+	modified:   lib/tasks/cucumber.rake
+	modified:   lib/tasks/db.rake
+	modified:   lib/tasks/default.rake
+	modified:   lib/tasks/generate_session_secret.rake
+	modified:   lib/tasks/linter.rake
+	modified:   lib/tasks/maintenance.rake
+	modified:   lib/tasks/migrations.rake
+	modified:   lib/tasks/podmin.rake
+	modified:   lib/tasks/screenshots.rake
+	modified:   lib/tasks/tests.rake
+	deleted:    lib/unicorn_killer.rb
+	deleted:    public/javascripts/custom-mobile-scripting.js
+	modified:   public/robots.txt
+	deleted:    script/ci/build.sh
+	deleted:    script/cucumber
+	modified:   script/get_config.rb
+	modified:   script/i18n/xmltoyml.rb
+	modified:   script/i18n/ymltoxml.rb
+	deleted:    script/rails
+	modified:   script/server
+	modified:   spec/configuration_methods_spec.rb
+	modified:   spec/controllers/admin/pods_controller_spec.rb
+	modified:   spec/controllers/admin/users_controller_spec.rb
+	modified:   spec/controllers/admins_controller_spec.rb
+	modified:   spec/controllers/application_controller_spec.rb
+	modified:   spec/controllers/aspect_memberships_controller_spec.rb
+	modified:   spec/controllers/aspects_controller_spec.rb
+	modified:   spec/controllers/blocks_controller_spec.rb
+	modified:   spec/controllers/comments_controller_spec.rb
+	modified:   spec/controllers/contacts_controller_spec.rb
+	modified:   spec/controllers/conversation_visibilities_controller_spec.rb
+	modified:   spec/controllers/conversations_controller_spec.rb
+	modified:   spec/controllers/home_controller_spec.rb
+	modified:   spec/controllers/invitations_controller_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/admins_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/aspects_spec.rb
+	deleted:    spec/controllers/jasmine_fixtures/comments_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/contacts_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/conversations_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/notifications_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/people_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/photos_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/status_messages_spec.rb
+	modified:   spec/controllers/jasmine_fixtures/streams_spec.rb
+	modified:   spec/controllers/likes_controller_spec.rb
+	modified:   spec/controllers/messages_controller_spec.rb
+	modified:   spec/controllers/node_info_controller_spec.rb
+	modified:   spec/controllers/notifications_controller_spec.rb
+	modified:   spec/controllers/participations_controller_spec.rb
+	modified:   spec/controllers/passwords_controller_spec.rb
+	modified:   spec/controllers/people_controller_spec.rb
+	modified:   spec/controllers/photos_controller_spec.rb
+	modified:   spec/controllers/posts_controller_spec.rb
+	modified:   spec/controllers/profiles_controller_spec.rb
+	deleted:    spec/controllers/publics_controller_spec.rb
+	modified:   spec/controllers/registrations_controller_spec.rb
+	modified:   spec/controllers/report_controller_spec.rb
+	modified:   spec/controllers/reshares_controller_spec.rb
+	modified:   spec/controllers/search_controller_spec.rb
+	modified:   spec/controllers/services_controller_spec.rb
+	modified:   spec/controllers/sessions_controller_spec.rb
+	modified:   spec/controllers/share_visibilities_controller_spec.rb
+	modified:   spec/controllers/social_relay_controller_spec.rb
+	modified:   spec/controllers/status_messages_controller_spec.rb
+	modified:   spec/controllers/streams_controller_spec.rb
+	modified:   spec/controllers/tag_followings_controller_spec.rb
+	modified:   spec/controllers/tags_controller_spec.rb
+	modified:   spec/controllers/users_controller_spec.rb
+	modified:   spec/factories.rb
+	modified:   spec/federation_callbacks_spec.rb
+	deleted:    spec/fixtures/data_conversion/aspect_memberships.csv
+	deleted:    spec/fixtures/data_conversion/aspects.csv
+	deleted:    spec/fixtures/data_conversion/comments.csv
+	deleted:    spec/fixtures/data_conversion/contacts.csv
+	deleted:    spec/fixtures/data_conversion/invitations.csv
+	deleted:    spec/fixtures/data_conversion/notifications.csv
+	deleted:    spec/fixtures/data_conversion/people.csv
+	deleted:    spec/fixtures/data_conversion/post_visibilities.csv
+	deleted:    spec/fixtures/data_conversion/posts.csv
+	deleted:    spec/fixtures/data_conversion/profiles.csv
+	deleted:    spec/fixtures/data_conversion/requests.csv
+	deleted:    spec/fixtures/data_conversion/services.csv
+	deleted:    spec/fixtures/data_conversion/users.csv
+	modified:   spec/fixtures/public_posts.json
+	modified:   spec/helper_methods.rb
+	modified:   spec/helpers/application_helper_spec.rb
+	modified:   spec/helpers/conversations_helper_spec.rb
+	modified:   spec/helpers/getting_started_helper_spec.rb
+	modified:   spec/helpers/interim_stream_hackiness_helper_spec.rb
+	deleted:    spec/helpers/invitation_codes_helper_spec.rb
+	modified:   spec/helpers/jsxc_helper_spec.rb
+	modified:   spec/helpers/layout_helper_spec.rb
+	modified:   spec/helpers/notifications_helper_spec.rb
+	modified:   spec/helpers/notifier_helper_spec.rb
+	modified:   spec/helpers/o_embed_helper_spec.rb
+	modified:   spec/helpers/open_graph_helper_spec.rb
+	modified:   spec/helpers/people_helper_spec.rb
+	modified:   spec/helpers/posts_helper_spec.rb
+	modified:   spec/helpers/report_helper_spec.rb
+	modified:   spec/helpers/stream_helper_spec.rb
+	modified:   spec/helpers/tags_helper_spec.rb
+	modified:   spec/helpers/users_helper_spec.rb
+	modified:   spec/integration/account_deletion_spec.rb
+	deleted:    spec/integration/attack_vectors_spec.rb
+	modified:   spec/integration/contact_deleting_spec.rb
+	modified:   spec/integration/dispatching_spec.rb
+	deleted:    spec/integration/federation/federation_messages_generation.rb
+	deleted:    spec/integration/federation/receive_federation_messages.rb
+	modified:   spec/integration/federation/shared_receive_relayable.rb
+	modified:   spec/integration/federation/shared_receive_retraction.rb
+	modified:   spec/integration/mentioning_spec.rb
+	modified:   spec/integration/mobile_posts_spec.rb
+	modified:   spec/integration/profile_spec.rb
+	modified:   spec/integration/receiving_spec.rb
+	modified:   spec/integration/tag_people_spec.rb
+	modified:   spec/javascripts/app/app_spec.js
+	deleted:    spec/javascripts/app/collections/aspects_spec.js
+	modified:   spec/javascripts/app/helpers/handlebars-helpers_spec.js
+	modified:   spec/javascripts/app/helpers/text_formatter_spec.js
+	modified:   spec/javascripts/app/models/contact_spec.js
+	modified:   spec/javascripts/app/models/person_spec.js
+	modified:   spec/javascripts/app/models/post/interacations_spec.js
+	modified:   spec/javascripts/app/models/stream_spec.js
+	modified:   spec/javascripts/app/pages/admin_dashboard_spec.js
+	modified:   spec/javascripts/app/pages/contacts_spec.js
+	modified:   spec/javascripts/app/pages/single-post-viewer_spec.js
+	modified:   spec/javascripts/app/router_spec.js
+	modified:   spec/javascripts/app/views/aspect_create_view_spec.js
+	modified:   spec/javascripts/app/views/aspect_membership_view_spec.js
+	modified:   spec/javascripts/app/views/aspects_dropdown_view_spec.js
+	modified:   spec/javascripts/app/views/aspects_list_view_spec.js
+	modified:   spec/javascripts/app/views/back_to_top_view_spec.js
+	modified:   spec/javascripts/app/views/bookmarklet_view_spec.js
+	modified:   spec/javascripts/app/views/comment_stream_view_spec.js
+	modified:   spec/javascripts/app/views/contact_stream_view_spec.js
+	modified:   spec/javascripts/app/views/contact_view_spec.js
+	modified:   spec/javascripts/app/views/content_view_spec.js
+	deleted:    spec/javascripts/app/views/conversations_view_spec.js
+	modified:   spec/javascripts/app/views/feedback_view_spec.js
+	modified:   spec/javascripts/app/views/flash_messages_view-spec.js
+	modified:   spec/javascripts/app/views/header_view_spec.js
+	modified:   spec/javascripts/app/views/help_view_spec.js
+	modified:   spec/javascripts/app/views/hovercard_view_spec.js
+	modified:   spec/javascripts/app/views/likes_info_view_spec.js
+	modified:   spec/javascripts/app/views/location_stream_spec.js
+	modified:   spec/javascripts/app/views/notification_dropdown_view_spec.js
+	modified:   spec/javascripts/app/views/notifications_view_spec.js
+	modified:   spec/javascripts/app/views/open_graph_view_spec.js
+	deleted:    spec/javascripts/app/views/photo_viewer_spec.js
+	modified:   spec/javascripts/app/views/pod_entry_view_spec.js
+	modified:   spec/javascripts/app/views/poll_view_spec.js
+	modified:   spec/javascripts/app/views/profile_header_view_spec.js
+	modified:   spec/javascripts/app/views/publisher_view_spec.js
+	modified:   spec/javascripts/app/views/reshares_info_view_spec.js
+	modified:   spec/javascripts/app/views/search_view_spec.js
+	deleted:    spec/javascripts/app/views/single_post_content_view_spec.js
+	modified:   spec/javascripts/app/views/stream/shortcuts_spec.js
+	deleted:    spec/javascripts/app/views/stream_faces_view_spec.js
+	modified:   spec/javascripts/app/views/stream_post_spec.js
+	modified:   spec/javascripts/app/views/stream_view_spec.js
+	modified:   spec/javascripts/app/views_spec.js
+	deleted:    spec/javascripts/helpers/SpecHelper.js
+	deleted:    spec/javascripts/helpers/factory.js
+	modified:   spec/javascripts/mobile/mobile_comments_spec.js
+	modified:   spec/javascripts/support/jasmine.yml
+	modified:   spec/javascripts/support/jasmine_runner.rb
+	deleted:    spec/javascripts/widgets/aspect-nav.js
+	deleted:    spec/javascripts/widgets/i18n-spec.js
+	modified:   spec/lib/account_deleter_spec.rb
+	modified:   spec/lib/configuration_methods_spec.rb
+	modified:   spec/lib/connection_tester_spec.rb
+	modified:   spec/lib/diaspora/camo_spec.rb
+	deleted:    spec/lib/diaspora/encryptable_spec.rb
+	modified:   spec/lib/diaspora/exporter_spec.rb
+	deleted:    spec/lib/diaspora/federated/generator_spec.rb
+	deleted:    spec/lib/diaspora/federated/relayable_retraction_spec.rb
+	deleted:    spec/lib/diaspora/federated/request_spec.rb
+	modified:   spec/lib/diaspora/federated/retraction_spec.rb
+	deleted:    spec/lib/diaspora/federated/signed_retraction_spec.rb
+	deleted:    spec/lib/diaspora/federated_base_spec.rb
+	modified:   spec/lib/diaspora/fetcher/public_spec.rb
+	modified:   spec/lib/diaspora/markdownify_email_spec.rb
+	modified:   spec/lib/diaspora/markdownify_spec.rb
+	modified:   spec/lib/diaspora/mentionable_spec.rb
+	modified:   spec/lib/diaspora/message_renderer_spec.rb
+	deleted:    spec/lib/diaspora/parser_spec.rb
+	modified:   spec/lib/diaspora/taggable_spec.rb
+	modified:   spec/lib/direction_detector_spec.rb
+	modified:   spec/lib/email_inviter_spec.rb
+	deleted:    spec/lib/encryptor_spec.rb
+	modified:   spec/lib/evil_query_spec.rb
+	deleted:    spec/lib/hydra_wrapper_spec.rb
+	modified:   spec/lib/i18n_interpolation_fallbacks_spec.rb
+	deleted:    spec/lib/postzord/dispatcher/private_spec.rb
+	deleted:    spec/lib/postzord/dispatcher/public_spec.rb
+	deleted:    spec/lib/postzord/dispatcher_spec.rb
+	deleted:    spec/lib/postzord/receiver/local_batch_spec.rb
+	deleted:    spec/lib/postzord/receiver/private_spec.rb
+	deleted:    spec/lib/postzord/receiver/public_spec.rb
+	deleted:    spec/lib/postzord/receiver_spec.rb
+	modified:   spec/lib/publisher_spec.rb
+	modified:   spec/lib/pubsubhubbub_spec.rb
+	deleted:    spec/lib/rack/chrome_frame_spec.rb
+	deleted:    spec/lib/salmon/encrypted_slap_spec.rb
+	deleted:    spec/lib/salmon/magic_sig_envelope_spec.rb
+	deleted:    spec/lib/salmon/slap_spec.rb
+	modified:   spec/lib/stream/activity_spec.rb
+	modified:   spec/lib/stream/aspect_spec.rb
+	modified:   spec/lib/stream/base_spec.rb
+	modified:   spec/lib/stream/comments_spec.rb
+	modified:   spec/lib/stream/followed_tag_spec.rb
+	modified:   spec/lib/stream/likes_spec.rb
+	modified:   spec/lib/stream/mention_spec.rb
+	modified:   spec/lib/stream/multi_spec.rb
+	modified:   spec/lib/stream/person_spec.rb
+	modified:   spec/lib/stream/public_spec.rb
+	modified:   spec/lib/stream/tag_spec.rb
+	modified:   spec/locale_spec.rb
+	modified:   spec/mailers/export_spec.rb
+	modified:   spec/mailers/maintenance_spec.rb
+	modified:   spec/mailers/notifier_spec.rb
+	modified:   spec/mailers/report_spec.rb
+	deleted:    spec/migrations/remove_duplicate_and_empty_pods_spec.rb
+	deleted:    spec/misc_spec.rb
+	modified:   spec/models/account_deletion_spec.rb
+	modified:   spec/models/acts_as_taggable_on_tag_spec.rb
+	modified:   spec/models/aspect_membership_spec.rb
+	modified:   spec/models/aspect_spec.rb
+	modified:   spec/models/block_spec.rb
+	modified:   spec/models/comment_spec.rb
+	modified:   spec/models/contact_spec.rb
+	modified:   spec/models/conversation_spec.rb
+	modified:   spec/models/conversation_visibilities_spec.rb
+	modified:   spec/models/invitation_code_spec.rb
+	deleted:    spec/models/invitation_spec.rb
+	modified:   spec/models/like_spec.rb
+	modified:   spec/models/location_spec.rb
+	modified:   spec/models/mention_spec.rb
+	modified:   spec/models/message_spec.rb
+	modified:   spec/models/notification_spec.rb
+	modified:   spec/models/notifications/private_message_spec.rb
+	modified:   spec/models/notifications/reshared_spec.rb
+	modified:   spec/models/participation_spec.rb
+	modified:   spec/models/person_spec.rb
+	modified:   spec/models/photo_spec.rb
+	modified:   spec/models/pod_spec.rb
+	modified:   spec/models/poll_answer_spec.rb
+	modified:   spec/models/poll_participation_spec.rb
+	modified:   spec/models/poll_spec.rb
+	modified:   spec/models/post_spec.rb
+	modified:   spec/models/profile_spec.rb
+	modified:   spec/models/report_spec.rb
+	modified:   spec/models/reshare_spec.rb
+	modified:   spec/models/role_spec.rb
+	modified:   spec/models/service_spec.rb
+	modified:   spec/models/services/facebook_spec.rb
+	modified:   spec/models/services/tumblr_spec.rb
+	modified:   spec/models/services/twitter_spec.rb
+	modified:   spec/models/services/wordpress_spec.rb
+	modified:   spec/models/share_visibility_spec.rb
+	modified:   spec/models/status_message_spec.rb
+	modified:   spec/models/tag_following_spec.rb
+	modified:   spec/models/user/connecting_spec.rb
+	modified:   spec/models/user/posting_spec.rb
+	modified:   spec/models/user/querying_spec.rb
+	modified:   spec/models/user/social_actions_spec.rb
+	modified:   spec/models/user_preference_spec.rb
+	modified:   spec/models/user_spec.rb
+	modified:   spec/presenters/aspect_membership_presenter_spec.rb
+	modified:   spec/presenters/aspect_presenter_spec.rb
+	modified:   spec/presenters/avatar_presenter_spec.rb
+	modified:   spec/presenters/base_presenter_spec.rb
+	modified:   spec/presenters/contact_presenter_spec.rb
+	modified:   spec/presenters/node_info_presenter_spec.rb
+	modified:   spec/presenters/o_embed_presenter_spec.rb
+	modified:   spec/presenters/person_presenter_spec.rb
+	deleted:    spec/presenters/post_ineraction_presenter_spec.rb
+	modified:   spec/presenters/post_presenter_spec.rb
+	modified:   spec/presenters/service_presenter_spec.rb
+	modified:   spec/presenters/social_relay_presenter_spec.rb
+	deleted:    spec/presenters/statistics_presenter_spec.rb
+	modified:   spec/presenters/user_presenter_spec.rb
+	deleted:    spec/requests_helper.rb
+	deleted:    spec/serializers/comment_serializer_spec.rb
+	deleted:    spec/serializers/post_serializer_spec.rb
+	modified:   spec/services/post_service_spec.rb
+	modified:   spec/shared_behaviors/account_deletion.rb
+	modified:   spec/shared_behaviors/relayable.rb
+	modified:   spec/shared_behaviors/stream.rb
+	modified:   spec/shared_behaviors/taggable.rb
+	deleted:    spec/spec-doc.rb
+	modified:   spec/spec_helper.rb
+	modified:   spec/support/fake_http_request.rb
+	deleted:    spec/support/fake_typhoeus.rb
+	modified:   spec/support/fixture_builder.rb
+	modified:   spec/support/fixture_generation.rb
+	modified:   spec/support/inlined_jobs.rb
+	modified:   spec/support/user_methods.rb
+	modified:   spec/workers/deferred_dispatch_spec.rb
+	modified:   spec/workers/delete_account_spec.rb
+	modified:   spec/workers/delete_post_from_service_spec.rb
+	modified:   spec/workers/export_photos_spec.rb
+	modified:   spec/workers/export_user_spec.rb
+	modified:   spec/workers/fetch_profile_photo_spec.rb
+	modified:   spec/workers/fetch_webfinger_spec.rb
+	modified:   spec/workers/gather_o_embed_data_spec.rb
+	modified:   spec/workers/gather_open_graph_data_spec.rb
+	deleted:    spec/workers/http_multi_spec.rb
+	modified:   spec/workers/mail/invite_email_spec.rb
+	modified:   spec/workers/mail/liked_spec.rb
+	modified:   spec/workers/mail/mentioned_spec.rb
+	modified:   spec/workers/mail/private_message_spec.rb
+	modified:   spec/workers/mail/reshared_spec.rb
+	deleted:    spec/workers/notify_local_users_spec.rb
+	modified:   spec/workers/post_to_service_spec.rb
+	modified:   spec/workers/process_photo_spec.rb
+	modified:   spec/workers/publish_to_hub_spec.rb
+	modified:   spec/workers/queue_users_for_removal_spec.rb
+	deleted:    spec/workers/receive_local_batch_spec.rb
+	deleted:    spec/workers/receive_salmon_spec.rb
+	deleted:    spec/workers/receive_spec.rb
+	modified:   spec/workers/recurring_pod_check_spec.rb
+	modified:   spec/workers/remove_old_user_spec.rb
+	deleted:    spec/workers/resend_invitation_spec.rb
+	modified:   spec/workers/reset_password_spec.rb
+	deleted:    vendor/assets/javascripts/jquery.charcount.js
+	deleted:    vendor/assets/javascripts/jquery.events.input.js
+	deleted:    vendor/assets/javascripts/jquery.infinitescroll-custom.js
+	deleted:    vendor/assets/javascripts/keycodes.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.codeclimate.yml
+	.eslintrc
+	.pronto.yml
+	CONTRIBUTING.md
+	LICENSE
+	app/assets/config/
+	app/assets/images/branding/logos/asterisk_white_mobile.png
+	app/assets/images/buttons/liberapay-button.svg
+	app/assets/images/dandelion.jpg
+	app/assets/images/social-media-logos/
+	app/assets/javascripts/api/
+	app/assets/javascripts/app/collections/aspect_selections.js
+	app/assets/javascripts/app/collections/notifications.js
+	app/assets/javascripts/app/helpers/locations.js
+	app/assets/javascripts/app/helpers/shortcuts.js
+	app/assets/javascripts/app/models/notification.js
+	app/assets/javascripts/app/pages/getting_started.js
+	app/assets/javascripts/app/views/comment_mention_view.js
+	app/assets/javascripts/app/views/conversations_inbox_view.js
+	app/assets/javascripts/app/views/no_posts_info_view.js
+	app/assets/javascripts/app/views/post_controls_view.js
+	app/assets/javascripts/app/views/preview_post_view.js
+	app/assets/javascripts/app/views/publisher/mention_view.js
+	app/assets/javascripts/app/views/search_base_view.js
+	app/assets/javascripts/app/views/single-post-viewer/single_post_interaction_counts.js
+	app/assets/javascripts/helpers/browser_notification.js
+	app/assets/javascripts/helpers/markdown_editor.js
+	app/assets/javascripts/helpers/profile_photo_uploader.es6
+	app/assets/javascripts/helpers/tags_autocomplete.js
+	app/assets/javascripts/mobile/bookmarklet.js
+	app/assets/javascripts/mobile/mobile_alert.js
+	app/assets/javascripts/mobile/mobile_application.js
+	app/assets/javascripts/mobile/mobile_conversations.js
+	app/assets/javascripts/mobile/mobile_drawer.js
+	app/assets/javascripts/mobile/mobile_post_actions.js
+	app/assets/javascripts/mobile/mobile_profile_edit.js
+	app/assets/javascripts/mobile/mobile_profile_photo_uploader.js
+	app/assets/stylesheets/card-footer.scss
+	app/assets/stylesheets/color_themes/_color_theme_override_dark.scss
+	app/assets/stylesheets/color_themes/_color_theme_override_origwhite.scss
+	app/assets/stylesheets/color_themes/dark/
+	app/assets/stylesheets/color_themes/original_white/
+	app/assets/stylesheets/markdown-editor.scss
+	app/assets/stylesheets/media-embed.scss
+	app/assets/stylesheets/mobile/flash_messages.scss
+	app/assets/stylesheets/mobile/markdown_editor.scss
+	app/assets/stylesheets/mobile/openid_connect_error_page.scss
+	app/assets/stylesheets/openid_connect_error_page.scss
+	app/assets/stylesheets/poltergeist_disable_transition.scss
+	app/assets/stylesheets/sidebar.scss
+	app/assets/stylesheets/user_applications.scss
+	app/assets/templates/aspect_membership_dropdown_tpl.jst.hbs
+	app/assets/templates/conversation_recipient_tag_tpl.jst.hbs
+	app/assets/templates/media-embed_tpl.jst.hbs
+	app/assets/templates/no_posts_info_tpl.jst.hbs
+	app/assets/templates/post-controls_tpl.jst.hbs
+	app/assets/templates/single-post-viewer/single-post-interaction-counts_tpl.jst.hbs
+	app/controllers/api/openid_connect/
+	app/controllers/api/v0/
+	app/helpers/activity_streams_helper.rb
+	app/helpers/gon_helper.rb
+	app/helpers/meta_data_helper.rb
+	app/helpers/user_applications_helper.rb
+	app/mailers/application_mailer.rb
+	app/mailers/notification_mailers/contacts_birthday.rb
+	app/mailers/notification_mailers/csrf_token_fail.rb
+	app/mailers/notification_mailers/mentioned_in_comment.rb
+	app/models/account_migration.rb
+	app/models/api/
+	app/models/application_record.rb
+	app/models/comment_signature.rb
+	app/models/like_signature.rb
+	app/models/notifications/commented.rb
+	app/models/notifications/contacts_birthday.rb
+	app/models/notifications/mentioned_in_comment.rb
+	app/models/notifications/mentioned_in_post.rb
+	app/models/poll_participation_signature.rb
+	app/models/reference.rb
+	app/models/signature_order.rb
+	app/models/user/authentication_token.rb
+	app/presenters/tag_stream_presenter.rb
+	app/presenters/user_application_presenter.rb
+	app/presenters/user_applications_presenter.rb
+	app/serializers/export/others_data_serializer.rb
+	app/serializers/export/own_post_serializer.rb
+	app/serializers/export/own_relayables_serializer.rb
+	app/serializers/federation_entity_serializer.rb
+	app/serializers/flat_map_array_serializer.rb
+	app/serializers/notification_serializer.rb
+	app/serializers/serializer_post_processing.rb
+	app/serializers/user_info_serializer.rb
+	app/services/like_service.rb
+	app/services/notification_service.rb
+	app/services/reshare_service.rb
+	app/views/admins/_dashboard.haml
+	app/views/admins/_stats.haml
+	app/views/admins/_user_search.haml
+	app/views/admins/_weekly_user_stats.haml
+	app/views/admins/dashboard.mobile.haml
+	app/views/admins/pods.mobile.haml
+	app/views/admins/stats.mobile.haml
+	app/views/admins/user_search.mobile.haml
+	app/views/admins/weekly_user_stats.mobile.haml
+	app/views/api/
+	app/views/application/
+	app/views/aspects/_aspect_dropdown.html.haml
+	app/views/comments/_post_stats.mobile.haml
+	app/views/conversations/_message.html.haml
+	app/views/conversations/_message.mobile.haml
+	app/views/home/podmin.haml
+	app/views/layouts/_header_not_connected.haml
+	app/views/layouts/notifier.html.haml
+	app/views/notifier/contacts_birthday.markerb
+	app/views/notifier/csrf_token_fail.markerb
+	app/views/notifier/mentioned_in_comment.markerb
+	app/views/report/_reports.haml
+	app/views/report/index.mobile.haml
+	app/views/sessions/_form.haml
+	app/views/users/_post_default.html.haml
+	app/views/users/_post_default.mobile.haml
+	app/workers/check_birthday.rb
+	app/workers/cleanup_old_exports.rb
+	app/workers/deferred_retraction.rb
+	app/workers/mail/contacts_birthday.rb
+	app/workers/mail/csrf_token_fail.rb
+	app/workers/mail/mentioned_in_comment.rb
+	app/workers/mail/notifier_base.rb
+	app/workers/receive_base.rb
+	app/workers/receive_local.rb
+	app/workers/receive_private.rb
+	app/workers/receive_public.rb
+	app/workers/recheck_scheduled_pods.rb
+	app/workers/send_base.rb
+	app/workers/send_private.rb
+	app/workers/send_public.rb
+	config/bundler_helper.rb
+	config/certs/
+	config/initializers/application_controller_renderer.rb
+	config/initializers/backtrace_silencers.rb
+	config/initializers/cookies_serializer.rb
+	config/initializers/inflections.rb
+	config/initializers/mime_types.rb
+	config/initializers/prosody.rb
+	config/initializers/secure_headers.rb
+	config/locales/devise/devise.oc.yml
+	config/locales/devise/devise.sc.yml
+	config/locales/diaspora/de-CH.yml
+	config/locales/diaspora/de-moo.yml
+	config/locales/diaspora/ja-KS.yml
+	config/locales/diaspora/oc.yml
+	config/locales/diaspora/th.yml
+	config/locales/diaspora/tt.yml
+	config/locales/javascript/javascript.de-CH.yml
+	config/locales/javascript/javascript.oc.yml
+	config/open_graph_providers.yml
+	config/schedule.yml
+	config/spring.rb
+	db/migrate/20160829170244_add_post_default_to_aspects.rb
+	db/migrate/20160901072443_add_video_url_to_open_graph_cache.rb
+	db/migrate/20160902180630_remove_invalid_unconfirmed_emails.rb
+	db/migrate/20160906225138_fix_photos_share_visibilities.rb
+	db/migrate/20161015174300_remove_empty_pod.rb
+	db/migrate/20161024231443_add_scheduled_check_to_pod.rb
+	db/migrate/20161107100840_polymorphic_mentions.rb
+	db/migrate/20170430022507_remove_message_signature.rb
+	db/migrate/20170730154117_create_account_migrations.rb
+	db/migrate/20170813141631_cleanup_account_deletions_and_add_unique_index.rb
+	db/migrate/20170813153048_add_missing_indexes.rb
+	db/migrate/20170813160104_cleanup_aspects_and_add_unique_index.rb
+	db/migrate/20170813164435_add_missing_unique_indexes.rb
+	db/migrate/20170813222333_reset_export_states.rb
+	db/migrate/20170824202628_cleanup_root_guids_from_reshares.rb
+	db/migrate/20170827222357_remove_rails_admin_histories.rb
+	db/migrate/20170827231800_remove_string_column_from_ppid.rb
+	db/migrate/20170914202650_cleanup_invalid_likes.rb
+	db/migrate/20170914212336_cleanup_invalid_polls.rb
+	db/migrate/20170917163640_cleanup_invalid_o_embed_caches.rb
+	db/migrate/20170920214158_create_references_table.rb
+	db/migrate/20170928233609_cleanup_invalid_diaspora_ids.rb
+	db/migrate/20171009232054_cleanup_relayables_without_signature.rb
+	db/migrate/20171012202650_cleanup_invalid_contacts.rb
+	db/migrate/20171017221434_cleanup_empty_signatures.rb
+	features/desktop/change_settings.feature
+	features/desktop/help.feature
+	features/desktop/media-embed.feature
+	features/desktop/oidc_auth_code_flow.feature
+	features/desktop/oidc_implicit_flow.feature
+	features/desktop/user_applications.feature
+	features/mobile/stream.feature
+	features/mobile/user_applications.feature
+	features/step_definitions/auth_code_steps.rb
+	features/step_definitions/drawer_steps.rb
+	features/step_definitions/implicit_flow_steps.rb
+	features/step_definitions/like_steps.rb
+	features/step_definitions/media_embed_steps.rb
+	features/step_definitions/oidc_common_steps.rb
+	features/step_definitions/user_applications_steps.rb
+	graphics/dandelion.jpg
+	lib/api/
+	lib/assets/javascripts/charcount.js
+	lib/assets/javascripts/keycodes.js
+	lib/diaspora/exporter/
+	lib/diaspora/federated/contact_retraction.rb
+	lib/diaspora/federated/generator.rb
+	lib/diaspora/federation.rb
+	lib/diaspora/federation/
+	lib/diaspora/fields/
+	lib/diaspora/mentions_container.rb
+	lib/diaspora/signature.rb
+	lib/photo_exporter.rb
+	lib/schemas/
+	script/ci/prepare.sh
+	script/configure_bundler
+	spec/controllers/api/
+	spec/controllers/help_controller_spec.rb
+	spec/controllers/invitation_codes_controller_spec.rb
+	spec/controllers/jasmine_fixtures/posts_spec.rb
+	spec/controllers/jasmine_fixtures/users_spec.rb
+	spec/controllers/terms_controller_spec.rb
+	spec/fixtures/client_assertion_with_nonexistent_client_id.txt
+	spec/fixtures/client_assertion_with_nonexistent_kid.txt
+	spec/fixtures/client_assertion_with_tampered_sig.txt
+	spec/fixtures/jwks.json
+	spec/fixtures/valid_client_assertion.txt
+	spec/helpers/gon_helper_spec.rb
+	spec/helpers/language_helper_spec.rb
+	spec/helpers/meta_data_helper_spec.rb
+	spec/helpers/publisher_helper_spec.rb
+	spec/integration/account_migration_spec.rb
+	spec/integration/api/
+	spec/integration/application_spec.rb
+	spec/integration/contacts_spec.rb
+	spec/integration/export/
+	spec/integration/exporter_spec.rb
+	spec/integration/federation/attack_vectors_spec.rb
+	spec/integration/federation/federation_helper.rb
+	spec/integration/federation/receive_federation_messages_spec.rb
+	spec/integration/federation/shared_receive_stream_items.rb
+	spec/javascripts/app/collections/aspect_memberships_spec.js
+	spec/javascripts/app/collections/aspect_selections_spec.js
+	spec/javascripts/app/collections/notifications_collection_spec.js
+	spec/javascripts/app/helpers/locations_spec.js
+	spec/javascripts/app/helpers/shortcuts_spec.js
+	spec/javascripts/app/models/notification_spec.js
+	spec/javascripts/app/pages/getting_started_spec.js
+	spec/javascripts/app/views/comment_mention_view_spec.js
+	spec/javascripts/app/views/conversations_form_view_spec.js
+	spec/javascripts/app/views/conversations_inbox_view_spec.js
+	spec/javascripts/app/views/no_posts_info_view_spec.js
+	spec/javascripts/app/views/post_controls_view_spec.js
+	spec/javascripts/app/views/preview_post_view_spec.js
+	spec/javascripts/app/views/publisher_mention_view_spec.js
+	spec/javascripts/app/views/search_base_view_spec.js
+	spec/javascripts/app/views/single-post-view/
+	spec/javascripts/helpers/i18n_spec.js
+	spec/javascripts/helpers/markdown_editor_spec.js
+	spec/javascripts/jasmine_helpers/
+	spec/javascripts/lib/
+	spec/javascripts/mobile/mobile_alert_spec.js
+	spec/javascripts/mobile/mobile_application_spec.js
+	spec/javascripts/mobile/mobile_conversations_spec.js
+	spec/javascripts/mobile/mobile_drawer_spec.js
+	spec/javascripts/mobile/mobile_post_actions_spec.js
+	spec/javascripts/onerror-fail.js
+	spec/lib/api/
+	spec/lib/diaspora/exporter/
+	spec/lib/diaspora/federated/base_spec.rb
+	spec/lib/diaspora/federated/contact_retraction_spec.rb
+	spec/lib/diaspora/federation/
+	spec/lib/diaspora/shareable_spec.rb
+	spec/models/account_migration_spec.rb
+	spec/models/api/
+	spec/models/aspect_visibility_spec.rb
+	spec/models/comment_signature_spec.rb
+	spec/models/like_signature_spec.rb
+	spec/models/notifications/also_commented_spec.rb
+	spec/models/notifications/contacts_birthday_spec.rb
+	spec/models/notifications/mentioned_in_post_spec.rb
+	spec/models/notifications/mentioned_spec.rb
+	spec/models/notifications/started_sharing_spec.rb
+	spec/models/open_graph_cache_spec.rb
+	spec/models/poll_participation_signature_spec.rb
+	spec/models/reference_spec.rb
+	spec/models/signature_order_spec.rb
+	spec/models/user/authentication_token_spec.rb
+	spec/presenters/post_interaction_presenter_spec.rb
+	spec/presenters/profile_presenter_spec.rb
+	spec/serializers/export/
+	spec/serializers/federation_entity_serializer_spec.rb
+	spec/serializers/notification_serializer_spec.rb
+	spec/serializers/serializer_post_processing_spec.rb
+	spec/services/comment_service_spec.rb
+	spec/services/like_service_spec.rb
+	spec/services/notification_service_spec.rb
+	spec/services/reshare_service.rb
+	spec/services/status_message_creation_service_spec.rb
+	spec/shared_behaviors/account_migration.rb
+	spec/shared_behaviors/dispatcher.rb
+	spec/shared_behaviors/federation_entity_serializer.rb
+	spec/shared_behaviors/mentions_container.rb
+	spec/shared_behaviors/receiving.rb
+	spec/shared_behaviors/references.rb
+	spec/shared_behaviors/shareable.rb
+	spec/shared_behaviors/signature.rb
+	spec/spec/
+	spec/support/account_matchers.rb
+	spec/support/data_generator.rb
+	spec/support/gon.rb
+	spec/support/serializer_matchers.rb
+	spec/workers/check_birthday_spec.rb
+	spec/workers/cleanup_old_exports_spec.rb
+	spec/workers/mail/contacts_birthday_spec.rb
+	spec/workers/mail/csrf_token_fail_spec.rb
+	spec/workers/receive_private_spec.rb
+	spec/workers/receive_public_spec.rb
+	spec/workers/recheck_offline_pods_spec.rb
+	spec/workers/send_base_spec.rb
+	spec/workers/send_private_spec.rb
+	spec/workers/send_public_spec.rb
+	st.txt
+	vendor/nodeinfo/schemas/2.0.json
+
+no changes added to commit (use "git add" and/or "git commit -a")

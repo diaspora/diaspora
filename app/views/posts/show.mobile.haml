@@ -3,6 +3,6 @@
 -#   the COPYRIGHT file.
 
 .stream
-  = render :partial => 'shared/stream_element',
-    :locals => {:post => @post, :commenting_disabled => commenting_disabled?(@post), :expanded_info => true}
+  = render partial: "shared/stream_element",
+    locals: {post: post, commenting_disabled: commenting_disabled?(post), expanded_info: true}
 

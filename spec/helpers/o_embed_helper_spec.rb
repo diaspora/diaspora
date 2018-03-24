@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe OEmbedHelper, :type => :helper do
   describe 'o_embed_html' do

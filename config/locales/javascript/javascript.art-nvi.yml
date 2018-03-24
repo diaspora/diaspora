@@ -22,11 +22,8 @@ art-nvi:
       recent_notifications: "Upxare asop"
       search: "fwew"
       view_all: "Tse'a nìwotx"
-    infinite_scroll:
-      no_more: "Kea nì'ul upxare"
     my_activity: "Oeyä Tìn"
     my_stream: "Payfya"
-    search_for: "fwew <%= name %>ìri"
     show_more: "wìntxu nì'ul"
     stream:
       comment: "plltxe"
@@ -36,19 +33,15 @@ art-nvi:
       unlike: "Ke Sunu"
     timeago:
       day: "trr"
-      days: "%d srr"
+      days:
+        other: "%d srr"
       month: "vospxì"
-      months: "%d ayvospxì"
+      months:
+        other: "%d ayvospxì"
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: ""
       suffixFromNow: ""
       year: "zìsìt"
-      years: "%d ayzìsìt"
-    videos:
-      unknown: "rusikxa rol fnel astxong"
-      watch: "Tse'a fìrusikxa rolit <%= provider %>mì"
-    viewer:
-      home: "KELUTRAL"
-      like: "Sunu"
-      unlike: "Ke Sunu"
+      years:
+        other: "%d ayzìsìt"

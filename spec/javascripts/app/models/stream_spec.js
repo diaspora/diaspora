@@ -7,6 +7,38 @@ describe("app.models.Stream", function() {
     expectedPath = document.location.pathname;
   });
 
+  describe("collectionOptions", function() {
+    beforeEach(function() {
+      this.post1 = new app.models.Post({"id": 1, "created_at": 12, "interacted_at": 123});
+      this.post2 = new app.models.Post({"id": 2, "created_at": 13, "interacted_at": 123});
+      this.post3 = new app.models.Post({"id": 3, "created_at": 13, "interacted_at": 122});
+      this.post4 = new app.models.Post({"id": 4, "created_at": 10, "interacted_at": 100});
+    });
+
+    it("returns a comparator for posts that compares created_at and ids by default", function() {
+      this.options = stream.collectionOptions();
+      expect(this.options.comparator(this.post1, this.post2)).toBe(1);
+      expect(this.options.comparator(this.post2, this.post1)).toBe(-1);
+      expect(this.options.comparator(this.post2, this.post3)).toBe(1);
+      expect(this.options.comparator(this.post3, this.post2)).toBe(-1);
+      expect(this.options.comparator(this.post1, this.post4)).toBe(-1);
+      expect(this.options.comparator(this.post4, this.post1)).toBe(1);
+      expect(this.options.comparator(this.post1, this.post1)).toBe(0);
+    });
+
+    it("returns a comparator for posts that compares interacted_at and ids for the activity stream", function() {
+      spyOn(stream, "basePath").and.returnValue("activity");
+      this.options = stream.collectionOptions();
+      expect(this.options.comparator(this.post1, this.post2)).toBe(1);
+      expect(this.options.comparator(this.post2, this.post1)).toBe(-1);
+      expect(this.options.comparator(this.post2, this.post3)).toBe(-1);
+      expect(this.options.comparator(this.post3, this.post2)).toBe(1);
+      expect(this.options.comparator(this.post1, this.post4)).toBe(-1);
+      expect(this.options.comparator(this.post4, this.post1)).toBe(1);
+      expect(this.options.comparator(this.post1, this.post1)).toBe(0);
+    });
+  });
+
   describe("#_fetchOpts", function() {
     it("it fetches posts from the window's url, and ads them to the collection", function() {
       expect( stream._fetchOpts() ).toEqual({ remove: false, url: expectedPath});

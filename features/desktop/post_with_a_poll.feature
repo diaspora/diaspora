@@ -40,51 +40,51 @@ Feature: posting with a poll
       Given I expand the publisher
       And I click on selector "#poll_creator"
       When I fill in the following:
-          | status_message_fake_text    | I am eating yogurt |
-          | poll_question               | What kind of yogurt do you like? |
+          | status_message_text    | I am eating yogurt |
+          | poll_question          | What kind of yogurt do you like? |
       And I fill in the following for the options:
           | normal |
           | not normal  |
       And I press "Share"
-      Then I should see a ".poll_form" within ".stream_element"
-      And I should see a "form" within ".stream_element"
+      Then I should see a ".poll-form" within ".stream-element"
+      And I should see a "form" within ".stream-element"
 
     Scenario: vote for an option
       Given I expand the publisher
       And I click on selector "#poll_creator"
       When I fill in the following:
-          | status_message_fake_text    | I am eating yogurt |
-          | poll_question               | What kind of yogurt do you like? |
+          | status_message_text    | I am eating yogurt |
+          | poll_question          | What kind of yogurt do you like? |
       And I fill in the following for the options:
           | normal |
           | not normal  |
       And I press "Share"
 
       And I check the first option
-      And I press "Vote" within ".stream_element"
-      Then I should see an element ".poll_progress_bar"
+      And I press "Vote" within ".stream-element"
+      Then I should see an element ".progress-bar"
       And I should see an element ".percentage"
-      And I should see "1 vote so far" within ".poll_statistic"
+      And I should see "1 vote so far" within ".poll-statistic"
 
   Scenario: click to show result
     Given I expand the publisher
     And I click on selector "#poll_creator"
     When I fill in the following:
-        | status_message_fake_text    | I am eating yogurt |
-        | poll_question               | What kind of yogurt do you like? |
+        | status_message_text    | I am eating yogurt |
+        | poll_question          | What kind of yogurt do you like? |
     And I fill in the following for the options:
         | normal |
         | not normal  |
     And I press "Share"
-    And I click on selector ".toggle_result"
+    And I click on selector ".toggle-result"
     Then I should see an element ".percentage"
 
   Scenario: validate answer input
     Given I expand the publisher
     And I click on selector "#poll_creator"
     When I fill in the following:
-        | status_message_fake_text    | I am eating yogurt |
-        | poll_question               | What kind of yogurt do you like? |
+        | status_message_text    | I am eating yogurt |
+        | poll_question          | What kind of yogurt do you like? |
     And I fill in the following for the options:
         | normal |
         |  |

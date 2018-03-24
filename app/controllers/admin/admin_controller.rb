@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 module Admin
   class AdminController < ApplicationController
-
-    before_filter :authenticate_user!
-    before_filter :redirect_unless_admin
-
+    before_action :authenticate_user!
+    before_action :redirect_unless_admin
   end
 end

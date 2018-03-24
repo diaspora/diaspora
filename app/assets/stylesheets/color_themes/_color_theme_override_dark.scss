@@ -1,0 +1,168 @@
+// Only overriding existing selectors here, so disable some lint rules
+// scss-lint:disable IdSelector, SelectorFormat, NestingDepth, SelectorDepth, QualifyingElement
+body {
+  .publisher {
+    form {
+      #publisher-textarea-wrapper { background-color: $gray; }
+      .btn.btn-link.question_mark:hover .entypo-cog { color: $gray-light; }
+    }
+    .publisher-buttonbar .btn.btn-link:hover i { color: $gray-light; }
+  }
+
+  .write-preview-tabs > li.active * { color: $text-color; }
+  .md-cancel:hover .entypo-cross { color: $gray-light; }
+
+  .md-input,
+  .md-preview { background-color: $gray; }
+
+  .aspect-dropdown li a .text { color: $dropdown-link-color; }
+
+  .info .tag { background-color: $gray-light; }
+
+  .poll-form .progress {
+    background-color: $gray-dark;
+    .progress-bar { background-color: $gray-light; }
+    .users-vote { background-color: $brand-primary; }
+  }
+
+  .stream-element .collapsible {
+    .markdown-content hr { border-top: 1px solid $hr-border; }
+    .expander {
+      @include linear-gradient(transparent, $gray-light, 0%, 95%);
+      border-bottom: 2px solid $gray-light;
+      color: $text-color;
+      text-shadow: 0 0 7px $black;
+    }
+  }
+
+  code,
+  pre {
+    background-color: $gray-dark;
+    border: 1px solid $border-medium-grey;
+    color: $text-color;
+  }
+
+  pre code { border: 0; }
+
+  @import 'highlightjs/darcula';
+
+  #single-post-content .head {
+    .author-name { color: lighten($gray-lighter, 27%); }
+    #single-post-actions i.entypo-heart.red:hover { color: $red; }
+  }
+
+  .opengraph a { color: lighten($gray-lighter, 27%); }
+
+  .tag:hover { background-color: desaturate(darken($link-color, 35%), 20%); }
+
+  #profile_container .profile_header {
+    #author_info #sharing_message.entypo-check { color: lighten($green, 10%); }
+  }
+
+  #invitationsModal #email_invitation { border-top: 1px dashed $gray-light; }
+
+  #contacts_container #people-stream.contacts .stream-element.in_aspect {
+    background-color: $state-success-bg;
+    border-left: 3px solid darken($state-success-bg, 10%);
+  }
+
+  .left-navbar #tags_list {
+    .as-list {
+      color: $text-color;
+
+      em {
+        background-color: lighten($background-blue, 10%);
+        color: $text-color;
+      }
+    }
+
+    .as-result-item.active { color: $text-color; }
+  }
+
+  #faq .question {
+    background-color: $gray-dark;
+    a.toggle { color: $gray-lighter; }
+    &.collapsed { border: 2px solid $gray-dark; }
+    &.opened {
+      border: 2px solid darken($green, 10%);
+      h4 { background-color: darken($green, 10%); }
+    }
+
+    .answer { background-color: $gray; }
+  }
+
+  #welcome-to-diaspora { background: $orange; }
+
+  .md-editor,
+  .block-form fieldset .form-control:focus { border-color: $input-border; }
+
+  &.page-registrations.action-new,
+  &.page-registrations.action-create {
+    .ball { filter: invert(100%); }
+  }
+
+  .spinner { border-color: $gray-light transparent $gray-light $gray-light; }
+
+  // AutoSuggest CSS
+  ul.as-selections {
+    background-color: $framed-background;
+
+    li.as-selection-item,
+    li.as-selection-item.blur {
+      background-color: $gray-dark;
+      border: 1px solid $gray-darker;
+      box-shadow: 0 1px 1px $gray-darker;
+      color: $text-color;
+      text-shadow: 0 1px 1px $gray-darker;
+    }
+
+    li.as-selection-item a.as-close,
+    li.as-selection-item.blur a.as-close {
+      color: $text-color;
+      text-shadow: 0 1px 1px $gray-darker;
+    }
+
+    li:hover.as-selection-item {
+      background-color: $light-blue;
+      border-color: $brand-primary;
+      color: $white;
+      a.as-close { color: $gray-light; }
+    }
+
+    li.as-selection-item.selected { border-color: $brand-primary; }
+    li.as-selection-item a:hover.as-close { color: $white; }
+    li.as-selection-item a:active.as-close { color: $gray-lighter; }
+  }
+
+  ul.as-list {
+    background-color: $gray-dark;
+    box-shadow: 0 2px 12px $gray-light;
+    color: $text-color;
+  }
+
+  li.as-result-item,
+  li.as-message {
+    border: 1px solid $gray-dark;
+  }
+
+  li.as-result-item.active {
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+    text-shadow: none;
+
+    em { background: darken($brand-primary, 10%); }
+  }
+  // End AutoSuggest CSS
+
+  // Bootstrap Switch CSS
+  .bootstrap-switch {
+    border-color: $border-grey;
+    .bootstrap-switch-label { background: $framed-background; }
+    .bootstrap-switch-handle-on.bootstrap-switch-default,
+    .bootstrap-switch-handle-off.bootstrap-switch-default {
+      background: $gray-dark;
+      color: $text-color;
+    }
+  }
+  // End Bootstrap Switch CSS
+}

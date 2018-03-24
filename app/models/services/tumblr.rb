@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Services::Tumblr < Service
   MAX_CHARACTERS = 1000
 
@@ -35,21 +37,22 @@ class Services::Tumblr < Service
   end
 
   def tumblr_template(post, url)
-    html = ''
-    post.photos.each do |photo|
-      html << "![photo](#{photo.url(:scaled_full)})\n\n"
-    end
-    html << post.message.html(mentioned_people: [])
-    html << "\n\n[original post](#{url})"
+    photo_html = post.photos.map {|photo|
+      "![photo](#{photo.url(:scaled_full)})\n\n"
+    }.join
+
+    "#{photo_html}#{post.message.html(mentioned_people: [])}\n\n[original post](#{url})"
   end
 
-  def delete_post(post)
-    if post.present? && post.tumblr_ids.present?
-      logger.debug "event=delete_from_service type=tumblr sender_id=#{user_id} post=#{post.guid}"
-      tumblr_posts = JSON.parse(post.tumblr_ids)
-      tumblr_posts.each do |blog_name,post_id|
-        delete_from_tumblr(blog_name, post_id)
-      end
+  def post_opts(post)
+    {tumblr_ids: post.tumblr_ids} if post.tumblr_ids.present?
+  end
+
+  def delete_from_service(opts)
+    logger.debug "event=delete_from_service type=tumblr sender_id=#{user_id} tumblr_ids=#{opts[:tumblr_ids]}"
+    tumblr_posts = JSON.parse(opts[:tumblr_ids])
+    tumblr_posts.each do |blog_name, post_id|
+      delete_from_tumblr(blog_name, post_id)
     end
   end
 

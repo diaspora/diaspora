@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module InterimStreamHackinessHelper
   def commenting_disabled?(post)
     return true unless user_signed_in?
@@ -15,17 +17,7 @@ module InterimStreamHackinessHelper
     if params[:prefill].present?
       params[:prefill]
     elsif defined?(@stream)
-      @stream.publisher.text
-    else
-      nil
-    end
-  end
-
-  def publisher_hidden_text
-    if params[:prefill].present?
-      params[:prefill]
-    elsif defined?(@stream)
-      @stream.publisher.prefill 
+      @stream.publisher.prefill
     else
       nil
     end
@@ -36,30 +28,6 @@ module InterimStreamHackinessHelper
       @stream.post_from_group(post)
     else
      []
-    end
-  end
-
-  def publisher_open
-    if defined?(@stream)
-      @stream.publisher.open?
-    else
-      false
-    end
-  end
-
-  def publisher_public
-    if defined?(@stream)
-      @stream.publisher.public?
-    else
-      false
-    end
-  end
-
-  def publisher_explain
-    if defined?(@stream)
-      @stream.publisher.public?
-    else
-      false
     end
   end
 end

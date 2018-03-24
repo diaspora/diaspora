@@ -1,6 +1,6 @@
-#people_stream
+#people-stream
   - people.each do |person|
-    .media.stream_element{:id => person.id}
+    .media.stream-element{id: person.id}
       .media-object.pull-left
         = person_image_link(person, :size => :thumb_small)
       .media-body

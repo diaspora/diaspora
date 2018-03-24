@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationCukeHelpers
   def flash_message_success?
     flash_message(selector: "success").visible?
@@ -22,8 +24,7 @@ module ApplicationCukeHelpers
   end
 
   def confirm_form_validation_error(element)
-    is_invalid = page.evaluate_script("$('#{element}').is(':invalid')")
-    expect(is_invalid).to be true
+    expect(page.evaluate_script("$('#{element}')[0].checkValidity();")).to be false
   end
 
   def check_fields_validation_error(field_list)
@@ -31,7 +32,6 @@ module ApplicationCukeHelpers
       confirm_form_validation_error("input##{f.strip}")
     end
   end
-
 end
 
 World(ApplicationCukeHelpers)

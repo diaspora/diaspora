@@ -1,0 +1,9 @@
+<% if @notification.comment.public? %>
+<%= @notification.comment.message.plain_text_without_markdown %>
+<% else %>
+<%= t("notifier.mentioned_in_comment.limited_post") %>
+<% end %>
+
+[<%= t("notifier.mentioned_in_comment.reply") %>][1]
+
+[1]: <%= post_url(@notification.comment.parent, anchor: @notification.comment.guid) %>

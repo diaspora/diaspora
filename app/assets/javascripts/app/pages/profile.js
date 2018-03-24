@@ -1,6 +1,8 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.pages.Profile = app.views.Base.extend({
+  templateName: false,
+
   events: {
     "click #block_user_button": "blockPerson",
     "click #unblock_user_button": "unblockPerson"
@@ -9,7 +11,7 @@ app.pages.Profile = app.views.Base.extend({
   subviews: {
     "#profile": "sidebarView",
     ".profile_header": "headerView",
-    "#main_stream": "streamView"
+    "#main-stream": "streamView"
   },
 
   tooltipSelector: ".profile_button .profile-header-icon, .sharing_message_container",
@@ -19,17 +21,16 @@ app.pages.Profile = app.views.Base.extend({
       this._populateModel(opts);
     }
 
-    if(app.hasPreload("photos")){
-      this.photos = app.parsePreload("photos");
+    if (app.hasPreload("photos_count")) {
+      this.photos = app.parsePreload("photos_count");
     }
-    if(app.hasPreload("contacts")){
-      this.contacts = app.parsePreload("contacts");
+    if (app.hasPreload("contacts_count")) {
+      this.contacts = app.parsePreload("contacts_count");
     }
 
     this.streamCollection = _.has(opts, "streamCollection") ? opts.streamCollection : null;
     this.streamViewClass = _.has(opts, "streamView") ? opts.streamView : null;
 
-    this.model.on("change", this.render, this);
     this.model.on("sync", this._done, this);
 
     // bind to global events
@@ -38,6 +39,8 @@ app.pages.Profile = app.views.Base.extend({
     app.events.on("person:unblock:"+id, this.reload, this);
     app.events.on("aspect:create", this.reload, this);
     app.events.on("aspect_membership:update", this.reload, this);
+
+    app.router.renderAspectMembershipDropdowns(this.$el);
   },
 
   _populateModel: function(opts) {
@@ -75,13 +78,6 @@ app.pages.Profile = app.views.Base.extend({
     if(!this.model.has("profile")){
       return false;
     }
-    if( this.model.isBlocked() ) {
-      $("#main_stream").empty().html(
-        '<div class="dull">'+
-        Diaspora.I18n.t("profile.ignoring", {name: this.model.get("name")}) +
-        "</div>");
-      return false;
-    }
 
     // a collection is set, this means we want to view photos
     var route = this.streamCollection ? "personPhotos" : "personStream";
@@ -93,9 +89,10 @@ app.pages.Profile = app.views.Base.extend({
     });
     app.stream.fetch();
 
-    if( this.model.get("is_own_profile") ) {
+    if( this.model.get("is_own_profile") && route !== "personPhotos" ) {
       app.publisher = new app.views.Publisher({collection : app.stream.items});
     }
+    app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
 
     return new view({model: app.stream});
   },

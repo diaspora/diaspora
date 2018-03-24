@@ -63,16 +63,20 @@ fi
 
 command -v git > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-  # Check if git merge is in progress
-  if [ -f .git/MERGE_MODE ]; then
-    fatal "A git merge is in progress!"
-  fi
-
-  # Check if detached head state
-  git_branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
-  if [ -z "$git_branch_name" ];
+  # Check if we're in a repository, before doing any verification.
+  if git status > /dev/null 2>&1;
   then
-    warning "You are in detached HEAD state!"
+    # Check if git merge is in progress
+    if [ -f .git/MERGE_MODE ]; then
+      fatal "A git merge is in progress!"
+    fi
+
+    # Check if detached head state
+    git_branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
+    if [ -z "$git_branch_name" ];
+    then
+      warning "You are in detached HEAD state!"
+    fi
   fi
 fi
 
@@ -87,7 +91,7 @@ if [ $? -eq 0 ]; then
 fi
 
 # Check if bundle is complete
-if ! bundle check > /dev/null
+if ! bin/bundle check > /dev/null
 then
   fatal "Your bundle is not up to date, run the command \"bundle install\""
 fi
@@ -95,7 +99,7 @@ fi
 # Setup environment
 if [ -z "$RAILS_ENV" ]
 then
-  RAILS_ENV=$(bin/bundle exec ruby ./script/get_config.rb server.rails_environment)
+  RAILS_ENV=$(bin/bundle exec ruby ./script/get_config.rb server.rails_environment | grep -vE "is not writable|as your home directory temporarily" )
   on_failure "Couldn't parse config/diaspora.yml!"
   export RAILS_ENV
 fi
@@ -108,7 +112,9 @@ vars=$(bin/bundle exec ruby ./script/get_config.rb \
   workers=server.sidekiq_workers \
   chat=chat.enabled \
   chat_server=chat.server.enabled \
-  chat_bosh_proxy=chat.server.bosh.proxy
+  chat_bosh_proxy=chat.server.bosh.proxy \
+  redis_url=environment.redis \
+  | grep -vE "is not writable|as your home directory temporarily"
 )
 on_failure "Couldn't parse config/diaspora.yml!"
 eval "$vars"
@@ -150,12 +156,25 @@ then
 fi
 
 # Check if assets are precompiled
-if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets -maxdepth 1 -name 'home-*.css' -print -quit 2>/dev/null)" ]
+if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets/ -maxdepth 1 -name 'main-*.js' -print -quit 2>/dev/null)" ]
 then
   fatal "You're running in production mode without having assets
 precompiled. Now and after each update before you restart the
 application, run:
     bin/rake assets:precompile"
+fi
+
+# Check if redis is running
+if [ "$single_process_mode" = "false" ]
+then
+  if [ -n "$redis_url" ]
+  then
+    redis_param="url: '$redis_url'"
+  fi 
+  if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null | grep -vE "is not writable|as your home directory temporarily" )" != "PONG" ]
+  then
+    fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in config/diaspora.yml."
+  fi
 fi
 
 # Check for old curl versions (see https://github.com/diaspora/diaspora/issues/4202)
@@ -202,4 +221,4 @@ else
 fi
 echo ""
 
-exec bin/bundle exec loader_eye -st -c config/eye.rb
+exec bin/bundle exec loader_eye --stop_all -c config/eye.rb

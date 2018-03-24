@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -31,7 +33,7 @@ class ReportController < ApplicationController
     if report.save
       render json: true, status: 200
     else
-      render nothing: true, status: 409
+      head :conflict
     end
   end
 

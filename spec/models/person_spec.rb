@@ -1,11 +1,10 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Person, :type => :model do
-
   before do
     @user = bob
     @person = FactoryGirl.create(:person)
@@ -26,16 +25,6 @@ describe Person, :type => :model do
         expect {
           Person.for_json.first.serialized_public_key
         }.to raise_error ActiveModel::MissingAttributeError
-      end
-
-      it 'selects distinct people' do
-        aspect = bob.aspects.create(:name => 'hilarious people')
-        aspect.contacts << bob.contact_for(eve.person)
-        person_ids = Person.for_json.joins(:contacts => :aspect_memberships).
-          where(:contacts => {:user_id => bob.id},
-               :aspect_memberships => {:aspect_id => bob.aspect_ids}).map{|p| p.id}
-
-        expect(person_ids.uniq).to eq(person_ids)
       end
     end
 
@@ -97,6 +86,118 @@ describe Person, :type => :model do
         expect(Person.who_have_reshared_a_users_posts(alice)).to eq([reshare.author])
       end
     end
+
+    describe ".find_by_substring" do
+      it "returns \"none\" when the substring is less than 1 non-space character" do
+        expect(Person.find_by_substring("R")).to eq(Person.none)
+        expect(Person.find_by_substring("R  ")).to eq(Person.none)
+        expect(Person.find_by_substring("")).to eq(Person.none)
+        expect(Person.find_by_substring("  ")).to eq(Person.none)
+      end
+
+      it "finds a person with a profile name containing the substring" do
+        substring = r_str
+        person = FactoryGirl.create(:person, first_name: "A#{substring}A")
+        expect(Person.find_by_substring(substring)).to include(person)
+      end
+
+      it "finds a person with a diaspora ID starting with the substring" do
+        substring = r_str
+        person = FactoryGirl.create(:person, diaspora_handle: "#{substring}A@pod.tld")
+        expect(Person.find_by_substring(substring)).to include(person)
+      end
+    end
+
+    describe ".allowed_to_be_mentioned_in_a_comment_to" do
+      let(:status_bob) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
+
+      it "returns the author and people who have commented or liked the private post" do
+        kate = FactoryGirl.create(:user_with_aspect, friends: [bob])
+        olga = FactoryGirl.create(:user_with_aspect, friends: [bob])
+        alice.comment!(status_bob, "why so formal?")
+        eve.comment!(status_bob, "comment text")
+        kate.like!(status_bob)
+        olga.participate!(status_bob)
+        expect(
+          Person.allowed_to_be_mentioned_in_a_comment_to(status_bob).ids
+        ).to match_array([alice, bob, eve, kate].map(&:person_id))
+      end
+
+      it "selects distinct people" do
+        alice.comment!(status_bob, "hi")
+        alice.comment!(status_bob, "how are you?")
+        expect(
+          Person.allowed_to_be_mentioned_in_a_comment_to(status_bob).ids
+        ).to match_array([alice, bob].map(&:person_id))
+      end
+
+      it "returns all for public posts" do
+        status_bob.update(public: true) # set parent public
+        expect(Person.allowed_to_be_mentioned_in_a_comment_to(status_bob).ids).to match_array(Person.ids)
+      end
+    end
+
+    describe ".sort_for_mention_suggestion" do
+      let(:status_message) { FactoryGirl.create(:status_message) }
+
+      it "returns people sorted in the order: post author > commenters > likers > contacts" do
+        like = FactoryGirl.create(:like, target: status_message)
+        comment = FactoryGirl.create(:comment, post: status_message)
+        current_user = FactoryGirl.create(:user_with_aspect, friends: [alice])
+        result = Person.select(:id, :guid).sort_for_mention_suggestion(status_message, current_user)
+        expect(result[0]).to eq(status_message.author)
+        expect(result[1]).to eq(comment.author)
+        expect(result[2]).to eq(like.author)
+        expect(result[3]).to eq(alice.person) # a contact of the current user
+      end
+
+      it "sorts people of the same priority by profile name" do
+        current_user = FactoryGirl.create(:user_with_aspect)
+        person1 = FactoryGirl.create(:person, first_name: "x2")
+        person2 = FactoryGirl.create(:person, first_name: "x1")
+        result = Person
+                 .select(:id, :guid)
+                 .where(id: [person1.id, person2.id])
+                 .sort_for_mention_suggestion(status_message, current_user)
+        expect(result[0].id).to eq(person2.id)
+        expect(result[1].id).to eq(person1.id)
+      end
+
+      it "sorts people of the same priority and same names by diaspora ID" do
+        current_user = FactoryGirl.create(:user_with_aspect)
+        person1 = FactoryGirl.create(:person, diaspora_handle: "x2@pod.tld")
+        person1.profile.update(first_name: "John", last_name: "Doe")
+        person2 = FactoryGirl.create(:person, diaspora_handle: "x1@pod.tld")
+        person2.profile.update(first_name: "John", last_name: "Doe")
+        result = Person
+                 .select(:id, :guid)
+                 .where(id: [person1.id, person2.id])
+                 .sort_for_mention_suggestion(status_message, current_user)
+        expect(result[0].id).to eq(person2.id)
+        expect(result[1].id).to eq(person1.id)
+      end
+    end
+
+    describe ".in_aspects" do
+      it "returns person that is in the aspect" do
+        aspect = FactoryGirl.create(:aspect)
+        contact = FactoryGirl.create(:contact, user: aspect.user)
+        aspect.contacts << contact
+        expect(Person.in_aspects([aspect.id])).to include(contact.person)
+      end
+
+      it "returns same person in multiple aspects only once" do
+        user = bob
+        contact = FactoryGirl.create(:contact, user: user)
+        ids = Array.new(2) do
+          aspect = FactoryGirl.create(:aspect, user: user, name: r_str)
+          aspect.contacts << contact
+          aspect.id
+        end
+
+        expect(Person.in_aspects(ids)).to eq([contact.person])
+      end
+    end
   end
 
   describe "delegating" do
@@ -109,7 +210,7 @@ describe Person, :type => :model do
 
   describe "valid url" do
     context "https urls" do
-      let(:person) { FactoryGirl.build(:person, url: "https://example.com") }
+      let(:person) { FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com")) }
 
       it "should add trailing slash" do
         expect(person.url).to eq("https://example.com/")
@@ -129,7 +230,9 @@ describe Person, :type => :model do
     end
 
     context "messed up urls" do
-      let(:person) { FactoryGirl.build(:person, url: "https://example.com/a/bit/messed/up") }
+      let(:person) {
+        FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com/a/bit/messed/up"))
+      }
 
       it "should return the correct url" do
         expect(person.url).to eq("https://example.com/")
@@ -149,12 +252,12 @@ describe Person, :type => :model do
     end
 
     it "should allow ports in the url" do
-      person = FactoryGirl.build(:person, url: "https://example.com:3000/")
+      person = FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com:3000/"))
       expect(person.url).to eq("https://example.com:3000/")
     end
 
     it "should remove https port in the url" do
-      person = FactoryGirl.build(:person, url: "https://example.com:443/")
+      person = FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com:443/"))
       expect(person.url).to eq("https://example.com/")
     end
   end
@@ -238,21 +341,6 @@ describe Person, :type => :model do
     end
   end
 
-  describe 'XML' do
-    before do
-      @xml = @person.to_xml.to_s
-    end
-
-    it 'should serialize to xml' do
-      expect(@xml.include?("person")).to eq(true)
-    end
-
-    it 'should have a profile in its xml' do
-      expect(@xml.include?("first_name")).to eq(true)
-
-    end
-  end
-
   it '#owns? posts' do
     person_message = FactoryGirl.create(:status_message, :author => @person)
     person_two = FactoryGirl.create(:person)
@@ -307,10 +395,12 @@ describe Person, :type => :model do
       user_profile.last_name = "asdji"
       user_profile.save
 
-      @robert_grimm = FactoryGirl.build(:searchable_person)
-      @eugene_weinstein = FactoryGirl.build(:searchable_person)
-      @yevgeniy_dodis = FactoryGirl.build(:searchable_person)
-      @casey_grippi = FactoryGirl.build(:searchable_person)
+      @robert_grimm = FactoryGirl.build(:person)
+      @eugene_weinstein = FactoryGirl.build(:person)
+      @yevgeniy_dodis = FactoryGirl.build(:person)
+      @casey_grippi = FactoryGirl.build(:person)
+      @invisible_person = FactoryGirl.build(:person)
+      @closed_account = FactoryGirl.build(:person, closed_account: true)
 
       @robert_grimm.profile.first_name = "Robert"
       @robert_grimm.profile.last_name = "Grimm"
@@ -331,7 +421,19 @@ describe Person, :type => :model do
       @casey_grippi.profile.last_name = "Grippi"
       @casey_grippi.profile.save
       @casey_grippi.reload
+
+      @invisible_person.profile.first_name = "Johnson"
+      @invisible_person.profile.last_name = "Invisible"
+      @invisible_person.profile.searchable = false
+      @invisible_person.profile.save
+      @invisible_person.reload
+
+      @closed_account.profile.first_name = "Closed"
+      @closed_account.profile.last_name = "Account"
+      @closed_account.profile.save
+      @closed_account.reload
     end
+
     it 'orders results by last name' do
       @robert_grimm.profile.first_name = "AAA"
       @robert_grimm.profile.save!
@@ -380,10 +482,21 @@ describe Person, :type => :model do
       expect(people.first).to eq(@casey_grippi)
     end
 
-    it 'only displays searchable people' do
-      invisible_person = FactoryGirl.build(:person, :profile => FactoryGirl.build(:profile, :searchable => false, :first_name => "johnson"))
-      expect(Person.search("johnson", @user)).not_to include invisible_person
-      expect(Person.search("", @user)).not_to include invisible_person
+    it "doesn't display people that are neither searchable nor contacts" do
+      expect(Person.search("Johnson", @user)).to be_empty
+    end
+
+    it "doesn't display closed accounts" do
+      expect(Person.search("Closed", @user)).to be_empty
+      expect(Person.search("Account", @user)).to be_empty
+      expect(Person.search(@closed_account.diaspora_handle, @user)).to be_empty
+    end
+
+    it "displays contacts that are not searchable" do
+      @user.contacts.create(person: @invisible_person, aspects: [@user.aspects.first])
+      people = Person.search("Johnson", @user)
+      expect(people.count).to eq(1)
+      expect(people.first).to eq(@invisible_person)
     end
 
     it 'returns results for Diaspora handles' do
@@ -408,6 +521,78 @@ describe Person, :type => :model do
 
       people = Person.search("AAA", @user)
       expect(people.map { |p| p.name }).to eq([@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map { |p| p.name })
+    end
+
+    context "only contacts" do
+      before do
+        @robert_contact = @user.contacts.create(person: @robert_grimm, aspects: [@user.aspects.first])
+        @eugene_contact = @user.contacts.create(person: @eugene_weinstein, aspects: [@user.aspects.first])
+        @invisible_contact = @user.contacts.create(person: @invisible_person, aspects: [@user.aspects.first])
+      end
+
+      it "orders results by last name" do
+        @robert_grimm.profile.first_name = "AAA"
+        @robert_grimm.profile.save!
+
+        @eugene_weinstein.profile.first_name = "AAA"
+        @eugene_weinstein.profile.save!
+
+        @casey_grippi.profile.first_name = "AAA"
+        @casey_grippi.profile.save!
+
+        people = Person.search("AAA", @user, only_contacts: true)
+        expect(people.map(&:name)).to eq([@robert_grimm, @eugene_weinstein].map(&:name))
+      end
+
+      it "returns nothing on an empty query" do
+        people = Person.search("", @user, only_contacts: true)
+        expect(people).to be_empty
+      end
+
+      it "returns nothing on a one-character query" do
+        people = Person.search("i", @user, only_contacts: true)
+        expect(people).to be_empty
+      end
+
+      it "returns results for partial names" do
+        people = Person.search("Eug", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@eugene_weinstein)
+
+        people = Person.search("wEi", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@eugene_weinstein)
+
+        @user.contacts.create(person: @casey_grippi, aspects: [@user.aspects.first])
+        people = Person.search("gri", @user, only_contacts: true)
+        expect(people.count).to eq(2)
+        expect(people.first).to eq(@robert_grimm)
+        expect(people.second).to eq(@casey_grippi)
+      end
+
+      it "returns results for full names" do
+        people = Person.search("Robert Grimm", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@robert_grimm)
+      end
+
+      it "returns results for Diaspora handles" do
+        people = Person.search(@robert_grimm.diaspora_handle, @user, only_contacts: true)
+        expect(people).to eq([@robert_grimm])
+      end
+    end
+  end
+
+  describe "#public_key" do
+    it "returns the public key for the person" do
+      key = @person.public_key
+      expect(key).to be_a(OpenSSL::PKey::RSA)
+      expect(key.to_s).to eq(@person.serialized_public_key)
+    end
+
+    it "handles broken keys and returns nil" do
+      @person.update_attributes(serialized_public_key: "broken")
+      expect(@person.public_key).to be_nil
     end
   end
 
@@ -443,55 +628,17 @@ describe Person, :type => :model do
         expect(person).to eq(user1.person)
       end
 
-      it 'should only find people who are exact matches (1/2)' do
-        user = FactoryGirl.create(:user, :username => "SaMaNtHa")
-        person = FactoryGirl.create(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
-        user.person.diaspora_handle = "tom@tom.joindiaspora.com"
-        user.person.save
-        expect(Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle).to eq("tom@tom.joindiaspora.com")
+      it "should only find people who are exact matches (1/2)" do
+        FactoryGirl.create(:person, diaspora_handle: "tomtom@tom.joindiaspora.com")
+        FactoryGirl.create(:person, diaspora_handle: "tom@tom.joindiaspora.com")
+        expect(Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle)
+          .to eq("tom@tom.joindiaspora.com")
       end
 
-      it 'should only find people who are exact matches (2/2)' do
-        person = FactoryGirl.create(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
-        person1 = FactoryGirl.create(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
-        f = Person.by_account_identifier("tom@tom.joindiaspora.com")
-        expect(f).to be nil
-      end
-    end
-
-    describe ".find_local_by_diaspora_handle" do
-      it "should find local users person" do
-        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
-        expect(person).to eq(user.person)
-      end
-
-      it "should not find a remote person" do
-        person = Person.find_local_by_diaspora_handle(@person.diaspora_handle)
-        expect(person).to be nil
-      end
-
-      it "should not find a person with closed account" do
-        user.person.lock_access!
-        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
-        expect(person).to be nil
-      end
-    end
-
-    describe ".find_local_by_guid" do
-      it "should find local users person" do
-        person = Person.find_local_by_guid(user.guid)
-        expect(person).to eq(user.person)
-      end
-
-      it "should not find a remote person" do
-        person = Person.find_local_by_guid(@person.guid)
-        expect(person).to be nil
-      end
-
-      it "should not find a person with closed account" do
-        user.person.lock_access!
-        person = Person.find_local_by_guid(user.guid)
-        expect(person).to be nil
+      it "should only find people who are exact matches (2/2)" do
+        FactoryGirl.create(:person, diaspora_handle: "tomtom@tom.joindiaspora.com")
+        FactoryGirl.create(:person, diaspora_handle: "tom@tom.joindiaspora.comm")
+        expect(Person.by_account_identifier("tom@tom.joindiaspora.com")).to be_nil
       end
     end
   end
@@ -538,32 +685,6 @@ describe Person, :type => :model do
     end
   end
 
-  context 'updating urls' do
-    before do
-      @url = "http://new-url.com/"
-    end
-
-    describe '.url_batch_update' do
-      it "calls #update_person_url given an array of users and a url" do
-        people = [double.as_null_object, double.as_null_object, double.as_null_object]
-        people.each do |person|
-          expect(person).to receive(:update_url).with(@url)
-        end
-        Person.url_batch_update(people, @url)
-      end
-    end
-
-    describe '#update_url' do
-      it "updates a given person's url" do
-        expect {
-          alice.person.update_url(@url)
-        }.to change {
-          alice.person.reload.url
-        }.from(anything).to(@url)
-      end
-    end
-  end
-
   describe '#lock_access!' do
     it 'sets the closed_account flag' do
       @person.lock_access!
@@ -579,6 +700,16 @@ describe Person, :type => :model do
     it 'calls Profile#tombstone!' do
       expect(@person.profile).to receive(:tombstone!)
       @person.clear_profile!
+    end
+  end
+
+  context "validation" do
+    it "validates that no other person with same guid exists" do
+      person = FactoryGirl.build(:person)
+      person.guid = alice.guid
+
+      expect(person.valid?).to be_falsey
+      expect(person.errors.full_messages).to include("Person with same GUID already exists: #{alice.diaspora_handle}")
     end
   end
 end

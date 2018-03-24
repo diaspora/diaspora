@@ -17,8 +17,8 @@ mysql: &mysql
   collation: utf8mb4_bin
 
 
-# Comment the the mysql line and uncomment the postgres line
-# if you want to use postgres
+# Comment the postgresql line and uncomment the mysql line
+# if you want to use mysql
 common: &common
   # Choose one of the following
   <<: *postgresql
@@ -43,7 +43,7 @@ production:
   database: diaspora_production
 test:
   <<: *combined
-  database: "diaspora_test"
+  database: diaspora_test
 integration1:
   <<: *combined
   database: diaspora_integration1

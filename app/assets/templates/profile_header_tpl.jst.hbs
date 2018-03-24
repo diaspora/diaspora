@@ -33,7 +33,7 @@
         {{else}} {{#if is_blocked}}
           <a href="#" id="unblock_user_button" class="btn btn-danger">{{t 'people.stop_ignoring'}}</a>
         {{else}}
-          <div class="placeholder aspect_membership_dropdown"></div>
+          <div class="placeholder aspect-membership-dropdown"></div>
         {{/if}}{{/if}}
       </div>
     {{/if}}
@@ -78,7 +78,7 @@
         <a href="{{urlTo 'personPhotos' guid}}" id="photos_link">
           <i class="entypo-picture"></i>
           {{t 'profile.photos'}}
-          <div class="badge badge-default">{{photos.count}}</div>
+          <div class="badge badge-default">{{photos}}</div>
         </a>
       </li>
     {{/if}}
@@ -88,13 +88,13 @@
           <a href="{{urlTo 'contacts'}}" id="contacts_link">
             <i class="entypo-users"></i>
             {{t 'profile.contacts'}}
-            <div class="badge badge-default">{{contacts.count}}</div>
+            <div class="badge badge-default">{{contacts}}</div>
           </a>
         {{else}}
           <a href="{{urlTo 'personContacts' guid}}" id="contacts_link">
             <i class="entypo-users"></i>
             {{t 'profile.contacts'}}
-            <div class="badge badge-default">{{contacts.count}}</div>
+            <div class="badge badge-default">{{contacts}}</div>
           </a>
         {{/if}}
       </li>

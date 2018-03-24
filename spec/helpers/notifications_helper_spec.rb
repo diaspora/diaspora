@@ -1,16 +1,17 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-
-describe NotificationsHelper, :type => :helper do
+describe NotificationsHelper, type: :helper do
   include ApplicationHelper
 
   before do
     @user = FactoryGirl.create(:user)
     @person = FactoryGirl.create(:person)
-    @post = FactoryGirl.create(:status_message, :author => @user.person)
+    @post = FactoryGirl.create(:status_message, author: @user.person)
     @person2 = FactoryGirl.create(:person)
-    @notification = Notification.notify(@user, FactoryGirl.create(:like, :author => @person, :target => @post), @person)
-    @notification =  Notification.notify(@user, FactoryGirl.create(:like, :author => @person2, :target => @post), @person2)
+    Notifications::Liked.notify(FactoryGirl.create(:like, author: @person, target: @post), [])
+    Notifications::Liked.notify(FactoryGirl.create(:like, author: @person2, target: @post), [])
+
+    @notification = Notifications::Liked.find_by(target: @post, recipient: @user)
   end
 
   describe '#notification_people_link' do
@@ -64,7 +65,6 @@ describe NotificationsHelper, :type => :helper do
     end
   end
 
-
   describe '#object_link' do
     describe 'for a like' do
       it 'should include a link to the post' do
@@ -90,6 +90,53 @@ describe NotificationsHelper, :type => :helper do
           @post.destroy
           expect(object_link(@notification,  notification_people_link(@notification))).to eq(t('notifications.liked_post_deleted.one', :actors => notification_people_link(@notification)))
         end
+      end
+    end
+
+    let(:status_message) {
+      FactoryGirl.create(:status_message_in_aspect, author: alice.person, text: text_mentioning(bob))
+    }
+
+    describe "when mentioned in status message" do
+      it "should include correct wording and post link" do
+        Notifications::MentionedInPost.notify(status_message, [bob.id])
+        notification = Notifications::MentionedInPost.last
+        expect(notification).not_to be_nil
+
+        link = object_link(notification, notification_people_link(notification))
+        expect(link).to include("mentioned you in the post")
+        expect(link).to include(post_path(status_message))
+      end
+    end
+
+    describe "when mentioned in comment" do
+      it "should include correct wording, post link and comment link" do
+        comment = FactoryGirl.create(:comment, author: bob.person, text: text_mentioning(alice), post: status_message)
+        Notifications::MentionedInComment.notify(comment, [alice.id])
+        notification = Notifications::MentionedInComment.last
+        expect(notification).not_to be_nil
+
+        link = object_link(notification, notification_people_link(notification))
+        expect(link).to include("mentioned you in a")
+        expect(link).to include(">comment</a>")
+        expect(link).to include("href=\"#{post_path(status_message)}\"")
+        expect(link).to include("#{post_path(status_message)}##{comment.guid}")
+      end
+    end
+
+    context "for a birthday" do
+      let(:notification) { Notifications::ContactsBirthday.create(recipient: alice, target: bob.person) }
+
+      it "contains the date" do
+        bob.profile.update_attributes(birthday: Time.zone.today)
+        link = object_link(notification, notification_people_link(notification))
+        expect(link).to include(I18n.l(Time.zone.today, format: I18n.t("date.formats.fullmonth_day")))
+      end
+
+      it "doesn't break, when the person removes the birthday date" do
+        bob.profile.update_attributes(birthday: nil)
+        link = object_link(notification, notification_people_link(notification))
+        expect(link).to include(I18n.l(Time.zone.today, format: I18n.t("date.formats.fullmonth_day")))
       end
     end
   end

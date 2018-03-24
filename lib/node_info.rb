@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
 require "pathname"
 require "json-schema"
 
 module NodeInfo
-  VERSIONS = %w(1.0)
+  VERSIONS = %w(1.0 2.0).freeze
   SCHEMAS = {}
   private_constant :VERSIONS, :SCHEMAS
 
+  # rubocop:disable Metrics/BlockLength
   Document = Struct.new(:version, :software, :protocols, :services, :open_registrations, :usage, :metadata) do
     Software = Struct.new(:name, :version) do
       def initialize(name=nil, version=nil)
@@ -20,16 +23,20 @@ module NodeInfo
       end
     end
 
-    Protocols = Struct.new(:inbound, :outbound) do
-      def initialize(inbound=[], outbound=[])
-        super(inbound, outbound)
+    Protocols = Struct.new(:protocols) do
+      def initialize(protocols=[])
+        super(protocols)
       end
 
       def version_10_hash
         {
-          "inbound"  => inbound,
-          "outbound" => outbound
+          "inbound"  => protocols,
+          "outbound" => protocols
         }
+      end
+
+      def version_20_array
+        protocols
       end
     end
 
@@ -89,6 +96,8 @@ module NodeInfo
       case version
       when "1.0"
         version_10_hash
+      when "2.0"
+        version_20_hash
       end
     end
 
@@ -123,6 +132,18 @@ module NodeInfo
       )
     end
 
+    def version_20_hash
+      deep_compact(
+        "version"           => "2.0",
+        "software"          => software.version_10_hash,
+        "protocols"         => protocols.version_20_array,
+        "services"          => services.version_10_hash,
+        "openRegistrations" => open_registrations,
+        "usage"             => usage.version_10_hash,
+        "metadata"          => metadata
+      )
+    end
+
     def deep_compact(hash)
       hash.tap do |hash|
         hash.reject! {|_, value|
@@ -132,6 +153,7 @@ module NodeInfo
       end
     end
   end
+  # rubocop:enable Metrics/BlockLength
 
   def self.schema(version)
     SCHEMAS[version] ||= JSON.parse(

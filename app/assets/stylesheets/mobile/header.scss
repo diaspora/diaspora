@@ -10,6 +10,12 @@ $mobile-navbar-height: 46px;
   min-height: $mobile-navbar-height !important;
   max-height: $mobile-navbar-height !important;
 
+  .login {
+    color: $white;
+    font-weight: bold;
+    padding: 13px;
+  }
+
   .navbar {
     margin: 0;
     padding: 0;
@@ -17,10 +23,25 @@ $mobile-navbar-height: 46px;
     min-height: $mobile-navbar-height;
   }
 
-  #header-title {
+  .navbar-right {
+    float: right;
+  }
+
+  .navbar-nav {
+    margin-bottom: 0;
+    margin-top: 0;
+    li { float: left; }
+  }
+
+  .header-title {
     padding: 7px 15px;
     margin: 0 0 0 -15px;
     height: $mobile-navbar-height;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
   }
 
   #nav-badges {
@@ -58,7 +79,7 @@ $mobile-navbar-height: 46px;
     }
 
     .navbar-toggle {
-      display: unset;
+      display: block;
       margin: 6px 15px;
     }
 
@@ -69,12 +90,6 @@ $mobile-navbar-height: 46px;
       padding: 2px 6px;
       position: absolute;
       background-color: $red;
-    }
-  }
-  #header-title{
-    img {
-      height: 30px;
-      width: 30px;
     }
   }
 }
@@ -133,7 +148,7 @@ $mobile-navbar-height: 46px;
 
     li {
       font-size: 1.8rem;
-      line-height: 25px;
+      line-height: 2rem;
       color: $light-grey;
       border-bottom: solid $navbar-inverse-border 1px;
     }
@@ -163,7 +178,7 @@ $mobile-navbar-height: 46px;
     .avatar {
       height: 35px;
       width: 35px;
-      margin: -5px 5px;
+      margin: -7px 5px;
       float: right;
     }
   }

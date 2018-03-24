@@ -1,4 +1,4 @@
-require "spec_helper"
+# frozen_string_literal: true
 
 describe TagFollowingsController, type: :controller do
   describe "#manage" do
@@ -15,7 +15,7 @@ describe TagFollowingsController, type: :controller do
     end
     context "signed in" do
       before do
-        sign_in :user, alice
+        sign_in alice, scope: :user
       end
 
       it "redirects html requests" do

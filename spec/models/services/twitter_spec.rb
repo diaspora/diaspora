@@ -1,7 +1,6 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe Services::Twitter, :type => :model do
-
   before do
     @user = alice
     @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :photos => [])
@@ -25,12 +24,6 @@ describe Services::Twitter, :type => :model do
       expect(@post.tweet_id).to match "1234"
     end
 
-    it 'swallows exception raised by twitter always being down' do
-      skip
-      expect_any_instance_of(Twitter::REST::Client).to receive(:update).and_raise(StandardError)
-      @service.post(@post)
-    end
-
     it 'should call build_twitter_post' do
       url = "foo"
       expect(@service).to receive(:build_twitter_post).with(@post, 0)
@@ -48,8 +41,8 @@ describe Services::Twitter, :type => :model do
 
   describe "message size limits" do
     before :each do
-      @long_message_start = SecureRandom.hex(25)
-      @long_message_end = SecureRandom.hex(25)
+      @long_message_start = SecureRandom.hex(165)
+      @long_message_end = SecureRandom.hex(165)
     end
 
     it "should not truncate a short message" do
@@ -59,7 +52,7 @@ describe Services::Twitter, :type => :model do
     end
 
     it "should truncate a long message" do
-      long_message = SecureRandom.hex(220)
+      long_message = SecureRandom.hex(360)
       long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       expect(@service.send(:build_twitter_post, long_post).length).to be < long_message.length
     end
@@ -74,7 +67,9 @@ describe Services::Twitter, :type => :model do
     end
 
     it "should not cut links when truncating a post" do
-      long_message = SecureRandom.hex(40) + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(55)
+      long_message = SecureRandom.hex(40) +
+         " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " +
+         SecureRandom.hex(195)
       long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       answer = @service.send(:build_twitter_post, long_post)
 
@@ -83,7 +78,9 @@ describe Services::Twitter, :type => :model do
     end
 
     it "should append the otherwise-cut link when truncating a post" do
-      long_message = "http://joindiaspora.com/a-very-long-decoy-url.html " + SecureRandom.hex(20) + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(55) + " http://joindiaspora.com/a-very-long-decoy-url-part-2.html"
+      long_message = "http://joindiaspora.com/a-very-long-decoy-url.html " + SecureRandom.hex(20) +
+         " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(195) +
+         " http://joindiaspora.com/a-very-long-decoy-url-part-2.html"
       long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       answer = @service.send(:build_twitter_post, long_post)
 
@@ -145,6 +142,17 @@ describe Services::Twitter, :type => :model do
 
       @service.nickname = "joindiaspora"
       expect(@service.profile_photo_url).to eq("http://a2.twimg.com/profile_images/uid/avatar.png")
+    end
+  end
+
+  describe "#post_opts" do
+    it "returns the tweet_id of the post" do
+      @post.tweet_id = "2345"
+      expect(@service.post_opts(@post)).to eq(tweet_id: "2345")
+    end
+
+    it "returns nil when the post has no tweet_id" do
+      expect(@service.post_opts(@post)).to be_nil
     end
   end
 end

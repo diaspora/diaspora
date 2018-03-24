@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe Workers::Mail::InviteEmail do
   let(:emails) { ['foo@bar.com', 'baz@bar.com'] }

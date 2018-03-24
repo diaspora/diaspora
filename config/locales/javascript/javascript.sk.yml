@@ -20,6 +20,7 @@ sk:
         one: "V <%= count %> kategórii"
         other: "V(o) <%= count %>kategóriách"
         zero: "Vyber si kategórie"
+      updating: "prebieha aktualizácia..."
     aspect_navigation:
       add_an_aspect: "+ Pridať kategóriu"
       deselect_all: "Odznačiť všetky"
@@ -35,11 +36,10 @@ sk:
       no_comments: "Ešte tu nie sú žiadne príspevky."
       show: "Zobraziť všetky komentáre"
     confirm_dialog: "Určite?"
-    conversation:
-      participants: "Účastníci"
     delete: "Odstrániť"
     edit: "Upraviť"
-    failed_to_like: "Nepodarilo sa označiť, že sa ti to páči!"
+    errors:
+      connection: "K serveru sa nedá pripojiť."
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
       alright_ill_wait: "V poriadku, počkám."
@@ -63,13 +63,11 @@ sk:
       view_all: "Zobraziť všetko"
     ignore: "Ignorovať"
     ignore_user: "Ignorovať tohto používateľa?"
-    infinite_scroll:
-      no_more: "Žiadne ďalšie príspevky."
-      no_more_contacts: "Žiadne ďalšie kontakty."
     my_activity: "Moja aktivita"
     my_aspects: "Moje kategórie"
     my_stream: "Nástenka"
     notifications:
+      mark_read: "Označiť ako prečítané"
       mark_unread: "Označiť ako neprečítané"
     people:
       not_found: "...a nikto sa nenašiel."
@@ -80,7 +78,13 @@ sk:
       invalid_ext: "Súbor {file} má neplatnú príponu. Povolené sú len prípony {extensions}."
       looking_good: "No teda, vyzeráš super!"
       size_error: "Súbor {file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."
+      upload_photos: "Nahrať fotky"
     poll:
+      answer_count:
+        few: "<%=count%> hlasy"
+        one: "1 hlas"
+        other: "<%=count%> hlasov"
+        zero: "0 hlasov"
       close_result: "Skryť výsledok"
       count:
         few: "zatiaľ <%=count%> hlasy"
@@ -89,13 +93,35 @@ sk:
       result: "Výsledok"
       show_result: "Zobraziť výsledok"
       vote: "Hlasovať"
+    profile:
+      born: "Narodeniny"
     publisher:
       add_option: "Pridať možnosť"
-      at_least_one_aspect: "Musíš publikovať aspoň jednu kategóriu"
-      limited: "Vyhradený – tvoj príspevok uvidia len ľudia, s ktorými sa oň podelíš"
+      markdown_editor:
+        preview: "Ukážka"
+        texts:
+          heading: "text nadpisu"
+          insert_image_description_text: "sem zadajte popis obrázka"
+          insert_image_help_text: "Sem vlož obrázok"
+          insert_image_title: "sem zadaj titulok obrázka"
+          insert_link_description_text: "sem zadaj popis odkazu"
+          insert_link_help_text: "Sem vlož odkaz"
+          italic: "text kurzívou"
+          list: "sem text zoznamu"
+          quote: "sem text citátu"
+          strong: "text tučným písmom"
+        tooltips:
+          bold: "Tučné písmo"
+          code: "Vložiť kód"
+          heading: "Nadpis"
+          insert_image: "Vložiť obrázok"
+          insert_link: "Vložiť odkaz"
+          insert_ordered_list: "Vložiť očíslovaný zoznam"
+          insert_unordered_list: "Vložiť zoznam bez čísel"
+          italic: "Kurzíva"
+          quote: "Vložiť citát"
       near_from: "Odoslané z obce:<%= location %>"
       option: "Možnosť <%= nr %>"
-      public: "Verejný – tvoj príspevok pomocou vyhľadávačov uvidí a nájde každý"
       question: "Otázka"
     report:
       name: "Správa"
@@ -105,18 +131,20 @@ sk:
         created: "Úspešne si vytvoril(a) správu"
         exists: "Správa už existuje"
     reshares:
-      duplicate: "Je to dobré, čo? O tento príspevok si sa už raz znova podelil(a)!"
       post: "Znova ukázať priateľom príspevok, ktorý napísal(a) <%= name %>?"
       successful: "Tento príspevok si úspešne znova ukázal(a) priateľom!"
-    search_for: "Hľadať <%= name %>"
     show_more: "Zobraziť viac"
     stream:
       comment: "Okomentovať"
+      comments:
+        few: "<%= count %> komentáre"
+        one: "<%= count %> komentár"
+        other: "<%= count %> komentárov"
+        zero: "<%= count %> komentárov"
       disable_post_notifications: "Neposielať oznamy o tomto príspevku"
       follow: "Sledovať"
       followed_tag:
         add_a_tag: "Pridať značku"
-        contacts_title: "Ľudia, ktorí hľadajú tieto značky"
         follow: "Sledovať"
         title: "#Sledované značky"
       hide: "Schovať"
@@ -154,29 +182,24 @@ sk:
       wasnt_that_interesting: "OK, značka #<%= tagName %> asi vôbec nebola zaujímavá."
     timeago:
       day: "včera"
-      days: "pred %d dňami"
+      days:
+        other: "pred %d dňami"
       hour: "asi pred hodinou"
-      hours: "asi pred %d hodinami"
+      hours:
+        other: "asi pred %d hodinami"
       minute: "asi pred minútou"
-      minutes: "pred %d minútami"
+      minutes:
+        other: "pred %d minútami"
       month: "asi pred mesiacom"
-      months: "pred %d mesiacmi"
+      months:
+        other: "pred %d mesiacmi"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "pred menej ako minútou"
       suffixAgo: ""
       suffixFromNow: ""
       year: "asi pred rokom"
-      years: "pred %d rokmi"
-    videos:
-      unknown: "Neznámy typ videa"
-      watch: "Sleduj toto video na <%= provider %>"
+      years:
+        other: "pred %d rokmi"
     viewer:
-      comment: "Komentár"
-      follow_post: "Sledovať príspevok"
-      home: "ÚVODNÁ STRÁNKA"
-      like: "Páči sa mi to"
-      reshare: "Ukázať príspevok priateľom"
       reshared: "Znova ukázané"
-      stop_following_post: "Prestať sledovať príspevok"
-      unlike: "Už sa mi to nepáči"

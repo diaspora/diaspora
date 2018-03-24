@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FakeHttpRequest
   def initialize(callback_wanted)
     @callback = callback_wanted

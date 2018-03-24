@@ -1,9 +1,9 @@
 # coding: utf-8
+# frozen_string_literal: true
+
 # Copyright (c) 2010-2011, Diaspora Inc.  This file is
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
-
-require 'spec_helper'
 
 describe String do
   let(:english) { "Hello World" }
@@ -24,29 +24,6 @@ describe String do
   let(:hebrew_arabic) { "#{hebrew} #{arabic}" }
 
 
-  describe "#stats_with_rtl_char?" do
-    it 'returns true or false correctly' do
-      expect(english.starts_with_rtl_char?).to be false
-      expect(chinese.starts_with_rtl_char?).to be false
-      expect(arabic.starts_with_rtl_char?).to be true
-      expect(hebrew.starts_with_rtl_char?).to be true
-      expect(hebrew_arabic.starts_with_rtl_char?).to be true
-    end
-
-    it 'only looks at the first char' do
-      expect(english_chinese.starts_with_rtl_char?).to be false
-      expect(chinese_english.starts_with_rtl_char?).to be false
-      expect(english_arabic.starts_with_rtl_char?).to be false
-      expect(hebrew_english.starts_with_rtl_char?).to be true
-      expect(arabic_chinese.starts_with_rtl_char?).to be true
-    end
-    
-    it 'ignores whitespaces' do
-      expect(" \n \r \t".starts_with_rtl_char?).to be false
-      expect(" #{arabic} ".starts_with_rtl_char?).to be true
-    end
-  end
-
   describe "#is_rtl?" do
     it 'returns true or false correctly' do
       expect(english.is_rtl?).to be false
@@ -65,16 +42,15 @@ describe String do
       expect("#{english} #{arabic} #{arabic}".is_rtl?).to be true
     end
 
-    it "fallbacks to the first word if there's no majority" do
-      expect(hebrew_english.is_rtl?).to be true
-      expect(english_hebrew.is_rtl?).to be false
-      expect(arabic_english.is_rtl?).to be true
-      expect(english_arabic.is_rtl?).to be false
-    end
-
     it 'ignores whitespaces' do
       expect(" \n \r \t".is_rtl?).to be false
       expect(" #{arabic} ".is_rtl?).to be true
+    end
+
+    it "ignores byte order marks" do
+      expect("\u{feff}".is_rtl?).to be false
+      expect("\u{feff}#{arabic}".is_rtl?).to be true
+      expect("\u{feff}#{english}".is_rtl?).to be false
     end
   end
 

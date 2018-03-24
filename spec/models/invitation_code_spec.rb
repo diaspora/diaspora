@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe InvitationCode, :type => :model do
   it 'has a valid factory' do

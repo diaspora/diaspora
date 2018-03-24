@@ -1,9 +1,5 @@
-- content_for :head do
-  = stylesheet_link_tag :admin
-
 %h2= t(".pages")
-
-%ul#admin_nav.nav.nav-pills.nav-stacked
+%ul.nav.nav-pills.nav-stacked#admin-nav
   %li{role: "presentation", class: current_page?(admin_dashboard_path) && "active"}
     = link_to t(".dashboard"), admin_dashboard_path
   %li{role: "presentation", class: current_page?(user_search_path) && "active"}
@@ -13,9 +9,12 @@
   %li{role: "presentation", class: current_page?(pod_stats_path) && "active"}
     = link_to t(".pod_stats"), pod_stats_path
   %li{role: "presentation", class: current_page?(report_index_path) && "active"}
-    = link_to t(".report"), report_index_path
+    %a{href: report_index_path}
+      - if unreviewed_reports_count > 0
+        .pull-right.badge
+          = unreviewed_reports_count
+      = t(".report")
   %li{role: "presentation", class: current_page?(admin_pods_path) && "active"}
     = link_to t(".pod_network"), admin_pods_path
   %li{role: "presentation", class: current_page?(sidekiq_path) && "active"}
     = link_to t(".sidekiq_monitor"), sidekiq_path
-

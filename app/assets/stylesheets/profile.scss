@@ -1,18 +1,14 @@
-body.page-people.action-show, body.page-people.action-contacts {
-  background-color: $sidebars-background;
-}
-
 #profile_container {
   .profile_header {
     margin-bottom: 15px;
-    background-color: $white;
+    background-color: $framed-background;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 20px;
     margin-top: -20px;
     box-shadow: $card-shadow;
 
-    #edit_profile, #unblock_user_button, .aspect_dropdown {
+    #edit_profile, #unblock_user_button, .aspect-dropdown {
       margin-top: 15px;
     }
 
@@ -26,7 +22,7 @@ body.page-people.action-show, body.page-people.action-contacts {
         font-weight: 700;
       }
       #diaspora_handle {
-        color: $text-grey;
+        color: $text-color-pale;
         font-size: 20px;
       }
       #sharing_message {
@@ -68,8 +64,8 @@ body.page-people.action-show, body.page-people.action-contacts {
           .profile-header-icon {
             font-size: 24.5px;
             line-height: 30px;
-            color: lighten($black,75%);
-            &:hover { color: $black; }
+            color: $text-color-pale;
+            &:hover { color: $text-color; }
           }
           #mention_button { font-weight: 700; }
         }
@@ -84,8 +80,12 @@ body.page-people.action-show, body.page-people.action-contacts {
           &.active {
             border-bottom: 3px solid $brand-primary;
             a {
-              color: $black;
-              [class^="entypo-"], [class*="entypo-"] { color: $black; }
+              color: $text-color-active;
+
+              [class^="entypo-"],
+              [class*="entypo-"] {
+                color: $text-color-active;
+              }
             }
           }
           a {
@@ -98,9 +98,13 @@ body.page-people.action-show, body.page-people.action-contacts {
               margin-right: 2px;
             }
             &:hover {
-              color: $black;
-              [class^="entypo-"], [class*="entypo-"] { color: $black; }
+              color: $text-color-active;
               text-decoration: none;
+
+              [class^="entypo-"],
+              [class*="entypo-"] {
+                color: $text-color-active;
+              }
             }
           }
         }
@@ -109,11 +113,8 @@ body.page-people.action-show, body.page-people.action-contacts {
   }
 
   #profile {
-    background-color: $white;
     padding: 20px;
-    margin-top: -10px;
     margin-bottom: 35px;
-    box-shadow: $card-shadow;
 
     #profile_photo {
       margin-top: 10px;
@@ -136,9 +137,9 @@ body.page-people.action-show, body.page-people.action-contacts {
 
   }
 
-  .stream_container > .pagination { text-align: center; }
+  .stream-container > .pagination { text-align: center; }
 
-  #people_stream {
+  #people-stream {
     background-color: $white;
     box-shadow: $card-shadow;
   }

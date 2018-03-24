@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module InvitationCodesHelper
   def invite_hidden_tag(invite)
     if invite.present?
@@ -12,8 +14,8 @@ module InvitationCodesHelper
   def invited_by_message
     inviter = current_user.invited_by
     if inviter.present?
-      contact = current_user.contact_for(inviter.person) || Contact.new
-      render :partial => 'people/add_contact', :locals => {:inviter => inviter.person, :contact => contact}
+      @person = inviter.person
+      render partial: "people/add_contact"
     end
   end
 end

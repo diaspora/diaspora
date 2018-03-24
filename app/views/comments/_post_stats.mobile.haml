@@ -1,0 +1,10 @@
+.post-stats
+  - if post.public?
+    .post-action
+      = mobile_reshare_icon(post)
+
+  .post-action
+    = mobile_comment_icon(post)
+
+  .post-action
+    = mobile_like_icon(post)

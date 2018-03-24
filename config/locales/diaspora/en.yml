@@ -10,42 +10,26 @@ en:
   profile: "Profile"
   account: "Account"
   privacy: "Privacy"
-  privacy_policy: "Privacy policy"
-  terms_and_conditions: "Terms and conditions"
   _services: "Services"
   _applications: "Applications"
-  _photos: "Photos"
   _help: "Help"
   ok: "OK"
   cancel: "Cancel"
   delete: "Delete"
-  hide: "Hide"
-  ignore: "Ignore"
-  undo: "Undo?"
-  or: "or"
-  ago: "%{time} ago"
   username: "Username"
   email: "Email"
-  password: "Password"
-  password_confirmation: "Password confirmation"
   are_you_sure: "Are you sure?"
   are_you_sure_delete_account: "Are you sure you want to close your account? This can’t be undone!"
   fill_me_out: "Fill me out"
-  back: "Back"
   public: "Public"
   limited: "Limited"
   search: "Search"
   nsfw: "NSFW"
   find_people: "Find people or #tags"
-  _home: "Home"
   more: "More"
-  next: "Next"
-  previous: "Previous"
-  _comments: "Comments"
   all_aspects: "All aspects"
   no_results: "No results found"
   _contacts: "Contacts"
-  welcome: "Welcome!"
   _terms: "Terms"
   _statistics: "Statistics"
 
@@ -71,14 +55,10 @@ en:
           attributes:
             person_id:
               taken: "must be unique among this user’s contacts."
-        request:
-          attributes:
-            from_id:
-              taken: "is a duplicate of a pre-existing request."
         reshare:
           attributes:
             root_guid:
-              taken: "That good, eh?  You've already reshared that post!"
+              taken: "That good, eh? You've already reshared that post!"
         poll:
           attributes:
             poll_answers:
@@ -87,13 +67,26 @@ en:
           attributes:
             poll:
               already_participated: "You’ve already participated in this poll!"
+  # Carrierwave error messages
+  errors:
+    messages:
+      carrierwave_processing_error: failed to be processed
+      carrierwave_integrity_error: is not of an allowed file type
+      carrierwave_download_error: could not be downloaded
+      extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
+      extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
+      content_type_whitelist_error: "You are not allowed to upload %{content_type} files"
+      content_type_blacklist_error: "You are not allowed to upload %{content_type} files"
+      rmagick_processing_error: "Failed to manipulate with rmagick, maybe it is not an image?"
+      mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
+      min_size_error: "File size should be greater than %{min_size}"
+      max_size_error: "File size should be less than %{max_size}"
+
   error_messages:
     helper:
-      invalid_fields: "Invalid fields"
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
-    post_not_public: "The post you are trying to view is not public!"
-    post_not_public_or_not_exist: "The post you are trying to view is not public, or does not exist!"
-    login_try_again: "Please <a href='%{login_link}'>login</a> and try again."
+    need_javascript: "This website requires JavaScript to function properly. If you disabled JavaScript, please enable it and refresh this page."
+    csrf_token_fail: "The CSRF token is invalid. Please sign in and try again."
 
   admins:
     admin_bar:
@@ -125,6 +118,7 @@ en:
       account_locking_scheduled: "The account of %{name} is scheduled to be locked. It will be processed in a few moments..."
       account_unlocking_scheduled: "The account of %{name} is scheduled to be unlocked. It will be processed in a few moments..."
       email_to: "Email to invite"
+      invite: "Invite"
       under_13: "Show users that are under 13 (COPPA)"
       users:
         zero: "%{count} users found"
@@ -134,11 +128,12 @@ en:
       id: "ID"
       guid: "GUID"
       email: "Email"
-      diaspora_handle: "diaspora* handle"
+      diaspora_handle: "diaspora* ID"
       last_seen: "Last seen"
       account_closed: "Account closed"
       nsfw: "#nsfw"
       unknown: "Unknown"
+      invite_token: "Invite token"
       'yes': "Yes"
       'no': "No"
     weekly_user_stats:
@@ -154,7 +149,7 @@ en:
       daily: "Daily"
       usage_statistic: "Usage statistics"
       go: "Go"
-      display_results: "Displaying results from the <b>%{segment}</b> segment"
+      display_results: "Displaying results from the %{segment} segment"
       posts:
         zero: "%{count} posts"
         one: "%{count} post"
@@ -171,54 +166,29 @@ en:
         zero: "%{count} users"
         one: "%{count} user"
         other: "%{count} users"
-      current_segment: "The current segment is averaging <b>%{post_yest}</b> posts per user, from <b>%{post_day}</b>"
+      current_segment: "The current segment is averaging %{post_yest} posts per user, from %{post_day}"
       50_most: "50 most popular tags"
-      tag_name: "Tag name: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
+      tag_name: "Tag name: %{name_tag} Count: %{count_tag}"
     pods:
       pod_network: "Pod network"
-  application:
-    helper:
-      unknown_person: "Unknown person"
-      video_title:
-        unknown: "Unknown video title"
+      pod_desktop_view: "This page is not available on mobile view, please switch to %{desktop_link}."
+      pod_desktop_link: "desktop view"
   aspects:
-    zero: "No aspects"
-    one: "1 aspect"
-    other: "%{count} aspects"
-    contacts_visible: "Contacts in this aspect will be able to see each other."
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     edit:
-      grant_contacts_chat_privilege: "Grant contacts in this aspect chat privilege?"
-      make_aspect_list_visible: "Make contacts in this aspect visible to each other?"
-      remove_aspect: "Delete this aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
-      set_visibility: "Set visibility"
       rename: "Rename"
       aspect_list_is_visible: "Contacts in this aspect are able to see each other."
       aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other."
-      aspect_chat_is_enabled: "Contacts in this aspect are able to chat with you."
-      aspect_chat_is_not_enabled: "Contacts in this aspect are not able to chat with you."
       update: "Update"
       updating: "Updating"
-    no_posts_message:
-      start_talking: "Nobody has said anything yet!"
     no_contacts_message:
       you_should_add_some_more_contacts: "You should add some more contacts!"
       try_adding_some_more_contacts: "You can search or %{invite_link} more contacts."
       invite_link_text: "invite"
-      or_spotlight:  "Or you can share with %{link}"
+      or_spotlight: "Or you can share with %{link}"
       community_spotlight: "Community spotlight"
     aspect_listings:
-      select_all: "Select all"
-      deselect_all: "Deselect all"
-      edit_aspect: "Edit %{name}"
       add_an_aspect: "+ Add an aspect"
-    new:
-      name: "Name (only visible to you)"
-      create: "Create"
-    create:
-      success: "Your new aspect %{name} was created"
-      failure: "Aspect creation failed."
     destroy:
       success: "%{name} was successfully removed."
       success_auto_follow_back: "%{name} was successfully removed. You used this aspect to automatically follow back users. Check your user settings to select a new auto follow back aspect."
@@ -237,16 +207,9 @@ en:
     index:
       donate: "Donate"
       keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
-      keep_diaspora_running: "Keep diaspora* development fast with a monthly donation!"
-      no_tags: "+ Find a tag to follow"
-      unfollow_tag: "Stop following #%{tag}"
-      handle_explanation: "This is your diaspora* ID. Like an email address, you can give this to people to reach you."
-      no_contacts: "No contacts"
-      post_a_message: "Post a message >>"
-      people_sharing_with_you: "People sharing with you"
-
+      donate_liberapay: "Donate to liberapay"
       welcome_to_diaspora: "Welcome to diaspora*, %{name}!"
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
+      introduce_yourself: "This is your stream. Jump in and introduce yourself."
 
       new_here:
         title: "Welcome new users"
@@ -265,15 +228,11 @@ en:
         tag_feature: "feature"
         tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: help for your first steps."
         tutorial_link_text: "Tutorials"
-        email_feedback: "%{link} your feedback, if you prefer"
-        email_link: "Email"
+        support_forum: "You can also join the %{support_forum}."
+        support_forum_link: "support forum"
         any_problem: "Got a problem?"
         contact_podmin: "Contact the administrator of your pod!"
         mail_podmin: "Podmin email"
-      diaspora_id:
-        heading: "diaspora* ID"
-        content_1: "Your diaspora* ID is:"
-        content_2: "Give it to anyone and they’ll be able to find you on diaspora*."
       services:
         heading: "Connect services"
         content: "You can connect the following services to diaspora*:"
@@ -288,40 +247,33 @@ en:
       success: "Successfully removed person from aspect."
       failure: "Failed to remove person from aspect."
       no_membership: "Could not find the selected person in that aspect."
+      forbidden: "You are not allowed to do that."
+      invalid_statement: "Duplicate record rejected."
 
   bookmarklet:
     heading: "Bookmarklet"
-    post_success: "Posted! Closing!"
     post_something: "Post to diaspora*"
     explanation: "Post to diaspora* from anywhere by bookmarking this link => %{link}."
 
+  color_themes:
+    dark: "Dark"
+    dark_green: "Dark green"
+    egyptian_blue: "Egyptian blue"
+    magenta: "Magenta"
+    original: "Original gray"
+    original_white: "Original white background"
+
   comments:
-    zero: "No comments"
-    one: "1 comment"
-    other: "%{count} comments"
+    create:
+      error: "Failed to comment."
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
 
-  reactions:
-    zero: "No reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-
   contacts:
-    zero: "No contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    create:
-      failure: "Failed to create contact"
-    sharing:
-      people_sharing: "People sharing with you:"
     index:
-      add_to_aspect: "Add contacts to %{name}"
       start_a_conversation: "Start a conversation"
-      add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
-      your_contacts: "Your contacts"
       no_contacts: "Looks like you need to add some contacts!"
       no_contacts_message: "Check out %{community_spotlight}"
       community_spotlight: "Community spotlight"
@@ -330,22 +282,19 @@ en:
       all_contacts: "All contacts"
       only_sharing_with_me: "Only sharing with me"
       add_contact: "Add contact"
-      remove_contact: "Remove contact"
       user_search: "Contact search"
     spotlight:
       community_spotlight: "Community spotlight"
       suggest_member: "Suggest a member"
+      no_members: "There are no members yet."
 
   conversations:
     index:
       conversations_inbox: "Conversations – Inbox"
       new_conversation: "New conversation"
-      no_conversation_selected: "No conversation selected"
-      create_a_new_conversation: "Start a new conversation"
       no_messages: "No messages"
       inbox: "Inbox"
-    conversation:
-      participants: "Participants"
+      no_contacts: "You need to add some contacts before you can start a conversation"
     show:
       reply: "Reply"
       replying: "Replying..."
@@ -359,16 +308,9 @@ en:
       message: "Message"
       send: "Send"
       sending: "Sending..."
-      abandon_changes: "Abandon changes?"
-    helper:
-      new_messages:
-        zero: "No new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
     create:
       sent: "Message sent"
       fail: "Invalid message"
-      no_contact: "Hey, you need to add the contact first!"
     new_conversation:
       fail: "Invalid message"
     destroy:
@@ -392,6 +334,7 @@ en:
     foundation_website: "diaspora* foundation website"
     third_party_tools: "Third-party tools"
     getting_started_tutorial: "”Getting started” tutorial series"
+    community_guidelines: "community guidelines"
     getting_help:
       title: "Getting help"
       getting_started_q: "Help! I need some basic help to get me started!"
@@ -403,10 +346,11 @@ en:
       get_support_a_irc: "Join us on %{irc} (live chat)"
       get_support_a_faq: "Read our %{faq} page on wiki"
       get_support_a_hashtag: "Ask in a public post on diaspora* using the %{question} hashtag"
+      get_support_a_discourse: "Search for existing discussions relating to your enquiry or open a new thread in our %{discourse} platform"
     account_and_data_management:
       title: "Account and data management"
       move_pods_q: "How do I move my seed (account) from one pod to another?"
-      move_pods_a: "In the future you will be able to export your seed from a pod and import it on another, but this is not currently possible. You could always open a new account and add your contacts to aspects on that new seed, and ask them to add your new seed to their aspects."
+      move_pods_a: "Version 0.7.0.0 of diaspora* provides the first stage of account migration: you can now export all your data from the “Account” section of the user settings. Keep your data safely! In a future release you will be able to migrate your whole account, including posts and contacts, to another pod."
       download_data_q: "Can I download a copy of all of my data contained in my seed (account)?"
       download_data_a: "Yes. At the bottom of the Account tab of your settings page you will find two buttons: one for downloading your data and one for downloading your photos."
       close_account_q: "How do I delete my seed (account)?"
@@ -426,7 +370,7 @@ en:
       person_multiple_aspects_q: "Can I add a person to multiple aspects?"
       person_multiple_aspects_a: "Yes. Go to your contacts page and click on “My contacts”. For each contact you can use the menu on the right to add them to (or remove them from) as many aspects as you want. Or you can add them to a new aspect (or remove them from an aspect) by clicking the aspect selector button on their profile page. Or you can even just move the pointer over their name where you see it in the stream, and a “hovercard” will appear. You can change the aspects they are in right there."
       contacts_visible_q: "What does “make contacts in this aspect visible to each other” mean?"
-      contacts_visible_a: "If you check this option then contacts from that aspect will be able to see who else is in it, in the “Contacts” tab on your profile page. It’s best to select this option only if the contacts in that aspect all know each other, for example if the aspect is for a club or society you belong to. They still won’t be able to see what the aspect is called."
+      contacts_visible_a: "If you check this option then contacts from that aspect will be able to see who else is in it, in the “Contacts” tab on your profile page. (At the moment, only your contacts who are on the same pod as you will be able to see the “Contacts” tab on your profile.) It’s best to select this option only if the contacts in that aspect all know each other, for example if the aspect is for a club or society you belong to. They still won’t be able to see what the aspect is called."
       remove_notification_q: "If I remove someone from an aspect, or all of my aspects, are they notified of this?"
       remove_notification_a: "No. They are also not notified if you add them to more aspects, when you are already sharing with them."
       change_aspect_of_post_q: "Once I have posted something, can I change the aspect(s) that can see it?"
@@ -451,7 +395,7 @@ en:
       how_to_mention_q: "How do I mention someone when making a post?"
       how_to_mention_a: "Type the “@” sign and start typing their name. A drop-down menu should appear to let you select them more easily. Note that it is only possible to mention people you have added to an aspect."
       mention_in_comment_q: "Can I mention someone in a comment?"
-      mention_in_comment_a: "No, not currently."
+      mention_in_comment_a: "Since version 0.7.0.0, yes! You can mention someone in a comment the same way you would do it in a post, by typing “@” and then start typing their name. Please note that when you comment on a post which is not public, you can only mention users who have already interacted with the post."
       see_mentions_q: "Is there a way to see the posts in which I have been mentioned?"
       see_mentions_a: "Yes, click “@Mentions” in the left-hand column on your home page."
     pods:
@@ -461,7 +405,7 @@ en:
       find_people_q: "I just joined a pod, how can I find people to share with?"
       find_people_a: "If you want to invite your friends to join diaspora*, use the invitation link or the email link in the side-bar. Follow #tags to discover others who share your interests, and add those who post things that interest you to an aspect. Shout out that you’re #newhere in a public post."
       use_search_box_q: "How do I use the search box to find particular individuals?"
-      use_search_box_a: "If you know their full diaspora* ID (e.g. username@podname.org), you can find them by searching for it. If you are on the same pod you can search for just their username. Alternatively you can search for them by their profile name (the name you see on screen). If a search does not work the first time, try it again."
+      use_search_box_a: "You can search for people by entering their username or their diaspora* name (the name that is shown on their profile). If neither of these methods work, enter their full diaspora* ID (username@podname.org). If your search doesn’t work the first time, it could be due to network latency. Try it again."
     posts_and_posting:
       title: "Posts and posting"
       stream_full_of_posts_q: "Why is my stream full of posts from people I don’t know and don’t share with?"
@@ -473,25 +417,26 @@ en:
       hide_posts_a: "If you point your mouse at the top of a post, an X appears on the right. Click it to hide the post and mute notifications about it. You can still see the post if you visit the profile page of the person who posted it."
       post_notification_q: "How do I get notifications, or stop getting notifications, about a post?"
       post_notification_a: "You will find a bell icon next to the X at the top right of a post. Click this to enable or disable notifications for that post."
+      ignore_user_q: "How do I stop someone’s posts from appearing in my stream?"
+      ignore_user_a1: "If you are currently sharing with that person, removing them from your aspects will stop many of their posts from appearing in your stream. A more complete method is to “ignore” that account. This will prevent any of their posts from appearing in your stream, and they will no longer be able to like or comment on your posts. They will, however, still be able to reshare your posts, comment on reshares of your posts, and their comments on posts by other people which appear in your stream will still be visible to you."
+      ignore_user_a2: "To ignore an account, click the “ignore” icon (a circle with a diagonal line through it) at the top right of one of their posts. Their posts will instantly disappear from your stream. Alternatively, go to their profile page and click the ignore icon there. You will still be able to see their posts on their profile page, or by using the single-post view."
+      ignore_user_a3: "A list of people you are ignoring can be found in your account settings under Privacy. To stop ignoring someone, remove them from the list on that page."
       post_report_q: "How do I report an offensive post?"
-      post_report_a: "Click the alert triangle icon at the top right of the post to report it to your podmin. Enter a reason for reporting this post in the dialog box."
+      post_report_a: "Click the alert triangle icon at the top right of the post to report it to your podmin. Enter a reason for reporting this post in the dialog box. Please only report posts that break our %{community_guidelines} or your pod’s terms of service, for example posts containing illegal content, or which are abusive or spam."
       character_limit_q: "What is the character limit for posts?"
       character_limit_a: "65,535 characters. That’s 65,395 more characters than you get on Twitter! ;)"
       char_limit_services_q: "What if I'm sharing my post with a connected service with a smaller character count?"
       char_limit_services_a: "In that case you should restrict your post to the smaller character count (140 in the case of Twitter; 1000 in the case of Tumblr), and the number of characters you have left to use is displayed when that service’s icon is highlighted. You can still post to these services if your post is longer than their limit, but the text will be truncated on those services with a link to the post on diaspora*."
       format_text_q: "How can I format the text in my posts (bold, italics, etc.)?"
-      format_text_a: "By using a simplified system called %{markdown}. You can find the full Markdown syntax %{here}. The preview button is really helpful here, as you can see how your message will look before you share it."
+      format_text_a: "diaspora* uses a simplified system called %{markdown}. The publisher has buttons to make it easy to format your text. If you want to format your post manually, you can find the full Markdown syntax %{here}. The preview tab means you can see how your message will look before you share it. Remember that you can’t edit it once posted, so use the preview to make sure it’s perfect before pressing Share!"
       insert_images_q: "How do I insert images into posts?"
-      insert_images_a: "Click the little camera icon to insert an image into a post. Press the camera icon again to add another photo, or you can select multiple photos to upload in one go."
+      insert_images_a: "If you want to include an image stored on your computer in your post, click the little camera icon at the bottom of the publisher. You can also drag and drop an image, or multiple images, from your computer onto that icon. If you want to insert an image from the web into your post, click the image button on the top of the publisher, which will create the Markdown code for you."
       insert_images_comments_q: "Can I insert images into comments?"
-      insert_images_comments_a1: "You cannot upload images into comments, but the following Markdown code"
-      image_text: "image text"
-      image_url: "image url"
-      insert_images_comments_a2: "can be used to insert images from the web into comments as well as posts."
+      insert_images_comments_a: "You can use Markdown to insert an image from the web into a comment, just like in posts. However, you cannot upload images from your computer directly into comments. Upload them to an image-hosting service and then insert them using the image button above the publisher."
       size_of_images_q: "Can I customize the size of images in posts or comments?"
       size_of_images_a: "No. Images are resized automatically to fit the stream or single-post view. Markdown does not have a code for specifying the size of an image."
       embed_multimedia_q: "How do I embed a video, audio, or other multimedia content into a post?"
-      embed_multimedia_a: "You can usually just paste the URL (e.g. http://www.youtube.com/watch?v=nnnnnnnnnnn ) into your post and the video or audio will be embedded automatically. The sites supported include: YouTube, Vimeo, SoundCloud, Flickr and a few more. diaspora* uses oEmbed for this feature. We’re supporting more media sources all the time. Remember to always post simple, full links – no shortened links; no operators after the base URL – and give it a little time before you refresh the page after posting for seeing the preview."
+      embed_multimedia_a: "You can usually just paste the URL (e.g. http://www.youtube.com/watch?v=nnnnnnnnnnn ) into your post and the video or audio will be embedded automatically. The sites supported include: YouTube, Vimeo, SoundCloud, Flickr and a few more. diaspora* uses oEmbed for this feature. If you post a direct link to an audio or video file, diaspora* will embed it using standard HTML5 player. We’re supporting more media sources all the time. Remember to always post simple, full links – no shortened links; no operators after the base URL – and give it a little time before you refresh the page after posting for seeing the preview."
       post_location_q: "How do I add my location to a post?"
       post_location_a: "Click the pin icon next to the camera in the publisher. This will insert your location from OpenStreetMap. You can edit your location – you might only want to include the city you’re in rather than the specific street address."
       post_poll_q: "How do I add a poll to my post?"
@@ -506,14 +451,6 @@ en:
       can_reshare_a: "Nobody. Private posts are not resharable. Logged-in diaspora* users in that aspect can potentially copy and paste it, however. It’s up to you whether you trust those people!"
       see_comment_q: "When I comment on or like a private post, who can see it?"
       see_comment_a: "Only the people that the post was shared with (the people who are in the aspects selected by the original poster) can see its comments and likes. "
-    private_profiles:
-      title: "Private profiles"
-      who_sees_profile_q: "Who sees my private profile?"
-      who_sees_profile_a: "Any logged-in user that you are sharing with (meaning, you have added them to one of your aspects). However, people following you, but whom you do not follow, will see only your public information."
-      whats_in_profile_q: "What’s in my private profile?"
-      whats_in_profile_a: "Your private profile contains your biography, location, gender, and birthday, if you have completed these sections. All this information is optional – it’s up to you whether you provide it. Logged-in users who you have added to your aspects are the only people who can see your private profile. When they visit your profile page they will also see the private posts that made to the aspect(s) they are in, mixed in with your public posts."
-      who_sees_updates_q: "Who sees updates to my private profile?"
-      who_sees_updates_a: "Anyone in your aspects sees changes to your private profile. "
     public_posts:
       title: "Public posts"
       who_sees_post_q: "When I post something publicly, who can see it?"
@@ -521,21 +458,19 @@ en:
       find_public_post_q: "How can other people find my public post?"
       find_public_post_a: "Your public posts will appear in the streams of anyone following you. If you included #tags in your public post, anyone following those tags will find your post in their streams. Every public post also has a specific URL that anyone can view, even if they’re not logged in – thus public posts may be linked to directly from Twitter, blogs, etc. Public posts may also be indexed by search engines."
       can_comment_reshare_like_q: "Who can comment on, reshare, or like my public post?"
-      can_comment_reshare_like_a: "Any logged-in diaspora* user can comment on, reshare, or like your public post."
+      can_comment_reshare_like_a: "Any logged-in diaspora* user can comment on, reshare, or like your public post. The exception to this is people you have ignored, who won’t be able to like or comment on your posts."
       see_comment_reshare_like_q: "When I comment on, reshare, or like a public post, who can see it?"
       see_comment_reshare_like_a: "Comments, likes, and reshares of public posts are also public. Any logged-in diaspora* user and anyone else on the internet can see your interactions with a public post."
-      deselect_aspect_posting_q: "What happens when I deselect one or more aspects when making a public post?"
+      deselect_aspect_posting_q: "What happens when I deselect one or more aspects in the left-hand column when making a public post?"
       deselect_aspect_posting_a: "Deselecting aspects does not affect a public post. It will still be public and will appear in the streams of all of your contacts. To make a post visible only to specific aspects, you need to select those aspects from the aspect selector under the publisher."
-    public_profiles:
-      title: "Public profiles"
-      who_sees_profile_q: "Who sees my public profile?"
-      who_sees_profile_a: "Any logged-in diaspora* user, as well as the wider internet, can see it. Each profile has a direct URL, so it may be linked to directly from outside sites. It may be indexed by search engines."
-      whats_in_profile_q: "What’s in my public profile?"
-      whats_in_profile_a: "Your public profile contains your name, the five tags you chose to describe yourself, and your photo, if you have completed these sections. All this information is optional – it’s up to you whether you provide it. You can make this profile information as identifiable or anonymous as you like. Your profile page also shows any public posts you have made."
-      who_sees_updates_q: "Who sees updates to my public profile?"
-      who_sees_updates_a: "Anyone can see changes if they visit your profile page."
-      what_do_tags_do_q: "What do the tags on my public profile do?"
-      what_do_tags_do_a: "They help people get to know you. Your profile picture will also appear on the left-hand side of those particular tag pages, along with anyone else who has them in their public profile."
+    profile:
+      title: "Profile"
+      whats_in_profile_q: "What’s in my profile?"
+      whats_in_profile_a: "Your profile is in two parts: your basic profile and your extended profile. Your basic profile contains your name, the five tags you chose to describe yourself, and your photo. Your extended profile contains your biography, location, gender, and birthday. All this information is optional – it’s up to you whether you provide it, and you can make this profile information as identifiable or anonymous as you like. Your extended profile is displayed in the left-hand column of your profile page, under your profile picture."
+      who_sees_profile_q: "Who sees my profile?"
+      who_sees_profile_a: "Your basic profile (name, profile image and #tags) is public. Your extended profile is private by default, but you can make it all publicly accessible if you want. Only people you are sharing with (meaning, you have added them to one of your aspects) can see your extended profile if you keep it private. Other people will see only your public information. Any profile information you make public can be viewed by anyone using the web, and can be indexed by search engines"
+      what_do_tags_do_q: "What do the tags in my basic profile do?"
+      what_do_tags_do_a: "They help people get to know you. Your profile picture will also appear on the left-hand side of the stream pages of those tags, along with anyone else who has them in their basic profile."
     resharing_posts:
       title: "Resharing posts"
       reshare_public_post_aspects_q: "Can I reshare a public post to selected aspects?"
@@ -560,7 +495,7 @@ en:
       only_sharing_q: "Who are the people listed under “Only sharing with me” on my contacts page?"
       only_sharing_a: "These are people that have added you to one of their aspects, but who are not (yet) in any of your aspects. In other words, they are sharing with you, but you are not sharing with them: you can think of this as them “following” you. If you add them to an aspect, they will then appear under that aspect and not under “Only sharing with me”. See above."
       list_not_sharing_q: "Is there a list of people whom I have added to one of my aspects, but who have not added me to one of theirs?"
-      list_not_sharing_a: "No, but you can see whether or not someone is sharing with you by visiting their profile page. If they are, the button showing the aspect(s) in which you have placed them will be green; if not, it’ll be gray."
+      list_not_sharing_a: "No, but you can see whether or not someone is sharing with you by visiting their profile page. If they are, there will be a green tick next to their diaspora* ID. If they are not, there will be a gray circle."
       see_old_posts_q: "When I add someone to an aspect, can they see older posts that I have already posted to that aspect?"
       see_old_posts_a: "No. They will only be able to see new posts to that aspect. They (and everyone else) can see your older public posts on your profile page, and they may also see them in their stream."
     tags:
@@ -570,7 +505,7 @@ en:
       tags_in_comments_q: "Can I put tags in comments or just in posts?"
       tags_in_comments_a: "A tag added to a comment will still appear as a link to that tag’s page, but it will not make that post (or comment) appear on that tag page. This only works for tags in posts."
       followed_tags_q: "What are “#Followed Tags” and how do I follow a tag?"
-      followed_tags_a: "After searching for a tag you can click the button at the top of the tag’s page to “follow” that tag. It will then appear in your list of followed tags in the left-hand menu. Clicking one of your followed tags takes you to that tag’s page so you can see recent posts containing that tag. Click on #Followed Tags to see a stream of posts that include any one of your followed tags."
+      followed_tags_a: "After searching for a tag you can click the button at the top of the tag’s page to “follow” that tag. It will then appear in your list of followed tags in the left-hand menu. Clicking one of your followed tags takes you to that tag’s page so you can see recent posts containing that tag. Click on #Followed Tags to see a stream of posts that include any one of your followed tags. Posts containing that tag will also be included in your main stream."
       people_tag_page_q: "Who are the people listed on the left-hand side of a tag page?"
       people_tag_page_a: "They are people who have listed that tag to describe themselves in their public profile."
       filter_tags_q: "How can I filter/exclude some tags from my stream?"
@@ -598,82 +533,83 @@ en:
       diaspora_app_q: "Is there a diaspora* app for Android or iOS?"
       diaspora_app_a: "There have been several Android apps in development by community members. Some are long-abandoned projects and so do not work well with the current version of diaspora*. Don’t expect much from these apps at the moment. There is currently no app for iOS. The best way to access diaspora* from your mobile device is through a browser, because we’ve designed a mobile version of the site which should work well on all devices, although it does not yet have complete functionality."
 
+  home:
+    default:
+      headline: "Welcome to %{pod_name}"
+      byline: "The online social world where you are in control"
+      be_who_you_want_to_be: "Be who you want to be"
+      be_who_you_want_to_be_info: "A lot of networks insist that you use your real identity. Not diaspora*. Here you can choose who you want to be, and share as much or as little about yourself as you want. It really is up to you how you want to interact with other people."
+      choose_your_audience: "Choose your audience"
+      choose_your_audience_info: "diaspora*’s aspects allow you to share with just those people you want to. You can be as public or as private as you like. Share a funny photo with the whole world, or a deep secret just with your closest friends. You’re in control."
+      own_your_data: "Own your own data"
+      own_your_data_info: "Many networks use your data to make money by analysing your interactions and using this information to advertise things to you. diaspora* doesn’t use your data for any purpose other than allowing you to connect and share with others."
+    podmin:
+      headline: "Welcome, friend."
+      byline: "You’re about to change the Internet. Let’s get you set up, shall we?"
+      configure_your_pod: "Configure your pod"
+      create_an_account: "Create an account"
+      make_yourself_an_admin: "Make yourself an admin"
+      update_your_pod: "Update your pod"
+      getting_help: "Getting help"
+      contribute: "Contribute"
+      configuration_info: "Open %{database_path} and %{diaspora_path} in your favourite text editor and carefully review them, they are extensively commented."
+      create_an_account_info: "%{sign_up_link} for a new account."
+      make_yourself_an_admin_info: "You can find instructions in the %{wiki}. This should add an “%{admin_dashboard}” link to your user menu in the header when you are logged in. It gives you stuff like user search and stats for your pod."
+      update_your_pod_info: "You can find %{update_instructions}."
+      update_instructions: "update instructions in the diaspora* wiki"
+      getting_help_info: "We listed some %{faq} including some additional tips and tricks and solutions for the most common problems. Also feel free to %{irc}."
+      faq_for_podmins: "FAQ for pod maintainers in our wiki"
+      contact_irc: "contact us on IRC"
+      contribute_info: "Make diaspora* even better! If you find any bugs please %{report_bugs}."
+      report_bugs: "report them"
+
   invitation_codes:
-    excited: "%{name} is excited to see you here."
+    not_valid: "That invite code is no longer valid"
+    already_logged_in: "You have been invited by %{inviter} to join this pod but you are already logged in."
+
   invitations:
     create:
       sent: "Invitations have been sent to: %{emails}"
-      rejected: "The following email addresses had problems: "
+      rejected: "The following email addresses had problems: %{emails}"
       no_more: "You have no more invitations."
-      already_sent: "You already invited this person."
-      already_contacts: "You are already connected with this person"
-      own_address: "You can’t send an invitation to your own address."
       empty: "Please enter at least one email address."
       note_already_sent: "Invitations have already been sent to: %{emails}"
+      closed: "Invitations are closed on this diaspora* pod."
     new:
       language: "Language"
       invite_someone_to_join: "Invite someone to join diaspora*!"
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       comma_separated_plz: "You can enter multiple email addresses separated by commas."
-      check_out_diaspora: "Hey! You should check out diaspora*"
-      to: "To"
-      personal_message: "Personal message"
       send_an_invitation: "Send an invitation"
       sending_invitation: "Sending invitation..."
-      send_invitation: "Send invitation"
       paste_link: "Share this link with your friends to invite them to diaspora*, or email them the link directly."
       codes_left:
-        zero:  "No invites left on this code"
-        one:  "One invite left on this code"
-        other:  "%{count} invites left on this code"
-      aspect: "Aspect"
-      already_invited: "The following people have not accepted your invitation:"
-      resend: "Resend"
-      check_out_diaspora: "Check out diaspora*!"
-    check_token:
-      not_found: "Invitation token not found"
-    edit:
-      your_account_awaits: "Your account awaits!"
-      accept_your_invitation: "Accept your invitation"
-    a_facebook_user: "A Facebook user"
+        zero: "No invites left on this code"
+        one: "One invite left on this code"
+        other: "%{count} invites left on this code"
 
   layouts:
     header:
       profile: "Profile"
       settings: "Settings"
-      help: "Help"
       logout: "Log out"
-      blog: "Blog"
-      login: "Log in"
       code: "Code"
-      admin: "Admin"
-      view_all: "View all"
-      recent_notifications: "Recent notifications"
       toggle_navigation: "Toggle navigation"
     application:
       powered_by: "Powered by diaspora*"
       whats_new: "What’s new?"
       statistics_link: "Pod statistics"
+      discourse: "Project discussions and support"
       toggle: "Toggle mobile"
       public_feed: "Public diaspora* feed for %{name}"
-      your_aspects: "Your aspects"
       back_to_top: "Back to top"
       source_package: "Download the source code package"
+      be_excellent: "Be excellent to each other! ♥"
 
   likes:
-    likes:
-      people_like_this:
-        zero: "No likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-      people_like_this_comment:
-        zero: "No likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-      people_dislike_this:
-        zero: "No dislikes"
-        one: "%{count} dislike"
-        other: "%{count} dislikes"
+    create:
+      error: "Failed to like."
+    destroy:
+      error: "Failed to unlike."
 
   notifications:
     started_sharing:
@@ -693,9 +629,11 @@ en:
       one: "%{actors} also commented on %{post_author}’s post %{post_link}."
       other: "%{actors} also commented on %{post_author}’s post %{post_link}."
     mentioned:
-      zero: "%{actors} have mentioned you in the post %{post_link}."
       one: "%{actors} has mentioned you in the post %{post_link}."
-      other: "%{actors} have mentioned you in the %{post_link}."
+      other: "%{actors} have mentioned you in the post %{post_link}."
+    mentioned_in_comment:
+      one: "%{actors} has mentioned you in a <a href='%{comment_path}'>comment</a> to the post %{post_link}."
+      other: "%{actors} have mentioned you in a <a href='%{comment_path}'>comment</a> to the post %{post_link}."
     liked:
       zero: "%{actors} have liked your post %{post_link}."
       one: "%{actors} has liked your post %{post_link}."
@@ -704,7 +642,10 @@ en:
       zero: "%{actors} have reshared your post %{post_link}."
       one: "%{actors} has reshared your post %{post_link}."
       other: "%{actors} have reshared your post %{post_link}."
-    post: "post"
+    contacts_birthday:
+      zero: "%{actors} have their birthday on %{date}."
+      one: "%{actors} has their birthday on %{date}."
+      other: "%{actors} have their birthday on %{date}."
     also_commented_deleted:
       zero: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
@@ -718,9 +659,11 @@ en:
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
     mentioned_deleted:
-      zero: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
+    mentioned_in_comment_deleted:
+      one: "%{actors} mentioned you in a deleted comment."
+      other: "%{actors} mentioned you in a deleted comment."
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark all as read"
@@ -733,20 +676,17 @@ en:
       also_commented: "Also commented"
       comment_on_post: "Comment on post"
       liked: "Liked"
-      mentioned: "Mentioned"
+      mentioned: "Mentioned in post"
+      mentioned_in_comment: "Mentioned in comment"
       reshared: "Reshared"
       started_sharing: "Started sharing"
+      contacts_birthday: "Birthday"
       no_notifications: "You don't have any notifications yet."
       and_others:
         zero: "and nobody else"
         one: "and one more"
         other: "and %{count} others"
       and: "and"
-    helper:
-      new_notifications:
-        zero: "No new notifications"
-        one: "1 new notification"
-        other: "%{count} new notifications"
 
   notifier:
     a_post_you_shared: "a post."
@@ -771,9 +711,12 @@ en:
         limited_subject: "There's a new comment on a post you commented"
     mentioned:
         subject: "%{name} has mentioned you on diaspora*"
-        mentioned: "mentioned you in a post:"
         limited_post: "You were mentioned in a limited post."
+    mentioned_in_comment:
+        limited_post: "You were mentioned in a comment to a limited post."
+        reply: "Reply to or view this conversation >"
     private_message:
+        subject: "There’s a new private message for you"
         reply_to_or_view: "Reply to or view this conversation >"
     liked:
         liked: "%{name} liked your post"
@@ -782,9 +725,36 @@ en:
     reshared:
         reshared: "%{name} reshared your post"
         view_post: "View post >"
+    contacts_birthday:
+        subject: "%{name} has their birthday today"
+        birthday: "%{name} has their birthday today. Wish them 'Happy Birthday'!"
+        view_profile: "View %{name}’s profile"
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
+    csrf_token_fail:
+      subject: "We received an unauthorized request from your account, %{name}"
+      body: |-
+        Hello %{name},
+
+        diaspora* has detected an attempt to access your session which might be unauthorised. To avoid any chance of your data being compromised, you have been signed out. Don’t worry; you can safely sign in again now.
+
+        A request has been made using a incorrect or missing CSRF token. This might be completely innocent, but it could be a cross-site request forgery (CSRF) attack.
+
+        This could have been caused by:
+
+          - An add-on manipulating the request or making requests without the token;
+          - A tab left open from a past session;
+          - Another website making requests, with or without your permission;
+          - Various other external tools;
+          - Malicious code trying to access your data.
+
+        For more information on CSRF see [%{link}](%{link}).
+
+        If you see this message repeatedly, please check the points above, including any browser add-ons.
+
+        Thank you,
+        The diaspora* email robot!
     report_email:
         type:
           post: "post"
@@ -794,6 +764,8 @@ en:
           Hello,
 
           the %{type} with ID %{id} was marked as offensive.
+
+          Reason: %{reason}
 
           [%{url}][1]
 
@@ -847,17 +819,18 @@ en:
         Sorry,
 
         The diaspora* email robot!
-    accept_invite: "Accept your diaspora* invite!"
     invited_you: "%{name} invited you to diaspora*"
     invite:
       message: |-
         Hello!
 
-        You have been invited to join diaspora*!
+        You have been invited to join diaspora* by %{user}!
 
         Click this link to get started
 
         [%{invite_url}][1]
+
+        Or you can add %{diaspora_id} to your contacts if you already have an account.
 
 
         Love,
@@ -884,15 +857,66 @@ en:
         Hoping to see you again,
 
         The diaspora* email robot!
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          redirection_message: "Are you sure you want to give access to %{redirect_uri}?"
+          access: "%{name} requires access to:"
+          no_requirement: "%{name} requires no permissions"
+          approve: "Approve"
+          deny: "Deny"
+          bad_request: "Missing client id or redirect URI"
+          client_id_not_found: "No client with client_id %{client_id} with redirect URI %{redirect_uri} found"
+        destroy:
+          fail: "The attempt to revoke the authorization with ID %{id} failed"
+      user_applications:
+        index:
+          edit_applications: "Applications"
+          title: "Authorized applications"
+          access: "%{name} has access to:"
+          no_requirement: "%{name} requires no permissions"
+        no_applications: "You have no authorized applications"
+        revoke_autorization: "Revoke"
+        tos: "See the application's terms of service"
+        policy: "See the application's privacy policy"
+      scopes:
+        openid:
+          name: "basic profile"
+          description: "This allows the application to read your basic profile"
+        sub:
+          name: "sub"
+          description: "This grants sub permissions to the application"
+        aud:
+          name: "aud"
+          description: "This grants aud permissions to the application"
+        name:
+          name: "name"
+          description: "This grants name permissions to the application"
+        nickname:
+          name: "nickname"
+          description: "This grants nickname permissions to the application"
+        profile:
+          name: "extended profile"
+          description: "This allows the application to read your extended profile"
+        picture:
+          name: "picture"
+          description: "This grants picture permissions to the application"
+        read:
+          name: "read profile, stream and conversations"
+          description: "This allows the application to read your stream, your conversations and your complete profile"
+        write:
+          name: "send posts, conversations and reactions"
+          description: "This allows the application to send new posts, write conversations, and send reactions"
+      error_page:
+        title: "Oh! Something went wrong :("
+        contact_developer: "You should contact the developer of the application and include the following detailed error message:"
+        login_required: "You must first login before you can authorize this application"
+        could_not_authorize: "The application could not be authorized"
+
   people:
-    zero: "No people"
-    one: "1 person"
-    other: "%{count} people"
     person:
-      pending_request: "Pending request"
-      already_connected: "Already connected"
       thats_you: "That’s you!"
-      add_contact: "Add contact"
     index:
       results_for: "Users matching %{search_term}"
       no_results: "Hey! You need to search for something."
@@ -902,82 +926,27 @@ en:
       no_one_found: "...and no one was found."
       searching: "Searching, please be patient..."
       looking_for: "Looking for posts tagged %{tag_link}?"
-    webfinger:
-      fail: "Sorry, we couldn’t find %{handle}."
     show:
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
-      incoming_request: "%{name} wants to share with you"
-      return_to_aspects: "Return to your aspects page"
-      to_accept_or_ignore: "to accept or ignore it."
       does_not_exist: "Person does not exist!"
-      not_connected: "You are not sharing with this person"
-      recent_posts: "Recent posts"
-      recent_public_posts: "Recent public posts"
-      see_all: "See all"
-      start_sharing: "Start sharing"
-      message: "Message"
-      mention: "Mention"
-      ignoring: "You are ignoring all posts from %{name}."
       closed_account: "This account has been closed."
-    sub_header:
-      you_have_no_tags: "You have no tags!"
-      add_some: "Add some"
-      edit: "Edit"
     profile_sidebar:
-      remove_contact: "Remove contact"
-      edit_my_profile: "Edit my profile"
       bio: "Bio"
       location: "Location"
       gender: "Gender"
       born: "Birthday"
-      photos: "Photos"
-      in_aspects: "In aspects"
-      remove_from: "Remove %{name} from %{aspect}?"
-    helper:
-      results_for: " results for %{params}"
-      is_sharing: "%{name} is sharing with you"
-      is_not_sharing: "%{name} is not sharing with you"
-    aspect_list:
-      edit_membership: "Edit aspect membership"
-    add_contact_small:
-      add_contact_from_tag: "Add contact from tag"
     add_contact:
       invited_by: "You were invited by"
 
   photos:
-    show:
-      delete_photo: "Delete photo"
-      make_profile_photo: "Make profile photo"
-      update_photo: "Update photo"
-      edit: "Edit"
-      edit_delete_photo: "Edit photo description / delete photo"
-      collection_permalink: "Collection permalink"
-      show_original_post: "Show original post"
-    edit:
-      editing: "Editing"
-    photo:
-      view_all: "View all of %{name}’s photos"
-    new:
-      new_photo: "New photo"
-      back_to_list: "Back to list"
-      post_it: "Post it!"
     create:
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
-      type_error: "Photo upload failed.  Are you sure an image was added?"
-    update:
-      notice: "Photo successfully updated."
-      error: "Failed to edit photo."
+      runtime_error: "Photo upload failed. Are you sure that your seatbelt is fastened?"
+      integrity_error: "Photo upload failed. Are you sure that was an image?"
+      type_error: "Photo upload failed. Are you sure an image was added?"
     destroy:
       notice: "Photo deleted."
-    new_photo:
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
-      empty: "{file} is empty, please select files again without it."
     new_profile_photo:
       upload: "Upload a new profile photo!"
-      or_select_one_existing: "or select one from your already existing %{photos}"
-    comment_email_subject: "%{name}’s photo"
 
   polls:
     votes:
@@ -990,9 +959,7 @@ en:
       title: "A post from %{name}"
     show:
       location: "Posted from: %{location}"
-      destroy: "Delete"
-      permalink: "Permalink"
-      not_found: "Sorry, we couldn’t find that post."
+      forbidden: "You are not allowed to do that"
       photos_by:
         zero: "No photos by %{author}"
         one: "One photo by %{author}"
@@ -1001,25 +968,22 @@ en:
 
   report:
     title: "Reports overview"
-    post_label: "<b>Post</b>: %{title}"
-    comment_label: "<b>Comment</b>:<br>%{data}"
-    reported_label: "<b>Reported by</b> %{person}"
-    reason_label: "Reason: %{text}"
+    post_label: "<strong>Post</strong>: %{content}"
+    comment_label: "<strong>Comment</strong>: %{data}"
+    reported_label: "<strong>Reported by</strong> %{person}"
+    reason_label: "Reason:"
     review_link: "Mark as reviewed"
     delete_link: "Delete item"
     reported_user_details: "Details on reported user"
     confirm_deletion: "Are you sure to delete the item?"
-    not_found: "<u>The post/comment was not found. It seems that it was deleted by the user!</u>"
+    not_found: "The post/comment was not found. It seems that it was deleted by the user!"
     status:
-      marked: "The report was marked as reviewed"
       destroyed: "The post was destroyed"
-      created: "A report was created"
       failed: "Something went wrong"
-
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "%{name}’s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}’s profile page."
+    unreviewed_reports:
+      zero: "There are no unreviewed reports."
+      one: "There is one unreviewed report."
+      other: "There are %{count} unreviewed reports."
 
   profiles:
     edit:
@@ -1045,7 +1009,6 @@ en:
       your_photo: "Your photo"
       update_profile: "Update profile"
       allow_search: "Allow for people to search for you within diaspora*"
-      edit_profile: "Edit profile"
       nsfw_explanation: "NSFW (“not safe for work”) is diaspora*’s self-governing community standard for content which may not be suitable to view while at work. If you plan to share such material frequently, please check this option so that everything you share will be hidden from people’s streams unless they choose to view them."
       nsfw_explanation2: "If you choose not to select this option, please add the #nsfw tag each time you share such material."
       nsfw_check: "Mark everything I share as NSFW"
@@ -1055,16 +1018,11 @@ en:
 
   registrations:
     new:
-      create_my_account: "Create my account!"
-
-      join_the_movement: "Join the movement!"
-      sign_up_message: "Social networking with a ♥"
-
       enter_email: "Enter your email address"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       enter_password: "Enter a password (six character minimum)"
       enter_password_again: "Enter the same password as before"
-      sign_up: "Sign up"
+      sign_up: "Create account"
       email: "Email"
       username: "Username"
       password: "Password"
@@ -1074,47 +1032,16 @@ en:
       terms_link: "terms of service"
     create:
       success: "You’ve joined diaspora*!"
-    edit:
-      edit: "Edit %{name}"
-      leave_blank: "(leave blank if you don’t want to change it)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: "Unhappy?"
-      update: "Update"
-      cancel_my_account: "Cancel my account"
     closed: "Signups are closed on this diaspora* pod."
     invalid_invite: "The invite link you provided is no longer valid!"
 
-  requests:
-    manage_aspect_contacts:
-      manage_within: "Manage contacts within"
-      existing: "Existing contacts"
-    destroy:
-      success: "You are now sharing."
-      error: "Please select an aspect!"
-      ignore: "Ignored contact request."
-    create:
-      sending: "Sending"
-      sent: "You’ve asked to share with %{name}.  They should see it next time they log in to diaspora*."
-    new_request_to_person:
-      sent: "Sent!"
-    helper:
-      new_requests:
-        zero: "No new requests"
-        one: "New request!"
-        other: "%{count} new requests!"
   reshares:
+    create:
+      error: "Failed to reshare."
     reshare:
       reshared_via: "Reshared via"
-      reshare_original: "Reshare original"
-      reshare:
-        zero: "Reshare"
-        one: "1 reshare"
-        other: "%{count} reshares"
-      show_original: "Show original"
       reshare_confirmation: "Reshare %{author}’s post?"
       deleted: "Original post deleted by author."
-    create:
-      failure: "There was an error resharing this post."
     comment_email_subject: "%{resharer}’s reshare of %{author}’s post"
   services:
     provider:
@@ -1132,6 +1059,7 @@ en:
       really_disconnect: "Disconnect %{service}?"
       edit_services: "Edit services"
       services_explanation: "Connecting to third-party sharing services gives you the ability to publish your posts to them as you write them in diaspora*."
+      share_to: "Share to %{provider}"
     create:
       success: "Authentication successful."
       failure: "Authentication failed."
@@ -1141,50 +1069,29 @@ en:
       success: "Successfully deleted authentication."
     failure:
       error: "There was an error connecting to that service"
-    inviter:
-      join_me_on_diaspora: "Join me on diaspora*"
-      click_link_to_accept_invitation: "Follow this link to accept your invitation"
-    finder:
-      fetching_contacts: "diaspora* is populating your %{service} friends, please check back in a few minutes."
-      service_friends: "%{service} friends"
-      no_friends: "No Facebook friends found."
-    remote_friend:
-      resend: "Resend"
-      invite: "Invite"
-      not_on_diaspora: "Not yet on diaspora*"
 
   blocks:
     create:
       success: "All right, you won’t see that user in your stream again. #silencio!"
-      failure: "I couldn’t ignore that user.  #evasion"
+      failure: "I couldn’t ignore that user. #evasion"
     destroy:
       success: "Let’s see what they have to say! #sayhello"
-      failure: "I couldn’t stop ignoring that user.  #evasion"
+      failure: "I couldn’t stop ignoring that user. #evasion"
 
   shared:
     aspect_dropdown:
-      add_to_aspect: "Add contact"
       mobile_row_checked: "%{name} (remove)"
       mobile_row_unchecked: "%{name} (add)"
       toggle:
-        zero: "Add contact"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
     publisher:
       formatWithMarkdown: "You can use %{markdown_link} to format your post"
       posting: "Posting..."
       share: "Share"
-      preview: "Preview"
-      post_a_message_to: "Post a message to %{aspect}"
-      make_public: "Make public"
-      all: "All"
-      upload_photos: "Upload photos"
       get_location: "Get your location"
       remove_location: "Remove location"
-      all_contacts: "All contacts"
-      share_with: "Share with"
       whats_on_your_mind: "What’s on your mind?"
-      publishing_to: "Publishing to: "
       discard_post: "Discard post"
       new_user_prefill:
         newhere: "newhere"
@@ -1192,79 +1099,31 @@ en:
         i_like: "I’m interested in %{tags}. "
         invited_by: "Thanks for the invite, "
       poll:
-        remove_poll_answer: "Remove option"
-        add_poll_answer: "Add option"
         add_a_poll: "Add a poll"
-        question: "Question"
-        option: "Option 1"
-    add_contact:
-      enter_a_diaspora_username: "Enter a diaspora* username:"
-      your_diaspora_username_is: "Your diaspora* username is: %{diaspora_handle}"
-      create_request: "Find by diaspora* ID"
-      diaspora_handle: "diaspora@pod.org"
-      know_email: "Know their email address? You should invite them"
-      add_new_contact: "Add a new contact"
     invitations:
       invites: "Invites"
-      invite_someone: "Invite someone"
-      invitations_left: "%{count} left"
-      dont_have_now: "You don’t have any right now, but more invites are coming soon!"
-      invites_closed: "Invites are currently closed on this diaspora* pod"
       invite_your_friends: "Invite your friends"
-      from_facebook: "From Facebook"
-      by_email: "By email"
+      by_email: "Invite people by email"
       share_this: "Share this link via email, blog, or social networks!"
-    reshare:
-      reshare: "Reshare"
     public_explain:
       control_your_audience: "Control your audience"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
+      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests. Call out awesome people with @Mentions"
+      visibility_dropdown: "Use this dropdown to change visibility of your post. (We suggest you make this first one public.)"
       title: "Set up connected services"
       share: "Share"
       outside: "Public messages will be available for others outside of diaspora* to see."
       logged_in: "Logged in to %{service}"
       manage: "Manage connected services"
       atom_feed: "Atom feed"
-    notification:
-      new: "New %{type} from %{from}"
-    contact_list:
-      all_contacts: "All contacts"
     stream_element:
-      viewable_to_anyone: "This post is viewable to anyone on the web"
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "Commenting currently unavailable"
       via: "Via %{link}"
       via_mobile: "Via mobile"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
-      hide_and_mute: "Hide and mute post"
-      like: "Like"
-      unlike: "Unlike"
-      dislike: "Dislike"
-      shared_with: "Shared with: %{aspect_names}"
-      nsfw: "This post has been flagged as NSFW by its author. %{link}"
-      show: "Show"
-    footer:
-      logged_in_as: "Logged in as %{name}"
-      your_aspects: "Your aspects"
   status_messages:
     new:
       mentioning: "Mentioning: %{person}"
-    create:
-      success: "Successfully mentioned: %{names}"
-    helper:
-      no_message_to_display: "No message to display."
-    destroy:
-      failure: "Failed to delete post"
     too_long: "Please make your status message fewer than %{count} characters. Right now it is %{current_length} characters"
 
   stream_helper:
-    show_comments:
-      zero: "No more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-    hide_comments: "Hide all comments"
     no_more_posts: "You have reached the end of the stream."
     no_posts_yet: "There are no posts yet."
 
@@ -1275,19 +1134,11 @@ en:
         one: "1 person tagged with %{tag}"
         other: "%{count} people tagged with %{tag}"
       follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
       stop_following: "Stop following #%{tag}"
       none: "The empty tag does not exist!"
     name_too_long: "Please make your tag name fewer than %{count} characters. Right now it is %{current_length} characters"
 
   tag_followings:
-    create:
-      success: "Hooray!  You’re now following #%{name}."
-      failure: "Failed to follow #%{name}.  Are you already following it?"
-      none: "You cannot follow a blank tag!"
-    destroy:
-      success: "Alas! You aren’t following #%{name} any more."
-      failure: "Failed to stop following #%{name}. Maybe you already stopped following it?"
     manage:
       title: "Manage followed tags"
       no_tags: "You aren't following any tags."
@@ -1300,39 +1151,43 @@ en:
 
     mentions:
       title: "@Mentions"
-      contacts_title: "People who mentioned you"
 
     comment_stream:
       title: "Commented posts"
-      contacts_title: "People whose posts you commented on"
 
     like_stream:
       title: "Like stream"
-      contacts_title: "People whose posts you like"
 
     followed_tag:
       title: "#Followed tags"
-      contacts_title: "People who dig these tags"
       add_a_tag: "Add a tag"
       follow: "Follow"
+      all: "All tags"
+
+    admin:
+      title: "Admin"
 
     tags:
       title: "Posts tagged: %{tags}"
-      contacts_title: "People who dig this tag"
 
     public:
       title: "Public activity"
-      contacts_title: "Recent posters"
 
     multi:
       title: "Stream"
-      contacts_title: "People in your stream"
 
     aspects:
       title: "My aspects"
+      all: "All aspects"
 
     activity:
       title: "My activity"
+
+    liked:
+      title: "Liked posts"
+
+    commented:
+      title: "Commented posts"
   users:
     edit:
       edit_account: "Edit account"
@@ -1353,29 +1208,30 @@ en:
       stream_preferences: "Stream preferences"
       show_community_spotlight: "Show “community spotlight” in stream"
       show_getting_started: "Show “getting started” hints"
-      getting_started: "New user preferences"
       following: "Sharing settings"
       auto_follow_back: "Automatically share with users who start sharing with you"
       auto_follow_aspect: "Aspect for users you automatically share with:"
+      default_post_visibility: "Default aspects selected for posting"
       receive_email_notifications: "Receive email notifications when:"
       started_sharing: "someone starts sharing with you"
       someone_reported: "someone sends a report"
       mentioned: "you are mentioned in a post"
+      mentioned_in_comment: "you are mentioned in a comment"
       liked: "someone likes your post"
       reshared: "someone reshares your post"
       comment_on_post: "someone comments on your post"
       also_commented: "someone comments on a post you’ve commented on"
       private_message: "you receive a private message"
+      birthday: "someone has their birthday"
       download_export: "Download my profile"
       request_export: "Request my profile data"
       request_export_update: "Refresh my profile data"
       export_data: "Export data"
       export_in_progress: "We are currently processing your data. Please check back in a few moments."
-      last_exported_at: "(Last updated at %{timestamp})"
+      last_exported_html: "(Last updated %{timeago})"
       download_export_photos: "Download my photos"
       request_export_photos: "Request my photos"
       request_export_photos_update: "Refresh my photos"
-      download_photos: "Download my photos"
       export_photos_in_progress: "We are currently processing your photos. Please check back in a few moments."
 
       close_account:
@@ -1386,7 +1242,6 @@ en:
         locked_out: "You will get signed out and locked out of your account until it has been deleted."
         lock_username: "Your username will be locked. You will not be able to create a new account on this pod with the same ID."
         no_turning_back: "There is no turning back! If you’re really sure, enter your password below."
-        if_you_want_this: "If you really want this to happen, type in your password below and click “Close account”"
 
     privacy_settings:
       title: "Privacy settings"
@@ -1408,12 +1263,11 @@ en:
       connect_to_facebook: "We can speed things up a bit by %{link} to diaspora*. This will pull your name and photo, and enable cross-posting."
       connect_to_facebook_link: "Hooking up your Facebook account"
       what_are_you_in_to: "What are you into?"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They’re also a great way to find new people on diaspora*."
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests. They’re also a great way to find new people on diaspora*."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      saved: "Saved!"
 
     update:
-      password_changed: "Password changed.  You can now log in with your new password."
+      password_changed: "Password changed. You can now log in with your new password."
       password_not_changed: "Password change failed"
 
       language_changed: "Language changed"
@@ -1438,13 +1292,6 @@ en:
   will_paginate:
     previous_label: "&laquo; previous"
     next_label: "next &raquo;"
-
-  webfinger:
-    fetch_failed: "Failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "There was a problem fetching the hcard for %{account}"
-    xrd_fetch_failed: "There was an error getting the xrd from account %{account}"
-    not_enabled: "Webfinger does not seem to be enabled for %{account}’s host"
-    no_person_constructed: "No person could be constructed from this hcard."
 
   simple_captcha:
     placeholder: "Enter the image value"

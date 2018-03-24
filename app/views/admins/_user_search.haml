@@ -1,0 +1,57 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
+.row
+  .user_search.col-md-12
+    %h3= t("admins.admin_bar.user_search")
+    = form_for @search, url: {action: "user_search"}, html: {method: :get, class: "form-horizontal"} do |f|
+      .form-group
+        = f.label :username, t("username"), class: "col-sm-2 control-label"
+        .col-sm-10
+          = f.text_field :username, class: "form-control"
+
+      .form-group
+        = f.label :email, t("email"), class: "col-sm-2 control-label"
+        .col-sm-10
+          = f.text_field :email, class: "form-control"
+
+      .form-group
+        = f.label :guid, t("admins.user_entry.guid"), class: "col-sm-2 control-label"
+        .col-sm-10
+          = f.text_field :guid, class: "form-control"
+
+      .form-group
+        .col-md-offset-2.col-md-8.col-sm-12
+          = f.label :under13 do
+            = f.check_box :under13
+            = t(".under_13")
+        .col-md-2.col-sm-12
+          = submit_tag t("admins.stats.go"), class: "btn btn-block btn-primary"
+
+.row
+  .col-md-12
+    .alert.alert-info.text-center{role: "alert"}
+      = t(".users", count: nb_users)
+
+.row
+  .users.col-md-12
+    %ul.media-list
+      - @users.each do |user|
+        = render partial: "user_entry", locals: {user: user}
+
+.row
+  .more_invites.col-md-12
+    %h3= t("shared.invitations.invites")
+    .clearfix#add-invites-section
+      != t(".you_currently", count: current_user.invitation_code.count,
+          link: link_to(t(".add_invites"), add_invites_path(current_user.invitation_code),
+          class: "btn btn-link pull-right block-admin"))
+
+    = form_tag "admin_inviter", method: :get, class: "form-horizontal" do
+      .form-group
+        %label.col-xs-12.col-md-2.control-label
+          = t(".email_to")
+        .col-xs-12.col-md-8
+          = text_field_tag "identifier", nil, class: "form-control invite-emails"
+        .col-xs-12.col-md-2
+          = submit_tag t(".invite"), class: "btn btn-block btn-primary"

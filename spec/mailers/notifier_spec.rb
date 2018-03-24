@@ -1,7 +1,9 @@
-require "spec_helper"
+# frozen_string_literal: true
 
 describe Notifier, type: :mailer do
   let(:person) { FactoryGirl.create(:person) }
+  let(:pod_name) { AppConfig.settings.pod_name }
+
 
   before do
     Notifier.deliveries = []
@@ -66,18 +68,31 @@ describe Notifier, type: :mailer do
   end
 
   describe ".started_sharing" do
-    let!(:request_mail) { Notifier.started_sharing(bob.id, person.id) }
+    let!(:request_mail) { Notifier.send_notification("started_sharing", bob.id, person.id) }
 
     it "goes to the right person" do
       expect(request_mail.to).to eq([bob.email])
     end
 
     it "has the name of person sending the request" do
-      expect(request_mail.body.encoded.include?(person.name)).to be true
+      expect(request_mail.body.encoded).to include(person.name)
+    end
+  end
+
+  describe ".contacts_birthday" do
+    let(:contact) { alice.contact_for(bob.person) }
+    let(:mail) { Notifier.send_notification("contacts_birthday", alice.id, nil, bob.person.id) }
+
+    it "TO: goes to the right person" do
+      expect(mail.to).to eq([alice.email])
     end
 
-    it "has the css" do
-      request_mail.body.encoded.include?("<style type='text/css'>")
+    it "SUBJECT: has the name of birthday person in the subject" do
+      expect(mail.subject).to include(bob.person.name)
+    end
+
+    it "has a link to the birthday profile in the body" do
+      expect(mail.body.encoded).to include(user_profile_url(bob.person.username))
     end
   end
 
@@ -85,9 +100,9 @@ describe Notifier, type: :mailer do
     before do
       @user = alice
       @post = FactoryGirl.create(:status_message, public: true)
-      @mention = Mention.create(person: @user.person, post: @post)
+      @mention = Mention.create(person: @user.person, mentions_container: @post)
 
-      @mail = Notifier.mentioned(@user.id, @post.author.id, @mention.id)
+      @mail = Notifier.send_notification("mentioned", @user.id, @post.author.id, @mention.id)
     end
 
     it "TO: goes to the right person" do
@@ -96,6 +111,11 @@ describe Notifier, type: :mailer do
 
     it "SUBJECT: has the name of person mentioning in the subject" do
       expect(@mail.subject).to include(@post.author.name)
+    end
+
+    it "IN-REPLY-TO and REFERENCES: references the mentioning post" do
+      expect(@mail.in_reply_to).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
     end
 
     it "has the post text in the body" do
@@ -107,13 +127,46 @@ describe Notifier, type: :mailer do
     end
   end
 
+  describe ".mentioned_in_comment" do
+    let(:user) { alice }
+    let(:comment) { FactoryGirl.create(:comment) }
+    let(:mention) { Mention.create(person: user.person, mentions_container: comment) }
+    let(:mail) { Notifier.send_notification("mentioned_in_comment", user.id, comment.author.id, mention.id) }
+
+    it "TO: goes to the right person" do
+      expect(mail.to).to eq([user.email])
+    end
+
+    it "SUBJECT: has the name of person mentioning in the subject" do
+      expect(mail.subject).to include(comment.author.name)
+    end
+
+    it "IN-REPLY-TO and REFERENCES: references the commented post" do
+      expect(mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+      expect(mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+    end
+
+    it "has the comment link in the body" do
+      expect(mail.body.encoded).to include(post_url(comment.parent, anchor: comment.guid))
+    end
+
+    it "renders proper wording when limited" do
+      expect(mail.body.encoded).to include(I18n.translate("notifier.mentioned_in_comment.limited_post"))
+    end
+
+    it "renders comment text when public" do
+      comment.parent.update(public: true)
+      expect(mail.body.encoded).to include(comment.message.plain_text_without_markdown)
+    end
+  end
+
   describe ".mentioned limited" do
     before do
       @user = alice
       @post = FactoryGirl.create(:status_message, public: false)
-      @mention = Mention.create(person: @user.person, post: @post)
+      @mention = Mention.create(person: @user.person, mentions_container: @post)
 
-      @mail = Notifier.mentioned(@user.id, @post.author.id, @mention.id)
+      @mail = Notifier.send_notification("mentioned", @user.id, @post.author.id, @mention.id)
     end
 
     it "TO: goes to the right person" do
@@ -137,7 +190,7 @@ describe Notifier, type: :mailer do
     before do
       @post = FactoryGirl.create(:status_message, author: alice.person, public: true)
       @like = @post.likes.create!(author: bob.person)
-      @mail = Notifier.liked(alice.id, @like.author.id, @like.id)
+      @mail = Notifier.send_notification("liked", alice.id, @like.author.id, @like.id)
     end
 
     it "TO: goes to the right person" do
@@ -159,7 +212,7 @@ describe Notifier, type: :mailer do
     it "can handle a reshare" do
       reshare = FactoryGirl.create(:reshare)
       like = reshare.likes.create!(author: bob.person)
-      Notifier.liked(alice.id, like.author.id, like.id)
+      Notifier.send_notification("liked", alice.id, like.author.id, like.id)
     end
   end
 
@@ -167,11 +220,16 @@ describe Notifier, type: :mailer do
     before do
       @post = FactoryGirl.create(:status_message, author: alice.person, public: true)
       @reshare = FactoryGirl.create(:reshare, root: @post, author: bob.person)
-      @mail = Notifier.reshared(alice.id, @reshare.author.id, @reshare.id)
+      @mail = Notifier.send_notification("reshared", alice.id, @reshare.author.id, @reshare.id)
     end
 
     it "TO: goes to the right person" do
       expect(@mail.to).to eq([alice.email])
+    end
+
+    it "IN-REPLY-TO and REFERENCES: references the reshared post" do
+      expect(@mail.in_reply_to).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
     end
 
     it "BODY: contains the truncated original post" do
@@ -201,7 +259,7 @@ describe Notifier, type: :mailer do
 
       @cnv = Conversation.create(@create_hash)
 
-      @mail = Notifier.private_message(bob.id, @cnv.author.id, @cnv.messages.first.id)
+      @mail = Notifier.send_notification("private_message", bob.id, @cnv.author.id, @cnv.messages.first.id)
     end
 
     it "TO: goes to the right person" do
@@ -209,18 +267,20 @@ describe Notifier, type: :mailer do
     end
 
     it "FROM: contains the sender's name" do
-      expect(@mail["From"].to_s).to eq("\"#{@cnv.author.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+      expect(@mail["From"].to_s).to eq("\"#{pod_name} (#{@cnv.author.name})\" <#{AppConfig.mail.sender_address}>")
     end
 
-    it "SUBJECT: has a snippet of the post contents" do
-      expect(@mail.subject).to eq(@cnv.subject)
+    it "should use a generic subject" do
+      expect(@mail.subject).to eq(I18n.translate("notifier.private_message.subject"))
     end
 
-    it "SUBJECT: has 'Re:' if not the first message in a conversation" do
-      @cnv.messages << Message.new(text: "yo", author: eve.person)
-      @mail = Notifier.private_message(bob.id, @cnv.author.id, @cnv.messages.last.id)
+    it "SUBJECT: should not has a snippet of the private message contents" do
+      expect(@mail.subject).not_to include(@cnv.subject)
+    end
 
-      expect(@mail.subject).to eq("Re: #{@cnv.subject}")
+    it "IN-REPLY-TO and REFERENCES: references the containing conversation" do
+      expect(@mail.in_reply_to).to eq("#{@cnv.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@cnv.guid}@#{AppConfig.pod_uri.host}")
     end
 
     it "BODY: does not contain the message text" do
@@ -242,14 +302,16 @@ describe Notifier, type: :mailer do
     let(:comment) { eve.comment!(commented_post, "Totally is") }
 
     describe ".comment_on_post" do
-      let(:comment_mail) { Notifier.comment_on_post(bob.id, person.id, comment.id).deliver_now }
+      let(:comment_mail) {
+        Notifier.send_notification("comment_on_post", bob.id, eve.person.id, comment.id).deliver_now
+      }
 
       it "TO: goes to the right person" do
         expect(comment_mail.to).to eq([bob.email])
       end
 
       it "FROM: contains the sender's name" do
-        expect(comment_mail["From"].to_s).to eq("\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+        expect(comment_mail["From"].to_s).to eq("\"#{pod_name} (#{eve.name})\" <#{AppConfig.mail.sender_address}>")
       end
 
       it "SUBJECT: has a snippet of the post contents, without markdown and without newlines" do
@@ -261,8 +323,8 @@ describe Notifier, type: :mailer do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
-        it "contains the original post's link" do
-          expect(comment_mail.body.encoded.include?("#{comment.post.id}")).to be true
+        it "contains the original post's link with comment anchor" do
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
         end
 
         it "should not include translation fallback" do
@@ -283,18 +345,23 @@ describe Notifier, type: :mailer do
     end
 
     describe ".also_commented" do
-      let(:comment_mail) { Notifier.also_commented(bob.id, person.id, comment.id) }
+      let(:comment_mail) { Notifier.send_notification("also_commented", bob.id, eve.person.id, comment.id) }
 
       it "TO: goes to the right person" do
         expect(comment_mail.to).to eq([bob.email])
       end
 
       it "FROM: has the name of person commenting as the sender" do
-        expect(comment_mail["From"].to_s).to eq("\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+        expect(comment_mail["From"].to_s).to eq("\"#{pod_name} (#{eve.name})\" <#{AppConfig.mail.sender_address}>")
       end
 
       it "SUBJECT: has a snippet of the post contents, without markdown and without newlines" do
         expect(comment_mail.subject).to eq("Re: Headline")
+      end
+
+      it "IN-REPLY-TO and REFERENCES: references the commented post" do
+        expect(comment_mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+        expect(comment_mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
       end
 
       context "BODY" do
@@ -302,8 +369,8 @@ describe Notifier, type: :mailer do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
-        it "contains the original post's link" do
-          expect(comment_mail.body.encoded).to include("#{comment.post.id}")
+        it "contains the original post's link with comment anchor" do
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
         end
 
         it "should not include translation fallback" do
@@ -333,14 +400,14 @@ describe Notifier, type: :mailer do
       let(:comment) { bob.comment!(limited_post, "Totally is") }
 
       describe ".also_commented" do
-        let(:mail) { Notifier.also_commented(alice.id, bob.person.id, comment.id) }
+        let(:mail) { Notifier.send_notification("also_commented", alice.id, bob.person.id, comment.id) }
 
         it "TO: goes to the right person" do
           expect(mail.to).to eq([alice.email])
         end
 
         it "FROM: contains the sender's name" do
-          expect(mail["From"].to_s).to eq("\"#{bob.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+          expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
         end
 
         it "SUBJECT: does not show the limited post" do
@@ -358,18 +425,23 @@ describe Notifier, type: :mailer do
 
       describe ".comment_on_post" do
         let(:comment) { bob.comment!(limited_post, "Totally is") }
-        let(:mail) { Notifier.comment_on_post(alice.id, bob.person.id, comment.id) }
+        let(:mail) { Notifier.send_notification("comment_on_post", alice.id, bob.person.id, comment.id) }
 
         it "TO: goes to the right person" do
           expect(mail.to).to eq([alice.email])
         end
 
         it "FROM: contains the sender's name" do
-          expect(mail["From"].to_s).to eq("\"#{bob.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+          expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
         end
 
         it "SUBJECT: does not show the limited post" do
           expect(mail.subject).not_to include("Limited headline")
+        end
+
+        it "IN-REPLY-TO and REFERENCES: references the commented post" do
+          expect(mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+          expect(mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
         end
 
         it "BODY: does not show the limited post" do
@@ -384,18 +456,23 @@ describe Notifier, type: :mailer do
 
     describe ".liked" do
       let(:like) { bob.like!(limited_post) }
-      let(:mail) { Notifier.liked(alice.id, bob.person.id, like.id) }
+      let(:mail) { Notifier.send_notification("liked", alice.id, bob.person.id, like.id) }
 
       it "TO: goes to the right person" do
         expect(mail.to).to eq([alice.email])
       end
 
       it "FROM: contains the sender's name" do
-        expect(mail["From"].to_s).to eq("\"#{bob.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+        expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
       end
 
       it "SUBJECT: does not show the limited post" do
         expect(mail.subject).not_to include("Limited headline")
+      end
+
+      it "IN-REPLY-TO and REFERENCES: references the liked post" do
+        expect(mail.in_reply_to).to eq("#{like.parent.guid}@#{AppConfig.pod_uri.host}")
+        expect(mail.references).to eq("#{like.parent.guid}@#{AppConfig.pod_uri.host}")
       end
 
       it "BODY: does not show the limited post" do
@@ -415,14 +492,18 @@ describe Notifier, type: :mailer do
   describe ".confirm_email" do
     before do
       bob.update_attribute(:unconfirmed_email, "my@newemail.com")
-      @confirm_email = Notifier.confirm_email(bob.id)
+      @confirm_email = Notifier.send_notification("confirm_email", bob.id)
     end
 
     it "goes to the right person" do
       expect(@confirm_email.to).to eq([bob.unconfirmed_email])
     end
 
-    it "has the unconfirmed emil in the subject" do
+    it "FROM: header should be the pod name with default sender address" do
+      expect(@confirm_email["From"].to_s).to eq("#{pod_name} <#{AppConfig.mail.sender_address}>")
+    end
+
+    it "has the unconfirmed email in the subject" do
       expect(@confirm_email.subject).to include(bob.unconfirmed_email)
     end
 
@@ -439,12 +520,71 @@ describe Notifier, type: :mailer do
     end
   end
 
+  describe ".invite" do
+    let(:email) { Notifier.invite(alice.email, bob, "1234", "en") }
+
+    it "goes to the right person" do
+      expect(email.to).to eq([alice.email])
+    end
+
+    it "FROM: header should be the pod name + default sender address" do
+      expect(email["From"].to_s).to eq("#{pod_name} <#{AppConfig.mail.sender_address}>")
+    end
+
+    it "has the correct subject" do
+      expect(email.subject).to eq(I18n.translate("notifier.invited_you", name: bob.name))
+    end
+
+    it "has the inviter name in the body" do
+      expect(email.body.encoded).to include("#{bob.name} (#{bob.diaspora_handle})")
+    end
+
+    it "has the inviter id if the name is nil" do
+      bob.person.profile.update_attributes(first_name: "", last_name: "")
+      mail = Notifier.invite(alice.email, bob, "1234", "en")
+      expect(email.body.encoded).to_not include("#{bob.name} (#{bob.diaspora_handle})")
+      expect(mail.body.encoded).to include(bob.person.diaspora_handle)
+    end
+
+    it "has the invitation code in the body" do
+      expect(email.body.encoded).to include("/i/1234")
+    end
+  end
+
+  describe ".csrf_token_fail" do
+    let(:email) { Notifier.send_notification("csrf_token_fail", alice.id) }
+
+    it "goes to the right person" do
+      expect(email.to).to eq([alice.email])
+    end
+
+    it "FROM: header should be the pod name + default sender address" do
+      expect(email["From"].to_s).to eq("#{pod_name} <#{AppConfig.mail.sender_address}>")
+    end
+
+    it "has the correct subject" do
+      expect(email.subject).to eq(I18n.translate("notifier.csrf_token_fail.subject", name: alice.name))
+    end
+
+    it "has the receivers name in the body" do
+      expect(email.body.encoded).to include(alice.person.profile.first_name)
+    end
+
+    it "has some informative text in the body" do
+      email.body.parts.each do |part|
+        expect(part.decoded).to include("https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)")
+      end
+    end
+  end
+
   describe "hashtags" do
     it "escapes hashtags" do
       mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
       expect(mails.length).to eq(1)
       mail = mails.first
-      expect(mail.body.encoded).to match "<p><a href=\"http://localhost:9887/tags/welcome\">#Welcome</a> to bureaucracy!</p>"
+      expect(mail.body.encoded).to match(
+        "<p><a href=\"#{AppConfig.url_to(tag_path('welcome'))}\">#Welcome</a> to bureaucracy!</p>"
+      )
     end
   end
 
@@ -452,8 +592,14 @@ describe Notifier, type: :mailer do
     it "handles idn addresses" do
       bob.update_attribute(:email, "ŧoo@ŧexample.com")
       expect {
-        Notifier.started_sharing(bob.id, person.id)
+        Notifier.send_notification("started_sharing", bob.id, person.id)
       }.to_not raise_error
+    end
+
+    it "FROM: header should be 'pod_name (username)' when there is no first and last name" do
+      bob.person.profile.update_attributes(first_name: "", last_name: "")
+      mail = Notifier.send_notification("started_sharing", alice.id, bob.person.id)
+      expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.person.username})\" <#{AppConfig.mail.sender_address}>")
     end
   end
 end

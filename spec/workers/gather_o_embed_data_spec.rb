@@ -1,4 +1,5 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
 describe Workers::GatherOEmbedData do
   before do
     @flickr_oembed_data = {

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright (c) 2010-2012, Diaspora Inc. This file is
 # licensed under the Affero General Public License version 3 or later. See
 # the COPYRIGHT file.
@@ -15,27 +17,5 @@ module Diaspora
   # something that should be accessed does not belong to the current user and
   # that prevents further execution
   class NotMine < StandardError
-  end
-
-  # Received a message without having a contact
-  class ContactRequiredUnlessRequest < StandardError
-  end
-
-  # Got a relayable (comment, like etc.) without having the parent
-  class RelayableObjectWithoutParent < StandardError
-  end
-
-  # After building an object the author doesn't match the one in the
-  # original XML message
-  class AuthorXMLAuthorMismatch < StandardError
-  end
-
-  # Tried to fetch a post but it was deleted, not valid
-  # or the remote end doesn't support post fetching
-  class PostNotFetchable < StandardError
-  end
-
-  # Error while parsing an received message and got nil
-  class XMLNotParseable < StandardError
   end
 end

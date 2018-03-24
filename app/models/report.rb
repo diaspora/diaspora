@@ -1,4 +1,6 @@
-class Report < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Report < ApplicationRecord
   validates :user_id, presence: true
   validates :item_id, presence: true
   validates :item_type, presence: true, inclusion: {
@@ -9,8 +11,8 @@ class Report < ActiveRecord::Base
   validate :post_or_comment_does_exist, :on => :create
 
   belongs_to :user
-  belongs_to :post
-  belongs_to :comment
+  belongs_to :post, optional: true
+  belongs_to :comment, optional: true
   belongs_to :item, polymorphic: true
 
   after_commit :send_report_notification, :on => :create
@@ -56,6 +58,6 @@ class Report < ActiveRecord::Base
   end
 
   def send_report_notification
-    Workers::Mail::ReportWorker.perform_async(self.item_type, self.item_id)
+    Workers::Mail::ReportWorker.perform_async(id)
   end
 end

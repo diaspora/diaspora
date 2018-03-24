@@ -1,7 +1,6 @@
 #hello-there {
-  #profile_photo_upload .avatar {
-    width: 200px;
-    height: 200px;
+  .well .avatar {
+    min-width: 50px;
   }
 
   .well .media{
@@ -9,7 +8,7 @@
   }
 
   .awesome {
-    text-align: center;
+    margin-top: 15px;
   }
 
   .hero-unit {
@@ -27,7 +26,6 @@
       width: 100%;
       input {
         height: 32px;
-        margin-bottom: 15px;
       }
     }
   }
@@ -45,10 +43,8 @@
 #welcome-to-diaspora {
   background: orange;
   box-shadow: inset 0 -2px 10px rgba(0,0,0,0.35);
-  margin-bottom: 20px;
-  margin-top: -40px;
   padding-bottom: 30px;
-  padding-top: 60px;
+  padding-top: 20px;
 
   h1,h3 {
     color: $white;

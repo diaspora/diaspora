@@ -1,12 +1,11 @@
-
-require "spec_helper"
+# frozen_string_literal: true
 
 describe Admin::PodsController, type: :controller do
   before do
     @user = FactoryGirl.create :user
     Role.add_admin(@user.person)
 
-    sign_in :user, @user
+    sign_in @user, scope: :user
   end
 
   describe "#index" do
@@ -25,10 +24,11 @@ describe Admin::PodsController, type: :controller do
     end
 
     it "returns the json data" do
-      @pods = (0..2).map { FactoryGirl.create(:pod).reload } # normalize timestamps
+      3.times { FactoryGirl.create(:pod) }
+
       get :index, format: :json
 
-      expect(response.body).to eql(PodPresenter.as_collection(@pods).to_json)
+      expect(response.body).to eql(PodPresenter.as_collection(Pod.all).to_json)
     end
   end
 
@@ -40,12 +40,12 @@ describe Admin::PodsController, type: :controller do
     end
 
     it "performs a connection test" do
-      post :recheck, pod_id: 1
+      post :recheck, params: {pod_id: 1}
       expect(response).to be_redirect
     end
 
     it "performs a connection test (format: json)" do
-      post :recheck, pod_id: 1, format: :json
+      post :recheck, params: {pod_id: 1}, format: :json
       expect(response.body).to eql(PodPresenter.new(@pod).to_json)
     end
   end

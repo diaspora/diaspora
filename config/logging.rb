@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Logging::Rails.configure do |config|
   # Configure the Logging framework with the default log levels
   Logging.init %w(debug info warn error fatal)
@@ -85,8 +87,10 @@ Logging::Rails.configure do |config|
   Logging.logger.root.level = config.log_level
 
   # log-levels from the diaspora.yml for SQL and federation debug-logging
+  Logging.logger[ActionView::Base].level = Rails.env.development? ? :debug : :warn
   Logging.logger[ActiveRecord::Base].level = AppConfig.environment.logging.debug.sql? ? :debug : :info
-  Logging.logger["XMLLogger"].level = AppConfig.environment.logging.debug.federation? ? :debug : :info
+  Logging.logger[DiasporaFederation::Salmon::MagicEnvelope].level =
+    AppConfig.environment.logging.debug.federation? ? :debug : :info
 
   # Under Phusion Passenger smart spawning, we need to reopen all IO streams
   # after workers have forked.
@@ -102,3 +106,10 @@ Logging::Rails.configure do |config|
     end
   end
 end
+
+# Include LoggerSilence from ActiveSupport. This is needed to silent assets
+# requests with `config.assets.quiet`, because the default silence method of
+# the logging gem is no-op. See: https://github.com/TwP/logging/issues/11
+Logging::Logger.send :alias_method, :local_level, :level
+Logging::Logger.send :alias_method, :local_level=, :level=
+Logging::Logger.send :include, LoggerSilence

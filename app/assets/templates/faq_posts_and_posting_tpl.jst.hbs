@@ -26,9 +26,19 @@
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
+      <h4>{{ ignore_user_q }}</h4>
+    </a>
+    <div class='answer hideable'>
+      <p>{{ ignore_user_a1 }}</p>
+      <p>{{ ignore_user_a2 }}</p>
+      <p>{{ ignore_user_a3 }}</p>
+    </div>
+  </div>
+  <div class='question opened collapsible'>
+    <a class='toggle' href='#'>
       <h4>{{ post_report_q }}</h4>
     </a>
-    <div class='answer hideable'>{{ post_report_a }}</div>
+    <div class='answer hideable'>{{{ post_report_a }}}</div>
   </div>
   <div class='question opened collapsible'>
     <a class='toggle' href='#'>
@@ -59,9 +69,7 @@
       <h4>{{ insert_images_comments_q }}</h4>
     </a>
     <div class='answer hideable'>
-      {{ insert_images_comments_a1 }}
-      <pre>![{{ image_text }}]( {{ image_url }})</pre>
-      {{ insert_images_comments_a2 }}
+      {{ insert_images_comments_a }}
     </div>
   </div>
   <div class='question opened collapsible'>

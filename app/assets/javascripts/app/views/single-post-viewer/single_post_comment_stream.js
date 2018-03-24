@@ -4,34 +4,28 @@ app.views.SinglePostCommentStream = app.views.CommentStream.extend({
   tooltipSelector: "time, .control-icons a",
 
   initialize: function(){
+    this.CommentView = app.views.ExpandedComment;
     $(window).on('hashchange',this.highlightPermalinkComment);
+    this.setupBindings();
+    this.model.comments.fetch({success: function() {
+      setTimeout(this.highlightPermalinkComment, 0);
+    }.bind(this)});
   },
 
   highlightPermalinkComment: function() {
-    if(document.location.hash){
+    if (document.location.hash && $(document.location.hash).length > 0) {
       var element = $(document.location.hash);
-      var headerSize = 50;
+      var headerSize = 60;
       $(".highlighted").removeClass("highlighted");
       element.addClass("highlighted");
       var pos = element.offset().top - headerSize;
-      $("html").animate({scrollTop:pos});
+      $("html,body").animate({scrollTop: pos});
     }
   },
 
   postRenderTemplate: function() {
     app.views.CommentStream.prototype.postRenderTemplate.apply(this);
-    this.$(".new_comment_form_wrapper").removeClass('hidden');
-    _.defer(this.highlightPermalinkComment);
-  },
-
-  appendComment: function(comment) {
-    // Set the post as the comment's parent, so we can check
-    // on post ownership in the Comment view.
-    comment.set({parent : this.model.toJSON()});
-
-    this.$(".comments").append(new app.views.ExpandedComment({
-      model: comment
-    }).render().el);
+    this.$(".new-comment-form-wrapper").removeClass("hidden");
   },
 
   presenter: function(){

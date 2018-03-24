@@ -15,5 +15,3 @@ Feature: Visit the landing page of the pod
     Then I should see "Welcome, friend"
     When I go to the mobile path
     Then I should see "LOG IN"
-    When I go to the mobile path
-    Then I should see "LOG IN"

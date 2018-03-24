@@ -1,7 +1,7 @@
 // Calling this file bootstrap would cause an infinite recursion during asset compilation.
 @import "bootstrap-sprockets";
 @import "bootstrap-variables"; //our overwrites of bootstrap variables
-@import "bootstrap";
+@import "_bootstrap";
 
 // Plugins
 

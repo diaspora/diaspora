@@ -5,9 +5,11 @@
  *   the COPYRIGHT file.
  */
 
-//= require ./publisher/services_view
 //= require ./publisher/aspect_selector_view
 //= require ./publisher/getting_started_view
+//= require ./publisher/mention_view
+//= require ./publisher/poll_creator_view
+//= require ./publisher/services_view
 //= require ./publisher/uploader_view
 //= require jquery-textchange
 
@@ -16,13 +18,11 @@ app.views.Publisher = Backbone.View.extend({
   el : "#publisher",
 
   events : {
-    "keydown #status_message_fake_text" : "keyDown",
+    "keydown #status_message_text": "keyDown",
     "focus textarea" : "open",
-    "click #hide_publisher" : "clear",
     "submit form" : "createStatusMessage",
     "click #submit" : "createStatusMessage",
-    "click .post_preview_button" : "createPostPreview",
-    "textchange #status_message_fake_text": "handleTextchange",
+    "textchange #status_message_text": "checkSubmitAvailability",
     "click #locator" : "showLocation",
     "click #poll_creator" : "togglePollCreator",
     "click #hide_location" : "destroyLocation",
@@ -31,37 +31,24 @@ app.views.Publisher = Backbone.View.extend({
 
   initialize : function(opts){
     this.standalone = opts ? opts.standalone : false;
+    this.prefillMention = opts && opts.prefillMention ? opts.prefillMention : undefined;
     this.disabled   = false;
 
     // init shortcut references to the various elements
-    this.inputEl = this.$("#status_message_fake_text");
-    this.hiddenInputEl = this.$("#status_message_text");
-    this.wrapperEl = this.$("#publisher_textarea_wrapper");
+    this.inputEl = this.$("#status_message_text");
+    this.wrapperEl = this.$("#publisher-textarea-wrapper");
     this.submitEl = this.$("input[type=submit], button#submit");
-    this.previewEl = this.$("button.post_preview_button");
     this.photozoneEl = this.$("#photodropzone");
-
-    // init mentions plugin
-    Mentions.initialize(this.inputEl);
 
     // if there is data in the publisher we ask for a confirmation
     // before the user is able to leave the page
     $(window).on("beforeunload", _.bind(this._beforeUnload, this));
-
-    // sync textarea content
-    if( this.hiddenInputEl.val() === "" ) {
-      this.hiddenInputEl.val( this.inputEl.val() );
-    }
-    if( this.inputEl.val() === "" ) {
-      this.inputEl.val( this.hiddenInputEl.val() );
-    }
+    $(window).on("unload", this.clear.bind(this));
 
     // hide close and preview buttons and manage services link
     // in case publisher is standalone
     // (e.g. bookmarklet, mentions popup)
     if( this.standalone ) {
-      this.$("#hide_publisher").hide();
-      this.previewEl.hide();
       this.$(".question_mark").hide();
     }
 
@@ -69,13 +56,12 @@ app.views.Publisher = Backbone.View.extend({
     // textchange event won't be called in Backbone...
     this.inputEl.bind("textchange", $.noop);
 
-    var _this = this;
-    $("body").on("click", function(event){
-      // if the click event is happened outside the publisher view, then try to close the box
-      if( _this.el && $(event.target).closest("#publisher").attr("id") !== _this.el.id){
-          _this.tryClose();
-        }
-    });
+    $("body").click(function(event) {
+      var $target = $(event.target);
+      if ($target.closest("#publisher").length === 0 && !$target.hasClass("dropdown-backdrop")) {
+        this.tryClose();
+      }
+    }.bind(this));
 
     // close publisher on post
     this.on("publisher:add", function() {
@@ -94,15 +80,18 @@ app.views.Publisher = Backbone.View.extend({
       this.viewPollCreator.render();
     });
 
-    // init autosize plugin
-    autosize(this.inputEl);
-
     this.initSubviews();
     this.checkSubmitAvailability();
+    this.triggerGettingStarted();
     return this;
   },
 
   initSubviews: function() {
+    this.mention = new app.views.PublisherMention({ el: this.$("#publisher-textarea-wrapper") });
+    if(this.prefillMention) {
+      this.mention.prefillMention([this.prefillMention]);
+    }
+
     var form = this.$(".content_creation form");
 
     this.view_services = new app.views.PublisherServices({
@@ -112,14 +101,14 @@ app.views.Publisher = Backbone.View.extend({
     });
 
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
-      el: this.$(".public_toggle .aspect_dropdown"),
+      el: this.$(".public_toggle .aspect-dropdown"),
       form: form
     });
 
     this.viewGettingStarted = new app.views.PublisherGettingStarted({
       firstMessageEl:  this.inputEl,
-      visibilityEl: this.$(".public_toggle .aspect_dropdown > .dropdown-toggle"),
-      streamEl:     $("#gs-shim")
+      visibilityEl: this.$(".public_toggle .aspect-dropdown > .dropdown-toggle"),
+      streamEl:     $("#main-stream")
     });
 
     this.viewUploader = new app.views.PublisherUploader({
@@ -128,11 +117,45 @@ app.views.Publisher = Backbone.View.extend({
     });
     this.viewUploader.on("change", this.checkSubmitAvailability, this);
 
+    var self = this;
+    var mdEditorOptions = {
+      onPreview: function() {
+        self.wrapperEl.addClass("markdown-preview");
+        return self.createPostPreview();
+      },
+
+      onHidePreview: function() {
+        self.wrapperEl.removeClass("markdown-preview");
+      },
+
+      onPostPreview: function() {
+        var photoAttachments = self.wrapperEl.find(".photo-attachments");
+        if (photoAttachments.length > 0) {
+          new app.views.Gallery({el: photoAttachments});
+        }
+      },
+
+      onChange: function() {
+        self.inputEl.trigger("textchange");
+      }
+    };
+
+    if (!this.standalone) {
+      mdEditorOptions.onClose = function() {
+        self.clear();
+      };
+    }
+    this.markdownEditor = new Diaspora.MarkdownEditor(this.inputEl, mdEditorOptions);
+
     this.viewPollCreator = new app.views.PublisherPollCreator({
       el: this.$("#poll_creator_container")
     });
     this.viewPollCreator.on("change", this.checkSubmitAvailability, this);
     this.viewPollCreator.render();
+
+    if (this.prefillMention) {
+      this.checkSubmitAvailability();
+    }
   },
 
   // set the selected aspects in the dropdown by their ids
@@ -143,17 +166,22 @@ app.views.Publisher = Backbone.View.extend({
   // inject content into the publisher textarea
   setText: function(txt) {
     this.inputEl.val(txt);
-    this.hiddenInputEl.val(txt);
     this.prefillText = txt;
 
     this.inputEl.trigger("input");
     autosize.update(this.inputEl);
-    this.handleTextchange();
+    this.checkSubmitAvailability();
   },
 
   // show the "getting started" popups around the publisher
   triggerGettingStarted: function() {
-    this.viewGettingStarted.show();
+    if (gon.preloads.getting_started) {
+      this.open();
+      this.viewGettingStarted.show();
+      if (gon.preloads.mentioned_person) {
+        this.mention.addPersonToMentions(gon.preloads.mentioned_person);
+      }
+    }
   },
 
   createStatusMessage : function(evt) {
@@ -167,12 +195,10 @@ app.views.Publisher = Backbone.View.extend({
     // empty poll answer and failing validation.
     this.viewPollCreator.removeLastAnswer();
 
-    //add missing mentions at end of post:
-    this.handleTextchange();
-
     var serializedForm = $(evt.target).closest("form").serializeObject();
     // disable input while posting, must be after the form is serialized
     this.setInputEnabled(false);
+    this.wrapperEl.addClass("submitting");
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
@@ -218,6 +244,9 @@ app.views.Publisher = Backbone.View.extend({
         app.flashMessages.error(resp.responseText);
         self.setButtonsEnabled(true);
         self.setInputEnabled(true);
+        self.wrapperEl.removeClass("submitting");
+        self.checkSubmitAvailability();
+        autosize.update(self.inputEl);
       }
     });
   },
@@ -225,8 +254,8 @@ app.views.Publisher = Backbone.View.extend({
   // creates the location
   showLocation: function(){
     if($("#location").length === 0){
-      $("#location_container").append("<div id=\"location\"></div>");
-      this.wrapperEl.addClass("with_location");
+      this.$(".location-container").append("<div id=\"location\"></div>");
+      this.wrapperEl.addClass("with-location");
       this.view_locator = new app.views.Location();
     }
   },
@@ -235,20 +264,21 @@ app.views.Publisher = Backbone.View.extend({
   destroyLocation: function(){
     if(this.view_locator){
       this.view_locator.remove();
-      this.wrapperEl.removeClass("with_location");
+      this.wrapperEl.removeClass("with-location");
       delete this.view_locator;
     }
   },
 
   togglePollCreator: function(){
-    this.viewPollCreator.$el.toggle();
+    this.wrapperEl.toggleClass("with-poll");
     this.inputEl.focus();
   },
 
   // avoid submitting form when pressing Enter key
   avoidEnter: function(evt){
-    if(evt.keyCode === 13)
+    if(evt.which === Keycodes.ENTER) {
       return false;
+    }
   },
 
   getUploadedPhotos: function() {
@@ -268,39 +298,13 @@ app.views.Publisher = Backbone.View.extend({
     return photos;
   },
 
-  getMentionedPeople: function(serializedForm) {
-    var mentionedPeople = [],
-        regexp = /@{([^;]+); ([^}]+)}/g,
-        user;
-    var getMentionedUser = function(handle) {
-      return Mentions.contacts.filter(function(user) {
-        return user.handle === handle;
-      })[0];
-    };
-
-    while( (user = regexp.exec(serializedForm["status_message[text]"])) ) {
-      // user[1]: name, user[2]: handle
-      var mentionedUser = getMentionedUser(user[2]);
-      if(mentionedUser){
-        mentionedPeople.push({
-          "id": mentionedUser.id,
-          "guid": mentionedUser.guid,
-          "name": user[1],
-          "diaspora_id": user[2],
-          "avatar": mentionedUser.avatar
-        });
-      }
-    }
-    return mentionedPeople;
-  },
-
   getPollData: function(serializedForm) {
     var poll;
     var pollQuestion = serializedForm.poll_question;
     var pollAnswersArray = _.flatten([serializedForm["poll_answers[]"]]);
     var pollAnswers = _.map(pollAnswersArray, function(answer){
       if (answer) {
-        return { "answer" : answer };
+        return {"answer": answer, "vote_count": 0};
       }
     });
     pollAnswers = _.without(pollAnswers, undefined);
@@ -308,24 +312,16 @@ app.views.Publisher = Backbone.View.extend({
     if(pollQuestion && pollAnswers.length) {
       poll = {
         "question": pollQuestion,
-        "poll_answers" : pollAnswers,
+        "poll_answers": pollAnswers,
         "participation_count": "0"
       };
     }
     return poll;
   },
 
-  createPostPreview : function(evt) {
-    if(evt){ evt.preventDefault(); }
-    if(!app.stream) { return; }
-
-    //add missing mentions at end of post:
-    this.handleTextchange();
-
-    var serializedForm = $(evt.target).closest("form").serializeObject();
+  createPostPreview: function() {
+    var serializedForm = $("#new_status_message").serializeObject();
     var photos = this.getUploadedPhotos();
-    var mentionedPeople = this.getMentionedPeople(serializedForm);
-    var date = (new Date()).toISOString();
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
     if(!locationCoords || locationCoords === "") {
@@ -340,49 +336,26 @@ app.views.Publisher = Backbone.View.extend({
     };
 
     var previewMessage = {
-      "id" : 0,
-      "text" : serializedForm["status_message[text]"],
-      "public" : serializedForm["aspect_ids[]"] === "public",
-      "created_at" : date,
-      "interacted_at" : date,
-      "post_type" : "StatusMessage",
-      "author" : app.currentUser ? app.currentUser.attributes : {},
-      "mentioned_people" : mentionedPeople,
-      "photos" : photos,
-      "frame_name" : "status",
-      "title" : serializedForm["status_message[text]"],
-      "location" : location,
-      "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
+      "id": 0,
+      "text": serializedForm["status_message[text]"],
+      "public": serializedForm["aspect_ids[]"] === "public",
+      "created_at": new Date().toISOString(),
+      "interacted_at": new Date().toISOString(),
+      "author": app.currentUser ? app.currentUser.attributes : {},
+      "mentioned_people": this.mention.getMentionedPeople(),
+      "photos": photos,
+      "title": serializedForm["status_message[text]"],
+      "location": location,
+      "interactions": {"likes": [], "reshares": [], "comments_count": 0, "likes_count": 0, "reshares_count": 0},
       "poll": poll
     };
 
-    this.removePostPreview();
-    app.stream.addNow(previewMessage);
-    this.recentPreview=previewMessage;
-    this.modifyPostPreview($(".stream_element:first",$(".stream_container")));
-  },
-
-  modifyPostPreview : function(post) {
-    post.addClass("post_preview");
-    $(".collapsible",post).removeClass("collapsed").addClass("opened");
-    $("a.delete.remove_post",post).hide();
-    $("a.like, a.focus_comment_textarea",post).removeAttr("href");
-    $("a.like",post).addClass("like_preview")
-                    .removeClass("like");
-    $("a.focus_comment_textarea",post).addClass("focus_comment_textarea_preview")
-                                      .removeClass("focus_comment_textarea");
-    $("a",$("span.details.grey",post)).removeAttr("href");
-  },
-
-  removePostPreview : function() {
-    if(app.stream && this.recentPreview) {
-      app.stream.items.remove(this.recentPreview);
-      delete this.recentPreview;
-    }
+    var previewPost = new app.views.PreviewPost({model: new app.models.Post(previewMessage)}).render().el;
+    return $("<div/>").append(previewPost).html();
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode === 13 && evt.ctrlKey ) {
+    if (evt.which === Keycodes.ENTER && (evt.metaKey || evt.ctrlKey)) {
       this.$("form").submit();
       this.open();
       return false;
@@ -390,15 +363,14 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   clear : function() {
-    // clear text(s)
-    this.inputEl.val("");
-    this.hiddenInputEl.val("");
-    this.inputEl.trigger("keyup")
-                 .trigger("keydown");
-    autosize.update(this.inputEl);
-
     // remove mentions
-    this.inputEl.mentionsInput("reset");
+    this.mention.reset();
+
+    // clear text
+    this.inputEl.val("");
+    this.inputEl.trigger("keyup")
+                .trigger("keydown");
+    autosize.update(this.inputEl);
 
     // remove photos
     this.photozoneEl.find("li").remove();
@@ -408,11 +380,9 @@ app.views.Publisher = Backbone.View.extend({
     // empty upload-photo
     this.$("#fileInfo").empty();
 
-    // close publishing area (CSS)
+    // remove preview and close publishing area (CSS)
+    this.markdownEditor.hidePreview();
     this.close();
-
-    // remove preview
-    this.removePostPreview();
 
     // disable submitting
     this.checkSubmitAvailability();
@@ -422,6 +392,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // enable input
     this.setInputEnabled(true);
+    this.wrapperEl.removeClass("submitting");
 
     // enable buttons
     this.setButtonsEnabled(true);
@@ -434,14 +405,13 @@ app.views.Publisher = Backbone.View.extend({
 
     // force textchange plugin to update lastValue
     this.inputEl.data("lastValue", "");
-    this.hiddenInputEl.data("lastValue", "");
 
     return this;
   },
 
   tryClose : function(){
-    // if it is not submittable, close it.
-    if( !this._submittable() ){
+    // if it is not submittable and not in preview mode, close it.
+    if (!this._submittable() && !this.markdownEditor.isPreviewMode()) {
       this.close();
     }
   },
@@ -453,9 +423,6 @@ app.views.Publisher = Backbone.View.extend({
     this.$el.removeClass("closed");
     this.wrapperEl.addClass("active");
     autosize.update(this.inputEl);
-
-    // fetch contacts for mentioning
-    Mentions.fetchContacts();
     return this;
   },
 
@@ -463,7 +430,8 @@ app.views.Publisher = Backbone.View.extend({
     $(this.el).addClass("closed");
     this.wrapperEl.removeClass("active");
     this.inputEl.css("height", "");
-    this.viewPollCreator.$el.hide();
+    autosize.update(this.inputEl);
+    this.wrapperEl.removeClass("with-poll");
     return this;
   },
 
@@ -487,27 +455,22 @@ app.views.Publisher = Backbone.View.extend({
   setEnabled: function(bool) {
     this.setInputEnabled(bool);
     this.disabled = !bool;
-
-    this.handleTextchange();
+    this.checkSubmitAvailability();
   },
 
   setButtonsEnabled: function(bool) {
     if (bool) {
-      this.submitEl.removeProp("disabled");
-      this.previewEl.removeProp("disabled");
+      this.submitEl.removeAttr("disabled");
     } else {
       this.submitEl.prop("disabled", true);
-      this.previewEl.prop("disabled", true);
     }
   },
 
   setInputEnabled: function(bool) {
     if (bool) {
-      this.inputEl.removeProp("disabled");
-      this.hiddenInputEl.removeProp("disabled");
+      this.inputEl.removeAttr("disabled");
     } else {
       this.inputEl.prop("disabled", true);
-      this.hiddenInputEl.prop("disabled", true);
     }
   },
 
@@ -518,15 +481,6 @@ app.views.Publisher = Backbone.View.extend({
         isValidPoll = this.viewPollCreator.validatePoll();
 
     return (!onlyWhitespaces || isPhotoAttached) && isValidPoll && !this.disabled;
-  },
-
-  handleTextchange: function() {
-    var self = this;
-
-    this.checkSubmitAvailability();
-    this.inputEl.mentionsInput("val", function(value){
-      self.hiddenInputEl.val(value);
-    });
   },
 
   _beforeUnload: function(e) {

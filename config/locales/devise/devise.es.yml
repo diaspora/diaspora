@@ -11,10 +11,13 @@ es:
       new:
         resend_confirmation: "Reenviar las instrucciones de confirmación"
       send_instructions: "Recibirás un correo con instrucciones para confirmar tu cuenta en unos minutos."
+      send_paranoid_instructions: "Si tu email existe en nuestra base de datos, recibirás un correo con instrucciones para confirmar tu dirección en unos pocos minutos."
     failure:
+      already_authenticated: "Ya estás identificado."
       inactive: "Tu cuenta no se ha activado todavía."
       invalid: "Nombre de usuario o contraseña incorrectos."
       invalid_token: "Identificador de autenticación incorrecto."
+      last_attempt: "Tienes un intento más antes de que se bloquee tu cuenta."
       locked: "Tu cuenta está bloqueada."
       not_found_in_database: "Contraseña o Email incorrecto."
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
@@ -34,6 +37,8 @@ es:
         accept_at: "en %{url}, puedes aceptar en el enlace inferior."
         has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
         have_invited_you: "%{names} te ha invitado a unirte a Diaspora*"
+      password_change:
+        subject: "La contraseña ha sido cambiada."
       reset_password_instructions:
         change: "Cambiar mi contraseña"
         ignore: "Si no has solicitado esto, por favor ignora este mensaje."
@@ -46,6 +51,9 @@ es:
         subject: "Instrucciones para desbloquear la cuenta"
         unlock: "Desbloquear mi cuenta"
       welcome: "¡Bienvenid@ %{email}!"
+    omniauth_callbacks:
+      failure: "No pudimos identificarte desde %{kind} por \"%{reason}\"."
+      success: "Identificado correctamente desde la cuenta %{kind}."
     passwords:
       edit:
         change_password: "Cambiar mi contraseña"
@@ -57,13 +65,21 @@ es:
         no_account: "No existe una cuenta con ese correo"
         reset_password: "Resetear contraseña"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
+      no_token: "No puedes acceder a esta página sin venir un correo de reseteo de contraseña. Si vienes de uno de estos correos, por favor asegúrate de utilizar la URL proporcionada."
       send_instructions: "Recibirás un correo con instrucciones para cambiar tu contraseña en unos minutos."
+      send_paranoid_instructions: "Si tu correo existe en nuestra base de datos, recibirás un enlace para recuperar la contraseña en unos minutos."
       updated: "Has modificado tu contraseña. ¡Ya estás dentro!"
+      updated_not_active: "Tu contraseña se ha cambiado correctamente."
     registrations:
       destroyed: "¡Adiós! Hemos cancelado tu cuenta. Esperamos volver a verte pronto."
       signed_up: "Te has registrado con éxito. Si tu registro está activado, recibirás un mensaje de confirmación en tu correo electrónico."
+      signed_up_but_inactive: "Te has identificado correctamente. Sin embargo, no podemos permitirte entrar ya que tu cuenta todavía no se ha activado."
+      signed_up_but_locked: "Te has identificado correctamente. Sin embargo, no podemos permitirte entrar porque tu cuenta está bloqueada."
+      signed_up_but_unconfirmed: "Se ha enviado a tu email un mensaje con el link de confirmación. Por favor, pulsa sobre el link para activar tu cuenta."
+      update_needs_confirmation: "Has actualizado tu cuenta correctamente, pero necesitamos verificar tu nuevo email. Por favor, entra en tu correo y pulsa el enlace de confirmación que encontrarás en él."
       updated: "Has actualizado tu cuenta con éxito."
     sessions:
+      already_signed_out: "Has desconectado correctamente."
       new:
         login: "Acceder"
         modern_browsers: "Sólo es compatible con navegadores modernos."
@@ -85,9 +101,15 @@ es:
       new:
         resend_unlock: "Volver a enviar las instrucciones de desbloqueo."
       send_instructions: "Recibirás un correo con instrucciones para desbloquear tu cuenta en pocos minutos."
+      send_paranoid_instructions: "Si tu cuenta existe, recibirás un email con instrucciones sobre cómo desbloquear la cuenta en unos minutos."
       unlocked: "Tu cuenta se ha desbloqueado. ¡Ya estás dentro!"
   errors:
     messages:
       already_confirmed: "ya fue confirmada"
+      confirmation_period_expired: "necesitas ser confirmado en %{period}, por favor solicita una nueva"
+      expired: "ha caducado, por favor pide uno nuevo"
       not_found: "no se ha encontrado"
       not_locked: "no estaba bloqueada"
+      not_saved:
+        one: "1 error impidió guardar %{resource}:"
+        other: "%{count} errores impidieron guardar a %{resource}:"

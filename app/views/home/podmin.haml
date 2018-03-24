@@ -1,0 +1,61 @@
+.dandelion-background
+  .jumbotron
+    .container-fluid.home-podmin
+      .row
+        .col-md-12.text-center
+          %h1= t(".headline")
+          %h2= t(".byline")
+
+.container-fluid
+  .row
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          %span.entypo-tools
+          = t(".configure_your_pod")
+        != t(".configuration_info",
+             database_path: content_tag(:code, "config/database.yml"),
+             diaspora_path: content_tag(:code, "config/diaspora.yml"))
+
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          %span.entypo-add-user
+          = t(".create_an_account")
+        != t(".create_an_account_info",
+             sign_up_link: link_to(t("devise.shared.links.sign_up"), new_user_registration_path))
+
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          %span.entypo-key
+          = t(".make_yourself_an_admin")
+        != t(".make_yourself_an_admin_info",
+             wiki: link_to("diaspora* wiki", "https://wiki.diasporafoundation.org/FAQ_for_pod_maintainers#What_are_roles_and_how_do_I_use_them.3F_.2F_Make_yourself_an_admin"),
+             admin_dashboard: link_to(t("javascripts.header.admin"), admin_dashboard_path))
+
+  .row
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          %span.entypo-new
+          = t(".update_your_pod")
+        != t(".update_your_pod_info",
+             update_instructions: link_to(t(".update_instructions"), "https://wiki.diasporafoundation.org/Updating"))
+
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          %span.entypo-lifebuoy
+          = t(".getting_help")
+        != t(".getting_help_info",
+             faq: link_to(t(".faq_for_podmins"), "https://wiki.diasporafoundation.org/FAQ_for_pod_maintainers"),
+             irc: link_to(t(".contact_irc"), "https://wiki.diasporafoundation.org/How_We_Communicate#IRC"))
+
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          %span.entypo-code
+          = t(".contribute")
+        != t(".contribute_info",
+             report_bugs: link_to(t(".report_bugs"), "https://wiki.diasporafoundation.org/How_to_report_a_bug"))

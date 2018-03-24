@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stream
   require 'stream/activity'
   require 'stream/aspect'

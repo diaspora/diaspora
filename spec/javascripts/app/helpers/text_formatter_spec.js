@@ -9,19 +9,44 @@ describe("app.helpers.textFormatter", function(){
   // https://github.com/svbergerem/markdown-it-hashtag/tree/master/test
   context("hashtags", function() {
     beforeEach(function() {
-      this.tags = [
+      this.goodTags = [
         "tag",
         "diaspora",
         "PARTIES",
-        "<3"
+        "<3",
+        "diaspora-dev",
+        "diaspora_dev",
+        // issue #5765
+        "മലയാണ്മ",
+        // issue #5815
+        "ինչո՞ւ",
+        "այո՜ո",
+        "սեւ֊սպիտակ",
+        "գժանո՛ց"
+      ];
+
+      this.badTags = [
+        "tag.tag",
+        "hash:tag",
+        "hash*tag"
       ];
     });
 
-    it("renders tags as links", function() {
-      var formattedText = this.formatter('#'+this.tags.join(" #"));
-      _.each(this.tags, function(tag) {
-        var link ='<a href="/tags/'+tag.toLowerCase()+'" class="tag">#'+tag.replace("<","&lt;")+'</a>';
+    it("renders good tags as links", function() {
+      var self = this;
+      this.goodTags.forEach(function(tag) {
+        var formattedText = self.formatter("#newhashtag #" + tag + " test");
+        var link = "<a href=\"/tags/" + tag.toLowerCase() + "\" class=\"tag\">#" + tag.replace("<", "&lt;") + "</a>";
         expect(formattedText).toContain(link);
+      });
+    });
+
+    it("doesn't render bad tags as links", function() {
+      var self = this;
+      this.badTags.forEach(function(tag) {
+        var formattedText = self.formatter("#newhashtag #" + tag + " test");
+        var link = "<a href=\"/tags/" + tag.toLowerCase() + "\" class=\"tag\">#" + tag.replace("<", "&lt;") + "</a>";
+        expect(formattedText).not.toContain(link);
       });
     });
   });
@@ -86,6 +111,25 @@ describe("app.helpers.textFormatter", function(){
       expect(wrapper.find("a[href='/people/" + this.alice.guid + "']")).not.toHaveClass('hovercardable');
       expect(wrapper.find("a[href='/people/" + this.bob.guid + "']")).toHaveClass('hovercardable');
     });
+
+    it("supports mentions without a given name", function() {
+      this.statusMessage.set({text: "hey there @{alice@example.com} and @{bob@example.com}"});
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
+      var wrapper = $("<div>").html(formattedText);
+
+      _.each([this.alice, this.bob], function(person) {
+        expect(wrapper.find("a[href='/people/" + person.guid + "']").text()).toContain(person.name);
+      });
+    });
+
+    it("it uses the name given in the mention if it exists", function() {
+      this.statusMessage.set({text: "hey there @{Alice Awesome; alice@example.com} and @{bob@example.com}"});
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
+      var wrapper = $("<div>").html(formattedText);
+
+      expect(wrapper.find("a[href='/people/" + this.alice.guid + "']").text()).toContain("Alice Awesome");
+      expect(wrapper.find("a[href='/people/" + this.bob.guid + "']").text()).toContain(this.bob.name);
+    });
   });
 
   context("highlight", function(){
@@ -97,7 +141,7 @@ describe("app.helpers.textFormatter", function(){
 
     it("works with markdown", function(){
       var code = "```markdown\n# header\n**strong**\n```";
-      expect(this.formatter(code)).toContain("<span class=\"hljs-header\">");
+      expect(this.formatter(code)).toContain("<span class=\"hljs-section\">");
       expect(this.formatter(code)).toContain("<span class=\"hljs-strong\">");
     });
 
@@ -132,8 +176,11 @@ describe("app.helpers.textFormatter", function(){
         expect(linkElement.attr("target")).toContain("_blank");
       });
 
-      expect(this.formatter('<http://google.com>')).toContain('<a href');
-      expect(this.formatter('<http://google.com>')).toContain('_blank');
+      expect(this.formatter("<http://google.com>")).toContain("<a href");
+      expect(this.formatter("<http://google.com>")).toContain("_blank");
+
+      expect(this.formatter("<http://google.com>")).toContain("noopener");
+      expect(this.formatter("<http://google.com>")).toContain("noreferrer");
     });
 
     it("adds a missing http://", function() {
@@ -295,13 +342,57 @@ describe("app.helpers.textFormatter", function(){
           'https://foo.com!',
           'ftp://example.org:8080'
         ];
-        var results = [
-          '<p><a href="https://foo.com" target="_blank">https://foo.com</a>!</p>',
-          '<p><a href="ftp://example.org:8080" target="_blank">ftp://example.org:8080</a></p>'
-        ];
         for (var i = 0; i < contents.length; i++) {
-          expect(this.formatter(contents[i])).toContain(results[i]);
+          expect(this.formatter(contents[i])).toContain("<a href");
         }
+      });
+    });
+
+    context("media embed", function() {
+      beforeEach(function() {
+        spyOn(app.helpers, "allowedEmbedsMime").and.returnValue(true);
+      });
+
+      it("embeds audio", function() {
+        var html =
+          '<p><a href="https://example.org/file.mp3" target="_blank" rel="noopener noreferrer">title</a></p>\n' +
+          '<div class="media-embed">\n' +
+          "\n" +
+          "    <audio controls preload=none>\n" +
+          '      <source type="audio/mpeg" src="https://example.org/file.mp3" />\n' +
+          "      title\n" +
+          "    </audio>\n" +
+          "\n" +
+          "</div>\n";
+        var content = "[title](https://example.org/file.mp3)";
+        var parsed = this.formatter(content);
+
+        expect(parsed).toContain(html);
+      });
+
+      it("embeds video", function() {
+        var html =
+          '<p><a href="https://example.org/file.mp4" target="_blank" rel="noopener noreferrer">title</a></p>\n' +
+          '<div class="media-embed">\n' +
+          '  <div class="thumb">\n' +
+          "\n" +
+          "    <video preload=none>\n" +
+          '      <source type="video/mp4" src="https://example.org/file.mp4" />\n' +
+          "      title\n" +
+          "    </video>\n" +
+          "\n" +
+          '    <div class="video-overlay">\n' +
+          '      <div class="video-info">\n' +
+          '        <div class="title">title</div>\n' +
+          "      </div>\n" +
+          "    </div>\n" +
+          "  </div>\n" +
+          "</div>\n";
+
+        var content = "[title](https://example.org/file.mp4)";
+        var parsed = this.formatter(content);
+
+        expect(parsed).toContain(html);
       });
     });
   });
@@ -312,7 +403,7 @@ describe("app.helpers.textFormatter", function(){
         'oh, cool, nginx 1.7.9 supports json autoindexes: http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format'
       ];
       var results = [
-        '<p>oh, cool, nginx 1.7.9 supports json autoindexes: <a href="http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format" target="_blank">http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format</a></p>'
+        '<p>oh, cool, nginx 1.7.9 supports json autoindexes: <a href="http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format" target="_blank" rel="noopener noreferrer">http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format</a></p>'
       ];
       for (var i = 0; i < contents.length; i++) {
         expect(this.formatter(contents[i])).toContain(results[i]);

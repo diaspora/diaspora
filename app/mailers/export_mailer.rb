@@ -1,6 +1,6 @@
-class ExportMailer < ActionMailer::Base
-  default from: AppConfig.mail.sender_address
+# frozen_string_literal: true
 
+class ExportMailer < ApplicationMailer
   def export_complete_for(user)
     @user = user
 

@@ -1,29 +1,31 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe "i18n interpolation fallbacks" do
   describe "when string does not require interpolation arguments" do
     it "works normally" do
-      expect(I18n.t('user.invalid',
-             :resource_name => "user",
-             :scope => "devise.failure",
-             :default => [:invalid, "invalid"])).to eq("Invalid username or password.")
+      expect(
+        I18n.t("user.already_authenticated",
+               resource_name: "user",
+               scope:         "devise.failure",
+               default:       [:already_authenticated, "already_authenticated"])
+      ).to eq("You are already signed in.")
     end
   end
   describe "when string requires interpolation arguments" do
     context "current locale has no fallbacks" do
-      # ago: "%{time} ago" (in en.yml)
+      # tags.show.follow: "Follow #%{tag}" (in en.yml)
       it "returns the translation when all arguments are provided" do
-        expect(I18n.t('ago', :time => "2 months")).to eq("2 months ago")
+        expect(I18n.t("tags.show.follow", tag: "cats")).to eq("Follow #cats")
       end
       it "returns the translation without substitution when all arguments are omitted" do
-        expect(I18n.t('ago')).to eq("%{time} ago")
+        expect(I18n.t("tags.show.follow")).to eq("Follow #%{tag}")
       end
       it "raises a MissingInterpolationArgument when arguments are wrong" do
-        expect { I18n.t('ago', :not_time => "2 months") }.to raise_exception(I18n::MissingInterpolationArgument)
+        expect { I18n.t("tags.show.follow", not_tag: "cats") }.to raise_exception(I18n::MissingInterpolationArgument)
       end
     end
     context "current locale falls back to English" do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 guard :rspec, cmd: "bin/spring rspec", all_on_start: false, all_after_pass: false do
   watch(/^spec\/.+_spec\.rb$/)
   watch(/^lib\/(.+)\.rb$/)       {|m| "spec/lib/#{m[1]}_spec.rb" }
@@ -22,8 +24,7 @@ guard :rspec, cmd: "bin/spring rspec", all_on_start: false, all_after_pass: fals
 end
 
 guard(:cucumber,
-      command_prefix: "bin/spring",
-      bundler:        false,
+      cmd:            "bin/spring cucumber",
       all_on_start:   false,
       all_after_pass: false) do
   watch(/^features\/.+\.feature$/)
@@ -36,10 +37,4 @@ end
 guard :rubocop, all_on_start: false, keep_failed: false do
   watch(/(?:app|config|db|lib|features|spec)\/.+\.rb$/)
   watch(/(config.ru|Gemfile|Guardfile|Rakefile)$/)
-end
-
-guard :jshintrb do
-  watch(/^app\/assets\/javascripts\/.+\.js$/)
-  watch(/^lib\/assets\/javascripts\/.+\.js$/)
-  watch(/^spec\/javascripts\/.+\.js$/)
 end

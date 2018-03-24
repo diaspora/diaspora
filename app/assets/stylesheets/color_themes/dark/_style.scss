@@ -1,0 +1,154 @@
+// Main color(s)
+$white: #fff;
+$black: #000;
+
+$gray-base:    $black;
+$gray-darker:  lighten($gray-base, 6%);
+$gray-dark:    lighten($gray-base, 9.5%);
+$gray:         lighten($gray-base, 13.5%);
+$gray-light:   lighten($gray-base, 28%);
+$gray-lighter: lighten($gray-base, 58%);
+
+$green: #346535;
+$red: #622;
+$blue: #4183c4;
+$yellow: #645a1b;
+$orange: #664100;
+
+$light-blue: lighten($blue, 5%);
+
+$brand-primary: darken($blue, 5%);
+$brand-success: $green;
+$brand-info: darken(adjust-hue($brand-primary, -30), 15%);
+$brand-danger: lighten($red, 10%);
+
+// Bootstrap Variables
+//== Scaffolding
+$body-bg: $gray;
+$text-color: lighten($gray-lighter, 17%);
+$link-color: $blue;
+
+//== Tables
+$table-bg-accent: $gray-dark;
+$table-border-color: $gray-light;
+
+//== Buttons
+$btn-default-color: $gray-lighter;
+$btn-default-bg: $gray-light;
+$btn-default-border: $gray-darker;
+
+$btn-success-color: $white;
+
+//== Forms
+$input-bg: $gray-dark;
+
+$input-color: $text-color;
+$input-border: $gray-light;
+$input-border-focus: $brand-primary;
+
+$input-color-placeholder: lighten($gray-light, 7%);
+
+$legend-color: $text-color;
+$legend-border-color: $gray-light;
+
+//== Dropdowns
+$dropdown-bg: lighten($gray-base, 15%);
+$dropdown-divider-bg: $gray-darker;
+$dropdown-link-color: $text-color;
+$dropdown-link-hover-color: $dropdown-link-color;
+
+//== Navbar
+$navbar-inverse-bg: $gray-darker;
+$navbar-inverse-link-color: $gray-lighter;
+$navbar-inverse-link-hover-color: $white;
+$navbar-inverse-brand-hover-color: $navbar-inverse-link-hover-color;
+
+//== Tabs
+$nav-tabs-active-link-hover-bg: $gray;
+$nav-tabs-active-link-hover-border-color: $gray-darker;
+
+//== Navs
+$nav-link-hover-bg: $gray-darker;
+
+//== Pagination
+$pagination-color: $light-blue;
+$pagination-bg: $gray-light;
+$pagination-border: $gray-darker;
+
+$pagination-hover-color: $gray-dark;
+$pagination-hover-bg: $light-blue;
+$pagination-hover-border: $pagination-border;
+
+$pagination-active-border: $pagination-border;
+
+$pagination-disabled-color: $gray-dark;
+$pagination-disabled-bg: $gray-light;
+$pagination-disabled-border: $pagination-border;
+
+//== Form states and alerts
+$state-success-text: lighten($green, 30%);
+$state-success-bg: darken($green, 10%);
+$state-success-border: darken($state-success-bg, 20%);
+
+$state-info-text: lighten($blue, 20%);
+$state-info-bg: darken($blue, 20%);
+$state-info-border: darken($state-info-bg, 20%);
+
+$state-warning-text: lighten($yellow, 30%);
+$state-warning-bg: $yellow;
+$state-warning-border: darken($state-warning-bg, 20%);
+
+$state-danger-text: lighten($red, 40%);
+$state-danger-bg: $red;
+$state-danger-border: darken($state-danger-bg, 20%);
+
+
+//== Popovers
+$popover-bg: lighten($gray, 5%);
+$popover-border-color: $gray-darker;
+
+//== Modals
+$modal-content-bg: $gray;
+$modal-header-border-color: $gray-light;
+
+//== List group
+$list-group-bg: $gray;
+$list-group-link-color: $text-color;
+
+//== Panels
+$panel-bg: $gray;
+$panel-default-text: $text-color;
+$panel-default-border: $gray-darker;
+$panel-default-heading-bg: $gray-dark;
+
+//== Thumbnails
+$thumbnail-border: $gray-darker;
+
+//== Wells
+$well-bg: $gray-dark;
+
+//== Close
+$close-color: $gray-lighter;
+
+//== Type
+$hr-border: $gray-light;
+
+// Variables
+$text-color-pale: $gray-light;
+$text-color-active: lighten($gray-lighter, 27%);
+
+$background-grey: $gray-dark;
+$background-blue: desaturate(darken($blue, 25%), 15%);
+
+$border-grey: $gray-darker;
+$border-medium-grey: $gray-light;
+$border-dark-grey: darken($border-grey, 4.5%);
+
+$icon-color: $text-color;
+
+$main-background: $gray-dark;
+$framed-background: $gray;
+$left-navbar-drawer-background: $main-background;
+$hovercard-background: $gray;
+
+@import 'color_themes/color_theme_override_dark';

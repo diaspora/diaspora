@@ -3,62 +3,31 @@
 -#   the COPYRIGHT file.
 
 !!!
-%html{lang:  I18n.locale.to_s, dir:  (rtl?) ? 'rtl' : 'ltr'}
-  %head{prefix:  og_prefix}
-    %title
-      = page_title yield(:page_title)
+%html{lang: I18n.locale.to_s, dir: (rtl? ? "rtl" : "ltr")}
+  %head{prefix: og_prefix}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}/
 
-    %meta{charset:  'utf-8'}/
-    %meta{"http-equiv" => "Content-Type", :content=>"text/html; charset=utf-8"}/
-    %meta{name:  "description", content:  "diaspora*"}/
-    %meta{name:  "author", content:  "diaspora* contributors"}/
-    %meta{name:  "viewport", content:  "width=device-width, initial-scale=1"}/
-
-    %link{rel:  'shortcut icon', href:  "#{image_path('favicon.png')}" }
-
-    = render 'layouts/open_graph'
-
-    = chartbeat_head_block
-    = include_mixpanel
-
-    = include_color_theme
-
-    - if rtl?
-      = stylesheet_link_tag :rtl, media:  'all'
-
-    = old_browser_js_support
-    <!--[if IE]>
-    = javascript_include_tag :ie
-    <![endif]-->
-
-    = jquery_include_tag
-
-    - unless @landing_page
+    - content_for :javascript do
       = javascript_include_tag :main, :templates
       = load_javascript_locales
 
+    = include_color_theme
+    = render "head"
     = translation_missing_warnings
-    = current_user_atom_tag
 
-    = yield(:head)
-    = csrf_meta_tag
-
-
-    = include_gon(camel_case:  true)
-
-  %body{ class:  "page-#{controller_name} action-#{action_name}" }
+  %body{class: "page-#{controller_name} action-#{action_name}"}
     = yield :before_content
+
+    %noscript
+      .noscript
+        %h3= t("error_messages.need_javascript")
 
     = content_for?(:content) ? yield(:content) : yield
 
     = yield :after_content
 
-    = include_chartbeat
-    = include_mixpanel_guid
-
     .blueimp-gallery.blueimp-gallery-controls#blueimp-gallery
       .slides
-      %h3.title
       %a.prev
         .entypo-chevron-small-left
       %a.next
@@ -69,3 +38,5 @@
       %ol.indicator
 
     #flash-container= flash_messages
+
+    %a.entypo-chevron-up.back-to-top#back-to-top{title: t("layouts.application.back_to_top"), href: "#"}

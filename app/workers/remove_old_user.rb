@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 module Workers
   class RemoveOldUser < Base
-    sidekiq_options queue: :maintenance
+    sidekiq_options queue: :low
     
     def safe_remove_after
       # extra safety time to compare in addition to remove_after

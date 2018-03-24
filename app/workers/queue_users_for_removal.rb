@@ -1,15 +1,13 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 module Workers
   class QueueUsersForRemoval < Base
-    include Sidetiq::Schedulable
-    
-    sidekiq_options queue: :maintenance
-    
-    recurrence { daily }
-    
+    sidekiq_options queue: :low
+
     def perform
       # Queue users for removal due to inactivity
       if AppConfig.settings.maintenance.remove_old_users.enable?
@@ -37,5 +35,5 @@ module Workers
         end
       end
     end
-  end 
+  end
 end

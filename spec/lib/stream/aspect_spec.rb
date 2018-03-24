@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
-require 'spec_helper'
 
 describe Stream::Aspect do
   describe '#aspects' do
@@ -28,19 +28,6 @@ describe Stream::Aspect do
       stream = Stream::Aspect.new(alice, [1,2,3])
 
       expect(stream.aspects).to eq(alice.aspects)
-    end
-  end
-
-  describe '#aspect_ids' do
-    it 'maps ids from aspects' do
-      alice = double.as_null_object
-      aspects = double.as_null_object
-
-      stream = Stream::Aspect.new(alice, [1,2])
-
-      expect(stream).to receive(:aspects).and_return(aspects)
-      expect(aspects).to receive(:map)
-      stream.aspect_ids
     end
   end
 
@@ -83,16 +70,14 @@ describe Stream::Aspect do
     end
   end
 
-  describe '#people' do
-    it 'should call Person.all_from_aspects' do
-      class Person ; end
-
+  describe "#people" do
+    it "should call Person.all_from_aspects" do
       alice = double.as_null_object
-      aspect_ids = [1,2,3]
+      aspect_ids = [1, 2, 3]
       stream = Stream::Aspect.new(alice, [])
 
       allow(stream).to receive(:aspect_ids).and_return(aspect_ids)
-      expect(Person).to receive(:unique_from_aspects).with(stream.aspect_ids, alice).and_return(double(:includes => :profile))
+      expect(Person).to receive(:unique_from_aspects).with(aspect_ids, alice).and_return(double(includes: :profile))
       stream.people
     end
   end
@@ -114,20 +99,20 @@ describe Stream::Aspect do
     end
   end
 
-  describe 'for_all_aspects?' do
+  describe "for_all_aspects?" do
     before do
       alice = double.as_null_object
       allow(alice.aspects).to receive(:size).and_return(2)
-      @stream = Stream::Aspect.new(alice, [1,2])
+      @stream = Stream::Aspect.new(alice, [1, 2])
     end
 
-    it "is true if the count of aspect_ids is equal to the size of the user's aspect count" do
-      allow(@stream.aspect_ids).to receive(:length).and_return(2)
+    it "is true if the count of aspects is equal to the size of the user's aspect count" do
+      allow(@stream).to receive(:aspects).and_return(double(size: 2))
       expect(@stream).to be_for_all_aspects
     end
 
-    it "is false if the count of aspect_ids is not equal to the size of the user's aspect count" do
-      allow(@stream.aspect_ids).to receive(:length).and_return(1)
+    it "is false if the count of aspects is not equal to the size of the user's aspect count" do
+      allow(@stream).to receive(:aspects).and_return(double(size: 1))
       expect(@stream).not_to be_for_all_aspects
     end
   end

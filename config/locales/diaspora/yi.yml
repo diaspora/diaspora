@@ -6,7 +6,6 @@
 
 yi:
   _help: "העלף"
-  _home: "היים"
   activerecord:
     errors:
       models:
@@ -22,20 +21,17 @@ yi:
       daily: "טעגלעך"
       month: "חודש"
       week: "וואָך"
-  ago: "%{time} צוריק"
   aspects:
     aspect_stream:
       make_something: "מאַך עפּעס"
     index:
       help:
         do_you: "טוסטו:"
-        email_link: "בליצפּאָסט"
         tag_question: "פֿראַגע"
     seed:
       family: "משפּחה"
       friends: "חבֿרים"
       work: "אַרבעט"
-  back: "צוריק"
   cancel: "אַנוליר"
   conversations:
     new:
@@ -53,35 +49,21 @@ yi:
   invitations:
     new:
       language: "לשון"
-      to: "צו"
-  layouts:
-    header:
-      blog: "קוועטשל"
-      help: "העלף"
-      view_all: "זע אַלט"
   more: "מער"
   notifier:
     hello: "שלומ עליכם %{name}!"
     thanks: "אַ דאַנק,"
   ok: "גוט"
-  or: "אָדער"
   profiles:
     edit:
       your_name: "דײַן נאָמען"
   registrations:
     new:
       email: "בליצפּאָסט"
-  requests:
-    new_request_to_person:
-      sent: "געשיקט!"
   search: "זוך"
   shared:
-    contact_list:
-      all_contacts: "אַלע קאָנטאַקטן"
     invitations:
       by_email: "מיט בליצפּאָסט"
-  undo: "אויפֿמאַכן?"
   users:
     getting_started:
       who_are_you: "וווּ ביסטו?"
-  welcome: "שלום עליכם!"

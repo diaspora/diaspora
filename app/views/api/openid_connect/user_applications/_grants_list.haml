@@ -1,0 +1,30 @@
+.application-img
+  - if app.image
+    = image_tag app.image, class: "img-responsive", id: "js-app-logo"
+  - else
+    %i.entypo-browser
+.application-authorizations
+  - if app.scopes.count > 0
+    %h4= t("api.openid_connect.user_applications.index.access", name: user_application_name(app)).html_safe
+    %ul
+      - app.scopes.each do |scope|
+        %li
+          %b= t("api.openid_connect.scopes.#{scope}.name")
+          %p= t("api.openid_connect.scopes.#{scope}.description")
+  - else
+    .well
+      = t("api.openid_connect.user_applications.index.no_requirement", name: user_application_name(app)).html_safe
+
+  .small-horizontal-spacer
+  .application-tos-policy
+    - if app.terms_of_services?
+      %b= link_to t("api.openid_connect.user_applications.tos"), app.terms_of_services
+
+    - if app.policy? && app.terms_of_services?
+      |
+
+    - if app.policy?
+      %b= link_to t("api.openid_connect.user_applications.policy"), app.policy
+
+    - if app.policy? || app.terms_of_services?
+      .small-horizontal-spacer

@@ -3,7 +3,10 @@
 -#   the COPYRIGHT file.
 
 - content_for :page_title do
-  = post_page_title @post
+  = post.page_title
+
+- content_for :meta_data do
+  = metas_tags post.metas_attributes
 
 - content_for :content do
   #container.container-fluid

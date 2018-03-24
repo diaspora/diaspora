@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -16,19 +18,19 @@ module PeopleHelper
   end
 
   def birthday_format(bday)
-    if bday.year == 1000
-      I18n.l bday, :format => I18n.t('date.formats.birthday')
+    if bday.year <= 1004
+      I18n.l bday, format: I18n.t("date.formats.birthday")
     else
-      I18n.l bday, :format => I18n.t('date.formats.birthday_with_year')
+      I18n.l bday, format: I18n.t("date.formats.birthday_with_year")
     end
   end
 
   def person_link(person, opts={})
-    opts[:class] ||= ""
-    opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
-    opts[:class] << " hovercardable" if defined?(user_signed_in?) && user_signed_in? && current_user.person != person
+    css_class = person_link_class(person, opts[:class])
     remote_or_hovercard_link = Rails.application.routes.url_helpers.person_path(person).html_safe
-    "<a data-hovercard='#{remote_or_hovercard_link}' href='#{remote_or_hovercard_link}' class='#{opts[:class]}' #{ ("target=" + opts[:target]) if opts[:target]}>#{h(person.name)}</a>".html_safe
+    "<a data-hovercard='#{remote_or_hovercard_link}' href='#{remote_or_hovercard_link}' class='#{css_class}'>"\
+      "#{html_escape_once(opts[:display_name] || person.name)}</a>"\
+      .html_safe
   end
 
   def person_image_tag(person, size = :thumb_small)
@@ -42,11 +44,9 @@ module PeopleHelper
     if opts[:to] == :photos
       link_to person_image_tag(person, opts[:size]), person_photos_path(person)
     else
-      opts[:class] ||= ""
-      opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
-      opts[:class] << " hovercardable" if defined?(user_signed_in?) && user_signed_in? && current_user.person != person
+      css_class = person_link_class(person, opts[:class])
       remote_or_hovercard_link = Rails.application.routes.url_helpers.person_path(person).html_safe
-      "<a href='#{remote_or_hovercard_link}' class='#{opts[:class]}' #{ ("target=" + opts[:target]) if opts[:target]}>
+      "<a href='#{remote_or_hovercard_link}' class='#{css_class}' #{('target=' + opts[:target]) if opts[:target]}>
       #{person_image_tag(person, opts[:size])}
       </a>".html_safe
     end
@@ -58,7 +58,7 @@ module PeopleHelper
     absolute = opts.delete(:absolute)
 
     if person.local?
-      username = person.diaspora_handle.split('@')[0]
+      username = person.username
       unless username.include?('.')
         opts.merge!(:username => username)
         if absolute
@@ -74,5 +74,15 @@ module PeopleHelper
     else
       return Rails.application.routes.url_helpers.person_path(person, opts)
     end
+  end
+
+  private
+
+  def person_link_class(person, css_class)
+    return css_class unless defined?(user_signed_in?) && user_signed_in?
+
+    return "#{css_class} self" if current_user.person == person
+
+    "#{css_class} hovercardable"
   end
 end

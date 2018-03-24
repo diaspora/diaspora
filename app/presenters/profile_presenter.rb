@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfilePresenter < BasePresenter
   include PeopleHelper
 
@@ -13,6 +15,13 @@ class ProfilePresenter < BasePresenter
       avatar: AvatarPresenter.new(@presentable).base_hash,
       tags:   tags.pluck(:name)
     )
+  end
+
+  def for_hovercard
+    {
+      avatar: AvatarPresenter.new(@presentable).medium,
+      tags:   tags.pluck(:name)
+    }
   end
 
   def private_hash

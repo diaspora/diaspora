@@ -1,23 +1,33 @@
 @javascript @mobile
-Feature: Viewing my activity on the steam mobile page
+Feature: Viewing my activity on the stream mobile page
   In order to navigate Diaspora*
   As a mobile user
   I want to view my activity stream
 
   Background:
-    Given a user with username "alice"
+    Given following users exist:
+      | username   |
+      | alice      |
+      | bob        |
+    And a user with username "bob" is connected with "alice"
     And "alice@alice.alice" has a public post with text "Hello! I am #newhere"
-    And I sign in as "alice@alice.alice" on the mobile website
 
   Scenario: Show my activity empty
-    When I open the drawer
-    And I follow "My activity"
-    Then I should see "My activity"
+    When I sign in as "bob@bob.bob" on the mobile website
+    When I go to the activity stream page
+    Then I should see "My activity" within "#main"
     And I should not see "Hello! I am #newhere"
 
-  Scenario: Show post on my activity
+  Scenario: Show liked post on my activity
+    When I sign in as "bob@bob.bob" on the mobile website
     When I click on selector "a.like-action.inactive"
-    And I open the drawer
-    And I follow "My activity"
-    Then I should see "My activity"
+    Then I should see an element "a.like-action.active"
+    When I go to the activity stream page
+    Then I should see "My activity" within "#main"
+    And I should see "Hello! I am #newhere" within ".ltr"
+
+  Scenario: Show own post on my activity
+    When I sign in as "alice@alice.alice" on the mobile website
+    And I go to the activity stream page
+    Then I should see "My activity" within "#main"
     And I should see "Hello! I am #newhere" within ".ltr"

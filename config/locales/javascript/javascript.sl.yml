@@ -28,7 +28,6 @@ sl:
       show: "prikaži vse komentarje"
     confirm_dialog: "Ste prepričani"
     delete: "Izbriši"
-    failed_to_like: "Označevanje ni uspelo!"
     failed_to_post_message: "Objava ni uspela!"
     getting_started:
       alright_ill_wait: "V redu, bom počakal."
@@ -49,23 +48,15 @@ sl:
       settings: "Nastavitve"
       view_all: "Prikaži vse"
     ignore: "Ne meni se"
-    infinite_scroll:
-      no_more: "Konec objav."
     my_activity: "Moja dejavnost"
     my_stream: "Tok"
     people:
       not_found: "nikogar ni bilo mogoče najti ..."
     photo_uploader:
       looking_good: "OMG, izgledaš super!"
-    publisher:
-      at_least_one_aspect: "Objaviti morate v vsaj en vidik"
-      limited: "Omejeno - Vaša objava bo vidna le ljudem, s katerimi delite"
-      public: "Javno - Vaša objava bo vidna vsem, prikazana bo tudi v spletnih iskalnikih"
     reshares:
-      duplicate: "To objavo ste že ponovno delili"
       post: "Ponovno deli objavo osebe <%= name %>?"
       successful: "Objavo ste uspešno ponovno delili!"
-    search_for: "Išči <%= name %>"
     show_more: "pokaži več"
     stream:
       comment: "Mnenje"
@@ -103,29 +94,24 @@ sl:
       wasnt_that_interesting: "V redu, mislim, da zaznamek #<%= tagName %> ni bil tako zanimiv ..."
     timeago:
       day: "včeraj"
-      days: "pred %d dnem"
+      days:
+        other: "pred %d dnem"
       hour: "pred približno uro"
-      hours: "pred približno %d urami"
+      hours:
+        other: "pred približno %d urami"
       minute: "pred približno minuto"
-      minutes: "pred %d minutami"
+      minutes:
+        other: "pred %d minutami"
       month: "pred približno mesecem"
-      months: "pred %d meseci"
+      months:
+        other: "pred %d meseci"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "pred manj kot minuto"
       suffixAgo: "nazaj"
       suffixFromNow: "od zdaj"
       year: "pred približno letom dni"
-      years: "pred %d leti"
-    videos:
-      unknown: "Neznan tip videa"
-      watch: "Glej ta video na <%= provider %>"
+      years:
+        other: "pred %d leti"
     viewer:
-      comment: "Mnenje"
-      follow_post: "Sledi objavi"
-      home: "DOMOV"
-      like: "Všeč mi je"
-      reshare: "Ponovno deli"
       reshared: "Ponovno deljeno"
-      stop_following_post: "Ne sledi več objavi"
-      unlike: "Ni mi všeč"

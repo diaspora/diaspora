@@ -13,19 +13,20 @@ textarea {
   &:active:focus,
   &:invalid:focus,
   &:invalid:required:focus {
-    border-color: $border-grey;
     box-shadow: none;
-    color: $text-dark-grey;
   }
 }
 // scss-lint:enable QualifyingElement
+
+textarea {
+  resize: vertical;
+}
 
 // Forms described here are only used on the public pages at the moment
 .block-form {
   margin: 20px auto;
 
   fieldset {
-    background-color: $white;
     margin-bottom: 1em;
     position: relative; // To correctly place the entypo icon
 

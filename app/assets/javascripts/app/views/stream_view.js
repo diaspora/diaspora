@@ -28,6 +28,12 @@ app.views.Stream = app.views.InfScroll.extend({
     var streamSelection = $("#stream_selection");
     streamSelection.find("[data-stream]").removeClass("selected");
     streamSelection.find("[data-stream='" + activeStream + "']").addClass("selected");
+
+    var activityContainer = streamSelection.find(".my-activity");
+    activityContainer.removeClass("activity-stream-selected");
+    if (activeStream === "activity" || activeStream === "liked" || activeStream === "commented") {
+      activityContainer.addClass("activity-stream-selected");
+    }
   },
 
   initInvitationModal : function() {

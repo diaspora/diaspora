@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -15,10 +17,6 @@ class Stream::FollowedTag < Stream::Base
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     @posts ||= StatusMessage.user_tag_stream(user, tag_ids)
-  end
-
-  def contacts_title
-    I18n.translate('streams.followed_tag.contacts_title')
   end
 
   private

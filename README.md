@@ -1,17 +1,18 @@
 # diaspora*
 ### A privacy-aware, distributed, open source social network
 
-**master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.png?branch=master)](http://travis-ci.org/diaspora/diaspora)
-**stable:** [![Build Status stable](https://secure.travis-ci.org/diaspora/diaspora.png?branch=stable)](http://travis-ci.org/diaspora/diaspora) |
-**develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.png?branch=develop)](http://travis-ci.org/diaspora/diaspora) |
-[![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
-[![Code Climate](https://codeclimate.com/github/diaspora/diaspora.png)](https://codeclimate.com/github/diaspora/diaspora)
+**master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=master)](http://travis-ci.org/diaspora/diaspora)
+**next-minor:** [![Build Status next-minor](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=next-minor)](http://travis-ci.org/diaspora/diaspora)
+[![Coverage Status next-minor](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=next-minor)](https://coveralls.io/github/diaspora/diaspora?branch=next-minor)|
+**develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=develop)](http://travis-ci.org/diaspora/diaspora)
+[![Coverage Status develop](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=develop)](https://coveralls.io/github/diaspora/diaspora?branch=develop) |
+[![Dependency Status](https://gemnasium.com/badges/github.com/diaspora/diaspora.svg)](https://gemnasium.com/diaspora/diaspora)
+[![Code Climate](https://codeclimate.com/github/diaspora/diaspora/badges/gpa.svg)](https://codeclimate.com/github/diaspora/diaspora)
 
 [Project site](https://diasporafoundation.org) |
 [Wiki](https://wiki.diasporafoundation.org) |
 [Bugtracker](https://github.com/diaspora/diaspora/issues) |
-[Discussions](https://www.loomio.org/groups/194) |
-[Mailing lists](https://wiki.diasporafoundation.org/How_We_Communicate#Mailing_Lists) |
+[Discussions and Support](https://discourse.diasporafoundation.org/) |
 [License](/COPYRIGHT) |
 [Authors](https://github.com/diaspora/diaspora/contributors)
 
@@ -29,9 +30,9 @@ Still haven't found an answer? Talk to us! Read [how we communicate](https://wik
 
 ## Contribute
 
-To keep diaspora*  growing and improving we need all help we can get. Whether you can contribute [code](https://wiki.diasporafoundation.org/Getting_started_with_contributing), [ideas](https://wiki.diasporafoundation.org/How_we_communicate#Loomio), [translations](https://wiki.diasporafoundation.org/Contribute_translations), [bug reports](https://wiki.diasporafoundation.org/How_to_report_a_bug) or simply extend the community as a [helpful user](https://wiki.diasporafoundation.org/Welcoming_committee) or [pod administrator](https://wiki.diasporafoundation.org/Installation), your help is welcome!
+To keep diaspora\* growing and improving we need all help we can get. Whether you can contribute [code](https://wiki.diasporafoundation.org/Getting_started_with_contributing), [ideas](https://wiki.diasporafoundation.org/How_we_communicate#Discourse), [translations](https://wiki.diasporafoundation.org/Contribute_translations), [bug reports](https://wiki.diasporafoundation.org/How_to_report_a_bug) or simply extend the community as a [helpful user](https://wiki.diasporafoundation.org/Welcoming_committee) or [pod administrator](https://wiki.diasporafoundation.org/Installation), your help is welcome!
 
-Everyone interacting in diaspora’s codebases, issue trackers, chat rooms, mailing lists, the wiki, and the Loomio group is expected to follow the diaspora\* [code of conduct](/CODE_OF_CONDUCT.md).
+Everyone interacting in diaspora’s codebases, issue trackers, chat rooms, the wiki, and the Discourse is expected to follow the diaspora\* [code of conduct](/CODE_OF_CONDUCT.md).
 
 ## Security
 

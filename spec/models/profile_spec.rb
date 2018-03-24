@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
-require 'spec_helper'
 
 describe Profile, :type => :model do
   describe 'validation' do
@@ -161,42 +161,6 @@ describe Profile, :type => :model do
     end
   end
 
-  describe '#from_xml' do
-    it 'should make a valid profile object' do
-      @profile = FactoryGirl.build(:profile)
-      @profile.tag_string = '#big #rafi #style'
-      xml = @profile.to_xml
-
-      new_profile = Profile.from_xml(xml.to_s)
-      expect(new_profile.tag_string).not_to be_blank
-      expect(new_profile.tag_string).to include('#rafi')
-    end
-  end
-
-  describe 'serialization' do
-    let(:person) {FactoryGirl.build(:person,:diaspora_handle => "foobar" )}
-
-    it 'should include persons diaspora handle' do
-      xml = person.profile.to_diaspora_xml
-      expect(xml).to include "foobar"
-    end
-
-    it 'includes tags' do
-      person.profile.tag_string = '#one'
-      person.profile.build_tags
-      person.profile.save
-      xml = person.profile.to_diaspora_xml
-      expect(xml).to include "#one"
-    end
-
-    it 'includes location' do
-      person.profile.location = 'Dark Side, Moon'
-      person.profile.save
-      xml = person.profile.to_diaspora_xml
-      expect(xml).to include "Dark Side, Moon"
-    end
-  end
-
   describe '#image_url' do
     before do
       @profile = FactoryGirl.build(:profile)
@@ -219,7 +183,19 @@ describe Profile, :type => :model do
 
   describe '#subscribers' do
     it 'returns all non-pending contacts for a user' do
-      expect(bob.profile.subscribers(bob).map{|s| s.id}).to match_array([alice.person, eve.person].map{|s| s.id})
+      expect(bob.profile.subscribers.map(&:id)).to match_array([alice.person, eve.person].map(&:id))
+    end
+  end
+
+  describe "public?" do
+    it "is public if public_details is true" do
+      profile = FactoryGirl.build(:profile, public_details: true)
+      expect(profile.public?).to be_truthy
+    end
+
+    it "is not public if public_details is false" do
+      profile = FactoryGirl.build(:profile, public_details: false)
+      expect(profile.public?).to be_falsey
     end
   end
 
@@ -269,66 +245,42 @@ describe Profile, :type => :model do
     end
   end
 
-  describe 'tags' do
-    before do
-      person = FactoryGirl.build(:person)
-      @object = person.profile
-    end
-    it 'allows 5 tags' do
-      @object.tag_string = '#one #two #three #four #five'
+  describe "tags" do
+    let(:object) { FactoryGirl.build(:person).profile }
 
-      @object.valid?
-      @object.errors.full_messages
+    it "allows 5 tags" do
+      object.tag_string = "#one #two #three #four #five"
 
-      expect(@object).to be_valid
-    end
-    it 'strips more than 5 tags' do
-      @object.tag_string = '#one #two #three #four #five #six'
-      @object.save
-      expect(@object.tags.count).to eq(5)
-    end
-    it 'should require tag name not be more than 255 characters long' do
-      @object.tag_string = "##{'a' * (255+1)}"
-      @object.save
-      expect(@object).not_to be_valid
-    end
-    it_should_behave_like 'it is taggable'
-  end
+      object.valid?
+      object.errors.full_messages
 
-  describe '#formatted_birthday' do
-    before do
-      @profile = FactoryGirl.build(:profile)
-      @profile_hash =  { 'year' => '2000', 'month' => '01', 'day' => '01' }
-      @profile.date = @profile_hash
+      expect(object).to be_valid
     end
 
-    it 'returns a formatted date' do
-      expect(@profile.formatted_birthday).to eq("January  1, 2000")
+    it "strips more than 5 tags" do
+      object.tag_string = "#one #two #three #four #five #six"
+      object.save
+      expect(object.tags.count).to eq(5)
     end
 
-    it 'removes nil year birthdays' do
-      @profile_hash.delete('year')
-      @profile.date = @profile_hash
-      expect(@profile.formatted_birthday).to eq('January  1')
+    it "should require tag name not be more than 255 characters long" do
+      object.tag_string = "##{'a' * (255 + 1)}"
+      object.save
+      expect(object).not_to be_valid
     end
 
-    it 'retuns nil if no birthday is set' do
-      @profile.date = {}
-      expect(@profile.formatted_birthday).to eq(nil)
+    it "keeps the order of the tag_string" do
+      ActsAsTaggableOn::Tag.create(name: "test2")
+      ActsAsTaggableOn::Tag.create(name: "test1")
+
+      string = "#test1 #test2"
+      object.tag_string = string
+      object.save
+
+      expect(Profile.find(object.id).tag_string).to eq(string)
     end
 
-  end
-
-  describe '#receive' do
-    it 'updates the profile in place' do
-      local_luke, local_leia, remote_raphael = set_up_friends
-      new_profile = FactoryGirl.build :profile
-      expect{
-        new_profile.receive(local_leia, remote_raphael)
-      }.not_to change(Profile, :count)
-      expect(remote_raphael.last_name).to eq(new_profile.last_name)
-    end
-
+    it_should_behave_like "it is taggable"
   end
 
   describe "#tombstone!" do
@@ -348,6 +300,12 @@ describe Profile, :type => :model do
     it 'removes all the tags from the profile' do
       expect(@profile.taggings).to receive(:delete_all)
       @profile.tombstone!
+    end
+
+    it "doesn't recreate taggings if tag string was requested" do
+      @profile.tag_string
+      @profile.tombstone!
+      expect(@profile.taggings).to be_empty
     end
   end
 

@@ -7,18 +7,18 @@
 nds:
   devise:
     confirmations:
-      confirmed: "Dien Konto is erfolgriek bestätigt worrn. Du bist nu anmellt."
+      confirmed: "Dien Konto is erfolgriek bestätigt worn. Du bist nu anmeld."
       new:
         resend_confirmation: "Bestätigungsanwiesungen nochmol schicken"
     failure:
-      inactive: "Dien Konto is noch nich in gang set woorn."
-      locked: "Dien Konto is sparrt."
-      not_found_in_database: "Ungüllige E-Mail-Adress or Passwoort."
-      unauthenticated: "Du muss die anmellen or registreren, bevöör du wiedermokst."
-      unconfirmed: "Du muss dien Konto in gang setten, bevöör du wiedermokst."
+      inactive: "Dien Konto is noch nich in gang set worn."
+      locked: "Dien Konto is spart."
+      not_found_in_database: "Ungültige E-Mail-Adress oder Passwoort."
+      unauthenticated: "Du muss die anmelden oder registrieren, bevör du wiedermokst."
+      unconfirmed: "Du muss dien Konto in gang setten, bevör du wiedermokst."
     invitations:
-      send_instructions: "Diene Inladung is afschickt worrn."
-      updated: "Dien Passwoort is erfolgriek set worrn. Du bist nu anmellt."
+      send_instructions: "Diene Inlodung is afschickt worn."
+      updated: "Dien Passwoort is erfolgriek set worn. Du bist nu anmeld."
     mailer:
       hello: "Hallo %{email}!"
       inviter:
@@ -26,8 +26,8 @@ nds:
       reset_password_instructions:
         change: "Mien Passwoort ännern"
       unlock_instructions:
-        subject: "Anwisungen ton Entsparrn"
-        unlock: "Mien Konto entsparrn"
+        subject: "Anwisungen ton Entsparn"
+        unlock: "Mien Konto entsparn"
       welcome: "Willkomen %{email}!"
     passwords:
       edit:
@@ -39,29 +39,29 @@ nds:
         forgot_password: "Hest du dien Passwoort vergeten?"
         no_account: "Dat gift keen Konto mit disse E-Mail-Adress"
         reset_password: "Passwoort trüchsetten"
-        send_password_instructions: "Schick mi Anwieungen ton Trüchsetten von mien Passwort"
-      updated: "Dien Passwoort is erfolgriek ännert worrn. Du bist nu anmellt."
+        send_password_instructions: "Schick mi Anwiesungen ton Trüchsetten von mien Passwoort"
+      updated: "Dien Passwoort is erfolgriek ännert worn. Du bist nu anmeld."
     registrations:
       updated: "Du hest dien Konto erfolgriek ännert."
     sessions:
       new:
-        login: "Anmellen"
+        login: "Anmelden"
         modern_browsers: "ünnerstütt nur moderne Netkieker."
         password: "Passwoort"
         remember_me: "Erinner di an mi"
-        sign_in: "Anmellen"
-        username: "Benutternaam"
-      signed_in: "Erfolgriek anmellt."
-      signed_out: "Erfolgriek afmellt."
+        sign_in: "Anmelden"
+        username: "Brukernoom"
+      signed_in: "Erfolgriek anmeld."
+      signed_out: "Erfolgriek afmeld."
     shared:
       links:
-        sign_in: "Anmellen"
-        sign_up: "Registreren"
+        sign_in: "Anmelden"
+        sign_up: "Registrieren"
     unlocks:
       new:
-        resend_unlock: "Anwisungen ton Entsparrn noch mol schicken"
+        resend_unlock: "Anwisungen ton Entsparn noch mol schicken"
   errors:
     messages:
       already_confirmed: "wöör schon bestätigt"
       not_found: "nich funnen"
-      not_locked: "wöör nich sparrt"
+      not_locked: "wöör nich spart"

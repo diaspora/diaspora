@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 module LanguageHelper
+  include ApplicationHelper
+
   def available_language_options
     options = []
     AVAILABLE_LANGUAGES.each do |locale, language|

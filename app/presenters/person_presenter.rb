@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PersonPresenter < BasePresenter
   def base_hash
     {
@@ -9,10 +11,9 @@ class PersonPresenter < BasePresenter
   end
 
   def full_hash
-    base_hash.merge(
+    base_hash_with_contact.merge(
       relationship:      relationship,
       block:             is_blocked? ? BlockPresenter.new(current_user_person_block).base_hash : false,
-      contact:           (!own_profile? && has_contact?) ? {id: current_user_person_contact.id} : false,
       is_own_profile:    own_profile?,
       show_profile_info: public_details? || own_profile? || person_is_following_current_user
     )
@@ -20,6 +21,29 @@ class PersonPresenter < BasePresenter
 
   def as_json(_options={})
     full_hash_with_profile
+  end
+
+  def hovercard
+    base_hash_with_contact.merge(profile: ProfilePresenter.new(profile).for_hovercard)
+  end
+
+  def metas_attributes
+    {
+      keywords:             {name:     "keywords",    content: comma_separated_tags},
+      description:          {name:     "description", content: description},
+      og_title:             {property: "og:title",    content: title},
+      og_description:       {property: "og:title",    content: description},
+      og_url:               {property: "og:url",      content: url},
+      og_image:             {property: "og:image",    content: image_url},
+      og_type:              {property: "og:type",     content: "profile"},
+      og_profile_username:  {property: "og:profile:username",   content: name},
+      og_profile_firstname: {property: "og:profile:first_name", content: first_name},
+      og_profile_lastname:  {property: "og:profile:last_name",  content: last_name}
+    }
+  end
+
+  def self.people_names(people)
+    people.map(&:name).join(", ")
   end
 
   protected
@@ -30,7 +54,6 @@ class PersonPresenter < BasePresenter
 
   def relationship
     return false unless current_user
-    return :blocked if is_blocked?
 
     contact = current_user_person_contact
     return :not_sharing unless contact
@@ -46,6 +69,12 @@ class PersonPresenter < BasePresenter
     contact && contact.sharing?
   end
 
+  def base_hash_with_contact
+    base_hash.merge(
+      contact: (!own_profile? && has_contact?) ? contact_hash : false
+    )
+  end
+
   def full_hash_with_profile
     attrs = full_hash
 
@@ -56,6 +85,10 @@ class PersonPresenter < BasePresenter
     end
 
     attrs
+  end
+
+  def contact_hash
+    ContactPresenter.new(current_user_person_contact).full_hash
   end
 
   private
@@ -74,5 +107,26 @@ class PersonPresenter < BasePresenter
 
   def is_blocked?
     current_user_person_block.present?
+  end
+
+  def title
+    name
+  end
+
+  def comma_separated_tags
+    profile.tags.map(&:name).join(", ") if profile.tags
+  end
+
+  def url
+    url_for(@presentable)
+  end
+
+  def description
+    public_details? ? bio : ""
+  end
+
+  def image_url
+    return AppConfig.url_to @presentable.image_url if @presentable.image_url[0] == "/"
+    @presentable.image_url
   end
 end

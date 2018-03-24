@@ -25,7 +25,6 @@ id:
       show: "tampilkan semua komentar"
     confirm_dialog: "Anda yakin ?"
     delete: "Menghapus"
-    failed_to_like: "Gagal untuk 'like'!"
     failed_to_post_message: "Gagal memposting pesan!"
     getting_started:
       alright_ill_wait: "Baiklah, Saya akan menunggu"
@@ -35,19 +34,10 @@ id:
     header:
       search: "Temukan nama orang atau #tags"
     ignore: "Abaikan"
-    infinite_scroll:
-      no_more: "Tidak ada post lagi"
     my_activity: "Aktifitas Saya"
     my_stream: "Stream"
     photo_uploader:
       looking_good: "Puji Tuhan, anda terlihat luar biasa!"
-    publisher:
-      at_least_one_aspect: "Anda harus mempublikasi, setidaknya satu hal"
-      limited: "Di Limitasi - Apa yang anda publikasi hanya dapat di lihat oleh orang-orang yang berbagi dengan anda."
-      public: "Publik - Apa yang anda publikasi dapat di lihat oleh siapa saja dan dapat di temukan oleh mesin pencari."
-    reshares:
-      duplicate: "Menarik ? Anda telah membagikan ulang posting tersebut!"
-    search_for: "Mencari <%= name %>"
     show_more: "Tampilkan lebih banyak lagi"
     stream:
       comment: "Komentar"
@@ -84,20 +74,22 @@ id:
       wasnt_that_interesting: "OK, sepertinya #<%= tagName %> tidak terlalu menarik..."
     timeago:
       day: "sehari"
-      days: "%d hari"
+      days:
+        other: "%d hari"
       hour: "sekitar sejam"
-      hours: "sekitar %d jam"
+      hours:
+        other: "sekitar %d jam"
       minute: "sekitar satu menit"
-      minutes: "%d menit"
+      minutes:
+        other: "%d menit"
       month: "sekitar sebulan"
-      months: "%d tahun"
+      months:
+        other: "%d tahun"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "kurang dari semenit"
       suffixAgo: "yang lalu"
       suffixFromNow: "dari sekarang"
       year: "sekitar setahun"
-      years: "%d tahun"
-    videos:
-      unknown: "Tipe video tidak di kenal"
-      watch: "Lihat video ini di <%= provider %>"
+      years:
+        other: "%d tahun"

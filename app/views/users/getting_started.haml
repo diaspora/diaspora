@@ -41,5 +41,5 @@
             = label_tag 'follow_tags', t('.hashtag_suggestions')
             #tags_list
               = text_field_tag 'follow_tags', nil, class: "nostrap form-control"
-        .text-center
+        .text-center.awesome
           = link_to "#{t('.awesome_take_me_to_diaspora')} >>", stream_path, id: "awesome_button", class: "btn btn-default btn-lg btn-primary"

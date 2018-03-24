@@ -2,27 +2,19 @@
 
 app.views.SinglePostInteractions = app.views.Base.extend({
   templateName: "single-post-viewer/single-post-interactions",
-  tooltipSelector: ".avatar.micro",
+  className: "framed-content",
 
   subviews: {
-    '#comments': 'commentStreamView'
+    "#comments": "commentStreamView",
+    "#interaction-counts": "interactionCountsView"
   },
 
-  initialize : function() {
-    this.model.interactions.on('change', this.render, this);
-    this.commentStreamView = new app.views.SinglePostCommentStream({model: this.model});
+  commentStreamView: function() {
+    return new app.views.SinglePostCommentStream({model: this.model});
   },
 
-  presenter : function(){
-    var interactions = this.model.interactions;
-    return {
-      likes : interactions.likes.toJSON(),
-      comments : interactions.comments.toJSON(),
-      reshares : interactions.reshares.toJSON(),
-      commentsCount : interactions.commentsCount(),
-      likesCount : interactions.likesCount(),
-      resharesCount : interactions.resharesCount(),
-    };
-  },
+  interactionCountsView: function() {
+    return new app.views.SinglePostInteractionCounts({model: this.model});
+  }
 });
 // @license-end

@@ -6,6 +6,7 @@ describe("app.views.StreamPost", function(){
     this.collection = new app.collections.Posts(posts);
     this.statusMessage = this.collection.models[0];
     this.reshare = this.collection.models[1];
+    app.stream = new app.models.Stream();
   });
 
   describe("events", function(){
@@ -52,18 +53,6 @@ describe("app.views.StreamPost", function(){
 
     beforeEach(function(){
       loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
-
-      Diaspora.I18n.load({stream : {
-        reshares : {
-          one : "<%= count %> reshare",
-          other : "<%= count %> reshares"
-        },
-        likes : {
-          zero : "<%= count %> Likes",
-          one : "<%= count %> Like",
-          other : "<%= count %> Likes"
-        }
-      }});
     });
 
     context("reshares", function(){

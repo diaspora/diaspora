@@ -1,18 +1,19 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe InterimStreamHackinessHelper, :type => :helper do
-  describe 'commenting_disabled?' do
-    include Devise::TestHelpers
+describe InterimStreamHackinessHelper, type: :helper do
+  describe "commenting_disabled?" do
+    include Devise::Test::ControllerHelpers
+
     before do
       sign_in alice
-      def user_signed_in? 
+      def user_signed_in?
         true
       end
     end
 
     it 'returns true if no user is signed in' do
-      def user_signed_in? 
-        false 
+      def user_signed_in?
+        false
       end
       expect(commenting_disabled?(double)).to eq(true)
     end
@@ -21,7 +22,7 @@ describe InterimStreamHackinessHelper, :type => :helper do
       @commenting_disabled = true
       expect(commenting_disabled?(double)).to eq(true)
       @commenting_disabled = false
-      expect(commenting_disabled?(double)).to eq(false) 
+      expect(commenting_disabled?(double)).to eq(false)
     end
 
     it 'returns @stream.can_comment? if @stream is set' do
@@ -32,6 +33,13 @@ describe InterimStreamHackinessHelper, :type => :helper do
 
       expect(@stream).to receive(:can_comment?).with(post).and_return(false)
       expect(commenting_disabled?(post)).to eq(true)
+    end
+  end
+
+  describe "#publisher_formatted_text" do
+    it "returns the prefill text from the stream" do
+      @stream = double(publisher: Publisher.new(alice, prefill: "hello world"))
+      expect(publisher_formatted_text).to eq("hello world")
     end
   end
 end

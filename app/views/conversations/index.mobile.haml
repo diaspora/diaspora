@@ -7,12 +7,10 @@
   = link_to t(".new_conversation"), new_conversation_path, class: "btn btn-default pull-right"
 
 - flash.each do |name, msg|
-  %div{ id: "flash_#{name}",  class: "expose" }
-    .message= msg
-  .stream
-    %p{ class: "conversation_#{name}" }= msg
+  .alert{class: "alert-#{flash_class name}", role: "alert"}
+    = msg
 
-#conversation_inbox
+.conversation-inbox#conversation-inbox
   .stream.conversations
     - if @visibilities.count > 0
       = render partial: "conversations/conversation", collection: @visibilities, as: :visibility

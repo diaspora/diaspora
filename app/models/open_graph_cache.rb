@@ -1,4 +1,6 @@
-class OpenGraphCache < ActiveRecord::Base
+# frozen_string_literal: true
+
+class OpenGraphCache < ApplicationRecord
   validates :title, :presence => true
   validates :ob_type, :presence => true
   validates :image, :presence => true
@@ -13,6 +15,7 @@ class OpenGraphCache < ActiveRecord::Base
     t.add :image
     t.add :description
     t.add :url
+    t.add :video_url
   end
 
   def image
@@ -39,8 +42,15 @@ class OpenGraphCache < ActiveRecord::Base
     self.image = object.og.image.url
     self.url = object.og.url
     self.description = object.og.description
+    if object.og.video.try(:secure_url) && secure_video_url?(object.og.video.secure_url)
+      self.video_url = object.og.video.secure_url
+    end
 
     self.save
   rescue OpenGraphReader::NoOpenGraphDataError, OpenGraphReader::InvalidObjectError
+  end
+
+  def secure_video_url?(url)
+    SECURE_OPENGRAPH_VIDEO_URLS.any? {|u| u =~ url }
   end
 end

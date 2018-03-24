@@ -27,7 +27,6 @@ lt:
       show: "Rodyti visus komentarus"
     confirm_dialog: "Ar Jūs tuo įsitikinęs?"
     delete: "Ištrinti"
-    failed_to_like: "Nepavyko pamėgti!"
     failed_to_post_message: "Nepavyko išsiųsti žinutės!"
     getting_started:
       alright_ill_wait: "Suprantama, aš galiu palaukti!"
@@ -47,19 +46,10 @@ lt:
       settings: "Nustatymai"
       view_all: "Rodyti viską"
     ignore: "Ignoruoti"
-    infinite_scroll:
-      no_more: "Įrašų nėra."
     my_activity: "Mano veikla"
     my_stream: "Srautas"
     photo_uploader:
       looking_good: "Wow, Jūs atrodote nuostabiai!"
-    publisher:
-      at_least_one_aspect: "Jums reikia paviešinti bent vieną kategoriją"
-      limited: "Ribotas - Jūsų įrašą galės peržiūrėti tik žmonės, su kuriais Jūs dalijatės"
-      public: "Viešas - Jūsų įrašus galės peržiūrėti visi, taip pat jie bus randami paieškos sistemose."
-    reshares:
-      duplicate: "Šitas geras, ne? Jūs jau dalijotės šiuo įrašu!"
-    search_for: "Ieškoti <%= name %>"
     show_more: "Rodyti daugiau"
     stream:
       comment: "Komentuoti"
@@ -94,20 +84,22 @@ lt:
       wasnt_that_interesting: "Na gerai, greičiausiai #<%= tagName%> tai nebuvo taip įdomu..."
     timeago:
       day: "1 d."
-      days: "%d d."
+      days:
+        other: "%d d."
       hour: "maždaug1 val."
-      hours: "maždaug %d val."
+      hours:
+        other: "maždaug %d val."
       minute: "maždaug 1 min."
-      minutes: "%d min."
+      minutes:
+        other: "%d min."
       month: "maždaug 1 mėn."
-      months: "%d mėn."
+      months:
+        other: "%d mėn."
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "mažiau nei 1 min."
       suffixAgo: "prieš"
       suffixFromNow: "nuo dabar"
       year: "maždaug 1 m."
-      years: "%d m."
-    videos:
-      unknown: "Netinkamas video įrašo tipas."
-      watch: "Žiūrėkite video įrašą čia <%=provider %>"
+      years:
+        other: "%d m."

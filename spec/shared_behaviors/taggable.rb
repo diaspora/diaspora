@@ -1,9 +1,9 @@
 # coding: utf-8
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
-require 'spec_helper'
 
 shared_examples_for "it is taggable" do
   include ActionView::Helpers::UrlHelper
@@ -12,23 +12,35 @@ shared_examples_for "it is taggable" do
     link_to  "##{s}", "/tags/#{s}", :class => 'tag'
   end
 
-  describe '.format_tags' do
+  describe ".format_tags" do
+    let(:tag_list) {
+      [
+        "what",
+        "hey",
+        "vöglein",
+        "മലയാണ്മ",
+        "գժանո՛ց"
+      ]
+    }
+
     before do
-      @str = '#what #hey #vöglein'
-      @object.send(@object.class.field_with_tags_setter, @str)
-      @object.build_tags
-      @object.save!
+      @str = tag_list.map {|tag| "##{tag}" }.join(" ")
+      object.send(object.class.field_with_tags_setter, @str)
+      object.build_tags
+      object.save!
     end
 
     it "supports non-ascii characters" do
-      expect(@object.tags(true).map(&:name)).to include('vöglein')
+      tag_list.each do |tag|
+        expect(object.tags.reload.map(&:name)).to include(tag)
+      end
     end
 
-    it 'links each tag' do
+    it "links each tag" do
       formatted_string = Diaspora::Taggable.format_tags(@str)
-      expect(formatted_string).to include(tag_link('what'))
-      expect(formatted_string).to include(tag_link('hey'))
-      expect(formatted_string).to include(tag_link('vöglein'))
+      tag_list.each do |tag|
+        expect(formatted_string).to include(tag_link(tag))
+      end
     end
 
     it 'responds to plain_text' do
@@ -85,12 +97,12 @@ shared_examples_for "it is taggable" do
 
   describe '#build_tags' do
     it 'builds the tags' do
-      @object.send(@object.class.field_with_tags_setter, '#what')
-      @object.build_tags
-      expect(@object.tag_list).to eq(['what'])
+      object.send(object.class.field_with_tags_setter, "#what")
+      object.build_tags
+      expect(object.tag_list).to eq(["what"])
       expect {
-        @object.save
-      }.to change{@object.tags.count}.by(1)
+        object.save
+      }.to change { object.tags.count }.by(1)
     end
   end
 
@@ -99,8 +111,8 @@ shared_examples_for "it is taggable" do
       str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #vöglein #hey#there #135440we #abc/23 ### #h!gh #ok? #see: #re:publica'
       arr = ['what', 'hey', 'that', 'THATWASMYBIKE', 'vöglein', '135440we', 'abc', 'h', 'ok', 'see', 're']
 
-      @object.send(@object.class.field_with_tags_setter, str)
-      expect(@object.tag_strings).to match_array(arr)
+      object.send(object.class.field_with_tags_setter, str)
+      expect(object.tag_strings).to match_array(arr)
     end
 
     it 'extracts tags despite surrounding text' do
@@ -142,9 +154,9 @@ shared_examples_for "it is taggable" do
         "\u202a#\u200eUSA\u202c" => 'USA'
       }
 
-      expected.each do |text,hashtag|
-        @object.send  @object.class.field_with_tags_setter, text
-        expect(@object.tag_strings).to eq([hashtag].compact)
+      expected.each do |text, hashtag|
+        object.send(object.class.field_with_tags_setter, text)
+        expect(object.tag_strings).to eq([hashtag].compact)
       end
     end
 
@@ -152,16 +164,16 @@ shared_examples_for "it is taggable" do
       str = '#what #what #what #whaaaaaaaaaat'
       arr = ['what','whaaaaaaaaaat']
 
-      @object.send(@object.class.field_with_tags_setter, str)
-      expect(@object.tag_strings).to match_array(arr)
+      object.send(object.class.field_with_tags_setter, str)
+      expect(object.tag_strings).to match_array(arr)
     end
 
     it 'is case insensitive' do
       str = '#what #wHaT #WHAT'
       arr = ['what']
 
-      @object.send(@object.class.field_with_tags_setter, str)
-      expect(@object.tag_strings).to match_array(arr)
+      object.send(object.class.field_with_tags_setter, str)
+      expect(object.tag_strings).to match_array(arr)
     end
   end
 end

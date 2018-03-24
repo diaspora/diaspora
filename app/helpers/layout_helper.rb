@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -20,7 +22,7 @@ module LayoutHelper
   end
 
   def load_javascript_locales(section = 'javascripts')
-    content_tag(:script) do
+    nonced_javascript_tag do
       <<-JS.html_safe
         Diaspora.I18n.load(#{get_javascript_strings_for(I18n.locale, section).to_json},
                            "#{I18n.locale}",
@@ -33,7 +35,7 @@ module LayoutHelper
   def current_user_atom_tag
     return unless @person.present?
     content_tag(:link, "", rel: "alternate", href: @person.atom_url, type: "application/atom+xml",
-                title: t(".public_feed", name: @person.name))
+                title: t("layouts.application.public_feed", name: @person.name))
   end
 
   def translation_missing_warnings
@@ -50,26 +52,11 @@ module LayoutHelper
     stylesheet_link_tag "#{current_color_theme}/#{view}", media: "all"
   end
 
-  def old_browser_js_support
-    content_tag(:script) do
-      <<-JS.html_safe
-        if(Array.isArray === undefined) {
-          Array.isArray = function (arg) {
-            return Object.prototype.toString.call(arg) == '[object Array]';
-          };
-        }
-        if ((window.history) && (window.history.pushState === undefined)) {
-          window.history.pushState = function() { };
-        }
-      JS
-    end
-  end
-
   def flash_messages
     flash.map do |name, msg|
       klass = flash_class name
       content_tag(:div, msg, class: "flash-body expose") do
-        content_tag(:div, msg, class: "flash-message message alert alert-#{klass}")
+        content_tag(:div, msg, class: "flash-message message alert alert-#{klass}", role: "alert")
       end
     end.join(' ').html_safe
   end

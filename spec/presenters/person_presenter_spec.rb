@@ -1,13 +1,21 @@
-require "spec_helper"
+# frozen_string_literal: true
 
 describe PersonPresenter do
   let(:profile_user) { FactoryGirl.create(:user_with_aspect) }
   let(:person) { profile_user.person }
 
-  let(:mutual_contact) { double(id: 1, mutual?: true,  sharing?: true,  receiving?: true) }
-  let(:receiving_contact) { double(id: 1, mutual?: false, sharing?: false, receiving?: true)  }
-  let(:sharing_contact) { double(id: 1, mutual?: false, sharing?: true,  receiving?: false) }
-  let(:non_contact) { double(id: 1, mutual?: false, sharing?: false, receiving?: false) }
+  let(:mutual_contact) {
+    FactoryGirl.create(:contact, user: current_user, person: person, sharing: true, receiving: true)
+  }
+  let(:receiving_contact) {
+    FactoryGirl.create(:contact, user: current_user, person: person, sharing: false, receiving: true)
+  }
+  let(:sharing_contact) {
+    FactoryGirl.create(:contact, user: current_user, person: person, sharing: true, receiving: false)
+  }
+  let(:non_contact) {
+    FactoryGirl.create(:contact, user: current_user, person: person, sharing: false, receiving: false)
+  }
 
   describe "#as_json" do
     context "with no current_user" do
@@ -86,12 +94,6 @@ describe PersonPresenter do
     end
 
     context "relationship" do
-      it "is blocked?" do
-        allow(current_user).to receive(:block_for) { double(id: 1) }
-        allow(current_user).to receive(:contact_for) { non_contact }
-        expect(@p.full_hash[:relationship]).to be(:blocked)
-      end
-
       it "is mutual?" do
         allow(current_user).to receive(:contact_for) { mutual_contact }
         expect(@p.full_hash[:relationship]).to be(:mutual)
@@ -111,6 +113,33 @@ describe PersonPresenter do
         allow(current_user).to receive(:contact_for) { non_contact }
         expect(@p.full_hash[:relationship]).to be(:not_sharing)
       end
+    end
+
+    describe "block" do
+      it "contains the block id if it exists" do
+        allow(current_user).to receive(:contact_for) { non_contact }
+        allow(current_user).to receive(:block_for) { double(id: 1) }
+        expect(@p.full_hash[:block][:id]).to be(1)
+      end
+
+      it "is false if no block is present" do
+        allow(current_user).to receive(:contact_for) { non_contact }
+        expect(@p.full_hash[:block]).to be(false)
+      end
+    end
+  end
+
+  describe "#hovercard" do
+    let(:current_user) { FactoryGirl.create(:user) }
+    let(:presenter) { PersonPresenter.new(person, current_user) }
+
+    it "contains data required for hovercard" do
+      mutual_contact
+      expect(presenter.hovercard).to have_key(:profile)
+      expect(presenter.hovercard[:profile]).to have_key(:avatar)
+      expect(presenter.hovercard[:profile]).to have_key(:tags)
+      expect(presenter.hovercard).to have_key(:contact)
+      expect(presenter.hovercard[:contact]).to have_key(:aspect_memberships)
     end
   end
 end

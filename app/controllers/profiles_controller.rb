@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -23,12 +25,7 @@ class ProfilesController < ApplicationController
     @aspect  = :person_edit
     @profile = @person.profile
 
-    @tags = @profile.tags
-    @tags_array = []
-    @tags.each do |obj|
-      @tags_array << { :name => ("#"+obj.name),
-        :value => ("#"+obj.name)}
-      end
+    gon.preloads[:tagsArray] = @profile.tags.map {|tag| {name: "##{tag.name}", value: "##{tag.name}"} }
   end
 
   def update
@@ -53,7 +50,7 @@ class ProfilesController < ApplicationController
     end
 
     respond_to do |format|
-      format.js { render :nothing => true, :status => 200 }
+      format.js { head :ok }
       format.any {
         if current_user.getting_started?
           redirect_to getting_started_path
@@ -82,6 +79,6 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :gender, :bio,
                                     :location, :searchable, :tag_string, :nsfw,
-                                    :public_details, date: %i(year month day)) || {}
+                                    :public_details, date: %i[year month day]).to_h || {}
   end
 end

@@ -1,4 +1,5 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
 require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Multi do
@@ -26,15 +27,13 @@ describe Stream::Multi do
       prefill_text = "sup?"
       allow(@stream).to receive(:welcome?).and_return(true)
       allow(@stream).to receive(:publisher_prefill).and_return(prefill_text)
-      expect(@stream.send(:publisher_opts)).to eq({:open => true,
-                                               :prefill => prefill_text,
-                                               :public => true})
+      expect(@stream.send(:publisher_opts)).to eq(open: true, prefill: prefill_text, public: true)
     end
 
     it 'provides no opts if welcome? is not set' do
       prefill_text = "sup?"
       allow(@stream).to receive(:welcome?).and_return(false)
-      expect(@stream.send(:publisher_opts)).to eq({})
+      expect(@stream.send(:publisher_opts)).to eq(public: false)
     end
   end
 
@@ -63,7 +62,7 @@ describe Stream::Multi do
       end
 
       it 'includes a mention of the inviter' do
-        mention = "@{#{@inviter.name} ; #{@inviter.diaspora_handle}}"
+        mention = "@{#{@inviter.diaspora_handle}}"
         expect(@stream.send(:publisher_prefill)).to include(mention)
       end
     end

@@ -25,7 +25,6 @@ ka:
       show: "ყველა კომენტარის ჩვენება"
     confirm_dialog: "დარწმუნებული ხართ?"
     delete: "წაშლა"
-    failed_to_like: "მოწონება ვერ მოხერხდა!"
     failed_to_post_message: "შეტყობინების გამოქვეყნება ვერ მოხერხდა!"
     getting_started:
       alright_ill_wait: "კარგი, მოვიცდი."
@@ -45,19 +44,10 @@ ka:
       settings: "პარამეტრები"
       view_all: "ყველას ჩვენება"
     ignore: "იგნორირება"
-    infinite_scroll:
-      no_more: "მეტი პოსტი არ არის."
     my_activity: "ჩემი აქტივობა"
     my_stream: "ნაკადი"
     photo_uploader:
       looking_good: "OMG, ძალიან კარგად გამოიყურები!"
-    publisher:
-      at_least_one_aspect: "თქვენ უნდა გამოაქვეყნოთ მინიმუმ ერთ ასპექტში"
-      limited: "შეზღუდული - თქვენს პოსტს დაინახავს მხოლოდ ის ხალხი რომელთაც გაუზიარებთ"
-      public: "საჯარო - თქვენს პოსტს დაინახავს ყველა და ის გამოჩნდება საძიებო სისტემაში"
-    reshares:
-      duplicate: "ასეთი მაგარია?  თქვენ უკვე გააზიარეთ ეს პოსტი!"
-    search_for: "<%= name %>-ს მოძებნა"
     show_more: "მეტის ჩვენება"
     stream:
       comment: "კომენტარი"
@@ -94,20 +84,22 @@ ka:
       wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #<%= tagName %> არც ისე საინტერესო იყო..."
     timeago:
       day: "დღე"
-      days: "%d დღე"
+      days:
+        other: "%d დღე"
       hour: "დაახლოებით ერთი საათი"
-      hours: "დაახლოებით %d საათი"
+      hours:
+        other: "დაახლოებით %d საათი"
       minute: "დაახლოებით წუთი"
-      minutes: "%d წუთი"
+      minutes:
+        other: "%d წუთი"
       month: "დაახლოებით ერთი თვე"
-      months: "%d თვე"
+      months:
+        other: "%d თვე"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "წუთზე ნაკლები"
       suffixAgo: "ადრე"
       suffixFromNow: "ამიერიდან"
       year: "დაახლოებით ერთი წელი"
-      years: "%d წელი"
-    videos:
-      unknown: "ვიდეოს ტიპი უცნობია"
-      watch: "ვიდეოს ნახვა საიტზე <%= provider %>"
+      years:
+        other: "%d წელი"

@@ -1,0 +1,8 @@
+.landing
+  %h1.session
+    = pod_name
+
+= render partial: "api/openid_connect/error/error"
+
+%footer
+  = link_to t("layouts.application.toggle"), toggle_mobile_path

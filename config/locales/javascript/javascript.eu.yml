@@ -26,7 +26,6 @@ eu:
       show: "iruzkin guztiak erakutsi"
     confirm_dialog: "Ziur al zaude?"
     delete: "Ezabatu"
-    failed_to_like: "Huts gustoko egitean!"
     failed_to_post_message: "Huts egin du mezuaren bidalketak!"
     getting_started:
       alright_ill_wait: "Beno, itxarongo dut."
@@ -47,23 +46,15 @@ eu:
       settings: "Ezarpenak"
       view_all: "Guztiak ikusi"
     ignore: "Isildu"
-    infinite_scroll:
-      no_more: "Mezu gehiagorik ez dago."
     my_activity: "Nire Jarduera"
     my_stream: "Kronologia"
     people:
       not_found: "eta ez da inor aurkitu..."
     photo_uploader:
       looking_good: "Ene bada, oso jatorra dirudizu!"
-    publisher:
-      at_least_one_aspect: "Gutxienez arlo batean partekatu behar duzu"
-      limited: "Mugatua - zure mezua aukeratu duzun jendeak bakarrik ikusiko du"
-      public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
     reshares:
-      duplicate: "Oso ona, e? Dagoeneko birpartekatu duzu mezu hori!"
       post: "Birpartekatu nahi al duzu <%= name %>(r)en mezua?"
       successful: "Mezua arrakastaz birpartekatu da!"
-    search_for: "Bilatu <%= name %>"
     show_more: "erakutsi gehiago"
     stream:
       comment: "Iruzkindu"
@@ -104,29 +95,24 @@ eu:
       wasnt_that_interesting: "Beno, suposatzen dut #<%= tagName %> ez zela oso interesgarria..."
     timeago:
       day: "egun bat"
-      days: "%d egun"
+      days:
+        other: "%d egun"
       hour: "ordu bat"
-      hours: "%d ordu"
+      hours:
+        other: "%d ordu"
       minute: "minutu bat"
-      minutes: "%d minutu"
+      minutes:
+        other: "%d minutu"
       month: "hilabete bat"
-      months: "%d hilabete"
+      months:
+        other: "%d hilabete"
       prefixAgo: "duela"
       prefixFromNow: ""
       seconds: "minutu bat baino gutxiago"
       suffixAgo: ""
       suffixFromNow: "barru"
       year: "urte bat"
-      years: "%d urte"
-    videos:
-      unknown: "Bideo mota ezezaguna"
-      watch: "Ikusi bideo hau <%= provider %>(e)n"
+      years:
+        other: "%d urte"
     viewer:
-      comment: ""
-      follow_post: ""
-      home: "HASIERA"
-      like: ""
-      reshare: ""
       reshared: ""
-      stop_following_post: ""
-      unlike: ""

@@ -26,7 +26,6 @@ es-CL:
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro/a?"
     delete: "Eliminar"
-    failed_to_like: "¡Falló el 'Me gusta'!"
     failed_to_post_message: "¡Falló la publicación del mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
@@ -47,22 +46,14 @@ es-CL:
       settings: "Ajustes"
       view_all: "Ver todo"
     ignore: "Ignorar"
-    infinite_scroll:
-      no_more: "No más publicaciones."
     my_activity: "Mi Actividad"
     my_stream: "Entrada"
     people:
       not_found: "y nadie fue encontrado..."
     photo_uploader:
       looking_good: "¡Guau, te ves genial!"
-    publisher:
-      at_least_one_aspect: "Debes publicar para al menos un aspecto"
-      limited: "Limitada - tu publicación sólo será visto por gente con la que compartes"
-      public: "Público - tu post será visible para todos y encontrado por mecanismos de búsqueda"
     reshares:
-      duplicate: "¿Es genial, cierto?  ¡Ya has compartido esa publicación!"
       successful: "¡La publicación se compartió correctamente!"
-    search_for: "Buscar <%= name%>"
     show_more: "mostrar más"
     stream:
       comment: "Comentar"
@@ -86,28 +77,24 @@ es-CL:
       wasnt_that_interesting: "Bueno, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
       day: "un día"
-      days: "%d días"
+      days:
+        other: "%d días"
       hour: "alrededor de una hora"
-      hours: "cerca de %d horas"
+      hours:
+        other: "cerca de %d horas"
       minute: "alrededor de un minuto"
-      minutes: "%d minutos"
+      minutes:
+        other: "%d minutos"
       month: "alrededor de un mes"
-      months: "%d meses"
+      months:
+        other: "%d meses"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "hace menos de un minuto"
       suffixAgo: "hace"
       suffixFromNow: "desde ahora"
       year: "alrededor de un año"
-      years: "%d años"
-    videos:
-      unknown: "Tipo de video desconocido"
-      watch: "Mira este video en <%= provider %>"
+      years:
+        other: "%d años"
     viewer:
-      comment: "Comentar"
-      follow_post: "Seguir esta publicación"
-      like: "Me gusta"
-      reshare: "Compartir"
       reshared: "Compartido"
-      stop_following_post: "Dejar de seguir esta publicación"
-      unlike: "No me gusta"

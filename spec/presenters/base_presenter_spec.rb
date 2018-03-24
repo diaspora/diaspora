@@ -1,4 +1,4 @@
-require "spec_helper"
+# frozen_string_literal: true
 
 describe BasePresenter do
   it "falls back to nil" do

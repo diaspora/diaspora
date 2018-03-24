@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Services::Twitter < Service
   include Rails.application.routes.url_helpers
 
-  MAX_CHARACTERS = 140
+  MAX_CHARACTERS = 280
   SHORTENED_URL_LENGTH = 21
   LINK_PATTERN = %r{https?://\S+}
 
@@ -20,11 +22,13 @@ class Services::Twitter < Service
     client.user(nickname).profile_image_url_https "original"
   end
 
-  def delete_post post
-    if post.present? && post.tweet_id.present?
-      logger.debug "event=delete_from_service type=twitter sender_id=#{user_id} post=#{post.guid}"
-      delete_from_twitter post.tweet_id
-    end
+  def post_opts(post)
+    {tweet_id: post.tweet_id} if post.tweet_id.present?
+  end
+
+  def delete_from_service(opts)
+    logger.debug "event=delete_from_service type=twitter sender_id=#{user_id} tweet_id=#{opts[:tweet_id]}"
+    delete_from_twitter(opts[:tweet_id])
   end
 
   private
@@ -104,6 +108,6 @@ class Services::Twitter < Service
   end
 
   def delete_from_twitter service_post_id
-    client.status_destroy service_post_id
+    client.destroy_status service_post_id
   end
 end

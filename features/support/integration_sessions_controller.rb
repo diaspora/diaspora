@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IntegrationSessionsController < ActionController::Base
   def new
     @user_id = params[:user_id]

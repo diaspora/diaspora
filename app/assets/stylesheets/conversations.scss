@@ -1,22 +1,8 @@
 .page-conversations {
-  background-color: $sidebars-background;
+  .framed-content { padding: 0 10px 10px; }
+  .sidebar-header .pull-right { margin-top: 12px; }
 
-  .left-pane,
-  .new-conversation,
-  .stream_container .conversation-participants {
-    background-color: $white;
-    border: 1px solid $light-grey;
-    box-shadow: $card-shadow;
-    margin-top: -10px;
-  }
-
-  .new-conversation,
-  .left-pane-header,
-  .stream_container .conversation-participants {
-    padding: 10px;
-  }
-
-  .left-pane {
+  .sidebar {
     margin-bottom: 50px;
     .pagination { margin: 5px; }
   }
@@ -30,8 +16,8 @@
     width: 100%;
   }
 
-  .stream_element {
-    background-color: $white;
+  .stream-element {
+    background-color: $framed-background;
     padding: 10px;
 
     .avatar {
@@ -42,9 +28,9 @@
     > .media { margin: 0; }
   }
 
-  .stream_element.message,
-  .stream_element.new-message {
-    border: 1px solid $light-grey;
+  .stream-element.message,
+  .stream-element.new-message {
+    border: 1px solid $border-grey;
     box-shadow: $card-shadow;
     margin-bottom: 20px;
 
@@ -52,7 +38,6 @@
 
     .author {
       font-weight: bold;
-      unicode-bidi: bidi-override;
     }
 
     p {
@@ -61,7 +46,7 @@
     }
   }
 
-  .stream_element.new-message,
+  .stream-element.new-message,
   .new-conversation {
     label { font-weight: bold; }
 
@@ -72,7 +57,7 @@
     }
   }
 
-  .stream_element.conversation {
+  .stream-element.conversation {
     border-top: 1px solid $border-grey;
 
     .timestamp { font-size: $font-size-small; }
@@ -80,7 +65,7 @@
 
     &:hover:not(.selected), &.selected {
       .subject,
-      .last_author,
+      .last-author,
       .last_message {
         color: $white;
       }
@@ -88,7 +73,7 @@
     }
 
     &:hover, &.unread:hover, &.selected:hover {
-      background-color: lighten($blue,5%);
+      background-color: lighten($brand-primary, 5%);
       cursor: pointer;
       .participants {
         border-color: rgba($border-grey, 1);
@@ -98,17 +83,17 @@
       }
     }
 
-    &.unread { background-color: darken($background-white, 5%); }
-    &.selected { background-color: $blue; }
+    &.unread { background-color: $background-grey; }
+    &.selected { background-color: $brand-primary; }
 
-    .last_author, .last_message {
+    .last-author, .last_message {
       font-size: 12px;
       line-height: 15px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .last_author { color: $text-dark-grey; }
+    .last-author { color: $text-dark-grey; }
 
     .message-count, .unread-message-count {
       margin-left: 3px;
@@ -159,11 +144,11 @@
       float: right;
       line-height: normal;
       font-weight: normal;
-      color: $blue;
+      color: $link-color;
     }
   }
 
-  .stream_container .conversation-participants {
+  .stream-container .conversation-participants {
     margin-bottom: 20px;
 
     .hide_conversation, .delete_conversation {
@@ -191,14 +176,71 @@
   }
 }
 
-@media (max-width: 1354px) {
-  #left_pane #conversation_inbox .pagination ul > li > a {
-    padding: 4px 7px;
+// We need this to override the Bootstrap pagination style only for the conversations view
+// scss-lint:disable SelectorDepth
+.conversation-inbox .pagination > li > a {
+  padding: 4px 7px;
+}
+// scss-lint:enable SelectorDepth
+
+.new-conversation {
+  ul.as-selections { width: 100% !important; }
+
+  input#contact_ids { box-shadow: none; }
+
+  label { font-weight: bold; }
+
+  .twitter-typeahead,
+  .tt-menu {
+    width: 100%;
   }
 }
 
-#new_conversation_pane {
-  ul.as-selections { width: 100% !important; }
-  input#contact_ids { box-shadow: none; }
-  label { font-weight: bold; }
+.recipients-tag-list {
+  margin: 0 -2px $form-group-margin-bottom;
+
+  .conversation-recipient-tag {
+    background-color: $brand-primary;
+    border-radius: $btn-border-radius-base;
+    display: inline-flex;
+    margin: 0 2px;
+    padding: $btn-border-radius-base;
+
+    div {
+      align-self: center;
+      justify-content: flex-start;
+    }
+  }
+
+  .avatar {
+    height: 35px;
+    margin-right: 8px;
+    width: 35px;
+  }
+
+  .name-and-handle {
+    color: $white;
+    margin-right: 8px;
+    text-align: left;
+
+    .diaspora-id { font-size: $font-size-small; }
+  }
+
+  .entypo-circled-cross {
+    color: $white;
+    cursor: pointer;
+    font-size: 20px;
+    height: 22px;
+    line-height: 22px;
+
+    &:hover { color: $light-grey; }
+  }
+}
+
+.new-conversation.form-horizontal .form-group:last-of-type { margin-bottom: 0; }
+
+// This rule is required until we switch to the newer release of bootstrap-markdown with
+// the following commit in: https://github.com/toopay/bootstrap-markdown/commit/14a21c3837140144b27efc19c795d1a37fad70fb
+.conversations-form-container .md-preview {
+  min-height: 105px;
 }

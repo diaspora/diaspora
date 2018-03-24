@@ -1,66 +1,57 @@
--if publisher_explain
-  :javascript
-    $(document).ready(function() {
-        if( app.publisher ) app.publisher.triggerGettingStarted();
-      });
-
-.row#publisher{class: ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
+.row.publisher#publisher{class: ((aspect == :profile || publisher_open?) ? "mention_popup" : "closed")}
   .content_creation
     = form_for(StatusMessage.new) do |status|
       = status.error_messages
       %params
-        #publisher_textarea_wrapper
+        .publisher-textarea-wrapper#publisher-textarea-wrapper
           - if current_user.getting_started?
-            = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text),
+            = status.text_area :text, :rows => 2, :value => h(publisher_formatted_text),
               :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
               "data-title" => popover_with_close_html("1. " + t("shared.public_explain.share")),
               "data-content" => t("shared.public_explain.new_user_welcome_message"),
-              "class" => "form-control"
+              "class" => "form-control mention-textarea"
           - else
-            = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text),
+            = status.text_area :text, :rows => 2, :value => h(publisher_formatted_text),
               :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
-              "class" => "form-control"
-          = status.hidden_field :text, value: h(publisher_hidden_text), class: "clear_on_submit"
+              "class" => "form-control mention-textarea"
+          .typeahead-mention-box-wrap
+            %input.typeahead-mention-box.hidden{type: "text"}
 
-          .container-fluid#photodropzone_container
+          .container-fluid.photodropzone-container#photodropzone_container
             %ul#photodropzone
-          #location_container.form-group{ style: "padding: 4px 6px;"}
+          .location-container.form-group{style: "padding: 4px 6px;"}
             = hidden_field :location, :coords
-          #poll_creator_container
+          .poll-creator-container#poll_creator_container
             -# handlebars template
           #button_container
-            .pull-right#publisher-images
-              .btn.btn-link#poll_creator{title: t("shared.publisher.poll.add_a_poll")}
+            .publisher-buttonbar#publisher-images
+              .btn.btn-link.poll-creator#poll_creator{title: t("shared.publisher.poll.add_a_poll")}
                 %i.entypo-bar-graph
-              .btn.btn-link#file-upload{title: t("shared.publisher.upload_photos")}
+              .btn.btn-link.file-upload#file-upload
                 %i.entypo-camera.publisher_image
-              .btn.btn-link#locator{title: t("shared.publisher.get_location")}
+              .btn.btn-link.locator#locator{title: t("shared.publisher.get_location")}
                 %i.entypo-location.publisher_image
-              .btn.btn-link#hide_location{title: t("shared.publisher.remove_location")}
+              .btn.btn-link.hide-location#hide_location{title: t("shared.publisher.remove_location")}
                 %i.entypo-cross.publisher_image
             %span.markdownIndications
               != t("shared.publisher.formatWithMarkdown", markdown_link: link_to(t("help.markdown"),
                   "https://diasporafoundation.org/formatting", target: :blank))
 
-      - if publisher_public
+      - if public_selected?(selected_aspects)
         = hidden_field_tag "aspect_ids[]", "public"
       - elsif all_aspects_selected?(selected_aspects)
         = hidden_field_tag "aspect_ids[]", "all_aspects"
       - else
-        - for aspect_id in aspect_ids
-          = hidden_field_tag "aspect_ids[]", aspect_id.to_s
+        - selected_aspects.each do |aspect|
+          = hidden_field_tag "aspect_ids[]", aspect.id
 
       .hidden#publisher_spinner
         .loader
           .spinner
       .options_and_submit.col-sm-12
         .public_toggle.clearfix
-          .btn.btn-default.pull-left.hidden-xs#hide_publisher{title: t("shared.publisher.discard_post")}
-            %span.text= t("cancel")
-
           .btn-toolbar.pull-right
-            = render partial: "publisher/aspect_dropdown", locals: {selected_aspects: selected_aspects}
-            %button.btn.btn-default.btn-group.post_preview_button= t("shared.publisher.preview")
+            = render partial: "aspects/aspect_dropdown", locals: {selected_aspects: selected_aspects}
             %button.btn.btn-group.btn-primary#submit= t("shared.publisher.share")
 
           .btn-toolbar.pull-right#publisher-service-icons
@@ -70,9 +61,5 @@
             .btn.btn-link.question_mark{title: t("shared.public_explain.manage"),
                            data: {toggle: "modal", target: "#publicExplainModal"}}
               %i.entypo-cog
-
-    = link_to "", contacts_path(aspect_ids: aspect_ids), class: "selected_contacts_link hidden"
-
-    #publisher_photo_upload
 
 = render "shared/public_explain"

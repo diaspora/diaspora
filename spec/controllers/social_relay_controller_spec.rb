@@ -1,4 +1,4 @@
-require "spec_helper"
+# frozen_string_literal: true
 
 describe SocialRelayController, type: :controller do
   describe "#well_known" do

@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
-require 'spec_helper'
 
 describe User::Querying, :type => :model do
   before do
@@ -45,22 +45,11 @@ describe User::Querying, :type => :model do
       expect(alice.visible_shareable_ids(Post)).not_to include(invisible_post.id)
     end
 
-    it "does not contain pending posts" do
-      pending_post = bob.post(:status_message, :text => "hey", :public => true, :to => @bobs_aspect.id, :pending => true)
-      expect(pending_post).to be_pending
-      expect(alice.visible_shareable_ids(Post)).not_to include pending_post.id
-    end
-
-    it "does not contain pending photos" do
-      pending_photo = bob.post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
-      expect(alice.visible_shareable_ids(Photo)).not_to include pending_photo.id
-    end
-
     it "respects the :type option" do
-      post = bob.post(:status_message, :text => "hey", :public => true, :to => @bobs_aspect.id, :pending => false)
-      reshare = bob.post(:reshare, :pending => false, :root_guid => post.guid, :to => @bobs_aspect)
-      expect(alice.visible_shareable_ids(Post, :type => "Reshare")).to include(reshare.id)
-      expect(alice.visible_shareable_ids(Post, :type => 'StatusMessage')).not_to include(reshare.id)
+      post = bob.post(:status_message, text: "hey", public: true, to: @bobs_aspect.id)
+      reshare = bob.post(:reshare, root_guid: post.guid, to: @bobs_aspect)
+      expect(alice.visible_shareable_ids(Post, type: "Reshare")).to include(reshare.id)
+      expect(alice.visible_shareable_ids(Post, type: "StatusMessage")).not_to include(reshare.id)
     end
 
     it "does not contain duplicate posts" do
@@ -85,8 +74,7 @@ describe User::Querying, :type => :model do
       end
 
       it "does not pull back hidden posts" do
-        visibility = @status.share_visibilities(Post).where(:contact_id => alice.contact_for(bob.person).id).first
-        visibility.update_attributes(:hidden => true)
+        @status.share_visibilities.where(user_id: alice.id).first.update_attributes(hidden: true)
         expect(alice.visible_shareable_ids(Post).include?(@status.id)).to be false
       end
     end
@@ -112,21 +100,6 @@ describe User::Querying, :type => :model do
     it 'never contains posts from people not in your aspects' do
       FactoryGirl.create(:status_message, :public => true)
       expect(bob.visible_shareables(Post).count(:all)).to eq(0)
-    end
-
-    context 'with two posts with the same timestamp' do
-      before do
-        aspect_id = alice.aspects.where(:name => "generic").first.id
-        Timecop.freeze Time.now do
-          alice.post :status_message, :text => "first", :to => aspect_id
-          alice.post :status_message, :text => "second", :to => aspect_id
-        end
-      end
-
-      it "returns them in reverse creation order" do
-        expect(bob.visible_shareables(Post).first.text).to eq("second")
-        expect(bob.visible_shareables(Post).last.text).to eq("first")
-      end
     end
 
     context 'with many posts' do
@@ -202,27 +175,21 @@ describe User::Querying, :type => :model do
         expect(alice.people_in_aspects([@alices_aspect])).to eq([bob.person])
       end
 
-      it 'returns local/remote people objects for a users contact in each aspect' do
+      it "returns local/remote people objects for a users contact in each aspect" do
         local_user1 = FactoryGirl.create(:user)
         local_user2 = FactoryGirl.create(:user)
-        remote_user = FactoryGirl.create(:user)
+        remote_person = FactoryGirl.create(:person)
 
-        asp1 = local_user1.aspects.create(:name => "lol")
-        asp2 = local_user2.aspects.create(:name => "brb")
-        asp3 = remote_user.aspects.create(:name => "ttyl")
+        asp1 = local_user1.aspects.create(name: "lol")
+        asp2 = local_user2.aspects.create(name: "brb")
 
         connect_users(alice, @alices_aspect, local_user1, asp1)
         connect_users(alice, @alices_aspect, local_user2, asp2)
-        connect_users(alice, @alices_aspect, remote_user, asp3)
-
-        local_person = remote_user.person
-        local_person.owner_id = nil
-        local_person.save
-        local_person.reload
+        alice.contacts.create!(person: remote_person, aspects: [@alices_aspect], sharing: true)
 
         expect(alice.people_in_aspects([@alices_aspect]).count).to eq(4)
-        expect(alice.people_in_aspects([@alices_aspect], :type => 'remote').count).to eq(1)
-        expect(alice.people_in_aspects([@alices_aspect], :type => 'local').count).to eq(3)
+        expect(alice.people_in_aspects([@alices_aspect], type: "remote").count).to eq(1)
+        expect(alice.people_in_aspects([@alices_aspect], type: "local").count).to eq(3)
       end
 
       it 'does not return people not connected to user on same pod' do

@@ -11,7 +11,7 @@ app.views.ResharesInfo = app.views.Base.extend({
   tooltipSelector : ".avatar",
 
   initialize : function() {
-    this.model.interactions.bind("change", this.render, this);
+    this.model.interactions.reshares.bind("change", this.render, this);
     this.displayAvatars = false;
   },
 
@@ -19,18 +19,16 @@ app.views.ResharesInfo = app.views.Base.extend({
     return _.extend(this.defaultPresenter(), {
       reshares : this.model.interactions.reshares.toJSON(),
       resharesCount : this.model.interactions.resharesCount(),
-      displayAvatars : this.model.interactions.get("fetched") && this.displayAvatars
+      displayAvatars: this.displayAvatars
     });
   },
 
   showAvatars : function(evt){
     if(evt) { evt.preventDefault() }
     this.displayAvatars = true;
-    if(!this.model.interactions.get("fetched")){
-      this.model.interactions.fetch();
-    } else {
-      this.model.interactions.trigger("change");
-    }
+    this.model.interactions.reshares.fetch({success: function() {
+      this.model.interactions.reshares.trigger("change");
+    }.bind(this)});
   }
 });
 // @license-end

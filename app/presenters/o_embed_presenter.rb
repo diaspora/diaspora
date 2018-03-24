@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OEmbedPresenter
   include PostsHelper
 
@@ -38,7 +40,7 @@ class OEmbedPresenter
   end
 
   def post_author_url
-   Rails.application.routes.url_helpers.person_url(@post.author, :host => AppConfig.pod_uri.host)
+    AppConfig.url_to(Rails.application.routes.url_helpers.person_path(@post.author))
   end
 
   def iframe_html

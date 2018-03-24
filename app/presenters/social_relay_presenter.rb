@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class SocialRelayPresenter
   def as_json(*)
     {
-      "subscribe" => AppConfig.relay.inbound.subscribe,
+      "subscribe" => AppConfig.relay.inbound.subscribe?,
       "scope"     => AppConfig.relay.inbound.scope,
       "tags"      => tags
     }

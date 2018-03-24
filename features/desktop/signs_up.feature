@@ -11,11 +11,12 @@ Feature: new user registration
   Scenario: new user goes through the setup wizard
     When I fill in the following:
       | profile_first_name | O             |
-    And I follow "awesome_button"
-    And I confirm the alert
+    And I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
+    And the publisher should be expanded
     And I close the publisher
-    And I should not see "awesome_button"
+    Then I should not see "awesome_button"
+    And I should not see any posts in my stream
 
   Scenario: new user tries to XSS itself
     When I fill in the following:
@@ -28,22 +29,28 @@ Feature: new user registration
       | profile_first_name | some name     |
     And I focus the "follow_tags" field
     Then I should see a flash message containing "Hey, some name!"
-    When I follow "awesome_button"
-    And I reject the alert
+    When I reject the alert after I follow "awesome_button"
     Then I should be on the getting started page
     And I should see a flash message containing "All right, I’ll wait."
 
   Scenario: new user skips the setup wizard
-    When I follow "awesome_button"
-    And I confirm the alert
+    When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
-    And I close the publisher
+    And the publisher should be expanded
+
+  Scenario: first status message is public
+    When I confirm the alert after I follow "awesome_button"
+    Then I should be on the stream page
+    And the publisher should be expanded
+    And I should see "Public" within ".aspect-dropdown"
 
   Scenario: new user without any tags posts first status message
-    When I follow "awesome_button"
-    And I confirm the alert
+    When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
-    When I submit the publisher
+    And the publisher should be expanded
+    When I wait for the popovers to appear
+    And I click close on all the popovers
+    And I submit the publisher
     Then "Hey everyone, I’m #newhere." should be post 1
 
   Scenario: new user with some tags posts first status message
@@ -51,16 +58,18 @@ Feature: new user registration
       | profile_first_name | some name        |
     And I fill in "tags" with "#rockstar"
     And I press the first ".as-result-item" within "#as-results-tags"
+    And I wait until ajax requests finished
     And I follow "awesome_button"
     Then I should be on the stream page
-    When I submit the publisher
+    And the publisher should be expanded
+    When I wait for the popovers to appear
+    And I click close on all the popovers
+    And I submit the publisher
     Then "Hey everyone, I’m #newhere. I’m interested in #rockstar." should be post 1
 
   Scenario: closing a popover clears getting started
-    When I follow "awesome_button"
-    And I confirm the alert
+    When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
-    And I have turned off jQuery effects
     And I wait for the popovers to appear
     And I click close on all the popovers
     And I close the publisher
@@ -71,21 +80,21 @@ Feature: new user registration
     And I go to the new user registration page
     And I fill in the following:
         | user_username        | $%&(/&%$&/=)(/    |
-    And I press "Sign up"
+    And I press "Create account"
     Then I should not be able to sign up
     And I should have a validation error on "user_username, user_password, user_email"
 
     When I fill in the following:
         | user_username     | valid_user                        |
         | user_email        | this is not a valid email $%&/()( |
-    And I press "Sign up"
+    And I press "Create account"
     Then I should not be able to sign up
     And I should have a validation error on "user_password, user_email"
 
     When I fill in the following:
         | user_email        | valid@email.com        |
         | user_password     | 1                      |
-    And I press "Sign up"
+    And I press "Create account"
     Then I should not be able to sign up
     And I should have a validation error on "user_password, user_password_confirmation"
 

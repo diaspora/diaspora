@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module User::SocialActions
   def comment!(target, text, opts={})
     Comment::Generator.new(self, target, text).create!(opts).tap do
@@ -25,12 +27,8 @@ module User::SocialActions
     build_post(:reshare, :root_guid => target.guid).tap do |reshare|
       reshare.save!
       update_or_create_participation!(target)
-      Postzord::Dispatcher.defer_build_and_post(self, reshare)
+      Diaspora::Federation::Dispatcher.defer_dispatch(self, reshare)
     end
-  end
-
-  def build_comment(options={})
-    Comment::Generator.new(self, options.delete(:post), options.delete(:text)).build(options)
   end
 
   def build_conversation(opts={})
@@ -52,7 +50,8 @@ module User::SocialActions
   end
 
   def update_or_create_participation!(target)
-    participation = participations.where(target_id: target).first
+    return if target.author == person
+    participation = participations.find_by(target_id: target)
     if participation.present?
       participation.update!(count: participation.count.next)
     else

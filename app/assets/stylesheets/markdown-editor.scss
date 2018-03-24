@@ -1,0 +1,157 @@
+.md-editor {
+  border: 1px solid $border-grey;
+  border-radius: $border-radius-small;
+  overflow: hidden;
+
+  &.active { border: 1px solid $border-dark-grey; }
+
+  textarea,
+  textarea:focus {
+    border: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+}
+
+.md-footer,
+.md-header {
+  background: $white;
+  border: 0;
+  display: block;
+  height: 42px;
+  margin: 0;
+  padding: 6px 6px 0;
+
+  [class^="entypo-"],
+  [class*="entypo-"],
+  .glyphicon {
+    color: $icon-color;
+  }
+}
+
+.md-header,
+.nav-tabs {
+  border-bottom: 0;
+  margin: 0;
+  z-index: 1;
+}
+
+.md-header.btn-toolbar {
+  background-color: $background-grey;
+  overflow: hidden;
+
+  .btn-group {
+    margin-bottom: 8px;
+    &:first-child { margin-left: 0; }
+
+    [class^="entypo-"],
+    [class*="entypo-"] {
+      font-size: 13px;
+    }
+
+    [data-handler="bootstrap-markdown-cmdUrl"],
+    [data-handler="bootstrap-markdown-cmdImage"],
+    [data-handler="bootstrap-markdown-cmdList"],
+    [data-handler="bootstrap-markdown-cmdListO"],
+    [data-handler="bootstrap-markdown-cmdCode"],
+    [data-handler="bootstrap-markdown-cmdQuote"] {
+      height: 28.5px;
+      line-height: 1.25;
+    }
+  }
+
+  @media(max-width: $screen-xs) {
+    [data-handler="bootstrap-markdown-cmdList"],
+    [data-handler="bootstrap-markdown-cmdListO"] {
+      display: none;
+    }
+
+    [data-handler="bootstrap-markdown-cmdCode"] {
+      // !important is needed to override BS' specific rules
+      // scss-lint:disable ImportantRule
+      border-bottom-left-radius: $border-radius-small !important;
+      border-top-left-radius: $border-radius-small !important;
+      // scss-lint:enable ImportantRule
+    }
+  }
+}
+
+.md-cancel {
+  box-sizing: content-box;
+
+  &,
+  .entypo-cross {
+    color: $text-grey;
+    font-size: 18px;
+    height: 18px;
+    line-height: 18px;
+    width: 18px;
+  }
+
+  &:hover .entypo-cross { color: $text-color; }
+}
+
+
+.md-preview {
+  color: $text-color;
+  // !important is needed to override the CSS rules dynamically added to the element
+  // scss-lint:disable ImportantRule
+  height: auto !important;
+  // scss-lint:enable ImportantRule
+  overflow: auto;
+  position: relative;
+  // !important is needed to override the CSS rules dynamically added to the element
+  // scss-lint:disable ImportantRule
+  width: 100% !important;
+  // scss-lint:enable ImportantRule
+  z-index: 10;
+
+  .preview-content { padding: 10px; }
+}
+
+.md-controls {
+  float: right;
+  padding: 3px;
+
+  .md-control {
+    color: $text-grey;
+    padding: 3px;
+    padding-left: 10px;
+    right: 5px;
+  }
+}
+
+
+.write-preview-tabs {
+  &,
+  & .full-height {
+    height: 36px;
+  }
+
+  > li {
+    > a { padding: 7px 15px; }
+
+    &:not(.active) * { color: $link-color; }
+
+    &.active * { color: $black; }
+  }
+
+  a:focus { outline: none; }
+
+  li {
+    &:not(.active) a:focus,
+    &:not(.active) a:hover {
+      background-color: transparent;
+      border: 1px solid transparent;
+    }
+
+    &.active:focus { color: $black; }
+  }
+
+  .diaspora-custom-compose::before {
+    bottom: -2px;
+    position: relative;
+  }
+}
+
+.publisher-textarea-wrapper:not(.active) .md-header { display: none; }

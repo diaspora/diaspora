@@ -25,7 +25,6 @@ si:
     my_activity: "මගේ ක්‍රියාව"
     photo_uploader:
       looking_good: "මාරයි, ඔයා නියමයි!"
-    search_for: "<%= name %> සදහා සොයා බලන්න"
     show_more: "තවත් පෙන්නන්න"
     stream:
       hide: "සගවන්න"
@@ -45,24 +44,22 @@ si:
       unlike: "අකැමතියි"
     timeago:
       day: "දවසක්"
-      days: "දවස් %d"
+      days:
+        other: "දවස් %d"
       hour: "පැයකින් පමණ"
-      hours: "පැය %d පමණ"
+      hours:
+        other: "පැය %d පමණ"
       minute: "විනාඩියකින් පමණ"
-      minutes: "විනාඩි %d"
+      minutes:
+        other: "විනාඩි %d"
       month: "මාසයකින් පමණ"
-      months: "මාස %d"
+      months:
+        other: "මාස %d"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "විනාඩියකට අඩු කාලයකින්"
       suffixAgo: "පෙර"
       suffixFromNow: "මෙතැන් සිට"
       year: "අවුරුද්දකින් පමණ"
-      years: "අවුරුදු %d"
-    videos:
-      unknown: "දන්නේ නැති විඩියෝ type එකක්"
-      watch: "මෙම විඩියෝ එක <%= provider %> එකෙන් බලන්න"
-    viewer:
-      home: "නිවස"
-      like: "කැමතියි"
-      unlike: "අකැමතියි"
+      years:
+        other: "අවුරුදු %d"

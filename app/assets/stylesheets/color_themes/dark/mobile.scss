@@ -1,0 +1,65 @@
+@import 'mixins';
+@import 'color_themes/dark/style';
+
+// Only overriding existing selectors here, so disable some lint rules
+// scss-lint:disable SelectorFormat, NestingDepth, SelectorDepth
+body {
+  .settings-container,
+  .stream-element,
+  .login-form {
+    border: 1px solid $border-grey;
+  }
+
+  .stream-element,
+  .comments {
+    .from a { color: $text-color; }
+    .info { color: lighten($gray-light, 12%); }
+    .nsfw-shield { background-color: $gray-light; }
+
+    .bottom-bar {
+      background: lighten($framed-background, 4.5%);
+      .post-action .disabled { color: $text-color-pale; }
+      .post-stats .count { background-color: lighten($framed-background, 4.5%); }
+    }
+
+    .reshare {
+      border-bottom: 1px solid $border-medium-grey;
+      .reshare_via span { color: $border-medium-grey; }
+    }
+  }
+
+  .more-link,
+  .no-more-posts {
+    background: { color: $btn-default-bg; }
+    border: 1px solid $gray;
+
+    h1,
+    h2 {
+      color: $text-color;
+      text-shadow: 0 2px 0 $gray;
+    }
+  }
+
+  .stream-element.unread { background-color: $gray; }
+  .stream-element.read { background-color: $gray-darker; }
+
+  .photos .photo { border-color: $border-grey; }
+
+  .header-full-width { border-bottom: 1px solid $border-grey; }
+
+  .user_aspects {
+    &,
+    &:focus,
+    &:active {
+      border-color: $gray-light;
+    }
+
+    &.has_connection {
+      background-color: $green;
+      color: $white;
+    }
+  }
+}
+// scss-lint:enable SelectorFormat, NestingDepth, SelectorDepth
+
+@import 'mobile/mobile';

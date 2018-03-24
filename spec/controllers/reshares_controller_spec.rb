@@ -1,9 +1,9 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 describe ResharesController, :type => :controller do
   describe '#create' do
     let(:post_request!) {
-      post :create, :format => :json, :root_guid => @post_guid
+      post :create, params: {root_guid: @post_guid}, format: :json
     }
 
     before do
@@ -18,7 +18,7 @@ describe ResharesController, :type => :controller do
 
     context 'with an authenticated user' do
       before do
-        sign_in :user, bob
+        sign_in(bob, scope: :user)
         allow(@controller).to receive(:current_user).and_return(bob)
       end
 
@@ -33,13 +33,9 @@ describe ResharesController, :type => :controller do
         }.to change(Reshare, :count).by(1)
       end
 
-      it 'after save, calls add to streams' do
-        expect(bob).to receive(:add_to_streams)
-        post_request!
-      end
-
-      it 'calls dispatch' do
-        expect(bob).to receive(:dispatch_post).with(anything, hash_including(:additional_subscribers))
+      it "federates" do
+        allow_any_instance_of(Participation::Generator).to receive(:create!)
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
         post_request!
       end
 
@@ -51,7 +47,7 @@ describe ResharesController, :type => :controller do
         it 'doesn\'t allow the user to reshare the post again' do
           post_request!
           expect(response.code).to eq('422')
-          expect(response.body.strip).to be_empty
+          expect(response.body).to eq(I18n.t("reshares.create.error"))
         end
       end
 
@@ -66,6 +62,53 @@ describe ResharesController, :type => :controller do
           expect(@post.reshares.count).to eq(0)
           expect(@root.reshares.count).to eq(2)
         end
+      end
+    end
+  end
+
+  describe "#index" do
+    context "with a private post" do
+      before do
+        @alices_aspect = alice.aspects.where(name: "generic").first
+        @post = alice.post(:status_message, text: "hey", to: @alices_aspect.id)
+      end
+
+      it "returns a 404 for a post not visible to the user" do
+        sign_in(eve, scope: :user)
+        expect {
+          get :index, params: {post_id: @post.id}, format: :json
+        }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+
+      it "returns an empty array for a post visible to the user" do
+        sign_in(bob, scope: :user)
+        get :index, params: {post_id: @post.id}, format: :json
+        expect(JSON.parse(response.body)).to eq([])
+      end
+    end
+
+    context "with a public post" do
+      before do
+        sign_in(alice, scope: :user)
+        @post = alice.post(:status_message, text: "hey", public: true)
+      end
+
+      it "returns an array of reshares for a post" do
+        bob.reshare!(@post)
+        get :index, params: {post_id: @post.id}, format: :json
+        expect(JSON.parse(response.body).map {|h| h["id"] }).to eq(@post.reshares.map(&:id))
+      end
+
+      it "returns an empty array for a post with no reshares" do
+        get :index, params: {post_id: @post.id}, format: :json
+        expect(JSON.parse(response.body)).to eq([])
+      end
+
+      it "returns reshares without login" do
+        bob.reshare!(@post)
+        sign_out :user
+        get :index, params: {post_id: @post.id}, format: :json
+        expect(JSON.parse(response.body).map {|h| h["id"] }).to match_array(@post.reshares.map(&:id))
       end
     end
   end

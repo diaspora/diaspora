@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ContactPresenter < BasePresenter
   def base_hash
     { id: id,
@@ -12,6 +14,12 @@ class ContactPresenter < BasePresenter
   end
 
   def full_hash_with_person
-    full_hash.merge(person: PersonPresenter.new(person, current_user).as_json)
+    full_hash.merge(person: person_without_contact)
+  end
+
+  private
+
+  def person_without_contact
+    PersonPresenter.new(person, current_user).as_json.except!(:contact)
   end
 end

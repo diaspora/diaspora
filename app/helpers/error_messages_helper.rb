@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -9,7 +11,7 @@ module ErrorMessagesHelper
     options[:message] ||= I18n.t('error_messages.helper.correct_the_following_errors_and_try_again')
     messages = objects.compact.map { |o| o.errors.full_messages }.flatten
     unless messages.empty?
-      content_tag(:div, class: "text-error") do
+      content_tag(:div, class: "text-danger") do
         list_items = messages.map { |msg| content_tag(:li, msg) }
         content_tag(:h2, options[:header_message]) + content_tag(:p, options[:message]) + content_tag(:ul, list_items.join.html_safe)
       end

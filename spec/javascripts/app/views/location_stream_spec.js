@@ -2,9 +2,9 @@ describe("app.views.LocationStream", function() {
   beforeEach(function(){
     this.post = factory.post();
     this.view = new app.views.LocationStream({model : this.post});
-    /* jshint camelcase: false */
-    gon.appConfig = {map: { mapbox: {enabled: true, id: "yourID", access_token: "yourAccessToken" }}};
-    /* jshint camelcase: true */
+    /* eslint-disable camelcase */
+    gon.appConfig = {map: {mapbox: {enabled: true, style: "mapbox/streets-v9", access_token: "yourAccessToken"}}};
+    /* eslint-enable camelcase */
   });
 
   describe("toggleMap", function() {

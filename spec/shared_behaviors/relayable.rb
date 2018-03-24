@@ -1,130 +1,88 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 shared_examples_for "it is relayable" do
-
-  describe 'interacted_at' do
-    it 'sets the interacted at of the parent to the created at of the relayable post' do
-      Timecop.freeze Time.now do
-        relayable = build_object
-        relayable.save
-        if relayable.parent.respond_to?(:interacted_at) #I'm sorry.
-          expect(relayable.parent.interacted_at.to_i).to eq(relayable.created_at.to_i)
-        end
-      end
-    end
-  end
-
-  describe 'validations' do
-    describe 'on :author_id' do
+  describe "validations" do
+    context "author ignored by parent author" do
       context "the author is on the parent object author's ignore list when object is created" do
         before do
-          bob.blocks.create(:person => alice.person)
-          @relayable = build_object
+          bob.blocks.create(person: alice.person)
         end
 
         it "is invalid" do
-          expect(@relayable).not_to be_valid
-          expect(@relayable.errors[:author_id].size).to eq(1)
-        end
-
-        it "sends a retraction for the object" do
-          skip 'need to figure out how to test this'
-          expect(RelayableRetraction).to receive(:build)
-          expect(Postzord::Dispatcher).to receive(:build)
-          @relayable.valid?
+          expect(relayable).not_to be_valid
+          expect(relayable.errors[:author_id].size).to eq(1)
         end
 
         it "works if the object has no parent" do # This can happen if we get a comment for a post that's been deleted
-          @relayable.parent = nil
-          expect { @relayable.valid? }.to_not raise_exception
+          relayable.parent = nil
+          expect { relayable.valid? }.to_not raise_exception
         end
       end
 
       context "the author is added to the parent object author's ignore list later" do
         it "is valid" do
-          relayable = build_object
           relayable.save!
-          bob.blocks.create(:person => alice.person)
+          bob.blocks.create(person: alice.person)
           expect(relayable).to be_valid
         end
       end
     end
   end
 
-  context 'encryption' do
-    describe '#parent_author_signature' do
-      it 'should sign the object if the user is the post author' do
-        expect(@object_by_parent_author.verify_parent_author_signature).to be true
+  describe "#subscribers" do
+    context "parent is local" do
+      it "returns the parents original audience, if author is local" do
+        expect(object_on_local_parent.subscribers.map(&:id))
+          .to match_array([local_leia.person, remote_raphael].map(&:id))
       end
 
-      it 'does not sign as the parent author is not parent' do
-        @object_by_recipient.author_signature = @object_by_recipient.send(:sign_with_key, @local_leia.encryption_key)
-        expect(@object_by_recipient.verify_parent_author_signature).to be false
-      end
+      it "returns remote persons of the parents original audience not on same pod as the author, if author is remote" do
+        person1 = FactoryGirl.create(:person, pod: remote_raphael.pod)
+        person2 = FactoryGirl.create(:person, pod: FactoryGirl.create(:pod))
+        local_luke.share_with(person1, local_luke.aspects.first)
+        local_luke.share_with(person2, local_luke.aspects.first)
 
-      it 'should verify a object made on a remote post by a different contact' do
-        @object_by_recipient.author_signature = @object_by_recipient.send(:sign_with_key, @local_leia.encryption_key)
-        @object_by_recipient.parent_author_signature = @object_by_recipient.send(:sign_with_key, @local_luke.encryption_key)
-        expect(@object_by_recipient.verify_parent_author_signature).to be true
+        expect(remote_object_on_local_parent.subscribers.map(&:id)).to match_array([person2].map(&:id))
       end
     end
 
-    describe '#author_signature' do
-      it 'should sign as the object author' do
-        expect(@object_on_remote_parent.signature_valid?).to be true
-        expect(@object_by_parent_author.signature_valid?).to be true
-        expect(@object_by_recipient.signature_valid?).to be true
+    context "parent is remote" do
+      it "returns the author of parent and author of relayable (for local delivery)" do
+        expect(object_on_remote_parent.subscribers.map(&:id))
+          .to match_array([remote_raphael, local_luke.person].map(&:id))
       end
     end
   end
 
-  context 'propagation' do
-    describe '#receive' do
-      it 'does not overwrite a object that is already in the db' do
-        expect {
-          @dup_object_by_parent_author.receive(@local_leia, @local_luke.person)
-        }.to_not change { @dup_object_by_parent_author.class.count }
-      end
+  describe "#signature" do
+    let(:signature_class) { described_class.reflect_on_association(:signature).klass }
 
-      it 'does not process if post_creator_signature is invalid' do
-        @object_by_parent_author.delete # remove object from db so we set a creator sig
-        @dup_object_by_parent_author.parent_author_signature = "dsfadsfdsa"
-        expect(@dup_object_by_parent_author.receive(@local_leia, @local_luke.person)).to eq(nil)
-      end
-
-      it 'signs when the person receiving is the parent author' do
-        @object_by_recipient.save
-        @object_by_recipient.receive(@local_luke, @local_leia.person)
-        expect(@object_by_recipient.reload.parent_author_signature).not_to be_blank
-      end
-
-      it 'dispatches when the person receiving is the parent author' do
-        p = Postzord::Dispatcher.build(@local_luke, @object_by_recipient)
-        expect(p).to receive(:post)
-        allow(p.class).to receive(:new).and_return(p)
-        @object_by_recipient.receive(@local_luke, @local_leia.person)
-      end
-
-      it 'calls after_receive callback' do
-        expect(@object_by_recipient).to receive(:after_receive)
-        allow(@object_by_recipient.class).to receive(:where).and_return([@object_by_recipient])
-        @object_by_recipient.receive(@local_luke, @local_leia.person)
-      end
+    before do
+      remote_object_on_local_parent.signature = signature_class.new(
+        author_signature: "signature",
+        additional_data:  {"new_property" => "some text"},
+        signature_order:  FactoryGirl.create(:signature_order)
+      )
     end
 
-    describe '#subscribers' do
-      it 'returns the posts original audience, if the post is owned by the user' do
-        expect(@object_by_parent_author.subscribers(@local_luke).map(&:id)).to match_array([@local_leia.person, @remote_raphael].map(&:id))
-      end
+    it "returns the signature data" do
+      signature = described_class.find(remote_object_on_local_parent.id).signature
+      expect(signature).not_to be_nil
+      expect(signature.author_signature).to eq("signature")
+      expect(signature.additional_data).to eq("new_property" => "some text")
+      expect(signature.order).to eq(%w(guid parent_guid text author))
+    end
 
-      it 'returns the owner of the original post, if the user owns the object' do
-        expect(@object_by_recipient.subscribers(@local_leia).map(&:id)).to match_array([@local_luke.person].map(&:id))
-      end
+    it "deletes the signature when destroying the relayable" do
+      id = remote_object_on_local_parent.id
+      remote_object_on_local_parent.destroy!
+
+      signature = signature_class.find_by(signature_class.primary_key => id)
+      expect(signature).to be_nil
     end
   end
 end
-

@@ -1,0 +1,54 @@
+{{#if resharesCount}}
+  <div id="reshares" class="clearfix">
+    <div class="count">
+      <i class="entypo-reshare middle gray"></i>
+      <span>{{resharesCount}}</span>
+    </div>
+    <div class="interaction-avatars">
+      {{#each reshares}}
+        {{#linkToAuthor author}}
+          {{{personImage this "small" "micro"}}}
+        {{/linkToAuthor}}
+      {{/each}}
+      {{#if showMoreReshares}}
+        <div class="loader hidden">
+          <div class="spinner"></div>
+        </div>
+        <div id="show-all-reshares" class="btn btn-sm btn-link">{{t "show_all"}}</div>
+      {{/if}}
+    </div>
+  </div>
+{{/if}}
+{{#if likesCount}}
+  <div id="likes" class="clearfix">
+    <div class="count">
+      <i class="entypo-heart middle gray"></i>
+      <span>{{likesCount}}</span>
+    </div>
+    <div class="interaction-avatars">
+      {{#each likes}}
+        {{#linkToAuthor author}}
+          {{{personImage this "small" "micro"}}}
+        {{/linkToAuthor}}
+      {{/each}}
+      {{#if showMoreLikes}}
+        <div class="loader hidden">
+          <div class="spinner"></div>
+        </div>
+        <div id="show-all-likes" class="btn btn-sm btn-link">{{t "show_all"}}</div>
+      {{/if}}
+    </div>
+  </div>
+{{/if}}
+{{#if commentsCount}}
+  <div id="comments-meta" class="clearfix">
+    <div class="count">
+      <i class="entypo-comment middle gray"></i>
+      <span>{{commentsCount}}</span>
+    </div>
+  </div>
+{{else}}
+  <div class="no-comments">
+    <h4>{{t "comments.no_comments" }}</h4>
+  </div>
+{{/if}}

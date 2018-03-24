@@ -26,7 +26,6 @@ bg:
       show: "показване на коментарите"
     confirm_dialog: "Сигурни ли сте?"
     delete: "Изтриване"
-    failed_to_like: "Публикацията не бе харесана!"
     failed_to_post_message: "Съобщението не бе публикувано!"
     getting_started:
       alright_ill_wait: "Добре, ще изчакам."
@@ -46,18 +45,10 @@ bg:
       settings: "Настройки"
       view_all: "Покажи всички"
     ignore: "Игнориране"
-    infinite_scroll:
-      no_more: "Няма други публикации."
+    my_activity: "Моята дейност"
     my_stream: "Поток"
     photo_uploader:
       looking_good: "Леле, изглеждате страхотно!"
-    publisher:
-      at_least_one_aspect: "Трябва да публикувате в поне един аспект"
-      limited: "Ограничено - публикацията ще бъде видима само за хората, с които я споделите"
-      public: "Публично - публикацията ще бъде видима за всеки, а съдържанието ѝ ще бъде налично за търсещите машини"
-    reshares:
-      duplicate: "Вече сте споделили публикацията!"
-    search_for: "Търсене за <%= name %>"
     show_more: "покажи още"
     stream:
       comment: "Коментиране"
@@ -87,20 +78,22 @@ bg:
       wasnt_that_interesting: "Е, вероятно марката #<%= tagName %> не е чак толкова интересна..."
     timeago:
       day: "ден"
-      days: "%d дни"
+      days:
+        other: "%d дни"
       hour: "около час"
-      hours: "около %d часа"
+      hours:
+        other: "около %d часа"
       minute: "около минута"
-      minutes: "%d минути"
+      minutes:
+        other: "%d минути"
       month: "около месец"
-      months: "%d месеца"
+      months:
+        other: "%d месеца"
       prefixAgo: "преди"
       prefixFromNow: "след"
       seconds: "по-малко от минута"
-      suffixAgo: "преди"
+      suffixAgo: ""
       suffixFromNow: "от сега"
       year: "около година"
-      years: "%d години"
-    videos:
-      unknown: "Неизвестен вид видео"
-      watch: "Гледайте видеото в <%= provider %>"
+      years:
+        other: "%d години"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
   @me ||= FactoryGirl.create(:user, :username => username, :password => password,
                   :password_confirmation => password, :getting_started => false)
@@ -25,6 +27,15 @@ Given /^a nsfw user with email "([^\"]*)"$/ do |email|
   user.profile.update_attributes(:nsfw => true)
 end
 
+Given /^a moderator with email "([^\"]*)"$/ do |email|
+  user = create_user(email: email)
+  Role.add_moderator(user)
+end
+
+Given /^an admin with email "([^\"]*)"$/ do |email|
+  user = create_user(email: email)
+  Role.add_admin(user)
+end
 
 Given /^(?:|[tT]hat )?following user[s]?(?: exist[s]?)?:$/ do |table|
   table.hashes.each do |hash|
@@ -38,7 +49,6 @@ Given /^(?:|[tT]hat )?following user[s]?(?: exist[s]?)?:$/ do |table|
   end
 end
 
-
 Given /^I have been invited by an admin$/ do
   admin = FactoryGirl.create(:user)
   admin.invitation_code
@@ -46,8 +56,9 @@ Given /^I have been invited by an admin$/ do
   i.send!
 end
 
-Given /^I have been invited by bob$/ do
-  @inviter = FactoryGirl.create(:user, :email => 'bob@bob.bob')
+Given /^I have been invited by "([^\"]+)"$/ do |email|
+  AppConfig.settings.enable_registrations = false
+  @inviter = User.find_by_email(email)
   @inviter_invite_count = @inviter.invitation_code.count
   i = EmailInviter.new("new_invitee@example.com", @inviter)
   i.send!
@@ -99,6 +110,13 @@ Given /^there is a user "([^\"]*)" who's tagged "([^\"]*)"$/ do |full_name, tag|
   user.profile.save!
 end
 
+Given /^a user with email "([^\"]*)" is tagged "([^\"]*)"$/ do |email, tags|
+  user = User.find_by_email(email)
+  user.profile.tag_string = tags
+  user.profile.build_tags
+  user.profile.save!
+end
+
 Given /^many posts from alice for bob$/ do
   alice = FactoryGirl.create(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
   bob = FactoryGirl.create(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)
@@ -118,8 +136,10 @@ Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
   @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
 end
 
-When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect$/ do |aspect_name|
-  toggle_aspect_via_ui(aspect_name)
+When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect(?: within "([^"]*)")?$/ do |aspect_name, within_selector| # rubocop:disable Metrics/LineLength
+  with_scope(within_selector) do
+    toggle_aspect_via_ui(aspect_name)
+  end
 end
 
 When /^I post a status with the text "([^\"]*)"$/ do |text|
@@ -150,15 +170,24 @@ Then /^I should have (\d+) email delivery$/ do |n|
   ActionMailer::Base.deliveries.length.should == n.to_i
 end
 
-Then /^I should not see "([^\"]*)" in the last sent email$/ do |text|
+Then /^I should( not)? see "([^\"]*)" in the last sent email$/ do |negate, text|
   email_text = Devise.mailer.deliveries.first.body.to_s
   email_text = Devise.mailer.deliveries.first.html_part.body.raw_source if email_text.blank?
-  email_text.should_not match(text)
+  if negate
+    expect(email_text).to_not have_content(text)
+  else
+    expect(email_text).to have_content(text)
+  end
 end
 
-When /^"([^\"]+)" has posted a status message with a photo$/ do |email|
+When /^"([^\"]+)" has posted a (public )?status message with a photo$/ do |email, public_status|
   user = User.find_for_database_authentication(:username => email)
-  post = FactoryGirl.create(:status_message_with_photo, :text => "Look at this dog", :author => user.person)
+  post = FactoryGirl.create(
+    :status_message_with_photo,
+    text:   "Look at this dog",
+    author: user.person,
+    public: public_status.present?
+  )
   [post, post.photos.first].each do |p|
     user.add_to_streams(p, user.aspects)
     user.dispatch_post(p)
@@ -200,22 +229,28 @@ When /^I view "([^\"]*)"'s first post$/ do |email|
   visit post_path(post)
 end
 
-Given /^I visit alice's invitation code url$/ do
-  @alice ||= FactoryGirl.create(:user, :username => 'alice', :getting_started => false)
-  invite_code  = InvitationCode.find_or_create_by(user_id: @alice.id)
-  visit invite_code_path(invite_code)
-end
-
 When /^I fill in the new user form/ do
   fill_in_new_user_form
 end
 
-And /^I should be able to friend Alice$/ do
-  alice = User.find_by_username 'alice'
-  step 'I should see "Add contact"'
-  step "I should see \"#{alice.name}\""
+And /^I should be able to friend "([^\"]*)"$/ do |email|
+  user = User.find_by_email(email)
+  step 'I should see a ".aspect-dropdown"'
+  step "I should see \"#{user.name}\""
 end
 
 When /^I click the sign in button$/ do
   click_link "Sign in"
+end
+
+Given /^I did request my photos$/ do
+  @me.perform_export_photos!
+end
+
+Then /^I should get a zipped file$/ do
+  expect(page.response_headers["Content-Type"]).to eq("application/zip")
+end
+
+And /^a person with ID "([^\"]*)" has been discovered$/ do |diaspora_id|
+  FactoryGirl.create(:person, diaspora_handle: diaspora_id)
 end

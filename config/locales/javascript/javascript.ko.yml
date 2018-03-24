@@ -31,11 +31,8 @@ ko:
       hide: "댓글 숨기기"
       show: "모든 댓글 보기"
     confirm_dialog: "확실합니까?"
-    conversation:
-      participants: "참여자"
     delete: "지우기"
     edit: "고치기"
-    failed_to_like: "좋아요를 실패했습니다!"
     failed_to_post_message: "메시지 게시를 실패하였습니다!"
     getting_started:
       alright_ill_wait: "기다릴게요."
@@ -59,9 +56,6 @@ ko:
       view_all: "모두 보기"
     ignore: "무시하기"
     ignore_user: "이 사용자를 무시할까요?"
-    infinite_scroll:
-      no_more: "게시물이 더 없습니다."
-      no_more_contacts: "컨택 끝."
     my_activity: "내 활동"
     my_aspects: "내 애스펙"
     my_stream: "스트림"
@@ -78,16 +72,11 @@ ko:
       result: "결과"
     publisher:
       add_option: "선택 사항 추가"
-      at_least_one_aspect: "공유하려면 적어도 한 애스펙을 골라야 합니다."
-      limited: "제한됨 - 내 게시물을 나와 공유하고 있는 사람들만 볼 수 있습니다"
       near_from: "<%= location %> 근처"
-      public: "공개 - 내 게시물을 누구나 볼 수 있고 검색 엔진으로 찾을 수 있습니다"
       question: "질문"
     reshares:
-      duplicate: "이미 재공유된 게시물입니다!"
       post: "<%= name %>님의 게시물을 재공유할까요?"
       successful: "해당 게시물이 성공적으로 재공유되었습니다!"
-    search_for: "<%= name %> 검색"
     show_more: "더 보기"
     stream:
       comment: "댓글"
@@ -128,29 +117,24 @@ ko:
       wasnt_that_interesting: "알겠습니다. #<%= tagName %> 태그는 흥미롭지 않았군요?"
     timeago:
       day: "하루"
-      days: "%d일"
+      days:
+        other: "%d일"
       hour: "약 한 시간"
-      hours: "약 %d시간"
+      hours:
+        other: "약 %d시간"
       minute: "몇 분"
-      minutes: "%d분"
+      minutes:
+        other: "%d분"
       month: "약 한 달"
-      months: "%d개월"
+      months:
+        other: "%d개월"
       prefixAgo: ""
       prefixFromNow: "지금부터"
       seconds: "방금"
       suffixAgo: "전"
       suffixFromNow: ""
       year: "한 해"
-      years: "%d년"
-    videos:
-      unknown: "알 수 없는 동영상 형식"
-      watch: "동영상을 <%= provider %>에서 보기"
+      years:
+        other: "%d년"
     viewer:
-      comment: "댓글"
-      follow_post: "게시물 팔로우하기"
-      home: "처음"
-      like: "좋아요"
-      reshare: "재공유"
       reshared: "재공유"
-      stop_following_post: "게시물 팔로우 멈추기"
-      unlike: "좋아요 취소"

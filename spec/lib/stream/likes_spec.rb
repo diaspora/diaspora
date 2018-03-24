@@ -1,4 +1,5 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
 require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Likes do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When /^I (?:like|unlike) the post "([^"]*)" in the stream$/ do |post_text|
   like_stream_post(post_text)
 end
@@ -20,4 +22,10 @@ end
 
 Then /^I should have (\d+) nsfw posts$/ do |num_posts|
   page.should have_css(".nsfw-shield", count: num_posts.to_i)
+end
+
+When /^(?:|I )click on "([^"]*)" navbar title$/ do |title|
+  with_scope(".info-bar") do
+    find("h5", text: title).click
+  end
 end

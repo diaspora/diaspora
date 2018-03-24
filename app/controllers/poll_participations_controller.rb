@@ -1,20 +1,19 @@
+# frozen_string_literal: true
+
 class PollParticipationsController < ApplicationController
-  include ApplicationHelper
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     answer = PollAnswer.find(params[:poll_answer_id])
     poll_participation = current_user.participate_in_poll!(target, answer) if target
     respond_to do |format|
-      format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
       format.json { render json: poll_participation, :status => 201 }
     end
   rescue ActiveRecord::RecordInvalid
     respond_to do |format|
-      format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
-      format.json { render :nothing => true, :status => 403 }
+      format.json { head :forbidden }
     end
   end
 

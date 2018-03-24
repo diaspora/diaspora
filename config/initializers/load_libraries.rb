@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Stdlib
 require 'cgi'
 require 'uri'
@@ -14,10 +16,7 @@ require 'diaspora'
 require 'direction_detector'
 require 'email_inviter'
 require 'evil_query'
-require 'hydra_wrapper'
-require 'postzord'
 require 'publisher'
 require 'pubsubhubbub'
-require 'salmon'
 require 'stream'
 require 'account_deleter'

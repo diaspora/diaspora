@@ -1,0 +1,11 @@
+.container-fluid
+  .row
+    .api-error.col-sm-6.col-sm-offset-3
+      %h4
+        %b= t("api.openid_connect.error_page.title")
+      %div{id: "openid_connect_error_description"}
+        %p= @error_description
+        - unless @detailed_error.nil?
+          %p= t("api.openid_connect.error_page.contact_developer")
+          %pre= @detailed_error
+
