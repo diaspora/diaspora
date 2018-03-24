@@ -28,6 +28,7 @@ sq:
     comma: ","
     edit: "Përpunojeni"
     no_results: "S’u gjetën përfundime"
+    show_all: "Shfaqi krejt"
 
     admins:
       dashboard:
@@ -53,13 +54,13 @@ sq:
           version_failed: "S’u arrit të merrej version software-i"
           unknown_error: "Gjatë kontrollit ndodhi një gabim i papërcaktuar"
         actions: "Veprime"
-        offline_since: "jashtë linje që prej:"
+        offline_since: "i palidhur që prej:"
         last_check: "kontrolli i fundit:"
         more_info: "shfaq më tepër të dhëna"
         check: "kryej një provë të lidhjes"
         recheck:
           success: "Nyja u kontrolluar sërish."
-          failure: "Kontrolli nuk u krye."
+          failure: "Kontrolli s’u krye."
         follow_link: "hape lidhjen në shfletues"
         no_info: "S’ka të dhëna të tjera në këtë pikë"
         server_software: "Software shërbyesi:"
@@ -72,6 +73,9 @@ sq:
         unchecked:
           one: "Ka ende një nyjë që s’është kontrolluar fare."
           other: "Ka ende <%= count %> nyja që s’janë kontrolluar fare."
+        version_failed:
+          one: "Ka një nyjë që s’ka version (nyjë e vjetër, pa NodeInfo)."
+          other: "Ka <%= count %> nyja që s’kanë version (nyja të vjetëra, pa NodeInfo)."
         errors:
           one: "Prova e lidhjes u përgjigj me një gabim për një nyjë."
           other: "Prova e lidhjes u përgjigj me një gabim për <%= count %> nyje."
@@ -84,26 +88,42 @@ sq:
         success: "Aspekti juaj i ri <%= name %> u krijua"
         failure: "Krijimi i aspektit dështoi."
 
+    errors:
+      connection: "S’arrihet të lidhet te shërbyesi."
+
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: "më parë"
       suffixFromNow: "nga tani"
+      inPast: "në çdo çast nga tani"
       seconds: "më pak se një minutë"
       minute: "rreth një minutë"
-      minutes: "%d minuta"
+      minutes:
+        one: "1 minutë"
+        other: "%d minuta"
       hour: "rreth një orë"
-      hours: "rreth %d orë"
+      hours: 
+        one: "rreth 1 orë"
+        other: "rreth %d orë"
       day: "një ditë"
-      days: "%d ditë"
+      days:
+        one: "1 ditë"
+        other: "%d ditë"
       month: "rreth një muaj"
-      months: "%d muaj"
+      months:
+        one: "1 muaj"
+        other: "%d muaj"
       year: "rreth një vit"
-      years: "%d vjet"
+      years:
+        one: "1 vit"
+        other: "%d vjet"
       wordSeparator: " "
 
     contacts:
       add_contact: "Shtoni kontakt"
+      aspect_chat_is_enabled: "Kontaktet në këtë aspekt janë në gjendje të fjalosen me ju."
+      aspect_chat_is_not_enabled: "Kontaktet në këtë aspekt s’janë në gjendje të fjalosen me ju"
       aspect_list_is_visible: "Kontaktet në këtë aspekt janë në gjendje të shohin njëri-tjetrin."
       aspect_list_is_not_visible: "Kontaktet në këtë aspekt s’janë në gjendje të shohin njëri-tjetrin."
       remove_contact: "Hiqe kontaktin"
@@ -115,25 +135,45 @@ sq:
     my_stream: "Rrjedhë"
     my_aspects: "Aspektet e mia"
 
-    videos:
-      watch: "Shiheni këtë video te <%= provider %>"
-      unknown: "Lloj i panjohur videoje"
-    search_for: "Kërkoni për <%= name %>"
     publisher:
-      at_least_one_aspect: "Duhet të publikoni të paktën një aspekt"
-      limited: "I kufizuar - postimi juaj do të shihet vetëm nga persona me të cilët ndani gjëra"
-      public: "Publik - postimi juaj do të jetë i dukshëm nga kushdo dhe motorët e kërkimeve do të jenë në gjendje ta kapin"
       near_from: "Postuar që nga: <%= location %>"
       option: "Përgjigjiuni"
       add_option: "Shtoni një përgjigje"
       question: "Pyetje"
+      markdown_editor:
+        preview: "Paraparje"
+        write: "Shkruani"
+        tooltips:
+          bold: "Të trasha"
+          italic: "Të pjerrëta"
+          heading: "Titull"
+          insert_link: "Futni lidhje"
+          insert_image: "Futni figurë"
+          insert_ordered_list: "Futni listë të renditur"
+          insert_unordered_list: "Futni listë të parenditur"
+          preview: "Paraparje mesazhi"
+          write: "Përpunoni mesazhin"
+          cancel: "Anulojeni mesazhin"
+          quote: "Futni citim"
+          code: "Futni kod"
+        texts:
+          strong: "tekst me të trasha"
+          italic: "tekst me të pjerrëta"
+          heading: "tekst titulli"
+          insert_link_description_text: "jepni këtu përshkrimin e lidhjes"
+          insert_link_help_text: "Futeni lidhjen këtu"
+          insert_image_description_text: "jepni këtu përshkrimin e figurës"
+          insert_image_help_text: "Futeni lidhjen e figurës këtu"
+          insert_image_title: "jepni këtu titullin e figurës"
+          list: "tekst liste këtu"
+          quote: "tekst citimi këtu"
+          code: "kod këtu"
+      mention_success: "U përmend me sukses: <%= names %>"
+
     bookmarklet:
       post_something: "Postoni diçka te diaspora*"
-      post_submit: "Po parashtrohet postimit…"
+      post_submit: "Po parashtrohet postimi…"
       post_success: "U postua! Po mbyllet dritarja flluskë…"
-    infinite_scroll:
-      no_more: "S’ka më postime."
-      no_more_contacts: "S’ka më kontakte."
     aspect_dropdown:
       add_to_aspect: "Shtoni kontakt"
       select_aspects: "Përzgjidhni aspekte"
@@ -146,12 +186,9 @@ sq:
       error: "S’u fillua dot ndarja e gjërave me <%= name %>. Mos po i shpërfillni?"
       error_remove: "S’u hoq dot <%= name %> prej aspekti :("
       toggle:
-        zero: "Përzgjidhni aspekte"
         one: "Në <%= count %> aspekt"
         other: "Në <%= count %> aspekte"
     show_more: "shfaq më tepër"
-    failed_to_like: "Pëlqimi dështoi!"
-    failed_to_reshare: "Rindarja dështoi!"
     failed_to_post_message: "Postimi i mesazhit dështoi!"
     failed_to_remove: "Heqja e zërit dështoi!"
     comments:
@@ -159,7 +196,6 @@ sq:
       hide: "Fshihi komentet"
       no_comments: "Ende s’ka komente."
     reshares:
-      duplicate: "Bukur, ë? E keni ndarë një herë me të tjerët atë postim!"
       successful: "Postimi u rinda me sukses me të tjerët!"
       post: "Të rindahet me të tjerët postimi i <%= name %>?"
     aspect_navigation:
@@ -173,6 +209,7 @@ sq:
       alright_ill_wait: "Në rregull, do të pres."
       preparing_your_stream: "Po përgatitet rrjedha juaj e personalizuar…"
     photo_uploader:
+      upload_photos: "Ngarkoni foto"
       looking_good: "O Zot, sa bukur që dukeni!"
       completed: "<%= file %> u plotësua"
       error: "Ndodhi një problem teksa ngarkohej kartela <%= file %>"
@@ -194,7 +231,6 @@ sq:
       edit: "Përpunojeni"
       add_some: "Shtoni ca"
       you_have_no_tags: "S’keni etiketa!"
-      ignoring: "I shpërfillni krejt postimet prej <%= name %>."
       bio: "Jetëshkrim"
       location: "Vendndodhje"
       gender: "Gjini"
@@ -204,13 +240,17 @@ sq:
       posts: "Postime"
 
     conversation:
-      participants: "Pjesëmarrës"
+      create:
+        no_recipient: "Hej, së pari lypset të shtoni një marrës!"
       new:
         no_contacts: "Lypset të shtoni ca kontakte përpara se të filloni një bisedë."
 
     notifications:
       mark_read: "Shënoje si të lexuar"
       mark_unread: "Shënoje si të palexuar"
+      new_notifications:
+        one: "Keni <%= count %> njoftim të palexuar"
+        other: "Keni <%= count %> njoftime të palexuar"
 
     stream:
       hide: "Fshihe"
@@ -225,11 +265,12 @@ sq:
       show_nsfw_posts: "Shfaqi krejt"
       hide_nsfw_posts: "Fshihi postimet #nsfw"
       follow: "Ndiqe"
-      unfollow: "Mos e Ndiq Më"
+      unfollow: "Mos e ndiq më"
       enable_post_notifications: "Aktivizo njoftimet për këtë postim"
       disable_post_notifications: "Çaktivizo njoftimet për këtë postim"
       permalink: "Permalidhje"
       via: "përmes <%= provider %>"
+      no_posts_yet: "Këtu s’ka ende postime për t’i shfaqur."
 
       likes:
         zero: "<%= count %> Pëlqime"
@@ -241,6 +282,11 @@ sq:
         one: "<%= count %> Rindarje"
         other: "<%= count %> Rindarje"
 
+      comments:
+        zero: "<%= count %> komente"
+        one: "<%= count %> koment"
+        other: "<%= count %> komente"
+
       more_comments:
         zero: "Shfaq <%= count %> komente të tjera"
         one: "Shfaq edhe <%= count %> koment tjetër"
@@ -248,7 +294,6 @@ sq:
 
       followed_tag:
         title: "#Etiketa të ndjekura"
-        contacts_title: "Persona me këto etiketa në profil"
         add_a_tag: "Shtoni një etiketë"
         follow: "Ndiqe"
 
@@ -283,15 +328,7 @@ sq:
       close: "Mbylle"
 
     viewer:
-      stop_following_post: "Resht së ndjekuri postimin"
-      follow_post: "Ndiqe postimin"
-      like: "Pëlqejeni"
-      unlike: "Shpëlqejeni"
-      reshare: "Rindajeni"
       reshared: "I rindarë"
-      comment: "Komentojeni"
-      home: "Kreu"
-
 
     poll:
       vote: "Votoni"
@@ -301,5 +338,10 @@ sq:
       count:
         one: "1 votë deri tani"
         other: "<%=count%> vota deri tani"
+      answer_count:
+        zero: "0 vota"
+        one: "1 votë"
+        other: "<%=count%> vota"
       show_result: "Shfaqe përfundimin"
       close_result: "Fshihe përfundimin"
+      your_vote: "Vota juaj"
