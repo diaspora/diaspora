@@ -100,7 +100,7 @@ class PeopleController < ApplicationController
     end
   end
 
-  # hovercards fetch some the persons public profile data via json and display
+  # hovercards fetch some of the persons public profile data via json and display
   # it next to the avatar image in a nice box
   def hovercard
     respond_to do |format|

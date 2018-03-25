@@ -24,7 +24,10 @@ class PersonPresenter < BasePresenter
   end
 
   def hovercard
-    base_hash_with_contact.merge(profile: ProfilePresenter.new(profile).for_hovercard)
+    base_hash_with_contact.merge(
+      block:   is_blocked? ? BlockPresenter.new(current_user_person_block).base_hash : false,
+      profile: ProfilePresenter.new(profile).for_hovercard
+    )
   end
 
   def metas_attributes

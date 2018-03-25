@@ -9,7 +9,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   events: {
-    'mouseleave': '_mouseleaveHandler'
+    "mouseleave": "_mouseleaveHandler"
   },
 
   initialize: function() {
@@ -96,6 +96,7 @@ app.views.Hovercard = app.views.Base.extend({
   _populateHovercard: function() {
     var href = this.href();
     href += "/hovercard.json";
+    var unblockButton = $(".unblock-user-button");
 
     var self = this;
     $.ajax(href, {preventGlobalErrorHandling: true}).done(function(person){
@@ -104,7 +105,14 @@ app.views.Hovercard = app.views.Base.extend({
       }
 
       if (app.currentUser.authenticated()) {
-        self.aspectMembershipDropdown = new app.views.AspectMembership({person: new app.models.Person(person)});
+        if (person.block !== false) {
+          unblockButton.removeClass("hidden");
+          unblockButton.on("click", function() {
+            person.unBlock();
+          });
+        } else {
+          self.aspectMembershipDropdown = new app.views.AspectMembership({person: new app.models.Person(person)});
+        }
       }
 
       self.render();
@@ -152,6 +160,6 @@ app.views.Hovercard = app.views.Base.extend({
       event.pageX <= elPos.left + element.width() &&
       event.pageY >= elPos.top &&
       event.pageY <= elPos.top + element.height();
-  },
+  }
 });
 // @license-end

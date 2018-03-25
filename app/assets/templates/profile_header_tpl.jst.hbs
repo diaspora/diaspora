@@ -30,11 +30,13 @@
         {{#if is_own_profile}}
         {{!-- can't block myself, so don't check it here --}}
           <a href="{{urlTo 'editProfile'}}" id="edit_profile" class="btn btn-primary">{{t 'people.edit_my_profile'}}</a>
-        {{else}} {{#if is_blocked}}
-          <a href="#" id="unblock_user_button" class="btn btn-danger">{{t 'people.stop_ignoring'}}</a>
         {{else}}
-          <div class="placeholder aspect-membership-dropdown"></div>
-        {{/if}}{{/if}}
+          {{#if is_blocked}}
+            <a href="#" id="unblock_user_button" class="btn btn-danger">{{t 'people.stop_ignoring'}}</a>
+          {{else}}
+            <div class="placeholder aspect-membership-dropdown"></div>
+          {{/if}}
+        {{/if}}
       </div>
     {{/if}}
   </div>
