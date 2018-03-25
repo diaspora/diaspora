@@ -52,13 +52,22 @@ describe("app.views.Hovercard", function() {
         expect(jQuery.ajax).toHaveBeenCalledWith("undefined/hovercard.json", {preventGlobalErrorHandling: true});
       });
 
-      it("creates the aspect dropdown", function() {
+      it("creates the aspect dropdown if person is not blocked", function() {
         this.view._populateHovercard();
         jasmine.Ajax.requests.mostRecent().respondWith({
           status: 200,
           responseText: JSON.stringify({id: 1337})
         });
-        expect(this.view.aspectMembershipDropdown).not.toEqual(undefined);
+        expect(String(this.view.aspectDropdownOrUnblock.templateName)).toEqual("aspect_membership_dropdown");
+      });
+
+      it("creates the stop-ignoring button if person is blocked", function() {
+        this.view._populateHovercard();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({id: 1337, block: {id: 5}})
+        });
+        expect(this.view.aspectDropdownOrUnblock.templateName).toEqual("unblock_person");
       });
 
       it("renders tags properly", function() {

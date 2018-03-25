@@ -5,7 +5,7 @@ app.views.Hovercard = app.views.Base.extend({
   id: 'hovercard_container',
 
   subviews: {
-    "#hovercard_dropdown_container": "aspectMembershipDropdown"
+    "#hovercard_dropdown_container": "aspectDropdownOrUnblock"
   },
 
   events: {
@@ -104,7 +104,9 @@ app.views.Hovercard = app.views.Base.extend({
       }
 
       if (app.currentUser.authenticated()) {
-        self.aspectMembershipDropdown = new app.views.AspectMembership({person: new app.models.Person(person)});
+        self.aspectDropdownOrUnblock = person.block ?
+          new app.views.UnblockPerson({person: new app.models.Person(person), parent: self}) :
+          new app.views.AspectMembership({person: new app.models.Person(person)});
       }
 
       self.render();
