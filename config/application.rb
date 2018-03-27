@@ -10,6 +10,9 @@ require_relative "bundler_helper"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups(BundlerHelper.database))
 
+# require pam if enabled
+Bundler.require(:pam) if AppConfig.pam.enable?
+
 # Do not dump the limit of boolean fields on MySQL,
 # since that generates a db/schema.rb that's incompatible
 # with PostgreSQL

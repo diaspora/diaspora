@@ -455,11 +455,6 @@ class User < ApplicationRecord
     AppConfig.bare_pod_uri.to_s
   end
 
-  def password_required?
-    return !pam_managed_user? if Devise.pam_authentication
-    super
-  end
-
   def reset_password!(new_password, new_password_confirmation)
     return false if encrypted_password.blank? && pam_managed_user?
     super
