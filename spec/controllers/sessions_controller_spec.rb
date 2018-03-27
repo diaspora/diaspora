@@ -28,6 +28,12 @@ describe SessionsController, type: :controller do
       expect(response).to be_redirect
       expect(response.location).to match /^#{stream_url}\??$/
     end
+
+    it "auto create and login pam user" do
+      post :create, params: {user: {remember_me: "0", username: "pam_user1", password: "123456"}}
+      expect(response).to be_redirect
+      expect(response.location).to match /^#{getting_started_url}\??$/
+    end
   end
 
   describe "#destroy" do

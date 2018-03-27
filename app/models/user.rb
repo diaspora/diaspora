@@ -444,15 +444,20 @@ class User < ApplicationRecord
 
   def pam_setup(attributes)
     args = {}
-    args["username"] = self[::Devise.usernamefield]
-    args["email"] = Rpam2.getenv(find_pam_service, self[::Devise.usernamefield], attributes[:password], "email", false)
-    args["email"] = "#{self[::Devise.usernamefield]}@#{find_pam_suffix}" if args["email"].nil?
+    args['username'] = self[::Devise.usernamefield]
+    args['email'] = Rpam2.getenv(find_pam_service, self[::Devise.usernamefield], attributes[:password], 'email')
+    args['email'] = "#{self[::Devise.usernamefield]}@#{find_pam_suffix}" if args['email'].nil?
     opts = ActionController::Parameters.new(args)
     setup(opts.permit(:username, :email))
   end
 
   def find_pam_suffix
     AppConfig.bare_pod_uri.to_s
+  end
+
+  def password_required?
+    return false if Devise.pam_authentication && pam_managed_user?
+    super
   end
 
   def reset_password!(new_password, new_password_confirmation)
