@@ -1128,7 +1128,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 
 # 0.4.1.3
 
-* Update Redcarped, fixes [OSVDB-120415](http://osvdb.org/show/osvdb/120415).
+* Update Redcarpet, fixes [OSVDB-120415](http://osvdb.org/show/osvdb/120415).
 
 # 0.4.1.2
 
