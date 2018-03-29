@@ -1,6 +1,6 @@
 describe("app.views.CommentMention", function() {
   describe("initialize", function() {
-    it("passes correct URL to PublisherMention contructor", function() {
+    it("passes correct URL to PublisherMention constructor", function() {
       spyOn(app.views.PublisherMention.prototype, "initialize");
       new app.views.CommentMention({postId: 123});
       var call = app.views.PublisherMention.prototype.initialize.calls.mostRecent();

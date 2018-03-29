@@ -52,7 +52,7 @@ describe Profile, :type => :model do
       end
     end
 
-    describe '#contruct_full_name' do
+    describe '#construct_full_name' do
       it 'generates a full name given only first name' do
         profile = FactoryGirl.build(:person).profile
         profile.first_name = "casimiro"
