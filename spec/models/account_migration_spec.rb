@@ -90,7 +90,7 @@ describe AccountMigration, type: :model do
   describe "perform!" do
     # TODO: add references update tests
     # This spec is missing references update tests. We didn't come with a good idea of how to test it
-    # and it is currently covered by integration tests. But it's beter to add these tests at some point
+    # and it is currently covered by integration tests. But it's better to add these tests at some point
     # in future when we have more time to think about it.
 
     let(:embedded_account_deleter) { account_migration.send(:account_deleter) }
