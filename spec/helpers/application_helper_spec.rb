@@ -41,7 +41,7 @@ describe ApplicationHelper, :type => :helper do
         AppConfig.privacy.jquery_cdn = true
       end
 
-      it 'inclues jquery.js from jquery cdn' do
+      it 'includes jquery.js from jquery cdn' do
         expect(helper.jquery_include_tag).to match(/jquery\.com/)
       end
 
@@ -61,7 +61,7 @@ describe ApplicationHelper, :type => :helper do
       end
     end
 
-    it 'inclues jquery_ujs.js' do
+    it 'includes jquery_ujs.js' do
       expect(helper.jquery_include_tag).to match(/jquery_ujs-[0-9a-f]{64}\.js/)
     end
 
