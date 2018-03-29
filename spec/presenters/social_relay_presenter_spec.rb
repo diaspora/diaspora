@@ -14,7 +14,7 @@ describe SocialRelayPresenter do
 
   describe "#social relay well-known contents" do
     describe "defaults" do
-      it "provides valid detault data" do
+      it "provides valid default data" do
         expect(@presenter.as_json).to eq(
           "subscribe" => false,
           "scope"     => "tags",
