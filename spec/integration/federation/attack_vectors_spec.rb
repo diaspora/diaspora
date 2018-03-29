@@ -14,7 +14,7 @@ describe "attack vectors", type: :request do
   let(:eves_aspect) { eve.aspects.find_by_name("generic") }
   let(:alices_aspect) { alice.aspects.find_by_name("generic") }
 
-  it "other users can not grant visiblity to another users posts by sending their friends post to themselves" do
+  it "other users can not grant visibility to another users posts by sending their friends post to themselves" do
     # setup: eve has a message. then, alice is connected to eve.
     # (meaning alice can not see the old post, but it exists in the DB)
     # bob takes eves message, changes the post author to himself

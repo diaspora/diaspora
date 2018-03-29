@@ -315,7 +315,7 @@ Fixes a possible Remote Code Execution ([CVE-2016-4658](https://cve.mitre.org/cg
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
 * Hide 'reshare' button on already reshared posts [#7169](https://github.com/diaspora/diaspora/pull/7169)
 * Only reload profile header when changing aspect memberships [#7183](https://github.com/diaspora/diaspora/pull/7183)
-* Fix visiblity on invitation modal when opening it from the stream [#7191](https://github.com/diaspora/diaspora/pull/7191)
+* Fix visibility on invitation modal when opening it from the stream [#7191](https://github.com/diaspora/diaspora/pull/7191)
 * Add avatar fallback on tags page [#7198](https://github.com/diaspora/diaspora/pull/7198)
 * Update notifications when changing the stream [#7199](https://github.com/diaspora/diaspora/pull/7199)
 * Fix 500 on mobile commented and liked streams [#7219](https://github.com/diaspora/diaspora/pull/7219)
