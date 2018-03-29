@@ -877,7 +877,7 @@ en:
           access: "%{name} has access to:"
           no_requirement: "%{name} requires no permissions"
         no_applications: "You have no authorized applications"
-        revoke_autorization: "Revoke"
+        revoke_authorization: "Revoke"
         tos: "See the application's terms of service"
         policy: "See the application's privacy policy"
       scopes:
