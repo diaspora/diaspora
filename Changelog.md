@@ -113,7 +113,7 @@ after you've upgraded.
 * Display likes and reshares without login [#7583](https://github.com/diaspora/diaspora/pull/7583)
 * Fix invalid data in the database for user data export [#7614](https://github.com/diaspora/diaspora/pull/7614)
 * Fix local migration run without old private key [#7558](https://github.com/diaspora/diaspora/pull/7558)
-* Fix export not downloadable because the filename was resetted on access [#7622](https://github.com/diaspora/diaspora/pull/7622)
+* Fix export not downloadable because the filename was reset on access [#7622](https://github.com/diaspora/diaspora/pull/7622)
 * Delete invalid oEmbed caches with binary titles [#7620](https://github.com/diaspora/diaspora/pull/7620)
 * Delete invalid diaspora IDs from friendica [#7630](https://github.com/diaspora/diaspora/pull/7630)
 * Cleanup relayables where the signature is missing [#7637](https://github.com/diaspora/diaspora/pull/7637)
