@@ -439,7 +439,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 
 This release makes diaspora\* a OpenID Connect provider. This means you can authenticate to third parties with your diaspora\* account and let
 them act as your diaspora\* account on your behalf. This feature is still considered in early development, we still expect edge cases and advanced
-features of the specificiation to not be handled correctly or be missing. But we expect a basic OpenID Connect compliant client to work. Please submit issues!
+features of the specifications to not be handled correctly or be missing. But we expect a basic OpenID Connect compliant client to work. Please submit issues!
 We will also most likely still change the authorization scopes we offer and started with a very minimal set.
 Most work still required is on documentation as well as designing and implementing the data API for all of Diaspora's functionality.
 Contributions are very welcome, the hard work is done!
