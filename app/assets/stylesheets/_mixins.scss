@@ -44,8 +44,8 @@ $default-border-radius: 3px;
     transition : $type $speed $easing;
 }
 
-@mixin animate($name, $speed:$speed, $occurances:"") {
-    animation : $name $speed $occurances;
+@mixin animate($name, $speed:$speed, $occurrences:"") {
+    animation : $name $speed $occurrences;
 }
 
 @mixin animation($name, $speed:0.2s, $easing:ease-in-out) {
