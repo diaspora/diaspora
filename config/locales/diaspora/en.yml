@@ -33,7 +33,7 @@ en:
   _terms: "Terms"
   _statistics: "Statistics"
 
-  # For reference translation; the real ActiveRecord English transations are actually
+  # For reference translation; the real ActiveRecord English translations are actually
   # in the en-US, en-GB, and en-AU yml files.
   activerecord:
     errors:
