@@ -5,7 +5,7 @@
  * of another users profile or the contact page.
  *
  * updates to the list of aspects are immediately propagated to the server, and
- * the results are dislpayed as flash messages.
+ * the results are displayed as flash messages.
  */
 app.views.AspectMembership = app.views.Base.extend({
   templateName: "aspect_membership_dropdown",
