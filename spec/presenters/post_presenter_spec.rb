@@ -124,7 +124,7 @@ describe PostPresenter do
     end
 
     context "with posts without text" do
-      it "displays a messaage with the post class" do
+      it "displays a message with the post class" do
         sm = double(message: double(present?: false), author: bob.person, author_name: bob.person.name)
         presenter.post = sm
         expect(presenter.send(:title)).to eq("A post from #{sm.author.name}")
