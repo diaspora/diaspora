@@ -5,7 +5,7 @@
 # JSON serialization happens.
 module SerializerPostProcessing
   # serializable_object output is used in AMS to produce a hash from input object that is passed to JSON serializer.
-  # serializable_object of ActiveModel::Serializer is not documented as officialy available API
+  # serializable_object of ActiveModel::Serializer is not documented as officially available API
   # NOTE: if we ever move to AMS 0.10, this method was renamed there to serializable_hash
   def serializable_object(options={})
     modify_serializable_object(super)
