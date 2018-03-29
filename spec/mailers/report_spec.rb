@@ -49,7 +49,7 @@ describe Report, type: :mailer do
       expect(ReportMailer.default[:from].to_s).to eq("\"#{pod_name}\" <#{AppConfig.mail.sender_address}>")
     end
 
-    it "should send mail in recipent's prefered language" do
+    it "should send mail in recipient's prefered language" do
       ReportMailer.new_report(@post_report.id).each(&:deliver_now)
       expect(ActionMailer::Base.deliveries[0].subject).to match("Ein neuer post wurde als anstößig markiert")
       expect(ActionMailer::Base.deliveries[1].subject).to match("A new post was marked as offensive")

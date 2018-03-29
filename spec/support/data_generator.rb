@@ -37,7 +37,7 @@ class DataGenerator
     notifications
     blocks
     service
-    private_post_as_receipient
+    private_post_as_recipient
     tag_following
     generic_person_data
     remote_mutual_friend
@@ -78,7 +78,7 @@ class DataGenerator
     FactoryGirl.create(:service, user: user)
   end
 
-  def private_post_as_receipient
+  def private_post_as_recipient
     friend = mutual_friend
     friend.post(
       :status_message,
