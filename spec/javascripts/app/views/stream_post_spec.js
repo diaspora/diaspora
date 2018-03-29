@@ -93,7 +93,7 @@ describe("app.views.StreamPost", function(){
     });
 
     context("og_html", function(){
-      it("provides opengraph preview based on the model reponse", function(){
+      it("provides opengraph preview based on the model response", function(){
         this.statusMessage.set({"open_graph_cache" : open_graph_cache});
 
         var view = new app.views.StreamPost({model : this.statusMessage}).render();

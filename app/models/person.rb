@@ -183,7 +183,7 @@ class Person < ApplicationRecord
   #   Person.new do |p|
   #     p.profile = nil
   #   end
-  # will not work!  The nil profile will be overriden with an empty one.
+  # will not work!  The nil profile will be overridden with an empty one.
   def initialize(params={})
     profile_set = params.has_key?(:profile) || params.has_key?("profile")
     params[:profile_attributes] = params.delete(:profile) if params.has_key?(:profile) && params[:profile].is_a?(Hash)

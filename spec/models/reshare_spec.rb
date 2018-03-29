@@ -79,7 +79,7 @@ describe Reshare, type: :model do
     let(:sfw_reshare) { build(:reshare, root: sfw) }
     let(:nsfw_reshare) { build(:reshare, root: nsfw) }
 
-    it "deletates #nsfw to the root post" do
+    it "delegates #nsfw to the root post" do
       expect(sfw_reshare.nsfw).not_to be true
       expect(nsfw_reshare.nsfw).to be_truthy
     end

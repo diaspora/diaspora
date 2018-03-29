@@ -507,7 +507,7 @@ describe("app.views.Publisher", function() {
         // simulates the event object
         var evt = $.Event("keydown", { which: Keycodes.ENTER });
 
-        // should return false in order to avoid the form submition
+        // should return false in order to avoid the form submission
         expect(this.view.avoidEnter(evt)).toBeFalsy();
       });
     });

@@ -353,7 +353,7 @@ describe Person, :type => :model do
     before do
       @user2 = FactoryGirl.create(:user)
       @aspect = @user.aspects.create(:name => "Dudes")
-      @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
+      @aspect2 = @user2.aspects.create(:name => "Absence of Babes")
     end
     it 'should not delete an orphaned contact' do
       @user.contacts.create(:person => @person, :aspects => [@aspect])

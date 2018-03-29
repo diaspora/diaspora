@@ -188,7 +188,7 @@ describe Post, :type => :model do
         end
       end
 
-      context "when the user doens't have a participation on a post" do
+      context "when the user doesn't have a participation on a post" do
         before do
           FactoryGirl.create(:status_message)
         end

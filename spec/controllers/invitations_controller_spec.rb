@@ -143,7 +143,7 @@ describe InvitationsController, type: :controller do
   end
 
   describe 'redirect logged out users to the sign in page' do
-    it 'redriects #new' do
+    it 'redirects #new' do
       get :new
       expect(response).to be_redirect
       expect(response).to redirect_to new_user_session_path

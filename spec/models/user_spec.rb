@@ -453,11 +453,11 @@ describe User, :type => :model do
     end
   end
 
-  describe '#process_invite_acceptence' do
+  describe '#process_invite_acceptance' do
     it 'sets the inviter on user' do
       inv = InvitationCode.create(:user => bob)
       user = FactoryGirl.build(:user)
-      user.process_invite_acceptence(inv)
+      user.process_invite_acceptance(inv)
       expect(user.invited_by_id).to eq(bob.id)
     end
   end

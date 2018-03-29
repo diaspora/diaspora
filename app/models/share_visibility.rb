@@ -29,12 +29,12 @@ class ShareVisibility < ApplicationRecord
     user_ids -= ShareVisibility.for_shareable(share).where(user_id: user_ids).pluck(:user_id)
     return false if user_ids.empty?
 
-    create_visilities(user_ids, share)
+    create_visibilities(user_ids, share)
   end
 
   private
 
-  private_class_method def self.create_visilities(user_ids, share)
+  private_class_method def self.create_visibilities(user_ids, share)
     if AppConfig.postgres?
       user_ids.each do |user_id|
         ShareVisibility.find_or_create_by(

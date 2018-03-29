@@ -12,7 +12,7 @@ class AccountDeleter
   # - NotificationActors
   #
   # Given that the User in question will be tombstoned, all of the
-  # above will come from an anonomized account (via the UI).
+  # above will come from an anonymized account (via the UI).
   # The deleted user will appear as "Deleted Account" in
   # the interface.
 
@@ -72,7 +72,7 @@ class AccountDeleter
     user.contacts.destroy_all
   end
 
-  # Currently this would get deleted due to the db foreign key constrainsts,
+  # Currently this would get deleted due to the db foreign key constraints,
   # but we'll keep this method here for completeness
   def remove_share_visibilities_on_contacts_posts
     ShareVisibility.for_a_user(user).find_each(batch_size: 20, &:destroy)

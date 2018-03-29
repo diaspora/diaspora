@@ -14,7 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     if @user.sign_up
       flash[:notice] = t("registrations.create.success")
-      @user.process_invite_acceptence(invite) if invite.present?
+      @user.process_invite_acceptance(invite) if invite.present?
       @user.seed_aspects
       @user.send_welcome_message
       sign_in_and_redirect(:user, @user)

@@ -45,7 +45,7 @@ describe ShareVisibility, type: :model do
       end
 
       describe ".for_a_user" do
-        it "searches for share visibilies for a user" do
+        it "searches for share visibilities for a user" do
           expect(ShareVisibility.for_a_user(bob).count).to eq(2)
           expect(ShareVisibility.for_a_user(bob)).to eq(ShareVisibility.where(user_id: bob.id).to_a)
         end

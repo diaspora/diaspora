@@ -84,7 +84,7 @@ describe("app.views.AspectCreate", function() {
         /* jshint camelcase: true */
       });
 
-      context("with a successfull request", function() {
+      context("with a successful request", function() {
         beforeEach(function() {
           this.response = {
             status: 200,

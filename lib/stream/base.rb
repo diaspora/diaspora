@@ -12,7 +12,7 @@ class Stream::Base
     self.publisher = Publisher.new(self.user, publisher_opts)
   end
 
-  #requied to implement said stream
+  #required to implement said stream
   def link(opts={})
     'change me in lib/base_stream.rb!'
   end

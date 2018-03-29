@@ -115,7 +115,7 @@ describe AspectsController, :type => :controller do
     end
 
     context "with no auto follow back aspect" do
-      it "destoys the aspect" do
+      it "destroys the aspect" do
         expect(alice.aspects.to_a).to include @alices_aspect_1
         post :destroy, params: {id: @alices_aspect_1.id}
         expect(alice.reload.aspects.to_a).not_to include @alices_aspect_1
@@ -135,7 +135,7 @@ describe AspectsController, :type => :controller do
         alice.save
       end
 
-      it "destoys the aspect" do
+      it "destroys the aspect" do
         expect(alice.aspects.to_a).to include @alices_aspect_1
         post :destroy, params: {id: @alices_aspect_1.id}
         expect(alice.reload.aspects.to_a).not_to include @alices_aspect_1

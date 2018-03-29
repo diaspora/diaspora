@@ -209,7 +209,7 @@ describe PostService do
         let(:ids) { (1..4).map {|i| Person.maximum(:id) + i }.shuffle }
 
         before do
-          # in case when post_author has't been instantiated before this context, specify id
+          # in case when post_author hasn't been instantiated before this context, specify id
           # in order to avoid id conflict with the people generated here
           post_author_attributes.merge!(id: ids.max + 1)
         end

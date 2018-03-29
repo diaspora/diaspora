@@ -173,7 +173,7 @@ shared_examples_for "messages which can't be send without sharing" do
         end
 
         it_behaves_like "it retracts relayable object" do
-          # case for to-downsteam federation
+          # case for to-downstream federation
           let(:target_object) {
             FactoryGirl.create(:comment, author: remote_user_on_pod_c.person, post: remote_parent)
           }
@@ -189,7 +189,7 @@ shared_examples_for "messages which can't be send without sharing" do
         end
 
         it_behaves_like "it retracts relayable object" do
-          # case for to-downsteam federation
+          # case for to-downstream federation
           let(:target_object) {
             FactoryGirl.create(:like, author: remote_user_on_pod_c.person, target: remote_parent)
           }

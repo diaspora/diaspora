@@ -1,7 +1,7 @@
 # 0.8.0.0
 
 ## Refactor
-* Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatiblilty [#7581](https://github.com/diaspora/diaspora/pull/7581)
+* Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581)
 
 ## Bug fixes
 
@@ -28,7 +28,7 @@
 
 ## Bug fixes
 * Prevent duplicate mention notifications when the post is received twice [#7721](https://github.com/diaspora/diaspora/pull/7721)
-* Fixed a compatiblitiy issue with non-diaspora\* webfingers [#7718](https://github.com/diaspora/diaspora/pull/7718)
+* Fixed a compatibility issue with non-diaspora\* webfingers [#7718](https://github.com/diaspora/diaspora/pull/7718)
 * Don't retry federation for accounts without a valid public key [#7717](https://github.com/diaspora/diaspora/pull/7717)
 * Fix stream generation for tagged posts with many followed tags [#7715](https://github.com/diaspora/diaspora/pull/7715)
 * Fix incomplete Occitan date localizations [#7731](https://github.com/diaspora/diaspora/pull/7731)
@@ -113,7 +113,7 @@ after you've upgraded.
 * Display likes and reshares without login [#7583](https://github.com/diaspora/diaspora/pull/7583)
 * Fix invalid data in the database for user data export [#7614](https://github.com/diaspora/diaspora/pull/7614)
 * Fix local migration run without old private key [#7558](https://github.com/diaspora/diaspora/pull/7558)
-* Fix export not downloadable because the filename was resetted on access [#7622](https://github.com/diaspora/diaspora/pull/7622)
+* Fix export not downloadable because the filename was reset on access [#7622](https://github.com/diaspora/diaspora/pull/7622)
 * Delete invalid oEmbed caches with binary titles [#7620](https://github.com/diaspora/diaspora/pull/7620)
 * Delete invalid diaspora IDs from friendica [#7630](https://github.com/diaspora/diaspora/pull/7630)
 * Cleanup relayables where the signature is missing [#7637](https://github.com/diaspora/diaspora/pull/7637)
@@ -303,7 +303,7 @@ Fixes a possible Remote Code Execution ([CVE-2016-4658](https://cve.mitre.org/cg
 * Force jasmine fails on syntax errors [#7185](https://github.com/diaspora/diaspora/pull/7185)
 * Don't display mail-related view content if it is disabled in the pod's config [#7190](https://github.com/diaspora/diaspora/pull/7190)
 * Use typeahead.js from rails-assets.org [#7192](https://github.com/diaspora/diaspora/pull/7192)
-* Refactor ShareVisibilitesController to use PostService [#7196](https://github.com/diaspora/diaspora/pull/7196)
+* Refactor ShareVisibilitiesController to use PostService [#7196](https://github.com/diaspora/diaspora/pull/7196)
 * Unify desktop and mobile head elements [#7194](https://github.com/diaspora/diaspora/pull/7194) [#7209](https://github.com/diaspora/diaspora/pull/7209)
 * Refactor flash messages on ajax errors for comments, likes, reshares and aspect memberships [#7202](https://github.com/diaspora/diaspora/pull/7202)
 * Only require AWS-module for fog [#7201](https://github.com/diaspora/diaspora/pull/7201)
@@ -315,7 +315,7 @@ Fixes a possible Remote Code Execution ([CVE-2016-4658](https://cve.mitre.org/cg
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
 * Hide 'reshare' button on already reshared posts [#7169](https://github.com/diaspora/diaspora/pull/7169)
 * Only reload profile header when changing aspect memberships [#7183](https://github.com/diaspora/diaspora/pull/7183)
-* Fix visiblity on invitation modal when opening it from the stream [#7191](https://github.com/diaspora/diaspora/pull/7191)
+* Fix visibility on invitation modal when opening it from the stream [#7191](https://github.com/diaspora/diaspora/pull/7191)
 * Add avatar fallback on tags page [#7198](https://github.com/diaspora/diaspora/pull/7198)
 * Update notifications when changing the stream [#7199](https://github.com/diaspora/diaspora/pull/7199)
 * Fix 500 on mobile commented and liked streams [#7219](https://github.com/diaspora/diaspora/pull/7219)
@@ -374,7 +374,7 @@ Note: Although this is a minor release, the configuration file changed because t
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
-* The "subscribe" indicator on a post now gets toggled when you like or rehsare a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
+* The "subscribe" indicator on a post now gets toggled when you like or reshare a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
 * Add OpenGraph video support [#7043](https://github.com/diaspora/diaspora/pull/7043)
 * You'll now get redirected to the invites page if you follow an invitation but you're already logged in [#7061](https://github.com/diaspora/diaspora/pull/7061)
 * Add support for setting BOSH access protocol via chat configuration [#7100](https://github.com/diaspora/diaspora/pull/7100)
@@ -439,7 +439,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 
 This release makes diaspora\* a OpenID Connect provider. This means you can authenticate to third parties with your diaspora\* account and let
 them act as your diaspora\* account on your behalf. This feature is still considered in early development, we still expect edge cases and advanced
-features of the specificiation to not be handled correctly or be missing. But we expect a basic OpenID Connect compliant client to work. Please submit issues!
+features of the specifications to not be handled correctly or be missing. But we expect a basic OpenID Connect compliant client to work. Please submit issues!
 We will also most likely still change the authorization scopes we offer and started with a very minimal set.
 Most work still required is on documentation as well as designing and implementing the data API for all of Diaspora's functionality.
 Contributions are very welcome, the hard work is done!
@@ -506,7 +506,7 @@ The command will report queues that still have jobs and launch sidekiq process f
 * Replace sidetiq with sidekiq-cron [#6616](https://github.com/diaspora/diaspora/pull/6616)
 * Refactor mobile comment section [#6509](https://github.com/diaspora/diaspora/pull/6509)
 * Set vertical resize as default for all textareas [#6654](https://github.com/diaspora/diaspora/pull/6654)
-* Unifiy max-widths and page layouts [#6675](https://github.com/diaspora/diaspora/pull/6675)
+* Unify max-widths and page layouts [#6675](https://github.com/diaspora/diaspora/pull/6675)
 * Enable autosizing for all textareas [#6674](https://github.com/diaspora/diaspora/pull/6674)
 * Stream faces are gone [#6686](https://github.com/diaspora/diaspora/pull/6686)
 * Refactor mobile javascript and add tests [#6394](https://github.com/diaspora/diaspora/pull/6394)
@@ -1128,7 +1128,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 
 # 0.4.1.3
 
-* Update Redcarped, fixes [OSVDB-120415](http://osvdb.org/show/osvdb/120415).
+* Update Redcarpet, fixes [OSVDB-120415](http://osvdb.org/show/osvdb/120415).
 
 # 0.4.1.2
 
@@ -1200,7 +1200,7 @@ Read more about [specifying arguments to Rake tasks](http://stackoverflow.com/a/
 * Fix padding in user menu [#5047](https://github.com/diaspora/diaspora/pull/5047)
 * Fix self-XSS when renaming an aspect [#5048](https://github.com/diaspora/diaspora/pull/5048)
 * Fix live updating when renaming an aspect [#5049](https://github.com/diaspora/diaspora/pull/5049)
-* Use double quotes when embedding translations into Javascript [#5055](https://github.com/diaspora/diaspora/issues/5055)
+* Use double quotes when embedding translations into JavaScript [#5055](https://github.com/diaspora/diaspora/issues/5055)
 * Fix regression in mobile sign-in ([commit](https://github.com/diaspora/diaspora/commit/4a2836b108f8a9eb6f46ca58cfcb7b23f40bb076))
 * Set mention notification as read when viewing post [#5006](https://github.com/diaspora/diaspora/pull/5006)
 * Set sharing notification as read when viewing profile [#5009](https://github.com/diaspora/diaspora/pull/5009)
@@ -1289,7 +1289,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 * Hit Nominatim via https [#4968](https://github.com/diaspora/diaspora/pull/4968)
 
 ## Features
-* You can report a single post or comment by clicking the correct icon in the controler section [#4517](https://github.com/diaspora/diaspora/pull/4517) [#4781](https://github.com/diaspora/diaspora/pull/4781)
+* You can report a single post or comment by clicking the correct icon in the controller section [#4517](https://github.com/diaspora/diaspora/pull/4517) [#4781](https://github.com/diaspora/diaspora/pull/4781)
 * Add permalinks for comments [#4577](https://github.com/diaspora/diaspora/pull/4577)
 * New menu for the mobile version [#4673](https://github.com/diaspora/diaspora/pull/4673)
 * Added comment count to statistic to enable calculations of posts/comments ratios [#4799](https://github.com/diaspora/diaspora/pull/4799)
@@ -1532,7 +1532,7 @@ Updated:
 * Change image to ajax-loader when closing lightbox [#3229](https://github.com/diaspora/diaspora/issues/3229)
 * Fix pointer cursor on the file upload button [#4349](https://github.com/diaspora/diaspora/pull/4349)
 * Resize preview button [#4355](https://github.com/diaspora/diaspora/pull/4355)
-* Fix compability problem with MySQL 5.6 [#4312](https://github.com/diaspora/diaspora/issues/4312)
+* Fix compatibility problem with MySQL 5.6 [#4312](https://github.com/diaspora/diaspora/issues/4312)
 * Don't collapse the post preview [#4346](https://github.com/diaspora/diaspora/issues/4346)
 * Improve mobile usability [#4354](https://github.com/diaspora/diaspora/pull/4354)
 * Descending text is no longer cut off in orange welcome banner [#4377](https://github.com/diaspora/diaspora/issues/4377)
@@ -1625,8 +1625,8 @@ Updated:
 * Refactored config/ directory [#4144](https://github.com/diaspora/diaspora/pull/4145).
 * Drop misleading fallback donation form. [Proposal](https://www.loomio.org/discussions/1045?proposal=2722)
 * Update Typhoeus to 0.6.3 and refactor HydraWrapper. [#4162](https://github.com/diaspora/diaspora/pull/4162)
-* Bump recomended Ruby version to 1.9.3-p448, see [Ruby news](http://www.ruby-lang.org/en/news/2013/06/27/hostname-check-bypassing-vulnerability-in-openssl-client-cve-2013-4073/).
-* Remove length restriciton on GUIDs in the database schema [#4249](https://github.com/diaspora/diaspora/pull/4249)
+* Bump recommended Ruby version to 1.9.3-p448, see [Ruby news](http://www.ruby-lang.org/en/news/2013/06/27/hostname-check-bypassing-vulnerability-in-openssl-client-cve-2013-4073/).
+* Remove length restriction on GUIDs in the database schema [#4249](https://github.com/diaspora/diaspora/pull/4249)
 
 ## Bug fixes
 
@@ -1637,7 +1637,7 @@ Updated:
 * Fix tags ordering in chrome [#4133](https://github.com/diaspora/diaspora/issues/4133)
 * Fix src URL for oEmbed iFrame [#4178](https://github.com/diaspora/diaspora/pull/4178)
 * Add back-to-top button on tag and user pages [#4185](https://github.com/diaspora/diaspora/issues/4185)
-* Fix reopened issue by changing the comment/post submit keyboard sortcut to ctrl+enter from shift+enter [#3897](https://github.com/diaspora/diaspora/issues/3897)
+* Fix reopened issue by changing the comment/post submit keyboard shortcut to ctrl+enter from shift+enter [#3897](https://github.com/diaspora/diaspora/issues/3897)
 * Show medium avatar in hovercard [#4203](https://github.com/diaspora/diaspora/pull/4203)
 * Fix posting to Twitter [#2758](https://github.com/diaspora/diaspora/issues/2758)
 * Don't show hovercards for current user in comments [#3999](https://github.com/diaspora/diaspora/issues/3999)
@@ -1840,7 +1840,7 @@ everything is set up.
 * Add the ability to upload photos from the mobile site. [#4004](https://github.com/diaspora/diaspora/issues/4004)
 * Show timestamp when hovering on comment time-ago string. [#4042](https://github.com/diaspora/diaspora/issues/4042)
 * If sharing a post with photos to Facebook, always include URL to post [#3706](https://github.com/diaspora/diaspora/issues/3706)
-* Add possibiltiy to upload multiple photos from mobile. [#4067](https://github.com/diaspora/diaspora/issues/4067)
+* Add possibility to upload multiple photos from mobile. [#4067](https://github.com/diaspora/diaspora/issues/4067)
 * Add hotkeys to navigate in stream [#4089](https://github.com/diaspora/diaspora/pull/4089)
 * Add a brief explanatory text about external services connections to services index page [#3064](https://github.com/diaspora/diaspora/issues/3064)
 * Add a preview for posts in the stream [#4099](https://github.com/diaspora/diaspora/issues/4099)
@@ -1986,7 +1986,7 @@ everything is set up.
 * jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
 * activerecord-import 0.2.11 -> 0.3.1
 * asset_sync 0.5.0 -> 0.5.4
-* bootstap-sass 2.1.1.0 -> 2.2.2.0
+* bootstrap-sass 2.1.1.0 -> 2.2.2.0
 * carrierwave 0.7.1 -> 0.8.0
 * configurate 0.0.1 -> 0.0.2
 * factory_girl_rails 4.1.0 -> 4.2.0
@@ -2138,7 +2138,7 @@ Fix exception when the root of a reshare of a reshare got deleted [#3546](https:
 
 # 0.0.1.1
 
-* Fix syntax error in French Javascript pluralization rule.
+* Fix syntax error in French JavaScript pluralization rule.
 
 # 0.0.1.0
 
@@ -2146,7 +2146,7 @@ Fix exception when the root of a reshare of a reshare got deleted [#3546](https:
 
 Copy over config/diaspora.yml.example to config/diaspora.yml and migrate your settings! An updated Heroku guide including basic hints on howto migrate is [here](http://wiki.diasporafoundation.org/Installing_on_Heroku).
 
-The new configuration system allows all possible settings to be overriden by environment variables. This makes it possible to deploy heroku without checking any credentials into git. Read the top of `config/diaspora.yml.example` for an explanation on how to convert the setting names to environment variables.
+The new configuration system allows all possible settings to be overridden by environment variables. This makes it possible to deploy heroku without checking any credentials into git. Read the top of `config/diaspora.yml.example` for an explanation on how to convert the setting names to environment variables.
 
 ### Environment variable changes:
 

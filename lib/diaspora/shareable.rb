@@ -4,7 +4,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-# the point of this object is to centralize the simmilarities of Photo and Post,
+# the point of this object is to centralize the similarities of Photo and Post,
 # as they used to be the same class
 module Diaspora
   module Shareable

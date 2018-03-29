@@ -14,14 +14,14 @@ describe("app.models.Post", function() {
       });
 
       it("takes up until the new line", function(){
-        this.post.set({text : "love\nis avery powerful force"});
+        this.post.set({text : "love\nis a very powerful force"});
         expect(this.post.headline()).toBe("love");
       });
     });
 
     describe("body", function(){
       it("takes after the new line", function(){
-        this.post.set({text : "Inflamatory Title\nwith text that substantiates a less absolutist view of the title."});
+        this.post.set({text : "Inflammatory Title\nwith text that substantiates a less absolutist view of the title."});
         expect(this.post.body()).toBe("with text that substantiates a less absolutist view of the title.");
       });
     });

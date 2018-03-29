@@ -18,7 +18,7 @@ class Stream::Aspect < Stream::Base
   end
 
   # Filters aspects given the stream's aspect ids on initialization and the user.
-  # Will disclude aspects from inputted aspect ids if user is not associated with their
+  # Will exclude aspects from inputted aspect ids if user is not associated with their
   # target aspects.
   #
   # @return [ActiveRecord::Association<Aspect>] Filtered aspects given the stream's user
@@ -80,7 +80,7 @@ class Stream::Aspect < Stream::Base
     @all_aspects ||= aspects.size == user.aspects.size
   end
 
-  # This is perfomance optimization, as everyone in your aspect stream you have
+  # This is performance optimization, as everyone in your aspect stream you have
   # a contact.
   #
   # @param post [Post]

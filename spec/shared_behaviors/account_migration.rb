@@ -157,31 +157,31 @@ shared_examples_for "it updates user references" do
     expect(tag_following.reload.user).to eq(new_user)
   end
 
-  it "updates blocks refrences" do
+  it "updates blocks references" do
     block = FactoryGirl.create(:block, user: old_user)
     run_migration
     expect(block.reload.user).to eq(new_user)
   end
 
-  it "updates notification refrences" do
+  it "updates notification references" do
     notification = FactoryGirl.create(:notification, recipient: old_user)
     run_migration
     expect(notification.reload.recipient).to eq(new_user)
   end
 
-  it "updates report refrences" do
+  it "updates report references" do
     report = FactoryGirl.create(:report, user: old_user)
     run_migration
     expect(report.reload.user).to eq(new_user)
   end
 
-  it "updates authorization refrences" do
+  it "updates authorization references" do
     authorization = FactoryGirl.create(:auth_with_read, user: old_user)
     run_migration
     expect(authorization.reload.user).to eq(new_user)
   end
 
-  it "updates share visibility refrences" do
+  it "updates share visibility references" do
     share_visibility = FactoryGirl.create(:share_visibility, user: old_user)
     run_migration
     expect(share_visibility.reload.user).to eq(new_user)
