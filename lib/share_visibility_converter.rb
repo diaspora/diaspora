@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-#we dont have the environment, and it is not carring over from the migration
+#we dont have the environment, and it is not carrying over from the migration
 unless defined?(Person)
   class Person < ApplicationRecord
     belongs_to :owner, :class_name => 'User'
