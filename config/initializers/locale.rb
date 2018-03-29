@@ -25,7 +25,7 @@ DEFAULT_LANGUAGE = "en"
 
 
 # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-# Use the railtie configuration option to ensure overiding devise.
+# Use the railtie configuration option to ensure overriding devise.
 Diaspora::Application.config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 I18n.default_locale = DEFAULT_LANGUAGE
 
