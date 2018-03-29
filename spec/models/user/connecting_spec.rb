@@ -124,7 +124,7 @@ describe User::Connecting, type: :model do
       }.to change(alice.contacts, :count).by(1)
     end
 
-    it "does not set mutual on intial share request" do
+    it "does not set mutual on initial share request" do
       alice.share_with(eve.person, alice.aspects.first)
       expect(alice.contacts.find_by(person_id: eve.person.id)).not_to be_mutual
     end
