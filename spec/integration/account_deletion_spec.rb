@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe "deleteing account", type: :request do
+describe "deleting account", type: :request do
   def account_removal_method
     AccountDeleter.new(person).perform!
     subject.reload
