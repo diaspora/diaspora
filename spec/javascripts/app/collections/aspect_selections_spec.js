@@ -44,7 +44,7 @@ describe("app.collections.AspectSelections", function() {
         this.aspects = new app.collections.AspectSelections([{name: "Work", selected: false}]);
       });
 
-      it("returns 'My aspects' when the apsect isn't selected", function() {
+      it("returns 'My aspects' when the aspect isn't selected", function() {
         expect(this.aspects.toSentence()).toEqual("My aspects");
       });
 
