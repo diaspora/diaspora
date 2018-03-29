@@ -2,7 +2,7 @@
 Feature: Mentions
   As user
   I want to mention another user and have a link to them
-  To show people that this person exsists.
+  To show people that this person exists.
 
   Scenario: A user mentions another user and it displays correctly
     Given following users exist:
