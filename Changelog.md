@@ -1986,7 +1986,7 @@ everything is set up.
 * jasmine 1.2.1 -> 1.3.1 (+ remove useless spec)
 * activerecord-import 0.2.11 -> 0.3.1
 * asset_sync 0.5.0 -> 0.5.4
-* bootstap-sass 2.1.1.0 -> 2.2.2.0
+* bootstrap-sass 2.1.1.0 -> 2.2.2.0
 * carrierwave 0.7.1 -> 0.8.0
 * configurate 0.0.1 -> 0.0.2
 * factory_girl_rails 4.1.0 -> 4.2.0
