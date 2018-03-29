@@ -279,7 +279,7 @@ describe Diaspora::MessageRenderer do
       expect(message(text).urls).to eql ["http://perdu.com/", "https://duckduckgo.com/"]
     end
 
-    it "extracts urls from continous markdown correctly" do
+    it "extracts urls from continuous markdown correctly" do
       text = "[![Image](https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt)](https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C)"
       expect(message(text).urls).to eq ["https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt", "https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C"]
     end
