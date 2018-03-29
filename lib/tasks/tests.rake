@@ -5,7 +5,7 @@ namespace :ci do
     task prepare_db: %w[db:create db:migrate]
     task prepare: %w[prepare_db assets:generate_error_pages]
 
-    desc "Run everyhting except cucumber"
+    desc "Run everything except cucumber"
     task other: %w[prepare tests:generate_fixtures spec jasmine:ci]
 
     desc "Run cucumber"
