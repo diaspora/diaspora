@@ -1840,7 +1840,7 @@ everything is set up.
 * Add the ability to upload photos from the mobile site. [#4004](https://github.com/diaspora/diaspora/issues/4004)
 * Show timestamp when hovering on comment time-ago string. [#4042](https://github.com/diaspora/diaspora/issues/4042)
 * If sharing a post with photos to Facebook, always include URL to post [#3706](https://github.com/diaspora/diaspora/issues/3706)
-* Add possibiltiy to upload multiple photos from mobile. [#4067](https://github.com/diaspora/diaspora/issues/4067)
+* Add possibility to upload multiple photos from mobile. [#4067](https://github.com/diaspora/diaspora/issues/4067)
 * Add hotkeys to navigate in stream [#4089](https://github.com/diaspora/diaspora/pull/4089)
 * Add a brief explanatory text about external services connections to services index page [#3064](https://github.com/diaspora/diaspora/issues/3064)
 * Add a preview for posts in the stream [#4099](https://github.com/diaspora/diaspora/issues/4099)
