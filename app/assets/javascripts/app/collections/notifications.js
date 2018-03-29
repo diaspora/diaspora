@@ -59,7 +59,7 @@ app.collections.Notifications = Backbone.Collection.extend({
     options = options || {};
     options.at = options.pushBack ? this.length : 0;
 
-    // Retreive back the new created models
+    // Retrieve back the new created models
     var models = [];
     var accu = function(model) { models.push(model); };
     this.on("add", accu);

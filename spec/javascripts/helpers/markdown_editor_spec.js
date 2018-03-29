@@ -73,7 +73,7 @@ describe("Diaspora.MarkdownEditor", function() {
       this.$el.find(".md-header").remove(".md-cancel");
     });
 
-    it("retreives the $.fn.markdown instance back", function() {
+    it("retrieves the $.fn.markdown instance back", function() {
       var fakeInstance = {$editor: $("body")};
       this.target.onShow(fakeInstance);
       expect(this.target.instance).toBe(fakeInstance);
