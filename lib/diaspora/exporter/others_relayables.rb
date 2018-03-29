@@ -5,7 +5,7 @@ module Diaspora
     # This class implements methods that allow to query relayables (comments, likes, participations,
     # poll_participations) of other people for posts of the given person.
     class OthersRelayables
-      # @param person_id [Integer] Database id of a person for whom we want to request relayalbes
+      # @param person_id [Integer] Database id of a person for whom we want to request relayables
       def initialize(person_id)
         @person_id = person_id
       end
