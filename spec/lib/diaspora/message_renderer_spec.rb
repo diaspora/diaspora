@@ -227,7 +227,7 @@ describe Diaspora::MessageRenderer do
 
   describe "#plain_text_without_markdown" do
     it 'does not remove markdown in links' do
-      text = "some text and here comes http://exampe.org/foo_bar_baz a link"
+      text = "some text and here comes http://example.org/foo_bar_baz a link"
       expect(message(text).plain_text_without_markdown).to eq text
     end
 
