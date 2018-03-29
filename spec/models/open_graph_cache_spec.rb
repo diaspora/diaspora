@@ -15,7 +15,7 @@ describe OpenGraphCache, type: :model do
               image:       double(url: "https://example.com/image/123.jpg"),
               title:       "Some article",
               type:        "article",
-              url:         "https://example.com/acticle/123-seo-foo",
+              url:         "https://example.com/article/123-seo-foo",
               video:       double(secure_url: "https://example.com/videos/123.html")
             )
           )
@@ -27,7 +27,7 @@ describe OpenGraphCache, type: :model do
         expect(ogc.image).to eq("https://example.com/image/123.jpg")
         expect(ogc.title).to eq("Some article")
         expect(ogc.ob_type).to eq("article")
-        expect(ogc.url).to eq("https://example.com/acticle/123-seo-foo")
+        expect(ogc.url).to eq("https://example.com/article/123-seo-foo")
         expect(ogc.video_url).to be_nil
       end
     end
@@ -41,7 +41,7 @@ describe OpenGraphCache, type: :model do
               image:       double(url: "https://example.com/image/123.jpg"),
               title:       "Some article",
               type:        "article",
-              url:         "https://example.com/acticle/123-seo-foo",
+              url:         "https://example.com/article/123-seo-foo",
               video:       double(secure_url: "https://bandcamp.com/EmbeddedPlayer/v=2/track=12/size=small")
             )
           )
@@ -53,7 +53,7 @@ describe OpenGraphCache, type: :model do
         expect(ogc.image).to eq("https://example.com/image/123.jpg")
         expect(ogc.title).to eq("Some article")
         expect(ogc.ob_type).to eq("article")
-        expect(ogc.url).to eq("https://example.com/acticle/123-seo-foo")
+        expect(ogc.url).to eq("https://example.com/article/123-seo-foo")
         expect(ogc.video_url).to eq("https://bandcamp.com/EmbeddedPlayer/v=2/track=12/size=small")
       end
     end
