@@ -106,7 +106,7 @@ class User < ApplicationRecord
     ConversationVisibility.where(person_id: self.person_id).sum(:unread)
   end
 
-  def process_invite_acceptence(invite)
+  def process_invite_acceptance(invite)
     self.invited_by = invite.user
     invite.use! unless AppConfig.settings.enable_registrations?
   end
