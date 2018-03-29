@@ -19,7 +19,7 @@ describe Notification, :type => :model do
     @note = Notification.new(@opts)
   end
 
-  it 'destoys the associated notification_actor' do
+  it 'destroys the associated notification_actor' do
     @note.save
     expect{@note.destroy}.to change(NotificationActor, :count).by(-1)
   end
