@@ -92,7 +92,7 @@ describe AccountDeleter do
   end
 
   describe "#delete_standard_user_associations" do
-    it 'removes all standard user associaltions' do
+    it 'removes all standard user associations' do
       @account_deletion.normal_ar_user_associates_to_delete.each do |asso|
         association_double = double
         expect(association_double).to receive(:ids).and_return([42])
@@ -111,7 +111,7 @@ describe AccountDeleter do
     before do
       @account_deletion.person = bob.person
     end
-    it 'removes all standard person associaltions' do
+    it 'removes all standard person associations' do
       @account_deletion.normal_ar_person_associates_to_delete.each do |asso|
         association_double = double
         expect(association_double).to receive(:ids).and_return([42])
