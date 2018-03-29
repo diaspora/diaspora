@@ -12,7 +12,7 @@ class AccountDeleter
   # - NotificationActors
   #
   # Given that the User in question will be tombstoned, all of the
-  # above will come from an anonomized account (via the UI).
+  # above will come from an anonymized account (via the UI).
   # The deleted user will appear as "Deleted Account" in
   # the interface.
 
