@@ -19,7 +19,7 @@ describe PollAnswer, :type => :model do
   end
 
   describe 'validation' do
-    it 'should validate pressence of answer' do
+    it 'should validate presence of answer' do
       answer = PollAnswer.new
       answer.valid?
       expect(answer.errors).to have_key(:answer)
