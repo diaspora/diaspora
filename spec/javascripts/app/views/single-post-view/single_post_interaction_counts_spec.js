@@ -120,7 +120,7 @@ describe("app.views.SinglePostInteractionCounts", function() {
         expect(this.view.model.interactions.likes.fetch).toHaveBeenCalled();
       });
 
-      it("triggers 'change' after a successfull fetch", function() {
+      it("triggers 'change' after a successful fetch", function() {
         spyOn(this.view.model.interactions.likes, "trigger");
         this.view._showAll("likes", this.view.model.interactions.likes);
         jasmine.Ajax.requests.mostRecent().respondWith({status: 200, responseText: "{\"id\": 1}"});
@@ -151,7 +151,7 @@ describe("app.views.SinglePostInteractionCounts", function() {
         expect(this.view.model.interactions.reshares.fetch).toHaveBeenCalled();
       });
 
-      it("triggers 'change' after a successfull fetch", function() {
+      it("triggers 'change' after a successful fetch", function() {
         spyOn(this.view.model.interactions.reshares, "trigger");
         this.view._showAll("reshares", this.view.model.interactions.reshares);
         jasmine.Ajax.requests.mostRecent().respondWith({status: 200, responseText: "{\"id\": 1}"});
