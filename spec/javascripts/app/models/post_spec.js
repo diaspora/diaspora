@@ -14,7 +14,7 @@ describe("app.models.Post", function() {
       });
 
       it("takes up until the new line", function(){
-        this.post.set({text : "love\nis avery powerful force"});
+        this.post.set({text : "love\nis a very powerful force"});
         expect(this.post.headline()).toBe("love");
       });
     });
