@@ -37,7 +37,7 @@ describe PersonPresenter do
     context "with a current_user" do
       let(:current_user) { FactoryGirl.create(:user) }
       let(:presenter){ PersonPresenter.new(person, current_user) }
-      # here private information == addtional user profile, because additional profile by default is private
+      # here private information == additional user profile, because additional profile by default is private
 
       it "doesn't share private information when the users aren't connected" do
         allow(current_user).to receive(:contact_for) { non_contact }
