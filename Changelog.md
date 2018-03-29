@@ -1200,7 +1200,7 @@ Read more about [specifying arguments to Rake tasks](http://stackoverflow.com/a/
 * Fix padding in user menu [#5047](https://github.com/diaspora/diaspora/pull/5047)
 * Fix self-XSS when renaming an aspect [#5048](https://github.com/diaspora/diaspora/pull/5048)
 * Fix live updating when renaming an aspect [#5049](https://github.com/diaspora/diaspora/pull/5049)
-* Use double quotes when embedding translations into Javascript [#5055](https://github.com/diaspora/diaspora/issues/5055)
+* Use double quotes when embedding translations into JavaScript [#5055](https://github.com/diaspora/diaspora/issues/5055)
 * Fix regression in mobile sign-in ([commit](https://github.com/diaspora/diaspora/commit/4a2836b108f8a9eb6f46ca58cfcb7b23f40bb076))
 * Set mention notification as read when viewing post [#5006](https://github.com/diaspora/diaspora/pull/5006)
 * Set sharing notification as read when viewing profile [#5009](https://github.com/diaspora/diaspora/pull/5009)
@@ -2138,7 +2138,7 @@ Fix exception when the root of a reshare of a reshare got deleted [#3546](https:
 
 # 0.0.1.1
 
-* Fix syntax error in French Javascript pluralization rule.
+* Fix syntax error in French JavaScript pluralization rule.
 
 # 0.0.1.0
 
