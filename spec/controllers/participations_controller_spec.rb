@@ -59,7 +59,7 @@ describe ParticipationsController, :type => :controller do
   describe '#destroy' do
     let(:post) { FactoryGirl.create(:status_message) }
 
-    context 'on a post you partecipate to' do
+    context 'on a post you participate to' do
       before { alice.participate! post }
 
       it 'should remove participation' do
@@ -69,7 +69,7 @@ describe ParticipationsController, :type => :controller do
       end
     end
 
-    context 'on a post you do not partecipate to' do
+    context 'on a post you do not participate to' do
       it 'says it is an unprocessable request' do
         delete :destroy, params: {post_id: post.id}
         expect(response.code).to eq('422')
