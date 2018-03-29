@@ -126,12 +126,12 @@ module Api
         session[:client_id] = @o_auth_application.client_id
         session[:response_type] = @response_type
         session[:redirect_uri] = @redirect_uri
-        session[:scopes] = scopes_as_space_seperated_values
+        session[:scopes] = scopes_as_space_separated_values
         session[:state] = params[:state]
         session[:nonce] = params[:nonce]
       end
 
-      def scopes_as_space_seperated_values
+      def scopes_as_space_separated_values
         @scopes.join(" ")
       end
 
@@ -164,7 +164,7 @@ module Api
         req = build_rack_request
         req.update_param("client_id", session[:client_id])
         req.update_param("redirect_uri", session[:redirect_uri])
-        req.update_param("response_type", response_type_as_space_seperated_values)
+        req.update_param("response_type", response_type_as_space_separated_values)
         req.update_param("scope", session[:scopes])
         req.update_param("state", session[:state])
         req.update_param("nonce", session[:nonce])
@@ -174,7 +174,7 @@ module Api
         Rack::Request.new(request.env)
       end
 
-      def response_type_as_space_seperated_values
+      def response_type_as_space_separated_values
         [*session[:response_type]].join(" ")
       end
 

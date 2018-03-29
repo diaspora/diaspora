@@ -38,13 +38,13 @@ describe NotificationsHelper, type: :helper do
         @note = double()
       end
 
-      it 'with two, does not comma seperate two actors' do
+      it 'with two, does not comma separate two actors' do
         allow(@note).to receive(:actors).and_return([@max, @sarah])
         expect(output.scan(/,/)).to be_empty
         expect(output.scan(/and/).count).to be 1
       end
 
-      it 'with three, comma seperates the first two, and and the last actor' do
+      it 'with three, comma separates the first two, and and the last actor' do
         allow(@note).to receive(:actors).and_return([@max, @sarah, @daniel])
         expect(output.scan(/,/).count).to be 2
         expect(output.scan(/and/).count).to be 1
