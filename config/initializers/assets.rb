@@ -3,7 +3,7 @@
 # Be sure to restart your server when you modify this file.
 
 # bootstrap-markdown plugin relies on rails-assets-bootstrap gem but we use
-# bootstrap-sass this line makes sure we exclude every asset comming
+# bootstrap-sass this line makes sure we exclude every asset coming
 # from rails-assets-bootstrap to prevent conflicts with bootstrap-sass
 
 # See https://github.com/tenex/rails-assets/issues/314
