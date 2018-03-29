@@ -1,7 +1,7 @@
 # 0.8.0.0
 
 ## Refactor
-* Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatiblilty [#7581](https://github.com/diaspora/diaspora/pull/7581)
+* Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581)
 
 ## Bug fixes
 
@@ -28,7 +28,7 @@
 
 ## Bug fixes
 * Prevent duplicate mention notifications when the post is received twice [#7721](https://github.com/diaspora/diaspora/pull/7721)
-* Fixed a compatiblitiy issue with non-diaspora\* webfingers [#7718](https://github.com/diaspora/diaspora/pull/7718)
+* Fixed a compatibility issue with non-diaspora\* webfingers [#7718](https://github.com/diaspora/diaspora/pull/7718)
 * Don't retry federation for accounts without a valid public key [#7717](https://github.com/diaspora/diaspora/pull/7717)
 * Fix stream generation for tagged posts with many followed tags [#7715](https://github.com/diaspora/diaspora/pull/7715)
 * Fix incomplete Occitan date localizations [#7731](https://github.com/diaspora/diaspora/pull/7731)
@@ -1532,7 +1532,7 @@ Updated:
 * Change image to ajax-loader when closing lightbox [#3229](https://github.com/diaspora/diaspora/issues/3229)
 * Fix pointer cursor on the file upload button [#4349](https://github.com/diaspora/diaspora/pull/4349)
 * Resize preview button [#4355](https://github.com/diaspora/diaspora/pull/4355)
-* Fix compability problem with MySQL 5.6 [#4312](https://github.com/diaspora/diaspora/issues/4312)
+* Fix compatibility problem with MySQL 5.6 [#4312](https://github.com/diaspora/diaspora/issues/4312)
 * Don't collapse the post preview [#4346](https://github.com/diaspora/diaspora/issues/4346)
 * Improve mobile usability [#4354](https://github.com/diaspora/diaspora/pull/4354)
 * Descending text is no longer cut off in orange welcome banner [#4377](https://github.com/diaspora/diaspora/issues/4377)
