@@ -506,7 +506,7 @@ The command will report queues that still have jobs and launch sidekiq process f
 * Replace sidetiq with sidekiq-cron [#6616](https://github.com/diaspora/diaspora/pull/6616)
 * Refactor mobile comment section [#6509](https://github.com/diaspora/diaspora/pull/6509)
 * Set vertical resize as default for all textareas [#6654](https://github.com/diaspora/diaspora/pull/6654)
-* Unifiy max-widths and page layouts [#6675](https://github.com/diaspora/diaspora/pull/6675)
+* Unify max-widths and page layouts [#6675](https://github.com/diaspora/diaspora/pull/6675)
 * Enable autosizing for all textareas [#6674](https://github.com/diaspora/diaspora/pull/6674)
 * Stream faces are gone [#6686](https://github.com/diaspora/diaspora/pull/6686)
 * Refactor mobile javascript and add tests [#6394](https://github.com/diaspora/diaspora/pull/6394)
