@@ -39,7 +39,7 @@ describe Profile, :type => :model do
         expect(profile.from_omniauth_hash(@from_omniauth)['bio']).to eq('this is my bio')
       end
 
-      it 'does not overwrite any exsisting profile fields' do
+      it 'does not overwrite any existing profile fields' do
         profile = Profile.new(:first_name => 'maxwell')
         expect(profile.from_omniauth_hash(@from_omniauth)['first_name']).to eq('maxwell')
       end
