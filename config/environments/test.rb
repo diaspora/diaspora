@@ -60,10 +60,13 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # set fake_data for pam, don't do real calls, just use fake data
-  Rpam2.fake_data = {
-    usernames: Set["pam_user1", "pam_user2"],
-    servicenames: Set["pam_test", "pam_test_controlled"],
-    password: "123456",
-    env: { email: "me@example.com" }
-  } if AppConfig.pam.enable?
+  if AppConfig.pam.enable?
+    Rpam2.fake_data =
+      {
+        usernames: Set["pam_user1", "pam_user2"],
+        servicenames: Set["pam_test", "pam_test_controlled"],
+        password: "123456",
+        env: { email: "me@example.com" }
+      }
+  end
 end
