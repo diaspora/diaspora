@@ -63,10 +63,10 @@ Rails.application.configure do
   if AppConfig.pam.enable?
     Rpam2.fake_data =
       {
-        usernames: Set["pam_user1", "pam_user2"],
+        usernames:    Set["pam_user1", "pam_user2"],
         servicenames: Set["pam_test", "pam_test_controlled"],
-        password: "123456",
-        env: { email: "me@example.com" }
+        password:     "123456",
+        env:          {email: "me@example.com"}
       }
   end
 end
