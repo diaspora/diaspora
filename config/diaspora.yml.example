@@ -673,8 +673,8 @@ configuration: ## Section
       #exim_fix: false
 
   pam:  ## Section
-    ## PAM authentication uses for the email generation the "email" pam variable
-    ## and as fallback bare_pod_uri
+    ## PAM authentication uses for the email generation the "email" environment
+    ## pam variable and as fallback the bare_pod_uri
     ## The pam environment variable "email" is provided by:
     ## https://github.com/devkral/pam_email_extractor
 
