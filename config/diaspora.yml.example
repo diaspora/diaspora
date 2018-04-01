@@ -684,7 +684,7 @@ configuration: ## Section
     #default_service: 'rpam'
 
     ## Name of the pam service used for checking if an username is free
-    ## to register (pam "account" section is evaluated) (null (disabled) by default)
+    ## to register (pam "account" section is evaluated) (null=disabled, default)
     #controlled_service: null
 
   ## Administrator settings
