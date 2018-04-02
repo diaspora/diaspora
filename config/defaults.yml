@@ -191,6 +191,10 @@ defaults:
       location: '/usr/sbin/sendmail'
       exim_fix: false
     message_bus_api_key:
+  pam:
+    enable: false
+    default_service: 'rpam'
+    controlled_service: null
   admins:
     account:
     podmin_email:
@@ -222,6 +226,10 @@ production:
   server:
     listen: 'unix:tmp/diaspora.sock'
 test:
+  pam:
+    enable: true
+    default_service: 'pam_test'
+    controlled_service: 'pam_test_controlled'
   environment:
     url: 'http://localhost:9887/'
     single_process_mode: true

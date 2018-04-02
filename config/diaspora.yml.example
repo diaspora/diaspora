@@ -672,6 +672,21 @@ configuration: ## Section
       ## Use exim and sendmail (default=false)
       #exim_fix: false
 
+  pam:  ## Section
+    ## PAM authentication uses for the email generation the "email" environment
+    ## pam variable and as fallback the bare_pod_uri
+    ## The pam environment variable "email" is provided by:
+    ## https://github.com/devkral/pam_email_extractor
+
+    #enable: true
+
+    ## Name of the pam service (pam "auth" section is evaluated)
+    #default_service: 'rpam'
+
+    ## Name of the pam service used for checking if an username is free
+    ## to register (pam "account" section is evaluated) (null=disabled, default)
+    #controlled_service: null
+
   ## Administrator settings
   admins: ## Section
 

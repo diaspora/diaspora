@@ -12,6 +12,21 @@ class ActionController::Responder
   end
 end
 
+module Devise
+  mattr_accessor :pam_authentication
+  @pam_authentication = false
+  mattr_accessor :pam_controlled_service
+  @pam_controlled_service = nil
+
+  module Strategies
+    class PamAuthenticatable
+      def valid?
+        super && ::Devise.pam_authentication
+      end
+    end
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -270,4 +285,26 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.pam_authentication = AppConfig.pam.enable?
+  if config.pam_authentication
+    begin
+      gem "devise_pam_authenticatable2"
+    rescue Gem::LoadError
+      Rails.logger.warn "PAM not available, install with --with pam"
+      config.pam_authentication = false
+    end
+  end
+
+  if config.pam_authentication
+    config.usernamefield          = "username"
+    config.emailfield             = "email"
+    config.check_at_sign          = true
+    # use pod uri instead
+    config.pam_default_suffix     = nil
+    # in worst case can handle nil
+    config.pam_default_service    = AppConfig.pam.default_service
+    # wants nil if feature should not be used
+    config.pam_controlled_service = AppConfig.pam.controlled_service
+  end
 end

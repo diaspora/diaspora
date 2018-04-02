@@ -4,11 +4,16 @@ rvm:
   - 2.4.2
   - 2.3.5
 
+bundler_args: --with pam
+
 env:
-  - DB=postgresql BUILD_TYPE=cucumber
-  - DB=mysql BUILD_TYPE=cucumber
-  - DB=postgresql BUILD_TYPE=other
-  - DB=mysql BUILD_TYPE=other
+  global:
+    - ALLOW_NOPAM=true
+  matrix:
+    - DB=postgresql BUILD_TYPE=cucumber
+    - DB=mysql BUILD_TYPE=cucumber
+    - DB=postgresql BUILD_TYPE=other
+    - DB=mysql BUILD_TYPE=other
 
 sudo: false
 cache:

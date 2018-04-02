@@ -966,6 +966,7 @@ describe User, :type => :model do
             reset_password_sent_at
             reset_password_token
             remember_created_at
+            remember_token
             sign_in_count
             current_sign_in_at
             last_sign_in_at

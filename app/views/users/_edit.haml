@@ -32,28 +32,31 @@
     .row
       .col-md-12
         %h3= t(".change_password")
-        = form_for @user, url: edit_user_path, html: {method: :put, class: "form-horizontal"} do |f|
-          - if (@user.errors.keys & %i(password password_confirmation current_password)).present?
-            = f.error_messages
-          .form-group
-            = f.label :current_password, t(".current_password"), class: "col-sm-6 control-label"
-            .col-sm-6
-              = f.password_field :current_password, placeholder: t(".current_password_expl"),
-                class: "form-control", autocomplete: "current-password"
-          .form-group
-            = f.label :password, t(".new_password"), class: "col-sm-6 control-label"
-            .col-sm-6
-              = f.password_field :password, placeholder: t(".character_minimum_expl"),
-                class: "form-control", autocomplete: "new-password"
-          .form-group
-            = f.label :password_confirmation, t("registrations.new.password_confirmation"),
-              class: "col-sm-6 control-label"
-            .col-sm-6
-              = f.password_field :password_confirmation, placeholder: t(".character_minimum_expl"),
-                class: "form-control", autocomplete: "new-password"
+        - if !use_pam? || @user.encrypted_password.present? || !@user.pam_managed_user?
+          = form_for @user, url: edit_user_path, html: {method: :put, class: "form-horizontal"} do |f|
+            - if (@user.errors.keys & %i[password password_confirmation current_password]).present?
+              = f.error_messages
+            .form-group
+              = f.label :current_password, t(".current_password"), class: "col-sm-6 control-label"
+              .col-sm-6
+                = f.password_field :current_password, placeholder: t(".current_password_expl"),
+                  class: "form-control", autocomplete: "current-password"
+            .form-group
+              = f.label :password, t(".new_password"), class: "col-sm-6 control-label"
+              .col-sm-6
+                = f.password_field :password, placeholder: t(".character_minimum_expl"),
+                  class: "form-control", autocomplete: "new-password"
+            .form-group
+              = f.label :password_confirmation, t("registrations.new.password_confirmation"),
+                class: "col-sm-6 control-label"
+              .col-sm-6
+                = f.password_field :password_confirmation, placeholder: t(".character_minimum_expl"),
+                  class: "form-control", autocomplete: "new-password"
 
-          .clearfix
-            = f.submit t(".change_password"), class: "btn btn-primary pull-right", name: "change_password"
+            .clearfix
+              = f.submit t(".change_password"), class: "btn btn-primary pull-right", name: "change_password"
+        - else
+          = t(".pam_account")
     %hr
 
     .row

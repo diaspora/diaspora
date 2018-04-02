@@ -62,6 +62,7 @@ en:
       updated_not_active: Your password has been changed successfully.
       edit:
         change_password: Change my password
+        pam_account: Password change not possible - authentication by pam
         new_password: New password
         confirm_password: Confirm password
       new:
