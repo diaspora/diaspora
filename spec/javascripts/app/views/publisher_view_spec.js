@@ -539,36 +539,36 @@ describe("app.views.Publisher", function() {
         this.view = new app.views.Publisher();
 
         // replace the uploader plugin with a dummy object
-        var upload_view = this.view.viewUploader;
+        var uploadView = this.view.viewUploader;
         this.uploader = {
-          onProgress: _.bind(upload_view.progressHandler, upload_view),
-          onSubmit:   _.bind(upload_view.submitHandler, upload_view),
-          onComplete: _.bind(upload_view.uploadCompleteHandler, upload_view)
+          onProgress: _.bind(uploadView.progressHandler, uploadView),
+          onUpload: _.bind(uploadView.uploadStartedHandler, uploadView),
+          onComplete: _.bind(uploadView.uploadCompleteHandler, uploadView)
         };
-        upload_view.uploader = this.uploader;
+        uploadView.uploader = this.uploader;
       });
 
-      context('progress', function() {
-        it('shows progress in percent', function() {
-          this.uploader.onProgress(null, 'test.jpg', 20, 100);
+      context("progress", function() {
+        it("shows progress in percent", function() {
+          this.uploader.onProgress("test.jpg", 20);
 
           var info = this.view.viewUploader.info;
-          expect(info.text()).toContain('test.jpg');
-          expect(info.text()).toContain('20%');
+          expect(info.text()).toContain("test.jpg");
+          expect(info.text()).toContain("20%");
         });
       });
 
-      context('submitting', function() {
+      context("submitting", function() {
         beforeEach(function() {
-          this.uploader.onSubmit(null, 'test.jpg');
+          this.uploader.onUpload(null, "test.jpg");
         });
 
-        it('adds a placeholder', function() {
+        it("adds a placeholder", function() {
           expect(this.view.wrapperEl.attr("class")).toContain("with_attachments");
           expect(this.view.photozoneEl.find("li").length).toBe(1);
         });
 
-        it('disables the publisher buttons', function() {
+        it("disables the publisher buttons", function() {
           expect(this.view.submitEl.prop("disabled")).toBeTruthy();
         });
       });
@@ -577,13 +577,20 @@ describe("app.views.Publisher", function() {
         beforeEach(function() {
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
+          /* eslint-disable camelcase */
           this.uploader.onComplete(null, 'test.jpg', {
             data: { photo: {
               id: '987',
-              unprocessed_image: { url: 'test.jpg' }
+              unprocessed_image: {
+                thumb_small: {url: "test.jpg"},
+                thumb_medium: {url: "test.jpg"},
+                thumb_large: {url: "test.jpg"},
+                scaled_full: {url: "test.jpg"}
+              }
             }},
             success: true });
         });
+        /* eslint-enable camelcase */
 
         it('shows it in text form', function() {
           var info = this.view.viewUploader.info;
@@ -613,14 +620,20 @@ describe("app.views.Publisher", function() {
         beforeEach(function() {
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
+          /* eslint-disable camelcase */
           this.uploader.onComplete(null, 'test.jpg', {
             data: { photo: {
               id: '987',
-              unprocessed_image: { url: 'test.jpg' }
+              unprocessed_image: {
+                thumb_small: {url: "test.jpg"},
+                thumb_medium: {url: "test.jpg"},
+                thumb_large: {url: "test.jpg"},
+                scaled_full: {url: "test.jpg"}
+              }
             }},
             success: false });
         });
-
+        /* eslint-enable camelcase */
         it('shows error message', function() {
           var info = this.view.viewUploader.info;
           expect(info.text()).toBe(Diaspora.I18n.t('photo_uploader.error', {file: 'test.jpg'}));

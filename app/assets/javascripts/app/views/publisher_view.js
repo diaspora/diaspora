@@ -284,13 +284,13 @@ app.views.Publisher = Backbone.View.extend({
   getUploadedPhotos: function() {
     var photos = [];
     $("li.publisher_photo img").each(function() {
-      var file = $(this).attr("src").substring("/uploads/images/".length);
+      var photo = $(this);
       photos.push(
         {
           "sizes": {
-            "small" : "/uploads/images/thumb_small_" + file,
-            "medium" : "/uploads/images/thumb_medium_" + file,
-            "large" : "/uploads/images/scaled_full_" + file
+            "small": photo.data("small"),
+            "medium": photo.attr("src"),
+            "large": photo.data("scaled")
           }
         }
       );

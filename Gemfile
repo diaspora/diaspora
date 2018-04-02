@@ -113,6 +113,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-corejs-typeahead",                    "1.1.1"
   gem "rails-assets-cropperjs",                           "1.2.1"
   gem "rails-assets-fine-uploader",                       "5.13.0"
+  gem "rails-assets-pica",                                "4.0.1"
 
   # jQuery plugins
 
