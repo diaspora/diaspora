@@ -30,10 +30,6 @@ describe Aspect, :type => :model do
       expect(aspect.contacts.size).to eq(1)
     end
 
-    it "has a contacts_visible? method" do
-      expect(alice.aspects.first.contacts_visible?).to be true
-    end
-
     it "sets an order_id" do
       aspect_2 = alice.aspects.create(name: "People")
       expect(aspect_2.order_id).to eq(2)

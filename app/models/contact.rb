@@ -47,17 +47,6 @@ class Contact < ApplicationRecord
     ).destroy_all
   end
 
-  def contacts
-    people = Person.arel_table
-    incoming_aspects = Aspect.where(
-      :user_id => self.person.owner_id,
-      :contacts_visible => true).joins(:contacts).where(
-        :contacts => {:person_id => self.user.person_id}).select('aspects.id')
-    incoming_aspect_ids = incoming_aspects.map{|a| a.id}
-    similar_contacts = Person.joins(:contacts => :aspect_memberships).where(
-      :aspect_memberships => {:aspect_id => incoming_aspect_ids}).where(people[:id].not_eq(self.user.person.id)).select('DISTINCT people.*')
-  end
-
   def mutual?
     sharing && receiving
   end
