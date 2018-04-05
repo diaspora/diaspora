@@ -31,7 +31,6 @@
             "type": "object",
             "properties": {
               "name": { "type": "string" },
-              "contacts_visible": { "type": "boolean" },
               "chat_enabled": { "type": "boolean" }
             },
             "required": [
