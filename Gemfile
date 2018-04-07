@@ -60,7 +60,7 @@ gem "autoprefixer-rails",     "8.2.0"
 gem "bootstrap-sass",         "3.3.7"
 gem "bootstrap-switch-rails", "3.3.3"
 gem "compass-rails",          "3.0.2"
-gem "sass-rails",             "5.0.6"
+gem "sass-rails",             "5.0.7"
 gem "sprockets-rails",        "3.2.1"
 
 # Database
