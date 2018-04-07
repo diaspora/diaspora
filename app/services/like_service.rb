@@ -28,7 +28,7 @@ class LikeService
   def unlike_post(post_id)
     likes = post_service.find!(post_id).likes
     likes = likes.order("author_id = #{user.person.id} DESC")
-    if likes.empty? && user.owns?(likes[0])
+    if !likes.empty? && user.owns?(likes[0])
       user.retract(likes[0])
       true
     else
