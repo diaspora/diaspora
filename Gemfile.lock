@@ -580,7 +580,7 @@ GEM
       rake
     raindrops (0.19.0)
     rake (12.3.1)
-    rb-fsevent (0.10.2)
+    rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redcarpet (3.4.0)
@@ -870,7 +870,7 @@ DEPENDENCIES
   rails-controller-testing (= 1.0.2)
   rails-i18n (= 5.1.1)
   rails-timeago (= 2.16.0)
-  rb-fsevent (= 0.10.2)
+  rb-fsevent (= 0.10.3)
   rb-inotify (= 0.9.10)
   redcarpet (= 3.4.0)
   redis (= 3.3.5)
