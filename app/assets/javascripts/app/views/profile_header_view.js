@@ -14,7 +14,6 @@ app.views.ProfileHeader = app.views.Base.extend({
 
   initialize: function(opts) {
     this.photos = _.has(opts, 'photos') ? opts.photos : null;
-    this.contacts = _.has(opts, 'contacts') ? opts.contacts : null;
     this.model.on("change", this.render, this);
     $("#mentionModal").on("modal:loaded", this.mentionModalLoaded.bind(this));
     $("#mentionModal").on("hidden.bs.modal", this.mentionModalHidden);
@@ -24,13 +23,11 @@ app.views.ProfileHeader = app.views.Base.extend({
     return _.extend({}, this.defaultPresenter(), {
       show_profile_btns: this._shouldShowProfileBtns(),
       show_photos: this._shouldShowPhotos(),
-      show_contacts: this._shouldShowContacts(),
       is_blocked: this.model.isBlocked(),
       is_sharing: this.model.isSharing(),
       is_receiving: this.model.isReceiving(),
       is_mutual: this.model.isMutual(),
       has_tags: this._hasTags(),
-      contacts: this.contacts,
       photos: this.photos
     });
   },
@@ -49,10 +46,6 @@ app.views.ProfileHeader = app.views.Base.extend({
 
   _shouldShowPhotos: function() {
     return (this.photos && this.photos > 0);
-  },
-
-  _shouldShowContacts: function() {
-    return (this.contacts && this.contacts > 0);
   },
 
   showMentionModal: function() {

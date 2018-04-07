@@ -61,17 +61,6 @@ class Contact < ApplicationRecord
     end
   end
 
-  def self.contact_contacts_for(user, person)
-    return none unless user
-
-    if person == user.person
-      user.contact_people
-    else
-      contact = user.contact_for(person)
-      contact.try(:contacts) || none
-    end
-  end
-
   # Follows back if user setting is set so
   def receive(_recipient_user_ids)
     user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !receiving
