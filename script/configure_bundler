@@ -28,8 +28,4 @@ if rails_env != "development"
   config("disable_shared_gems true")
 end
 
-if `gcc -dumpversion`.split(".").first.to_i >= 5
-  config("build.sigar \"--with-cppflags='-fgnu89-inline'\"")
-end
-
 puts "Bundler configured! Please run 'bin/bundle install' now."
