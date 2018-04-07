@@ -243,7 +243,7 @@ end
 
 group :development do
   # Automatic test runs
-  gem "guard",          "2.14.1", require: false
+  gem "guard",          "2.14.2", require: false
   gem "guard-cucumber", "2.1.2", require: false
   gem "guard-rspec",    "4.7.3", require: false
   gem "guard-rubocop",  "1.3.0", require: false
