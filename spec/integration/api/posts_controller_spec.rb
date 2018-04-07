@@ -136,7 +136,7 @@ describe Api::V1::PostsController do
 
       it "doesn't create the post" do
         json_body = JSON.parse(response.body)
-        expect(json_body["error"]).to eq("insufficient_scope")
+        expect(json_body["code"]).to eq(403)
       end
     end
   end
@@ -174,7 +174,7 @@ describe Api::V1::PostsController do
 
       it "doesn't delete the post" do
         json_body = JSON.parse(response.body)
-        expect(json_body["error"]).to eq("insufficient_scope")
+        expect(json_body["code"]).to eq(403)
         expect(response.status).to eq(403)
       end
     end

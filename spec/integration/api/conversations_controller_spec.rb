@@ -41,7 +41,7 @@ describe Api::V1::ConversationsController do
     context "without valid data" do
       it "fails at creating the conversation" do
         post api_v1_conversations_path, params: {access_token: access_token}
-        expect(response.status).to eq 400
+        expect(response.status).to eq 422
       end
     end
   end

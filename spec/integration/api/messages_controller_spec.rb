@@ -62,7 +62,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq 400
+        expect(response.status).to eq 422
       end
     end
 
