@@ -233,7 +233,6 @@ en:
       gender: "Gender"
       born: "Birthday"
       photos: "Photos"
-      contacts: "Contacts"
       posts: "Posts"
 
     conversation:

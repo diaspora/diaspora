@@ -24,9 +24,6 @@ app.pages.Profile = app.views.Base.extend({
     if (app.hasPreload("photos_count")) {
       this.photos = app.parsePreload("photos_count");
     }
-    if (app.hasPreload("contacts_count")) {
-      this.contacts = app.parsePreload("contacts_count");
-    }
 
     this.streamCollection = _.has(opts, "streamCollection") ? opts.streamCollection : null;
     this.streamViewClass = _.has(opts, "streamView") ? opts.streamView : null;
@@ -70,7 +67,6 @@ app.pages.Profile = app.views.Base.extend({
     return new app.views.ProfileHeader({
       model: this.model,
       photos: this.photos,
-      contacts: this.contacts
     });
   },
 

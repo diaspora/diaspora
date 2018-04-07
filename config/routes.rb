@@ -164,7 +164,6 @@ Rails.application.routes.draw do
   resources :people, only: %i(show index) do
     resources :status_messages, only: %i(new create)
     resources :photos, except:  %i(new update)
-    get :contacts
     get :stream
     get :hovercard
 

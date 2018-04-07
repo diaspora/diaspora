@@ -1,6 +1,7 @@
 # 0.7.5.0
 
 ## Refactor
+* Remove the 'make contacts in this aspect visible to each other' option [#7769](https://github.com/diaspora/diaspora/pull/7769)
 
 ## Bug fixes
 * Prefill conversation form on contacts page only with mutual contacts [#7744](https://github.com/diaspora/diaspora/pull/7744)
