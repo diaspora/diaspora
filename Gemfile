@@ -148,7 +148,7 @@ gem "twitter-text",      "2.1.0"
 
 # RTL support
 
-gem "string-direction", "1.2.0"
+gem "string-direction", "1.2.1"
 
 # Security Headers
 
