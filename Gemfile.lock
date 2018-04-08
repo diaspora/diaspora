@@ -293,7 +293,7 @@ GEM
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
-    hashdiff (0.3.6)
+    hashdiff (0.3.7)
     hashie (3.5.7)
     hitimes (1.2.6)
     http (3.0.0)
@@ -759,7 +759,7 @@ GEM
     webfinger (1.1.0)
       activesupport
       httpclient (>= 2.4)
-    webmock (3.0.1)
+    webmock (3.3.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -917,7 +917,7 @@ DEPENDENCIES
   unicorn-worker-killer (= 0.4.4)
   uuid (= 2.3.8)
   versionist (= 1.7.0)
-  webmock (= 3.0.1)
+  webmock (= 3.3.0)
   will_paginate (= 3.1.6)
 
 BUNDLED WITH
