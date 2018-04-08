@@ -12,6 +12,7 @@
 
 ## Features
 * Support fetching StatusMessage by Poll GUID [#7815](https://github.com/diaspora/diaspora/pull/7815)
+* Always include link to diaspora in facebook cross-posts [#7774](https://github.com/diaspora/diaspora/pull/7774)
 
 # 0.7.5.0
 
