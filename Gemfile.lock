@@ -553,8 +553,8 @@ GEM
     rails-assets-markdown-it-sanitizer (0.4.3)
     rails-assets-markdown-it-sub (1.0.0)
     rails-assets-markdown-it-sup (1.0.0)
-    rails-assets-perfect-scrollbar (0.6.16)
     rails-assets-underscore (1.8.3)
+    rails-assets-utatti-perfect-scrollbar (1.3.0)
     rails-controller-testing (1.0.2)
       actionpack (~> 5.x, >= 5.0.1)
       actionview (~> 5.x, >= 5.0.1)
@@ -867,7 +867,7 @@ DEPENDENCIES
   rails-assets-markdown-it-sanitizer (= 0.4.3)!
   rails-assets-markdown-it-sub (= 1.0.0)!
   rails-assets-markdown-it-sup (= 1.0.0)!
-  rails-assets-perfect-scrollbar (= 0.6.16)!
+  rails-assets-utatti-perfect-scrollbar (= 1.3.0)!
   rails-controller-testing (= 1.0.2)
   rails-i18n (= 5.1.1)
   rails-timeago (= 2.16.0)
