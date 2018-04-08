@@ -54,7 +54,7 @@ describe Services::Facebook, :type => :model do
       message = "Some text and a link https://someserver1/testlink1 then some text http://"
       post = double(message: double(plain_text_without_markdown: message, urls: ["https://someserver1/testlink1"]), photos: [])
       post_params = @service.create_post_params(post)
-      expect(post_params[:message]).to include "(via http:"
+      expect(post_params[:message]).to include '(via http:'
     end
 
     it 'sets facebook id on post' do
