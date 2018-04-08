@@ -9,6 +9,7 @@
 * Show error message when creating posts with invalid aspects [#7742](https://github.com/diaspora/diaspora/pull/7742)
 
 ## Features
+* Make public stream accessible for logged out users [#7775](https://github.com/diaspora/diaspora/pull/7775)
 
 # 0.7.4.1
 

@@ -46,6 +46,10 @@ module ApplicationHelper
     current_user.services.size == AppConfig.configured_services.size
   end
 
+  def service_unconnected?(service)
+    AppConfig.show_service?(service, current_user) && current_user.services.none? {|x| x.provider == service }
+  end
+
   def popover_with_close_html(without_close_html)
     without_close_html + link_to('&times;'.html_safe, "#", :class => 'close')
   end

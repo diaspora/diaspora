@@ -25,7 +25,7 @@ Feature: Keyboard navigation
   Scenario: navigate downwards after changing the stream
     When I go to the activity stream page
     And I click on selector "[data-stream='stream'] a"
-    Then I should see "Stream" within "#stream_selection .selected"
+    Then I should see "Stream" within "#stream-selection .selected"
 
     When I press the "J" key somewhere
     Then post 1 should be highlighted
