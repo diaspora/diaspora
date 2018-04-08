@@ -637,7 +637,7 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
-    scss_lint (0.54.0)
+    scss_lint (0.55.0)
       rake (>= 0.9, < 13)
       sass (~> 3.4.20)
     secure_headers (5.0.5)
