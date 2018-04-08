@@ -72,7 +72,7 @@ module Diaspora::Mentionable
   end
 
   # Regex to find mentions with new syntax, only used for backporting to old syntax
-  NEW_SYNTAX_REGEX = /@\{[^ ]+\}/
+  NEW_SYNTAX_REGEX = /@\{[^\} ]+\}/
 
   # replaces new syntax with old syntax, to be compatible with old pods
   # @deprecated remove when most of the posts can handle the new syntax

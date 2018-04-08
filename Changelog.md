@@ -7,6 +7,7 @@
 * Prefill conversation form on contacts page only with mutual contacts [#7744](https://github.com/diaspora/diaspora/pull/7744)
 * Fix profiles sometimes not loading properly in background tabs [#7740](https://github.com/diaspora/diaspora/pull/7740)
 * Show error message when creating posts with invalid aspects [#7742](https://github.com/diaspora/diaspora/pull/7742)
+* Fix mention syntax backport for two immediately consecutive mentions [#7777](https://github.com/diaspora/diaspora/pull/7777)
 
 ## Features
 * Make public stream accessible for logged out users [#7775](https://github.com/diaspora/diaspora/pull/7775)
