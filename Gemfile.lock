@@ -706,7 +706,7 @@ GEM
     timecop (0.9.1)
     timers (4.1.2)
       hitimes
-    tins (1.15.0)
+    tins (1.16.3)
     to_regexp (0.2.1)
     turbo_dev_assets (0.0.2)
     twitter (6.2.0)
