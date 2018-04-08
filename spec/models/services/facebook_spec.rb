@@ -22,11 +22,39 @@ describe Services::Facebook, :type => :model do
       post_params = @service.create_post_params(post)
     end
 
-    it 'does not add post link when no photos' do
+    it 'adds URL of post to end if no link at end' do
       message = "Some text."
       post = double(message: double(plain_text_without_markdown: message, urls: []), photos: [])
       post_params = @service.create_post_params(post)
-      expect(post_params[:message]).not_to include "http"
+      expect(post_params[:message]).to include '(via http:'
+    end
+
+    it 'adds URL at the end with ending with valid HTTP url' do
+      message = "Some text and a link http://someserver1/testlink1 http://someserver2/testlink2 "
+      post = double(message: double(plain_text_without_markdown: message, urls: ["http://someserver1/testlink1", "http://someserver2/testlink2"]), photos: [])
+      post_params = @service.create_post_params(post)
+      expect(post_params[:message]).to include '(via http:'
+    end
+
+    it 'adds URL at the end with ending valid HTTPS url' do
+      message = "Some text and a link https://someserver1/testlink1 https://someserver2/testlink2 "
+      post = double(message: double(plain_text_without_markdown: message, urls: ["https://someserver1/testlink1", "https://someserver2/testlink2"]), photos: [])
+      post_params = @service.create_post_params(post)
+      expect(post_params[:message]).to include '(via http:'
+    end
+
+    it 'adds URL at the end with HTTP urls internal' do
+      message = "Some text and a link https://someserver1/testlink1 then some text"
+      post = double(message: double(plain_text_without_markdown: message, urls: ["https://someserver1/testlink1"]), photos: [])
+      post_params = @service.create_post_params(post)
+      expect(post_params[:message]).to include '(via http:'
+    end
+
+    it 'adds URL of the end with HTTP urls internal trick case, bad URL should add to end' do
+      message = "Some text and a link https://someserver1/testlink1 then some text http://"
+      post = double(message: double(plain_text_without_markdown: message, urls: ["https://someserver1/testlink1"]), photos: [])
+      post_params = @service.create_post_params(post)
+      expect(post_params[:message]).to include "(via http:"
     end
 
     it 'sets facebook id on post' do
@@ -54,7 +82,18 @@ describe Services::Facebook, :type => :model do
 
     it "should include post url in message with photos" do
       post_params = @service.create_post_params(@status_message)
-      expect(post_params[:message]).to include 'http'
+      expect(post_params[:message]).to include '(via http:'
+    end
+
+    it "should include post url in message with photos when no text message" do
+      @status_message = alice.build_post(:status_message, :text => "")
+      @status_message.photos << @photos
+
+      @status_message.save!
+      alice.add_to_streams(@status_message, alice.aspects)
+
+      post_params = @service.create_post_params(@status_message)
+      expect(post_params[:message]).to include '(via http:'
     end
 
   end

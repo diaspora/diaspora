@@ -23,10 +23,14 @@ class Services::Facebook < Service
   end
 
   def create_post_params(post)
-    message = post.message.plain_text_without_markdown
-    if post.photos.any?
-      message += " " + short_post_url(post, protocol: AppConfig.pod_uri.scheme,
-                                            host: AppConfig.pod_uri.authority)
+    postMessage = post.message.plain_text_without_markdown
+
+    if postMessage.size == 0 && !post.photos.any?
+      message = postMessage
+    else
+      postUrl = short_post_url(post, protocol: AppConfig.pod_uri.scheme,
+                               host: AppConfig.pod_uri.authority)
+      message = "#{postMessage} (via #{postUrl} )"
     end
 
     {message: message,
