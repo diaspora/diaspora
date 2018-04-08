@@ -80,3 +80,6 @@ spec_dir: spec/javascripts
 
 rack_options:
   Host: '0.0.0.0'
+
+# TODO: refactor tests, they shouldn't fail when they are run in a random order!
+random: false
