@@ -25,7 +25,7 @@ app.views.Stream = app.views.InfScroll.extend({
 
   markNavSelected : function() {
     var activeStream = Backbone.history.fragment;
-    var streamSelection = $("#stream_selection");
+    var streamSelection = $("#stream-selection");
     streamSelection.find("[data-stream]").removeClass("selected");
     streamSelection.find("[data-stream='" + activeStream + "']").addClass("selected");
 

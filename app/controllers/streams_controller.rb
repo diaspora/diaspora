@@ -5,7 +5,7 @@
 #   the COPYRIGHT file.
 
 class StreamsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :public
   before_action :save_selected_aspects, :only => :aspects
 
   layout proc { request.format == :mobile ? "application" : "with_header" }

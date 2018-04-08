@@ -2,12 +2,13 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.container-fluid.main-stream-publisher
-  .pull-left.hidden-xs
-    = owner_image_link
-  = render "publisher/publisher", publisher_aspects_for(stream)
+- if user_signed_in?
+  .container-fluid.main-stream-publisher
+    .pull-left.hidden-xs
+      = owner_image_link
+    = render "publisher/publisher", publisher_aspects_for(stream)
 
-- if current_user.getting_started?
+- if current_user&.getting_started?
   .stream#main-stream{:title => popover_with_close_html("3. #{t('.stay_updated')}"),
     "data-content" => t(".stay_updated_explanation")}
 - else
@@ -17,5 +18,5 @@
   .loader.hidden
     .spinner
 
-- if current_user.contacts.size < 2
+- if current_user && current_user.contacts.size < 2
   = render 'aspects/no_contacts_message'
