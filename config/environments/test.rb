@@ -32,6 +32,8 @@ Rails.application.configure do
     color_themes/original/desktop.css
     color_themes/dark_green/desktop.css
     color_themes/original/mobile.css
+    jasmine-load-all.js
+    jasmine-jquery.js
   ]
 
   # Show full error reports and disable caching.
