@@ -289,7 +289,7 @@ group :test do
   gem "database_cleaner",   "1.6.2"
   gem "poltergeist",        "1.17.0"
 
-  gem "cucumber-api-steps", "0.13", require: false
+  gem "cucumber-api-steps", "0.14", require: false
 
   # General helpers
 
