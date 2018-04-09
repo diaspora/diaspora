@@ -20,6 +20,10 @@
 
 ## Features
 
+# 0.7.4.1
+
+Fixes a possible cross-site scripting issue with maliciously crafted OpenGraph metadata.
+
 # 0.7.4.0
 
 ## Refactor
