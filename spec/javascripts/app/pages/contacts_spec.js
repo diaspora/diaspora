@@ -34,35 +34,6 @@ describe("app.pages.Contacts", function(){
     });
   });
 
-  context('toggle contacts visibility', function() {
-    beforeEach(function() {
-      this.visibilityToggle = $("#contacts_visibility_toggle");
-      this.lockIcon = $("#contacts_visibility_toggle i");
-    });
-
-    it("updates the title for the tooltip", function() {
-      expect(this.lockIcon.attr("data-original-title")).toBe(
-        Diaspora.I18n.t("contacts.aspect_list_is_visible")
-      );
-
-      this.visibilityToggle.trigger("click");
-
-      expect(this.lockIcon.attr("data-original-title")).toBe(
-        Diaspora.I18n.t("contacts.aspect_list_is_not_visible")
-      );
-    });
-
-    it("toggles the lock icon", function() {
-      expect(this.lockIcon.hasClass("entypo-lock-open")).toBeTruthy();
-      expect(this.lockIcon.hasClass("entypo-lock")).toBeFalsy();
-
-      this.visibilityToggle.trigger("click");
-
-      expect(this.lockIcon.hasClass("entypo-lock")).toBeTruthy();
-      expect(this.lockIcon.hasClass("entypo-lock-open")).toBeFalsy();
-    });
-  });
-
   context('show aspect name form', function() {
     beforeEach(function() {
       this.button = $('#change_aspect_name');
