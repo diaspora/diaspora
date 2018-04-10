@@ -150,7 +150,7 @@ defaults:
       title: 'diaspora* social network'
       description: 'diaspora* is the online social world where you are in control.'
     csp:
-      report_only: true
+      report_only: false
       report_uri:
   services:
     facebook:
