@@ -21,7 +21,7 @@ class HomeController < ApplicationController
           partial_dir.join("_show.html.erb").exist? ||
           partial_dir.join("_show.haml").exist?
       render :show
-    elsif User.count > 1 && Role.where(name: "admin").any?
+    elsif Role.admins.any?
       render :default
     else
       redirect_to podmin_path
