@@ -12,3 +12,7 @@ Feature: The public stream
     When I sign in as "alice@alice.alice"
     And I am on the public stream page
     Then I should see "Bob’s public post"
+
+  Scenario: seeing public posts as a logged out user
+    When I am on the public stream page
+    Then I should see "Bob’s public post"
