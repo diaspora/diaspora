@@ -580,40 +580,6 @@ describe PeopleController, :type => :controller do
     end
   end
 
-
-  describe '#contacts' do
-    it 'assigns the contacts of a person' do
-      contact = alice.contact_for(bob.person)
-      contacts = contact.contacts
-      get :contacts, params: {person_id: bob.person.to_param}
-      expect(assigns(:contacts_of_contact).to_a).to eq(contacts.to_a)
-      expect(response).to be_success
-    end
-
-    it 'shows an error when invalid person id' do
-      get :contacts, params: {person_id: "foo"}
-      expect(flash[:error]).to be_present
-      expect(response).to redirect_to people_path
-    end
-
-    it "displays the correct number of photos" do
-      16.times do |i|
-        eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
-      end
-      get :contacts, params: {person_id: eve.person.to_param}
-      expect(response.body).to include ',"photos_count":16'
-
-      eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
-      get :contacts, params: {person_id: eve.person.to_param}
-      expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
-    end
-
-    it "returns a 406 for json format" do
-      get :contacts, params: {person_id: "foo"}, format: :json
-      expect(response.code).to eq("406")
-    end
-  end
-
   describe '#diaspora_id?' do
     it 'returns true for pods on urls' do
       expect(@controller.send(:diaspora_id?, "ilya_123@pod.geraspora.de")).to be true

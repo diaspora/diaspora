@@ -7,7 +7,7 @@
     = javascript_include_tag :jsxc, id: 'jsxc',
       data: { endpoint: get_bosh_endpoint }
 
-- if current_user.getting_started?
+- if current_user&.getting_started?
   #welcome-to-diaspora
     .container-fluid
       .row
@@ -22,159 +22,161 @@
 
 .container-fluid
   .row
-    .col-md-3
-      .sidebar.left-navbar
-        %ul#stream_selection
-          %li{data: {stream: "stream"}}
-            = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
-          %li.nested-list.my-activity{data: {stream: "activity"}}
-            = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
-            %ul
-              %li{data: {stream: "liked"}}
-                = link_to t("streams.liked.title"), liked_stream_path, rel: "backbone", class: "hoverable selectable"
-              %li{data: {stream: "commented"}}
-                = link_to t("streams.commented.title"), commented_stream_path,
-                  rel: "backbone", class: "hoverable selectable"
-          %li{data: {stream: "mentions"}}
-            = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
-          %li.nested-list.all-aspects
-            = render "aspects/aspect_listings", stream: @stream
-          %li.nested-list
-            = render "tags/followed_tags_listings"
-          %li{data: {stream: "public"}}
-            = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
+    - if user_signed_in?
+      .col-md-3
+        .sidebar.left-navbar
+          %ul#stream-selection
+            %li{data: {stream: "stream"}}
+              = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
+            %li.nested-list.my-activity{data: {stream: "activity"}}
+              = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
+              %ul
+                %li{data: {stream: "liked"}}
+                  = link_to t("streams.liked.title"), liked_stream_path, rel: "backbone", class: "hoverable selectable"
+                %li{data: {stream: "commented"}}
+                  = link_to t("streams.commented.title"), commented_stream_path,
+                    rel: "backbone", class: "hoverable selectable"
+            %li{data: {stream: "mentions"}}
+              = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
+            %li.nested-list.all-aspects
+              = render "aspects/aspect_listings", stream: @stream
+            %li.nested-list
+              = render "tags/followed_tags_listings"
+            %li{data: {stream: "public"}}
+              = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
 
-      .sidebar.info-bar.hidden-xs
-        - if AppConfig.settings.invitations.open?
+        .sidebar.info-bar.hidden-xs
+          - if AppConfig.settings.invitations.open?
+            .section.collapsed
+              .title
+                %h5.title-header
+                  .entypo-triangle-right
+                  .entypo-triangle-down
+                  = t("shared.invitations.invite_your_friends")
+              .content
+                = render "shared/invitations"
+
           .section.collapsed
             .title
               %h5.title-header
                 .entypo-triangle-right
                 .entypo-triangle-down
-                = t("shared.invitations.invite_your_friends")
+                = t("aspects.index.new_here.title")
             .content
-              = render "shared/invitations"
+              != t("aspects.index.new_here.follow",
+                link: link_to("#" + t("shared.publisher.new_user_prefill.newhere"),
+                tag_path(name: t("shared.publisher.new_user_prefill.newhere"))))
+              %br
+              = link_to(t("aspects.index.new_here.learn_more"),
+                "http://wiki.diasporafoundation.org/Welcoming_Committee")
 
-        .section.collapsed
-          .title
-            %h5.title-header
-              .entypo-triangle-right
-              .entypo-triangle-down
-              = t("aspects.index.new_here.title")
-          .content
-            != t("aspects.index.new_here.follow",
-              link: link_to("#" + t("shared.publisher.new_user_prefill.newhere"),
-              tag_path(name: t("shared.publisher.new_user_prefill.newhere"))))
-            %br
-            = link_to(t("aspects.index.new_here.learn_more"),
-              "http://wiki.diasporafoundation.org/Welcoming_Committee")
-
-        .section.collapsed
-          .title
-            %h5.title-header
-              .entypo-triangle-right
-              .entypo-triangle-down
-              = t("aspects.index.help.need_help")
-          .content
-            %p
-              = t("aspects.index.help.here_to_help")
-            %p
-              = t("aspects.index.help.do_you")
-            %ul
-              %li
-                != t("aspects.index.help.have_a_question",
-                  link: link_to("#" + t("aspects.index.help.tag_question"),
-                  tag_path(name: t("aspects.index.help.tag_question"))))
-              %li
-                != t("aspects.index.help.find_a_bug",
-                  link: link_to(t("aspects.index.help.tag_bug"),
-                  "https://wiki.diasporafoundation.org/How_to_report_a_bug"))
-              %li
-                != t("aspects.index.help.feature_suggestion",
-                  link: link_to(t("aspects.index.help.tag_feature"),
-                  "https://discourse.diasporafoundation.org/c/features-and-ideas"))
-            %p
-              != t("aspects.index.help.tutorials_and_wiki",
-                faq: link_to(t("_help"), help_path),
-                tutorial: link_to(t("aspects.index.help.tutorial_link_text"),
-                  "https://diasporafoundation.org/tutorials", target: "_blank"),
-                wiki: link_to("Wiki", "http://wiki.diasporafoundation.org",
-                  target: "_blank"),
-                target: "_blank")
-
-            %p
-              != t("aspects.index.help.support_forum",
-                support_forum: link_to(t("aspects.index.help.support_forum_link"),
-                "https://discourse.diasporafoundation.org/c/support", target: "_blank"))
-
-        - unless AppConfig.configured_services.blank? || all_services_connected?
           .section.collapsed
             .title
               %h5.title-header
                 .entypo-triangle-right
                 .entypo-triangle-down
-                = t("aspects.index.services.heading")
+                = t("aspects.index.help.need_help")
             .content
-              %div
-                = t("aspects.index.services.content")
+              %p
+                = t("aspects.index.help.here_to_help")
+              %p
+                = t("aspects.index.help.do_you")
+              %ul
+                %li
+                  != t("aspects.index.help.have_a_question",
+                    link: link_to("#" + t("aspects.index.help.tag_question"),
+                    tag_path(name: t("aspects.index.help.tag_question"))))
+                %li
+                  != t("aspects.index.help.find_a_bug",
+                    link: link_to(t("aspects.index.help.tag_bug"),
+                    "https://wiki.diasporafoundation.org/How_to_report_a_bug"))
+                %li
+                  != t("aspects.index.help.feature_suggestion",
+                    link: link_to(t("aspects.index.help.tag_feature"),
+                    "https://discourse.diasporafoundation.org/c/features-and-ideas"))
+              %p
+                != t("aspects.index.help.tutorials_and_wiki",
+                  faq: link_to(t("_help"), help_path),
+                  tutorial: link_to(t("aspects.index.help.tutorial_link_text"),
+                    "https://diasporafoundation.org/tutorials", target: "_blank"),
+                  wiki: link_to("Wiki", "http://wiki.diasporafoundation.org",
+                    target: "_blank"),
+                  target: "_blank")
 
-              .right-service-icons
-                - AppConfig.configured_services.each do |service|
-                  - if AppConfig.show_service?(service, current_user)
-                    - unless current_user.services.any? {|x| x.provider == service }
+              %p
+                != t("aspects.index.help.support_forum",
+                  support_forum: link_to(t("aspects.index.help.support_forum_link"),
+                  "https://discourse.diasporafoundation.org/c/support", target: "_blank"))
+
+          - unless AppConfig.configured_services.blank? || all_services_connected?
+            .section.collapsed
+              .title
+                %h5.title-header
+                  .entypo-triangle-right
+                  .entypo-triangle-down
+                  = t("aspects.index.services.heading")
+              .content
+                %div
+                  = t("aspects.index.services.content")
+
+                .right-service-icons
+                  - AppConfig.configured_services.each do |service|
+                    - if service_unconnected?(service)
                       = link_to(content_tag(:div, nil,
                         class: "social-media-logos-#{service.to_s.downcase}-24x24",
                         title: service.to_s.titleize), "/auth/#{service}")
 
-        .section.collapsed
-          .title
-            %h5.title-header
-              .entypo-triangle-right
-              .entypo-triangle-down
-              = t("bookmarklet.heading")
-          .content
-            != t("bookmarklet.explanation", link: link_to(t("bookmarklet.post_something"), bookmarklet_code))
-
-        - if donations_enabled?
           .section.collapsed
             .title
               %h5.title-header
                 .entypo-triangle-right
                 .entypo-triangle-down
-                = t("aspects.index.donate")
+                = t("bookmarklet.heading")
+            .content
+              != t("bookmarklet.explanation", link: link_to(t("bookmarklet.post_something"), bookmarklet_code))
+
+          - if donations_enabled?
+            .section.collapsed
+              .title
+                %h5.title-header
+                  .entypo-triangle-right
+                  .entypo-triangle-down
+                  = t("aspects.index.donate")
+              .content
+                %p
+                  = t("aspects.index.keep_pod_running", pod: AppConfig.pod_uri.host)
+                = render "shared/donatepod"
+
+          - if AppConfig.admins.podmin_email.present?
+            .section.collapsed
+              .title
+                %h5.title-header
+                  .entypo-triangle-right
+                  .entypo-triangle-down
+                  = t("aspects.index.help.any_problem")
+              .content
+                %p
+                  = t("aspects.index.help.contact_podmin")
+                %p
+                  = link_to t("aspects.index.help.mail_podmin"), "mailto:#{AppConfig.admins.podmin_email}"
+
+          .excellence-box
             .content
               %p
-                = t("aspects.index.keep_pod_running", pod: AppConfig.pod_uri.host)
-              = render "shared/donatepod"
+                = link_to t("layouts.application.be_excellent"), "https://diasporafoundation.org/community_guidelines"
 
-        - if AppConfig.admins.podmin_email.present?
-          .section.collapsed
-            .title
-              %h5.title-header
-                .entypo-triangle-right
-                .entypo-triangle-down
-                = t("aspects.index.help.any_problem")
+          .info-links
             .content
-              %p
-                = t("aspects.index.help.contact_podmin")
-              %p
-                = link_to t("aspects.index.help.mail_podmin"), "mailto:#{AppConfig.admins.podmin_email}"
+              %ul
+                = render "shared/links"
 
-        .excellence-box
-          .content
-            %p
-              = link_to t("layouts.application.be_excellent"), "https://diasporafoundation.org/community_guidelines"
+          .powered-box
+            .content
+              .powered-by-diaspora.text-center
+                = link_to t("layouts.application.powered_by"), "https://diasporafoundation.org"
 
-        .info-links
-          .content
-            %ul
-              = render "shared/links"
-
-        .powered-box
-          .content
-            .powered-by-diaspora.text-center
-              = link_to t("layouts.application.powered_by"), "https://diasporafoundation.org"
-
-    .col-md-9
+    .col-md-9{class: ("center-block public-stream" unless user_signed_in?)}
       .stream-container#aspect-stream-container
+        - unless user_signed_in?
+          %h2= @stream.title
         = render "aspects/aspect_stream", stream: @stream

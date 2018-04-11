@@ -2,6 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- unless user_signed_in?
+  %h1= @stream.title
+
 #main-stream.stream
   = render 'shared/stream', posts: @stream.stream_posts
   = render 'shared/stream_more_button'

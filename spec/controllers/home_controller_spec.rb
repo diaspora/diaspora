@@ -6,31 +6,14 @@
 
 describe HomeController, type: :controller do
   describe "#show" do
-    it "does not redirect for :html if there are at least 2 users and an admin" do
-      allow(User).to receive(:count).and_return(2)
-      allow(Role).to receive_message_chain(:where, :any?).and_return(true)
-      allow(Role).to receive_message_chain(:where, :exists?).and_return(true)
+    it "does not redirect for :html if there is at least one admin" do
+      expect(Role).to receive_message_chain(:admins, :any?).and_return(true)
       get :show
       expect(response).not_to be_redirect
     end
 
-    it "redirects to the podmin page for :html if there are less than 2 users" do
-      allow(User).to receive(:count).and_return(1)
-      allow(Role).to receive_message_chain(:where, :any?).and_return(true)
-      get :show
-      expect(response).to redirect_to(podmin_path)
-    end
-
     it "redirects to the podmin page for :html if there is no admin" do
-      allow(User).to receive(:count).and_return(2)
-      allow(Role).to receive_message_chain(:where, :any?).and_return(false)
-      get :show
-      expect(response).to redirect_to(podmin_path)
-    end
-
-    it "redirects to the podmin page for :html if there are less than 2 users and no admin" do
-      allow(User).to receive(:count).and_return(0)
-      allow(Role).to receive_message_chain(:where, :any?).and_return(false)
+      expect(Role).to receive_message_chain(:admins, :any?).and_return(false)
       get :show
       expect(response).to redirect_to(podmin_path)
     end

@@ -369,8 +369,6 @@ en:
       contacts_know_aspect_a: "No. They cannot see the name of the aspect under any circumstances."
       person_multiple_aspects_q: "Can I add a person to multiple aspects?"
       person_multiple_aspects_a: "Yes. Go to your contacts page and click on “My contacts”. For each contact you can use the menu on the right to add them to (or remove them from) as many aspects as you want. Or you can add them to a new aspect (or remove them from an aspect) by clicking the aspect selector button on their profile page. Or you can even just move the pointer over their name where you see it in the stream, and a “hovercard” will appear. You can change the aspects they are in right there."
-      contacts_visible_q: "What does “make contacts in this aspect visible to each other” mean?"
-      contacts_visible_a: "If you check this option then contacts from that aspect will be able to see who else is in it, in the “Contacts” tab on your profile page. (At the moment, only your contacts who are on the same pod as you will be able to see the “Contacts” tab on your profile.) It’s best to select this option only if the contacts in that aspect all know each other, for example if the aspect is for a club or society you belong to. They still won’t be able to see what the aspect is called."
       remove_notification_q: "If I remove someone from an aspect, or all of my aspects, are they notified of this?"
       remove_notification_a: "No. They are also not notified if you add them to more aspects, when you are already sharing with them."
       change_aspect_of_post_q: "Once I have posted something, can I change the aspect(s) that can see it?"

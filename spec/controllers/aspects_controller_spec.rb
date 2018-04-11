@@ -156,22 +156,4 @@ describe AspectsController, :type => :controller do
       end
     end
   end
-
-  describe "#toggle_contact_visibility" do
-    it 'sets contacts visible' do
-      @alices_aspect_1.contacts_visible = false
-      @alices_aspect_1.save
-
-      get :toggle_contact_visibility, xhr: true, params: {aspect_id: @alices_aspect_1.id}
-      expect(@alices_aspect_1.reload.contacts_visible).to be true
-    end
-
-    it 'sets contacts hidden' do
-      @alices_aspect_1.contacts_visible = true
-      @alices_aspect_1.save
-
-      get :toggle_contact_visibility, xhr: true, params: {aspect_id: @alices_aspect_1.id}
-      expect(@alices_aspect_1.reload.contacts_visible).to be false
-    end
-  end
 end

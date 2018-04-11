@@ -47,12 +47,10 @@ describe Diaspora::Exporter do
           "contact_groups": [
             {
               "name":             "generic",
-              "contacts_visible": true,
               "chat_enabled":     false
             },
             {
               "name":             "Work",
-              "contacts_visible": false,
               "chat_enabled":     false
             }
           ]
