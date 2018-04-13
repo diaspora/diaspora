@@ -1,0 +1,106 @@
+ja-KS:
+  devise:
+    confirmations:
+      confirmed: ~
+      send_instructions: ~
+      send_paranoid_instructions: ~
+      new:
+        resend_confirmation: ~
+    failure:
+      already_authenticated: ~
+      inactive: ~
+      invalid: ~
+      locked: ~
+      last_attempt: ~
+      not_found_in_database: ~
+      timeout: ~
+      unauthenticated: ~
+      unconfirmed: ~
+      invalid_token: ~
+    mailer:
+      confirmation_instructions:
+        subject: ~
+        you_can_confirm: ~
+        confirm: ~
+      reset_password_instructions:
+        subject: ~
+        someone_requested: ~
+        change: ~
+        wont_change: ~
+        ignore: ~
+      unlock_instructions:
+        subject: ~
+        account_locked: ~
+        click_to_unlock: ~
+        unlock: ~
+      password_change:
+        subject: ~
+      welcome: ~
+      hello: ~
+      inviter:
+        has_invited_you: ~
+        have_invited_you: ~
+        accept_at: ~
+    omniauth_callbacks:
+      failure: ~
+      success: ~
+    passwords:
+      no_token: ~
+      send_instructions: ~
+      send_paranoid_instructions: ~
+      updated: ~
+      updated_not_active: ~
+      edit:
+        change_password: ~
+        new_password: ~
+        confirm_password: ~
+      new:
+        forgot_password: ~
+        no_account: ~
+        reset_password: ~
+        email: ~
+        send_password_instructions: ~
+    registrations:
+      destroyed: ~
+      signed_up: ~
+      signed_up_but_inactive: ~
+      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: ~
+      update_needs_confirmation: ~
+      updated: ~
+    sessions:
+      signed_in: ~
+      signed_out: ~
+      already_signed_out: ~
+      new:
+        login: ~
+        username: ~
+        password: ~
+        sign_in: ~
+        remember_me: ~
+        modern_browsers: ~
+    unlocks:
+      send_instructions: ~
+      send_paranoid_instructions: ~
+      unlocked: ~
+      new:
+        resend_unlock: ~
+    invitations:
+      send_instructions: ~
+      invitation_token_invalid: ~
+      updated: ~
+    shared:
+      links:
+        sign_in: ~
+        sign_up: ~
+        sign_up_closed: ~
+        forgot_your_password: ~
+        receive_confirmation: ~
+        receive_unlock: ~
+  errors:
+    messages:
+      already_confirmed: ~
+      confirmation_period_expired: ~
+      expired: ~
+      not_found: 見つからへんかった。
+      not_locked: ~

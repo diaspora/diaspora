@@ -1,0 +1,268 @@
+ja-KS:
+  javascripts:
+    cancel: やめとく
+    confirm_dialog: ほんまにええの？
+    confirm_unload: ~
+    create: ~
+    delete: ~
+    ignore: ~
+    report:
+      prompt: ~
+      prompt_default: ~
+      name: ~
+      status:
+        created: ~
+        exists: ~
+    ignore_user: ~
+    ignore_failed: ~
+    hide_post: ~
+    hide_post_failed: ~
+    remove_post: ~
+    unblock_failed: ~
+    and: ~
+    comma: ~
+    edit: ~
+    no_results: ~
+    show_all: ~
+    admins:
+      dashboard:
+        up_to_date: ~
+        outdated: ~
+        compare_versions: ~
+        error: ~
+    admin:
+      pods:
+        pod: ~
+        ssl: ~
+        ssl_enabled: ~
+        ssl_disabled: ~
+        added: ~
+        status: ~
+        states:
+          unchecked: ~
+          no_errors: ~
+          dns_failed: ~
+          net_failed: ~
+          ssl_failed: ~
+          http_failed: ~
+          version_failed: ~
+          unknown_error: ~
+        actions: ~
+        offline_since: ~
+        last_check: ~
+        more_info: ~
+        check: ~
+        recheck:
+          success: ~
+          failure: ~
+        follow_link: ~
+        no_info: ~
+        server_software: ~
+        response_time: ~
+        unknown: ~
+        not_available: ~
+    aspects:
+      name: ~
+      create:
+        add_a_new_aspect: ~
+        success: ~
+        failure: ~
+    errors:
+      connection: ~
+    timeago:
+      prefixAgo: ~
+      prefixFromNow: ~
+      suffixAgo: ~
+      suffixFromNow: ~
+      inPast: ~
+      seconds: ~
+      minute: ~
+      hour: ~
+      day: ~
+      month: ~
+      year: ~
+      wordSeparator: ~
+    contacts:
+      add_contact: ~
+      aspect_chat_is_enabled: ~
+      aspect_chat_is_not_enabled: ~
+      remove_contact: ~
+      error_add: ~
+      error_remove: ~
+      search_no_results: ~
+    my_activity: ~
+    my_stream: ~
+    my_aspects: ~
+    publisher:
+      near_from: ~
+      option: ~
+      add_option: ~
+      question: ~
+      markdown_editor:
+        preview: ~
+        write: ~
+        tooltips:
+          bold: ~
+          italic: ~
+          heading: ~
+          insert_link: ~
+          insert_image: ~
+          insert_ordered_list: ~
+          insert_unordered_list: ~
+          preview: ~
+          write: ~
+          cancel: ~
+          quote: ~
+          code: ~
+        texts:
+          strong: ~
+          italic: ~
+          heading: ~
+          insert_link_description_text: ~
+          insert_link_help_text: ~
+          insert_image_description_text: ~
+          insert_image_help_text: ~
+          insert_image_title: ~
+          list: ~
+          quote: ~
+          code: ~
+      mention_success: ~
+    bookmarklet:
+      post_something: ダイアスポラにつぶやく
+      post_submit: ~
+      post_success: ~
+    aspect_dropdown:
+      add_to_aspect: ~
+      select_aspects: ~
+      all_aspects: ~
+      updating: ~
+      mobile_row_checked: ~
+      mobile_row_unchecked: ~
+      stopped_sharing_with: ~
+      started_sharing_with: ~
+      error: ~
+      error_remove: ~
+    show_more: ~
+    failed_to_post_message: ~
+    failed_to_remove: ~
+    comments:
+      show: ~
+      hide: ~
+      no_comments: ~
+    reshares:
+      successful: ~
+      post: "<%= name %>さんの投稿をわけわけしたろか?"
+    aspect_navigation:
+      select_all: ~
+      deselect_all: ~
+      no_aspects: ~
+      add_an_aspect: ~
+    getting_started:
+      hey: ~
+      no_tags: ~
+      alright_ill_wait: ~
+      preparing_your_stream: ~
+    photo_uploader:
+      upload_photos: ~
+      looking_good: ~
+      completed: ~
+      error: ~
+      invalid_ext: ~
+      size_error: ~
+      empty: ~
+    tags:
+      wasnt_that_interesting: ~
+    people:
+      not_found: …1人も見つからへんかった
+      mention: ~
+      message: ~
+      edit_my_profile: ~
+      stop_ignoring: ~
+      helper:
+        is_sharing: ~
+        is_not_sharing: ~
+    profile:
+      edit: ~
+      add_some: ~
+      you_have_no_tags: ~
+      bio: ~
+      location: ~
+      gender: ~
+      born: ~
+      photos: ~
+      posts: ~
+    conversation:
+      create:
+        no_recipient: ~
+      new:
+        no_contacts: ~
+    notifications:
+      mark_read: ~
+      mark_unread: ~
+    stream:
+      hide: ~
+      public: ~
+      limited: ~
+      like: ええやん！
+      unlike: ええやん！を取消
+      reshare: わけわけ
+      comment: つっこむ
+      original_post_deleted: ~
+      show_nsfw_post: ~
+      show_nsfw_posts: ~
+      hide_nsfw_posts: ~
+      follow: ~
+      unfollow: ~
+      enable_post_notifications: ~
+      disable_post_notifications: ~
+      permalink: ~
+      via: ~
+      no_posts_yet: ~
+      likes:
+        zero: ええやん！なし
+        other: "ええやん！ <%= count %>件"
+      reshares:
+        zero: わけわけなし
+        other: "沸け分け <%= count %>件"
+      comments:
+        zero: つっこみなし
+        other: "つっこみ <%= count %>件"
+      followed_tag:
+        title: ~
+        add_a_tag: ~
+        follow: ~
+      tags:
+        follow: ~
+        following: ~
+        stop_following: ~
+        stop_following_confirm: ~
+        follow_error: ~
+        stop_following_error: ~
+    header:
+      home: ~
+      profile: ~
+      contacts: ~
+      settings: ~
+      help: ~
+      admin: ~
+      moderator: ~
+      log_out: ~
+      toggle_navigation: ~
+      toggle_mobile: ~
+      notifications: ~
+      conversations: ~
+      search: ~
+      recent_notifications: ~
+      mark_all_as_read: ~
+      view_all: ~
+      close: ~
+    viewer:
+      reshared: わけわけした
+    poll:
+      vote: ~
+      go_to_original_post: ~
+      original_post: ~
+      result: ~
+      show_result: ~
+      close_result: ~
+      your_vote: ~
