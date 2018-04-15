@@ -115,7 +115,7 @@ describe NotificationsController, :type => :controller do
       it "should not provide a contacts menu for standard notifications" do
         FactoryGirl.create(:notification, :recipient => alice, :target => @post)
         get :index, params: {per_page: 5}
-        expect(Nokogiri(response.body).css('.aspect_membership')).to be_empty
+        expect(Nokogiri(response.body).css(".aspect-membership")).to be_empty
       end
 
       it "should provide a contacts menu for start sharing notifications" do

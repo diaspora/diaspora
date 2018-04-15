@@ -11,6 +11,7 @@
 * Bump mimemagic [#8231](https://github.com/diaspora/diaspora/pull/8231)
 * Removed support for defunct Uni Heidelberg OSM tile server, Mapbox is now required if you want to show maps [#8215](https://github.com/diaspora/diaspora/pull/8215)
 * Render only two fractional digits in the posts per user/day admin statistics [#8227](https://github.com/diaspora/diaspora/pull/8227)
+* Make aspect dropdowns scrollable [#8213](https://github.com/diaspora/diaspora/pull/8213)
 
 ## Features
 * Support and recommend TOML as configuration format [#8132](https://github.com/diaspora/diaspora/pull/8132)
