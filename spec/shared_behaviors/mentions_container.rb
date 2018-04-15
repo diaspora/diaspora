@@ -12,23 +12,6 @@ shared_examples_for "it is mentions container" do
     target
   }
 
-  describe ".before_create" do
-    it "backports mention syntax to old syntax" do
-      text = "mention @{#{people[0].diaspora_handle}} text"
-      expected_text = "mention @{#{people[0].name}; #{people[0].diaspora_handle}} text"
-      obj = FactoryGirl.build(described_class.to_s.underscore.to_sym, text: text, author: alice.person)
-      obj.save
-      expect(obj.text).to eq(expected_text)
-    end
-
-    it "doesn't backport mention syntax if author is not local" do
-      text = "mention @{#{people[0].diaspora_handle}} text"
-      obj = FactoryGirl.build(described_class.to_s.underscore.to_sym, text: text, author: remote_raphael)
-      obj.save
-      expect(obj.text).to eq(text)
-    end
-  end
-
   describe ".after_create" do
     it "calls create_mentions" do
       expect(target).to receive(:create_mentions).and_call_original
