@@ -2,6 +2,7 @@
 
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581)
+* Remove backporting of mention syntax [#7788](https://github.com/diaspora/diaspora/pull/7788)
 
 ## Bug fixes
 
