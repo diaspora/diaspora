@@ -16,6 +16,7 @@ vendor/bundle/
 vendor/cache/
 config/database.yml
 config/oidc_key.pem
+config/schedule.yml
 
 # Generated files
 log/
