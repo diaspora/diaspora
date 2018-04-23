@@ -23,6 +23,7 @@
 * Show error message when creating posts with invalid aspects [#7742](https://github.com/diaspora/diaspora/pull/7742)
 * Fix mention syntax backport for two immediately consecutive mentions [#7777](https://github.com/diaspora/diaspora/pull/7777)
 * Fix link to 'make yourself an admin' [#7783](https://github.com/diaspora/diaspora/pull/7783)
+* Fix calculation of content lengths when cross-posting to twitter [#7791](https://github.com/diaspora/diaspora/pull/7791)
 
 ## Features
 * Make public stream accessible for logged out users [#7775](https://github.com/diaspora/diaspora/pull/7775)

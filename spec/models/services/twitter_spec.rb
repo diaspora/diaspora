@@ -54,7 +54,9 @@ describe Services::Twitter, :type => :model do
     it "should truncate a long message" do
       long_message = SecureRandom.hex(360)
       long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
-      expect(@service.send(:build_twitter_post, long_post).length).to be < long_message.length
+      answer = @service.send(:build_twitter_post, long_post)
+      expect(answer.length).to be < long_message.length
+      expect(answer).to include "http:"
     end
 
     it "should not truncate a long message with an http url" do
@@ -104,11 +106,11 @@ describe Services::Twitter, :type => :model do
     end
 
     it "should not truncate a message of maximum length" do
-        exact_size_message = SecureRandom.hex(70)
-        exact_size_post = double(message: double(plain_text_without_markdown: exact_size_message), id:  1, photos: [])
-        answer = @service.send(:build_twitter_post, exact_size_post)
+      exact_size_message = SecureRandom.hex(140)
+      exact_size_post = double(message: double(plain_text_without_markdown: exact_size_message), id: 1, photos: [])
+      answer = @service.send(:build_twitter_post, exact_size_post)
 
-        expect(answer).to match exact_size_message
+      expect(answer).to match exact_size_message
     end
 
   end
