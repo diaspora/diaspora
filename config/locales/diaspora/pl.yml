@@ -55,7 +55,7 @@ pl:
       user_search: "Wyszukiwanie użytkowników"
       weekly_user_stats: "Tygodniowe statystyki użytkowników"
     dashboard:
-      fetching_diaspora_version: "Ustalanie najnowszej wersji diaspory*..."
+      fetching_diaspora_version: "Ustalanie najnowszej wersji diaspory*…"
       pod_status: "Stan poda"
     pods:
       pod_desktop_link: "pełną wersję strony"
@@ -111,9 +111,9 @@ pl:
       ? "yes"
       : Tak
     user_search:
-      account_closing_scheduled: "Konto należące do %{name} jest przewidziane do zamknięcia. Zostanie to wykonane w przecigu kilku chwil..."
-      account_locking_scheduled: "Konto użytkownika %{name} oznaczone do zablokowania. Zostanie przetworzone za kilka chwil..."
-      account_unlocking_scheduled: "Konto użytkownika %{name} oznaczone do odblokowania. Zostanie przetworzone za kilka chwil..."
+      account_closing_scheduled: "Konto należące do %{name} jest przewidziane do zamknięcia. Zostanie to wykonane w przecigu kilku chwil…"
+      account_locking_scheduled: "Konto użytkownika %{name} oznaczone do zablokowania. Zostanie przetworzone za kilka chwil…"
+      account_unlocking_scheduled: "Konto użytkownika %{name} oznaczone do odblokowania. Zostanie przetworzone za kilka chwil…"
       add_invites: "Dodaj zaproszenia"
       are_you_sure: "Czy na pewno chcesz zamknąć to konto?"
       are_you_sure_lock_account: "Na pewno zablokować to konto?"
@@ -224,9 +224,9 @@ pl:
         any_problem: "Jakiś problem?"
         contact_podmin: "Skontaktuj się z administratorem swojego poda!"
         do_you: "Czy:"
-        feature_suggestion: "... masz propozycję (%{link})?"
-        find_a_bug: "... znal@{m:azłeś|f:azłaś|n:eziono} %{link}?"
-        have_a_question: "... masz %{link}?"
+        feature_suggestion: "… masz propozycję (%{link})?"
+        find_a_bug: "… znal@{m:azłeś|f:azłaś|n:eziono} %{link}?"
+        have_a_question: "… masz %{link}?"
         here_to_help: "Społeczność diaspory* jest tutaj!"
         mail_podmin: "Adres e-mail administratora"
         need_help: "Potrzebujesz pomocy?"
@@ -285,7 +285,7 @@ pl:
       error: "Nie udało się dodać komentarza."
     new_comment:
       comment: "Skomentuj"
-      commenting: "Dodawanie komentarza..."
+      commenting: "Dodawanie komentarza…"
   contacts:
     index:
       add_contact: "Dodaj kontakt"
@@ -295,7 +295,7 @@ pl:
       no_contacts: "Wygląda na to, że musisz dodać kilka kontaktów!"
       no_contacts_in_aspect: "Nie masz jeszcze żadnych kontaktów w tym aspekcie. Poniżej widnieje lista kontaktów które możesz do niego dodać."
       no_contacts_message: "Sprawdź kto jest %{community_spotlight}"
-      only_sharing_with_me: "Jedynie mi udostępniają"
+      only_sharing_with_me: "Tylko udostępniający mi"
       start_a_conversation: "Rozpocznij rozmowę"
       title: "Kontakty"
       user_search: "Wyszukiwanie użytkowników"
@@ -311,7 +311,7 @@ pl:
       delete_success: "Rozmowa usunięta"
       hide_success: "Rozmowa ukryta"
     index:
-      conversations_inbox: "Rozmowy - Skrzynka Odbiorcza"
+      conversations_inbox: "Rozmowy – Skrzynka Odbiorcza"
       inbox: "Skrzynka odbiorcza"
       new_conversation: "Nowa rozmowa"
       no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kilka kontaktów"
@@ -319,7 +319,7 @@ pl:
     new:
       message: "Wiadomość"
       send: "Wyślij"
-      sending: "Wysyłanie..."
+      sending: "Wysyłanie…"
       subject: "Temat"
       subject_default: "Bez tematu"
       to: "Do"
@@ -330,7 +330,7 @@ pl:
       hide: "Ukryj i wycisz rozmowę"
       last_message: "Ostatni komunikat odebrano %{timeago}"
       reply: "Odpowiedz"
-      replying: "Odpowiadanie..."
+      replying: "Odpowiadanie…"
   date:
     formats:
       birthday: "%d %B"
@@ -407,8 +407,8 @@ pl:
     irc: "IRC"
     keyboard_shortcuts:
       keyboard_shortcuts_a1: "W widoku strumienia możesz używać tych skrótów:"
-      keyboard_shortcuts_li1: "j - Przejdź do następnego wpisu"
-      keyboard_shortcuts_li2: "k - Przejdź do poprzedniego wpisu"
+      keyboard_shortcuts_li1: "j – Przejdź do następnego wpisu"
+      keyboard_shortcuts_li2: "k – Przejdź do poprzedniego wpisu"
       keyboard_shortcuts_li3: "c – Skomentuj bieżący wpis"
       keyboard_shortcuts_li4: "l – Polub bieżący wpis"
       keyboard_shortcuts_li5: "r – Przekaż dalej bieżący wpis"
@@ -431,7 +431,7 @@ pl:
     miscellaneous:
       back_to_top_a: "Tak. Po przewinięciu strony w dół, kliknij w szarą strzałkę, która pojawi się w prawym dolnym rogu okna przeglądarki."
       back_to_top_q: "Czy jest szybki sposób aby wrócić na górę strony po tym jak przewinąłem treść w dół?"
-      diaspora_app_a: "Na system Android istnieje kilka aplikacji we wczesnej fazie rozwoju. Niektóre są porzuconymi projektami więc nie będą dobrze współpracować z najnowszymi wersjami diaspory*. W tym momencie nie należy oczekiwać wiele od tych aplikacji, najlepiej jest korzystać z diaspory* przez przeglądarkę - zaprojektowaliśmy specjalną mobilną wersję strony, która powinna działać na wszystkich urządzeniach. Obecnie nie istnieje żadna aplikacja na system iOS jednak diapsora* powinna bez problemu działać przez przeglądarkę."
+      diaspora_app_a: "Na system Android istnieje kilka aplikacji we wczesnej fazie rozwoju. Niektóre są porzuconymi projektami więc nie będą dobrze współpracować z najnowszymi wersjami diaspory*. W tym momencie nie należy oczekiwać wiele od tych aplikacji, najlepiej jest korzystać z diaspory* przez przeglądarkę – zaprojektowaliśmy specjalną mobilną wersję strony, która powinna działać na wszystkich urządzeniach. Obecnie nie istnieje żadna aplikacja na system iOS jednak diapsora* powinna bez problemu działać przez przeglądarkę."
       diaspora_app_q: "Czy istnieje aplikacja diaspory* na Androida lub iOS?"
       photo_albums_a: "Obecnie nie. Jednak możesz przejrzeć listę dodanych przez danego użytkownika zdjęć w sekcji Zdjęcia na jego stronie profilowej."
       photo_albums_q: "Czy istnieją albumy zdjęć lub filmów?"
@@ -447,7 +447,7 @@ pl:
       what_is_a_pod_a: "Pod to serwer, na którym uruchomiona jest aplikacja diaspory*, połączony z siecią diaspora*. \"Pod\" z angielskiego to miejsce w roślinie, w którym znajdują się nasiona. Istnieje wiele podów w sieci. Możesz mieć znajomych na innych podach i komunikować się z nimi. diaspora* jest pod tym względem podobna do systemu e-mailowego. Istnieją pody publiczne, pody prywatne a niewielkim nakładem pracy możesz nawet założyć własny pod."
       what_is_a_pod_q: "Czym jest pod?"
     posts_and_posting:
-      char_limit_services_a: "W takim przypadku twój wpis jest ograniczony do niższego limitu znaków (140 dla Twittera; 1000 dla Tumblr'a), a ilość znaków jaka została Ci do wykorzystania jest pokazana kiedy ikona połączonego serwisu jest podświetlona. Wpis możesz nadal wysłać do połączonego serwisu jeśli jest dłuższy niż limit znaków, ale będzie tam dostępny w obciętej formie z odnośnikiem do postu na diasporze*."
+      char_limit_services_a: "W takim przypadku twój wpis jest ograniczony do niższego limitu znaków (140 dla Twittera; 1000 dla Tumblr’a), a ilość znaków jaka została Ci do wykorzystania jest pokazana kiedy ikona połączonego serwisu jest podświetlona. Wpis możesz nadal wysłać do połączonego serwisu jeśli jest dłuższy niż limit znaków, ale będzie tam dostępny w obciętej formie z odnośnikiem do postu na diasporze*."
       char_limit_services_q: "Jaki jest limit znaków dla wpisów dodawanych przez połączone serwisy z mniejszym limitem znaków?"
       character_limit_a: "65 535 znaków. To o 65 395 więcej niż jest dostępne na Twitterze! ;)"
       character_limit_q: "Jaki jest limit znaków dla wpisu?"
@@ -519,7 +519,7 @@ pl:
       title: "Przekazywanie wpisów"
     sharing:
       add_to_aspect_a1: "Załóżmy, że Ania dodaje Bartka do aspektu, ale Bartek (jeszcze) nie dodał Ani do aspektu:"
-      add_to_aspect_a2: "Jest to tzw. udostępnianie asymetryczne. Dopiero kiedy Bartek doda Anię do swoich aspektów będzie to udostępnianie obustronne - zarówno Ania jak i Bartek będą wtedy widzieli swoje prywatne wpisy udostępnione w odpowiednich aspektach, prywatne części profilu itd. Będą też mogli wysyłać sobie prywatne wiadomości."
+      add_to_aspect_a2: "Jest to tzw. udostępnianie asymetryczne. Dopiero kiedy Bartek doda Anię do swoich aspektów będzie to udostępnianie obustronne – zarówno Ania jak i Bartek będą wtedy widzieli swoje prywatne wpisy udostępnione w odpowiednich aspektach, prywatne części profilu itd. Będą też mogli wysyłać sobie prywatne wiadomości."
       add_to_aspect_li1: "Bartek dostanie powiadomienie, że Ania \"zaczęła udostępniać\" mu."
       add_to_aspect_li2: "Ania zacznie widzieć publiczne wpisy Bartka w swoim strumieniu."
       add_to_aspect_li3: "Ania nie będzie widziała prywatnych wpisów Bartka."
@@ -561,7 +561,7 @@ pl:
       be_who_you_want_to_be_info: "Mnóstwo sieci nalega, aby podać im swoją prawdziwą tożsamość. Nie diaspora*. Tutaj możesz wybrać kim chcesz być i opowiedzieć o sobie tak dużo lub tak mało jak tylko chcesz. To czym i jak dzielisz się z innymi to tylko i wyłącznie Twój wybór."
       byline: "Wirtualna sieć społecznościowa nad którą to Ty masz kontrolę"
       choose_your_audience: "Wybierz swoich słuchaczy"
-      choose_your_audience_info: "Aspekty na diasporze* pozwalają Ci dzielić się tylko z tymi osobami, z którymi chcesz. Możesz być tak otwarty lub skryty, jak zechcesz - jednocześnie. Podziel się śmiesznym zdjęciem ze światem, a głęboki sekret zachowaj tylko dla najbliższych przyjaciół. Ty masz kontrolę."
+      choose_your_audience_info: "Aspekty na diasporze* pozwalają Ci dzielić się tylko z tymi osobami, z którymi chcesz. Możesz być tak otwarty lub skryty, jak zechcesz – jednocześnie. Podziel się śmiesznym zdjęciem ze światem, a głęboki sekret zachowaj tylko dla najbliższych przyjaciół. Ty masz kontrolę."
       headline: "Witaj na %{pod_name}"
       own_your_data: "Twoje dane należą do Ciebie"
       own_your_data_info: "Wiele sieci używa Twoich danych, aby zarabiać, analizując Twoje zachowanie i podsuwając Ci spersonalizowane reklamy. diaspora* nie używa Twoich danych w celach innych, niż umożliwienie Ci kontaktu z innymi."
@@ -606,7 +606,7 @@ pl:
       language: "Język"
       paste_link: "Udostępnij ten odnośnik znajomym, aby zaprosić ich do diaspory*, albo prześlij im go e-mailem."
       send_an_invitation: "Wyślij zaproszenie"
-      sending_invitation: "Wysyła zaproszenie..."
+      sending_invitation: "Wysyła zaproszenie…"
   layouts:
     application:
       back_to_top: "Powrót na górę"
@@ -910,11 +910,11 @@ pl:
     index:
       couldnt_find_them: "Nie możesz ich znaleźć?"
       looking_for: "Szukasz wpisów oznaczonych %{tag_link}?"
-      no_one_found: "...i nikogo nie odnaleziono."
+      no_one_found: "…i nikogo nie odnaleziono."
       no_results: "Hej! Musisz coś wpisać w pole wyszukiwarki!"
       results_for: "Użytkownicy pasujący do %{search_term}"
       search_handle: "Użyj identyfikatora diaspory* (użytkownik@pod.example.com) aby mieć pewność, że znajdziesz swoich znajomych."
-      searching: "wyszukiwanie, proszę czekać..."
+      searching: "wyszukiwanie, proszę czekać…"
       send_invite: "Wciąż nic nowego? Wyślij zaproszenie!"
     person:
       thats_you: "To Ty!"
@@ -970,8 +970,8 @@ pl:
       last_name: "Nazwisko"
       limited: "Ograniczona"
       nsfw_check: "Oznacz wszystko co udostępniam jako NSFW"
-      nsfw_explanation: "NSFW (‘nieodpowiedni w pracy’, ang. 'not safe for work') jest standardem ustalanym przez samorządną społeczność diaspory* określającym zawartość, która może nie być odpowiednia do przeglądania w czasie pracy. Jeśli planujesz często udostępniać taką zawartość, prosimy zaznacz to pole - sprawi to, że te wpisy będą zasłonięte w strumieniu dopóki użytkownik nie zdecyduje się ich zobaczyć."
-      nsfw_explanation2: "Jeśli zdecydujesz się nie zaznaczać tej opcji, prosimy dodawaj tag #nsfw za każdym razem kiedy udostępniasz taką zawartość."
+      nsfw_explanation: "NSFW („nieodpowiedni w pracy”, ang. ‘not safe for work’) jest standardem ustalanym przez samorządną społeczność diaspory* określającym zawartość, która może nie być odpowiednia do przeglądania w czasie pracy. Jeśli planujesz często udostępniać taką zawartość, prosimy zaznacz to pole – sprawi to, że te wpisy będą zasłonięte w strumieniu dopóki użytkownik nie zdecyduje się ich zobaczyć."
+      nsfw_explanation2: "Jeśli zdecydujesz się nie zaznaczać tej opcji, prosimy o dodawanie tagu #nsfw za każdym razem, kiedy udostępniasz taką zawartość."
       public: "Publiczna"
       settings: "Ustawienia profilu"
       update_profile: "Aktualizuj profil"
@@ -1001,7 +1001,7 @@ pl:
       password: "Hasło"
       password_confirmation: "Potwierdzenie hasła"
       sign_up: "Rejestracja"
-      submitting: "Wysyłanie..."
+      submitting: "Wysyłanie…"
       terms: "Zakładając konto akceptujesz %{terms_link}."
       terms_link: "warunki korzystania z serwisu"
       username: "Nazwa użytkownika"
@@ -1033,7 +1033,7 @@ pl:
       deleted: "Oryginał został usunięty przez autora."
       reshare_confirmation: "Przekazać dalej wpis użytkownika %{author}?"
       reshared_via: "Przekazano dalej przez "
-  search: "Znajdź"
+  search: "Wyszukiwanie"
   services:
     create:
       already_authorized: "Użytkownik o identyfikatorze w diasporze \"%{diaspora_id}\" już autoryzował to konto w usłudze \"%{service_name}\"."
@@ -1050,7 +1050,7 @@ pl:
       edit_services: "Edycja usług"
       logged_in_as: "Zalogowano jako %{nickname}."
       no_services_available: "Ten pod nie udostępnia żadnych usług."
-      not_logged_in: "Nie zalogowany."
+      not_logged_in: "Nie zalogowano."
       really_disconnect: "Odłączyć %{service}?"
       services_explanation: "Połączenie usług umożliwia jednoczesne publikowanie w nich wpisów, które udostępniasz na diasporze*."
       share_to: "Udostępnij w serwisie %{provider}"
@@ -1097,7 +1097,7 @@ pl:
         newhere: "TutajOdNiedawna"
       poll:
         add_a_poll: "Dodaj ankietę"
-      posting: "Publikowanie..."
+      posting: "Publikowanie…"
       remove_location: "Usuń lokalizację"
       share: "Udostępnij"
       whats_on_your_mind: "O czym myślisz?"
@@ -1236,7 +1236,7 @@ pl:
       request_export_update: "Odśwież dane mojego profilu"
       reshared: "ktoś przekaże dalej mój wpis"
       show_community_spotlight: "Wyświetlić wyróżnionych użytkowników w Strumieniu?"
-      show_getting_started: "Ponownie włącz \"pierwsze kroki\""
+      show_getting_started: "Wyświetlaj wskazówki „pierwsze kroki”"
       someone_reported: "ktoś wysłał zgłoszenie"
       started_sharing: "ktoś zacznie mi udostępniać wpisy"
       stream_preferences: "Ustawienia Strumienia"
@@ -1257,7 +1257,7 @@ pl:
       ignored_users: "Ignorowani użytkownicy"
       no_user_ignored_message: "Nie ignorujesz żadnego użytkownika"
       stop_ignoring: "Przestań ignorować"
-      strip_exif: "Usuń metadane takie jak lokalizacja, autor i model aparatu z wgrywanych zdjęć (rekomendowane)"
+      strip_exif: "Usuwaj metadane takie jak lokalizacja, autor i model aparatu z wysyłanych zdjęć (zalecane)"
       title: "Ustawienia prywatności"
     public:
       does_not_exist: "Użytkownik %{username} nie istnieje!"

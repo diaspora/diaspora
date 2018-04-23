@@ -66,7 +66,7 @@ pl:
         other: "W <%= count %> aspektach"
         two: "W <%= count %> aspektach"
         zero: "Wybierz aspekty"
-      updating: "pobieram..."
+      updating: "pobieram…"
     aspect_navigation:
       add_an_aspect: "+ Dodaj aspekt"
       deselect_all: "Odznacz wszystkie"
@@ -81,8 +81,8 @@ pl:
       name: "Nazwa"
     bookmarklet:
       post_something: "Udostępnij na diasporze*"
-      post_submit: "Wysyłanie wpisu..."
-      post_success: "Wysłano! Zamykam okno..."
+      post_submit: "Wysyłanie wpisu…"
+      post_success: "Wysłano! Zamykam okno…"
     cancel: "Anuluj"
     comma: ","
     comments:
@@ -117,7 +117,7 @@ pl:
       alright_ill_wait: "Dobrze, poczekam."
       hey: "Hej, <%= name %>!"
       no_tags: "Hej, nie obserwujesz żadnych tagów! Kontynuować mimo to?"
-      preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
+      preparing_your_stream: "Przygotowanie spersonalizowanego strumienia…"
     header:
       admin: "Administrator"
       close: "Zamknij"
@@ -307,10 +307,10 @@ pl:
     timeago:
       day: "dzień"
       days:
-        few: "%d dni temu"
-        many: "%d dni temu"
-        one: "1 dzień temu"
-        other: "%d dni temu"
+        few: "%d dni"
+        many: "%d dni"
+        one: "1 dzień"
+        other: "%d dni"
       hour: "około godziny"
       hours:
         few: "około %d godziny"
