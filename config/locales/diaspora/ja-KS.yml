@@ -1,46 +1,1065 @@
-#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
-
-
-
 ja-KS:
+  settings: ~
+  profile: ~
+  account: ~
+  privacy: ~
+  _services: ~
+  _applications: ~
+  _help: ~
+  ok: よっしゃ
+  cancel: やめとく
+  delete: ほかす
+  username: ~
+  email: ~
+  are_you_sure: ほんまにええの？
+  are_you_sure_delete_account: "ほんまにアカウントを削除してええの? この操作を取り消すことはできへん！"
+  fill_me_out: ~
+  public: ~
+  limited: ~
+  search: ~
+  nsfw: ~
+  find_people: ~
+  more: ~
+  all_aspects: ~
+  no_results: 何も見つからへん
+  _contacts: ツレ
+  _terms: ~
+  _statistics: ~
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "このユーザーの他の連絡先と重複しちゃあかん。"
+            person:
+              invalid: ~
+            username:
+              taken: 既に使われてるんで。
+              invalid: ~
+            email:
+              taken: 既に使われてるんで。
         person:
           attributes:
             diaspora_handle:
-              taken: "既に使われてるんで。"
+              taken: 既に使われてるんで。
+        contact:
+          attributes:
+            person_id:
+              taken: このユーザーの他の連絡先と重複しちゃあかん。
         reshare:
           attributes:
             root_guid:
               taken: "えっ？  すでにこの投稿をわけわけしてるで！"
-        user:
+        poll:
           attributes:
-            email:
-              taken: "既に使われてるんで。"
-            username:
-              taken: "既に使われてるんで。"
+            poll_answers:
+              not_enough_poll_answers: ~
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: ~
+  errors:
+    messages:
+      carrierwave_processing_error: ~
+      carrierwave_integrity_error: ~
+      carrierwave_download_error: ~
+      extension_whitelist_error: ~
+      extension_blacklist_error: ~
+      content_type_whitelist_error: ~
+      content_type_blacklist_error: ~
+      rmagick_processing_error: ~
+      mini_magick_processing_error: ~
+      min_size_error: ~
+      max_size_error: ~
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: ~
+    need_javascript: ~
+    csrf_token_fail: ~
   admins:
-    stats:
-      comments:
-        other: "つっこみ %{count}件"
-        zero: "つっこみなし"
-      shares:
-        other: "わけわけ %{count}件"
-        zero: "わけわけなし"
+    admin_bar:
+      pages: ~
+      dashboard: ~
+      user_search: ~
+      weekly_user_stats: ~
+      pod_stats: ~
+      report: ~
+      sidekiq_monitor: ~
+      pod_network: ~
+    dashboard:
+      pod_status: ~
+      fetching_diaspora_version: ~
+    user_search:
+      view_profile: ~
+      add_invites: ~
+      close_account: ~
+      lock_account: ~
+      unlock_account: ~
+      are_you_sure: ~
+      are_you_sure_lock_account: ~
+      are_you_sure_unlock_account: ~
+      account_closing_scheduled: ~
+      account_locking_scheduled: ~
+      account_unlocking_scheduled: ~
+      email_to: ~
+      invite: ~
+      under_13: ~
+      users:
+        zero: ユーザーが見つからへん
+        other: "%{count}人のユーザーが見つかった"
     user_entry:
-      account_closed: "アカウントを削除したんで"
-  cancel: "やめとく"
+      id: ~
+      guid: ~
+      email: ~
+      diaspora_handle: ~
+      last_seen: ~
+      account_closed: ~
+      nsfw: ~
+      unknown: ~
+      invite_token: ~
+      "yes": ええ
+      "no": いや
+    weekly_user_stats:
+      current_server: ~
+    stats:
+      week: ~
+      2weeks: ~
+      month: ~
+      daily: ~
+      usage_statistic: ~
+      go: ~
+      display_results: ~
+      comments:
+        zero: つっこみなし
+        other: "つっこみ %{count}件"
+      shares:
+        zero: わけわけなし
+        other: "わけわけ %{count}件"
+      current_segment: ~
+      50_most: ~
+      tag_name: ~
+    pods:
+      pod_network: ~
+      pod_desktop_view: ~
+      pod_desktop_link: ~
+  aspects:
+    edit:
+      confirm_remove_aspect: ほんまにこのアスペクトを削除してええの?
+      rename: ~
+      aspect_list_is_visible: ~
+      aspect_list_is_not_visible: ~
+      update: ~
+      updating: ~
+    no_contacts_message:
+      you_should_add_some_more_contacts: ~
+      try_adding_some_more_contacts: ~
+      invite_link_text: ~
+      or_spotlight: ~
+      community_spotlight: ~
+    aspect_listings:
+      add_an_aspect: ~
+    destroy:
+      success: ~
+      success_auto_follow_back: ~
+      failure: ~
+    update:
+      success: ~
+      failure: ~
+    add_to_aspect:
+      failure: ~
+      success: ~
+    seed:
+      family: ~
+      work: ~
+      acquaintances: ~
+      friends: ~
+    index:
+      donate: ~
+      keep_pod_running: "毎月の寄付で、%{pod}の高速実行を維持し、サーバー、彼らのコーヒー、修正を買うぜ！"
+      donate_liberapay: ~
+      welcome_to_diaspora: ~
+      introduce_yourself: ~
+      new_here:
+        title: ~
+        follow: ~
+        learn_more: ~
+      help:
+        need_help: ~
+        here_to_help: ~
+        do_you: ~
+        have_a_question: ~
+        tag_question: ~
+        find_a_bug: ~
+        tag_bug: ~
+        feature_suggestion: ~
+        tag_feature: ~
+        tutorials_and_wiki: ~
+        tutorial_link_text: ~
+        support_forum: ~
+        support_forum_link: ~
+        any_problem: ~
+        contact_podmin: ~
+        mail_podmin: ~
+      services:
+        heading: ~
+        content: ~
+    aspect_stream:
+      stay_updated: ~
+      stay_updated_explanation: ~
+      make_something: ~
+  aspect_memberships:
+    destroy:
+      success: ~
+      failure: ~
+      no_membership: ~
+      forbidden: ~
+      invalid_statement: ~
+  bookmarklet:
+    heading: ~
+    post_something: ダイアスポラにつぶやく
+    explanation: ~
+  color_themes:
+    dark: ~
+    dark_green: ~
+    egyptian_blue: ~
+    magenta: ~
+    original: ~
+    original_white: ~
   comments:
+    create:
+      error: ~
     new_comment:
-      commenting: "つっこみ投稿中…"
-  ok: "よっしゃ"
+      comment: つっこむ
+      commenting: つっこみ投稿中…
+  contacts:
+    index:
+      start_a_conversation: ~
+      title: ツレたち
+      no_contacts: ~
+      no_contacts_message: ~
+      community_spotlight: ~
+      no_contacts_in_aspect: ~
+      my_contacts: ~
+      all_contacts: ~
+      only_sharing_with_me: ~
+      add_contact: ~
+      user_search: ~
+    spotlight:
+      community_spotlight: ~
+      suggest_member: ~
+      no_members: ~
+  conversations:
+    index:
+      conversations_inbox: ~
+      new_conversation: ~
+      no_messages: メッセージなし
+      inbox: ~
+      no_contacts: ~
+    show:
+      reply: ~
+      replying: ~
+      hide: ~
+      delete: ~
+      last_message: ~
+    new:
+      to: ~
+      subject: ~
+      subject_default: ~
+      message: ~
+      send: ~
+      sending: ~
+    create:
+      sent: ~
+      fail: ~
+    new_conversation:
+      fail: ~
+    destroy:
+      delete_success: ~
+      hide_success: ~
+  date:
+    formats:
+      fullmonth_day: ~
+      birthday: ~
+      birthday_with_year: ~
+  help:
+    title_header: ~
+    tutorials: ~
+    tutorial: ~
+    irc: ~
+    wiki: ~
+    faq: ~
+    markdown: ~
+    here: ~
+    foundation_website: ~
+    third_party_tools: ~
+    getting_started_tutorial: ~
+    community_guidelines: ~
+    getting_help:
+      title: ~
+      getting_started_q: ~
+      getting_started_a: ~
+      get_support_q: ~
+      get_support_a_website: ~
+      get_support_a_tutorials: ~
+      get_support_a_wiki: ~
+      get_support_a_irc: ~
+      get_support_a_faq: ~
+      get_support_a_hashtag: ~
+      get_support_a_discourse: ~
+    account_and_data_management:
+      title: ~
+      move_pods_q: ~
+      move_pods_a: ~
+      download_data_q: ~
+      download_data_a: ~
+      close_account_q: ~
+      close_account_a: ~
+      data_visible_to_podmin_q: ~
+      data_visible_to_podmin_a: ~
+      data_other_podmins_q: ~
+      data_other_podmins_a: ~
+    aspects:
+      title: ~
+      what_is_an_aspect_q: ~
+      what_is_an_aspect_a: ~
+      who_sees_post_q: ~
+      who_sees_post_a: ~
+      contacts_know_aspect_q: ~
+      contacts_know_aspect_a: ~
+      person_multiple_aspects_q: ~
+      person_multiple_aspects_a: ~
+      remove_notification_q: ~
+      remove_notification_a: ~
+      change_aspect_of_post_q: ~
+      change_aspect_of_post_a: ~
+      post_multiple_aspects_q: ~
+      post_multiple_aspects_a: ~
+      restrict_posts_i_see_q: ~
+      restrict_posts_i_see_a: ~
+      rename_aspect_q: ~
+      rename_aspect_a: ~
+      delete_aspect_q: ~
+      delete_aspect_a: ~
+    chat:
+      title: ~
+      contacts_page: ~
+      add_contact_roster_q: ~
+      add_contact_roster_a: ~
+    mentions:
+      title: ~
+      what_is_a_mention_q: ~
+      what_is_a_mention_a: ~
+      how_to_mention_q: ~
+      how_to_mention_a: ~
+      mention_in_comment_q: ~
+      mention_in_comment_a: ~
+      see_mentions_q: ~
+      see_mentions_a: ~
+    pods:
+      title: ~
+      what_is_a_pod_q: ~
+      what_is_a_pod_a: ~
+      find_people_q: ~
+      find_people_a: ~
+      use_search_box_q: ~
+      use_search_box_a: ~
+    posts_and_posting:
+      title: ~
+      stream_full_of_posts_q: ~
+      stream_full_of_posts_a1: ~
+      stream_full_of_posts_li1: ~
+      stream_full_of_posts_li2: ~
+      stream_full_of_posts_li3: ~
+      hide_posts_q: ~
+      hide_posts_a: ~
+      post_notification_q: ~
+      post_notification_a: ~
+      ignore_user_q: ~
+      ignore_user_a1: ~
+      ignore_user_a2: ~
+      ignore_user_a3: ~
+      post_report_q: ~
+      post_report_a: ~
+      character_limit_q: ~
+      character_limit_a: ~
+      char_limit_services_q: ~
+      char_limit_services_a: ~
+      format_text_q: ~
+      format_text_a: ~
+      insert_images_q: ~
+      insert_images_a: ~
+      insert_images_comments_q: ~
+      insert_images_comments_a: ~
+      size_of_images_q: ~
+      size_of_images_a: ~
+      embed_multimedia_q: ~
+      embed_multimedia_a: ~
+      post_location_q: ~
+      post_location_a: ~
+      post_poll_q: ~
+      post_poll_a: ~
+    private_posts:
+      title: ~
+      who_sees_post_q: ~
+      who_sees_post_a: ~
+      can_comment_q: ~
+      can_comment_a: ~
+      can_reshare_q: ~
+      can_reshare_a: ~
+      see_comment_q: ~
+      see_comment_a: ~
+    public_posts:
+      title: ~
+      who_sees_post_q: ~
+      who_sees_post_a: ~
+      find_public_post_q: ~
+      find_public_post_a: ~
+      can_comment_reshare_like_q: ~
+      can_comment_reshare_like_a: ~
+      see_comment_reshare_like_q: ~
+      see_comment_reshare_like_a: ~
+      deselect_aspect_posting_q: ~
+      deselect_aspect_posting_a: ~
+    profile:
+      title: ~
+      whats_in_profile_q: ~
+      whats_in_profile_a: ~
+      who_sees_profile_q: ~
+      who_sees_profile_a: ~
+      what_do_tags_do_q: ~
+      what_do_tags_do_a: ~
+    resharing_posts:
+      title: ~
+      reshare_public_post_aspects_q: ~
+      reshare_public_post_aspects_a: ~
+      reshare_private_post_aspects_q: ~
+      reshare_private_post_aspects_a: ~
+    sharing:
+      title: わけわけ
+      add_to_aspect_q: ~
+      add_to_aspect_a1: ~
+      add_to_aspect_li1: ~
+      add_to_aspect_li2: ~
+      add_to_aspect_li3: ~
+      add_to_aspect_li4: ~
+      add_to_aspect_li5: ~
+      add_to_aspect_li6: ~
+      add_to_aspect_li7: ~
+      add_to_aspect_li8: ~
+      add_to_aspect_a2: ~
+      sharing_notification_q: ~
+      sharing_notification_a: ~
+      only_sharing_q: ~
+      only_sharing_a: ~
+      list_not_sharing_q: ~
+      list_not_sharing_a: ~
+      see_old_posts_q: ~
+      see_old_posts_a: ~
+    tags:
+      title: ~
+      what_are_tags_for_q: ~
+      what_are_tags_for_a: ~
+      tags_in_comments_q: ~
+      tags_in_comments_a: ~
+      followed_tags_q: ~
+      followed_tags_a: ~
+      people_tag_page_q: ~
+      people_tag_page_a: ~
+      filter_tags_q: ~
+      filter_tags_a: ~
+    keyboard_shortcuts:
+      title: ~
+      keyboard_shortcuts_q: ~
+      keyboard_shortcuts_a1: ~
+      keyboard_shortcuts_li1: ~
+      keyboard_shortcuts_li2: ~
+      keyboard_shortcuts_li3: ~
+      keyboard_shortcuts_li4: ~
+      keyboard_shortcuts_li5: ~
+      keyboard_shortcuts_li6: ~
+      keyboard_shortcuts_li7: ~
+      keyboard_shortcuts_li8: ~
+    miscellaneous:
+      title: ~
+      back_to_top_q: ~
+      back_to_top_a: ~
+      photo_albums_q: ~
+      photo_albums_a: ~
+      subscribe_feed_q: ~
+      subscribe_feed_a: ~
+      diaspora_app_q: ~
+      diaspora_app_a: ~
+  home:
+    default:
+      headline: ~
+      byline: ~
+      be_who_you_want_to_be: ~
+      be_who_you_want_to_be_info: ~
+      choose_your_audience: ~
+      choose_your_audience_info: ~
+      own_your_data: ~
+      own_your_data_info: ~
+    podmin:
+      headline: ~
+      byline: ~
+      configure_your_pod: ~
+      create_an_account: ~
+      make_yourself_an_admin: ~
+      update_your_pod: ~
+      getting_help: ~
+      contribute: ~
+      configuration_info: ~
+      create_an_account_info: ~
+      make_yourself_an_admin_info: ~
+      update_your_pod_info: ~
+      update_instructions: ~
+      getting_help_info: ~
+      faq_for_podmins: ~
+      contact_irc: ~
+      contribute_info: ~
+      report_bugs: ~
+  invitation_codes:
+    not_valid: ~
+    already_logged_in: ~
+  invitations:
+    create:
+      sent: ~
+      rejected: ~
+      no_more: ~
+      empty: ~
+      note_already_sent: ~
+      closed: ~
+    new:
+      language: ~
+      invite_someone_to_join: ~
+      comma_separated_plz: ~
+      send_an_invitation: ~
+      sending_invitation: ~
+      paste_link: ~
+  layouts:
+    header:
+      profile: ~
+      settings: ~
+      logout: ~
+      code: ~
+      toggle_navigation: ~
+    application:
+      powered_by: ~
+      whats_new: ~
+      statistics_link: ~
+      discourse: ~
+      toggle: ~
+      public_feed: ~
+      back_to_top: ~
+      source_package: ~
+      be_excellent: ~
+  likes:
+    create:
+      error: ええやん！に失敗した。
+    destroy:
+      error: ええやん！の取消に失敗した。
+  notifications:
+    also_commented:
+      other: "%{actors}さんも%{post_author}さんの投稿%{post_link}につっこんだで。"
+    also_commented_deleted:
+      other: "\"%{actors}さんが削除された投稿につっこんだで。"
+    liked_post_deleted:
+      other: "%{actors}さんが削除された投稿にええやん！て言うてたで。"
+    index:
+      notifications: ~
+      mark_all_as_read: ~
+      mark_all_shown_as_read: ~
+      mark_read: ~
+      mark_unread: ~
+      show_all: ~
+      show_unread: ~
+      all_notifications: ~
+      also_commented: ~
+      comment_on_post: 投稿につっこむ
+      liked: ええやん！した
+      mentioned: ~
+      mentioned_in_comment: ~
+      reshared: わけわけした
+      started_sharing: ~
+      contacts_birthday: ~
+      no_notifications: ~
+      and: ~
+    mentioned_in_comment:
+      other: "%{actors} が、投稿 %{post_link} に <a href='%{comment_path}'>つっこみ</a> でメンションしたで。"
+    mentioned_in_comment_deleted:
+      other: "%{actors} が、削除したつっこみでメンションしたで。"
+    comment_on_post:
+      other: "%{actors}さんが投稿%{post_link}につっこんだで。"
+    liked:
+      other: "%{actors}さんが投稿%{post_link}にええやん！と言うてたで。"
+  notifier:
+    a_post_you_shared: ~
+    a_private_message: ~
+    a_limited_post_comment: ~
+    email_sent_by_diaspora: ~
+    click_here: ~
+    hello: ~
+    thanks: ~
+    to_change_your_notification_settings: ~
+    single_admin:
+      subject: ~
+      admin: ~
+    started_sharing:
+      subject: ~
+      sharing: ~
+      view_profile: ~
+    comment_on_post:
+      limited_subject: ~
+      reply: ~
+    also_commented:
+      limited_subject: ~
+    mentioned:
+      subject: ~
+      limited_post: ~
+    mentioned_in_comment:
+      limited_post: ~
+      reply: ~
+    private_message:
+      subject: ~
+      reply_to_or_view: ~
+    liked:
+      liked: "%{name}さんが、あなたの投稿にええやん！て言うてたで"
+      limited_post: "%{name} さんが、あなたの限定公開の投稿にええやん！て言うてたで"
+      view_post: ~
+    reshared:
+      reshared: ~
+      view_post: ~
+    contacts_birthday:
+      subject: ~
+      birthday: ~
+      view_profile: ~
+    confirm_email:
+      subject: ~
+      click_link: ~
+    csrf_token_fail:
+      subject: ~
+      body: ~
+    report_email:
+      type:
+        post: ~
+        comment: ~
+      subject: ~
+      body: ~
+    export_email:
+      subject: ~
+      body: ~
+    export_failure_email:
+      subject: ~
+      body: ~
+    export_photos_email:
+      subject: ~
+      body: ~
+    export_photos_failure_email:
+      subject: ~
+      body: ~
+    invited_you: ~
+    invite:
+      message: ~
+    remove_old_user:
+      subject: ~
+      body: ~
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          redirection_message: ~
+          access: ~
+          no_requirement: ~
+          approve: ~
+          deny: ~
+          bad_request: "クライアント ID またはリダイレクト URI が見つからへん"
+          client_id_not_found: "client_id %{client_id} のクライアント、リダイレクト URI %{redirect_uri} が見つからへん"
+        destroy:
+          fail: "ID %{id} の許可を取り消すことができへんかった"
+      user_applications:
+        index:
+          edit_applications: ~
+          title: ~
+          access: ~
+          no_requirement: ~
+        no_applications: ~
+        revoke_autorization: ~
+        tos: ~
+        policy: ~
+      scopes:
+        openid:
+          name: ~
+          description: ~
+        sub:
+          name: ~
+          description: ~
+        aud:
+          name: ~
+          description: ~
+        name:
+          name: ~
+          description: ~
+        nickname:
+          name: ~
+          description: ~
+        profile:
+          name: ~
+          description: ~
+        picture:
+          name: ~
+          description: ~
+        read:
+          name: ~
+          description: ~
+        write:
+          name: ~
+          description: ~
+      error_page:
+        title: ~
+        contact_developer: ~
+        login_required: ~
+        could_not_authorize: ~
+  people:
+    person:
+      thats_you: ~
+    index:
+      results_for: ~
+      no_results: キーワードを入れないと検索できへんや！
+      couldnt_find_them: ~
+      search_handle: ~
+      send_invite: ~
+      no_one_found: …1人も見つからへんかった。
+      searching: ~
+      looking_for: ~
+    show:
+      has_not_shared_with_you_yet: ~
+      does_not_exist: ~
+      closed_account: ~
+    profile_sidebar:
+      bio: ~
+      location: ~
+      gender: ~
+      born: ~
+    add_contact:
+      invited_by: ~
+  photos:
+    create:
+      runtime_error: ~
+      integrity_error: ~
+      type_error: ~
+    destroy:
+      notice: ~
+    new_profile_photo:
+      upload: ~
+  posts:
+    presenter:
+      title: ~
+    show:
+      location: ~
+      forbidden: ~
+      reshare_by: "%{author}さんがわけわけ"
+  report:
+    title: ~
+    post_label: ~
+    comment_label: ~
+    reported_label: ~
+    reason_label: ~
+    review_link: ~
+    delete_link: ~
+    reported_user_details: ~
+    confirm_deletion: ~
+    not_found: ~
+    status:
+      destroyed: ~
+      failed: ~
+  profiles:
+    edit:
+      basic: ~
+      extended: ~
+      settings: ~
+      extended_visibility_text: ~
+      public: ~
+      limited: ~
+      basic_hint: ~
+      extended_hint: ~
+      your_name: ~
+      first_name: ~
+      last_name: ~
+      your_gender: ~
+      your_birthday: ~
+      your_tags: ~
+      your_tags_placeholder: ~
+      your_bio: ~
+      your_location: ~
+      your_photo: ~
+      update_profile: ~
+      allow_search: ~
+      nsfw_explanation: ~
+      nsfw_explanation2: ~
+      nsfw_check: ~
+    update:
+      updated: ~
+      failed: ~
+  registrations:
+    new:
+      enter_email: ~
+      enter_username: ~
+      enter_password: ~
+      enter_password_again: ~
+      sign_up: ~
+      email: ~
+      username: ~
+      password: ~
+      password_confirmation: ~
+      submitting: ~
+      terms: ~
+      terms_link: ~
+    create:
+      success: ~
+    closed: ~
+    invalid_invite: ~
+  reshares:
+    create:
+      error: ~
+    reshare:
+      reshared_via: ~
+      reshare_confirmation: "%{author}さんの投稿をわけわけしたろか?"
+      deleted: ~
+    comment_email_subject: ~
+  services:
+    provider:
+      facebook: ~
+      tumblr: ~
+      twitter: ~
+      wordpress: ~
+    index:
+      title: ~
+      connect: ~
+      disconnect: ~
+      logged_in_as: ~
+      no_services_available: ~
+      not_logged_in: ~
+      really_disconnect: ~
+      edit_services: ~
+      services_explanation: ~
+      share_to: ~
+    create:
+      success: ~
+      failure: ~
+      already_authorized: ~
+      read_only_access: ~
+    destroy:
+      success: ~
+    failure:
+      error: ~
+  blocks:
+    create:
+      success: "OK、そのユーザーは再度ストリームに表示されへん。 #silencio!"
+      failure: "このユーザーを無視できへんかった。 #evasion"
+    destroy:
+      success: ~
+      failure: "このユーザーの無視を解除できへんかった。 #evasion"
   shared:
+    aspect_dropdown:
+      mobile_row_checked: ~
+      mobile_row_unchecked: ~
     publisher:
-      share: "わけわけ"
+      formatWithMarkdown: ~
+      posting: ~
+      share: ~
+      get_location: ~
+      remove_location: ~
+      whats_on_your_mind: ~
+      discard_post: ~
+      new_user_prefill:
+        newhere: ~
+        hello: ~
+        i_like: ~
+        invited_by: ~
+      poll:
+        add_a_poll: ~
+    invitations:
+      invites: ~
+      invite_your_friends: ~
+      by_email: ~
+      share_this: ~
+    public_explain:
+      control_your_audience: ~
+      new_user_welcome_message: ~
+      visibility_dropdown: ~
+      title: ~
+      share: わけわけ
+      outside: ~
+      logged_in: ~
+      manage: ~
+      atom_feed: ~
+    stream_element:
+      via: ~
+      via_mobile: ~
+  status_messages:
+    new:
+      mentioning: ~
+    too_long: ~
+    bad_aspects: ~
+  stream_helper:
+    no_more_posts: ~
+    no_posts_yet: ~
+  tags:
+    show:
+      follow: ~
+      stop_following: ~
+      none: ~
+    name_too_long: ~
+  tag_followings:
+    manage:
+      title: ~
+      no_tags: ~
+  streams:
+    community_spotlight_stream: ~
+    aspects_stream: ~
+    mentioned_stream: ~
+    followed_tags_stream: ~
+    mentions:
+      title: ~
+    comment_stream:
+      title: つっこみを入れた投稿
+    like_stream:
+      title: ~
+    followed_tag:
+      title: ~
+      add_a_tag: ~
+      follow: ~
+      all: ~
+    admin:
+      title: ~
+    tags:
+      title: ~
+    public:
+      title: ~
+    multi:
+      title: ~
+    aspects:
+      title: ~
+      all: ~
+    activity:
+      title: ~
+    liked:
+      title: ええやん！した投稿
+    commented:
+      title: ~
+  users:
+    edit:
+      edit_account: ~
+      change: ~
+      your_handle: ~
+      your_email: ~
+      your_email_private: ~
+      change_email: ~
+      email_awaiting_confirmation: ~
+      change_password: ~
+      new_password: ~
+      current_password: ~
+      current_password_expl: ~
+      character_minimum_expl: ~
+      change_language: ~
+      change_color_theme: ~
+      close_account_text: ~
+      stream_preferences: ~
+      show_community_spotlight: ~
+      show_getting_started: ~
+      following: ~
+      auto_follow_back: ~
+      auto_follow_aspect: ~
+      default_post_visibility: ~
+      receive_email_notifications: ~
+      started_sharing: ~
+      someone_reported: ~
+      mentioned: ~
+      mentioned_in_comment: ~
+      liked: あなたの投稿をええやん！したとき
+      reshared: ~
+      comment_on_post: ~
+      also_commented: ~
+      private_message: ~
+      birthday: ~
+      download_export: ~
+      request_export: ~
+      request_export_update: ~
+      export_data: ~
+      export_in_progress: ~
+      last_exported_html: ~
+      download_export_photos: ~
+      request_export_photos: ~
+      request_export_photos_update: ~
+      export_photos_in_progress: ~
+      close_account:
+        dont_go: ~
+        make_diaspora_better: ~
+        mr_wiggles: ~
+        what_we_delete: ~
+        locked_out: ~
+        lock_username: ~
+        no_turning_back: ~
+    privacy_settings:
+      title: ~
+      strip_exif: ~
+      ignored_users: ~
+      stop_ignoring: ~
+      no_user_ignored_message: ~
+    destroy:
+      success: ~
+      no_password: ~
+      wrong_password: ~
+    getting_started:
+      well_hello_there: ~
+      community_welcome: ~
+      awesome_take_me_to_diaspora: ~
+      who_are_you: ~
+      connect_to_facebook: ~
+      connect_to_facebook_link: ~
+      what_are_you_in_to: ~
+      hashtag_explanation: ~
+      hashtag_suggestions: ~
+    update:
+      password_changed: ~
+      password_not_changed: ~
+      language_changed: ~
+      language_not_changed: ~
+      settings_updated: ~
+      settings_not_updated: ~
+      email_notifications_changed: ~
+      unconfirmed_email_changed: ~
+      unconfirmed_email_not_changed: ~
+      follow_settings_changed: ~
+      follow_settings_not_changed: ~
+      color_theme_changed: ~
+      color_theme_not_changed: ~
+    public:
+      does_not_exist: ~
+    confirm_email:
+      email_confirmed: ~
+      email_not_confirmed: ~
+  will_paginate:
+    previous_label: ~
+    next_label: ~
+  simple_captcha:
+    placeholder: ~
+    label: ~
+    message:
+      default: ~
+      user: ~
+      failed: ~
+  statistics:
+    name: ~
+    network: ~
+    services: ~
+    total_users: ~
+    active_users_halfyear: ~
+    active_users_monthly: ~
+    local_posts: ~
+    local_comments: ~
+    version: ~
+    registrations: ~
+    enabled: ~
+    disabled: ~
+    open: ~
+    closed: ~
