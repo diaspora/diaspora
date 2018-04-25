@@ -24,6 +24,16 @@ describe PollParticipation, type: :model do
         bob.participate_in_poll!(status, poll.poll_answers.first)
       }.to_not raise_error
     end
+
+    it "has unique DB index for author-person" do
+      pp = FactoryGirl.create(:poll_participation)
+      pp2 = FactoryGirl.create(:poll_participation, author: pp.author)
+      expect {
+        # rubocop:disable Rails/SkipsModelValidations
+        pp2.update_attribute(:poll_id, pp.poll_id)
+        # rubocop:enable Rails/SkipsModelValidations
+      }.to raise_error ActiveRecord::RecordNotUnique
+    end
   end
 
   it_behaves_like "it is relayable" do
