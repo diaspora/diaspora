@@ -1,6 +1,7 @@
 # 0.7.6.0
 
 ## Refactor
+* Add unique index to poll participations on `poll_id` and `author_id` [#7798](https://github.com/diaspora/diaspora/pull/7798)
 
 ## Bug fixes
 
