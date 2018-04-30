@@ -11,10 +11,13 @@ fi:
       new:
         resend_confirmation: "Lähetä vahvistusohjeet uudelleen"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten vahvistat käyttäjätilisi."
+      send_paranoid_instructions: "Jos sähköpostiosoitteesi löytyy meidän tietokannastamme, saat kohta ohjeita sähköpostitse osoitteen vahvistamisesta."
     failure:
+      already_authenticated: "Olet jo kirjautunut sisään."
       inactive: "Käyttätiliäsi ei ole vielä aktivoitu."
       invalid: "Virheellinen käyttäjätunnus tai salasana."
       invalid_token: "Virheellinen todennustunnus."
+      last_attempt: "Sinulla on yksi yritys jäljellä ennen kuin käyttäjätilisi lukitaan."
       locked: "Käyttäjätilisi on lukittu."
       not_found_in_database: "Virheellinen sähköpostiosoite tai salasana."
       timeout: "Istunto on vanhentunut, kirjaudu uudelleen jatkaaksesi."
@@ -34,6 +37,8 @@ fi:
         accept_at: "osoitteessa %{url}, hyväksyminen alla olevasta linkistä."
         has_invited_you: "%{names}"
         have_invited_you: "%{names} on kutsunut sinut liittymään Diasporan käyttäjäksi"
+      password_change:
+        subject: "Salasana vaihdettu"
       reset_password_instructions:
         change: "Vaihda salasanani"
         ignore: "Jos et pyytänyt tätä, voit jättää tämän sähköpostin huomiotta."
@@ -58,12 +63,19 @@ fi:
         reset_password: "Vaihda salasana"
         send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."
+      send_paranoid_instructions: "Jos sähköpostiosoitteesi löytyy tietokannastamme, saat kohta salasanan palautuslinkin sähköpostitse."
       updated: "Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään."
+      updated_not_active: "Salasanasi on vaihdettu onnistuneesti."
     registrations:
       destroyed: "Näkemiin! Käyttäjätilisi on onnistuneesti peruutettu. Toivottavasti näemme sinut pian uudelleen."
       signed_up: "Käyttäjätilin luominen onnistui. Mahdollinen vahvistus on lähetetty sähköpostiisi."
+      signed_up_but_inactive: "Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi on aktivoitu."
+      signed_up_but_locked: "Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi lukitus on poistettu."
+      signed_up_but_unconfirmed: "Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa käyttäjätilisi. Ole hyvä ja vahvista käyttäjätilisi saamiesi ohjeiden mukaisesti."
+      update_needs_confirmation: "Käyttäjätietosi on päivitetty onnistuneesti, mutta uusi sähköpostiosoitteesi pitää vielä vahvistaa. Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa uuden osoitteesi."
       updated: "Päivitit käyttäjätilisi onnistuneesti."
     sessions:
+      already_signed_out: "Uloskirjautuminen onnistui."
       new:
         login: "Kirjautuminen"
         modern_browsers: "tukee vain moderneja selaimia."
@@ -85,9 +97,14 @@ fi:
       new:
         resend_unlock: "Lähetä lukituksenpoisto-ohjeet uudelleen"
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet siitä, miten avaat käyttäjätilisi lukituksen."
+      send_paranoid_instructions: "Jos käyttäjätilisi on olemassa, saat muutaman minuutin kuluttua sähköpostitse ohjeet siitä miten lukitus poistetaan."
       unlocked: "Käyttäjätilisi lukitus on avattu onnistuneesti. Olet nyt kirjautunut sisään."
   errors:
     messages:
       already_confirmed: "oli jo varmistettu"
+      expired: "on vanhentunut, ole hyvä ja pyydä uusi"
       not_found: "ei löytynyt"
       not_locked: "ei ollut lukittu"
+      not_saved:
+        one: "1 virhe esti %{resource}-resussin tallentamisen."
+        other: "%{count} virhettä esti %{resource}-resurssin tallentamisen."

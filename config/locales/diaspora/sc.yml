@@ -344,6 +344,19 @@ sc:
     helper:
       correct_the_following_errors_and_try_again: "Currege custos errore e torra a proare."
     need_javascript: "Custu situ ìnternet tenet bisòngiu de JavaScript pro funtzionare comente si tocat. Si as istudadu JavaScript torra·lu a allùghere, pro praghere, e torra a carrigare custa pàgina."
+  errors:
+    messages:
+      carrierwave_download_error: "no est istadu iscarrigadu"
+      carrierwave_integrity_error: "no est de una casta de documentu permitida"
+      carrierwave_processing_error: "no est istadu protzessadu"
+      content_type_blacklist_error: "Non podes carrigare documentos %{content_type}"
+      content_type_whitelist_error: "Non podes carrigare documentos %{content_type}"
+      extension_blacklist_error: "Non podes carrigare documentos %{extension}, castas proibidas: %{prohibited_types}"
+      extension_whitelist_error: "Non podes carrigare documentos %{extension}, castas permitidas: %{allowed_types}"
+      max_size_error: "Su documentu diat dèpere èssere prus minore de %{max_size}"
+      min_size_error: "Su documentu diat dèpere èssere prus mannu de %{min_size}"
+      mini_magick_processing_error: "Manipuladura cun rmagick fallida, fortzis no est un'immàgine? Errore Originale: %{e}"
+      rmagick_processing_error: "Manipuladura cun rmagick fallida, fortzis no est un'immàgine?"
   fill_me_out: "Iscrie inoghe"
   find_people: "Agata persones o #etichetas"
   help:
@@ -364,8 +377,6 @@ sc:
       change_aspect_of_post_q: "A pustis de àere publicadu carchi cosa, potzo cambiare sa cara(as) chi la podent bìdere?"
       contacts_know_aspect_a: "Nono. Non podent bìdere sos nùmenes de sas caras, mai."
       contacts_know_aspect_q: "Sos cuntatos meos ischint in cale caras los apo postos?"
-      contacts_visible_a: "Si as a isseberare custa optzione sos cuntatos dae cussa cara ant a pòdere bìdere sos àteros chi bi sunt in intro, in s'ischeda \"Cuntatos\" in sa pàgina de su profilu tuo. (Pro como, petzi sos cuntatos chi sunt in su matessi pod tuo ant a pòdere bìdere s'ischeda \"Cuntatos\" in su profilu tuo.) Est mègius a isseberare custa optziones petzi si sos cuntatos in cussa cara si connoschent unu cun s'àteru, pro esèmpiu si sa cara est pro unu tzìrculu o una sotziedade in sa cale bi ses in intro tue. In cada manera no ant pòdere bìdere su matessi su nùmene de sa cara."
-      contacts_visible_q: "Ite cheret nàrrere \"permìtere a sos cuntatos in custa cara de si bìdere unu cun s'àteru\"?"
       delete_aspect_a: "Incarca \"Caras meas\" in sa barra laterale dae sa vista de su flussu e a pustis incarca in s'icona de sa matita a curtzu de sa cara chi cheres iscantzellare, o bae s sa pàgina de sos cuntatos tuos e ischerta sa cara chi t'interessat. Apustis incarca in s'icona de su botu de s'arga a pitzu de sa pàgina, a destra."
       delete_aspect_q: "Comente potzo iscantzellare una cara?"
       person_multiple_aspects_a: "Eja. Bae a sa pàgina de sos cuntatos tua e incarca in \"Cuntatos meos\". Pro cada cuntatu podes impreare su menù a destra pro los annànghere (o los bogare) dae totu sas caras chi boles. O los podes annànghere a una cara noa (o los bogare dae una) fintzas incarchende in su butone de s'ischertadore de caras in sa pàgina de su profilu issoro. O, fintzas, podes mòere su puntadore in subra de su nùmene issoro cando lu bides in su flussu, e una ventanedda at a aparire. As a pòdere cambiare sas caras in ue sunt dae ue."
@@ -1092,6 +1103,7 @@ sc:
     total_users: "Impreadores totales"
     version: "Versione"
   status_messages:
+    bad_aspects: "Sos IDs insertados non sunt curretos (no esistint o non sunt possedidos)"
     new:
       mentioning: "Ses numenende: %{person}"
     too_long: "Pro praghere iscrie un'istadu cun prus pagu de %{count} caràteres. In custu momentu bi sunt %{current_length} caràteres."
@@ -1186,6 +1198,7 @@ sc:
       export_in_progress: "In custu momentu semus protzessende sos datos tuos. Pro praghere, torra a verificare a pustis de carchi momentu."
       export_photos_in_progress: "Semus elaborande sas fotos tuas. Pro piaghere torra a compidare intre pagu."
       following: "Impostatziones de cumpartzidura"
+      last_exported_html: "(Ùrtimu agiornamentu %{timeago})"
       liked: "a calicunu agradat una publicatzione tua"
       mentioned: "ses numenadu in una publicatzione"
       mentioned_in_comment: "ti ant numenadu in unu cummentu"

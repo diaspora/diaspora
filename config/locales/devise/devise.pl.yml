@@ -51,6 +51,9 @@ pl:
         subject: "Instrukcja odblokowania"
         unlock: "Odblokuj moje konto"
       welcome: "Witaj %{email}!"
+    omniauth_callbacks:
+      failure: "Nie udało się uwierzytelnić Cię z %{kind} z powodu „%{reason}”."
+      success: "Pomyślnie uwierzytelniono kontem %{kind}."
     passwords:
       edit:
         change_password: "Zmień hasło"
@@ -107,3 +110,8 @@ pl:
       expired: "wygasł, poproś o nowy"
       not_found: "nie znaleziono"
       not_locked: "nie był zablokowany"
+      not_saved:
+        few: "%{count} błędy uniemożliwiły zapisanie %{resource}:"
+        many: "%{count} błędów uniemożliwiło zapisanie %{resource}:"
+        one: "1 błąd uniemożliwił zapisanie %{resource}:"
+        other: "%{count} błędów uniemożliwiło zapisanie %{resource}:"

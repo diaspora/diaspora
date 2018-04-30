@@ -76,7 +76,6 @@ it:
       size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
     profile:
       born: "Data di nascita"
-      contacts: "Contatti"
       edit: "Edita"
       gender: "Sesso"
       photos: "Fotografie"

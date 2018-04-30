@@ -34,7 +34,7 @@ cs:
         reshare:
           attributes:
             root_guid:
-              taken: "Ten je dobrý, že?  Tento příspěvek už sdílíte!"
+              taken: "Není to skvělé?  Tento příspěvek už sdílíte!"
         user:
           attributes:
             email:
@@ -345,8 +345,6 @@ cs:
       change_aspect_of_post_q: "Poté, co jsem něco odeslal, můžu změnit aspekty, které to vidí?"
       contacts_know_aspect_a: "Ne. V žádném případě nemohou vidět název aspektu."
       contacts_know_aspect_q: "Vědí mé kontakty, do kterých aspektů jsem je zařadil(a)?"
-      contacts_visible_a: "Pokud vyberete tuto možnost, tak kontakty z toho aspektu budou moci vidět, kdo jiný v aspektu je, na vašem profilu pod vaší fotkou. Je nejlepší vybrat tuto možnost jen pokud se kontakty v tom aspektu znají. Stále neuvidí název aspektu."
-      contacts_visible_q: "Co znamená „umožnit kontaktům v tomto aspektu se vzájemně vidět“?"
       delete_aspect_a: "Ve Vašem seznamu aspektů na levé straně hlavní stránky najeďte myší na aspekt, který chcete smazat. Klikněte na malou tužku, která se objeví napravo. V rámečku, který se objeví, zvolte Smazat."
       delete_aspect_q: "Jak lze smazat aspekt?"
       person_multiple_aspects_a: "Ano. Jděte do své stránky kontaktů a kliněte na Moje kontakty. Každý z kontaktů můžete přidat či odebrat pomocí menu na pravé straně do tolika aspektů, kolik chcete. Nebo můžete kontakt přidat či odebrat z aspektu kliknutím na tlačítko na jejich profilové stránce. Nebo můžete dokonce jen najet myší na jméno kontaktu, když jej vidíte v proudu, a změnit aspekty přímo v okénku, které se objeví."

@@ -18,6 +18,7 @@
 //= require jquery.autoSuggest.custom
 //= require fine-uploader/fine-uploader.core
 //= require handlebars.runtime
+//= require_tree ../templates
 //= require posix-bracket-expressions
 //= require markdown-it
 //= require markdown-it-diaspora-mention

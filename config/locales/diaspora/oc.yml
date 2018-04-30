@@ -344,6 +344,19 @@ oc:
     helper:
       correct_the_following_errors_and_try_again: "Corregissètz las errors seguentas, e tornatz ensajar."
     need_javascript: "Aqueste site Internet requerís JavaScript per foncionar coma cal. S’avètz desactivat JavaScript, mercés de l'activar e d'actualizar aquesta pagina."
+  errors:
+    messages:
+      carrierwave_download_error: "a pas pogut èsser telecargat"
+      carrierwave_integrity_error: "es pas un tipe de fichièr autorizat"
+      carrierwave_processing_error: "fracàs del tractament"
+      content_type_blacklist_error: "Es pas permés de mandar de fichièrs %{content_type}"
+      content_type_whitelist_error: "Es pas permés de mandar de fichièrs %{content_type}"
+      extension_blacklist_error: "Es pas permés de mandar de fichièrs %{extension}, los formats defenduts son : %{prohibited_types}"
+      extension_whitelist_error: "Es pas permés de mandar de fichièrs %{extension}, los formats autorizats son : %{allowed_types}"
+      max_size_error: "La talha del fichièr deu èsser mens que %{max_size}"
+      min_size_error: "La talha del fichièr deu èsser màger que %{min_size}"
+      mini_magick_processing_error: "Fracàs de la manipulacion amb MiniMagick, ben qu’es pas un imatge ? Error d’origina : %{e}"
+      rmagick_processing_error: "Fracàs de la manipulacion amb rmagick, ben qu’es pas un imatge ?"
   fill_me_out: "Escriure aicí"
   find_people: "Recercar de personas o de #etiquetas"
   help:
@@ -364,8 +377,6 @@ oc:
       change_aspect_of_post_q: "Un còp qu'ai publicat quicòm, pòdi cambiar los aspècte(s) qu'o pòdon veire ?"
       contacts_know_aspect_a: "Non pas. Pòdon pas veire lo nom de l'aspècte qualqu'arribe."
       contacts_know_aspect_q: "Mos contactes pòdon saber dins quin aspècte los ai meses ?"
-      contacts_visible_a: "Se causissètz aquesta opcion alara vòstres contactes d’aqueste aspècte poiràn veire qual es dedins, sus l’onglet « Contactes » de vòstra pagina de perfil.(Pel moment i a pas que vòstres contactes que son sul meteis pod que vos que pòdon veire l'onglet « Contactes » sus vòstre perfil.) Es de melhor far de causir aquesta opcion solament se los contactes d’aqueste aspècte se coneisson entre eles, per exemple se l’aspècte es per un club o societat de la quala apertenètz. Ça que la poiràn pas veire cossí s’apèla l'aspècte."
-      contacts_visible_q: "Qué significa « rendre los contactes dins aqueste aspècte visibles entre eles » ?"
       delete_aspect_a: "Clicatz « Mos aspèctes » dins la barra dins la vista del flux d’actualitat e clicatz l’icòna del gredon a costat del aspècte que volètz suprimir, o anatz sus vòstra pagina de Contactes e seleccionatz l’aspècte concernit. Puèi clicatz l’icòna del bordilhièr amont a man drecha de la pagina."
       delete_aspect_q: "Cossí pòdi suprimir un aspècte ?"
       person_multiple_aspects_a: "Òc-ben. Anatz a vòstra pagina de contactes e clicatz sus « Mos contactes ». Per cada contacte podètz utilizar lo menú a man drecha per lo apondre (o levar) a tan d’aspèctes que volètz. O podètz los apondre a un novèl aspècte (o los levar d’un aspècte) en clicant sul boton de seleccion d’aspècte sus lor pagina de perfil. O podètz tanben solament bolegar lo puntaire sus lor nom ont lo vesètz dins vòstre flux d’actualitat, un cadron apareissarà. Podètz cambiar l’aspècte ont son d’aquí."
@@ -1096,6 +1107,7 @@ oc:
     total_users: "Total d'utilizaires"
     version: "Version"
   status_messages:
+    bad_aspects: "Los ID d’aspèctes fornits son pas aplicables (existisson pas o son pas vòstres)"
     new:
       mentioning: "Menciona : %{person}"
     too_long: "Avisatz-vos d'escriure un messatge d'estatut de %{count} caractèrs maximum. Compta actualament %{current_length} caractèrs."
@@ -1190,6 +1202,7 @@ oc:
       export_in_progress: "Sèm a tractar vòstras donadas. Verificatz tornamai l'avançament dins un moment."
       export_photos_in_progress: "Sèm a tractar vòstras fòtos. Tornatz aicí dins un momenton."
       following: "Paramètres de partiment"
+      last_exported_html: "(Darrièra mesa a jorn %{timeago})"
       liked: "qualqu'un a aimat vòstra publicacion"
       mentioned: "qualqu'un vos a mencionat dins un messatge"
       mentioned_in_comment: "qualqu'un vos a mencionat dins un comentari"

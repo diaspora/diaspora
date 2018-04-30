@@ -250,7 +250,6 @@ sk:
     aspects:
       contacts_know_aspect_a: "Nie. Za žiadnych okolností nevidia názov kategórie."
       contacts_know_aspect_q: "Vedia ľudia v mojich kontaktoch, do akej kategórie som ich dal(a)?"
-      contacts_visible_q: "Čo znamená „umožniť, aby sa kontakty v tejto kategórii navzájom videli“?"
       remove_notification_a: "Nie."
       remove_notification_q: "Ak niekoho odstránim z kategórie alebo zo všetkých svojich kategórií, dostane o tom oznam?"
       rename_aspect_q: "Ako môžem premenovať kategóriu?"

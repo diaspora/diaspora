@@ -21,6 +21,10 @@ ro:
           attributes:
             diaspora_handle:
               taken: "e folosit deja."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Deja ai răspuns la acest chestionar!"
         user:
           attributes:
             email:
@@ -33,9 +37,14 @@ ro:
   admins:
     admin_bar:
       pages: "Pagini"
+      pod_network: "Rețeaua de servere"
       pod_stats: "Statisticile serverului"
       user_search: "Căutare utilizatori"
+    pods:
+      pod_network: "Rețeaua de servere"
     stats:
+      2weeks: "2 săptămâni"
+      50_most: "50 de e etichete cele mai urmărite"
       comments:
         few: "%{count} comentarii"
         one: "%{count} comentariu"
@@ -94,6 +103,7 @@ ro:
     index:
       donate: "Donează"
       help:
+        any_problem: "Ai vre-o problemă?"
         contact_podmin: "Contactează administratorul serverului tău!"
         do_you: "Tu:"
         feature_suggestion: "... ai o sugestie de %{link}?"

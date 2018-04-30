@@ -344,6 +344,19 @@ fr:
     helper:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
     need_javascript: "Ce site web nécessite JavaScript pour fonctionner correctement. Si vous avez désactivé JavaScript, veuillez le réactiver et actualiser cette page."
+  errors:
+    messages:
+      carrierwave_download_error: "n'a pas pu être téléchargé"
+      carrierwave_integrity_error: "n'est pas un type de fichier autorisé"
+      carrierwave_processing_error: "le traitement a échoué"
+      content_type_blacklist_error: "Vous n'êtes pas autorisé à envoyer des fichiers %{content_type}"
+      content_type_whitelist_error: "Vous n'êtes pas autorisé à envoyer des fichiers %{content_type}"
+      extension_blacklist_error: "Vous n'êtes pas autorisé à envoyer des fichiers %{extension}, les types interdits sont : %{prohibited_types}"
+      extension_whitelist_error: "Vous n'êtes pas autorisé à envoyer des fichiers %{extension}, les types de fichier autorisés sont : %{allowed_types}"
+      max_size_error: "La taille du fichier devrait être inférieure à %{max_size}"
+      min_size_error: "La taille du fichier devrait être supérieure à %{min_size}"
+      mini_magick_processing_error: "La manipulation par MiniMagick a échoué, peut-être n'est-ce pas une image ? Erreur initiale : %{e}"
+      rmagick_processing_error: "La manipulation par rmagick a échoué, peut-être n'est-ce pas une image ?"
   fill_me_out: "Écrire ici"
   find_people: "Rechercher des personnes ou des #tags"
   help:
@@ -364,8 +377,6 @@ fr:
       change_aspect_of_post_q: "Une fois que j'ai publié quelque chose, puis-je changer les aspects qui peuvent le voir ?"
       contacts_know_aspect_a: "Non, ils ne peuvent en aucun cas voir le nom des aspects où vous les avez placés."
       contacts_know_aspect_q: "Est-ce que mes contacts savent dans quels aspects je les ai mis ?"
-      contacts_visible_a: "Si vous cochez cette option, alors les contacts de cet aspect pourront voir qui d’autre en fait partie, dans la rubrique « Contacts » de votre page de profil. (Actuellement, seuls les contacts qui sont sur le même pod que vous pourront voir l’onglet contact de votre profil). Il est préférable de choisir cette option uniquement si les contacts de cet aspect se connaissent mutuellement. Ils ne pourront toutefois pas voir le nom de l’aspect."
-      contacts_visible_q: "Que signifie « rendre les contacts dans cet aspect visibles entre eux » ?"
       delete_aspect_a: "Dans la liste des aspects sur le côté gauche de la page principale, pointez votre souris sur l aspect que vous désirez supprimer. Cliquez sur le petit crayon d'édition qui apparaît sur la droite. Cliquez sur le bouton de suppression dans la boîte qui apparaît."
       delete_aspect_q: "Comment puis-je supprimer un aspect ?"
       person_multiple_aspects_a: "Oui. Allez sur votre page de contacts et cliquez sur ”Mes contacts”. Pour chaque contact, vous pouvez utiliser le menu sur la droite pour l'ajouter (ou le retirer) d'autant d’aspects que vous le souhaitez. Ou bien, vous pouvez l'ajouter à un nouvel aspect (ou le retirer d'un aspect) en cliquant sur le bouton de sélection des aspects sur sa page de profil. Ou encore, vous pouvez même juste passer le pointeur de votre souris sur son nom là où vous le voyez dans le flux et une « carte de visite » va apparaître. Vous pouvez changer les aspects auxquels ils appartiennent directement dedans."
@@ -1099,6 +1110,7 @@ fr:
     total_users: "Total d'utilisateurs"
     version: "Version"
   status_messages:
+    bad_aspects: "Les identifiants d'aspects fournis ne sont pas valides (inexistants ou pas à vous)"
     new:
       mentioning: "Mentionne : %{person}"
     too_long: "Veillez à écrire un message de statut de %{count} caractères maximum. Il compte actuellement %{current_length} caractères."

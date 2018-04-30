@@ -24,7 +24,7 @@ eo:
         reshare:
           attributes:
             root_guid:
-              taken: "Ho, ĉu tiom bone? Vi jam rekunhavigis ĉi tiun afiŝon!"
+              taken: "Ho, ĉu tiom bone? Vi jam rekonigis ĉi tiun afiŝon!"
         user:
           attributes:
             email:
@@ -81,7 +81,7 @@ eo:
       amount_of:
         one: "Kiomo de novaj uzantoj ĉi-semajne: %{count}"
         other: "Kiomo de novaj uzantoj ĉi-semajne: %{count}"
-        zero: "Kiomo de novaj uzantoj ĉi-semajne: %{count}"
+        zero: "Kiomo de novaj uzantoj ĉi-semajne: neniu"
       current_server: "Aktuala dato de servilo estas %{date}"
   all_aspects: "Ĉiuj aspektoj"
   are_you_sure: "Ĉu vi certas?"
@@ -102,7 +102,7 @@ eo:
       stay_updated: "Restu ĝisdatigata"
       stay_updated_explanation: "Via ĉefa torento enhavas ĉiujn viajn kontaktojn, sekvatajn etikedojn kaj afiŝojn de kelkaj kreemaj anoj de la komunumo."
     destroy:
-      failure: "%{name} ne malplenas kaj do ne povis esti forigita."
+      failure: "%{name} ne povis esti forigita."
       success: "%{name} estis sukcese forigita."
     edit:
       aspect_list_is_not_visible: "la aspekto-listo estas kaŝita al la aliaj en ĉi tiu aspekto"
@@ -141,7 +141,7 @@ eo:
     no_contacts_message:
       community_spotlight: "en komunuma ĉeflumo"
       or_spotlight: "Aŭ vi povas kunhavigi kun %{link}"
-      try_adding_some_more_contacts: "Vi povas serĉi aŭ inviti pliajn kontaktojn."
+      try_adding_some_more_contacts: "Vi povas serĉi aŭ %{invite_link} pliajn kontaktojn."
       you_should_add_some_more_contacts: "Vi devus aldoni pliajn kontaktojn!"
     seed:
       acquaintances: "Konatoj"
@@ -207,14 +207,23 @@ eo:
     helper:
       correct_the_following_errors_and_try_again: "Ĝustigu la sekvajn erarojn kaj reprovu."
     need_javascript: "Ĉi tiu retejo postulas JavaScript por funkcii ĝuste. Se vi malebligis JavaScript, bonvole reebligu ĝin kaj reŝarĝu la paĝon."
+  errors:
+    messages:
+      carrierwave_download_error: "ne povis esti elŝutita"
+      carrierwave_integrity_error: "ne estas permesata dosiertipo"
+      extension_whitelist_error: "Vi ne rajtas alŝuti dosierojn de la tipo %{extension}, permesataj tipoj: %{allowed_types}"
   fill_me_out: "Plenumigu min"
   find_people: "Trovi homojn aŭ #etikedojn"
   help:
+    account_and_data_management:
+      title: "Administrado de konto kaj datumaro"
     foundation_website: "Retejo de Fondaĵo Diaspora"
     getting_help:
       get_support_a_irc: "aliĝu al ni en %{irc} (rektbabilejo)"
+      get_support_a_tutorials: "Vidu niajn %{tutorials}"
       get_support_a_website: "vizitu nian %{link}"
       get_support_a_wiki: "serĉi en %{link}"
+      get_support_q: "Kio, se mia demando ne estas respondita en ĉi tiu respondaro? Kie alie mi povas atingi helpon?"
       getting_started_a: "Vi bonŝancas. Provu la %{tutorial_series} en nia projektrejejo. Ĝi enkondukos vin paŝo post paŝo tra la aliĝilon kaj instruos vin ĉiujn bazajn bezonatajn informojn pri la uzado de diaspora*."
       getting_started_q: "Help! Mi bezonas bazan helpon por komenci!"
       title: "Ricevo de helpo"
@@ -467,6 +476,7 @@ eo:
     create:
       already_authorized: "Uzanto kun la Diaspora-uzantnomo %{diaspora_id} jam permesis tiun %{service_name} konton."
       failure: "Identeco-kontrolo malsukcesis."
+      read_only_access: "Atingonivelo estas nurlega, bonvolu reprovi rajtigi poste"
       success: "Identeco-kontrolo sukcesis."
     destroy:
       success: "Sukcese forigis identigon."
@@ -601,6 +611,7 @@ eo:
     getting_started:
       awesome_take_me_to_diaspora: "Brile! Gvidu min al Diaspora*"
       community_welcome: "La komunumo de DIASPORA* feliĉas, ke vi aniĝis!"
+      connect_to_facebook: "Ni povas plirapidigi la aferon per %{link} al Diaspora. Tio altiros vian nomon kaj foton, kaj ebligos krucreferencadon."
       connect_to_facebook_link: "Konektante vian Facebook-konton"
       hashtag_explanation: "Etikedoj permesas al vi priparoli kaj aboni viajn interesojn. Ili estas ankaŭ bona metodo por trovi novajn homojn ĉe DIASPORA*."
       hashtag_suggestions: "Provu sekvi etikedojn kiel #arto, #filmoj, #gif, ktp."

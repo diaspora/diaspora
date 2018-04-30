@@ -74,7 +74,6 @@ cs:
         add_a_new_aspect: "Přidat nový aspekt"
         failure: "Vytvoření aspektu selhalo."
         success: "Váš nový aspekt <%= name %> byl vytvořen"
-      make_aspect_list_visible: "umožnit kontaktům v tomto aspektu se vzájemně vidět?"
       name: "Název"
     bookmarklet:
       post_something: "Dát příspěvek na diaspora*"
@@ -90,8 +89,6 @@ cs:
     confirm_unload: "Prosím potvrďte, že chcete tuto stránku opustit - data, která jste vložil/a nebudou uložena."
     contacts:
       add_contact: "Přidej kontakt"
-      aspect_list_is_not_visible: "Kontakty v tomto aspektu se nemohou vzájemně vidět."
-      aspect_list_is_visible: "Kontakty v tomto aspektu se vzájemně vidí."
       error_add: "Nelze přidat <%= name %> do tohoto aspektu :("
       error_remove: "Nelze odebrat <%= name %> z tohoto aspektu :("
       remove_contact: "Odstraň kontakt"
@@ -175,7 +172,6 @@ cs:
       add_some: "přidat něco"
       bio: "Něco o vás"
       born: "Narozeniny"
-      contacts: "Kontakty"
       edit: "upravit"
       gender: "Pohlaví"
       location: "Pozice"

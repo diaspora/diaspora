@@ -148,13 +148,62 @@ class AccountMigration < ApplicationRecord
     }
   end
 
+  def eliminate_person_duplicates
+    duplicate_person_contacts.destroy_all
+    duplicate_person_likes.destroy_all
+    duplicate_person_participations.destroy_all
+    duplicate_person_poll_participations.destroy_all
+  end
+
+  def duplicate_person_contacts
+    Contact
+      .joins("INNER JOIN contacts as c2 ON (contacts.user_id = c2.user_id AND contacts.person_id=#{old_person.id} AND"\
+        " c2.person_id=#{new_person.id})")
+  end
+
+  def duplicate_person_likes
+    Like
+      .joins("INNER JOIN likes as l2 ON (likes.target_id = l2.target_id "\
+        "AND likes.target_type = l2.target_type "\
+        "AND likes.author_id=#{old_person.id} AND"\
+        " l2.author_id=#{new_person.id})")
+  end
+
+  def duplicate_person_participations
+    Participation
+      .joins("INNER JOIN participations as p2 ON (participations.target_id = p2.target_id "\
+        "AND participations.target_type = p2.target_type "\
+        "AND participations.author_id=#{old_person.id} AND"\
+        " p2.author_id=#{new_person.id})")
+  end
+
+  def duplicate_person_poll_participations
+    PollParticipation
+      .joins("INNER JOIN poll_participations as p2 ON (poll_participations.poll_id = p2.poll_id "\
+        "AND poll_participations.author_id=#{old_person.id} AND"\
+        " p2.author_id=#{new_person.id})")
+  end
+
+  def eliminate_user_duplicates
+    Aspect
+      .joins("INNER JOIN aspects as a2 ON (aspects.name = a2.name AND aspects.user_id=#{old_user.id}
+        AND a2.user_id=#{new_user.id})")
+      .destroy_all
+    Contact
+      .joins("INNER JOIN contacts as c2 ON (contacts.person_id = c2.person_id AND contacts.user_id=#{old_user.id} AND"\
+        " c2.user_id=#{new_user.id})")
+      .destroy_all
+  end
+
   def update_person_references
     logger.debug "Updating references from person id=#{old_person.id} to person id=#{new_person.id}"
+    eliminate_person_duplicates
     update_references(person_references, old_person, new_person.id)
   end
 
   def update_user_references
     logger.debug "Updating references from user id=#{old_user.id} to user id=#{new_user.id}"
+    eliminate_user_duplicates
     update_references(user_references, old_user, new_user.id)
   end
 
