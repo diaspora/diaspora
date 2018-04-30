@@ -9,6 +9,8 @@ pt-PT:
   _contacts: "Contactos"
   _help: "Ajuda"
   _services: "Serviços"
+  _statistics: "Estatísticas"
+  _terms: "Termos"
   account: "Conta"
   activerecord:
     errors:
@@ -36,14 +38,18 @@ pt-PT:
               taken: "já foi escolhido."
   admins:
     admin_bar:
+      dashboard: "Painel"
       pages: "Páginas"
-      pod_stats: "Estatísticas do Pod"
+      pod_stats: "Estatísticas do servidor"
+      report: "Relatórios"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Procurar Utilizador"
-      weekly_user_stats: "Estatísticas Semanais de Utilizador"
+      weekly_user_stats: "Estatísticas de utilizador semanais"
+    pods:
+      pod_desktop_link: "ver área de trabalho"
     stats:
-      2weeks: "2 Semanas"
-      50_most: "50 Etiquetas Mais Populares"
+      2weeks: "2 semanas"
+      50_most: "50 etiquetas mais populares"
       comments:
         one: "%{count} comentário"
         other: "%{count} comentários"
@@ -51,7 +57,7 @@ pt-PT:
       current_segment: "O segmento atual tem uma média de <b>%{post_yest}</b> publicações por utilizador, desde <b>%{post_day}</b>"
       daily: "Diário"
       display_results: "A exibir os resultados do segmento <b>%{segment}</b>"
-      go: "ir"
+      go: "Ir"
       month: "Mês"
       posts:
         one: "%{count} publicação"
@@ -61,25 +67,46 @@ pt-PT:
         one: "%{count} partilha"
         other: "%{count} partilhas"
         zero: "%{count} partilhas"
-      tag_name: "Nome da Etiqueta: <b>%{name_tag}</b> Contagem: <b>%{count_tag}</b>"
-      usage_statistic: "Estatísticas de Utilização"
+      tag_name: "Nome da etiqueta: %{name_tag} Contagem: %{count_tag}"
+      usage_statistic: "Estatísticas de utilização"
       users:
         one: "%{count} utilizador"
         other: "%{count} utilizadores"
         zero: "%{count} utilizadores"
       week: "Semana"
+    user_entry:
+      account_closed: "Conta fechada"
+      diaspora_handle: "Id. diaspora*"
+      email: "E-mail"
+      guid: "GUID"
+      id: "Id."
+      last_seen: "Visto pela última vez"
+      ? "no"
+      : Não
+      nsfw: "#nsfw"
+      unknown: "Desconhecido"
+      ? "yes"
+      : Sim
     user_search:
-      add_invites: "adicionar convites"
+      add_invites: "Adicionar convites"
+      are_you_sure: "Tem a certeza que pretende encerrar esta conta?"
+      are_you_sure_lock_account: "Tem a certeza que pretende bloquear esta conta?"
+      are_you_sure_unlock_account: "Tem a certeza que pretende desbloquear esta conta?"
+      close_account: "Fechar conta"
       email_to: "Enviar e-mail para Convidar"
+      invite: "Convidar"
+      lock_account: "Bloquear conta"
       under_13: "Mostrar utilizadores menores de 13 anos (COPPA)"
+      unlock_account: "Desbloquear conta"
       users:
         one: "%{count} utilizador encontrado"
         other: "%{count} utilizadores encontrados"
         zero: "%{count} utilizadores encontrados"
+      view_profile: "Ver perfil"
       you_currently:
-        one: "atualmente, resta-lhe um convite %{link}"
-        other: "atualmente, restam-lhe %{count} convites %{link}"
-        zero: "atualmente, já não lhe resta qualquer convite %{link}"
+        one: "Atualmente, resta-lhe um convite %{link}"
+        other: "Atualmente, restam-lhe %{count} convites %{link}"
+        zero: "Atualmente, já não não tem mais convites %{link}"
     weekly_user_stats:
       amount_of:
         one: "Número de novos utilizadores esta semana: %{count}"
@@ -87,19 +114,42 @@ pt-PT:
         zero: "Número de novos utilizadores esta semana: nenhum"
       current_server: "A data do servidor atual é %{date}"
   all_aspects: "Todos os Aspetos"
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          approve: "Aprovar"
+          deny: "Negar"
+      scopes:
+        name:
+          name: "nome"
+        nickname:
+          name: "apelido"
+        openid:
+          name: "perfil básico"
+        picture:
+          name: "imagem"
+        sub:
+          name: "sub"
+      user_applications:
+        index:
+          edit_applications: "Aplicações"
+        revoke_autorization: "Revogar"
   are_you_sure: "Tem a certeza?"
   are_you_sure_delete_account: "Tem a certeza que deseja encerrar a sua conta? Isto não pode ser anulado!"
   aspect_memberships:
     destroy:
-      failure: "Não foi possível remover a pessoa do aspeto"
+      failure: "Não foi possível remover a pessoa do aspeto."
+      forbidden: "Não tem autorização para fazer isso."
+      invalid_statement: "Duplicar registo rejeitado."
       no_membership: "Não foi possível encontrar a pessoa selecionada nesse aspeto."
-      success: "Pessoa removida com sucesso do aspeto"
+      success: "Pessoa removida com sucesso do aspeto."
   aspects:
     add_to_aspect:
-      failure: "Não foi possível adicionar o contacto ao grupo."
-      success: "Contacto adicionado ao grupo com sucesso."
+      failure: "Não foi possível adicionar o contacto ao aspeto."
+      success: "Contacto adicionado ao aspeto com sucesso."
     aspect_listings:
-      add_an_aspect: "+ Adicionar um grupo"
+      add_an_aspect: "+ Adicionar um aspeto"
     aspect_stream:
       make_something: "Efetue algo"
       stay_updated: "Mantenha-se atualizado"
@@ -108,16 +158,17 @@ pt-PT:
       failure: "Não foi possível remover %{name}."
       success: "%{name} foi removido(a) com sucesso."
     edit:
-      aspect_list_is_not_visible: "Os contactos neste grupo não podem ver-se uns aos outros."
-      aspect_list_is_visible: "Os contactos neste grupo podem ver-se uns aos outros."
-      confirm_remove_aspect: "Tem a certeza que deseja apagar este grupo?"
+      aspect_list_is_not_visible: "Os contactos neste aspeto não podem ver-se uns aos outros."
+      aspect_list_is_visible: "Os contactos neste aspeto podem ver-se uns aos outros."
+      confirm_remove_aspect: "Tem a certeza que deseja eliminar este aspeto?"
       rename: "Renomear"
       update: "Atualizar"
       updating: "A atualizar"
     index:
       donate: "Doar"
+      donate_liberapay: "Dor para liberapay"
       help:
-        any_problem: "Algum problema?"
+        any_problem: "Tem um problema?"
         contact_podmin: "Contacte o administrador do seu servidor!"
         do_you: "Tem:"
         feature_suggestion: "... tem uma sugestão para %{link}?"
@@ -126,26 +177,29 @@ pt-PT:
         here_to_help: "A comunidade do diaspora* está aqui!"
         mail_podmin: "e-Mail do \"Podmin\""
         need_help: "Precisa de ajuda?"
+        support_forum: "Também pode aderir ao %{support_forum}"
+        support_forum_link: "fórum de apoio"
         tag_bug: "erro"
         tag_feature: "funcionalidade"
         tag_question: "questão"
         tutorial_link_text: "Tutoriais"
         tutorials_and_wiki: "%{faq}, %{tutorial} e %{wiki}: Ajuda para os seus primeiros passos."
-      introduce_yourself: "Este é o seu fluxo. Venha daí e apresente-se."
+      introduce_yourself: "Este é o seu fluxo. Apresente-se."
       keep_pod_running: "Mantenha %{pod} a funcionar com rapidez e compre aos servidores o \"café deles\" doando mensalmente!"
       new_here:
         follow: "Siga %{link} e dê as boas-vindas aos novos utilizadores do diaspora*!"
         learn_more: "Saber mais"
         title: "Dê as boas-vindas aos novos utilizadores"
       services:
-        content: "Pode conetar os seguintes serviços ao diaspora*:"
+        content: "Pode ligar os seguintes serviços ao diaspora*:"
         heading: "Ligar Serviços"
       welcome_to_diaspora: "Bem-vindo ao diaspora*, %{name}!"
     no_contacts_message:
       community_spotlight: "Destaque da comunidade"
+      invite_link_text: "convidar"
       or_spotlight: "Ou pode partilhar com %{link}"
       try_adding_some_more_contacts: "Pode procurar ou %{invite_link} mais contactos."
-      you_should_add_some_more_contacts: "Devia adicionar mais alguns contactos!"
+      you_should_add_some_more_contacts: "Deveria adicionar mais alguns contactos!"
     seed:
       acquaintances: "Conhecidos"
       family: "Família"
@@ -166,12 +220,20 @@ pt-PT:
     heading: "Bookmarklet"
     post_something: "Publique no diaspora*"
   cancel: "Cancelar"
+  color_themes:
+    dark: "Escuro"
+    dark_green: "Verde escuro"
+    egyptian_blue: "Azul egípcio"
+    magenta: "Magenta"
+    original: "Cinzento original"
+    original_white: "Fundo branco original"
   comments:
     new_comment:
       comment: "Comentar"
       commenting: "A comentar..."
   contacts:
     index:
+      add_contact: "Adicionar contacto"
       all_contacts: "Todos os contactos"
       community_spotlight: "Destaques da comunidade"
       my_contacts: "Meus contactos"
@@ -180,6 +242,7 @@ pt-PT:
       only_sharing_with_me: "Apenas a partilhar comigo"
       start_a_conversation: "Iniciar uma conversa"
       title: "Contactos"
+      user_search: "Procura de contacto"
     spotlight:
       community_spotlight: "Destaque da comunidade"
       suggest_member: "Sugerir um membro"
@@ -187,16 +250,26 @@ pt-PT:
     create:
       fail: "Mensagem inválida"
       sent: "A mensagem foi enviada"
+    destroy:
+      delete_success: "Conversação eliminada com sucesso"
+      hide_success: "Conversação ocultada com sucesso"
     index:
+      conversations_inbox: "Conversações - Caixa de Entrada"
       inbox: "Caixa de entrada"
+      new_conversation: "Nova conversação"
       no_messages: "Sem mensagens"
     new:
+      message: "Mensagem"
       send: "Enviar"
       sending: "A enviar..."
       subject: "Assunto"
+      subject_default: "Sem assunto"
       to: "Para"
+    new_conversation:
+      fail: "Mensagem inválida"
     show:
       delete: "Eliminar conversação"
+      hide: "Ocultar e silenciar a conversação"
       reply: "Responder"
       replying: "A responder..."
   date:
@@ -209,6 +282,19 @@ pt-PT:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
+  errors:
+    messages:
+      carrierwave_download_error: "não foi possível transferir"
+      carrierwave_integrity_error: "não é de um tipo de ficheiro permitido"
+      carrierwave_processing_error: "não foi processado"
+      content_type_blacklist_error: "Não está autorizado para enviar ficheiros %{content_type}"
+      content_type_whitelist_error: "Não está autorizado para enviar ficheiros %{content_type}"
+      extension_blacklist_error: "Não está autorizado para enviar ficheiros %{extension}, tipos proibidos: %{prohibited_types}"
+      extension_whitelist_error: "Não está autorizado para enviar ficheiros %{extension}, tipos permitidos: %{allowed_types}"
+      max_size_error: "O tamanho do ficheiro deve ser menor que %{max_size}"
+      min_size_error: "O tamanho do ficheiro deve ser maior que %{min_size}"
+      mini_magick_processing_error: "Não foi possível manipular com MiniMagick, talvez não seja uma imagem? Erro original:%{e}"
+      rmagick_processing_error: "Não foi possível manipular com rmagick, talvez não seja uma imagem?"
   fill_me_out: "Preencha-me"
   find_people: "Encontrar pessoas ou #etiquetas"
   help:
@@ -219,36 +305,40 @@ pt-PT:
       data_other_podmins_q: "Os administradores de outros 'pods' podem ver a minha informação?"
       data_visible_to_podmin_a: "A comunicação *entre* 'pods' é sempre encriptada (utilizando SSL e a encriptação de transporte própria do diaspora*), mas o armazenamento de dados nos 'pods' não é encriptado. Se eles pretenderem, o administrador da base de dados para o seu 'pod' (normalmente a pessoa que gere o pod) poderia aceder a todos os dados do seu perfil e a tudo o que publica (tal como é o caso da maioria dos sites da web que alojam dados de utilizadores). Ao gerir o seu próprio servidor proporciona mais privacidade,  porque é você que controla o acesso à base de dados."
       data_visible_to_podmin_q: "Quanta informação é que o administrador do meu 'pod' pode ver?"
-      download_data_a: "Sim. No fundo do separador 'Conta' na sua página das configurações, tem dois botões para transferir os seus dados."
+      download_data_a: "Sim. No fundo do separador 'Conta' na sua página das configurações, tem dois botões: uma para transferir os seus dados e outro para transferir as suas fotografias."
       download_data_q: "Eu posso transferir uma cópia de todos os meus dados contidos na minha semente (conta)?"
       move_pods_a: "Futuramente irá poder exportar a sua semente de um 'pod' e importá-la de outro, mas de momento isto não é possível. Poderá abrir sempre uma nova conta e adicionar os seus contactos aos aspetos nessa nova semente, e pedir-lhes para adicionar a sua nova semente aos aspetos deles."
       move_pods_q: "Como é que movo a minha semente (conta) de um servidor para outro?"
       title: "Gestão de conta e dados"
     aspects:
       change_aspect_of_post_a: "Não, mas pode efetuar sempre uma nova publicação com o mesmo conteúdo, e publicá-la num aspeto diferente."
-      change_aspect_of_post_q: "Assim que eu tenha publicado algo, posso alterar o(s) aspetos) que a podem ver?"
+      change_aspect_of_post_q: "Assim que eu tiver publicado algo, eu posso alterar o(s) aspeto(s) que o podem ver?"
       contacts_know_aspect_a: "Não. Eles não podem ver o nome do aspeto sob nenhuma circunstância."
       contacts_know_aspect_q: "Os meus contactos sabem em que aspetos é que eu os coloquei?"
-      contacts_visible_a: "Se selecionar esta opção, então os contactos desse aspeto poderão ver quem é quem neste, na sua página de perfil por debaixo da sua fotografia. É melhor só selecionar esta opção se os contactos nesse aspeto se conhecerem entre eles. Eles continuarão a não poder ver o nome do aspeto."
-      contacts_visible_q: "O que significa \"tornar os contactos visíveis entre eles neste aspeto\"?"
-      delete_aspect_a: "Clique em \"Meus Aspetos\" na barra lateral da visualização do fluxo e depois clique no ícone lápis junto ao aspeto que deseja eliminar, ou vá para a página dos seus Contactos e selecione o aspeto relevante. Depois clique no ícone lixo no topo à direta da página."
-      delete_aspect_q: "Como apago um aspeto?"
+      delete_aspect_a: "Clique em \"Os Meus Aspetos\" na barra lateral da visualização do fluxo e depois clique no ícone lápis junto ao aspeto que deseja eliminar, ou vá para a página dos seus Contactos e selecione o aspeto relevante. Depois clique no ícone lixo no topo à direita da página."
+      delete_aspect_q: "Como é que eu elimino um aspeto?"
       person_multiple_aspects_a: "Sim. Vá para a sua página de contactos e clique em \"Meus Contactos\". Para cada contacto pode utilizar o menu à direita para adicioná-los a (ou removê-los de) quantos aspetos desejar. Ou pode adicioná-los a um novo aspeto (ou removê-los de um aspeto), clicando no seletor de aspetos na página do perfil deles. Ou até pode mover apenas o ponteiro sobre os nomes destes onde os vir no fluxo, e irá aparecer uma janela resumo. Pode alterar os aspetos em que estes se encontram."
-      person_multiple_aspects_q: "Posso adicionar uma pessoa a múltiplos aspetos?"
-      post_multiple_aspects_a: "Sim. Quando está a colocar uma publicação, utilize o botão seletor do aspeto para selecionar ou desmarcar aspetos. A sua publicação irá ficar visível para todas os aspetos selecionados. Também pode selecionar os aspetos nos quais deseja publicar na barra lateral. Quando publicar, o(s) aspeto(s) que tiver selecionado na lista à esquerda serão selecionados automaticamente no seletor de aspetos quando começar a colocar uma nova publicação."
-      post_multiple_aspects_q: "Posso publicar o conteúdo em múltiplos aspetos em simultâneo?"
-      remove_notification_a: "Não."
+      person_multiple_aspects_q: "Eu posso adicionar uma pessoa a múltiplos aspetos?"
+      post_multiple_aspects_a: "Sim. Quando está a criar uma publicação, utilize o botão 'Seletor' do aspeto para selecionar ou desselecionar aspetos. \"Todos os aspetos\" é a definição predefinida. A sua publicação irá ficar visível para todas os aspetos que  selecionou. Também pode selecionar os aspetos que pretende publicar na barra lateral. Quando publicar, o(s) aspeto(s) que tiver selecionado na lista à esquerda serão selecionados automaticamente no seletor de aspetos quando começar a criar uma nova publicação."
+      post_multiple_aspects_q: "Eu posso publicar em simultâneo o conteúdo em múltiplos aspetos?"
+      remove_notification_a: "Não. Eles também não são notificados se os adicionar a mais aspetos, quando já estiver a partilhar com eles."
       remove_notification_q: "Se eu remover alguém de um ou de todos os meus aspetos, essas pessoas são notificadas?"
-      rename_aspect_a: "Clique em \"Meus Aspetos\" na barra lateral de um fluxo e clique no ícone lápis junto ao aspeto que deseja renomear, ou vá para a página dos seus 'Contactos' e selecione o aspeto relevante. Depois clique no ícone junto ao nome do aspeto no topo desta página, altere o nome e clique em \"Atualizar\"."
-      rename_aspect_q: "Eu posso renomear um aspeto?"
+      rename_aspect_a: "Clique em \"Os Meus Aspetos\" na barra lateral de um fluxo e clique no ícone lápis junto ao aspeto que deseja renomear, ou vá para a página dos seus 'Contactos' e selecione o aspeto relevante. Depois clique no ícone junto ao nome do aspeto no topo desta página, altere o nome e clique em \"Atualizar\"."
+      rename_aspect_q: "Como é que eu renomeio um aspeto?"
       restrict_posts_i_see_a: "Sim. Clique em \"Meus Aspetos\" na barra lateral e depois clique em aspetos individuais na lista para selecioná-los ou desmarcá-los. Apenas as publicações por pessoas nos aspetos selecionados irão aparecer no seu fluxo."
       restrict_posts_i_see_q: "Eu posso restringir as publicações no meu fluxo para alguns de certos aspetos?"
       title: "Aspetos"
-      what_is_an_aspect_a: "Aspetos é a maneira em que agrupa os seus contactos no diaspora*. Um aspeto é uma daquelas faces que mostra ao mundo. Poderá ser quem você é no emprego, ou quem é para a sua família, ou quem é para os seus amigos num clube ao qual você pertence."
+      what_is_an_aspect_a: "Aspetos são a maneira como que agrupa os seus contactos no diáspora*. Um aspeto é uma das faces que mostra ao mundo. Este poderá ser quem você é no trabalho, ou quem você é para a sua família, ou quem você é para os seus amigos num clube ao qual pertence."
       what_is_an_aspect_q: "O que é um aspeto?"
-      who_sees_post_a: "Se colocar uma publicação limitada, esta só irá estar visível para as pessoas que colocou nesse aspeto (ou aspetos, se esta for para múltiplos aspetos). Os seus contactos que não estiverem nesse aspeto, não têm nenhuma maneira de a verem, a não ser que a torne pública. Só as publicações públicas é que estarão visíveis para qualquer pessoa que não tenha sido colocada num dos seus aspetos."
-      who_sees_post_q: "Quando eu publico num aspeto, quem vê?"
-    foundation_website: "site da web da fundação diaspora"
+      who_sees_post_a: "Se criar uma publicação limitada, esta só irá estar visível para as pessoas que colocou nesse aspeto (ou aspetos, se esta for para múltiplos aspetos). Os seus contactos que não estiverem no aspeto, não conseguiram ver a publicação. As publicações limitadas nunca irão estar visíveis para qualquer pessoa que não tenha sido colocada num dos seus aspetos."
+      who_sees_post_q: "Quando eu publico num aspeto, quem o vê?"
+    chat:
+      add_contact_roster_q: "Como é que converso com alguém no diáspora*?"
+      contacts_page: "Página de Contactos"
+      title: "Conversação"
+    community_guidelines: "linhas diretrizes da comunidade"
+    faq: "Perguntas Mais Frequentes"
+    foundation_website: "Site da Web da fundação diaspora*"
     getting_help:
       get_support_a_faq: "Leia a nossa página de %{faq} na wiki"
       get_support_a_hashtag: "Pergunte numa publicação pública no diaspora*, utilizando a hashtag %{question}"
@@ -267,18 +357,22 @@ pt-PT:
       keyboard_shortcuts_a1: "Na visualização do fluxo pode utilizar as seguintes teclas de atalho do teclado:"
     markdown: "Redução"
     mentions:
-      how_to_mention_a: "Insira o sinal \"@\" e comece a digitar o seu nome. Deverá aparecer uma lista de comandos para o deixar selecioná-los mais facilmente. Note que só é possível mencionar pessoas que adicionou num aspeto."
-      how_to_mention_q: "Como é que menciono alguém quando coloco uma publicação?"
+      how_to_mention_a: "Insira o sinal \"@\" e comece a digitar o seu nome. Deverá aparecer um menu suspenso para o deixar selecioná-los mais facilmente. Note que só é possível mencionar pessoas que adicionou num aspeto."
+      how_to_mention_q: "Como é que eu menciono alguém quando crio uma publicação?"
+      mention_in_comment_a: "Sim, desde a versão 0.7.0.0! Pode mencionar alguém num comentário da mesma forma que o faria numa publicação, digitando \"@\" e depois começar a digitar o nome dele. Por favor, note que quando comentar numa publicação que não é pública, só pode mencionar os utilizadores que já interagiram com a publicação."
       mention_in_comment_q: "Posso mencionar alguém num comentário?"
-      see_mentions_a: "Sim, clique em \"Menções\" na coluna à esquerda na sua página inicial."
+      see_mentions_a: "Sim, clique em \"@Menções\" na coluna à esquerda na sua página inicial."
       see_mentions_q: "Existe alguma maneira para ver as publicações nas quais eu tenha sido mencionado?"
       title: "Menções"
       what_is_a_mention_a: "Mencionar é uma hiperligação para a página de perfil de uma pessoa que aparece numa publicação. Quando alguém é mencionado, estes recebem uma notificação que os chama à atenção para a publicação."
-      what_is_a_mention_q: "O que é \"mencionar\"?"
+      what_is_a_mention_q: "O que é \"menção\"?"
     miscellaneous:
+      diaspora_app_q: "Existe uma aplicação do diáspora* para Android ou iOS?"
+      photo_albums_a: "Não, atualmente não. No entanto, pode ver as imagens enviadas de uma pessoa no separador 'Fotografias' da respetiva página de perfil."
+      photo_albums_q: "Existem álbuns de fotografias ou vídeo?"
       title: "Diversos"
     pods:
-      find_people_a: "Convide os seus amigos utilizando a ligação de email na barra lateral. Siga #tags para descobrir outros que partilhem os mesmos interesses, e adicione a uma vista aqueles que publiquem coisas de seu interesse. Grite que é #novoaqui numa publicação pública."
+      find_people_a: "Se quiser convidar os seus amigos para aderir ao diaspora*, utilize a hiperligação de convite ou a hiperligação de e-mail na barra lateral. Siga #tags para descobrir outros que partilham os mesmos interesses, e adicione aqueles que publicam coisas de seu interesse para um aspeto. Diga em voz alta que é #newhere numa publicação pública."
       find_people_q: "Eu acabei de me associar a um servidor. Como é que eu posso encontrar pessoas com quem partilhar?"
       title: "Servidores"
       use_search_box_a: "Se souber a Id. deles completa no diaspora* ID (ex.: sername@podname.org), pode encontrá-los, procurando pela mesma. Se estiver no mesmo pod, pode procurar apenas pelo nome de utilizador. Em alternativa, pode procurá-los pelo nome do perfil deles (o nome que vê no ecrã). Se uma procura não funcionar da primeira vez, tente de novo."
@@ -299,28 +393,34 @@ pt-PT:
       insert_images_a: "Se desejar incluir uma imagem guardada no seu computador na sua publicação, clique no ícone de câmara pequeno na parte inferior do editor. Também pode arrastar e largar uma imagem, ou várias imagens, do seu computador para esse ícone. Se desejar inserir uma imagem da Web na sua publicação, clique no botão de imagem na parte superior do editor, que irá criar o código 'Markdown' para si."
       insert_images_comments_q: "Eu posso inserir imagens nos comentários?"
       insert_images_q: "Como é que eu insiro imagens nas publicações?"
+      post_location_q: "Como é que eu adiciono a minha localização a uma publicação?"
       size_of_images_a: "Não. As imagens são redimensionadas automaticamente para se ajustarem ao fluxo ou ver uma única publicação. Markdown não tem um código para especificar o tamanho de uma imagem."
       size_of_images_q: "Eu posso personalizar o tamanho das imagens nas publicações ou comentários?"
       stream_full_of_posts_a1: "O seu fluxo é constituido até 3 tipos de publicações:"
-      stream_full_of_posts_li1: "As publicações das pessoas com quem está a partilhar, que podem ser de dois tipos: publicações públicas e publicações limitadas compartilhadas com um aspeto do qual faz parte. Para remover essas publicações do seu fluxo, basta deixar de partilhar com essa pessoa."
+      stream_full_of_posts_li1: "As publicações das pessoas com quem está a partilhar, que podem ser de dois tipos: publicações públicas e publicações limitadas partilhadas com um aspeto do qual faz parte. Para remover estas publicações do seu fluxo, basta deixar de partilhar com a pessoa."
       stream_full_of_posts_li2: "Publicações públicas contendo uma das etiquetas que segue. Para as remover, deixe de seguir a etiqueta."
       stream_full_of_posts_li3: "Publicações públicas de pessoas listadas em destaque da comunidade. Estas podem ser removidas, desmarcando a opção \"Mostrar destaque da comunidade no fluxo?\" no separador 'Conta' das suas 'Configurações'."
       stream_full_of_posts_q: "Porque é que o meu fluxo está cheio de publicações de pessoas que eu não conheço e que não partilho com elas?"
       title: "Publicações e publicar"
     private_posts:
-      can_comment_a: "Apenas os utilizadores logados em diaspora* que associou a esse grupo podem comentar ou gostar da sua publicação privada."
+      can_comment_a: "Apenas os utilizadores com sessão iniciada no diaspora* que associou nesse aspeto antes de tornar a publicação privada podem comentar ou gostar da mesma."
       can_comment_q: "Quem é que pode comentar ou gostar da minha publicação privada?"
-      can_reshare_a: "Ninguém. Publicações privadas não são recompartilháveis. Entretanto, utilizadores logados em diaspora* que estejam nesse grupo podem potencialmente copiar e colar a publicação."
+      can_reshare_a: "Ninguém. As publicações privadas não podem ser partilhadas novamente. Contudo, os utilizadores com sessão iniciada no diaspora* nesse aspeto podem potencialmente copiar e colar a mesma. É consigo, se confia nessas pessoas!"
       can_reshare_q: "Quem é que pode recompartilhar a minha publicação privada?"
-      see_comment_a: "Só as pessoas que compartilham a publicação (as pessoas que foram selecionadas em aspeto por quem publica o original) podem ver os seus comentários e o gosto. "
+      see_comment_a: "Somente as pessoas com as quais a publicação foi partilhada (as pessoas que estão nos aspetos selecionados pelo pessoa original) podem ver os seus comentários e gostos. "
       see_comment_q: "Quando comento ou gosto de uma publicação privada, quem é que pode ver?"
       title: "Publicações Privadas"
-      who_sees_post_a: "Apenas os utilizadores logados em diaspora* que associou a esse grupo podem ver a sua publicação privada."
-      who_sees_post_q: "Quando eu publico uma mensagem num aspeto (ex.:, uma publicação privada), quem a pode ver?"
+      who_sees_post_a: "Apenas os utilizadores com sessão iniciada no diaspora* que associou nesse aspeto antes de tornar a publicação privada a podem ver."
+      who_sees_post_q: "Quando eu publico uma mensagem num aspeto (exemplo: uma publicação privada), quem a pode ver?"
+    profile:
+      title: "Perfil"
+      whats_in_profile_q: "O que está no meu perfil?"
+      who_sees_profile_q: "Quem vê o meu perfil?"
     public_posts:
       can_comment_reshare_like_a: "Qualquer utilizador do diaspora* com sessão iniciada, pode comentar, compartilhar ou gostar de uma publicação pública."
       can_comment_reshare_like_q: "Quem pode comentar, recompartilhar, ou gostar na minha publicação pública?"
-      deselect_aspect_posting_q: "O que é que acontece quando eu desmarco um ou mais aspetos quando publico publicamente?"
+      deselect_aspect_posting_a: "Ao desselecionar aspectos não afeta uma publicação pública. Esta ainda estará pública e aparecerá nos fluxos de todos os seus contactos. Para tornar uma publicação visível apenas para aspectos específicos, precisa de selecionar esses aspetos no seletor de aspetos no editor."
+      deselect_aspect_posting_q: "O que é que acontece quando eu desseleciono um ou mais aspetos na coluna à direita quando publico publicamente?"
       find_public_post_q: "Como é que outras pessoas encontram a minha publicação pública?"
       see_comment_reshare_like_a: "Qualquer utilizador do diaspora* com sessão iniciada, e também qualquer outra pessoa na Internet pode comentar e compartilhar publicações pública."
       see_comment_reshare_like_q: "Quando eu comento em, volto a partilhar, ou gosto de uma publicação pública, quem é que pode ver?"
@@ -328,8 +428,8 @@ pt-PT:
       who_sees_post_a: "Qualquer pessoa que utilize a internet pode potencialmente ver uma publicação marcada por si como pública, por isso assegure-se de que realmente quer que ela seja pública. É uma ótima forma de apelar ao mundo lá fora."
       who_sees_post_q: "Quando eu publico qualquer coisa publicamente, quem é que pode ver?"
     resharing_posts:
-      reshare_private_post_aspects_q: "Eu posso voltar a compartilhar uma publicação privada só com alguns aspetos?"
-      reshare_public_post_aspects_q: "Eu posso voltar a compartilhar uma publicação pública só com alguns aspetos?"
+      reshare_private_post_aspects_q: "Eu posso voltar a partilhar uma publicação privada para os aspetos selecionados?"
+      reshare_public_post_aspects_q: "Eu posso voltar a partilhar uma publicação pública para os aspetos selecionados?"
       title: "Voltar a compartilhar as publicações"
     sharing:
       add_to_aspect_li7: "Amy irá aparecer em \"Apenas a partilhar comigo\" na página de contactos de Ben."
@@ -340,16 +440,26 @@ pt-PT:
       title: "Compartilhar"
     tags:
       filter_tags_q: "Como é que eu posso filtrar/excluir algumas etiquetas do meu fluxo?"
+      followed_tags_q: "O que são \"#Etiquetas Seguidas\" e como é que eu acompanho uma etiqueta?"
       tags_in_comments_q: "Eu posso colocar etiquetas nos comentários ou só nas publicações?"
       title: "Etiquetas"
       what_are_tags_for_q: "Para que servem as etiquetas?"
-    third_party_tools: "ferramentas de terceiros"
+    third_party_tools: "Ferramentas de terceiros"
+    title_header: "Ajuda"
     tutorial: "tutorial"
     tutorials: "tutoriais"
     wiki: "wiki"
   home:
+    default:
+      choose_your_audience: "Escolher a sua audiência"
+      headline: "Bem-vindo a %{pod_name}"
+      own_your_data: "É dono dos seus próprios dados"
     podmin:
+      contact_irc: "contacte-nos no IRC"
+      contribute: "Contribuir"
+      create_an_account: "Criar uma conta"
       getting_help: "Obter ajuda"
+      headline: "Bem-vindo, amigo."
       update_instructions: "atualizar as instruções na wiki do diaspora*"
       update_your_pod: "Atualize o seu servidor"
       update_your_pod_info: "Pode encontrar %{update_instructions}."
@@ -376,7 +486,7 @@ pt-PT:
       back_to_top: "Voltar ao topo"
       powered_by: "DESENVOLVIDO POR DIASPORA*"
       public_feed: "Fonte pública do diaspora* para %{name}"
-      source_package: "transfira o pacote de código fonte"
+      source_package: "Transferir o pacote de código fonte"
       toggle: "Alternar móvel"
       whats_new: "O que há de novo?"
     header:
@@ -384,6 +494,9 @@ pt-PT:
       logout: "Terminar sessão"
       profile: "Perfil"
       settings: "Definições"
+  likes:
+    destroy:
+      error: "A remoção do gosto falhou."
   limited: "Limitado"
   more: "Mais"
   no_results: "Não foram encontrados resultados"
@@ -401,6 +514,8 @@ pt-PT:
       other: "%{actors} comentaram na sua %{post_link}."
       zero: "%{actors} comentaram na sua publicação %{post_link}."
     index:
+      all_notifications: "Todas as notificações"
+      also_commented: "Também comentou"
       and: "e"
       and_others:
         few: "e %{count} outros"
@@ -409,10 +524,20 @@ pt-PT:
         other: "e {count} outros"
         two: "e %{count} outros"
         zero: "e mais ninguém"
+      comment_on_post: "Comentar numa publicação"
+      contacts_birthday: "Aniversário"
+      liked: "Gostou"
       mark_all_as_read: "Marcar Tudo como Lido"
+      mark_read: "Marcar como lida"
       mark_unread: "Marcar como não lida"
       mentioned: "Mencionado"
+      mentioned_in_comment: "Mencionado num comentário"
+      no_notifications: "Ainda não tem quaisquer notificações."
       notifications: "Notificações"
+      reshared: "Partilhado novamente"
+      show_all: "Mostrar tudo"
+      show_unread: "Mostrar não lidas"
+      started_sharing: "Começou a partilhar"
     liked:
       one: "%{actors} gostou da sua publicação %{post_link}."
       other: "%{actors} gostaram da sua publicação %{post_link}."
@@ -453,6 +578,7 @@ pt-PT:
       zero: "%{actors} começou a partilhar consigo."
   notifier:
     a_post_you_shared: "uma publicação."
+    a_private_message: "Há uma nova mensagem privada no diáspora* para conferir."
     click_here: "Clique aqui"
     comment_on_post:
       reply: "Responder ou ver a publicação de %{name} >"
@@ -460,31 +586,57 @@ pt-PT:
       click_link: "Para ativar o seu novo endereço de email %{unconfirmed_email}, por favor siga esta hiperligação:"
       subject: "Por favor ative o seu novo endereço de email %{unconfirmed_email}"
     email_sent_by_diaspora: "Este e-mail foi enviado por %{pod_name}. Se desejar parar a receção deste tipo de e-mails,"
+    export_photos_email:
+      subject: "As suas fotografias estão prontas para as transferir, %{name}"
     hello: "Olá %{name}!"
     invite:
       message: |-
           Olá!
 
-          Foi convidado para aderir ao diaspora*!
+          Foi convidado para aderir ao diaspora* por %{user}!
 
           Clique nesta hiperligação para começar
 
           %{invite_url}
 
+          Ou pode adicionar %{diaspora_id} aos seus contactos se já tiver uma conta.
 
-          Cordialmente,
+          O robô de correio eletrónico do diáspora*!
 
-          O robô de e-mail do diaspora*!
+          OBS: Caso não saiba (ainda) o que é o diáspora*, [aqui][2] tem a resposta!
 
           [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
     invited_you: "O %{name} convidou-o para o diaspora*"
     liked:
       liked: "%{name} gostou da sua publicação"
       view_post: "Ver a publicação >"
     mentioned:
       subject: "O %{name} mencionou-o no Diaspora*"
+    mentioned_in_comment:
+      limited_post: "Foi mencionado num comentário de uma publicação limitada."
+      reply: "Responder ou ver esta conversação >"
     private_message:
       reply_to_or_view: "Responder ou ver esta conversa >"
+    remove_old_user:
+      body: |-
+          Olá,
+
+          Parece que não quer mais a sua conta em %{pod_url}, já que não a utilizou por %{after_days} dias. Para garantir que os nossos utilizadores ativos obtenham o melhor desempenho deste servidor da diáspora*, nós gostaríamos de remover as contas indesejadas da nossa base de dados.
+
+          Nós gostaríamos que permanecesse na comunidade diáspora*, e é bem.vindo para manter a sua conta live se quiser.
+
+          Se quiser manter a sua conta ativa, tudo o que precisa fazer é iniciar a sessão na sua conta antes de %{remove_after}. Quando iniciar a sessão, tire um momento para dar uma vista de olhos na diáspora*. Este mudou muito desde a sua última vez, e nós pensamos que irá gostar das melhorias que nós fizemos. Siga algumas #tags para encontrar o conteúdo que gosta.
+
+          Inicie a sessão aqui: %{login_url}. Se se esqueceu dos seus detalhes da sessão, pode solicitar um lembrete nessa página.
+
+          Esperamos voltar a vê-lo,
+
+          O robô de correio eletrónico da diáspora*!
+    report_email:
+      type:
+        comment: "Comentário"
+        post: "Publicação"
     reshared:
       reshared: "%{name} acabou de partilhar a sua publicação"
       view_post: "Ver publicação >"
@@ -501,13 +653,16 @@ pt-PT:
   ok: "CONFIRMAR"
   people:
     add_contact:
-      invited_by: "foi convidado por"
+      invited_by: "Foi convidado por"
     index:
+      couldnt_find_them: "Não foi possível encontrá-los?"
       looking_for: "À procura de publicações etiquetadas %{tag_link}?"
       no_one_found: "...e ninguém foi encontrado."
       no_results: "Ei! Precisa pesquisar por alguma coisa."
       results_for: "Utilizadores que correspondem %{search_term}"
-      searching: "a pesquisar, por favor aguarde..."
+      search_handle: "Utilize a Identificação deles (username@pod.tld) ​​para ter a certeza que encontra os seus amigos."
+      searching: "A procurar, por favor, seja paciente..."
+      send_invite: "Ainda nada? Envie um convite!"
     person:
       thats_you: "É você!"
     profile_sidebar:
@@ -525,9 +680,9 @@ pt-PT:
       runtime_error: "O envio da fotografia falhou. Tem a certeza que o seu cinto de segurança está apertado?"
       type_error: "O envio da fotografia falhou. Tem a certeza que foi adicionada uma imagem?"
     destroy:
-      notice: "Fotografia apagada."
+      notice: "Fotografia eliminada."
     new_profile_photo:
-      upload: "Envie uma fotografia de perfil nova!"
+      upload: "Envie uma nova fotografia de perfil!"
   posts:
     presenter:
       title: "Uma publicação de %{name}"
@@ -545,8 +700,14 @@ pt-PT:
   profiles:
     edit:
       allow_search: "Permitir que as outras pessoas o procurem no diaspora*"
+      basic: "O meu perfil básico"
+      extended: "O meu perfil estendido"
+      extended_visibility_text: "Visibilidade do seu perfil estendido"
       first_name: "Nome próprio"
       last_name: "Apelido"
+      limited: "Limitado"
+      public: "Público"
+      settings: "Definições do perfil"
       update_profile: "Atualizar perfil"
       your_bio: "A sua biografia"
       your_birthday: "O seu aniversário"
@@ -566,15 +727,28 @@ pt-PT:
       success: "Aderiu ao diaspora*!"
     invalid_invite: "A hiperligação de convite fornecida já não é válida!"
     new:
-      email: "EMAIL"
+      email: "E-mail"
       enter_email: "Insira o seu endereço de correio eletrónico"
       enter_password: "Insira uma senha (mínimo de 6 carateres)"
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e sublinhado (_))"
-      password: "PALAVRA-PASSE"
-      password_confirmation: "CONFIRMAÇÃO DA SENHA"
-      sign_up: "REGISTAR"
-      username: "NOME DE UTILIZADOR"
+      password: "Palavra-passe"
+      password_confirmation: "Confirmação da palavra-passe"
+      sign_up: "Criar conta"
+      submitting: "A submeter..."
+      terms_link: "Termos do Serviço"
+      username: "Nome de utilizador"
+  report:
+    comment_label: "<strong>Comentário</strong>: %{data}"
+    confirm_deletion: "Tem a certeza que pretende eliminar este item?"
+    delete_link: "Eliminar item"
+    post_label: "<strong>Publicação</strong>: %{content}"
+    reason_label: "Motivo:"
+    review_link: "Marcar como revista"
+    status:
+      destroyed: "A publicação foi destruída"
+      failed: "Ocorreu algo de errado"
+    title: "Sinopse dos Relatórios"
   reshares:
     comment_email_subject: "repartilha de %{resharer} da publicação de %{author}"
     reshare:
@@ -593,14 +767,24 @@ pt-PT:
     failure:
       error: "Ocorreu um erro ao ligar a esse serviço"
     index:
+      connect: "Connect"
       disconnect: "Desligar"
       edit_services: "Editar serviços"
       logged_in_as: "Sessão iniciada como %{nickname}."
       really_disconnect: "Desligar de %{service}?"
       services_explanation: "Ao ligar aos serviços de partilha de terceiros, pode publicar as suas publicações nos mesmos, ao mesmo tempo que as escreve no diaspora*."
+      share_to: "Partilhar em %{provider}"
+      title: "Gerir serviços ligados"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
   settings: "Configurações"
   shared:
     aspect_dropdown:
+      mobile_row_checked: "%{name} (remover)"
+      mobile_row_unchecked: "%{name} (adicionar)"
       toggle:
         one: "Em %{count} aspeto"
         other: "Em %{count} aspetos"
@@ -615,13 +799,14 @@ pt-PT:
       control_your_audience: "Controle o seu público"
       logged_in: "Sessão iniciada em %{service}"
       manage: "Gerir serviços conectados"
-      new_user_welcome_message: "Utilize #hashtags para classificar as suas publicações e encontrar pessoas que partilham dos mesmos interesses. Convide pessoas interessantes com @Mentions"
+      new_user_welcome_message: "Utilize #hashtags para classificar as suas publicações e encontrar pessoas que partilham dos mesmos interesses. Convide pessoas interessantes com @Menções"
       outside: "As mensagens públicas irão ficar disponíveis para outros fora do diaspora*."
       share: "Partilhar"
       title: "Configurar serviços conectados"
-      visibility_dropdown: "Utilize esta lista para alterar as opções de visibilidade da sua publicação. (Sugerimos que a sua primeira publicação seja pública.)"
+      visibility_dropdown: "Utilize este menu suspenso para alterar a visibilidade da sua publicação. (Nós sugerimos que torne pública esta primeira publicação.)"
     publisher:
       discard_post: "Rejeitar a publicação"
+      formatWithMarkdown: "Pode utilizar %{markdown_link} para formatar a sua publicação"
       get_location: "Obter a minha localização"
       new_user_prefill:
         hello: "Olá a todos, eu sou #%{new_user_tag}. "
@@ -629,12 +814,34 @@ pt-PT:
         invited_by: "Obrigado(a) pelo convite,"
         newhere: "Novo Aqui"
       posting: "A publicar..."
+      remove_location: "Remover localização"
       share: "Partilhar"
       whats_on_your_mind: "Em que está a pensar?"
     stream_element:
       via: "Via %{link}"
       via_mobile: "Via telemóvel"
+  simple_captcha:
+    label: "Insira o código na caixa:"
+    message:
+      default: "O código secreto não corresponde com a imagem"
+      failed: "A verificação humana falhou"
+      user: "A imagem secreta e o código eram diferentes"
+    placeholder: "Insira o valor da imagem"
+  statistics:
+    closed: "fechado"
+    disabled: "Não disponível"
+    enabled: "Disponível"
+    local_comments: "Comentários locais"
+    local_posts: "Publicações locais"
+    name: "Nome"
+    network: "Rede"
+    open: "Aberto"
+    registrations: "Registos"
+    services: "Serviços"
+    total_users: "Total de utilizadores"
+    version: "Versão"
   status_messages:
+    bad_aspects: "As Ids. de aspetos fornecidas não são aplicáveis ​​(inexistentes ou não pertencentes)"
     new:
       mentioning: "A mencionar: %{person}"
     too_long: "Por favor, não utilize mais de %{count} carateres nas suas mensagens de estado\". De momento tem %{current_length} carateres"
@@ -644,19 +851,27 @@ pt-PT:
   streams:
     activity:
       title: "Minha atividade"
+    admin:
+      title: "Admin."
     aspects:
-      title: "Meus aspetos"
+      all: "Todos os aspetos"
+      title: "Os meus aspetos"
     aspects_stream: "Aspetos"
     comment_stream:
+      title: "Publicações comentadas"
+    commented:
       title: "Publicações comentadas"
     community_spotlight_stream: "Destaque da comunidade"
     followed_tag:
       add_a_tag: "Adicionar uma etiqueta"
+      all: "Todas as etiquetas"
       follow: "Seguir"
       title: "Etiquetas #Seguidas"
     followed_tags_stream: "Etiquetas #Seguidas"
     like_stream:
       title: "Publicações de que gostou"
+    liked:
+      title: "Publicações com gosto"
     mentioned_stream: "@Menções"
     mentions:
       title: "@Menções"
@@ -678,43 +893,51 @@ pt-PT:
       email_not_confirmed: "O email não pode ser ativado. Hiperligação errada?"
     destroy:
       no_password: "Por favor digite a sua palavra-passe atual para encerrar a sua conta."
-      success: "A sua conta foi bloqueada. Poderá demorar até 20 minutos para nós a terminarmos o fecho da sua conta. Obrigado por experimentar o diaspora*."
-      wrong_password: "A palavra-passe digitada não corresponde à sua palavra-passe actual."
+      success: "A sua conta foi bloqueada. Pode levar até 20 minutos para nós terminarmos o fecho da sua conta. Obrigado por experimentar o diáspora*."
+      wrong_password: "A palavra-passe inserida não corresponde à sua palavra-passe atual."
     edit:
       also_commented: "alguém comenta numa publicação em que já comentou"
-      auto_follow_aspect: "Grupo para os contactos adicionados automaticamente:"
+      auto_follow_aspect: "Aspeto para os utilizadores com quem partilha automaticamente:"
       auto_follow_back: "Compartilgar automaticamente com os utilizadores que começam a compartilhar consigo"
       change: "Alterar"
+      change_color_theme: "Alterar cor do tema"
       change_email: "Mudar de email"
       change_language: "Alterar idioma"
       change_password: "Alterar a palavra-passe"
       character_minimum_expl: "deve ter pelo menos seis carateres"
       close_account:
-        dont_go: "Ei, por favor não vá!"
+        dont_go: "Ei, por favor, não vá!"
         lock_username: "O seu nome de utilizador será bloqueado. Não poderá criar uma conta nova neste servidor com a mesma identificação.."
-        locked_out: "A sua sessão será terminada e a sua conta bloqueada até que esta seja apagada."
+        locked_out: "A sua sessão será terminada e a sua conta bloqueada até que esta seja eliminada."
         make_diaspora_better: "Nós gostaríamos que ficasse e nos ajude a tornar o diaspora* ainda melhor, em vez de nos deixar. Se realmente desejar deixar-nos, nós queremos que saiba o que irá acontecer a seguir."
         mr_wiggles: "Mr Wiggles ficará triste de o(a) ver partir"
-        no_turning_back: "Atualmente, não há como voltar atrás."
+        no_turning_back: "Atualmente, não há como voltar atrás. Se tiver mesmo a certeza, insira a sua palavra-passe abaixo."
         what_we_delete: "Nós iremos eliminar todas as suas publicações e os dados do perfil assim que possível. Os seus comentários nas publicações de outras pessoas ainda irão aparecer, mas estas serão associadas com a sua Id. do diaspora*, em vez do seu nome."
       close_account_text: "Encerrar conta"
       comment_on_post: "alguém comenta na sua publicação"
       current_password: "Palavra-passe atual"
       current_password_expl: "aquela que utiliza para iniciar sessão..."
+      default_post_visibility: "Aspetos predefinidos selecionados para publicação"
+      download_export: "Transferir o meu perfil"
+      download_export_photos: "Transferir as minhas fotografias"
       edit_account: "Editar conta"
       email_awaiting_confirmation: "Enviámos-lhe uma hiperligação de ativação para %{unconfirmed_email}. Até que siga esta hiperligação e ative o novo endereço, continuaremos a utilizar o seu endereço original %{email}."
       export_data: "Exportar dados"
+      export_photos_in_progress: "De momento, nós estamos a processar as suas fotografias. Por favor, aguarde alguns instantes."
       following: "Definições do Compartilhar"
       liked: "alguém gosta da sua publicação"
       mentioned: "está mencionado numa publicação"
+      mentioned_in_comment: "foi mencionado num comentário"
       new_password: "Nova palavra-passe"
       private_message: "recebe uma mensagem privada"
       receive_email_notifications: "Receber notificações por e-mail quando:"
+      request_export: "Solicitar os meus dados do perfil"
+      request_export_photos: "Solicitar as minhas fotografias"
       request_export_photos_update: "Atualizar as minhas fotografias"
       request_export_update: "Atualizar os meus dados do perfil"
       reshared: "alguém volta a compartilhar a sua publicação"
-      show_community_spotlight: "Mostrar \"destaques da comunidade\" no seu fluxo?"
-      show_getting_started: "Mostrar dicas de 'Iniciação...'"
+      show_community_spotlight: "Mostrar \"destaques da comunidade\" no seu fluxo"
+      show_getting_started: "Mostrar dicas de \"Iniciação...\""
       started_sharing: "alguém começa a compartilhar consigo"
       stream_preferences: "Preferências do Fluxo"
       your_email: "O seu endereço de email"
@@ -732,10 +955,11 @@ pt-PT:
     privacy_settings:
       ignored_users: "Utilizadores ignorados"
       stop_ignoring: "Parar de ignorar"
-      title: "Configurações de privacidade"
+      title: "Definições de privacidade"
     public:
       does_not_exist: "O utilizador %{username} não existe!"
     update:
+      color_theme_changed: "Cor do tema alterada com sucesso."
       email_notifications_changed: "Notificações por e-mail alteradas"
       follow_settings_changed: "Definições de 'seguir' alteradas"
       follow_settings_not_changed: "A alteração das definições de 'seguir' falharam."

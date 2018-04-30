@@ -344,6 +344,19 @@ ia:
     helper:
       correct_the_following_errors_and_try_again: "Corrige le sequente errores e proba de novo."
     need_javascript: "Iste sito web require JavaScript pro poter functionar. Si tu ha disactivate JavaScript, per favor reactiva lo e recarga iste pagina."
+  errors:
+    messages:
+      carrierwave_download_error: "non poteva esser discargate"
+      carrierwave_integrity_error: "non es de un typo de file permittite"
+      carrierwave_processing_error: "non poteva esser processate"
+      content_type_blacklist_error: "Tu non ha le permission de incargar files %{content_type}."
+      content_type_whitelist_error: "Tu non ha le permission de incargar files %{content_type}."
+      extension_blacklist_error: "Tu non ha le permission de incargar files %{extension}. Typos prohibite: %{prohibited_types}"
+      extension_whitelist_error: "Tu non ha le permission de incargar files %{extension}. Typos permittite: %{allowed_types}"
+      max_size_error: "Le dimension del file debe esser inferior a %{max_size}."
+      min_size_error: "Le dimension del file debe esser superior a %{min_size}."
+      mini_magick_processing_error: "Le tractamento con \"MiniMagick\" ha fallite. Pote esser que iste file non es un imagine? Error original: %{e}"
+      rmagick_processing_error: "Le tractamento con \"rmagick\" ha fallite. Pote esser que iste file non es un imagine?"
   fill_me_out: "Plena me"
   find_people: "Cercar personas o #etiquettas"
   help:
@@ -364,8 +377,6 @@ ia:
       change_aspect_of_post_q: "Un vice que io ha inviate qualcosa, pote io cambiar le aspecto(s) que pote vider le entrata?"
       contacts_know_aspect_a: "No. Ille non pote vider le nomine del aspecto in alcun maniera."
       contacts_know_aspect_q: "Esque mi contactos sapera in qual aspectos io les mitte?"
-      contacts_visible_a: "Si tu marca iste option, le contactos de ille aspecto potera vider le lista de altere personas includite in illo, a partir del scheda \"Contactos\" in tu pagina de profilo. Es melior seliger iste option solmente si tote le personas in iste aspecto se cognosce, per exemplo si le aspecto es pro un club o societate de que tu es membro. Illes totevia non potera vider le nomine del aspecto."
-      contacts_visible_q: "Que significa \"render le contactos in iste aspecto visibile le un al alteres\"?"
       delete_aspect_a: "Clicca sur \"Mi aspectos\" in le barra lateral a partir de un vista de fluxo e clicca sur le micre stilo de graphite presso le aspecto que tu vole deler, o vade a tu pagina Contactos e selige le aspecto in question. Postea clicca sur le icone de corbe a papiro in cyma al dextra del pagina."
       delete_aspect_q: "Como deler un aspecto?"
       person_multiple_aspects_a: "Si. Vade a tu pagina de contactos e clicca sur \"Mi contactos\". Pro cata contacto tu pote usar le menu al dextra pro adder la a omne aspectos que tu vole, o remover la de illos. O tu pote adder la a un nove aspecto (o remover la de un aspecto) per cliccar sur le button selector de aspectos in su pagina de profilo. O mesmo tu pote simplemente punctar le mouse verso su nomine quando tu lo vide in le fluxo, e un 'carta' de information apparera, in que tu pote cambiar le aspectos in que illa es."
@@ -1093,6 +1104,7 @@ ia:
     total_users: "Total de usatores"
     version: "Version"
   status_messages:
+    bad_aspects: "Le IDs de aspectos fornite non es applicabile (non existe o nemo los possede)"
     new:
       mentioning: "Mentiona: %{person}"
     too_long: "Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres."
@@ -1187,6 +1199,7 @@ ia:
       export_in_progress: "Le datos personal tue es actualmente sub preparation. Per favor, reveni in alcun momentos."
       export_photos_in_progress: "Le tractamento de tu photos non ha ancora terminate. Per favor, essaya lo de novo in qualque momentos."
       following: "Configuration de divider"
+      last_exported_html: "(Ultime actualisation %{timeago})"
       liked: "un persona apprecia un entrata tue"
       mentioned: "un persona te mentiona in un entrata sue"
       mentioned_in_comment: "tu es mentionate in un commento"

@@ -33,7 +33,9 @@ hu:
       no_aspects: "Nincs csoport kiválasztva"
       select_all: "Mindent kijelöl"
     aspects:
-      make_aspect_list_visible: "Legyenek ennek a csoportnak a tagjai láthatóak egymás számára?"
+      create:
+        add_a_new_aspect: "Új csoport hozzáadása"
+        success: "Az új csoportod létrejött (<%= name %>)"
     bookmarklet:
       post_something: "Hozz létre bejegyzést"
       post_submit: "Bejegyzés közzététele..."
@@ -49,8 +51,6 @@ hu:
       add_contact: "Ismerős hozzáadása"
       aspect_chat_is_enabled: "Ebben a csoportban található ismerőseid képesek csevegni veled."
       aspect_chat_is_not_enabled: "Ebben a csoportban található ismerőseid nem képesek csevegni veled."
-      aspect_list_is_not_visible: "A csoport tagjai nem láthatják egymást."
-      aspect_list_is_visible: "A csoport tagjai láthatják egymást."
       remove_contact: "Ismerős eltávolítása"
       search_no_results: "Nincsenek kapcsolatok"
     conversation:
@@ -127,7 +127,6 @@ hu:
       add_some: "adj meg néhányat"
       bio: "személyes"
       born: "születésnap"
-      contacts: "ismerősök"
       edit: "szerkesztés"
       gender: "nem"
       location: "lakóhely"
@@ -138,11 +137,26 @@ hu:
       add_option: "Válasz hozzáadása"
       markdown_editor:
         preview: "Előnézet"
+        texts:
+          heading: "címsor szövege"
+          insert_image_description_text: "ide írd be a kép leírását"
+          insert_image_help_text: "A beillesztendő kép elérési címe"
+          insert_image_title: "ide írd be a kép címét"
+          insert_link_description_text: "ide írd be a hivatkozás leírását"
+          insert_link_help_text: "A beillesztendő hivatkozás"
+          italic: "dőlt szöveg"
         tooltips:
+          bold: "Félkövér"
           cancel: "Szerkesztés megszakítása"
+          code: "Kód beillesztése"
+          heading: "Címsor"
           insert_image: "Kép beillesztése"
           insert_link: "Hivatkozás beillesztése"
+          insert_ordered_list: "Rendezett lista beillesztése"
+          insert_unordered_list: "Rendezetlen lista beillesztése"
+          italic: "Dőlt"
           preview: "Az üzenet előnézete"
+          quote: "Idézet beillesztése"
           write: "Üzenet szerkesztése"
         write: "Szöveg"
       near_from: "<%= location %> közelében"
@@ -173,7 +187,7 @@ hu:
       hide_nsfw_posts: "#nsfw bejegyzések rejtése"
       like: "Tetszik"
       likes:
-        other: "<%= count %> ember kedveli"
+        other: "<%= count %> személy kedveli"
         zero: "<%= count %> kedveli"
       limited: "Korlátozott"
       more_comments:

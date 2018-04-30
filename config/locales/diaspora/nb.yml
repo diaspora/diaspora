@@ -40,7 +40,7 @@ nb:
             email:
               taken: "er allerede tatt."
             person:
-              invalid: "er invalid."
+              invalid: "er ugyldig."
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "er allerede tatt."
@@ -213,7 +213,7 @@ nb:
       aspect_list_is_visible: "Kontakter i dette aspektet er i stand til å se hverandre."
       confirm_remove_aspect: "Er du sikker på at du vil slette dette aspektet?"
       rename: "Endre navn"
-      update: "Oppdater"
+      update: "Oppdatér"
       updating: "Oppdaterer"
     index:
       donate: "Doner"
@@ -341,6 +341,19 @@ nb:
     helper:
       correct_the_following_errors_and_try_again: "Rett opp de følgende feilene og prøv igjen."
     need_javascript: "Denne nettsiden krever JavaScript for å fungere skikkelig. Dersom du har slått av JavaScript, må du vennligst slå på JavaScript og laste siden på ny."
+  errors:
+    messages:
+      carrierwave_download_error: "kunne ikke lastes ned"
+      carrierwave_integrity_error: "er ikke en tillatt filtype"
+      carrierwave_processing_error: "kunne ikke behandles"
+      content_type_blacklist_error: "Du har ikke tillatelse til å laste opp %{content_type}-filer"
+      content_type_whitelist_error: "Du har ikke tillatelse til å laste opp %{content_type}-filer"
+      extension_blacklist_error: "Du har ikke tillatelse til å laste opp %{extension}-filer. Forbudte filtyper: %{prohibited_types}"
+      extension_whitelist_error: "Du har ikke tillatelse til å laste opp %{extension}-filer. Tillatte filtyper: %{allowed_types}"
+      max_size_error: "Filstørrelsen bør være mindre enn %{max_size}"
+      min_size_error: "Filstørrelsen bør være større enn %{min_size}"
+      mini_magick_processing_error: "Kunne ikke bruke magick på dette, er du sikker på at det er et bilde. Opprinnelig feil: %{e}"
+      rmagick_processing_error: "Kunne ikke bruke magick på dette, er du sikker på at det er et bilde?"
   fill_me_out: "Fortell meg"
   find_people: "Finn folk eller #tagger"
   help:
@@ -361,8 +374,6 @@ nb:
       change_aspect_of_post_q: "Når jeg har publisert noe, kan jeg endre aspekt(er) som kan se det?"
       contacts_know_aspect_a: "Nei. De har ikke mulighet til å se hva navnet på aspektet er."
       contacts_know_aspect_q: "Vet kontaktene mine hvilke aspekter jeg har puttet dem i?"
-      contacts_visible_a: "Hvis du huker av for dette alternativet, vil kontakter fra dette aspektet kunne se de andre medlemmene i aspektet under kontakter-fanen på profilsiden din. (For tiden er det kun kontakter som er på samme belg som deg som vil kunne se kontakter-fanen på profilen din.) Det er best å bare velge dette alternativet dersom alle kontaktene i aspektet kjenner hverandre, for eksempel hvis aspektet er til en klubb eller et forening du tilhører. De vil uansett ikke kunne se hva aspektet er kalt."
-      contacts_visible_q: "Hva betyr «knytter kontakter i dette aspektet synlig for hverandre»?"
       delete_aspect_a: "I listen din over aspekter til venstre i hovedsiden, hold musepekeren på aspektet du ønsker å slette. Klikk den lille «rediger»-blyanten som vises til høyre. Klikk sletteknappen i boksen som kommer frem."
       delete_aspect_q: "Hvordan sletter jeg et aspekt?"
       person_multiple_aspects_a: "Ja. Gå til kontaktsiden din og klikk på «Mine kontakter». For hver av kontaktene kan du bruke menyen til høyre for å legge dem til (eller fjerne dem fra) så mange aspekter du ønsker. Eller du kan legge dem til et nytt aspekt (eller fjerne dem fra et aspekt) ved å klikke på knappen for aspektvalg på deres profilside. Eller du kan bare bevege musepekeren over navnet deres der du ser det i strømmen, og et «hovercard» vil vise seg. Der kan du endre aspektene de er i."
@@ -592,7 +603,7 @@ nb:
       no_more: "Du har ikke flere invitasjoner."
       note_already_sent: "Invitasjoner har blitt sendt til: %{emails}"
       rejected: "Følgende e-postadresser hadde problemer: %{emails}"
-      sent: "Invitasjoner har blitt sendt til:"
+      sent: "Invitasjoner har blitt sendt til: %{emails}"
     new:
       codes_left:
         one: "En invitasjon er igjen med denne koden"
@@ -634,9 +645,9 @@ nb:
       few: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       many: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       one: "%{actors} kommenterte også på %{post_author}s %{post_link}."
-      other: "%{actors} har også kommentert på %{post_author}'s %{post_link}."
+      other: "%{actors} har også kommentert på %{post_author}s %{post_link}."
       two: "%{actors} kommenterte også %{post_author}s %{post_link}."
-      zero: "%{actors} har også kommentert på %{post_author}'s %{post_link}."
+      zero: "%{actors} har også kommentert på %{post_author}s %{post_link}."
     also_commented_deleted:
       few: "%{actors} kommenterte på en slettet post."
       many: "%{actors} kommenterte på en slettet post."
@@ -645,9 +656,9 @@ nb:
       two: "%{actors} kommenterte en slettet post."
       zero: "%{actors} kommenterte på en slettet post."
     comment_on_post:
-      one: "%{actors} kommenterte ditt %{post_link}."
-      other: "%{actors} kommenterte ditt %{post_link}."
-      zero: "%{actors} kommenterte ditt %{post_link}."
+      one: "%{actors} kommenterte innlegget ditt %{post_link}."
+      other: "%{actors} kommenterte innlegget ditt %{post_link}."
+      zero: "%{actors} kommenterte innlegget ditt %{post_link}."
     contacts_birthday:
       one: "%{actors} har fødselsdag den %{date}."
       other: "%{actors} har fødselsdag den %{date}."
@@ -694,12 +705,9 @@ nb:
       other: "%{actors} har nevnt deg i en %{post_link}."
       zero: "%{actors} har nevnt deg i en %{post_link}."
     mentioned_deleted:
-      few: "%{actors} nevnte deg i en slettet post."
-      many: "%{actors} nevnte deg i en slettet post."
-      one: "%{actors} nevnte deg i en slettet post."
-      other: "%{actors} nevnte deg i en slettet post."
-      two: "%{actors} nevnte deg i en slettet post."
-      zero: "%{actors} nevnte deg i en slettet post."
+      one: "%{actors} nevnte deg i et slettet innlegg."
+      other: "%{actors} nevnte deg i et slettet innlegg."
+      zero: "%{actors} nevnte deg i et slettet innlegg."
     mentioned_in_comment:
       one: "%{actors} nevnte deg i en <a href='%{comment_path}'>kommentar</a> til innlegget %{post_link}."
       other: "%{actors} nevnte deg i en <a href='%{comment_path}'>kommentar</a> til innlegget %{post_link}."
@@ -1108,6 +1116,7 @@ nb:
     total_users: "Totalt antall brukere"
     version: "Versjon"
   status_messages:
+    bad_aspects: "Oppgitte aspekt-ID-er kan ikke brukes (ikke-eksisterende eller ikke dine)"
     new:
       mentioning: "Nevner: %{person}"
     too_long: "{\"few\"=>\"du bør begrense statusmeldingene dine til %{count} tegn\", \"many\"=>\"Du bør begrense statusmeldingene dine til %{count} characters\", \"one\"=>\"du bør begrense statusmeldingene dine til %{count} tegn\", \"other\"=>\"du må gjøre statusmeldingene dine kortere enn %{count} tegn\", \"two\"=>\"vær så snill og skriv statusoppdateringer som er under %{count} tegn\", \"zero\"=>\"Statusmeldinger må være lengre enn ingenting.\"}"
@@ -1202,6 +1211,7 @@ nb:
       export_in_progress: "Vi behandler dine data nå. Vennligst prøv igjen om et lite øyeblikk."
       export_photos_in_progress: "Vi klargjør bildene dine. Vennligst kom tilbake om et par øyeblikk."
       following: "Innstillinger for deling"
+      last_exported_html: "(Sist oppdatert %{timeago})"
       liked: "noen liker innlegget ditt"
       mentioned: "du blir omtalt i et innlegg"
       mentioned_in_comment: "du ble nevnt i en kommentar"

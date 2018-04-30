@@ -154,5 +154,66 @@ describe AccountMigration, type: :model do
         account_migration.perform!
       end
     end
+
+    context "with remote account merging (non-empty new person)" do
+      before do
+        FactoryGirl.create(
+          :contact,
+          person: new_person,
+          user:   FactoryGirl.create(:contact, person: old_person).user
+        )
+        FactoryGirl.create(
+          :like,
+          author: new_person,
+          target: FactoryGirl.create(:like, author: old_person).target
+        )
+        FactoryGirl.create(
+          :participation,
+          author: new_person,
+          target: FactoryGirl.create(:participation, author: old_person).target
+        )
+        FactoryGirl.create(
+          :poll_participation,
+          author:      new_person,
+          poll_answer: FactoryGirl.create(:poll_participation, author: old_person).poll_answer
+        )
+      end
+
+      it "runs without errors" do
+        expect {
+          account_migration.perform!
+        }.not_to raise_error
+        expect(new_person.likes.count).to eq(1)
+        expect(new_person.participations.count).to eq(1)
+        expect(new_person.poll_participations.count).to eq(1)
+        expect(new_person.contacts.count).to eq(1)
+      end
+    end
+
+    context "with local account merging (non-empty new user)" do
+      include_context "with local old user"
+      include_context "with local new user"
+
+      before do
+        FactoryGirl.create(
+          :aspect,
+          user: new_person.owner,
+          name: FactoryGirl.create(:aspect, user: old_person.owner).name
+        )
+        FactoryGirl.create(
+          :contact,
+          user:   new_person.owner,
+          person: FactoryGirl.create(:contact, user: old_person.owner).person
+        )
+      end
+
+      it "runs without errors" do
+        expect {
+          account_migration.perform!
+        }.not_to raise_error
+        expect(new_person.owner.contacts.count).to eq(1)
+        expect(new_person.owner.aspects.count).to eq(1)
+      end
+    end
   end
 end

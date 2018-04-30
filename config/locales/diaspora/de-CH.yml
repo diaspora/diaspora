@@ -251,8 +251,6 @@ de-CH:
       change_aspect_of_post_q: "Wenn ich öppis posted ha, chann ich no d'Aspekt(e) wos chöne gseh ändere?"
       contacts_know_aspect_a: "Nei. Si chönne de Name vom Aspekt onder kene Bedingige gseh"
       contacts_know_aspect_q: "Wösse mini Kontökt i welne Aspekt mini Kontäkt send?"
-      contacts_visible_a: "When du die Option aktiviersch, denne chöne Kontäkt vo dem Aspekt gseh wer söscht no im gliiche Aspekt esch. Esch esch am beschte, wenn du die Option nor aktiviersch, wenn alli em Aspekt sech kenne. Zom Biispel, wenn de Aspekt zo emene Club oder enere Organisation ghört, wo du ou debii besch. Sie wärde trotzdem ned chönne gseh wie de Aspekt heisst."
-      contacts_visible_q: "Was heisst \"mach Kontäkt i dem Aspekt sechtbar förenand\"?"
       delete_aspect_q: "Wie chan ich en Aspekt lösche?"
       person_multiple_aspects_q: "Chan ich en Person zo mehrere Aspekt henzuefüege?"
       post_multiple_aspects_q: "Chan ich Sache zo mehrere Aspekt gliichzitig henzuefüege?"
@@ -342,6 +340,8 @@ de-CH:
   layouts:
     application:
       back_to_top: "Zrugg zum Aafang"
+      be_excellent: "Sind lieb zunenand! ♥"
+      discourse: "Projektdiskussione und Hilf"
       powered_by: "Es lauft mit diaspora*"
       public_feed: "Öffentliche diaspora* Feed vo %{name}"
       source_package: "Lad's Quellcodepaket abe"
@@ -353,6 +353,7 @@ de-CH:
       logout: "Abmelde"
       profile: "Profil"
       settings: "Iistellige"
+      toggle_navigation: "Navigation umschalte"
   likes:
     destroy:
       error: "Gfallt mer nüme isch fehlgschlage."
