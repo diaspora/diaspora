@@ -48,9 +48,13 @@ pt-PT:
     passwords:
       edit:
         change_password: "Alterar a minha palavra-passe"
+        confirm_password: "Confirmar palavra-passe"
+        new_password: "Nova palavra-passe"
       new:
+        email: "Endereço de e-mail"
         forgot_password: "Esqueceu a sua palavra-passe?"
         no_account: "Não existe nenhuma conta com este e-mail."
+        reset_password: "Redefinir palavra-passe"
         send_password_instructions: "Enviem-me instruções para redefinir a minha palavra-passe"
       send_instructions: "Vai receber um email com instruções sobre como alterar a sua palavra-passe dentro de alguns minutos."
       updated: "A sua palavra-passe foi alterada com sucesso. A sessão foi iniciada."

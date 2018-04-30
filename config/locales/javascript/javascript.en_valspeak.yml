@@ -45,8 +45,6 @@ en_valspeak:
     confirm_dialog: "R u like... fer sure?"
     contacts:
       add_contact: "Add BFF"
-      aspect_list_is_not_visible: "So like, BFFs in this aspect r not able 2 like... c each other..."
-      aspect_list_is_visible: "BFFs in this aspect r like.. able 2 c each other. JustFYI, K?"
       error_add: "Couldnt like... add <%= name %> 2 the aspect :(("
       error_remove: "Couldnt like... trash <%= name %> from the aspect :(("
       remove_contact: "Remove BFF"
@@ -118,7 +116,6 @@ en_valspeak:
       add_some: "add summ<3"
       bio: "All about meeee <333"
       born: "Bday"
-      contacts: "BFFs <33"
       edit: "edit!"
       gender: "So Im like..."
       location: "My crib"

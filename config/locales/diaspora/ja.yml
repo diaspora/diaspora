@@ -30,7 +30,7 @@ ja:
         poll_participation:
           attributes:
             poll:
-              already_participated: "あなたはすでにこの投票に参加しました！"
+              already_participated: "あなたはすでにこの世論調査に回答しました！"
         reshare:
           attributes:
             root_guid:
@@ -85,7 +85,7 @@ ja:
         zero: "ユーザーなし"
       week: "週"
     user_entry:
-      account_closed: "アカウントを削除しました"
+      account_closed: "削除されたアカウント"
       diaspora_handle: "ダイアスポラ* ハンドル"
       email: "メール"
       guid: "GUID"
@@ -113,7 +113,7 @@ ja:
       under_13: "13歳以下のユーザーに表示する (COPPA)"
       unlock_account: "アカウントのロックを解除する"
       users:
-        other: "%{count} ユーザーが見つかりました"
+        other: "%{count}人のユーザーが見つかりました"
         zero: "ユーザーが見つかりません"
       view_profile: "プロフィールを表示"
       you_currently:
@@ -226,9 +226,9 @@ ja:
         need_help: "ヘルプが必要ですか?"
         support_forum: "%{support_forum} に参加することも可能です。"
         support_forum_link: "サポート フォーラム"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
+        tag_bug: "バグ"
+        tag_feature: "機能"
+        tag_question: "質問"
         tutorial_link_text: "チュートリアル"
         tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: 最初のステップへの手助け。"
       introduce_yourself: "これがあなたのストリームです。  飛び込んで自己紹介をしてみましょう。"
@@ -357,8 +357,6 @@ ja:
       change_aspect_of_post_q: "何か投稿した後に、それを見ることができるアスペクトを変更できますか？"
       contacts_know_aspect_a: "いいえ。どのような場合も、彼らがアスペクトの名前を見ることはできません。"
       contacts_know_aspect_q: "私の連絡先は、私が入れているアスペクトが分かりますか？"
-      contacts_visible_a: "このオプションをチェックすると、そのアスペクトからの連絡先は、プロフィールページの「連絡先」タブで、その中にいる他の人を参照することができます。このオプションを選択することが最善なのは、そのアスペクト内のすべての連絡先がお互いを知っている場合のみです。たとえば、アスペクトが所属するクラブや社会用のものである場合です。彼らはまだ呼ばれたアスペクトは見ることができません。"
-      contacts_visible_q: "「このアスペクトのメンバー一覧をメンバーへ公開する」はどういう意味ですか？"
       delete_aspect_a: "ストリームビューからサイドバーにある「マイ アスペクト」をクリックして、削除したいアスペクトの横にある鉛筆アイコンをクリックするか、連絡先のページに移動し、関連するアスペクトを選択します。次に、ページの右上にあるゴミ箱のアイコンをクリックします。"
       delete_aspect_q: "アスペクトを削除する方法は？"
       person_multiple_aspects_a: "はい。連絡先のページに移動して、「私の連絡先」をクリックしてください。それぞれの連絡先に対して、右側のメニューを使用して、希望する数のアスペクトを追加 (またはそこから削除) することができます。または、彼らのプロフィールページでアスペクトセレクターボタンをクリックして、新しいアスペクトに追加 (またはアスペクトから削除) することができます。また、ストリームで見ることができる彼らの名前の上にポインタを移動するだけで、「ホバーカード」が表示されます。すぐそこにあるアスペクトを変更することができます。"
@@ -464,7 +462,7 @@ ja:
       post_notification_a: "投稿の右上にある X の横にベルのアイコンがあります。これをクリックして、その投稿の通知を有効または無効にします。"
       post_notification_q: "投稿に関する通知を取得する、または通知を停止する方法は？"
       post_poll_a: "グラフのアイコンをクリックして、投票を生成します。質問と、少なくとも 2 つの答えを入力します。すべての人があなたの投票に参加できるようにしたい場合は、投稿を公開にすることを忘れないでください。"
-      post_poll_q: "私の投稿に投票を追加する方法は？"
+      post_poll_q: "私の投稿に世論調査を追加する方法は？"
       post_report_a: "あなたのポッド管理者に報告するには、投稿の右上にある警告三角形のアイコンをクリックします。ダイアログボックスでこの投稿を報告するための理由を入力してください。"
       post_report_q: "攻撃的な投稿を報告する方法は？"
       size_of_images_a: "いいえ。ストリームまたはシングルポストビューに合わせて画像は自動的にリサイズされます。 マークダウン記法は、画像のサイズを指定するためのコードを持っていません。"
@@ -626,7 +624,7 @@ ja:
   no_results: "結果が見つかりません"
   notifications:
     also_commented:
-      other: "%{actors}さんは%{post_author}さんの投稿%{post_link}もコメントしました。"
+      other: "%{actors}さんも%{post_author}さんの投稿%{post_link}にコメントしました。"
       zero: "%{actors}さんは%{post_author}さんの投稿%{post_link}もコメントしました。"
     also_commented_deleted:
       other: "%{actors}さんが削除された投稿にコメントしました。"
@@ -791,7 +789,7 @@ ja:
           [2]: %{diasporafoundation_url}
     invited_you: "%{name}さんがダイアスポラ*に招待しています。"
     liked:
-      liked: "%{name} has just liked your post: "
+      liked: "%{name}さんが、あなとの投稿にいいね！しました"
       limited_post: "%{name} さんが、あなたの限定公開の投稿にいいね！しました"
       view_post: "投稿を見る >"
     mentioned:
@@ -1033,9 +1031,9 @@ ja:
         hello: "こんにちはみなさん。私は%{new_user_tag}です。 "
         i_like: "%{tags} に興味があります。 "
         invited_by: "ご招待ありがとう、 "
-        newhere: "初めて"
+        newhere: "初心者"
       poll:
-        add_a_poll: "投票を追加"
+        add_a_poll: "世論調査を追加"
       posting: "投稿中"
       remove_location: "所在地を削除"
       share: "シェア"

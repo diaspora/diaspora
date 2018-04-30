@@ -6,12 +6,27 @@
 
 pt-PT:
   javascripts:
+    admin:
+      pods:
+        actions: "Ações"
+        added: "Adicionado"
+        follow_link: "abrir hiperligação num navegador"
+        more_info: "Mostrar mais informação"
+        offline_since: "off-line desde:"
+        ssl: "SSL"
+        ssl_disabled: "SSL desativado"
+        ssl_enabled: "SSL ativado"
+        states:
+          no_errors: "CONFIRMAR"
+        status: "Estado"
     and: "e"
     aspect_dropdown:
       add_to_aspect: "Adicionar contacto"
       all_aspects: "Todos os grupos"
-      error: "Não foi possível começar a partilhar com <%= name %>. Você está a ignorá-los?"
-      error_remove: "Não pode remover <%= name %> nesse grupo :("
+      error: "Não foi possível começar a partilhar com <%= name %>. Está a ignorá-los?"
+      error_remove: "Não foi possível remover <%= name %> do aspeto :("
+      mobile_row_checked: "<%= name %> (remover)"
+      mobile_row_unchecked: "<%= name %> (adicionar)"
       select_aspects: "Selecionar grupos"
       started_sharing_with: "Começou a partilhar com <%= name %>!"
       stopped_sharing_with: "Deixou de partilhar com <%= name %>."
@@ -19,19 +34,42 @@ pt-PT:
         one: "Em <%=count %> grupo"
         other: "Em <%=count %> grupos"
         zero: "Selecione os grupos"
+      updating: "a atualizar..."
     aspect_navigation:
       add_an_aspect: "+ Adicionar um aspeto"
       deselect_all: "Desmarcar todos"
       no_aspects: "Nenhuns aspectos selecionados"
       select_all: "Selecionar todos"
+    aspects:
+      create:
+        add_a_new_aspect: "Adicionar um novo aspeto"
+        failure: "A criação do aspeto falhou."
+        success: "O seu novo aspeto <%= name %> foi criado"
+      name: "Nome"
+    bookmarklet:
+      post_something: "Publicar no diaspora*"
+      post_submit: "A submeter a publicação..."
+    cancel: "Cancelar"
     comma: ","
     comments:
       hide: "ocultar comentários"
-      show: "mostrar todos os comentários"
+      show: "Mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
+    contacts:
+      add_contact: "Adicionar contacto"
+      aspect_chat_is_enabled: "Os contactos neste aspeto podem conversar consigo."
+      aspect_chat_is_not_enabled: "Os contactos neste aspeto não podem conversar consigo."
+      error_add: "Não foi possível adicionar <%= name %> ao aspeto :("
+      error_remove: "Não foi possível remover <%= name%> do aspeto :("
+      remove_contact: "Remover contacto"
+      search_no_results: "Não foram encontrados contactos"
+    create: "Criar"
     delete: "Eliminar"
     edit: "Editar"
+    errors:
+      connection: "Não é possível ligar ao servidor."
     failed_to_post_message: "Falhou ao publicar a mensagem!"
+    failed_to_remove: "Não foi possível remover a entrada!"
     getting_started:
       alright_ill_wait: "Tudo bem, eu irei aguardar."
       hey: "Olá, <%= name %>!"
@@ -41,21 +79,34 @@ pt-PT:
       admin: "Administrador"
       close: "fechar"
       contacts: "Contactos "
+      conversations: "Conversações"
+      help: "Ajuda"
       home: "Inicio "
       log_out: "Sair"
       mark_all_as_read: "Marcar tudo como lido"
+      moderator: "Moderador"
       notifications: "Notificações"
       profile: "Perfil"
       recent_notifications: "Últimas Notificações"
       search: "Procurar"
       settings: "Definições"
+      toggle_mobile: "Alternar móvel"
+      toggle_navigation: "Alternar navegação"
       view_all: "Ver tudo"
+    hide_post: "Ocultar esta publicação?"
+    hide_post_failed: "Não foi possível ocultar esta publicação"
     ignore: "Ignorar"
     ignore_user: "Ignorar este utilizador?"
     my_activity: "Minha atividade"
-    my_aspects: "Os meus grupos"
+    my_aspects: "Os meus aspetos"
     my_stream: "Fluxo"
+    notifications:
+      mark_read: "Marcar como lida"
+      mark_unread: "Marcar como não lida"
     people:
+      edit_my_profile: "Editar o meu perfil"
+      mention: "Menção"
+      message: "Mensagem"
       not_found: "e ninguém foi encontrado..."
     photo_uploader:
       completed: "<%= file %> concluído"
@@ -63,12 +114,65 @@ pt-PT:
       invalid_ext: "O {file} tem uma extensão inválida. Só são permitidas as extensões {extensions}."
       looking_good: "OMD, tu estás fantástico(a)!"
       size_error: "O {file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}."
+      upload_photos: "Enviar as fotografias"
+    poll:
+      answer_count:
+        one: "1 voto"
+        other: "<%=count%> votos"
+        zero: "0 votos"
+      close_result: "Ocultar resultado"
+      count:
+        one: "1 voto até agora"
+        other: "<%=count%> votos até agora"
+      original_post: "publicação original"
+      result: "Resultado"
+      show_result: "Mostrar resultado"
+      vote: "Votar"
+      your_vote: "O seu voto"
+    profile:
+      add_some: "Adicionar algum"
+      bio: "Biografia"
+      born: "Aniversário"
+      edit: "Editar"
+      gender: "Sexo"
+      location: "Localização"
+      photos: "Fotografias"
+      posts: "Publicações"
+      you_have_no_tags: "Não tem etiquetas!"
     publisher:
+      add_option: "Adicionar uma resposta"
+      markdown_editor:
+        preview: "Pré-visualizar"
+        texts:
+          code: "código aqui"
+          italic: "texto itálico"
+          strong: "texto negrito"
+        tooltips:
+          bold: "Negrito"
+          cancel: "Cancelar mensagem"
+          code: "Inserir código"
+          insert_image: "Inserir imagem"
+          insert_link: "Inserir hiperligação"
+          italic: "Itálico"
+          preview: "Pré-visualizar mensagem"
+          write: "Editar mensagem"
+        write: "Escrever"
       near_from: "Publicado em: <%= location %>"
+      option: "Responder"
+      question: "Pergunta"
+    remove_post: "Remover esta publicação?"
+    report:
+      name: "Comunicar"
+      prompt: "Por favor, insira um motivo"
+      prompt_default: "por exemplo, conteúdo ofensivo"
+      status:
+        created: "O relatório foi criado com sucesso"
+        exists: "O relatório já existe"
     reshares:
       post: "Repartilhar a publicação de <%= name %>?"
       successful: "A publicação foi repartilhada com sucesso!"
-    show_more: "mostrar mais"
+    show_all: "Mostrar tudo"
+    show_more: "Mostrar mais"
     stream:
       comment: "Comentar"
       disable_post_notifications: "Desativar notificações para esta publicação"
@@ -91,6 +195,7 @@ pt-PT:
         other: "Mostrar mais <%= count %> comentários"
         zero: "Mostrar mais <%= count %> comentários"
       original_post_deleted: "Publicação original eliminada pelo autor."
+      permalink: "Ligação permanente"
       public: "Público"
       reshare: "Voltar a Partilhar"
       reshares:
@@ -98,7 +203,7 @@ pt-PT:
         other: "<%= count %> repartilhas"
         zero: "<%= count %> repartilhas"
       show_nsfw_post: "Mostrar publicação"
-      show_nsfw_posts: "Mostrar todas"
+      show_nsfw_posts: "Mostrar tudo"
       tags:
         follow: "Seguir #<%= tag %>"
         follow_error: "Não foi possível seguir #<%= tag %> :("

@@ -9,6 +9,7 @@ ro:
     admin:
       pods:
         follow_link: "deschide legătura în browser"
+        unknown: "necunoscut"
     and: "și"
     aspect_dropdown:
       add_to_aspect: "Adaugă la contacte"
@@ -16,7 +17,7 @@ ro:
       error: "Nu sa putut incepe impartirea de publicatii cu <%= name %>. Ii ignorati cumva ?"
       select_aspects: "Selectează aspecte"
       started_sharing_with: "Ati inceput sa impartiti publicatii cu <%= name %>!"
-      stopped_sharing_with: "Nu mai imparti publicatii cu <%= name %>."
+      stopped_sharing_with: "Nu mai împarti publicații cu <%= name %>."
       toggle:
         few: "În <%= count %> aspecte"
         one: "În <%= count %> aspect"
@@ -26,24 +27,26 @@ ro:
       deselect_all: "Deselectează tot"
       no_aspects: "Niciun aspect selectat"
       select_all: "Selectează tot"
+    cancel: "Anulează"
     comma: ","
     comments:
-      hide: "ascunde comentariile"
+      hide: "Ascunde comentariile"
       no_comments: "Nu există comentarii"
-      show: "arată toate comentarile"
-    confirm_dialog: "Sunteţi sigur?"
+      show: "Arată toate comentarile"
+    confirm_dialog: "Ești sigur?"
     delete: "Şterge"
     edit: "Modifică"
-    failed_to_post_message: "Nu sa reusit trimiterea mesajului!"
+    failed_to_post_message: "Trimiterea mesajului a eșuat!"
     getting_started:
-      alright_ill_wait: "In regulă, o să aștept."
+      alright_ill_wait: "E în regulă, voi aștepta."
       hey: "Salutare, <%= name %>!"
       no_tags: "Hopa, nu urmati nicio eticheta! Continuati si asa ?"
       preparing_your_stream: "Se pregateste fluxul personalizat pentru dvs..."
     header:
       admin: "Administrare"
-      close: "închide"
+      close: "Închide"
       contacts: "Contacte"
+      conversations: "Conversații"
       help: "Ajutor"
       home: "Acasă"
       log_out: "Deautentificare"
@@ -51,20 +54,34 @@ ro:
       notifications: "Notificări"
       profile: "Profil"
       recent_notifications: "Notificări recente"
-      search: "Find people or #tags"
       settings: "Setări"
-      view_all: "Vizualizează-le pe Toate"
+      view_all: "Vezi totul"
     ignore: "Ignoră"
     my_activity: "Activitatea proprie"
     my_stream: "Flux"
+    people:
+      message: "Mesaj"
     photo_uploader:
       invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
-      looking_good: "WOW, arati super!"
+      looking_good: "WOW, arăți superb!"
       size_error: "{file} este prea mare, mărimea maximă a unui fişier este {sizeLimit}."
       upload_photos: "Încarcă fotografii"
+    poll:
+      answer_count:
+        few: "<%=count%> voturi"
+        one: "1 vot"
+        other: "<%=count%> voturi"
+        zero: "0 voturi"
+      vote: "Votează"
     profile:
+      bio: "Biografie"
+      edit: "Editare"
+      gender: "Gen"
+      photos: "Fotografii"
       posts: "Postări"
     publisher:
+      markdown_editor:
+        preview: "Previzualizare"
       near_from: "Publicat din <%= location %>"
     show_more: "arată mai mult"
     stream:
@@ -110,7 +127,7 @@ ro:
         stop_following: "Nu mai urmări #<%= tag %>"
         stop_following_confirm: "Să nu mai urmăresc #<%= tag %>?"
       unfollow: "Nu mai urmări"
-      unlike: "Nu ȋmi place"
+      unlike: "Nu-mi place"
     tags:
       wasnt_that_interesting: "Bine, presupun ca #<%= tagName %> nu a fost chiar atat de interesant..."
     timeago:
@@ -127,10 +144,10 @@ ro:
       months:
         other: "%d luni"
       prefixAgo: "acum"
-      prefixFromNow: "in timp de"
+      prefixFromNow: "în timp de"
       seconds: "mai putin de un minut"
       suffixAgo: "în urmă"
-      suffixFromNow: "in urma"
+      suffixFromNow: "în urma"
       year: "un an"
       years:
         other: "%d ani"

@@ -35,6 +35,7 @@
 
 ## Features
 * Make public stream accessible for logged out users [#7775](https://github.com/diaspora/diaspora/pull/7775)
+* Add account-merging support when receiving an account migration [#7803](https://github.com/diaspora/diaspora/pull/7803)
 
 # 0.7.4.1
 

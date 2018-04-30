@@ -364,8 +364,6 @@ de:
       change_aspect_of_post_q: "Kann ich die Aspekte eines Beitrags nach dem Senden nochmal verändern?"
       contacts_know_aspect_a: "Nein. Sie können den Namen des Aspekts, in welchem sie eingeordnet sind, nicht sehen."
       contacts_know_aspect_q: "Wissen meine Kontakte in welchem Aspekt von mir sie sind?"
-      contacts_visible_a: "Wenn du diese Option anwählst, werden die Kontakte dieses Aspekts die Möglichkeit haben, auf deiner Profilseite im Reiter „Kontakte” zu sehen, wer sonst noch in diesem Aspekt ist. (Im Moment können ausschließlich deine Kontakte vom selben Pod die Registerkarte \"Kontakte\" in deinem Profil sehen.) Diese Option sollte idealerweise nur gewählt werden, wenn sich alle Aspekt-Kontakte untereinander kennen. Sie werden dennoch nicht erfahren, wie dieser Aspekt heißt."
-      contacts_visible_q: "Was bewirkt „Kontakte aus diesem Aspekt öffentlich machen“?"
       delete_aspect_a: "Klicke in der Seitenleiste der Stream-Ansicht auf „Meine Aspekte“ und dann auf das Stiftsymbol bei dem Aspekt, den du löschen möchtest, oder gehe zu deiner Kontaktseite und wähle den entsprechenden Aspekt aus. Dann klicke auf das Mülleimersymbol oben rechts auf der Seite."
       delete_aspect_q: "Wie kann ich einen Aspekt löschen?"
       person_multiple_aspects_a: "Ja. Geh dazu auf deine Kontakte-Seite und klicke auf „Meine Kontakte“. Für jeden Kontakt kannst du das Menü auf der rechten Seite benutzen, um sie zu so vielen Aspekten hinzuzufügen (oder sie daraus zu entfernen), wie du willst. Du kannst außerdem die entsprechende Schaltfläche auf deren Profilseite verwenden. Oder du platzierst deinen Mauszeiger über deren Namen im Stream und änderst die Aspektzugehörigkeit auf der „Hovercard“, die daraufhin erscheint."

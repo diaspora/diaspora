@@ -42,7 +42,7 @@ zh-TW:
             person:
               invalid: "不合格。"
             username:
-              invalid: "不合格。只能夠使用字母、數字、以及底線符號。"
+              invalid: "不合格。只能夠使用拉丁字母、數字、以及底線符號。"
               taken: "已經有人使用了。"
   admins:
     admin_bar:
@@ -337,6 +337,19 @@ zh-TW:
     helper:
       correct_the_following_errors_and_try_again: "請修正以下錯誤後再試一次。"
     need_javascript: "這個網站需要 JavaScript 功能才能正常運作。如果你關掉了 JavaScript 的話，請打開它後重新載入網頁來使用。"
+  errors:
+    messages:
+      carrierwave_download_error: "不行下載"
+      carrierwave_integrity_error: "不是可以接受的檔案類型"
+      carrierwave_processing_error: "處理失敗"
+      content_type_blacklist_error: "檔案類型是%{content_type}的就不行上傳"
+      content_type_whitelist_error: "檔案類型是%{content_type}的就不行上傳"
+      extension_blacklist_error: "不行上傳附檔名是 %{extension} 的檔案，禁止的檔案類型有：%{prohibited_types}"
+      extension_whitelist_error: "不行上傳附檔名是 %{extension} 的檔案，可以的檔案類型有：%{allowed_types}"
+      max_size_error: "檔案大小應該要小於%{max_size}"
+      min_size_error: "檔案大小應該要大於%{min_size}"
+      mini_magick_processing_error: "用 MiniMagick 處理失敗了，也許它不是一張圖片？原始錯誤是：%{e}"
+      rmagick_processing_error: "用 rmagick 處理失敗了，也許它不是一張圖片？"
   fill_me_out: "填寫這裡"
   find_people: "找人或 #標籤"
   help:
@@ -357,8 +370,6 @@ zh-TW:
       change_aspect_of_post_q: "我可以在貼文之後更改它發表的社交面嗎？"
       contacts_know_aspect_a: "不知道。無論如何他們都看不到社交面的名稱。"
       contacts_know_aspect_q: "我的聯絡人知道我把他們放到哪些社交面中嗎？"
-      contacts_visible_a: 如果你對某個社交面打開這個選項，那麼其中的所有聯絡人都可以從你個人檔案的"聯絡人"頁籤看到其他人。(不過，目前版本只有跟你在同一個豆莢的聯絡人才看得到。)最好是在該社交面中的所有人都彼此認識的情況下，才開啟這個選項，比如說是專屬於某個社團或你所屬社群的社交面。不過聯絡人並不會知道你把這個社交面叫什麼名字。
-      contacts_visible_q: "\"讓社交面中的聯絡人可以互相看見\"是什麼意思？"
       delete_aspect_a: 請從流水帳畫面的側邊欄點一下"我的社交面"，然後點一下你想刪掉的那個社交面旁邊的鉛筆圖示。或是到你的聯絡人畫面，點選你想刪掉的那一面。接著點一下頁面右上方的垃圾桶圖示就可以了。
       delete_aspect_q: "要怎樣刪掉社交面？"
       person_multiple_aspects_a: 可以。在"聯絡人"頁面點一下"我的聯絡人"，可以看到聯絡人的清單。每個聯絡人的右邊有個社交面的選單，可以讓你把她/他加進社交面，無論加進幾個都可以，也可以把她/他從某一面中移除掉。你也可以從聯絡人的個人檔案頁面，點社交面的選擇按鈕，來把他們加進某一面或從中移除。你還可以在流水帳中，把游標移到聯絡人的名字上面，目標卡片就會跳出來，讓你也可以設定他們所屬的社交面。
@@ -1052,6 +1063,7 @@ zh-TW:
     total_users: "使用者總數"
     version: "版本"
   status_messages:
+    bad_aspects: "指定的社交面代碼不能用(可能不存在或不是你的)"
     new:
       mentioning: "指指點點中：%{person}"
     too_long: "狀態訊息請在 %{count} 字內。目前字數是 %{current_length}"
