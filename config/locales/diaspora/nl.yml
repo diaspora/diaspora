@@ -34,7 +34,7 @@ nl:
         reshare:
           attributes:
             root_guid:
-              taken: "Goed bericht zeker? Je hebt dit bericht al doorgegeven!"
+              taken: "Goed bericht zeker? Je hebt dit bericht al gedeeld!"
         user:
           attributes:
             email:
@@ -58,6 +58,8 @@ nl:
       fetching_diaspora_version: "Bepalen laatste versie van diaspora*..."
       pod_status: "Pod status"
     pods:
+      pod_desktop_link: "desktop overzicht"
+      pod_desktop_view: "Deze pagina is niet zichtbaar met mobiele versie, schakel over naar %{desktop_link}"
       pod_network: "Pod netwerk"
     stats:
       2weeks: "2 weken"
@@ -168,14 +170,14 @@ nl:
           description: "Dit staat de applicatie toe je uitgebreide profiel te zien"
           name: "uitgebreid profiel"
         read:
-          description: "Dit staat de applicatie toe je stream, je gesprekken en je complete profiel te zien"
+          description: "Dit staat de applicatie toe om je stream, je gesprekken en je complete profiel te zien"
           name: "lees profiel, stream en gesprekken"
         sub:
           description: "Dit verleent sub toegang tot de applicatie"
           name: "sub"
         write:
-          description: "Dit staat de applicatie toe nieuwe berichten te plaatsen, gesprekken te schrijven en reacties in te sturen"
-          name: "bekijk berichten, gesprekken en reacties"
+          description: "Dit staat de applicatie toe om nieuwe berichten te plaatsen, gesprekken te schrijven en reacties in te sturen"
+          name: "plaats berichten, gesprekken en reacties"
       user_applications:
         index:
           access: "%{name} heeft toegang tot:"
@@ -183,9 +185,9 @@ nl:
           no_requirement: "%{name} heeft geen permissies nodig"
           title: "Toegestane applicaties"
         no_applications: "Je hebt geen geautoriseerde applicaties"
-        policy: "Zie het privacystatement van de app"
+        policy: "Zie het privacystatement van de applicatie"
         revoke_autorization: "Intrekken"
-        tos: "Zie de gebruiksvoorwaarden van de app"
+        tos: "Zie de gebruiksvoorwaarden van de applicatie"
   are_you_sure: "Weet je het zeker?"
   are_you_sure_delete_account: "Weet je zeker dat je jouw account wil sluiten? Dit kan niet teruggedraaid worden!"
   aspect_memberships:
@@ -229,12 +231,14 @@ nl:
         here_to_help: "De diaspora* gemeenschap staat voor je klaar!"
         mail_podmin: "E-mail van Podmin"
         need_help: "Hulp nodig?"
+        support_forum: "Je kunt ook deelnemen aan het %{support_forum}"
+        support_forum_link: "ondersteuningsforum"
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "vraag"
         tutorial_link_text: "Instructies"
         tutorials_and_wiki: "%{faq}, %{tutorial}, %{wiki}: hulp voor je eerste stappen."
-      introduce_yourself: "Dit is jouw Stream.  Spring erin en introduceer jezelf."
+      introduce_yourself: "Dit is jouw stream.  Spring erin en introduceer jezelf."
       keep_pod_running: "Hou %{pod} draaiend en koop een cafeïneshot voor de servers met een maandelijkse donatie."
       new_here:
         follow: "Volg %{link} en verwelkom nieuwe diaspora* gebruikers!"
@@ -248,7 +252,7 @@ nl:
       community_spotlight: "Community aanrader"
       invite_link_text: "uitnodigen"
       or_spotlight: "Of je kan delen met %{link}\n"
-      try_adding_some_more_contacts: "Je kunt zoeken of %{invite_link} meer contacten uitnodigen."
+      try_adding_some_more_contacts: "Je kan zoeken of %{invite_link} meer contacten uitnodigen."
       you_should_add_some_more_contacts: "Voeg wat meer contacten toe!"
     seed:
       acquaintances: "Kennissen"
@@ -340,6 +344,14 @@ nl:
     helper:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
     need_javascript: "Deze website vereist JavaScript om goed te kunnen werken. Als je JavaScript hebt uitgeschakeld, adviseren we om het te activeren en deze pagina te herladen."
+  errors:
+    messages:
+      carrierwave_download_error: "kon niet worden gedownload"
+      carrierwave_integrity_error: "is geen toegestaan bestand type"
+      max_size_error: "Bestand moet kleiner zijn dan %{max_size}"
+      min_size_error: "Bestand moet groter zijn dan %{min_size}"
+      mini_magick_processing_error: "Niet mogelijk om te bewerken met MiniMagick, misschien is het geen afbeelding? Oorspronkelijke Fout. %{e}"
+      rmagick_processing_error: "Niet mogelijk om te bewerken met rmagick, misschien is het geen afbeelding?"
   fill_me_out: "Vul me in!"
   find_people: "Zoek mensen of #tags"
   help:
@@ -360,8 +372,6 @@ nl:
       change_aspect_of_post_q: "Als ik een bericht heb geplaatst, kan ik dan de aspecten die het kunnen zien later nog wijzigen?"
       contacts_know_aspect_a: "Nee, ze kunnen de naam van een aspect nooit zien."
       contacts_know_aspect_q: "Weten mijn contacten in welke aspecten ik ze heb gestopt?"
-      contacts_visible_a: "Als je deze optie aankruist, dan kunnen de contactpersonen in dat aspect op jouw profielpagina de andere leden van dat aspect zien. Je kunt dit het beste alleen selecteren als de contactpersonen elkaar toch al kennen, bijvoorbeeld als het aspect gelijkloopt met bijvoorbeeld een groep mensen in je echte leven. Ze kunnen niet zien hoe je het aspect hebt genoemd."
-      contacts_visible_q: "Wat betekent \"maak alle contacten in dit aspect zichtbaar voor elkaar\"?"
       delete_aspect_a: "Selecteer het betreffende aspect in de lijst in de linkerkolom. Klik op het aspect en druk op de 'bewerk' pen, of ga naar je contactenpagina en selecteer het betreffende aspect. Druk daana op het prullenbakpictogram rechtsboven op de pagina."
       delete_aspect_q: "Hoe verwijder ik een aspect?"
       person_multiple_aspects_a: "Ja. Ga naar je contacten pagina en klik op 'Mijn contacten'. Voor elk contact kun je het menu rechts gebruiken om ze aan aspecten toe te voegen of ze eruit te verwijderen. Of je kunt ze aan een of meer aspecten koppelen met de aspectenselector op hun eigen profielpagina. Of je kunt ergens waar je hun naam op het scherm  ziet met de muis eroverheen gaan en meteen daar in het popup venstertje de aspecten (de)selecteren."
@@ -386,9 +396,11 @@ nl:
       add_contact_roster_q: "Hoe kan ik met iemand binnen diaspora* chatten?"
       contacts_page: "contactpersonenpagina"
       title: "Chat"
+    community_guidelines: "Gemeenschapsprotocollen"
     faq: "FAQ"
     foundation_website: "diaspora* foundation website"
     getting_help:
+      get_support_a_discourse: "Zoeken naar bestaande discussies over je vraag of open een nieuwe discussie in ons %{discourse} platform"
       get_support_a_faq: "Lees onze %{faq} pagina op wiki"
       get_support_a_hashtag: "Zet de vraag in een openbaar bericht op diaspora* met de %{question} hashtag"
       get_support_a_irc: "Doe mee op %{irc} (live chat)"
@@ -418,6 +430,7 @@ nl:
     mentions:
       how_to_mention_a: "Type het \"@\"-teken en begin met het typen van de naam. Een uitklaplijst toont relevante namen waar je makkelijk uit kunt kiezen. Dit kan alleen voor mensen die je in een aspect hebt opgenomen."
       how_to_mention_q: "Hoe kan ik iemand in een bericht vermelden?"
+      mention_in_comment_a: "Sinds versie 0.7.0.0, ja! Je kunt iemand in een reactie op dezelfde manier vermelden als in een bericht, door \"@\" te toetsen en dan te beginnen met het intoetsen van de naam. Let erop dat als je reageert op een niet openbaar bericht, je alleen gebruikers kunt vermelden die al in het bericht met je hebben geïnteracteerd."
       mention_in_comment_q: "Kan ik iemand vermelden in een reactie?"
       see_mentions_a: "Ja, klik op \"@Mij\" in de linkerkolom op je startpagina."
       see_mentions_q: "Kan ik de berichten zien waarin ik zelf ben vemeld?"
@@ -547,9 +560,9 @@ nl:
     wiki: "wiki"
   home:
     default:
-      be_who_you_want_to_be: "Wees wie je wilt zijn"
+      be_who_you_want_to_be: "Wees wie je wil zijn"
       be_who_you_want_to_be_info: "Heel veel netwerken willen dat je je echte identiteit gebruikt. diaspora* niet. Hier kun je zelf bepalen wie je wilt zijn en zo veel, of zo weinig delen als je wilt. Je maakt hier helemaal zelf uit hoeveel je wilt interacteren met andere mensen."
-      byline: "De sociale online wereld waar jij in control bent"
+      byline: "De online sociale online wereld waar jij de controle hebt"
       choose_your_audience: "Kies je publiek"
       choose_your_audience_info: "diaspora*'s aspecten maken het mogelijk om uitsluitend te delen met de mensen waarmee jij dat wilt. Je kunt zo openbaar of privé zijn als je wilt. Deel een grappige foto met de hele wereld, of een groot geheim alleen met je beste vrienden. Jij bent in control."
       headline: "Welkom op %{pod_name}"
@@ -583,7 +596,7 @@ nl:
       empty: "Gelieve minstens 1 e-mailadres toe te voegen."
       no_more: "Je hebt geen uitnodigingen meer."
       note_already_sent: "Er zijn al uitnodigingen verstuurd naar: %{emails}"
-      rejected: "De volgende e-mailadressen gaven problemen: "
+      rejected: "De volgende email adressen geven problemen: %{emails}"
       sent: "Uitnodigingen zijn verzonden aan:"
     new:
       codes_left:
@@ -600,6 +613,7 @@ nl:
     application:
       back_to_top: "Terug naar top"
       be_excellent: "Wees uitmuntend voor elkaar! ♥"
+      discourse: "Projectdiscussies en ondersteuning"
       powered_by: "Powered by diaspora*"
       public_feed: "Publieke diaspora* kanaal van %{name}"
       source_package: "Download het broncode pakket"
@@ -615,6 +629,8 @@ nl:
   likes:
     create:
       error: "Leuk vinden mislukt"
+    destroy:
+      error: "Kon interesse niet verwijderen."
   limited: "Beperkt"
   more: "Meer"
   no_results: "Geen resultaten gevonden"
@@ -634,6 +650,10 @@ nl:
       one: "%{actors} heeft op jouw %{post_link} gereageerd."
       other: "%{actors} hebben op jouw %{post_link} gereageerd."
       zero: "%{actors} hebben op jouw %{post_link} gereageerd."
+    contacts_birthday:
+      one: "%{actors} is jarig op %{date}"
+      other: "%{actors} zijn jarig op %{date}"
+      zero: "%{actors} zijn jarig op %{date}"
     index:
       all_notifications: "Alle meldingen"
       also_commented: "Reageerde ook"
@@ -646,6 +666,7 @@ nl:
         two: "en %{count} anderen"
         zero: "en niemand anders"
       comment_on_post: "Reageren op bericht"
+      contacts_birthday: "verjaardag"
       liked: "Leuk gevonden"
       mark_all_as_read: "Markeer alles als gelezen"
       mark_all_shown_as_read: "Markeer alles als gelezen"
@@ -670,11 +691,17 @@ nl:
     mentioned:
       one: "%{actors} heeft je vermeld in een %{post_link}."
       other: "%{actors} hebben je vermeld in een %{post_link}."
-      zero: "%{actors} hebben je vermeld in een %{post_link}."
+      zero: "%{actors} heeft je vermeld in een %{post_link}."
     mentioned_deleted:
       one: "%{actors} heeft jou vermeld in een verwijderde post."
       other: "%{actors} hebben jou vermeld in een verwijderde post."
       zero: "%{actors} heeft jou vermeld in een verwijderde post."
+    mentioned_in_comment:
+      one: "%{actors} heeft je vermeld in een <a href=%{comment_path}>reactie</a> op bericht %{post_link}"
+      other: "%{actors} hebben je vermeld in een <a href=%{comment_path}>reactie</a> op bericht %{post_link}"
+    mentioned_in_comment_deleted:
+      one: "%{actors} vermeldde je in een verwijderde reactie"
+      other: "%{actors} vermeldden je in een verwijderde reactie"
     private_message:
       one: "%{actors} heeft je een bericht gestuurd."
       other: "%{actors} hebben je een bericht gestuurd."
@@ -707,6 +734,10 @@ nl:
     confirm_email:
       click_link: "Om je nieuwe e-mailadres te activeren %{unconfirmed_email}, klik op deze link:"
       subject: "Activeer je nieuwe e-mailadres alstublieft %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} heeft vandaag zijn/haar verjaardag. Wens hem/haar een prettige verjaardaag!"
+      subject: "%{name} heeft vandaag zijn/haar verjaardag"
+      view_profile: "Bekijk %{name}'s profiel"
     csrf_token_fail:
       body: |-
           Hallo %{name},
@@ -886,7 +917,7 @@ nl:
       has_not_shared_with_you_yet: "%{name} heeft nog geen berichten met je gedeeld!"
   photos:
     create:
-      integrity_error: "Foto uploaden mislukt. Weet je zeker dat het een afbeelding was?"
+      integrity_error: "Foto uploaden mislukt. Weet je zeker dat het een afbeelding is?"
       runtime_error: "Foto uploaden mislukt. Weet je zeker dat je je gordel omhebt?"
       type_error: "Foto uploaden mislukt. Weet je zeker dat je een afbeelding toegevoegd hebt?"
     destroy:
@@ -1082,6 +1113,7 @@ nl:
     total_users: "Aantal gebruikers"
     version: "Versie"
   status_messages:
+    bad_aspects: "Geleverde aspects ID zijn niet toepasbaar (niet-bestaand of geen eigenaar)"
     new:
       mentioning: "Noem: %{person}"
     too_long: "Zorg ervoor dat je statusbericht korter is dan %{count} tekens. Nu is het %{current_length} tekens lang"
@@ -1091,12 +1123,16 @@ nl:
   streams:
     activity:
       title: "Mijn activiteit"
+    admin:
+      title: "Beheer"
     aspects:
       all: "Alle aspecten"
       title: "Mijn aspecten"
     aspects_stream: "Aspecten"
     comment_stream:
       title: "Reacties op jouw berichten"
+    commented:
+      title: "Berichten met reacties"
     community_spotlight_stream: "Community aanrader"
     followed_tag:
       add_a_tag: "Voeg een tag toe"
@@ -1106,6 +1142,8 @@ nl:
     followed_tags_stream: "#Gevolgde Tags"
     like_stream:
       title: "Interessante stream"
+    liked:
+      title: "Leuk gevonden berichten"
     mentioned_stream: "@Vermeldingen"
     mentions:
       title: "@Mij"
@@ -1142,6 +1180,7 @@ nl:
       also_commented: "iemand reageert op een bericht waarop jij reageerde op"
       auto_follow_aspect: "Aspect voor automatisch gevolgde gebruikers:"
       auto_follow_back: "Automatisch terugvolgen wanneer iemand jou volgt"
+      birthday: "er is iemand jarig"
       change: "Verander"
       change_color_theme: "Wijzigen kleurenschema"
       change_email: "Verander e-mailadres"
@@ -1160,6 +1199,7 @@ nl:
       comment_on_post: "iemand op jouw bericht reageert"
       current_password: "Huidig wachtwoord"
       current_password_expl: "het wachtwoord waar je mee inlogt..."
+      default_post_visibility: "Standaard geselecteerde aspecten voor berichten"
       download_export: "Download mijn profiel"
       download_export_photos: "Download mijn foto's"
       edit_account: "Bewerk account"
@@ -1168,6 +1208,7 @@ nl:
       export_in_progress: "We zijn bezig je aanvraag te verwerken. Controleer het opnieuw over een paar ogenblikken."
       export_photos_in_progress: "We verwerken nu je foto's. Kom zometeen terug."
       following: "Volgvoorkeuren"
+      last_exported_html: "(Laatst bijgewerkt %{timeago})"
       liked: "iemand je bericht leuk vindt"
       mentioned: "je vermeld wordt in een bericht"
       mentioned_in_comment: "je word vermeld in een reactie"

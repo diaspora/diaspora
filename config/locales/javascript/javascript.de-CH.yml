@@ -35,8 +35,6 @@ de-CH:
     confirm_dialog: "Bisch sicher?"
     contacts:
       add_contact: "Kontakt hinzuefüege"
-      aspect_list_is_not_visible: "Kontäkt i dem Aspekt gsehnd sich gegesiitig nöd."
-      aspect_list_is_visible: "Kontäkt i dem Aspekt chönd sich gegesiitig gseh."
       error_add: "<%= name %> het nöd chöne zum Aspekt hinzuegfüegt werde."
       error_remove: "<%= name %> het nöd chöne vom Aspekt entfernt werde."
       remove_contact: "Kontakt entferne"
@@ -95,7 +93,6 @@ de-CH:
     profile:
       bio: "Beschriibig"
       born: "Geburi"
-      contacts: "Kontäkt"
       gender: "Gschlächt"
       location: "Ort"
       photos: "Fotis"

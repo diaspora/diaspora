@@ -77,7 +77,6 @@ el:
     profile:
       bio: "Βιογραφικό"
       born: "Ημερομηνία Γέννησης"
-      contacts: "Επαφές"
       edit: "επεξεργασία"
       gender: "Φύλο"
       location: "Τοποθεσία"

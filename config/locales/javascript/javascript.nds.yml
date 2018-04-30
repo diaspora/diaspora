@@ -34,8 +34,6 @@ nds:
     confirm_dialog: "Bist du di sicher?"
     contacts:
       add_contact: "Kontakt schluten"
-      aspect_list_is_not_visible: "Kontakte in dissen Aspekt künnt sick nich gegensiedig sehn."
-      aspect_list_is_visible: "Kontakte in dissen Aspekt künnt sick gegensiedig sehn."
       error_add: "Kun <%= name %> nich to den Aspekt dortaudaun :("
       error_remove: "Kun <%= name %> nich ut den Aspekt rutdaun :("
       remove_contact: "Kontakt löschen"
@@ -97,7 +95,6 @@ nds:
       add_some: "Dau een poor dortau"
       bio: "Beschriebung"
       born: "Geburtsdag"
-      contacts: "Kontakte"
       edit: "Ännern"
       gender: "Geschlecht"
       location: "Ort"

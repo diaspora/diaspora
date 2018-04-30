@@ -228,8 +228,6 @@ es-CL:
       change_aspect_of_post_q: "Una vez que publique algo, ¿puedo cambiar el o los aspectos que pueden verlo?"
       contacts_know_aspect_a: "No. Tus contactos no pueden ver el nombre del aspecto bajo ninguna circunstancia."
       contacts_know_aspect_q: "¿Mis contactos pueden saber a cuáles aspectos los he agregado?"
-      contacts_visible_a: "Si marcas esta opción entonces los contactos de este aspecto serán capaces de ver lo que esta en él, en tu perfil de pagina bajo tu foto. Es mejor seleccionar esta opción solo si los contactos en este aspecto se conocen unos a otros. Aún así ellos no serán capaces de ver como se llama el aspecto."
-      contacts_visible_q: "¿Qué significa \"hacer visibles entre ellos a los contactos de este aspecto\"?"
       delete_aspect_a: "En tu lista de aspectos al lado izquierdo de la página principal, apunta tu ratón en el aspecto que quieres eliminar. Haz clic en el pequeño lápiz de 'editar' que aparece a la derecha. Haz clic en botón elimitar de la caja que aparece."
       delete_aspect_q: "¿Cómo borro un aspecto?"
       person_multiple_aspects_a: "Sí. Ve a la lista de contactos y has clic en mis contactos. Para cada contacto puedes usar el menú en la derecha para agregarlos (o borrarlos) a la cantidad de aspectos que desees. O puedes agregarlos a un nuevo aspecto (o borrarlos de un aspecto) haciendo clic en el botón selector de aspectos en su pagina de perfil. O siempre puedes solo mover el puntero sobre su nombre cuando veas su nombre en la entrada, y una \"tarjeta suspendida\" aparecerá. Puedes cambiar los aspectos que están allí."

@@ -336,6 +336,19 @@ es:
     helper:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
     need_javascript: "Esta web necesita JavaScript para funcionar correctamente. Si lo desactivaste, por favor actívalo y actualiza la página."
+  errors:
+    messages:
+      carrierwave_download_error: "no se pudo descargar"
+      carrierwave_integrity_error: "no se permite este tipo de archivo"
+      carrierwave_processing_error: "falló al procesar"
+      content_type_blacklist_error: "No se permite subir archivos %{content_type}"
+      content_type_whitelist_error: "No se permite subir archivos %{content_type}"
+      extension_blacklist_error: "No está permitido subir archivos %{extension}, los formatos no permitidos son %{prohibited_types}"
+      extension_whitelist_error: "No tienes permiso subir archivos de tipo %{extension}, los formatos permitidos son %{allowed_types}"
+      max_size_error: "El tamaño del archivo debe ser menor que %{max_size}"
+      min_size_error: "El tamaño del archivo debe ser mayor que %{min_size}"
+      mini_magick_processing_error: "Error al procesar con MiniMagick, ¿tal vez no es una imagen? Error original: %{e}"
+      rmagick_processing_error: "Error al procesar con rmagick, ¿tal vez no es una imagen?"
   fill_me_out: "Complétame"
   find_people: "Encuentra gente o #etiquetas"
   help:
@@ -356,8 +369,6 @@ es:
       change_aspect_of_post_q: "Una ves que he publicado algo, puedo cambiar el(los) aspectos que pueden verlo?"
       contacts_know_aspect_a: "No. Tus contactos no pueden ver el nombre del aspecto bajo ninguna circunstancia."
       contacts_know_aspect_q: "¿Mis contactos pueden saber en que aspecto los he situado?"
-      contacts_visible_a: "Si marcas esta opción entonces los contactos de ese aspecto estarán habilitados para ver quien mas está en el, en tu pagina de perfil, bajo tu foto. Es mejor seleccionar esta opción solo si todos los contactos en ese aspecto se conocen. Ellos aún asi no podrán ver como se llama el aspecto."
-      contacts_visible_q: "¿Que significa \"Hacer los contactos en este aspecto visibles entre sí\"?"
       delete_aspect_a: "En tu lista de aspectos en el lado izquierdo de la pagina principal, apunta tu mouse al aspecto que quieras eliminar. Haz click en el pequeño lapiz \"editar\" que aparezca en la derecha. Haz click en el boton eliminar en la caja que aparecera."
       delete_aspect_q: "¿Cómo borro un aspecto?"
       person_multiple_aspects_a: "Sí. Ve a la página de tus contactos y haz click en \"mis contactos\". Para cada contacto puedes usar el menu de la derecha para agregarlos a (o remover de) cuantos aspectos quieras. O puedes agregarlos (o removerlos) a un nuevo aspecto al hacer click en el boton de selección de aspecto en su pagina de perfil. O puedes incluso mover el puntero sobre su nombre cuando los veas en el flujo, y una carta flotante aparecera. Puedes cambiar los aspectos en los cuales están directamente de ahí."
@@ -1079,6 +1090,7 @@ es:
     total_users: "Usuarios totales"
     version: "Versión"
   status_messages:
+    bad_aspects: "No se pueden aplicar los aspectos IDs proporcionados (no existen o no se poseen)"
     new:
       mentioning: "Menciones: %{person}"
     too_long: "Por favor, pon un mensaje de estado menor de %{count} caracteres. Actualmente ocupa %{current_length} caracteres."

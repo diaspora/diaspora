@@ -353,8 +353,6 @@ sv:
       change_aspect_of_post_q: "Kan jag byta vilka aspekter som ser ett inlägg efter att jag har gjort inlägget?"
       contacts_know_aspect_a: "Nej. De kan inte se namnet på aspekten under några omständigheter."
       contacts_know_aspect_q: "Vet mina kontakter i vilken aspekt jag har sorterat in dem?"
-      contacts_visible_a: "Om du har kryssat i alternativet, kommer alla kontakter från den aspekten att kunna se vilka andra som finns i samma aspekt, på din profilsida. (Just nu kan bara dina kontakter i samma pod kunna se kontaktfliken på din profilsida.) Det är bra om du bara väljer detta alternativt om alla i aspekten känner varandra. Oavsett hur du gör, kommer de inte att se vad aspekten heter."
-      contacts_visible_q: "Vad menar ni med \"gör kontakterna i denna aspekt synlig för varandra\"?"
       delete_aspect_a: "Välj den aspekt du vill ta bort i listan med alla dina aspekter, i den vänstra panellisten. Välj pennan som dyker upp och tryck på ta-bort-knappen som dyker upp."
       delete_aspect_q: "Hur tar jag bort en aspekt?"
       person_multiple_aspects_a: "Ja. Det finns flera sätt att göra det på. Navigera till sidan med dina kontakter. Där kan du för varje kontakt använda menyn till höger för att lägga till dem till eller ta bort dem från en aspekt. Du kan också lägga till och ta bort dem på deras respektive profilsida. Till sista, kan du göra det genom att flytta muspekaren över personens namn i en ström och använda menyn som då dyker upp. Där kan du ändra vilka aspekter de ska ligga i."

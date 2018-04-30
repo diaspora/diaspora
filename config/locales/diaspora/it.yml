@@ -249,6 +249,19 @@ it:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Correggi i seguenti errori e riprova."
+  errors:
+    messages:
+      carrierwave_download_error: "non può essere scaricato"
+      carrierwave_integrity_error: "Tipo di file non ammesso"
+      carrierwave_processing_error: "processo fallito"
+      content_type_blacklist_error: "Non è possibile caricare questi tipi di files %{content_type}"
+      content_type_whitelist_error: "Non è possibile caricare files %{content_type}"
+      extension_blacklist_error: "Non puoi caricare i files tipo %{extension}, i files non ammessi sono %{prohibited_types}"
+      extension_whitelist_error: "Questo tipo di file  %{extension} non è compatibile, i file compatibili sono %{allowed_types}"
+      max_size_error: "Il file non può essere più grande di %{max_size}"
+      min_size_error: "Il file non può essere più piccolo di %{min_size}"
+      mini_magick_processing_error: "File non processabile con MiniMagik, potrebbe non essere un immagine ? Errore %{e}"
+      rmagick_processing_error: "Il file non può essere processato da rmagic, potrebbe non essere un'immagine"
   fill_me_out: "Scrivi qui"
   find_people: "Cerca persone o #tag"
   help:
@@ -269,8 +282,6 @@ it:
       change_aspect_of_post_q: "Dopo aver postato qualcosa posso cambiare gli aspetti a cui è visibile?"
       contacts_know_aspect_a: "No. Non possono sapere in nessun caso il nome dell'aspetto di cui fanno parte."
       contacts_know_aspect_q: "I miei contatti possono scoprire in quali aspetti li ho messi?"
-      contacts_visible_a: "Se scegli questa opzione, i contatti di quell'aspetto potranno vedere tutti gli altri che ne fanno parte sotto la tua immagine. E' opportuno scegliere questa opzione solo se i contatti nell'aspetto si conoscono già tra loro. Comunque non potranno sapere il nome che hai dato all'aspetto."
-      contacts_visible_q: "Cosa significa \"rendi i contatti in questo aspetto visibili gli uni agli altri\"?"
       delete_aspect_a: "Nella lista dei tuoi aspetti, sulla colonna laterale della pagina principale, passa con il mouse sull'aspetto che vuoi eliminare. Clicca sulla piccola matita che comparirà a destra. Nel riquadro che comparirà dovrai premere il bottone per eliminare l'aspetto."
       delete_aspect_q: "Come posso eliminare un aspetto?"
       person_multiple_aspects_a: "Sì. Vai alla pagina dei contatti. Per ogni contatto potrai usare il menu a destra per aggiungerlo o toglierlo da quanti aspetti vorrai. Oppure potrai aggiungerlo a un aspetto (o rimuoverlo) cliccando sul bottone di selezione degli aspetti presente sul suo profilo. Puoi anche passare con il mouse sul nome. Comparirà la scheda del contatto con la possibilità di gestire gli aspetti."
@@ -768,6 +779,7 @@ it:
     total_users: "Utenti totali"
     version: "Versione"
   status_messages:
+    bad_aspects: "L'IDs inserito non è corretto (o non esiste o è sbagliato)"
     new:
       mentioning: "Stai menzionando: %{person}"
     too_long: "Per favore, commenta con meno di %{count} carattere. Al momento sono %{current_length} caratteri"

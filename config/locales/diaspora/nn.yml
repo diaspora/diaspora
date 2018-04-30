@@ -211,14 +211,39 @@ nn:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Rett opp desse feila og prøv på nytt."
+  errors:
+    messages:
+      carrierwave_download_error: "kan ikkje lastast ned"
+      carrierwave_integrity_error: "er ikkje ein lovleg filtype"
+      carrierwave_processing_error: "vart ikkje handsama"
+      content_type_blacklist_error: "Du har ikkje lov å lasta opp %{content_type}-filer"
+      content_type_whitelist_error: "Du har ikkje lov å lasta opp %{content_type}-filer"
+      extension_blacklist_error: "Du har ikkje lov å lasta opp %{extension}-filer. Forbodne filtypar: %{prohibited_types}"
+      extension_whitelist_error: "Du har ikkje lov å lasta opp %{extension}-filer. Lovlege filtypar: %{allowed_types}"
+      max_size_error: "Fila bør vera mindre enn %{max_size}"
+      min_size_error: "Fila bør vera større enn %{min_size}"
+      mini_magick_processing_error: |-
+          Greidde ikkje endra fila med MiniMagick, kanskje det ikkje er eit bilete?
+          Opphaveleg feil: %{e}
+      rmagick_processing_error: "Greidde ikkje endra fila med magick, kanskje det ikkje er eit bilete?"
   fill_me_out: "Fyll meg ut"
   find_people: "Finn personar eller #grindmerke"
   help:
     account_and_data_management:
       close_account_q: "Korleis slettar eg kontoen min?"
       data_visible_to_podmin_q: "Kor mykje av informasjonen min kan pod-administratoren min sjå?"
+      move_pods_a: "I versjon 0.7.0.0 av diaspora* kan du for fyrste gong flytta kontoen din: Du kan eksportera alle data frå \"Konto\"-delen av innstillingane. Hald opplysingane dine trygt lagra! I seinare versjonar av diaspora* kan du flytta heile kontoen din, inkludert innlegg og kontakter, til ein annan pod."
       move_pods_q: "Korleis flyttar eg kontoen min frå ein pod til ein annan?"
+      title: "Konto- og datastyring"
+    foundation_website: "nettstaden til diaspora*-stiftinga"
     getting_help:
+      get_support_a_hashtag: "Spør i eit offentleg innlegg med %{question}-grindmerket"
+      get_support_a_irc: "Bli med på %{irc} (nettprat)"
+      get_support_a_tutorials: "Sjekk %{tutorials}"
+      get_support_a_website: "Gå til %{link}"
+      get_support_a_wiki: "Søk i %{link}"
+      get_support_q: "Kva om spørsmålet mitt ikkje står i lista over vanlege spørsmål? Kvar elles kan eg få hjelp?"
+      getting_started_a: "Du har flaks. Prøv %{tutorial_series} på nettstaden vår. Der vil du få ein gjennomgang av korleis du registrere deg, og du vil læra alt du treng om å bruka diaspora*."
       getting_started_q: "Hjelp! Eg treng nokon til å hjelpe meg i gang!"
       title: "Få hjelp"
     getting_started_tutorial: "Innføringsserie for å komme i gang"
@@ -496,6 +521,7 @@ nn:
       edit_services: "Endra tenester"
       logged_in_as: "pålogga som"
       really_disconnect: "kopla frå %{service}?"
+      services_explanation: "Viss du koplar til delingstenester frå tredjepartar, kan du leggja ut postar til dei etter kvart som du skriv dei i diaspora*."
   settings: "Innstillingar"
   shared:
     aspect_dropdown:
@@ -523,6 +549,7 @@ nn:
       visibility_dropdown: "Nytt denne rullegardinmenyen for å endra synlegheita til innlegga dine.  (Me foreslår at du gjer det første innlegget offentleg.)"
     publisher:
       discard_post: "Forkast innlegget"
+      get_location: "Hent plasseringa di"
       new_user_prefill:
         hello: "Hei alle saman! Eg er #%{new_user_tag}. "
         i_like: "Eg interesserer meg for %{tags}. "
@@ -535,6 +562,7 @@ nn:
       via: "via %{link}"
       via_mobile: "via mobiltelefon"
   status_messages:
+    bad_aspects: "Desse aspekt-IDane kan ikkje brukast (finst ikkje, eller ikkje eigde)"
     new:
       mentioning: "Nemner: %{person}"
     too_long: "{\"few\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"many\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"one\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"other\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"two\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"zero\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\"}"

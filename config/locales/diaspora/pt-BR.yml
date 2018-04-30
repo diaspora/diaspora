@@ -344,6 +344,19 @@ pt-BR:
     helper:
       correct_the_following_errors_and_try_again: "Corrija os erros a seguir e tente novamente."
     need_javascript: "Este site precisa de JavaScript para funcionar corretamente. Se você desabilitou o Javascript, habilite-o e atualize esta página."
+  errors:
+    messages:
+      carrierwave_download_error: "não pôde ser baixado"
+      carrierwave_integrity_error: "não é um dos tipos de arquivo permitidos"
+      carrierwave_processing_error: "não pôde ser processado"
+      content_type_blacklist_error: "Você não pode subir arquivos %{content_type}"
+      content_type_whitelist_error: "Você não pode subir arquivos %{content_type}"
+      extension_blacklist_error: "Você não pode subir arquivos %{extension}; estas são as extensões proibidas: %{prohibited_types}"
+      extension_whitelist_error: "Você não pode subir arquivos %{extension}, mas são permitidas as extensões: %{allowed_types}"
+      max_size_error: "O arquivo deve ser menor que %{max_size}"
+      min_size_error: "O arquivo deve ser maior que %{min_size}"
+      mini_magick_processing_error: "Falha ao manipular com MiniMagick. Não é uma imagem? Erro original: %{e}"
+      rmagick_processing_error: "Falha ao manipular com rmagick. Não é uma imagem?"
   fill_me_out: "Preencha"
   find_people: "Encontrar pessoas ou #tags"
   help:
@@ -364,8 +377,6 @@ pt-BR:
       change_aspect_of_post_q: "Uma vez que eu publiquei alguma coisa, posso mudar o(s) aspecto(s) que pode(m) ver isto?"
       contacts_know_aspect_a: "Não. Eles não podem ver o nome do aspecto em nenhuma circunstância."
       contacts_know_aspect_q: "Meus contactos sabem em que aspectos eu os coloquei?"
-      contacts_visible_a: "Se você marcar esta opção, os contatos incluídos no aspecto vão poder ver uns aos outros na sua página de perfil, na aba \"Contatos\". (No momento, a aba \"Contatos\" está visível apenas para os contatos que estão no mesmo pod que você.) É melhor marcar esta opção somente se todos os contatos no aspecto se conhecerem – por exemplo, se o aspecto tiver sido criado para reunir membros de um clube ou sociedade à qual você pertence. O nome do aspecto vai continuar invisível para eles."
-      contacts_visible_q: "O que significa \"tornar contatos desse aspecto visíveis entre si\"?"
       delete_aspect_a: "Na página inicial, clique em \"Meus aspectos\", na barra lateral, e clique no ícone de lápis ao lado do aspecto indesejado, ou abra a página dos seus contatos e selecione o aspecto. Aí, clique no ícone de lixeira no canto superior direito da página."
       delete_aspect_q: "Como eu apago um aspecto?"
       person_multiple_aspects_a: "Sim. Vá até sua página de contatos e clique em \"Meus contatos\". Cada contato pode ser adicionado (ou removido) dos aspectos usando o menu à direita. Você também pode adicionar e remover contatos de aspectos na sua página de perfil, com o botão seletor de aspectos. Você pode ainda passar o cursor sobre o nome da pessoa no fluxo: os aspectos podem ser alterados no cartão de visita que aparecer."
@@ -452,7 +463,7 @@ pt-BR:
       char_limit_services_q: "E se eu compartilhar minha publicação em um serviço com uma contagem de caracteres menor?"
       character_limit_a: "65.535 caracteres. São 65.395 caracteres a mais do que você tem no Twitter! ;)"
       character_limit_q: "Qual é o limite de caracteres para publicações?"
-      embed_multimedia_a: "Geralmente, basta colar a URL (ex. http://www.youtube.com/watch?v=nnnnnnnnn) na publicação que o vídeo ou áudio será incorporado automaticamente, usando oEmbed. São compatíveis YouTube, Vimeo, SoundCloud e Flickr, entre outros; novos sites estão sempre sendo acrescentados à lista. Lembre-se de sempre publicar links simples e completos – nada de links encurtados ou caracteres depois da URL base – e esperar um pouco antes de atualizar a página depois de publicar para pré-visualizar."
+      embed_multimedia_a: "Geralmente, basta colar a URL (ex. http://www.youtube.com/watch?v=nnnnnnnnn) na publicação que o vídeo ou áudio será incorporado automaticamente, usando oEmbed. São compatíveis YouTube, Vimeo, SoundCloud e Flickr, entre outros; novos sites estão sempre sendo acrescentados à lista. Se você colar um link direto para um arquivo de áudio ou vídeo, ele será incorporado usando o player HTML5 padrão. Lembre-se de sempre publicar links simples e completos – nada de links encurtados ou caracteres depois da URL base – e esperar um pouco antes de atualizar a página depois de publicar para pré-visualizar."
       embed_multimedia_q: "Como eu posso incorporar um vídeo, áudio, ou outro conteúdo multimídia em uma publicação?"
       format_text_a: "A diaspora* usa um sistema simplificado chamado %{markdown}. O editor tem botões para facilitar a formatação do texto. Se quiser formatar sua publicação manualmente, consulte a sintaxe do Markdown completa %{here}. A aba de pré-visualização serve para ver como um post vai ficar antes de compartilhá-lo. Lembre-se que você não poderá editá-lo depois de publicar, então use a pré-visualização para ter certeza de que está perfeito antes de clicar em Compartilhar!"
       format_text_q: "Como eu posso formatar o texto em minhas publicações (negrito, itálico, etc.)?"
@@ -1092,6 +1103,7 @@ pt-BR:
     total_users: "Total de usuários"
     version: "Versão"
   status_messages:
+    bad_aspects: "Os IDs de aspecto fornecidos não são aplicáveis (inexistentes ou não pertinentes)"
     new:
       mentioning: "Mencionando: %{person}"
     too_long: "Sua mensagem de status deve ter menos de %{count} caracteres. Agora, ela tem %{current_length} caracteres."

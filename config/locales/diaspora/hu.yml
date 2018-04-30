@@ -235,6 +235,7 @@ hu:
       user_search: "Felhasználó keresése"
     spotlight:
       community_spotlight: "A figyelem középpontjában"
+      no_members: "Itt még senki sem szerepel."
       suggest_member: "Javasolj egy tagot"
   conversations:
     create:
@@ -275,7 +276,7 @@ hu:
     helper:
       correct_the_following_errors_and_try_again: "Javítsd a következő hibákat és próbáld újra."
   fill_me_out: "Töltsd ki"
-  find_people: "Emberek vagy #címkék keresése"
+  find_people: "Személyek vagy #címkék keresése"
   help:
     account_and_data_management:
       close_account_a: "Kattints a beállítások oldal alján található \"Fiók törlése\" gombra."
@@ -292,7 +293,6 @@ hu:
       change_aspect_of_post_q: "Ha már elküldtem egy bejegyzést, később megváltoztathatom, hogy mely csoport vagy csoportok láthassák azt?"
       contacts_know_aspect_a: "Nem. A csoport nevét semmilyen körülmények között nem láthatják."
       contacts_know_aspect_q: "A kapcsolataim tudhatják, hogy melyik csoportba helyeztem őket?"
-      contacts_visible_q: "Mit jelent a \"legyenek ennek a csoportnak a tagjai láthatóak egymás számára\" opció?"
       delete_aspect_a: "Igen. A csoportjaid listáját a kezdőképernyő bal oldalán éred el. Mozgasd az egérmutatót az átnevezendő csoport fölé. Kattints az ekkor megjelenő ceruza (szerkesztés) ikonra. A felugró ablakban válaszd a törlés lehetőséget."
       delete_aspect_q: "Hogyan törölhetek egy csoportot?"
       person_multiple_aspects_q: "Hozzáadhatok egy személyt több csoporthoz is?"
@@ -372,12 +372,14 @@ hu:
       character_limit_q: "Legfeljebb hány leütésből állhat egy bejegyzés?"
       embed_multimedia_q: "Hogyan ágyazhatok be mozgóképet, hangot vagy más multimédiás tartalmat a bejegyzésembe?"
       format_text_a: "A %{markdown} nevű egyszerűsített leíró rendszer segítségével, melynek pontos alaki követelményeit %{here} találod. Az előnézet gomb ekkor különösen hasznosnak bizonyulhat, hiszen segítségével láthatod, hogyan fog kinézni az üzeneted mielőtt megosztod azt."
-      format_text_q: "Hogyan formázhatom meg a bejegyzéseim szövegét (kövér, dőlt, stb.)?"
+      format_text_q: "Hogyan formázhatom meg a bejegyzéseim szövegét (félkövér, dőlt, stb.)?"
       hide_posts_a: "Ha az egér mutatóját a bejegyzés fölé viszed, egy X jelenik meg a jobb oldalon. Kattints erre, ha szeretnéd elrejteni a bejegyzést és elnémítani a vele kapcsolatos értesítéseket. Továbbra is megtekinthető a bejegyzés, ha meglátogatod a küldő személy profilját."
       hide_posts_q: "Hogy rejtek el egy bejegyzést?"
+      ignore_user_q: "Hogyan szabályozhatom mások bejegyzéseinek a megjelenését a hírfolyamomban?"
       insert_images_a: "Kattints a kis fényképezőgép jelére, ha képet szeretnél beszúrni a bejegyzésedbe. Nyomd meg az ikont ismételten, ha újabbat is szeretnél hozzáadni. Lehetőséged van több képet is egyszerre kiválasztani."
       insert_images_comments_q: "Beilleszthetek képeket a hozzászólásaimba is?"
       insert_images_q: "Hogyan illeszthetek be képeket a bejegyzésembe?"
+      post_location_q: "Hogyan adhatom hozzá a tartózkodási helyemet egy bejegyzéshez?"
       post_notification_a: "Egy harang ikont találsz a bejegyzés jobb felső sarkában látható X mellett. Kattints erre, hogy engedélyezd vagy letiltsd az adott bejegyzéssel kapcsolatos értesítéseket."
       post_notification_q: "Hogyan kaphatok értesítéseket egy bejegyzésről, illetve hogyan kapcsolhatom ki ezt a funkciót?"
       post_poll_a: "Kattints a diagram ikonra, hogy létrehozz egy új szavazást. Írd be a kérdésedet és adj meg legalább két választ. Ne felejtsd el a bejegyzésedet nyilvánossá tenni, ha azt szeretnéd, hogy mindenki részt vehessen a szavazásban."
@@ -397,18 +399,25 @@ hu:
       see_comment_a: "Csak azok az emberek láthatják a hozzászólásokat és tetszésnyilvánításokat, akik szerepeltek a tartalmat eredetileg megosztó felhasználó általa kiválasztott csoportjaiban. "
       see_comment_q: "Ki láthatja azt, ha hozzászólok egy bejegyzéshez vagy tetszést nyilvánítok?"
       title: "Személyes bejegyzések"
+      who_sees_post_q: "Amikor az üzenetemet egy csoport számára osztom meg (vagyis privát bejegyzést írok), ki láthatja azt?"
     profile:
       title: "Profil"
+      what_do_tags_do_q: "Mi a szerepe a címkéknek az alapprofilomban?"
+      whats_in_profile_q: "Mit tartalmaz a profilom?"
       who_sees_profile_q: "Ki látja a profilomat?"
     public_posts:
       can_comment_reshare_like_a: "Bármely bejelentkezett diaspora* felhasználó továbboszthatja vagy kedvelheti a nyilvános bejegyzésedet, valamint hozzá is szólhat. Egyedüli kivételt az általad „mellőzött\" felhasználók képeznek, akik nem fogják tudni kedvelni a bejegyzésedet és nem is szólhatnak hozzá."
       can_comment_reshare_like_q: "Ki oszthatja tovább vagy kedvelheti a nyilvános bejegyzéseimet, illetve ki szólhat hozzájuk?"
+      deselect_aspect_posting_q: "Mi történik, ha nyilvános bejegyzés írásakor egy vagy több csoport kiválasztását megszüntetem a bal oldali oszlopban?"
       find_public_post_a: "Nyilvános bejegyzéseid megjelennek minden téged követő személy hírfolyamában. Ha a bejegyzés #címkéket is tartalmaz, akkor bárki, aki követi azokat, látni fogja a bejegyzéseidet a saját hírfolyamában. Minden ilyen bejegyzés egyedi hivatkozással rendelkezik, amit bárki megnyithat - még akkor is, ha nincs bejelentkezve - tehát azok közvetlenül lehivatkozhatóak Twitterből, blogokból, stb. A nyilvános bejegyzéseket nyilvántartásba vehetik internetes keresők is."
       find_public_post_q: "Hogy találhatják meg mások a nyilvános bejegyzésemet?"
+      see_comment_reshare_like_q: "Ki láthatja, ha hozzászólok egy bejegyzéshez, illetve ha továbbosztom vagy kedvelem azt?"
       title: "Nyilvános bejegyzések"
       who_sees_post_a: "Lényegében bárki, aki használja az internetet láthatja a nyilvánosnak jelölt bejegyzéseidet, ezért gondold meg, hogy biztosan a széles nyilvánosságnak szánod-e a tartalmadat. Ugyanakkor ez egy jó lehetőség arra, hogy bárkit elérj a nagyvilágban."
       who_sees_post_q: "Ki láthatja a nyilvánosnak jelölt bejegyzésemet?"
     resharing_posts:
+      reshare_private_post_aspects_q: "Megoszthatok eredetileg privátként elküldött bejegyzést meghatározott csoportokkal?"
+      reshare_public_post_aspects_q: "Megoszthatok egy nyilvános bejegyzést meghatározott csoportokkal?"
       title: "Bejegyzések újramegosztása"
     sharing:
       add_to_aspect_a1: "Tegyük fel, hogy Anna hozzáadta Bencét valamelyik csoportjához, de Bence (még) nem adta hozzá Annát egyetlen csoporthoz sem."
@@ -421,8 +430,12 @@ hu:
       add_to_aspect_li6: "Bence láthatja Anna személyes profilját (leírás, lakóhely, nem, születésnap)."
       add_to_aspect_li7: "Anna meg fog jelenni Bence ismerősei között a \"Követők\" oldalon."
       add_to_aspect_li8: "Anna bármikor @megemlítheti Bencét egy bejegyzésében."
+      add_to_aspect_q: "Mi történik, ha hozzáadok valakit valamelyik csoportomhoz, vagy ha valaki más ad hozzá engem az egyik csoportjához?"
+      list_not_sharing_q: "Van lista azokról a személyekről, akiket hozzáadtam valamelyik csoportomhoz, azonban a másik fél ezt nem viszonozta?"
+      only_sharing_q: "Kik azok a személyek, akik a “Követők” kategória alatt vannak listázva az “Ismerősök” oldalon?"
       see_old_posts_a: "Nem. Csak az adott csoport (aspektus) új bejegyzéseit láthatja. Ugyanakkor ő és mindenki más is megtekintheti a profilodon a régebbi, nyilvánosnak jelölt bejegyzéseidet, amelyeket a hírfolyamukban is láthatnak."
       see_old_posts_q: "Ha hozzáadok valakit egy csoporthoz, láthatja a régebbi bejegyzéseimet, melyeket ebbe a csoportba küldtem?"
+      sharing_notification_q: "Honnan tudhatom, hogy valaki elkezdett megosztani velem?"
       title: "Megosztás"
     tags:
       filter_tags_a: "Ez a lehetőség közvetlenül még nem hozzáférhető a diaspora-n keresztül, de %{third_party_tools} segítségével részben megvalósítható."
@@ -943,7 +956,7 @@ hu:
       none: "Az üres címke nem létezik!"
       stop_following: "Címke-követés leállítása #%{tag}"
       tagged_people:
-        other: "%{count} ember visel %{tag} címkét"
+        other: "%{count} személy visel %{tag} címkét"
         zero: "Senki nem visel %{tag} címkét"
   username: "Felhasználónév"
   users:
@@ -986,6 +999,7 @@ hu:
       export_in_progress: "Az adataid feldolgozása folyamatban van. Kérlek nézz vissza pár perc múlva."
       export_photos_in_progress: "Jelenleg folyamatban van a képeid feldolgozása. Kérlek nézz vissza később."
       following: "Követési beállítások"
+      last_exported_html: "(Utoljára %{timeago} frissült)"
       liked: "valakinek tetszik a bejegyzésed?"
       mentioned: "megemlítettek téged egy bejegyzésben?"
       mentioned_in_comment: "megemlítettek téged egy hozzászólásban?"
