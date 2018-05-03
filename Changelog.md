@@ -2,6 +2,7 @@
 
 ## Refactor
 * Add unique index to poll participations on `poll_id` and `author_id` [#7798](https://github.com/diaspora/diaspora/pull/7798)
+* Add 'completed at' date to account migrations [#7805](https://github.com/diaspora/diaspora/pull/7805)
 
 ## Bug fixes
 
