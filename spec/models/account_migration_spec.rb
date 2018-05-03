@@ -61,9 +61,14 @@ describe AccountMigration, type: :model do
       }.to change(account_migration, :performed?).to be_truthy
     end
 
-    it "calls old_person.closed_account?" do
-      expect(account_migration.old_person).to receive(:closed_account?)
-      account_migration.performed?
+    it "is truthy when completed_at is set" do
+      expect(FactoryGirl.create(:account_migration, completed_at: Time.zone.now).performed?).to be_truthy
+    end
+
+    it "is falsey when completed_at is null" do
+      account_migration = FactoryGirl.create(:account_migration, completed_at: nil)
+      account_migration.old_person.lock_access!
+      expect(account_migration.performed?).to be_falsey
     end
   end
 

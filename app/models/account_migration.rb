@@ -40,10 +40,11 @@ class AccountMigration < ApplicationRecord
 
     dispatch if locally_initiated?
     dispatch_contacts if remotely_initiated?
+    update(completed_at: Time.zone.now)
   end
 
   def performed?
-    old_person.closed_account?
+    !completed_at.nil?
   end
 
   # We assume that migration message subscribers are people that are subscribed to a new user profile updates.
