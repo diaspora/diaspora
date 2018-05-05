@@ -194,6 +194,10 @@ class AccountMigration < ApplicationRecord
       .joins("INNER JOIN contacts as c2 ON (contacts.person_id = c2.person_id AND contacts.user_id=#{old_user.id} AND"\
         " c2.user_id=#{new_user.id})")
       .destroy_all
+    TagFollowing
+      .joins("INNER JOIN tag_followings as t2 ON (tag_followings.tag_id = t2.tag_id AND"\
+        " tag_followings.user_id=#{old_user.id} AND t2.user_id=#{new_user.id})")
+      .destroy_all
   end
 
   def update_person_references
