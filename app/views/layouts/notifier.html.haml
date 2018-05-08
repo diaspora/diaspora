@@ -10,6 +10,6 @@
       != yield
 
 %div{style: "font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; color: #999; padding-top: 10px; margin-top: 10px; border-top: 1px solid #ddd"}
-  != t("notifier.email_sent_by_diaspora", pod_name: pod_name)
+  != t("notifier.email_sent_by_diaspora", pod_name: link_to(pod_name, AppConfig.pod_uri.site))
   != link_to t("notifier.click_here"), edit_user_url
   != t("notifier.to_change_your_notification_settings") + "."
