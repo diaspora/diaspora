@@ -210,6 +210,11 @@ describe AccountMigration, type: :model do
           user:   new_person.owner,
           person: FactoryGirl.create(:contact, user: old_person.owner).person
         )
+        FactoryGirl.create(
+          :tag_following,
+          user: new_person.owner,
+          tag:  FactoryGirl.create(:tag_following, user: old_person.owner).tag
+        )
       end
 
       it "runs without errors" do
