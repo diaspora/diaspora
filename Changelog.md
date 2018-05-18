@@ -10,6 +10,7 @@
 * Allow fonts to be served from asset host in CSP [#7825](https://github.com/diaspora/diaspora/pull/7825)
 
 ## Features
+* Support fetching StatusMessage by Poll GUID [#7815](https://github.com/diaspora/diaspora/pull/7815)
 
 # 0.7.5.0
 
