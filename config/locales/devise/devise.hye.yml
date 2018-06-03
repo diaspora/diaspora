@@ -4,7 +4,7 @@
 
 
 
-hy:
+hye:
   devise:
     confirmations:
       confirmed: "Էլ․հասցեդ հաջողությամբ հաստատվեց։"
