@@ -35,7 +35,9 @@ available:
   gl: "Galego"
   he: "עברית"
   hu: "magyar nyelv"
-  hy: "հայերեն"
+  hye: "արեւելահայերեն"
+  hye-classical: "արեւելահայերէն"
+  hyw: "արեւմտահայերէն"
   ia: "Interlingua"
   id: "Bahasa Indonesia"
   is: "íslenska"
@@ -136,6 +138,10 @@ fallbacks:
     - "it"
   ja-KS:
     - "ja"
+  hye-classical:
+    - "hye"
+  hyw:
+    - "hye"
 
 rtl:
   - "ar"
