@@ -1111,7 +1111,13 @@ en:
       find_pods: "There’s a list of pods you can sign up to at %{fediverse_observer}."
       other_questions: "If you have any other questions regarding choosing a pod, check out our %{wiki}."
     invalid_invite: "The invite link you provided is no longer valid!"
-
+    welcome_email:
+      subject: "Welcome aboard!"
+      member: "You now are a member of the diaspora* community!"
+      part_of_network: "%{pod_url} is the diaspora* server (called a pod) where you registered. Sign in there using your username, %{username}. Once logged in, you will be able to reach the whole diaspora* network, even users registered on other pods."
+      your_id: "Your diaspora* id is %{id}, share it with everyone so they can find you in the network."
+      help: "If you need help, have a look at the tutorials or the help section. If you don't find anything, then post a public message with the #question tag so people can help you."
+      welcome: "Welcome aboard, enjoy diaspora*!"
   reshares:
     create:
       error: "Failed to reshare."
