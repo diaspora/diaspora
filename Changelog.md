@@ -7,6 +7,7 @@
 
 ## Bug fixes
 * Fix compatibility with newer glibc versions [#7828](https://github.com/diaspora/diaspora/pull/7828)
+* Allow fonts to be served from asset host in CSP [#7825](https://github.com/diaspora/diaspora/pull/7825)
 
 ## Features
 
