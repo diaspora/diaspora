@@ -37,6 +37,10 @@ class StatusMessage < Post
     owned_or_visible_by_user(person.owner).joins(:mentions).where(mentions: {person_id: person.id})
   }
 
+  def self.model_name
+    Post.model_name
+  end
+
   def self.guids_for_author(person)
     Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
   end
