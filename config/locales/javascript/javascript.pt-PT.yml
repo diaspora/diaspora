@@ -52,7 +52,7 @@ pt-PT:
     cancel: "Cancelar"
     comma: ","
     comments:
-      hide: "ocultar comentários"
+      hide: "Ocultar comentários"
       show: "Mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
     contacts:
@@ -77,7 +77,7 @@ pt-PT:
       preparing_your_stream: "A preparar o seu fluxo personalizado..."
     header:
       admin: "Administrador"
-      close: "fechar"
+      close: "Fechar"
       contacts: "Contactos "
       conversations: "Conversações"
       help: "Ajuda"
@@ -87,7 +87,7 @@ pt-PT:
       moderator: "Moderador"
       notifications: "Notificações"
       profile: "Perfil"
-      recent_notifications: "Últimas Notificações"
+      recent_notifications: "Notificações recentes"
       search: "Procurar"
       settings: "Definições"
       toggle_mobile: "Alternar móvel"
@@ -97,7 +97,7 @@ pt-PT:
     hide_post_failed: "Não foi possível ocultar esta publicação"
     ignore: "Ignorar"
     ignore_user: "Ignorar este utilizador?"
-    my_activity: "Minha atividade"
+    my_activity: "A minha atividade"
     my_aspects: "Os meus aspetos"
     my_stream: "Fluxo"
     notifications:
@@ -169,7 +169,7 @@ pt-PT:
         created: "O relatório foi criado com sucesso"
         exists: "O relatório já existe"
     reshares:
-      post: "Repartilhar a publicação de <%= name %>?"
+      post: "Voltar a partilhar a publicação de <%= name %>?"
       successful: "A publicação foi repartilhada com sucesso!"
     show_all: "Mostrar tudo"
     show_more: "Mostrar mais"
@@ -215,19 +215,23 @@ pt-PT:
       unlike: "Não gostar"
       via: "via <%= provider %>"
     tags:
-      wasnt_that_interesting: "OK, suponho que #<%= tagName %> não era assim tão interessante..."
+      wasnt_that_interesting: "Ok, eu suponho que #<%= tagName %> não era assim tão interessante..."
     timeago:
       day: "um dia"
       days:
+        one: "1 dia"
         other: "%d dias"
       hour: "cerca de uma hora"
       hours:
+        one: "cerca de 1 hora"
         other: "cerca de %d horas"
       minute: "cerca de um minuto"
       minutes:
+        one: "1 minuto"
         other: "%d minutos"
       month: "cerca de um mês"
       months:
+        one: "1 mês"
         other: "%d meses"
       prefixAgo: ""
       prefixFromNow: ""
@@ -236,6 +240,7 @@ pt-PT:
       suffixFromNow: "a partir de agora"
       year: "cerca de um ano"
       years:
+        one: "1 ano"
         other: "%d anos"
     viewer:
       reshared: "Repartilhado"

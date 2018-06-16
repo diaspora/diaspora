@@ -79,6 +79,10 @@ ja-KS:
     index:
       no_messages: "メッセージなし"
   delete: "ほかす"
+  errors:
+    messages:
+      content_type_blacklist_error: "あなたは%{content_type}ファイルをアップロードしちゃアカン"
+      content_type_whitelist_error: "あなたは%{content_type}ファイルをアップロードしちゃアカン"
   help:
     sharing:
       title: "わけわけ"
