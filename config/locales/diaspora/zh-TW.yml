@@ -50,7 +50,7 @@ zh-TW:
       pages: "分頁"
       pod_network: "豆莢網路"
       pod_stats: "豆莢統計資料"
-      report: "回報"
+      report: "投訴"
       sidekiq_monitor: "Sidekiq 監視器"
       user_search: "使用者搜尋"
       weekly_user_stats: "使用者統計週報"
@@ -229,7 +229,7 @@ zh-TW:
         tag_bug: "臭蟲"
         tag_feature: "功能"
         tag_question: "問題"
-        tutorial_link_text: "個別指導"
+        tutorial_link_text: "實戰教學"
         tutorials_and_wiki: "還有%{faq}，%{tutorial}，以及%{wiki}：讓你順利上手的好幫手。"
       introduce_yourself: "這是你的流水帳。跳進來介紹你自己吧。"
       keep_pod_running: "歡迎每月固定樂捐，讓 %{pod} 可以高速運轉，以及滿足伺服器的咖啡癮。"
@@ -242,7 +242,7 @@ zh-TW:
         heading: "連結外部服務"
       welcome_to_diaspora: "%{name}，歡迎來到 diaspora*！"
     no_contacts_message:
-      community_spotlight: "社群焦點"
+      community_spotlight: "社群焦點人物"
       invite_link_text: "邀請"
       or_spotlight: "或者你也可以跟 %{link} 分享"
       try_adding_some_more_contacts: "你可以搜尋或是%{invite_link}更多聯絡人。"
@@ -276,7 +276,7 @@ zh-TW:
     original_white: "原始白背"
   comments:
     create:
-      error: "發表意見失敗。"
+      error: "留言失敗。"
     new_comment:
       comment: "留言"
       commenting: "發表留言中..."
@@ -284,7 +284,7 @@ zh-TW:
     index:
       add_contact: "加聯絡人"
       all_contacts: "所有聯絡人"
-      community_spotlight: "社群焦點"
+      community_spotlight: "社群焦點人物"
       my_contacts: "我的聯絡人"
       no_contacts: "你好像應該要多加一些聯絡人！"
       no_contacts_in_aspect: "你在這個社交面中還沒有任何聯絡人。以下是你可以加進這一面的聯絡人清單。"
@@ -294,7 +294,7 @@ zh-TW:
       title: "聯絡人"
       user_search: "使用者搜尋"
     spotlight:
-      community_spotlight: "社群焦點"
+      community_spotlight: "社群焦點人物"
       no_members: "目前還沒有成員。"
       suggest_member: "推薦會員"
   conversations:
@@ -323,7 +323,7 @@ zh-TW:
       delete: "刪除對話"
       hide: "把對話隱藏並且消音"
       last_message: "在%{timeago}收到最新訊息"
-      reply: "回覆"
+      reply: "回應"
       replying: "回覆中..."
   date:
     formats:
@@ -385,7 +385,7 @@ zh-TW:
       title: "社交面"
       what_is_an_aspect_a: "社交面是將你在 diaspora* 的聯絡人分群的方式。「面」是一種比喻，好像你展現給這個世界的其中一張臉孔。比如說你在職場的一面，你在家庭中的一面，或是你在某個團體中對裡面的朋友展現的一面。"
       what_is_an_aspect_q: "什麼是社交面？"
-      who_sees_post_a: "當你發表了一篇設限的貼文，就只有那個面(或是那些面，因為你也可以選擇好幾面)中的人才看得到。不在那個(或是那些面)中的聯絡人，就看不到那篇貼文，除非你把它公開。只有公開的貼文可以讓不在你任何社交面中的其它人看到。"
+      who_sees_post_a: "當你發表了一篇有限制的貼文，就只有那個面(或是那些面，因為你也可以選擇好幾面)中的人才看得到。不在那個(或是那些面)中的聯絡人，就看不到那篇貼文，除非你把它公開。只有公開的貼文可以讓不在你任何社交面中的其它人看到。"
       who_sees_post_q: "當我貼文到某個社交面時，有誰會看見？"
     chat:
       add_contact_roster_a: "首先，你要把聊天的權限給那個人所在的社交面。我們來開始：先到%{contacts_page}，選你要的那個社交面，然後點聊天的圖示就可以打開權限。%{toggle_privilege}如果你想的話，也可以先開一個社交面專門給你想跟他們即時聊天的人，比如說就叫做『聊天』，然後把那些人加進去。完成以後就可以到聊天的頁面，選你想即時聊天的人開始聊天。"
@@ -407,7 +407,7 @@ zh-TW:
       getting_started_a: "你的運氣很好。來試看看我們專案網站上的%{tutorial_series}吧。我們會一步步帶著你完成註冊過程，並告訴你使用 diaspora* 的基本事項。"
       getting_started_q: "幫我一下！我需要有人教我怎麼開始！"
       title: "求助"
-    getting_started_tutorial: "\"出發囉\"個別指導系列"
+    getting_started_tutorial: "「入門指南」實戰教學系列"
     here: "這裡"
     irc: "IRC"
     keyboard_shortcuts:
@@ -483,7 +483,7 @@ zh-TW:
       stream_full_of_posts_a1: "你的流水帳來自三種貼文："
       stream_full_of_posts_li1: "你有跟他們分享的人的貼文；還可以細分為兩種：一種是公開的貼文，另一種是受限的貼文，但是你在該貼文的目標社交面裡面。要讓這種貼文從你的流水帳消失，只要停止跟那個人分享就可以了。"
       stream_full_of_posts_li2: "含有你追蹤的標籤的公開貼文。要讓這種貼文不出現，就不要再追蹤那個標籤。"
-      stream_full_of_posts_li3: 列在社群焦點那些人的公開貼文。只要在你的帳號設定中不要勾選"在流水帳顯示社群焦點"，就不會有這種貼文了。
+      stream_full_of_posts_li3: 列在社群焦點人物那些人的公開貼文。只要在你的帳號設定中不要勾選"在流水帳顯示社群焦點人物"，就不會有這種貼文了。
       stream_full_of_posts_q: "為什麼我的流水帳裡面都是一些我不認識也沒跟他們分享的人的貼文？"
       title: "貼文和發表"
     private_posts:
@@ -557,8 +557,8 @@ zh-TW:
       what_are_tags_for_q: "標籤是幹嘛用的？"
     third_party_tools: "第三方工具"
     title_header: "說明"
-    tutorial: "個別指導"
-    tutorials: "個別指導"
+    tutorial: "實戰教學"
+    tutorials: "實戰教學"
     wiki: "維基"
   home:
     default:
@@ -632,7 +632,7 @@ zh-TW:
       error: "按讚失敗。"
     destroy:
       error: "收回讚失敗。"
-  limited: "受限"
+  limited: "有限制"
   more: "更多"
   no_results: "搜尋沒有結果"
   notifications:
@@ -666,7 +666,7 @@ zh-TW:
       mark_read: "標示為看過了"
       mark_unread: "標示為沒看過"
       mentioned: "在貼文中被提到了"
-      mentioned_in_comment: "被貼文意見提到了"
+      mentioned_in_comment: "被貼文的留言提到了"
       no_notifications: "目前還沒有任何通知。"
       notifications: "通知"
       reshared: "被轉貼"
@@ -684,7 +684,7 @@ zh-TW:
     mentioned_deleted:
       other: "%{actors} 在已刪掉的貼文中提到了你。"
     mentioned_in_comment:
-      other: "%{actors} 在貼文%{post_link}的<a href='%{comment_path}'>意見</a>中提到了你。"
+      other: "%{actors} 在貼文%{post_link}的<a href='%{comment_path}'>留言</a>中提到了你。"
     mentioned_in_comment_deleted:
       other: "%{actors} 在已刪掉的貼文中提到了你。"
     private_message:
@@ -741,7 +741,7 @@ zh-TW:
     export_email:
       body: |-
           嗨， %{name}！
-          你的資料已經處理好了，請用[這個連結]下載: %{url}
+          你的資料已經處理好了，請用[這個連結](%{url})下載。
           使用愉快！
 
           diaspora* 電郵機器人
@@ -757,7 +757,7 @@ zh-TW:
     export_photos_email:
       body: |-
           嗨，%{name}！
-          你的相片已經處理好了，請用[這個連結]來下載: %{url}
+          你的相片已經處理好了，請用[這個連結](%{url})來下載。
           使用愉快！
 
           diaspora* 電郵機器人
@@ -801,7 +801,7 @@ zh-TW:
       limited_post: "你在一篇設限的貼文中被提到了。"
       subject: "%{name} 在 diaspora* 提到了你"
     mentioned_in_comment:
-      limited_post: "你在一篇設限貼文的意見中被提到了。"
+      limited_post: "你在一篇設限貼文的留言中被提到了。"
       reply: "回或看這次對話 >"
     private_message:
       reply_to_or_view: "回或看這次對話 >"
@@ -834,7 +834,7 @@ zh-TW:
           diaspora* 電郵機器人
 
           [註1]: %{url}
-      subject: "有新的%{type}被標記為有攻擊性"
+      subject: "有新的%{type}被標記為有人身攻擊"
       type:
         comment: "留言"
         post: "貼文"
@@ -954,16 +954,16 @@ zh-TW:
     not_found: "目標貼文或留言已經找不到了。可能已經被作者給刪掉了！"
     post_label: "<strong>貼文</strong>: %{content}"
     reason_label: "理由:"
-    reported_label: "<strong>回報人</strong> %{person}"
-    reported_user_details: "被舉報使用者的詳細資料"
+    reported_label: "<strong>投訴人</strong> %{person}"
+    reported_user_details: "被投訴使用者的詳細資料"
     review_link: "標記為看過了"
     status:
       destroyed: "貼文已經被銷毀了"
       failed: "發生問題了"
-    title: "回報總覽"
+    title: "投訴總覽"
     unreviewed_reports:
-      other: "有%{count}份還沒看過的回報。"
-      zero: "沒有還沒看過的回報。"
+      other: "有%{count}份還沒看過的投訴。"
+      zero: "沒有還沒看過的投訴。"
   reshares:
     comment_email_subject: "%{resharer} 轉貼了 %{author} 的貼文"
     create:
@@ -1005,7 +1005,7 @@ zh-TW:
       mobile_row_checked: "%{name} (移除)"
       mobile_row_unchecked: "%{name} (新增)"
       toggle:
-        other: "在%{count}個社交面中"
+        other: "到%{count}個社交面中"
         zero: "加聯絡人"
     invitations:
       by_email: "寄電子郵件邀請"
@@ -1083,7 +1083,7 @@ zh-TW:
       title: "有人留言的貼文"
     commented:
       title: "留言過的貼文"
-    community_spotlight_stream: "社群焦點"
+    community_spotlight_stream: "社群焦點人物"
     followed_tag:
       add_a_tag: "新增標籤"
       all: "所有標籤"
@@ -1160,7 +1160,7 @@ zh-TW:
       last_exported_html: "(最近變動時間: %{timeago})"
       liked: "有人稱讚你的貼文"
       mentioned: "有貼文提到了你"
-      mentioned_in_comment: "你在一則貼文的意見中被提到了"
+      mentioned_in_comment: "你在一則貼文的留言中被提到了"
       new_password: "新的密碼"
       private_message: "收到私人訊息"
       receive_email_notifications: "接收電子郵件通知的時機："
@@ -1169,9 +1169,9 @@ zh-TW:
       request_export_photos_update: "更新相片下載檔案"
       request_export_update: "更新個人檔案資料"
       reshared: "有人轉貼你的貼文"
-      show_community_spotlight: "在流水帳顯示社群焦點"
+      show_community_spotlight: "在流水帳顯示「社群焦點人物」"
       show_getting_started: "展示「入門指南」"
-      someone_reported: "有人寄了一封回報"
+      someone_reported: "有人來投訴"
       started_sharing: "有人開始跟你分享貼文"
       stream_preferences: "流水帳偏好設定"
       your_email: "你的電子信箱"
