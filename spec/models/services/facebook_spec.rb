@@ -22,39 +22,49 @@ describe Services::Facebook, :type => :model do
       post_params = @service.create_post_params(post)
     end
 
-    it 'does not add post link when no photos' do
+    it "adds '(via <post URL>)'" do
       message = "Some text."
       post = double(message: double(plain_text_without_markdown: message, urls: []), photos: [])
       post_params = @service.create_post_params(post)
-      expect(post_params[:message]).not_to include "http"
+      expect(post_params[:message]).to include "(via http:"
     end
 
-    it 'sets facebook id on post' do
-      stub_request(:post, "https://graph.facebook.com/me/feed").
-	to_return(:status => 200, :body => '{"id": "12345"}', :headers => {})
+    it "sets facebook id on post" do
+      stub_request(:post, "https://graph.facebook.com/me/feed")
+        .to_return(status: 200, body: '{"id": "12345"}', headers: {})
       @service.post(@post)
       expect(@post.facebook_id).to match "12345"
     end
-
   end
 
   describe "with photo" do
     before do
-      @photos = [alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name)),
-                 alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name))]
+      @photos = [alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name)),
+                 alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name))]
 
       @photos.each(&:save!)
+    end
 
-      @status_message = alice.build_post(:status_message, :text => "the best pebble.")
-        @status_message.photos << @photos
+    it "should include post url in message with photos as (via... " do
+      @status_message = alice.build_post(:status_message, text: "the best pebble.")
+      @status_message.photos << @photos
 
       @status_message.save!
       alice.add_to_streams(@status_message, alice.aspects)
+
+      post_params = @service.create_post_params(@status_message)
+      expect(post_params[:message]).to include "(via http:"
     end
 
-    it "should include post url in message with photos" do
+    it "should include post url in message with photos when no text message" do
+      @status_message = alice.build_post(:status_message, text: "")
+      @status_message.photos << @photos
+
+      @status_message.save!
+      alice.add_to_streams(@status_message, alice.aspects)
+
       post_params = @service.create_post_params(@status_message)
-      expect(post_params[:message]).to include 'http'
+      expect(post_params[:message]).to include "http:"
     end
 
   end
