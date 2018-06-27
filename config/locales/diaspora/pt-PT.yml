@@ -828,7 +828,7 @@ pt-PT:
       user: "A imagem secreta e o código eram diferentes"
     placeholder: "Insira o valor da imagem"
   statistics:
-    closed: "fechado"
+    closed: "Fechado"
     disabled: "Não disponível"
     enabled: "Disponível"
     local_comments: "Comentários locais"
@@ -938,6 +938,7 @@ pt-PT:
       reshared: "alguém volta a compartilhar a sua publicação"
       show_community_spotlight: "Mostrar \"destaques da comunidade\" no seu fluxo"
       show_getting_started: "Mostrar dicas de \"Iniciação...\""
+      someone_reported: "alguém envia um relatório"
       started_sharing: "alguém começa a compartilhar consigo"
       stream_preferences: "Preferências do Fluxo"
       your_email: "O seu endereço de email"
