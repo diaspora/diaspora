@@ -175,7 +175,7 @@ pt-PT:
         find_a_bug: "... encontrar uma %{link}?"
         have_a_question: "... uma %{link}?"
         here_to_help: "A comunidade do diaspora* está aqui!"
-        mail_podmin: "e-Mail do \"Podmin\""
+        mail_podmin: "E-mail do \"Podmin\""
         need_help: "Precisa de ajuda?"
         support_forum: "Também pode aderir ao %{support_forum}"
         support_forum_link: "fórum de apoio"
@@ -191,7 +191,7 @@ pt-PT:
         learn_more: "Saber mais"
         title: "Dê as boas-vindas aos novos utilizadores"
       services:
-        content: "Pode ligar os seguintes serviços ao diaspora*:"
+        content: "Pode interligar os seguintes serviços ao diaspora*:"
         heading: "Ligar Serviços"
       welcome_to_diaspora: "Bem-vindo ao diaspora*, %{name}!"
     no_contacts_message:
@@ -299,16 +299,16 @@ pt-PT:
   find_people: "Encontrar pessoas ou #etiquetas"
   help:
     account_and_data_management:
-      close_account_a: "Vá ao fundo da sua página de configurações e clique no botão 'Encerrar Conta'."
+      close_account_a: "Vá para o fim da sua página de configurações e clique no botão \"Fechar Conta\". Ser-lhe-á solicitado para digitar a sua palavra-passe para concluir o processo. Lembre-se, se fechar a sua conta, <strong>nunca</strong> irá poder registar o seu nome de utilizador nesse servidor."
       close_account_q: "Como é que apago a minha semente (conta)?"
-      data_other_podmins_a: "Uma vez que está a compartilhar com alguém num outro 'pod', quaisquer publicações que compartilhe com eles e uma cópia dos dados do seu perfil (em cache) estão guardadas no 'pod' deles, e estão acessíveis para o administrador da base de dados desse 'pod'. Quando apaga uma publicação ou dados do perfil, estes são apagados do seu 'pod' e de quaisquer outros 'pods' onde anteriormente estavam guardados."
-      data_other_podmins_q: "Os administradores de outros 'pods' podem ver a minha informação?"
-      data_visible_to_podmin_a: "A comunicação *entre* 'pods' é sempre encriptada (utilizando SSL e a encriptação de transporte própria do diaspora*), mas o armazenamento de dados nos 'pods' não é encriptado. Se eles pretenderem, o administrador da base de dados para o seu 'pod' (normalmente a pessoa que gere o pod) poderia aceder a todos os dados do seu perfil e a tudo o que publica (tal como é o caso da maioria dos sites da web que alojam dados de utilizadores). Ao gerir o seu próprio servidor proporciona mais privacidade,  porque é você que controla o acesso à base de dados."
-      data_visible_to_podmin_q: "Quanta informação é que o administrador do meu 'pod' pode ver?"
+      data_other_podmins_a: "Uma vez que está a partilhar com alguém num outro servidor, quaisquer publicações que partilhe com eles e uma cópia dos dados do seu perfil estão armazenados (em cache) no servidor deles, e estão acessíveis para o administrador da base de dados desse servidor. Quando elimina uma publicação ou dados do perfil, estes são eliminados do seu servidor e de quaisquer outros servidores onde anteriormente estavam armazenados. As suas imagens nunca são armazenadas em nenhum servidor, exceto no seu; apenas as hiperligações para as mesmas são transmitidas para outros servidores."
+      data_other_podmins_q: "Os administradores de outros servidores podem ver a minha informação?"
+      data_visible_to_podmin_a: "Abreviado: tudo. A comunicação entre os servidores é sempre encriptada (utilizando a própria encriptação de transporte de SSL e do diaspora*), mas o armazenamento de dados nos servidores não é encriptado. Se eles quisessem, o administrador da base de dados do seu servidor (normalmente a pessoa que executa o servidor) poderia aceder a todos os dados do seu perfil e tudo o que publicasse (como é o caso da maioria dos sites da Web que armazenam os dados do utilizador). É por isso que nós damos-lhe a escolha de qual o servidor em que se inscreveu, assim pode escolher um servidor cujo administrador pode confiar os seus dados. Executar o seu próprio servidor fornece mais privacidade, pois controla o acesso à base de dados."
+      data_visible_to_podmin_q: "Quanta informação é que o administrador do meu servidor pode ver?"
       download_data_a: "Sim. No fundo do separador 'Conta' na sua página das configurações, tem dois botões: uma para transferir os seus dados e outro para transferir as suas fotografias."
       download_data_q: "Eu posso transferir uma cópia de todos os meus dados contidos na minha semente (conta)?"
-      move_pods_a: "Futuramente irá poder exportar a sua semente de um 'pod' e importá-la de outro, mas de momento isto não é possível. Poderá abrir sempre uma nova conta e adicionar os seus contactos aos aspetos nessa nova semente, e pedir-lhes para adicionar a sua nova semente aos aspetos deles."
-      move_pods_q: "Como é que movo a minha semente (conta) de um servidor para outro?"
+      move_pods_a: "A versão 0.7.0.0 do diaspora* fornece a primeira etapa de migração da conta: agora pode exportar todos os seus dados da secção \"Conta\" das configurações do utilizador. Mantenha os seus dados em segurança! Numa versão futura, irá poder migrar toda a sua conta, incluindo as publicações e contactos, para outro \"pod\"."
+      move_pods_q: "Como é que eu movo a minha semente (conta) de um servidor para outro?"
       title: "Gestão de conta e dados"
     aspects:
       change_aspect_of_post_a: "Não, mas pode efetuar sempre uma nova publicação com o mesmo conteúdo, e publicá-la num aspeto diferente."
@@ -373,18 +373,18 @@ pt-PT:
       title: "Diversos"
     pods:
       find_people_a: "Se quiser convidar os seus amigos para aderir ao diaspora*, utilize a hiperligação de convite ou a hiperligação de e-mail na barra lateral. Siga #tags para descobrir outros que partilham os mesmos interesses, e adicione aqueles que publicam coisas de seu interesse para um aspeto. Diga em voz alta que é #newhere numa publicação pública."
-      find_people_q: "Eu acabei de me associar a um servidor. Como é que eu posso encontrar pessoas com quem partilhar?"
+      find_people_q: "Eu acabei de aderir a um servidor. Como é que posso encontrar pessoas com quem partilhar?"
       title: "Servidores"
-      use_search_box_a: "Se souber a Id. deles completa no diaspora* ID (ex.: sername@podname.org), pode encontrá-los, procurando pela mesma. Se estiver no mesmo pod, pode procurar apenas pelo nome de utilizador. Em alternativa, pode procurá-los pelo nome do perfil deles (o nome que vê no ecrã). Se uma procura não funcionar da primeira vez, tente de novo."
-      use_search_box_q: "Como é que eu utilizo a caixa de procuras para encontrar uma pessoa específica?"
-      what_is_a_pod_a: "Um pod e um servidor a correr o software diaspora* e ligado à rede diaspora*. \"Pod\" e uma metáfora referindo-se às vagens nas plantas que contém sementes, da maneira que um servidor contém um número de contas de usuários. Existem muitos pods diferentes. Pode adicionar amigos de outros pods e comunicar com eles. (Pode pensar num pod diaspora* como sendo parecido a um provedor de serviço de email: há pods públicos, pods privados, e com algum esforço pode até mesmo correr o seu próprio)."
+      use_search_box_a: "Pode procurar por pessoas, inserindo os seus nomes de utilziador ou os seus nome do diaspora* (o nome que é mostrado no perfil deles). Se nenhum destes métodos funcionar, insira a id. completa do disapora* deles (nomedeutilizador@nomedoservdior.org). Se a sua procura não funcionar na primeira vez, isto poderá ser devido a uma latência da rede. Tente novamente."
+      use_search_box_q: "Como é que eu utilizo a caixa de procura para encontrar uma pessoa específica?"
+      what_is_a_pod_a: "Um servidor (pod),  é um servidor a executar o software diaspora* e ligado à rede diaspora*. \"Pod\" e uma metáfora referindo-se às 'vagens nas plantas' que contêm sementes, da maneira que um servidor contém um número de contas de utilizadores. Existem muitos servidores diferentes. Pode adicionar amigos de outros servidores e comunicar com eles. Não precisa de abrir uma conta em servidores diferentes! Uma é suficiente - deste modo, pode pensar num servidor diaspora* como sendo parecido com um provedor de serviço de e-mail. Existem servidores públicos, servidores privados, e com algum esforço pode até mesmo funcionar com o seu próprio)."
       what_is_a_pod_q: "O que é um servidor?"
     posts_and_posting:
-      char_limit_services_a: "Neste caso a sua publicação é limitada à menor contagem de caracteres (140 no Twitter; 1000 no Tumblr), e o número de caracteres não utilizados é mostrado quando o ícone daquele serviço é assinalado. Ainda poderá publicar nestes serviços se a sua publicação ultrapassar os respetivos limites, no entanto o texto será truncado nesses serviços."
+      char_limit_services_a: "Nesse caso, deveria restringir a sua publicação para a menor contagem de carateres (140 no Twitter; 1000 no Tumblr), e o número de carateres que não utilizou é exibido quando o esse ícone do serviço é assinalado. Ainda pode publicar nestes serviços se a sua publicação ultrapassar os respetivos limites, mas o texto será truncado nesses serviços com uma hiperligação para o artigo no diaspora*."
       char_limit_services_q: "E se eu estiver a partilhar a minha publicação com um serviço ligado com uma contagem de carateres menor?"
       character_limit_a: "65,535 carateres. Isto é, mais de 65,395 carateres do que o que obtém no Twitter! ;)"
       character_limit_q: "Qual é o limite de carateres para as publicações?"
-      embed_multimedia_a: "Geralmente basta colar a hiperligação (por exemplo: http://www.youtube.com/watch?v=nnnnnnnnn) na sua publicação, e o vídeo ou áudio será incorporado automaticamente. Alguns dos sites suportados são: YouTube, Vimeo, SoundCloud e Flickr entre outros. diaspora* utiliza oEmbed para esse efeito. A todo o momento novos sites vão sendo acrescentados a este suporte. Lembre-se de fazer sempre uma publicação de links simples e completos: não utilize links abreviados; nem caracteres depois da hiperligação base; e aguarde um instante antes de refrescar a página para ver a previsão de como ficará depois de publicar."
+      embed_multimedia_a: "Normalmente basta colar a hiperligação (por exemplo: http://www.youtube.com/watch?v=nnnnnnnnn) no seu artigo e o vídeo ou áudio será incorporado automaticamente. Alguns dos sites suportados são: Flickr, SoundCloud, Vimeo e YouTube, entre outros. O diaspora* utiliza oEmbed para esta funcionalidade. Se publicar uma hiperligação direta para um ficheiro de áudio ou vídeo, o diaspora * irá incorporá-lo utilizando o reprodutor de HTML5 padrão. Nós estamos a suportar mais fontes de multimédia o tempo todo. Lembre-se de publicar sempre hiperligações simples e completas - sem hiperligações encurtadas; nenhum operador depois do URL base - e dê algum tempo antes de recarregar a depois de publicar para ver a pré-visualização."
       embed_multimedia_q: "Como é que eu incorporo um vídeo, áudio, ou outro conteúdo de multimédia numa publicação?"
       format_text_a: "O diáspora * utiliza um sistema simplificado chamado %{markdown}. O editor tem botões para facilitar o formato do seu texto. Se desejar formatar manualmente a sua publicação, pode encontrar a sintaxe de 'Markdown' completa %{here}. O separador de pré-visualização significa que pode ver como a sua mensagem irá ser exibida antes de a partilhar. Lembre-se que não o pode editar assim que o publicar, por isso, utilize a pré-visualização para se certificar que está perfeito antes de clicar em \"Partilhar\"!"
       format_text_q: "Como é que eu formato o texto nas minhas publicações (negrito, itálico, etc.)?"
@@ -406,7 +406,7 @@ pt-PT:
       can_comment_a: "Apenas os utilizadores com sessão iniciada no diaspora* que associou nesse aspeto antes de tornar a publicação privada podem comentar ou gostar da mesma."
       can_comment_q: "Quem é que pode comentar ou gostar da minha publicação privada?"
       can_reshare_a: "Ninguém. As publicações privadas não podem ser partilhadas novamente. Contudo, os utilizadores com sessão iniciada no diaspora* nesse aspeto podem potencialmente copiar e colar a mesma. É consigo, se confia nessas pessoas!"
-      can_reshare_q: "Quem é que pode recompartilhar a minha publicação privada?"
+      can_reshare_q: "Quem é que pode voltar a partilhar a minha publicação privada?"
       see_comment_a: "Somente as pessoas com as quais a publicação foi partilhada (as pessoas que estão nos aspetos selecionados pelo pessoa original) podem ver os seus comentários e gostos. "
       see_comment_q: "Quando comento ou gosto de uma publicação privada, quem é que pode ver?"
       title: "Publicações Privadas"
@@ -417,15 +417,15 @@ pt-PT:
       whats_in_profile_q: "O que está no meu perfil?"
       who_sees_profile_q: "Quem vê o meu perfil?"
     public_posts:
-      can_comment_reshare_like_a: "Qualquer utilizador do diaspora* com sessão iniciada, pode comentar, compartilhar ou gostar de uma publicação pública."
-      can_comment_reshare_like_q: "Quem pode comentar, recompartilhar, ou gostar na minha publicação pública?"
+      can_comment_reshare_like_a: "Qualquer utilizador do diaspora* com sessão iniciada, pode comentar, voltar a partilhar, ou gostar da sua publicação pública. A exceção para isto são as pessoas que ignorou, que não poderão gostar ou comentar nas suas publicações."
+      can_comment_reshare_like_q: "Quem pode comentar, voltar a partilhar, ou gostar na minha publicação pública?"
       deselect_aspect_posting_a: "Ao desselecionar aspectos não afeta uma publicação pública. Esta ainda estará pública e aparecerá nos fluxos de todos os seus contactos. Para tornar uma publicação visível apenas para aspectos específicos, precisa de selecionar esses aspetos no seletor de aspetos no editor."
       deselect_aspect_posting_q: "O que é que acontece quando eu desseleciono um ou mais aspetos na coluna à direita quando publico publicamente?"
       find_public_post_q: "Como é que outras pessoas encontram a minha publicação pública?"
-      see_comment_reshare_like_a: "Qualquer utilizador do diaspora* com sessão iniciada, e também qualquer outra pessoa na Internet pode comentar e compartilhar publicações pública."
+      see_comment_reshare_like_a: "Os comentários, gostos, e as partilhas de publicações públicas também são públicas. Qualquer utilizador do diaspora* com sessão iniciada e qualquer outra pessoa na Internet pode ver as suas interações com um publicação pública."
       see_comment_reshare_like_q: "Quando eu comento em, volto a partilhar, ou gosto de uma publicação pública, quem é que pode ver?"
       title: "Publicações Públicas"
-      who_sees_post_a: "Qualquer pessoa que utilize a internet pode potencialmente ver uma publicação marcada por si como pública, por isso assegure-se de que realmente quer que ela seja pública. É uma ótima forma de apelar ao mundo lá fora."
+      who_sees_post_a: "Qualquer pessoa que utilize a Internet pode potencialmente ver uma publicação que marcou como pública, por isso certifique-se que realmente quer que ela seja pública. É uma ótima forma de atingir o mundo lá fora."
       who_sees_post_q: "Quando eu publico qualquer coisa publicamente, quem é que pode ver?"
     resharing_posts:
       reshare_private_post_aspects_q: "Eu posso voltar a partilhar uma publicação privada para os aspetos selecionados?"
@@ -475,7 +475,7 @@ pt-PT:
         one: "Resta um convite neste código"
         other: "Restam %{count} convites neste código"
         zero: "Não resta nenhum convite neste código"
-      comma_separated_plz: "Pode introduzir vários endereços de email separados por vírgulas."
+      comma_separated_plz: "Pode inserir vários endereços de e-mail separados por vírgulas."
       invite_someone_to_join: "Convide alguém para aderir ao diaspora*!"
       language: "Linguagem"
       paste_link: "Compartilhe esta hiperligação com os seus amigos para os convidar para o Diaspora*, ou envie-lhes diretamente um e-mail com a hiperligação."
@@ -530,7 +530,7 @@ pt-PT:
       mark_all_as_read: "Marcar Tudo como Lido"
       mark_read: "Marcar como lida"
       mark_unread: "Marcar como não lida"
-      mentioned: "Mencionado"
+      mentioned: "Mencionado no artigo"
       mentioned_in_comment: "Mencionado num comentário"
       no_notifications: "Ainda não tem quaisquer notificações."
       notifications: "Notificações"
@@ -578,14 +578,14 @@ pt-PT:
       zero: "%{actors} começou a partilhar consigo."
   notifier:
     a_post_you_shared: "uma publicação."
-    a_private_message: "Há uma nova mensagem privada no diáspora* para conferir."
+    a_private_message: "Há uma nova mensagem privada no diáspora* para ver."
     click_here: "Clique aqui"
     comment_on_post:
       reply: "Responder ou ver a publicação de %{name} >"
     confirm_email:
       click_link: "Para ativar o seu novo endereço de email %{unconfirmed_email}, por favor siga esta hiperligação:"
       subject: "Por favor ative o seu novo endereço de email %{unconfirmed_email}"
-    email_sent_by_diaspora: "Este e-mail foi enviado por %{pod_name}. Se desejar parar a receção deste tipo de e-mails,"
+    email_sent_by_diaspora: "Este e-mail foi enviado por %{pod_name}. Se pretender deixar de receber mensagens como esta,"
     export_photos_email:
       subject: "As suas fotografias estão prontas para as transferir, %{name}"
     hello: "Olá %{name}!"
@@ -632,7 +632,7 @@ pt-PT:
 
           Esperamos voltar a vê-lo,
 
-          O robô de correio eletrónico da diáspora*!
+          O robô de e-mail do diáspora*!
     report_email:
       type:
         comment: "Comentário"
@@ -772,7 +772,7 @@ pt-PT:
       edit_services: "Editar serviços"
       logged_in_as: "Sessão iniciada como %{nickname}."
       really_disconnect: "Desligar de %{service}?"
-      services_explanation: "Ao ligar aos serviços de partilha de terceiros, pode publicar as suas publicações nos mesmos, ao mesmo tempo que as escreve no diaspora*."
+      services_explanation: "Ao ligar-se a serviços de partilha de terceiros permite que publique os seus artigos enquanto à medida que os digita no diáspora*."
       share_to: "Partilhar em %{provider}"
       title: "Gerir serviços ligados"
     provider:
@@ -828,7 +828,7 @@ pt-PT:
       user: "A imagem secreta e o código eram diferentes"
     placeholder: "Insira o valor da imagem"
   statistics:
-    closed: "fechado"
+    closed: "Fechado"
     disabled: "Não disponível"
     enabled: "Disponível"
     local_comments: "Comentários locais"
@@ -890,7 +890,7 @@ pt-PT:
   users:
     confirm_email:
       email_confirmed: "Email %{email} ativado"
-      email_not_confirmed: "O email não pode ser ativado. Hiperligação errada?"
+      email_not_confirmed: "Não foi possível ativar o e-mail. Hiperligação errada?"
     destroy:
       no_password: "Por favor digite a sua palavra-passe atual para encerrar a sua conta."
       success: "A sua conta foi bloqueada. Pode levar até 20 minutos para nós terminarmos o fecho da sua conta. Obrigado por experimentar o diáspora*."
@@ -938,6 +938,7 @@ pt-PT:
       reshared: "alguém volta a compartilhar a sua publicação"
       show_community_spotlight: "Mostrar \"destaques da comunidade\" no seu fluxo"
       show_getting_started: "Mostrar dicas de \"Iniciação...\""
+      someone_reported: "alguém envia um relatório"
       started_sharing: "alguém começa a compartilhar consigo"
       stream_preferences: "Preferências do Fluxo"
       your_email: "O seu endereço de email"

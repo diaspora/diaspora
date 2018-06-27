@@ -40,10 +40,11 @@ class AccountMigration < ApplicationRecord
 
     dispatch if locally_initiated?
     dispatch_contacts if remotely_initiated?
+    update(completed_at: Time.zone.now)
   end
 
   def performed?
-    old_person.closed_account?
+    !completed_at.nil?
   end
 
   # We assume that migration message subscribers are people that are subscribed to a new user profile updates.
@@ -192,6 +193,10 @@ class AccountMigration < ApplicationRecord
     Contact
       .joins("INNER JOIN contacts as c2 ON (contacts.person_id = c2.person_id AND contacts.user_id=#{old_user.id} AND"\
         " c2.user_id=#{new_user.id})")
+      .destroy_all
+    TagFollowing
+      .joins("INNER JOIN tag_followings as t2 ON (tag_followings.tag_id = t2.tag_id AND"\
+        " tag_followings.user_id=#{old_user.id} AND t2.user_id=#{new_user.id})")
       .destroy_all
   end
 

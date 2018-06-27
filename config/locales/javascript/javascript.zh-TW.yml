@@ -63,7 +63,7 @@ zh-TW:
       started_sharing_with: "你開始跟 <%= name %> 分享了！"
       stopped_sharing_with: "停止跟 <%= name %> 分享了。"
       toggle:
-        other: "在<%= count %>個社交面中"
+        other: "到<%= count %>個社交面中"
         zero: "選社交面"
       updating: "正在更新..."
     aspect_navigation:
@@ -147,7 +147,7 @@ zh-TW:
       new_notifications:
         other: "有<%= count %>則還沒看過的通知"
     people:
-      edit_my_profile: "編輯自己的個人檔案"
+      edit_my_profile: "編輯個人檔案"
       helper:
         is_not_sharing: "<%= name %> 沒有跟你分享"
         is_sharing: "<%= name %> 正在跟你分享中"
@@ -222,12 +222,12 @@ zh-TW:
       question: "問題"
     remove_post: "要移除貼文嗎？"
     report:
-      name: "回報"
-      prompt: "請輸入回報的理由:"
+      name: "投訴"
+      prompt: "請輸入投訴的理由:"
       prompt_default: "比如說：內容牽涉人身攻擊"
       status:
-        created: "成功產生回報了"
-        exists: "已經有這筆回報了"
+        created: "投訴成功了"
+        exists: "已經有這筆投訴了"
     reshares:
       post: "要轉貼 <%= name %> 的貼文嗎？"
       successful: "貼文轉貼成功！"

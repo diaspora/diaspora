@@ -24,14 +24,18 @@ class Services::Facebook < Service
 
   def create_post_params(post)
     message = post.message.plain_text_without_markdown
-    if post.photos.any?
-      message += " " + short_post_url(post, protocol: AppConfig.pod_uri.scheme,
-                                            host: AppConfig.pod_uri.authority)
-    end
+    post_url = short_post_url(post, protocol: AppConfig.pod_uri.scheme, host: AppConfig.pod_uri.authority)
 
-    {message: message,
-     access_token: access_token,
-     link:  post.message.urls.first
+    message = if message.empty?
+                post_url
+              else
+                "#{message} (via #{post_url})"
+              end
+
+    {
+      message:      message,
+      access_token: access_token,
+      link:         post.message.urls.first
     }
   end
 

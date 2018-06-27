@@ -21,6 +21,7 @@ SecureHeaders::Configuration.default do |config|
 
   if AppConfig.environment.assets.host.present?
     asset_host = Addressable::URI.parse(AppConfig.environment.assets.host.get).host
+    csp[:font_src] << asset_host
     csp[:script_src] << asset_host
     csp[:style_src] << asset_host
   end

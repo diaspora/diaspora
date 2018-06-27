@@ -430,6 +430,26 @@ describe "diaspora federation callbacks" do
       expect(entity.author).to eq(alice.diaspora_handle)
     end
 
+    it "fetches a StatusMessage by a Poll guid" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      poll = FactoryGirl.create(:poll, status_message: post)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Poll", poll.guid)
+
+      expect(entity.guid).to eq(post.guid)
+      expect(entity.author).to eq(alice.diaspora_handle)
+      expect(entity.public).to be_truthy
+      expect(entity.poll.guid).to eq(poll.guid)
+      expect(entity.poll.question).to eq(poll.question)
+    end
+
+    it "doesn't fetch a private StatusMessage by a Poll guid" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: false)
+      poll = FactoryGirl.create(:poll, status_message: post)
+      expect(
+        DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Poll", poll.guid)
+      ).to be_nil
+    end
+
     it "does not fetch a private post" do
       post = FactoryGirl.create(:status_message, author: alice.person, public: false)
 

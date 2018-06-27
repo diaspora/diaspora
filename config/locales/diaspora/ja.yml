@@ -337,6 +337,11 @@ ja:
     helper:
       correct_the_following_errors_and_try_again: "次の問題を解決してからやり直してください。"
     need_javascript: "このウェブサイトは正常に機能するためにJavaScriptが必要です。 JavaScriptを無効にした場合は、有効にしてこのページを更新してください。"
+  errors:
+    messages:
+      carrierwave_processing_error: "処理に失敗しました"
+      content_type_blacklist_error: "あなたは%{content_type}ファイルをアップロードしてはいけません"
+      content_type_whitelist_error: "あなたは%{content_type}ファイルをアップロードしてはいけません"
   fill_me_out: "記入してください"
   find_people: "人や #タグ を探す"
   help:

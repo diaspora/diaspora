@@ -42,6 +42,7 @@ it:
               taken: "è già stato preso."
   admins:
     admin_bar:
+      dashboard: "Bacheca"
       pages: "Pagine"
       pod_stats: "Statistiche pod"
       report: "Report"
@@ -77,6 +78,7 @@ it:
       week: "1 settimana"
     user_entry:
       account_closed: "Account chiuso"
+      diaspora_handle: "ID Diaspora"
       email: "Email"
       guid: "GUID"
       id: "ID"
@@ -90,7 +92,9 @@ it:
       are_you_sure: "Sei sicuro di volere chiudere questo account?"
       close_account: "Chiudi l'account"
       email_to: "Email a cui mandare l'invito"
+      lock_account: "Blocca account"
       under_13: "Mostra utenti sotto i 13 anni (Children's Online Privacy Protection Act)"
+      unlock_account: "Sblocca account"
       users:
         one: "trovato %{count} utente"
         other: "trovati %{count} utenti"
@@ -109,18 +113,27 @@ it:
   all_aspects: "Tutti gli aspetti"
   api:
     openid_connect:
+      authorizations:
+        new:
+          access: "%{name} chiede l'accesso a:"
+          approve: "Approva"
+          deny: "Rifiuta"
       scopes:
         nickname:
           name: "nickname"
         picture:
           name: "immagine"
       user_applications:
+        index:
+          edit_applications: "Applicazioni"
+          title: "Applicazioni autorizzate"
         revoke_autorization: "Revoca"
   are_you_sure: "Sei sicuro?"
   are_you_sure_delete_account: "Sei sicuro di voler chiudere il tuo account? È un'operazione irreversibile!"
   aspect_memberships:
     destroy:
       failure: "Impossibile rimuovere la persona dall'aspetto"
+      forbidden: "Non sei autorizzato a farlo."
       no_membership: "Impossibile trovare la persona selezionata in questo aspetto"
       success: "La persona è stata rimossa dall'aspetto"
   aspects:
@@ -156,6 +169,7 @@ it:
         here_to_help: "La comunità Diaspora è qui per aiutarti!"
         mail_podmin: "Email amministratore del pod"
         need_help: "Hai bisogno di aiuto?"
+        support_forum_link: "forum di supporto"
         tag_bug: "problema"
         tag_feature: "idea"
         tag_question: "domanda"
@@ -173,6 +187,7 @@ it:
       welcome_to_diaspora: "Benvenuto in diaspora, %{name}!"
     no_contacts_message:
       community_spotlight: "Evidenzia tra i membri della comunità"
+      invite_link_text: "invita"
       or_spotlight: "Oppure puoi iniziare a condividere con %{link}"
       try_adding_some_more_contacts: "Puoi cercare o invitare altri contatti."
       you_should_add_some_more_contacts: "Dovresti aggiungere qualche altro contatto!"
@@ -199,6 +214,7 @@ it:
   color_themes:
     dark: "Scuro"
     dark_green: "Verde scuro"
+    egyptian_blue: "Blu pompeiano"
     magenta: "Magenta"
   comments:
     new_comment:
@@ -218,6 +234,7 @@ it:
       user_search: "Cerca tra i contatti"
     spotlight:
       community_spotlight: "In evidenza nella comunità"
+      no_members: "Non ci sono membri per ora."
       suggest_member: "Suggerisci un utente"
   conversations:
     create:
@@ -228,6 +245,7 @@ it:
       new_conversation: "Nuova conversazione"
       no_messages: "Nessun messaggio"
     new:
+      message: "Lettera"
       send: "Invia"
       sending: "Invio in corso..."
       subject: "Oggetto"
@@ -299,6 +317,9 @@ it:
       what_is_an_aspect_q: "Cosa è un aspetto?"
       who_sees_post_a: "Se crei un post privato, sarà visibile solamente alle persone negli aspetti che avrai scelto. I contatti che non sono nell'aspetto o negli aspetti scelti non avranno modo di vedere il post, a meno che non sia pubblico. Solo i post pubblici saranno visibili da tutti coloro che non hai messo in nessun aspetto."
       who_sees_post_q: "Quando pubblico un contenuto ad un aspetto, chi lo vede?"
+    chat:
+      title: "Chat"
+    community_guidelines: "Linee guida della Community"
     faq: "FAQ"
     foundation_website: "Sito web diaspora foundation"
     getting_help:
@@ -362,6 +383,7 @@ it:
       insert_images_a: "Clicca l'icona a forma di macchina fotografica per inserire un'immagine. Puoi cliccare di nuovo per inserirne un'altra, oppure puoi scegliere di aggiungere più immagini in una volta sola."
       insert_images_comments_q: "Posso inserire immagini nei commenti?"
       insert_images_q: "Come posso inserire immagini nei post?"
+      post_report_q: "Come posso segnalare un post offensivo?"
       size_of_images_a: "No, le dimensioni delle immagini saranno scelte automaticamente per adattarsi al post. Inoltre, il markdown non prevede un modo per indicare le dimensioni desiderate."
       size_of_images_q: "Posso scegliere le dimensioni delle immagini che inserisco nei post o nei commenti?"
       stream_full_of_posts_a1: "Il tuo stream si compone di tre tipi di posts"
@@ -382,6 +404,7 @@ it:
       who_sees_post_q: "Quando posto un messaggio ad un Aspetto (es: un messaggio privato), chi può vederlo?"
     profile:
       title: "Profilo"
+      who_sees_profile_q: "Chi vede il mio profilo?"
     public_posts:
       can_comment_reshare_like_a: "Qualunque utente di diaspora* loggato può commentare, ri-condividere, o mettere mi piace sul tuo post pubblico."
       can_comment_reshare_like_q: "Chi può commentare, ri-condividere, o mettere mi piace sul mio post pubblico?"
@@ -435,6 +458,16 @@ it:
     tutorial: "Guida"
     tutorials: "Guide"
     wiki: "wiki"
+  home:
+    default:
+      headline: "Benvenuto in %{pod_name}"
+      own_your_data: "Mantieni il controllo dei tuoi dati"
+    podmin:
+      contact_irc: "contattarci su IRC"
+      contribute: "Contribuisci"
+      create_an_account: "Crea un account"
+      getting_help: "Cerca aiuto"
+      headline: "Benvenuto, amico."
   invitations:
     create:
       empty: "Perfavore inserire almeno un indirizzo email."
@@ -503,6 +536,8 @@ it:
       notifications: "Notifiche"
       reshared: "Ricondiviso"
       show_all: "Mostra tutto"
+      show_unread: "Mostra non letti"
+      started_sharing: "Condivisione iniziata"
     liked:
       few: "A %{actors} piace il tuo %{post_link}."
       many: "A %{actors} piace il tuo %{post_link}."
@@ -589,6 +624,7 @@ it:
     private_message:
       reply_to_or_view: "Rispondi o leggi questa conversazione >"
     report_email:
+      subject: "Un nuovo %{type} è stato contrassegnato come offensivo"
       type:
         comment: "commento"
         post: "post"
@@ -654,7 +690,9 @@ it:
       allow_search: "Permetti ad altri di trovarti su Diaspora"
       first_name: "Nome"
       last_name: "Cognome"
+      limited: "privato"
       nsfw_explanation: "NSFW(“not safe fo rwork”) è lo standard di autogoverno della comunità di Diaspora per identificare i contenuti non adatti ad essere visualizzati in un contesto lavorativo. Se pensate di condividere frequentemente materiale di questa natura vi chiediamo di attivare questa opzione in modo che qualsiasi cosa condividiate non verrà visualizzata nei flussi di altri a meno che queste persone stesse abbiano scelto di visualizzarla."
+      public: "a tutti"
       settings: "Impostazioni del profilo"
       update_profile: "Aggiorna il profilo"
       your_bio: "La tua biografia"
@@ -693,6 +731,8 @@ it:
     not_found: "Il post o il commento non è stato trovato. Sembra sia stato cancellato dall'utente!"
     post_label: "<strong>Post</strong>: %{content}"
     reason_label: "Motivo:"
+    reported_label: "<strong>Segnalato da</strong> %{person}"
+    review_link: "Contrassegna come revisionato"
     status:
       failed: "Qualcosa è andato storto"
     title: "Panoramica report"
@@ -714,11 +754,14 @@ it:
     failure:
       error: "Si è verificato un errore durante la connessione a quel servizio"
     index:
+      connect: "Connettiti"
       disconnect: "Disconnetti"
       edit_services: "Modifica servizi"
       logged_in_as: "accesso effettuato come"
+      not_logged_in: "Utente non autenticato."
       really_disconnect: "Disconnettersi da %{service}?"
       services_explanation: "Il collegamento ad altri servizi ti dà la possibilità di pubblicare i post che invii su diaspora*."
+      share_to: "Condividi con %{provider}"
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
@@ -770,12 +813,16 @@ it:
     label: "Inserisci il codice nel box"
     message:
       default: "Il codice segreto non corrisponde all'immagine"
+      failed: "Verifica umana fallita"
       user: "L'immagine segreta e il codice non coincidono"
     placeholder: "Inserisci il valore dell'immagine"
   statistics:
     disabled: "Non disponibile"
     enabled: "Disponibile"
     name: "Nome"
+    network: "Rete"
+    registrations: "Registrazioni"
+    services: "Servizi"
     total_users: "Utenti totali"
     version: "Versione"
   status_messages:
@@ -846,6 +893,7 @@ it:
       current_password: "Password attuale"
       current_password_expl: "quella con cui accedi..."
       download_export: "Scarica il mio profilo"
+      download_export_photos: "Scarica le mie fotografie"
       edit_account: "Modifica account"
       email_awaiting_confirmation: "Il link di attivazione è stato spedito a %{unconfirmed_email}. Continueremo ad usare la tua email originale %{email} finché non cliccherai sul link e attiverai il nuovo indirizzo."
       export_data: "Esporta dati"
@@ -861,6 +909,7 @@ it:
       started_sharing: "qualcuno ha iniziato a seguirti"
       stream_preferences: "Impostazioni dello stream"
       your_email: "La tua email"
+      your_email_private: "La tua email non potrà essere vista da altri utenti"
       your_handle: "Il tuo ID"
     getting_started:
       awesome_take_me_to_diaspora: "Fantastico! Fammi entrare in Diaspora*"
