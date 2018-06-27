@@ -642,11 +642,8 @@ nb:
   no_results: "Ingen resultater ble funnet"
   notifications:
     also_commented:
-      few: "%{actors} kommenterte også på %{post_author}s %{post_link}."
-      many: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       one: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       other: "%{actors} har også kommentert på %{post_author}s %{post_link}."
-      two: "%{actors} kommenterte også %{post_author}s %{post_link}."
       zero: "%{actors} har også kommentert på %{post_author}s %{post_link}."
     also_commented_deleted:
       few: "%{actors} kommenterte på en slettet post."
