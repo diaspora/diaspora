@@ -16,6 +16,7 @@
 ## Refactor
 
 ## Bug fixes
+* Add compatibility with macOS to `script/configure_bundler` [#7830](https://github.com/diaspora/diaspora/pull/7830)
 
 ## Features
 
