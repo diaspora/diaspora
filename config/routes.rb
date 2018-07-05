@@ -74,6 +74,8 @@ Rails.application.routes.draw do
 	#Search
 	get 'search' => "search#search"
 
+  get "link" => "links#resolve"
+
   resources :conversations, except: %i(edit update destroy)  do
     resources :messages, only: %i(create)
     delete 'visibility' => 'conversation_visibilities#destroy'
