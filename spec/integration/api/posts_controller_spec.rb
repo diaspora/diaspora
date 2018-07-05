@@ -109,16 +109,18 @@ describe Api::V1::PostsController do
         ).to eq(true)
       end
 
-      it "creates a private post" do
+      it "or creates a private post" do
+        aspect = Aspect.find_by(user_id: auth_with_read_and_write.user.id)
         post(
           api_v1_posts_path,
           params: {
             access_token:   access_token_with_read_and_write,
             status_message: {text: "Hello this is a post!"},
-            aspect_ids:     "1"
+            aspect_ids:     [aspect.id]
           }
         )
-        expect(Post.find_by(text: "Hello this is a post!").public).to eq(false)
+        posted_post = Post.find_by(text: "Hello this is a post!")
+        expect(posted_post.public).to eq(false)
       end
     end
 
