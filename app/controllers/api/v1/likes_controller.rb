@@ -8,11 +8,11 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: I18n.t("likes.not_found"), status: 404
+        render json: I18n.t("likes.not_found"), status: :not_found
       end
 
       rescue_from ActiveRecord::RecordInvalid do
-        render json: I18n.t("likes.create.fail"), status: 404
+        render json: I18n.t("likes.create.fail"), status: :not_found
       end
 
       def create

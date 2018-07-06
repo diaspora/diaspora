@@ -12,7 +12,10 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: {error: I18n.t("conversations.not_found")}, status: 404
+        render(
+          json:   {error: I18n.t("conversations.not_found")},
+          status: :not_found
+        )
       end
 
       def create
@@ -21,13 +24,16 @@ module Api
         message = current_user.build_message(conversation, text: opts[:body])
         message.save!
         Diaspora::Federation::Dispatcher.defer_dispatch(current_user, message)
-        render json: message_json(message), status: 201
+        render json: message_json(message), status: :created
       end
 
       def index
         conversation = conversation_service.find!(params[:conversation_id])
         conversation.set_read(current_user)
-        render json: conversation.messages.map {|x| message_json(x) }, status: 201
+        render(
+          json:   conversation.messages.map {|x| message_json(x) },
+          status: :created
+        )
       end
 
       def conversation_service
