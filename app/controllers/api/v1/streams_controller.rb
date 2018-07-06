@@ -40,9 +40,7 @@ module Api
       private
 
       def stream_responder(stream_klass=nil)
-        if stream_klass.present?
-          @stream ||= stream_klass.new(current_user, max_time: max_time)
-        end
+        @stream = stream_klass.present? ? stream_klass.new(current_user, max_time: max_time) : @stream
 
         render json: @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }
       end

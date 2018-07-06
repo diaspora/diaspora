@@ -14,7 +14,10 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: {error: I18n.t("conversations.not_found")}, status: 404
+        render(
+          json:   {error: I18n.t("conversations.not_found")},
+          status: :not_found
+        )
       end
 
       def index
@@ -44,7 +47,7 @@ module Api
 
         render json: {
           conversation: conversation_as_json(conversation)
-        }, status: 201
+        }, status: :created
       end
 
       def destroy

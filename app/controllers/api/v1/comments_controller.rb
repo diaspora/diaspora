@@ -14,7 +14,7 @@ module Api
       def create
         @comment = comment_service.create(params[:post_id], params[:body])
         comment = comment_as_json(@comment)
-        render json: comment, status: 201
+        render json: comment, status: :created
       end
 
       def index
@@ -39,7 +39,10 @@ module Api
         if report.save
           head :no_content
         else
-          render json: {error: I18n.t("report.status.failed")}, status: 500
+          render(
+            json:   {error: I18n.t("report.status.failed")},
+            status: :internal_server_error
+          )
         end
       end
 
