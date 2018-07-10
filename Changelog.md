@@ -6,6 +6,7 @@
 * Enable Content-Security-Policy header by default [#7781](https://github.com/diaspora/diaspora/pull/7781)
 
 ## Bug fixes
+* Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)

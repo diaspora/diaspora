@@ -7,108 +7,92 @@
 app.views.PublisherUploader = Backbone.View.extend({
   initialize: function(opts) {
     this.publisher = opts.publisher;
-
-    this.info = $("<div id=\"fileInfo\" />");
-    this.publisher.wrapperEl.before(this.info);
     this.publisher.photozoneEl.on("click", ".x", _.bind(this._removePhoto, this));
 
     // Initialize the PostPhotoUploader and subscribe its events
     this.uploader = new Diaspora.PostPhotoUploader(this.el);
-
     this.uploader.onUploadStarted = _.bind(this.uploadStartedHandler, this);
     this.uploader.onProgress = _.bind(this.progressHandler, this);
     this.uploader.onUploadCompleted = _.bind(this.uploadCompleteHandler, this);
   },
 
   // add photo placeholders to the publisher to indicate an upload in progress
-  _addPhotoPlaceholder: function() {
+  _addPhotoPlaceholder: function(id) {
     var publisher = this.publisher;
     publisher.setButtonsEnabled(false);
 
     publisher.wrapperEl.addClass("with_attachments");
     publisher.photozoneEl.append(
-      "<li class=\"publisher_photo loading\" style=\"position:relative;\">" +
+      "<li id=\"upload-" + id + "\"class=\"publisher_photo loading\" style=\"position:relative;\">" +
       "  <div class=\"progress\">" +
       "    <div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\"></div>"+
       "  </div>" +
-      "  <img src=\"\"+Handlebars.helpers.imageUrl(\"ajax-loader2.gif\")+\"\" class=\"ajax-loader\" alt=\"\" />"+
+      "  <div class=\"spinner\"></div>" +
       "</li>"
     );
   },
 
-  uploadStartedHandler: function() {
+  uploadStartedHandler: function(id) {
     this.$el.addClass("loading");
-    this._addPhotoPlaceholder();
+    this._addPhotoPlaceholder(id);
   },
 
-  progressHandler: function(fileName, progress) {
-    this.info.text(fileName + " " + progress + "%").fadeTo(200, 1);
+  progressHandler: function(id, fileName, progress) {
     this.publisher.photozoneEl
-      .find("li.loading").first().find(".progress-bar")
+      .find("li.loading#upload-" + id + " .progress-bar")
       .width(progress + "%");
   },
 
-  uploadCompleteHandler: function(_id, fileName, response) {
+  uploadCompleteHandler: function(id, fileName, response) {
     if (response.success){
-      this.info.text(Diaspora.I18n.t("photo_uploader.completed", {file: fileName})).fadeTo(2000, 0);
-
-      var id  = response.data.photo.id,
+      var photoId = response.data.photo.id,
           image = response.data.photo.unprocessed_image;
 
-      this._addFinishedPhoto(id, image);
+      this._addFinishedPhoto(id, photoId, image);
       this.trigger("change");
     } else {
-      this._cancelPhotoUpload();
-      this.trigger("change");
-      this.info.text(Diaspora.I18n.t("photo_uploader.error", {file: fileName}));
+      this._cancelPhotoUpload(id);
       this.publisher.wrapperEl.find("#photodropzone_container").first().after(
         "<div id=\"upload_error\">" +
-        Diaspora.I18n.t("photo_uploader.error", {file: fileName}) +
+          Diaspora.I18n.t("photo_uploader.error", {file: fileName}) +
         "</div>"
       );
+      this.trigger("change");
     }
   },
 
   // replace the first photo placeholder with the finished uploaded image and
   // add the id to the publishers form
-  _addFinishedPhoto: function(id, image) {
+  _addFinishedPhoto: function(id, photoId, image) {
     var publisher = this.publisher;
 
     // add form input element
     publisher.$(".content_creation form").append(
-      "<input type=\"hidden\", value=\""+id+"\" name=\"photos[]\" />"
+      "<input type=\"hidden\", value=\"" + photoId + "\" name=\"photos[]\" />"
     );
     // replace placeholder
-    var placeholder = publisher.photozoneEl.find("li.loading").first();
+    var placeholder = publisher.photozoneEl.find("li.loading#upload-" + id);
     placeholder
-      .removeClass("loading")
       .prepend(
-        "<div class=\"x\"></div>"+
-        "<div class=\"circle\"></div>"
-       )
-      .find("img").attr(
-      {
-        "src": image.thumb_medium.url,
-        "data-small": image.thumb_small.url,
-        "data-scaled": image.scaled_full.url,
-        "data-id": id
-      }).removeClass("ajax-loader");
-    placeholder
-      .find("div.progress").remove();
+        "<div class=\"x\"></div>" +
+        "<div class=\"circle\"></div>" +
+        "<img src=\"" + image.url + "\" data-id=\"" + photoId + "\" alt=\"\" class=\"hidden\" />"
+      ).removeClass("loading");
+    placeholder.find("div.progress").remove();
+    placeholder.find("img").on("load", function(ev) {
+      $(ev.target).removeClass("hidden");
+      placeholder.find(".spinner").remove();
+    });
 
     // no more placeholders? enable buttons
-    if( publisher.photozoneEl.find("li.loading").length === 0 ) {
+    if (publisher.photozoneEl.find("li.loading").length === 0) {
       this.$el.removeClass("loading");
       publisher.setButtonsEnabled(true);
     }
   },
 
-  _cancelPhotoUpload: function() {
-    var publisher = this.publisher;
-    var placeholder = publisher.photozoneEl.find("li.loading").first();
-    placeholder
-      .removeClass("loading")
-      .find("img").remove();
+  _cancelPhotoUpload: function(id) {
+    this.publisher.photozoneEl.find("li.loading#upload-" + id).remove();
   },
 
   // remove an already uploaded photo
@@ -126,7 +110,7 @@ app.views.PublisherUploader = Backbone.View.extend({
         photo.fadeOut(400, function() {
           photo.remove();
 
-          if( self.publisher.$(".publisher_photo").length === 0 ) {
+          if (self.publisher.$(".publisher_photo").length === 0) {
             // no more photos left...
             self.publisher.wrapperEl.removeClass("with_attachments");
           }
@@ -135,9 +119,7 @@ app.views.PublisherUploader = Backbone.View.extend({
         });
       }
     });
-
     return false;
   }
-
 });
 // @license-end
