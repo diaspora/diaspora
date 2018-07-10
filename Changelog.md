@@ -19,6 +19,7 @@
 * Add compatibility with macOS to `script/configure_bundler` [#7830](https://github.com/diaspora/diaspora/pull/7830)
 
 ## Features
+* Add `web+diaspora://` link handler [#7826](https://github.com/diaspora/diaspora/pull/7826)
 
 # 0.7.6.0
 
