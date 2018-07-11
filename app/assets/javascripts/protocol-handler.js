@@ -12,6 +12,6 @@ function registerDiasporaLinksProtocol() {
   window.navigator.registerProtocolHandler("web+diaspora", host.concat("/link?q=%s"), document.title);
 }
 
-if (typeof (window.navigator.registerProtocolHandler) === "function") {
+if (typeof (window.navigator.registerProtocolHandler) === "function" && window.gon.user) {
   registerDiasporaLinksProtocol();
 }
