@@ -19,5 +19,3 @@ Diaspora.ProtocolHandler = {
     return true;
   }
 };
-
-Diaspora.ProtocolHandler.register();
