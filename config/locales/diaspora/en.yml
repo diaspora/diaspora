@@ -1242,6 +1242,11 @@ en:
         lock_username: "Your username will be locked. You will not be able to create a new account on this pod with the same ID."
         no_turning_back: "There is no turning back! If you’re really sure, enter your password below."
 
+      protocol_handler:
+        title: "web+diaspora:// protocol handler"
+        description: "Clicking this button will ask your browser to install a handler that allows us to open web+diaspora:// URLs on your home pod. This is currently experimental and interactions will depend on your browser."
+        register: "Register"
+
     privacy_settings:
       title: "Privacy settings"
       strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"
