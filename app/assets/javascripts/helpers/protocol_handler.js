@@ -2,19 +2,20 @@
 
 Diaspora.ProtocolHandler = {
   register: function() {
-    if (typeof (window.navigator.registerProtocolHandler) !== "function") {
+    if (!window.navigator.registerProtocolHandler) {
       return false;
     }
 
-    var protocol = location.protocol;
-    var slashes = protocol.concat("//");
-    var host = slashes.concat(window.location.hostname);
-
-    if (location.port) {
-      host = host.concat(":" + location.port);
+    try {
+      window.navigator.registerProtocolHandler(
+        "web+diaspora",
+        [window.location.protocol, "//", window.location.host, "/link?q=%s"].join(""),
+        document.title
+      );
+    } catch (_) {
+      return false;
     }
 
-    window.navigator.registerProtocolHandler("web+diaspora", host.concat("/link?q=%s"), document.title);
     return true;
   }
 };
