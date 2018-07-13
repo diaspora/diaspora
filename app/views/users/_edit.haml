@@ -181,6 +181,16 @@
       %hr
 
     .row
+      .col-md-12
+        %h3#protocol-handler
+          = t(".protocol_handler.title")
+        %p= t(".protocol_handler.description")
+        .form-group
+          %button.btn.btn-default#register-protocol-handler
+            = t(".protocol_handler.register")
+    %hr
+
+    .row
       .col-md-6.account-data
         %h3= t(".export_data")
         %h4= t("profile")

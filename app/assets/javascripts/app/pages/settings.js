@@ -15,6 +15,10 @@ app.pages.Settings = Backbone.View.extend({
       form: $("#post-default-aspects")
     });
     $("#update_profile_form").areYouSure();
+
+    $("#register-protocol-handler").click(function() {
+      Diaspora.ProtocolHandler.register();
+    });
   }
 });
 // @license-end
