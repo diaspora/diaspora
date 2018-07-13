@@ -54,7 +54,6 @@ tmp/
 .byebug_history
 .sass-cache/
 .DS_Store
-.idea
 .redcar
 .stgit*
 *.swap
@@ -73,6 +72,8 @@ capybara-*.html
 *.rbc
 
 # IDE
+.idea
+.vscode
 diaspora.iml
 
 # Dolphin's directory's preferences files
