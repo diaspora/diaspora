@@ -624,7 +624,9 @@ describe("app.views.Publisher", function() {
           var img = li.find('img');
 
           expect(li).not.toHaveClass("loading");
-          expect(img.attr("src")).toBe("/uploads/images/test.jpg");
+          expect(img.attr("src")).toBe("/uploads/images/thumb_medium_test.jpg");
+          expect(img.attr("data-small")).toBe("/uploads/images/thumb_small_test.jpg");
+          expect(img.attr("data-scaled")).toBe("/uploads/images/scaled_full_test.jpg");
           expect(img.attr("data-id")).toBe("987");
         });
 
