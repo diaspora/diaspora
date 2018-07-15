@@ -22,7 +22,7 @@
         "strip_exif": { "type": "boolean" },
 
         "profile": {
-          "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#definitions/profile"
+          "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/profile"
         },
 
         "contact_groups": {
