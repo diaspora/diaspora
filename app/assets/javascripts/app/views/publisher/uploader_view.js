@@ -72,11 +72,19 @@ app.views.PublisherUploader = Backbone.View.extend({
     );
     // replace placeholder
     var placeholder = publisher.photozoneEl.find("li.loading#upload-" + id);
+
+    var imgElement = document.createElement("img");
+    imgElement.src = image.thumb_medium.url;
+    imgElement.classList.add("hidden");
+    imgElement.dataset.id = photoId;
+    imgElement.dataset.small = image.thumb_small.url;
+    imgElement.dataset.scaled = image.scaled_full.url;
+
     placeholder
       .prepend(
-        "<div class=\"x\"></div>" +
-        "<div class=\"circle\"></div>" +
-        "<img src=\"" + image.url + "\" data-id=\"" + photoId + "\" alt=\"\" class=\"hidden\" />"
+        '<div class="x"></div>' +
+        '<div class="circle"></div>' +
+        imgElement.outerHTML
       ).removeClass("loading");
     placeholder.find("div.progress").remove();
     placeholder.find("img").on("load", function(ev) {
