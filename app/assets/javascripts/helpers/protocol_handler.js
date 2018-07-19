@@ -10,7 +10,7 @@ Diaspora.ProtocolHandler = {
       window.navigator.registerProtocolHandler(
         "web+diaspora",
         [window.location.protocol, "//", window.location.host, "/link?q=%s"].join(""),
-        document.title
+        gon.appConfig.settings.podname
       );
     } catch (_) {
       return false;
