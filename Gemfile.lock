@@ -222,9 +222,10 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.23)
-    fixture_builder (0.5.1)
+    fixture_builder (0.5.2.rc3)
       activerecord (>= 2)
       activesupport (>= 2)
+      hashdiff
     fog-aws (2.0.1)
       fog-core (~> 1.38)
       fog-json (~> 1.0)
@@ -804,7 +805,7 @@ DEPENDENCIES
   faraday (= 0.12.2)
   faraday-cookie_jar (= 0.0.6)
   faraday_middleware (= 0.12.2)
-  fixture_builder (= 0.5.1)
+  fixture_builder (= 0.5.2.rc3)
   fog-aws (= 2.0.1)
   fuubar (= 2.3.1)
   gon (= 6.2.0)
@@ -921,4 +922,4 @@ DEPENDENCIES
   will_paginate (= 3.1.6)
 
 BUNDLED WITH
-   1.16.2
+   1.16.4
