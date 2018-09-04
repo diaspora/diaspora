@@ -62,7 +62,11 @@ class StatusMessage < Post
   end
 
   def comment_email_subject
-    message.title
+    if message.present?
+      message.title
+    elsif photos.present?
+      I18n.t("posts.show.photos_by", count: photos.size, author: author_name)
+    end
   end
 
   def first_photo_url(*args)
