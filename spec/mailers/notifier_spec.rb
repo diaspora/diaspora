@@ -214,6 +214,14 @@ describe Notifier, type: :mailer do
       like = reshare.likes.create!(author: bob.person)
       Notifier.send_notification("liked", alice.id, like.author.id, like.id)
     end
+
+    it "can handle status_messages without text" do
+      photo = FactoryGirl.create(:photo, public: true)
+      status = FactoryGirl.create(:status_message, author: alice.person, text: nil, photos: [photo], public: true)
+      like = status.likes.create!(author: bob.person)
+      mail = Notifier.send_notification("liked", alice.id, like.author.id, like.id)
+      expect(mail.body.encoded).to include(I18n.t("posts.show.photos_by", count: 1, author: alice.name))
+    end
   end
 
   describe ".reshared" do
