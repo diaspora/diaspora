@@ -121,6 +121,17 @@ class UsersController < ApplicationController
     redirect_to current_user.exported_photos_file.url
   end
 
+  def import_profile
+    if params[:user]==nil
+      flash[:notice] = I18n.t("users.edit.no_file_given")
+      redirect_to edit_user_path
+    else
+      current_user.data_import(params[:user][:import].tempfile)
+      flash[:notice] = I18n.t("users.edit.import_success")
+      redirect_to edit_user_path
+    end
+  end
+
   def confirm_email
     if current_user.confirm_email(params[:token])
       flash[:notice] = I18n.t("users.confirm_email.email_confirmed", email: current_user.email)
@@ -152,6 +163,7 @@ class UsersController < ApplicationController
       :auto_follow_back_aspect_id,
       :getting_started,
       :post_default_public,
+      :import,
       email_preferences: UserPreference::VALID_EMAIL_TYPES.map(&:to_sym)
     )
   end

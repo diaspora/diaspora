@@ -343,6 +343,27 @@ class User < ApplicationRecord
     update exporting_photos: false
   end
 
+  ######### Data import ##################
+  mount_uploader :import, JsonUploader
+
+  def data_import(importedfile)
+    json_string = importedfile.read()
+    data_hash = JSON.parse(json_string)
+    if self.email != data_hash['user']['email']
+      self.unconfirmed_email = data_hash['user']['email']
+    end
+    self.show_community_spotlight_in_stream = data_hash['user']['show_community_spotlight_in_stream']
+    self.language = data_hash['user']['language']
+    self.disable_mail = data_hash['user']['disable_mail']
+    self.save
+    self.profile.update(bio: data_hash['user']['profile']['entity_data']['bio'])
+    self.profile.update(tag_string: data_hash['user']['profile']['entity_data']['tag_string'])
+    self.profile.update(searchable: data_hash['user']['profile']['entity_data']['searchable'])
+    self.profile.update(nsfw: data_hash['user']['profile']['entity_data']['nsfw'])
+    self.profile.update(first_name: data_hash['user']['profile']['entity_data']['first_name'])
+    self.profile.update(last_name: data_hash['user']['profile']['entity_data']['last_name'])
+  end
+
   ######### Mailer #######################
   def mail(job, *args)
     return unless job.present?
@@ -541,6 +562,7 @@ class User < ApplicationRecord
     end
     self.remove_export = true
     self.remove_exported_photos_file = true
+    self.remove_import = true
     self[:disable_mail] = true
     self[:strip_exif] = true
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
@@ -582,6 +604,6 @@ class User < ApplicationRecord
                          serialized_private_key getting_started
                          disable_mail show_community_spotlight_in_stream
                          strip_exif email remove_after export exporting
-                         exported_photos_file exporting_photos)
+                         exported_photos_file exporting_photos import)
   end
 end
