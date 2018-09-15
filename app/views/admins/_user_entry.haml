@@ -42,6 +42,24 @@
               %span.label.label-warning= t(".yes")
             - else
               %span.label.label-success= t(".no")
+          %dt= t(".admin")
+          %dd
+            - if user.admin?
+              %span.label.label-success= t(".yes")
+            - else
+              %span.label.label-warning= t(".no")
+          %dt= t(".moderator")
+          %dd
+            - if user.moderator_only?
+              %span.label.label-success= t(".yes")
+            - else
+              %span.label.label-warning= t(".no")
+          %dt= t(".spotlight")
+          %dd
+            - if user.spotlight?
+              %span.label.label-success= t(".yes")
+            - else
+              %span.label.label-warning= t(".no")
 
         %h4= t("layouts.header.profile")
 
@@ -79,3 +97,33 @@
               method: :post,
               data: {confirm: t("admins.user_search.are_you_sure_lock_account")},
               class: "btn btn-danger btn-block"
+          - if Role.is_admin?(user.person)
+            = link_to t("admins.user_search.remove_admin"),
+              admin_remove_admin_path(user),
+              method: :post,
+              class: "btn btn-danger btn-block"
+          - else
+            = link_to t("admins.user_search.make_admin"),
+              admin_make_admin_path(user),
+              method: :post,
+              class: "btn btn-info btn-block"
+          - if Role.moderator_only?(user.person)
+            = link_to t("admins.user_search.remove_moderator"),
+              admin_remove_moderator_path(user),
+              method: :post,
+              class: "btn btn-danger btn-block"
+          - else
+            = link_to t("admins.user_search.make_moderator"),
+              admin_make_moderator_path(user),
+              method: :post,
+              class: "btn btn-info btn-block"
+          - if Role.spotlight?(user.person)
+            = link_to t("admins.user_search.remove_spotlight"),
+              admin_remove_spotlight_path(user),
+              method: :post,
+              class: "btn btn-danger btn-block"
+          - else
+            = link_to t("admins.user_search.make_spotlight"),
+              admin_make_spotlight_path(user),
+              method: :post,
+              class: "btn btn-info btn-block"

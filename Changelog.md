@@ -6,6 +6,8 @@
 
 ## Features
 
+* Add the ability to assign roles in the admin panel [#7868](https://github.com/diaspora/diaspora/pull/7868)
+
 # 0.7.7.0
 
 ## Refactor
