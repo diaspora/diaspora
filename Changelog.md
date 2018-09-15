@@ -1,6 +1,7 @@
 # 0.7.7.0
 
 ## Refactor
+* Remove mention of deprecated `statistic.json` [#7867](https://github.com/diaspora/diaspora/pull/7867)
 
 ## Bug fixes
 * Add compatibility with macOS to `script/configure_bundler` [#7830](https://github.com/diaspora/diaspora/pull/7830)
