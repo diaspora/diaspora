@@ -32,6 +32,23 @@ describe Diaspora::Camo do
     it 'should rewrite external URLs' do
       expect(Diaspora::Camo.image_url(@raw_image_url)).to eq(@camo_image_url)
     end
+
+    context "URL encoding" do
+      let(:camo_image_url) {
+        AppConfig.privacy.camo.root +
+          "bbafe590034b976852f9a46dbcc7709e1a8e7dfb/68747470733a2f2f6578616d706c652e636f6d2f2543332541312543332541392" \
+          "543332542333f666f6f3d254333254134254333254243254333254236266261723d61254343253830"
+      }
+
+      it "should encode URLs before sending to camo" do
+        expect(Diaspora::Camo.image_url("https://example.com/áéó?foo=äüö&bar=à")).to eq(camo_image_url)
+      end
+
+      it "should not double encode already encoded URLs" do
+        expect(Diaspora::Camo.image_url("https://example.com/%C3%A1%C3%A9%C3%B3?foo=%C3%A4%C3%BC%C3%B6&bar=a%CC%80"))
+          .to eq(camo_image_url)
+      end
+    end
   end
 
   describe '#from_markdown' do
