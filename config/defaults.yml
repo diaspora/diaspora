@@ -153,12 +153,6 @@ defaults:
       report_only: false
       report_uri:
   services:
-    facebook:
-      enable: false
-      app_id:
-      secret:
-      open_graph_namespace: 'joindiaspora'
-      authorized: false
     twitter:
       enable: false
       key:
@@ -234,11 +228,10 @@ test:
     invitations:
       open: true
   services:
-    facebook:
+    twitter:
       enable: true
-      app_id: 'fake'
+      key: 'fake'
       secret: 'sdoigjosdfijg'
-      authorized: true
   mail:
     enable: true
 integration1:
