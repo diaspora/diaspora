@@ -1,9 +1,9 @@
 postgresql: &postgresql
   adapter: postgresql
-  host: localhost
+  host: "localhost"
   port: 5432
-  username: postgres
-  password:
+  username: "postgres"
+  password: ""
   encoding: unicode
 
 mysql: &mysql
