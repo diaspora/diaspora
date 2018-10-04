@@ -203,7 +203,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "1.2.1", require: "zip"
+gem "rubyzip", "1.2.2", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
