@@ -618,7 +618,7 @@ GEM
     ruby-oembed (0.12.0)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
-    rubyzip (1.2.1)
+    rubyzip (1.2.2)
     rufus-scheduler (3.4.2)
       et-orbi (~> 1.0)
     rugged (0.27.0)
@@ -872,7 +872,7 @@ DEPENDENCIES
   rspec-rails (= 3.7.2)
   rubocop (= 0.54.0)
   ruby-oembed (= 0.12.0)
-  rubyzip (= 1.2.1)
+  rubyzip (= 1.2.2)
   sass-rails (= 5.0.7)
   secure_headers (= 5.0.5)
   shoulda-matchers (= 3.1.2)
@@ -900,4 +900,4 @@ DEPENDENCIES
   will_paginate (= 3.1.6)
 
 BUNDLED WITH
-   1.16.4
+   1.16.5
