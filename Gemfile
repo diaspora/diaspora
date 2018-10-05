@@ -140,7 +140,7 @@ gem "leaflet-rails",       "1.3.1"
 
 # Parsing
 
-gem "nokogiri",          "1.8.2"
+gem "nokogiri",          "1.8.5"
 gem "open_graph_reader", "0.6.2" # also update User-Agent in features/support/webmock.rb
 gem "redcarpet",         "3.4.0"
 gem "ruby-oembed",       "0.12.0"
