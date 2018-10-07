@@ -10,6 +10,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       format.json { head :no_content }
+      format.any { redirect_back fallback_location: root_path }
     end
   end
 

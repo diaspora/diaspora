@@ -6,6 +6,7 @@
 ## Bug fixes
 
 ## Features
+* Suppoert ignore users on mobile [#7884](https://github.com/diaspora/diaspora/pull/7884)
 
 # 0.7.8.0
 

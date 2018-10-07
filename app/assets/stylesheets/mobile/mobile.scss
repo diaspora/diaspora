@@ -350,6 +350,7 @@ footer {
   }
 
   .bottom-bar {
+    margin: 0;
     position: static;
   }
 }
@@ -692,6 +693,21 @@ select#aspect_ids_ {
   padding: 3px 12px;
   cursor: pointer;
   .entypo-camera { margin-right: 0; }
+}
+
+.mobile-icon-bar {
+  background: $framed-background;
+  border-top: 1px solid $border-grey;
+  display: block;
+  padding: 1px 6px;
+  position: relative;
+}
+
+.mobile-icon-bar-button {
+  color: $text-grey;
+  float: right;
+  font-size: large;
+  padding: 0;
 }
 
 #publisher-textarea-wrapper {

@@ -20,6 +20,7 @@ en:
   email: "Email"
   are_you_sure: "Are you sure?"
   are_you_sure_delete_account: "Are you sure you want to close your account? This can’t be undone!"
+  are_you_sure_ignore_user: "You are going to ignore that user. Are you sure?"
   fill_me_out: "Fill me out"
   public: "Public"
   limited: "Limited"
