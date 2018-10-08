@@ -14,10 +14,6 @@
         %h3
           = t(".who_are_you")
 
-        - if AppConfig.configured_services.include? :facebook
-          %p
-            != t('.connect_to_facebook', link: link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
-
         = form_tag profile_path, method: :put, remote: true, id: 'edit_profile' do
           %fieldset
             .form-group

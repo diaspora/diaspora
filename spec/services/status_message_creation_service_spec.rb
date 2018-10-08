@@ -169,8 +169,8 @@ describe StatusMessageCreationService do
       it "dispatches the StatusMessage to services" do
         expect(alice).to receive(:dispatch_post)
           .with(instance_of(StatusMessage),
-                hash_including(service_types: array_including(%w(Services::Facebook Services::Twitter))))
-        StatusMessageCreationService.new(alice).create(params.merge(services: %w(twitter facebook)))
+                hash_including(service_types: array_including(%w[Services::Tumblr Services::Twitter])))
+        StatusMessageCreationService.new(alice).create(params.merge(services: %w[twitter tumblr]))
       end
 
       context "with mention" do
