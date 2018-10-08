@@ -5,8 +5,9 @@ Diaspora.PostPhotoUploader = class {
    * Initializes a new instance of PostPhotoUploader
    * This class handles uploading photos and provides client side scaling
    */
-  constructor(el, aspectIds) {
+  constructor(el, dropZoneElementIds, aspectIds) {
     this.element = el;
+    this.dropZoneElementIds = dropZoneElementIds;
     this.sizeLimit = 4194304;
     this.aspectIds = aspectIds;
 
@@ -53,6 +54,10 @@ Diaspora.PostPhotoUploader = class {
           /* eslint-enable camelcase */
         }
       },
+      paste: {
+        targetElement: document.getElementById("status_message_text"),
+        promptForName: true
+      },
       validation: {
         allowedExtensions: ["jpg", "jpeg", "png", "gif"],
         sizeLimit: (window.Promise && qq.supportedFeatures.scaling ? null : this.sizeLimit)
@@ -71,6 +76,18 @@ Diaspora.PostPhotoUploader = class {
         onError: (id, name, errorReason) => this.showMessage("error", errorReason)
       }
     });
+
+    if (this.dropZoneElementIds instanceof Array) {
+      var dropZoneElements = this.dropZoneElementIds.map(id => document.getElementById(id)).filter(el => el);
+      if (dropZoneElements.length > 0) {
+        this.dragAndDropModule = new qq.DragAndDrop({
+          dropZoneElements: dropZoneElements,
+          callbacks: {
+            processingDroppedFilesComplete: (files) => this.fineUploader.addFiles(files)
+          }
+        });
+      }
+    }
   }
 
   /**
