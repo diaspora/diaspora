@@ -29,8 +29,8 @@ describe StreamsController, :type => :controller do
       end
 
       it 'generates a jasmine fixture with services', :fixture => true do
-        alice.services << Services::Facebook.create(:user_id => alice.id)
-        alice.services << Services::Twitter.create(:user_id => alice.id)
+        alice.services << Services::Twitter.create(user_id: alice.id)
+        alice.services << Services::Tumblr.create(user_id: alice.id)
         get :aspects, params: {prefill: "reshare things"}
         save_fixture(html_for("body"), "aspects_index_services")
       end
