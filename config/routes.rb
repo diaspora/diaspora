@@ -149,6 +149,12 @@ Rails.application.routes.draw do
     post 'users/:id/close_account' => 'users#close_account', :as => 'close_account'
     post 'users/:id/lock_account' => 'users#lock_account', :as => 'lock_account'
     post 'users/:id/unlock_account' => 'users#unlock_account', :as => 'unlock_account'
+    post 'users/:id/make_admin' => 'users#make_admin', :as => 'make_admin'
+    post 'users/:id/remove_admin' => 'users#remove_admin', :as => 'remove_admin'
+    post 'users/:id/make_moderator' => 'users#make_moderator', :as => 'make_moderator'
+    post 'users/:id/remove_moderator' => 'users#remove_moderator', :as => 'remove_moderator'
+    post 'users/:id/make_spotlight' => 'users#make_spotlight', :as => 'make_spotlight'
+    post 'users/:id/remove_spotlight' => 'users#remove_spotlight', :as => 'remove_spotlight'
   end
 
   resource :profile, :only => [:edit, :update]
