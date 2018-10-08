@@ -413,8 +413,6 @@ GEM
     omniauth (1.8.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
-    omniauth-facebook (4.0.0)
-      omniauth-oauth2 (~> 1.2)
     omniauth-oauth (1.1.0)
       oauth
       omniauth (~> 1.0)
@@ -832,7 +830,6 @@ DEPENDENCIES
   mysql2 (= 0.5.0)
   nokogiri (= 1.8.2)
   omniauth (= 1.8.1)
-  omniauth-facebook (= 4.0.0)
   omniauth-tumblr (= 1.2)
   omniauth-twitter (= 1.4.0)
   omniauth-wordpress (= 0.2.2)

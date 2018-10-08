@@ -5,12 +5,14 @@
 #   the COPYRIGHT file.
 
 describe ServicesController, :type => :controller do
-  let(:omniauth_auth) do
-    { 'provider' => 'facebook',
-      'uid'      => '2',
-      'info'   => { 'nickname' => 'grimmin', 'image' => 'http://graph.facebook.com/2/picture' },
-      'credentials' => { 'token' => 'tokin', 'secret' =>"not_so_much" }}
-    end
+  let(:omniauth_auth) {
+    {
+      "provider"    => "tumblr",
+      "uid"         => "2",
+      "info"        => {"nickname" => "grimmin"},
+      "credentials" => {"token" => "token", "secret" => "not_so_much"}
+    }
+  }
   let(:user) { alice }
 
   before do
@@ -37,22 +39,13 @@ describe ServicesController, :type => :controller do
 
     it 'creates a new service and associates it with the current user' do
       expect {
-        post :create, params: {provider: "facebook"}
+        post :create, params: {provider: "twitter"}
       }.to change(user.services, :count).by(1)
     end
 
     it 'saves the provider' do
-      post :create, params: {provider: "facebook"}
-      expect(user.reload.services.first.class.name).to eq("Services::Facebook")
-    end
-
-    context "when the user hasn't got a profile photo on Diaspora" do
-      before { user.person.profile.update_attribute :image_url, nil }
-
-      it "imports the profile photo from the service" do
-        expect(Workers::FetchProfilePhoto).to receive(:perform_async)
-        post :create, params: {provider: "facebook"}
-      end
+      post :create, params: {provider: "twitter"}
+      expect(user.reload.services.first.class.name).to eq("Services::Tumblr")
     end
 
     context 'when service exists with the same uid' do
@@ -97,23 +90,10 @@ describe ServicesController, :type => :controller do
       end
     end
 
-    context 'Facebook' do
-      before do
-        facebook_auth_without_twitter_extras = { 'provider' => 'facebook', 'extras' => { 'someotherkey' => 'lorem'}}
-        request.env['omniauth.auth'] = omniauth_auth.merge!( facebook_auth_without_twitter_extras )
-      end
-
-      it "doesn't break when twitter-specific extras aren't available in omniauth hash" do
-        expect {
-          post :create, params: {provider: "facebook"}
-        }.to change(user.services, :count).by(1)
-      end
-    end
-
     context 'when fetching a photo' do
       before do
         omniauth_auth
-        omniauth_auth["info"].merge!({"image" => "https://service.com/fallback_lowres.jpg"})
+        omniauth_auth["info"]["image"] = "https://service.com/fallback_lowres.jpg"
 
         request.env['omniauth.auth'] = omniauth_auth
       end

@@ -16,8 +16,8 @@ describe("app.models.User", function(){
 
   describe("isServiceConnected", function(){
     it("checks to see if the sent provider name is a configured service", function(){
-      this.user.set({configured_services : ["facebook"]});
-      expect(this.user.isServiceConfigured("facebook")).toBeTruthy();
+      this.user.set({configured_services: ["twitter"]}); // eslint-disable-line camelcase
+      expect(this.user.isServiceConfigured("twitter")).toBeTruthy();
       expect(this.user.isServiceConfigured("tumblr")).toBeFalsy();
     });
   });
