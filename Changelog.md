@@ -5,6 +5,7 @@
 * Improve `web+diaspora://` handler description [#7909](https://github.com/diaspora/diaspora/pull/7909)
 * Move comment timestamp next to author name [#7905](https://github.com/diaspora/diaspora/pull/7905)
 * Sharpen small and medium thumbnails [#7924](https://github.com/diaspora/diaspora/pull/7924)
+* Show full-res image in Desktop's full-screen image view [#7890](https://github.com/diaspora/diaspora/pull/7890)
 
 ## Bug fixes
 * Ignore invalid URLs for camo [#7922](https://github.com/diaspora/diaspora/pull/7922)
