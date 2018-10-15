@@ -200,7 +200,7 @@ es:
       stay_updated: "Mantente actualizado"
       stay_updated_explanation: "Tu página principal la forman todos tus contactos, las etiquetas que sigues, y si lo deseas, las publicaciones de diferentes miembros creativos de la comunidad."
     destroy:
-      failure: "%{name} no pudo ser borrado."
+      failure: "%{name} no pudo ser eliminado."
       success: "%{name} fue eliminado con éxito."
       success_auto_follow_back: "Se borró correctamente %{name}. Este aspecto se usaba para seguir automáticamente a los usuarios, revisa tu configuración para seleccionar un nuevo aspecto de autoseguimiento."
     edit:
@@ -1190,6 +1190,8 @@ es:
       mentioned: "te mencionan en una publicación"
       new_password: "Nueva contraseña"
       private_message: "has recibido un mensaje privado"
+      protocol_handler:
+        register: "Registro"
       receive_email_notifications: "Recibir notificaciones por correo cuando..."
       request_export: "Solicitar los datos de mi perfil"
       request_export_photos: "Solicitar mis fotografías"

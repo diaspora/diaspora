@@ -1208,6 +1208,9 @@ oc:
       mentioned_in_comment: "qualqu'un vos a mencionat dins un comentari"
       new_password: "Senhal novèl"
       private_message: "avètz recebut un messatge privat."
+      protocol_handler:
+        register: "Enregistrar"
+        title: "Gestionari de protocòl web+diaspora://"
       receive_email_notifications: "Recebre una notificacion per corrièl quand :"
       request_export: "Demandar mas donadas de perfil"
       request_export_photos: "Demandar mas fòtos"

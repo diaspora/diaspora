@@ -37,6 +37,8 @@ hye:
         accept_at: "%{url} հասցեով, որը կարող ես հաստատել ստորև բերված հղման միջոցով։"
         has_invited_you: "%{name}"
         have_invited_you: "%{names} հրավիրել է քեզ՝ միանալու դիասպորա*յին"
+      password_change:
+        subject: "Գաղտնաբառդ փոխվեց"
       reset_password_instructions:
         change: "Փոխել գաղտնաբառը"
         ignore: "Եթե չես ուղարկել այս հարցումը, ապա պարզապես անտեսիր այս նամակը։"
