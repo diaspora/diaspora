@@ -1,0 +1,234 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+la:
+  _applications: "Applicātiōnēs"
+  _contacts: "Sociī"
+  _services: "Facultātēs"
+  account: "Computus"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "necesse est monodica esse inter cīvis sociōs."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "iam est sēpositum."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Hui, euge? iam eandem epistulam impertīverās!"
+        user:
+          attributes:
+            email:
+              taken: "iam est sēposita."
+            person:
+              invalid: "nōn est cōnvalida."
+            username:
+              invalid: "nōn est cōnvalidum. sōlum licet pōnere litteram, numerum, et sublinamenta."
+              taken: "iam est sēpositum."
+  admins:
+    admin_bar:
+      pages: "Pāginae"
+    stats:
+      posts:
+        one: "unam epistulam"
+        other: "%{count} epistulae"
+        zero: "nulla epistulam"
+  all_aspects: "Tōtae faciēs"
+  are_you_sure: "Esne certē?"
+  are_you_sure_delete_account: "Esne certē tē velle computum dēlēre? Nōn est labor dēmūtābilis!"
+  aspects:
+    add_to_aspect:
+      success: "Vērē faciē socium additum est."
+    aspect_listings:
+      add_an_aspect: "adde faciem"
+    destroy:
+      success: "Vērē %{name} demptum est."
+    edit:
+      aspect_list_is_not_visible: "Sociī in faciem nōn possunt inter sē vidērī."
+      aspect_list_is_visible: "Sociī in faciem possunt inter sē vidērī."
+      confirm_remove_aspect: "Esne certē tē velle faciem delēre?"
+      rename: "Trānsnōminā"
+      update: "Corrige"
+      updating: "Corrigere"
+    index:
+      donate: "Dā stipem"
+      help:
+        do_you: "Facisne:"
+        find_a_bug: "... invenīre %{link}?"
+        have_a_question: "... tenēre %{link}"
+        here_to_help: "Cīvitās diasporae adest!"
+        need_help: "Necessene tibi est iuvārī?"
+        tag_bug: "culex"
+        tag_question: "quaesitum"
+      introduce_yourself: "Flūmen tibi est. Insalī atque tē trāde."
+      new_here:
+        follow: "Sequere %{link} et iubē novōs Diasporae cīvēs salvēre!"
+        learn_more: "Cognoscē plūs"
+        title: "Salvēte novi/ae cīvēs!"
+      welcome_to_diaspora: "Salvē Diasporae, %{name}!"
+    no_contacts_message:
+      community_spotlight: "cīvitātis celebritās"
+      or_spotlight: "Aut potes impertīre cum %{link}"
+      try_adding_some_more_contacts: "Sociōs plūrēs %{invite_link} aut potes quaerere."
+      you_should_add_some_more_contacts: "Sociōs plūrēs cōnscrībere dēbēs!"
+    seed:
+      acquaintances: "Hospitēs"
+      family: "Familia"
+      friends: "Amicī"
+      work: "Negōtium"
+  bookmarklet:
+    post_something: "Dīvulgā ad diasporam"
+  cancel: "Abrogātā"
+  contacts:
+    index:
+      all_contacts: "Sociī tōtī"
+      community_spotlight: "Cīvitātis celebritās"
+      my_contacts: "Sociī meī"
+      only_sharing_with_me: "Solus mēcum impertiēns."
+      title: "Sociī"
+    spotlight:
+      community_spotlight: "Cīvitātis celebritās"
+  conversations:
+    create:
+      fail: "Nūntius convalidus"
+      sent: "Nūntius missus est"
+    index:
+      inbox: "Scrīnium"
+      no_messages: "nullus nūntius"
+    new:
+      send: "Mitte"
+      sending: "Mittēre..."
+      subject: "Subiectum"
+      to: "Ad"
+    show:
+      delete: "Abrōgā sermōnem"
+      reply: "Respondē"
+      replying: "Respondēre..."
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
+  delete: "Rāde"
+  email: "Īnscrīptiō ēlectronica"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Corrige errōrēs sequēntēs et recōnāre."
+  fill_me_out: "Complē"
+  find_people: "Quaere persōnae aut #mīcae"
+  help:
+    irc: "IRC"
+  invitations:
+    new:
+      language: "Lingua"
+  layouts:
+    application:
+      public_feed: "Vestīgia Diasporae publica dē %{name}"
+      whats_new: "Quid novī?"
+    header:
+      logout: "Exī"
+      profile: "Prōfīlum"
+      settings: "Parametra"
+  limited: "Nōn pūblica"
+  more: "Plūs"
+  no_results: "Nihil inventum"
+  notifications:
+    index:
+      and: "et"
+  notifier:
+    a_post_you_shared: "epistulam."
+    hello: "Salvē %{name}!"
+    liked:
+      view_post: "Epistulam vidē >"
+    reshared:
+      view_post: "Epistulam vidē >"
+    started_sharing:
+      view_profile: "prōfīlum dē %{name} vidē"
+    thanks: "Grātiās,"
+  nsfw: "NSFW (negōtiātiōne imprūdēns)"
+  ok: "Sīc"
+  people:
+    person:
+      thats_you: "Est tū!"
+  photos:
+    destroy:
+      notice: "imāgō rāsa est."
+  posts:
+    show:
+      photos_by:
+        one: "Una imāgō apud %{author}"
+        other: "%{count} imāginēs apud %{author}"
+        zero: "Imāgō nulla apud %{author}"
+  privacy: "Arcāna"
+  profile: "Prōfīlum"
+  profiles:
+    edit:
+      update_profile: "Corrige prōfīlum"
+      your_gender: "Genus"
+      your_location: "Locātrum"
+      your_name: "Nōmen tibi"
+      your_photo: "Imāgō"
+    update:
+      updated: "Prōfīlum corrēctum"
+  public: "Pūblica"
+  registrations:
+    create:
+      success: "Diasporam coniūnxerās!"
+    new:
+      password: "Tessera"
+  search: "Quaere"
+  settings: "Parametra"
+  shared:
+    aspect_dropdown:
+      toggle:
+        one: "In %{count} faciē"
+        other: "In %{count} faciēbus"
+    public_explain:
+      share: "Impertī"
+    publisher:
+      new_user_prefill:
+        hello: "Salvēte, mihi nōmen est %{new_user_tag}. "
+        newhere: "nova/novus"
+      posting: "Dīvulgāre..."
+      share: "Impertī"
+      whats_on_your_mind: "Quid tibi in animō est?"
+  streams:
+    aspects:
+      title: "Faciēs meae"
+    aspects_stream: "Faciēs"
+    community_spotlight_stream: "Cīvitātis celebritās"
+    followed_tag:
+      follow: "Sequere"
+    followed_tags_stream: "#Signa sequenda"
+    mentioned_stream: "@Fāmae"
+    mentions:
+      title: "@Fāmae"
+  tags:
+    show:
+      follow: "Sequere #%{tag}"
+  username: "Nōmen ūtēns"
+  users:
+    edit:
+      change: "Mūtā"
+      change_email: "Mūtā īnscrīptiōnem ēlectronicam"
+      change_language: "Mūtā linguam"
+      change_password: "Mūtā tesseram"
+      close_account_text: "Dīmittere dē Diasporā (abrogāre computum)"
+      current_password: "Tessera praesēns"
+      new_password: "Tessera nova"
+      your_email: "īnscrīptiō ēlectronica tua"
+    getting_started:
+      what_are_you_in_to: "Quid tibi placet?"
+      who_are_you: "Quis es?"
+    privacy_settings:
+      title: "Parametra arcānae"
+    update:
+      language_changed: "Lingua mūta est"

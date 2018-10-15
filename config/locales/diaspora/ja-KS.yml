@@ -83,6 +83,7 @@ ja-KS:
     messages:
       content_type_blacklist_error: "あなたは%{content_type}ファイルをアップロードしちゃアカン"
       content_type_whitelist_error: "あなたは%{content_type}ファイルをアップロードしちゃアカン"
+  fill_me_out: "記入してみな"
   help:
     sharing:
       title: "わけわけ"

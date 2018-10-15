@@ -1241,6 +1241,10 @@ pl:
       mentioned_in_comment: "ktoś wspomni o mnie w komentarzu"
       new_password: "Nowe hasło"
       private_message: "otrzymam prywatną wiadomość"
+      protocol_handler:
+        description: "Po wciśnięciu tego przycisku, przeglądarka poprosi cię o zezwolenie nam na otwieranie adresów rozpoczynających się od web+diaspora:// za pomocą twojego podu. Jest to funkcja eksperymentalna i jej obsługa zależy od twojej przeglądarki."
+        register: "Zarejestruj"
+        title: "Handler protokołu web+diaspora://"
       receive_email_notifications: "Wysyłaj powiadomienia e-mail gdy:"
       request_export: "Proszę o dane mojego profilu"
       request_export_photos: "Proszę o moje zdjęcia"

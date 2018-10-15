@@ -339,9 +339,17 @@ ja:
     need_javascript: "このウェブサイトは正常に機能するためにJavaScriptが必要です。 JavaScriptを無効にした場合は、有効にしてこのページを更新してください。"
   errors:
     messages:
+      carrierwave_download_error: "ダウンロード出来ませんでした"
+      carrierwave_integrity_error: "は許可されたファイルタイプではありません。"
       carrierwave_processing_error: "処理に失敗しました"
       content_type_blacklist_error: "あなたは%{content_type}ファイルをアップロードしてはいけません"
       content_type_whitelist_error: "あなたは%{content_type}ファイルをアップロードしてはいけません"
+      extension_blacklist_error: "%{extension} などのファイルはアップロードが許可されていません。 禁止されている種類: %{prohibited_types}"
+      extension_whitelist_error: "%{extension}などのファイルはアップロードが許可されていません。 許可されている種類: %{allowed_types}"
+      max_size_error: "ファイルの最大サイズは「%{max_size}」です。"
+      min_size_error: "ファイルの最小サイズは「%%{min_size}」です。"
+      mini_magick_processing_error: "MiniMagickでの操作に失敗しました。画像ではないかもしれません。元のエラー: %{e}"
+      rmagick_processing_error: "rmagickでの操作に失敗しました。画像ではないかもしれません。"
   fill_me_out: "記入してください"
   find_people: "人や #タグ を探す"
   help:
@@ -957,7 +965,7 @@ ja:
     comment_label: "<b>コメント</b>:<br>%{data}"
     confirm_deletion: "項目を削除してもよろしいですか？"
     delete_link: "項目を削除"
-    not_found: "<u>投稿/コメントは見つかりませんでした。ユーザーによって削除されたようです！</u>"
+    not_found: "投稿/コメントは見つかりませんでした。ユーザーによって削除されたようです！"
     post_label: "<b>投稿</b>: %{title}"
     reason_label: "理由:"
     reported_label: "<b>報告者</b> %{person}"
@@ -1069,6 +1077,7 @@ ja:
     total_users: "合計ユーザー数"
     version: "バージョン"
   status_messages:
+    bad_aspects: "提供されたアスペクトIDは適用されません (存在しないか所持していない)"
     new:
       mentioning: "%{person}さんのメンション"
     too_long: |-
@@ -1170,6 +1179,10 @@ ja:
       mentioned_in_comment: "コメントでメンションされました"
       new_password: "新しいパスワード"
       private_message: "非公開メッセージが届いたとき"
+      protocol_handler:
+        description: "このボタンをクリックすると、ブラウザに、ホームポッドに web+diaspora:// URLを開くことができるハンドラをインストールするように要求されます。これは現在実験中で、対応はブラウザによって異なります。"
+        register: "登録"
+        title: "web+diaspora:// プロトコルハンドラ"
       receive_email_notifications: "通知メールの送信設定"
       request_export: "マイ プロフィールのデータをリクエスト"
       request_export_photos: "写真をリクエスト"
