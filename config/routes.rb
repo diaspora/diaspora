@@ -205,6 +205,7 @@ Rails.application.routes.draw do
 
   # Help
   get 'help' => 'help#faq', :as => 'help'
+  get "help/registration_closed" => "help#registration_closed", :as => "registration_closed"
   get 'help/:topic' => 'help#faq'
 
   #Protocol Url

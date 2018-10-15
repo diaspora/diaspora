@@ -25,16 +25,14 @@ describe RegistrationsController, type: :controller do
       AppConfig.settings.enable_registrations = false
     end
 
-    it "redirects #new to the login page" do
+    it "redirects #new to the registration closed page" do
       get :new
-      expect(flash[:error]).to eq(I18n.t("registrations.closed"))
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to registration_closed_path
     end
 
-    it "redirects #create to the login page" do
+    it "redirects #create to the registration closed page" do
       post :create, params: valid_params
-      expect(flash[:error]).to eq(I18n.t("registrations.closed"))
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to registration_closed_path
     end
 
     it "does not redirect if there is a valid invite token" do
