@@ -106,3 +106,26 @@ ul#help_nav {
     }
   }
 }
+
+.ball{
+    background: image-url('branding/ball.png') no-repeat;
+    background-size: contain;
+    height: 633px;
+    max-width: 100%;
+}
+
+.v-center {
+    display: table;
+    height: 633px;
+  }
+
+.content {
+  display: table-cell;
+  vertical-align: middle;
+
+  h2 {
+    font-size: 35px;
+    margin: 12px;
+    text-align: left;
+  }
+}
