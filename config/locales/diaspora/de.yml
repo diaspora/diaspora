@@ -344,6 +344,19 @@ de:
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
     need_javascript: "Diese Webseite benötigt Javascript, um richtig zu funktionieren. Falls du Javascript deaktiviert haben solltest, bitte aktiviere es und aktualisiere diese Seite."
+  errors:
+    messages:
+      carrierwave_download_error: "konnte nicht heruntergeladen werden"
+      carrierwave_integrity_error: "ist kein zugelassener Dateityp"
+      carrierwave_processing_error: "Verarbeitung fehlgeschlagen"
+      content_type_blacklist_error: "du kannst Dateien vom Typ %{content_type}  nicht hochladen"
+      content_type_whitelist_error: "du kannst Dateien vom Typ %{content_type}  nicht hochladen"
+      extension_blacklist_error: "du kannst Dateien vom typ %{extension} nicht hochladen, verbotene Dateitypen sind: %{prohibited_types}"
+      extension_whitelist_error: "du kannst Dateien vom typ %{extension} nicht hochladen, zulässige Dateitypen sind: %{allowed_types}"
+      max_size_error: "Dateigröße sollte weniger als %{max_size} sein"
+      min_size_error: "Dateigröße sollte mehr als %{min_size}  sein"
+      mini_magick_processing_error: "konnte nicht mit MiniMagick bearbeitet werden, vielleicht ist es kein Bild Originalfehlermeldung: %{e}"
+      rmagick_processing_error: "konnte nicht mit magick bearbeitet werden, vielleicht ist es kein Bild?"
   fill_me_out: "Füll’ mich aus"
   find_people: "Leute oder #Tags finden"
   help:
@@ -1109,6 +1122,7 @@ de:
     total_users: "Gesamtzahl Benutzer"
     version: "Version"
   status_messages:
+    bad_aspects: "Die bereitgestellten Aspekt-IDs sind nicht gültig (existieren nicht oder gehören dir nicht)"
     new:
       mentioning: "Erwähnt: %{person}"
     too_long: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen. Im Moment enthält er %{current_length} Zeichen"
@@ -1209,6 +1223,9 @@ de:
       mentioned_in_comment: "du in einem Kommentar erwähnt wirst"
       new_password: "Neues Kennwort"
       private_message: "du eine private Nachricht erhältst"
+      protocol_handler:
+        register: "Registrieren"
+        title: "web+diaspora:// protocol handler"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
       request_export: "Meine Profildaten anfordern"
       request_export_photos: "Meine Fotos anfragen"

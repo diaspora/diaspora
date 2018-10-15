@@ -58,6 +58,7 @@ sv:
       fetching_diaspora_version: "Listar ut senaste versionen av Diaspora*..."
       pod_status: "Podstatus"
     pods:
+      pod_desktop_link: "skrivbordsvy"
       pod_network: "Podnätverk"
     stats:
       2weeks: "Två veckor"
@@ -229,6 +230,8 @@ sv:
         here_to_help: "Diasporagemenskapen finns här!"
         mail_podmin: "Podadministratörens e-post"
         need_help: "Behöver du hjälp?"
+        support_forum: "Du kan också ansluta till %{support_forum}"
+        support_forum_link: "hjälp-forumet"
         tag_bug: "bugg"
         tag_feature: "funktionalitet"
         tag_question: "fråga"
@@ -270,6 +273,11 @@ sv:
     heading: "Bookmarklet"
     post_something: "Dela på Diaspora*"
   cancel: "Avbryt"
+  color_themes:
+    dark: "Mörk"
+    dark_green: "Mörkgrön"
+    egyptian_blue: "Egyptisk blå"
+    original: "Originalgrå"
   comments:
     create:
       error: "Lyckades inte kommentera."
@@ -333,6 +341,10 @@ sv:
     helper:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
     need_javascript: "Denna webbplats behöver JavaScript för att fungera ordentligt. Har du inaktiverat JavaScript, får du vara så snäll att aktivera det och ladda om sidan."
+  errors:
+    messages:
+      carrierwave_download_error: "kunde inte laddas ner"
+      carrierwave_integrity_error: "är inte av en giltig filtyp"
   fill_me_out: "Fyll i mig"
   find_people: "Hitta personer eller #taggar"
   help:
@@ -471,6 +483,10 @@ sv:
       title: "Privata inlägg"
       who_sees_post_a: "Bara personer som är inloggade på Diaspora*, och som du har i en aspekt, kan se dessa privata inlägg."
       who_sees_post_q: "Vem kan se mitt inlägg till en aspekt, alltså ett privat inlägg?"
+    profile:
+      title: "Profil"
+      whats_in_profile_q: "Vad finns i min profil?"
+      who_sees_profile_q: "Vem ser min profil?"
     public_posts:
       can_comment_reshare_like_a: "Bara de som är inloggade på Diaspora* kan kommentera, dela vidare och gilla dina offentliga inlägg."
       can_comment_reshare_like_q: "Vilka kan kommentera, dela och gilla mina publika inlägg?"
@@ -627,6 +643,7 @@ sv:
         two: "och två till"
         zero: "och ingen mer"
       comment_on_post: "Kommentera ett inlägg"
+      contacts_birthday: "Födelsedag"
       liked: "Gillad"
       mark_all_as_read: "Markera alla som lästa"
       mark_all_shown_as_read: "Märk allt som läst"
@@ -684,6 +701,9 @@ sv:
     confirm_email:
       click_link: "För att aktivera din nya e-postadress %{unconfirmed_email}, klicka här:"
       subject: "Var vänlig och aktivera din nya e-postadress %{unconfirmed_email}"
+    contacts_birthday:
+      subject: "%{name} har sin födelsedag idag"
+      view_profile: "Visa %{name}'s profil"
     csrf_token_fail:
       body: |-
           Hej, %{name}.
@@ -1059,6 +1079,8 @@ sv:
   streams:
     activity:
       title: "Min aktivitet"
+    admin:
+      title: "Administratör"
     aspects:
       all: "Alla aspekter"
       title: "Mina aspekter"
@@ -1114,6 +1136,7 @@ sv:
       also_commented: "någon kommenterar ett inlägg som du redan kommenterat"
       auto_follow_aspect: "Aspekt för de användare som följts automatiskt:"
       auto_follow_back: "Följ automatiskt dem som börjar följa dig"
+      birthday: "någon har sin födelsedag"
       change: "Ändra"
       change_color_theme: "Byt färgtema"
       change_email: "Ändra e-postadress"
@@ -1141,6 +1164,7 @@ sv:
       export_in_progress: "Just nu behandlar vi din data. Kom tillbaka om ett slag."
       export_photos_in_progress: "Vi behandlar just nu dina bilder. Kom tillbaka om en stund."
       following: "Delningsinställningar"
+      last_exported_html: "(Uppdaterades senast %{timeago})"
       liked: "någon gillar dina inlägg"
       mentioned: "du nämns i ett inlägg."
       new_password: "Nytt lösenord"

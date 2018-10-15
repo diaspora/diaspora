@@ -15,8 +15,8 @@ gem "unicorn-worker-killer", "0.4.4"
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.4"
-gem "diaspora_federation-rails", "0.2.4"
+gem "diaspora_federation-json_schema", "0.2.5"
+gem "diaspora_federation-rails", "0.2.5"
 
 # API and JSON
 
@@ -140,7 +140,7 @@ gem "leaflet-rails",       "1.3.1"
 
 # Parsing
 
-gem "nokogiri",          "1.8.2"
+gem "nokogiri",          "1.8.5"
 gem "open_graph_reader", "0.6.2" # also update User-Agent in features/support/webmock.rb
 gem "redcarpet",         "3.4.0"
 gem "ruby-oembed",       "0.12.0"
@@ -157,14 +157,13 @@ gem "secure_headers", "5.0.5"
 # Services
 
 gem "omniauth",           "1.8.1"
-gem "omniauth-facebook",  "4.0.0"
 gem "omniauth-tumblr",    "1.2"
 gem "omniauth-twitter",   "1.4.0"
 gem "omniauth-wordpress", "0.2.2"
 gem "twitter",            "6.2.0"
 
 # OpenID Connect
-gem "openid_connect", "1.1.5"
+gem "openid_connect", "1.1.6"
 
 # Serializers
 
@@ -200,7 +199,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "1.2.1", require: "zip"
+gem "rubyzip", "1.2.2", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -275,7 +274,7 @@ end
 group :test do
   # RSpec (unit tests, some integration tests)
 
-  gem "fixture_builder",   "0.5.1"
+  gem "fixture_builder",   "0.5.2.rc3"
   gem "fuubar",            "2.3.1"
   gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
@@ -295,7 +294,7 @@ group :test do
   gem "timecop",            "0.9.1"
   gem "webmock",            "3.3.0", require: false
 
-  gem "diaspora_federation-test", "0.2.4"
+  gem "diaspora_federation-test", "0.2.5"
 
   # Coverage
   gem "coveralls", "0.8.21", require: false

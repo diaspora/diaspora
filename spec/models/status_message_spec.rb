@@ -170,6 +170,18 @@ describe StatusMessage, type: :model do
     end
   end
 
+  describe "#comment_email_subject" do
+    it "delegates to message.title if the post have a text" do
+      expect(status.comment_email_subject).to eq(status.message.title)
+    end
+
+    it "includes the photos count if there are photos without text" do
+      photo = FactoryGirl.build(:photo, public: true)
+      status = FactoryGirl.build(:status_message, author: photo.author, text: nil, photos: [photo], public: true)
+      expect(status.comment_email_subject).to eq(I18n.t("posts.show.photos_by", count: 1, author: status.author_name))
+    end
+  end
+
   describe "tags" do
     it_should_behave_like "it is taggable" do
       let(:object) { build(:status_message) }

@@ -49,6 +49,8 @@ it:
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Cerca utente"
       weekly_user_stats: "Statistiche settimanali utenti"
+    dashboard:
+      pod_status: "Status pod"
     stats:
       2weeks: "2 settimane"
       50_most: "I 50 tag più popolari"
@@ -90,6 +92,7 @@ it:
     user_search:
       add_invites: "Aggiungi inviti"
       are_you_sure: "Sei sicuro di volere chiudere questo account?"
+      are_you_sure_lock_account: "Sei certo di voler bloccare questo account?"
       close_account: "Chiudi l'account"
       email_to: "Email a cui mandare l'invito"
       lock_account: "Blocca account"
@@ -463,11 +466,13 @@ it:
       headline: "Benvenuto in %{pod_name}"
       own_your_data: "Mantieni il controllo dei tuoi dati"
     podmin:
+      configure_your_pod: "Configura il tuo pod"
       contact_irc: "contattarci su IRC"
       contribute: "Contribuisci"
       create_an_account: "Crea un account"
       getting_help: "Cerca aiuto"
       headline: "Benvenuto, amico."
+      update_your_pod: "Aggiorna il tuo pod"
   invitations:
     create:
       empty: "Perfavore inserire almeno un indirizzo email."
@@ -898,6 +903,7 @@ it:
       email_awaiting_confirmation: "Il link di attivazione è stato spedito a %{unconfirmed_email}. Continueremo ad usare la tua email originale %{email} finché non cliccherai sul link e attiverai il nuovo indirizzo."
       export_data: "Esporta dati"
       following: "Impostazioni dei contatti"
+      last_exported_html: "(Ultimo aggiornamento: %{timeago})"
       liked: "a qualcuno piace un tuo post"
       mentioned: "sei menzionato in un post"
       new_password: "Nuova password"

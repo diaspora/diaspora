@@ -141,20 +141,17 @@ describe StatusMessagesController, :type => :controller do
     end
 
     it "dispatches the post to the specified services" do
-      s1 = Services::Facebook.new
-      alice.services << s1
       alice.services << Services::Twitter.new
-      status_message_hash[:services] = ['facebook']
+      status_message_hash[:services] = ["twitter"]
       service_types = Service.titles(status_message_hash[:services])
-      expect(alice).to receive(:dispatch_post).with(anything(), hash_including(:service_types => service_types))
+      expect(alice).to receive(:dispatch_post).with(anything, hash_including(service_types: service_types))
       post :create, params: status_message_hash
     end
 
     it "works if services is a string" do
-      s1 = Services::Facebook.new
-      alice.services << s1
-      status_message_hash[:services] = "facebook"
-      expect(alice).to receive(:dispatch_post).with(anything(), hash_including(:service_types => ["Services::Facebook"]))
+      alice.services << Services::Twitter.new
+      status_message_hash[:services] = "twitter"
+      expect(alice).to receive(:dispatch_post).with(anything, hash_including(service_types: ["Services::Twitter"]))
       post :create, params: status_message_hash
     end
 

@@ -1204,6 +1204,10 @@ pt-BR:
       mentioned_in_comment: "mencionarem você em um comentário"
       new_password: "Nova senha"
       private_message: "você receber uma mensagem privada"
+      protocol_handler:
+        description: "Ao clicar nesse botão, você solicitará ao navegador a instalação de um protocolo que permitirá abrir URLs web+diaspora:// no seu servidor nativo. Atualmente, esse recurso é experimental, e possíveis interações dependerão do seu navegador."
+        register: "Registrar"
+        title: "protocolo web+diaspora://"
       receive_email_notifications: "Receber notificações por e-mail quando:"
       request_export: "Solicitar dados do meu perfil"
       request_export_photos: "Exportar minhas fotos"

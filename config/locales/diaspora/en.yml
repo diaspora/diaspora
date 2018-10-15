@@ -1043,7 +1043,6 @@ en:
     comment_email_subject: "%{resharer}’s reshare of %{author}’s post"
   services:
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1242,6 +1241,11 @@ en:
         lock_username: "Your username will be locked. You will not be able to create a new account on this pod with the same ID."
         no_turning_back: "There is no turning back! If you’re really sure, enter your password below."
 
+      protocol_handler:
+        title: "web+diaspora:// protocol handler"
+        description: "Clicking this button will ask your browser to install a handler that allows us to open web+diaspora:// URLs on your home pod. This is currently experimental and interactions will depend on your browser."
+        register: "Register"
+
     privacy_settings:
       title: "Privacy settings"
       strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"
@@ -1259,8 +1263,6 @@ en:
       community_welcome: "diaspora*’s community is happy to have you aboard!"
       awesome_take_me_to_diaspora: "Awesome! Take me to diaspora*"
       who_are_you: "Who are you?"
-      connect_to_facebook: "We can speed things up a bit by %{link} to diaspora*. This will pull your name and photo, and enable cross-posting."
-      connect_to_facebook_link: "Hooking up your Facebook account"
       what_are_you_in_to: "What are you into?"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests. They’re also a great way to find new people on diaspora*."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."

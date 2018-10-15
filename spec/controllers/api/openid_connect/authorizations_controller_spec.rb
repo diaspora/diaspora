@@ -296,7 +296,9 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
                                                                         Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
           access_token = response.location[/(?<=access_token=)[^&]+/]
-          access_token_check_num = UrlSafeBase64.encode64(OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8])
+          access_token_check_num = Base64.urlsafe_encode64(
+            OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8], padding: false
+          )
           expect(decoded_token.at_hash).to eq(access_token_check_num)
         end
       end

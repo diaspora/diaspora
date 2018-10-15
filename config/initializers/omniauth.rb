@@ -13,17 +13,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     provider :tumblr, AppConfig.services.tumblr.key, AppConfig.services.tumblr.secret
   end
 
-  if AppConfig.services.facebook.enable?
-    provider :facebook, AppConfig.services.facebook.app_id, AppConfig.services.facebook.secret, {
-      scope:          "public_profile,publish_actions",
-      client_options: {
-        ssl: {
-          ca_file: AppConfig.environment.certificate_authorities
-        }
-      }
-    }
-  end
-
   if AppConfig.services.wordpress.enable?
     provider :wordpress, AppConfig.services.wordpress.client_id, AppConfig.services.wordpress.secret
   end

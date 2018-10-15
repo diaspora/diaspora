@@ -106,6 +106,8 @@ hye:
     create: "Ստեղծել"
     delete: "Ջնջել"
     edit: "Փոփոխել"
+    errors:
+      connection: "Չստացվեց կապ հաստատել սպասարկչի հետ։"
     failed_to_post_message: "Չհաջողվեց գրառում կատարել։"
     failed_to_remove: "Չստացվեց ջնջել մուտքագրածը։"
     getting_started:
@@ -160,6 +162,7 @@ hye:
       invalid_ext: "{file}-ը անհամապատասխան ընդլայնման է։ Միայն {extensions} են թույլատրվում։"
       looking_good: "Օ՜, աստվածներ, հիանալի տեսք ունես։"
       size_error: "{file}-ը չափից դուրս մեծ է, առավելագույն չափն է՝ {sizeLimit}։"
+      upload_photos: "Վերբեռնել նկարները"
     poll:
       answer_count:
         one: "1 ձայն"

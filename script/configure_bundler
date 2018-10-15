@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require_relative "../config/bundler_helper"
+require "etc"
 
 rails_env = BundlerHelper.rails_env
 database = BundlerHelper.database
@@ -13,7 +14,7 @@ def config(option)
   system("#{File.join(__dir__, '../bin/bundle')} config --local #{option}")
 end
 
-config("jobs #{`nproc`}")
+config("jobs #{Etc.nprocessors}")
 config("with #{database}")
 
 if rails_env == "production"
