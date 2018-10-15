@@ -183,6 +183,7 @@ es-AR:
       result: "Resultados"
       show_result: "Mostrar resultados"
       vote: "Votar"
+      your_vote: "Tu voto"
     profile:
       add_some: "Agregar algo"
       bio: "Biografía"
@@ -238,6 +239,7 @@ es-AR:
     reshares:
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡La publicación se compartió correctamente!"
+    show_all: "Mostrar todos"
     show_more: "Mostrar más"
     stream:
       comment: "Comentar"

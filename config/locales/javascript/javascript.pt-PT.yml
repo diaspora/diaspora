@@ -10,15 +10,39 @@ pt-PT:
       pods:
         actions: "Ações"
         added: "Adicionado"
+        check: "realizar teste de ligação"
         follow_link: "abrir hiperligação num navegador"
+        last_check: "última verificação:"
         more_info: "Mostrar mais informação"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "De momento, não existe informação adicional disponível"
+        not_available: "indisponível"
         offline_since: "off-line desde:"
+        pod: "Servidor"
+        recheck:
+          failure: "A verificação não foi efetuada."
+          success: "O servidor acabou de ser novamente verificado."
+        response_time: "Tempo de resposta:"
+        server_software: "Software do servidor:"
         ssl: "SSL"
         ssl_disabled: "SSL desativado"
         ssl_enabled: "SSL ativado"
         states:
+          dns_failed: "Resolução de nome (DNS) falhou"
+          http_failed: "A ligação HTTP falhou"
+          net_failed: "A tentativa de ligação falhou"
           no_errors: "CONFIRMAR"
+          ssl_failed: "A ligação segura (SSL) falhou"
+          unchecked: "Não verificado"
+          version_failed: "Não é possível obter a versão do software"
         status: "Estado"
+        unknown: "desconhecido"
+    admins:
+      dashboard:
+        outdated: "O seu servidor está desatualizado."
+        up_to_date: "O seu servidor está atualizado!"
     and: "e"
     aspect_dropdown:
       add_to_aspect: "Adicionar contacto"

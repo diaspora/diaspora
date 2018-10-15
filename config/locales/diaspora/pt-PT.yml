@@ -40,13 +40,17 @@ pt-PT:
     admin_bar:
       dashboard: "Painel"
       pages: "Páginas"
+      pod_network: "Rede do servidor"
       pod_stats: "Estatísticas do servidor"
       report: "Relatórios"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Procurar Utilizador"
       weekly_user_stats: "Estatísticas de utilizador semanais"
+    dashboard:
+      pod_status: "Estado do servidor"
     pods:
       pod_desktop_link: "ver área de trabalho"
+      pod_network: "Rede do servidor"
     stats:
       2weeks: "2 semanas"
       50_most: "50 etiquetas mais populares"
@@ -191,7 +195,7 @@ pt-PT:
         learn_more: "Saber mais"
         title: "Dê as boas-vindas aos novos utilizadores"
       services:
-        content: "Pode interligar os seguintes serviços ao diaspora*:"
+        content: "Pode ligar os seguintes serviços ao diaspora*:"
         heading: "Ligar Serviços"
       welcome_to_diaspora: "Bem-vindo ao diaspora*, %{name}!"
     no_contacts_message:
@@ -211,7 +215,7 @@ pt-PT:
   blocks:
     create:
       failure: "Eu não consegui ignorar esse utilizador.  #evasão"
-      success: "Tudo bem, não irá ver novamente esse utilizador no seu fluxo. #silêncio!"
+      success: "Está bem, não voltará a ver esse utilizador no seu fluxo. #silêncio!"
     destroy:
       failure: "Eu não consegui deixar de ignorar esse utilizador. #evasão"
       success: "Vejamos o que eles têm para dizer! #digaolá"
@@ -455,16 +459,24 @@ pt-PT:
       headline: "Bem-vindo a %{pod_name}"
       own_your_data: "É dono dos seus próprios dados"
     podmin:
+      configure_your_pod: "Configure o seu servidor"
       contact_irc: "contacte-nos no IRC"
       contribute: "Contribuir"
+      contribute_info: "Torne o diáspora* ainda melhor! Se encontrar quaisquer erros, por favor, %{report_bugs}."
       create_an_account: "Criar uma conta"
+      create_an_account_info: "%{sign_up_link} para uma nova conta."
       getting_help: "Obter ajuda"
       headline: "Bem-vindo, amigo."
+      make_yourself_an_admin: "Torne-se você mesmo num administrador"
+      report_bugs: "reporte-os"
       update_instructions: "atualizar as instruções na wiki do diaspora*"
       update_your_pod: "Atualize o seu servidor"
       update_your_pod_info: "Pode encontrar %{update_instructions}."
+  invitation_codes:
+    already_logged_in: "Foi convidado por %{inviter} para se juntar a este servidor, mas já não está autenticado."
   invitations:
     create:
+      closed: "Os convites estão encerrados neste servidor do diáspora*."
       empty: "Por favor insira pelo menos um endereço de email."
       no_more: "Não tem mais convites."
       note_already_sent: "Convites já foram enviados para: %{emails}"
@@ -487,6 +499,7 @@ pt-PT:
       powered_by: "DESENVOLVIDO POR DIASPORA*"
       public_feed: "Fonte pública do diaspora* para %{name}"
       source_package: "Transferir o pacote de código fonte"
+      statistics_link: "Estatísticas do servidor"
       toggle: "Alternar móvel"
       whats_new: "O que há de novo?"
     header:
@@ -722,7 +735,7 @@ pt-PT:
       updated: "Perfil atualizado"
   public: "Público"
   registrations:
-    closed: "Os registos estão encerrados neste pod do diaspora*."
+    closed: "Os registos estão encerrados neste servidor do diaspora*."
     create:
       success: "Aderiu ao diaspora*!"
     invalid_invite: "A hiperligação de convite fornecida já não é válida!"
@@ -771,6 +784,7 @@ pt-PT:
       disconnect: "Desligar"
       edit_services: "Editar serviços"
       logged_in_as: "Sessão iniciada como %{nickname}."
+      no_services_available: "Não existem serviços disponíveis para este servidor."
       really_disconnect: "Desligar de %{service}?"
       services_explanation: "Ao ligar-se a serviços de partilha de terceiros permite que publique os seus artigos enquanto à medida que os digita no diáspora*."
       share_to: "Partilhar em %{provider}"
