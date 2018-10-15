@@ -950,6 +950,13 @@ en:
         contact_developer: "You should contact the developer of the application and include the following detailed error message:"
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
+    endpoint_errors:
+      likes:
+        user_not_allowed_to_like: "User is not allowed to like"
+        like_exists: "Like already exists"
+        no_like: "Like doesn’t exist"
+      posts:
+        post_not_found: "Post with provided guid could not be found"
 
   error:
     not_found: "No record found for given id."
@@ -1360,3 +1367,5 @@ en:
     disabled: "Not available"
     open: "Open"
     closed: "Closed"
+
+    
