@@ -34,6 +34,8 @@ class CommentService
       user.retract(comment)
     elsif user.owns?(comment.parent)
       user.retract(comment)
+    elsif comment
+      raise ActiveRecord::RecordInvalid
     else
       raise ActiveRecord::RecordNotFound
     end

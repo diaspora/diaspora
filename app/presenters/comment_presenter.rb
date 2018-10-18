@@ -20,7 +20,7 @@ class CommentPresenter < BasePresenter
     {
       guid:       @comment.guid,
       body:       @comment.message.plain_text_for_json,
-      author:     @comment.author.as_api_response(:backbone),
+      author:     PersonPresenter.new(@comment.author).as_api_json,
       created_at: @comment.created_at
     }
   end

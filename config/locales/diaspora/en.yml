@@ -951,6 +951,11 @@ en:
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
     endpoint_errors:
+      comments:
+        not_found: "Comment not found for the given post"
+        not_allowed: "User is not allowed to comment"
+        no_delete: "User not allowed to delete the comment"
+        duplicate_report: "This item already has been reported by this user"
       likes:
         user_not_allowed_to_like: "User is not allowed to like"
         like_exists: "Like already exists"
@@ -1367,5 +1372,3 @@ en:
     disabled: "Not available"
     open: "Open"
     closed: "Closed"
-
-    

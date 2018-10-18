@@ -89,7 +89,7 @@ describe CommentService do
     it "does not let someone destroy others comment" do
       expect {
         CommentService.new(eve).destroy!(comment.guid)
-      }.to raise_error ActiveRecord::RecordNotFound
+      }.to raise_error ActiveRecord::RecordInvalid
     end
 
     it "raises exception the comment does not exist" do
