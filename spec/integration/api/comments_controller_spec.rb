@@ -7,23 +7,33 @@ describe Api::V1::CommentsController do
   let!(:access_token) { auth.create_access_token.to_s }
 
   before do
-    @status = auth.user.post(
+    @status = alice.post(
       "Post",
       status_message: {text: "This is a status message"},
       public:         true,
       to:             "all",
       type:           "Post"
     )
+
+    @eves_post = eve.post(
+      "Post",
+      status_message: {text: "This is a status message"},
+      public:         true,
+      to:             "all",
+      type:           "Post"
+    )
+
+    @comment_on_eves_post = comment_service.create(@eves_post.guid, "Comment on eve's post")
   end
 
   describe "#create" do
     context "valid post ID" do
       it "succeeds in adding a comment" do
-        create_comment(@status.guid, "This is a comment")
+        comment_text = "This is a comment"
+        create_comment(@status.guid, comment_text)
         expect(response.status).to eq(201)
         comment = response_body(response)
-        expect(comment["body"]).to eq("This is a comment")
-        expect(comment_service.find!(comment["guid"])).to_not be_nil
+        confirm_comment_format(comment, auth.user, comment_text)
       end
     end
 
@@ -31,14 +41,26 @@ describe Api::V1::CommentsController do
       it "fails at adding a comment" do
         create_comment("999_999_999", "This is a comment")
         expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+    end
+
+    context "lack of permissions" do
+      it "fails at adding a comment" do
+        alice.blocks.create(person: auth.user.person)
+        create_comment(@status.guid, "That shouldn't be there because I am ignored by this user")
+        expect(response.status).to eq(422)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.not_allowed"))
       end
     end
   end
 
   describe "#read" do
     before do
-      create_comment(@status.guid, "This is a comment")
-      create_comment(@status.guid, "This is a comment 2")
+      @comment_text1 = "This is a comment"
+      @comment_text2 = "This is a comment 2"
+      create_comment(@status.guid, @comment_text1)
+      create_comment(@status.guid, @comment_text2)
     end
 
     context "valid post ID" do
@@ -49,6 +71,9 @@ describe Api::V1::CommentsController do
         )
         expect(response.status).to eq(200)
         expect(response_body(response).length).to eq(2)
+        comments = response_body(response)
+        confirm_comment_format(comments[0], auth.user, @comment_text1)
+        confirm_comment_format(comments[1], auth.user, @comment_text2)
       end
     end
 
@@ -59,6 +84,7 @@ describe Api::V1::CommentsController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
   end
@@ -85,6 +111,20 @@ describe Api::V1::CommentsController do
       end
     end
 
+    context "invalid Post ID" do
+      it "fails at deleting comment" do
+        delete(
+          api_v1_post_comment_path(
+            post_id: "999_999_999",
+            id:      @comment_guid
+          ),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+    end
+
     context "invalid comment ID" do
       it "fails at deleting comment" do
         delete(
@@ -95,6 +135,35 @@ describe Api::V1::CommentsController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(404)
+      end
+    end
+
+    context "mismatched post-to-comment ID" do
+      it "fails at deleting comment" do
+        delete(
+          api_v1_post_comment_path(
+            post_id: @status.guid,
+            id:      @comment_on_eves_post.guid
+          ),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.not_found"))
+      end
+    end
+
+    context "insufficient permissions (not your comment and not owner)" do
+      it "fails at deleting comment" do
+        alices_comment = comment_service(alice).create(@status.guid, "Alice's comment")
+        delete(
+          api_v1_post_comment_path(
+            post_id: @status.guid,
+            id:      alices_comment.guid
+          ),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(403)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.no_delete"))
       end
     end
   end
@@ -137,12 +206,76 @@ describe Api::V1::CommentsController do
           }
         )
         expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.not_found"))
+      end
+    end
+
+    context "invalid Post ID" do
+      it "fails at reporting comment" do
+        post(
+          api_v1_post_comment_report_path(
+            post_id:    "999_999_999",
+            comment_id: @comment_guid
+          ),
+          params: {
+            reason:       "bad comment",
+            access_token: access_token
+          }
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+    end
+
+    context "mismatched post-to-comment ID" do
+      it "fails at reporting comment" do
+        post(
+          api_v1_post_comment_report_path(
+            post_id:    @status.guid,
+            comment_id: @comment_on_eves_post.guid
+          ),
+          params: {
+            reason:       "bad comment",
+            access_token: access_token
+          }
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.not_found"))
+      end
+    end
+
+    context "already reported" do
+      it "fails at reporting comment" do
+        post(
+          api_v1_post_comment_report_path(
+            post_id:    @status.guid,
+            comment_id: @comment_guid
+          ),
+          params: {
+            reason:       "bad comment",
+            access_token: access_token
+          }
+        )
+        expect(response.status).to eq(204)
+
+        post(
+          api_v1_post_comment_report_path(
+            post_id:    @status.guid,
+            comment_id: @comment_guid
+          ),
+          params: {
+            reason:       "bad comment",
+            access_token: access_token
+          }
+        )
+        expect(response.status).to eq(409)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.duplicate_report"))
       end
     end
   end
 
-  def comment_service
-    CommentService.new(auth.user)
+  def comment_service(user=auth.user)
+    CommentService.new(user)
   end
 
   def create_comment(post_guid, text)
@@ -155,4 +288,19 @@ describe Api::V1::CommentsController do
   def response_body(response)
     JSON.parse(response.body)
   end
+
+  private
+
+  # rubocop:disable Metrics/AbcSize
+  def confirm_comment_format(comment, user, comment_text)
+    expect(comment.has_key?("guid")).to be_truthy
+    expect(comment.has_key?("created_at")).to be_truthy
+    expect(comment["body"]).to eq(comment_text)
+    author = comment["author"]
+    expect(author["guid"]).to eq(user.guid)
+    expect(author["diaspora_id"]).to eq(user.diaspora_handle)
+    expect(author["name"]).to eq(user.name)
+    expect(author["avatar"]).to eq(user.profile.image_url)
+  end
+  # rubocop:enable Metrics/AbcSize
 end
