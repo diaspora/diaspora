@@ -20,9 +20,9 @@ class PostInteractionPresenter
 
   def as_counters
     {
-      comments_count: @post.comments_count,
-      likes_count:    @post.likes_count,
-      reshares_count: @post.reshares_count
+      comments: @post.comments_count,
+      likes:    @post.likes_count,
+      reshares: @post.reshares_count
     }
   end
 

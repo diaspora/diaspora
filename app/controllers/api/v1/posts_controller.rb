@@ -13,6 +13,10 @@ module Api
         require_access_token %w[read write]
       end
 
+      rescue_from ActiveRecord::RecordNotFound do
+        render json: I18n.t("api.endpoint_errors.posts.post_not_found"), status: :not_found
+      end
+
       def show
         mark_notifications =
           params[:mark_notifications].present? && params[:mark_notifications]
@@ -23,37 +27,68 @@ module Api
 
       def create
         status_service = StatusMessageCreationService.new(current_user)
-        @status_message = status_service.create(normalized_params)
-        render json: PostPresenter.new(@status_message, current_user)
+        creation_params = normalized_create_params
+        @status_message = status_service.create(creation_params)
+        render json: PostPresenter.new(@status_message, current_user).as_api_response
+      rescue StandardError
+        render json: I18n.t("api.endpoint_errors.posts.failed_create"), status: :unprocessable_entity
       end
 
       def destroy
         post_service.destroy(params[:id])
         head :no_content
+      rescue Diaspora::NotMine
+        render json: I18n.t("api.endpoint_errors.posts.failed_delete"), status: :forbidden
       end
 
-      def normalized_params
-        params.permit(
-          :location_address,
-          :location_coords,
-          :poll_question,
-          status_message: %i[text provider_display_name],
-          poll_answers:   []
-        ).to_h.merge(
-          services:   [*params[:services]].compact,
-          aspect_ids: normalize_aspect_ids,
-          public:     [*params[:aspect_ids]].first == "public",
-          photos:     [*params[:photos]].compact
-        )
+      def normalized_create_params
+        mapped_parameters = {
+          status_message: {
+            text: params.require(:body)
+          },
+          public:         params.require(:public),
+          aspect_ids:     normalize_aspect_ids(params.permit(aspects: []))
+        }
+        add_location_params(mapped_parameters)
+        add_poll_params(mapped_parameters)
+        add_photo_ids(mapped_parameters)
+        mapped_parameters
       end
 
-      def normalize_aspect_ids
-        aspect_ids = [*params[:aspect_ids]]
-        if aspect_ids.first == "all_aspects"
-          current_user.aspect_ids
-        else
-          aspect_ids
+      private
+
+      def add_location_params(mapped_parameters)
+        return unless params.has_key?(:location)
+        location = params.require(:location)
+        mapped_parameters[:location_address] = location[:address]
+        mapped_parameters[:location_coords] = "#{location[:lat]},#{location[:lng]}"
+      end
+
+      def add_photo_ids(mapped_parameters)
+        return unless params.has_key?(:photos)
+        photo_guids = params[:photos]
+        return if photo_guids.empty?
+        photo_ids = photo_guids.map {|guid| Photo.find_by!(guid: guid) }
+        raise InvalidArgument if photo_ids.length != photo_guids.length
+        mapped_parameters[:photos] = photo_ids
+      end
+
+      def add_poll_params(mapped_parameters)
+        return unless params.has_key?(:poll)
+        poll_data = params.require(:poll)
+        question = poll_data[:question]
+        answers = poll_data[:poll_answers]
+        raise InvalidArgument if question.blank?
+        raise InvalidArgument if answers.empty?
+        answers.each do |a|
+          raise InvalidArgument if a.blank?
         end
+        mapped_parameters[:poll_question] = question
+        mapped_parameters[:poll_answers] = answers
+      end
+
+      def normalize_aspect_ids(aspects)
+        aspects.empty? ? [] : aspects[:aspects]
       end
 
       def post_service
