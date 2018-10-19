@@ -26,11 +26,11 @@ class PostPresenter < BasePresenter
       public:                @post.public,
       created_at:            @post.created_at,
       nsfw:                  @post.nsfw,
-      author:                @post.author.as_api_response(:backbone),
+      author:                PersonPresenter.new(@post.author).as_api_json,
       provider_display_name: @post.provider_display_name,
-      interactions:          interactions.as_counters,
+      interaction_counters:  interactions.as_counters,
       location:              @post.post_location,
-      poll:                  @post.poll,
+      poll:                  PollPresenter.new(@post.poll, current_user).as_api_json,
       mentioned_people:      build_mentioned_people_json,
       photos:                build_photos_json,
       root:                  root_api_response
@@ -113,11 +113,11 @@ class PostPresenter < BasePresenter
   end
 
   def build_mentioned_people_json
-    @post.mentioned_people.as_api_response(:backbone)
+    @post.mentioned_people.map {|m| PersonPresenter.new(m).as_api_json }
   end
 
   def build_photos_json
-    @post.photos.map {|p| p.as_api_response(:backbone) }
+    @post.photos.map {|p| PhotoPresenter.new(p).as_api_json }
   end
 
   def root
