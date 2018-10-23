@@ -17,7 +17,11 @@ class LikesController < ApplicationController
   end
 
   def create
-    like = like_service.create(params[:post_id])
+    like = if params[:post_id]
+             like_service.create_for_post(params[:post_id])
+           else
+             like_service.create_for_comment(params[:comment_id])
+           end
   rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid
     render plain: I18n.t("likes.create.error"), status: 422
   else

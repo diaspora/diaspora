@@ -9,7 +9,8 @@ app.views.Comment = app.views.Content.extend({
   events : function() {
     return _.extend({}, app.views.Content.prototype.events, {
       "click .comment_delete": "destroyModel",
-      "click .comment_report": "report"
+      "click .comment_report": "report",
+      "click .like": "toggleLike"
     });
   },
 
@@ -35,6 +36,11 @@ app.views.Comment = app.views.Content.extend({
 
   canRemove : function() {
     return app.currentUser.authenticated() && (this.ownComment() || this.postOwner());
+  },
+
+  toggleLike: function(evt) {
+    if (evt) { evt.preventDefault(); }
+    this.model.toggleLike();
   }
 });
 
