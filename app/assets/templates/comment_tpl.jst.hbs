@@ -20,18 +20,21 @@
     {{/if}}
     </div>
 
-    {{#linkToAuthor author}}
-      {{name}}
-    {{/linkToAuthor}}
-
-    <div class="collapsible comment-content markdown-content">
-      {{{text}}}
-    </div>
-
-    <div class="info">
+    <div>
+      {{#linkToAuthor author}}
+        {{name}}
+      {{/linkToAuthor}}
+      -
       <a href="/posts/{{parent.id}}#{{guid}}" class="permalink_comment">
         <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>
       </a>
+      <a href="/posts/{{parent.guid}}#{{guid}}" class="permalink gray" title="{{t "stream.permalink"}}">
+        <i class="entypo-link"></i>
+      </a>
+    </div>
+
+    <div class="collapsible comment-content markdown-content">
+      {{{text}}}
     </div>
   </div>
 </div>

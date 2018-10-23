@@ -44,6 +44,19 @@
     }
   }
 
+  .permalink {
+    @include transition(opacity);
+    opacity: 0;
+  }
+
+  .comment:hover .permalink {
+    opacity: .8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   .comment.new-comment-form-wrapper { padding-bottom: 0; }
 
   .submit-button {
