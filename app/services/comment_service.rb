@@ -10,6 +10,11 @@ class CommentService
     user.comment!(post, text)
   end
 
+  def find!(comment_id)
+    # TODO, check that the user has access to that comment first
+    Comment.find(comment_id)
+  end
+
   def destroy(comment_id)
     comment = Comment.find(comment_id)
     if user.owns?(comment) || user.owns?(comment.parent)

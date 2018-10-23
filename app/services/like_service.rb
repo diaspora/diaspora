@@ -5,9 +5,14 @@ class LikeService
     @user = user
   end
 
-  def create(post_id)
+  def create_for_post(post_id)
     post = post_service.find!(post_id)
     user.like!(post)
+  end
+
+  def create_for_comment(comment_id)
+    comment = comment_service.find!(comment_id)
+    user.like!(comment)
   end
 
   def destroy(like_id)
@@ -31,5 +36,9 @@ class LikeService
 
   def post_service
     @post_service ||= PostService.new(user)
+  end
+
+  def comment_service
+    @comment_service ||= CommentService.new(user)
   end
 end
