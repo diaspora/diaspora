@@ -951,6 +951,9 @@ en:
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
     endpoint_errors:
+      conversations:
+        not_found: "Conversation with provided guid could not be found"
+        cant_process: "Couldn’t accept or process the conversation"
       comments:
         not_found: "Comment not found for the given post"
         not_allowed: "User is not allowed to comment"
@@ -1375,3 +1378,5 @@ en:
     disabled: "Not available"
     open: "Open"
     closed: "Closed"
+
+    

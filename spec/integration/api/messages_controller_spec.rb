@@ -13,37 +13,31 @@ describe Api::V1::MessagesController do
     alice.share_with auth.user.person, alice.aspects[0]
 
     @conversation = {
-      author_id:    auth.user.id,
       subject:      "new conversation",
       body:         "first message",
-      recipients:   [alice.person.id],
+      recipients:   JSON.generate([alice.guid]),
       access_token: access_token
     }
 
-    @message = {
-      body: "reply to first message"
-    }
+    @message_text = "reply to first message"
   end
 
   describe "#create " do
     before do
       post api_v1_conversations_path, params: @conversation
-      @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
+      @conversation_guid = JSON.parse(response.body)["guid"]
     end
 
     context "with valid data" do
       it "creates the message in the conversation scope" do
         post(
           api_v1_conversation_messages_path(@conversation_guid),
-          params: {body: @message, access_token: access_token}
+          params: {body: @message_text, access_token: access_token}
         )
         expect(response.status).to eq 201
 
         message = JSON.parse(response.body)
-        expect(message["guid"]).to_not be_nil
-        expect(message["author"]).to_not be_nil
-        expect(message["created_at"]).to_not be_nil
-        expect(message["body"]).to_not be_nil
+        confirm_message_format(message, @message_text, auth.user)
 
         get(
           api_v1_conversation_messages_path(@conversation_guid),
@@ -51,18 +45,27 @@ describe Api::V1::MessagesController do
         )
         messages = JSON.parse(response.body)
         expect(messages.length).to eq 2
-        text = messages[1]["body"]
-        expect(text).to eq @message[:body]
+        confirm_message_format(messages[1], @message_text, auth.user)
       end
     end
 
     context "without valid data" do
-      it "returns a wrong parameter error (400)" do
+      it "no data returns a unprocessable entity (422)" do
         post(
           api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
         expect(response.status).to eq 422
+        expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.cant_process")
+      end
+
+      it "empty string returns a unprocessable entity (422)" do
+        post(
+          api_v1_conversation_messages_path(@conversation_guid),
+          params: {body: "", access_token: access_token}
+        )
+        expect(response.status).to eq 422
+        expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.cant_process")
       end
     end
 
@@ -73,6 +76,7 @@ describe Api::V1::MessagesController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq 404
+        expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.not_found")
       end
     end
   end
@@ -80,7 +84,7 @@ describe Api::V1::MessagesController do
   describe "#index " do
     before do
       post api_v1_conversations_path, params: @conversation
-      @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
+      @conversation_guid = JSON.parse(response.body)["guid"]
     end
 
     context "retrieving messages" do
@@ -92,12 +96,34 @@ describe Api::V1::MessagesController do
         messages = JSON.parse(response.body)
         expect(messages.length).to eq 1
 
-        message = messages[0]
-        expect(message["guid"]).to_not be_nil
-        expect(message["author"]).to_not be_nil
-        expect(message["created_at"]).to_not be_nil
-        expect(message["body"]).to_not be_nil
+        confirm_message_format(messages[0], "first message", auth.user)
+        conversation = get_conversation(@conversation_guid)
+        expect(conversation[:read]).to be_truthy
       end
     end
   end
+
+  private
+
+  def get_conversation(conversation_id)
+    conversation_service = ConversationService.new(auth.user)
+    raw_conversation = conversation_service.find!(conversation_id)
+    ConversationPresenter.new(raw_conversation).as_api_json
+  end
+
+  def confirm_message_format(message, ref_message, author)
+    expect(message["guid"]).to_not be_nil
+    expect(message["created_at"]).to_not be_nil
+    expect(message["body"]).to eq ref_message
+    confirm_person_format(message["author"], author)
+  end
+
+  # rubocop:disable Metrics/AbcSize
+  def confirm_person_format(post_person, user)
+    expect(post_person["guid"]).to eq(user.guid)
+    expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
+    expect(post_person["name"]).to eq(user.name)
+    expect(post_person["avatar"]).to eq(user.profile.image_url)
+  end
+  # rubocop:enable Metrics/AbcSize
 end
