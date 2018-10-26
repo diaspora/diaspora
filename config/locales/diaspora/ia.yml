@@ -621,7 +621,7 @@ ia:
   layouts:
     application:
       back_to_top: "Retornar al cyma"
-      be_excellent: "Sia benevolente le un verso le altere! ♥"
+      be_excellent: "Sia benevole verso omnes! ♥"
       discourse: "Discussion e supporto del projecto"
       powered_by: "Actionate per diaspora*"
       public_feed: "Fluxo public de diaspora* pro %{name}"
@@ -1087,7 +1087,7 @@ ia:
       default: "Le codice secrete non corresponde al imagine"
       failed: "Verification human fallite"
       user: "Le imagine secrete e le codice differe"
-    placeholder: "Scribe le valor del imagine"
+    placeholder: "Scribe le valor"
   statistics:
     active_users_halfyear: "Usatores active per medie anno"
     active_users_monthly: "Usatores active per mense"

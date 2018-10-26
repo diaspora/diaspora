@@ -1180,7 +1180,7 @@ ja:
       new_password: "新しいパスワード"
       private_message: "非公開メッセージが届いたとき"
       protocol_handler:
-        description: "このボタンをクリックすると、ブラウザに、ホームポッドに web+diaspora:// URLを開くことができるハンドラをインストールするように要求されます。これは現在実験中で、対応はブラウザによって異なります。"
+        description: "このボタンをクリックするとホームポッドの web+diaspora:// URLを開くことができるハンドラをインストールするようにブラウザに要求されます。これは現在実験中で対応はブラウザによって異なります。"
         register: "登録"
         title: "web+diaspora:// プロトコルハンドラ"
       receive_email_notifications: "通知メールの送信設定"

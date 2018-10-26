@@ -4,14 +4,14 @@
 
 
 
-de:
+de_moo:
   devise:
     confirmations:
       confirmed: "Deine E-Mail-Adresse wurde erfolgreich bestätigt."
       new:
         resend_confirmation: "Anweisungen zum Bestätigen erneut senden"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail mit Anweisungen zum Bestätigen deiner E-Mail-Adresse erhalten."
-      send_paranoid_instructions: "Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhälst du in ein paar Minuten eine E-Mail mit Anweisungen zur Bestätigung deiner E-Mail-Adresse."
+      send_paranoid_instructions: "Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhältst du in ein paar Minuten eine E-Mail mit Anweisungen zur Bestätigung deiner E-Mail-Adresse."
     failure:
       already_authenticated: "Du bist schon angemeldet."
       inactive: "Dein Konto wurde noch nicht aktiviert."
@@ -25,7 +25,7 @@ de:
       unconfirmed: "Du musst deine E-Mail-Adresse bestätigen, um fortzufahren."
     invitations:
       invitation_token_invalid: "Das Einladungstoken ist ungültig!"
-      send_instructions: "Deine Einladung wurde versandt."
+      send_instructions: "Deine Einladung wurde gesendet."
       updated: "Dein Kennwort wurde akzeptiert. Du bist nun angemeldet."
     mailer:
       confirmation_instructions:
@@ -35,15 +35,15 @@ de:
       hello: "Hallo %{email}!"
       inviter:
         accept_at: "unter %{url}, kannst du sie über den untenstehenden Link akzeptieren."
-        has_invited_you: ""
-        have_invited_you: "%{names} haben Dich eingeladen diaspora* beizutreten"
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} hat dich eingeladen, diaspora* beizutreten"
       password_change:
         subject: "Passwort geändert"
       reset_password_instructions:
-        change: "Mein Kennwort ändern"
+        change: "Mein Passwort ändern"
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."
         someone_requested: "Jemand hat einen Link angefordert, um dein Kennwort zu ändern. Falls du das warst, kannst du das durch den unten aufgeführten Link tun."
-        subject: "Setze dein Kenwort zurück"
+        subject: "Setze dein Passwort zurück"
         wont_change: "Dein Kennwort bleibt unverändert, bis du es über den Link änderst und ein neues erstellst."
       unlock_instructions:
         account_locked: "Dein Konto wurde aufgrund von zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."
@@ -56,16 +56,16 @@ de:
       success: "Erfolgreich authentifiziert mittels %{kind}-Konto."
     passwords:
       edit:
-        change_password: "Mein Kennwort ändern"
-        confirm_password: "Kennwort bestätigen"
-        new_password: "Neues Kennwort"
+        change_password: "Mein Passwort ändern"
+        confirm_password: "Passwort bestätigen"
+        new_password: "Neues Passwort"
       new:
-        email: "E-Mail-Adresse"
-        forgot_password: "Kennwort vergessen?"
-        no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse"
-        reset_password: "Kennwort zurücksetzen"
+        email: "Email-Adresse"
+        forgot_password: "Passwort vergessen?"
+        no_account: "Es existiert keine Kuh mit dieser E-Mail-Adresse"
+        reset_password: "Passwort zurücksetzen"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
-      no_token: "Du kannst auf diese Seite nicht zugreifen, ohne von einer E-Mail zur Passwortrücksetzung zu kommen. Falls du von einer E-Mail zur Passwortrücksetzung kommst, vergewissere dich bitte, dass du die vollständige angegebene URL verwendet hast."
+      no_token: "Du kannst auf diese Weide nicht zugreifen, ohne von einer E-Mail zur Passwortrücksetzung zu kommen. Falls du von einer E-Mail zur Passwortrücksetzung kommst, vergewissere dich bitte, dass du die vollständige angegebene URL verwendet hast."
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Kennwort zurücksetzt."
       send_paranoid_instructions: "Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhältst du in ein paar Minuten einen Link zum Zurücksetzen deines Passworts an deine E-Mail-Adresse."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
@@ -83,15 +83,15 @@ de:
       new:
         login: "Anmelden"
         modern_browsers: "unterstützt nur moderne Browser."
-        password: "Kennwort"
+        password: "Passwort"
         remember_me: "Angemeldet bleiben"
         sign_in: "Anmelden"
         username: "Benutzername"
-      signed_in: "Angemeldet."
-      signed_out: "Abgemeldet."
+      signed_in: "Erfolgreich angemeldet."
+      signed_out: "Erfolgreich abgemeldet."
     shared:
       links:
-        forgot_your_password: "Kennwort vergessen?"
+        forgot_your_password: "Passwort vergessen?"
         receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
         receive_unlock: "Keine Entsperr-Anweisungen erhalten?"
         sign_in: "Anmelden"
