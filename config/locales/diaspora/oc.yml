@@ -1209,6 +1209,7 @@ oc:
       new_password: "Senhal novèl"
       private_message: "avètz recebut un messatge privat."
       protocol_handler:
+        description: "Clicatz lo boton per configurar lo navegador per permetre la dobertura de las URL web+diaspora:// a partir de vòstre pod preferit. Aquò es experimental pel moment e las interaccions dependràn de vòstre navegador."
         register: "Enregistrar"
         title: "Gestionari de protocòl web+diaspora://"
       receive_email_notifications: "Recebre una notificacion per corrièl quand :"

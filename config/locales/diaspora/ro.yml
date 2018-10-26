@@ -138,6 +138,9 @@ ro:
     update:
       failure: "Apectul tău, %{name}, are numele prea lung ca să fie salvat"
       success: "Aspectul, %{name}, a fost editat cu succes."
+  blocks:
+    destroy:
+      failure: "Nu am putut ignora acel user. #evasion"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     post_something: "Publică ceva pe diaspora*"
@@ -204,8 +207,19 @@ ro:
       post_poll_q: "Cum adaug un sondaj la mesaj?"
       post_report_a: "Faceți clic pe pictograma de alertă , triunghi, in dreapta sus a postului să o raporteze admin-ului. Introduceți un motiv pentru raportarea acestui post în caseta de dialog."
       post_report_q: "Cum pot raporta un mesaj ofensator?"
+    private_posts:
+      can_comment_q: "Cine poate comenta sau aprecia postările mele private?"
+      can_reshare_q: "Cine poate redistribui postările mele private?"
+    public_posts:
+      can_comment_reshare_like_q: "Cine poate comenta, redistribui sau aprecia postările mele publice?"
+      find_public_post_q: "Cum pot găsi alți utilizatori postările mele publice?"
+      title: "Postări publice"
+      who_sees_post_q: "Când postez ceva public, cine poate vedea?"
     tags:
       followed_tags_q: "Ce sunt „Etichetele #urmărite” și cum pot să urmăresc o etichetă?"
+      tags_in_comments_q: "Pot să pun etichete în comentarii sau doar în postări?"
+      title: "Etichete"
+      what_are_tags_for_q: "Pentru ce sunt etichetele?"
     tutorials: "îndrumări"
     wiki: "Wiki"
   home:
@@ -224,6 +238,7 @@ ro:
       rejected: "Urmatoarele adrese de email au prezentat probleme:"
       sent: "Invitațiile a fost expediate către: %{emails}"
     new:
+      comma_separated_plz: "Poți introduce mai multe adrese de email separate de virgulă."
       invite_someone_to_join: "Invită pe cineva pe Diaspora!"
       language: "Limbă"
       send_an_invitation: "Trimite o invitație"
@@ -263,6 +278,7 @@ ro:
       two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
     index:
+      all_notifications: "Toate notificările"
       and: "și"
       and_others:
         few: "și alte %{count} persoane"
@@ -274,6 +290,8 @@ ro:
       mark_unread: "Marchează ca necitit"
       no_notifications: "Deocamdată nu ai notificări."
       notifications: "Notificări"
+      show_all: "Arată toate"
+      show_unread: "Arată necitite"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -351,6 +369,27 @@ ro:
 
           Robotul poștal al *diasporei!
     hello: "Bună, %{name}!"
+    invite:
+      message: |-
+          Salut!
+
+          Ai fost invitat în diaspora de %{user}
+
+          Click pe acest link pentru a începe
+
+          %{invite_url}
+
+          Sau poți adăuga %{diaspora_id} în contacte dacă ai deja un cont.
+
+
+          Cu drag,
+
+          Roboțelul de emailuri diaspora*!
+
+          P.S. Dacă nu știai (încă) ce e diaspora*, aici e răspunsul!
+
+          [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
     liked:
       liked: "lui %{name} i-a plăcut publicația ta"
       view_post: "Vezi publicația >"
@@ -447,6 +486,8 @@ ro:
       password_confirmation: "Confirmarea parolei"
       sign_up: "Crează cont"
       username: "Nume utilizator"
+  report:
+    reason_label: "Motiv:"
   reshares:
     reshare:
       deleted: "Publicația originală a fost ștearsă de autorul ei."
@@ -483,6 +524,8 @@ ro:
         i_like: "Sunt interesat(ă) de %{tags}. "
         invited_by: "Mulțumesc pentru invitație, "
         newhere: "nouvenit"
+      poll:
+        add_a_poll: "Adaugă un chestionar"
       posting: "Public..."
       share: "Distribuie"
     stream_element:
@@ -534,6 +577,7 @@ ro:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy:
+      no_password: "Introdu parola curentă pentru închiderea contului."
       wrong_password: "Parola introdusă nu coincide cu parola ta actuală."
     edit:
       also_commented: "...cineva comenteaza de asemenea pe publicatia unei persoane din contacte?"
@@ -564,6 +608,7 @@ ro:
       your_email: "E-mailul tău"
       your_handle: "Identificatorul tău pe Diaspora"
     getting_started:
+      awesome_take_me_to_diaspora: "Super! Du-mă la diaspora*"
       hashtag_suggestions: "Încearcă să urmărești așa etichete ca #arta, #filme, #gif etc."
       well_hello_there: "Bun venit"
       what_are_you_in_to: "Ce interese ai?"

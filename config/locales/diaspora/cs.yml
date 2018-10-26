@@ -1236,6 +1236,7 @@ cs:
       new_password: "Nové heslo"
       private_message: "obdržíte soukromou zprávu"
       protocol_handler:
+        description: "Kliknutím na toto tlačítko bude do Vašeho prohlížeče nainstalován handler, který nám dovolí otevírat adresy URL typu web+diaspora:// na Vašem domácím podu. Tohle je aktuálně experimentální a interakce budou záležet na Vašem prohlížeči."
         register: "Registrovat"
         title: "Handler pro protokol web+diaspora://"
       receive_email_notifications: "Přijímat oznámení e-mailem, když:"

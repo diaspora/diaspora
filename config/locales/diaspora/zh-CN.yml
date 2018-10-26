@@ -36,8 +36,10 @@ zh-CN:
               taken: "已被注册。"
   admins:
     admin_bar:
+      dashboard: "控制面板"
       pages: "分页"
       pod_stats: "Pod 统计资料"
+      report: "举报"
       sidekiq_monitor: "监控Sidekiq"
       user_search: "搜索用户"
       weekly_user_stats: "用户统计周报"
@@ -61,8 +63,8 @@ zh-CN:
       tag_name: "标签名： <b>%{name_tag}</b> 数目：<b>%{count_tag}</b>"
       usage_statistic: "使用状况统计"
       users:
-        other: "%{count} 个用户"
-        zero: "%{count} 个用户"
+        other: "%{count} 位用户"
+        zero: "%{count} 位用户"
       week: "一周"
     user_search:
       add_invites: "增加邀请次数"
@@ -80,7 +82,7 @@ zh-CN:
       current_server: "服务器当前日期：%{date}"
   all_aspects: "所有分组"
   are_you_sure: "您确定吗？"
-  are_you_sure_delete_account: "您真的确定要关闭您的帐号吗? 此操作不可撤销。"
+  are_you_sure_delete_account: "您确定要关闭您的帐号吗? 此操作无法撤销!"
   aspect_memberships:
     destroy:
       failure: "从分组中移除好友失败"
@@ -425,7 +427,7 @@ zh-CN:
     closed: "此 Diaspora pod 不开放注册。"
     create:
       success: "您已成功加入 Diaspora 了！"
-    invalid_invite: "您提供的邀请链接已失效"
+    invalid_invite: "此邀请链接已失效！"
     new:
       email: "电子邮箱"
       enter_email: "输入电子邮箱"

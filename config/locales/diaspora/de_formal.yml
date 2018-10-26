@@ -344,6 +344,19 @@ de_formal:
     helper:
       correct_the_following_errors_and_try_again: "Korrigieren Sie die folgenden Fehler und versuchen Sie es erneut."
     need_javascript: "Diese Webseite benötigt Javascript, um richtig zu funktionieren. Falls Sie Javascript deaktiviert haben, aktivieren Sie es bitte und aktualisieren Sie dann diese Seite."
+  errors:
+    messages:
+      carrierwave_download_error: "konnte nicht heruntergeladen werden"
+      carrierwave_integrity_error: "ist kein zugelassener Dateityp"
+      carrierwave_processing_error: "Verarbeitung fehlgeschlagen"
+      content_type_blacklist_error: "Sie können Dateien vom Typ %{content_type} nicht hochladen"
+      content_type_whitelist_error: "Sie können Dateien vom Typ %{content_type} nicht hochladen"
+      extension_blacklist_error: "Sie können Dateien vom Format %{extension} nicht hochladen. Verbotene Dateiformate sind: %{prohibited_types}"
+      extension_whitelist_error: "Sie können Dateien vom Format %{extension} nicht hochladen. Zulässige Dateiformate sind: %{allowed_types}"
+      max_size_error: "Dateigröße sollte geringer als %{max_size} sein"
+      min_size_error: "Dateigröße sollte mehr als %{min_size} sein"
+      mini_magick_processing_error: "Konnte nicht mit MiniMagick bearbeitet werden, vielleicht ist es kein Bild? Originalfehlermeldung: %{e}"
+      rmagick_processing_error: "Konnte nicht mit rmagick bearbeitet werden, vielleicht ist es kein Bild?"
   fill_me_out: "Füllen Sie mich aus"
   find_people: "Leute oder #Tags finden"
   help:
@@ -450,7 +463,7 @@ de_formal:
       char_limit_services_q: "Was, wenn ich meinen Beitrag mit einem verbundenen Dienst mit geringerer Zeichenanzahl teile?"
       character_limit_a: "65.535 Zeichen. Das sind 65.395 Zeichen mehr, als Sie bei Twitter benutzen können! ;)"
       character_limit_q: "Wie groß ist das Zeichenlimit für Beiträge?"
-      embed_multimedia_a: "In der Regel können Sie einfach die URL (z.B. http://www.youtube.com/watch?v=nnnnnnnnnnn ) in Ihren Beitrag einfügen und der Video- oder Audio-Inhalt wird automatisch erscheinen. Unter Anderem werden YouTube, Vimeo, SoundCloud, Flickr und noch einige mehr unterstützt. diaspora* benutzt oEmbed für diese Funktion. Es kommen ständig weitere Medienquellen hinzu. Beachten Sie, immer nur einfache, vollständige Links zu posten – keine gekürzten Links; keine zusätzlichen Optionen hinter der Basis-URL – Und warten Sie nach dem Posten einen kleinen Moment, bevor Sie die Seite aktualisieren, um die Vorschau zu sehen."
+      embed_multimedia_a: "In der Regel können Sie einfach die URL (z.B. http://www.youtube.com/watch?v=nnnnnnnnnnn ) in Ihren Beitrag einfügen und der Video- oder Audio-Inhalt wird automatisch erscheinen. Unter anderem werden YouTube, Vimeo, SoundCloud, Flickr und noch einige mehr unterstützt. diaspora* benutzt oEmbed für diese Funktion. Wenn Sie einen direkten Link zu einer Audio- oder Videoquelle posten, wird diaspora* es mit dem Standard-HTML-player einbinden. Es kommen immer mehr unterstützte Medienquellen hinzu. Beachten Sie, immer nur einfache, vollständige Links zu posten – keine gekürzten Links; keine zusätzlichen Optionen hinter der Basis-URL – und warten Sie nach dem veröffentlichen einen kurzen Moment, bevor Sie die Seite aktualisieren, um die Vorschau zu sehen."
       embed_multimedia_q: "Wie bette ich Video-, Audio- oder andere Multimediainhalte in einen Beitrag ein?"
       format_text_a: "diaspora* verwendet %{markdown}. Die Oberfläche hat Schaltflächen, um es für Sie einfacher zu machen, Ihren Text zu formatieren. Wenn Sie Ihren Beitrag manuell formatieren wollen, finden Sie die vollständige Markdown-Syntax %{here}. Mit der Vorschau-Registerkarte können Sie sehen, wie Ihre Nachricht aussieht, bevor Sie sie teilen. Denken Sie daran, dass Sie einmal geteiltes nicht mehr bearbeiten können. Also, erst prüfen, dann abschicken!"
       format_text_q: "Wie kann ich einen Beitrag formatieren (Fett, kursiv, etc.)?"
@@ -1101,6 +1114,7 @@ de_formal:
     total_users: "Gesamtzahl Benutzer"
     version: "Version"
   status_messages:
+    bad_aspects: "Die angegebenen Aspekt-IDs sind nicht gültig (existieren nicht oder gehören Ihnen nicht)"
     new:
       mentioning: "Erwähnt: %{person}"
     too_long: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen. Im Moment enthält er %{current_length} Zeichen"
@@ -1201,6 +1215,10 @@ de_formal:
       mentioned_in_comment: "Sie in einem Kommentar erwähnt werden"
       new_password: "Neues Passwort"
       private_message: "Sie eine private Nachricht erhalten"
+      protocol_handler:
+        description: "Beim Klick auf diese Schaltfläche wird Ihr Browser aufgefordert, einen Handler zu installieren, wodurch web+diaspora:// URLs auf Ihrem Heimatpod geöffnet werden können. Diese Funktion ist derzeit experimentell und die Interaktionen sind abhängig von Ihrem Browser."
+        register: "Registrieren"
+        title: "web+diaspora:// protocol handler"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn:"
       request_export: "Meine Profildaten anfordern"
       request_export_photos: "Meine Fotos anfordern"
