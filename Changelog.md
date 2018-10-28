@@ -4,6 +4,7 @@
 * Improve public stream performance and cleanup unused indexes [#7944](https://github.com/diaspora/diaspora/pull/7944)
 
 ## Bug fixes
+* Do not autofollow back a user you are ignoring [#7913](https://github.com/diaspora/diaspora/pull/7913)
 
 ## Features
 * Suppoert ignore users on mobile [#7884](https://github.com/diaspora/diaspora/pull/7884)

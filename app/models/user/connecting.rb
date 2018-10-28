@@ -11,6 +11,8 @@ class User
     # @param [Aspect] aspect The aspect to add them to.
     # @return [Contact] The newly made contact for the passed in person.
     def share_with(person, aspect)
+      return if blocks.where(person_id: person.id).exists?
+
       contact = contacts.find_or_initialize_by(person_id: person.id)
       return false unless contact.valid?
 
