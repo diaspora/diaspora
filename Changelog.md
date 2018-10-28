@@ -16,6 +16,8 @@
 
 ## Refactor
 
+* Make setting up a development environment 9001% easier by adding a Docker-based setup [#7870](https://github.com/diaspora/diaspora/pull/7870)
+
 ## Bug fixes
 
 ## Features
