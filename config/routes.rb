@@ -226,7 +226,7 @@ Rails.application.routes.draw do
       resources :comments, only: %i[create index destroy] do
         post "report" => "comments#report"
       end
-      resource :likes, only: %i[create destroy]
+      resource :likes, only: %i[show create destroy]
     end
     resources :conversations, only: %i[show index create destroy] do
       resources :messages, only: %i[index create]
