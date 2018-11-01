@@ -11,6 +11,7 @@
 ## Features
 
 * Add the ability to assign roles in the admin panel [#7868](https://github.com/diaspora/diaspora/pull/7868)
+* Improve memory usage with libjemalloc if available [#7919](https://github.com/diaspora/diaspora/pull/7919)
 
 # 0.7.7.0
 
