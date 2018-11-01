@@ -14,6 +14,8 @@
 //= require jquery.timeago
 //= require underscore
 //= require bootstrap
+//= require bootstrap-multiselect
+//= require mobile/publisher_mobile_loader
 //= require pica
 //= require diaspora
 //= require helpers/i18n

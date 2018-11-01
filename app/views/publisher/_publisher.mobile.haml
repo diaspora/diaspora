@@ -15,17 +15,16 @@
           = image_tag "social-media-logos/#{service.provider}-32x32.png",
             title: service.provider.titleize, class: "service_icon dim",
             id: "#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"
-
-    %select{id: "aspect_ids_", class: "form-control", name: "aspect_ids[]"}
-      %option{value: 'public'}
-        = t('public')
-
-      %option{value: 'all_aspects', selected: true}
-        = t('all_aspects')
-
-      - current_user.aspects.each do |aspect|
-        %option{value: aspect.id}
-          = "· #{aspect.name}"
+      .pull-right
+        %select{id: "aspect_ids_", name: "aspect_ids[]", multiple: "multiple"}
+          %option{value: "public"}
+            = t("public")
+          %option{value: "all_aspects", selected: true}
+            = t("all_aspects")
+          %option(data-role="divider")
+          - current_user.aspects.each do |aspect|
+            %option{value: aspect.id}
+              = aspect.name.to_s
 
     .clear
     #publisher-textarea-wrapper
