@@ -184,7 +184,8 @@
       .col-md-12
         %h3#protocol-handler
           = t(".protocol_handler.title")
-        %p= t(".protocol_handler.description")
+        %p= t(".protocol_handler.description", pod_url: AppConfig.pod_uri.site)
+        %p= t(".protocol_handler.browser")
         .form-group
           %button.btn.btn-default#register-protocol-handler
             = t(".protocol_handler.register")

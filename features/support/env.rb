@@ -77,3 +77,8 @@ Before do |scenario|
   # Reset overridden settings
   AppConfig.reset_dynamic!
 end
+
+After do |scenario|
+  Capybara.save_path = ENV["SCREENSHOT_PATH"]
+  page.save_screenshot("#{Time.now.utc} #{scenario.name}.png", full: true) if scenario.failed? && ENV["SCREENSHOT_PATH"]
+end

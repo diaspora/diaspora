@@ -1261,8 +1261,9 @@ en:
 
       protocol_handler:
         title: "web+diaspora:// protocol handler"
-        description: "Clicking this button will ask your browser to install a handler that allows us to open web+diaspora:// URLs on your home pod. This is currently experimental and interactions will depend on your browser."
-        register: "Register"
+        description: "web+diaspora:// is a new web protocol that we have introduced. Any link to a diaspora* page on an external website that uses this protocol can be opened in the pod on which your diaspora* account is registered. Click the button below to set your browser to use %{pod_url} to recognise external web+diaspora:// links."
+        browser: "This protocol is currently in the experimental stage and the success of interactions using it will depend on your browser. If you want to manage or remove this handler, you will do this via your browser settings. The button below will always be enabled, and you need to set the handler separately in each browser you use."
+        register: "Register web+diaspora:// handler on this browser"
 
     privacy_settings:
       title: "Privacy settings"
