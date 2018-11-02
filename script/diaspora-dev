@@ -158,6 +158,16 @@ print_usage_full() {
 
 # ----- Helper functions -----
 
+dia_docker_compose() {
+  # Check permissions of docker socket and use sudo if needed
+  if [ -r "/var/run/docker.sock" ] && [ -w "/var/run/docker.sock" ]; then
+    docker-compose "$@"
+  else
+    echo "Attention: Docker socket not writable, using sudo for the docker command. You might be asked for your password now." >&2
+    sudo -E docker-compose "$@"
+  fi
+}
+
 dia_fetch_upstream() {
   # Add and fetch upstream develop branch
   if ! git remote show | grep -q '^upstream$'; then
@@ -181,12 +191,12 @@ exit_if_unconfigured() {
 
 dia_is_running() {
   # Check if diaspora container is running
-  docker-compose ps --services --filter status=running | grep -qx 'diaspora'
+  dia_docker_compose ps --services --filter status=running | grep -qx 'diaspora'
 }
 
 dia_is_db_running() {
   # Check if db container is running
-  docker-compose ps --services --filter status=running | grep -qx $DIASPORA_DOCKER_DB
+  dia_docker_compose ps --services --filter status=running | grep -qx $DIASPORA_DOCKER_DB
 }
 
 dia_get_db() {
@@ -199,14 +209,14 @@ dia_get_db() {
 dia_build() {
   if [ $# -gt 0 ] && [ "$1" == "--no-cache" ]; then nocache="--no-cache"; fi
   # Build the diaspora Docker container (diaspora:dev-latest)
-  docker-compose build $nocache diaspora
+  dia_docker_compose build $nocache diaspora
 }
 
 dia_bundle() {
   # Run bundle in order to install all gems into $DIASPORA_ROOT
   # Do not start database, not required and sometimes not yet configured
   echo "Installing gems via bundler ..."
-  docker-compose run \
+  dia_docker_compose run \
     --rm \
     --no-deps $1 \
     -e DIA_NODB=1 \
@@ -223,7 +233,7 @@ dia_clean() {
         ;;
     esac
   done
-  docker-compose down -v
+  dia_docker_compose down -v
   if [ ! -z $dia_config_delete ]; then
     rm "$DIASPORA_CONFIG_DIA" "$DIASPORA_CONFIG_DB"
   fi
@@ -284,7 +294,7 @@ dia_config() {
 dia_cucumber() {
   # Run cucumber tests
   if [ "$1" == "-d" ]; then detach="-d"; shift; fi
-  docker-compose run \
+  dia_docker_compose run \
     --rm $detach \
     diaspora \
     bin/cucumber "$@"
@@ -296,21 +306,21 @@ dia_exec() {
   if [ "$1" == "-d" ]; then detach="-d"; shift; fi
   if dia_is_running; then
     # Use a running container
-    docker-compose exec $detach diaspora /exec-entrypoint.sh "$@"
+    dia_docker_compose exec $detach diaspora /exec-entrypoint.sh "$@"
   else
     if ! dia_is_db_running; then not_running=1; fi
     # Start a new container
     echo "No running instance found, starting new one for command execution ..."
-    docker-compose run --rm $detach --service-ports diaspora "$@"
+    dia_docker_compose run --rm $detach --service-ports diaspora "$@"
     if [ ! -z $not_running ]; then
-      docker-compose stop $DIASPORA_DOCKER_DB
+      dia_docker_compose stop $DIASPORA_DOCKER_DB
     fi
   fi
 }
 
 dia_jasmine() {
   # Run jasmine tests
-  docker-compose run \
+  dia_docker_compose run \
     --rm $1 \
     -e RAILS_ENV=test \
     diaspora \
@@ -327,14 +337,14 @@ dia_logs() {
         ;;
     esac
   done
-  docker-compose logs -f --tail=100 $dia_follow
+  dia_docker_compose logs -f --tail=100 $dia_follow
 }
 
 dia_migrate() {
   # Run migrations if configured
   echo "Creating and/or migrating database ..."
   exit_if_unconfigured
-  docker-compose run \
+  dia_docker_compose run \
     --rm $1 \
     diaspora \
     bin/rake db:create db:migrate
@@ -348,7 +358,7 @@ dia_pronto() {
     dia_fetch_upstream
   fi
   cd - >/dev/null
-  docker-compose run \
+  dia_docker_compose run \
     --rm \
     --no-deps \
     diaspora \
@@ -366,11 +376,11 @@ dia_restart() {
   done
   if dia_is_running; then
     if [ -z $dia_restart_full ]; then
-      docker-compose exec \
+      dia_docker_compose exec \
         diaspora \
         bin/eye restart diaspora
     else
-      docker-compose restart
+      dia_docker_compose restart
     fi
   else
     dia_start
@@ -384,19 +394,20 @@ dia_rspec() {
   # Assumption: If (and only if) the tested file is not available, assets need be regenerated
   [ -f "$DIASPORA_ROOT"/public/404.html ] && assets="assets:generate_error_pages"
   # Prepare database (and assets if necessary)
-  docker-compose run \
+  dia_docker_compose run \
     --rm \
     -e RAILS_ENV=test \
     diaspora \
     bin/rake db:create db:migrate $assets
   # Run tests
-  docker-compose run \
+  dia_docker_compose run \
     --rm \
     diaspora \
     bin/rspec "$@"
 }
 
 dia_setup() {
+  # Prepare the entire environment for development
   for i in "$@"; do
     case "$i" in
       --force)
@@ -408,7 +419,6 @@ dia_setup() {
         ;;
     esac
   done
-  # Prepare the entire environment for development
   (
     set -e
     dia_build $build
@@ -418,15 +428,15 @@ dia_setup() {
     dia_setup_tests $setup_tests
   )
   # stop db afterwards as it is not needed while dia is not running
-  docker-compose stop $DIASPORA_DOCKER_DB
+  dia_docker_compose stop $DIASPORA_DOCKER_DB
 }
 
 dia_setup_tests() {
   # Prepare all possible tests
   # stop db if it was not running before
   echo "Setting up environment for tests ..."
-  if ! dia_is_db_running; then stopdb="docker-compose stop $DIASPORA_DOCKER_DB"; fi
-  docker-compose run \
+  if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  dia_docker_compose run \
     --rm \
     -e RAILS_ENV=test \
     diaspora \
@@ -442,19 +452,19 @@ dia_start() {
   else
     options=$1
   fi
-  docker-compose up $options diaspora
+  dia_docker_compose up $options diaspora
 }
 
 dia_status() {
   # Print running containers and current images
-  docker-compose ps
+  dia_docker_compose ps
   echo
-  docker-compose images
+  dia_docker_compose images
 }
 
 dia_stop() {
   # Stop all containers
-  docker-compose stop
+  dia_docker_compose stop
 }
 
 
