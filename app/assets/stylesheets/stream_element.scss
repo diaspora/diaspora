@@ -122,9 +122,12 @@
     opacity: 0;
   }
 
-  &:hover .permalink {
+  &:hover .post-timestamp .permalink {
     opacity: .8;
-    &:hover { opacity: 1; }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   div.reshare {
