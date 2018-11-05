@@ -311,7 +311,7 @@ en:
       moderator: "Moderator"
       log_out: "Log out"
       toggle_navigation: "Toggle navigation"
-      toggle_mobile: "Toggle mobile"
+      switch_to_touch_optimized_mode: "Switch to touch-optimized mode"
 
       notifications: "Notifications"
       conversations: "Conversations"

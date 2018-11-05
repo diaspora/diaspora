@@ -2,6 +2,7 @@
 
 ## Refactor
 * Improve public stream performance and cleanup unused indexes [#7944](https://github.com/diaspora/diaspora/pull/7944)
+* Improve wording of "Toggle mobile" [#7926](https://github.com/diaspora/diaspora/pull/7926)
 
 ## Bug fixes
 * Do not autofollow back a user you are ignoring [#7913](https://github.com/diaspora/diaspora/pull/7913)
