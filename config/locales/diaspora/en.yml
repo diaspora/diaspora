@@ -962,6 +962,8 @@ en:
         no_like: "Like doesn’t exist"
       posts:
         post_not_found: "Post with provided guid could not be found"
+        failed_create: "Failed to create the post"
+        failed_delete: "Not allowed to delete the post"
 
   error:
     not_found: "No record found for given id."
