@@ -234,7 +234,7 @@ Rails.application.routes.draw do
     get "streams/activity" => "streams#activity", :as => "activity_stream"
     get "streams/main" => "streams#multi", :as => "stream"
     get "streams/tags" => "streams#followed_tags", :as => "followed_tags_stream"
-    get "streams/mentions" => "streams#mentioned", :as => "mentioned_stream"
+    get "streams/mentions" => "streams#mentions", :as => "mentions_stream"
     get "streams/liked" => "streams#liked", :as => "liked_stream"
     get "streams/commented" => "streams#commented", :as => "commented_stream"
     get "streams/aspects" => "streams#aspects", :as => "aspects_stream"

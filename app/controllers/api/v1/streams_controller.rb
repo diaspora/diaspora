@@ -8,7 +8,7 @@ module Api
       end
 
       def aspects
-        aspect_ids = (params[:a_ids] || [])
+        aspect_ids = params.has_key?(:aspect_ids) ? JSON.parse(params[:aspect_ids]) : []
         @stream = Stream::Aspect.new(current_user, aspect_ids, max_time: max_time)
         stream_responder
       end
@@ -29,7 +29,7 @@ module Api
         stream_responder(Stream::Likes)
       end
 
-      def mentioned
+      def mentions
         stream_responder(Stream::Mention)
       end
 
@@ -42,7 +42,7 @@ module Api
       def stream_responder(stream_klass=nil)
         @stream = stream_klass.present? ? stream_klass.new(current_user, max_time: max_time) : @stream
 
-        render json: @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }
+        render json: @stream.stream_posts.map {|p| PostPresenter.new(p, current_user).as_api_response }
       end
     end
   end
