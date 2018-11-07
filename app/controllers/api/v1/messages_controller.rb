@@ -12,19 +12,18 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render(
-          json:   {error: I18n.t("conversations.not_found")},
-          status: :not_found
-        )
+        render json:   I18n.t("api.endpoint_errors.conversations.not_found"), status: :not_found
       end
 
       def create
         conversation = conversation_service.find!(params[:conversation_id])
-        opts = params.require(:body)
-        message = current_user.build_message(conversation, text: opts[:body])
+        text = params.require(:body)
+        message = current_user.build_message(conversation, text: text)
         message.save!
         Diaspora::Federation::Dispatcher.defer_dispatch(current_user, message)
         render json: message_json(message), status: :created
+      rescue ActionController::ParameterMissing
+        render json:   I18n.t("api.endpoint_errors.conversations.cant_process"), status: :unprocessable_entity
       end
 
       def index
