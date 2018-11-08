@@ -222,6 +222,7 @@ Rails.application.routes.draw do
   get "podmin", to: "home#podmin"
 
   api_version(module: "Api::V1", path: {value: "api/v1"}) do
+    resources :aspects, only: %i[show index create destroy update]
     resources :posts, only: %i[show create destroy] do
       resources :comments, only: %i[create index destroy] do
         post "report" => "comments#report"
@@ -232,6 +233,7 @@ Rails.application.routes.draw do
     resources :conversations, only: %i[show index create destroy] do
       resources :messages, only: %i[index create]
     end
+
     get "streams/activity" => "streams#activity", :as => "activity_stream"
     get "streams/main" => "streams#multi", :as => "stream"
     get "streams/tags" => "streams#followed_tags", :as => "followed_tags_stream"
