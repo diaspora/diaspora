@@ -1,5 +1,6 @@
 describe("app.models.Post.Interactions", function(){
   var ajaxSuccess = {status: 200, responseText: "{\"id\": 1}"};
+  var ajaxNoContent = {status: 204};
 
   beforeEach(function(){
     this.post = factory.post();
@@ -9,7 +10,7 @@ describe("app.models.Post.Interactions", function(){
     spec.content().append($("<div id='flash-container'>"));
     app.flashMessages = new app.views.FlashMessages({el: spec.content().find("#flash-container")});
 
-    this.userLike = new app.models.Like({author : this.author});
+    this.userLike = new app.models.Like({author: this.author, id: "id01"});
   });
 
   describe("toggleLike", function(){
@@ -62,11 +63,40 @@ describe("app.models.Post.Interactions", function(){
   });
 
   describe("unlike", function(){
-    it("calls destroy on the likes collection", function(){
+    beforeEach(function() {
       this.interactions.likes.add(this.userLike);
-      this.interactions.unlike();
+      this.post.set({participation: true});
+      spyOn(this.interactions, "userLike").and.returnValue(this.userLike);
+    });
 
+    it("calls delete on the likes collection for the post", function() {
+      expect(this.interactions.likes.length).toEqual(1);
+      this.interactions.unlike();
       expect(this.interactions.likes.length).toEqual(0);
+    });
+
+    it("sets the participation flag for the post", function() {
+      expect(this.post.get("participation")).toBeTruthy();
+      this.interactions.unlike();
+      jasmine.Ajax.requests.mostRecent().respondWith(ajaxNoContent);
+      expect(this.post.get("participation")).toBeFalsy();
+    });
+
+    it("triggers a change on the likes collection", function() {
+      spyOn(this.interactions.likes, "trigger");
+      this.interactions.unlike();
+      jasmine.Ajax.requests.mostRecent().respondWith(ajaxNoContent);
+      expect(this.interactions.likes.trigger).toHaveBeenCalledWith("change");
+    });
+
+    it("displays a flash message on errors", function() {
+      spyOn(app.flashMessages, "handleAjaxError").and.callThrough();
+      this.interactions.unlike();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "error message"});
+
+      expect(app.flashMessages.handleAjaxError).toHaveBeenCalled();
+      expect(app.flashMessages.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("error message");
+      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
     });
   });
 

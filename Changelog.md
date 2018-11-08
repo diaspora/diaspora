@@ -22,6 +22,7 @@
 
 ## Bug fixes
 * Ignore invalid URLs for camo [#7922](https://github.com/diaspora/diaspora/pull/7922)
+* Unlinking a post did not update the participation icon without a reload [#7882](https://github.com/diaspora/diaspora/pull/7882)
 
 ## Features
 * Add the ability to assign roles in the admin panel [#7868](https://github.com/diaspora/diaspora/pull/7868)
