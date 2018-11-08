@@ -39,58 +39,58 @@ describe Api::V1::ConversationsController do
       end
 
       it "fails with missing subject " do
-        incomplete_convo = {
+        incomplete_conversation = {
           body:         "first message",
           recipients:   [alice.guid],
           access_token: access_token
         }
-        post api_v1_conversations_path, params: incomplete_convo
+        post api_v1_conversations_path, params: incomplete_conversation
         expect(response.status).to eq 422
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
       it "fails with missing body " do
-        incomplete_convo = {
+        incomplete_conversation = {
           subject:      "new conversation",
           recipients:   [alice.guid],
           access_token: access_token
         }
-        post api_v1_conversations_path, params: incomplete_convo
+        post api_v1_conversations_path, params: incomplete_conversation
         expect(response.status).to eq 422
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
       it "fails with missing recipients " do
-        incomplete_convo = {
+        incomplete_conversation = {
           subject:      "new conversation",
           body:         "first message",
           access_token: access_token
         }
-        post api_v1_conversations_path, params: incomplete_convo
+        post api_v1_conversations_path, params: incomplete_conversation
         expect(response.status).to eq 422
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
       it "fails with bad recipient ID " do
-        incomplete_convo = {
+        incomplete_conversation = {
           subject:      "new conversation",
           body:         "first message",
           recipients:   JSON.generate(["999_999_999"]),
           access_token: access_token
         }
-        post api_v1_conversations_path, params: incomplete_convo
+        post api_v1_conversations_path, params: incomplete_conversation
         expect(response.status).to eq 422
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
       it "fails with invalid recipient (not allowed to message) " do
-        incomplete_convo = {
+        incomplete_conversation = {
           subject:      "new conversation",
           body:         "first message",
           recipients:   JSON.generate([eve.guid]),
           access_token: access_token
         }
-        post api_v1_conversations_path, params: incomplete_convo
+        post api_v1_conversations_path, params: incomplete_conversation
         expect(response.status).to eq 422
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
@@ -115,9 +115,9 @@ describe Api::V1::ConversationsController do
     it "returns all the user conversations" do
       get api_v1_conversations_path, params: {access_token: access_token}
       expect(response.status).to eq 200
-      returned_convos = JSON.parse(response.body)
-      expect(returned_convos.length).to eq 3
-      confirm_conversation_format(returned_convos[0], @conversation, [auth.user, alice])
+      returned_conversations = JSON.parse(response.body)
+      expect(returned_conversations.length).to eq 3
+      confirm_conversation_format(returned_conversations[0], @conversation, [auth.user, alice])
     end
 
     it "returns all the user unread conversations" do
@@ -252,10 +252,10 @@ describe Api::V1::ConversationsController do
   private
 
   # rubocop:disable Metrics/AbcSize
-  def confirm_conversation_format(conversation, ref_convo, ref_participants)
+  def confirm_conversation_format(conversation, ref_conversation, ref_participants)
     expect(conversation["guid"]).to_not be_nil
     conversation_service.find!(conversation["guid"])
-    expect(conversation["subject"]).to eq ref_convo[:subject]
+    expect(conversation["subject"]).to eq ref_conversation[:subject]
     expect(conversation["created_at"]).to_not be_nil
     expect(conversation["read"]).to be_truthy
     expect(conversation["participants"].length).to eq(ref_participants.length)
