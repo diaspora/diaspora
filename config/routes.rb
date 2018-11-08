@@ -232,6 +232,8 @@ Rails.application.routes.draw do
     resources :conversations, only: %i[show index create destroy] do
       resources :messages, only: %i[index create]
     end
+
+    resources :tag_followings, only: %i[index create destroy]
     get "streams/activity" => "streams#activity", :as => "activity_stream"
     get "streams/main" => "streams#multi", :as => "stream"
     get "streams/tags" => "streams#followed_tags", :as => "followed_tags_stream"
