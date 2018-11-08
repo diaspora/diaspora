@@ -472,7 +472,7 @@ GEM
       byebug (~> 10.0)
       pry (~> 0.10)
     public_suffix (3.0.3)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-cors (1.0.2)
     rack-google-analytics (1.2.0)
       actionpack
@@ -900,4 +900,4 @@ DEPENDENCIES
   will_paginate (= 3.1.6)
 
 BUNDLED WITH
-   1.16.5
+   1.17.1

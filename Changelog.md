@@ -1,3 +1,7 @@
+# 0.7.7.1
+
+Fixes a potential cross-site scripting issue with maliciously crafted OpenGraph metadata on the mobile interface.
+
 # 0.7.7.0
 
 ## Refactor
