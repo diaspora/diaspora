@@ -951,6 +951,11 @@ en:
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
     endpoint_errors:
+      aspects:
+        cant_create: "Failed to create the aspect"
+        cant_delete: "Failed to delete the aspect"
+        cant_update: "Failed to update the aspect"
+        not_found: "Aspect with provided ID could not be found"
       conversations:
         not_found: "Conversation with provided guid could not be found"
         cant_process: "Couldn’t accept or process the conversation"
