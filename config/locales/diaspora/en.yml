@@ -972,6 +972,8 @@ en:
         post_not_found: "Post with provided guid could not be found"
         failed_create: "Failed to create the post"
         failed_delete: "Not allowed to delete the post"
+      tags:
+        cant_process: "Failed to process the tag followings request"
 
   error:
     not_found: "No record found for given id."
