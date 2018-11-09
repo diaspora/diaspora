@@ -7,7 +7,7 @@ describe ReshareService do
     it "doesn't create a reshare of my own post" do
       expect {
         ReshareService.new(alice).create(post.id)
-      }.not_to raise_error
+      }.to raise_error RuntimeError
     end
 
     it "creates a reshare of a post of a contact" do
@@ -76,9 +76,9 @@ describe ReshareService do
       end
 
       it "returns the user's reshare first" do
-        [alice, bob, eve].map {|user| ReshareService.new(user).create(post.id) }
+        [bob, eve].map {|user| ReshareService.new(user).create(post.id) }
 
-        [alice, bob, eve].each do |user|
+        [bob, eve].each do |user|
           expect(
             ReshareService.new(user).find_for_post(post.id).first.author.id
           ).to be user.person.id
@@ -88,7 +88,7 @@ describe ReshareService do
 
     context "without user" do
       it "returns reshares for a public post" do
-        reshare = ReshareService.new(alice).create(post.id)
+        reshare = ReshareService.new(bob).create(post.id)
         expect(ReshareService.new.find_for_post(post.id)).to include(reshare)
       end
 
@@ -101,7 +101,7 @@ describe ReshareService do
     end
 
     it "returns all reshares of a post" do
-      reshares = [alice, bob, eve].map {|user| ReshareService.new(user).create(post.id) }
+      reshares = [bob, eve].map {|user| ReshareService.new(user).create(post.id) }
 
       expect(ReshareService.new.find_for_post(post.id)).to match_array(reshares)
     end
