@@ -353,7 +353,7 @@ GEM
     json-schema-rspec (0.0.4)
       json-schema (~> 2.5)
       rspec
-    jsonpath (0.8.11)
+    jsonpath (0.9.6)
       multi_json
       to_regexp (~> 0.2.1)
     jwt (1.5.6)
