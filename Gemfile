@@ -155,7 +155,7 @@ gem "string-direction", "1.2.1"
 
 # Security Headers
 
-gem "secure_headers", "5.0.5"
+gem "secure_headers", "6.0.0"
 
 # Services
 
