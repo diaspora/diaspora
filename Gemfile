@@ -178,7 +178,7 @@ gem "rails-assets-diaspora_jsxc", "0.1.5.develop.7", source: "https://rails-asse
 
 # Tags
 
-gem "acts-as-taggable-on", "5.0.0"
+gem "acts-as-taggable-on", "6.0.0"
 
 # URIs and HTTP
 
