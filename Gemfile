@@ -115,7 +115,7 @@ source "https://rails-assets.org" do
 
   # jQuery plugins
 
-  gem "rails-assets-autosize",                            "4.0.1"
+  gem "rails-assets-autosize",                            "4.0.2"
   gem "rails-assets-blueimp-gallery",                     "2.33.0"
   gem "rails-assets-jquery.are-you-sure",                 "1.9.0"
   gem "rails-assets-jquery-placeholder",                  "2.3.1"
