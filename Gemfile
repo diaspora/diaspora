@@ -275,7 +275,7 @@ group :test do
   # RSpec (unit tests, some integration tests)
 
   gem "fixture_builder",   "0.5.2.rc3"
-  gem "fuubar",            "2.3.1"
+  gem "fuubar",            "2.3.2"
   gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
 
