@@ -92,7 +92,7 @@ gem "entypo-rails", "3.0.0"
 
 gem "handlebars_assets", "0.23.2"
 gem "jquery-rails",      "4.3.3"
-gem "js-routes",         "1.4.3"
+gem "js-routes",         "1.4.4"
 gem "js_image_paths",    "0.1.1"
 
 source "https://rails-assets.org" do
