@@ -377,7 +377,7 @@ GEM
     lumberjack (1.0.13)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
-    mail (2.7.0)
+    mail (2.7.1)
       mini_mime (>= 0.1.1)
     markdown-it-html5-embed (1.0.0)
     markerb (1.1.0)
