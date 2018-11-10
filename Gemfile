@@ -79,7 +79,7 @@ gem "activerecord-import", "0.27.0"
 
 gem "carrierwave", "1.2.3"
 gem "fog-aws",     "3.3.0"
-gem "mini_magick", "4.8.0"
+gem "mini_magick", "4.9.2"
 
 # GUID generation
 gem "uuid", "2.3.8"
