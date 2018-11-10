@@ -491,7 +491,7 @@ GEM
       activesupport
     rack-mobile-detect (0.4.0)
       rack
-    rack-oauth2 (1.9.2)
+    rack-oauth2 (1.9.3)
       activesupport
       attr_required
       httpclient
