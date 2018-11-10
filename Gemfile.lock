@@ -396,7 +396,7 @@ GEM
     mysql2 (0.5.2)
     naught (1.1.0)
     nenv (0.3.0)
-    nio4r (2.3.0)
+    nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
