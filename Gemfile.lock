@@ -64,7 +64,7 @@ GEM
     autoprefixer-rails (8.6.5)
       execjs
     bcrypt (3.1.12)
-    bindata (2.4.3)
+    bindata (2.4.4)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
