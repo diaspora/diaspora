@@ -123,7 +123,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jquery.are-you-sure",                 "1.9.0"
   gem "rails-assets-jquery-placeholder",                  "2.3.1"
   gem "rails-assets-jquery-textchange",                   "0.2.3"
-  gem "rails-assets-utatti-perfect-scrollbar",            "1.3.0"
+  gem "rails-assets-utatti-perfect-scrollbar",            "1.4.0"
 end
 
 gem "markdown-it-html5-embed", "1.0.0"
