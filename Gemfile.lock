@@ -556,7 +556,7 @@ GEM
     rails-assets-markdown-it-sanitizer (0.4.3)
     rails-assets-markdown-it-sub (1.0.0)
     rails-assets-markdown-it-sup (1.0.0)
-    rails-assets-underscore (1.8.3)
+    rails-assets-underscore (1.9.1)
     rails-assets-utatti-perfect-scrollbar (1.4.0)
     rails-controller-testing (1.0.2)
       actionpack (~> 5.x, >= 5.0.1)
@@ -567,7 +567,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails-i18n (5.1.1)
+    rails-i18n (5.1.2)
       i18n (>= 0.7, < 2)
       railties (>= 5.0, < 6)
     rails-timeago (2.16.0)
@@ -866,7 +866,7 @@ DEPENDENCIES
   rails-assets-markdown-it-sup (= 1.0.0)!
   rails-assets-utatti-perfect-scrollbar (= 1.4.0)!
   rails-controller-testing (= 1.0.2)
-  rails-i18n (= 5.1.1)
+  rails-i18n (= 5.1.2)
   rails-timeago (= 2.16.0)
   rb-fsevent (= 0.10.3)
   rb-inotify (= 0.9.10)
