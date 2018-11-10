@@ -254,7 +254,7 @@ group :development do
   gem "pronto",         "0.9.5", require: false
   gem "pronto-eslint",  "0.9.1", require: false
   gem "pronto-haml",    "0.9.0", require: false
-  gem "pronto-rubocop", "0.9.0", require: false
+  gem "pronto-rubocop", "0.9.1", require: false
   gem "pronto-scss",    "0.9.1", require: false
   gem "rubocop",        "0.54.0", require: false
 
