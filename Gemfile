@@ -82,7 +82,7 @@ gem "fog-aws",     "3.3.0"
 gem "mini_magick", "4.9.2"
 
 # GUID generation
-gem "uuid", "2.3.8"
+gem "uuid", "2.3.9"
 
 # Icons
 
