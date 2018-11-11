@@ -11,7 +11,18 @@ class AspectPresenter < BasePresenter
     }
   end
 
-  def to_json(options = {})
+  def as_api_json(full=false)
+    values = {
+      id:    @aspect.id,
+      name:  @aspect.name,
+      order: @aspect.order_id
+    }
+
+    values[:chat_enabled] = @aspect.chat_enabled if full
+    values
+  end
+
+  def to_json(options={})
     as_json.to_json(options)
   end
 end
