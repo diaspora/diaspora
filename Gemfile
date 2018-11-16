@@ -49,6 +49,7 @@ gem "uglifier", "4.1.8"
 # Configuration
 
 gem "configurate", "0.3.1"
+gem "mutant-rspec"
 
 # Cross-origin resource sharing
 
@@ -257,7 +258,7 @@ group :development do
   gem "pronto-haml",    "0.9.0", require: false
   gem "pronto-rubocop", "0.9.0", require: false
   gem "pronto-scss",    "0.9.1", require: false
-  gem "rubocop",        "0.54.0", require: false
+  gem "rubocop",        "0.50.0", require: false
 
   # Preloading environment
 
