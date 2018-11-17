@@ -526,7 +526,7 @@ GEM
       rails-assets-bootstrap (~> 3)
     rails-assets-corejs-typeahead (1.2.1)
       rails-assets-jquery (>= 1.11)
-    rails-assets-cropperjs (1.3.4)
+    rails-assets-cropperjs (1.4.3)
     rails-assets-diaspora_jsxc (0.1.5.develop.7)
       rails-assets-emojione (~> 2.0.1)
       rails-assets-favico.js (>= 0.3.10, < 0.4)
@@ -561,7 +561,7 @@ GEM
     rails-assets-markdown-it-sanitizer (0.4.3)
     rails-assets-markdown-it-sub (1.0.0)
     rails-assets-markdown-it-sup (1.0.0)
-    rails-assets-pica (4.0.1)
+    rails-assets-pica (5.0.0)
     rails-assets-underscore (1.9.1)
     rails-assets-utatti-perfect-scrollbar (1.4.0)
     rails-controller-testing (1.0.2)
@@ -718,7 +718,7 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
-    twitter-text (2.1.0)
+    twitter-text (3.0.0)
       idn-ruby
       unf (~> 0.1.0)
     typhoeus (1.3.1)
@@ -856,7 +856,7 @@ DEPENDENCIES
   rails-assets-blueimp-gallery (= 2.33.0)!
   rails-assets-bootstrap-markdown (= 2.10.0)!
   rails-assets-corejs-typeahead (= 1.2.1)!
-  rails-assets-cropperjs (= 1.3.4)!
+  rails-assets-cropperjs (= 1.4.3)!
   rails-assets-diaspora_jsxc (= 0.1.5.develop.7)!
   rails-assets-fine-uploader (= 5.13.0)!
   rails-assets-highlightjs (= 9.12.0)!
@@ -873,7 +873,7 @@ DEPENDENCIES
   rails-assets-markdown-it-sanitizer (= 0.4.3)!
   rails-assets-markdown-it-sub (= 1.0.0)!
   rails-assets-markdown-it-sup (= 1.0.0)!
-  rails-assets-pica (= 4.0.1)!
+  rails-assets-pica (= 5.0.0)!
   rails-assets-utatti-perfect-scrollbar (= 1.4.0)!
   rails-controller-testing (= 1.0.2)
   rails-i18n (= 5.1.2)
@@ -905,7 +905,7 @@ DEPENDENCIES
   timecop (= 0.9.1)
   turbo_dev_assets (= 0.0.2)
   twitter (= 6.2.0)
-  twitter-text (= 2.1.0)
+  twitter-text (= 3.0.0)
   typhoeus (= 1.3.1)
   uglifier (= 4.1.19)
   unicorn (= 5.4.1)

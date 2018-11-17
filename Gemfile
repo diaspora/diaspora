@@ -112,9 +112,9 @@ source "https://rails-assets.org" do
   gem "rails-assets-backbone",                            "1.3.3"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
   gem "rails-assets-corejs-typeahead",                    "1.2.1"
-  gem "rails-assets-cropperjs",                           "1.3.4"
+  gem "rails-assets-cropperjs",                           "1.4.3"
   gem "rails-assets-fine-uploader",                       "5.13.0"
-  gem "rails-assets-pica",                                "4.0.1"
+  gem "rails-assets-pica",                                "5.0.0"
 
   # jQuery plugins
 
@@ -147,7 +147,7 @@ gem "nokogiri",          "1.8.5"
 gem "open_graph_reader", "0.6.2" # also update User-Agent in features/support/webmock.rb
 gem "redcarpet",         "3.4.0"
 gem "ruby-oembed",       "0.12.0"
-gem "twitter-text",      "2.1.0"
+gem "twitter-text",      "3.0.0"
 
 # RTL support
 
