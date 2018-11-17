@@ -157,8 +157,9 @@ class Profile < ApplicationRecord
   end
 
   private
+
   def clearable_fields
-    self.attributes.keys - ["id", "created_at", "updated_at", "person_id"]
+    attributes.keys - %w[id created_at updated_at person_id tag_list]
   end
 
   def build_image_url(url)
