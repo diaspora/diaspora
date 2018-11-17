@@ -964,6 +964,10 @@ en:
         not_allowed: "User is not allowed to comment"
         no_delete: "User not allowed to delete the comment"
         duplicate_report: "This item already has been reported by this user"
+      contacts:
+        not_found: "Aspect or contact on aspect not found"
+        cant_create: "Failed to add user to aspect"
+        cant_delete: "Failed to remove user from aspect"          
       likes:
         user_not_allowed_to_like: "User is not allowed to like"
         like_exists: "Like already exists"
