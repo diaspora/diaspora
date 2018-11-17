@@ -33,7 +33,7 @@ Feature: posting with a poll
       And I fill in values for the first two options
       And I lose focus
       And I delete the last option
-      Then I should see 2 option
+      Then I should see 2 options
       And I should not see a remove icon
 
     Scenario: post with an attached poll
