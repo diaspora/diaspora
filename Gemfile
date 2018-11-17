@@ -280,7 +280,7 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "capybara",           "2.18.0"
+  gem "capybara",           "3.11.1"
   gem "database_cleaner",   "1.7.0"
   gem "poltergeist",        "1.18.1"
 
@@ -304,7 +304,7 @@ group :development, :test do
   gem "rspec-rails", "3.8.1"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "1.5.0", require: false
+  gem "cucumber-rails", "1.6.0", require: false
 
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "3.3.0"

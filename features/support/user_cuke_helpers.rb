@@ -49,7 +49,7 @@ module UserCukeHelpers
     if mobile
       expect(page).to have_css "#menu-badge"
     else
-      expect(find("#user-menu")).to have_content "#{@me.first_name} #{@me.last_name}"
+      expect(find("#user-menu")).to have_content "#{@me.first_name} #{@me.last_name}".strip
     end
   end
 
