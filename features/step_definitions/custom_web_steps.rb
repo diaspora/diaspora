@@ -127,7 +127,7 @@ end
 
 When /^I click to delete the first uploaded photo$/ do
   page.execute_script("$('#photodropzone .x').css('display', 'block');")
-  image_count = all(".publisher_photo img").count
+  image_count = all(".publisher_photo img", wait: false).count
   find("#photodropzone .x", match: :first).trigger "click"
   page.assert_selector(".publisher_photo img", count: image_count - 1)
 end

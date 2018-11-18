@@ -243,7 +243,6 @@ end
 group :development do
   # Automatic test runs
   gem "guard",          "2.15.0", require: false
-  gem "guard-cucumber", "2.1.2", require: false
   gem "guard-rspec",    "4.7.3", require: false
   gem "guard-rubocop",  "1.3.0", require: false
   gem "rb-fsevent",     "0.10.3", require: false
@@ -284,7 +283,7 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "capybara",           "2.18.0"
+  gem "capybara",           "3.11.1"
   gem "database_cleaner",   "1.7.0"
   gem "poltergeist",        "1.18.1"
 
@@ -308,7 +307,7 @@ group :development, :test do
   gem "rspec-rails", "3.8.1"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "1.5.0", require: false
+  gem "cucumber-rails", "1.6.0", require: false
 
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "3.3.0"
