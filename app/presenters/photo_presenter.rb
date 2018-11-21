@@ -17,8 +17,8 @@ class PhotoPresenter < BasePresenter
     }
   end
 
-  def as_api_json
-    {
+  def as_api_json(no_guid=true)
+    based_data = {
       dimensions: {
         height: height,
         width:  width
@@ -29,5 +29,7 @@ class PhotoPresenter < BasePresenter
         large:  url(:scaled_full)
       }
     }
+    return based_data if no_guid
+    based_data.merge(guid: guid)
   end
 end

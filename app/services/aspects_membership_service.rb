@@ -43,6 +43,12 @@ class AspectsMembershipService
     ).includes(person: :profile).order(order)
   end
 
+  def all_contacts
+    order = ["profiles.first_name ASC", "profiles.last_name ASC",
+             "profiles.diaspora_handle ASC"]
+    @user.contacts.includes(person: :profile).order(order)
+  end
+
   private
 
   def destroy(aspect, contact)

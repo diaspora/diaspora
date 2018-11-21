@@ -982,6 +982,9 @@ en:
         failed_create: "Failed to create the post"
         failed_delete: "Not allowed to delete the post"
         cant_report: "Failed to create report on this post"
+      users:
+        cant_update: "Failed to update the user settings"
+        not_found: "User not found"
       tags:
         cant_process: "Failed to process the tag followings request"
 

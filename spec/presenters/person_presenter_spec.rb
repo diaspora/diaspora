@@ -142,4 +142,78 @@ describe PersonPresenter do
       expect(presenter.hovercard[:contact]).to have_key(:aspect_memberships)
     end
   end
+
+  describe "#profile_hash_as_api_json" do
+    let(:current_user) { FactoryGirl.create(:user) }
+
+    it "contains internal profile if self" do
+      profile_hash = PersonPresenter.new(current_user.person, current_user).profile_hash_as_api_json
+      expect(profile_hash[:diaspora_id]).to eq(current_user.profile.diaspora_handle)
+      confirm_self_data_format(profile_hash)
+    end
+
+    it "contains full data only if private profile is Sharing to me" do
+      alice.profile[:public_details] = false
+      profile_hash = PersonPresenter.new(alice.person, current_user).profile_hash_as_api_json
+      expect(profile_hash[:diaspora_id]).to eq(alice.profile.diaspora_handle)
+      confirm_private_profile_hash(profile_hash)
+
+      alice.share_with(current_user.person, alice.aspects.first)
+      profile_hash = PersonPresenter.new(alice.person, current_user).profile_hash_as_api_json
+      expect(profile_hash[:diaspora_id]).to eq(alice.profile.diaspora_handle)
+      confirm_public_profile_hash(profile_hash)
+    end
+
+    it "contains full profile data for public profile" do
+      alice.profile[:public_details] = true
+      profile_hash = PersonPresenter.new(alice.person, current_user).profile_hash_as_api_json
+      expect(profile_hash[:diaspora_id]).to eq(alice.profile.diaspora_handle)
+      confirm_public_profile_hash(profile_hash)
+    end
+  end
+
+  def confirm_self_data_format(profile_hash)
+    confirm_common_profile_elements(profile_hash)
+    confirm_profile_details(profile_hash)
+    expect(profile_hash).to have_key(:searchable)
+    expect(profile_hash).to have_key(:show_profile_info)
+    expect(profile_hash).to have_key(:nsfw)
+  end
+
+  def confirm_public_profile_hash(profile_hash)
+    confirm_common_profile_elements(profile_hash)
+    confirm_profile_details(profile_hash)
+    expect(profile_hash).to have_key(:blocked)
+    expect(profile_hash).to have_key(:relationship)
+    expect(profile_hash).to have_key(:aspects)
+  end
+
+  # rubocop:disable Metrics/AbcSize
+  def confirm_private_profile_hash(profile_hash)
+    confirm_common_profile_elements(profile_hash)
+    expect(profile_hash).to have_key(:blocked)
+    expect(profile_hash).to have_key(:relationship)
+    expect(profile_hash).to have_key(:aspects)
+    expect(profile_hash).not_to have_key(:birthday)
+    expect(profile_hash).not_to have_key(:gender)
+    expect(profile_hash).not_to have_key(:location)
+    expect(profile_hash).not_to have_key(:bio)
+  end
+  # rubocop:enable Metrics/AbcSize
+
+  def confirm_common_profile_elements(profile_hash)
+    expect(profile_hash).to have_key(:guid)
+    expect(profile_hash).to have_key(:diaspora_id)
+    expect(profile_hash).to have_key(:first_name)
+    expect(profile_hash).to have_key(:last_name)
+    expect(profile_hash).to have_key(:avatar)
+    expect(profile_hash).to have_key(:tags)
+  end
+
+  def confirm_profile_details(profile_hash)
+    expect(profile_hash).to have_key(:birthday)
+    expect(profile_hash).to have_key(:gender)
+    expect(profile_hash).to have_key(:location)
+    expect(profile_hash).to have_key(:bio)
+  end
 end
