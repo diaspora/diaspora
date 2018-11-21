@@ -240,6 +240,14 @@ Rails.application.routes.draw do
       resources :messages, only: %i[index create]
     end
     resources :notifications, only: %i[index show update]
+
+    patch "user" => "users#update"
+    get "user" => "users#show"
+    resources :users, only: %i[show] do
+      get :contacts
+      get :photos
+      get :posts
+    end
     resources :tag_followings, only: %i[index create destroy]
     get "streams/activity" => "streams#activity", :as => "activity_stream"
     get "streams/main" => "streams#multi", :as => "stream"

@@ -131,6 +131,19 @@ describe AspectsMembershipService do
     end
   end
 
+  describe "#all_contacts" do
+    before do
+      aspects_membership_service.create(@alice_aspect2.id, bob.person.id)
+      aspects_membership_service.create(@alice_aspect2.id, eve.person.id)
+      @alice_aspect3 = alice.aspects.create(name: "empty aspect")
+    end
+
+    it "returns all user's contacts" do
+      contacts = aspects_membership_service.all_contacts
+      expect(contacts.length).to eq(2)
+    end
+  end
+
   def aspects_membership_service(user=alice)
     AspectsMembershipService.new(user)
   end

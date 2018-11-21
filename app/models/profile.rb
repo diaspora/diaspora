@@ -5,6 +5,7 @@
 #   the COPYRIGHT file.
 
 class Profile < ApplicationRecord
+  MAX_TAGS = 5
   self.include_root_in_json = false
 
   include Diaspora::Federated::Base

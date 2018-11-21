@@ -24,6 +24,19 @@ class ProfilePresenter < BasePresenter
     }
   end
 
+  def as_self_api_json
+    base_api_json.merge(added_details_api_json).merge(
+      searchable:        searchable,
+      show_profile_info: public_details,
+      nsfw:              nsfw
+    )
+  end
+
+  def as_other_api_json(all_details)
+    return base_api_json unless all_details
+    base_api_json.merge(added_details_api_json)
+  end
+
   def private_hash
     public_hash.merge(
       bio:      bio_message.plain_text_for_json,
@@ -35,5 +48,26 @@ class ProfilePresenter < BasePresenter
 
   def formatted_birthday
     birthday_format(birthday) if birthday
+  end
+
+  private
+
+  def base_api_json
+    {
+      first_name:  first_name,
+      last_name:   last_name,
+      diaspora_id: diaspora_handle,
+      avatar:      AvatarPresenter.new(@presentable).base_hash,
+      tags:        tags.pluck(:name)
+    }
+  end
+
+  def added_details_api_json
+    {
+      birthday: formatted_birthday,
+      gender:   gender,
+      location: location_message.plain_text_for_json,
+      bio:      bio_message.plain_text_for_json
+    }
   end
 end
