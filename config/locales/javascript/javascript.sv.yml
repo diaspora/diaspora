@@ -169,6 +169,7 @@ sv:
       invalid_ext: "{file} har otillåten filändelse. Endast {extensions} tillåts."
       looking_good: "OMG, du ser grym ut!"
       size_error: "{file} är för stor, den största tillåtna filstorleken är {sizeLimit}."
+      upload_photos: "Ladda upp foton"
     poll:
       answer_count:
         one: "En röst"
@@ -183,6 +184,7 @@ sv:
       result: "Resultat"
       show_result: "Visa resultat"
       vote: "Rösta"
+      your_vote: "Din röst"
     profile:
       add_some: "Lägg till"
       bio: "Biografi"
@@ -238,6 +240,7 @@ sv:
     reshares:
       post: "Vill du dela vidare inlägget av <%= name %>?"
       successful: "Lyckades med att dela vidare inlägget."
+    show_all: "Visa alla"
     show_more: "Visa mer"
     stream:
       comment: "Kommentera"

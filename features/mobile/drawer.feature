@@ -138,7 +138,7 @@ Feature: Navigate between pages using the header menu and the drawer
     Then I should see "Reports overview" within "#main h1"
     When I click on "Admin" in the drawer
     And I click on "Pod network" in the drawer
-    Then I should see "Pod network " within "#main h2"
+    Then I should see "Pod network" within "#main h2"
     When I click on "Admin" in the drawer
     Then I should see "Sidekiq monitor" within "#drawer"
 

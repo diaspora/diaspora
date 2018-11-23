@@ -11,6 +11,10 @@ cs:
         actions: "Akce"
         added: "Přidáno"
         check: "Provést test spojení"
+        errors:
+          few: "Zkouška spojení navrátila chybu pro <%= count %> pody."
+          one: "Zkouška spojení navrátila chybu pro jeden pod."
+          other: "Zkouška spojení navrátila chybu pro <%= count %> podů."
         follow_link: "otevřít odkaz v prohlížeči"
         last_check: "poslední kontrola:"
         more_info: "Zobrazit více informací"
@@ -21,8 +25,10 @@ cs:
         no_info: "Nyní nejsou dostupné žádné další informace"
         not_available: "Není k dispozici"
         offline_since: "Odpojený od doby:"
+        pod: "Pod"
         recheck:
           failure: "Kontrola nebyla provedena"
+          success: "Pod byl právě opět zkontrolován."
         response_time: "Doba odezvy:"
         server_software: "Software serveru:"
         ssl: "SSL"
@@ -38,6 +44,10 @@ cs:
           unknown_error: "Během kontroly se objevila nespecifikovaná chyba"
           version_failed: "Nebylo možné zjistit verzi software"
         status: "Stav"
+        unchecked:
+          few: "Jsou zde pořád <%= count %> pody, které vůbec nebyly zkontrolovány."
+          one: "Je zde pořád jeden pod, který vůbec nebyl zkontrolován."
+          other: "Je zde pořád <%= count %> podů, který vůbec nebyly zkontrolovány."
         unknown: "Neznámý"
         version_failed:
           few: "<%= count %> pody nemají verzi (staré pody, žádné NodeInfo)"
@@ -46,13 +56,16 @@ cs:
           zero: "Není pod, který by neměl verzi."
     admins:
       dashboard:
+        compare_versions: "Nejnovější vydání diaspory* je verze <%= latestVersion %>, na vašem podu běží verze <%= podVersion %>."
         error: "Není možné zjistit poslední verzi diaspora*."
+        outdated: "Váš pod není aktuální"
+        up_to_date: "Váš pod je aktuální!"
     and: "a"
     aspect_dropdown:
       add_to_aspect: "Přidat kontakt"
       all_aspects: "Všechny aspekty"
-      error: "Nelze zahájit sdílení s <%= name %>.  Neignorujete je?"
-      error_remove: "Nepodařilo se odstranit <%= name %> z aspektu :("
+      error: "Nelze zahájit sdílení s <%= name %>. Neignorujete je?"
+      error_remove: "Nepodařilo se odstranit uživatele <%= name %> z aspektu :("
       mobile_row_checked: "<%= name %> (odstranit)"
       mobile_row_unchecked: "<%= name %> (přidat)"
       select_aspects: "Vybrat aspekty"
@@ -82,33 +95,39 @@ cs:
     cancel: "Zrušit"
     comma: ","
     comments:
-      hide: "skrýt komentáře"
+      hide: "Skrýt komentáře"
       no_comments: "Zatím nejsou žádné komentáře."
-      show: "zobrazit všechny komentáře"
+      show: "Zobrazit všechny komentáře"
     confirm_dialog: "Jste si jisti?"
-    confirm_unload: "Prosím potvrďte, že chcete tuto stránku opustit - data, která jste vložil/a nebudou uložena."
+    confirm_unload: "Prosím potvrďte, že chcete tuto stránku opustit. Data, která jste vložil/a, nebudou uložena."
     contacts:
       add_contact: "Přidej kontakt"
-      error_add: "Nelze přidat <%= name %> do tohoto aspektu :("
-      error_remove: "Nelze odebrat <%= name %> z tohoto aspektu :("
+      aspect_chat_is_enabled: "Kontakty v tomto aspektu si s Vámi mohou povídat."
+      aspect_chat_is_not_enabled: "Kontakty v tomto aspektu si s Vámi nemohou povídat."
+      error_add: "Nelze přidat uživatele <%= name %> do tohoto aspektu :("
+      error_remove: "Nelze odebrat uživatele <%= name %> z tohoto aspektu :("
       remove_contact: "Odstraň kontakt"
       search_no_results: "Nenalezeny žádné kontakty"
     conversation:
+      create:
+        no_recipient: "Hej, musíte nejdřív přidat příjemce!"
       new:
         no_contacts: "Musíte si přidat nějaké kontakty, než budete moci začít konveraci."
     create: "Vytvořit"
     delete: "Odstranit"
     edit: "Upravit"
+    errors:
+      connection: "Nelze se připojit k serveru."
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
     failed_to_remove: "Odstranění záznamu selhalo!"
     getting_started:
       alright_ill_wait: "Dobrá, počkám."
       hey: "Ahoj, <%= name %>!"
-      no_tags: "Hej, žádné štítky neodebíráte!  Mám přesto pokračovat?"
+      no_tags: "Hej, žádné štítky neodebíráte! Mám přesto pokračovat?"
       preparing_your_stream: "Připravuji váš osobní proud…"
     header:
       admin: "Administrace"
-      close: "zavřít"
+      close: "Zavřít"
       contacts: "Kontakty"
       conversations: "Konverzace"
       help: "Nápověda"
@@ -118,7 +137,7 @@ cs:
       moderator: "Moderátor"
       notifications: "Oznámení"
       profile: "Profil"
-      recent_notifications: "Poslední oznámení"
+      recent_notifications: "Nedávná oznámení"
       search: "Hledat"
       settings: "Nastavení"
       toggle_mobile: "Vybrat mobil"
@@ -136,6 +155,10 @@ cs:
     notifications:
       mark_read: "Označit jako přečtené"
       mark_unread: "Označit jako nepřečtené"
+      new_notifications:
+        few: "Máte <%= count %> nepřečtená oznámení"
+        one: "Máte <%= count %> nepřečtené oznámení"
+        other: "Máte <%= count %> nepřečtených oznámení"
     people:
       edit_my_profile: "Upravte svůj profil"
       helper:
@@ -152,6 +175,7 @@ cs:
       invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
       looking_good: "Tedy, vypadáte úžasně!"
       size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
+      upload_photos: "Nahrát fotky"
     poll:
       answer_count:
         few: "<%=count%>  hlasů"
@@ -168,16 +192,17 @@ cs:
       result: "Výsledek"
       show_result: "Ukázat výsledky"
       vote: "Hlasovat"
+      your_vote: "Váš hlas"
     profile:
-      add_some: "přidat něco"
+      add_some: "Přidat něco"
       bio: "Něco o vás"
       born: "Narozeniny"
-      edit: "upravit"
+      edit: "Upravit"
       gender: "Pohlaví"
       location: "Pozice"
       photos: "Fotky"
       posts: "Příspěvky"
-      you_have_no_tags: "Nemáte žádné štítky"
+      you_have_no_tags: "Nemáte žádné štítky!"
     publisher:
       add_option: "Přidejte odpověď"
       markdown_editor:
@@ -208,6 +233,7 @@ cs:
           quote: "Vložit uvozovky"
           write: "Upravit zprávu"
         write: "Zápis"
+      mention_success: "Úspěšně zmíněni: <%= names %>"
       near_from: "Odesláno z: <%= location %>"
       option: "Odpověď"
       question: "Otázka"
@@ -215,16 +241,22 @@ cs:
     report:
       name: "Nahlášení"
       prompt: "Prosím, zadejte důvod:"
-      prompt_default: "urážlivý obsah"
+      prompt_default: "např. urážlivý obsah"
       status:
         created: "Zpráva byla úspěšně založena"
         exists: "Zpráva již existuje"
     reshares:
       post: "Sdílet příspěvek uživatele <%= name %>?"
       successful: "Příspěvek je sdílen!"
-    show_more: "zobrazit více"
+    show_all: "Zobrazit vše"
+    show_more: "Zobrazit více"
     stream:
       comment: "Okomentovat"
+      comments:
+        few: "<%= count %> komentáře"
+        one: "<%= count %> komentář"
+        other: "<%= count %> komentářů"
+        zero: "<%= count %> komentářů"
       disable_post_notifications: "Zakázat upozornění pro tento příspěvek"
       enable_post_notifications: "Povolit upozornění pro tento příspěvek"
       follow: "Sledovat"
@@ -246,6 +278,7 @@ cs:
         one: "Zobrazit <%= count %> další komentář"
         other: "Zobrazit <%= count %> dalších komentářů"
         zero: "Zobrazit <%= count %> dalších komentářů"
+      no_posts_yet: "Zde ještě nejsou žádné příspěvky k zobrazení."
       original_post_deleted: "Původní příspěvek byl odstraněn svým autorem."
       permalink: "trvalý odkaz"
       public: "Veřejný"
@@ -272,17 +305,25 @@ cs:
     timeago:
       day: "1 dnem"
       days:
-        other: "%d dny"
+        few: "%d dny"
+        one: "1 den"
+        other: "%d dní"
       hour: "hodinou"
       hours:
-        other: "%d hodinami"
+        few: "cca. %d hodiny"
+        one: "cca. 1 hodina"
+        other: "cca. %d hodin"
       inPast: "Jakýkoli moment"
       minute: "minutou"
       minutes:
-        other: "%d minutami"
+        few: "%d minuty"
+        one: "1 minuta"
+        other: "%d minut"
       month: "1 měsícem"
       months:
-        other: "%d měsíci"
+        few: "%d měsíce"
+        one: "1 měsíc"
+        other: "%d měsíců"
       prefixAgo: "před"
       prefixFromNow: "za"
       seconds: "méně než minutou"
@@ -291,7 +332,9 @@ cs:
       wordSeparator: " "
       year: "1 rokem"
       years:
-        other: "%d roky"
+        few: "%d roky"
+        one: "1 rok"
+        other: "%d let"
     unblock_failed: "Odblokování tohoto uživatele selhalo"
     viewer:
       reshared: "Sdíleno"

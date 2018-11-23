@@ -216,7 +216,7 @@ de_formal:
           heading: "Überschrift"
           insert_image: "Bild einfügen"
           insert_link: "Link einfügen"
-          insert_ordered_list: "Geordnete Liste einfügen"
+          insert_ordered_list: "Nummerierte Liste einfügen"
           insert_unordered_list: "Ungeordnete Liste einfügen"
           italic: "Kursiv"
           preview: "Vorschau der Nachricht ansehen"

@@ -344,6 +344,10 @@ es-AR:
     helper:
       correct_the_following_errors_and_try_again: "Corregí los siguientes errores e intentá de nuevo."
     need_javascript: "Esta web necesita JavaScript para funcionar correctamente. Si lo desactivaste, por favor actívalo y actualiza la página."
+  errors:
+    messages:
+      carrierwave_download_error: "no se pudo descargar"
+      carrierwave_processing_error: "falló al procesar"
   fill_me_out: "Completame"
   find_people: "Encontrá gente o #etiquetas"
   help:
@@ -356,7 +360,7 @@ es-AR:
       data_visible_to_podmin_q: "¿Qué cantidad de mi información puede ver el administrador de mi pod?"
       download_data_a: "Sí. En la parte inferior de la página de Configuración de Cuenta hay dos botones, uno para la descarga de los datos de tu perfil y otro para la descarga de tus fotos."
       download_data_q: "¿Puedo descargar una copia de todos los datos contenidos en mi cuenta?"
-      move_pods_a: "En el futuro serás capaz de exportar tu cuenta de una vaina e importarla a otra, pero actualmente esto no es posible. Igualmente siempre podrás abrir una nueva cuenta y agregar a tus contactos a ella, y pedirles a ellos que agreguen tu nueva cuenta a las suyas."
+      move_pods_a: "En el futuro serás capaz de exportar tu cuenta de un pod e importarla en otro, incluyendo publicaciones y contactos, pero actualmente esto no es posible. Igualmente siempre podrás abrir una nueva cuenta y agregar a tus contactos a ella, y pedirles a ellos que agreguen tu nueva cuenta a las suyas."
       move_pods_q: "¿Cómo puedo mover mi cuenta de un pod a otro?"
       title: "Cuenta y gestión de datos"
     aspects:
@@ -386,9 +390,11 @@ es-AR:
       add_contact_roster_q: "¿Cómo hago para chatear con alguien en diaspora*?"
       contacts_page: "página de contactos"
       title: "Chat"
+    community_guidelines: "Normas de la comunidad"
     faq: "Preguntas frecuentes"
     foundation_website: "página web de la Fundación diaspora*"
     getting_help:
+      get_support_a_discourse: "Haz una búsqueda de discusiones existentes relacionadas a tu inquietud o crea un nuevo hilo de conversación en nuestra plataforma de discusión: %{discourse}"
       get_support_a_faq: "Lee nuestra página de preguntas frecuentes %{faq} en la Wiki"
       get_support_a_hashtag: "Preguntar en una publicación pública utilizando la etiqueta %{question}"
       get_support_a_irc: "Únete a nosotros en %{irc} (Chat en vivo)"
@@ -449,11 +455,13 @@ es-AR:
       character_limit_q: "¿Cuál es el límite de caracteres para una publicación?"
       embed_multimedia_a: "Generalmente puedes pegar la URL (ej.: http://www.youyube.com/watch?v=nnnnnnnnnnn) dentro de tu publicación y el vídeo o audio será añadido automáticamente. Algunos de los sitios que están soportados son: YouTube, Vimeo, SoundCloud, Flickr y algunos más. diaspora* utiliza oEmbed para esta funcionalidad. Estamos agregando nuevos sitios todo el tiempo. Recuerda siempre publicar simple y claro, con enlaces completos: sin enlaces cortados, ni operadores después de la URL base; y dale algo de tiempo antes de refrescar la página, después de publicar, para ver la vista previa."
       embed_multimedia_q: "¿Cómo hago para insertar video, audio u otro contenido multimedia en una publicación?"
-      format_text_a: "Usando un sistema simplificado llamado %{markdown}. Puedes encontrar la sintaxis completa de Markdown %{here}. El botón de vista previa es realmente útil en este caso, ya que puedes ver como se verá tu mensaje antes de compartirlo."
+      format_text_a: "diaspora* usa un sistema simplificado llamado %{markdown}. Puedes encontrar la sintaxis completa de Markdown %{here}. El botón de vista previa es realmente útil en este caso, ya que puedes ver como se verá tu mensaje antes de compartirlo. Recuerda que una vez publicado no se puede editar, así que utiliza la vista previa para asegurarte de que esté perfecto antes de compartirlo."
       format_text_q: "¿Cómo puedo darle formato al texto de mis publicaciones (negrita, itálica, etc.)?"
       hide_posts_a: "Si llevas el puntero de tu ratón a la parte de arriba de la publicación, una X aparecerá a la derecha. Has un clic sobre esta para esconder la publicación y desactivar las notificaciones sobre ella. Aún podrás ver la publicación si visitas la pagina de perfil de la persona que la publicó."
       hide_posts_q: "¿Cómo puedo ocultar una publicación? / ¿Cómo puedo hacer para dejar de recibir notificaciones de una publicación en la que comenté?"
-      insert_images_a: "Haz clic en el icono pequeño con forma de cámara para insertar imágenes en una publicación. Presiona el icono de imágenes nuevamente para añadir otra foto, o selecciona varias al mismo tiempo."
+      ignore_user_a3: "La lista de personas que has ignorado puedes verla en los ajustes de tu cuenta, en la sección Privacidad. Para dejar de ignorar a alguien, debes quitar a esa persona de la lista en esa página."
+      ignore_user_q: "¿Cómo puedo impedir que las publicaciones de una persona aparezcan en mi Entrada?"
+      insert_images_a: "Haz clic en el icono pequeño con forma de cámara para insertar imágenes en una publicación. Presiona el icono de imágenes nuevamente para añadir otra foto, o selecciona varias al mismo tiempo. También puedes arrastrar y soltar una o varias imágenes desde tu computadora a ese icono. Si quieres insertar una imagen desde la web en tu publicación, haz clic en el botón de imagen en la parte superior del cuadro de publicación, lo que creará el código Markdown para vos."
       insert_images_comments_q: "¿Puedo insertar imágenes en los comentarios?"
       insert_images_q: "¿Cómo puedo insertar imágenes en las publicaciones?"
       post_location_a: "Pulsa el icono de localización al lado de la cámara en el publicador (el cuadro de publicación). Ello insertará tu localización desde OpenStreetMap. Puedes editar tu localización y escoger publicar sólo el nombre de la ciudad en la que estás en lugar de tu dirección exacta."
@@ -462,7 +470,7 @@ es-AR:
       post_notification_q: "¿Cómo activo o desactivo las notificaciones de una publicación?"
       post_poll_a: "Pulsa el icono de la gráfica para crear una encuesta. Escribe una pregunta y al menos dos respuestas. No olvides hacer pública la publicación si quieres que todo el mundo pueda participar en ella."
       post_poll_q: "¿Cómo agrego una encuesta a mi publicación?"
-      post_report_a: "Pulsa en el icono de alerta en la esquina superior derecha de la publicación para denunciarla al administrador. Escribe una razón para denunciar la publicación en el cuadro de texto."
+      post_report_a: "Pulsa en el icono de alerta en la esquina superior derecha de la publicación para denunciarla al administrador. Escribe una razón para denunciar la publicación en el cuadro de texto. Por favor denuncia las publicaciones que rompen nuestras %{community_guidelines} o los términos y condiciones del pod, por ejemplo publicaciones con contenido ilegal, abusos o spam."
       post_report_q: "¿Cómo denuncio una publicación ofensiva?"
       size_of_images_a: "No. El tamaño de las imágenes se ajusta automáticamente a la Entrada. Markdown no tiene un código para especificar el tamaño de una imagen."
       size_of_images_q: "¿Puedo modificar el tamaño de las imágenes en las publicaciones o comentarios?"
@@ -482,6 +490,11 @@ es-AR:
       title: "Publicaciones privadas"
       who_sees_post_a: "Solo los usuarios de diaspora* que hayas agregado a ese aspecto podrán ver tu publicación restringida."
       who_sees_post_q: "Cuando publico un mensaje en un aspecto (es decir, una publicación restringida o limitada), ¿quienes pueden verlo?"
+    profile:
+      title: "Perfil"
+      what_do_tags_do_q: "¿Para qué sirven las etiquetas en mi perfil básico?"
+      whats_in_profile_q: "¿Qué hay en mi perfil?"
+      who_sees_profile_q: "¿Quién puede ver mi perfil?"
     public_posts:
       can_comment_reshare_like_a: "Cualquier usuario de diaspora* conectado puede comentar, volver a compartir o marcar como \"Me gusta\" tus publicaciones públicas."
       can_comment_reshare_like_q: "¿Quién puede comentar, volver a compartir o poner \"Me gusta\" en mis publicaciones públicas?"
@@ -642,6 +655,7 @@ es-AR:
         two: "y %{count} otros"
         zero: "y nadie más"
       comment_on_post: "Comentados"
+      contacts_birthday: "Cumpleaños"
       liked: "Me Gusta"
       mark_all_as_read: "Marcar todo como leído"
       mark_all_shown_as_read: "Marcar todo como leído"
@@ -715,6 +729,10 @@ es-AR:
     confirm_email:
       click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, por favor seguí este enlace::"
       subject: "Por favor, activá tu nueva dirección de correo %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} está de cumpleaños hoy. ¡Deséale un 'Muy feliz cumpleaños'!"
+      subject: "%{name} cumple años hoy"
+      view_profile: "Ver el perfil de %{name}"
     csrf_token_fail:
       body: |-
           Hola %{name},
@@ -1149,6 +1167,7 @@ es-AR:
       also_commented: "alguien también comenta en una publicación en la que comentaste"
       auto_follow_aspect: "Selecciona el aspecto al que se incluirán los usuarios que sigues automáticamente:"
       auto_follow_back: "Seguir automáticamente a los usuarios que te sigan"
+      birthday: "alguien cumple años hoy"
       change: "Cambiar"
       change_color_theme: "Cambiar el color del tema"
       change_email: "Cambiar E-Mail"
@@ -1176,11 +1195,14 @@ es-AR:
       export_in_progress: "En este momento estamos procesando tus datos. Por favor regresa en unos minutos."
       export_photos_in_progress: "En este momento estamos procesando tus fotos. Por favor vuelve a chequear en unos minutos."
       following: "Opciones de seguimiento"
+      last_exported_html: "(Última actualización %{timeago})"
       liked: "...a alguien le gusta una publicación tuya?"
       mentioned: "...te mencionan en una publicación?"
       mentioned_in_comment: "te han mencionado en un comentario"
       new_password: "Contraseña nueva"
       private_message: "...recibís un mensaje privado?"
+      protocol_handler:
+        register: "Regístrate"
       receive_email_notifications: "¿Recibir notificaciones por correo electrónico cuando..."
       request_export: "Solicitar los datos de mi perfil"
       request_export_photos: "Solicitar la descarga de mis fotos"

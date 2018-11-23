@@ -202,6 +202,21 @@ diaspora.yml.example
 "
 fi
 
+# Use libjemalloc if it's available for better memory usage
+command -v ldconfig > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  ldconfig=ldconfig
+elif [ -x /sbin/ldconfig ]; then
+  ldconfig=/sbin/ldconfig
+fi
+if [ -n "${ldconfig}" ]; then
+  jemalloc_path=$(${ldconfig} -p | grep jemalloc | tr ' ' '\n' | grep '^/' | head -1)
+
+  if [ -n "${jemalloc_path}" ]; then
+    export LD_PRELOAD="${jemalloc_path}"
+  fi
+fi
+
 # Start Diaspora
 printf "Starting Diaspora in $RAILS_ENV mode "
 if [ -n "$PORT" ]

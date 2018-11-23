@@ -12,14 +12,48 @@
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
 * Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
 
+# 0.7.9.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
+# 0.7.8.0
+
+## Refactor
+* Make setting up a development environment 9001% easier by adding a Docker-based setup [#7870](https://github.com/diaspora/diaspora/pull/7870)
+* Improve `web+diaspora://` handler description [#7909](https://github.com/diaspora/diaspora/pull/7909)
+* Move comment timestamp next to author name [#7905](https://github.com/diaspora/diaspora/pull/7905)
+* Sharpen small and medium thumbnails [#7924](https://github.com/diaspora/diaspora/pull/7924)
+* Show full-res image in Desktop's full-screen image view [#7890](https://github.com/diaspora/diaspora/pull/7890)
+
+## Bug fixes
+* Ignore invalid URLs for camo [#7922](https://github.com/diaspora/diaspora/pull/7922)
+* Unlinking a post did not update the participation icon without a reload [#7882](https://github.com/diaspora/diaspora/pull/7882)
+* Fix broken Instagram embedding [#7920](https://github.com/diaspora/diaspora/pull/7920)
+
+## Features
+* Add the ability to assign roles in the admin panel [#7868](https://github.com/diaspora/diaspora/pull/7868)
+* Improve memory usage with libjemalloc if available [#7919](https://github.com/diaspora/diaspora/pull/7919)
+
+# 0.7.7.1
+
+Fixes a potential cross-site scripting issue with maliciously crafted OpenGraph metadata on the mobile interface.
+
 # 0.7.7.0
 
 ## Refactor
+* Remove mention of deprecated `statistic.json` [#7867](https://github.com/diaspora/diaspora/pull/7867)
+* Add quotes in `database.yml.example` to fields that may contain special characters [#7875](https://github.com/diaspora/diaspora/pull/7875)
+* Removed broken, and thus deprecated, Facebook integration [#7874](https://github.com/diaspora/diaspora/pull/7874)
 
 ## Bug fixes
 * Add compatibility with macOS to `script/configure_bundler` [#7830](https://github.com/diaspora/diaspora/pull/7830)
 * Fix comment and like notifications on posts without text [#7857](https://github.com/diaspora/diaspora/pull/7857) [#7853](https://github.com/diaspora/diaspora/pull/7853)
 * Fix issue with some language fallbacks not working correctly [#7861](https://github.com/diaspora/diaspora/pull/7861)
+* Make sure URLs are encoded before sending them to camo [#7871](https://github.com/diaspora/diaspora/pull/7871)
 
 ## Features
 * Add `web+diaspora://` link handler [#7826](https://github.com/diaspora/diaspora/pull/7826)

@@ -1,12 +1,24 @@
-$thumbnail-size: 12px;
-$thumbnail-margin: 2px;
-$thumbnail-active-size: $thumbnail-size + $thumbnail-margin;
+$thumbnail-size: 50px;
+$margin: 15px;
 
 #blueimp-gallery {
   .slides {
-    height: calc(100% - 40px);
-    padding: 20px 0 0 0;
     margin: 0;
+
+    .slide {
+      overflow-y: auto;
+    }
+
+    .slide-content {
+      bottom: $margin * 2 + $thumbnail-size;
+      top: $margin;
+    }
+
+    .too-tall {
+      margin-bottom: $margin * 2 + $thumbnail-size;
+      max-height: none;
+      position: static;
+    }
   }
 
   [class^="entypo-"], [class*="entypo-"] {
@@ -37,24 +49,28 @@ $thumbnail-active-size: $thumbnail-size + $thumbnail-margin;
   }
 
   .indicator {
-    margin: 8px 0;
-    position: unset;
-    height: $thumbnail-size + 5px;
+    bottom: 0;
+
     li {
-      border: none;
-      margin: $thumbnail-margin;
+      border: 0;
+      border-radius: $thumbnail-size / 2;
+      height: $thumbnail-size;
+      margin: 6px;
+      margin-bottom: $margin;
       vertical-align: middle;
       width: $thumbnail-size;
-      height: $thumbnail-size;
-      border-radius: $thumbnail-size / 2;
 
-      &.active, &:hover{
-        margin: $thumbnail-margin / 2;
-        width: $thumbnail-active-size;
-        height: $thumbnail-active-size;
-        border-radius: $thumbnail-active-size / 2;
-        transition: linear 0.2s;
-        transition-property: height, width, margin;
+      &.active,
+      &:hover {
+        opacity: 1;
+      }
+
+      &:hover::after {
+        opacity: 0; // We don't want another thumbnail
+      }
+
+      &:only-child {
+        display: none;
       }
     }
   }

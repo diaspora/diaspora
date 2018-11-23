@@ -282,7 +282,7 @@ hye-classical:
     create:
       error: "Չյաջողուեց մեկնաբանել։"
     new_comment:
-      comment: "մեկնաբանութիւն"
+      comment: "մեկնաբանել"
       commenting: "Մեկնաբանւում է…"
   contacts:
     index:
@@ -1124,7 +1124,7 @@ hye-classical:
       all: "Բոլոր պիտակները"
       follow: "Հետեւել"
       title: "#Հետեւուող_պիտակներ"
-    followed_tags_stream: "#Հետեւուող_պիտակներ"
+    followed_tags_stream: "#Հետեւուող պիտակներ"
     like_stream:
       title: "Հաւանումների հոսքը"
     liked:

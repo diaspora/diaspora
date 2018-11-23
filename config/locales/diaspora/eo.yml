@@ -67,6 +67,16 @@ eo:
         other: "%{count} uzantoj"
         zero: "%{count} uzantoj"
       week: "Semajno"
+    user_entry:
+      account_closed: "La konto estas fermita"
+      diaspora_handle: "DIASPORA* identigilo"
+      email: "Retpoŝtadreso"
+      id: "Identigilo"
+      ? "no"
+      : Ne
+      nsfw: "#nsfw"
+      ? "yes"
+      : Jes
     user_search:
       add_invites: "aldonu invitojn"
       email_to: "Retmesaĝo por inviti"
@@ -169,6 +179,7 @@ eo:
       commenting: "Komentanta..."
   contacts:
     index:
+      add_contact: "Aldoni kontakton"
       all_contacts: "Ĉiuj kontaktoj"
       community_spotlight: "En la ĉeflumo de la komunumo"
       my_contacts: "Miaj kontaktoj"
@@ -185,13 +196,17 @@ eo:
       fail: "Malĝusta mesaĝo"
       sent: "Mesaĝo sendiĝis."
     index:
+      conversations_inbox: "Konversacioj - Enirkesto"
       inbox: "Poŝtujo"
+      new_conversation: "Nova konversacio"
       no_messages: "neniuj mesaĝoj"
     new:
       send: "Sendi"
       sending: "Poŝtanta..."
       subject: "temo"
       to: "al"
+    new_conversation:
+      fail: "Nevalida mesaĝo"
     show:
       delete: "forigi kaj bloki interparoladon"
       reply: "respondi"
@@ -216,9 +231,25 @@ eo:
   find_people: "Trovi homojn aŭ #etikedojn"
   help:
     account_and_data_management:
+      close_account_q: "Kiel mi povas forigi mian semon (konton)?"
+      data_other_podmins_q: "Ĉu la administrantoj de aliaj silikvoj povas vidi miajn informojn?"
+      data_visible_to_podmin_q: "Kiom da miaj informoj mian administranto de silikvo povas vidi?"
+      download_data_q: "Ĉu mi povas elŝuti kopion de cxiuj miaj datumoj entenataj en mia semo (konto)?"
+      move_pods_a: "Versio de diasporo* 0.7.0.0 donas la unuan etapon de konta migrado: vi povas nun eksporti ĉiujn viajn datumojn de la \"Konto\" sekcio en la uzanta agordoj. Gardu viajn datumojn en sekureco! En venonta eldono vi povos movi vian tutan konton, inkluzive afiŝojn kaj kontaktojn, al alia silikvo."
+      move_pods_q: "Kiel mi povas movi mian semon (konton) de silikvo al alia silikvo?"
       title: "Administrado de konto kaj datumaro"
+    aspects:
+      contacts_know_aspect_a: "Ne. Ili ne povas vidi la nomo de aspekto en iuj cirkonstancoj."
+      contacts_know_aspect_q: "Ĉu miaj kontaktoj scias en kiujn aspektojn mi metis ilin?"
+      delete_aspect_q: "Kiel mi povas forigi aspekton?"
+      person_multiple_aspects_q: "Ĉu mi povas aldoni personon al kelkaj aspektoj?"
+      rename_aspect_q: "Kiel mi povas renomi aspekton?"
+      title: "Aspektoj"
+      what_is_an_aspect_q: "Kio estas aspekto?"
+      who_sees_post_q: "Kiam mi afiŝi en aspekton, kiu vidas ĝin?"
     foundation_website: "Retejo de Fondaĵo Diaspora"
     getting_help:
+      get_support_a_hashtag: "Demandu per publika afiŝo uzante la %{question} etikedo"
       get_support_a_irc: "aliĝu al ni en %{irc} (rektbabilejo)"
       get_support_a_tutorials: "Vidu niajn %{tutorials}"
       get_support_a_website: "vizitu nian %{link}"
@@ -231,7 +262,43 @@ eo:
     here: "ĉi tie"
     irc: "IRC"
     markdown: "Markdown"
+    mentions:
+      how_to_mention_q: "Kiel mi povas mencii iun ajn, farante afiŝon?"
+      mention_in_comment_q: "Ĉu mi povas mencii iun ajn en komento?"
+      title: "Mencioj"
+      what_is_a_mention_q: "Kio estas \"mencio\"?"
+    miscellaneous:
+      diaspora_app_q: "Ĉu diaspora* aplikaĵo por Androido aŭ iOS ekzistas?"
+      photo_albums_q: "Ĉu fotaj aŭ videaj albumoj estas tie?"
+      title: "Diversaĵoj"
+    pods:
+      find_people_q: "Mi nur aliĝis silikvo, kiel mi povas trovi personojn por diskonigi informojn inter ili?"
+      title: "Silikvoj"
+      what_is_a_pod_q: "Kio estas silikvo?"
+    posts_and_posting:
+      format_text_q: "Kiel mi povas aranĝi la tekston en miaj afiŝoj (grasa tiparo, kursiva tiparo, ktp)?"
+      hide_posts_q: "Kiel mi povas kaŝi afiŝon?"
+      insert_images_comments_q: "Ĉu mi povas inserti bildojn en komentojn?"
+      insert_images_q: "Kiel mi povas inserti bildojn en afiŝojn?"
+      size_of_images_q: "Ĉu mi povas ŝanĝi la amplekson de bildojn en afiŝoj aŭ komentoj?"
+      title: "Afiŝoj kaj afiŝado"
+    private_posts:
+      can_reshare_q: "Kiu povas rediskonigi mian privatan afiŝon?"
+      title: "Privataj afiŝoj"
+    public_posts:
+      find_public_post_q: "Kiel aliaj personoj povas trovi mian publikan afiŝon?"
+      title: "Publikaj afiŝoj"
+    sharing:
+      add_to_aspect_li2: "Amy komencos vidi la publikajn afiŝojn de Ben en sia fluo."
+      add_to_aspect_li3: "Amy vidos neniun privatan afiŝon de Ben."
+      title: "Komunigo"
+    tags:
+      followed_tags_q: "Kio estas \"Sekvitaj Etikedoj\" kaj kiel mi povas sekvi etikedo?"
+      tags_in_comments_q: "Ĉu mi povas inserti etikedojn en komentojn aŭ nur en afiŝojn?"
+      title: "Etikedoj"
+      what_are_tags_for_q: "Kial etikedoj ekzistas?"
     third_party_tools: "Deeksterulaj iloj"
+    title_header: "Helpo"
     tutorial: "enkonduko"
     tutorials: "enkondukoj"
     wiki: "vikio"
@@ -268,7 +335,7 @@ eo:
       settings: "Agordoj"
   limited: "Limigita"
   more: "Pli"
-  no_results: "Neniuj rezultoj trovitaj"
+  no_results: "Neniuj rezultoj estas trovitaj"
   notifications:
     also_commented:
       few: "%{actors} ankaŭ komentis pri %{post_link} de %{post_author}."
@@ -289,14 +356,20 @@ eo:
       two: "%{actors} komentis pri via %{post_link}."
       zero: "%{actors} komentis pri via %{post_link}."
     index:
+      all_notifications: "Ĉiuj atentigoj"
+      also_commented: "Ankaŭ komentitaj"
       and: "kaj"
       and_others:
         one: "kaj unu plia"
         other: "kaj %{count} aliaj"
         zero: "kaj neniu alia"
+      comment_on_post: "Komenti afiŝon"
       mark_all_as_read: "Marki ĉiujn kvazaŭ legitaj"
+      mark_read: "Marki kiel legita"
       mark_unread: "Marku kiel nelegita"
       notifications: "Sciigoj"
+      show_all: "Montri ĉiujn"
+      show_unread: "Montri nelegitajn."
     liked:
       one: "%{actors} ŝatas vian %{post_link}."
       other: "%{actors} ŝatas vian %{post_link}."
@@ -375,6 +448,10 @@ eo:
       subject: "%{name} menciis vin ĉe DIASPORA*"
     private_message:
       reply_to_or_view: "Respondi al aŭ vidi tiun ĉi interparoladon >"
+    report_email:
+      type:
+        comment: "komento"
+        post: "afiŝo"
     reshared:
       reshared: "%{name} rekonigis vian afiŝon."
       view_post: "Vidu afiŝon >"
@@ -393,11 +470,13 @@ eo:
     add_contact:
       invited_by: "vi estis invitita de"
     index:
+      couldnt_find_them: "Ĉu vi ne povis trovi ilin?"
       looking_for: "Ĉu vi serĉas afiŝojn etikeditaj %{tag_link}?"
       no_one_found: "...kaj neniu troviĝis."
       no_results: "Hej! Vi devas serĉi ion."
       results_for: "serĉrezultoj por"
       searching: "serĉanta, bv. pacienci..."
+      send_invite: "Ankoraŭ nenion? Sendu inviton!"
     person:
       thats_you: "Jen vi!"
     profile_sidebar:
@@ -464,7 +543,18 @@ eo:
       password: "Pasvorto"
       password_confirmation: "KONFIRMADO DE PASVORTO"
       sign_up: "Enskribiĝi"
+      terms_link: "kondiĉoj de uzado"
       username: "Uzantnomo"
+  report:
+    comment_label: "<strong>Komento</strong>: %{data}"
+    confirm_deletion: "Ĉu vi certas ke vi volas forigi la eron?"
+    delete_link: "Forigi eron"
+    post_label: "<strong>Afiŝo</strong>: %{content}"
+    reason_label: "Kaŭzo:"
+    review_link: "Marki kiel reviziita"
+    status:
+      destroyed: "La afiŝon estis forigita"
+      failed: "Io funkciis malbone"
   reshares:
     comment_email_subject: "Rekonigo de %{resharer} de la afiŝo de %{author}"
     reshare:
@@ -516,6 +606,7 @@ eo:
       visibility_dropdown: "Uzu tiun falmenuon por ŝanĝi videblecon de via afiŝo. (Ni sugestas, ke vi igu publika tiun unuan afiŝon.)"
     publisher:
       discard_post: "Forviŝi afiŝon"
+      formatWithMarkdown: "Vi povas uzi  %{markdown_link} por formati vian afiŝon"
       get_location: "Obteni lokadon"
       new_user_prefill:
         hello: "Saluton al ĉiu, mi estas #%{new_user_tag}. "
@@ -523,11 +614,15 @@ eo:
         invited_by: "Dankon pro la invito,"
         newhere: "NewHere"
       posting: "Afiŝanta..."
+      remove_location: "Forigi lokon"
       share: "Konigi"
       whats_on_your_mind: "Kion vi nun pensas?"
     stream_element:
       via: "per %{link}"
       via_mobile: "per poŝtelefono"
+  simple_captcha:
+    label: "Enigu la kodo en la dialogujon."
+    placeholder: "Enigu la signifon de la bildo"
   status_messages:
     new:
       mentioning: "Mencianta: %{person}"
@@ -604,6 +699,7 @@ eo:
       reshared: "... iu rekonigis vian afiŝon?"
       show_community_spotlight: "Ĉu montri Komunuman Ĉeflumon en Torento?"
       show_getting_started: "Reŝalti Komencadon"
+      someone_reported: "Iu sendas raporton"
       started_sharing: "...iu komencis konigi al vi?"
       stream_preferences: "Torentaj agordoj"
       your_email: "Via retpoŝtadreso"
