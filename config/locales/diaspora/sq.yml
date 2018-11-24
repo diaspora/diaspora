@@ -675,11 +675,11 @@ sq:
       one: "%{actors} ndau me dikë postimin tuaj të fshirë."
       other: "%{actors} ndanë me dikë postimin tuaj të fshirë."
     mentioned_deleted:
-      one: "Në një postim të fshirë ju ka përmendur personi %{actors}."
-      other: "Në një postim të fshirë ju kanë përmendur personat %{actors}."
+      one: "%{actors} ju përmendi në një postim të fshirë."
+      other: "%{actors} ju përmendën në një postim të fshirë."
     mentioned_in_comment_deleted:
-      one: "Në një koment të fshirë ju ka përmendur %{actors} person."
-      other: "Në një koment të fshirë ju kanë përmendur personat %{actors}."
+      one: "%{actors} ju përmendi në një koment të fshirë."
+      other: "%{actors} ju përmendën në një koment të fshirë."
     index:
       notifications: "Njoftime"
       mark_all_as_read: "Vëru shenjë të tërave si të lexuara"
