@@ -630,56 +630,56 @@ sq:
   notifications:
     started_sharing:
       zero: "Filluan të ndajnë gjëra me ju %{actors} persona."
-      one: "Filloi të ndajë gjëra me ju %{actors} person."
-      other: "Filluan të ndajnë gjëra me ju %{actors} persona."
+      one: "Filloi të ndajë gjëra me ju personi %{actors}."
+      other: "Filluan të ndajnë gjëra me ju personat %{actors}."
     private_message:
       zero: "Ju kanë dërguar mesazh %{actors} persona."
-      one: "Ju ka dërguar mesazh %{actors} person."
-      other: "Ju kanë dërguar mesazh %{actors} persona."
+      one: "Ju ka dërguar mesazh personi %{actors}."
+      other: "Ju kanë dërguar mesazh personat %{actors}."
     comment_on_post:
       zero: "Te postimi juaj %{post_link} kanë komentuar %{actors} persona."
-      one: "Te postimi juaj %{post_link} komentoi %{actors} person."
-      other: "Te postimi juaj %{post_link} komentuan %{actors} persona."
+      one: "Te postimi juaj %{post_link} komentoi personi %{actors}."
+      other: "Te postimi juaj %{post_link} komentuan personat %{actors}."
     also_commented:
       zero: "Te postimi %{post_link} nga %{post_author} kanë komentuar gjithashtu %{actors} persona."
-      one: "Te postimi %{post_link} nga %{post_author} ka komentuar gjithashtu %{actors} person."
-      other: "Te postimi %{post_link} nga %{post_author} kanë komentuar gjithashtu %{actors} persona."
+      one: "Te postimi %{post_link} nga %{post_author} ka komentuar gjithashtu personi %{actors}."
+      other: "Te postimi %{post_link} nga %{post_author} kanë komentuar gjithashtu personat %{actors}."
     mentioned:
-      one: "Ju ka përmendur te postimi %{post_link} %{actors} person."
-      other: "Ju kanë përmendur te postimi %{post_link} %{actors} persona."
+      one: "Ju ka përmendur te postimi %{post_link} personi %{actors}."
+      other: "Ju kanë përmendur te postimi %{post_link} personat %{actors}."
     mentioned_in_comment:
-      one: "%{actors} person ju ka përmendur te një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
-      other: "%{actors} persona ju ka përmendur te një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
+      one: "Personi %{actors} ju ka përmendur te një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
+      other: "Personat %{actors} ju kanë përmendur te një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
     liked:
       zero: "Postimin tuaj %{post_link} e kanë pëlqyer %{actors} persona."
-      one: "Postimin tuaj %{post_link} e ka pëlqyer %{actors} person."
-      other: "Postimin tuaj %{post_link} e kanë pëlqyer %{actors} persona."
+      one: "Postimin tuaj %{post_link} e ka pëlqyer personi %{actors}."
+      other: "Postimin tuaj %{post_link} e kanë pëlqyer personat %{actors}."
     reshared:
       zero: "Postimin tuaj %{post_link} e kanë rindarë me dikë %{actors} persona."
-      one: "Postimin tuaj %{post_link} e ka rindarë me dikë %{actors} person."
-      other: "Postimin tuaj %{post_link} tuaj e kanë rindarë me dikë %{actors} persona."
+      one: "Postimin tuaj %{post_link} e ka rindarë me dikë personi %{actors}."
+      other: "Postimin tuaj %{post_link} tuaj e kanë rindarë me dikë personat %{actors}."
     contacts_birthday:
       zero: "Datëlindjen më %{date} e kanë %{actors} persona."
-      one: "Datëlindjen më %{date} e ka %{actors} person"
-      other: "Datëlindjen më %{date} e kanë %{actors} persona."
+      one: "Datëlindjen më %{date} e ka personi %{actors}"
+      other: "Datëlindjen më %{date} e kanë personat %{actors}."
     also_commented_deleted:
       zero: "Në një postim të fshirë kanë komentuar %{actors} persona."
-      one: "Në një postim të fshirë ka komentuar %{actors} person."
-      other: "Në një postim të fshirë kanë komentuar %{actors} persona."
+      one: "Në një postim të fshirë ka komentuar personi %{actors}."
+      other: "Në një postim të fshirë kanë komentuar personat %{actors}."
     liked_post_deleted:
       zero: "Postimin tuaj të fshirë e pëlqyen %{actors} persona."
-      one: "Postimin tuaj të fshirë e pëlqeu %{actors} person."
-      other: "Postimin tuaj të fshirë e pëlqyen %{actors} persona."
+      one: "Postimin tuaj të fshirë e pëlqeu personi %{actors}."
+      other: "Postimin tuaj të fshirë e pëlqyen personat %{actors}."
     reshared_post_deleted:
       zero: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors} persona."
-      one: "Postimin tuaj të fshirë e ka rindarë me dikë %{actors} person."
-      other: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors} persona."
+      one: "Postimin tuaj të fshirë e ka rindarë me dikë personi %{actors}."
+      other: "Postimin tuaj të fshirë e kanë rindarë me dikë personat %{actors}."
     mentioned_deleted:
-      one: "Në një postim të fshirë ju ka përmendur %{actors} person."
-      other: "Në një postim të fshirë ju kanë përmendur %{actors} persona."
+      one: "Në një postim të fshirë ju ka përmendur personi %{actors}."
+      other: "Në një postim të fshirë ju kanë përmendur personat %{actors}."
     mentioned_in_comment_deleted:
       one: "Në një koment të fshirë ju ka përmendur %{actors} person."
-      other: "Në një koment të fshirë ju kanë përmendur %{actors} persona."
+      other: "Në një koment të fshirë ju kanë përmendur personat %{actors}."
     index:
       notifications: "Njoftime"
       mark_all_as_read: "Vëru shenjë të tërave si të lexuara"
@@ -1283,7 +1283,7 @@ sq:
       awesome_take_me_to_diaspora: "Shkëlqyeshëm! Shpjemë te diaspora*"
       who_are_you: "Kush jeni?"
       what_are_you_in_to: "Me se po merreni?"
-      hashtag_explanation: "Hashtaget ju lejojnë të flisni mbi dhe të ndiqni interesat tuaja. Ato janë gjithashtu një rrugë e bukur për të gjetur persona të rinj në diaspora*."
+      hashtag_explanation: "Hashtagët ju lejojnë të flisni mbi dhe të ndiqni interesat tuaja. Ato janë gjithashtu një rrugë e bukur për të gjetur persona të rinj në diaspora*."
       hashtag_suggestions: "Provoni të ndiqni etiketa të tilla si #art, #movies, #gif, etj."
 
     update:
