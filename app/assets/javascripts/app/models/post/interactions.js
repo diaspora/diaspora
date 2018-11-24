@@ -86,7 +86,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   removedComment: function() {
-      this.set({"comments_count": this.get("comments_count") - 1});
+    this.set({"comments_count": this.get("comments_count") - 1});
   },
 
   reshare : function(){
