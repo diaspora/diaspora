@@ -135,7 +135,10 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   removeComment: function(comment) {
-    this.$("#" + comment.get("guid")).closest(".comment.media").remove();
+    var result = this.$("#" + comment.get("guid")).closest(".comment.media").remove();
+    if (result.hasClass("deleting")) {
+      this.model.interactions.removedComment();
+    }
   },
 
   expandComments: function(evt){
