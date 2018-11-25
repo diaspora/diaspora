@@ -723,8 +723,6 @@ es-CL:
     getting_started:
       awesome_take_me_to_diaspora: "Asombroso! Llévame a Diaspora*"
       community_welcome: "La comunidad de Diaspora esta feliz de tenerte abordo!"
-      connect_to_facebook: "Podemos acelerar un poquito las cosas accediendo a %{link} en Diaspora. Esto permitirá usar tu mismo nombre y foto, además de habilitar la publicación cruzada."
-      connect_to_facebook_link: "conectando a tu cuenta de Facebook"
       hashtag_explanation: "Los Hashtags te permiten hablar y seguir sobre tus intereses. También son una manera genial de encontrar nuevas personas en Diaspora."
       hashtag_suggestions: "Prueba siguiendo tags como #arte, #películas, #gif, etc."
       well_hello_there: "Bueno, hola!"

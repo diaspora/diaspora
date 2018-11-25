@@ -355,8 +355,8 @@ sv:
       extension_whitelist_error: "Filändelsen %{extension} tillåts inte. Tillåtna är: %{allowed_types}"
       max_size_error: "Filstorleken får inte överskrida %{max_size}"
       min_size_error: "Filstorleken måste överskrida %{min_size}"
-      mini_magick_processing_error: "Kunde inte manipulera med MiniMagick. Är det ingen bild? Ursprungligt fel: %{e}"
-      rmagick_processing_error: "Kunde inte manipulera med rmagick. Är det ingen bild?"
+      mini_magick_processing_error: "Kunde inte manipulera bilden med MiniMagick. Är det ens en bild? Ursprungligt fel: %{e}"
+      rmagick_processing_error: "Kunde inte manipulera bilden med rmagick. Är det ens en bild?"
   fill_me_out: "Fyll i mig"
   find_people: "Hitta personer eller #taggar"
   help:
@@ -469,12 +469,12 @@ sv:
       format_text_q: "Hur kan jag formatera texten i mina inlägg? (Fet stil, kursivera, etcetera.)"
       hide_posts_a: "Om du pekar muspekaren överst på ett inlägg kommer ett kryss att dyka upp till höger. Tryck på det för att dölja inlägget och avsluta notifieringarna berörande det. Du kommer fortfarande kunna se inlägget om du besöker författarens profilsida."
       hide_posts_q: "Hur döljer jag ett inlägg?"
-      ignore_user_a1: "Delar du med personen, ta bort dem ur dina aspekter för att sluta se dess inlägg i ditt flöde. Ett mer fullständigt sätt är att ignorera kontot. Detta motverkar alla inlägg från att dyka upp i ditt flöde och personen kommer inte kunna gilla eller kommentera dina inlägg. Men, de kommer fortfarande kunna sprida dina inlägg och kommentera dessa. Deras kommentarer av andras inlägg kommer fortfarande vara synliga för dig."
+      ignore_user_a1: "Delar du med personen, ta bort dem ur dina aspekter för att sluta se dess inlägg i ditt flöde. Ett mer fullständigt sätt, är att ignorera kontot. Detta motverkar alla inlägg från att dyka upp i ditt flöde och personen kommer inte kunna gilla eller kommentera dina inlägg. Men, de kommer fortfarande kunna sprida dina inlägg och kommentera dessa. Deras kommentarer av andras inlägg kommer fortfarande vara synliga för dig."
       ignore_user_a2: "För att ignorera någon, tryck ikonen \"ignorera\" (cirkel med ett diagonalt streck) i övre högra hörnet av inlägg. Deras inlägg kommer omedelbart försvinna ur ditt flöde. Alternativt, kan du gå till deras profilsida och trycka på ignoreraknappen där. Du kan fortfarande se personens inlägg på dennes profilsida."
       ignore_user_a3: "Du hittar listan över ignorerade personer under Sekretess bland dina kontoinställningar. För att sluta ignorera någon, ta bort personen ur listan."
       ignore_user_q: "Hur tar jag bort någon från min ström?"
       insert_images_a: "Tryck på den lilla kameraikonen för att bifoga en bild till inlägget. Tryck på ikonen igen för att lägga till fler foton. Du kan välja fler att ladda upp flera bilder samtidigt"
-      insert_images_comments_a: "Använd Markdown för att lägga in bilder från webben i en kommentar,  precis som i ett inlägg. Du kan dock inte ladda upp bilder från din dator till kommentarer. Ladda upp dem på någon bilddelningssida och lägg därefter in bilderna i kommentarer."
+      insert_images_comments_a: "Använd Markdown för att lägga in bilder från webben i en kommentar, precis som i ett inlägg. Du kan dock inte ladda upp bilder från din dator till kommentarer. Ladda upp dem på någon bilddelningssida och lägg därefter in bilderna i kommentarer."
       insert_images_comments_q: "Kan jag lägga till bilder i kommentarer?"
       insert_images_q: "Hur lägger jag in bilder till mitt inlägg?"
       post_location_a: "Tryck på knappnålsikonen bredvid kameran där du laddar upp bilder. Det här kommer att lägga till din plats från OpenStreetMap.org. Du själv kan ändra platsen, för att bara ange staden du befinner dig i och inte den exakta adressen."
@@ -745,9 +745,11 @@ sv:
       body: |-
           Hej, %{name}.
 
-          Diaspora* har märkt av ett potentiellt oauktoriserat försökt tilla tt komma åt din session. För att undkomma att din data själs, har du loggats ut. Räds icke; du kan nu logga in säkert igen.
+          Diaspora* har märkt av ett potentiellt oauktoriserat försökt till att komma åt din session. För att undkomma att din data själs, har du loggats ut. Räds icke; du kan gott och väl logga in säkert på nytt.
 
-          En förfrågan med ogiltigt eller helt saknar CSRF-insegel. Det skulle kunna vara helt oskyldigt, men det skulle kunna vara ett försökt av en sida att låtsas vara en annan sida (s.k. "cross-site request forgery", CSRF). En sådan kan vara orsakat av:
+          En förfrågan med ogiltigt eller helt saknar CSRF-insegel. Det skulle kunna vara helt oskyldigt, men det skulle kunna vara ett försökt av en sida att låtsas vara en annan sida (s.k. "cross-site request forgery", CSRF).
+
+          En sådan kan vara orsakat av:
 
             - Ett tillägg som manipulerar förfrågningar eller gör förfrågningar utan insegel;
             - En flik från tidigare session finns kvar i webbläsaren;
@@ -836,8 +838,8 @@ sv:
       limited_post: "Du nämndes i ett begränsat inlägg."
       subject: "%{name} har nämnt dig på Diaspora*"
     mentioned_in_comment:
-      limited_post: "Du var nämnd i en kommentar till ett begränsat inlägg."
-      reply: "Svara på inlägg eller titta på konversationen >"
+      limited_post: "Du var nämnd i en kommentar till ett inlägg med begränsad åtkomst."
+      reply: "Svara på inlägg eller läs på konversationen >"
     private_message:
       reply_to_or_view: "Svara på eller läs denna konversation >"
       subject: "Du fått ett förtroligt meddelande"
@@ -1042,7 +1044,6 @@ sv:
       share_to: "Dela till %{provider}"
       title: "Hantera anslutna tjänster"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "Wordpress"
@@ -1214,7 +1215,7 @@ sv:
       protocol_handler:
         description: "Din webbläsare kommer fråga om du vill hantera adresser med web+diaspora:// i din hempod när du tryck när du trycker på knappen. Funktionaliteten är för närvarande experimentell och användning beror på din webbläsare."
         register: "Register"
-        title: "Hanterare protokollet web+diaspora://"
+        title: "Hantera protokollet web+diaspora://"
       receive_email_notifications: "Skicka notiser via e-post när:"
       request_export: "Efterfråga min profildata"
       request_export_photos: "Begär mina bilder"
@@ -1232,8 +1233,6 @@ sv:
     getting_started:
       awesome_take_me_to_diaspora: "Häftigt! Ta mig till Diaspora*"
       community_welcome: "Vi i Diaspora*-gemenskapen är glada att ha dig här!"
-      connect_to_facebook: "Vi kan skynda på processen genom %{link} till Diaspora. Det kommer att hämta ditt namn, din bild och tillåta korsinlägg."
-      connect_to_facebook_link: "Länka ihop ditt Facebook-konto"
       hashtag_explanation: "Taggar gör det möjligt att diskutera och följa dina intressen. Det är också ett bra sätt att lära känna nya människor på Diaspora*."
       hashtag_suggestions: "Testa att följa taggar såsom #konst, #film, #gif, etc."
       well_hello_there: "Hej på dig!"

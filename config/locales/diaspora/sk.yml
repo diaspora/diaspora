@@ -726,8 +726,6 @@ sk:
     getting_started:
       awesome_take_me_to_diaspora: "Super! Prejsť na Diasporu*"
       community_welcome: "Komunita Diaspory je šťastná, že si na jej palube!"
-      connect_to_facebook: "Veci môžeme urýchliť %{link} k diaspore*. To umožní automatické doplnenie tvojho mena, fotky a preposielanie príspevkov."
-      connect_to_facebook_link: "Prebieha pripojenie tvojho účtu na Facebooku"
       hashtag_explanation: "Značky ti umožňujú hovoriť o tom, čo ťa zaujíma  a sledovať diskusie  o tom, čo ťa zaujíma. Je to aj skvelý spôsob na spoznanie nových ľudí na Diaspore."
       hashtag_suggestions: "Skús sledovať značky, ako napr. #umenie, #filmy, #gif, atď."
       well_hello_there: "Vitaj!"

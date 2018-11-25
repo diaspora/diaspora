@@ -349,6 +349,7 @@ it:
     mentions:
       how_to_mention_a: "Scrivi il carattere \"@\" e inizia a scrivere il nome della persona. Comparirà un menù a tendina da cui potrai scegliere facilmente il contatto corretto. È possibile menzionare solamente persone che hai già aggiunto ad un aspetto."
       how_to_mention_q: "Come posso menzionare qualcuno quando scrivo un post?"
+      mention_in_comment_a: "SI ! Dalla versione 0.7.0.0 in un commento puoi menzionare qualcuno nello stesso modo che usi per il post, scrivi la \"@\" seguita dal nome di vuoi. Nel caso di un post non pubblico puoi menzionare solamente chi ha già interagito con il post"
       mention_in_comment_q: "Posso menzionare qualcuno in un commento?"
       see_mentions_a: "Sì, clicca su \"Menzioni\" nella colonna di sinistra nella home page."
       see_mentions_q: "C'è un modo per vedere i post dove ho ricevuto una menzione?"
@@ -768,7 +769,6 @@ it:
       services_explanation: "Il collegamento ad altri servizi ti dà la possibilità di pubblicare i post che invii su diaspora*."
       share_to: "Condividi con %{provider}"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -920,8 +920,6 @@ it:
     getting_started:
       awesome_take_me_to_diaspora: "Fantastico! Fammi entrare in Diaspora*"
       community_welcome: "La comunità di diaspora* ti dà il benvenuto a bordo!"
-      connect_to_facebook: "Possiamo rendere le cose veloci con %{link} a diaspora*. Così caricherai il nome e la tua foto, oltre che abilitare la condivisione dei post."
-      connect_to_facebook_link: "Collegando il tuo account Facebook"
       hashtag_explanation: "Gli hashtags ti permettono di parlare dei tuoi interessi e di seguirli. Sono anche un ottimo sistema per trovare nuove persone su diaspora*."
       hashtag_suggestions: "Prova a seguire tag tipo #art, #movies, #gif, ecc."
       well_hello_there: "Ciao!"

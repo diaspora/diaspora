@@ -72,7 +72,7 @@ ia:
       updating: "actualisa…"
     aspect_navigation:
       add_an_aspect: "+ Adder un aspecto"
-      deselect_all: "Deseliger totes"
+      deselect_all: "Dismarcar totes"
       no_aspects: "Nulle aspecto seligite"
       select_all: "Seliger totes"
     aspects:
