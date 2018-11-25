@@ -722,8 +722,6 @@ es-MX:
     getting_started:
       awesome_take_me_to_diaspora: "¡Genial! Llévame a diaspora*"
       community_welcome: "¡La comunidad de Diaspora está feliz de tenerte a bordo!"
-      connect_to_facebook: "Podemos acelerar un poco las cosas %{link} a Diaspora. Esto extraerá tu nombre y foto, y habilitará las publicaciones cruzadas."
-      connect_to_facebook_link: "conectando tu cuenta de Facebook"
       hashtag_explanation: "Las etiquetas te permiten hablar acerca de tus intereses, así como seguirlos. Son también una gran forma de encontrar gente en Diaspora."
       hashtag_suggestions: "Intenta seguir etiquetas como #arte, #películas, #español, etc."
       well_hello_there: "Bueno, ¡hola!"

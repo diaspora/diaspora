@@ -655,8 +655,6 @@ nn:
     getting_started:
       awesome_take_me_to_diaspora: "Kult! Ta meg med til Diaspora*"
       community_welcome: "Diaspora* sin fellesskap er glade for å ha deg ombord!"
-      connect_to_facebook: "Me kan få fart på sakane ved å %{link} til Diaspora. Dette vil hente namnet og profilbilete ditt derfrå og sette i gong kryss-posting."
-      connect_to_facebook_link: "kopla til Facebook-kontoen din"
       hashtag_explanation: "Grindmerke (#) gjer at du kan tala om og følgja interessene dine. Dei er òg ein fin måte å finna nye Diaspora-brukarar på."
       hashtag_suggestions: "Prøv å følgje tags som #kunst, #film, #åtgaum, #katt, etc."
       well_hello_there: "Neimen, hei der!"

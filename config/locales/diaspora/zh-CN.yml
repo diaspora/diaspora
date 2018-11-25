@@ -579,8 +579,6 @@ zh-CN:
     getting_started:
       awesome_take_me_to_diaspora: "棒极了！带我去 Diaspora*"
       community_welcome: "Diaspora 社区欢迎您的到来"
-      connect_to_facebook: "您可以使用%{link}加快注册过程。它将会获取您的名字、照片和开启多发出功能（允许您同时在diaspora*和第三方发出帖子）。"
-      connect_to_facebook_link: "正在连接您的Facebook帐号"
       hashtag_explanation: "标签让您可以讨论关注您的兴趣。并且也是在 Diaspora 找到新朋友的好办法。"
       hashtag_suggestions: "试试看关注如 #艺术，#电影, #gif 之类的标签。"
       well_hello_there: "嗨，您好！"
