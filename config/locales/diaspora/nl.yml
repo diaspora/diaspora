@@ -68,9 +68,9 @@ nl:
         one: "%{count} reactie"
         other: "%{count} reacties"
         zero: "%{count} reacties"
-      current_segment: "Het huidige segment heeft gemiddeld <b>%{post_yest}</b> berichten per gebruiker sinds <b>%{post_day}</b>"
+      current_segment: "In het huidige segment zijn er gemiddeld %{post_yest} posts per gebruiker, vanaf %{post_day}"
       daily: "Dagelijks"
-      display_results: "Resultaten uit het <b>%{segment}</b>-segment"
+      display_results: "Resultaten uit het segment %{segment}"
       go: "Zoeken"
       month: "Maand"
       posts:
@@ -81,7 +81,7 @@ nl:
         one: "%{count} doorgave"
         other: "%{count} doorgaven"
         zero: "%{count} doorgaven"
-      tag_name: "Tag: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
+      tag_name: "Tag: %{name_tag} Aantal: %{count_tag}"
       usage_statistic: "Gebruiksstatistieken"
       users:
         one: "%{count} gebruiker"
@@ -90,15 +90,18 @@ nl:
       week: "Week"
     user_entry:
       account_closed: "Account afgesloten"
+      admin: "Admin"
       diaspora_handle: "diaspora* id"
       email: "E-mailadres"
       guid: "GUID"
       id: "ID"
       invite_token: "Uitnodig token"
       last_seen: "Laatst gezien"
+      moderator: "Moderator"
       ? "no"
       : Nee
       nsfw: "#nsfw"
+      spotlight: "Aanraders"
       unknown: "Onbekend"
       ? "yes"
       : Ja
@@ -106,14 +109,29 @@ nl:
       account_closing_scheduled: "Het account van %{name} is ingepland om te worden beëindigd. Dit zal over enkele momenten worden verwerkt..."
       account_locking_scheduled: "Het account van %{name} staat ingepland voor blokkeren. De opdracht wordt zo meteen verwerkt..."
       account_unlocking_scheduled: "Het account van %{name} staat ingepland voor deblokkeren. De opdracht wordt zo meteen verwerkt..."
+      add_admin: "%{name} is toegevoegd als admin."
       add_invites: "Voeg uitnodigingen toe"
+      add_moderator: "%{name} is toegevoegd als moderator."
+      add_spotlight: "%{name} is toegevoegd als community-aanrader."
       are_you_sure: "Weet je zeker dat je dit account wilt beëindigen?"
       are_you_sure_lock_account: "Weet je zeker dat je dit account wilt blokkeren?"
       are_you_sure_unlock_account: "Weet je zeker dat je dit account wilt deblokkeren?"
       close_account: "Afsluiten account"
+      delete_admin: "%{name} is verwijderd als admin."
+      delete_moderator: "%{name} is verwijderd als moderator."
+      delete_spotlight: "%{name} is verwijderd als community-aanrader."
+      does_not_exist: "Gebruiker bestaat niet."
       email_to: "E-mail om uit te nodigen"
       invite: "Nodig uit"
       lock_account: "Blokkeer account"
+      make_admin: "Maak admin"
+      make_moderator: "Maak moderator"
+      make_spotlight: "Voeg toe als community-aanrader"
+      remove_admin: "Verwijder als admin"
+      remove_moderator: "Verwijder als moderator"
+      remove_spotlight: "Verwijder als community-aanrader"
+      role_implemented: "%{name} heeft deze rol al."
+      role_removal_implemented: "%{name} heeft deze rol al niet meer."
       under_13: "Toon gebruikers onder de 13 (COPPA)"
       unlock_account: "Deblokkeer account"
       users:
@@ -249,7 +267,7 @@ nl:
         heading: "Verbind diensten"
       welcome_to_diaspora: "Welkom bij diaspora*, %{name}!"
     no_contacts_message:
-      community_spotlight: "Community aanrader"
+      community_spotlight: "Community-aanrader"
       invite_link_text: "uitnodigen"
       or_spotlight: "Of je kan delen met %{link}\n"
       try_adding_some_more_contacts: "Je kan zoeken of %{invite_link} meer contacten uitnodigen."
@@ -291,7 +309,7 @@ nl:
     index:
       add_contact: "Toevoegen contactpersoon"
       all_contacts: "Alle contacten"
-      community_spotlight: "Community aanrader"
+      community_spotlight: "Community-aanrader"
       my_contacts: "Mijn contacten"
       no_contacts: "Voeg wat contacten toe!"
       no_contacts_in_aspect: "Je hebt nog geen contacten in dit aspect. Hieronder staat de lijst met je huidige contacten die je aan dit aspect kunt toevoegen."
@@ -301,7 +319,7 @@ nl:
       title: "Contacten"
       user_search: "Zoek gebruiker"
     spotlight:
-      community_spotlight: "Community aanrader"
+      community_spotlight: "Community-aanrader"
       no_members: "Er zijn nog geen leden"
       suggest_member: "Suggereer een lid"
   conversations:
@@ -364,7 +382,7 @@ nl:
       data_visible_to_podmin_q: "Hoeveel van mijn gegevens kan de podbeheerder zien?"
       download_data_a: "Ja. Onderaan het Account tabblad in je instellingenpagina zijn twee knoppen: een knop waarmee je jouw gegevens kunt downloaden en eentje voor het downloaden van je foto's."
       download_data_q: "Kan ik een kopie van al mijn gegevens in dit account downloaden?"
-      move_pods_a: "In de toekomst zul je je gegevens van de ene pod kunnen exporteren en importeren in de andere, maar dat kan nu nog niet. Je kunt altijd een nieuw account op een andere pod aanmaken en je contacten toevoegen aan aspecten op die nieuwe pod en hun vragen ook je nieuwe account aan hun aspecten toe te voegen."
+      move_pods_a: "Vanaf versie 0.7.0.0 van diaspora* is het eerste aspect van accountmigratie beschikbaar: je kunt nu al je gegevens exporteren vanuit de sectie \"Account\" in je instellingen. Bewaar ze goed! In de toekomst zul je je hele account, waaronder posts en contacten, naar een andere pod kunnen overzetten."
       move_pods_q: "Hoe verplaats ik mijn account van de ene pod naar een andere?"
       title: "Account- en gegevensbeheer"
     aspects:
@@ -451,7 +469,7 @@ nl:
       find_people_a: "Nodig je vrienden uit via de e-maillink in de rechter zijkolom. Volg #hashtags om mensen te vinden die dezelfde interesse delen en voeg ze toe aan een aspect. Of roep gewoon #nieuwhier of #newhere in een openbaar bericht."
       find_people_q: "Ik heb net een account gemaakt op een pod. Hoe kan ik mensen vinden waar ik mee kan delen?"
       title: "Pods"
-      use_search_box_a: "Als je de volledige diaspora* ID kent (bijvoorbeeld gebruikersnaam@podnaam.org), dan kun je die persoon vinden door naar die ID te zoeken. Als je iemand op je eigen pod zoekt, dan hoef je alleen naar de gebruikersnaam te zoeken. Alternatief is om te zoeken naar de profielnaam (de naam die je op het scherm ziet). Als een zoekopdracht geen resultaat toont, probeer het dan nog een keer."
+      use_search_box_a: "Je kunt iemand zoeken door zijn of haar gebruikersnaam of diaspora*-naam (die van het profiel) in te voeren. Als geen van beide iets opleveren, probeer dan het volledige diaspora*-ID (gebruikernsaam@podnaam.org). Werkt het zoeken de eerste keer niet, dan kan dat ook aan het netwerk liggen. Probeer het nog eens."
       use_search_box_q: "Hoe gebruik ik de zoekoptie om iemand te vinden?"
       what_is_a_pod_a: "Een pod is een server die de diaspora* software draait en die is verbonden met het diaspora* netwerk. \"Pod\" is een metafoor die verwijst naar de pods (zaadbol) op een plant en die de zaden bevat, net zoals een server een aantal accounts bevat. Er zijn verschillende soorten pods. Je kunt vrienden van andere pods toevoegen aan jouw netwerk en met hen communiceren. Je hoeft niet op een andere pod ook een account te hebbe! Een is genoeg. Een diaspora* pod lijkt zo wel een beetje op een e-mailprovider. Er zijn publieke pods, besloten pods en met enige moeite kun je ook je eigen pod draaien."
       what_is_a_pod_q: "Wat is een pod?"
@@ -462,12 +480,12 @@ nl:
       character_limit_q: "Wat is het maximale aantal tekens per bericht?"
       embed_multimedia_a: "Je kunt gewoon de URL (bijv. http://www.youtube.com/watch?v=nnnnnnnnn) in een bericht plakken en de video of audio wordt automatisch ingebed. Sites die worden ondersteund zijn bijvoorbeeld YouTube, Vimeo, SoundCloud, Flickr en nog een paar. diaspora* gebruikt oEmbed voor deze mogelijkheid. We blijven nieuwe formaten toevoegen. Let erop om altijd de enkelvoudige, volledige, niet verkorte links te plaatsen. Zet ook geen andere commando's achter de URL en heb even geduld voordat je de pagina ververst om een voorbeeld te zien."
       embed_multimedia_q: "Hoe plaats ik video-, audio- of multimediabestanden in een bericht?"
-      format_text_a: "Je kunt een eenvoudige methode gebruiken die %{markdown} heet. Je vindt de volledige syntax %{here}. De voorbeeld-knop is handig, want daardoor kun je zien hoe het bericht eruit gaat zien als je het later plaatst."
+      format_text_a: "diaspora* gebruikt een eenvoudige methode die %{markdown} heet. In het tekstbewerkingskader staan knoppen die het je makkelijk maken je tekst op te maken. Dat kan ook handmatig met de syntaxis die je %{here} vindt. Met het tabblad Voorbeeld kun je zien hoe het bericht eruit gaat zien voordat je het plaatst. Vergeet niet dat je een bericht dat eenmaal geplaatst is niet meer kunt bewerken, gebruik dus altijd het tabblad Voorbeeld om je bericht te controleren voordat je het plaatst."
       format_text_q: "Hoe kan ik de tekst in mijn berichten opmaken (vet, schuin etc.)?"
       hide_posts_a: "Als je met de muis aan de bovenkant van een bericht staat, verschijnt er een X rechts ervan. Klik daarop om het bericht te verbergen en om notificaties erover te onderdrukken. Je kunt het bericht nog wel zien op de profielpagina van de persoon die het geplaatst had."
       hide_posts_q: "Hoe verberg ik een bericht?"
       ignore_user_q: "Hoe zorg ik iemands berichten niet langer in mijn stream verschijnen?"
-      insert_images_a: "Klik op het kleine camera-pictogram om een afbeelding op te nemen. Je kunt nog een keer op de camera klikken om nog een afbeelding op te nemen, of je kunt verschillende afbeeldingen in één keer selecteren om te uploaden."
+      insert_images_a: "Wil je een op jouw computer opgeslagen afbeelding in je bericht opnemen, klik dan op het kleine camera-pictogram onderaan het tekstbewerkingskader. Je kunt ook één of meerdere afbeeldingen vanuit jouw computer slepen en op dat pictogram neerzetten. Wil je een afbeelding van een webpagina in je bericht opnemen, klik dan op de afbeeldingsknop bovenaan het tekstbewerkingskader. Deze voegt automatisch de Markdown-code voor je in."
       insert_images_comments_q: "Kan ik afbeeldingen plaatsen in reacties?"
       insert_images_q: "Hoe plaats ik een afbeelding in een bericht?"
       post_location_a: "Klik op het punaise pictogram naast de camaera in het invoerveld. Hiermee voeg je de locatie via OpenStreetMap toe. Je kunt de locatie wijzigen, want misschien wil je liever alleen de plaatsnaam in plaats van het hele adres opgeven."
@@ -485,7 +503,7 @@ nl:
           Berichten van mensen met wie je deelt, zijn er in twee soorten:
           openbare berichten en beperkte gedeelde berichten die worden gedeeld binnen hun aspecten waartoe jij behoort. Om deze berichten in jouw stream te verwijderen kun je gewoon stoppen met volgen van de betreffende persoon.
       stream_full_of_posts_li2: "Openbare berichten met een tag die jij volgt. Om die te verwijderen, kun je stoppen met die tag te volgen."
-      stream_full_of_posts_li3: "Openbare berichten van personen die in de Community Spotlight staan. Die kunnen worden verwijderd door \"Laat Community Spotlight zien in je Stream\" uit de kruisen in het account tabblad van je instellingen."
+      stream_full_of_posts_li3: "Openbare berichten van personen die in de schijnwerpers zijn gezet. Deze kunnen worden verwijderd door het vinkje bij \"Laat community-aanraders zien in je stream\" weg te halen in het tabblad Account van je instellingen."
       stream_full_of_posts_q: "Waarom staat mijn stream vol met berichten van mensen die ik niet ken en met wie ik niet deel?"
       title: "Berichten en publiceren"
     private_posts:
@@ -503,10 +521,10 @@ nl:
       what_do_tags_do_q: "Wat doen de tags in mijn basis profiel?"
       who_sees_profile_q: "Wie kan mijn profiel zien?"
     public_posts:
-      can_comment_reshare_like_a: "Iedere in diaspora* ingelogde gebruiker kan op je openbare berichten reageren, ze leuk vinden of ze doorgeven."
+      can_comment_reshare_like_a: "Iedere in diaspora* ingelogde gebruiker kan op je openbare berichten reageren, ze leuk vinden of ze doorgeven. Dat geldt echter niet voor mensen die je hebt genegeerd. Zij kunnen je berichten niet leuk vinden en er niet op reageren."
       can_comment_reshare_like_q: "Wie kan reageren op mijn openbare berichten, ze leuk vinden of ze doorgeven?"
       deselect_aspect_posting_a: "Ook als je aspecten deselecteert, blijft een openbaar bericht openbaar. Het verschijnt nog steeds in de stream van al je contacten. Om een bericht alleen zichtbaar te laten zijn voor bepaalde aspecten, moet je die aspecten selecteren via de knop onder het tekstinvoerveld."
-      deselect_aspect_posting_q: "Wat gebeurt er als ik een of meer aspecten deselecteer als ik een openbaar bericht plaats?"
+      deselect_aspect_posting_q: "Wat gebeurt er als ik een of meer aspecten in de linkerkolom deselecteer wanneer ik een openbaar bericht schrijf?"
       find_public_post_a: "Je openbare berichten verschijnen in de stream van iedereen die jou volgt, Als je ook #hashtags in je openbare bericht opneemt, dan krijgt ook iedereen die die tags volgt jouw berichten in hun stream. Ieder openbaar bericht heeft ook een unieke specifieke URL, die iedereen kan zien, ook mensen die niet zijn ingelogd. Naar openbare berichten kan dus gelinkt worden vanaf Twitter, blogs etc. Openbare berichten kunnen ook worden geïndexeerd door zoekmachines,"
       find_public_post_q: "Hoe kunnen andere mensen mijn openbare berichten vinden?"
       see_comment_reshare_like_a: "Reacties, leuk vinden en het delen van openbare berichten zijn ook openbaar zichtbaar. Iedere in diaspora* ingelogde gebruiker, maar ook iedereen op het internet kan jouw interacties op openbare berichten zien."
@@ -532,7 +550,7 @@ nl:
       add_to_aspect_li7: "Amy verschijnt onder \"Deelt alleen met mij\" op Ben's contactenpagina."
       add_to_aspect_li8: "Amy zal ook Ben in een bericht kunnen @vermelden."
       add_to_aspect_q: "Wat gebeurt er als ik iemand toevoeg aan een van mijn aspecten of als iemand mij een een van zijn/haar aspecten toevoegt?"
-      list_not_sharing_a: "Nee, maar je kunt zien of iemand met jou deelt door hun profielpagina te bezoeken. Als ze jou in een aspect hebben opgenomen, is het knopje met de aspecten waarin je ze hebt geplaatst groen. Zo niet, dan is de knop grijs.."
+      list_not_sharing_a: "Nee, maar je kunt op iemands profielpagina wel zien of hij of zij met jou deelt. Doet deze persoon dat, dan staat er een groen vinkje naast het diaspora*-ID. Anders staat er een grijze cirkel."
       list_not_sharing_q: "Is er een overzicht van mensen die ik aan een aspect heb toegevoegd, maar die mij niet in een aspect hebben staan?"
       only_sharing_a: "Dat zijn mensen die jou aan een van hun aspecten hebben toegevoegd, maar die (nog) niet in een van jouw aspecten zitten. Met andere woorden: zij delen wel met jou, maar je deelt niet met hen (asymmetrisch delen): je zou kunnen zeggen dat ze jou volgen.  Als je ze aan een aspect toevoegt, verschijnen ze voortaan onder dat aspect en niet meer onder \"Delen alleen met mij\". Zie hierboven."
       only_sharing_q: "Wie zijn de mensen die staan onder \"Delen alleen met mij\" op mijn contactenpagina?"
@@ -809,9 +827,9 @@ nl:
       message: |-
           Hallo!
 
-          Je bent door %{diaspora_id} uitgenodigd om lid te worden van diaspora*!
+          Je bent door %{user} uitgenodigd om lid te worden van diaspora*.
 
-          Klik op deze link om te starten
+          Klik op deze link om te beginnen:
 
           [%{invite_url}][1]
 
@@ -820,7 +838,7 @@ nl:
 
           Veel plezier,
 
-          De diaspora* e-mailrobot!
+          De diaspora* e-mailrobot.
 
           PS: als je (nog) niet weet wat diaspora* is, [dit][2] is het antwoord!
 
@@ -918,8 +936,8 @@ nl:
   photos:
     create:
       integrity_error: "Foto uploaden mislukt. Weet je zeker dat het een afbeelding is?"
-      runtime_error: "Foto uploaden mislukt. Weet je zeker dat je je gordel omhebt?"
-      type_error: "Foto uploaden mislukt. Weet je zeker dat je een afbeelding toegevoegd hebt?"
+      runtime_error: "Het uploaden van de foto is mislukt vanwege een fout op de server. Probeer het nog eens."
+      type_error: "Het uploaden van de foto is mislukt. Weet je zeker dat het bestand een afbeelding is?"
     destroy:
       notice: "Foto verwijderd."
     new_profile_photo:
@@ -1041,7 +1059,6 @@ nl:
       share_to: "Delen via %{provider}"
       title: "Beheren verbonden diensten"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1058,7 +1075,7 @@ nl:
         two: "In %{count} aspecten"
         zero: "Voeg contact toe"
     invitations:
-      by_email: "Via e-mail"
+      by_email: "Nodig mensen uit via e-mail"
       invite_your_friends: "Nodig je vrienden uit"
       invites: "Uitnodigingen"
       share_this: "Deel deze link via e-mail, blog, of favoriet sociaal netwerk"
@@ -1071,7 +1088,7 @@ nl:
       outside: "Openbare berichten zijn zichtbaar voor mensen buiten diaspora*."
       share: "Deel"
       title: "Stel verbonden services in"
-      visibility_dropdown: "Gebruik dit dropdown menu om de zichtbaarheid van je post aan te selecteren. (We suggereren je eerste post publiek te maken.)"
+      visibility_dropdown: "Gebruik dit menuutje om de zichtbaarheid van je post aan te passen. (Wij raden aan dat je je eerste post openbaar maakt.)"
     publisher:
       discard_post: "Maak veld leeg"
       formatWithMarkdown: "Je kunt %{markdown_link} gebruiken om je bericht op te maken"
@@ -1133,7 +1150,7 @@ nl:
       title: "Reacties op jouw berichten"
     commented:
       title: "Berichten met reacties"
-    community_spotlight_stream: "Community aanrader"
+    community_spotlight_stream: "Community-aanrader"
     followed_tag:
       add_a_tag: "Voeg een tag toe"
       all: "Alle tags"
@@ -1214,13 +1231,15 @@ nl:
       mentioned_in_comment: "je word vermeld in een reactie"
       new_password: "Nieuw wachtwoord"
       private_message: "je een privébericht ontvangt"
+      protocol_handler:
+        browser: "Dit protocol is nog experimenteel en het hangt van je browser af hoe goed het gaat werken. Wil je deze handler beheren of verwijderen, dan doe je dat via de instellingen van je browser. De knop hieronder blijft altijd actief, en je moet de handler in iedere browser die je gebruikt apart instellen."
       receive_email_notifications: "Ontvang e-mail notificaties wanneer:"
       request_export: "Aanvragen van mijn profielgegevens"
       request_export_photos: "Vraag mijn foto's op"
       request_export_photos_update: "Ververs mijn foto's"
       request_export_update: "Ververs mijn profielgegevens"
       reshared: "iemand jouw bericht doorgeeft"
-      show_community_spotlight: "Laat Community Spotlight zien in Stream"
+      show_community_spotlight: "Laat community-aanraders zien in je stream"
       show_getting_started: "Laat beginnerstips zien"
       someone_reported: "Iemand zond een melding in"
       started_sharing: "iemand met je begint te delen"
@@ -1231,9 +1250,7 @@ nl:
     getting_started:
       awesome_take_me_to_diaspora: "Super! Neem me naar diaspora*"
       community_welcome: "De diaspora* gemeenschap is blij je aan boord te hebben!"
-      connect_to_facebook: "We kunnen het een beetje vlotter laten lopen door de %{link} naar diaspora*. Dit haalt je naam en foto op en maakt delen van berichten mogelijk."
-      connect_to_facebook_link: "Verbinden met je Facebook account"
-      hashtag_explanation: "Hashtags maken het je makkelijk je interesses volgen. Bovendien kunnen ze je helpen bij het vinden van nieuwe contacten op diaspora*."
+      hashtag_explanation: "Hashtags maken het je makkelijk je interesses te bespreken en te volgen. Bovendien kunnen ze je helpen bij het vinden van nieuwe contacten op diaspora*."
       hashtag_suggestions: "Probeer het volgen van tags zoals #art, #movies, #gif, etc. eens uit."
       well_hello_there: "O, hallo daar!"
       what_are_you_in_to: "Wat interesseert je?"

@@ -692,8 +692,6 @@ ml:
     getting_started:
       awesome_take_me_to_diaspora: "കിടിലം! എന്നെ ഡയസ്പോറ*യിലെത്തിക്കു"
       community_welcome: "Diaspora's community is happy to have you aboard!"
-      connect_to_facebook: "ഡയസ്പോറയിലേക്ക് %{link} വഴി ഞങ്ങൾക്ക് കാര്യങ്ങൾ കുറച്ചുകൂടി വേഗത്തിലാക്കാൻ പറ്റും. ഇങ്ങനെ ചെയ്യുന്നത് താങ്കളുടെ പേരും ചിത്രവും വലിച്ചെടുക്കുകയും, ക്രോസ് പോസ്റ്റിങ്ങ് സാധുവാക്കുകയും ചെയ്യും."
-      connect_to_facebook_link: "താങ്കളുടെ ഫേസ്ബുക്ക് അക്കൗണ്ട് ബന്ധിപ്പിക്കുക"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       well_hello_there: "Well, hello there!"

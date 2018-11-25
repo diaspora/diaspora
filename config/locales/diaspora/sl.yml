@@ -600,8 +600,6 @@ sl:
     getting_started:
       awesome_take_me_to_diaspora: "Popelji me v Diasporo*"
       community_welcome: "Skupnost Diaspora je vesela, da vas ima na krovu!"
-      connect_to_facebook: "Stvari lahko malo pospešimo s %{link} z diasporo*. Uvozili vam bom vaše ime z fotografijo ter omogočili hkratno objavljanje na diaspori* in Facebook-u."
-      connect_to_facebook_link: "povezavo vašega računa Facebook"
       hashtag_explanation: "Oznake vam omogočajo, da govorite in sledite vašim interesom. So tudi dober način za iskanje novih ljudi na Diaspori."
       hashtag_suggestions: "Poskusite lahko oznake, kot so #art, #movies, #gif in podobno."
       well_hello_there: "No, pozdravljeni!"

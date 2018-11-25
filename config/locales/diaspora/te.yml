@@ -658,7 +658,6 @@ te:
       really_disconnect: "%{service} నిరనుసంధానించాలా?"
       services_explanation: "మూడో-పార్టీ భాగస్వామ్య సేవలకు అనుసందించడము ద్వారా మీరు మీ టపలను డయాస్పోరా * లో వ్రాసేటప్పుడు వాటికి ప్రచురించే సామర్థ్యాన్ని మీకు అందిస్తుంది."
     provider:
-      facebook: "ఫేస్‌బుక్"
       tumblr: "టంబ్లర్"
       twitter: "ట్విట్టర్"
       wordpress: "వర్డ్‌ప్రెస్"
@@ -816,7 +815,6 @@ te:
     getting_started:
       awesome_take_me_to_diaspora: "అదిరిపోయింది! నన్ను డయాస్పోరా*కు తీసుకువెళ్ళు"
       community_welcome: "మిమ్మల్ని కలిగివుండంటం డయాస్పోరా* కమ్యూనిటీ సంతోషంగా భావిస్తుంది!"
-      connect_to_facebook_link: "మీ ఫేస్‌బుక్ ఖాతాతో లంకె వేస్తున్నాం"
       hashtag_suggestions: "#art, #movies, #gif, వంటి తదితర కొసలను అనుసరించి చూడండి."
       well_hello_there: "హలో ఎలావున్నారు..."
       what_are_you_in_to: "మీకు ఏం ఇష్టం?"

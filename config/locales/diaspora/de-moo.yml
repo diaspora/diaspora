@@ -4,7 +4,7 @@
 
 
 
-de_moo:
+de-moo:
   _applications: "Anwendungen"
   _contacts: "Mitkühe"
   _help: "Hilfe"
@@ -710,18 +710,12 @@ de_moo:
       two: "%{actors} gefällt dein gelöschter Beitrag."
       zero: "Niemandem gefällt dein gelöschter Beitrag."
     mentioned:
-      few: "%{actors} haben dich in einem %{post_link} erwähnt."
-      many: "%{actors} haben dich in einem %{post_link} erwähnt."
       one: "%{actors} hat dich in einem %{post_link} angemuuuht."
       other: "%{actors} haben dich in einem %{post_link} angemuuuht."
-      two: "%{actors} hat dich in einem %{post_link} erwähnt."
       zero: "Niemand hat dich in einem %{post_link} angemuuuht."
     mentioned_deleted:
-      few: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
-      many: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
       one: "%{actors} hat dich in einem gelöschten Beitrag angemuuuht."
       other: "%{actors} haben dich in einem gelöschten Beitrag angemuuuht."
-      two: "%{actors} hat dich in einem bereits gelöschten Beitrag erwähnt."
       zero: "Niemand hat dich in einem gelöschten Beitrag angemuuuht."
     mentioned_in_comment:
       one: "%{actors} hat dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} angemuuuht."
@@ -1077,7 +1071,6 @@ de_moo:
       share_to: "Mit %{provider} teilen"
       title: "Verbundene Dienste verwalten"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1271,8 +1264,6 @@ de_moo:
     getting_started:
       awesome_take_me_to_diaspora: "Super! Bring mich zu diaspora*"
       community_welcome: "diaspora*s Gemeinschaft ist froh, dich an Bord zu haben!"
-      connect_to_facebook: "Wir können das Ganze etwas beschleunigen, indem du %{link}. So werden dein Name und dein Profilbild hier eingefügt und die Crossposting-Funktion aktiviert."
-      connect_to_facebook_link: "dein Facebook-Konto mit diaspora* verlinkst"
       hashtag_explanation: "Hashtags ermöglichen dir, über deine Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Kühe bei diaspora* zu treffen!"
       hashtag_suggestions: "Probier mal Tags wie #kunst, #musik oder #gif zu folgen."
       well_hello_there: "Also, Hallöchen!"
