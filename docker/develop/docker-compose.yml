@@ -1,0 +1,41 @@
+version: "3.4"
+
+volumes:
+  postgresql_data:
+  mysql_data:
+  dia_data_tmp:
+  dia_data_bundle:
+
+services:
+  diaspora:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        DIA_UID: "${DIASPORA_ROOT_UID}"
+        DIA_GID: "${DIASPORA_ROOT_GID}"
+    image: diaspora:dev-latest
+    volumes:
+      - "${DIASPORA_ROOT}:/diaspora:rw"
+      - dia_data_tmp:/diaspora/tmp
+      - dia_data_bundle:/diaspora/vendor/bundle
+    ports:
+      - ${DIASPORA_DOCKER_PORT:-3000}:3000
+    depends_on:
+      - "${DIASPORA_DOCKER_DB}"
+
+  postgresql:
+    image: postgres:10.3
+    ports:
+      - 55432:5432
+    volumes:
+      - postgresql_data:/var/lib/postgresql
+
+  mysql:
+    image: mariadb:10.2
+    ports:
+      - 53306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql

@@ -634,7 +634,6 @@ nds:
       not_logged_in: "Grood nich anmeld."
       really_disconnect: "Verbinnung to %{service} trennen?"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -789,7 +788,6 @@ nds:
     getting_started:
       awesome_take_me_to_diaspora: "Toll! Bring mi to diaspora*"
       community_welcome: "De Gemeenschaft von diaspora* freit sik, di an Boord to hebben!"
-      connect_to_facebook_link: "Mit dien Facebook-Konto verbinnen"
       hashtag_explanation: "Mit Hashtags kannst du öber diene Interessen schnacken und jüm folgen.  Se sind ok eene tolle Mööglichkeit, üm nee'e Lüüd op diaspora* kennen to lernen."
       hashtag_suggestions: "Verseuk mol, Tags wie #Kunst, #Filme, #gif oder so to folgen"
       well_hello_there: "Naja, hallo erstmol!"

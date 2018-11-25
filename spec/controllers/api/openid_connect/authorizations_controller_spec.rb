@@ -31,12 +31,10 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
 
         context "as a request object" do
           it "should return a form page" do
-            header = JWT.encoded_header("none")
             payload_hash = {client_id: client.client_id, redirect_uri: "http://localhost:3000/",
                             response_type: "id_token", scope: "openid", nonce: "hello", state: "hello",
                             claims: {userinfo: {name: {essential: true}}}}
-            payload = JWT.encoded_payload(JSON.parse(payload_hash.to_json))
-            request_object = header + "." + payload + "."
+            request_object = JWT.encode(payload_hash, nil, "none")
             get new_api_openid_connect_authorization_path, params: {client_id: client.client_id,
                 redirect_uri: "http://localhost:3000/", response_type: "id_token",
                 scope: "openid", nonce: "hello", state: "hello", request: request_object}
@@ -46,11 +44,9 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
 
         context "as a request object with no claims" do
           it "should return a form page" do
-            header = JWT.encoded_header("none")
             payload_hash = {client_id: client.client_id, redirect_uri: "http://localhost:3000/",
                              response_type: "id_token", scope: "openid", nonce: "hello", state: "hello"}
-            payload = JWT.encoded_payload(JSON.parse(payload_hash.to_json))
-            request_object = header + "." + payload + "."
+            request_object = JWT.encode(payload_hash, nil, "none")
             get new_api_openid_connect_authorization_path, params: {client_id: client.client_id,
                 redirect_uri: "http://localhost:3000/", response_type: "id_token",
                 scope: "openid", nonce: "hello", state: "hello", request: request_object}

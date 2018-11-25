@@ -1009,7 +1009,6 @@ ja:
       share_to: "%{provider}にシェア"
       title: "提携サービスを管理する"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1180,7 +1179,7 @@ ja:
       new_password: "新しいパスワード"
       private_message: "非公開メッセージが届いたとき"
       protocol_handler:
-        description: "このボタンをクリックすると、ブラウザに、ホームポッドに web+diaspora:// URLを開くことができるハンドラをインストールするように要求されます。これは現在実験中で、対応はブラウザによって異なります。"
+        description: "このボタンをクリックするとホームポッドの web+diaspora:// URLを開くことができるハンドラをインストールするようにブラウザに要求されます。これは現在実験中で対応はブラウザによって異なります。"
         register: "登録"
         title: "web+diaspora:// プロトコルハンドラ"
       receive_email_notifications: "通知メールの送信設定"
@@ -1200,8 +1199,6 @@ ja:
     getting_started:
       awesome_take_me_to_diaspora: "素晴らしい！私をダイアスポラ*に連れてって"
       community_welcome: "あなたに加わっていただいて、ダイアスポラ*のコミュニティは幸せです！"
-      connect_to_facebook: "ダイアスポラ*に %{link} して物事をスピードアップすることができます。あなたの名前と写真を引っ張り、クロスポストを有効にします。"
-      connect_to_facebook_link: "Facebookアカウントとの連携"
       hashtag_explanation: "ハッシュタグはあなたが話し合うこと、あなたの興味があることにフォローすることができます。ダイアスポラ*で新しい人を見つけるための素晴らしい方法でもあります。"
       hashtag_suggestions: "#art, #movies, #gif などのようなタグをフォローしてみましょう。"
       well_hello_there: "やあ、こんにちは！"

@@ -27,7 +27,7 @@ module PublishingCukeHelpers
   end
 
   def visible_text_from_markdown(text)
-    CGI.unescapeHTML(ActionController::Base.helpers.strip_tags(Diaspora::MessageRenderer.new(text).markdownified.strip))
+    CGI.unescapeHTML(ActionController::Base.helpers.strip_tags(Diaspora::MessageRenderer.new(text).markdownified)).strip
   end
 
   def submit_publisher

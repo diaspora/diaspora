@@ -23,17 +23,6 @@ guard :rspec, cmd: "bin/spring rspec", all_on_start: false, all_after_pass: fals
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          {|m| "spec/requests/#{m[1]}_spec.rb" }
 end
 
-guard(:cucumber,
-      cmd:            "bin/spring cucumber",
-      all_on_start:   false,
-      all_after_pass: false) do
-  watch(/^features\/.+\.feature$/)
-  watch(%r{^features/support/.+$})          { "features" }
-  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) {|m|
-    Dir[File.join("**/#{m[1]}.feature")][0] || "features"
-  }
-end
-
 guard :rubocop, all_on_start: false, keep_failed: false do
   watch(/(?:app|config|db|lib|features|spec)\/.+\.rb$/)
   watch(/(config.ru|Gemfile|Guardfile|Rakefile)$/)

@@ -790,7 +790,6 @@ pt-PT:
       share_to: "Partilhar em %{provider}"
       title: "Gerir serviços ligados"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -960,8 +959,6 @@ pt-PT:
     getting_started:
       awesome_take_me_to_diaspora: "Fantástico! Leve-me para o diaspora*"
       community_welcome: "A comunidade do diaspora* está contente por o ter a bordo!"
-      connect_to_facebook: "Nós podemos acelerar as coisas um pouco, %{link} para o diaspora*. Isto irá enviar o seu nome e fotografia, e ativar a publicação cruzada."
-      connect_to_facebook_link: "A interligar à sua conta do Facebook"
       hashtag_explanation: "Os cardinais (#) permitem-lhe falar sobre e seguir os seus interesses. Eles também são uma boa forma para encontrar novas pessoas no diaspora*."
       hashtag_suggestions: "Tente seguir as etiquetas, tais como #arte, #cinema, #gif, etc."
       well_hello_there: "Bem, olá a todos!"

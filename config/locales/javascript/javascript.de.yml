@@ -20,7 +20,7 @@ de:
         ms:
           one: "<%= count %>ms"
           other: "<%= count %>ms"
-        no_info: "Zur Zeit keine weiteren Informationen verfügbar"
+        no_info: "Zurzeit keine weiteren Informationen verfügbar"
         not_available: "nicht verfügbar"
         offline_since: "offline seit:"
         pod: "Pod"
@@ -216,7 +216,7 @@ de:
           heading: "Überschrift"
           insert_image: "Bild einfügen"
           insert_link: "Link einfügen"
-          insert_ordered_list: "Geordnete Liste einfügen"
+          insert_ordered_list: "Nummerierte Liste einfügen"
           insert_unordered_list: "Ungeordnete Liste einfügen"
           italic: "Kursiv"
           preview: "Vorschau der Nachricht ansehen"

@@ -78,9 +78,9 @@ ia:
         other: "%{count} entratas"
         zero: "%{count} entratas"
       shares:
-        one: "%{count} addition a un aspecto"
-        other: "%{count} additiones a aspectos"
-        zero: "%{count} additiones a aspectos"
+        one: "%{count} entrata dividite"
+        other: "%{count} entratas dividite"
+        zero: "%{count} entratas dividite"
       tag_name: "Nomine del etiquetta: %{name_tag} Occurrentias: %{count_tag}"
       usage_statistic: "Statisticas de uso"
       users:
@@ -442,7 +442,7 @@ ia:
       what_is_a_mention_q: "Que es un \"mention\"?"
     miscellaneous:
       back_to_top_a: "Si. Post rolar a basso in un pagina, clicca sur le sagitta gris que appare in le angulo dextre al fundo de tu fenestra de navigator."
-      back_to_top_q: "Ha il un maniera rapide de retornar al cyma del pagina post que io rola a basso?"
+      back_to_top_q: "Ha il un maniera rapide de retornar al initio del pagina post que io rola a basso?"
       diaspora_app_a: "Il ha plure applicationes de Android disveloppate per membros del communitate. Plures de iste projectos es abandonate e non functiona ben con le version actual de diaspora*. Non expecta troppo de iste apps in iste momento. Actualmente il non ha un app pro iOS. Le melior maniera de acceder a diaspora* a partir de tu dispositivo mobile es per medio de un navigator web, perque nos ha concipite un version mobile del sito que deberea functionar ben in tote le dispositivos, ben que su functionalitate non es ancora complete."
       diaspora_app_q: "Ha il un app diaspora* pro Android o iOS?"
       photo_albums_a: "No, non in iste momento. Nonobstante, tu pote vider le imagines incargate per un persona in le scheda Photos de su pagina de profilo."
@@ -451,7 +451,7 @@ ia:
       subscribe_feed_q: "Pote io subscriber me al entratas public de un persona con un lector de syndication?"
       title: "Miscellanea"
     pods:
-      find_people_a: "Si tu vole invitar tu amicos a unir se a diaspora*, usa le ligamine de invitation o le ligamine de e-mail in le barra lateral. Seque #etiquettas pro discoperir personas con interesses commun al tues, e adde le personas qui invia cosas que te interessa a un aspecto. Annuncia tu presentia in disaspora* in un entrata public con le etiquetta #newhere."
+      find_people_a: "Si tu vole invitar tu amicos a unir se a diaspora*, usa le ligamine de invitation o le ligamine de e-mail in le barra lateral. Seque #etiquettas pro discoperir personas con interesses commun al tues, e adde le personas qui invia cosas que te interessa a un aspecto. Annuncia tu presentia in disaspora* in un entrata public con le etiquetta #novicio (interlingua) e/o #newhere (anglese)."
       find_people_q: "Io ha justo adherite a un pod, como pote io trovar gente con qui divider?"
       title: "Pods"
       use_search_box_a: "Pro cercar un persona, scribe su nomine de usator o su nomine de diaspora* (le nomine que appare in su profilo). Si necun del duo functiona, scribe su ID de diaspora* complete (nominedeusator@nominedelpod.org). Si le recerca non functiona le prime vice, le causa pote esser le latentia del rete; essaya lo de novo."
@@ -488,7 +488,7 @@ ia:
       size_of_images_a: "No. Cata imagine se redimensiona automaticamente pro adaptar se al fluxo o al vista de entrata unic. Markdown non ha codice pro specificar le dimension de un imagine."
       size_of_images_q: "Pote io personalisar le dimension de imagines in entratas o commentos?"
       stream_full_of_posts_a1: "Tu fluxo se compone de tres typos de entratas:"
-      stream_full_of_posts_li1: "Entratas scribite per personas con qui tu divide cosas, le quales es dividite in duo typos: entratas public e entratas limitate dividite con un aspecto de que tu face parte. Pro remover iste entratas de tu fluxo, simplemente cessa de divider cosas con iste persona."
+      stream_full_of_posts_li1: "Entratas scribite per personas con qui tu divide cosas, le quales es dividite in duo typos: entratas public e entratas limitate dividite con un aspecto de que tu face parte. Pro remover iste entratas de tu fluxo, simplemente cessa de divider con le persona."
       stream_full_of_posts_li2: "Entratas public que contine un del etiquettas que tu seque. Pro remover istes, cessa de sequer le etiquetta in question."
       stream_full_of_posts_li3: "Entratas public per personas listate como \"Usatores in evidentia\". Istes pote esser removite per dismarcar le option \"Monstrar usatores in evidentia in le fluxo?\" in le scheda Conto de tu Configuration."
       stream_full_of_posts_q: "Proque mi fluxo es plen de entratas de personas que io non cognosce e con le quales io non divide?"
@@ -545,8 +545,8 @@ ia:
       list_not_sharing_q: "Ha il un lista de personas que io ha addite a un de mi aspectos, ma qui non me ha addite a un del lores?"
       only_sharing_a: "Se tracta del personas qui te ha addite a un de lor aspectos, ma qui non es (ancora) in alcun de tu aspectos. In altere parolas, illes divide con te, ma tu non divide con illes: tu pote pensar de illes como \"sequitores\". Si tu les adde a un aspecto, illes apparera sub ille aspecto e non sub \"Divide con me, ma non vice versa\". Vide hic supra."
       only_sharing_q: "Qui es le personas listate sub \"Divide con me, ma non vice versa\" in mi pagina de contactos?"
-      see_old_posts_a: "No. Ille potera vider solmente le entratas nove in ille aspecto. Ille (e tote le mundo) pote vider tu entratas public ancian in tu pagina de profilo, e ille los videra forsan in su fluxo."
-      see_old_posts_q: "Quando io adde un persona a un aspecto, pote ille vider le ancian entratas que io ha jam inviate a ille aspecto?"
+      see_old_posts_a: "No. Illa potera vider solmente le entratas nove in ille aspecto. Illa (e tote le mundo) pote vider tu entratas public ancian in tu pagina de profilo, e illa los videra forsan in su fluxo."
+      see_old_posts_q: "Quando io adde un persona a un aspecto, pote illa vider le ancian entratas que io ha jam inviate a ille aspecto?"
       sharing_notification_a: "Tu deberea reciper un notification cata vice que un persona comencia a divider con te."
       sharing_notification_q: "Como sape io quando un persona comencia a divider con me?"
       title: "Divider"
@@ -569,13 +569,13 @@ ia:
     wiki: "wiki"
   home:
     default:
-      be_who_you_want_to_be: "Sia le persona que tu vole esser"
-      be_who_you_want_to_be_info: "Multe retes insiste que on usa su nomine real. Non diaspora*. Hic tu pote eliger le persona que vole esser, e divulgar si multo o si pauco de te como tu vole. Tu pote vermente decider como tu interage con altere personas."
+      be_who_you_want_to_be: "Sia qui tu vole esser"
+      be_who_you_want_to_be_info: "Multe retes te obliga a usar tu nomine real. Non diaspora*. Hic tu pote eliger qui tu vole esser e quanto tu vole divulgar de te. Tu pote vermente decider como tu interage con altere personas."
       byline: "Le mundo social in linea ubi tu ha le controlo"
       choose_your_audience: "Elige tu audientia"
       choose_your_audience_info: "Le \"aspectos\" de diaspora* permitte divider cosas solmente con le personas appropriate. Tu pote scriber in publico o si privatemente como tu vole. Divide un photo amusante con tote le mundo, o divide un secreto personal con tu amicos intime. Le controlo es tue."
       headline: "Benvenite a %{pod_name}"
-      own_your_data: "Possede tu proprie datos"
+      own_your_data: "Possede tu datos"
       own_your_data_info: "Multe retes usa tu datos pro ganiar moneta analysante tu interactiones e usante iste information pro diriger publicitate a te. diaspora* non usa tu datos pro alcun scopo, salvo illo de permitter te de connecter e divider cosas con altere personas."
     podmin:
       byline: "Tu es sur le puncto de cambiar le facie de Internet. Preste a comenciar?"
@@ -621,7 +621,7 @@ ia:
   layouts:
     application:
       back_to_top: "Retornar al cyma"
-      be_excellent: "Sia benevolente le un verso le altere! ♥"
+      be_excellent: "Sia benevole verso omnes! ♥"
       discourse: "Discussion e supporto del projecto"
       powered_by: "Actionate per diaspora*"
       public_feed: "Fluxo public de diaspora* pro %{name}"
@@ -651,7 +651,7 @@ ia:
     also_commented_deleted:
       one: "%{actors} ha commentate un entrata delite."
       other: "%{actors} ha commentate un entrata delite."
-      zero: "Nemo ha commentate un entrata delite."
+      zero: "%{actors} ha commentate un entrata delite."
     comment_on_post:
       one: "%{actors} commentava tu entrata %{post_link}."
       other: "%{actors} commentava tu entrata %{post_link}."
@@ -662,15 +662,15 @@ ia:
       zero: "%{actors} ha lor anniversario le %{date}."
     index:
       all_notifications: "Tote le notificationes"
-      also_commented: "Anque commentate"
+      also_commented: "Etiam commentava"
       and: "e"
       and_others:
         one: "e un altere"
         other: "e %{count} alteres"
         zero: "e nemo altere"
-      comment_on_post: "Commentar iste entrata"
+      comment_on_post: "Commentava tu entrata"
       contacts_birthday: "Anniversario"
-      liked: "Appreciate"
+      liked: "Apprecia tu entrata"
       mark_all_as_read: "Marcar totes como legite"
       mark_all_shown_as_read: "Marcar tote le entratas monstrate como legite"
       mark_read: "Marcar como legite"
@@ -690,7 +690,7 @@ ia:
     liked_post_deleted:
       one: "%{actors} apprecia tu entrata delite."
       other: "%{actors} apprecia tu entrata delite."
-      zero: "Nemo apprecia tu entrata delite."
+      zero: "%{actors} apprecia tu entrata delite."
     mentioned:
       one: "%{actors} te ha mentionate in le entrata %{post_link}."
       other: "%{actors} te ha mentionate in le entrata %{post_link}."
@@ -714,7 +714,7 @@ ia:
     reshared_post_deleted:
       one: "%{actors} ha repetite tu entrata delite."
       other: "%{actors} ha repetite tu entrata delite."
-      zero: "Nemo ha repetite tu entrata delite."
+      zero: "%{actors} ha repetite tu entrata delite."
     started_sharing:
       one: "%{actors} ha comenciate a divider con te."
       other: "%{actors} ha comenciate a divider con te."
@@ -884,7 +884,7 @@ ia:
       subject: "Un message concernente tu conto de diaspora*:"
     started_sharing:
       sharing: "ha comenciate a divider con te!"
-      subject: "%{name} comenciava a divider cosas con te in diaspora*"
+      subject: "%{name} ha comenciate a divider con te in diaspora*"
       view_profile: "Vider le profilo de %{name}"
     thanks: "Gratias,"
     to_change_your_notification_settings: "pro cambiar tu configuration de notificationes"
@@ -1036,7 +1036,6 @@ ia:
       share_to: "Divider sur %{provider}"
       title: "Gerer servicios connectite"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1087,7 +1086,7 @@ ia:
       default: "Le codice secrete non corresponde al imagine"
       failed: "Verification human fallite"
       user: "Le imagine secrete e le codice differe"
-    placeholder: "Scribe le valor del imagine"
+    placeholder: "Scribe le valor"
   statistics:
     active_users_halfyear: "Usatores active per medie anno"
     active_users_monthly: "Usatores active per mense"
@@ -1143,7 +1142,7 @@ ia:
     public:
       title: "Activitate public"
     tags:
-      title: "Messages con etiquettas: %{tags}"
+      title: "Messages con etiquetta: %{tags}"
   tag_followings:
     manage:
       no_tags: "Tu non seque alcun etiquetta."
@@ -1175,7 +1174,7 @@ ia:
       change: "Cambiar"
       change_color_theme: "Cambiar thema de colores"
       change_email: "Cambiar adresse de e-mail"
-      change_language: "Cambiar de lingua"
+      change_language: "Cambiar lingua"
       change_password: "Cambiar contrasigno"
       character_minimum_expl: "al minus 6 characteres"
       close_account:
@@ -1226,8 +1225,6 @@ ia:
     getting_started:
       awesome_take_me_to_diaspora: "Superbe! Conduce me a diaspora*"
       community_welcome: "Le communitate de diaspora* es felice de accolliger te!"
-      connect_to_facebook: "Nos pote accelerar le cosas un poco per %{link} a diaspora*. Isto insere automaticamente tu nomine e photo, e permitte inviar entratas a ambe sitos."
-      connect_to_facebook_link: "Connecter tu conto de Facebook"
       hashtag_explanation: "Le #etiquettas permitte discuter e sequer tu interesses. Illos anque es un bon maniera de trovar nove personas in diaspora*."
       hashtag_suggestions: "Tenta sequer etiquettas como #arte, #films, #gif, etc."
       well_hello_there: "Salutationes a te!"

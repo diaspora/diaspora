@@ -117,6 +117,21 @@ sq:
       account_closing_scheduled: "Llogaria e %{name} është vënë në plan të mbyllet. Veprimi do të kryhet pas pak çastesh…"
       account_locking_scheduled: "Llogaria e %{name} është vënë në plan të bllokohet. Veprimi do të kryhet pas pak çastesh…"
       account_unlocking_scheduled: "Llogaria e %{name} është vënë në plan të zhbllokohet. Veprimi do të kryhet pas pak çastesh…"
+      make_admin: "Bëje përgjegjës"
+      remove_admin: "Hiqe nga përgjegjës"
+      make_moderator: "Bëje moderator"
+      remove_moderator: "Hiqe nga moderator"
+      make_spotlight: "Shtojeni te projektori i bashkësisë"
+      remove_spotlight: "Hiqeni nga projektori i bashkësisë"
+      add_admin: "%{name} është bërë përgjegjës."
+      delete_admin: "%{name} është hequr nga lista e përgjegjësve."
+      add_moderator: "%{name} është bërë moderator."
+      delete_moderator: "%{name} është hequr nga lista e moderatorëve."
+      add_spotlight: "%{name} është shtuar te projektori i bashkësisë."
+      delete_spotlight: "%{name} është hequr nga projektori i bashkësisë."
+      does_not_exist: "Përdoruesi s’ekziston!"
+      role_implemented: "%{name} i është dhënë tashmë ky rol!"
+      role_removal_implemented: "%{name} është hequr tashmë nga ky rol!"
       email_to: "Email për t’u ftuar"
       invite: "Ftoje"
       under_13: "Shfaqi përdoruesit që janë nën 13 vjeç (COPPA)"
@@ -132,6 +147,9 @@ sq:
       last_seen: "Parë së fundi më"
       account_closed: "Llogari e mbyllur"
       nsfw: "#nsfw"
+      admin: "Përgjegjës"
+      moderator: "Moderator"
+      spotlight: "Projektor i bashkësisë"
       unknown: "E panjohur"
       invite_token: "Token ftese"
       'yes': "Po"
@@ -369,8 +387,6 @@ sq:
       contacts_know_aspect_a: "Jo. Nuk munden të shohin emrin e aspektit me asnjë mënyrë."
       person_multiple_aspects_q: "A mund ta shtoj një person në disa aspekte?"
       person_multiple_aspects_a: "Po. Shkoni te faqja e kontakteve tuaj dhe klikoni mbi “Kontaktet e mia”. Për secilin kontakt mund të përdorni menunë djathtas për t’i shtuar te (ose për t’i hequr nga) sa aspekte të doni. Ose mund t’i shtoni te një aspekt i ri (ose t’i hiqni prej një aspekti) duke klikuar butonin e përzgjedhësit të aspekteve në faqen e tyre të profilit. Ose mund të kaloni kursorin sipër emrit të njërit, kur e shihni në rrjedhë, dhe do të shfaqet një dritare e vockël. Mund t’i ndryshoni aspektet e secilit drejt e aty."
-      contacts_visible_q: "Ç’do të thotë “bëji kontaktet në këtë aspekt të dukshëm për njëri-tjetrin”?"
-      contacts_visible_a: "Nëse i vini shenjë kësaj mundësie, kontaktet e atij aspekti do të jenë në gjendje të shohin se cili tjetër bën pjesë në të, te skeda “Kontakte” ose te faqja e profilit tuaj. Është mirë që kjo mundësi të përzgjidhet vetëm nëse kontaktet në atë aspekt e njohin të gjithë njëri-tjetrin, për shembull, nëse aspekti është për një klub ose një shoqëri në të cilën bëni pjesë. Prapëseprapë, ata s’do të jenë në gjendje të shohin se si quhet aspekti."
       remove_notification_q: "Nëse heq dikë nga një aspekt, ose nga krejt aspektet e mia, a njoftohen rreth kësaj?"
       remove_notification_a: "Jo. Dhe as njoftohen kur i shtoni në më tepër aspekte, nëse ndani tashmë gjëra me ta."
       change_aspect_of_post_q: "Pasi të kem postuar diçka, a mund të ndryshoj aspektin(et) që të mund ta shohin?"
@@ -613,57 +629,57 @@ sq:
 
   notifications:
     started_sharing:
-      zero: "Filluan të ndajnë gjëra me ju %{actors} persona."
-      one: "Filloi të ndajë gjëra me ju %{actors} person."
-      other: "Filluan të ndajnë gjëra me ju %{actors} persona."
+      zero: "%{actors} filluan të ndajnë gjëra me ju."
+      one: "%{actors} filloi të ndajë gjëra me ju."
+      other: "%{actors} filluan të ndajnë gjëra me ju."
     private_message:
-      zero: "Ju kanë dërguar mesazh %{actors} persona."
-      one: "Ju ka dërguar mesazh %{actors} person."
-      other: "Ju kanë dërguar mesazh %{actors} persona."
+      zero: "%{actors} ju dërguan mesazh."
+      one: "%{actors} ju dërgoi mesazh."
+      other: "%{actors} ju dërguan mesazh."
     comment_on_post:
-      zero: "Te postimi juaj %{post_link} kanë komentuar %{actors} persona."
-      one: "Te postimi juaj %{post_link} komentoi %{actors} person."
-      other: "Te postimi juaj %{post_link} komentuan %{actors} persona."
+      zero: "%{actors} komentuan te postimi juaj %{post_link}."
+      one: "%{actors} komentoi te postimi juaj %{post_link}."
+      other: "%{actors} komentuan te postimi juaj %{post_link}."
     also_commented:
-      zero: "Te postimi %{post_link} nga %{post_author} kanë komentuar gjithashtu %{actors} persona."
-      one: "Te postimi %{post_link} nga %{post_author} ka komentuar gjithashtu %{actors} person."
-      other: "Te postimi %{post_link} nga %{post_author} kanë komentuar gjithashtu %{actors} persona."
+      zero: "Te postimi %{post_link} nga %{post_author} komentuan gjithashtu %{actors}."
+      one: "Te postimi %{post_link} nga %{post_author} komentoi gjithashtu %{actors}."
+      other: "Te postimi %{post_link} nga %{post_author} komentuan gjithashtu %{actors}."
     mentioned:
-      one: "Ju ka përmendur te postimi %{post_link} %{actors} person."
-      other: "Ju kanë përmendur te postimi %{post_link} %{actors} persona."
+      one: "%{actors} ju përmendi te postimi %{post_link}."
+      other: "%{actors} ju përmendën te postimi %{post_link}."
     mentioned_in_comment:
-      one: "%{actors} person ju ka përmendur te një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
-      other: "%{actors} persona ju ka përmendur te një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
+      one: "%{actors} ju përmendi te një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
+      other: "%{actors} ju përmendën te një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
     liked:
-      zero: "Postimin tuaj %{post_link} e kanë pëlqyer %{actors} persona."
-      one: "Postimin tuaj %{post_link} e ka pëlqyer %{actors} person."
-      other: "Postimin tuaj %{post_link} e kanë pëlqyer %{actors} persona."
+      zero: "%{actors} pëlqyen postimin tuaj %{post_link}."
+      one: "%{actors} pëlqeu postimin tuaj %{post_link}."
+      other: "%{actors} pëlqyen postimin tuaj %{post_link}."
     reshared:
-      zero: "Postimin tuaj %{post_link} e kanë rindarë me dikë %{actors} persona."
-      one: "Postimin tuaj %{post_link} e ka rindarë me dikë %{actors} person."
-      other: "Postimin tuaj %{post_link} tuaj e kanë rindarë me dikë %{actors} persona."
+      zero: "%{actors} rindanë me dikë postimin tuaj %{post_link}."
+      one: "%{actors} rindau me dikë postimin tuaj %{post_link}."
+      other: "%{actors} rindanë me dikë postimin tuaj %{post_link}."
     contacts_birthday:
-      zero: "Datëlindjen më %{date} e kanë %{actors} persona."
-      one: "Datëlindjen më %{date} e ka %{actors} person"
-      other: "Datëlindjen më %{date} e kanë %{actors} persona."
+      zero: "%{actors} kanë datëlindjen më %{date}."
+      one: "%{actors} ka datëlindjen më %{date}."
+      other: "%{actors} kanë datëlindjen më %{date}."
     also_commented_deleted:
-      zero: "Në një postim të fshirë kanë komentuar %{actors} persona."
-      one: "Në një postim të fshirë ka komentuar %{actors} person."
-      other: "Në një postim të fshirë kanë komentuar %{actors} persona."
+      zero: "%{actors} komentuan në një postim të fshirë."
+      one: "%{actors} komentoi në një postim të fshirë."
+      other: "%{actors} komentuan në një postim të fshirë."
     liked_post_deleted:
-      zero: "Postimin tuaj të fshirë e pëlqyen %{actors} persona."
-      one: "Postimin tuaj të fshirë e pëlqeu %{actors} person."
-      other: "Postimin tuaj të fshirë e pëlqyen %{actors} persona."
+      zero: "%{actors} e pëlqyen postimin tuaj të fshirë."
+      one: "%{actors} e pëlqeu postimin tuaj të fshirë."
+      other: "%{actors} e pëlqyen postimin tuaj të fshirë."
     reshared_post_deleted:
-      zero: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors} persona."
-      one: "Postimin tuaj të fshirë e ka rindarë me dikë %{actors} person."
-      other: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors} persona."
+      zero: "%{actors} ndanë me dikë postimin tuaj të fshirë."
+      one: "%{actors} ndau me dikë postimin tuaj të fshirë."
+      other: "%{actors} ndanë me dikë postimin tuaj të fshirë."
     mentioned_deleted:
-      one: "Në një postim të fshirë ju ka përmendur %{actors} person."
-      other: "Në një postim të fshirë ju kanë përmendur %{actors} persona."
+      one: "%{actors} ju përmendi në një postim të fshirë."
+      other: "%{actors} ju përmendën në një postim të fshirë."
     mentioned_in_comment_deleted:
-      one: "Në një koment të fshirë ju ka përmendur %{actors} person."
-      other: "Në një koment të fshirë ju kanë përmendur %{actors} persona."
+      one: "%{actors} ju përmendi në një koment të fshirë."
+      other: "%{actors} ju përmendën në një koment të fshirë."
     index:
       notifications: "Njoftime"
       mark_all_as_read: "Vëru shenjë të tërave si të lexuara"
@@ -1045,7 +1061,6 @@ sq:
     comment_email_subject: "Rindaje nga %{resharer} e postimit të %{author}"
   services:
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1122,6 +1137,7 @@ sq:
     new:
       mentioning: "Me përmendje të: %{person}"
     too_long: "Ju lutemi, mesazhin tuaj mbi gjendjen bëjeni më pak se %{count} shenja. Tani është %{current_length} shenja"
+    bad_aspects: "ID-të e dhëna për aspektet s’janë të zbatueshme (s’ekzistojnë ose s’kanë pronar)"
 
   stream_helper:
     no_more_posts: "Keni mbërritur në fund të rrjedhës."
@@ -1241,7 +1257,13 @@ sq:
         what_we_delete: "Do të fshijmë krejt postimet tuaja dhe të dhënat e profilit, sa më shpejt që mundemi. Komentet tuaja në postimet e të tjerëve prapëseprapë do të duken, por do t’i jenë përshoqëruar ID-së suaj diaspora*, në vend se emrit tuaj."
         locked_out: "Do të bëhet çregjistrimi juaj dhe s’do t’ju lejohet më hyrja në llogarinë tuaj, derisa të jetë fshirë ."
         lock_username: "Emri juaj i përdoruesit do të bllokohet. S’do të jeni në gjendje të krijoni një llogari të re me po të njëjtën ID në këtë nyjë."
-        no_turning_back: "S’ka kthim mbrapa! Nëse jeni vërtet i sigurt, jepni fjalëkalimin tuaj më poshtë."
+        no_turning_back: "S’ka kthim mbrapa! Nëse jeni vërtet i sigurt, jepni më poshtë fjalëkalimin tuaj."
+
+      protocol_handler:
+        title: "web+diaspora:// protocol handler"
+        description: "web+diaspora:// është një protokoll i ri qe kemi sjellë. Çfarëdo lidhje për te një faqe diaspora* që nga një sajt i jashtëm i cili e përdor këtë protokoll, mund të hapet te nyja në të cilën është regjistruar llogaria juaj diaspora*. Klikoni mbi butonin më poshtë që ta rregulloni shfletuesin tuaj të përdorë %{pod_url} që të njohë lidhje të jashtme web+diaspora://."
+        browser: "Ky protokoll hëpërhë gjendet në fazë eksperimentale dhe suksesi i ndërveprimeve që e përdorin do të varet nga shfletuesi juaj. Nëse doni të merreni me të ose ta hiqni, këtë do ta bëni përmes rregullimeve të shfletuesit tuaj. Butoni më poshtë do të jetë përherë i aktivizuar, dhe do t’ju duhet ta ujdisni protokollin veçmas në çdo shfletues që përdorni."
+        register: "Regjistroje protokollin web+diaspora:// në këtë shfletues"
 
     privacy_settings:
       title: "Rregullime privatësie"
@@ -1260,10 +1282,8 @@ sq:
       community_welcome: "Bashkësia e diaspora*-s ka kënaqësinë t’ju shohë pjesë të saj!"
       awesome_take_me_to_diaspora: "Shkëlqyeshëm! Shpjemë te diaspora*"
       who_are_you: "Kush jeni?"
-      connect_to_facebook: "Mund t’i përshpejtojmë paksa gjërat duke %{link} te diaspora*. Kështu do të merren prej andej emri dhe fotoja juaj dhe do të mundësohen postime të ndërsjella."
-      connect_to_facebook_link: "lidhur llogarinë tuaj Facebook"
       what_are_you_in_to: "Me se po merreni?"
-      hashtag_explanation: "Hashtaget ju lejojnë të flisni mbi dhe të ndiqni interesat tuaja. Ato janë gjithashtu një rrugë e bukur për të gjetur persona të rinj në diaspora*."
+      hashtag_explanation: "Hashtagët ju lejojnë të flisni mbi dhe të ndiqni interesat tuaja. Ato janë gjithashtu një rrugë e bukur për të gjetur persona të rinj në diaspora*."
       hashtag_suggestions: "Provoni të ndiqni etiketa të tilla si #art, #movies, #gif, etj."
 
     update:

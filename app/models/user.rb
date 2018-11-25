@@ -466,6 +466,14 @@ class User < ApplicationRecord
     Role.moderator?(person)
   end
 
+  def moderator_only?
+    Role.moderator_only?(person)
+  end
+
+  def spotlight?
+    Role.spotlight?(person)
+  end
+
   def podmin_account?
     username == AppConfig.admins.account
   end
