@@ -229,6 +229,10 @@ Rails.application.routes.draw do
       end
       resource :reshares, only: %i[show create]
       resource :likes, only: %i[show create destroy]
+      post "subscribe" => "postinteractions#subscribe"
+      post "mute" => "postinteractions#mute"
+      post "hide" => "postinteractions#hide"
+      post "report" => "postinteractions#report"
     end
     resources :conversations, only: %i[show index create destroy] do
       resources :messages, only: %i[index create]

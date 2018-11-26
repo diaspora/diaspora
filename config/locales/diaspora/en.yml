@@ -968,10 +968,13 @@ en:
         user_not_allowed_to_like: "User is not allowed to like"
         like_exists: "Like already exists"
         no_like: "Like doesn’t exist"
+      interactions:
+        cant_subscribe: "Can't subscribe to this post"
       posts:
         post_not_found: "Post with provided guid could not be found"
         failed_create: "Failed to create the post"
         failed_delete: "Not allowed to delete the post"
+        cant_report: "Failed to create report on this post"
       tags:
         cant_process: "Failed to process the tag followings request"
 
