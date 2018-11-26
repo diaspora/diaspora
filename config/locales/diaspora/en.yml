@@ -974,6 +974,9 @@ en:
         no_like: "Like doesn’t exist"
       interactions:
         cant_subscribe: "Can't subscribe to this post"
+      notifications:
+        not_found: "Notification with provided guid could not be found"
+        cant_process: "Couldn't process the notifications request"
       posts:
         post_not_found: "Post with provided guid could not be found"
         failed_create: "Failed to create the post"
