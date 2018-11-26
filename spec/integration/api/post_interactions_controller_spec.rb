@@ -45,7 +45,6 @@ describe Api::V1::PostinteractionsController do
             access_token: access_token
           }
         )
-        puts response.body
         expect(response.status).to eq(422)
       end
 
@@ -181,7 +180,6 @@ describe Api::V1::PostinteractionsController do
         expect(response.status).to eq(404)
       end
 
-
       it "with read only token" do
         post(
           api_v1_post_mute_path(@status.guid),
@@ -210,7 +208,7 @@ describe Api::V1::PostinteractionsController do
         post(
           api_v1_post_report_path(@status.guid),
           params: {
-            reason: "My reason",
+            reason:       "My reason",
             access_token: access_token
           }
         )
@@ -223,7 +221,7 @@ describe Api::V1::PostinteractionsController do
         post(
           api_v1_post_report_path("999_999_999"),
           params: {
-            reason: "My reason",
+            reason:       "My reason",
             access_token: access_token
           }
         )
@@ -235,7 +233,7 @@ describe Api::V1::PostinteractionsController do
         post(
           api_v1_post_report_path(@status.guid),
           params: {
-            reason: "My reason",
+            reason:       "My reason",
             access_token: access_token
           }
         )
@@ -243,7 +241,7 @@ describe Api::V1::PostinteractionsController do
         post(
           api_v1_post_report_path(@status.guid),
           params: {
-            reason: "My reason",
+            reason:       "My reason",
             access_token: access_token
           }
         )
@@ -264,8 +262,9 @@ describe Api::V1::PostinteractionsController do
 
       it "with read only token" do
         post(
-          api_v1_post_mute_path(@status.guid),
+          api_v1_post_report_path(@status.guid),
           params: {
+            reason:       "My reason",
             access_token: access_token_read_only
           }
         )
@@ -274,14 +273,14 @@ describe Api::V1::PostinteractionsController do
 
       it "with invalid token" do
         post(
-          api_v1_post_mute_path(@status.guid),
+          api_v1_post_report_path(@status.guid),
           params: {
+            reason:       "My reason",
             access_token: "999_999_999"
           }
         )
         expect(response.status).to eq(401)
       end
     end
-
   end
 end
