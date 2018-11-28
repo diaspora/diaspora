@@ -17,8 +17,9 @@ class PhotoPresenter < BasePresenter
     }
   end
 
-  def as_api_json(no_guid=true)
-    based_data = {
+  def as_api_json(full=false)
+    api_json = {
+      author:     PersonPresenter.new(author).as_api_json,
       dimensions: {
         height: height,
         width:  width
@@ -29,7 +30,9 @@ class PhotoPresenter < BasePresenter
         large:  url(:scaled_full)
       }
     }
-    return based_data if no_guid
-    based_data.merge(guid: guid)
+
+    api_json[:guid] = guid if full
+    api_json[:post] = status_message_guid if full && status_message_guid
+    api_json
   end
 end

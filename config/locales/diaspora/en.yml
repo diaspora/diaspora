@@ -977,6 +977,10 @@ en:
       notifications:
         not_found: "Notification with provided guid could not be found"
         cant_process: "Couldn't process the notifications request"
+      photos:
+        not_found: "Photo with provided guid could not be found"
+        failed_create: "Failed to create the photo"
+        failed_delete: "Not allowed to delete the photo"
       posts:
         post_not_found: "Post with provided guid could not be found"
         failed_create: "Failed to create the post"
