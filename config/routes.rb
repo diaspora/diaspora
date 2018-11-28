@@ -225,6 +225,7 @@ Rails.application.routes.draw do
     resources :aspects, only: %i[show index create destroy update] do
       resources :contacts, only: %i[index create destroy]
     end
+    resources :photos, only: %i[show index create destroy]
     resources :posts, only: %i[show create destroy] do
       resources :comments, only: %i[create index destroy] do
         post "report" => "comments#report"
