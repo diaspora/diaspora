@@ -985,6 +985,8 @@ en:
       users:
         cant_update: "Failed to update the user settings"
         not_found: "User not found"
+      search:
+        cant_process: "Search request could not be processed"
       tags:
         cant_process: "Failed to process the tag followings request"
 
