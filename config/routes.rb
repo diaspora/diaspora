@@ -249,6 +249,8 @@ Rails.application.routes.draw do
       get :posts
     end
     resources :tag_followings, only: %i[index create destroy]
+    get "search/users" => "search#user_index", :as => "user_index"
+    get "search/posts" => "search#post_index", :as => "post_index"
     get "streams/activity" => "streams#activity", :as => "activity_stream"
     get "streams/main" => "streams#multi", :as => "stream"
     get "streams/tags" => "streams#followed_tags", :as => "followed_tags_stream"
