@@ -17,6 +17,9 @@ class ContactPresenter < BasePresenter
     full_hash.merge(person: person_without_contact)
   end
 
+  def as_api_json_without_contact
+    PersonPresenter.new(person, current_user).as_api_json
+  end
   private
 
   def person_without_contact

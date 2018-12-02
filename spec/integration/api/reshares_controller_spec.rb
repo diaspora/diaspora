@@ -145,7 +145,6 @@ describe Api::V1::ResharesController do
           params: {access_token: access_token}
         )
 
-        puts(response.body)
         expect(response.status).to eq(422)
         expect(response.body).to eq(I18n.t("reshares.create.error"))
       end

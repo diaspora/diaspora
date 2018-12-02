@@ -222,7 +222,9 @@ Rails.application.routes.draw do
   get "podmin", to: "home#podmin"
 
   api_version(module: "Api::V1", path: {value: "api/v1"}) do
-    resources :aspects, only: %i[show index create destroy update]
+    resources :aspects, only: %i[show index create destroy update] do
+      resources :contacts, only: %i[index create destroy]
+    end
     resources :posts, only: %i[show create destroy] do
       resources :comments, only: %i[create index destroy] do
         post "report" => "comments#report"
