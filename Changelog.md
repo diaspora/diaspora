@@ -6,6 +6,7 @@
 
 ## Bug fixes
 * Do not autofollow back a user you are ignoring [#7913](https://github.com/diaspora/diaspora/pull/7913)
+* Fix photos gallery when too many thumbnails are shown [#7943](https://github.com/diaspora/diaspora/pull/7943)
 
 ## Features
 * Suppoert ignore users on mobile [#7884](https://github.com/diaspora/diaspora/pull/7884)
