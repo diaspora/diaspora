@@ -44,6 +44,14 @@ module Api
       def current_user
         current_token ? current_token.authorization.user : nil
       end
+
+      def index_pager(query)
+        Api::Paging::RestPaginatorBuilder.new(query, request).index_pager(params)
+      end
+
+      def time_pager(query)
+        Api::Paging::RestPaginatorBuilder.new(query, request).time_pager(params)
+      end
     end
   end
 end

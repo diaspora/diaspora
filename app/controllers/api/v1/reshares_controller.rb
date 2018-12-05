@@ -20,10 +20,15 @@ module Api
       end
 
       def show
-        reshares = reshare_service.find_for_post(params[:post_id]).map do |r|
-          {guid: r.guid, author: PersonPresenter.new(r.author).as_api_json}
+        reshares_query = reshare_service.find_for_post(params[:post_id])
+        reshares_page = index_pager(reshares_query).response
+        reshares_page[:data] = reshares_page[:data].map do |r|
+          {
+            guid:   r.guid,
+            author: PersonPresenter.new(r.author).as_api_json
+          }
         end
-        render json: reshares
+        render json: reshares_page
       end
 
       def create
@@ -33,6 +38,8 @@ module Api
       else
         render json: PostPresenter.new(reshare, current_user).as_api_response
       end
+
+      private
 
       def reshare_service
         @reshare_service ||= ReshareService.new(current_user)

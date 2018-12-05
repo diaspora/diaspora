@@ -39,7 +39,7 @@ describe Api::V1::SearchController do
         params: {tag: "one", access_token: access_token}
       )
       expect(response.status).to eq(200)
-      users = JSON.parse(response.body)
+      users = response_body_data(response)
       expect(users.length).to eq(14)
     end
 
@@ -49,7 +49,7 @@ describe Api::V1::SearchController do
         params: {name_or_handle: "Terry", access_token: access_token}
       )
       expect(response.status).to eq(200)
-      users = JSON.parse(response.body)
+      users = response_body_data(response)
       expect(users.length).to eq(1)
     end
 
@@ -59,7 +59,7 @@ describe Api::V1::SearchController do
         params: {name_or_handle: "findable", access_token: access_token}
       )
       expect(response.status).to eq(200)
-      users = JSON.parse(response.body)
+      users = response_body_data(response)
       expect(users.length).to eq(1)
     end
 
@@ -69,7 +69,7 @@ describe Api::V1::SearchController do
         params: {name_or_handle: "Closed", access_token: access_token}
       )
       expect(response.status).to eq(200)
-      users = JSON.parse(response.body)
+      users = response_body_data(response)
       expect(users.length).to eq(0)
     end
 
@@ -79,7 +79,7 @@ describe Api::V1::SearchController do
         params: {name_or_handle: "unsearchable@example.org", access_token: access_token}
       )
       expect(response.status).to eq(200)
-      users = JSON.parse(response.body)
+      users = response_body_data(response)
       expect(users.length).to eq(0)
     end
 
@@ -131,7 +131,7 @@ describe Api::V1::SearchController do
         params: {tag: "tag2", access_token: access_token}
       )
       expect(response.status).to eq(200)
-      posts = JSON.parse(response.body)
+      posts = response_body_data(response)
       expect(posts.length).to eq(2)
     end
 
@@ -151,5 +151,9 @@ describe Api::V1::SearchController do
       )
       expect(response.status).to eq(401)
     end
+  end
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
   end
 end

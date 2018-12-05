@@ -20,7 +20,7 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq 200
-      post = JSON.parse(response.body)
+      post = response_body_data(response)
       expect(post.length).to eq 1
       confirm_post_format(post[0], auth.user, @status)
     end
@@ -31,7 +31,7 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq 200
-      post = JSON.parse(response.body)
+      post = response_body_data(response)
       expect(post.length).to eq 1
       confirm_post_format(post[0], auth.user, @status)
     end
@@ -52,7 +52,7 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq 200
-      post = JSON.parse(response.body)
+      post = response_body_data(response)
       expect(post.length).to eq 0
     end
   end
@@ -64,7 +64,7 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq 200
-      post = JSON.parse(response.body)
+      post = response_body_data(response)
       expect(post.length).to eq 1
       confirm_post_format(post[0], auth.user, @status)
     end
@@ -77,7 +77,7 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq 200
-      post = JSON.parse(response.body)
+      post = response_body_data(response)
       expect(post.length).to eq 1
       confirm_post_format(post[0], auth.user, @status)
     end
@@ -90,7 +90,7 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq 200
-      post = JSON.parse(response.body)
+      post = response_body_data(response)
       expect(post.length).to eq 0
     end
   end
@@ -102,7 +102,7 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq 200
-      post = JSON.parse(response.body)
+      post = response_body_data(response)
       expect(post.length).to eq 0
     end
   end
@@ -114,7 +114,7 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq 200
-      post = JSON.parse(response.body)
+      post = response_body_data(response)
       expect(post.length).to eq 1
       confirm_post_format(post[0], auth.user, @status)
     end
@@ -205,4 +205,8 @@ describe Api::V1::StreamsController do
     confirm_person_format(root["author"], root_poster)
   end
   # rubocop:enable Metrics/AbcSize
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
+  end
 end

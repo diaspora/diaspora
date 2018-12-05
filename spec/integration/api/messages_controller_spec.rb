@@ -15,7 +15,7 @@ describe Api::V1::MessagesController do
     @conversation = {
       subject:      "new conversation",
       body:         "first message",
-      recipients:   JSON.generate([alice.guid]),
+      recipients:   [alice.guid],
       access_token: access_token
     }
 
@@ -43,7 +43,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
-        messages = JSON.parse(response.body)
+        messages = response_body_data(response)
         expect(messages.length).to eq 2
         confirm_message_format(messages[1], @message_text, auth.user)
       end
@@ -93,7 +93,8 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
-        messages = JSON.parse(response.body)
+        expect(response.status).to eq 200
+        messages = response_body_data(response)
         expect(messages.length).to eq 1
 
         confirm_message_format(messages[0], "first message", auth.user)
@@ -105,10 +106,14 @@ describe Api::V1::MessagesController do
 
   private
 
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
+  end
+
   def get_conversation(conversation_id)
     conversation_service = ConversationService.new(auth.user)
     raw_conversation = conversation_service.find!(conversation_id)
-    ConversationPresenter.new(raw_conversation).as_api_json
+    ConversationPresenter.new(raw_conversation, auth.user).as_api_json
   end
 
   def confirm_message_format(message, ref_message, author)

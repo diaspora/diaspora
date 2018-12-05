@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "api/paging/index_paginator"
+
 module Api
   module V1
     class ContactsController < Api::V1::BaseController
@@ -16,8 +18,12 @@ module Api
       end
 
       def index
-        contacts = aspects_membership_service.contacts_in_aspect(params[:aspect_id])
-        render json: contacts.map {|c| ContactPresenter.new(c, current_user).as_api_json_without_contact }
+        contacts_query = aspects_membership_service.contacts_in_aspect(params[:aspect_id])
+        contacts_page = index_pager(contacts_query).response
+        contacts_page[:data] = contacts_page[:data].map do |c|
+          ContactPresenter.new(c, current_user).as_api_json_without_contact
+        end
+        render json: contacts_page
       end
 
       def create

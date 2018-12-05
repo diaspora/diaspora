@@ -35,7 +35,7 @@ describe Api::V1::ResharesController do
         )
 
         expect(response.status).to eq(200)
-        reshares = JSON.parse(response.body)
+        reshares = response_body_data(response)
         expect(reshares.length).to eq(1)
         reshare = reshares[0]
         expect(reshare["guid"]).not_to be_nil
@@ -57,7 +57,7 @@ describe Api::V1::ResharesController do
           }
         )
         expect(response.status).to eq(200)
-        reshares = JSON.parse(response.body)
+        reshares = response_body_data(response)
         expect(reshares.length).to eq(0)
       end
     end
@@ -169,7 +169,6 @@ describe Api::V1::ResharesController do
             access_token: access_token
           }
         )
-        puts(response.body)
         expect(response.status).to eq(404)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
@@ -202,6 +201,10 @@ describe Api::V1::ResharesController do
 
   def reshare_service(user=auth.user)
     @reshare_service ||= ReshareService.new(user)
+  end
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
   end
 
   # rubocop:disable Metrics/AbcSize
