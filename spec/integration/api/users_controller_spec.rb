@@ -237,7 +237,7 @@ describe Api::V1::UsersController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq(200)
-      contacts = JSON.parse(response.body)
+      contacts = response_body_data(response)
       expect(contacts.length).to eq(0)
 
       auth.user.share_with(alice.person, auth.user.aspects.first)
@@ -246,7 +246,7 @@ describe Api::V1::UsersController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq(200)
-      contacts = JSON.parse(response.body)
+      contacts = response_body_data(response)
       expect(contacts.length).to eq(1)
       confirm_person_format(contacts[0], alice)
     end
@@ -301,7 +301,7 @@ describe Api::V1::UsersController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photos = JSON.parse(response.body)
+        photos = response_body_data(response)
         expect(photos.length).to eq(3)
         guids = photos.map {|photo| photo["guid"] }
         expect(guids).to include(@public_photo1.guid, @public_photo2.guid, @shared_photo1.guid)
@@ -361,7 +361,7 @@ describe Api::V1::UsersController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        posts = JSON.parse(response.body)
+        posts = response_body_data(response)
         expect(posts.length).to eq(3)
         guids = posts.map {|post| post["guid"] }
         expect(guids).to include(@public_post1.guid, @public_post2.guid, @shared_post1.guid)
@@ -370,13 +370,13 @@ describe Api::V1::UsersController do
         confirm_post_format(post[0], alice, @public_post1)
       end
 
-      it "returns logged in user's photos" do
+      it "returns logged in user's posts" do
         get(
           api_v1_user_posts_path(auth.user.guid),
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        posts = JSON.parse(response.body)
+        posts = response_body_data(response)
         expect(posts.length).to eq(2)
       end
     end
@@ -483,4 +483,8 @@ describe Api::V1::UsersController do
     end
   end
   # rubocop:enable Metrics/AbcSize
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
+  end
 end

@@ -26,7 +26,7 @@ describe Api::V1::ContactsController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        contacts = JSON.parse(response.body)
+        contacts = response_body_data(response)
         expect(contacts.length).to eq(1)
         confirm_person_format(contacts[0], alice)
 
@@ -35,7 +35,7 @@ describe Api::V1::ContactsController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        contacts = JSON.parse(response.body)
+        contacts = response_body_data(response)
         expect(contacts.length).to eq(@aspect1.contacts.length)
       end
     end
@@ -216,6 +216,10 @@ describe Api::V1::ContactsController do
         expect(response.status).to eq(403)
       end
     end
+  end
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
   end
 
   def aspects_membership_service(user=auth.user)

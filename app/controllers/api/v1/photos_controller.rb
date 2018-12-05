@@ -16,8 +16,9 @@ module Api
       end
 
       def index
-        photos = current_user.photos
-        render json: photos.map {|p| PhotoPresenter.new(p).as_api_json(true) }
+        photos_page = time_pager(current_user.photos).response
+        photos_page[:data] = photos_page[:data].map {|photo| PhotoPresenter.new(photo).as_api_json(true) }
+        render json: photos_page
       end
 
       def show

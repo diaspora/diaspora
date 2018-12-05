@@ -9,12 +9,12 @@ module Api
 
       def aspects
         aspect_ids = params.has_key?(:aspect_ids) ? JSON.parse(params[:aspect_ids]) : []
-        @stream = Stream::Aspect.new(current_user, aspect_ids, max_time: max_time)
+        @stream = Stream::Aspect.new(current_user, aspect_ids, max_time: stream_max_time)
         stream_responder
       end
 
       def activity
-        stream_responder(Stream::Activity)
+        stream_responder(Stream::Activity, "posts.interacted_at", "interacted_at")
       end
 
       def multi
@@ -39,10 +39,25 @@ module Api
 
       private
 
-      def stream_responder(stream_klass=nil)
-        @stream = stream_klass.present? ? stream_klass.new(current_user, max_time: max_time) : @stream
+      def stream_responder(stream_klass=nil, query_time_field="posts.created_at", data_time_field="created_at")
+        @stream = stream_klass.present? ? stream_klass.new(current_user, max_time: stream_max_time) : @stream
+        posts_page = pager(@stream.stream_posts, query_time_field, data_time_field).response
+        posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post, current_user).as_api_response }
+        posts_page[:links].delete(:previous)
+        render json: posts_page
+      end
 
-        render json: @stream.stream_posts.map {|p| PostPresenter.new(p, current_user).as_api_response }
+      def stream_max_time
+        if params.has_key?("before")
+          Time.iso8601(params["before"])
+        else
+          max_time
+        end
+      end
+
+      def pager(query, query_time_field, data_time_field)
+        Api::Paging::RestPaginatorBuilder.new(query, request, true, 15)
+                                         .time_pager(params, query_time_field, data_time_field)
       end
     end
   end

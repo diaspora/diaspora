@@ -3,7 +3,7 @@
 class NotificationPresenter < BasePresenter
   def as_api_json(include_target=true)
     data = base_hash
-    data = data.merge(target: target_json) if include_target
+    data = data.merge(target: target_json) if include_target && target
     data
   end
 

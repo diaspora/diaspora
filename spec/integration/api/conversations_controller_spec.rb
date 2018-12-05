@@ -13,10 +13,10 @@ describe Api::V1::ConversationsController do
     alice.share_with auth.user.person, alice.aspects[0]
     auth.user.disconnected_by(eve)
 
-    @conversation = {
+    @conversation_request = {
       subject:      "new conversation",
       body:         "first message",
-      recipients:   JSON.generate([alice.guid]),
+      recipients:   [alice.guid],
       access_token: access_token
     }
   end
@@ -24,10 +24,10 @@ describe Api::V1::ConversationsController do
   describe "#create" do
     context "with valid data" do
       it "creates the conversation" do
-        post api_v1_conversations_path, params: @conversation
+        post api_v1_conversations_path, params: @conversation_request
         expect(response.status).to eq 201
         conversation = JSON.parse(response.body)
-        confirm_conversation_format(conversation, @conversation, [auth.user, alice])
+        confirm_conversation_format(conversation, @conversation_request, [auth.user, alice])
       end
     end
 
@@ -75,7 +75,7 @@ describe Api::V1::ConversationsController do
         incomplete_conversation = {
           subject:      "new conversation",
           body:         "first message",
-          recipients:   JSON.generate(["999_999_999"]),
+          recipients:   ["999_999_999"],
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
@@ -87,7 +87,7 @@ describe Api::V1::ConversationsController do
         incomplete_conversation = {
           subject:      "new conversation",
           body:         "first message",
-          recipients:   JSON.generate([eve.guid]),
+          recipients:   [eve.guid],
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
@@ -99,25 +99,28 @@ describe Api::V1::ConversationsController do
 
   describe "#index" do
     before do
-      post api_v1_conversations_path, params: @conversation
-      post api_v1_conversations_path, params: @conversation
+      post api_v1_conversations_path, params: @conversation_request
+      @read_conversation_guid = JSON.parse(response.body)["guid"]
+      @read_conversation = conversation_service.find!(@read_conversation_guid)
+      post api_v1_conversations_path, params: @conversation_request
       sleep(1)
-      post api_v1_conversations_path, params: @conversation
-      conversation_guid = JSON.parse(response.body)["guid"]
-      conversation = conversation_service.find!(conversation_guid)
-      conversation.conversation_visibilities[0].unread = 1
-      conversation.conversation_visibilities[0].save!
-      conversation.conversation_visibilities[1].unread = 1
-      conversation.conversation_visibilities[1].save!
-      @date = conversation.created_at
+      post api_v1_conversations_path, params: @conversation_request
+      @conversation_guid = JSON.parse(response.body)["guid"]
+      @conversation = conversation_service.find!(@conversation_guid)
+      @conversation.conversation_visibilities[0].unread = 1
+      @conversation.conversation_visibilities[0].save!
+      @conversation.conversation_visibilities[1].unread = 1
+      @conversation.conversation_visibilities[1].save!
+      @date = @conversation.created_at
     end
 
     it "returns all the user conversations" do
       get api_v1_conversations_path, params: {access_token: access_token}
       expect(response.status).to eq 200
-      returned_conversations = JSON.parse(response.body)
+      returned_conversations = response_body_data(response)
       expect(returned_conversations.length).to eq 3
-      confirm_conversation_format(returned_conversations[0], @conversation, [auth.user, alice])
+      actual_conversation = returned_conversations.select {|c| c["guid"] == @read_conversation_guid }[0]
+      confirm_conversation_format(actual_conversation, @read_conversation, [auth.user, alice])
     end
 
     it "returns all the user unread conversations" do
@@ -126,7 +129,7 @@ describe Api::V1::ConversationsController do
         params: {only_unread: true, access_token: access_token}
       )
       expect(response.status).to eq 200
-      expect(JSON.parse(response.body).length).to eq 2
+      expect(response_body_data(response).length).to eq 2
     end
 
     it "returns all the user conversations after a given date" do
@@ -135,14 +138,16 @@ describe Api::V1::ConversationsController do
         params: {only_after: @date, access_token: access_token}
       )
       expect(response.status).to eq 200
-      expect(JSON.parse(response.body).length).to eq 1
+      expect(response_body_data(response).length).to eq 1
     end
   end
 
   describe "#show" do
     context "valid conversation ID" do
       before do
-        post api_v1_conversations_path, params: @conversation
+        post api_v1_conversations_path, params: @conversation_request
+        @conversation_guid = JSON.parse(response.body)["guid"]
+        @conversation = conversation_service.find!(@conversation_guid)
       end
 
       it "returns the corresponding conversation" do
@@ -177,13 +182,13 @@ describe Api::V1::ConversationsController do
         auth.user.person, auth_participant.user.aspects[0]
       )
 
-      @conversation = {
+      @conversation_request = {
         subject:      "new conversation",
         body:         "first message",
-        recipients:   JSON.generate([auth_participant.user.guid]),
+        recipients:   [auth_participant.user.guid],
         access_token: access_token
       }
-      post api_v1_conversations_path, params: @conversation
+      post api_v1_conversations_path, params: @conversation_request
       @conversation_guid = JSON.parse(response.body)["guid"]
     end
 
@@ -250,6 +255,10 @@ describe Api::V1::ConversationsController do
   end
 
   private
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
+  end
 
   # rubocop:disable Metrics/AbcSize
   def confirm_conversation_format(conversation, ref_conversation, ref_participants)

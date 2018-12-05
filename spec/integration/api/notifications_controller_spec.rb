@@ -26,7 +26,7 @@ describe Api::V1::NotificationsController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        notification = JSON.parse(response.body)
+        notification = response_body_data(response)
         expect(notification.length).to eq(1)
         confirm_notification_format(notification[0], @notification, "also_commented", nil)
       end
@@ -37,7 +37,7 @@ describe Api::V1::NotificationsController do
           params: {only_unread: true, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        notification = JSON.parse(response.body)
+        notification = response_body_data(response)
         expect(notification.length).to eq(1)
         @notification.set_read_state(true)
         get(
@@ -45,7 +45,7 @@ describe Api::V1::NotificationsController do
           params: {only_unread: true, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        notification = JSON.parse(response.body)
+        notification = response_body_data(response)
         expect(notification.length).to eq(0)
       end
 
@@ -55,7 +55,7 @@ describe Api::V1::NotificationsController do
           params: {only_after: (Date.current - 1.day).iso8601, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        notification = JSON.parse(response.body)
+        notification = response_body_data(response)
         expect(notification.length).to eq(1)
         @notification.set_read_state(true)
         get(
@@ -63,7 +63,7 @@ describe Api::V1::NotificationsController do
           params: {only_after: (Date.current + 1.day).iso8601, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        notification = JSON.parse(response.body)
+        notification = response_body_data(response)
         expect(notification.length).to eq(0)
       end
     end
@@ -194,6 +194,10 @@ describe Api::V1::NotificationsController do
   end
 
   private
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
+  end
 
   # rubocop:disable Metrics/AbcSize
   def confirm_notification_format(notification, ref_notification, expected_type, target)

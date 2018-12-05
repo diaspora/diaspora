@@ -44,20 +44,26 @@ module Api
           return
         end
 
-        contacts_with_profile = AspectsMembershipService.new(current_user).all_contacts
-        render json: contacts_with_profile.map {|c| PersonPresenter.new(c.person).as_api_json }
+        contacts_query = AspectsMembershipService.new(current_user).all_contacts
+        contacts_page = index_pager(contacts_query).response
+        contacts_page[:data] = contacts_page[:data].map {|c| PersonPresenter.new(c.person).as_api_json }
+        render json: contacts_page
       end
 
       def photos
         person = Person.find_by!(guid: params[:user_id])
-        photos = Photo.visible(current_user, person, :all, Time.current)
-        render json: photos.map {|photo| PhotoPresenter.new(photo).as_api_json(true) }
+        photos_query = Photo.visible(current_user, person, :all, Time.current)
+        photos_page = time_pager(photos_query).response
+        photos_page[:data] = photos_page[:data].map {|photo| PhotoPresenter.new(photo).as_api_json(true) }
+        render json: photos_page
       end
 
       def posts
         person = Person.find_by!(guid: params[:user_id])
-        posts = current_user.posts_from(person)
-        render json: posts.map {|post| PostPresenter.new(post, current_user).as_api_response }
+        posts_query = current_user.posts_from(person, false)
+        posts_page = time_pager(posts_query).response
+        posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post, current_user).as_api_response }
+        render json: posts_page
       end
 
       private

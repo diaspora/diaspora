@@ -20,8 +20,10 @@ module Api
       end
 
       def show
-        likes = like_service.find_for_post(params[:post_id])
-        render json: likes.map {|x| like_json(x) }
+        likes_query = like_service.find_for_post(params[:post_id])
+        likes_page = index_pager(likes_query).response
+        likes_page[:data] = likes_page[:data].map {|x| like_json(x) }
+        render json: likes_page
       end
 
       def create

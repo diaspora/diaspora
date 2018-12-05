@@ -29,11 +29,12 @@ module Api
       def index
         conversation = conversation_service.find!(params[:conversation_id])
         conversation.set_read(current_user)
-        render(
-          json:   conversation.messages.map {|x| message_json(x) },
-          status: :created
-        )
+        messages_page = index_pager(conversation.messages).response
+        messages_page[:data] = messages_page[:data].map {|x| message_json(x) }
+        render json: messages_page
       end
+
+      private
 
       def conversation_service
         ConversationService.new(current_user)
