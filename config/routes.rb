@@ -236,6 +236,7 @@ Rails.application.routes.draw do
       post "mute" => "post_interactions#mute"
       post "hide" => "post_interactions#hide"
       post "report" => "post_interactions#report"
+      post "vote" => "post_interactions#vote"
     end
     resources :conversations, only: %i[show index create destroy] do
       resources :messages, only: %i[index create]

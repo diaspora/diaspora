@@ -51,10 +51,31 @@ module Api
         render json: I18n.t("api.endpoint_errors.posts.cant_report"), status: :unprocessable_entity
       end
 
+      def vote
+        begin
+          post = post_service.find!(params[:post_id])
+        rescue ActiveRecord::RecordNotFound
+          render json: I18n.t("api.endpoint_errors.posts.post_not_found"), status: :not_found
+          return
+        end
+        poll_vote = poll_service.vote(post.id, params[:poll_answer_id])
+        if poll_vote
+          head :no_content
+        else
+          render json: I18n.t("api.endpoint_errors.interactions.cant_vote"), status: :unprocessable_entity
+        end
+      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotFound
+        render json: I18n.t("api.endpoint_errors.interactions.cant_vote"), status: :unprocessable_entity
+      end
+
       private
 
       def post_service
         @post_service ||= PostService.new(current_user)
+      end
+
+      def poll_service
+        @poll_service ||= PollParticipationService.new(current_user)
       end
     end
   end
