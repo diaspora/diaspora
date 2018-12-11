@@ -51,7 +51,7 @@ module Api
       def photos
         person = Person.find_by!(guid: params[:user_id])
         photos = Photo.visible(current_user, person, :all, Time.current)
-        render json: photos.map {|photo| PhotoPresenter.new(photo).as_api_json(false) }
+        render json: photos.map {|photo| PhotoPresenter.new(photo).as_api_json(true) }
       end
 
       def posts
