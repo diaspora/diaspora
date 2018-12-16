@@ -291,4 +291,91 @@ describe Api::V1::PostInteractionsController do
       end
     end
   end
+
+  describe "#vote" do
+    before do
+      base_params = {status_message: {text: "myText"}, public: true}
+      poll_params = {poll_question: "something?", poll_answers: %w[yes no maybe]}
+      merged_params = base_params.merge(poll_params)
+      @poll_post = StatusMessageCreationService.new(alice).create(merged_params)
+      @poll_answer = @poll_post.poll.poll_answers.first
+    end
+
+    it "succeeds" do
+      post(
+        api_v1_post_vote_path(@poll_post.guid),
+        params: {
+          poll_answer_id: @poll_answer.id,
+          access_token:   access_token
+        }
+      )
+      expect(response.status).to eq(204)
+      expect(@poll_answer.reload.vote_count).to eq(1)
+    end
+
+    it "fails to vote twice" do
+      post(
+        api_v1_post_vote_path(@poll_post.guid),
+        params: {
+          poll_answer_id: @poll_answer.id,
+          access_token:   access_token
+        }
+      )
+      expect(response.status).to eq(204)
+      post(
+        api_v1_post_vote_path(@poll_post.guid),
+        params: {
+          poll_answer_id: @poll_answer.id,
+          access_token:   access_token
+        }
+      )
+      expect(response.status).to eq(422)
+      expect(response.body).to eq(I18n.t("api.endpoint_errors.interactions.cant_vote"))
+    end
+
+    it "fails with bad answer id" do
+      post(
+        api_v1_post_vote_path(@poll_post.guid),
+        params: {
+          poll_answer_id: -1,
+          access_token:   access_token
+        }
+      )
+      expect(response.status).to eq(422)
+      expect(response.body).to eq(I18n.t("api.endpoint_errors.interactions.cant_vote"))
+    end
+
+    it "fails with bad post id" do
+      post(
+        api_v1_post_vote_path("999_999_999"),
+        params: {
+          poll_answer_id: @poll_answer.id,
+          access_token:   access_token
+        }
+      )
+      expect(response.status).to eq(404)
+      expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+    end
+    it "with read only token" do
+      post(
+        api_v1_post_vote_path(@poll_post.guid),
+        params: {
+          poll_answer_id: @poll_answer.id,
+          access_token:   access_token_read_only
+        }
+      )
+      expect(response.status).to eq(403)
+    end
+
+    it "with invalid token" do
+      post(
+        api_v1_post_vote_path(@poll_post.guid),
+        params: {
+          poll_answer_id: @poll_answer.id,
+          access_token:   "999_999_999"
+        }
+      )
+      expect(response.status).to eq(401)
+    end
+  end
 end
