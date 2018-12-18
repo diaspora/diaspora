@@ -29,8 +29,11 @@ module Api
       end
 
       def index
-        comments = comment_service.find_for_post(params[:post_id])
-        render json: comments.map {|x| comment_as_json(x) }
+        comments_query = comment_service.find_for_post(params[:post_id])
+        params[:after] = Time.utc(1900).iso8601 if params.permit(:before, :after).empty?
+        comments_page = time_pager(comments_query).response
+        comments_page[:data] = comments_page[:data].map {|x| comment_as_json(x) }
+        render json: comments_page
       end
 
       def destroy

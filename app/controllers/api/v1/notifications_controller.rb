@@ -27,8 +27,12 @@ module Api
 
       def index
         after_date = Date.iso8601(params[:only_after]) if params.has_key?(:only_after)
-        notifications = service.index(params[:only_unread], after_date)
-        render json: notifications.map {|note| NotificationPresenter.new(note, default_serializer_options).as_api_json }
+        notifications_query = service.index(params[:only_unread], after_date)
+        notifications_page = time_pager(notifications_query).response
+        notifications_page[:data] = notifications_page[:data].map do |note|
+          NotificationPresenter.new(note, default_serializer_options).as_api_json
+        end
+        render json: notifications_page
       rescue ArgumentError
         render json: I18n.t("api.endpoint_errors.notifications.cant_process"), status: :unprocessable_entity
       end

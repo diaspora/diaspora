@@ -93,7 +93,7 @@ describe Api::V1::PhotosController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photos = JSON.parse(response.body)
+        photos = response_body_data(response)
         expect(photos.length).to eq(2)
       end
     end
@@ -265,6 +265,10 @@ describe Api::V1::PhotosController do
         expect(response.status).to eq(403)
       end
     end
+  end
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
   end
 
   # rubocop:disable Metrics/AbcSize

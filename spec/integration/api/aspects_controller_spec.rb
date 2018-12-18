@@ -20,7 +20,7 @@ describe Api::V1::AspectsController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq(200)
-      aspects = JSON.parse(response.body)
+      aspects = response_body_data(response)
       expect(aspects.length).to eq(auth.user.aspects.length)
       aspects.each do |aspect|
         found_aspect = auth.user.aspects.find_by(id: aspect["id"])
@@ -298,5 +298,9 @@ describe Api::V1::AspectsController do
         expect(response.status).to eq(403)
       end
     end
+  end
+
+  def response_body_data(response)
+    JSON.parse(response.body)["data"]
   end
 end

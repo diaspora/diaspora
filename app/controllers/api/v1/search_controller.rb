@@ -14,17 +14,27 @@ module Api
       def user_index
         parameters = params.permit(:tag, :name_or_handle)
         raise RuntimeError if parameters.keys.length != 1
-        people = if params.has_key?(:tag)
+        people_query = if params.has_key?(:tag)
                    Person.profile_tagged_with(params[:tag])
                  else
                    Person.search(params[:name_or_handle], current_user)
                  end
-        render json: people.map {|p| PersonPresenter.new(p).as_api_json }
+        user_page = index_pager(people_query).response
+        user_page[:data] = user_page[:data].map {|p| PersonPresenter.new(p).as_api_json }
+        render json: user_page
       end
 
       def post_index
-        posts = Stream::Tag.new(current_user, params.require(:tag)).posts
-        render json: posts.map {|p| PostPresenter.new(p).as_api_response }
+        posts_query = Stream::Tag.new(current_user, params.require(:tag)).posts
+        posts_page = time_pager(posts_query, "posts.created_at", "created_at").response
+        posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post).as_api_response }
+        render json: posts_page
+      end
+
+      private
+
+      def time_pager(query, query_time_field, data_time_field)
+        Api::Paging::RestPaginatorBuilder.new(query, request).time_pager(params, query_time_field, data_time_field)
       end
     end
   end
