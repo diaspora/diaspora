@@ -52,6 +52,14 @@ module Api
       def time_pager(query)
         Api::Paging::RestPaginatorBuilder.new(query, request).time_pager(params)
       end
+
+      def private_read?
+        access_token? %w[private:read]
+      end
+
+      def private_modify?
+        access_token? %w[private:modify]
+      end
     end
   end
 end

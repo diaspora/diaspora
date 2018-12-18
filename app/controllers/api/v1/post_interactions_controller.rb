@@ -6,7 +6,7 @@ module Api
       include PostsHelper
 
       before_action do
-        require_access_token %w[read write]
+        require_access_token %w[public:read interactions]
       end
 
       rescue_from ActiveRecord::RecordNotFound do
@@ -14,7 +14,7 @@ module Api
       end
 
       def subscribe
-        post = post_service.find!(params[:post_id])
+        post = find_post
         current_user.participate!(post)
         head :no_content
       rescue ActiveRecord::RecordInvalid
@@ -22,13 +22,13 @@ module Api
       end
 
       def hide
-        post = post_service.find!(params[:post_id])
+        post = find_post
         current_user.toggle_hidden_shareable(post)
         head :no_content
       end
 
       def mute
-        post = post_service.find!(params[:post_id])
+        post = find_post
         participation = current_user.participations.find_by!(target_id: post.id)
         participation.destroy
         head :no_content
@@ -36,7 +36,7 @@ module Api
 
       def report
         reason = params.require(:reason)
-        post = post_service.find!(params[:post_id])
+        post = find_post
         report = current_user.reports.new(
           item_id:   post.id,
           item_type: "Post",
@@ -53,7 +53,7 @@ module Api
 
       def vote
         begin
-          post = post_service.find!(params[:post_id])
+          post = find_post
         rescue ActiveRecord::RecordNotFound
           render json: I18n.t("api.endpoint_errors.posts.post_not_found"), status: :not_found
           return
@@ -76,6 +76,12 @@ module Api
 
       def poll_service
         @poll_service ||= PollParticipationService.new(current_user)
+      end
+
+      def find_post
+        post = post_service.find!(params[:post_id])
+        raise ActiveRecord::RecordNotFound unless post.public? || private_read?
+        post
       end
     end
   end

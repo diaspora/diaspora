@@ -3,10 +3,16 @@
 require "spec_helper"
 
 describe Api::V1::NotificationsController do
-  let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
-  let(:auth_read_only) { FactoryGirl.create(:auth_with_read) }
+  let(:auth) {
+    FactoryGirl.create(:auth_with_all_scopes)
+  }
+
+  let(:auth_profile_only) {
+    FactoryGirl.create(:auth_with_profile_only)
+  }
+
   let!(:access_token) { auth.create_access_token.to_s }
-  let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
+  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
 
   before do
     @post = auth.user.post(
@@ -78,6 +84,14 @@ describe Api::V1::NotificationsController do
         expect(response.body).to eq(I18n.t("api.endpoint_errors.notifications.cant_process"))
       end
 
+      it "with insufficient credentials" do
+        get(
+          api_v1_notifications_path,
+          params: {access_token: access_token_profile_only}
+        )
+        expect(response.status).to eq(403)
+      end
+
       it "with improper credentials" do
         get(
           api_v1_notifications_path,
@@ -128,6 +142,14 @@ describe Api::V1::NotificationsController do
         expect(response.body).to eq(I18n.t("api.endpoint_errors.notifications.not_found"))
       end
 
+      it "with insufficient credentials" do
+        get(
+          api_v1_notification_path(@notification.guid),
+          params: {access_token: access_token_profile_only}
+        )
+        expect(response.status).to eq(403)
+      end
+
       it "with improper credentials" do
         get(
           api_v1_notification_path(@notification.guid),
@@ -175,10 +197,10 @@ describe Api::V1::NotificationsController do
         expect(response.body).to eq(I18n.t("api.endpoint_errors.notifications.cant_process"))
       end
 
-      it "with read only credentials" do
+      it "with insufficient credentials" do
         patch(
           api_v1_notification_path(@notification.guid),
-          params: {access_token: access_token_read_only}
+          params: {access_token: access_token_profile_only}
         )
         expect(response.status).to eq(403)
       end

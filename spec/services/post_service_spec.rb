@@ -181,6 +181,13 @@ describe PostService do
       PostService.new(alice).destroy(post.id)
     end
 
+    it "won't delete private post if explicitly unallowed" do
+      expect {
+        PostService.new(alice).destroy(post.id, false)
+      }.to raise_error Diaspora::NonPublic
+      expect(StatusMessage.find_by(id: post.id)).not_to be_nil
+    end
+
     it "will not let you destroy posts visible to you but that you do not own" do
       expect {
         PostService.new(bob).destroy(post.id)

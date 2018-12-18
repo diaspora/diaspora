@@ -18,7 +18,32 @@ module Api
 
       scope :with_redirect_uri, ->(given_uri) { where redirect_uri: given_uri }
 
-      SCOPES = %w(openid sub aud name nickname profile picture read write)
+      SCOPES = %w[
+        birthdate
+        contacts:modify
+        contacts:read
+        conversations
+        email
+        gender
+        interactions
+        locale
+        name
+        nickname
+        notifications
+        openid
+        picture
+        private:modify
+        private:read
+        profile
+        profile
+        profile:modify
+        public:modify
+        public:read
+        sub
+        tags:modify
+        tags:read
+        updated_at
+      ].freeze
 
       def setup
         self.refresh_token = SecureRandom.hex(32)

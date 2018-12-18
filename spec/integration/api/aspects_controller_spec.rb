@@ -3,14 +3,31 @@
 require "spec_helper"
 
 describe Api::V1::AspectsController do
-  let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
-  let(:auth_read_only) { FactoryGirl.create(:auth_with_read) }
+  let(:auth) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid contacts:read contacts:modify]
+    )
+  }
+
+  let(:auth_read_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid contacts:read]
+    )
+  }
+
+  let(:auth_profile_only) {
+    FactoryGirl.create(:auth_with_profile_only)
+  }
+
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
+  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
 
   before do
-    @aspect1 = auth.user.aspects.where(name: "generic").first
-    @aspect2 = auth.user.aspects.create(name: "another aspect")
+    @aspect1 = auth.user.aspects.create(name: "first aspect")
+    @aspect2 = auth.user.aspects.create(name: "second aspect")
   end
 
   describe "#index" do
@@ -27,6 +44,14 @@ describe Api::V1::AspectsController do
         expect(aspect["name"]).to eq(found_aspect.name)
         expect(aspect["order"]).to eq(found_aspect.order_id)
       end
+    end
+
+    it "fails if token doesn't have contacts:read" do
+      get(
+        api_v1_aspects_path,
+        params: {access_token: access_token_profile_only}
+      )
+      expect(response.status).to eq(403)
     end
 
     it "fails if invalid token" do
@@ -62,6 +87,16 @@ describe Api::V1::AspectsController do
         )
         expect(response.status).to eq(404)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.aspects.not_found"))
+      end
+    end
+
+    context "without contacts:read in token" do
+      it "fails to return with error" do
+        get(
+          api_v1_aspect_path(@aspect2.id),
+          params: {access_token: access_token_profile_only}
+        )
+        expect(response.status).to eq(403)
       end
     end
 

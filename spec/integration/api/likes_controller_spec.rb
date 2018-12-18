@@ -3,8 +3,27 @@
 require "spec_helper"
 
 describe Api::V1::LikesController do
-  let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
+  let(:auth) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read public:modify private:read private:modify interactions]
+    )
+  }
+
+  let(:auth_public_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read public:modify interactions]
+    )
+  }
+
+  let(:auth_profile_only) {
+    FactoryGirl.create(:auth_with_profile_only)
+  }
+
   let!(:access_token) { auth.create_access_token.to_s }
+  let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
+  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
 
   before do
     @status = auth.user.post(
@@ -12,6 +31,15 @@ describe Api::V1::LikesController do
       text:   "This is a status message",
       public: true,
       to:     "all"
+    )
+
+    aspect = auth_public_only.user.aspects.create(name: "first aspect")
+    @private_status = auth_public_only.user.post(
+      "Post",
+      status_message: {text: "This is a private status message"},
+      public:         false,
+      to:             [aspect.id],
+      type:           "Post"
     )
   end
 
@@ -54,6 +82,17 @@ describe Api::V1::LikesController do
         expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
+
+    context "without private:read scope in token" do
+      it "fails at getting likes" do
+        get(
+          api_v1_post_likes_path(post_id: @private_status.guid),
+          params: {access_token: access_token_public_only}
+        )
+        expect(response.status).to eq(422)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like"))
+      end
+    end
   end
 
   describe "#create" do
@@ -87,6 +126,15 @@ describe Api::V1::LikesController do
         expect(likes.length).to eq(1)
         expect(likes[0].author.id).to eq(auth.user.person.id)
       end
+
+      it "fails in liking private post without private:modify" do
+        post(
+          api_v1_post_likes_path(post_id: @private_status.guid),
+          params: {access_token: access_token_public_only}
+        )
+        expect(response.status).to eq(422)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like"))
+      end
     end
 
     context "with wrong post id" do
@@ -103,10 +151,7 @@ describe Api::V1::LikesController do
 
   describe "#delete" do
     before do
-      post(
-        api_v1_post_likes_path(post_id: @status.guid),
-        params: {access_token: access_token}
-      )
+      like_service.create(@status.guid)
     end
 
     context "with right post id" do
@@ -136,6 +181,16 @@ describe Api::V1::LikesController do
 
         likes = like_service.find_for_post(@status.guid)
         expect(likes.length).to eq(0)
+      end
+
+      it "fails at unliking private post without private:modify" do
+        like_service(auth_public_only.user).create(@private_status.guid)
+        delete(
+          api_v1_post_likes_path(post_id: @private_status.guid),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
