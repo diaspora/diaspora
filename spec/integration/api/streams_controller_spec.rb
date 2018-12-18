@@ -3,57 +3,158 @@
 require "spec_helper"
 
 describe Api::V1::StreamsController do
-  let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
-  let!(:access_token) { auth.create_access_token.to_s }
+  let(:auth_read_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read private:read contacts:read tags:read]
+    )
+  }
+
+  let(:auth_public_only_tags) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read tags:read]
+    )
+  }
+
+  let(:auth_public_only_read_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read]
+    )
+  }
+
+  let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
+  let!(:access_token_public_only_tags) { auth_public_only_tags.create_access_token.to_s }
+  let!(:access_token_public_only_read_only) { auth_public_only_read_only.create_access_token.to_s }
 
   before do
-    @aspect = auth.user.aspects.first
-    @created_status = auth.user.post(:status_message, text: "This is a status message #test", public: true, to: "all")
-    auth.user.like!(@created_status)
-    @status = PostService.new(auth.user).find(@created_status.id)
+    @aspect = auth_read_only.user.aspects.create(name: "new aspect")
+    auth_read_only.user.share_with(auth_public_only_read_only.user.person, @aspect)
+
+    @created_status = auth_read_only.user.post(
+      :status_message,
+      text:   "This is a status message #test @{#{auth_read_only.user.diaspora_handle}}",
+      public: true
+    )
+    comment_service(auth_read_only.user).create(@created_status.guid, "Comment")
+    auth_read_only.user.like!(@created_status)
+    @status = PostService.new(auth_read_only.user).find(@created_status.id)
+
+    @private_post = auth_read_only.user.post(
+      :status_message,
+      text:   "This is a private status message #test @{#{auth_read_only.user.diaspora_handle}}",
+      public: false,
+      to:     @aspect.id
+    )
+    comment_service(auth_read_only.user).create(@private_post.guid, "Comment")
+    auth_read_only.user.like!(@private_post)
+
+    @created_status2 = auth_public_only_read_only.user.post(
+      :status_message,
+      text:   "This is a status message #test @{#{auth_public_only_read_only.user.diaspora_handle}}",
+      public: true
+    )
+    auth_public_only_read_only.user.like!(@created_status2)
+    comment_service(auth_public_only_read_only.user).create(@created_status2.guid, "Comment")
+    @created_status3 = auth_public_only_read_only.user.post(
+      :status_message,
+      text:   "This is a status message #test @{#{auth_public_only_read_only.user.diaspora_handle}}",
+      public: false,
+      to:     "all"
+    )
+    auth_public_only_read_only.user.like!(@created_status3)
+    comment_service(auth_public_only_read_only.user).create(@created_status3.guid, "Comment")
+
+    add_tag("test", auth_read_only.user)
+    add_tag("test", auth_public_only_tags.user)
   end
 
   describe "#aspect" do
     it "contains expected aspect message" do
       get(
         api_v1_aspects_stream_path(aspect_ids: JSON.generate([@aspect.id])),
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
       )
       expect(response.status).to eq 200
       post = response_body_data(response)
-      expect(post.length).to eq 1
-      confirm_post_format(post[0], auth.user, @status)
+      expect(post.length).to eq 3
+      json_post = post.select {|p| p["guid"] == @status.guid }.first
+      confirm_post_format(json_post, auth_read_only.user, @status)
     end
 
     it "all aspects expected aspect message" do
       get(
         api_v1_aspects_stream_path,
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
       )
       expect(response.status).to eq 200
       post = response_body_data(response)
-      expect(post.length).to eq 1
-      confirm_post_format(post[0], auth.user, @status)
+      expect(post.length).to eq 3
+      json_post = post.select {|p| p["guid"] == @status.guid }.first
+      confirm_post_format(json_post, auth_read_only.user, @status)
     end
 
     it "does not save to requested aspects to session" do
       get(
         api_v1_aspects_stream_path(a_ids: [@aspect.id]),
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
       )
       expect(session[:a_ids]).to be_nil
+    end
+
+    it "fails without impromper credentials" do
+      get(
+        api_v1_aspects_stream_path(a_ids: [@aspect.id]),
+        params: {access_token: access_token_public_only_read_only}
+      )
+      expect(response.status).to eq(403)
+    end
+
+    it "fails with invalid credentials" do
+      get(
+        api_v1_aspects_stream_path(a_ids: [@aspect.id]),
+        params: {access_token: "999_999_999"}
+      )
+      expect(response.status).to eq(401)
     end
   end
 
   describe "#tags" do
-    it "all tags expected aspect message" do
+    it "all tags expected" do
       get(
         api_v1_followed_tags_stream_path,
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 0
+      expect(post.length).to eq(3)
+    end
+
+    it "public posts only tags expected" do
+      get(
+        api_v1_followed_tags_stream_path,
+        params: {access_token: access_token_public_only_tags}
+      )
+      expect(response.status).to eq(200)
+      post = response_body_data(response)
+      expect(post.length).to eq(2)
+    end
+
+    it "fails with improper credentials" do
+      get(
+        api_v1_followed_tags_stream_path,
+        params: {access_token: access_token_public_only_read_only}
+      )
+      expect(response.status).to eq(403)
+    end
+
+    it "fails with invalid credentials" do
+      get(
+        api_v1_followed_tags_stream_path,
+        params: {access_token: "999_999_999"}
+      )
+      expect(response.status).to eq(401)
     end
   end
 
@@ -61,12 +162,31 @@ describe Api::V1::StreamsController do
     it "contains activity message" do
       get(
         api_v1_activity_stream_path,
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
       )
       expect(response.status).to eq 200
       post = response_body_data(response)
-      expect(post.length).to eq 1
-      confirm_post_format(post[0], auth.user, @status)
+      expect(post.length).to eq 2
+      json_post = post.select {|p| p["guid"] == @status.guid }.first
+      confirm_post_format(json_post, auth_read_only.user, @status)
+    end
+
+    it "public posts only expected" do
+      get(
+        api_v1_activity_stream_path,
+        params: {access_token: access_token_public_only_read_only}
+      )
+      expect(response.status).to eq(200)
+      post = response_body_data(response)
+      expect(post.length).to eq(1)
+    end
+
+    it "fails with invalid credentials" do
+      get(
+        api_v1_activity_stream_path,
+        params: {access_token: "999_999_999"}
+      )
+      expect(response.status).to eq(401)
     end
   end
 
@@ -74,12 +194,31 @@ describe Api::V1::StreamsController do
     it "contains main message" do
       get(
         api_v1_stream_path,
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
+      )
+      expect(response.status).to eq 200
+      post = response_body_data(response)
+      expect(post.length).to eq 3
+      json_post = post.select {|p| p["guid"] == @status.guid }.first
+      confirm_post_format(json_post, auth_read_only.user, @status)
+    end
+
+    it "public posts only expected" do
+      get(
+        api_v1_stream_path,
+        params: {access_token: access_token_public_only_read_only}
       )
       expect(response.status).to eq 200
       post = response_body_data(response)
       expect(post.length).to eq 1
-      confirm_post_format(post[0], auth.user, @status)
+    end
+
+    it "fails with invalid credentials" do
+      get(
+        api_v1_stream_path,
+        params: {access_token: "999_999_999"}
+      )
+      expect(response.status).to eq 401
     end
   end
 
@@ -87,11 +226,29 @@ describe Api::V1::StreamsController do
     it "contains commented message" do
       get(
         api_v1_commented_stream_path,
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
       )
       expect(response.status).to eq 200
       post = response_body_data(response)
-      expect(post.length).to eq 0
+      expect(post.length).to eq 2
+    end
+
+    it "public posts only expected" do
+      get(
+        api_v1_commented_stream_path,
+        params: {access_token: access_token_public_only_read_only}
+      )
+      expect(response.status).to eq 200
+      post = response_body_data(response)
+      expect(post.length).to eq 1
+    end
+
+    it "fails with invalid credentials" do
+      get(
+        api_v1_commented_stream_path,
+        params: {access_token: "999_999_999"}
+      )
+      expect(response.status).to eq 401
     end
   end
 
@@ -99,11 +256,29 @@ describe Api::V1::StreamsController do
     it "contains mentions message" do
       get(
         api_v1_mentions_stream_path,
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
       )
       expect(response.status).to eq 200
       post = response_body_data(response)
-      expect(post.length).to eq 0
+      expect(post.length).to eq 2
+    end
+
+    it "public posts only expected" do
+      get(
+        api_v1_mentions_stream_path,
+        params: {access_token: access_token_public_only_read_only}
+      )
+      expect(response.status).to eq 200
+      post = response_body_data(response)
+      expect(post.length).to eq 1
+    end
+
+    it "fails with invalid credentials" do
+      get(
+        api_v1_mentions_stream_path,
+        params: {access_token: "999_999_999"}
+      )
+      expect(response.status).to eq 401
     end
   end
 
@@ -111,12 +286,31 @@ describe Api::V1::StreamsController do
     it "contains liked message" do
       get(
         api_v1_liked_stream_path,
-        params: {access_token: access_token}
+        params: {access_token: access_token_read_only}
+      )
+      expect(response.status).to eq 200
+      post = response_body_data(response)
+      expect(post.length).to eq 2
+      json_post = post.select {|p| p["guid"] == @status.guid }.first
+      confirm_post_format(json_post, auth_read_only.user, @status)
+    end
+
+    it "public posts only expected" do
+      get(
+        api_v1_liked_stream_path,
+        params: {access_token: access_token_public_only_read_only}
       )
       expect(response.status).to eq 200
       post = response_body_data(response)
       expect(post.length).to eq 1
-      confirm_post_format(post[0], auth.user, @status)
+    end
+
+    it "fails with invalid credentials" do
+      get(
+        api_v1_liked_stream_path,
+        params: {access_token: "999_999_999"}
+      )
+      expect(response.status).to eq 401
     end
   end
 
@@ -208,5 +402,16 @@ describe Api::V1::StreamsController do
 
   def response_body_data(response)
     JSON.parse(response.body)["data"]
+  end
+
+  def add_tag(name, user)
+    tag = ActsAsTaggableOn::Tag.find_or_create_by(name: name)
+    tag_following = user.tag_followings.new(tag_id: tag.id)
+    tag_following.save
+    tag_following
+  end
+
+  def comment_service(user)
+    CommentService.new(user)
   end
 end

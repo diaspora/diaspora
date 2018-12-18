@@ -3,10 +3,43 @@
 require "spec_helper"
 
 describe Api::V1::PhotosController do
-  let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
-  let(:auth_read_only) { FactoryGirl.create(:auth_with_read) }
+  let(:auth) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read public:modify private:read private:modify]
+    )
+  }
+
+  let(:auth_public_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read public:modify]
+    )
+  }
+
+  let(:auth_read_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read private:read]
+    )
+  }
+
+  let(:auth_public_only_read_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read]
+    )
+  }
+
+  let(:auth_profile_only) {
+    FactoryGirl.create(:auth_with_profile_only)
+  }
+
   let!(:access_token) { auth.create_access_token.to_s }
+  let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
+  let!(:access_token_public_only_read_only) { auth_public_only_read_only.create_access_token.to_s }
+  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
 
   before do
     alice_private_spec = alice.aspects.create(name: "private aspect")
@@ -19,6 +52,17 @@ describe Api::V1::PhotosController do
     message_data = {status_message: {text: "Post with photos"}, public: true, photos: [@user_photo2.id.to_s]}
     @status_message = StatusMessageCreationService.new(auth.user).create(message_data)
     @user_photo2.reload
+
+    shared_spec = auth_public_only_read_only.user.aspects.create(name: "shared aspect")
+    auth_public_only_read_only.user.share_with(auth_public_only_read_only.user.person, shared_spec)
+    auth_public_only_read_only.user.share_with(auth_read_only.user.person, shared_spec)
+
+    @shared_photo1 = auth_public_only_read_only.user.post(
+      :photo,
+      pending:   false,
+      user_file: File.open(photo_fixture_name),
+      to:        shared_spec.id
+    )
   end
 
   describe "#show" do
@@ -57,6 +101,15 @@ describe Api::V1::PhotosController do
     end
 
     context "fails" do
+      it "with other this user's private photo without private:read scope in token" do
+        get(
+          api_v1_photo_path(@shared_photo1.guid),
+          params: {access_token: access_token_public_only_read_only}
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.photos.not_found"))
+      end
+
       it "with other user's private photo" do
         get(
           api_v1_photo_path(@private_photo1.guid),
@@ -95,6 +148,23 @@ describe Api::V1::PhotosController do
         expect(response.status).to eq(200)
         photos = response_body_data(response)
         expect(photos.length).to eq(2)
+      end
+    end
+
+    context "only lists public photos" do
+      before do
+        auth_public_only_read_only.user.post(:photo, pending: false, user_file: File.open(photo_fixture_name),
+                                                 public: true)
+      end
+
+      it "with correct only public scope token" do
+        get(
+          api_v1_photos_path,
+          params: {access_token: access_token_public_only_read_only}
+        )
+        expect(response.status).to eq(200)
+        photos = response_body_data(response)
+        expect(photos.length).to eq(1)
       end
     end
 
@@ -214,6 +284,14 @@ describe Api::V1::PhotosController do
         )
         expect(response.status).to eq(403)
       end
+
+      it "with private photo and no private:modify access token" do
+        post(
+          api_v1_photos_path,
+          params: {image: @encoded_photo, access_token: access_token_public_only_read_only}
+        )
+        expect(response.status).to eq(403)
+      end
     end
   end
 
@@ -261,6 +339,14 @@ describe Api::V1::PhotosController do
         delete(
           api_v1_photo_path(@user_photo1.guid),
           params: {access_token: access_token_read_only}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "with private photo and no private:modify token" do
+        delete(
+          api_v1_photo_path(@shared_photo1.guid),
+          params: {access_token: access_token_public_only_read_only}
         )
         expect(response.status).to eq(403)
       end

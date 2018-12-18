@@ -4,7 +4,15 @@ module Api
   module V1
     class StreamsController < Api::V1::BaseController
       before_action do
-        require_access_token %w[read]
+        require_access_token %w[public:read]
+      end
+
+      before_action only: %w[aspects] do
+        require_access_token %w[contacts:read private:read]
+      end
+
+      before_action only: %w[followed_tags] do
+        require_access_token %w[tags:read]
       end
 
       def aspects
@@ -41,7 +49,9 @@ module Api
 
       def stream_responder(stream_klass=nil, query_time_field="posts.created_at", data_time_field="created_at")
         @stream = stream_klass.present? ? stream_klass.new(current_user, max_time: stream_max_time) : @stream
-        posts_page = pager(@stream.stream_posts, query_time_field, data_time_field).response
+        query = @stream.stream_posts
+        query = query.where(public: true) unless private_read?
+        posts_page = pager(query, query_time_field, data_time_field).response
         posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post, current_user).as_api_response }
         posts_page[:links].delete(:previous)
         render json: posts_page

@@ -3,12 +3,8 @@
 module Api
   module V1
     class NotificationsController < Api::V1::BaseController
-      before_action except: %i[update] do
-        require_access_token %w[read]
-      end
-
-      before_action only: %i[update] do
-        require_access_token %w[write]
+      before_action do
+        require_access_token %w[notifications]
       end
 
       rescue_from ActiveRecord::RecordNotFound do

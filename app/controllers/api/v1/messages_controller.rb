@@ -3,12 +3,8 @@
 module Api
   module V1
     class MessagesController < Api::V1::BaseController
-      before_action only: %i[create] do
-        require_access_token %w[read write]
-      end
-
-      before_action only: %i[index] do
-        require_access_token %w[read]
+      before_action do
+        require_access_token %w[conversations]
       end
 
       rescue_from ActiveRecord::RecordNotFound do
