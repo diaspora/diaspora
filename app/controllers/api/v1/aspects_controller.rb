@@ -3,12 +3,12 @@
 module Api
   module V1
     class AspectsController < Api::V1::BaseController
-      before_action only: %i[index show] do
-        require_access_token %w[read]
+      before_action except: %i[create update destroy] do
+        require_access_token %w[contacts:read]
       end
 
       before_action only: %i[create update destroy] do
-        require_access_token %w[read write]
+        require_access_token %w[contacts:modify]
       end
 
       def index

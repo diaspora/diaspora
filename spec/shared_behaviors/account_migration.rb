@@ -176,7 +176,7 @@ shared_examples_for "it updates user references" do
   end
 
   it "updates authorization refrences" do
-    authorization = FactoryGirl.create(:auth_with_read, user: old_user)
+    authorization = FactoryGirl.create(:auth_with_read_scopes, user: old_user)
     run_migration
     expect(authorization.reload.user).to eq(new_user)
   end

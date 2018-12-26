@@ -27,6 +27,7 @@ module Api
           auth = Api::OpenidConnect::Authorization.with_redirect_uri(req.redirect_uri).use_code(req.code)
           req.invalid_grant! if auth.blank?
           res.access_token = auth.create_access_token
+          res.access_token.refresh_token = auth.refresh_token
           if auth.accessible? "openid"
             id_token = auth.create_id_token
             res.id_token = id_token.to_jwt(access_token: res.access_token)

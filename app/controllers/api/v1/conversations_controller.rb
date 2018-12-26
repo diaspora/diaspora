@@ -5,12 +5,8 @@ module Api
     class ConversationsController < Api::V1::BaseController
       include ConversationsHelper
 
-      before_action only: %i[create index show] do
-        require_access_token %w[read]
-      end
-
-      before_action only: %i[create destroy] do
-        require_access_token %w[read write]
+      before_action do
+        require_access_token %w[conversations]
       end
 
       rescue_from ActiveRecord::RecordNotFound do

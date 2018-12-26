@@ -5,10 +5,46 @@ require "spec_helper"
 describe Api::V1::UsersController do
   include PeopleHelper
 
-  let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
-  let(:auth_read_only) { FactoryGirl.create(:auth_with_read) }
+  let(:full_scopes) {
+    %w[openid public:read public:modify private:read private:modify contacts:read profile profile:modify]
+  }
+
+  let(:auth) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: full_scopes
+    )
+  }
+
+  let(:auth_public_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read public:modify]
+    )
+  }
+
+  let(:auth_read_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read private:read contacts:read profile]
+    )
+  }
+
+  let(:auth_public_only_read_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid public:read]
+    )
+  }
+
+  let(:auth_profile_only) {
+    FactoryGirl.create(:auth_with_profile_only)
+  }
   let!(:access_token) { auth.create_access_token.to_s }
+  let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
+  let!(:access_token_public_only_read_only) { auth_public_only_read_only.create_access_token.to_s }
+  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
 
   describe "#show" do
     context "Current User" do
@@ -49,7 +85,8 @@ describe Api::V1::UsersController do
       it "succeeds with in Aspect valid user" do
         alice.profile[:public_details] = true
         alice.profile.save
-        auth.user.share_with(alice.person, auth.user.aspects.first)
+        aspect = auth.user.aspects.create(name: "first")
+        auth.user.share_with(alice.person, aspect)
         get(
           "/api/v1/users/#{alice.guid}",
           params: {access_token: access_token}
@@ -86,10 +123,29 @@ describe Api::V1::UsersController do
 
       it "fails if invalid token" do
         get(
-          api_v1_user_path(alice.person.guid),
+          "/api/v1/users/#{alice.guid}",
           params: {access_token: "999_999_999"}
         )
         expect(response.status).to eq(401)
+      end
+
+      it "fails for private profile if don't have contacts:read" do
+        unsearchable_user = FactoryGirl.create(
+          :person,
+          diaspora_handle: "unsearchable@example.org",
+          profile:         FactoryGirl.build(
+            :profile,
+            first_name: "Unsearchable",
+            last_name:  "Person",
+            searchable: false
+          )
+        )
+
+        get(
+          "/api/v1/users/#{unsearchable_user.guid}",
+          params: {access_token: access_token_profile_only}
+        )
+        expect(response.status).to eq(404)
       end
 
       it "fails with invalid user GUID" do
@@ -240,7 +296,8 @@ describe Api::V1::UsersController do
       contacts = response_body_data(response)
       expect(contacts.length).to eq(0)
 
-      auth.user.share_with(alice.person, auth.user.aspects.first)
+      aspect = auth.user.aspects.create(name: "first")
+      auth.user.share_with(alice.person, aspect)
       get(
         api_v1_user_contacts_path(auth.user.guid),
         params: {access_token: access_token}
@@ -269,6 +326,14 @@ describe Api::V1::UsersController do
       expect(response.body).to eq(I18n.t("api.endpoint_errors.users.not_found"))
     end
 
+    it "fails if insufficient scope token" do
+      get(
+        api_v1_user_contacts_path(alice.guid),
+        params: {access_token: access_token_public_only_read_only}
+      )
+      expect(response.status).to eq(403)
+    end
+
     it "fails if invalid token" do
       get(
         api_v1_user_contacts_path(alice.guid),
@@ -284,10 +349,10 @@ describe Api::V1::UsersController do
       alice.share_with(eve.person, alice_private_spec)
       alice.share_with(auth.user.person, alice.aspects.first)
 
-      auth.user.post(:photo, pending: false, user_file: File.open(photo_fixture_name), to: "all")
-      auth.user.post(:photo, pending: false, user_file: File.open(photo_fixture_name), to: "all")
-      @public_photo1 = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name), to: "all")
-      @public_photo2 = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name), to: "all")
+      auth.user.post(:photo, pending: false, user_file: File.open(photo_fixture_name), public: true)
+      auth.user.post(:photo, pending: false, user_file: File.open(photo_fixture_name), public: true)
+      @public_photo1 = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name), public: true)
+      @public_photo2 = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name), public: true)
       @shared_photo1 = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name),
                                   to: alice.aspects.first.id)
       @private_photo1 = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name),
@@ -307,6 +372,19 @@ describe Api::V1::UsersController do
         expect(guids).to include(@public_photo1.guid, @public_photo2.guid, @shared_photo1.guid)
         expect(guids).not_to include(@private_photo1.guid)
         confirm_photos(photos)
+      end
+
+      it "returns only public photos of other user without private:read scope in token" do
+        get(
+          api_v1_user_photos_path(alice.guid),
+          params: {access_token: access_token_public_only_read_only}
+        )
+        expect(response.status).to eq(200)
+        photos = response_body_data(response)
+        expect(photos.length).to eq(2)
+        guids = photos.map {|photo| photo["guid"] }
+        expect(guids).to include(@public_photo1.guid, @public_photo2.guid)
+        expect(guids).not_to include(@private_photo1.guid, @shared_photo1.guid)
       end
 
       it "returns logged in user's photos" do
@@ -344,10 +422,11 @@ describe Api::V1::UsersController do
       alice.share_with(eve.person, alice_private_spec)
       alice.share_with(auth.user.person, alice.aspects.first)
 
-      auth.user.post(:status_message, text: "auth user message1", public: true, to: "all")
-      auth.user.post(:status_message, text: "auth user message2", public: true, to: "all")
-      @public_post1 = alice.post(:status_message, text: "alice public message1", public: true, to: "all")
-      @public_post2 = alice.post(:status_message, text: "alice public message2", public: true, to: "all")
+      auth.user.post(:status_message, text: "auth user message1", public: true)
+      auth.user.post(:status_message, text: "auth user message2", public: true)
+      auth.user.post(:status_message, text: "auth user message3", public: false, to: "all")
+      @public_post1 = alice.post(:status_message, text: "alice public message1", public: true)
+      @public_post2 = alice.post(:status_message, text: "alice public message2", public: true)
       @shared_post1 = alice.post(:status_message, text: "alice limited to auth user message",
                                  public: false, to: alice.aspects.first.id)
       @private_post1 = alice.post(:status_message, text: "alice limited hidden from auth user message",
@@ -374,6 +453,16 @@ describe Api::V1::UsersController do
         get(
           api_v1_user_posts_path(auth.user.guid),
           params: {access_token: access_token}
+        )
+        expect(response.status).to eq(200)
+        posts = response_body_data(response)
+        expect(posts.length).to eq(3)
+      end
+
+      it "returns public posts only without private:read scope in token" do
+        get(
+          api_v1_user_posts_path(auth.user.guid),
+          params: {access_token: access_token_public_only_read_only}
         )
         expect(response.status).to eq(200)
         posts = response_body_data(response)

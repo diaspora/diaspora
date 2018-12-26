@@ -3,12 +3,28 @@
 require "spec_helper"
 
 describe Api::V1::ConversationsController do
-  let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
+  let(:auth) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid conversations]
+    )
+  }
+
+  let(:auth_participant) {
+    FactoryGirl.create(:auth_with_all_scopes)
+  }
+
+  let(:auth_profile_only) {
+    FactoryGirl.create(:auth_with_profile_only)
+  }
+
   let!(:access_token) { auth.create_access_token.to_s }
-  let(:auth_participant) { FactoryGirl.create(:auth_with_read_and_write) }
   let!(:access_token_participant) { auth_participant.create_access_token.to_s }
+  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
+
 
   before do
+    auth.user.aspects.create(name: "first")
     auth.user.share_with alice.person, auth.user.aspects[0]
     alice.share_with auth.user.person, alice.aspects[0]
     auth.user.disconnected_by(eve)

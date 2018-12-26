@@ -905,6 +905,8 @@ en:
           deny: "Deny"
           bad_request: "Missing client id or redirect URI"
           client_id_not_found: "No client with client_id %{client_id} with redirect URI %{redirect_uri} found"
+          private_contacts_linkage_error: "private:read and private:modify require contacts:read as well"
+          unknown_scope: "Unknown scope: #{scope_name}"
         destroy:
           fail: "The attempt to revoke the authorization with ID %{id} failed"
       user_applications:
@@ -920,31 +922,73 @@ en:
       scopes:
         openid:
           name: "basic profile"
-          description: "This allows the application to read your basic profile"
+          description: "This grants read access to basic profile information to the application."
         sub:
           name: "sub"
-          description: "This grants sub permissions to the application"
-        aud:
-          name: "aud"
-          description: "This grants aud permissions to the application"
+          description: "This grants sub permissions to the application."
         name:
           name: "name"
-          description: "This grants name permissions to the application"
+          description: "This grants read access to name data to the application."
         nickname:
           name: "nickname"
-          description: "This grants nickname permissions to the application"
-        profile:
-          name: "extended profile"
-          description: "This allows the application to read your extended profile"
+          description: "This grants read access to nickname data to the application."
         picture:
           name: "picture"
-          description: "This grants picture permissions to the application"
-        read:
-          name: "read profile, stream and conversations"
-          description: "This allows the application to read your stream, your conversations and your complete profile"
-        write:
-          name: "send posts, conversations and reactions"
-          description: "This allows the application to send new posts, write conversations, and send reactions"
+          description: "This grants read access to user's profile picture data to the application."
+        gender:
+          name: "gender"
+          description: "This grants read access to the user's gendere data to the application."
+        birthdate:
+          name: "birthdate"
+          description: "This grants read access ot the user's birthdate to the application."
+        locale:
+          name: "locale"
+          description: "This grants read access ot the user's locale to the application."
+        updated_at:
+          name: "updated_at"
+          description: "This grants read access to the user's profile update time to the application."
+        'contacts:read':
+          name: "contacts:read"
+          description: "This grants read permissions to contacts and related data (like aspects) to the application."
+        'contacts:modify':
+          name: "contacts:modify"
+          description: "This grants write permissions to contacts and related data (like aspects) to the application."
+        conversations:
+          name: "conversations"
+          description: "This grants read/write permission to private messaging to the application."
+        email:
+          name: "email"
+          description: "This grants read access to the user's email address to the application."
+        interactions:
+          name: "interactions"
+          description: "This grants read and write permissions on interacting wth posts to the application."
+        notifications:
+          name: "notifications"
+          description: "This grants read and write permissions on interactions for the user to the application."
+        'private:read':
+          name: "private:read"
+          description: "This grants read privileges on private posts and streams to the application."
+        'private:modify':
+          name: "private:modify"
+          description: "This grants modification privileges on private posts and streams, including allowing private sharing, to the application."
+        'public:read':
+          name: "public:read"
+          description: "This grants read permissions on public posts, interactions, and user data to the application."
+        'public:modify':
+          name: "updated_at"
+          description: "This grants write permissions on public posts (including public post writing), interactions, and user data to the application."
+        profile:
+          name: "extended profile"
+          description: "This grants read access to extendend profile data to the application."
+        'profile:modify':
+          name: "profile:modify"
+          description: "This grants user profile update permissions to the application."
+        'tags:read':
+          name: "tags:read"
+          description: "This grants read access to user's followed tags and tag streams to the application."
+        'tags:modify':
+          name: "tags:modify"
+          description: "This grants modification access to user's followed tags to the application."
       error_page:
         title: "Oh! Something went wrong :("
         contact_developer: "You should contact the developer of the application and include the following detailed error message:"

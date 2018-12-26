@@ -5,12 +5,12 @@ require "api/paging/index_paginator"
 module Api
   module V1
     class ContactsController < Api::V1::BaseController
-      before_action only: %i[index] do
-        require_access_token %w[read]
+      before_action except: %i[create destroy] do
+        require_access_token %w[contacts:read]
       end
 
       before_action only: %i[create destroy] do
-        require_access_token %w[read write]
+        require_access_token %w[contacts:modify]
       end
 
       rescue_from ActiveRecord::RecordNotFound do

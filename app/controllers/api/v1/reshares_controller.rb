@@ -3,12 +3,12 @@
 module Api
   module V1
     class ResharesController < Api::V1::BaseController
-      before_action only: %i[show] do
-        require_access_token %w[read]
+      before_action except: %i[create] do
+        require_access_token %w[public:read]
       end
 
       before_action only: %i[create] do
-        require_access_token %w[read write]
+        require_access_token %w[public:modify]
       end
 
       rescue_from ActiveRecord::RecordNotFound do

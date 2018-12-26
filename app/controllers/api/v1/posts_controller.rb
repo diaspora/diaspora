@@ -5,12 +5,12 @@ module Api
     class PostsController < Api::V1::BaseController
       include PostsHelper
 
-      before_action only: :show do
-        require_access_token %w[read]
+      before_action except: %i[create destroy] do
+        require_access_token %w[public:read]
       end
 
       before_action only: %i[create destroy] do
-        require_access_token %w[read write]
+        require_access_token %w[public:modify]
       end
 
       rescue_from ActiveRecord::RecordNotFound do
@@ -18,14 +18,13 @@ module Api
       end
 
       def show
-        mark_notifications =
-          params[:mark_notifications].present? && params[:mark_notifications]
         post = post_service.find!(params[:id])
-        post_service.mark_user_notifications(post.id) if mark_notifications
+        raise ActiveRecord::RecordNotFound unless post.public? || private_read?
         render json: post_as_json(post)
       end
 
       def create
+        raise StandardError unless params.require(:public) || private_modify?
         status_service = StatusMessageCreationService.new(current_user)
         creation_params = normalized_create_params
         @status_message = status_service.create(creation_params)
@@ -35,9 +34,9 @@ module Api
       end
 
       def destroy
-        post_service.destroy(params[:id])
+        post_service.destroy(params[:id], private_modify?)
         head :no_content
-      rescue Diaspora::NotMine
+      rescue Diaspora::NotMine, Diaspora::NonPublic
         render json: I18n.t("api.endpoint_errors.posts.failed_delete"), status: :forbidden
       end
 

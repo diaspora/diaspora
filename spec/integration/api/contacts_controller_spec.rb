@@ -3,13 +3,31 @@
 require "spec_helper"
 
 describe Api::V1::ContactsController do
-  let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
-  let(:auth_read_only) { FactoryGirl.create(:auth_with_read) }
+  let(:auth) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid contacts:read contacts:modify]
+    )
+  }
+
+  let(:auth_read_only) {
+    FactoryGirl.create(
+      :auth_with_profile_only,
+      scopes: %w[openid contacts:read]
+    )
+  }
+
+  let(:auth_profile_only) {
+    FactoryGirl.create(:auth_with_profile_only)
+  }
+
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
+  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
 
   before do
-    @aspect1 = auth.user.aspects.where(name: "generic").first
+    @aspect1 = auth.user.aspects.create(name: "generic")
+    auth.user.share_with(eve.person, @aspect1)
     @aspect2 = auth.user.aspects.create(name: "another aspect")
     @eve_aspect = eve.aspects.first
   end

@@ -35,8 +35,12 @@ class PostService
     mark_mention_notifications_read(post_id)
   end
 
-  def destroy(post_id)
-    post = find!(post_id)
+  def destroy(post_id, private_allowed=true)
+    post = if private_allowed
+             find_non_public_by_guid_or_id_with_user!(post_id)
+           else
+             find_public!(post_id)
+           end
     raise Diaspora::NotMine unless post.author == user.person
     user.retract(post)
   end
