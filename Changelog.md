@@ -15,6 +15,7 @@
 # 0.7.9.0
 
 ## Refactor
+* Improve public stream performance and cleanup unused indexes [#7944](https://github.com/diaspora/diaspora/pull/7944)
 
 ## Bug fixes
 
