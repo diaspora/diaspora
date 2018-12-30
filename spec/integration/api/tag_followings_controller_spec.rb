@@ -5,22 +5,23 @@ require "spec_helper"
 describe Api::V1::TagFollowingsController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid tags:read tags:modify]
     )
   }
 
   let(:auth_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid tags:read]
     )
   }
 
-  let(:auth_profile_only) { FactoryGirl.create(:auth_with_profile_only) }
+  let(:auth_minimum_scopes) { FactoryGirl.create(:auth_with_default_scopes) }
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
-  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     @expected_tags = %w[tag1 tag2 tag3]
@@ -84,7 +85,7 @@ describe Api::V1::TagFollowingsController do
       it "invalid token" do
         post(
           api_v1_tag_followings_path,
-          params: {name: "tag4", access_token: "999_999_999"}
+          params: {name: "tag4", access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -109,7 +110,7 @@ describe Api::V1::TagFollowingsController do
       it "insufficient scopes in token" do
         get(
           api_v1_tag_followings_path,
-          params: {access_token: access_token_profile_only}
+          params: {access_token: access_token_minimum_scopes}
         )
         expect(response.status).to eq(403)
       end
@@ -117,7 +118,7 @@ describe Api::V1::TagFollowingsController do
       it "invalid token" do
         get(
           api_v1_tag_followings_path,
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -173,7 +174,7 @@ describe Api::V1::TagFollowingsController do
       it "invalid token" do
         delete(
           api_v1_tag_following_path("tag1"),
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end

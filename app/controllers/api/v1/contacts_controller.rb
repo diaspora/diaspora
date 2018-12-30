@@ -18,7 +18,7 @@ module Api
       end
 
       def index
-        contacts_query = aspects_membership_service.contacts_in_aspect(params[:aspect_id])
+        contacts_query = aspects_membership_service.contacts_in_aspect(params.require(:aspect_id))
         contacts_page = index_pager(contacts_query).response
         contacts_page[:data] = contacts_page[:data].map do |c|
           ContactPresenter.new(c, current_user).as_api_json_without_contact
@@ -27,9 +27,10 @@ module Api
       end
 
       def create
-        aspect_id = params[:aspect_id]
-        person = Person.find_by(guid: params[:person_guid])
+        aspect_id = params.require(:aspect_id)
+        person = Person.find_by(guid: params.require(:person_guid))
         aspect_membership = aspects_membership_service.create(aspect_id, person.id) if person.present?
+
         if aspect_membership
           head :no_content
         else
@@ -40,9 +41,10 @@ module Api
       end
 
       def destroy
-        aspect_id = params[:aspect_id]
+        aspect_id = params.require(:aspect_id)
         person = Person.find_by(guid: params[:id])
         result = aspects_membership_service.destroy_by_ids(aspect_id, person.id) if person.present?
+
         if result && result[:success]
           head :no_content
         else

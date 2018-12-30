@@ -25,17 +25,21 @@ module Api
 
       def page_data
         return @data if @data
+
         @data = @query_base.where([@time_query_string, @current_time.iso8601(3)]).limit(@limit).order(@sort_string)
         time_data = @data.map {|d| d[@data_time_field] }.sort
         @min_time = time_data.first
         @max_time = time_data.last + 0.001.seconds if time_data.last
+
         @data
       end
 
       def next_page(for_url=true)
         page_data
         return nil unless next_time
+
         return next_page_as_query_parameter if for_url
+
         TimePaginator.new(
           query_base:       @query_base,
           query_time_field: @query_time_field,
@@ -49,7 +53,9 @@ module Api
       def previous_page(for_url=true)
         page_data
         return nil unless previous_time
+
         return previous_page_as_query_parameter if for_url
+
         TimePaginator.new(
           query_base:       @query_base,
           query_time_field: @query_time_field,

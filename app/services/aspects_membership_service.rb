@@ -53,6 +53,7 @@ class AspectsMembershipService
 
   def destroy(aspect, contact)
     raise ActiveRecord::RecordNotFound unless aspect.present? && contact.present?
+
     raise Diaspora::NotMine unless @user.mine?(aspect) && @user.mine?(contact)
 
     membership = contact.aspect_memberships.where(aspect_id: aspect.id).first

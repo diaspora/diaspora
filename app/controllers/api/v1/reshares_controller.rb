@@ -20,7 +20,7 @@ module Api
       end
 
       def show
-        reshares_query = reshare_service.find_for_post(params[:post_id])
+        reshares_query = reshare_service.find_for_post(params.require(:post_id))
         reshares_page = index_pager(reshares_query).response
         reshares_page[:data] = reshares_page[:data].map do |r|
           {
@@ -32,7 +32,7 @@ module Api
       end
 
       def create
-        reshare = reshare_service.create(params[:post_id])
+        reshare = reshare_service.create(params.require(:post_id))
       rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid, RuntimeError
         render plain: I18n.t("reshares.create.error"), status: :unprocessable_entity
       else

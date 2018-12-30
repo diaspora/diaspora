@@ -30,7 +30,7 @@ module Api
       private
 
       def tag_followings_service
-        TagFollowingService.new(current_user)
+        @tag_followings_service ||= TagFollowingService.new(current_user)
       end
     end
   end

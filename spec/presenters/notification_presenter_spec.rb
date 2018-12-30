@@ -20,4 +20,12 @@ describe NotificationPresenter do
     json = NotificationPresenter.new(@notification).as_api_json(false)
     expect(json.has_key?(:target)).to be_falsey
   end
+
+  it "Makes target on mentioned" do
+    mentioned_post = FactoryGirl.create(:status_message_in_aspect, author: alice.person, text: text_mentioning(bob))
+    Notifications::MentionedInPost.notify(mentioned_post, [bob.id])
+    notification = Notifications::MentionedInPost.last
+    json = NotificationPresenter.new(notification).as_api_json(true)
+    expect(json[:target][:guid]).to eq(mentioned_post.guid)
+  end
 end

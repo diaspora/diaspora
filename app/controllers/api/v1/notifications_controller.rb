@@ -23,6 +23,7 @@ module Api
 
       def index
         after_date = Date.iso8601(params[:only_after]) if params.has_key?(:only_after)
+
         notifications_query = service.index(params[:only_unread], after_date)
         notifications_page = time_pager(notifications_query).response
         notifications_page[:data] = notifications_page[:data].map do |note|

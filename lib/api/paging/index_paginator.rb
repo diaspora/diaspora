@@ -19,14 +19,18 @@ module Api
       def next_page(for_url=true)
         page_data
         return nil if for_url && @current_page == @max_page
+
         return "page=#{@current_page + 1}" if for_url
+
         IndexPaginator.new(@query_base, @current_page + 1, @limit)
       end
 
       def previous_page(for_url=true)
         page_data
         return nil if for_url && @current_page == 1
+
         return "page=#{@current_page - 1}" if for_url
+
         IndexPaginator.new(@query_base, @current_page - 1, @limit)
       end
 

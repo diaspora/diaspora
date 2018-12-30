@@ -5,18 +5,27 @@ require "spec_helper"
 describe Api::V1::MessagesController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid conversations]
     )
   }
 
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
+  }
+
   let!(:access_token) { auth.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     auth.user.seed_aspects
-    auth.user.share_with bob.person, auth.user.aspects[1]
-    auth.user.share_with alice.person, auth.user.aspects[1]
+    auth.user.share_with(bob.person, auth.user.aspects[0])
+    auth.user.share_with(alice.person, auth.user.aspects[0])
+    auth.user.share_with(auth_minimum_scopes.user.person, auth.user.aspects[0])
     alice.share_with auth.user.person, alice.aspects[0]
+    auth_minimum_scopes.user.seed_aspects
+    auth_minimum_scopes.user.share_with(auth.user.person, auth_minimum_scopes.user.aspects[0])
 
     @conversation = {
       subject:      "new conversation",
@@ -40,7 +49,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {body: @message_text, access_token: access_token}
         )
-        expect(response.status).to eq 201
+        expect(response.status).to eq(201)
 
         message = JSON.parse(response.body)
         confirm_message_format(message, @message_text, auth.user)
@@ -50,7 +59,7 @@ describe Api::V1::MessagesController do
           params: {access_token: access_token}
         )
         messages = response_body_data(response)
-        expect(messages.length).to eq 2
+        expect(messages.length).to eq(2)
         confirm_message_format(messages[1], @message_text, auth.user)
       end
     end
@@ -61,7 +70,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq 422
+        expect(response.status).to eq(422)
         expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.cant_process")
       end
 
@@ -70,7 +79,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {body: "", access_token: access_token}
         )
-        expect(response.status).to eq 422
+        expect(response.status).to eq(422)
         expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.cant_process")
       end
     end
@@ -81,8 +90,26 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(42),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq 404
+        expect(response.status).to eq(404)
         expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.not_found")
+      end
+    end
+
+    context "improper credentials" do
+      it "fails without conversation token" do
+        post(
+          api_v1_conversation_messages_path(@conversation_guid),
+          params: {body: @message_text, access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "fails when not logged in" do
+        post(
+          api_v1_conversation_messages_path(@conversation_guid),
+          params: {body: @message_text, access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
       end
     end
   end
@@ -99,13 +126,31 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq 200
+        expect(response.status).to eq(200)
         messages = response_body_data(response)
-        expect(messages.length).to eq 1
+        expect(messages.length).to eq(1)
 
         confirm_message_format(messages[0], "first message", auth.user)
         conversation = get_conversation(@conversation_guid)
         expect(conversation[:read]).to be_truthy
+      end
+
+      context "improper credentials" do
+        it "fails without conversation token" do
+          get(
+            api_v1_conversation_messages_path(@conversation_guid),
+            params: {access_token: access_token_minimum_scopes}
+          )
+          expect(response.status).to eq(403)
+        end
+
+        it "fails when not logged in" do
+          get(
+            api_v1_conversation_messages_path(@conversation_guid),
+            params: {access_token: invalid_token}
+          )
+          expect(response.status).to eq(401)
+        end
       end
     end
   end

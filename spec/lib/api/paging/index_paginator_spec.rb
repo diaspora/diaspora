@@ -3,7 +3,7 @@
 describe Api::Paging::IndexPaginator do
   before do
     (1..7).each do |i|
-      public = !(i == 1 || i == 6)
+      public = ![1, 6].include?(i)
       alice.post(
         :status_message,
         text:   "Post #{i}",

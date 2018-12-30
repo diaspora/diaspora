@@ -57,7 +57,9 @@ module Api
       def time_settings(params)
         time_params = params.permit("before", "after")
         time_params["before"] = (Time.current + 1.year).iso8601 if time_params.empty? && @allow_default_page
+
         raise "Missing time parameters for query building" if time_params.empty?
+
         if time_params["before"]
           is_descending = true
           current_time = Time.iso8601(time_params["before"])
@@ -71,6 +73,7 @@ module Api
       def limit_settings(params)
         requested_limit = params["per_page"]
         return @default_limit unless requested_limit
+
         requested_limit = [1, requested_limit].max
         [requested_limit, MAX_LIMIT].min
       end

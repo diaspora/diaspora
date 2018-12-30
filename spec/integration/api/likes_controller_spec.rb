@@ -5,25 +5,26 @@ require "spec_helper"
 describe Api::V1::LikesController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify private:read private:modify interactions]
     )
   }
 
   let(:auth_public_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify interactions]
     )
   }
 
-  let(:auth_profile_only) {
-    FactoryGirl.create(:auth_with_profile_only)
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
-  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     @status = auth.user.post(
@@ -48,7 +49,7 @@ describe Api::V1::LikesController do
       it "succeeds in getting empty likes" do
         get(
           api_v1_post_likes_path(post_id: @status.guid),
-          params: {access_token: access_token}
+          params: {access_token: access_token_minimum_scopes}
         )
         expect(response.status).to eq(200)
         likes = response_body_data(response)
@@ -61,7 +62,7 @@ describe Api::V1::LikesController do
         like_service(alice).create(@status.guid)
         get(
           api_v1_post_likes_path(post_id: @status.guid),
-          params: {access_token: access_token}
+          params: {access_token: access_token_minimum_scopes}
         )
         expect(response.status).to eq(200)
         likes = response_body_data(response)
@@ -83,14 +84,24 @@ describe Api::V1::LikesController do
       end
     end
 
-    context "without private:read scope in token" do
-      it "fails at getting likes" do
+    context "with improper credentials" do
+      context "without private:read scope in token" do
+        it "fails at getting likes" do
+          get(
+            api_v1_post_likes_path(post_id: @private_status.guid),
+            params: {access_token: access_token_public_only}
+          )
+          expect(response.status).to eq(422)
+          expect(response.body).to eq(I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like"))
+        end
+      end
+
+      it "fails without valid token" do
         get(
           api_v1_post_likes_path(post_id: @private_status.guid),
-          params: {access_token: access_token_public_only}
+          params: {access_token: invalid_token}
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like"))
+        expect(response.status).to eq(401)
       end
     end
   end
@@ -126,15 +137,6 @@ describe Api::V1::LikesController do
         expect(likes.length).to eq(1)
         expect(likes[0].author.id).to eq(auth.user.person.id)
       end
-
-      it "fails in liking private post without private:modify" do
-        post(
-          api_v1_post_likes_path(post_id: @private_status.guid),
-          params: {access_token: access_token_public_only}
-        )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like"))
-      end
     end
 
     context "with wrong post id" do
@@ -145,6 +147,32 @@ describe Api::V1::LikesController do
         )
         expect(response.status).to eq(404)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+    end
+
+    context "with improper credentials" do
+      it "fails in liking private post without private:read" do
+        post(
+          api_v1_post_likes_path(post_id: @private_status.guid),
+          params: {access_token: access_token_public_only}
+        )
+        expect(response.status).to eq(422)
+      end
+
+      it "fails in liking post without interactions" do
+        post(
+          api_v1_post_likes_path(post_id: @private_status.guid),
+          params: {access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "fails without valid token" do
+        get(
+          api_v1_post_likes_path(post_id: @private_status.guid),
+          params: {access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
       end
     end
   end
@@ -182,16 +210,6 @@ describe Api::V1::LikesController do
         likes = like_service.find_for_post(@status.guid)
         expect(likes.length).to eq(0)
       end
-
-      it "fails at unliking private post without private:modify" do
-        like_service(auth_public_only.user).create(@private_status.guid)
-        delete(
-          api_v1_post_likes_path(post_id: @private_status.guid),
-          params: {access_token: access_token}
-        )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
-      end
     end
 
     context "with wrong post id" do
@@ -202,6 +220,35 @@ describe Api::V1::LikesController do
         )
         expect(response.status).to eq(404)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+    end
+
+    context "with improper credentials" do
+      it "fails at unliking private post without private:read" do
+        like_service(auth_public_only.user).create(@private_status.guid)
+        delete(
+          api_v1_post_likes_path(post_id: @private_status.guid),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+
+      it "fails in unliking post without interactions" do
+        like_service(auth_minimum_scopes.user).create(@status.guid)
+        delete(
+          api_v1_post_likes_path(post_id: @status.guid),
+          params: {access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "fails without valid token" do
+        get(
+          api_v1_post_likes_path(post_id: @private_status.guid),
+          params: {access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
       end
     end
   end
