@@ -1046,7 +1046,6 @@ de_formal:
       share_to: "Mit %{provider} teilen"
       title: "Verbundene Dienste verwalten"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1236,8 +1235,6 @@ de_formal:
     getting_started:
       awesome_take_me_to_diaspora: "Super! Bring mich zu diaspora*"
       community_welcome: "diaspora*s Gemeinschaft freut sich, Sie an Bord zu haben!"
-      connect_to_facebook: "Wir können das Ganze etwas beschleunigen, indem Sie %{link}. So werden Ihr Name und Ihr Profilbild hier eingefügt und die Crossposting-Funktion aktiviert."
-      connect_to_facebook_link: "Ihr Facebook-Konto mit diaspora* verlinken"
       hashtag_explanation: "Hashtags ermöglichen Ihnen, über Ihre Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei diaspora* zu finden!"
       hashtag_suggestions: "Probieren Sie mal Tags wie #kunst, #musik oder #gif zu folgen."
       well_hello_there: "Also, Hallöchen!"

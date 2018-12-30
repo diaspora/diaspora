@@ -81,7 +81,6 @@ sq:
           other: "Prova e lidhjes u përgjigj me një gabim për <%= count %> nyje."
 
     aspects:
-      make_aspect_list_visible: "Të bëhen kontaktet në këtë aspekt të dukshëm për njëri-tjetrin?"
       name: "Emër"
       create:
         add_a_new_aspect: "Shtoni aspekt të ri"
@@ -124,8 +123,6 @@ sq:
       add_contact: "Shtoni kontakt"
       aspect_chat_is_enabled: "Kontaktet në këtë aspekt janë në gjendje të fjalosen me ju."
       aspect_chat_is_not_enabled: "Kontaktet në këtë aspekt s’janë në gjendje të fjalosen me ju"
-      aspect_list_is_visible: "Kontaktet në këtë aspekt janë në gjendje të shohin njëri-tjetrin."
-      aspect_list_is_not_visible: "Kontaktet në këtë aspekt s’janë në gjendje të shohin njëri-tjetrin."
       remove_contact: "Hiqe kontaktin"
       error_add: "S’u shtua dot <%= name %> te aspekti :("
       error_remove: "S’u hoq dot <%= name %> prej aspekti :("
@@ -236,7 +233,6 @@ sq:
       gender: "Gjini"
       born: "Datëlindje"
       photos: "Foto"
-      contacts: "Kontakte"
       posts: "Postime"
 
     conversation:

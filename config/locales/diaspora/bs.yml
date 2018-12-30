@@ -654,8 +654,6 @@ bs:
     getting_started:
       awesome_take_me_to_diaspora: "Odlično! Vodi me na diasporu*"
       community_welcome: "Diaspora zajednica je sretna što vas ima!"
-      connect_to_facebook: "Možemo malo ubrzati stvari sa %{link} na Diasporu. Ovo će povući vaše ime i fotografiju, i omogućiti ukršteno objavljivanje."
-      connect_to_facebook_link: "povezivanjem vašeg Facebook računa"
       hashtag_explanation: "Oznake vam omogućavaju da pričate o i pratite vaše interese.  Također su dobar način da pronađete nove ljude na Diaspori."
       hashtag_suggestions: "Pokušajte pratiti oznake kao što su #umjetnost, #filmovi, #gif, itd."
       well_hello_there: "Dobro, zdravo!"

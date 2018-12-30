@@ -48,6 +48,10 @@ describe Diaspora::Camo do
         expect(Diaspora::Camo.image_url("https://example.com/%C3%A1%C3%A9%C3%B3?foo=%C3%A4%C3%BC%C3%B6&bar=a%CC%80"))
           .to eq(camo_image_url)
       end
+
+      it "ignores invalid urls" do
+        expect(Diaspora::Camo.image_url("https://")).to eq("https://")
+      end
     end
   end
 

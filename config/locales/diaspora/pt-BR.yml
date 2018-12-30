@@ -1035,7 +1035,6 @@ pt-BR:
       share_to: "Compartilhar no %{provider}"
       title: "Gerenciar serviços conectados"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1225,8 +1224,6 @@ pt-BR:
     getting_started:
       awesome_take_me_to_diaspora: "Incrível! Quero ir para a diaspora*"
       community_welcome: "A comunidade diaspora* está feliz em ter você a bordo!"
-      connect_to_facebook: "Podemos acelerar um pouco as coisas %{link} a diaspora*. Seu nome e foto serão recuperados, e a publicação simultânea, habilitada."
-      connect_to_facebook_link: "Conectando seu Facebook"
       hashtag_explanation: "Hashtags permitem que você compartilhe e acompanhe seus interesses. Elas também são uma ótima maneira de conhecer novas pessoas na diaspora*."
       hashtag_suggestions: "Tente tags como #arte, #cinema, #gif, etc."
       well_hello_there: "Bem, olá!"

@@ -707,8 +707,6 @@ eo:
     getting_started:
       awesome_take_me_to_diaspora: "Brile! Gvidu min al Diaspora*"
       community_welcome: "La komunumo de DIASPORA* feliĉas, ke vi aniĝis!"
-      connect_to_facebook: "Ni povas plirapidigi la aferon per %{link} al Diaspora. Tio altiros vian nomon kaj foton, kaj ebligos krucreferencadon."
-      connect_to_facebook_link: "Konektante vian Facebook-konton"
       hashtag_explanation: "Etikedoj permesas al vi priparoli kaj aboni viajn interesojn. Ili estas ankaŭ bona metodo por trovi novajn homojn ĉe DIASPORA*."
       hashtag_suggestions: "Provu sekvi etikedojn kiel #arto, #filmoj, #gif, ktp."
       well_hello_there: "Bone, saluton al vi tie!"

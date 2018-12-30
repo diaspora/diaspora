@@ -1032,7 +1032,6 @@ es-AR:
       share_to: "Compartir con %{provider}"
       title: "Gestionar servicios conectados"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1220,8 +1219,6 @@ es-AR:
     getting_started:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a diaspora*"
       community_welcome: "¡La comunidad de diaspora* está feliz de tenerte a bordo!"
-      connect_to_facebook: "Podemos acelerar un poco las cosas con un %{link} a diaspora*. Esto extraerá tu nombre y foto, y habilitará la publicación cruzada."
-      connect_to_facebook_link: "Conectando tu cuenta de Facebook"
       hashtag_explanation: "Las etiquetas te permiten seguir y hablar sobre tus intereses. También son una gran manera de encontrar gente interesante y divertida en diaspora*."
       hashtag_suggestions: "Probá siguiendo tags como #arte, #películas, #activismo, #geek."
       well_hello_there: "Bueno, ¡hola!"

@@ -20,7 +20,7 @@ services:
       - dia_data_tmp:/diaspora/tmp
       - dia_data_bundle:/diaspora/vendor/bundle
     ports:
-      - 8080:3000
+      - ${DIASPORA_DOCKER_PORT:-3000}:3000
     depends_on:
       - "${DIASPORA_DOCKER_DB}"
 

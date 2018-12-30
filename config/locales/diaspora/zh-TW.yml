@@ -995,7 +995,6 @@ zh-TW:
       share_to: "分享到%{provider}"
       title: "管理連結中的外部服務"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1184,8 +1183,6 @@ zh-TW:
     getting_started:
       awesome_take_me_to_diaspora: "帥！帶我去 diaspora* 吧"
       community_welcome: "diaspora* 社群歡迎你的加入！"
-      connect_to_facebook: "diaspora* 可以%{link} ，取用你在 Facebook 的姓名和個人照來幫你快速完成設定 ，同時開啟跨站貼文。"
-      connect_to_facebook_link: "連結 Facebook 帳號"
       hashtag_explanation: "標籤讓你可以討論及追蹤你有興趣的話題。也是在 diaspora* 找到新朋友的好方法。"
       hashtag_suggestions: "試試看追蹤像是 #藝術,  #電影, #gif 等標籤。"
       well_hello_there: "嗨，你好！"

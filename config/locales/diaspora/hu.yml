@@ -839,7 +839,6 @@ hu:
       services_explanation: "Ha kapcsolódsz egy harmadik fél szolgáltatásaihoz, lehetőséged lesz bejegyzéseket megjelentetni a felületeiken, pusztán a diaspora* használatával."
       title: "Kapcsolódó szolgáltatások kezelése"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1022,8 +1021,6 @@ hu:
     getting_started:
       awesome_take_me_to_diaspora: "Remek! Irány a diaspora*"
       community_welcome: "A diaspora* közösség üdvözöl a fedélzeten!"
-      connect_to_facebook: "Felgyorsíthatod egy kicsit a dolgokat, ha %{link} a diaspora*-val. Ezzel a lépéssel engedélyezed a közös bejegyzéseket, illetve nálunk is megjelenik ottani neved és fényképed."
-      connect_to_facebook_link: "összekapcsolod Facebook fiókodat"
       hashtag_explanation: "A #címkék lehetővé teszik, hogy beszélj az érdeklődési köreidről és hogy kövesd is azokat. Kiváló módja új emberekkel való ismerkedésnek is."
       hashtag_suggestions: "Kövess pár téged érdeklő címkét. Például: #művészet, #fényképezés, #webdesign, #filozófia"
       well_hello_there: "Nos, üdv nálunk!"
