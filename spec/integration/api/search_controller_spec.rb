@@ -5,21 +5,21 @@ require "spec_helper"
 describe Api::V1::SearchController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify private:read private:modify]
     )
   }
 
   let(:auth_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read private:read]
     )
   }
 
   let(:auth_public_only_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read]
     )
   }
@@ -27,6 +27,7 @@ describe Api::V1::SearchController do
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
   let!(:access_token_public_only_read_only) { auth_public_only_read_only.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   describe "#user_index" do
     before do
@@ -137,7 +138,7 @@ describe Api::V1::SearchController do
     it "fails with bad credentials" do
       get(
         "/api/v1/search/users",
-        params: {tag: "tag1", access_token: "999_999_999"}
+        params: {tag: "tag1", access_token: invalid_token}
       )
       expect(response.status).to eq(401)
     end
@@ -208,7 +209,7 @@ describe Api::V1::SearchController do
     it "fails with bad credentials" do
       get(
         "/api/v1/search/users",
-        params: {tag: "tag1", access_token: "999_999_999"}
+        params: {tag: "tag1", access_token: invalid_token}
       )
       expect(response.status).to eq(401)
     end

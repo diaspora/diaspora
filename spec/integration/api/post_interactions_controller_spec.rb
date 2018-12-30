@@ -5,25 +5,26 @@ require "spec_helper"
 describe Api::V1::PostInteractionsController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify private:read private:modify interactions]
     )
   }
 
   let(:auth_public_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify interactions]
     )
   }
 
-  let(:auth_profile_only) {
-    FactoryGirl.create(:auth_with_profile_only)
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
-  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     @status = alice.post(
@@ -36,7 +37,7 @@ describe Api::V1::PostInteractionsController do
     alice_shared_aspect = alice.aspects.create(name: "shared aspect")
     alice.share_with(auth_public_only.user.person, alice_shared_aspect)
     alice.share_with(auth.user.person, alice_shared_aspect)
-    alice.share_with(auth_profile_only.user.person, alice_shared_aspect)
+    alice.share_with(auth_minimum_scopes.user.person, alice_shared_aspect)
 
     @shared_post = alice.post(:status_message, text: "to aspect only", public: false, to: alice_shared_aspect.id)
   end
@@ -89,7 +90,7 @@ describe Api::V1::PostInteractionsController do
         post(
           api_v1_post_subscribe_path(@status.guid),
           params: {
-            access_token: access_token_profile_only
+            access_token: access_token_minimum_scopes
           }
         )
         expect(response.status).to eq(403)
@@ -109,7 +110,7 @@ describe Api::V1::PostInteractionsController do
         post(
           api_v1_post_subscribe_path(@status.guid),
           params: {
-            access_token: "999_999_999"
+            access_token: invalid_token
           }
         )
         expect(response.status).to eq(401)
@@ -148,7 +149,7 @@ describe Api::V1::PostInteractionsController do
         post(
           api_v1_post_hide_path(@status.guid),
           params: {
-            access_token: access_token_profile_only
+            access_token: access_token_minimum_scopes
           }
         )
         expect(response.status).to eq(403)
@@ -168,7 +169,7 @@ describe Api::V1::PostInteractionsController do
         post(
           api_v1_post_hide_path(@status.guid),
           params: {
-            access_token: "999_999_999"
+            access_token: invalid_token
           }
         )
         expect(response.status).to eq(401)
@@ -234,7 +235,7 @@ describe Api::V1::PostInteractionsController do
         post(
           api_v1_post_mute_path(@status.guid),
           params: {
-            access_token: access_token_profile_only
+            access_token: access_token_minimum_scopes
           }
         )
         expect(response.status).to eq(403)
@@ -254,7 +255,7 @@ describe Api::V1::PostInteractionsController do
         post(
           api_v1_post_mute_path(@status.guid),
           params: {
-            access_token: "999_999_999"
+            access_token: invalid_token
           }
         )
         expect(response.status).to eq(401)
@@ -327,7 +328,7 @@ describe Api::V1::PostInteractionsController do
           api_v1_post_report_path(@status.guid),
           params: {
             reason:       "My reason",
-            access_token: access_token_profile_only
+            access_token: access_token_minimum_scopes
           }
         )
         expect(response.status).to eq(403)
@@ -349,7 +350,7 @@ describe Api::V1::PostInteractionsController do
           api_v1_post_report_path(@status.guid),
           params: {
             reason:       "My reason",
-            access_token: "999_999_999"
+            access_token: invalid_token
           }
         )
         expect(response.status).to eq(401)
@@ -427,7 +428,7 @@ describe Api::V1::PostInteractionsController do
         api_v1_post_vote_path(@poll_post.guid),
         params: {
           poll_answer_id: @poll_answer.id,
-          access_token:   access_token_profile_only
+          access_token:   access_token_minimum_scopes
         }
       )
       expect(response.status).to eq(403)
@@ -449,7 +450,7 @@ describe Api::V1::PostInteractionsController do
         api_v1_post_vote_path(@poll_post.guid),
         params: {
           poll_answer_id: @poll_answer.id,
-          access_token:   "999_999_999"
+          access_token:   invalid_token
         }
       )
       expect(response.status).to eq(401)

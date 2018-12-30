@@ -4,7 +4,11 @@ module Api
   module V1
     class LikesController < Api::V1::BaseController
       before_action do
-        require_access_token %w[interactions public:read]
+        require_access_token %w[public:read]
+      end
+
+      before_action only: %i[create destroy] do
+        require_access_token %w[interactions]
       end
 
       rescue_from ActiveRecord::RecordNotFound do
@@ -16,8 +20,9 @@ module Api
       end
 
       def show
-        post = post_service.find!(params[:post_id])
+        post = post_service.find!(params.require(:post_id))
         raise ActiveRecord::RecordInvalid unless post.public? || private_read?
+
         likes_query = like_service.find_for_post(params[:post_id])
         likes_page = index_pager(likes_query).response
         likes_page[:data] = likes_page[:data].map {|x| like_json(x) }
@@ -25,20 +30,23 @@ module Api
       end
 
       def create
-        post = post_service.find!(params[:post_id])
+        post = post_service.find!(params.require(:post_id))
         raise ActiveRecord::RecordInvalid unless post.public? || private_modify?
+
         like_service.create(params[:post_id])
       rescue ActiveRecord::RecordInvalid => e
         return render json: I18n.t("api.endpoint_errors.likes.like_exists"), status: :unprocessable_entity if
           e.message == "Validation failed: Target has already been taken"
+
         raise
       else
         head :no_content
       end
 
       def destroy
-        post = post_service.find!(params[:post_id])
+        post = post_service.find!(params.require(:post_id))
         raise ActiveRecord::RecordInvalid unless post.public? || private_modify?
+
         success = like_service.unlike_post(params[:post_id])
         if success
           head :no_content

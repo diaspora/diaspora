@@ -5,21 +5,21 @@ require "spec_helper"
 describe Api::V1::StreamsController do
   let(:auth_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read private:read contacts:read tags:read]
     )
   }
 
   let(:auth_public_only_tags) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read tags:read]
     )
   }
 
   let(:auth_public_only_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read]
     )
   }
@@ -27,6 +27,7 @@ describe Api::V1::StreamsController do
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
   let!(:access_token_public_only_tags) { auth_public_only_tags.create_access_token.to_s }
   let!(:access_token_public_only_read_only) { auth_public_only_read_only.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     @aspect = auth_read_only.user.aspects.create(name: "new aspect")
@@ -76,7 +77,7 @@ describe Api::V1::StreamsController do
         api_v1_aspects_stream_path(aspect_ids: JSON.generate([@aspect.id])),
         params: {access_token: access_token_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
       expect(post.length).to eq 3
       json_post = post.select {|p| p["guid"] == @status.guid }.first
@@ -88,9 +89,9 @@ describe Api::V1::StreamsController do
         api_v1_aspects_stream_path,
         params: {access_token: access_token_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 3
+      expect(post.length).to eq(3)
       json_post = post.select {|p| p["guid"] == @status.guid }.first
       confirm_post_format(json_post, auth_read_only.user, @status)
     end
@@ -114,7 +115,7 @@ describe Api::V1::StreamsController do
     it "fails with invalid credentials" do
       get(
         api_v1_aspects_stream_path(a_ids: [@aspect.id]),
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
       expect(response.status).to eq(401)
     end
@@ -164,9 +165,9 @@ describe Api::V1::StreamsController do
         api_v1_activity_stream_path,
         params: {access_token: access_token_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 2
+      expect(post.length).to eq(2)
       json_post = post.select {|p| p["guid"] == @status.guid }.first
       confirm_post_format(json_post, auth_read_only.user, @status)
     end
@@ -184,7 +185,7 @@ describe Api::V1::StreamsController do
     it "fails with invalid credentials" do
       get(
         api_v1_activity_stream_path,
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
       expect(response.status).to eq(401)
     end
@@ -196,9 +197,9 @@ describe Api::V1::StreamsController do
         api_v1_stream_path,
         params: {access_token: access_token_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 3
+      expect(post.length).to eq(3)
       json_post = post.select {|p| p["guid"] == @status.guid }.first
       confirm_post_format(json_post, auth_read_only.user, @status)
     end
@@ -208,17 +209,17 @@ describe Api::V1::StreamsController do
         api_v1_stream_path,
         params: {access_token: access_token_public_only_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 1
+      expect(post.length).to eq(1)
     end
 
     it "fails with invalid credentials" do
       get(
         api_v1_stream_path,
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
-      expect(response.status).to eq 401
+      expect(response.status).to eq(401)
     end
   end
 
@@ -228,9 +229,9 @@ describe Api::V1::StreamsController do
         api_v1_commented_stream_path,
         params: {access_token: access_token_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 2
+      expect(post.length).to eq(2)
     end
 
     it "public posts only expected" do
@@ -238,17 +239,17 @@ describe Api::V1::StreamsController do
         api_v1_commented_stream_path,
         params: {access_token: access_token_public_only_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 1
+      expect(post.length).to eq(1)
     end
 
     it "fails with invalid credentials" do
       get(
         api_v1_commented_stream_path,
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
-      expect(response.status).to eq 401
+      expect(response.status).to eq(401)
     end
   end
 
@@ -258,9 +259,9 @@ describe Api::V1::StreamsController do
         api_v1_mentions_stream_path,
         params: {access_token: access_token_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 2
+      expect(post.length).to eq(2)
     end
 
     it "public posts only expected" do
@@ -268,17 +269,17 @@ describe Api::V1::StreamsController do
         api_v1_mentions_stream_path,
         params: {access_token: access_token_public_only_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 1
+      expect(post.length).to eq(1)
     end
 
     it "fails with invalid credentials" do
       get(
         api_v1_mentions_stream_path,
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
-      expect(response.status).to eq 401
+      expect(response.status).to eq(401)
     end
   end
 
@@ -288,9 +289,9 @@ describe Api::V1::StreamsController do
         api_v1_liked_stream_path,
         params: {access_token: access_token_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 2
+      expect(post.length).to eq(2)
       json_post = post.select {|p| p["guid"] == @status.guid }.first
       confirm_post_format(json_post, auth_read_only.user, @status)
     end
@@ -300,17 +301,17 @@ describe Api::V1::StreamsController do
         api_v1_liked_stream_path,
         params: {access_token: access_token_public_only_read_only}
       )
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       post = response_body_data(response)
-      expect(post.length).to eq 1
+      expect(post.length).to eq(1)
     end
 
     it "fails with invalid credentials" do
       get(
         api_v1_liked_stream_path,
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
-      expect(response.status).to eq 401
+      expect(response.status).to eq(401)
     end
   end
 

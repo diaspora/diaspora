@@ -6,7 +6,8 @@ class AspectMembershipPresenter < BasePresenter
   end
 
   def base_hash
-    { id: @membership.id,
+    {
+      id:     @membership.id,
       aspect: AspectPresenter.new(@membership.aspect).as_json,
     }
   end

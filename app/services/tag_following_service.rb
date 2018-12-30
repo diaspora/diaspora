@@ -11,8 +11,8 @@ class TagFollowingService
 
     tag = ActsAsTaggableOn::Tag.find_or_create_by(name: name_normalized)
     tag_following = @user.tag_followings.new(tag_id: tag.id)
-
     raise "Can't process tag entity" unless tag_following.save
+
     tag
   end
 

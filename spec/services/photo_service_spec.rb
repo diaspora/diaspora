@@ -10,8 +10,8 @@ describe PhotoService do
                                  to: alice_eve_spec.id)
     @alice_bob_photo = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name),
                                  to: alice_bob_spec.id)
-    @alice_public_photo = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name), to: "all")
-    @bob_photo1 = bob.post(:photo, pending: true, user_file: File.open(photo_fixture_name), to: "all")
+    @alice_public_photo = alice.post(:photo, pending: false, user_file: File.open(photo_fixture_name), public: true)
+    @bob_photo1 = bob.post(:photo, pending: true, user_file: File.open(photo_fixture_name), public: true)
   end
 
   describe "visible_photo" do
@@ -38,10 +38,7 @@ describe PhotoService do
 
   describe "create" do
     before do
-      @image_file = Rack::Test::UploadedFile.new(
-        Rails.root.join("spec", "fixtures", "button.png").to_s,
-        "image/png"
-      )
+      @image_file = Rack::Test::UploadedFile.new(Rails.root.join("spec", "fixtures", "button.png").to_s, "image/png")
     end
 
     context "succeeds" do
@@ -61,7 +58,7 @@ describe PhotoService do
         expect(photo.public?).to be_falsey
       end
 
-      it "accepts sets a user profile when requested" do
+      it "sets a user profile when requested" do
         original_profile_pic = bob.person.profile.image_url
         params = ActionController::Parameters.new(set_profile_photo: true)
         photo = photo_service.create_from_params_and_file(params, @image_file)
@@ -79,10 +76,11 @@ describe PhotoService do
 
       it "allow raw file if explicitly allowing" do
         params = ActionController::Parameters.new
-        photo = PhotoService.new(bob, false).create_from_params_and_file(params, uploaded_photo)
+        photo = photo_service(bob, false).create_from_params_and_file(params, uploaded_photo)
         expect(photo).not_to be_nil
       end
     end
+
     context "fails" do
       before do
         @params = ActionController::Parameters.new
@@ -95,18 +93,12 @@ describe PhotoService do
       end
 
       it "file type isn't an image" do
-        text_file = Rack::Test::UploadedFile.new(
-          Rails.root.join("README.md").to_s,
-          "text/plain"
-        )
+        text_file = Rack::Test::UploadedFile.new(Rails.root.join("README.md").to_s, "text/plain")
         expect {
           photo_service.create_from_params_and_file(@params, text_file)
         }.to raise_error CarrierWave::IntegrityError
 
-        text_file = Rack::Test::UploadedFile.new(
-          Rails.root.join("README.md").to_s,
-          "image/png"
-        )
+        text_file = Rack::Test::UploadedFile.new(Rails.root.join("README.md").to_s, "image/png")
         expect {
           photo_service.create_from_params_and_file(@params, text_file)
         }.to raise_error CarrierWave::IntegrityError
@@ -114,7 +106,7 @@ describe PhotoService do
     end
   end
 
-  def photo_service(user=bob)
-    PhotoService.new(user, true)
+  def photo_service(user=bob, deny_raw_files=true)
+    PhotoService.new(user, deny_raw_files)
   end
 end

@@ -37,7 +37,6 @@ module Api
       end
 
       def update
-        raise RuntimeError if params.has_key?(:id)
         params_to_update = profile_update_params
         if params_to_update && current_user.update_profile(params_to_update)
           render json: PersonPresenter.new(current_user.person, current_user).profile_hash_as_api_json
@@ -49,12 +48,12 @@ module Api
       end
 
       def contacts
-        if params[:user_id] != current_user.guid
+        if params.require(:user_id) != current_user.guid
           render json: I18n.t("api.endpoint_errors.users.not_found"), status: :not_found
           return
         end
 
-        contacts_query = AspectsMembershipService.new(current_user).all_contacts
+        contacts_query = aspects_service.all_contacts
         contacts_page = index_pager(contacts_query).response
         contacts_page[:data] = contacts_page[:data].map {|c| PersonPresenter.new(c.person).as_api_json }
         render json: contacts_page
@@ -83,7 +82,13 @@ module Api
 
       private
 
+      def aspects_service
+        @aspects_service ||= AspectsMembershipService.new(current_user)
+      end
+
       def profile_update_params
+        raise RuntimeError if params.has_key?(:id)
+
         updates = params.permit(:bio, :birthday, :gender, :location, :first_name, :last_name,
                                 :searchable, :show_profile_info, :nsfw, :tags).to_h || {}
         if updates.has_key?(:show_profile_info)
@@ -96,7 +101,9 @@ module Api
 
       def process_tags_updates(updates)
         return unless params.has_key?(:tags)
+
         raise RuntimeError if params[:tags].length > Profile::MAX_TAGS
+
         tags = params[:tags].map {|tag| "#" + normalize_tag_name(tag) }.join(" ")
         updates[:tag_string] = tags
         updates.delete(:tags)

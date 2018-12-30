@@ -30,6 +30,7 @@ class PostInteractionPresenter
 
   def participations
     return @post.participations.none unless @current_user
+
     @post.participations.where(author: @current_user.person)
   end
 

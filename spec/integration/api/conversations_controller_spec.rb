@@ -5,7 +5,7 @@ require "spec_helper"
 describe Api::V1::ConversationsController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid conversations]
     )
   }
@@ -14,20 +14,24 @@ describe Api::V1::ConversationsController do
     FactoryGirl.create(:auth_with_all_scopes)
   }
 
-  let(:auth_profile_only) {
-    FactoryGirl.create(:auth_with_profile_only)
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_participant) { auth_participant.create_access_token.to_s }
-  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
-
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     auth.user.aspects.create(name: "first")
-    auth.user.share_with alice.person, auth.user.aspects[0]
-    alice.share_with auth.user.person, alice.aspects[0]
+    auth.user.share_with(alice.person, auth.user.aspects[0])
+    alice.share_with(auth.user.person, alice.aspects[0])
     auth.user.disconnected_by(eve)
+
+    auth_minimum_scopes.user.aspects.create(name: "first")
+    auth_minimum_scopes.user.share_with(alice.person, auth_minimum_scopes.user.aspects[0])
+    alice.share_with(auth_minimum_scopes.user.person, alice.aspects[0])
 
     @conversation_request = {
       subject:      "new conversation",
@@ -41,8 +45,8 @@ describe Api::V1::ConversationsController do
     context "with valid data" do
       it "creates the conversation" do
         post api_v1_conversations_path, params: @conversation_request
-        expect(response.status).to eq 201
-        conversation = JSON.parse(response.body)
+        expect(response.status).to eq(201)
+        conversation = response_body(response)
         confirm_conversation_format(conversation, @conversation_request, [auth.user, alice])
       end
     end
@@ -50,7 +54,7 @@ describe Api::V1::ConversationsController do
     context "without valid data" do
       it "fails with empty body" do
         post api_v1_conversations_path, params: {access_token: access_token}
-        expect(response.status).to eq 422
+        expect(response.status).to eq(422)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
@@ -61,7 +65,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        expect(response.status).to eq 422
+        expect(response.status).to eq(422)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
@@ -72,7 +76,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        expect(response.status).to eq 422
+        expect(response.status).to eq(422)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
@@ -83,7 +87,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        expect(response.status).to eq 422
+        expect(response.status).to eq(422)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
@@ -95,7 +99,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        expect(response.status).to eq 422
+        expect(response.status).to eq(422)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
@@ -107,8 +111,32 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        expect(response.status).to eq 422
+        expect(response.status).to eq(422)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.cant_process"))
+      end
+    end
+
+    context "with improper credentials" do
+      it "fails without conversation scope" do
+        conversation_request = {
+          subject:      "new conversation",
+          body:         "first message",
+          recipients:   [alice.guid],
+          access_token: access_token_minimum_scopes
+        }
+        post api_v1_conversations_path, params: conversation_request
+        expect(response.status).to eq(403)
+      end
+
+      it "fails without valid token" do
+        conversation_request = {
+          subject:      "new conversation",
+          body:         "first message",
+          recipients:   [alice.guid],
+          access_token: invalid_token
+        }
+        post api_v1_conversations_path, params: conversation_request
+        expect(response.status).to eq(401)
       end
     end
   end
@@ -116,12 +144,12 @@ describe Api::V1::ConversationsController do
   describe "#index" do
     before do
       post api_v1_conversations_path, params: @conversation_request
-      @read_conversation_guid = JSON.parse(response.body)["guid"]
+      @read_conversation_guid = response_body(response)["guid"]
       @read_conversation = conversation_service.find!(@read_conversation_guid)
       post api_v1_conversations_path, params: @conversation_request
       sleep(1)
       post api_v1_conversations_path, params: @conversation_request
-      @conversation_guid = JSON.parse(response.body)["guid"]
+      @conversation_guid = response_body(response)["guid"]
       @conversation = conversation_service.find!(@conversation_guid)
       @conversation.conversation_visibilities[0].unread = 1
       @conversation.conversation_visibilities[0].save!
@@ -132,9 +160,9 @@ describe Api::V1::ConversationsController do
 
     it "returns all the user conversations" do
       get api_v1_conversations_path, params: {access_token: access_token}
-      expect(response.status).to eq 200
+      expect(response.status).to eq(200)
       returned_conversations = response_body_data(response)
-      expect(returned_conversations.length).to eq 3
+      expect(returned_conversations.length).to eq(3)
       actual_conversation = returned_conversations.select {|c| c["guid"] == @read_conversation_guid }[0]
       confirm_conversation_format(actual_conversation, @read_conversation, [auth.user, alice])
     end
@@ -144,8 +172,8 @@ describe Api::V1::ConversationsController do
         api_v1_conversations_path,
         params: {only_unread: true, access_token: access_token}
       )
-      expect(response.status).to eq 200
-      expect(response_body_data(response).length).to eq 2
+      expect(response.status).to eq(200)
+      expect(response_body_data(response).length).to eq(2)
     end
 
     it "returns all the user conversations after a given date" do
@@ -153,27 +181,44 @@ describe Api::V1::ConversationsController do
         api_v1_conversations_path,
         params: {only_after: @date, access_token: access_token}
       )
-      expect(response.status).to eq 200
-      expect(response_body_data(response).length).to eq 1
+      expect(response.status).to eq(200)
+      expect(response_body_data(response).length).to eq(1)
+    end
+
+    context "with improper credentials" do
+      it "fails without conversation scope" do
+        get(
+          api_v1_conversations_path,
+          params: {only_after: @date, access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "fails without valid token" do
+        get(
+          api_v1_conversations_path,
+          params: {only_after: @date, access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
+      end
     end
   end
 
   describe "#show" do
-    context "valid conversation ID" do
-      before do
-        post api_v1_conversations_path, params: @conversation_request
-        @conversation_guid = JSON.parse(response.body)["guid"]
-        @conversation = conversation_service.find!(@conversation_guid)
-      end
+    before do
+      post api_v1_conversations_path, params: @conversation_request
+      @conversation_guid = response_body(response)["guid"]
+      @conversation = conversation_service.find!(@conversation_guid)
+    end
 
+    context "valid conversation ID" do
       it "returns the corresponding conversation" do
-        conversation_guid = JSON.parse(response.body)["guid"]
         get(
-          api_v1_conversation_path(conversation_guid),
+          api_v1_conversation_path(@conversation_guid),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq 200
-        conversation = JSON.parse(response.body)
+        expect(response.status).to eq(200)
+        conversation = response_body(response)
         confirm_conversation_format(conversation, @conversation, [auth.user, alice])
       end
     end
@@ -181,11 +226,30 @@ describe Api::V1::ConversationsController do
     context "non existing conversation ID" do
       it "returns a not found error (404)" do
         get(
-          api_v1_conversation_path(42),
+          api_v1_conversation_path(-1),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq 404
+        expect(response.status).to eq(404)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.not_found"))
+      end
+    end
+
+    context "with improper credentials" do
+      it "fails without conversation scope" do
+        get(
+          api_v1_conversation_path(@conversation_guid),
+          params: {access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "fails without valid token" do
+        conversation_guid = response_body(response)["guid"]
+        get(
+          api_v1_conversation_path(conversation_guid),
+          params: {access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
       end
     end
   end
@@ -205,7 +269,7 @@ describe Api::V1::ConversationsController do
         access_token: access_token
       }
       post api_v1_conversations_path, params: @conversation_request
-      @conversation_guid = JSON.parse(response.body)["guid"]
+      @conversation_guid = response_body(response)["guid"]
     end
 
     context "destroy" do
@@ -264,6 +328,24 @@ describe Api::V1::ConversationsController do
         expect(response.body).to eq(I18n.t("api.endpoint_errors.conversations.not_found"))
       end
     end
+
+    context "with improper credentials" do
+      it "fails without conversation scope" do
+        delete(
+          api_v1_conversation_path(@conversation_guid),
+          params: {access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "fails without valid token" do
+        delete(
+          api_v1_conversation_path(@conversation_guid),
+          params: {access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
+      end
+    end
   end
 
   def conversation_service
@@ -271,6 +353,10 @@ describe Api::V1::ConversationsController do
   end
 
   private
+
+  def response_body(response)
+    JSON.parse(response.body)
+  end
 
   def response_body_data(response)
     JSON.parse(response.body)["data"]

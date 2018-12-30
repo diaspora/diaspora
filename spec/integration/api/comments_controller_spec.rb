@@ -5,20 +5,26 @@ require "spec_helper"
 describe Api::V1::CommentsController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
-      scopes: %w[openid public:read public:modify private:read private:modify interactions]
+      :auth_with_default_scopes,
+      scopes: %w[openid public:read public:modify private:read interactions]
     )
   }
 
   let(:auth_public_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify interactions]
     )
   }
 
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
+  }
+
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     @status = alice.post(
@@ -58,7 +64,6 @@ describe Api::V1::CommentsController do
           api_v1_post_comments_path(post_id: @status.guid),
           params: {body: comment_text, access_token: access_token}
         )
-
         expect(response.status).to eq(201)
         comment = response_body(response)
         confirm_comment_format(comment, auth.user, comment_text)
@@ -86,6 +91,33 @@ describe Api::V1::CommentsController do
         expect(response.status).to eq(422)
       end
     end
+
+    context "with improper credentials" do
+      it "fails on private post without private:read" do
+        post(
+          api_v1_post_comments_path(post_id: @private_post.guid),
+          params: {body: "comment text", access_token: access_token_public_only}
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+
+      it "fails without interactions scope" do
+        post(
+          api_v1_post_comments_path(post_id: @status.guid),
+          params: {body: "comment text", access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "fails without valid token" do
+        post(
+          api_v1_post_comments_path(post_id: @status.guid),
+          params: {body: "comment text", access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
+      end
+    end
   end
 
   describe "#read" do
@@ -100,7 +132,7 @@ describe Api::V1::CommentsController do
       it "retrieves related comments" do
         get(
           api_v1_post_comments_path(post_id: @status.guid),
-          params: {access_token: access_token}
+          params: {access_token: access_token_minimum_scopes}
         )
         expect(response.status).to eq(200)
         comments = response_body_data(response)
@@ -121,14 +153,22 @@ describe Api::V1::CommentsController do
       end
     end
 
-    context "can't see comment on limited post without private:read token" do
-      it "fails" do
+    context "improper credentials" do
+      it "fails on private post without private:read" do
         get(
           api_v1_post_comments_path(post_id: @private_post.guid),
           params: {access_token: access_token_public_only}
         )
         expect(response.status).to eq(404)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+
+      it "fails without valid token" do
+        get(
+          api_v1_post_comments_path(post_id: @status.guid),
+          params: {access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
       end
     end
   end
@@ -209,8 +249,10 @@ describe Api::V1::CommentsController do
         expect(response.status).to eq(403)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.no_delete"))
       end
+    end
 
-      it "fails at deleting your comment on post without private:modify token" do
+    context "improper credentials" do
+      it "fails at deleting your comment on post without private:read token" do
         delete(
           api_v1_post_comment_path(
             post_id: @private_post.guid,
@@ -219,6 +261,14 @@ describe Api::V1::CommentsController do
           params: {access_token: access_token_public_only}
         )
         expect(response.status).to eq(404)
+      end
+
+      it "fails without valid token" do
+        get(
+          api_v1_post_comments_path(post_id: @status.guid),
+          params: {access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
       end
     end
   end
@@ -299,23 +349,6 @@ describe Api::V1::CommentsController do
       end
     end
 
-    context "lack of private permissions on private post" do
-      it "fails at reporting comment" do
-        post(
-          api_v1_post_comment_report_path(
-            post_id:    @private_post.guid,
-            comment_id: @comment_on_private_post.guid
-          ),
-          params: {
-            reason:       "bad comment",
-            access_token: access_token_public_only
-          }
-        )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
-      end
-    end
-
     context "mismatched post-to-comment ID" do
       it "fails at reporting comment" do
         post(
@@ -359,6 +392,31 @@ describe Api::V1::CommentsController do
         )
         expect(response.status).to eq(409)
         expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.duplicate_report"))
+      end
+    end
+
+    context "improper credentials" do
+      it "fails on private post without private:read" do
+        post(
+          api_v1_post_comment_report_path(
+            post_id:    @private_post.guid,
+            comment_id: @comment_on_private_post.guid
+          ),
+          params: {
+            reason:       "bad comment",
+            access_token: access_token_public_only
+          }
+        )
+        expect(response.status).to eq(404)
+        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      end
+
+      it "fails without valid token" do
+        get(
+          api_v1_post_comments_path(post_id: @status.guid),
+          params: {access_token: invalid_token}
+        )
+        expect(response.status).to eq(401)
       end
     end
   end

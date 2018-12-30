@@ -11,13 +11,14 @@ describe Api::V1::ResharesController do
     FactoryGirl.create(:auth_with_read_scopes)
   }
 
-  let(:auth_profile_only) {
-    FactoryGirl.create(:auth_with_profile_only)
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
-  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     @user_post = auth.user.post(
@@ -102,7 +103,7 @@ describe Api::V1::ResharesController do
         get(
           api_v1_post_reshares_path(@user_post.id),
           params: {
-            access_token: "999_999_999"
+            access_token: invalid_token
           }
         )
         expect(response.status).to eq(401)
@@ -190,7 +191,7 @@ describe Api::V1::ResharesController do
         post(
           api_v1_post_reshares_path(@eve_post.id),
           params: {
-            access_token: "999_999_999"
+            access_token: invalid_token
           }
         )
         expect(response.status).to eq(401)
@@ -200,10 +201,10 @@ describe Api::V1::ResharesController do
         post(
           api_v1_post_reshares_path(@eve_post.id),
           params: {
-            access_token: auth_read_only
+            access_token: access_token_read_only
           }
         )
-        expect(response.status).to eq(401)
+        expect(response.status).to eq(403)
       end
     end
   end
