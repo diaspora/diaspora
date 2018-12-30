@@ -403,10 +403,10 @@ FactoryGirl.define do
     redirect_uris %w(http://localhost:3000/)
   end
 
-  factory :auth_with_profile_only, class: Api::OpenidConnect::Authorization do
+  factory :auth_with_default_scopes, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
-    scopes %w[openid profile]
+    scopes %w[openid public:read]
     after(:build) {|m|
       m.redirect_uri = m.o_auth_application.redirect_uris[0]
     }

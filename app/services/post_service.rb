@@ -42,6 +42,7 @@ class PostService
              find_public!(post_id)
            end
     raise Diaspora::NotMine unless post.author == user.person
+
     user.retract(post)
   end
 

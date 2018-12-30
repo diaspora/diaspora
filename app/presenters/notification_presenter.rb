@@ -3,7 +3,7 @@
 class NotificationPresenter < BasePresenter
   def as_api_json(include_target=true)
     data = base_hash
-    data = data.merge(target: target_json) if include_target && target
+    data = data.merge(target: target_json) if include_target && linked_object
     data
   end
 
@@ -20,10 +20,9 @@ class NotificationPresenter < BasePresenter
   end
 
   def target_json
-    {
-      guid:   target.guid,
-      author: PersonPresenter.new(target.author).as_api_json
-    }
+    json = {guid: linked_object.guid}
+    json[:author] = PersonPresenter.new(linked_object.author).as_api_json if linked_object.author
+    json
   end
 
   def creators_json

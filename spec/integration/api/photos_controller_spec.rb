@@ -5,41 +5,42 @@ require "spec_helper"
 describe Api::V1::PhotosController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify private:read private:modify]
     )
   }
 
   let(:auth_public_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify]
     )
   }
 
   let(:auth_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read private:read]
     )
   }
 
   let(:auth_public_only_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read]
     )
   }
 
-  let(:auth_profile_only) {
-    FactoryGirl.create(:auth_with_profile_only)
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
   let!(:access_token_public_only_read_only) { auth_public_only_read_only.create_access_token.to_s }
-  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     alice_private_spec = alice.aspects.create(name: "private aspect")
@@ -73,7 +74,7 @@ describe Api::V1::PhotosController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photo = JSON.parse(response.body)
+        photo = response_body(response)
         expect(photo.has_key?("post")).to be_falsey
         confirm_photo_format(photo, @user_photo1, auth.user)
       end
@@ -84,7 +85,7 @@ describe Api::V1::PhotosController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photo = JSON.parse(response.body)
+        photo = response_body(response)
         expect(photo.has_key?("post")).to be_truthy
         confirm_photo_format(photo, @user_photo2, auth.user)
       end
@@ -95,7 +96,7 @@ describe Api::V1::PhotosController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photo = JSON.parse(response.body)
+        photo = response_body(response)
         confirm_photo_format(photo, @alice_public_photo, alice)
       end
     end
@@ -131,7 +132,7 @@ describe Api::V1::PhotosController do
       it "with invalid access token" do
         delete(
           api_v1_photo_path(@user_photo1.guid),
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -172,7 +173,7 @@ describe Api::V1::PhotosController do
       it "with invalid access token" do
         delete(
           api_v1_photos_path,
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -194,7 +195,7 @@ describe Api::V1::PhotosController do
           params: {image: @encoded_photo, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photo = JSON.parse(response.body)
+        photo = response_body(response)
         ref_photo = auth.user.photos.reload.find_by(guid: photo["guid"])
         expect(ref_photo.pending).to be_falsey
         confirm_photo_format(photo, ref_photo, auth.user)
@@ -206,7 +207,7 @@ describe Api::V1::PhotosController do
           params: {image: @encoded_photo, pending: false, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photo = JSON.parse(response.body)
+        photo = response_body(response)
         expect(photo.has_key?("post")).to be_falsey
         ref_photo = auth.user.photos.reload.find_by(guid: photo["guid"])
         expect(ref_photo.pending).to be_falsey
@@ -217,7 +218,7 @@ describe Api::V1::PhotosController do
           params: {image: @encoded_photo, pending: true, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photo = JSON.parse(response.body)
+        photo = response_body(response)
         ref_photo = auth.user.photos.reload.find_by(guid: photo["guid"])
         expect(ref_photo.pending).to be_truthy
       end
@@ -228,7 +229,7 @@ describe Api::V1::PhotosController do
           params: {image: @encoded_photo, set_profile_photo: true, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photo = JSON.parse(response.body)
+        photo = response_body(response)
         expect(auth.user.reload.person.profile.image_url_small).to eq(photo["sizes"]["small"])
       end
     end
@@ -272,7 +273,7 @@ describe Api::V1::PhotosController do
       it "with invalid access token" do
         post(
           api_v1_photos_path,
-          params: {image: @encoded_photo, access_token: "999_999_999"}
+          params: {image: @encoded_photo, access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -330,7 +331,7 @@ describe Api::V1::PhotosController do
       it "with invalid access token" do
         delete(
           api_v1_photo_path(@user_photo1.guid),
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -353,8 +354,12 @@ describe Api::V1::PhotosController do
     end
   end
 
+  def response_body(response)
+    JSON.parse(response.body)
+  end
+
   def response_body_data(response)
-    JSON.parse(response.body)["data"]
+    response_body(response)["data"]
   end
 
   # rubocop:disable Metrics/AbcSize

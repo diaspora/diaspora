@@ -12,7 +12,7 @@ module Api
       end
 
       def create
-        conversation = conversation_service.find!(params[:conversation_id])
+        conversation = conversation_service.find!(params.require(:conversation_id))
         text = params.require(:body)
         message = current_user.build_message(conversation, text: text)
         message.save!
@@ -23,7 +23,7 @@ module Api
       end
 
       def index
-        conversation = conversation_service.find!(params[:conversation_id])
+        conversation = conversation_service.find!(params.require(:conversation_id))
         conversation.set_read(current_user)
         messages_page = index_pager(conversation.messages).response
         messages_page[:data] = messages_page[:data].map {|x| message_json(x) }

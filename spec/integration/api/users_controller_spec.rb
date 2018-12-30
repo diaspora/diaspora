@@ -11,40 +11,41 @@ describe Api::V1::UsersController do
 
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: full_scopes
     )
   }
 
   let(:auth_public_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify]
     )
   }
 
   let(:auth_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read private:read contacts:read profile]
     )
   }
 
   let(:auth_public_only_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid public:read]
     )
   }
 
-  let(:auth_profile_only) {
-    FactoryGirl.create(:auth_with_profile_only)
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
   }
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
   let!(:access_token_public_only_read_only) { auth_public_only_read_only.create_access_token.to_s }
-  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   describe "#show" do
     context "Current User" do
@@ -53,7 +54,7 @@ describe Api::V1::UsersController do
           api_v1_user_path,
           params: {access_token: access_token}
         )
-        user = JSON.parse(response.body)
+        user = response_body(response)
         expect(response.status).to eq(200)
         expect(user["guid"]).to eq(auth.user.guid)
         confirm_self_data_format(user)
@@ -62,7 +63,7 @@ describe Api::V1::UsersController do
       it "fails if invalid token" do
         get(
           api_v1_user_path,
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -76,7 +77,7 @@ describe Api::V1::UsersController do
           "/api/v1/users/#{alice.guid}",
           params: {access_token: access_token}
         )
-        user = JSON.parse(response.body)
+        user = response_body(response)
         expect(response.status).to eq(200)
         expect(user["guid"]).to eq(alice.person.guid)
         confirm_public_profile_hash(user)
@@ -91,7 +92,7 @@ describe Api::V1::UsersController do
           "/api/v1/users/#{alice.guid}",
           params: {access_token: access_token}
         )
-        user = JSON.parse(response.body)
+        user = response_body(response)
         expect(response.status).to eq(200)
         expect(user["guid"]).to eq(alice.person.guid)
         confirm_public_profile_hash(user)
@@ -104,7 +105,7 @@ describe Api::V1::UsersController do
           "/api/v1/users/#{eve.guid}",
           params: {access_token: access_token}
         )
-        user = JSON.parse(response.body)
+        user = response_body(response)
         expect(response.status).to eq(200)
         expect(user["guid"]).to eq(eve.person.guid)
         confirm_private_profile_hash(user)
@@ -115,7 +116,7 @@ describe Api::V1::UsersController do
           "/api/v1/users/#{eve.guid}",
           params: {access_token: access_token}
         )
-        user = JSON.parse(response.body)
+        user = response_body(response)
         expect(response.status).to eq(200)
         expect(user["guid"]).to eq(eve.person.guid)
         confirm_public_profile_hash(user)
@@ -124,7 +125,7 @@ describe Api::V1::UsersController do
       it "fails if invalid token" do
         get(
           "/api/v1/users/#{alice.guid}",
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -143,9 +144,9 @@ describe Api::V1::UsersController do
 
         get(
           "/api/v1/users/#{unsearchable_user.guid}",
-          params: {access_token: access_token_profile_only}
+          params: {access_token: access_token_minimum_scopes}
         )
-        expect(response.status).to eq(404)
+        expect(response.status).to eq(403)
       end
 
       it "fails with invalid user GUID" do
@@ -169,7 +170,7 @@ describe Api::V1::UsersController do
           params: {location: new_location, bio: new_bio, access_token: access_token}
         )
         expect(response.status).to eq(200)
-        user = JSON.parse(response.body)
+        user = response_body(response)
         confirm_self_data_format(user)
         expect(user["bio"]).to eq(new_bio)
         expect(user["location"]).to eq(new_location)
@@ -208,7 +209,7 @@ describe Api::V1::UsersController do
           }
         )
         expect(response.status).to eq(200)
-        user = JSON.parse(response.body)
+        user = response_body(response)
         confirm_self_data_format(user)
         expect(user["bio"]).to eq(new_bio)
         expect(user["birthday"]).to eq(birthday_format(new_birthday))
@@ -246,7 +247,7 @@ describe Api::V1::UsersController do
           }
         )
         expect(response.status).to eq(200)
-        user = JSON.parse(response.body)
+        user = response_body(response)
         expect(user["bio"]).to eq(new_bio)
         expect(user.has_key?("no_idea_what_field_this_is")).to be_falsey
       end
@@ -263,7 +264,7 @@ describe Api::V1::UsersController do
           }
         )
         expect(response.status).to eq(200)
-        user = JSON.parse(response.body)
+        user = response_body(response)
         expect(user["bio"]).to eq(new_bio)
         expect(user["guid"]).to eq(original_guid)
       end
@@ -271,7 +272,11 @@ describe Api::V1::UsersController do
       it "fails if invalid token" do
         patch(
           api_v1_user_path,
-          params: {location: "New Location", bio: "New Bio", access_token: "999_999_999"}
+          params: {
+            location:     "New Location",
+            bio:          "New Bio",
+            access_token: invalid_token
+          }
         )
         expect(response.status).to eq(401)
       end
@@ -279,7 +284,11 @@ describe Api::V1::UsersController do
       it "fails if read only token" do
         patch(
           api_v1_user_path,
-          params: {location: "New Location", bio: "New Bio", access_token: access_token_read_only}
+          params: {
+            location:     "New Location",
+            bio:          "New Bio",
+            access_token: access_token_read_only
+          }
         )
         expect(response.status).to eq(403)
       end
@@ -337,7 +346,7 @@ describe Api::V1::UsersController do
     it "fails if invalid token" do
       get(
         api_v1_user_contacts_path(alice.guid),
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
       expect(response.status).to eq(401)
     end
@@ -393,7 +402,7 @@ describe Api::V1::UsersController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photos = JSON.parse(response.body)
+        photos = response_body(response)
         expect(photos.length).to eq(2)
       end
     end
@@ -410,7 +419,7 @@ describe Api::V1::UsersController do
     it "fails if invalid token" do
       get(
         api_v1_user_photos_path(alice.guid),
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
       expect(response.status).to eq(401)
     end
@@ -482,7 +491,7 @@ describe Api::V1::UsersController do
     it "fails if invalid token" do
       get(
         api_v1_user_posts_path(alice.person.guid),
-        params: {access_token: "999_999_999"}
+        params: {access_token: invalid_token}
       )
       expect(response.status).to eq(401)
     end
@@ -573,7 +582,11 @@ describe Api::V1::UsersController do
   end
   # rubocop:enable Metrics/AbcSize
 
+  def response_body(response)
+    JSON.parse(response.body)
+  end
+
   def response_body_data(response)
-    JSON.parse(response.body)["data"]
+    response_body(response)["data"]
   end
 end

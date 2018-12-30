@@ -444,7 +444,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
   describe "#destroy" do
     context "with existent authorization" do
       it "removes the authorization" do
-        auth_with_read = FactoryGirl.create(:auth_with_profile_only, o_auth_application: client)
+        auth_with_read = FactoryGirl.create(:auth_with_default_scopes, o_auth_application: client)
         delete api_openid_connect_authorization_path(auth_with_read.id)
         expect(Api::OpenidConnect::Authorization.find_by(id: auth_with_read.id)).to be_nil
       end

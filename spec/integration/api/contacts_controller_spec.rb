@@ -5,25 +5,26 @@ require "spec_helper"
 describe Api::V1::ContactsController do
   let(:auth) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid contacts:read contacts:modify]
     )
   }
 
   let(:auth_read_only) {
     FactoryGirl.create(
-      :auth_with_profile_only,
+      :auth_with_default_scopes,
       scopes: %w[openid contacts:read]
     )
   }
 
-  let(:auth_profile_only) {
-    FactoryGirl.create(:auth_with_profile_only)
+  let(:auth_minimum_scopes) {
+    FactoryGirl.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
-  let!(:access_token_profile_only) { auth_profile_only.create_access_token.to_s }
+  let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
+  let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
     @aspect1 = auth.user.aspects.create(name: "generic")
@@ -79,10 +80,19 @@ describe Api::V1::ContactsController do
     end
 
     context "improper credentials" do
+      it "fails without contacts:read" do
+        aspect = auth_minimum_scopes.user.aspects.create(name: "new aspect")
+        get(
+          api_v1_aspect_contacts_path(aspect.id),
+          params: {access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
       it "fails when not logged in" do
         get(
           api_v1_aspect_contacts_path(@aspect2.id),
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -146,7 +156,7 @@ describe Api::V1::ContactsController do
       it "fails when not logged in" do
         post(
           api_v1_aspect_contacts_path(@aspect2.id),
-          params: {person_guid: alice.guid, access_token: "999_999_999"}
+          params: {person_guid: alice.guid, access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -221,14 +231,16 @@ describe Api::V1::ContactsController do
       it "fails when not logged in" do
         delete(
           api_v1_aspect_contact_path(@aspect2.id, alice.guid),
-          params: {access_token: "999_999_999"}
+          params: {access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
 
       it "fails when only read only token" do
+        aspect = auth_read_only.user.aspects.create(name: "new")
+        aspects_membership_service(auth_read_only.user).create(aspect.id, alice.person.id)
         delete(
-          api_v1_aspect_contact_path(@aspect2.id, alice.guid),
+          api_v1_aspect_contact_path(aspect.id, alice.guid),
           params: {access_token: access_token_read_only}
         )
         expect(response.status).to eq(403)
