@@ -46,6 +46,7 @@ class NotificationService
   def update_status_by_guid(guid, is_read_status)
     notification = get_by_guid(guid)
     raise ActiveRecord::RecordNotFound unless notification
+
     notification.set_read_state(is_read_status)
     true
   end

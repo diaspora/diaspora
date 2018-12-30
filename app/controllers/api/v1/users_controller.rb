@@ -29,6 +29,7 @@ module Api
         person = if params.has_key?(:id)
                    found_person = Person.find_by!(guid: params[:id])
                    raise ActiveRecord::RecordNotFound unless found_person.searchable || access_token?("contacts:read")
+
                    found_person
                  else
                    current_user.person

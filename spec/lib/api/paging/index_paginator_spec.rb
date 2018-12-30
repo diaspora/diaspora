@@ -37,6 +37,7 @@ describe Api::Paging::IndexPaginator do
     until page&.empty?
       page_count += 1
       break unless pager.next_page
+
       np = pager.next_page.split("=").last.to_i
       pager = Api::Paging::IndexPaginator.new(@alice_search, np, @limit)
       page = pager.page_data

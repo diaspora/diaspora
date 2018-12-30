@@ -34,6 +34,7 @@ class ProfilePresenter < BasePresenter
 
   def as_other_api_json(all_details)
     return base_api_json unless all_details
+
     base_api_json.merge(added_details_api_json)
   end
 

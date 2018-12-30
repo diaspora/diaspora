@@ -17,7 +17,6 @@ class PostPresenter < BasePresenter
   end
 
   def as_api_response
-    interactions = PostInteractionPresenter.new(@post, current_user)
     {
       guid:                  @post.guid,
       body:                  build_text,
@@ -28,7 +27,7 @@ class PostPresenter < BasePresenter
       nsfw:                  @post.nsfw,
       author:                PersonPresenter.new(@post.author).as_api_json,
       provider_display_name: @post.provider_display_name,
-      interaction_counters:  interactions.as_counters,
+      interaction_counters:  PostInteractionPresenter.new(@post, current_user).as_counters,
       location:              @post.post_location,
       poll:                  PollPresenter.new(@post.poll, current_user).as_api_json,
       mentioned_people:      build_mentioned_people_json,

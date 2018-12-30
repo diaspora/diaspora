@@ -110,6 +110,7 @@ module Api
       def find_post
         post = post_service.find!(params[:post_id])
         return post if post.public? || private_read?
+
         raise ActiveRecord::RecordNotFound
       end
     end

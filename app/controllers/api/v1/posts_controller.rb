@@ -59,6 +59,7 @@ module Api
 
       def add_location_params(mapped_parameters)
         return unless params.has_key?(:location)
+
         location = params.require(:location)
         mapped_parameters[:location_address] = location[:address]
         mapped_parameters[:location_coords] = "#{location[:lat]},#{location[:lng]}"

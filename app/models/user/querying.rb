@@ -70,6 +70,7 @@ module User::Querying
   def posts_from(person, with_order=true)
     base_query = Post.from_person_visible_by_user(self, person)
     return base_query.order("posts.created_at desc") if with_order
+
     base_query
   end
 
