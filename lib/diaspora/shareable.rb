@@ -80,8 +80,16 @@ module Diaspora
         by_max_time(max_time, order).order(table_name + ".id DESC").where(type: types).limit(limit)
       end
 
+      def for_ranged_visible_shareable_sql(min_time, max_time, order, limit=15, types=Stream::Base::TYPES_OF_POST_IN_STREAM)
+        by_min_max_time(min_time, max_time, order).order(table_name + ".id DESC").where(type: types).limit(limit)
+      end
+
       def by_max_time(max_time, order="created_at")
         where("#{table_name}.#{order} < ?", max_time).order("#{table_name}.#{order} DESC")
+      end
+
+      def by_min_max_time(min_time, max_time, order="created_at")
+        where("#{table_name}.#{order} between ? and ?", min_time, max_time).order("#{table_name}.#{order} DESC")
       end
 
       def owned_by_user(user)

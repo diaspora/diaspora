@@ -124,6 +124,21 @@ class Post < ApplicationRecord
     scope
   end
 
+  def self.for_a_ranged_stream(min_time, max_time, order, user=nil, ignore_blocks=false)
+    scope = self.for_visible_shareable_sql(min_time, max_time, order).
+      includes_for_a_stream
+
+    if user.present?
+      if ignore_blocks
+        scope = scope.excluding_hidden_shareables(user)
+      else
+        scope = scope.excluding_hidden_content(user)
+      end
+    end
+
+    scope
+  end
+
   def reshare_for(user)
     return unless user
     reshares.find_by(author_id: user.person.id)

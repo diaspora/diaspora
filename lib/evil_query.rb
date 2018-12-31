@@ -86,7 +86,7 @@ module EvilQuery
     end
 
     def ids!(query)
-      fetch_ids!(query.for_a_stream(@max_time, @order), 'posts.id')
+      fetch_ids!(query.for_a_ranged_stream(@max_time - 30, @max_time, @order), 'posts.id')
     end
   end
 
