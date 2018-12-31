@@ -18,6 +18,7 @@ tt:
               taken: "артык бирелгән"
   all_aspects: "Барлык аспект"
   are_you_sure: "Ышанычыгыз бармы?"
+  are_you_sure_delete_account: "Һисабыгызны ябу теләген аңлыйсызмы? Аны яңадан кайтарырга була."
   aspect_memberships:
     destroy:
       failure: "Кешене аспектан бетерүдә хата"
@@ -52,6 +53,7 @@ tt:
         title: "Яңа кулланучылар рәхим итегез"
       welcome_to_diaspora: "Рәхим итегез, %{name}!"
     no_contacts_message:
+      or_spotlight: "Яки сез бүлешә аласыз %{link}"
       you_should_add_some_more_contacts: "Сез тагын берничә контактны өстәргә тиеш!"
     seed:
       acquaintances: "Белгән кешеләр"

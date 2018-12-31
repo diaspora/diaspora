@@ -225,7 +225,6 @@ ml:
       change_aspect_of_post_q: "ഞാനൊരിക്കല്‍ പോസ്റ്റ് ചെയ്ത് കഴിഞ്ഞാല്‍ അത് കാണാന്‍ സാധിക്കുന്ന് പരിചയങ്ങള്‍ തിരുത്താമോ?"
       contacts_know_aspect_a: "ഇല്ല. അവര്‍ക്കു ഒരു സാഹചര്യത്തിലും പരിചയത്തിന്റെ പേര് കാണാന്‍ കഴിയുന്നതല്ല."
       contacts_know_aspect_q: "എന്റെ സമ്പര്‍ക്കങ്ങള്‍ക്ക് ഏത് പരിചയത്തിലാണു ഞാന്‍ അവരെ സ്ഥാപിച്ചിരിക്കുന്നതെന്നു അറിയുവാന്‍ കഴിയുമൊ?"
-      contacts_visible_q: "\"പരിചയം ദൃശ്യമാക്കുക\" എന്നാൽ എന്താണ്?"
       delete_aspect_q: "എനിക്ക് എങ്ങനെ ഒരു പരിചയം ഒഴിവാക്കാന്‍ സാധിക്കും?"
       person_multiple_aspects_q: "എനിക്ക് ഒരു വ്യക്ത്തിയെ പല പരിചയങ്ങളിലേക്ക് ചേര്‍ക്കാന്‍ സാധിക്കുമോ?"
       post_multiple_aspects_q: "എനിക്ക് പല പരിചയങ്ങളിലേക്ക് ഒരേ സമയം ഒരാശയം പോസ്റ്റ് ചെയ്യാന്‍ സാധിക്കുമോ?"
@@ -693,8 +692,6 @@ ml:
     getting_started:
       awesome_take_me_to_diaspora: "കിടിലം! എന്നെ ഡയസ്പോറ*യിലെത്തിക്കു"
       community_welcome: "Diaspora's community is happy to have you aboard!"
-      connect_to_facebook: "ഡയസ്പോറയിലേക്ക് %{link} വഴി ഞങ്ങൾക്ക് കാര്യങ്ങൾ കുറച്ചുകൂടി വേഗത്തിലാക്കാൻ പറ്റും. ഇങ്ങനെ ചെയ്യുന്നത് താങ്കളുടെ പേരും ചിത്രവും വലിച്ചെടുക്കുകയും, ക്രോസ് പോസ്റ്റിങ്ങ് സാധുവാക്കുകയും ചെയ്യും."
-      connect_to_facebook_link: "താങ്കളുടെ ഫേസ്ബുക്ക് അക്കൗണ്ട് ബന്ധിപ്പിക്കുക"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       well_hello_there: "Well, hello there!"

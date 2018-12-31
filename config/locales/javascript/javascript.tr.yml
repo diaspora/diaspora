@@ -56,7 +56,7 @@ tr:
       markdown_editor:
         preview: "Önizle"
         texts:
-          code: "buraya kodu"
+          code: "kod buraya"
           heading: "başlığı metni"
           insert_image_description_text: "buraya imaj açıklama girin"
           insert_image_help_text: "buraya imaj bağlantısını sokun"

@@ -3,6 +3,7 @@ AllCops:
   Exclude:
     - "bin/**/*"
     - "db/schema.rb"
+    - "config/locales/cldr/plurals.rb"
 
 Rails:
   Enabled: true

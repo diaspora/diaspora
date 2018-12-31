@@ -170,7 +170,7 @@ class DataGenerator
   end
 
   def work_aspect
-    user.aspects.create(name: "Work", contacts_visible: false)
+    user.aspects.create(name: "Work")
   end
 
   def status_messages_flavours

@@ -81,7 +81,6 @@ sv:
         add_a_new_aspect: "Lägg till en ny aspekt"
         failure: "Aspekten gick inte att skapas."
         success: "Aspekten <%= name %> är nu skapad."
-      make_aspect_list_visible: "Ska kontakterna i denna aspekt vara synliga för varandra?"
       name: "Namn"
     bookmarklet:
       post_something: "Dela på Diaspora*"
@@ -99,8 +98,6 @@ sv:
       add_contact: "Lägg till kontakt"
       aspect_chat_is_enabled: "Kontakter i den här aspekten får chatta med dig"
       aspect_chat_is_not_enabled: "Kontakter i den här aspekten får inte chatta med dig"
-      aspect_list_is_not_visible: "Aspektens kontakter kan inte se vilka andra som tillhör aspekten."
-      aspect_list_is_visible: "Aspektens kontakter kan se varandra."
       error_add: "Kunde inte lägga till <%= name %> till aspekten. :-("
       error_remove: "Kunde inte ta bort <%= name %> från aspekten. :-("
       remove_contact: "Ta bort kontakt"
@@ -172,6 +169,7 @@ sv:
       invalid_ext: "{file} har otillåten filändelse. Endast {extensions} tillåts."
       looking_good: "OMG, du ser grym ut!"
       size_error: "{file} är för stor, den största tillåtna filstorleken är {sizeLimit}."
+      upload_photos: "Ladda upp foton"
     poll:
       answer_count:
         one: "En röst"
@@ -186,11 +184,11 @@ sv:
       result: "Resultat"
       show_result: "Visa resultat"
       vote: "Rösta"
+      your_vote: "Din röst"
     profile:
       add_some: "Lägg till"
       bio: "Biografi"
       born: "Födelsedag"
-      contacts: "Kontakter"
       edit: "Ändra"
       gender: "Kön"
       location: "Plats"
@@ -242,6 +240,7 @@ sv:
     reshares:
       post: "Vill du dela vidare inlägget av <%= name %>?"
       successful: "Lyckades med att dela vidare inlägget."
+    show_all: "Visa alla"
     show_more: "Visa mer"
     stream:
       comment: "Kommentera"

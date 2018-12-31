@@ -31,12 +31,10 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
 
         context "as a request object" do
           it "should return a form page" do
-            header = JWT.encoded_header("none")
             payload_hash = {client_id: client.client_id, redirect_uri: "http://localhost:3000/",
                             response_type: "id_token", scope: "openid", nonce: "hello", state: "hello",
                             claims: {userinfo: {name: {essential: true}}}}
-            payload = JWT.encoded_payload(JSON.parse(payload_hash.to_json))
-            request_object = header + "." + payload + "."
+            request_object = JWT.encode(payload_hash, nil, "none")
             get new_api_openid_connect_authorization_path, params: {client_id: client.client_id,
                 redirect_uri: "http://localhost:3000/", response_type: "id_token",
                 scope: "openid", nonce: "hello", state: "hello", request: request_object}
@@ -46,11 +44,9 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
 
         context "as a request object with no claims" do
           it "should return a form page" do
-            header = JWT.encoded_header("none")
             payload_hash = {client_id: client.client_id, redirect_uri: "http://localhost:3000/",
                              response_type: "id_token", scope: "openid", nonce: "hello", state: "hello"}
-            payload = JWT.encoded_payload(JSON.parse(payload_hash.to_json))
-            request_object = header + "." + payload + "."
+            request_object = JWT.encode(payload_hash, nil, "none")
             get new_api_openid_connect_authorization_path, params: {client_id: client.client_id,
                 redirect_uri: "http://localhost:3000/", response_type: "id_token",
                 scope: "openid", nonce: "hello", state: "hello", request: request_object}
@@ -296,7 +292,9 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
                                                                         Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
           access_token = response.location[/(?<=access_token=)[^&]+/]
-          access_token_check_num = UrlSafeBase64.encode64(OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8])
+          access_token_check_num = Base64.urlsafe_encode64(
+            OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8], padding: false
+          )
           expect(decoded_token.at_hash).to eq(access_token_check_num)
         end
       end

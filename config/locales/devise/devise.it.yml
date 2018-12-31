@@ -34,6 +34,8 @@ it:
         accept_at: "su %{url}, puoi accettare dal link qua sotto."
         has_invited_you: "%{name} ti ha invitato ad entrare in Diaspora"
         have_invited_you: "%{names} ti hanno invitato ad entrare in diaspora*"
+      password_change:
+        subject: "Password modificata"
       reset_password_instructions:
         change: "Cambia la mia password"
         ignore: "Se non hai effettuato la richiesta, per favore ignora questa email."
@@ -64,6 +66,7 @@ it:
       signed_up: "Iscrizione eseguita. Se il servizio è disponibile, riceverai una conferma via email."
       updated: "Hai aggiornato il tuo account."
     sessions:
+      already_signed_out: "Disconnessione effettuata con successo."
       new:
         login: "Accedi"
         modern_browsers: "supporta soltano i browser moderni."

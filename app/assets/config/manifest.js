@@ -6,7 +6,6 @@
 //= link bookmarklet.js
 //= link mobile/bookmarklet.js
 //= link mobile/mobile.js
-//= link templates.js
 //= link error_pages.css
 //= link admin.css
 //= link rtl.css

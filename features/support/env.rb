@@ -24,6 +24,8 @@ Capybara.server_port = AppConfig.pod_uri.port
 Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
 Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
+Capybara.server = :webrick
+
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, timeout: 30)
 end
@@ -53,9 +55,6 @@ Capybara.default_max_wait_time = 30
 # of your scenarios, as this makes it hard to discover errors in your application.
 ActionController::Base.allow_rescue = false
 
-# TODO: Temporary fix for rails 5, remove the next line after a new version of database_cleaner is released.
-# See https://github.com/DatabaseCleaner/database_cleaner/issues/445
-Cucumber::Rails::Database.javascript_strategy = :truncation, {except: %w[ar_internal_metadata]}
 Cucumber::Rails::Database.autorun_database_cleaner = true
 Cucumber::Rails::World.use_transactional_tests = false
 
@@ -79,4 +78,9 @@ Before do |scenario|
 
   # Reset overridden settings
   AppConfig.reset_dynamic!
+end
+
+After do |scenario|
+  Capybara.save_path = ENV["SCREENSHOT_PATH"]
+  page.save_screenshot("#{Time.now.utc} #{scenario.name}.png", full: true) if scenario.failed? && ENV["SCREENSHOT_PATH"]
 end

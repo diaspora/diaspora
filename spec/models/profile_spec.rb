@@ -245,30 +245,42 @@ describe Profile, :type => :model do
     end
   end
 
-  describe 'tags' do
-    before do
-      person = FactoryGirl.build(:person)
-      @object = person.profile
-    end
-    it 'allows 5 tags' do
-      @object.tag_string = '#one #two #three #four #five'
+  describe "tags" do
+    let(:object) { FactoryGirl.build(:person).profile }
 
-      @object.valid?
-      @object.errors.full_messages
+    it "allows 5 tags" do
+      object.tag_string = "#one #two #three #four #five"
 
-      expect(@object).to be_valid
+      object.valid?
+      object.errors.full_messages
+
+      expect(object).to be_valid
     end
-    it 'strips more than 5 tags' do
-      @object.tag_string = '#one #two #three #four #five #six'
-      @object.save
-      expect(@object.tags.count).to eq(5)
+
+    it "strips more than 5 tags" do
+      object.tag_string = "#one #two #three #four #five #six"
+      object.save
+      expect(object.tags.count).to eq(5)
     end
-    it 'should require tag name not be more than 255 characters long' do
-      @object.tag_string = "##{'a' * (255+1)}"
-      @object.save
-      expect(@object).not_to be_valid
+
+    it "should require tag name not be more than 255 characters long" do
+      object.tag_string = "##{'a' * (255 + 1)}"
+      object.save
+      expect(object).not_to be_valid
     end
-    it_should_behave_like 'it is taggable'
+
+    it "keeps the order of the tag_string" do
+      ActsAsTaggableOn::Tag.create(name: "test2")
+      ActsAsTaggableOn::Tag.create(name: "test1")
+
+      string = "#test1 #test2"
+      object.tag_string = string
+      object.save
+
+      expect(Profile.find(object.id).tag_string).to eq(string)
+    end
+
+    it_should_behave_like "it is taggable"
   end
 
   describe "#tombstone!" do

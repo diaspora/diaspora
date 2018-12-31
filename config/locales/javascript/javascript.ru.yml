@@ -8,14 +8,61 @@ ru:
   javascripts:
     admin:
       pods:
+        actions: "Действия"
+        added: "Добавлено"
+        check: "проверить подключение"
+        errors:
+          few: "Проверка подключения вернула ошибку на  <%= count %> подах."
+          many: "Проверка подключения вернула ошибку на  <%= count %> подах."
+          one: "Проверка подключения вернула ошибку на одном поде."
+          other: "Проверка подключения вернула ошибку на  <%= count %> подах."
+        follow_link: "открыть ссылку в браузере"
+        last_check: "последняя проверка:"
+        more_info: "показать больше информации"
+        ms:
+          few: "<%= count %>мс"
+          many: "<%= count %>мс"
+          one: "<%= count %>мс"
+          other: "<%= count %>мс"
+        no_info: "Нет дополнительной информации"
+        not_available: "недоступно"
+        offline_since: "недоступен с:"
+        pod: "Стручок"
+        recheck:
+          failure: "Проверка не выполнялась."
+          success: "Под только что был перепроверен."
+        response_time: "Время отклика:"
+        server_software: "Серверное ПО:"
+        ssl: "SSL"
+        ssl_disabled: "SSL выключен"
+        ssl_enabled: "SSL включен"
         states:
+          dns_failed: "Не удалось разрешить доменное имя (DNS)"
+          http_failed: "HTTP  соединение не удалось"
+          net_failed: "Попытка подключения не удалась"
           no_errors: "Хорошо"
+          ssl_failed: "Защищённое (SSL) соединение не удалось"
+          unchecked: "Непроверено"
+          unknown_error: "При проверке возникла неизвестная ошибка"
+          version_failed: "Не могу получить версию ПО"
         status: "Статус"
+        unchecked:
+          few: "Есть <%= count %> пода, не проверявшихся ни разу."
+          many: "Есть <%= count %> подов, не проверявшихся ни разу."
+          one: "Остался один непроверенный под."
+          other: "Есть <%= count %> подов, не проверявшихся ни разу."
+        unknown: "неизвестно"
         version_failed:
           few: "<%= count %> пода не имеют информации о версии (старые поды, нет NodeInfo)"
           many: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
           one: "<%= count %> под не имеет информации о версии (старые поды, нет NodeInfo)"
           other: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
+    admins:
+      dashboard:
+        compare_versions: "Последняя версия диаспоры* - <%= latestVersion %>, ваш под использует <%= podVersion %>."
+        error: "Не могу определить последнюю версию диаспоры*"
+        outdated: "Ваш под устарел."
+        up_to_date: "Ваш под актуален!"
     and: "и"
     aspect_dropdown:
       add_to_aspect: "Добавить контакт"
@@ -45,7 +92,6 @@ ru:
         add_a_new_aspect: "Новый аспект"
         failure: "Не удалось создать аспект."
         success: "Ваш новый аспект <%= name %> создан"
-      make_aspect_list_visible: "Сделать контакты в этом аспекте видимыми друг другу?"
       name: "Название"
     bookmarklet:
       post_something: "Опубликовать в диаспоре*"
@@ -61,18 +107,22 @@ ru:
     confirm_unload: "Пожалуйста, подтвердите, что хотите покинуть страницу — введённые вами данные не будут сохранены."
     contacts:
       add_contact: "Добавить контакт"
-      aspect_list_is_not_visible: "Контакты в этом аспекте не могут видеть друг друга."
-      aspect_list_is_visible: "Контакты в этом аспекте могут видеть друг друга."
+      aspect_chat_is_enabled: "Контакты из этого аспекта могут общаться с вами."
+      aspect_chat_is_not_enabled: "Контакты из этого аспекта не могут общаться с вами."
       error_add: "Невозможно добавить <%= name %> в аспект :("
       error_remove: "Невозможно удалить <%= name %> из аспекта :("
       remove_contact: "Удалить контакт"
       search_no_results: "Контакты не найдены"
     conversation:
+      create:
+        no_recipient: "Эй, сперва укажите получателя!"
       new:
         no_contacts: "Нужно добавить кого-нибудь в список контактов, перед тем, как заводить разговор."
     create: "Создать"
     delete: "Удалить"
     edit: "Изменить"
+    errors:
+      connection: "Невозможно подключиться к серверу."
     failed_to_post_message: "Не удалось отправить сообщение!"
     failed_to_remove: "Удаление не завершено!"
     getting_started:
@@ -95,6 +145,8 @@ ru:
       recent_notifications: "Последние уведомления"
       search: "Поиск"
       settings: "Настройки"
+      toggle_mobile: "Обычный/мобильный"
+      toggle_navigation: "Переключение навигации"
       view_all: "Посмотреть всё"
     hide_post: "Скрыть эту запись?"
     hide_post_failed: "Невозможно скрыть запись"
@@ -108,6 +160,11 @@ ru:
     notifications:
       mark_read: "Пометить как прочитанное"
       mark_unread: "Пометить как непрочитанное"
+      new_notifications:
+        few: "У вас <%= count %> непрочитанных уведомления."
+        many: "У вас <%= count %> непрочитанных уведомлений."
+        one: "У вас <%= count %> непрочитанное уведомление."
+        other: "У вас <%= count %> непрочитанных уведомлений."
     people:
       edit_my_profile: "Редактировать профиль"
       helper:
@@ -124,7 +181,14 @@ ru:
       invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
       looking_good: "Чёрт возьми, вы выглядите потрясающе!"
       size_error: "{file} имеет слишком большой размер, максимальный размер файла: {sizeLimit}."
+      upload_photos: "Загрузить фото"
     poll:
+      answer_count:
+        few: "<%=count%> голоса"
+        many: "<%=count%> голосов "
+        one: "<%=count%> голос"
+        other: "<%=count%> голосов "
+        zero: "Нет ответов."
       close_result: "Скрыть результаты"
       count:
         few: "<%=count%> человека проголосовало"
@@ -137,11 +201,11 @@ ru:
       result: "Результаты"
       show_result: "Показать результаты"
       vote: "Голосовать"
+      your_vote: "Ваш голос"
     profile:
       add_some: "добавить"
       bio: "О себе"
       born: "Дата рождения"
-      contacts: "Контакты"
       edit: "Редактировать"
       gender: "Пол"
       location: "Местоположение"
@@ -178,6 +242,7 @@ ru:
           quote: "Вставить цитату"
           write: "Редактировать сообщение"
         write: "Редактор"
+      mention_success: "Успешно упомянут: <%= names %>"
       near_from: "Отправлено из: <%= location %>"
       option: "Вариант <%= nr %>"
       question: "Вопрос"
@@ -185,13 +250,14 @@ ru:
     report:
       name: "Пожаловаться"
       prompt: "Пожалуйста, укажите причину:"
-      prompt_default: "оскорбительное содержание"
+      prompt_default: "например: оскорбительное содержание"
       status:
-        created: "Донос успешно отправлен"
-        exists: "Донос уже отправлен"
+        created: "Жалоба успешно отправлена"
+        exists: "Жалоба уже отправлена"
     reshares:
       post: "Поделиться записью пользователя <%= name %>?"
       successful: "Вы успешно поделились записью!"
+    show_all: "Показать все"
     show_more: "показать больше"
     stream:
       comment: "Комментировать"
@@ -227,6 +293,7 @@ ru:
         zero: "Ещё <%= count %> комментариев"
       no_posts_yet: "Здесь пока не видно записей."
       original_post_deleted: "Исходная запись удалена автором."
+      permalink: "Постоянная ссылка"
       public: "Публичная"
       reshare: "Поделиться"
       reshares:
@@ -262,6 +329,7 @@ ru:
         many: "около %d часов"
         one: "около часа"
         other: "около %d часов"
+      inPast: "в любой момент"
       minute: "около минуты"
       minutes:
         few: "%d минуты"

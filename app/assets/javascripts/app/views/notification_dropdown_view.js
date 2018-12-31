@@ -12,7 +12,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.dropdown = $("#notification-dropdown");
     this.dropdownNotifications = this.dropdown.find(".notifications");
     this.ajaxLoader = this.dropdown.find(".ajax-loader");
-    this.perfectScrollbarInitialized = false;
+    this.perfectScrollbar = null;
     this.dropdownNotifications.scroll(this.dropdownScroll.bind(this));
     this.bindCollectionEvents();
   },
@@ -106,18 +106,17 @@ app.views.NotificationDropdown = app.views.Base.extend({
   },
 
   updateScrollbar: function() {
-    if(this.perfectScrollbarInitialized) {
-      this.dropdownNotifications.perfectScrollbar("update");
+    if (this.perfectScrollbar) {
+      this.perfectScrollbar.update();
     } else {
-      this.dropdownNotifications.perfectScrollbar();
-      this.perfectScrollbarInitialized = true;
+      this.perfectScrollbar = new PerfectScrollbar(this.dropdownNotifications[0]);
     }
   },
 
   destroyScrollbar: function() {
-    if(this.perfectScrollbarInitialized) {
-      this.dropdownNotifications.perfectScrollbar("destroy");
-      this.perfectScrollbarInitialized = false;
+    if (this.perfectScrollbar) {
+      this.perfectScrollbar.destroy();
+      this.perfectScrollbar = null;
     }
   }
 });

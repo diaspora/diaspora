@@ -17,7 +17,6 @@ describe("app.views.AspectCreate", function() {
         expect(this.view.$("#newAspectModal.modal").length).toBe(1);
         expect(this.view.$("#newAspectModal form").length).toBe(1);
         expect(this.view.$("#newAspectModal input#aspect_name").length).toBe(1);
-        expect(this.view.$("#newAspectModal input#aspect_contacts_visible").length).toBe(1);
         expect(this.view.$("#newAspectModal .btn-primary").length).toBe(1);
       });
 
@@ -59,21 +58,6 @@ describe("app.views.AspectCreate", function() {
         this.view.createAspect();
         var obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
         expect(obj.name).toBe(name);
-      });
-
-      it("should send the correct contacts_visible to the server", function() {
-        this.view.createAspect();
-        var obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
-        /* jshint camelcase: false */
-        expect(obj.contacts_visible).toBeFalsy();
-        /* jshint camelcase: true */
-
-        this.view.$("input#aspect_contacts_visible").prop("checked", true);
-        this.view.createAspect();
-        obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
-        /* jshint camelcase: false */
-        expect(obj.contacts_visible).toBeTruthy();
-        /* jshint camelcase: true */
       });
 
       it("should send person_id = null to the server", function() {
@@ -150,7 +134,6 @@ describe("app.views.AspectCreate", function() {
         expect(this.view.$("#newAspectModal.modal").length).toBe(1);
         expect(this.view.$("#newAspectModal form").length).toBe(1);
         expect(this.view.$("#newAspectModal input#aspect_name").length).toBe(1);
-        expect(this.view.$("#newAspectModal input#aspect_contacts_visible").length).toBe(1);
         expect(this.view.$("#newAspectModal .btn-primary").length).toBe(1);
       });
 
@@ -172,21 +155,6 @@ describe("app.views.AspectCreate", function() {
         this.view.createAspect();
         var obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
         expect(obj.name).toBe(name);
-      });
-
-      it("should send the correct contacts_visible to the server", function() {
-        this.view.createAspect();
-        var obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
-        /* jshint camelcase: false */
-        expect(obj.contacts_visible).toBeFalsy();
-        /* jshint camelcase: true */
-
-        this.view.$("input#aspect_contacts_visible").prop("checked", true);
-        this.view.createAspect();
-        obj = JSON.parse(jasmine.Ajax.requests.mostRecent().params);
-        /* jshint camelcase: false */
-        expect(obj.contacts_visible).toBeTruthy();
-        /* jshint camelcase: true */
       });
 
       it("should send the correct person_id to the server", function() {

@@ -61,9 +61,14 @@ describe AccountMigration, type: :model do
       }.to change(account_migration, :performed?).to be_truthy
     end
 
-    it "calls old_person.closed_account?" do
-      expect(account_migration.old_person).to receive(:closed_account?)
-      account_migration.performed?
+    it "is truthy when completed_at is set" do
+      expect(FactoryGirl.create(:account_migration, completed_at: Time.zone.now).performed?).to be_truthy
+    end
+
+    it "is falsey when completed_at is null" do
+      account_migration = FactoryGirl.create(:account_migration, completed_at: nil)
+      account_migration.old_person.lock_access!
+      expect(account_migration.performed?).to be_falsey
     end
   end
 
@@ -152,6 +157,72 @@ describe AccountMigration, type: :model do
       it "calls AccountDeleter#tombstone_user" do
         expect(embedded_account_deleter).to receive(:tombstone_user)
         account_migration.perform!
+      end
+    end
+
+    context "with remote account merging (non-empty new person)" do
+      before do
+        FactoryGirl.create(
+          :contact,
+          person: new_person,
+          user:   FactoryGirl.create(:contact, person: old_person).user
+        )
+        FactoryGirl.create(
+          :like,
+          author: new_person,
+          target: FactoryGirl.create(:like, author: old_person).target
+        )
+        FactoryGirl.create(
+          :participation,
+          author: new_person,
+          target: FactoryGirl.create(:participation, author: old_person).target
+        )
+        FactoryGirl.create(
+          :poll_participation,
+          author:      new_person,
+          poll_answer: FactoryGirl.create(:poll_participation, author: old_person).poll_answer
+        )
+      end
+
+      it "runs without errors" do
+        expect {
+          account_migration.perform!
+        }.not_to raise_error
+        expect(new_person.likes.count).to eq(1)
+        expect(new_person.participations.count).to eq(1)
+        expect(new_person.poll_participations.count).to eq(1)
+        expect(new_person.contacts.count).to eq(1)
+      end
+    end
+
+    context "with local account merging (non-empty new user)" do
+      include_context "with local old user"
+      include_context "with local new user"
+
+      before do
+        FactoryGirl.create(
+          :aspect,
+          user: new_person.owner,
+          name: FactoryGirl.create(:aspect, user: old_person.owner).name
+        )
+        FactoryGirl.create(
+          :contact,
+          user:   new_person.owner,
+          person: FactoryGirl.create(:contact, user: old_person.owner).person
+        )
+        FactoryGirl.create(
+          :tag_following,
+          user: new_person.owner,
+          tag:  FactoryGirl.create(:tag_following, user: old_person.owner).tag
+        )
+      end
+
+      it "runs without errors" do
+        expect {
+          account_migration.perform!
+        }.not_to raise_error
+        expect(new_person.owner.contacts.count).to eq(1)
+        expect(new_person.owner.aspects.count).to eq(1)
       end
     end
   end

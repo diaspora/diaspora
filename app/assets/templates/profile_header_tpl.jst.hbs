@@ -82,22 +82,5 @@
         </a>
       </li>
     {{/if}}
-    {{#if show_contacts}}
-      <li {{#isCurrentPage 'personContacts' guid}} class="active" {{/isCurrentPage}}>
-        {{#if is_own_profile}}
-          <a href="{{urlTo 'contacts'}}" id="contacts_link">
-            <i class="entypo-users"></i>
-            {{t 'profile.contacts'}}
-            <div class="badge badge-default">{{contacts}}</div>
-          </a>
-        {{else}}
-          <a href="{{urlTo 'personContacts' guid}}" id="contacts_link">
-            <i class="entypo-users"></i>
-            {{t 'profile.contacts'}}
-            <div class="badge badge-default">{{contacts}}</div>
-          </a>
-        {{/if}}
-      </li>
-    {{/if}}
   </div>
 </div>

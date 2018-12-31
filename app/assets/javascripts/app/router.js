@@ -20,7 +20,6 @@ app.Router = Backbone.Router.extend({
     "p/:id(/)": "singlePost",
     "people(/)": "peopleSearch",
     "people/:id(/)": "profile",
-    "people/:id/contacts(/)": "profile",
     "people/:id/photos(/)": "photos",
     "posts/:id(/)": "singlePost",
     "profile/edit(/)": "settings",

@@ -17,6 +17,12 @@ module Diaspora
       return unless url
       return url unless self.url_eligible?(url)
 
+      begin
+        url = Addressable::URI.encode(Addressable::URI.unencode(url))
+      rescue Addressable::URI::InvalidURIError
+        return url
+      end
+
       digest = OpenSSL::HMAC.hexdigest(
         OpenSSL::Digest.new('sha1'),
         AppConfig.privacy.camo.key,

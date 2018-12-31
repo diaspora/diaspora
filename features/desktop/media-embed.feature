@@ -13,10 +13,10 @@ Feature: oembed
     And I sign in as "alice@alice.alice"
 
   Scenario: Post a video link
-    When I click the publisher and post "[title](http://example.com/file.ogv)"
+    When I click the publisher and post "[title](https://example.com/file.ogv)"
     Then I should see a HTML5 video player
 
   Scenario: Post an audio link
-    When I click the publisher and post "[title](http://example.com/file.ogg)"
+    When I click the publisher and post "[title](https://example.com/file.ogg)"
     Then I should see a HTML5 audio player
 

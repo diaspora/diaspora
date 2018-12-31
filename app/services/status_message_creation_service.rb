@@ -9,15 +9,16 @@ class StatusMessageCreationService
 
   def create(params)
     build_status_message(params).tap do |status_message|
+      load_aspects(params[:aspect_ids]) unless status_message.public?
       add_attachments(status_message, params)
       status_message.save
-      process(status_message, params[:aspect_ids], params[:services])
+      process(status_message, params[:services])
     end
   end
 
   private
 
-  attr_reader :user
+  attr_reader :user, :aspects
 
   def build_status_message(params)
     public = params[:public] || false
@@ -54,13 +55,17 @@ class StatusMessageCreationService
     end
   end
 
-  def process(status_message, aspect_ids, services)
-    add_to_streams(status_message, aspect_ids) unless status_message.public
+  def load_aspects(aspect_ids)
+    @aspects = user.aspects_from_ids(aspect_ids)
+    raise BadAspectsIDs if aspects.empty?
+  end
+
+  def process(status_message, services)
+    add_to_streams(status_message) unless status_message.public?
     dispatch(status_message, services)
   end
 
-  def add_to_streams(status_message, aspect_ids)
-    aspects = user.aspects_from_ids(aspect_ids)
+  def add_to_streams(status_message)
     user.add_to_streams(status_message, aspects)
     status_message.photos.each {|photo| user.add_to_streams(photo, aspects) }
   end
@@ -71,5 +76,8 @@ class StatusMessageCreationService
     user.dispatch_post(status_message,
                        url:           short_post_url(status_message.guid, host: AppConfig.environment.url),
                        service_types: receiving_services)
+  end
+
+  class BadAspectsIDs < RuntimeError
   end
 end

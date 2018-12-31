@@ -1,6 +1,6 @@
 .row.publisher#publisher{class: ((aspect == :profile || publisher_open?) ? "mention_popup" : "closed")}
   .content_creation
-    = form_for(StatusMessage.new) do |status|
+    = form_for StatusMessage.new, url: status_messages_path, as: :status_message do |status|
       = status.error_messages
       %params
         .publisher-textarea-wrapper#publisher-textarea-wrapper

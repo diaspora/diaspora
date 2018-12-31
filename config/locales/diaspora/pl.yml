@@ -343,6 +343,19 @@ pl:
     helper:
       correct_the_following_errors_and_try_again: "Popraw poniższe błędy i spróbuj ponownie."
     need_javascript: "Strona do poprawnego działania wymaga obsługi JavaScriptu. Jeśli ją wyłączyłeś, prosimy byś ją włączył i odświeżył stronę."
+  errors:
+    messages:
+      carrierwave_download_error: "nie może zostać pobrane"
+      carrierwave_integrity_error: "nie jest dozwolonym rodzajem pliku"
+      carrierwave_processing_error: "nie udało się przetworzyć"
+      content_type_blacklist_error: "Nie możesz wysyłać plików %{content_type}"
+      content_type_whitelist_error: "Nie możesz wysyłać plików %{content_type}"
+      extension_blacklist_error: "Nie możesz wysyłać plików %{extension}, niedozwolone: %{prohibited_types}"
+      extension_whitelist_error: "Nie możesz wysyłać plików %{extension}, dozwolone: %{allowed_types}"
+      max_size_error: "Plik musi być mniejszy niż %{max_size}"
+      min_size_error: "Plik musi być większy niż %{min_size}"
+      mini_magick_processing_error: "Nie udało się przetworzyć używając MiniMagick, czy na pewno to jest obraz? Błąd: %{e}"
+      rmagick_processing_error: "Nie udało się przetworzyć używając rmagick, czy na pewno to jest obraz?"
   fill_me_out: "Wypełnij pole"
   find_people: "Znajdź osoby lub #tagi"
   help:
@@ -363,8 +376,6 @@ pl:
       change_aspect_of_post_q: "Czy mogę zmienić aspekty, dla których wpis będzie widoczny, po wysłaniu tego wpisu?"
       contacts_know_aspect_a: "Nie. W żadnej sytuacji nie mogą oni zobaczyć nazwy aspektu."
       contacts_know_aspect_q: "Czy moje kontakty wiedzą w jakich aspektach je umieściłem?"
-      contacts_visible_a: "Jeśli zaznaczysz tą opcję, kontakty z danego aspektu będą mogły zobaczyć pod Twoim zdjęciem na stronie profilu, kto oprócz nich znajduje się w tym aspekcie. Najlepiej zaznaczać tą opcję tylko jeśli kontakty z tego aspektu znają się nawzajem. Nazwa aspektu jednak nadal pozostanie dla nich niewidoczna."
-      contacts_visible_q: "Co oznacza \"spraw, aby kontakty z tego aspektu widziały się nawzajem\"?"
       delete_aspect_a: "W liście aspektów na stronie głównej z lewej strony ustaw kursor nad aspektem, który chcesz usunąć. Kliknij ikonkę edycji w kształcie ołówka która pojawi się po prawej stronie. W okienku, które się pojawi, kliknij ikonę kosza na śmieci."
       delete_aspect_q: "Jak usunąć aspekt?"
       person_multiple_aspects_a: "Tak. Kliknij \"moje kontakty\" na swojej stronie kontaktów. Przy każdym z kontaktów jest menu po prawej, za pomocą którego możesz dodać go lub usunąć z dowolnych aspektów. Możesz też dodać go do nowego aspektu (lub z aspektu usunąć) klikając przycisk aspektów na jego stronie profilowej. Albo po prostu przesuń kursor nad jego imię widoczne gdziekolwiek w strumieniu, wtedy pojawi się jego \"wizytówka\". Tam możesz zmieniać aspekty, do których należy."
@@ -1056,7 +1067,6 @@ pl:
       share_to: "Udostępnij w serwisie %{provider}"
       title: "Zarządzaj połączonymi usługami"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1127,6 +1137,7 @@ pl:
     total_users: "W sumie użytkowników"
     version: "Wersja"
   status_messages:
+    bad_aspects: "Nie można zastosować podanych aspektów (nie istnieją lub nie należą do ciebie)"
     new:
       mentioning: "Wspominasz o: %{person}"
     too_long: "Skróć swój status do mniej niż %{count} znaków. Obecnie jej długość to %{current_length} znaków."
@@ -1223,12 +1234,16 @@ pl:
       export_in_progress: "Przetwarzamy twoje dane. Sprawdź ponownie za kilka minut."
       export_photos_in_progress: "Aktualnie przetwarzamy twoje zdjęcia. Sprawdź ponownie za kilka chwil."
       following: "Ustawienia udostępniania"
-      last_exported_at: "(ostatnio aktualizowano o %{timestamp})"
+      last_exported_html: "(Ostatnia aktualizacja %{timeago})"
       liked: "ktoś polubi mój wpis"
       mentioned: "ktoś wspomni o mnie we wpisie"
       mentioned_in_comment: "ktoś wspomni o mnie w komentarzu"
       new_password: "Nowe hasło"
       private_message: "otrzymam prywatną wiadomość"
+      protocol_handler:
+        description: "Po wciśnięciu tego przycisku, przeglądarka poprosi cię o zezwolenie nam na otwieranie adresów rozpoczynających się od web+diaspora:// za pomocą twojego podu. Jest to funkcja eksperymentalna i jej obsługa zależy od twojej przeglądarki."
+        register: "Zarejestruj"
+        title: "Handler protokołu web+diaspora://"
       receive_email_notifications: "Wysyłaj powiadomienia e-mail gdy:"
       request_export: "Proszę o dane mojego profilu"
       request_export_photos: "Proszę o moje zdjęcia"
@@ -1246,8 +1261,6 @@ pl:
     getting_started:
       awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie na diasporę*"
       community_welcome: "Społeczność diaspory* cieszy się, że ​​jesteś z nami!"
-      connect_to_facebook: "Możemy nieco przyśpieszyć poprzez %{link} do diaspory*. To spowoduje pobranie Twojej nazwy, zdjęcia i włączy równoczesne publikowanie wpisów w obu serwisach."
-      connect_to_facebook_link: "Podpięcie konta na Facebooku"
       hashtag_explanation: "Tagi pozwalają łatwo odnaleźć interesujące Cię tematy. Są także świetnym sposobem na nawiązywanie znajomości na diasporze*."
       hashtag_suggestions: "Spróbuj obserwować tagi takie jak #sztuka, #filmy, #gif, itd."
       well_hello_there: "No, witam!"

@@ -51,5 +51,17 @@ describe Notifications::Mentioned do
       expect(TestNotification).not_to receive(:create_notification)
       TestNotification.notify(status_message, nil)
     end
+
+    it "doesn't create notification if it already exists" do
+      status_message = FactoryGirl.create(:status_message, text: text_mentioning(alice), author: eve.person)
+      TestNotification.create(
+        recipient: alice,
+        target:    Mention.where(mentions_container: status_message, person: alice.person_id).first,
+        actors:    [status_message.author]
+      )
+
+      expect(TestNotification).not_to receive(:create_notification)
+      TestNotification.notify(status_message, nil)
+    end
   end
 end

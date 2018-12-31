@@ -117,6 +117,21 @@ en:
       account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
       account_locking_scheduled: "The account of %{name} is scheduled to be locked. It will be processed in a few moments..."
       account_unlocking_scheduled: "The account of %{name} is scheduled to be unlocked. It will be processed in a few moments..."
+      make_admin: "Make admin"
+      remove_admin: "Remove as admin"
+      make_moderator: "Make moderator"
+      remove_moderator: "Remove as moderator"
+      make_spotlight: "Add to community spotlight"
+      remove_spotlight: "Remove from community spotlight"
+      add_admin: "%{name} has been made an admin."
+      delete_admin: "%{name} has been removed from the list of admins."
+      add_moderator: "%{name} has been made a moderator."
+      delete_moderator: "%{name} has been removed from the list of moderators."
+      add_spotlight: "%{name} has been added to community spotlight."
+      delete_spotlight: "%{name} has been removed from community spotlight."
+      does_not_exist: "User does not exist!"
+      role_implemented: "%{name} has already been given this role!"
+      role_removal_implemented: "%{name} has already been removed from this role!"
       email_to: "Email to invite"
       invite: "Invite"
       under_13: "Show users that are under 13 (COPPA)"
@@ -132,6 +147,9 @@ en:
       last_seen: "Last seen"
       account_closed: "Account closed"
       nsfw: "#nsfw"
+      admin: "Admin"
+      moderator: "Moderator"
+      spotlight: "Spotlight"
       unknown: "Unknown"
       invite_token: "Invite token"
       'yes': "Yes"
@@ -369,8 +387,6 @@ en:
       contacts_know_aspect_a: "No. They cannot see the name of the aspect under any circumstances."
       person_multiple_aspects_q: "Can I add a person to multiple aspects?"
       person_multiple_aspects_a: "Yes. Go to your contacts page and click on “My contacts”. For each contact you can use the menu on the right to add them to (or remove them from) as many aspects as you want. Or you can add them to a new aspect (or remove them from an aspect) by clicking the aspect selector button on their profile page. Or you can even just move the pointer over their name where you see it in the stream, and a “hovercard” will appear. You can change the aspects they are in right there."
-      contacts_visible_q: "What does “make contacts in this aspect visible to each other” mean?"
-      contacts_visible_a: "If you check this option then contacts from that aspect will be able to see who else is in it, in the “Contacts” tab on your profile page. (At the moment, only your contacts who are on the same pod as you will be able to see the “Contacts” tab on your profile.) It’s best to select this option only if the contacts in that aspect all know each other, for example if the aspect is for a club or society you belong to. They still won’t be able to see what the aspect is called."
       remove_notification_q: "If I remove someone from an aspect, or all of my aspects, are they notified of this?"
       remove_notification_a: "No. They are also not notified if you add them to more aspects, when you are already sharing with them."
       change_aspect_of_post_q: "Once I have posted something, can I change the aspect(s) that can see it?"
@@ -1045,7 +1061,6 @@ en:
     comment_email_subject: "%{resharer}’s reshare of %{author}’s post"
   services:
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1122,6 +1137,7 @@ en:
     new:
       mentioning: "Mentioning: %{person}"
     too_long: "Please make your status message fewer than %{count} characters. Right now it is %{current_length} characters"
+    bad_aspects: "Provided aspects IDs aren't applicable (non-existent or not owned)"
 
   stream_helper:
     no_more_posts: "You have reached the end of the stream."
@@ -1243,6 +1259,12 @@ en:
         lock_username: "Your username will be locked. You will not be able to create a new account on this pod with the same ID."
         no_turning_back: "There is no turning back! If you’re really sure, enter your password below."
 
+      protocol_handler:
+        title: "web+diaspora:// protocol handler"
+        description: "web+diaspora:// is a new web protocol that we have introduced. Any link to a diaspora* page on an external website that uses this protocol can be opened in the pod on which your diaspora* account is registered. Click the button below to set your browser to use %{pod_url} to recognise external web+diaspora:// links."
+        browser: "This protocol is currently in the experimental stage and the success of interactions using it will depend on your browser. If you want to manage or remove this handler, you will do this via your browser settings. The button below will always be enabled, and you need to set the handler separately in each browser you use."
+        register: "Register web+diaspora:// handler on this browser"
+
     privacy_settings:
       title: "Privacy settings"
       strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"
@@ -1260,8 +1282,6 @@ en:
       community_welcome: "diaspora*’s community is happy to have you aboard!"
       awesome_take_me_to_diaspora: "Awesome! Take me to diaspora*"
       who_are_you: "Who are you?"
-      connect_to_facebook: "We can speed things up a bit by %{link} to diaspora*. This will pull your name and photo, and enable cross-posting."
-      connect_to_facebook_link: "Hooking up your Facebook account"
       what_are_you_in_to: "What are you into?"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests. They’re also a great way to find new people on diaspora*."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
