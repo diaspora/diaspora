@@ -3,6 +3,7 @@
 SecureHeaders::Configuration.default do |config|
   config.hsts = SecureHeaders::OPT_OUT # added by Rack::SSL
 
+  # rubocop:disable Lint/PercentStringArray
   csp = {
     default_src:     %w['none'],
     connect_src:     %w['self' embedr.flickr.com geo.query.yahoo.com nominatim.openstreetmap.org api.github.com],
@@ -18,6 +19,7 @@ SecureHeaders::Configuration.default do |config|
                         embedr.flickr.com www.instagram.com 'unsafe-inline'],
     style_src:       %w['self' 'unsafe-inline' platform.twitter.com *.twimg.com]
   }
+  # rubocop:enable Lint/PercentStringArray
 
   if AppConfig.environment.assets.host.present?
     asset_host = Addressable::URI.parse(AppConfig.environment.assets.host.get).host

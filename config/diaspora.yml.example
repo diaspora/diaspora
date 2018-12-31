@@ -571,10 +571,10 @@ configuration: ## Section
     ## is blocked by CSP.
     csp:
 
-      ## Report-Only header (default=true)
-      ## By default diaspora* adds only a "Content-Security-Policy-Report-Only" header. If you set
-      ## this to false, the "Content-Security-Policy" header is added instead.
-      #report_only: false
+      ## Report-Only header (default=false)
+      ## By default diaspora* adds a "Content-Security-Policy" header. If you set
+      ## this to true, the "Content-Security-Policy-Report-Only" header is added instead.
+      #report_only: true
 
       ## CSP report URI (default=)
       ## You can set an URI here, where the user agent reports violations as JSON document via a POST request.

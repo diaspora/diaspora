@@ -5,11 +5,6 @@ module Diaspora
     extend ActiveSupport::Concern
 
     included do
-      before_create do
-        # TODO: remove when most of the posts can handle the new syntax
-        self.text = Diaspora::Mentionable.backport_mention_syntax(text) if text && author.local?
-      end
-
       after_create :create_mentions
       has_many :mentions, as: :mentions_container, dependent: :destroy
     end

@@ -1,3 +1,26 @@
+# 0.8.0.0
+
+## Refactor
+* Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581)
+* Remove backporting of mention syntax [#7788](https://github.com/diaspora/diaspora/pull/7788)
+* Enable Content-Security-Policy header by default [#7781](https://github.com/diaspora/diaspora/pull/7781)
+
+## Bug fixes
+* Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
+
+## Features
+* Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
+* Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
+
+# 0.7.9.0
+
+## Refactor
+* Improve public stream performance and cleanup unused indexes [#7944](https://github.com/diaspora/diaspora/pull/7944)
+
+## Bug fixes
+
+## Features
+
 # 0.7.8.0
 
 ## Refactor
