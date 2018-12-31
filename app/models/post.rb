@@ -110,18 +110,7 @@ class Post < ApplicationRecord
   end
 
   def self.for_a_stream(max_time, order, user=nil, ignore_blocks=false)
-    scope = self.for_visible_shareable_sql(max_time, order).
-      includes_for_a_stream
-
-    if user.present?
-      if ignore_blocks
-        scope = scope.excluding_hidden_shareables(user)
-      else
-        scope = scope.excluding_hidden_content(user)
-      end
-    end
-
-    scope
+    self.for_a_ranged_stream(Date.parse('01-01-2008'), max_time, order, user, ignore_blocks)
   end
 
   def self.for_a_ranged_stream(min_time, max_time, order, user=nil, ignore_blocks=false)
