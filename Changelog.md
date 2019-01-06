@@ -24,7 +24,7 @@
 * Fix extended profile visibility switch showing the wrong state [#7955](https://github.com/diaspora/diaspora/pull/7955)
 
 ## Features
-* Suppoert ignore users on mobile [#7884](https://github.com/diaspora/diaspora/pull/7884)
+* Support ignore users on mobile [#7884](https://github.com/diaspora/diaspora/pull/7884)
 
 # 0.7.8.0
 
