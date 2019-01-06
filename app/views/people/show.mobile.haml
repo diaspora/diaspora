@@ -10,7 +10,23 @@
     %span.description
       = @person.diaspora_handle
     - if user_signed_in? && @person != current_user.person
-      = render 'aspect_memberships/aspect_membership_dropdown'
+      - if @presenter.full_hash[:block]
+        .pull-right
+          = link_to t("users.privacy_settings.stop_ignoring"),
+            block_path(@presenter.full_hash[:block][:id]),
+            class: "btn btn-danger",
+            method: :delete
+      - else
+        = render "aspect_memberships/aspect_membership_dropdown"
+    .clear
+  - if user_signed_in? && @person != current_user.person && !@presenter.full_hash[:block]
+    .mobile-icon-bar
+      = link_to "",
+        blocks_path(block: {person_id: @person.id}),
+        data: {confirm: t("are_you_sure_ignore_user")},
+        method: :post,
+        confirm: true,
+        class: "btn entypo-block shield mobile-icon-bar-button"
     .clear
   .bottom-bar
     - if !@person.tag_string.blank? && user_signed_in?

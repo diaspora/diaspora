@@ -72,17 +72,6 @@ When /^I click on my name$/ do
   click_link("#{@me.first_name} #{@me.last_name}")
 end
 
-Given /^I have an aspect called "([^\"]*)"$/ do |aspect_name|
-  @me.aspects.create!(:name => aspect_name)
-  @me.reload
-end
-
-Given /^I have following aspect[s]?:$/ do |fields|
-  fields.raw.each do |field|
-    step %{I have an aspect called "#{field[0]}"}
-  end
-end
-
 When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |username, aspect|
   user = User.find_by_username(username)
   contact = @me.reload.contact_for(user.person)
