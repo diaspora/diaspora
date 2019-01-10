@@ -1,0 +1,564 @@
+#!/bin/bash
+
+
+# ----- Usage information -----
+
+print_usage() {
+  # Print help for the first argument
+  case "$1" in
+  # management
+    setup)
+      echo; echo "Set up the environment for diaspora*"
+      echo; echo "This command is an alias for the execution of the commands"
+      echo "build, config, bundle, migrate and setup-tests, in that order."
+      print_usage_header "setup [options]" \
+        "    --force    Rebuild image without using Docker's cache;" \
+        "               overwrite existing configuration" \
+        "    --mysql    Use MySQL as database (PostgreSQL is default)"
+      ;;
+    start)
+      echo; echo "Start diaspora* (includes database)"
+      print_usage_header "start [options]" \
+        "-d    Run in background"
+      ;;
+    stop)
+      echo; echo "Stop diaspora* (includes database)"
+      print_usage_header "stop"
+      ;;
+    restart)
+      echo; echo "Restart diaspora* using bin/eye (fast restart)"
+      print_usage_header "restart [options]" \
+        "    --full    Restart entire container"
+      ;;
+    logs)
+      echo; echo "Follow log output of the running diaspora* instance"
+      print_usage_header "logs [options]" \
+        "-a, --all     Follow all containers, including databases"
+      ;;
+    status)
+      echo; echo "Show currently running diaspora* Docker container(s) and related image(s)"
+      print_usage_header "status"
+      ;;
+    clean)
+      echo; echo "Delete diaspora* Docker containers and volumes (includes database)"
+      print_usage_header "clean [options]" \
+        "    --config    Delete configuration files as well"
+      ;;
+  # test & development
+    cucumber)
+      echo; echo "Run cucumber tests"
+      echo; echo "The specified cucumber tests will be executed. If none are given, all"
+      echo "tests are executed."
+      print_usage_header "cucumber [TEST...]"
+      ;;
+    jasmine)
+      echo; echo "Run all jasmine tests"
+      print_usage_header "jasmine"
+      ;;
+    rspec)
+      echo; echo "Run rspec tests"
+      echo; echo  "The specified rspec tests will be executed. If none are given, all"
+      echo "tests will be executed."
+      print_usage_header "rspec"
+      ;;
+    pronto)
+      echo; echo "Run pronto checks"
+      print_usage_header "pronto"
+      ;;
+    migrate)
+      echo; echo "Execute pending migrations (incl. database setup)"
+      print_usage_header "migrate [options]" \
+        "-d    Run in background"
+      ;;
+  # misc
+    build)
+      echo; echo "(Re-)Build Docker image diaspora:dev-latest"
+      print_usage_header "build [options]" \
+        "    --no-cache    Rebuild image without using Docker's cache"
+      ;;
+    bundle)
+      echo; echo "Install gems using bundle into $DIASPORA_ROOT"
+      print_usage_header "bundle [options]" \
+        "-d    Run in background"
+      ;;
+    config)
+      echo; echo "Create basic configuration files for usage with PostgreSQL (default)"
+      print_usage_header "config [options]" \
+        "    --mysql       Use MySQL as database (PostgreSQL is default)" \
+        "    --overwrite   Overwrite existing configuration"
+      ;;
+    exec)
+      echo; echo "Execute a command in a diaspora* Docker container"
+      echo; echo "If there is no running diaspora* Docker container, a new one is created"
+      echo "and started."
+      print_usage_header "exec [options] COMMAND [ARGS...]" \
+        "-d    Run in background"
+      ;;
+    help)
+      echo; echo "Show help on a command"
+      print_usage_header "help COMMAND"
+      ;;
+    setup-tests)
+      echo; echo "Prepare cached files and database contents for tests"
+      print_usage_header "setup-tests"
+      ;;
+    *)
+      print_usage_full
+      ;;
+  esac
+}
+
+print_usage_header() {
+  # Print formatted usage information for COMMAND
+  # Usage: print_usage_header COMMAND [FLAG_DESCRIPTION...]
+  echo; echo "Usage:  $1"
+  shift
+  if [ $# -gt 0 ]; then
+    echo; echo "Options:"
+    while [ $# -gt 0 ]; do
+      echo "  $1"
+      shift
+    done
+  fi
+}
+
+print_usage_full() {
+  # Print overview of available commands
+  # $SCRIPT_NAME [help|-h|--help] leads here
+  echo; echo "Setup and run a diaspora instance for development in no time."
+  print_usage_header "$SCRIPT_NAME COMMAND"
+  echo
+  echo "Management Commands:"
+  echo "  setup         Prepare diaspora* to run for development"
+  echo "  start         Start diaspora*"
+  echo "  stop          Stop diaspora*"
+  echo "  restart       Restart of diaspora*"
+  echo "  logs          Follow log output of diaspora*"
+  echo "  status        Show current instance status of diaspora*"
+  echo "  clean         Reset diaspora* instance"
+  echo
+  echo "Test and Development Commands:"
+  echo "  cucumber      Run cucumber tests"
+  echo "  jasmine       Run jasmine tests"
+  echo "  rspec         Run rspec tests"
+  echo "  pronto        Run pronto checks"
+  echo "  migrate       Execute pending migrations"
+  echo
+  echo "Misc. Commands:"
+  echo "  build         Build basic diaspora* environment"
+  echo "  bundle        (Re-)Install gems for diaspora*"
+  echo "  config        Configure diaspora*"
+  echo "  exec          Execute a command in the run environment (advanced)"
+  echo "  help          Show help for commands"
+  echo "  setup-tests   Prepare diaspora* test environment"
+  echo
+  echo "Run '$SCRIPT_NAME help COMMAND' for more information on a command."
+}
+
+
+# ----- Helper functions -----
+
+dia_docker_compose() {
+  # Check permissions of docker socket and use sudo if needed
+  if [ -r "/var/run/docker.sock" ] && [ -w "/var/run/docker.sock" ]; then
+    docker-compose "$@"
+  else
+    echo "Attention: Docker socket not writable, using sudo for the docker command. You might be asked for your password now." >&2
+    sudo -E docker-compose "$@"
+  fi
+}
+
+dia_fetch_upstream() {
+  # Add and fetch upstream develop branch
+  if ! git remote show | grep -q '^upstream$'; then
+    git remote add upstream https://github.com/diaspora/diaspora.git
+  fi
+  git fetch upstream develop
+}
+
+dia_is_configured() {
+  # Check if config files exist
+  [ -f "$DIASPORA_CONFIG_DB" ] && [ -f "$DIASPORA_CONFIG_DIA" ]
+}
+
+exit_if_unconfigured() {
+  # Exit if config does not seem complete
+  if ! dia_is_configured; then
+    echo "Fatal: Config files missing. Run the 'setup' or 'config' command to configure."
+    exit 1
+  fi
+}
+
+dia_is_running() {
+  # Check if diaspora container is running
+  dia_docker_compose ps --services --filter status=running | grep -qx 'diaspora'
+}
+
+dia_is_db_running() {
+  # Check if db container is running
+  dia_docker_compose ps --services --filter status=running | grep -qx $DIASPORA_DOCKER_DB
+}
+
+dia_get_db() {
+  # Get currently configured or assumed db type
+  grep -q '^  <<: \*mysql' "$DIASPORA_CONFIG_DB" 2>/dev/null && echo mysql || echo postgresql
+}
+
+# ----- Command functions -----
+
+dia_build() {
+  if [ $# -gt 0 ] && [ "$1" == "--no-cache" ]; then nocache="--no-cache"; fi
+  # Build the diaspora Docker container (diaspora:dev-latest)
+  dia_docker_compose build $nocache diaspora
+}
+
+dia_bundle() {
+  # Run bundle in order to install all gems into $DIASPORA_ROOT
+  # Do not start database, not required and sometimes not yet configured
+  echo "Installing gems via bundler ..."
+  dia_docker_compose run \
+    --rm \
+    --no-deps $1 \
+    -e DIA_NODB=1 \
+    diaspora \
+    /bin/sh -c "gem install bundler && script/configure_bundler && bin/bundle install --full-index"
+}
+
+dia_clean() {
+  # Delete all containers and volumes
+  for i in "$@"; do
+    case "$i" in
+      --config)
+        dia_config_delete=1
+        ;;
+    esac
+  done
+  dia_docker_compose down -v
+  if [ ! -z $dia_config_delete ]; then
+    rm "$DIASPORA_CONFIG_DIA" "$DIASPORA_CONFIG_DB"
+  fi
+}
+
+dia_config() {
+  # Create rudimentary configuration files if they don't exist
+  echo "Configuring diaspora ..."
+  for i in "$@"; do
+    case "$i" in
+      --mysql)
+        dia_config_mysql=1
+        ;;
+      --overwrite)
+        dia_config_delete=1
+        ;;
+    esac
+  done
+  [ ! -f "$DIASPORA_ROOT"/public/source.tar.gz ] && touch "$DIASPORA_ROOT"/public/source.tar.gz
+  # Delete existing files if requested
+  if [ ! -z $dia_config_delete ]; then
+    rm "$DIASPORA_CONFIG_DIA" "$DIASPORA_CONFIG_DB"
+  fi
+  # Create new diaspora.yml if none exists
+  if [ ! -f "$DIASPORA_CONFIG_DIA" ]; then
+    cp "$DIASPORA_CONFIG_DIA".example "$DIASPORA_CONFIG_DIA"
+  fi
+  # Select database type
+  if [ -z $dia_config_mysql ]; then
+    export DIASPORA_DOCKER_DB=postgresql
+  else
+    export DIASPORA_DOCKER_DB=mysql
+  fi
+  # Create new database.yml if none exists
+  if [ ! -f "$DIASPORA_CONFIG_DB" ]; then
+    sed -E '
+      /^postgresql/,/^[[:alpha:]]/ {
+        s/host:.*/host: postgresql/
+        s/password.*/password: postgres/
+      }
+      /^mysql/,/^[[:alpha:]]/ {
+        s/host:.*/host: mysql/
+        s/password:.*/password: mysql/
+      }
+      /^common/,/^[[:alpha:]]/ {
+        s/^(\s+<<:).*/\1 *'$DIASPORA_DOCKER_DB'/
+      }' "$DIASPORA_CONFIG_DB".example > "$DIASPORA_CONFIG_DB"
+  fi
+  # Update exisiting database.yml to reflect correct database type
+  if [ "$(dia_get_db)" != "$DIASPORA_DOCKER_DB" ]; then
+    sed -E -i'' '
+      /^common/,/^[[:alpha:]]/ {
+        s/^(\s+<<:).*/\1 *'$DIASPORA_DOCKER_DB'/
+      }' "$DIASPORA_CONFIG_DB"
+  fi
+}
+
+dia_cucumber() {
+  # Run cucumber tests
+  if [ "$1" == "-d" ]; then detach="-d"; shift; fi
+  dia_docker_compose run \
+    --rm $detach \
+    diaspora \
+    bin/cucumber "$@"
+}
+
+dia_exec() {
+  # Run a custom command inside a running diaspora container. Start a new one if necessary.
+  exit_if_unconfigured
+  if [ "$1" == "-d" ]; then detach="-d"; shift; fi
+  if dia_is_running; then
+    # Use a running container
+    dia_docker_compose exec $detach diaspora /exec-entrypoint.sh "$@"
+  else
+    if ! dia_is_db_running; then not_running=1; fi
+    # Start a new container
+    echo "No running instance found, starting new one for command execution ..."
+    dia_docker_compose run --rm $detach --service-ports diaspora "$@"
+    if [ ! -z $not_running ]; then
+      dia_docker_compose stop $DIASPORA_DOCKER_DB
+    fi
+  fi
+}
+
+dia_jasmine() {
+  # Run jasmine tests
+  dia_docker_compose run \
+    --rm $1 \
+    -e RAILS_ENV=test \
+    diaspora \
+    bin/rake jasmine:ci
+}
+
+dia_logs() {
+  # Show logs of running diaspora* instance
+  dia_follow=diaspora
+  for i in "$@"; do
+    case "$i" in
+      -a|--all)
+        dia_follow=""
+        ;;
+    esac
+  done
+  dia_docker_compose logs -f --tail=100 $dia_follow
+}
+
+dia_migrate() {
+  # Run migrations if configured
+  echo "Creating and/or migrating database ..."
+  exit_if_unconfigured
+  dia_docker_compose run \
+    --rm $1 \
+    diaspora \
+    bin/rake db:create db:migrate
+}
+
+dia_pronto() {
+  # Run pronto checks
+  exit_if_unconfigured
+  cd "$DIASPORA_ROOT"
+  if git diff-index --quiet HEAD --; then
+    dia_fetch_upstream
+  fi
+  cd - >/dev/null
+  dia_docker_compose run \
+    --rm \
+    --no-deps \
+    diaspora \
+    bin/pronto run --unstaged -c upstream/develop
+}
+
+dia_restart() {
+  # Restart diaspora inside container if already running; start new container otherwise
+  for i in "$@"; do
+    case "$i" in
+      --full)
+        dia_restart_full=1
+        ;;
+    esac
+  done
+  if dia_is_running; then
+    if [ -z $dia_restart_full ]; then
+      dia_docker_compose exec \
+        diaspora \
+        bin/eye restart diaspora
+    else
+      dia_docker_compose restart
+    fi
+  else
+    dia_start
+  fi
+}
+
+dia_rspec() {
+  # Run rspec tests
+  exit_if_unconfigured
+  assets=""
+  # Assumption: If (and only if) the tested file is not available, assets need be regenerated
+  [ -f "$DIASPORA_ROOT"/public/404.html ] && assets="assets:generate_error_pages"
+  # Prepare database (and assets if necessary)
+  dia_docker_compose run \
+    --rm \
+    -e RAILS_ENV=test \
+    diaspora \
+    bin/rake db:create db:migrate $assets
+  # Run tests
+  dia_docker_compose run \
+    --rm \
+    diaspora \
+    bin/rspec "$@"
+}
+
+dia_setup() {
+  # Prepare the entire environment for development
+  for i in "$@"; do
+    case "$i" in
+      --force)
+        build="$build --no-cache"
+        config="$config --overwrite"
+        ;;
+      --mysql)
+        config="$config --mysql"
+        ;;
+    esac
+  done
+  (
+    set -e
+    dia_build $build
+    dia_config $config
+    dia_bundle $bundle
+    dia_migrate $migrate
+    dia_setup_tests $setup_tests
+  )
+  # stop db afterwards as it is not needed while dia is not running
+  dia_docker_compose stop $DIASPORA_DOCKER_DB
+}
+
+dia_setup_tests() {
+  # Prepare all possible tests
+  # stop db if it was not running before
+  echo "Setting up environment for tests ..."
+  if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  dia_docker_compose run \
+    --rm \
+    -e RAILS_ENV=test \
+    diaspora \
+    bin/rake db:create db:migrate tests:generate_fixtures assets:generate_error_pages
+  $stopdb
+}
+
+dia_start() {
+  # Start all containers if config appears to exist
+  exit_if_unconfigured
+  if [ $# -eq 0 ]; then
+    options=--abort-on-container-exit
+  else
+    options=$1
+  fi
+  dia_docker_compose up $options diaspora
+}
+
+dia_status() {
+  # Print running containers and current images
+  dia_docker_compose ps
+  echo
+  dia_docker_compose images
+}
+
+dia_stop() {
+  # Stop all containers
+  dia_docker_compose stop
+}
+
+
+# ----- Variables -----
+# Symlinks are treated as files
+export SCRIPT_NAME=$(basename "${BASH_SOURCE[0]}")
+export SCRIPT_ROOT=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+
+# Assumption: The script is in the "script" subfolder of the diaspora root folder
+export DIASPORA_ROOT=$(dirname "$SCRIPT_ROOT")
+export DIASPORA_ROOT_UID=1001
+export DIASPORA_ROOT_GID=1001
+export DIASPORA_CONFIG_DIA=$DIASPORA_ROOT/config/diaspora.yml
+export DIASPORA_CONFIG_DB=$DIASPORA_ROOT/config/database.yml
+export DIASPORA_DOCKER_DB=$(dia_get_db)
+
+export COMPOSE_FILE=$DIASPORA_ROOT/docker/develop/docker-compose.yml
+export COMPOSE_PROJECT_NAME=diasporadev
+
+# ----- Arg parsing -----
+if [ $# -lt 1 ]; then
+  print_usage
+  exit 1
+fi
+
+dia_command=$1
+shift
+
+case "$dia_command" in
+  --help|-h)
+    print_usage_full
+    exit 0
+    ;;
+  help)
+    if [ $# -lt 1 ]; then
+      print_usage_full
+    else
+      print_usage "$1"
+    fi
+    exit 0
+    ;;
+  build)
+    dia_build "$@"
+    ;;
+  bundle)
+    dia_bundle "$1"
+    ;;
+  clean)
+    dia_clean "$@"
+    ;;
+  config)
+    dia_config "$@"
+    ;;
+  cucumber)
+    dia_cucumber "$@"
+    ;;
+  exec)
+    dia_exec "$@"
+    ;;
+  jasmine)
+    dia_jasmine
+    ;;
+  logs)
+    dia_logs "$@"
+    ;;
+  migrate)
+    dia_migrate "$@"
+    ;;
+  pronto)
+    dia_pronto
+    ;;
+  restart)
+    dia_restart "$@"
+    ;;
+  rspec)
+    dia_rspec "$@"
+    ;;
+  setup)
+    dia_setup "$@"
+    ;;
+  setup-tests)
+    dia_setup_tests
+    ;;
+  start)
+    dia_start "$1"
+    ;;
+  status)
+    dia_status
+    ;;
+  stop)
+    dia_stop
+    ;;
+  *)
+    print_usage
+    exit 1
+    ;;
+esac

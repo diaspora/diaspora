@@ -29,8 +29,6 @@
 
           = will_paginate @people, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
 
-        %a.entypo-chevron-up.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}
-
     .col-md-4
       - if AppConfig.settings.invitations.open?
         %h4

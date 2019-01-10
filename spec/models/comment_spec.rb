@@ -119,13 +119,8 @@ describe Comment, type: :model do
   end
 
   describe "tags" do
-    let(:object) { build(:comment) }
-
-    before do
-      # shared_behaviors/taggable.rb is still using instance variables, so we need to define them here.
-      # Suggestion: refactor all specs using shared_behaviors/taggable.rb to use "let"
-      @object = object
+    it_should_behave_like "it is taggable" do
+      let(:object) { build(:comment) }
     end
-    it_should_behave_like "it is taggable"
   end
 end

@@ -79,8 +79,7 @@ describe Retraction do
     it "adds service metadata to queued job for deletion" do
       post.tweet_id = "123"
       twitter = Services::Twitter.new(access_token: "twitter")
-      facebook = Services::Facebook.new(access_token: "facebook")
-      alice.services << twitter << facebook
+      alice.services << twitter
 
       retraction = Retraction.for(post)
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)

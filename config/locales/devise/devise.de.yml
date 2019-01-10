@@ -67,7 +67,7 @@ de:
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       no_token: "Du kannst auf diese Seite nicht zugreifen, ohne von einer E-Mail zur Passwortrücksetzung zu kommen. Falls du von einer E-Mail zur Passwortrücksetzung kommst, vergewissere dich bitte, dass du die vollständige angegebene URL verwendet hast."
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Kennwort zurücksetzt."
-      send_paranoid_instructions: "Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhälst du in ein paar Minuten einen Link zum Zurücksetzen deines Passworts an deine E-Mail-Adresse."
+      send_paranoid_instructions: "Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhältst du in ein paar Minuten einen Link zum Zurücksetzen deines Passworts an deine E-Mail-Adresse."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
       updated_not_active: "Dein Passwort wurde erfolgreich geändert."
     registrations:

@@ -6,6 +6,52 @@
 
 fi:
   javascripts:
+    admin:
+      pods:
+        actions: "Toiminnot"
+        added: "Lisätty"
+        check: "suorita yhteyskokeilu"
+        follow_link: "avaa linkki selaimessa"
+        last_check: "Edellinen tarkistus:"
+        more_info: "näytä lisätietoja"
+        ms:
+          one: "<%= count %> millisekunti"
+          other: "<%= count %> millisekuntia"
+        no_info: "Lisätietoja ei ole saatavilla tällä hetkellä"
+        not_available: "ei saatavilla"
+        offline_since: "viimeisin yhteys:"
+        pod: "Pod"
+        recheck:
+          failure: "Tarkistusta ei suoritettu."
+          success: "Podi on juuri tarkistettu uudelleen."
+        response_time: "Vasteaika:"
+        server_software: "Palvelinohjelmisto:"
+        ssl: "SSL"
+        ssl_disabled: "SSL-yhteys pois päältä"
+        ssl_enabled: "SSL-yhteys aktivoitu"
+        states:
+          dns_failed: "Nimenselvitys (DNS) epäonnistui"
+          http_failed: "HTTP -yhteys epäonnistui"
+          net_failed: "Yhteysyritys epäonnistui"
+          no_errors: "OK"
+          ssl_failed: "Suojattu yhteys (SSL) epäonnistui"
+          unchecked: "Ei tarkistettu"
+          unknown_error: "Tarkistuksen aikana tapahtui määrittelemätön virhe"
+          version_failed: "Ohjelmistoversiota ei voitu määrittää."
+        status: "Tila"
+        unchecked:
+          one: "On vielä 1 podi jota ei ole tarkistettu lainkaan."
+          other: "On vielä <%= count %> podia joita ei ole tarkistettu lainkaan."
+        unknown: "tuntematon"
+        version_failed:
+          one: "On 1 podi jolla ei ole versiota (vanha podi, NodeInfo puuttuu)."
+          other: "On <%= count %> podia joilla ei ole versioita (vanhat podit, NodeInfot puuttuvat)."
+    admins:
+      dashboard:
+        compare_versions: "Viimeisin diaspora* julkaisu on <%= latestVersion %>, sinun podisi käyttää <%= podVersion %>"
+        error: "Diasporan* viimeisintä versiota ei voitu määrittää."
+        outdated: "Podisi on vanhentunut."
+        up_to_date: "Podisi on ajan tasalla!"
     and: "ja"
     aspect_dropdown:
       add_to_aspect: "Lisää kontakti"
@@ -35,7 +81,6 @@ fi:
         add_a_new_aspect: "Lisää näkymä"
         failure: "Näkymän luominen epäonnistui."
         success: "Uusi näkymäsi <%= name %> on luotu"
-      make_aspect_list_visible: "Salli tämän näkymän kontaktien nähdä toisensa?"
       name: "Nimi"
     bookmarklet:
       post_something: "Lähetä julkaisu Diasporaan"
@@ -51,18 +96,22 @@ fi:
     confirm_unload: "Vahvista, että haluat poistua tältä sivulta. Syöttämiäsi tietoja ei tallenneta."
     contacts:
       add_contact: "Lisää kontakti"
-      aspect_list_is_not_visible: "Tämän näkymän kontaktit eivät voi nähdä toisiaan."
-      aspect_list_is_visible: "Tämän näkymän kontaktit voivat nähdä toisensa."
+      aspect_chat_is_enabled: "Tämän näkymän kontaktit voivat lähettää sinulle pikaviestejä."
+      aspect_chat_is_not_enabled: "Tämän näkymän kontaktit eivät voi lähettää sinulle pikaviestejä."
       error_add: "Henkilön <%= name %> lisääminen näkymään ei onnistunut :("
       error_remove: "Käyttäjää <%= name %> ei voitu poistaa näkymästä :("
       remove_contact: "Poista kontakti"
       search_no_results: "Kontakteja ei löytynyt"
     conversation:
+      create:
+        no_recipient: "Vastaanottaja puuttuu"
       new:
         no_contacts: "Sinun pitää lisätä muutamia kontakteja ennen kuin voit aloittaa keskustelun."
     create: "Luo"
     delete: "Poista"
     edit: "Muokkaa"
+    errors:
+      connection: "Palvelimeen ei saada yhteyttä."
     failed_to_post_message: "Viestin lähetys epäonnistui!"
     failed_to_remove: "Lisäyksen poistaminen epäonnistui!"
     getting_started:
@@ -85,6 +134,8 @@ fi:
       recent_notifications: "Tuoreet ilmoitukset"
       search: "Etsi"
       settings: "Asetukset"
+      toggle_mobile: "Mobiilisivusto päälle/pois"
+      toggle_navigation: "Navigaatio päälle/pois"
       view_all: "Näytä kaikki"
     hide_post: "Piilota tämä julkaisu?"
     hide_post_failed: "Tätä julkaisua ei voitu piilottaa"
@@ -98,6 +149,9 @@ fi:
     notifications:
       mark_read: "Merkitse luetuksi"
       mark_unread: "Merkitse lukemattomaksi"
+      new_notifications:
+        one: "Sinulla on <%= count %> lukematon ilmoitus"
+        other: "Sinulla on <%= count %> lukemattomia ilmoituksia"
     people:
       edit_my_profile: "Muokkaa profiiliani"
       helper:
@@ -114,7 +168,12 @@ fi:
       invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain päätteet {extensions} ovat sallittuja."
       looking_good: "OMG, näytät upealta!"
       size_error: "Tiedosto {file} on liian iso, suurin sallittu tiedostokoko on {sizeLimit}"
+      upload_photos: "Lataa kuvia"
     poll:
+      answer_count:
+        one: "1 ääni"
+        other: "<%=count%> ääntä"
+        zero: "Ei ääniä"
       close_result: "Piilota tulokset"
       count:
         one: "<%=count%> ääni tähän mennessä"
@@ -124,11 +183,11 @@ fi:
       result: "Tulos"
       show_result: "Näytä tulokset"
       vote: "Äänestä"
+      your_vote: "Äänesi"
     profile:
       add_some: "Lisää niitä"
       bio: "Elämäkerta"
       born: "Syntymäpäivä"
-      contacts: "Kontaktit"
       edit: "Muokkaa"
       gender: "Sukupuoli"
       location: "Sijainti"
@@ -137,6 +196,35 @@ fi:
       you_have_no_tags: "Sinulla ei ole tageja!"
     publisher:
       add_option: "Lisää vastaus"
+      markdown_editor:
+        preview: "Esikatselu"
+        texts:
+          code: "koodi tähän"
+          heading: "otsikkoteksti"
+          insert_image_description_text: "lisää kuvan kuvaus tähän"
+          insert_image_help_text: "Lisää kuvan linkki tähän"
+          insert_image_title: "syötä kuvan nimi tänne"
+          insert_link_description_text: "kirjoita linkin kuvaus tähän"
+          insert_link_help_text: "Lisää linkki tähän"
+          italic: "kursiiviteksti"
+          list: "listan teksti tähän"
+          quote: "Lainausteksti tässä"
+          strong: "korostettu teksti"
+        tooltips:
+          bold: "Lihavoi"
+          cancel: "Kumoa viesti"
+          code: "Lisää koodi"
+          heading: "Otsikko"
+          insert_image: "Lisää kuva"
+          insert_link: "Lisää linkki"
+          insert_ordered_list: "Lisää järjestetty lista"
+          insert_unordered_list: "Lisää järjestämätön lista"
+          italic: "Kursivoi"
+          preview: "Viestin esikatselu"
+          quote: "Lisää lainaus"
+          write: "Muokkaa viestiä"
+        write: "Kirjoita"
+      mention_success: "Onnistuneesti mainittu: <%= names %>"
       near_from: "Lähetetty sijainnista: <%= location %>"
       option: "Vastaus"
       question: "Kysymys"
@@ -151,9 +239,14 @@ fi:
     reshares:
       post: "Jaa käyttäjän <%= name %> julkaisu?"
       successful: "Julkaisu jaettiin onnistuneesti!"
+    show_all: "Näytä kaikki"
     show_more: "Näytä lisää"
     stream:
       comment: "Kommentoi"
+      comments:
+        one: "<%= count %> kommentti"
+        other: "<%= count %> kommentteja"
+        zero: "<%= count %> kommentteja"
       disable_post_notifications: "Poista ilmoitukset käytöstä tästä julkaisusta"
       enable_post_notifications: "Ota ilmoitukset käyttöön tälle julkaisulle"
       follow: "Seuraa"
@@ -179,7 +272,9 @@ fi:
         other: "Näytä <%= count %> muuta kommenttia"
         two: "Näytä <%= count %> muuta kommenttia"
         zero: "Näytä <%= count %> muuta kommenttia"
+      no_posts_yet: "Ei näytettäviä julkaisuja."
       original_post_deleted: "Lähettäjä on poistanut alkuperäisen julkaisun."
+      permalink: "Pysyvä linkki"
       public: "Julkinen"
       reshare: "Jaa uudelleen"
       reshares:
@@ -210,6 +305,7 @@ fi:
       hour: "noin tunti"
       hours:
         other: "noin %d tuntia"
+      inPast: "milloin tahansa"
       minute: "noin minuutti"
       minutes:
         other: "%d minuuttia"

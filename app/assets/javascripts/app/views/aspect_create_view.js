@@ -21,10 +21,6 @@ app.views.AspectCreate = app.views.Base.extend({
     });
   },
 
-  _contactsVisible: function() {
-    return this.$("#aspect_contacts_visible").is(":checked");
-  },
-
   _name: function() {
     return this.$("#aspect_name").val();
   },
@@ -71,8 +67,7 @@ app.views.AspectCreate = app.views.Base.extend({
 
     app.aspects.create({
       "person_id": this._personId || null,
-      "name": this._name(),
-      "contacts_visible": this._contactsVisible()
+      "name": this._name()
     });
   },
 

@@ -231,7 +231,7 @@ describe "diaspora federation callbacks" do
       expect(key.to_s).to eq(person.serialized_public_key)
     end
 
-    it "returns nil for an unknown person" do
+    it "forwards the DiscoveryError when the person can't be fetched" do
       diaspora_id = Fabricate.sequence(:diaspora_id)
       expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
         .and_raise(DiasporaFederation::Discovery::DiscoveryError)
@@ -428,6 +428,26 @@ describe "diaspora federation callbacks" do
 
       expect(entity.guid).to eq(post.guid)
       expect(entity.author).to eq(alice.diaspora_handle)
+    end
+
+    it "fetches a StatusMessage by a Poll guid" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      poll = FactoryGirl.create(:poll, status_message: post)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Poll", poll.guid)
+
+      expect(entity.guid).to eq(post.guid)
+      expect(entity.author).to eq(alice.diaspora_handle)
+      expect(entity.public).to be_truthy
+      expect(entity.poll.guid).to eq(poll.guid)
+      expect(entity.poll.question).to eq(poll.question)
+    end
+
+    it "doesn't fetch a private StatusMessage by a Poll guid" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: false)
+      poll = FactoryGirl.create(:poll, status_message: post)
+      expect(
+        DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Poll", poll.guid)
+      ).to be_nil
     end
 
     it "does not fetch a private post" do

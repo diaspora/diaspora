@@ -251,8 +251,6 @@ de-CH:
       change_aspect_of_post_q: "Wenn ich öppis posted ha, chann ich no d'Aspekt(e) wos chöne gseh ändere?"
       contacts_know_aspect_a: "Nei. Si chönne de Name vom Aspekt onder kene Bedingige gseh"
       contacts_know_aspect_q: "Wösse mini Kontökt i welne Aspekt mini Kontäkt send?"
-      contacts_visible_a: "When du die Option aktiviersch, denne chöne Kontäkt vo dem Aspekt gseh wer söscht no im gliiche Aspekt esch. Esch esch am beschte, wenn du die Option nor aktiviersch, wenn alli em Aspekt sech kenne. Zom Biispel, wenn de Aspekt zo emene Club oder enere Organisation ghört, wo du ou debii besch. Sie wärde trotzdem ned chönne gseh wie de Aspekt heisst."
-      contacts_visible_q: "Was heisst \"mach Kontäkt i dem Aspekt sechtbar förenand\"?"
       delete_aspect_q: "Wie chan ich en Aspekt lösche?"
       person_multiple_aspects_q: "Chan ich en Person zo mehrere Aspekt henzuefüege?"
       post_multiple_aspects_q: "Chan ich Sache zo mehrere Aspekt gliichzitig henzuefüege?"
@@ -342,6 +340,8 @@ de-CH:
   layouts:
     application:
       back_to_top: "Zrugg zum Aafang"
+      be_excellent: "Sind lieb zunenand! ♥"
+      discourse: "Projektdiskussione und Hilf"
       powered_by: "Es lauft mit diaspora*"
       public_feed: "Öffentliche diaspora* Feed vo %{name}"
       source_package: "Lad's Quellcodepaket abe"
@@ -353,6 +353,7 @@ de-CH:
       logout: "Abmelde"
       profile: "Profil"
       settings: "Iistellige"
+      toggle_navigation: "Navigation umschalte"
   likes:
     destroy:
       error: "Gfallt mer nüme isch fehlgschlage."
@@ -370,6 +371,9 @@ de-CH:
       one: "%{actors} het din Biitrag %{post_link} kommentiert."
       other: "%{actors} hend din Biitrag %{post_link} kommentiert."
       zero: "Niemer het din Biitrag %{post_link} kommentiert."
+    contacts_birthday:
+      one: "%{actors} het geburtstag am %{date}"
+      other: "%{actors} hend ihren geburtstag am %{date}"
     index:
       all_notifications: "Alli Benochritigunge"
       also_commented: "Au kommentiert"
@@ -379,14 +383,15 @@ de-CH:
         other: "und %{count} anderi"
         zero: "und niemer susch"
       comment_on_post: "Kommentar bim Biitrag"
+      contacts_birthday: "Geburtstag"
       liked: "Gfallt"
       mark_all_as_read: "Ali als glese markiere"
       mark_all_shown_as_read: "Alli als glese markiere"
       mark_read: "Als glese markiere"
       mark_unread: "Als unglese markiere"
-      mentioned: "Erwähnt"
+      mentioned: "imene Biitrag erwähnt"
       no_notifications: "Du hesch kei Benochrichtigunge bis etz."
-      notifications: "Benochtichtigunge"
+      notifications: "Benochrichtigunge"
       reshared: "Wiitergseit"
       show_all: "Alli aazeige"
       show_unread: "Ungleseni aazeige"
@@ -429,6 +434,10 @@ de-CH:
     confirm_email:
       click_link: "Klick uf dä Link zum dini neu E-Mail-Adresse %{unconfirmed_email} z'aktiviere:"
       subject: "Bitte aktivier dini neu E-Mail-Adresse %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} het hüt geburtstag, wünsch doch 'Ales gueti :) ' !"
+      subject: "%{name} het hüt geburtstag"
+      view_profile: "luegs profil vo %{name} aa"
     email_sent_by_diaspora: "Das E-Mail isch vo %{pod_name} gschickt worde. Wenn du kei söttigi E-Mails me willsch,"
     export_email:
       subject: "Dini persönliche Date sind bereit zum abelade, %{name}."
@@ -543,7 +552,7 @@ de-CH:
   photos:
     create:
       integrity_error: "Fotiupload isch fehlgschlage... Bisch sicher das da e Bild gsi isch?"
-      runtime_error: "Fotiupload isch fehlgschlage... Bisch sicher das ali Tasse im Chuchichäschtli sind?"
+      runtime_error: "Fotiupload isch fehlgschlage... Bisch sicher das ali Tasse im Chuchichäschtli sind? ( Nöd gnauer verstandene fehler passiert... nomal ? )"
       type_error: "Fotiupload isch fehlgschlage... Bisch sicher das es Bild iigfüegt worde isch?"
     destroy:
       notice: "Foti glöscht."
@@ -654,7 +663,7 @@ de-CH:
       control_your_audience: "Kontrollier dini Ziilgruppe"
       logged_in: "Igglogt in %{service}"
       manage: "Verbundeni Dienscht verwalte"
-      new_user_welcome_message: "Nutz #hashtags zum dini Biiträg z'tägge und lüüt mit ähnliche intresse z'finde. Erwähn anderi Lüüt mit @Mentions"
+      new_user_welcome_message: "Benutz #hashtags zum dini Biiträg z'tägge und lüüt mit ähnliche intresse z'finde. Erwähn anderi Lüüt mit @Mentions"
       outside: "Öffentlichi Biiträg sind für's gsamte Internet sichtbar."
       share: "Teilä"
       title: "Verbundeni Dienscht verwalte"
@@ -760,6 +769,7 @@ de-CH:
       also_commented: "öpper en Biitrag kommentiert wo du au scho kommentiert häsch"
       auto_follow_aspect: "Aspekt für Benutzer mit dene du automatisch afangsch teile:"
       auto_follow_back: "Automatisch mit Benutzer zruggteile wo agfange hend mit dir z'teile"
+      birthday: "öpper geburtstag het"
       change: "Ändere"
       change_color_theme: "Farbthema ändere"
       change_email: "E-Mail-Adresse ändere"
@@ -787,7 +797,6 @@ de-CH:
       export_in_progress: "Mir verarbeitet grad dini Date. Bitte chum in es paar Moment wieder verbii."
       export_photos_in_progress: "Mir verarbeitet grad dini Fotis, bitte lueg chli spöter nomal verbii."
       following: "\"Teile\"-Iistelige"
-      last_exported_at: "Z'lescht aktualisiert am %{timestamp}"
       liked: "öpperem en Biitrag vo dir gfallt"
       mentioned: "du @erwähnt wirsch"
       new_password: "Neus Passwort"
@@ -809,8 +818,6 @@ de-CH:
     getting_started:
       awesome_take_me_to_diaspora: "Grossartig! Bring mi zu diaspora*"
       community_welcome: "d'diapora*-Mensche sind froh di an Bord z'ha!"
-      connect_to_facebook: "Mer chönd das ganze chli schnäller mache wenn du %{link}, demit werdet din Name und dis Profilbild do igfüegt und d'Crossposting-Funktion aktiviert."
-      connect_to_facebook_link: "dis Facebook-Konto mit diaspora* verbindsch"
       hashtag_explanation: "Mit hashtags chasch du über Sache rede und dini Intresse folge. Usserdem eignet si sich hervorragend zum neui lüüt uf diaspora* z'finde."
       hashtag_suggestions: "Versuech's mal tags wie zb. #kunscht, #film, #chääs etc."
       well_hello_there: "Halli Hallo!"

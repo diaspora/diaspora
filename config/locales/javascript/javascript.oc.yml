@@ -81,7 +81,6 @@ oc:
         add_a_new_aspect: "Apondre un aspècte novèl"
         failure: "La creacion de l'aspècte a fracassat."
         success: "Vòstre novèl aspècte <%= name %> es estat creat"
-      make_aspect_list_visible: "Permetre als contactes d'aqueste aspècte de se veire entre eles ?"
       name: "Nom"
     bookmarklet:
       post_something: "Publicar sus diaspora*"
@@ -99,8 +98,6 @@ oc:
       add_contact: "Apondre aqueste contacte"
       aspect_chat_is_enabled: "Los contactes d'aqueste aspècte pòdon discutir amb vos."
       aspect_chat_is_not_enabled: "Los contactes d'aqueste aspècte pòdon pas discutir amb vos."
-      aspect_list_is_not_visible: "Los contactes d'aquest aspècte se pòdon pas veire entre eles."
-      aspect_list_is_visible: "Los contactes d'aqueste aspècte se pòdon veire entre eles."
       error_add: "Impossible d'apondre <%= name %> a aquesta facieta :("
       error_remove: "Impossible de levar <%= name %> a aquesta facieta :("
       remove_contact: "Levar aqueste contacte"
@@ -193,7 +190,6 @@ oc:
       add_some: "N'apondre"
       bio: "Biografia"
       born: "Anniversari"
-      contacts: "Contactes"
       edit: "Modificar"
       gender: "Sèxe"
       location: "Localizacion"
@@ -243,7 +239,7 @@ oc:
         created: "Lo senhalament es estat creat amb succès."
         exists: "Lo senhalament existís ja"
     reshares:
-      post: "Repartejar lo messatge a <%= name %> ?"
+      post: "Tornar partejar lo messatge de <%= name %> ?"
       successful: "Lo messatge es estat repartejat !"
     show_all: "O mostrar tot"
     show_more: "N'afichar mai"

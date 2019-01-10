@@ -1,0 +1,37 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ja-KS:
+  javascripts:
+    bookmarklet:
+      post_something: "ダイアスポラにつぶやく"
+    cancel: "やめとく"
+    confirm_dialog: "ほんまにええの？"
+    people:
+      not_found: "…1人も見つからへんかった"
+    reshares:
+      post: "<%= name %>さんの投稿をわけわけしたろか?"
+    stream:
+      comment: "つっこむ"
+      comments:
+        other: "つっこみ <%= count %>件"
+        zero: "つっこみなし"
+      like: "ええやん！"
+      likes:
+        other: "ええやん！ <%= count %>件"
+        zero: "ええやん！なし"
+      reshare: "わけわけ"
+      reshares:
+        other: "沸け分け <%= count %>件"
+        zero: "わけわけなし"
+      unlike: "ええやん！を取消"
+    timeago:
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: ""
+      suffixFromNow: ""
+    viewer:
+      reshared: "わけわけした"

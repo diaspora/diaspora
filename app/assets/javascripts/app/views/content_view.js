@@ -63,7 +63,29 @@ app.views.Content = app.views.Base.extend({
     }
   },
 
+  // This function is called when user clicks cover for HTML5 embedded video
+  onVideoThumbClick: function(evt) {
+    var clickedThumb;
+    if ($(evt.target).hasClass("thumb")) {
+      clickedThumb = $(evt.target);
+    } else {
+      clickedThumb = $(evt.target).parent(".thumb");
+    }
+    clickedThumb.find(".video-overlay").addClass("hidden");
+    clickedThumb.parents(".collapsed").children(".expander").click();
+    var video = clickedThumb.find("video");
+    video.attr("controls", "");
+    video.get(0).load();
+    video.get(0).play();
+    clickedThumb.unbind("click");
+  },
+
+  bindMediaEmbedThumbClickEvent: function() {
+    this.$(".media-embed .thumb").bind("click", this.onVideoThumbClick);
+  },
+
   postRenderTemplate : function(){
+    this.bindMediaEmbedThumbClickEvent();
     _.defer(_.bind(this.collapseOversized, this));
 
     // run collapseOversized again after all contained images are loaded
@@ -93,6 +115,8 @@ app.views.StatusMessage = app.views.Content.extend({
 
 app.views.ExpandedStatusMessage = app.views.StatusMessage.extend({
   postRenderTemplate : function(){
+    this.bindMediaEmbedThumbClickEvent();
+
     var photoAttachments = this.$(".photo-attachments");
     if(photoAttachments.length > 0) {
       new app.views.Gallery({ el: photoAttachments });

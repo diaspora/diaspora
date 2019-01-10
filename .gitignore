@@ -16,6 +16,7 @@ vendor/bundle/
 vendor/cache/
 config/database.yml
 config/oidc_key.pem
+config/schedule.yml
 
 # Generated files
 log/
@@ -50,9 +51,9 @@ public/source.tar*
 tmp/
 
 # Temporary files of every sort
+.byebug_history
 .sass-cache/
 .DS_Store
-.idea
 .redcar
 .stgit*
 *.swap
@@ -71,6 +72,8 @@ capybara-*.html
 *.rbc
 
 # IDE
+.idea
+.vscode
 diaspora.iml
 
 # Dolphin's directory's preferences files

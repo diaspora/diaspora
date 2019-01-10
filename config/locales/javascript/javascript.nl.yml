@@ -84,7 +84,6 @@ nl:
         add_a_new_aspect: "Nieuw aspect toevoegen"
         failure: "Creëren aspect mislukt."
         success: "Je nieuwe aspect <%= name %> is gecreëerd"
-      make_aspect_list_visible: "Contacten in dit aspect zichtbaar maken voor elkaar?"
       name: "Naam"
     bookmarklet:
       post_something: "Plaatsen op diaspora*"
@@ -102,8 +101,6 @@ nl:
       add_contact: "Toevoegen contact"
       aspect_chat_is_enabled: "Contactpersonen in dit aspect kunnen met jou chatten."
       aspect_chat_is_not_enabled: "Contactpersonen in dit aspect kunnen niet met jou chatten."
-      aspect_list_is_not_visible: "Contactpersonen in dit aspect kunnen elkaar niet zien."
-      aspect_list_is_visible: "Contactpersonen in dit aspect kunnen elkaar zien."
       error_add: "Kon <%= name %> niet toevoegen aan het aspect :("
       error_remove: "Kon <%= name %> niet verwijderen uit het aspect :("
       remove_contact: "Verwijder contact"
@@ -116,6 +113,8 @@ nl:
     create: "Creëren"
     delete: "Verwijder"
     edit: "Bewerken"
+    errors:
+      connection: "Geen verbinding met de server."
     failed_to_post_message: "Bericht plaatsen mislukt!"
     failed_to_remove: "Kon het bericht niet verwijderen!"
     getting_started:
@@ -191,7 +190,6 @@ nl:
       add_some: "Voeg wat toe"
       bio: "Bio"
       born: "Verjaardag"
-      contacts: "Contacten"
       edit: "Bewerken"
       gender: "Geslacht"
       location: "Locatie"
@@ -205,6 +203,7 @@ nl:
         texts:
           code: "code hier"
           heading: "Koptekst"
+          insert_image_description_text: "geef afbeelding beschrijving hier"
           insert_image_help_text: "Voeg afbeelding link hier in"
           insert_image_title: "voeg hier afbeeldingstekst in"
           insert_link_help_text: "Voeg link hier in"

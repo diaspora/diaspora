@@ -14,10 +14,13 @@ module PublishingCukeHelpers
 
   def upload_file_with_publisher(path)
     page.execute_script(%q{$("input[name='qqfile']").css("opacity", '1');})
+    image_count = all(".publisher_photo img", wait: false).count
     with_scope("#publisher-textarea-wrapper") do
       attach_file("qqfile", Rails.root.join(path).to_s)
       # wait for the image to be ready
       page.assert_selector(".publisher_photo.loading", count: 0)
+      page.assert_selector(".publisher_photo img", count: image_count + 1)
+      page.assert_selector(".publisher_photo img.hidden", count: 0)
     end
   end
 
@@ -26,13 +29,17 @@ module PublishingCukeHelpers
     submit_publisher
   end
 
+  def visible_text_from_markdown(text)
+    CGI.unescapeHTML(ActionController::Base.helpers.strip_tags(Diaspora::MessageRenderer.new(text).markdownified)).strip
+  end
+
   def submit_publisher
     txt = find("#publisher #status_message_text").value
     find("#publisher .btn-primary").click
     # wait for the publisher to be closed
     expect(find("#publisher")["class"]).to include("closed")
     # wait for the content to appear
-    expect(find("#main-stream")).to have_content(txt)
+    expect(find("#main-stream")).to have_content(visible_text_from_markdown(txt))
   end
 
   def click_and_post(text)

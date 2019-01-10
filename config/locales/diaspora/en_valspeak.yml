@@ -275,8 +275,6 @@ en_valspeak:
       change_aspect_of_post_q: "So like, once ive posted somethin, can i like.. change the aspect(z) that can like.. see it? :o"
       contacts_know_aspect_a: "nah. they cant."
       contacts_know_aspect_q: "do like... my BFFs kno which aspects i like.. put them in?"
-      contacts_visible_a: "If u like, pick this option then ppl from that aspect will like... b able 2 c who else is in it on ur profile under ur pic. its like... best 2 pick this option only if like... the ppl in the aspect all kno each other. but like, they still wont kno wat the aspect is called, kay?"
-      contacts_visible_q: "so like, what does \"make BFFs in this aspect able to be seen by each other\" mean? its moar confusin than my Math class."
       delete_aspect_a: "So like, in ur list of aspectz on the left side of the main page thingy, point ur mouse at like... the aspect u wanna trash. click the adorable little 'edit' pencil thingy that comes up on the right. then like, click the trash button in the box that comes up. Kay?"
       delete_aspect_q: "How do I like... trash a group?"
       person_multiple_aspects_a: "Ya. Like, go 2 ur BFFs page n click on my BFFs. for each BFF u can like... use the menu on the right 2 add them 2 (or like... trash them from) as many aspectz as u want. or u can like... add them 2 a new aspect (or trash them from an aspect) by like.. clickin the aspect picker button on their profile. or u can even like... just move the pointer thingy over their name where u like.. c it n the stream, n a 'hover-card' will like... come up. u can change the aspectz they r in right tharrr <3"
@@ -828,7 +826,6 @@ en_valspeak:
       services_explanation: "Connectin 2 servies gives u like... the ability 2 post ur posties 2 them as u write them in d*! :p"
       share_to: "share 2 %{provider}"
     provider:
-      facebook: "fb"
       tumblr: "tmblr"
       twitter: "Twittar<333"
       wordpress: "WurdPress"
@@ -981,7 +978,6 @@ en_valspeak:
       export_in_progress: "We're gettin ur data... bbl!!!! <3"
       export_photos_in_progress: "So like, we're currently gettin ur photos and junk. Bbl! <3"
       following: "Sharin settins"
-      last_exported_at: "(So like, last updated @ %{timestamp})"
       liked: "some1 likes ur postie"
       mentioned: "u r mentioned in a postie"
       new_password: "New passwerd(;"
@@ -1003,8 +999,6 @@ en_valspeak:
     getting_started:
       awesome_take_me_to_diaspora: "Sweet! Take me 2 d*!!!"
       community_welcome: "omg, like, thx for comin! <3"
-      connect_to_facebook: "We can like, speed things up a lil by %{link} 2 d*. This will like, pull ur name n pic n allow cross-posties <3"
-      connect_to_facebook_link: "hookin up ur FB account"
       hashtag_explanation: "Ok so like, hashtags allow u 2 talk bout n follow ur interests.  theyre like... also a sweet way 2 find new ppl on d* :D"
       hashtag_suggestions: "Try followin tags like #justinbeiber #16andpregnant #monster #xbox and stuff.."
       well_hello_there: "Ohai thar! <3"

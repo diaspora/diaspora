@@ -18,6 +18,7 @@
 //= require jquery.autoSuggest.custom
 //= require fine-uploader/fine-uploader.core
 //= require handlebars.runtime
+//= require_tree ../templates
 //= require posix-bracket-expressions
 //= require markdown-it
 //= require markdown-it-diaspora-mention
@@ -26,6 +27,7 @@
 //= require markdown-it-sanitizer
 //= require markdown-it-sub
 //= require markdown-it-sup
+//= require markdown-it-html5-embed
 //= require highlightjs
 //= require clear-form
 //= require corejs-typeahead
@@ -43,4 +45,7 @@
 //= require api/authorization_page
 //= require bootstrap-markdown/bootstrap-markdown
 //= require helpers/markdown_editor
+//= require helpers/protocol_handler
 //= require jquery.are-you-sure
+//= require cropperjs/dist/cropper.js
+//= require pica

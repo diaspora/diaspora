@@ -37,6 +37,10 @@ class StatusMessage < Post
     owned_or_visible_by_user(person.owner).joins(:mentions).where(mentions: {person_id: person.id})
   }
 
+  def self.model_name
+    Post.model_name
+  end
+
   def self.guids_for_author(person)
     Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
   end
@@ -46,7 +50,7 @@ class StatusMessage < Post
   end
 
   def self.public_tag_stream(tag_ids)
-    all_public.tag_stream(tag_ids)
+    all_public.select("DISTINCT #{table_name}.*").tag_stream(tag_ids)
   end
 
   def self.tag_stream(tag_ids)
@@ -58,7 +62,11 @@ class StatusMessage < Post
   end
 
   def comment_email_subject
-    message.title
+    if message.present?
+      message.title
+    elsif photos.present?
+      I18n.t("posts.show.photos_by", count: photos.size, author: author_name)
+    end
   end
 
   def first_photo_url(*args)

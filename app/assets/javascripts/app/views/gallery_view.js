@@ -31,12 +31,20 @@ app.views.Gallery = app.views.Base.extend({
     return {
       index: link,
       event: event,
-      hidePageScrollbars: false,
-      disableScroll: true,
       continuous: true,
       toggleControlsOnReturn: false,
       onopened: this.preventHideControls,
-      slideshowInterval: 2000
+      slideshowInterval: 2000,
+      onslidecomplete: function(index, slide) {
+        // If the image is very tall (more than twice its width), then it is scrollable instead of resized
+        var image = slide.firstElementChild;
+        if (image.naturalHeight > window.innerHeight && image.naturalHeight > image.naturalWidth * 2) {
+          image.classList.add("too-tall");
+        } else {
+          var margins = 95; // Margins are 80px for thumbnails height and 15px for top image margin
+          image.style = "max-height: " + (window.innerHeight - margins) + "px";
+        }
+      }
     };
   }
 });

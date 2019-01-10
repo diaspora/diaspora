@@ -12,6 +12,7 @@ sk:
         resend_confirmation: "Znova mi pošlite pokyny na potvrdenie"
       send_instructions: "O niekoľko minút dostaneš e-mail s pokynmi na potvrdenie svojho účtu."
     failure:
+      already_authenticated: "Už si sa prihlásil/a/."
       inactive: "Tvoj účet ešte nebol aktivovaný."
       invalid: "Neplatné používateľské meno alebo heslo."
       invalid_token: "Neplatné identifikačné číslo."
@@ -57,13 +58,19 @@ sk:
         no_account: "Účet s takouto e-mailovou adresou neexistuje"
         reset_password: "Obnoviť heslo"
         send_password_instructions: "Pošlite mi pokyny na zmenu hesla"
+      no_token: "Na túto stránku sa môžeš dostať iba z e-mailu na obnovenie hesla. Ak ideš z neho, skontroluj, či si zadal/a/ celú URL adresu."
       send_instructions: "O niekoľko minút dostaneš e-mail s pokynmi, ako si zmeniť heslo."
+      send_paranoid_instructions: "Ak je Tvoja e-mailová adresa v našej databáze, za niekoľko minút dostaneš e-mail s odkazom na obnovenie hesla."
       updated: "Tvoje heslo bolo úspešne zmenené. Teraz si prihlásený (-á)."
+      updated_not_active: "Úspešne si si zmenil/a/ heslo."
     registrations:
       destroyed: "Maj sa! Tvoj účet bol úspešne zrušený. Dúfame, že ťa čoskoro znova stretneme."
       signed_up: "Úspešne si sa zaregistroval(a). Ak je táto možnosť aktivovaná, potvrdíme ti to e-mailom."
+      signed_up_but_inactive: "Úspešne si sa zaregistroval/a/. Nemohli sme Ťa však prihlásiť, lebo Tvoj účet ešte nie je aktivovaný."
+      signed_up_but_locked: "Úspešne si sa zaregistroval/a/. Nemohli sme Ťa však prihlásiť, lebo Tvoj účet je zamknutý."
       updated: "Úspešne si si aktualizoval(a) účet."
     sessions:
+      already_signed_out: "Odhlásenie úspešné."
       new:
         login: "Prihlásiť sa"
         modern_browsers: "podporuje len moderné prehliadače."
@@ -85,6 +92,7 @@ sk:
       new:
         resend_unlock: "Znova poslať pokyny na odomknutie účtu"
       send_instructions: "O niekoľko minút dostaneš e-mail s pokynmi, ako si odomknúť svoj účet."
+      send_paranoid_instructions: "Ak Tvoj účet existuje, dostaneš e-mail s pokynmi, ako ho za niekoľko minúť odomknúť."
       unlocked: "Tvoj účet bol úspešne odomknutý. Teraz si prihlásený (-á)."
   errors:
     messages:

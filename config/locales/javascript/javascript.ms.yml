@@ -19,14 +19,14 @@ ms:
         other: "dalam <%= count %> aspek"
         zero: "Pilih aspek"
     aspect_navigation:
-      add_an_aspect: "+ Tambah sebuah aspek"
+      add_an_aspect: "+ Tambah aspek"
       deselect_all: "menyahpilih semua"
       no_aspects: "Tiada aspek yang dipilih"
       select_all: "Pilih semua"
     bookmarklet:
       post_something: "Pos kepada diaspora*"
       post_submit: "Menghantar pos..."
-      post_success: "Disiarkan! Menutup tetingkap popup..."
+      post_success: "Diposkan! Menutup tetingkap popup..."
     comma: ","
     comments:
       hide: "sembunyi komen"
@@ -36,14 +36,12 @@ ms:
     confirm_unload: "Sila sahkan bahawa anda mahu meninggalkan halaman ini - data yang telah anda masukkan tidak akan disimpan."
     contacts:
       add_contact: "Tambah kenalan"
-      aspect_list_is_not_visible: "Kenalan dalam aspek ini tidak dapat melihat satu sama lain."
-      aspect_list_is_visible: "Kenalan dalam aspek ini dapat melihat satu sama lain."
       error_add: "Tidak dapat menambah <%= name %> kepada aspek :("
       error_remove: "Tidak dapat membuang <%= name %> dari aspek :("
       remove_contact: "Buang kenalan"
     edit: "Edit"
     failed_to_post_message: "Gagal untuk pos mesej!"
-    failed_to_remove: "Gagal membuang catatan!"
+    failed_to_remove: "Gagal membuang entri!"
     getting_started:
       alright_ill_wait: "Baiklah, saya akan tunggu."
       hey: "Hei, <%= name %>!"
@@ -70,51 +68,47 @@ ms:
       not_found: "...dan tiada orang yang dijumpai."
       stop_ignoring: "Berhenti mengabaikan"
     photo_uploader:
-      completed: "<%= file %> siap"
-      empty: "{file} kosong, sila pilih fail sekali lagi tanpa ia."
+      completed: "<%= file %> selesai"
+      empty: "{file} kosong, sila pilih fail sekali lagi tanpanya."
       error: "Berlaku masalah semasa memuat naik fail <%= file %>"
       invalid_ext: "{file} mempunyai sambungan tidak sah. Hanya {extensions} dibenarkan."
       looking_good: "Wah, anda nampak hebat! \n"
-      size_error: "{file} terlalu besar, saiz fail maksimum adalah {sizeLimit}"
+      size_error: "{file} terlalu besar, saiz fail maksimum ialah {sizeLimit}"
     poll:
       close_result: "Sembunyikan keputusan"
       count:
-        other: |-
-            1 undi setakat ini
-
-            <%=count%> undian setakat ini
+        other: "<%=count%> undi setakat ini"
       result: "Keputusan"
       show_result: "Paparkan keputusan"
       vote: "Undi"
     profile:
       add_some: "tambah beberapa"
       born: "Hari Lahir"
-      contacts: "Kenalan-kenalan"
       edit: "edit"
       gender: "Jantina"
       location: "Lokasi"
       photos: "Gambar"
-      posts: "Catatan"
+      posts: "Pos"
       you_have_no_tags: "anda tidak mempunyai tag!"
     publisher:
       add_option: "Tambah jawapan"
-      near_from: "Dicatatkan dari: <%= location %>"
+      near_from: "Diposkan dari: <%= location %>"
       option: "Jawapan"
       question: "Soalan"
     report:
       name: "Lapor"
-      prompt: "Sila sertakan sebab:"
+      prompt: "Sila sertakan alasan:"
       prompt_default: "kandungan yang menyinggung"
       status:
         created: "Laporan itu sudah wujud"
         exists: "Laporan itu sudah wujud"
     reshares:
       post: "Kongsi semula catatan <%= name %>?"
-      successful: "Catatan berjaya dikongsi semula!"
+      successful: "Pos berjaya dikongsi semula!"
     show_more: "tunjuk lagi"
     stream:
       followed_tag:
-        add_a_tag: "Tambah sebuah tag"
+        add_a_tag: "Tambah tag"
         follow: "Ikuti"
         title: "Tag #Diikuti"
       likes:
@@ -166,4 +160,4 @@ ms:
       year: "kira-kira setahun"
       years:
         other: "%d tahun"
-    unblock_failed: "Membuang sekatan pada pengguna ini telah gagal"
+    unblock_failed: "Pembuangan sekatan pengguna ini telah gagal"

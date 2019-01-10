@@ -20,4 +20,10 @@
     != o_embed_html post.o_embed_cache
   - if post.open_graph_cache
     .opengraph
-      != og_html post.open_graph_cache
+      %a{href: post.open_graph_cache.url, target: "_blank"}
+        %div
+          = image_tag post.open_graph_cache.image
+          %strong
+            = post.open_graph_cache.title
+          %p
+            = truncate(post.open_graph_cache.description, length: 250, separator: " ")

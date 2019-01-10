@@ -231,8 +231,6 @@ es-MX:
       change_aspect_of_post_q: "¿Una vez que he publicado algo, puedo cambiar los aspectos que pueden verlo?"
       contacts_know_aspect_a: "No. No les es posible ver el nombre del aspecto, bajo ninguna circunstancia."
       contacts_know_aspect_q: "¿Mis contactos pueden saber en qué aspectos los he agregado?"
-      contacts_visible_a: "Si marcas esta opción, los contactos de este aspecto podrán ver quién más pertenece a este, en la página de tu perfil, debajo de tu foto. Es mejor seleccionar esta opción solo si los contactos en dicho aspecto se conocen entre ellos. De cualquier manera, no les será posible ver el nombre del aspecto."
-      contacts_visible_q: "¿Qué significa «hacer visibles entre ellos a los contactos de este aspecto»?"
       delete_aspect_a: "En tu lista de aspectos, en el lado izquierdo de la página principal, coloca tu cursor sobre el aspecto que desees eliminar. Haz clic en pequeño lápiz de edición que aparece a la derecha. Haz clic en el botón «Eliminar»."
       delete_aspect_q: "¿Cómo elimino un aspecto?"
       person_multiple_aspects_a: "Sí. Dirígete a tu página de contactos, y haz clic en «Mis contactos». Para cada contacto puedes utilizar el menú que se encuentra a la derecha, para añadirlos —o eliminarlos— de tantos aspectos como desees. O puedes agregarlos a un nuevo aspecto haciendo clic en el botón de selección de aspectos, en su página de perfil. Incluso puedes colocar tu cursor sobre su nombre, cuando aparezca en tu «Entrada», y un «perfil emergente» se mostrará. Puedes cambiar los aspectos ahí mismo."
@@ -724,8 +722,6 @@ es-MX:
     getting_started:
       awesome_take_me_to_diaspora: "¡Genial! Llévame a diaspora*"
       community_welcome: "¡La comunidad de Diaspora está feliz de tenerte a bordo!"
-      connect_to_facebook: "Podemos acelerar un poco las cosas %{link} a Diaspora. Esto extraerá tu nombre y foto, y habilitará las publicaciones cruzadas."
-      connect_to_facebook_link: "conectando tu cuenta de Facebook"
       hashtag_explanation: "Las etiquetas te permiten hablar acerca de tus intereses, así como seguirlos. Son también una gran forma de encontrar gente en Diaspora."
       hashtag_suggestions: "Intenta seguir etiquetas como #arte, #películas, #español, etc."
       well_hello_there: "Bueno, ¡hola!"

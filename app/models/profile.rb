@@ -11,7 +11,7 @@ class Profile < ApplicationRecord
   include Diaspora::Taggable
 
   attr_accessor :tag_string
-  acts_as_taggable_on :tags
+  acts_as_ordered_taggable
   extract_tags_from :tag_string
   validates :tag_list, :length => { :maximum => 5 }
 
@@ -157,8 +157,9 @@ class Profile < ApplicationRecord
   end
 
   private
+
   def clearable_fields
-    self.attributes.keys - ["id", "created_at", "updated_at", "person_id"]
+    attributes.keys - %w[id created_at updated_at person_id tag_list]
   end
 
   def build_image_url(url)

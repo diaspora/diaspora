@@ -4,14 +4,14 @@ format = ENV['CUCUMBER_FORMAT'] || 'pretty'
 
 # option lists for the `cucumber` command
 rerun_opts = rerun.to_s.strip.empty? ? "--format #{format} features" : "--format #{format} #{rerun}"
-std_opts   = "--format #{format} --strict --tags ~@wip --tags ~@screenshots"
+std_opts   = "--format #{format} --strict --tags 'not @wip and not @screenshots'"
 screenshot_opts  = "--require features --format pretty"
 %>
 
 # 'normal' test runs
-default: <%= std_opts %> -r features
+default: <%= std_opts %> -r features --tags 'not @nophantomjs'
 wip: -r features --tags @wip:3 --wip features
-rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip --tags ~@screenshots
+rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags 'not @wip and not @screenshots'
 
 # screenshot feature
 ref_screens: "<%= screenshot_opts %> --tags @reference-screenshots"

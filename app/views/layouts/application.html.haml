@@ -8,7 +8,7 @@
     %meta{name: "viewport", content: "width=device-width, initial-scale=1"}/
 
     - content_for :javascript do
-      = javascript_include_tag :main, :templates
+      = javascript_include_tag :main
       = load_javascript_locales
 
     = include_color_theme
@@ -38,3 +38,5 @@
       %ol.indicator
 
     #flash-container= flash_messages
+
+    %a.entypo-chevron-up.back-to-top#back-to-top{title: t("layouts.application.back_to_top"), href: "#"}

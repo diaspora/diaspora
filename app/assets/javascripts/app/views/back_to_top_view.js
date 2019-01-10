@@ -12,7 +12,7 @@ app.views.BackToTop = Backbone.View.extend({
 
   backToTop: function(evt) {
     evt.preventDefault();
-    $("html, body").animate({scrollTop: 0});
+    $("html, body").animate({scrollTop: 0}, this.toggleVisibility);
   },
 
   toggleVisibility: function() {

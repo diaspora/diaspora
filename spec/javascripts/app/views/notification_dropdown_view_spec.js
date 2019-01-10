@@ -73,41 +73,34 @@ describe("app.views.NotificationDropdown", function() {
 
   describe("updateScrollbar", function() {
     it("Initializes perfectScrollbar", function() {
-      this.view.perfectScrollbarInitialized = false;
-      spyOn($.fn, "perfectScrollbar");
+      this.view.perfectScrollbar = null;
+      spyOn(window, "PerfectScrollbar");
       this.view.updateScrollbar();
-      expect($.fn.perfectScrollbar).toHaveBeenCalledWith();
-      expect($.fn.perfectScrollbar.calls.mostRecent().object).toEqual(this.view.dropdownNotifications);
-      expect(this.view.perfectScrollbarInitialized).toBeTruthy();
+      expect(window.PerfectScrollbar).toHaveBeenCalledWith(this.view.dropdownNotifications[0]);
+      expect(this.view.perfectScrollbar).not.toBeNull();
     });
 
     it("Updates perfectScrollbar", function() {
-      this.view.perfectScrollbarInitialized = true;
-      this.view.dropdownNotifications.perfectScrollbar();
-      spyOn($.fn, "perfectScrollbar");
+      this.view.perfectScrollbar = new PerfectScrollbar(this.view.dropdownNotifications[0]);
+      spyOn(this.view.perfectScrollbar, "update");
       this.view.updateScrollbar();
-      expect($.fn.perfectScrollbar).toHaveBeenCalledWith("update");
-      expect($.fn.perfectScrollbar.calls.mostRecent().object).toEqual(this.view.dropdownNotifications);
-      expect(this.view.perfectScrollbarInitialized).toBeTruthy();
+      expect(this.view.perfectScrollbar.update).toHaveBeenCalled();
     });
   });
 
   describe("destroyScrollbar", function() {
     it("destroys perfectScrollbar", function() {
-      this.view.perfectScrollbarInitialized = true;
-      this.view.dropdownNotifications.perfectScrollbar();
-      spyOn($.fn, "perfectScrollbar");
+      this.view.perfectScrollbar = new PerfectScrollbar(this.view.dropdownNotifications[0]);
+      var spy = jasmine.createSpy();
+      spyOn(this.view.perfectScrollbar, "destroy").and.callFake(spy);
       this.view.destroyScrollbar();
-      expect($.fn.perfectScrollbar).toHaveBeenCalledWith("destroy");
-      expect($.fn.perfectScrollbar.calls.mostRecent().object).toEqual(this.view.dropdownNotifications);
-      expect(this.view.perfectScrollbarInitialized).toBeFalsy();
+      expect(spy).toHaveBeenCalled();
+      expect(this.view.perfectScrollbar).toBeNull();
     });
 
     it("doesn't destroy perfectScrollbar if it isn't initialized", function() {
-      this.view.perfectScrollbarInitialized = false;
-      spyOn($.fn, "perfectScrollbar");
-      this.view.destroyScrollbar();
-      expect($.fn.perfectScrollbar).not.toHaveBeenCalled();
+      this.view.perfectScrollbar = null;
+      expect(this.view.destroyScrollbar).not.toThrow();
     });
   });
 

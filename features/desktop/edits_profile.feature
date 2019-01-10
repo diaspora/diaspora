@@ -44,12 +44,31 @@ Feature: editing your profile
     And I press "update_profile"
     Then I should see "#kamino" within "ul#as-selections-tags"
     And I should see "#starwars" within "ul#as-selections-tags"
+    And I should see a ".crop-container" within "#profile_photo_upload"
     And the "#profile_public_details" bootstrap-switch should be on
 
     When I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload"
     Then I should see a flash message indicating failure
 
     When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload"
+    Then I should see a ".cropper-container" within ".crop-container"
+    And I should see a ".controls" within ".crop-container"
+    And I should see a ".preview" within ".controls"
+    And I should see 2 ".btn" within ".buttons-left"
+    And I should see 3 ".btn" within ".buttons-right"
+
+    When I press the 2nd ".btn" within ".buttons-right"
+    Then I should see a ".avatar" within ".crop-container"
+    But I should not see a ".cropper-container" within ".crop-container"
+
+    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload"
+    Then I should see a ".cropper-container" within ".crop-container"
+    And I should see a ".controls" within ".crop-container"
+    And I should see a ".preview" within ".controls"
+    And I should see 2 ".btn" within ".buttons-left"
+    And I should see 3 ".btn" within ".buttons-right"
+
+    When I press the 3rd ".btn" within ".buttons-right"
     Then I should see "button.png completed"
     And I should see a "img" within "#profile_photo_upload"
 

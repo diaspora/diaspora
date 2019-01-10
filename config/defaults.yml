@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.7.3.1" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.7.99.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -150,15 +150,9 @@ defaults:
       title: 'diaspora* social network'
       description: 'diaspora* is the online social world where you are in control.'
     csp:
-      report_only: true
+      report_only: false
       report_uri:
   services:
-    facebook:
-      enable: false
-      app_id:
-      secret:
-      open_graph_namespace: 'joindiaspora'
-      authorized: false
     twitter:
       enable: false
       key:
@@ -234,11 +228,10 @@ test:
     invitations:
       open: true
   services:
-    facebook:
+    twitter:
       enable: true
-      app_id: 'fake'
+      key: 'fake'
       secret: 'sdoigjosdfijg'
-      authorized: true
   mail:
     enable: true
 integration1:

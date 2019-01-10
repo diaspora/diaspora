@@ -62,6 +62,7 @@ nl:
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
       send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je wachtwoord opnieuw in te stellen."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
+      updated_not_active: "Je wachtwoord is succesvol gewijzigd."
     registrations:
       destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
       signed_up: "Je bent succesvol geregistreerd. Indien aangevinkt is er een bevestiging naar je e-mail gestuurd."
@@ -89,6 +90,7 @@ nl:
       new:
         resend_unlock: "Stuur ontgrendelinstructies nogmaals"
       send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je account te deblokkeren."
+      send_paranoid_instructions: "Als je account bestaat, dan ontvang je een email met instructies hoe de blokkering op te heffen, binnen een paar minuten."
       unlocked: "Je account is succesvol gedeblokkeerd. Je bent nu ingelogd."
   errors:
     messages:
