@@ -38,6 +38,26 @@ module AspectCukeHelpers
 end
 World(AspectCukeHelpers)
 
+Given /^I have an aspect called "([^\"]*)"$/ do |aspect_name|
+  @me.aspects.create!(name: aspect_name)
+  @me.reload
+end
+
+Given /^I have an aspect called "([^\"]*)" with auto follow back$/ do |aspect_name|
+  aspect = @me.aspects.create!(name: aspect_name)
+  @me.auto_follow_back = true
+  @me.auto_follow_back_aspect = aspect
+  @me.save
+  @me.reload
+end
+
+Given /^I have following aspect[s]?:$/ do |fields|
+  fields.raw.each do |field|
+    @me.aspects.create!(name: field[0])
+  end
+  @me.reload
+end
+
 When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
   within(".all-aspects") do
     li = find('li', text: aspect_name)
@@ -110,6 +130,10 @@ end
 
 And /^I toggle the aspect "([^"]*)"$/ do |name|
   toggle_aspect(name)
+end
+
+Then /^I should see "([^"]*)" within the contact aspect dropdown$/ do |aspect_name|
+  expect(find(".dropdown-toggle .text")).to have_content aspect_name
 end
 
 Then /^I should see "([^"]*)" aspect selected$/ do |aspect_name|

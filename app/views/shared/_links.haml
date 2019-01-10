@@ -4,6 +4,6 @@
   source_url.to_s,
   title: t("layouts.application.source_package")
 %li= link_to t("layouts.application.statistics_link"), statistics_path
-%li= link_to t("layouts.application.toggle"), toggle_mobile_path
+%li= link_to t("layouts.application.switch_to_touch_optimized_mode"), toggle_mobile_path
 - if AppConfig.settings.terms.enable?
   %li= link_to t("_terms"), terms_path

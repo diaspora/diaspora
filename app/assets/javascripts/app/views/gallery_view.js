@@ -41,7 +41,7 @@ app.views.Gallery = app.views.Base.extend({
         if (image.naturalHeight > window.innerHeight && image.naturalHeight > image.naturalWidth * 2) {
           image.classList.add("too-tall");
         } else {
-          var margins = 95; // Margins are 80px for thumbnails height and 15px for top image margin
+          var margins = 110; // Margins are 80px for thumbnails height and 15px for top image margin + scroll-x height
           image.style = "max-height: " + (window.innerHeight - margins) + "px";
         }
       }

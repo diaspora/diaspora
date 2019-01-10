@@ -64,7 +64,6 @@
           <ul class="nav navbar-nav navbar-left visible-sm-block visible-xs-block">
             <li class="visible-xs-block"><a href="/stream">{{t "my_stream"}}</a></li>
             <li class="visible-xs-block"><a href="/activity">{{t "my_activity"}}</a></li>
-            <li><a href="/mobile/toggle">{{t "header.toggle_mobile"}}</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -87,6 +86,7 @@
                 {{else if current_user.moderator}}
                    <li><a href="/report">{{t "header.moderator"}}</a></li>
                 {{/if}}
+                <li><a class="visible-xs-block" href="/mobile/toggle">{{t "header.switch_to_touch_optimized_mode"}}</a></li>
                 <li><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
               </ul>
             </li>
