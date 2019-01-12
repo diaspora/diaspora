@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix incorrect post sorting on tag streams and tag searches for tags containing the word "activity" [#7422](https://github.com/diaspora/diaspora/issues/7422)
 
 ## Features
 
