@@ -61,9 +61,9 @@ describe Api::V1::LikesController do
       end
 
       it "succeeds in getting post with likes" do
-        like_service(bob).create(@status.guid)
-        like_service(auth.user).create(@status.guid)
-        like_service(alice).create(@status.guid)
+        like_service(bob).create_for_post(@status.guid)
+        like_service(auth.user).create_for_post(@status.guid)
+        like_service(alice).create_for_post(@status.guid)
         get(
           api_v1_post_likes_path(post_id: @status.guid),
           params: {access_token: access_token_minimum_scopes}
@@ -112,7 +112,7 @@ describe Api::V1::LikesController do
 
   describe "#create" do
     context "with right post id" do
-      it "succeeeds in liking post" do
+      it "succeeds in liking post" do
         post(
           api_v1_post_likes_path(post_id: @status.guid),
           params: {access_token: access_token}
@@ -181,7 +181,7 @@ describe Api::V1::LikesController do
 
   describe "#delete" do
     before do
-      like_service.create(@status.guid)
+      like_service.create_for_post(@status.guid)
     end
 
     context "with right post id" do
@@ -225,7 +225,7 @@ describe Api::V1::LikesController do
 
     context "with improper credentials" do
       it "fails at unliking private post without private:read" do
-        like_service(auth_public_only.user).create(@private_status.guid)
+        like_service(auth_public_only.user).create_for_post(@private_status.guid)
         delete(
           api_v1_post_likes_path(post_id: @private_status.guid),
           params: {access_token: access_token}
@@ -234,7 +234,7 @@ describe Api::V1::LikesController do
       end
 
       it "fails in unliking post without interactions" do
-        like_service(auth_minimum_scopes.user).create(@status.guid)
+        like_service(auth_minimum_scopes.user).create_for_post(@status.guid)
         delete(
           api_v1_post_likes_path(post_id: @status.guid),
           params: {access_token: access_token_minimum_scopes}

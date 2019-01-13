@@ -41,7 +41,12 @@ class LikesController < ApplicationController
   end
 
   def index
-    render json: like_service.find_for_post(params[:post_id])
+    like = if params[:post_id]
+             like_service.find_for_post(params[:post_id])
+           else
+             like_service.find_for_comment(params[:comment_id])
+           end
+    render json: like
       .includes(author: :profile)
       .as_api_response(:backbone)
   end

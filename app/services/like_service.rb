@@ -12,7 +12,8 @@ class LikeService
 
   def create_for_comment(comment_id)
     comment = comment_service.find!(comment_id)
-    user.like!(comment)
+    post_service.find!(comment.commentable_id) # checks implicit for visible posts
+    user.like_comment!(comment)
   end
 
   def destroy(like_id)
@@ -30,8 +31,26 @@ class LikeService
     user ? likes.order(Arel.sql("author_id = #{user.person.id} DESC")) : likes
   end
 
+  def find_for_comment(comment_id)
+    comment = comment_service.find!(comment_id)
+    post_service.find!(comment.post.id) # checks implicit for visible posts
+    likes = comment.likes
+    user ? likes.order(Arel.sql("author_id = #{user.person.id} DESC")) : likes
+  end
+
   def unlike_post(post_id)
     likes = post_service.find!(post_id).likes
+    likes = likes.order(Arel.sql("author_id = #{user.person.id} DESC"))
+    if !likes.empty? && user.owns?(likes[0])
+      user.retract(likes[0])
+      true
+    else
+      false
+    end
+  end
+
+  def unlike_comment(comment_id)
+    likes = comment_service.find!(comment_id).likes
     likes = likes.order(Arel.sql("author_id = #{user.person.id} DESC"))
     if !likes.empty? && user.owns?(likes[0])
       user.retract(likes[0])

@@ -4,10 +4,11 @@ app.collections.Likes = Backbone.Collection.extend({
   model: app.models.Like,
 
   initialize : function(models, options) {
-    this.url = (options.post != null) ?
+    // A comment- like has a post reference and a comment reference
+    this.url = (options.comment != null) ?
       // not delegating to post.url() because when it is in a stream collection it delegates to that url
-      "/posts/" + options.post.id + "/likes" :
-      "/comments/" + options.comment.id + "/likes";
+      "/comments/" + options.comment.id + "/likes" :
+      "/posts/" + options.post.id + "/likes";
   }
 });
 // @license-end

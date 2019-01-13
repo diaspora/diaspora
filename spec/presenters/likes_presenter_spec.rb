@@ -10,7 +10,7 @@ describe LikesPresenter do
       to:     "all"
     )
     bobs_like_service = LikeService.new(bob)
-    like = bobs_like_service.create(@status.guid)
+    like = bobs_like_service.create_for_post(@status.guid)
     @presenter = LikesPresenter.new(like, bob)
   end
 
