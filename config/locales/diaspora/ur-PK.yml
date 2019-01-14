@@ -81,8 +81,6 @@ ur-PK:
     index:
       no_contacts: "No contacts."
   layouts:
-    application:
-      toggle: "toggle mobile site"
     header:
       logout: "log out"
       profile: "profile"

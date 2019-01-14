@@ -133,7 +133,6 @@ de-moo:
       recent_notifications: "Neueste Benachrichtigungen"
       search: "Suche"
       settings: "Einstellungen"
-      toggle_mobile: "Mobile Ansicht umschalten"
       toggle_navigation: "Navigation umschalten"
       view_all: "Alle anzeigen"
     hide_post: "Diesen Beitrag ausblenden?"
@@ -311,6 +310,7 @@ de-moo:
       seconds: "weniger als eine Minute"
       suffixAgo: ""
       suffixFromNow: "ab jetzt"
+      wordSeparator: ""
       year: "etwa einem Jahr"
       years:
         one: "einem Jahr"

@@ -619,7 +619,6 @@ zh-TW:
       public_feed: "%{name} 在 diaspora* 的公開資訊源"
       source_package: "下載源碼封裝檔"
       statistics_link: "豆莢統計資料"
-      toggle: "切換行動版頁面"
       whats_new: "更新了什麼？"
     header:
       code: "源碼"

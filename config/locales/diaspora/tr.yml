@@ -394,7 +394,6 @@ tr:
       powered_by: "GELİŞTİREN: DIASPORA*"
       public_feed: "%{name} için Genel Diaspora* Beslemesi"
       source_package: "kaynak kodu paketini indir"
-      toggle: "mobil site"
       whats_new: "neler yeni?"
     header:
       code: "kod"

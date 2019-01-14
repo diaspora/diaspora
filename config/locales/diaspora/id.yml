@@ -160,7 +160,6 @@ id:
     application:
       back_to_top: "Kembali ke atas"
       powered_by: "DIDUKUNG OLEH diaspora*"
-      toggle: "toggle mobile site"
       whats_new: "apa yang baru?"
     header:
       code: "Kode"

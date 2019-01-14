@@ -27,7 +27,7 @@ ru:
         no_info: "Нет дополнительной информации"
         not_available: "недоступно"
         offline_since: "недоступен с:"
-        pod: "Стручок"
+        pod: "Под"
         recheck:
           failure: "Проверка не выполнялась."
           success: "Под только что был перепроверен."
@@ -145,7 +145,7 @@ ru:
       recent_notifications: "Последние уведомления"
       search: "Поиск"
       settings: "Настройки"
-      toggle_mobile: "Обычный/мобильный"
+      switch_to_touch_optimized_mode: "Включить сенсорный режим"
       toggle_navigation: "Переключение навигации"
       view_all: "Посмотреть всё"
     hide_post: "Скрыть эту запись?"

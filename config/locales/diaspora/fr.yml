@@ -208,6 +208,7 @@ fr:
         tos: "Voir les conditions d'utilisation de l'application"
   are_you_sure: "Êtes-vous certain ?"
   are_you_sure_delete_account: "Souhaitez-vous vraiment supprimer votre compte ? Cette action est définitive !"
+  are_you_sure_ignore_user: "Vous êtes sur le point d'ignorer cet utilisateur. Êtes-vous sûr ?"
   aspect_memberships:
     destroy:
       failure: "La personne n'a pas pu être supprimée de l'aspect."
@@ -647,7 +648,8 @@ fr:
       public_feed: "Flux diaspora* public de %{name}"
       source_package: "Téléchargez le code source"
       statistics_link: "Statistiques du pod"
-      toggle: "Activer/désactiver la version mobile"
+      switch_to_standard_mode: "Utiliser la version classique"
+      switch_to_touch_optimized_mode: "Utiliser la version tactile"
       whats_new: "Quoi de neuf ?"
     header:
       code: "Code"

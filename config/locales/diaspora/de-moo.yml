@@ -627,7 +627,6 @@ de-moo:
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quellcodepaket herunterladen"
       statistics_link: "Bauernhof-Statistiken"
-      toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt's Neues?"
     header:
       code: "Code"

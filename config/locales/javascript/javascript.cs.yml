@@ -75,7 +75,6 @@ cs:
         few: "Ve <%= count %> aspektech"
         one: "V <%= count %> aspektu"
         other: "V <%= count %> aspektech"
-        zero: "V <%= count %> aspektech"
       updating: "aktualizuji..."
     aspect_navigation:
       add_an_aspect: "+ Přidat aspekt"
@@ -140,7 +139,7 @@ cs:
       recent_notifications: "Nedávná oznámení"
       search: "Hledat"
       settings: "Nastavení"
-      toggle_mobile: "Vybrat mobil"
+      switch_to_touch_optimized_mode: "Přepnutí do režimu dotykového displeje"
       toggle_navigation: "Vybrat navigaci"
       view_all: "Zobrazit vše"
     hide_post: "Skrýt tento příspěvek"

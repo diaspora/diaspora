@@ -208,6 +208,7 @@ nl:
         tos: "Zie de gebruiksvoorwaarden van de applicatie"
   are_you_sure: "Weet je het zeker?"
   are_you_sure_delete_account: "Weet je zeker dat je jouw account wil sluiten? Dit kan niet teruggedraaid worden!"
+  are_you_sure_ignore_user: "Je staat op het punt deze gebruiker te negeren. Weet je het zeker?"
   aspect_memberships:
     destroy:
       failure: "Persoon verwijderen uit aspect mislukt"
@@ -636,7 +637,8 @@ nl:
       public_feed: "Publieke diaspora* kanaal van %{name}"
       source_package: "Download het broncode pakket"
       statistics_link: "Pod statistieken"
-      toggle: "Switch mobiele versie"
+      switch_to_standard_mode: "Schakel over naar de standaardmodus"
+      switch_to_touch_optimized_mode: "Schakel over naar de aanraakmodus"
       whats_new: "Wat is nieuw op Diaspora?"
     header:
       code: "Code"
@@ -713,7 +715,6 @@ nl:
     mentioned_deleted:
       one: "%{actors} heeft jou vermeld in een verwijderde post."
       other: "%{actors} hebben jou vermeld in een verwijderde post."
-      zero: "%{actors} heeft jou vermeld in een verwijderde post."
     mentioned_in_comment:
       one: "%{actors} heeft je vermeld in een <a href=%{comment_path}>reactie</a> op bericht %{post_link}"
       other: "%{actors} hebben je vermeld in een <a href=%{comment_path}>reactie</a> op bericht %{post_link}"
@@ -1068,12 +1069,8 @@ nl:
       mobile_row_checked: "%{name} (verwijderen)"
       mobile_row_unchecked: "%{name} (toevoegen)"
       toggle:
-        few: "In %{count} aspecten"
-        many: "In %{count} aspecten"
         one: "In %{count} aspect"
         other: "In %{count} aspecten"
-        two: "In %{count} aspecten"
-        zero: "Voeg contact toe"
     invitations:
       by_email: "Nodig mensen uit via e-mail"
       invite_your_friends: "Nodig je vrienden uit"

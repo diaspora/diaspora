@@ -346,7 +346,6 @@ de-CH:
       public_feed: "Öffentliche diaspora* Feed vo %{name}"
       source_package: "Lad's Quellcodepaket abe"
       statistics_link: "Pod Statistike"
-      toggle: "Mobiili Aasicht umschalte"
       whats_new: "Was git's neus?"
     header:
       code: "Code"

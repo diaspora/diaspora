@@ -217,7 +217,6 @@ ar:
       powered_by: "بدعم DIASPORA*"
       public_feed: "ملقم دياسبرا العام لـ %{name}"
       source_package: "نزّل حزمة الشِّفرة المصدريّة"
-      toggle: "حَوِّل لموقع الهواتف المحمولة"
       whats_new: "ما الجديد؟"
     header:
       code: "شيفرة"

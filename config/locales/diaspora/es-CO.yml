@@ -156,7 +156,6 @@ es-CO:
     application:
       back_to_top: "Volver al principio"
       public_feed: "Canal público de Diaspora para %{name}"
-      toggle: "Cambiar a interfaz móvil"
       whats_new: "¿Qué hay de nuevo?"
     header:
       code: "código"
