@@ -267,7 +267,6 @@ zh-CN:
       powered_by: "Powered by DIASPORA*"
       public_feed: "%{name} 的 Diaspora RSS 订阅"
       source_package: "下载源代码包"
-      toggle: "切换到手机版"
       whats_new: "有什么新鲜事？"
     header:
       code: "源码"

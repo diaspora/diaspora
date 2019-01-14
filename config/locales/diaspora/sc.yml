@@ -208,6 +208,7 @@ sc:
         tos: "Abbista sos tèrmines de servìtziu de s'aplicatzione"
   are_you_sure: "Seguru ses?"
   are_you_sure_delete_account: "Seguru ses de bòlere serrare su contu tuo? Est una cosa chi non podet èssere annullada!"
+  are_you_sure_ignore_user: "As a ignorare custu impreadore. Seguru ses?"
   aspect_memberships:
     destroy:
       failure: "No est istadu possìbile bogare sa persone dae sa cara."
@@ -645,7 +646,8 @@ sc:
       public_feed: "Flussu de diaspora* pùblicu de %{name}"
       source_package: "Iscàrriga su pachete de su còdighe mitza"
       statistics_link: "Istatìsticas pod"
-      toggle: "Allughe/istuda sa versione mòbile"
+      switch_to_standard_mode: "Cola a sa modalidade predefinida"
+      switch_to_touch_optimized_mode: "Cola a sa modalidade tàtile otimizada"
       whats_new: "Ite b'est de nou?"
     header:
       code: "Còdighe"

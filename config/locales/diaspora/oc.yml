@@ -130,6 +130,8 @@ oc:
       remove_admin: "Quitar d’èsser admin"
       remove_moderator: "Quitar d’èsser moderator"
       remove_spotlight: "Tirar dels especials de la comunitat"
+      role_implemented: "Òm a ja donat aquel ròtle a %{name} !"
+      role_removal_implemented: "Òm a ja tirat aquel ròtle a %{name} !"
       under_13: "Mostrar los utilizaires qu'an mens de 13 ans (COPPA)"
       unlock_account: "Desverrolhar lo compte"
       users:
@@ -206,6 +208,7 @@ oc:
         tos: "Veire las condicions d'utilizacion de l'aplicacion"
   are_you_sure: "Sètz segur ?"
   are_you_sure_delete_account: "Sètz segur que volètz tampar vòstre compte ? Aquò se pòt pas anullar !"
+  are_you_sure_ignore_user: "Sètz per ignorar aquel utilizaire. Confirmatz ?"
   aspect_memberships:
     destroy:
       failure: "La persona a pas pogut èsser levada de l'aspècte amb succès."
@@ -645,7 +648,8 @@ oc:
       public_feed: "Flux diaspora* public per %{name}"
       source_package: "Telecargatz lo còdi font"
       statistics_link: "Estatisticas del pod"
-      toggle: "Activar/desactivar la version mobila"
+      switch_to_standard_mode: "Passar al mòde estandard"
+      switch_to_touch_optimized_mode: "Passar al mòde optimizat pel tactil"
       whats_new: "Qué de nòu ?"
     header:
       code: "Còdi"
@@ -1224,6 +1228,7 @@ oc:
       new_password: "Senhal novèl"
       private_message: "avètz recebut un messatge privat."
       protocol_handler:
+        browser: "Aqueste protocòl es a una etapa experimentala e lo bon foncionament de las interraccions depend del navigador. Se volètz gerir o tirar aqueste gestionari, avètz d’utilizar los paramètres del navegador. Lo boton çai-jos serà totjorn activat, vos caldrà configurar lo gestionari a despart en cada navegador qu’utilizatz."
         description: "Clicatz lo boton per configurar lo navegador per permetre la dobertura de las URL web+diaspora:// a partir de vòstre pod preferit. Aquò es experimental pel moment e las interaccions dependràn de vòstre navegador."
         register: "Enregistrar"
         title: "Gestionari de protocòl web+diaspora://"

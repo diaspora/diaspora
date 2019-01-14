@@ -217,7 +217,6 @@ bg:
       back_to_top: "Нагоре"
       powered_by: "Благодарение на DIASPORA*"
       public_feed: "Публична емисия от Diaspora за %{name}"
-      toggle: "вкл./изкл. на мобилния изглед"
       whats_new: "какво ново?"
     header:
       code: "код"

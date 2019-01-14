@@ -137,8 +137,8 @@ nb:
         zero: "%{count} brukere funnet"
       view_profile: "Vis profil"
       you_currently:
-        one: "du har en invitasjon igjen %{link}"
-        other: "du har %{count} invitasjoner igjen %{link}"
+        one: "Du har én invitasjon igjen %{link}"
+        other: "Du har %{count} invitasjoner igjen %{link}"
         zero: "Du har ingen invitasjoner igjen %{link}"
     weekly_user_stats:
       amount_of:
@@ -641,7 +641,6 @@ nb:
       public_feed: "Offentlig diaspora*-feed for %{name}"
       source_package: "Last ned kildekoden"
       statistics_link: "Statistikk for belgen"
-      toggle: "Vis mobilsiden"
       whats_new: "Hva er nytt?"
     header:
       code: "Kode"
@@ -663,11 +662,8 @@ nb:
       other: "%{actors} har også kommentert på %{post_author}s %{post_link}."
       zero: "%{actors} har også kommentert på %{post_author}s %{post_link}."
     also_commented_deleted:
-      few: "%{actors} kommenterte på en slettet post."
-      many: "%{actors} kommenterte på en slettet post."
       one: "%{actors} kommenterte på en slettet post."
       other: "%{actors} kommenterte på en slettet post."
-      two: "%{actors} kommenterte en slettet post."
       zero: "%{actors} kommenterte på en slettet post."
     comment_on_post:
       one: "%{actors} kommenterte innlegget ditt %{post_link}."
@@ -708,11 +704,8 @@ nb:
       other: "%{actors} liker ditt %{post_link}."
       zero: "%{actors} liker ditt %{post_link}."
     liked_post_deleted:
-      few: "%{actors} likte ditt innlegg du har slettet."
-      many: "%{actors} likte ditt innlegg du har slettet."
       one: "%{actors} likte innlegget du slettet."
       other: "%{actors} likte innlegget du slettet."
-      two: "%{actors} likte din slettede post."
       zero: "%{actors} likte innlegget du slettet."
     mentioned:
       one: "%{actors} har nevnt deg i %{post_link}."
@@ -740,11 +733,8 @@ nb:
       other: "%{actors} har delt din %{post_link}."
       zero: "%{actors} har delt din %{post_link}."
     reshared_post_deleted:
-      few: "%{actors} har delt innlegget du slettet."
-      many: "%{actors} har delt innlegget du slettet."
       one: "%{actors} har delt innlegget du slettet."
       other: "%{actors} har delt innlegget du slettet."
-      two: "%{actors} delte din slettede post."
       zero: "%{actors} har delt innlegget du slettet."
     started_sharing:
       one: "%{actors} har begynt å dele med deg."

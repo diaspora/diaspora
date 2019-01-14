@@ -144,7 +144,7 @@ uk:
       recent_notifications: "Останнє повідомлення"
       search: "Пошук людей чи #міток"
       settings: "Налаштування"
-      toggle_mobile: "Звичайний/мобільний"
+      switch_to_touch_optimized_mode: "Перемкнутися на режим, оптимізований для дотиків"
       toggle_navigation: "Перемикання навігації"
       view_all: "Показати все"
     hide_post: "Приховати запис?"

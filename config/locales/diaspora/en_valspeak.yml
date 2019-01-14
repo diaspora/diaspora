@@ -477,7 +477,6 @@ en_valspeak:
       public_feed: "the feed for %{name} that like... every1 can c n stuff"
       source_package: "dl code n stuff.."
       statistics_link: "Pod statz"
-      toggle: "make like... phone friendly..."
       whats_new: "sup?"
     header:
       code: "code"

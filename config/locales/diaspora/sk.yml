@@ -340,7 +340,6 @@ sk:
       powered_by: "Poháňané Diasporou*"
       public_feed: "Verejný kanál diaspory* pre %{name}"
       source_package: "Stiahnuť balík so zdrojovým kódom"
-      toggle: "Prepnúť /na/ mobilnú verziu"
       whats_new: "Čo je nové?"
     header:
       code: "Kód"

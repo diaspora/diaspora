@@ -134,7 +134,7 @@ es:
       recent_notifications: "Notificaciones recientes"
       search: "Buscar"
       settings: "Ajustes"
-      toggle_mobile: "Interfaz móvil"
+      switch_to_touch_optimized_mode: "Cambiar al modo optimizado para pantallas táctiles"
       toggle_navigation: "Cambiar navegación"
       view_all: "Ver todo"
     hide_post: "Ocultar esta publicación?"

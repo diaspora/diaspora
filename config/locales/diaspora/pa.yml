@@ -51,7 +51,6 @@ pa:
   find_people: "Find people"
   layouts:
     application:
-      toggle: "toggle mobile site"
       whats_new: "ਨਵਾਂ ਕੀ ਹੈ?"
     header:
       code: "ਕੋਡ"

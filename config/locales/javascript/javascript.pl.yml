@@ -135,7 +135,6 @@ pl:
       recent_notifications: "Ostatnie powiadomienia"
       search: "Szukaj"
       settings: "Ustawienia"
-      toggle_mobile: "Przełącz widok mobilny"
       toggle_navigation: "Przełącz nawigację"
       view_all: "Wyświetl wszystko"
     hide_post: "Ukryj wpis?"

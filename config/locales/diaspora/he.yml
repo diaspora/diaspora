@@ -286,7 +286,6 @@ he:
       powered_by: "מופעל על ידי דיאספורה*"
       public_feed: "פרסומים ציבוריים בדיאספורה* מאת %{name}"
       source_package: "הורדת חבילת קוד המקור"
-      toggle: "הפעלה/כיבוי תצוגת מכשיר נייד"
       whats_new: "מה חדש?"
     header:
       code: "קוד"
