@@ -616,7 +616,6 @@ hye:
       public_feed: "%{name}-ի` դիասպորա*յի հրապարակային հոսքը"
       source_package: "Ներբեռնել սկզբնական կոդի փաթեթը"
       statistics_link: "Հանգույցի վիճակագրություն"
-      toggle: "Դյուրակիր տարբերակը"
       whats_new: "Ի՞նչ կա"
     header:
       code: "Կոդ"

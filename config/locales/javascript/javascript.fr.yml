@@ -133,7 +133,7 @@ fr:
       recent_notifications: "Notifications récentes"
       search: "Trouver des personnes ou #tags"
       settings: "Paramètres"
-      toggle_mobile: "Activer/désactiver la version mobile"
+      switch_to_touch_optimized_mode: "Utiliser la version tactile"
       toggle_navigation: "Afficher/cacher le menu"
       view_all: "Tout afficher"
     hide_post: "Masquer ce message ?"

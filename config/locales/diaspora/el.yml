@@ -290,7 +290,6 @@ el:
       powered_by: "Powered by diaspora*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του diaspora* για τον χρήστη %{name}"
       source_package: "Μεταφορτώστε το πακέτο του πηγαίου κώδικα"
-      toggle: "Αλλαγή σε κινητό"
       whats_new: "Τι νέα;"
     header:
       code: "Κώδικας"

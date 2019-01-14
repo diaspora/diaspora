@@ -134,7 +134,7 @@ oc:
       recent_notifications: "Administracion"
       search: "Recercar"
       settings: "Paramètres"
-      toggle_mobile: "Activar/desactivar la version mobila"
+      switch_to_touch_optimized_mode: "Passar al mòde optimizat pel tactil"
       toggle_navigation: "Afichar/amagar lo menú"
       view_all: "O veire tot"
     hide_post: "Amagar aquesta publicacion ?"

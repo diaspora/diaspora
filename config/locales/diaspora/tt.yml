@@ -91,7 +91,6 @@ tt:
       back_to_top: "Артка, өс биткә"
       powered_by: "diaspora*да эшли"
       public_feed: "%{name} өчен җәмәгый diaspora* feed тасмасы"
-      toggle: "Кәрәзле режимга күчерү"
       whats_new: "Нәрсә яңа?"
     header:
       code: "Коды"

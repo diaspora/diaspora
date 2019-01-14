@@ -627,7 +627,6 @@ de_formal:
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket herunterladen"
       statistics_link: "Pod-Statistiken"
-      toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt’s Neues?"
     header:
       code: "Code"

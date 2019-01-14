@@ -133,7 +133,6 @@ de_formal:
       recent_notifications: "Letzte Benachrichtigungen"
       search: "Find people or #tags"
       settings: "Einstellungen"
-      toggle_mobile: "Mobile Ansicht umschalten"
       toggle_navigation: "Navigation umschalten"
       view_all: "Alle ansehen"
     hide_post: "Diesen Beitrag ausblenden?"

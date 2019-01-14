@@ -133,7 +133,7 @@ sc:
       recent_notifications: "Notìficas reghentes"
       search: "Chirca"
       settings: "Impostatziones"
-      toggle_mobile: "Allughe/istuda sa versione mòbile"
+      switch_to_touch_optimized_mode: "Cola a sa modalidade tàtile otimizada"
       toggle_navigation: "Allughe/istuda su menù de nàvigu"
       view_all: "Ammustra totu"
     hide_post: "Istichire custa publicatzione?"

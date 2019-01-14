@@ -627,7 +627,6 @@ sv:
       public_feed: "Offentligt Diaspora*-flöde för %{name}"
       source_package: "Ladda ned källkodspaketet"
       statistics_link: "Serverstatistik"
-      toggle: "Slå om mobiltelefonanpassning"
       whats_new: "Vad är nytt?"
     header:
       code: "Källkod"

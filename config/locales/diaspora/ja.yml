@@ -619,7 +619,6 @@ ja:
       public_feed: "%{name}さんの公開ダイアスポラフィード"
       source_package: "ソースコードのパッケージをダウンロードする"
       statistics_link: "ポッドの統計"
-      toggle: "携帯サイトの切り替え"
       whats_new: "更新履歴"
     header:
       code: "ソース"

@@ -500,7 +500,6 @@ pt-PT:
       public_feed: "Fonte pública do diaspora* para %{name}"
       source_package: "Transferir o pacote de código fonte"
       statistics_link: "Estatísticas do servidor"
-      toggle: "Alternar móvel"
       whats_new: "O que há de novo?"
     header:
       code: "Código"

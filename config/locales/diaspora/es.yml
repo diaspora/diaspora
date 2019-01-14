@@ -200,6 +200,7 @@ es:
         tos: "Ver los Términos de Servicio de la aplicación"
   are_you_sure: "¿Estás seguro?"
   are_you_sure_delete_account: "¿Seguro que quieres eliminar tu cuenta? ¡Esto no se podrá deshacer!"
+  are_you_sure_ignore_user: "Vas a bloquear a este usuario. ¿Estás seguro?"
   aspect_memberships:
     destroy:
       failure: "No se pudo quitar a la persona del aspecto."
@@ -637,7 +638,8 @@ es:
       public_feed: "Canal público de %{name} "
       source_package: "Descargar el paquete del código fuente"
       statistics_link: "Estadísticas del pod"
-      toggle: "Cambiar a interfaz móvil"
+      switch_to_standard_mode: "Cambiar al modo estándar"
+      switch_to_touch_optimized_mode: "Cambiar al modo optimizado para pantallas táctiles"
       whats_new: "Novedades"
     header:
       code: "Código"

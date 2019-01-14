@@ -281,7 +281,6 @@ nn:
       powered_by: "DRIVEN AV DIASPORA*"
       public_feed: "Offentleg Diaspora-straum for %{name}"
       source_package: "last ned kjeldekodepakka"
-      toggle: "slå på mobilnettstad"
       whats_new: "kva er nytt?"
     header:
       code: "kode"

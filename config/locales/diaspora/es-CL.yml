@@ -361,7 +361,6 @@ es-CL:
       powered_by: "POTENCIADO POR DIASPORA*"
       public_feed: "Canal publico de %{name}"
       source_package: "descargar paquete de código fuente"
-      toggle: "cambiar sitio móvil"
       whats_new: "¿Qué hay de nuevo?"
     header:
       code: "codigo"

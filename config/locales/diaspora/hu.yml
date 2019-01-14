@@ -488,7 +488,6 @@ hu:
       public_feed: "%{name} nyilvános diaspora* hírfolyama"
       source_package: "forráskódcsomag letöltése"
       statistics_link: "pod statisztika"
-      toggle: "mobil változat"
       whats_new: "mik az újdonságok?"
     header:
       code: "kód"

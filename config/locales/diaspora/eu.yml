@@ -220,7 +220,6 @@ eu:
       back_to_top: "Gora"
       powered_by: "DIASPORAK ESKAINIA"
       public_feed: "%{name}(r)en Diaspora Feed publikoa"
-      toggle: "gaitu mugikorreko orrialdea"
       whats_new: "zer berri?"
     header:
       code: "kodea"

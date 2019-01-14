@@ -386,7 +386,6 @@ nds:
       public_feed: "Öffentliche diaspora*-Feed för %{name}"
       source_package: "Lod dat Quellcodepaket rünner"
       statistics_link: "Podstatistiken"
-      toggle: "Mobile Ansicht ümschalten"
       whats_new: "Wat gift dat Nee’es?"
     header:
       code: "Code"

@@ -164,7 +164,6 @@ ka:
       back_to_top: "დასაწყისში დაბრუნება"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
-      toggle: "გახდი მობილური"
       whats_new: "რა არის ახალი?"
     header:
       code: "კოდი"
