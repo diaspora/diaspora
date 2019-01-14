@@ -200,7 +200,6 @@ is:
       back_to_top: "Fara efst"
       powered_by: "Keyrt með díaspora*"
       public_feed: "Opinbert diaspora*-streymi fyrir %{name}"
-      toggle: "Víxla farsímavef af/á"
       whats_new: "Hvað er að frétta?"
     header:
       code: "kóði"

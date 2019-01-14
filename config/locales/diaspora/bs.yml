@@ -299,7 +299,6 @@ bs:
       powered_by: "POKREĆE DIASPORA*"
       public_feed: "Javna Diaspora Veza za %{name}"
       source_package: "preuzmi paket izvornog koda"
-      toggle: "štimanje mobilno"
       whats_new: "šta je novo?"
     header:
       code: "kod"

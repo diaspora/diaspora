@@ -110,8 +110,6 @@ mk:
       language: "Јазик"
       send_an_invitation: "Испрати покана"
   layouts:
-    application:
-      toggle: "toggle mobile site"
     header:
       code: "код"
       logout: "одјави се"

@@ -215,6 +215,7 @@ cs:
         tos: "Viz podmínky služby této aplikace"
   are_you_sure: "Jste si jisti?"
   are_you_sure_delete_account: "Opravdu chcete uzavřít svůj účet? Tuto operaci nelze vrátit!"
+  are_you_sure_ignore_user: "Tohoto uživatele budete ignorovat. Opravdu to chcete?"
   aspect_memberships:
     destroy:
       failure: "Nepodařilo se odstranit osobu z aspektu"
@@ -653,7 +654,8 @@ cs:
       public_feed: "Veřejný proud diaspory* pro %{name}"
       source_package: "Stáhnout balík se zdrojovým kódem"
       statistics_link: "Statistiky podu"
-      toggle: "Přepnout mobilní / plnou verzi"
+      switch_to_standard_mode: "Přepnutí do standardního režimu"
+      switch_to_touch_optimized_mode: "Přepnutí do režimu dotykového displeje"
       whats_new: "Co je nového?"
     header:
       code: "Kód"
@@ -1253,8 +1255,9 @@ cs:
       new_password: "Nové heslo"
       private_message: "obdržíte soukromou zprávu"
       protocol_handler:
-        description: "Kliknutím na toto tlačítko bude do Vašeho prohlížeče nainstalován handler, který nám dovolí otevírat adresy URL typu web+diaspora:// na Vašem domácím podu. Tohle je aktuálně experimentální a interakce budou záležet na Vašem prohlížeči."
-        register: "Registrovat"
+        browser: "Tento protokol je aktuálně v experimentálním stádiu a úspěšnost interakcí pomocí něj bude záležet na Vašem prohlížeči. Pokud chcete spravovat nebo odstranit tento handler, musíte to udělat v nastaveních Vašeho prohlížeče. Tlačítko níže bude vždy povolené a budete muset nastavit handler zvlášť na každém prohlížeči, který používáte."
+        description: "web+diaspora:// je nový webový protokol, který jsme představili. Jakýkoliv odkaz na stránku diaspora* na externí stránce, který tento protokol používá, může být otevřen v podu, na kterém je registrován Váš účet diaspora*. Kliknutím na tlačítko níže nastavíte Váš prohlížeč, aby pro rozpoznávání externích odkazů web+diaspora:// používal adresu %{pod_url}."
+        register: "Registrovat handler web+diaspora:// na tomto prohlížečí"
         title: "Handler pro protokol web+diaspora://"
       receive_email_notifications: "Přijímat oznámení e-mailem, když:"
       request_export: "Vyžádat si má profilová data"

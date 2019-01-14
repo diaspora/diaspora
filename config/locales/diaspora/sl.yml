@@ -246,7 +246,6 @@ sl:
       powered_by: "STRAN POGANJA DIASPORA*"
       public_feed: "Javni vir Diaspore za %{name}"
       source_package: "prenesi paket izvorne kode"
-      toggle: "preklop mobilne strani"
       whats_new: "kaj je novega?"
     header:
       code: "izvorna koda"

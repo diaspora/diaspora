@@ -627,7 +627,6 @@ pl:
       public_feed: "Publiczny kanał diaspory* użytkownika %{name}"
       source_package: "Pobierz archiwum z kodem źródłowym"
       statistics_link: "Statystyki poda"
-      toggle: "Przełącz widok mobilny"
       whats_new: "Co nowego?"
     header:
       code: "Kod"

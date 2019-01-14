@@ -326,7 +326,6 @@ eo:
       powered_by: "FUNKCIAS PER DIASPORA*"
       public_feed: "Publika DIASPORA* Afiŝostrio de %{name}"
       source_package: "elŝutu la pakaĵon kun la fontkodo"
-      toggle: "ŝalti inter tiu kaj poŝtelefona versio"
       whats_new: "kio estas nova?"
     header:
       code: "kodo"

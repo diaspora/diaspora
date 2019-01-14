@@ -312,6 +312,10 @@ es-MX:
       stream_full_of_posts_q: "¿Por qué está mi «Entrada» llena de publicaciones de gente que no conozco, y con las cuales no estoy compartiendo?"
       title: "Publicaciones y cómo publicar"
     private_posts:
+      can_comment_a: "Solo los usuarios de diaspora* que hayas agregado a ese aspecto podrán comentar o marcar \"Me gusta\" en tu publicación privada."
+      can_comment_q: "¿Quién puede comentar o dar \"Me gusta\" a mi publicación privada?"
+      can_reshare_a: "Nadie. Las publicaciones privadas no son re-compartibles. Sin embargo, los usuarios de diaspora* en ese aspecto pueden potencialmente copiar y pegarlo. Depende de si usted confía en esas personas."
+      can_reshare_q: "¿Quién puede volver a compartir mi publicación privada?"
       title: "Publicaciones privadas"
       who_sees_post_a: "Únicamente los usuarios de diaspora* que hayan iniciado sesión, y a quienes hayas añadido a dicho aspecto, podrán ver tu publicación limitada."
       who_sees_post_q: "¿Cuando publico un mensaje para un aspecto (es decir, una publicación privada) quién puede verlo?"
@@ -383,7 +387,6 @@ es-MX:
       powered_by: "POWERED BY diaspora*"
       public_feed: "Canal público de Diaspora para %{name}"
       source_package: "descargar el paquete del código fuente"
-      toggle: "Cambiar a sitio móvil"
       whats_new: "¿Qué hay de nuevo?"
     header:
       code: "código"

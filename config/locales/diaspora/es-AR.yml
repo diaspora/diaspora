@@ -611,7 +611,6 @@ es-AR:
       public_feed: "Canal público para %{name}"
       source_package: "Descargar el paquete con el código fuente"
       statistics_link: "Estadísticas del pod"
-      toggle: "Cambiar a celular"
       whats_new: "¿Qué hay de nuevo?"
     header:
       code: "Código"

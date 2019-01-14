@@ -190,7 +190,6 @@ en_pirate:
       powered_by: "This ship be POWERED BY diaspora*"
       public_feed: "Sea-wide diaspora* feed for %{name}"
       source_package: "Download the blueprints! Argh!"
-      toggle: "toggl' mobile site"
       whats_new: "what be new?"
     header:
       code: "Code"

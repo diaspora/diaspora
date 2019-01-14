@@ -133,7 +133,7 @@ ia:
       recent_notifications: "Notificationes recente"
       search: "Cercar"
       settings: "Configuration"
-      toggle_mobile: "Alternar mobile"
+      switch_to_touch_optimized_mode: "Cambiar al modo tactile"
       toggle_navigation: "Alternar navigation"
       view_all: "Vider totes"
     hide_post: "Celar iste entrata?"

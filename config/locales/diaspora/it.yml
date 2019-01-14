@@ -498,7 +498,6 @@ it:
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Feed pubblici diaspora* di %{name}"
       source_package: "Scaricare pacchetto fonte"
-      toggle: "Attiva/disattiva versione mobile"
       whats_new: "Novità?"
     header:
       code: "Codice"

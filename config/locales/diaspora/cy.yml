@@ -68,8 +68,6 @@ cy:
     create:
       sent: "Your invitation has been sent."
   layouts:
-    application:
-      toggle: "toggle mobile site"
     header:
       logout: "Allgofnodi"
       profile: "profile"

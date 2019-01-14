@@ -135,7 +135,7 @@ pt-BR:
       recent_notifications: "Notificações recentes"
       search: "Encontrar pessoas ou #tags"
       settings: "Configurações"
-      toggle_mobile: "Versão móvel"
+      switch_to_touch_optimized_mode: "Alternar para modo tátil"
       toggle_navigation: "Alternar navegação"
       view_all: "Ver todas"
     hide_post: "Esconder esta publicação?"
