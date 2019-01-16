@@ -1312,37 +1312,39 @@ en:
       email_not_confirmed: "Email could not be activated. Wrong link?"
 
   two_factor_auth:
-    title: "Two factor authentication"
+    title: "Two-factor authentication"
+    explanation: "Two-factor authentication is a powerful way to ensure you are the only one able to sign in to your account. When signing in, you will enter a 6-digit code along with your password to prove your identity. Be careful though: if you lose your phone and the recovery codes created when you activate this feature, access to your diaspora* account will be blocked forever."
     activated:
-      status: "Two factor authentication activated"
-      change_label: "Deactivate two factor authentication by entering a TOTP token."
+      status: "Two-factor authentication activated"
+      change_label: "Deactivate two-factor authentication by entering a TOTP token."
       change_button: "Deactivate"
     deactivated:
-      status: "Two factor authentication not activated"
-      change_label: "Activate two factor authentication"
+      status: "Two-factor authentication not activated"
+      change_label: "Activate two-factor authentication"
       change_button: "Activate"
     confirm:
       title: "Confirm activation"
-      status: "Two factor authentication is not fully activated yet, you need to confirm activation with a TOTP token"
+      status: "Two-factor authentication is not fully activated yet, you need to confirm activation with a TOTP token"
       scan_title: "Scan the QR code"
-      scan_explanation: "Please scan the QR code with a TOTP capable app (eg FreeOTP (Android, iOS), SailOTP (SailfishOS))."
-      manual_explanation: "In case you can't scan the QR code automatically you can manually enter the secret."
+      scan_explanation: "Please scan the QR code with a TOTP capable app, such as FreeOTP (Android, iOS), SailOTP (SailfishOS)."
+      manual_explanation: "In case you can’t scan the QR code automatically you can manually enter the secret."
+      manual_explanation_cont: "We are using time-based one-time passwords (TOTP) with six-digits and a time interval of 30 seconds."
       input_title: "Confim with TOTP token"
-      input_explanation: "After scanning or entering the secret, enter the 6 digit code you see and confirm the setup."
+      input_explanation: "After scanning or entering the secret, enter the six-digit code you see and confirm the setup."
       activate_button: "Confirm and activate"
     input_token:
-      label: "Two factor token"
-      placeholder: "6 digit two factor token"
+      label: "Two-factor token"
+      placeholder: "six-digit two-factor token"
     recovery:
       title: "Recovery codes"
-      reminder: "Alternatively, you can use a recovery code."
+      reminder: "Alternatively, you can use one of the recovery codes."
       explanation: "If you ever lose access to your phone, you can use one of the recovery codes below to regain access to your account. Keep the recovery codes safe. For example, you may print them and store them with other important documents."
       explanation_short: "Recovery codes allow you to regain access to your account if you lose your phone."
       invalidation_notice: "If you've lost your recovery codes, you can regenerate them here. Your old recovery codes will be invalidated."
       button: "Generate new recovery codes"
     flash:
-      success_activation: "Successfully activated two factor authentication"
-      success_deactivation: "Successfully deactivated two factor authentication"
+      success_activation: "Successfully activated two-factor authentication"
+      success_deactivation: "Successfully deactivated two-factor authentication"
       error_token: "Token was incorrect or invalid"
 
   will_paginate:

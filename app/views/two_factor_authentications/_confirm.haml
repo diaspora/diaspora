@@ -8,10 +8,12 @@
   .row
     .col-md-6
       %p= t("two_factor_auth.confirm.scan_explanation")
-      = raw RQRCode::QRCode.new(@qrcode_uri).as_svg(padding: 0, module_size: 5)
+      .two-factor-qr
+        = raw RQRCode::QRCode.new(@qrcode_uri).as_svg(padding: 0, module_size: 5)
 
     .col-md-6
       %p= t("two_factor_auth.confirm.manual_explanation")
+      %p= t("two_factor_auth.confirm.manual_explanation_cont")
       %pre.well= current_user.otp_secret.scan(/.{4}/).join(" ")
 
   .row

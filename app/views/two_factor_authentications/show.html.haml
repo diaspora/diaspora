@@ -8,6 +8,7 @@
         = render "shared/settings_nav"
     .col-md-9
       .framed-content.clearfix
+
         - if @user.otp_required_for_login
           = render "deactivate"
         - else
