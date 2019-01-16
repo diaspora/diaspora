@@ -11,6 +11,7 @@ class SessionsController < Devise::SessionsController
 
   def find_user
     return User.find(session[:otp_user_id]) if session[:otp_user_id]
+
     User.find_for_authentication(username: params[:user][:username]) if params[:user][:username]
   end
 

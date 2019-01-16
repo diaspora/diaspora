@@ -7,18 +7,18 @@ namespace :generate do
     key = SecureRandom.hex(32)
     File.open(path, "w") do |f|
       f.write <<~EOF
-      # frozen_string_literal: true
+        # frozen_string_literal: true
 
-      # The 2fa encryption key is used to encrypt users' OTP tokens in the database.
+        # The 2fa encryption key is used to encrypt users' OTP tokens in the database.
 
-      # You can regenerate this key by running `rake generate:twofa_key`
+        # You can regenerate this key by running `rake generate:twofa_key`
 
-      # If you change this key after a user has set up 2fa
-      # the users' tokens cannot be recovered
-      # and they will not be able to log in again!
+        # If you change this key after a user has set up 2fa
+        # the users' tokens cannot be recovered
+        # and they will not be able to log in again!
 
-      Diaspora::Application.config.twofa_encryption_key = "#{key}"
-EOF
+        Diaspora::Application.config.twofa_encryption_key = "#{key}"
+      EOF
     end
   end
 end

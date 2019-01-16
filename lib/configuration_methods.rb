@@ -53,6 +53,7 @@ module Configuration
     def secret_token
       if heroku?
         return ENV["SECRET_TOKEN"] if ENV["SECRET_TOKEN"]
+
         warn "FATAL: Running on Heroku with SECRET_TOKEN unset"
         warn "       Run heroku config:add SECRET_TOKEN=#{SecureRandom.hex(40)}"
         Process.exit(1)
@@ -61,9 +62,7 @@ module Configuration
           "../config/initializers/secret_token.rb",
           File.dirname(__FILE__)
         )
-        unless File.exist? token_file
-          system "DISABLE_SPRING=1 bin/rake generate:secret_token"
-        end
+        system "DISABLE_SPRING=1 bin/rake generate:secret_token" unless File.exist? token_file
         require token_file
         Diaspora::Application.config.secret_key_base
       end
@@ -72,6 +71,7 @@ module Configuration
     def twofa_encryption_key
       if heroku?
         return ENV["TWOFA_ENCRYPTION_KEY"] if ENV["TWOFA_ENCRYPTION_KEY"]
+
         warn "FATAL: Running on Heroku with TWOFA_ENCRYPTION_KEY unset"
         warn "       Run heroku config:add TWOFA_ENCRYPTION_KEY=#{SecureRandom.hex(32)}"
         Process.exit(1)
@@ -80,9 +80,7 @@ module Configuration
           "../config/initializers/twofa_encryption_key.rb",
           File.dirname(__FILE__)
         )
-        unless File.exist? key_file
-          system "DISABLE_SPRING=1 bin/rake generate:twofa_key"
-        end
+        system "DISABLE_SPRING=1 bin/rake generate:twofa_key" unless File.exist? key_file
         require key_file
         Diaspora::Application.config.twofa_encryption_key
       end
@@ -90,6 +88,7 @@ module Configuration
 
     def version_string
       return @version_string unless @version_string.nil?
+
       @version_string = version.number.to_s
       @version_string = "#{@version_string}-p#{git_revision[0..7]}" if git_available?
       @version_string
