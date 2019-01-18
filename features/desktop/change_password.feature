@@ -29,7 +29,7 @@ Feature: Change password
     When I follow the "Change my password" link from the last sent email
     When I fill out the password reset form with "supersecret" and "supersecret"
     And I submit the password reset form
-    Then I should not be on the stream page
+    Then I should be on the new user session page
     And I sign in manually as "georges_abitbol" with password "supersecret"
     Then I should be on the stream page
 
