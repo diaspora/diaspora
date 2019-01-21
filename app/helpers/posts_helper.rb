@@ -25,4 +25,12 @@ module PostsHelper
     "<iframe src='#{AppConfig.url_to(Rails.application.routes.url_helpers.post_path(post_id))}' " \
       "width='#{opts[:width]}px' height='#{opts[:height]}px' frameBorder='0'></iframe>".html_safe
   end
+
+  def post_link(post)
+    link_to(post_page_title(post),
+            post_path(post),
+            data:  {ref: post.id},
+            class: "hard_object_link").html_safe
+  end
+
 end
