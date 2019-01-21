@@ -30,10 +30,7 @@ module NotificationsHelper
   def opts_for_post(post)
     {
       post_author: html_escape(post.author_name),
-      post_link:   link_to(post_page_title(post),
-                           post_path(post),
-                           data:  {ref: post.id},
-                           class: "hard_object_link").html_safe
+      post_link: post_link(post)
     }
   end
 
