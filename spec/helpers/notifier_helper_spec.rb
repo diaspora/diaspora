@@ -28,7 +28,7 @@ describe NotifierHelper, :type => :helper do
       reshare = FactoryGirl.create(:reshare)
       reshare.root.destroy
       expect(helper.post_message(Reshare.find(reshare.id)))
-        .to eq(I18n.t("posts.show.reshare_by", author: reshare.author_name))
+        .to eq(I18n.t("posts.show.reshare_of", post_link: reshare.message.title))
     end
   end
 
