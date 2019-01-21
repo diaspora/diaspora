@@ -21,9 +21,13 @@ describe PostsHelper, :type => :helper do
     end
 
     context "with a reshare" do
-      it "returns 'Reshare by...'" do
+      it "returns 'Reshare of...'" do
         reshare = FactoryGirl.create(:reshare, author: alice.person)
-        expect(post_page_title(reshare)).to eq I18n.t("posts.show.reshare_by", author: reshare.author_name)
+        original_post = reshare.root
+        expect(post_page_title(reshare)).to eq I18n.t("posts.show.reshare_of", post_link: link_to(post_page_title(original_post),
+                 post_path(original_post),
+                 data:  {ref: original_post.id},
+                 class: "hard_object_link").html_safe)
       end
     end
   end
