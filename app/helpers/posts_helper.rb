@@ -9,7 +9,12 @@ module PostsHelper
     if post.is_a?(Photo)
       I18n.t "posts.show.photos_by", :count => 1, :author => post.status_message_author_name
     elsif post.is_a?(Reshare)
-      I18n.t "posts.show.reshare_of", :post_link => post_link(post.root)
+      if post.root
+        parent_link = post_link(post.root)
+      elsif post.message.present?
+        parent_link = post.message.title(opts)
+      end
+      I18n.t "posts.show.reshare_of", :post_link => parent_link
     else
       if post.message.present?
         post.message.title opts
