@@ -42,6 +42,16 @@
     padding: 15px;
   }
 
+  .clarification-header {
+    background-color: $grey;
+    border: 1px solid $border-grey;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+
   .login-form {
     fieldset { background: none; }
 

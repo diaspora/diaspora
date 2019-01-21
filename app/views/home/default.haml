@@ -4,6 +4,8 @@
       .row
         .col-md-8.text-center
           %h1= t("home.default.headline", pod_name: pod_name)
+          - if pod_name != "diaspora*"
+            %h2.clarification-header= t("home.default.clarify")
           %h2= t("home.default.byline")
         .col-md-4.login-form
           = render partial: "sessions/form", locals: {mobile: false, resource: User.new, resource_name: :user}
