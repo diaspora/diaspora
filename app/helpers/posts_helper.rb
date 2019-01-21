@@ -14,7 +14,7 @@ module PostsHelper
       elsif post.message.present?
         parent_link = post.message.title(opts)
       end
-      I18n.t "posts.show.reshare_of", :post_link => parent_link
+      I18n.t "posts.show.reshare_of", post_link: parent_link
     else
       if post.message.present?
         post.message.title opts
@@ -35,7 +35,6 @@ module PostsHelper
     link_to(post_page_title(post),
             post_path(post),
             data:  {ref: post.id},
-            class: "hard_object_link").html_safe
+            class: "hard_object_link")
   end
-
 end

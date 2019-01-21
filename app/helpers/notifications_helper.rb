@@ -28,10 +28,7 @@ module NotificationsHelper
   end
 
   def opts_for_post(post)
-    {
-      post_author: html_escape(post.author_name),
-      post_link: post_link(post)
-    }
+    {post_author: html_escape(post.author_name), post_link: post_link(post)}
   end
 
   def opts_for_mentioned(mentioned)
