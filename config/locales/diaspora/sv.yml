@@ -828,7 +828,7 @@ sv:
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
-    invited_you: "%{name} har bjudt in dig till Diaspora*."
+    invited_you: "%{name} har bjudit in dig till Diaspora*."
     liked:
       liked: "%{name} gillar ditt inlägg "
       limited_post: "%{name} gillade ditt begränsade inlägg."
@@ -841,7 +841,7 @@ sv:
       reply: "Svara på inlägg eller läs på konversationen >"
     private_message:
       reply_to_or_view: "Svara på eller läs denna konversation >"
-      subject: "Du fått ett förtroligt meddelande"
+      subject: "Du har fått ett förtroligt meddelande"
     remove_old_user:
       body: |-
           Hej.
