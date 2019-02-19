@@ -26,7 +26,7 @@
 * Replace dandelion.jpg with a public domain photo [#7976](https://github.com/diaspora/diaspora/pull/7976)
 
 ## Bug fixes
-* Fix incorrect post sorting on tag streams and tag searches for tags containing the word "activity" [#7422](https://github.com/diaspora/diaspora/issues/7422)
+* Fix incorrect post sorting on tag streams and tag searches for tags containing the word "activity" [#7959](https://github.com/diaspora/diaspora/issues/7959)
 
 # 0.7.9.0
 
