@@ -12,6 +12,14 @@
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
 * Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
 
+# 0.7.11.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.10.0
 
 ## Refactor
