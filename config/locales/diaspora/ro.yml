@@ -60,6 +60,7 @@ ro:
         zero: "%{count} utilizatori"
       week: "Săptămână"
     user_search:
+      add_invites: "Adaugă invitații"
       invite: "Invită"
       users:
         few: "am găsit %{count} utilizatori"
