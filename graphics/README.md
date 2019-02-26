@@ -6,4 +6,4 @@ frontend (PNGs, etc.).  They can be scaled, tinted, shaded, etc.
 
 ## License
 
-[dandelion.jpg](https://www.flickr.com/photos/pixagraphic/7218285148/) by pixagraphic has been released under [CC-BY-ND](https://creativecommons.org/licenses/by-nd/2.0/)
+[dandelion.jpg](https://www.dreamstime.com/dandelion-blowing-wind-public-domain-image-free-83023111) is a public domain (CC0) photo by creativecommonsstockphotos.

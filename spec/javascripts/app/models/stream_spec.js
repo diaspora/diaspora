@@ -27,7 +27,7 @@ describe("app.models.Stream", function() {
     });
 
     it("returns a comparator for posts that compares interacted_at and ids for the activity stream", function() {
-      spyOn(stream, "basePath").and.returnValue("activity");
+      spyOn(stream, "basePath").and.returnValue("/activity");
       this.options = stream.collectionOptions();
       expect(this.options.comparator(this.post1, this.post2)).toBe(1);
       expect(this.options.comparator(this.post2, this.post1)).toBe(-1);
@@ -36,6 +36,13 @@ describe("app.models.Stream", function() {
       expect(this.options.comparator(this.post1, this.post4)).toBe(-1);
       expect(this.options.comparator(this.post4, this.post1)).toBe(1);
       expect(this.options.comparator(this.post1, this.post1)).toBe(0);
+    });
+
+    it("returns a comparator for posts that compares created_at and ids for tags including 'activity'", function() {
+      spyOn(stream, "basePath").and.returnValue("/tags/foo-activity-bar");
+      this.options = stream.collectionOptions();
+      expect(this.options.comparator(this.post2, this.post3)).toBe(1);
+      expect(this.options.comparator(this.post3, this.post2)).toBe(-1);
     });
   });
 
