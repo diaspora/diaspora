@@ -645,6 +645,7 @@ de:
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket runterladen"
       statistics_link: "Pod-Statistiken"
+      switch_to_touch_optimized_mode: "Wechseln zum touch-optimierten Modus"
       whats_new: "Was gibt’s Neues?"
     header:
       code: "Code"
