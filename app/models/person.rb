@@ -78,13 +78,13 @@ class Person < ApplicationRecord
   }
 
   scope :unique_from_aspects, ->(aspect_ids, user) {
-    all_from_aspects(aspect_ids, user).select('DISTINCT people.*')
+    all_from_aspects(aspect_ids, user).group(:id)
   }
 
   #not defensive
   scope :in_aspects, ->(aspect_ids) {
     joins(contacts: :aspect_memberships)
-      .where(aspect_memberships: {aspect_id: aspect_ids}).distinct
+      .where(aspect_memberships: {aspect_id: aspect_ids}).group(:id)
   }
 
   scope :profile_tagged_with, ->(tag_name) {

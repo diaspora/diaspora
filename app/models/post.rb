@@ -51,9 +51,9 @@ class Post < ApplicationRecord
   scope :all_public, -> { where(public: true) }
 
   scope :commented_by, ->(person)  {
-    select('DISTINCT posts.*')
-      .joins(:comments)
+    joins(:comments)
       .where(:comments => {:author_id => person.id})
+      .group(:id)
   }
 
   scope :liked_by, ->(person) {
