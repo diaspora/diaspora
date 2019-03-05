@@ -112,12 +112,12 @@ describe EvilQuery::Participation do
 
     it "includes Posts with multiple participations only once" do
       eve.like!(@status_message)
-      expect(posts.count).to be(1)
+      expect(Post.from(posts).count).to be(1)
     end
 
     it "includes Posts with multiple participations only once for the post author" do
       eve.like!(@status_message)
-      expect(EvilQuery::Participation.new(bob).posts.count).to eq(1)
+      expect(Post.from(EvilQuery::Participation.new(bob).posts).count).to eq(1)
     end
 
     it "includes Posts with multiple participation after removing one participation" do

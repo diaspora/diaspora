@@ -38,7 +38,7 @@ describe Post, :type => :model do
       end
 
       it 'should return the three visible posts' do
-        expect(StatusMessage.owned_or_visible_by_user(@you).count(:all)).to eq(3)
+        expect(Post.from(StatusMessage.owned_or_visible_by_user(@you)).count).to eq(3)
       end
     end
 

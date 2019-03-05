@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
       respond_to do |format|
         format.all do
           gon.preloads[:person] = @presenter.as_json
-          gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
+          gon.preloads[:photos_count] = Photo.from(Photo.visible(current_user, @person)).count
           render "people/show", layout: "with_header"
         end
         format.mobile { render "people/show" }

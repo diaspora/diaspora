@@ -99,7 +99,7 @@ describe User::Querying, :type => :model do
   describe "#visible_shareables" do
     it 'never contains posts from people not in your aspects' do
       FactoryGirl.create(:status_message, :public => true)
-      expect(bob.visible_shareables(Post).count(:all)).to eq(0)
+      expect(Post.from(bob.visible_shareables(Post)).count).to eq(0)
     end
 
     context 'with many posts' do
@@ -187,14 +187,14 @@ describe User::Querying, :type => :model do
         connect_users(alice, @alices_aspect, local_user2, asp2)
         alice.contacts.create!(person: remote_person, aspects: [@alices_aspect], sharing: true)
 
-        expect(alice.people_in_aspects([@alices_aspect]).count).to eq(4)
-        expect(alice.people_in_aspects([@alices_aspect], type: "remote").count).to eq(1)
-        expect(alice.people_in_aspects([@alices_aspect], type: "local").count).to eq(3)
+        expect(Person.from(alice.people_in_aspects([@alices_aspect])).count).to eq(4)
+        expect(Person.from(alice.people_in_aspects([@alices_aspect], type: "remote")).count).to eq(1)
+        expect(Person.from(alice.people_in_aspects([@alices_aspect], type: "local")).count).to eq(3)
       end
 
       it 'does not return people not connected to user on same pod' do
         3.times { FactoryGirl.create(:user) }
-        expect(alice.people_in_aspects([@alices_aspect]).count).to eq(1)
+        expect(Person.from(alice.people_in_aspects([@alices_aspect])).count).to eq(1)
       end
 
       it "only returns non-pending contacts" do
