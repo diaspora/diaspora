@@ -384,7 +384,7 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
-    mini_magick (4.9.2)
+    mini_magick (4.9.3)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -820,7 +820,7 @@ DEPENDENCIES
   logging-rails (= 0.6.0)
   markdown-it-html5-embed (= 1.0.0)
   markerb (= 1.1.0)
-  mini_magick (= 4.9.2)
+  mini_magick (= 4.9.3)
   minitest
   mobile-fu (= 1.4.0)
   mysql2 (= 0.5.2)
