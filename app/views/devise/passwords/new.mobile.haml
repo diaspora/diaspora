@@ -9,7 +9,7 @@
         %fieldset
           %legend
             =t('devise.passwords.new.forgot_password')
-          - unless devise_error_messages!.empty?
+          - unless resource.errors.empty?
             %i=  t('devise.passwords.new.no_account')
 
           .control-group
