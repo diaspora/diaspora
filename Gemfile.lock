@@ -229,7 +229,7 @@ GEM
       activerecord (>= 2)
       activesupport (>= 2)
       hashdiff
-    fog-aws (3.3.0)
+    fog-aws (3.4.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
@@ -797,7 +797,7 @@ DEPENDENCIES
   faraday-cookie_jar (= 0.0.6)
   faraday_middleware (= 0.12.2)
   fixture_builder (= 0.5.2.rc3)
-  fog-aws (= 3.3.0)
+  fog-aws (= 3.4.0)
   fuubar (= 2.3.2)
   gon (= 6.2.1)
   guard (= 2.15.0)
