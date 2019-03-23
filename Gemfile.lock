@@ -495,7 +495,7 @@ GEM
       json-jwt (>= 1.9.0)
       rack
     rack-piwik (0.3.0)
-    rack-protection (2.0.4)
+    rack-protection (2.0.5)
       rack
     rack-rewrite (1.5.1)
     rack-ssl (1.4.1)
@@ -652,8 +652,9 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
-    sidekiq (5.2.3)
+    sidekiq (5.2.5)
       connection_pool (~> 2.2, >= 2.2.2)
+      rack (>= 1.5.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
     sidekiq-cron (1.0.4)
@@ -883,7 +884,7 @@ DEPENDENCIES
   sass-rails (= 5.0.7)
   secure_headers (= 6.0.0)
   shoulda-matchers (= 3.1.2)
-  sidekiq (= 5.2.3)
+  sidekiq (= 5.2.5)
   sidekiq-cron (= 1.0.4)
   simple_captcha2 (= 0.4.3)
   simplecov (= 0.16.1)
