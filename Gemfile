@@ -26,7 +26,7 @@ gem "json-schema", "2.8.1"
 
 # Authentication
 
-gem "devise", "4.5.0"
+gem "devise", "4.6.1"
 gem "devise_lastseenable", "0.0.6"
 
 # Captcha
