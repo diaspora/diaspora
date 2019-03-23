@@ -90,11 +90,11 @@ gem "entypo-rails", "3.0.0"
 
 # JavaScript
 
-gem "sprockets-es6",     "0.9.2"
-gem "handlebars_assets", "0.23.2"
+gem "handlebars_assets", "0.23.3"
 gem "jquery-rails",      "4.3.3"
 gem "js-routes",         "1.4.4"
 gem "js_image_paths",    "0.1.1"
+gem "sprockets-es6",     "0.9.2"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "3.3.1" # Should be kept in sync with jquery-rails
