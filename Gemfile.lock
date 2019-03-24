@@ -73,7 +73,7 @@ GEM
     buftok (0.2.0)
     builder (3.2.3)
     byebug (11.0.1)
-    capybara (3.11.1)
+    capybara (3.15.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -776,7 +776,7 @@ DEPENDENCIES
   autoprefixer-rails (= 8.6.5)
   bootstrap-sass (= 3.4.1)
   bootstrap-switch-rails (= 3.3.3)
-  capybara (= 3.11.1)
+  capybara (= 3.15.0)
   carrierwave (= 1.3.1)
   compass-rails (= 3.1.0)
   configurate (= 0.3.1)
