@@ -159,7 +159,7 @@ gem "secure_headers", "6.1.0"
 
 # Services
 
-gem "omniauth",           "1.8.1"
+gem "omniauth",           "1.9.0"
 gem "omniauth-tumblr",    "1.2"
 gem "omniauth-twitter",   "1.4.0"
 gem "omniauth-wordpress", "0.2.2"
