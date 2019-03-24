@@ -316,5 +316,5 @@ group :development, :test do
   gem "sinon-rails",               "1.15.0"
 
   # For `assigns` in controller specs
-  gem "rails-controller-testing", "1.0.2"
+  gem "rails-controller-testing", "1.0.4"
 end
