@@ -297,7 +297,7 @@ GEM
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
-    hashdiff (0.3.7)
+    hashdiff (0.3.8)
     hashie (3.6.0)
     http (3.3.0)
       addressable (~> 2.3)
@@ -631,7 +631,7 @@ GEM
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     rugged (0.27.5)
-    safe_yaml (1.0.4)
+    safe_yaml (1.0.5)
     sass (3.4.25)
     sass-rails (5.0.7)
       railties (>= 4.0.0, < 6)
@@ -751,7 +751,7 @@ GEM
     webfinger (1.1.0)
       activesupport
       httpclient (>= 2.4)
-    webmock (3.4.2)
+    webmock (3.5.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -904,7 +904,7 @@ DEPENDENCIES
   unicorn-worker-killer (= 0.4.4)
   uuid (= 2.3.9)
   versionist (= 1.7.0)
-  webmock (= 3.4.2)
+  webmock (= 3.5.1)
   will_paginate (= 3.1.7)
 
 BUNDLED WITH
