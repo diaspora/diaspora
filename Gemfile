@@ -246,7 +246,7 @@ group :development do
   gem "guard-rspec",    "4.7.3", require: false
   gem "guard-rubocop",  "1.3.0", require: false
   gem "rb-fsevent",     "0.10.3", require: false
-  gem "rb-inotify",     "0.9.10", require: false
+  gem "rb-inotify",     "0.10.0", require: false
 
   # Linters
   gem "haml_lint",      "0.28.0", require: false
