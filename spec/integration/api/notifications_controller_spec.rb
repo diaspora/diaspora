@@ -25,7 +25,7 @@ describe Api::V1::NotificationsController do
       :status_message,
       text: "This is a status message mentioning @{#{auth.user.diaspora_handle}}"
     )
-    @notification = FactoryGirl.create(:notification, recipient: auth.user, target: @post)
+    @notification = FactoryGirl.create(:notification, recipient: auth.user, target: @post, created_at: 1.hour.ago)
     @mentioned = FactoryGirl.create(:notification_mentioned_in_comment, recipient: auth.user, target: @post)
   end
 
