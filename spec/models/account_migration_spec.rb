@@ -4,7 +4,8 @@ require "integration/federation/federation_helper"
 
 describe AccountMigration, type: :model do
   describe "create!" do
-    include_context "with local old user"
+    let(:old_user) { FactoryGirl.create(:user) }
+    let(:old_person) { old_user.person }
 
     it "locks old local user after creation" do
       expect {
@@ -28,7 +29,8 @@ describe AccountMigration, type: :model do
 
   describe "sender" do
     context "with remote old user" do
-      include_context "with remote old user"
+      let(:old_user) { remote_user_on_pod_c }
+      let(:old_person) { old_user.person }
 
       it "creates ephemeral user when private key is provided" do
         account_migration.old_private_key = old_user.serialized_private_key
@@ -46,7 +48,8 @@ describe AccountMigration, type: :model do
     end
 
     context "with local old user" do
-      include_context "with local old user"
+      let(:old_user) { FactoryGirl.create(:user) }
+      let(:old_person) { old_user.person }
 
       it "matches the old user" do
         expect(account_migration.sender).to eq(old_user)
@@ -73,7 +76,8 @@ describe AccountMigration, type: :model do
   end
 
   context "with local new user" do
-    include_context "with local new user"
+    let(:new_user) { FactoryGirl.create(:user) }
+    let(:new_person) { new_user.person }
 
     describe "subscribers" do
       it "picks remote subscribers of new user profile and old person" do
@@ -83,7 +87,8 @@ describe AccountMigration, type: :model do
       end
 
       context "with local old user" do
-        include_context "with local old user"
+        let(:old_user) { FactoryGirl.create(:user) }
+        let(:old_person) { old_user.person }
 
         it "doesn't include old person" do
           expect(account_migration.subscribers).to be_empty
@@ -113,7 +118,8 @@ describe AccountMigration, type: :model do
     end
 
     context "with local old and remote new users" do
-      include_context "with local old user"
+      let(:old_user) { FactoryGirl.create(:user) }
+      let(:old_person) { old_user.person }
 
       it "calls AccountDeleter#close_user" do
         expect(embedded_account_deleter).to receive(:close_user)
@@ -128,8 +134,10 @@ describe AccountMigration, type: :model do
     end
 
     context "with local new and remote old users" do
-      include_context "with remote old user"
-      include_context "with local new user"
+      let(:old_user) { remote_user_on_pod_c }
+      let(:old_person) { old_user.person }
+      let(:new_user) { FactoryGirl.create(:user) }
+      let(:new_person) { new_user.person }
 
       it "dispatches account migration message" do
         expect(account_migration).to receive(:sender).twice.and_return(old_user)
@@ -151,8 +159,10 @@ describe AccountMigration, type: :model do
     end
 
     context "with local old and new users" do
-      include_context "with local old user"
-      include_context "with local new user"
+      let(:old_user) { FactoryGirl.create(:user) }
+      let(:old_person) { old_user.person }
+      let(:new_user) { FactoryGirl.create(:user) }
+      let(:new_person) { new_user.person }
 
       it "calls AccountDeleter#tombstone_user" do
         expect(embedded_account_deleter).to receive(:tombstone_user)
@@ -196,8 +206,10 @@ describe AccountMigration, type: :model do
     end
 
     context "with local account merging (non-empty new user)" do
-      include_context "with local old user"
-      include_context "with local new user"
+      let(:old_user) { FactoryGirl.create(:user) }
+      let(:old_person) { old_user.person }
+      let(:new_user) { FactoryGirl.create(:user) }
+      let(:new_person) { new_user.person }
 
       before do
         FactoryGirl.create(

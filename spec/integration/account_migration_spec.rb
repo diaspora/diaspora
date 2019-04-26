@@ -114,8 +114,10 @@ describe "account migration" do
     end
 
     context "both new and old profiles are remote" do
-      include_context "with remote old user"
-      include_context "with remote new user"
+      let(:old_user) { remote_user_on_pod_c }
+      let(:old_person) { old_user.person }
+      let(:new_user) { remote_user_on_pod_b }
+      let(:new_person) { new_user.person }
 
       it "creates AccountMigration db object" do
         run_migration
@@ -129,8 +131,10 @@ describe "account migration" do
 
     # this is the case when we're a pod, which was left by a person in favor of remote one
     context "old user is local, new user is remote" do
-      include_context "with local old user"
-      include_context "with remote new user"
+      let(:old_user) { FactoryGirl.create(:user) }
+      let(:old_person) { old_user.person }
+      let(:new_user) { remote_user_on_pod_b }
+      let(:new_person) { new_user.person }
 
       include_examples "every migration scenario"
 
@@ -160,8 +164,10 @@ describe "account migration" do
 
     # this is the case when user migrates to our pod from a remote one
     context "old user is remote and new user is local" do
-      include_context "with remote old user"
-      include_context "with local new user"
+      let(:old_user) { remote_user_on_pod_c }
+      let(:old_person) { old_user.person }
+      let(:new_user) { FactoryGirl.create(:user) }
+      let(:new_person) { new_user.person }
 
       def run_migration
         AccountMigration.create!(
@@ -180,8 +186,10 @@ describe "account migration" do
 
     # this is the case when a user changes diaspora id but stays on the same pod
     context "old user is local and new user is local" do
-      include_context "with local old user"
-      include_context "with local new user"
+      let(:old_user) { FactoryGirl.create(:user) }
+      let(:old_person) { old_user.person }
+      let(:new_user) { FactoryGirl.create(:user) }
+      let(:new_person) { new_user.person }
 
       def run_migration
         AccountMigration.create!(old_person: old_user.person, new_person: new_user.person).perform!

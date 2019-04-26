@@ -1,25 +1,5 @@
 # frozen_string_literal: true
 
-shared_context "with local old user" do
-  let(:old_user) { FactoryGirl.create(:user) }
-  let(:old_person) { old_user.person }
-end
-
-shared_context "with local new user" do
-  let(:new_user) { FactoryGirl.create(:user) }
-  let(:new_person) { new_user.person }
-end
-
-shared_context "with remote old user" do
-  let(:old_user) { remote_user_on_pod_c }
-  let(:old_person) { old_user.person }
-end
-
-shared_context "with remote new user" do
-  let(:new_user) { remote_user_on_pod_b }
-  let(:new_person) { new_user.person }
-end
-
 shared_examples_for "it updates person references" do
   it "updates contact reference" do
     contact = FactoryGirl.create(:contact, person: old_person)
