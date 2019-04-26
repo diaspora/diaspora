@@ -9,7 +9,7 @@ describe Api::Paging::TimePaginator do
         text:   "Post #{i}",
         public: public
       )
-      sleep(0.01.seconds)
+      Timecop.travel(1.hour.from_now)
     end
     @alice_search = alice.posts.where(public: true)
     @limit = 2

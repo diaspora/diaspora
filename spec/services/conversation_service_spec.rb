@@ -8,7 +8,8 @@ describe ConversationService do
       participant_ids: [bob.person.id]
     }
     @conversation = alice.build_conversation(opts)
-    @conversation.save
+    @conversation.created_at = 2.hours.ago
+    @conversation.save!
   end
 
   describe "#all_for_user" do
@@ -19,8 +20,8 @@ describe ConversationService do
         participant_ids: [bob.person.id]
       }
       @conversation = alice.build_conversation(opts)
+      @conversation.created_at = 1.hour.ago
       @conversation.save!
-      sleep(1)
       @date = @conversation.created_at
       opts = {
         subject:         "conversation subject 3",

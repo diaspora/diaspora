@@ -143,11 +143,12 @@ describe Api::V1::ConversationsController do
 
   describe "#index" do
     before do
-      post api_v1_conversations_path, params: @conversation_request
-      @read_conversation_guid = response_body(response)["guid"]
-      @read_conversation = conversation_service.find!(@read_conversation_guid)
-      post api_v1_conversations_path, params: @conversation_request
-      sleep(1)
+      Timecop.travel(1.hour.ago) do
+        post api_v1_conversations_path, params: @conversation_request
+        @read_conversation_guid = response_body(response)["guid"]
+        @read_conversation = conversation_service.find!(@read_conversation_guid)
+        post api_v1_conversations_path, params: @conversation_request
+      end
       post api_v1_conversations_path, params: @conversation_request
       @conversation_guid = response_body(response)["guid"]
       @conversation = conversation_service.find!(@conversation_guid)
