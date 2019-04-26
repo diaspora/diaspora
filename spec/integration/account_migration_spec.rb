@@ -149,6 +149,36 @@ shared_examples_for "migration scenarios initiated locally" do
   end
 end
 
+shared_examples_for "migration scenarios with local user rename" do
+  it "updates user references" do
+    invited_user = FactoryGirl.create(:user, invited_by: old_user)
+    aspect = FactoryGirl.create(:aspect, user: old_user, name: r_str)
+    contact = FactoryGirl.create(:contact, user: old_user)
+    service = FactoryGirl.create(:service, user: old_user)
+    pref = UserPreference.create!(user: old_user, email_type: "also_commented")
+    tag_following = FactoryGirl.create(:tag_following, user: old_user)
+    block = FactoryGirl.create(:block, user: old_user)
+    notification = FactoryGirl.create(:notification, recipient: old_user)
+    report = FactoryGirl.create(:report, user: old_user)
+    authorization = FactoryGirl.create(:auth_with_read, user: old_user)
+    share_visibility = FactoryGirl.create(:share_visibility, user: old_user)
+
+    run_migration
+
+    expect(invited_user.reload.invited_by).to eq(new_user)
+    expect(aspect.reload.user).to eq(new_user)
+    expect(contact.reload.user).to eq(new_user)
+    expect(service.reload.user).to eq(new_user)
+    expect(pref.reload.user).to eq(new_user)
+    expect(tag_following.reload.user).to eq(new_user)
+    expect(block.reload.user).to eq(new_user)
+    expect(notification.reload.recipient).to eq(new_user)
+    expect(report.reload.user).to eq(new_user)
+    expect(authorization.reload.user).to eq(new_user)
+    expect(share_visibility.reload.user).to eq(new_user)
+  end
+end
+
 describe "account migration" do
   # this is the case when we receive account migration message from the federation
   context "remotely initiated" do
@@ -173,6 +203,22 @@ describe "account migration" do
       include_examples "every migration scenario"
 
       include_examples "migration scenarios initiated remotely"
+
+      context "when new person has been migrated before" do
+        let(:intermidiate_person) { create_remote_user("remote-d.net").person }
+
+        before do
+          AccountMigration.create!(old_person: intermidiate_person, new_person: new_person).perform!
+        end
+
+        def run_migration
+          AccountMigration.create!(old_person: old_person, new_person: intermidiate_person).perform!
+        end
+
+        include_examples "every migration scenario"
+
+        include_examples "migration scenarios initiated remotely"
+      end
     end
 
     # this is the case when we're a pod, which was left by a person in favor of remote one
@@ -199,6 +245,24 @@ describe "account migration" do
           run_migration
           user.reload
         end
+      end
+
+      context "when new person has been migrated before" do
+        let(:intermidiate_person) { create_remote_user("remote-d.net").person }
+
+        before do
+          AccountMigration.create!(old_person: intermidiate_person, new_person: new_person).perform!
+        end
+
+        def run_migration
+          AccountMigration.create!(old_person: old_user.person, new_person: intermidiate_person).perform!
+        end
+
+        include_examples "every migration scenario"
+
+        include_examples "migration scenarios initiated remotely"
+
+        it_behaves_like "migration scenarios with local old user"
       end
     end
   end
@@ -228,6 +292,24 @@ describe "account migration" do
       it_behaves_like "migration scenarios initiated locally" do
         let!(:remote_contact) { create_remote_contact(new_user, "remote-friend.org") }
       end
+
+      context "when new person has been migrated before" do
+        let(:intermidiate_person) { FactoryGirl.create(:user).person }
+
+        before do
+          AccountMigration.create!(old_person: intermidiate_person, new_person: new_person).perform!
+        end
+
+        def run_migration
+          AccountMigration.create!(
+            old_person:      old_person,
+            new_person:      intermidiate_person,
+            old_private_key: old_user.serialized_private_key
+          ).perform!
+        end
+
+        include_examples "every migration scenario"
+      end
     end
 
     # this is the case when a user changes diaspora id but stays on the same pod
@@ -254,32 +336,32 @@ describe "account migration" do
         expect(old_user.reload).to be_a_clear_account
       end
 
-      it "updates user references" do
-        invited_user = FactoryGirl.create(:user, invited_by: old_user)
-        aspect = FactoryGirl.create(:aspect, user: old_user, name: r_str)
-        contact = FactoryGirl.create(:contact, user: old_user)
-        service = FactoryGirl.create(:service, user: old_user)
-        pref = UserPreference.create!(user: old_user, email_type: "also_commented")
-        tag_following = FactoryGirl.create(:tag_following, user: old_user)
-        block = FactoryGirl.create(:block, user: old_user)
-        notification = FactoryGirl.create(:notification, recipient: old_user)
-        report = FactoryGirl.create(:report, user: old_user)
-        authorization = FactoryGirl.create(:auth_with_read, user: old_user)
-        share_visibility = FactoryGirl.create(:share_visibility, user: old_user)
+      include_examples "migration scenarios with local user rename"
 
-        run_migration
+      context "when new user has been migrated before" do
+        let(:intermidiate_person) { FactoryGirl.create(:user).person }
 
-        expect(invited_user.reload.invited_by).to eq(new_user)
-        expect(aspect.reload.user).to eq(new_user)
-        expect(contact.reload.user).to eq(new_user)
-        expect(service.reload.user).to eq(new_user)
-        expect(pref.reload.user).to eq(new_user)
-        expect(tag_following.reload.user).to eq(new_user)
-        expect(block.reload.user).to eq(new_user)
-        expect(notification.reload.recipient).to eq(new_user)
-        expect(report.reload.user).to eq(new_user)
-        expect(authorization.reload.user).to eq(new_user)
-        expect(share_visibility.reload.user).to eq(new_user)
+        before do
+          AccountMigration.create!(old_person: intermidiate_person, new_person: new_person).perform!
+        end
+
+        def run_migration
+          AccountMigration.create!(
+            old_person: old_person,
+            new_person: intermidiate_person
+          ).perform!
+        end
+
+        include_examples "every migration scenario"
+
+        it_behaves_like "migration scenarios with local old user"
+
+        it "clears the old user account" do
+          run_migration
+          expect(old_user.reload).to be_a_clear_account
+        end
+
+        include_examples "migration scenarios with local user rename"
       end
     end
   end

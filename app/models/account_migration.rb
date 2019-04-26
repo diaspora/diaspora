@@ -81,6 +81,10 @@ class AccountMigration < ApplicationRecord
     new_person.owner
   end
 
+  def newest_user
+    newest_person.owner
+  end
+
   def lock_old_user!
     old_user&.lock_access!
   end
@@ -106,7 +110,7 @@ class AccountMigration < ApplicationRecord
   # We need to resend contacts of users of our pod for the remote new person so that the remote pod received this
   # contact information from the authoritative source.
   def dispatch_contacts
-    new_person.contacts.sharing.each do |contact|
+    newest_person.contacts.sharing.each do |contact|
       Diaspora::Federation::Dispatcher.defer_dispatch(contact.user, contact)
     end
   end
@@ -179,7 +183,7 @@ class AccountMigration < ApplicationRecord
   def duplicate_person_contacts
     Contact
       .joins("INNER JOIN contacts as c2 ON (contacts.user_id = c2.user_id AND contacts.person_id=#{old_person.id} AND"\
-        " c2.person_id=#{new_person.id})")
+        " c2.person_id=#{newest_person.id})")
   end
 
   def duplicate_person_likes
@@ -187,7 +191,7 @@ class AccountMigration < ApplicationRecord
       .joins("INNER JOIN likes as l2 ON (likes.target_id = l2.target_id "\
         "AND likes.target_type = l2.target_type "\
         "AND likes.author_id=#{old_person.id} AND"\
-        " l2.author_id=#{new_person.id})")
+        " l2.author_id=#{newest_person.id})")
   end
 
   def duplicate_person_participations
@@ -195,41 +199,41 @@ class AccountMigration < ApplicationRecord
       .joins("INNER JOIN participations as p2 ON (participations.target_id = p2.target_id "\
         "AND participations.target_type = p2.target_type "\
         "AND participations.author_id=#{old_person.id} AND"\
-        " p2.author_id=#{new_person.id})")
+        " p2.author_id=#{newest_person.id})")
   end
 
   def duplicate_person_poll_participations
     PollParticipation
       .joins("INNER JOIN poll_participations as p2 ON (poll_participations.poll_id = p2.poll_id "\
         "AND poll_participations.author_id=#{old_person.id} AND"\
-        " p2.author_id=#{new_person.id})")
+        " p2.author_id=#{newest_person.id})")
   end
 
   def eliminate_user_duplicates
     Aspect
       .joins("INNER JOIN aspects as a2 ON (aspects.name = a2.name AND aspects.user_id=#{old_user.id}
-        AND a2.user_id=#{new_user.id})")
+        AND a2.user_id=#{newest_user.id})")
       .destroy_all
     Contact
       .joins("INNER JOIN contacts as c2 ON (contacts.person_id = c2.person_id AND contacts.user_id=#{old_user.id} AND"\
-        " c2.user_id=#{new_user.id})")
+        " c2.user_id=#{newest_user.id})")
       .destroy_all
     TagFollowing
       .joins("INNER JOIN tag_followings as t2 ON (tag_followings.tag_id = t2.tag_id AND"\
-        " tag_followings.user_id=#{old_user.id} AND t2.user_id=#{new_user.id})")
+        " tag_followings.user_id=#{old_user.id} AND t2.user_id=#{newest_user.id})")
       .destroy_all
   end
 
   def update_person_references
-    logger.debug "Updating references from person id=#{old_person.id} to person id=#{new_person.id}"
+    logger.debug "Updating references from person id=#{old_person.id} to person id=#{newest_person.id}"
     eliminate_person_duplicates
-    update_references(person_references, old_person, new_person.id)
+    update_references(person_references, old_person, newest_person.id)
   end
 
   def update_user_references
-    logger.debug "Updating references from user id=#{old_user.id} to user id=#{new_user.id}"
+    logger.debug "Updating references from user id=#{old_user.id} to user id=#{newest_user.id}"
     eliminate_user_duplicates
-    update_references(user_references, old_user, new_user.id)
+    update_references(user_references, old_user, newest_user.id)
   end
 
   def update_references(references, object, new_id)
