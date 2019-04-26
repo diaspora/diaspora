@@ -41,7 +41,7 @@ describe AccountMigration, type: :model do
       it "raises when no private key is provided" do
         expect {
           account_migration.sender
-        }.to raise_error("can't build sender without old private key defined")
+        }.to raise_error("can't build sender without old private key and diaspora ID defined")
       end
     end
 
@@ -146,7 +146,7 @@ describe AccountMigration, type: :model do
 
         expect {
           account_migration.perform!
-        }.to raise_error "can't build sender without old private key defined"
+        }.to raise_error "can't build sender without old private key and diaspora ID defined"
       end
     end
 
@@ -224,6 +224,16 @@ describe AccountMigration, type: :model do
         expect(new_person.owner.contacts.count).to eq(1)
         expect(new_person.owner.aspects.count).to eq(1)
       end
+    end
+  end
+
+  describe "#newest_person" do
+    let!(:second_migration) {
+      FactoryGirl.create(:account_migration, old_person: account_migration.new_person)
+    }
+
+    it "returns the newest account in the migration chain" do
+      expect(account_migration.newest_person).to eq(second_migration.new_person)
     end
   end
 end

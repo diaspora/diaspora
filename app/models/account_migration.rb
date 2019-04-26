@@ -12,6 +12,7 @@ class AccountMigration < ApplicationRecord
   after_create :lock_old_user!
 
   attr_accessor :old_private_key
+  attr_writer :old_person_diaspora_id
 
   def receive(*)
     perform!
@@ -29,15 +30,7 @@ class AccountMigration < ApplicationRecord
   def perform!
     raise "already performed" if performed?
     validate_sender if locally_initiated?
-
-    ActiveRecord::Base.transaction do
-      account_deleter.tombstone_person_and_profile
-      account_deleter.close_user if user_left_our_pod?
-      account_deleter.tombstone_user if user_changed_id_locally?
-
-      update_all_references
-    end
-
+    tombstone_old_user_and_update_all_references if old_person
     dispatch if locally_initiated?
     dispatch_contacts if remotely_initiated?
     update(completed_at: Time.zone.now)
@@ -53,8 +46,18 @@ class AccountMigration < ApplicationRecord
   # the new pod is informed about the migration as well.
   def subscribers
     new_user.profile.subscribers.remote.to_a.tap do |subscribers|
-      subscribers.push(old_person) if old_person.remote?
+      subscribers.push(old_person) if old_person&.remote?
     end
+  end
+
+  # This method finds the newest user person profile in the migration chain.
+  # If person migrated multiple times then #new_person may point to a closed account.
+  # In this case in order to find open account we have to delegate new_person call to the next account_migration
+  # instance in the chain.
+  def newest_person
+    return new_person if new_person.account_migration.nil?
+
+    new_person.account_migration.newest_person
   end
 
   private
@@ -71,7 +74,7 @@ class AccountMigration < ApplicationRecord
   end
 
   def old_user
-    old_person.owner
+    old_person&.owner
   end
 
   def new_user
@@ -88,6 +91,16 @@ class AccountMigration < ApplicationRecord
 
   def user_changed_id_locally?
     old_user && new_user
+  end
+
+  def tombstone_old_user_and_update_all_references
+    ActiveRecord::Base.transaction do
+      account_deleter.tombstone_person_and_profile
+      account_deleter.close_user if user_left_our_pod?
+      account_deleter.tombstone_user if user_changed_id_locally?
+
+      update_all_references
+    end
   end
 
   # We need to resend contacts of users of our pod for the remote new person so that the remote pod received this
@@ -112,9 +125,16 @@ class AccountMigration < ApplicationRecord
     end
   end
 
+  def old_person_diaspora_id
+    old_person&.diaspora_handle || @old_person_diaspora_id
+  end
+
   def ephemeral_sender
-    raise "can't build sender without old private key defined" if old_private_key.nil?
-    EphemeralUser.new(old_person.diaspora_handle, old_private_key)
+    if old_private_key.nil? || old_person_diaspora_id.nil?
+      raise "can't build sender without old private key and diaspora ID defined"
+    end
+
+    EphemeralUser.new(old_person_diaspora_id, old_private_key)
   end
 
   def validate_sender
@@ -128,7 +148,7 @@ class AccountMigration < ApplicationRecord
 
   def person_references
     references = Person.reflections.reject {|key, _|
-      %w[profile owner notifications pod].include?(key)
+      %w[profile owner notifications pod account_migration].include?(key)
     }
 
     references.map {|key, value|
