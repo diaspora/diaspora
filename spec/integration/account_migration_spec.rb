@@ -14,34 +14,6 @@ def create_remote_contact(user, pod_host)
   )
 end
 
-shared_examples_for "old person account is closed and profile is cleared" do
-  subject { old_person }
-
-  before do
-    run_migration
-    subject.reload
-  end
-
-  include_examples "it makes account closed and clears profile"
-end
-
-shared_examples_for "old person doesn't have any reference left" do
-  let(:person) { old_person }
-
-  before do
-    DataGenerator.create(person, :generic_person_data)
-  end
-
-  def account_removal_method
-    run_migration
-    person.reload
-  end
-
-  include_examples "it removes the person associations"
-
-  include_examples "it removes the person conversations"
-end
-
 shared_examples_for "every migration scenario" do
   it "updates person references" do
     contact = FactoryGirl.create(:contact, person: old_person)
@@ -91,9 +63,41 @@ shared_examples_for "every migration scenario" do
     expect(actor.reload.person).to eq(new_person)
   end
 
-  it_behaves_like "old person account is closed and profile is cleared"
+  describe "old person account is closed and profile is cleared" do
+    subject { old_person }
 
-  it_behaves_like "old person doesn't have any reference left"
+    before do
+      run_migration
+      subject.reload
+    end
+
+    include_examples "it makes account closed and clears profile"
+  end
+
+  describe "old person doesn't have any reference left" do
+    let(:person) { old_person }
+
+    before do
+      DataGenerator.create(person, :generic_person_data)
+    end
+
+    def account_removal_method
+      run_migration
+      person.reload
+    end
+
+    include_examples "it removes the person associations"
+
+    it "removes the person conversations" do
+      expect {
+        account_removal_method
+      }.to change(nil, "conversations empty?") { Conversation.where(author: person).empty? }
+        .to(be_truthy)
+        .and(change(nil, "conversation visibilities of other participants empty?") {
+          ConversationVisibility.where(conversation: Conversation.where(author: person)).empty?
+        }.to(be_truthy))
+    end
+  end
 end
 
 shared_examples_for "migration scenarios with local old user" do
