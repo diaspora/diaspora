@@ -15,6 +15,7 @@ class TwoFactorAuthenticationsController < ApplicationController
   end
 
   def confirm_2fa
+    redirect_to two_factor_authentication_path if current_user.otp_required_for_login?
     @qrcode_uri = qrcode_uri
   end
 

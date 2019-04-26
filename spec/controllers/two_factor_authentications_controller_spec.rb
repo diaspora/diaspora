@@ -34,15 +34,29 @@ describe TwoFactorAuthenticationsController, type: :controller do
   end
 
   describe "#confirm_2fa" do
-    before do
-      create_otp_token
+    context "2fa is not yet activated" do
+      before do
+        create_otp_token
+      end
+      it "shows the QR verification code" do
+        get :confirm_2fa
+        expect(response.body).to match I18n.t("two_factor_auth.confirm.title")
+        expect(response.body).to include("svg")
+        expect(response.body).to match(/#{@user.otp_secret.scan(/.{4}/).join(" ")}/)
+        expect(response.body).to match I18n.t("two_factor_auth.input_token.label")
+      end
     end
-    it "shows the QR verification code" do
-      get :confirm_2fa
-      expect(response.body).to match I18n.t("two_factor_auth.confirm.title")
-      expect(response.body).to include("svg")
-      expect(response.body).to match(/#{@user.otp_secret.scan(/.{4}/).join(" ")}/)
-      expect(response.body).to match I18n.t("two_factor_auth.input_token.label")
+    context "2fa is already activated" do
+
+      before do
+        activate_2fa
+      end
+
+      it "redirects back" do
+        get :confirm_2fa
+        expect(response).to be_redirect
+        expect(response.location).to match two_factor_authentication_path
+      end
     end
   end
 
