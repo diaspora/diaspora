@@ -87,8 +87,7 @@ describe AccountMigration, type: :model do
       end
 
       context "with local old user" do
-        let(:old_user) { FactoryGirl.create(:user) }
-        let(:old_person) { old_user.person }
+        let(:old_person) { FactoryGirl.create(:user).person }
 
         it "doesn't include old person" do
           expect(account_migration.subscribers).to be_empty
@@ -118,8 +117,7 @@ describe AccountMigration, type: :model do
     end
 
     context "with local old and remote new users" do
-      let(:old_user) { FactoryGirl.create(:user) }
-      let(:old_person) { old_user.person }
+      let(:old_person) { FactoryGirl.create(:user).person }
 
       it "calls AccountDeleter#close_user" do
         expect(embedded_account_deleter).to receive(:close_user)
@@ -136,8 +134,7 @@ describe AccountMigration, type: :model do
     context "with local new and remote old users" do
       let(:old_user) { remote_user_on_pod_c }
       let(:old_person) { old_user.person }
-      let(:new_user) { FactoryGirl.create(:user) }
-      let(:new_person) { new_user.person }
+      let(:new_person) { FactoryGirl.create(:user).person }
 
       it "dispatches account migration message" do
         expect(account_migration).to receive(:sender).twice.and_return(old_user)
@@ -159,10 +156,8 @@ describe AccountMigration, type: :model do
     end
 
     context "with local old and new users" do
-      let(:old_user) { FactoryGirl.create(:user) }
-      let(:old_person) { old_user.person }
-      let(:new_user) { FactoryGirl.create(:user) }
-      let(:new_person) { new_user.person }
+      let(:old_person) { FactoryGirl.create(:user).person }
+      let(:new_person) { FactoryGirl.create(:user).person }
 
       it "calls AccountDeleter#tombstone_user" do
         expect(embedded_account_deleter).to receive(:tombstone_user)
@@ -214,18 +209,18 @@ describe AccountMigration, type: :model do
       before do
         FactoryGirl.create(
           :aspect,
-          user: new_person.owner,
-          name: FactoryGirl.create(:aspect, user: old_person.owner).name
+          user: new_user,
+          name: FactoryGirl.create(:aspect, user: old_user).name
         )
         FactoryGirl.create(
           :contact,
-          user:   new_person.owner,
-          person: FactoryGirl.create(:contact, user: old_person.owner).person
+          user:   new_user,
+          person: FactoryGirl.create(:contact, user: old_user).person
         )
         FactoryGirl.create(
           :tag_following,
-          user: new_person.owner,
-          tag:  FactoryGirl.create(:tag_following, user: old_person.owner).tag
+          user: new_user,
+          tag:  FactoryGirl.create(:tag_following, user: old_user).tag
         )
       end
 
@@ -233,8 +228,8 @@ describe AccountMigration, type: :model do
         expect {
           account_migration.perform!
         }.not_to raise_error
-        expect(new_person.owner.contacts.count).to eq(1)
-        expect(new_person.owner.aspects.count).to eq(1)
+        expect(new_user.contacts.count).to eq(1)
+        expect(new_user.aspects.count).to eq(1)
       end
     end
   end

@@ -15,7 +15,7 @@ def create_remote_contact(user, pod_host)
 end
 
 shared_examples_for "old person account is closed and profile is cleared" do
-  subject { old_user.person }
+  subject { old_person }
 
   before do
     run_migration
@@ -26,7 +26,7 @@ shared_examples_for "old person account is closed and profile is cleared" do
 end
 
 shared_examples_for "old person doesn't have any reference left" do
-  let(:person) { old_user.person }
+  let(:person) { old_person }
 
   before do
     DataGenerator.create(person, :generic_person_data)
@@ -320,7 +320,7 @@ describe "account migration" do
       let(:new_person) { new_user.person }
 
       def run_migration
-        AccountMigration.create!(old_person: old_user.person, new_person: new_user.person).perform!
+        AccountMigration.create!(old_person: old_person, new_person: new_person).perform!
       end
 
       include_examples "every migration scenario"
