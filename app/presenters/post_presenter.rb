@@ -16,7 +16,7 @@ class PostPresenter < BasePresenter
          .merge(non_directly_retrieved_attributes)
   end
 
-  def as_api_response
+  def as_api_response # rubocop:disable Metrics/AbcSize
     {
       guid:                  @post.guid,
       body:                  build_text,
