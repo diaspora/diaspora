@@ -134,7 +134,6 @@ fi:
       recent_notifications: "Tuoreet ilmoitukset"
       search: "Etsi"
       settings: "Asetukset"
-      toggle_mobile: "Mobiilisivusto päälle/pois"
       toggle_navigation: "Navigaatio päälle/pois"
       view_all: "Näytä kaikki"
     hide_post: "Piilota tämä julkaisu?"

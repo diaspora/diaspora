@@ -619,7 +619,6 @@ hye-classical:
       public_feed: "%{name}-ի` դիասպորա*֊ի հրապարակային հոսքը"
       source_package: "Ներբեռնել սկզբնական կոդի փաթեթը"
       statistics_link: "Հանգոյցի վիճակագրութիւն"
-      toggle: "Դիւրակիր տարբերակը"
       whats_new: "Ի՞նչ կա"
     header:
       code: "Կոդ"

@@ -21,4 +21,4 @@
           id: "forgot_password_link"
     - if display_registration_link?
       %li= link_to t("devise.shared.links.sign_up"), new_registration_path(resource_name)
-    %li= link_to t("layouts.application.toggle"), toggle_mobile_path
+    %li= link_to t("layouts.application.switch_to_standard_mode"), toggle_mobile_path

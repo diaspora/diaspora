@@ -146,7 +146,6 @@ sr:
     application:
       back_to_top: "Назад на врх"
       powered_by: "Покреће diaspora*"
-      toggle: "Мобилна верзија"
       whats_new: "Ново"
     header:
       code: "Код"

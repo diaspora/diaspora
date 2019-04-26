@@ -190,6 +190,7 @@ ia:
         tos: "Vider le conditiones de servicio del application"
   are_you_sure: "Es tu secur?"
   are_you_sure_delete_account: "Es tu secur de voler clauder tu conto? Isto non pote esser disfacite!"
+  are_you_sure_ignore_user: "Tu va ignorar iste usator. Es tu secur?"
   aspect_memberships:
     destroy:
       failure: "Le remotion del persona del aspecto ha fallite."
@@ -627,7 +628,8 @@ ia:
       public_feed: "Fluxo public de diaspora* pro %{name}"
       source_package: "Discargar le pacchetto con le codice-fonte"
       statistics_link: "Statisticas del pod"
-      toggle: "(Dis)activar mobile"
+      switch_to_standard_mode: "Cambiar al modo standard"
+      switch_to_touch_optimized_mode: "Cambiar al modo tactile"
       whats_new: "Que es nove?"
     header:
       code: "Codice"

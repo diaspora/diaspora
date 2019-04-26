@@ -227,7 +227,6 @@ vi:
       powered_by: "ĐƯỢC HỖ TRỢ BỞI DIASPORA*"
       public_feed: "Nguồn tin Diaspora công khai cho %{name}"
       source_package: "tải về gói mã nguồn"
-      toggle: "bật/tắt di động"
       whats_new: "có gì mới?"
     header:
       code: "mã nguồn"

@@ -601,7 +601,6 @@ fi:
       public_feed: "Käyttäjän %{name} julkinen Diaspora-uutisvirta"
       source_package: "Lataa lähdekoodipaketti"
       statistics_link: "Podin tilastot"
-      toggle: "Mobiilisivusto päälle/pois"
       whats_new: "Uutta"
     header:
       code: "Lähdekoodi"

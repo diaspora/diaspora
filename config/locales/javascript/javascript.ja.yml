@@ -129,7 +129,7 @@ ja:
       recent_notifications: "最近の通知"
       search: "検索"
       settings: "設定"
-      toggle_mobile: "携帯サイトの切り替え"
+      switch_to_touch_optimized_mode: "タッチ操作モードに切り替え"
       toggle_navigation: "ナビゲーションの切り替え"
       view_all: "全て見る"
     hide_post: "この投稿を非表示にしますか？"

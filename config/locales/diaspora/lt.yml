@@ -156,7 +156,6 @@ lt:
       back_to_top: "Į viršų"
       powered_by: "TINKLAPĮ LEIDŽIA DIASPORA*"
       public_feed: "Viešas atsiliepimas apie Diaspora %{name}"
-      toggle: "toggle mobile site"
       whats_new: "Kas naujo?"
     header:
       code: "kodas"

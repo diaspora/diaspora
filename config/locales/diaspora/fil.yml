@@ -69,8 +69,6 @@ fil:
       no_contacts: "No contacts."
       title: "Mateys"
   layouts:
-    application:
-      toggle: "toggle mobile site"
     header:
       logout: "abandon ship"
       profile: "profile"

@@ -50,15 +50,17 @@ $margin: 15px;
 
   .indicator {
     bottom: 0;
+    overflow-x: auto;
+    white-space: nowrap;
 
     li {
       border: 0;
       border-radius: $thumbnail-size / 2;
       height: $thumbnail-size;
-      margin: 6px;
-      margin-bottom: $margin;
+      margin: $margin 6px;
       vertical-align: middle;
       width: $thumbnail-size;
+      background-size: cover;
 
       &.active,
       &:hover {

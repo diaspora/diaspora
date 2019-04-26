@@ -321,7 +321,6 @@ br:
       powered_by: "KASET EN-DRO GANT DIASPORA*"
       public_feed: "Gwazh diaspora* foran evit %{name}"
       source_package: "Pellgargañ pakad ar boneg tarzh"
-      toggle: "gweredekaat/diweredekaat ar stumm evit an hezougoù"
       whats_new: "petra nevez ?"
     header:
       code: "kod"

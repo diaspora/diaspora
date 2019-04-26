@@ -9,7 +9,7 @@
         = AppConfig.settings.pod_name
 
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: "form-horizontal block-form"}, autocomplete: 'off') do |f|
-      - if !devise_error_messages!.empty?
+      - unless resource.errors.empty?
         %legend
           %i
             = t('devise.passwords.new.no_account') # this is an error message and should not be displayed as a legend
