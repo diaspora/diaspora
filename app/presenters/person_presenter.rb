@@ -103,7 +103,7 @@ class PersonPresenter < BasePresenter
     return [] unless current_user_person_contact
 
     aspects_for_person = current_user.aspects_with_person(@presentable)
-    aspects_for_person.map {|a| AspectPresenter.new(a).as_api_json(false) }
+    aspects_for_person.map {|a| AspectPresenter.new(a).as_api_json(false, with_order: false) }
   end
 
   def person_is_following_current_user

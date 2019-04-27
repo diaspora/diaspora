@@ -11,13 +11,12 @@ class AspectPresenter < BasePresenter
     }
   end
 
-  def as_api_json(full=false)
+  def as_api_json(full=false, with_order: true)
     values = {
-      id:    @aspect.id,
-      name:  @aspect.name,
-      order: @aspect.order_id
+      id:   @aspect.id,
+      name: @aspect.name
     }
-
+    values[:order] = @aspect.order_id if with_order
     values[:chat_enabled] = @aspect.chat_enabled if full
     values
   end
