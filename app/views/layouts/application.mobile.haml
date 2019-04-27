@@ -17,11 +17,6 @@
     %meta{name: "MobileOptimized", content: "320"}/
     %meta{"http-equiv" => "cleartype", :content => "on"}/
 
-    / iOS mobile web app indicator
-    / NOTE(we will enable these once we don't have to rely on back/forward buttons anymore)
-    /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
-    /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
-
   %body
     #app
       = render "layouts/header"
