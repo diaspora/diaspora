@@ -56,7 +56,7 @@ module Configuration
 
         warn "FATAL: Running on Heroku with SECRET_TOKEN unset"
         warn "       Run heroku config:add SECRET_TOKEN=#{SecureRandom.hex(40)}"
-        Process.exit(1)
+        abort
       else
         token_file = File.expand_path(
           "../config/initializers/secret_token.rb",
@@ -74,7 +74,7 @@ module Configuration
 
         warn "FATAL: Running on Heroku with TWOFA_ENCRYPTION_KEY unset"
         warn "       Run heroku config:add TWOFA_ENCRYPTION_KEY=#{SecureRandom.hex(32)}"
-        Process.exit(1)
+        abort
       else
         key_file = File.expand_path(
           "../config/initializers/twofa_encryption_key.rb",

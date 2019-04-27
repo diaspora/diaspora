@@ -16,7 +16,6 @@ class TwoFactorAuthenticationsController < ApplicationController
 
   def confirm_2fa
     redirect_to two_factor_authentication_path if current_user.otp_required_for_login?
-    @qrcode_uri = qrcode_uri
   end
 
   def confirm_and_activate_2fa
@@ -49,12 +48,6 @@ class TwoFactorAuthenticationsController < ApplicationController
   end
 
   private
-
-  def qrcode_uri
-    pod = AppConfig.environment.url
-    label = "#{pod} #{current_user.username}"
-    current_user.otp_provisioning_uri(label, issuer: pod)
-  end
 
   def verify_otp_required
     redirect_to two_factor_authentication_path if current_user.otp_required_for_login?

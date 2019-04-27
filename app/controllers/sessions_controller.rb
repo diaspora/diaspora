@@ -5,9 +5,11 @@
 #   the COPYRIGHT file.
 
 class SessionsController < Devise::SessionsController
-  before_action :authenticate_with_2fa, only: [:create]
-  after_action :reset_authentication_token, only: [:create]
-  before_action :reset_authentication_token, only: [:destroy]
+  # rubocop:disable Rails/LexicallyScopedActionFilter
+  before_action :authenticate_with_2fa, only: :create
+  after_action :reset_authentication_token, only: :create
+  before_action :reset_authentication_token, only: :destroy
+  # rubocop:enable Rails/LexicallyScopedActionFilter
 
   def find_user
     return User.find(session[:otp_user_id]) if session[:otp_user_id]

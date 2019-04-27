@@ -6,7 +6,7 @@ namespace :generate do
     path = Rails.root.join("config", "initializers", "twofa_encryption_key.rb")
     key = SecureRandom.hex(32)
     File.open(path, "w") do |f|
-      f.write <<~EOF
+      f.write <<~CONF
         # frozen_string_literal: true
 
         # The 2fa encryption key is used to encrypt users' OTP tokens in the database.
@@ -18,7 +18,7 @@ namespace :generate do
         # and they will not be able to log in again!
 
         Diaspora::Application.config.twofa_encryption_key = "#{key}"
-      EOF
+      CONF
     end
   end
 end
