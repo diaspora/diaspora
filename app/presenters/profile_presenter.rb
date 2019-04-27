@@ -65,7 +65,7 @@ class ProfilePresenter < BasePresenter
 
   def added_details_api_json
     {
-      birthday: formatted_birthday,
+      birthday: birthday.try(:iso8601),
       gender:   gender,
       location: location_message.plain_text_for_json,
       bio:      bio_message.plain_text_for_json

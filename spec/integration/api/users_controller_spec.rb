@@ -191,7 +191,7 @@ describe Api::V1::UsersController do
     context "Full with all valid fields" do
       it "succeeds" do
         new_bio = "new bio"
-        new_birthday = Time.current + 8_640_000
+        new_birthday = Date.current + 100
         new_gender = "ask1"
         new_location = "new location"
         new_first_name = "new first"
@@ -220,7 +220,7 @@ describe Api::V1::UsersController do
         user = response_body(response)
         confirm_self_data_format(user)
         expect(user["bio"]).to eq(new_bio)
-        expect(user["birthday"]).to eq(birthday_format(new_birthday))
+        expect(user["birthday"]).to eq(new_birthday.iso8601)
         expect(user["location"]).to eq(new_location)
         expect(user["gender"]).to eq(new_gender)
         expect(user["first_name"]).to eq(new_first_name)
