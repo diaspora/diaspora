@@ -239,4 +239,5 @@ Rails.application.routes.draw do
   end
 
   get ".well-known/openid-configuration", to: "api/openid_connect/discovery#configuration"
+  get "manifest.json", to: "manifest#show"
 end
