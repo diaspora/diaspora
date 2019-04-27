@@ -52,6 +52,8 @@ describe Api::V1::ResharesController do
         reshare = reshares[0]
         expect(reshare["guid"]).not_to be_nil
         confirm_person_format(reshare["author"], alice)
+
+        expect(reshares.to_json).to match_json_schema(:api_v1_schema)
       end
 
       it "succeeds but empty with private post it can see" do

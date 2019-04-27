@@ -146,6 +146,7 @@ RSpec.configure do |config|
 
   config.include JSON::SchemaMatchers
   config.json_schemas[:archive_schema] = "lib/schemas/archive-format.json"
+  config.json_schemas[:api_v1_schema] = "lib/schemas/api_v1.json"
 
   JSON::Validator.add_schema(
     JSON::Schema.new(

@@ -166,6 +166,8 @@ describe Api::V1::ConversationsController do
       expect(returned_conversations.length).to eq(3)
       actual_conversation = returned_conversations.select {|c| c["guid"] == @read_conversation_guid }[0]
       confirm_conversation_format(actual_conversation, @read_conversation, [auth.user, alice])
+
+      expect(returned_conversations.to_json).to match_json_schema(:api_v1_schema)
     end
 
     it "returns all the user unread conversations" do
@@ -221,6 +223,8 @@ describe Api::V1::ConversationsController do
         expect(response.status).to eq(200)
         conversation = response_body(response)
         confirm_conversation_format(conversation, @conversation, [auth.user, alice])
+
+        expect(conversation.to_json).to match_json_schema(:api_v1_schema)
       end
     end
 

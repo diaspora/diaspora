@@ -76,7 +76,9 @@ describe Api::V1::PhotosController do
         expect(response.status).to eq(200)
         photo = response_body(response)
         expect(photo.has_key?("post")).to be_falsey
-        confirm_photo_format(photo, @user_photo1, auth.user)
+        confirm_photo_format(photo, @user_photo1)
+
+        expect(photo.to_json).to match_json_schema(:api_v1_schema)
       end
 
       it "with correct GUID user's photo used in post and access token" do
@@ -87,7 +89,7 @@ describe Api::V1::PhotosController do
         expect(response.status).to eq(200)
         photo = response_body(response)
         expect(photo.has_key?("post")).to be_truthy
-        confirm_photo_format(photo, @user_photo2, auth.user)
+        confirm_photo_format(photo, @user_photo2)
       end
 
       it "with correct GUID of other user's public photo and access token" do
@@ -97,7 +99,7 @@ describe Api::V1::PhotosController do
         )
         expect(response.status).to eq(200)
         photo = response_body(response)
-        confirm_photo_format(photo, @alice_public_photo, alice)
+        confirm_photo_format(photo, @alice_public_photo)
       end
     end
 
@@ -149,6 +151,8 @@ describe Api::V1::PhotosController do
         expect(response.status).to eq(200)
         photos = response_body_data(response)
         expect(photos.length).to eq(2)
+
+        expect(photos.to_json).to match_json_schema(:api_v1_schema)
       end
     end
 
@@ -198,7 +202,7 @@ describe Api::V1::PhotosController do
         photo = response_body(response)
         ref_photo = auth.user.photos.reload.find_by(guid: photo["guid"])
         expect(ref_photo.pending).to be_falsey
-        confirm_photo_format(photo, ref_photo, auth.user)
+        confirm_photo_format(photo, ref_photo)
       end
 
       it "with valid encoded file set as pending" do
@@ -363,7 +367,7 @@ describe Api::V1::PhotosController do
   end
 
   # rubocop:disable Metrics/AbcSize
-  def confirm_photo_format(photo, ref_photo, ref_user)
+  def confirm_photo_format(photo, ref_photo)
     expect(photo["guid"]).to eq(ref_photo.guid)
     if ref_photo.status_message_guid
       expect(photo["post"]).to eq(ref_photo.status_message_guid)

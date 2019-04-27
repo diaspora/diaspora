@@ -37,7 +37,7 @@ describe Api::V1::MessagesController do
     @message_text = "reply to first message"
   end
 
-  describe "#create " do
+  describe "#create" do
     before do
       post api_v1_conversations_path, params: @conversation
       @conversation_guid = JSON.parse(response.body)["guid"]
@@ -114,7 +114,7 @@ describe Api::V1::MessagesController do
     end
   end
 
-  describe "#index " do
+  describe "#index" do
     before do
       post api_v1_conversations_path, params: @conversation
       @conversation_guid = JSON.parse(response.body)["guid"]
@@ -129,6 +129,8 @@ describe Api::V1::MessagesController do
         expect(response.status).to eq(200)
         messages = response_body_data(response)
         expect(messages.length).to eq(1)
+
+        expect(messages.to_json).to match_json_schema(:api_v1_schema)
 
         confirm_message_format(messages[0], "first message", auth.user)
         conversation = get_conversation(@conversation_guid)

@@ -72,15 +72,27 @@ describe Api::V1::StreamsController do
   end
 
   describe "#aspect" do
+    it "returns a valid schema" do
+      get(
+        api_v1_aspects_stream_path(aspect_ids: JSON.generate([@aspect.id])),
+        params: {access_token: access_token_read_only}
+      )
+      expect(response.status).to eq(200)
+
+      posts = response_body_data(response)
+
+      expect(posts.to_json).to match_json_schema(:api_v1_schema)
+    end
+
     it "contains expected aspect message" do
       get(
         api_v1_aspects_stream_path(aspect_ids: JSON.generate([@aspect.id])),
         params: {access_token: access_token_read_only}
       )
       expect(response.status).to eq(200)
-      post = response_body_data(response)
-      expect(post.length).to eq 3
-      json_post = post.select {|p| p["guid"] == @status.guid }.first
+      posts = response_body_data(response)
+      expect(posts.length).to eq 3
+      json_post = posts.select {|p| p["guid"] == @status.guid }.first
       confirm_post_format(json_post, auth_read_only.user, @status)
     end
 
@@ -128,8 +140,10 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token_read_only}
       )
       expect(response.status).to eq(200)
-      post = response_body_data(response)
-      expect(post.length).to eq(3)
+      posts = response_body_data(response)
+      expect(posts.length).to eq(3)
+
+      expect(posts.to_json).to match_json_schema(:api_v1_schema)
     end
 
     it "public posts only tags expected" do
@@ -160,6 +174,17 @@ describe Api::V1::StreamsController do
   end
 
   describe "#activity" do
+    it "returns a valid schema" do
+      get(
+        api_v1_activity_stream_path,
+        params: {access_token: access_token_read_only}
+      )
+      expect(response.status).to eq(200)
+      posts = response_body_data(response)
+
+      expect(posts.to_json).to match_json_schema(:api_v1_schema)
+    end
+
     it "contains activity message" do
       get(
         api_v1_activity_stream_path,
@@ -192,6 +217,17 @@ describe Api::V1::StreamsController do
   end
 
   describe "#main" do
+    it "returns a valid schema" do
+      get(
+        api_v1_stream_path,
+        params: {access_token: access_token_read_only}
+      )
+      expect(response.status).to eq(200)
+      posts = response_body_data(response)
+
+      expect(posts.to_json).to match_json_schema(:api_v1_schema)
+    end
+
     it "contains main message" do
       get(
         api_v1_stream_path,
@@ -224,6 +260,17 @@ describe Api::V1::StreamsController do
   end
 
   describe "#commented" do
+    it "returns a valid schema" do
+      get(
+        api_v1_commented_stream_path,
+        params: {access_token: access_token_read_only}
+      )
+      expect(response.status).to eq(200)
+      posts = response_body_data(response)
+
+      expect(posts.to_json).to match_json_schema(:api_v1_schema)
+    end
+
     it "contains commented message" do
       get(
         api_v1_commented_stream_path,
@@ -254,6 +301,17 @@ describe Api::V1::StreamsController do
   end
 
   describe "#mentions" do
+    it "returns a valid schema" do
+      get(
+        api_v1_mentions_stream_path,
+        params: {access_token: access_token_read_only}
+      )
+      expect(response.status).to eq(200)
+      posts = response_body_data(response)
+
+      expect(posts.to_json).to match_json_schema(:api_v1_schema)
+    end
+
     it "contains mentions message" do
       get(
         api_v1_mentions_stream_path,
@@ -284,6 +342,17 @@ describe Api::V1::StreamsController do
   end
 
   describe "#liked" do
+    it "returns a valid schema" do
+      get(
+        api_v1_liked_stream_path,
+        params: {access_token: access_token_read_only}
+      )
+      expect(response.status).to eq(200)
+      posts = response_body_data(response)
+
+      expect(posts.to_json).to match_json_schema(:api_v1_schema)
+    end
+
     it "contains liked message" do
       get(
         api_v1_liked_stream_path,

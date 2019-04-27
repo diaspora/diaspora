@@ -45,6 +45,8 @@ describe Api::V1::AspectsController do
         expect(aspect["name"]).to eq(found_aspect.name)
         expect(aspect["order"]).to eq(found_aspect.order_id)
       end
+
+      expect(aspects.to_json).to match_json_schema(:api_v1_schema)
     end
 
     context "without impromper credentials" do
@@ -79,6 +81,8 @@ describe Api::V1::AspectsController do
         expect(aspect["name"]).to eq(@aspect2.name)
         expect(aspect["order"]).to eq(@aspect2.order_id)
         expect(aspect["chat_enabled"]).to eq(@aspect2.chat_enabled)
+
+        expect(aspect.to_json).to match_json_schema(:api_v1_schema)
       end
     end
 

@@ -37,9 +37,11 @@ describe Api::V1::NotificationsController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        notification = response_body_data(response)
-        expect(notification.length).to eq(2)
-        confirm_notification_format(notification[1], @notification, "also_commented", nil)
+        notifications = response_body_data(response)
+        expect(notifications.length).to eq(2)
+        confirm_notification_format(notifications[1], @notification, "also_commented", nil)
+
+        expect(notifications.to_json).to match_json_schema(:api_v1_schema)
       end
 
       it "with proper credentials and unread only" do
@@ -117,6 +119,8 @@ describe Api::V1::NotificationsController do
         expect(response.status).to eq(200)
         notification = JSON.parse(response.body)
         confirm_notification_format(notification, @notification, "also_commented", @post)
+
+        expect(notification.to_json).to match_json_schema(:api_v1_schema)
       end
     end
 
