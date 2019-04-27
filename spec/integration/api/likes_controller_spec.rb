@@ -6,7 +6,8 @@ describe Api::V1::LikesController do
   let(:auth) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid public:read public:modify private:read private:modify interactions]
+      scopes: %w[openid public:read public:modify private:read private:modify interactions],
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
@@ -27,6 +28,9 @@ describe Api::V1::LikesController do
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
+    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+    bob.person.profile = FactoryGirl.create(:profile_with_image_url)
+
     @status = auth.user.post(
       :status_message,
       text:   "This is a status message",
@@ -263,7 +267,7 @@ describe Api::V1::LikesController do
     author = like["author"]
     expect(author["diaspora_id"]).to eq(user.diaspora_handle)
     expect(author["name"]).to eq(user.name)
-    expect(author["avatar"]).to eq(user.profile.image_url)
+    expect(author["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
   # rubocop:enable Metrics/AbcSize
 

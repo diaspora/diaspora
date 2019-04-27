@@ -6,7 +6,8 @@ describe Api::V1::ConversationsController do
   let(:auth) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid conversations]
+      scopes: %w[openid conversations],
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
@@ -24,6 +25,8 @@ describe Api::V1::ConversationsController do
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
+    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+
     auth.user.aspects.create(name: "first")
     auth.user.share_with(alice.person, auth.user.aspects[0])
     alice.share_with(auth.user.person, alice.aspects[0])
@@ -390,7 +393,7 @@ describe Api::V1::ConversationsController do
     expect(post_person["guid"]).to eq(user.guid)
     expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
     expect(post_person["name"]).to eq(user.name)
-    expect(post_person["avatar"]).to eq(user.profile.image_url)
+    expect(post_person["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
   # rubocop:enable Metrics/AbcSize
 end

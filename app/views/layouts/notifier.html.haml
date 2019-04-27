@@ -4,7 +4,7 @@
     - if @notification.try(:sender)
       %td{width: "60px", style: "vertical-align: top"}>
         %div{style: "background-color: #eee; height: 50px; width: 50px"}
-          = image_tag @notification.sender.profile.image_url(:thumb_small), alt: @notification.sender.name,
+          = image_tag @notification.sender.profile.image_url(size: :thumb_small), alt: @notification.sender.name,
                       style: "border: 0, display: block; top: 0; left: 0", height: "50px", width: "50px"
     %td{style: "vertical-align: top"}
       != yield

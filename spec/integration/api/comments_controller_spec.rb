@@ -6,7 +6,8 @@ describe Api::V1::CommentsController do
   let(:auth) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid public:read public:modify private:read interactions]
+      scopes: %w[openid public:read public:modify private:read interactions],
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
@@ -21,12 +22,15 @@ describe Api::V1::CommentsController do
     FactoryGirl.create(:auth_with_default_scopes)
   }
 
-  let!(:access_token) { auth.create_access_token.to_s }
+  let!(:access_token) { auth.created_at_access_token.to_s }
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
   let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
+    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+    eve.person.profile = FactoryGirl.create(:profile_with_image_url)
+
     @status = alice.post(
       "Post",
       status_message: {text: "This is a status message"},
@@ -446,7 +450,7 @@ describe Api::V1::CommentsController do
     expect(author["guid"]).to eq(user.guid)
     expect(author["diaspora_id"]).to eq(user.diaspora_handle)
     expect(author["name"]).to eq(user.name)
-    expect(author["avatar"]).to eq(user.profile.image_url)
+    expect(author["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
   # rubocop:enable Metrics/AbcSize
 end

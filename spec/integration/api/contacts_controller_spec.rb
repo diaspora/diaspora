@@ -31,6 +31,7 @@ describe Api::V1::ContactsController do
     auth.user.share_with(eve.person, @aspect1)
     @aspect2 = auth.user.aspects.create(name: "another aspect")
     @eve_aspect = eve.aspects.first
+    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
   end
 
   describe "#show" do
@@ -263,7 +264,7 @@ describe Api::V1::ContactsController do
     expect(post_person["guid"]).to eq(user.guid)
     expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
     expect(post_person["name"]).to eq(user.name)
-    expect(post_person["avatar"]).to eq(user.profile.image_url)
+    expect(post_person["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
   # rubocop:enable Metrics/AbcSize
 end

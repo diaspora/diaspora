@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 describe PersonPresenter do
-  let(:profile_user) { FactoryGirl.create(:user_with_aspect) }
+  let(:profile_user) {
+    FactoryGirl.create(:user_with_aspect,
+                       profile: FactoryGirl.create(:profile_with_image_url))
+  }
   let(:person) { profile_user.person }
 
   let(:mutual_contact) {
@@ -144,7 +147,14 @@ describe PersonPresenter do
   end
 
   describe "#profile_hash_as_api_json" do
-    let(:current_user) { FactoryGirl.create(:user) }
+    let(:current_user) {
+      FactoryGirl.create(:user,
+                         profile: FactoryGirl.create(:profile_with_image_url))
+    }
+
+    before do
+      alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+    end
 
     it "contains internal profile if self" do
       profile_hash = PersonPresenter.new(current_user.person, current_user).profile_hash_as_api_json

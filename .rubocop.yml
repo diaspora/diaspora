@@ -18,7 +18,7 @@ Metrics/LineLength:
 
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
-Metrics/MethodLength: 
+Metrics/MethodLength:
   Max: 20
 
 # The guiding principle of classes is SRP, SRP can't be accurately measured by LoC
@@ -26,9 +26,15 @@ Metrics/ClassLength:
   Max: 1500
 Metrics/ModuleLength:
   Max: 1500
-  
-# Raise AbcSize from 15 to 20
+
+# Raise complexity metrics
 Metrics/AbcSize:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/PerceivedComplexity:
   Max: 20
 
 # Some blocks are longer.
@@ -88,7 +94,7 @@ Lint/AssignmentInCondition:
   AllowSafeAssignment: false
 
 # A specialized exception class will take one or more arguments and construct the message from it.
-# So both variants make sense. 
+# So both variants make sense.
 Style/RaiseArgs:
   Enabled: false
 
@@ -151,11 +157,11 @@ Lint/ShadowingOuterLocalVariable:
 
 # Check with yard instead.
 Style/Documentation:
-  Enabled: false 
+  Enabled: false
 
 # This is just silly. Calling the argument `other` in all cases makes no sense.
 Naming/BinaryOperatorParameterName:
-  Enabled: false 
+  Enabled: false
 
 # There are valid cases, for example debugging Cucumber steps,
 # also they'll fail CI anyway

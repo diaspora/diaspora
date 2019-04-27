@@ -33,13 +33,18 @@
       "format":  "date-time"
     },
 
+    "url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+
     "short_profile": {
       "type": "object",
       "properties": {
         "guid": { "$ref": "#/definitions/guid" },
         "diaspora_id": { "type": "string" },
         "name": { "type": "string" },
-        "avatar": { "type": "string" }
+        "avatar": { "$ref": "#/definitions/url" }
       },
       "required": ["guid", "diaspora_id", "name"],
       "additionalProperties": false
@@ -203,9 +208,9 @@
     "photo_sizes": {
       "type": "object",
       "properties": {
-        "large": { "type": "string" },
-        "medium": { "type": "string" },
-        "small": { "type": "string" }
+        "large": { "$ref": "#/definitions/url" },
+        "medium": { "$ref": "#/definitions/url" },
+        "small": { "$ref": "#/definitions/url" }
       },
       "required": ["large", "medium", "small"],
       "additionalProperties": true
