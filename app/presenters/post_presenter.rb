@@ -28,12 +28,12 @@ class PostPresenter < BasePresenter
       author:                PersonPresenter.new(@post.author).as_api_json,
       provider_display_name: @post.provider_display_name,
       interaction_counters:  PostInteractionPresenter.new(@post, current_user).as_counters,
-      location:              @post.post_location,
+      location:              location_as_api_json,
       poll:                  PollPresenter.new(@post.poll, current_user).as_api_json,
       mentioned_people:      build_mentioned_people_json,
       photos:                build_photos_json,
       root:                  root_api_response
-    }
+    }.compact
   end
 
   def with_interactions
@@ -191,5 +191,14 @@ class PostPresenter < BasePresenter
 
   def description
     message.try(:plain_text_without_markdown, truncate: 1000)
+  end
+
+  def location_as_api_json
+    location = @post.post_location
+    return if location.values.all?(&:nil?)
+
+    location[:lat] = location[:lat].to_f
+    location[:lng] = location[:lng].to_f
+    location
   end
 end

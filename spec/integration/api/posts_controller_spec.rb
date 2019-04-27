@@ -723,8 +723,8 @@ describe Api::V1::PostsController do
 
   def confirm_location(location, ref_location)
     expect(location["address"]).to eq(ref_location[:address])
-    expect(location["lat"]).to eq(ref_location[:lat])
-    expect(location["lng"]).to eq(ref_location[:lng])
+    expect(location["lat"]).to eq(ref_location[:lat].to_f)
+    expect(location["lng"]).to eq(ref_location[:lng].to_f)
   end
 
   def confirm_photos(photos, ref_photos)
