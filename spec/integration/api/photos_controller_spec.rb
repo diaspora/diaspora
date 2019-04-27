@@ -215,7 +215,7 @@ describe Api::V1::PhotosController do
         expect(photo.has_key?("post")).to be_falsey
         ref_photo = auth.user.photos.reload.find_by(guid: photo["guid"])
         expect(ref_photo.pending).to be_falsey
-        confirm_photo_format(photo, ref_photo, auth.user)
+        confirm_photo_format(photo, ref_photo)
 
         post(
           api_v1_photos_path,
@@ -379,14 +379,6 @@ describe Api::V1::PhotosController do
     expect(photo["sizes"]["small"]).to be_truthy
     expect(photo["sizes"]["medium"]).to be_truthy
     expect(photo["sizes"]["large"]).to be_truthy
-    confirm_person_format(photo["author"], ref_user)
-  end
-
-  def confirm_person_format(post_person, user)
-    expect(post_person["guid"]).to eq(user.guid)
-    expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
-    expect(post_person["name"]).to eq(user.name)
-    expect(post_person["avatar"]).to eq(user.profile.image_url)
   end
   # rubocop:enable Metrics/AbcSize
 end

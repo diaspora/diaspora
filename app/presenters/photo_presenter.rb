@@ -19,7 +19,6 @@ class PhotoPresenter < BasePresenter
 
   def as_api_json(full=false)
     api_json = {
-      author:     PersonPresenter.new(author).as_api_json,
       dimensions: {
         height: height,
         width:  width
@@ -32,6 +31,7 @@ class PhotoPresenter < BasePresenter
     }
 
     api_json[:guid] = guid if full
+    api_json[:created_at] = created_at if full
     api_json[:post] = status_message_guid if full && status_message_guid
     api_json
   end

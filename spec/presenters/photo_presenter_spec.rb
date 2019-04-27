@@ -13,7 +13,7 @@ describe PhotoPresenter do
   it "presents full API JSON" do
     photo_json = PhotoPresenter.new(@photo).as_api_json(true)
     expect(photo_json[:guid]).to eq(@photo.guid)
-    confirm_photo_format(photo_json, @photo, bob)
+    confirm_photo_format(photo_json, @photo)
   end
 
   it "defaults to limited API JSON" do
@@ -23,7 +23,7 @@ describe PhotoPresenter do
   end
 
   # rubocop:disable Metrics/AbcSize
-  def confirm_photo_format(photo, ref_photo, ref_user)
+  def confirm_photo_format(photo, ref_photo)
     if ref_photo.status_message_guid
       expect(photo[:post]).to eq(ref_photo.status_message_guid)
     else
@@ -34,14 +34,6 @@ describe PhotoPresenter do
     expect(photo[:sizes][:small]).to be_truthy
     expect(photo[:sizes][:medium]).to be_truthy
     expect(photo[:sizes][:large]).to be_truthy
-    confirm_person_format(photo[:author], ref_user)
-  end
-
-  def confirm_person_format(post_person, user)
-    expect(post_person[:guid]).to eq(user.guid)
-    expect(post_person[:diaspora_id]).to eq(user.diaspora_handle)
-    expect(post_person[:name]).to eq(user.name)
-    expect(post_person[:avatar]).to eq(user.profile.image_url)
   end
   # rubocop:enable Metrics/AbcSize
 end
