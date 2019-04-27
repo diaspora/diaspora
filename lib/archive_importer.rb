@@ -42,7 +42,7 @@ class ArchiveImporter
   attr_reader :archive_hash
 
   def profile_attributes
-    allowed_keys = %w[first_name last_name image_url bio searchable nsfw tag_string]
+    allowed_keys = %w[first_name last_name image_url bio gender location birthday searchable nsfw tag_string]
     profile_data = archive_hash["user"]["profile"]["entity_data"]
     convert_keys(profile_data, allowed_keys).tap do |attrs|
       attrs[:public_details] = profile_data["public"]

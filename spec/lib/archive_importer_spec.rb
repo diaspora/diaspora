@@ -125,6 +125,9 @@ describe ArchiveImporter do
               "full_name"  => "Full Name",
               "image_url"  => "https://example.com/my_avatar.png",
               "bio"        => "I'm just a test account",
+              "gender"     => "Robot",
+              "birthday"   => "2006-01-01",
+              "location"   => "diaspora* specs",
               "searchable" => false,
               "public"     => true,
               "nsfw"       => true,
@@ -157,6 +160,9 @@ describe ArchiveImporter do
       expect(archive_importer.user.profile.last_name).to eq("Last")
       expect(archive_importer.user.profile.image_url).to eq("https://example.com/my_avatar.png")
       expect(archive_importer.user.profile.bio).to eq("I'm just a test account")
+      expect(archive_importer.user.profile.gender).to eq("Robot")
+      expect(archive_importer.user.profile.birthday).to eq(Date.new(2006, 1, 1))
+      expect(archive_importer.user.profile.location).to eq("diaspora* specs")
       expect(archive_importer.user.profile.searchable).to eq(false)
       expect(archive_importer.user.profile.public_details).to eq(true)
       expect(archive_importer.user.profile.nsfw).to eq(true)
