@@ -28,7 +28,10 @@ class ArchiveImporter
     data.merge!(
       username:              attr[:username],
       password:              attr[:password],
-      password_confirmation: attr[:password]
+      password_confirmation: attr[:password],
+      person:                {
+        profile_attributes: profile_attributes
+      }
     )
     self.user = User.build(data)
     user.save!
@@ -37,6 +40,14 @@ class ArchiveImporter
   private
 
   attr_reader :archive_hash
+
+  def profile_attributes
+    allowed_keys = %w[first_name last_name image_url bio searchable nsfw tag_string]
+    profile_data = archive_hash["user"]["profile"]["entity_data"]
+    convert_keys(profile_data, allowed_keys).tap do |attrs|
+      attrs[:public_details] = profile_data["public"]
+    end
+  end
 
   def import_contacts
     import_collection(contacts, ContactImporter)

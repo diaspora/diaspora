@@ -119,7 +119,16 @@ describe ArchiveImporter do
         "user" => {
           "profile"                            => {
             "entity_data" => {
-              "author" => "old_id@old_pod.nowhere"
+              "author"     => "old_id@old_pod.nowhere",
+              "first_name" => "First",
+              "last_name"  => "Last",
+              "full_name"  => "Full Name",
+              "image_url"  => "https://example.com/my_avatar.png",
+              "bio"        => "I'm just a test account",
+              "searchable" => false,
+              "public"     => true,
+              "nsfw"       => true,
+              "tag_string" => "#diaspora #linux #partying"
             }
           },
           "email"                              => "user@example.com",
@@ -143,6 +152,15 @@ describe ArchiveImporter do
       expect(archive_importer.user.language).to eq("ru")
       expect(archive_importer.user.disable_mail).to eq(false)
       expect(archive_importer.user.auto_follow_back).to eq(true)
+
+      expect(archive_importer.user.profile.first_name).to eq("First")
+      expect(archive_importer.user.profile.last_name).to eq("Last")
+      expect(archive_importer.user.profile.image_url).to eq("https://example.com/my_avatar.png")
+      expect(archive_importer.user.profile.bio).to eq("I'm just a test account")
+      expect(archive_importer.user.profile.searchable).to eq(false)
+      expect(archive_importer.user.profile.public_details).to eq(true)
+      expect(archive_importer.user.profile.nsfw).to eq(true)
+      expect(archive_importer.user.profile.tag_string).to eq("#diaspora #linux #partying")
     end
   end
 end
