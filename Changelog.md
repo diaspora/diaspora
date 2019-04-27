@@ -5,6 +5,7 @@
 ## Bug fixes
 
 ## Features
+* Add a manifest.json file as a first step to make diaspora* a Progressive Web App [#7998](https://github.com/diaspora/diaspora/pull/7998)
 
 # 0.7.10.0
 
