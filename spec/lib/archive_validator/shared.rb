@@ -4,7 +4,7 @@ require "integration/federation/federation_helper"
 
 shared_context "validators shared context" do
   let(:author_id) { author.diaspora_handle }
-  let(:author_pkey) { OpenSSL::PKey::RSA.generate(512) }
+  let(:archive_private_key) { OpenSSL::PKey::RSA.generate(512).export }
   let(:archive_hash) { base_archive_hash }
   let(:validator) { described_class.new(input_hash) }
 
@@ -31,7 +31,7 @@ shared_context "validators shared context" do
         },
         username: "aaaa",
         email: "aaaa@aa.com",
-        private_key: author_pkey.export,
+        private_key: archive_private_key,
         contacts: [], contact_groups: [], posts: [], relayables: [], followed_tags: [], post_subscriptions: []
       },
       others_data: {relayables: []},
