@@ -5,7 +5,7 @@ class ManifestController < ApplicationController
     render json: {
       short_name:       AppConfig.settings.pod_name,
       name:             AppConfig.settings.pod_name,
-      description:      "diaspora* is a free, decentralized and privacy respectful social network",
+      description:      "diaspora* is a free, decentralized and privacy-respecting social network",
       icons:            [
         {
           src:   helpers.image_path("branding/logos/app-icon.png"),
