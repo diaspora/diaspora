@@ -10,7 +10,7 @@ namespace :accounts do
     begin
       service = MigrationService.new(args[:archive_path], args[:new_user_name])
       service.validate
-      puts "Warnings:\n#{service.warnings}\n-----" if service.warnings.any?
+      puts "Warnings:\n#{service.warnings.join("\n")}\n-----" if service.warnings.any?
       if service.only_import?
         puts "Warning: Archive owner is not fetchable. Proceeding with data import, but account migration record "\
           "won't  be created"
