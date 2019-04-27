@@ -21,6 +21,8 @@ describe Api::V1::ResharesController do
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
+    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+
     @user_post = auth.user.post(
       :status_message,
       text:   "This is a status message",
@@ -226,7 +228,7 @@ describe Api::V1::ResharesController do
     expect(post_person["guid"]).to eq(user.guid)
     expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
     expect(post_person["name"]).to eq(user.name)
-    expect(post_person["avatar"]).to eq(user.profile.image_url)
+    expect(post_person["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
   # rubocop:enable Metrics/AbcSize
 end

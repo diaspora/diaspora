@@ -12,7 +12,7 @@ class ProfilePresenter < BasePresenter
 
   def public_hash
     base_hash.merge(
-      avatar: AvatarPresenter.new(@presentable).base_hash,
+      avatar: AvatarPresenter.new(@presentable).base_hash(true),
       tags:   tags.pluck(:name)
     )
   end
@@ -60,7 +60,7 @@ class ProfilePresenter < BasePresenter
       diaspora_id: diaspora_handle,
       avatar:      AvatarPresenter.new(@presentable).base_hash,
       tags:        tags.pluck(:name)
-    }
+    }.compact
   end
 
   def added_details_api_json

@@ -6,7 +6,8 @@ describe Api::V1::MessagesController do
   let(:auth) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid conversations]
+      scopes: %w[openid conversations],
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
@@ -181,7 +182,7 @@ describe Api::V1::MessagesController do
     expect(post_person["guid"]).to eq(user.guid)
     expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
     expect(post_person["name"]).to eq(user.name)
-    expect(post_person["avatar"]).to eq(user.profile.image_url)
+    expect(post_person["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
   # rubocop:enable Metrics/AbcSize
 end

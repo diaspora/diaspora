@@ -6,21 +6,24 @@ describe Api::V1::StreamsController do
   let(:auth_read_only) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid public:read private:read contacts:read tags:read]
+      scopes: %w[openid public:read private:read contacts:read tags:read],
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
   let(:auth_public_only_tags) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid public:read tags:read]
+      scopes: %w[openid public:read tags:read],
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
   let(:auth_public_only_read_only) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid public:read]
+      scopes: %w[openid public:read],
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
@@ -425,7 +428,7 @@ describe Api::V1::StreamsController do
     expect(post_person["guid"]).to eq(user.guid)
     expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
     expect(post_person["name"]).to eq(user.name)
-    expect(post_person["avatar"]).to eq(user.profile.image_url)
+    expect(post_person["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
 
   def confirm_poll(post_poll, ref_poll, expected_participation)

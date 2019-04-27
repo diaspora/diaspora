@@ -72,11 +72,15 @@ FactoryGirl.define do
     password "bluepin7"
     password_confirmation { |u| u.password }
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
-    after(:build) do |u|
+    transient do
+      profile nil
+    end
+    after(:build) do |u, e|
       u.person = FactoryGirl.build(:person,
                                    pod:                   nil,
                                    serialized_public_key: u.encryption_key.public_key.export,
                                    diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
+      u.person.profile = e.profile if e.profile
     end
     after(:create) do |u|
       u.person.save

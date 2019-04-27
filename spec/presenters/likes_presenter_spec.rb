@@ -2,6 +2,7 @@
 
 describe LikesPresenter do
   before do
+    bob.person.profile = FactoryGirl.create(:profile_with_image_url)
     @status = alice.post(
       :status_message,
       text:   "This is a status message from alice",
@@ -26,7 +27,7 @@ describe LikesPresenter do
       expect(author).to include(guid: bob.guid)
       expect(author).to include(diaspora_id: bob.diaspora_handle)
       expect(author).to include(name: bob.name)
-      expect(author).to include(avatar: bob.profile.image_url)
+      expect(author).to include(avatar: bob.profile.image_url(size: :thumb_medium))
     end
   end
 end

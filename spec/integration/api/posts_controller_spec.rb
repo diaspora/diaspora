@@ -6,7 +6,8 @@ describe Api::V1::PostsController do
   let(:auth) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid public:read public:modify private:read private:modify]
+      scopes: %w[openid public:read public:modify private:read private:modify],
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
@@ -40,6 +41,10 @@ describe Api::V1::PostsController do
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
+    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+    bob.person.profile = FactoryGirl.create(:profile_with_image_url)
+    eve.person.profile = FactoryGirl.create(:profile_with_image_url)
+
     @alice_aspect = alice.aspects.first
     @alice_photo1 = alice.post(:photo, pending: true, user_file: File.open(photo_fixture_name), to: @alice_aspect.id)
     @alice_photo2 = alice.post(:photo, pending: true, user_file: File.open(photo_fixture_name), to: @alice_aspect.id)
@@ -702,7 +707,7 @@ describe Api::V1::PostsController do
     expect(post_person["guid"]).to eq(user.guid)
     expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
     expect(post_person["name"]).to eq(user.name)
-    expect(post_person["avatar"]).to eq(user.profile.image_url)
+    expect(post_person["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
 
   def confirm_poll(post_poll, ref_poll, expected_participation)

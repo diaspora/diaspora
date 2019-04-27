@@ -12,7 +12,8 @@ describe Api::V1::UsersController do
   let(:auth) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: full_scopes
+      scopes: full_scopes,
+      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
     )
   }
 
@@ -46,6 +47,10 @@ describe Api::V1::UsersController do
   let!(:access_token_public_only_read_only) { auth_public_only_read_only.create_access_token.to_s }
   let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
   let(:invalid_token) { SecureRandom.hex(9) }
+
+  before do
+    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+  end
 
   describe "#show" do
     context "Current User" do
@@ -105,6 +110,7 @@ describe Api::V1::UsersController do
       end
 
       it "succeeds with limited data on non-public/not shared" do
+        eve.person.profile = FactoryGirl.create(:profile_with_image_url)
         eve.profile[:public_details] = false
         eve.profile.save
         get(
@@ -582,7 +588,7 @@ describe Api::V1::UsersController do
     expect(post_person["guid"]).to eq(user.guid)
     expect(post_person["diaspora_id"]).to eq(user.diaspora_handle)
     expect(post_person["name"]).to eq(user.name)
-    expect(post_person["avatar"]).to eq(user.profile.image_url)
+    expect(post_person["avatar"]).to eq(user.profile.image_url(size: :thumb_medium))
   end
 
   def confirm_photos(photos)

@@ -658,12 +658,12 @@ describe Person, :type => :model do
   describe '#as_json' do
     it 'returns a hash representation of a person' do
       expect(@person.as_json).to eq({
-        :id => @person.id,
-        :guid => @person.guid,
-        :name => @person.name,
-        :avatar => @person.profile.image_url(:thumb_medium),
-        :handle => @person.diaspora_handle,
-        :url => Rails.application.routes.url_helpers.person_path(@person),
+        id:     @person.id,
+        guid:   @person.guid,
+        name:   @person.name,
+        avatar: @person.profile.image_url(size: :thumb_medium),
+        handle: @person.diaspora_handle,
+        url:    Rails.application.routes.url_helpers.person_path(@person),
       })
     end
     it 'return tags if asked' do

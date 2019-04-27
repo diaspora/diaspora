@@ -17,10 +17,10 @@ class Person < ApplicationRecord
       person.diaspora_handle
     }, :as => :diaspora_id
     t.add lambda { |person|
-      {:small => person.profile.image_url(:thumb_small),
-       :medium => person.profile.image_url(:thumb_medium),
-       :large => person.profile.image_url(:thumb_large) }
-    }, :as => :avatar
+      {small:  person.profile.image_url(size: :thumb_small),
+       medium: person.profile.image_url(size: :thumb_medium),
+       large:  person.profile.image_url(size: :thumb_large)}
+    }, as:     :avatar
   end
 
   has_one :profile, dependent: :destroy
@@ -346,7 +346,7 @@ class Person < ApplicationRecord
       id:     id,
       guid:   guid,
       name:   name,
-      avatar: profile.image_url(:thumb_small),
+      avatar: profile.image_url(size: :thumb_small),
       handle: diaspora_handle,
       url:    Rails.application.routes.url_helpers.person_path(self)
     }

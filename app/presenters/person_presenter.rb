@@ -16,7 +16,7 @@ class PersonPresenter < BasePresenter
       diaspora_id: diaspora_handle,
       name:        name,
       avatar:      AvatarPresenter.new(@presentable).medium
-    }
+    }.compact
   end
 
   def full_hash
