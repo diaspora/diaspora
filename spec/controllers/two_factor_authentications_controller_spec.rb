@@ -47,7 +47,6 @@ describe TwoFactorAuthenticationsController, type: :controller do
       end
     end
     context "2fa is already activated" do
-
       before do
         activate_2fa
       end
