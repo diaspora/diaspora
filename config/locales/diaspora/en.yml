@@ -908,7 +908,7 @@ en:
           bad_request: "Missing client id or redirect URI"
           client_id_not_found: "No client with client_id %{client_id} with redirect URI %{redirect_uri} found"
           private_contacts_linkage_error: "private:read and private:modify require contacts:read as well"
-          unknown_scope: "Unknown scope: #{scope_name}"
+          unknown_scope: "Unknown scope: %{scope_name}"
         destroy:
           fail: "The attempt to revoke the authorization with ID %{id} failed"
       user_applications:
@@ -1013,7 +1013,7 @@ en:
       contacts:
         not_found: "Aspect or contact on aspect not found"
         cant_create: "Failed to add user to aspect"
-        cant_delete: "Failed to remove user from aspect"          
+        cant_delete: "Failed to remove user from aspect"
       likes:
         user_not_allowed_to_like: "User is not allowed to like"
         like_exists: "Like already exists"
@@ -1452,4 +1452,4 @@ en:
     open: "Open"
     closed: "Closed"
 
-    
+
