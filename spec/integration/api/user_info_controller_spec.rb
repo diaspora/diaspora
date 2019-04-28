@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 describe Api::OpenidConnect::UserInfoController do
+  include Rails.application.routes.url_helpers
+
   let!(:auth_with_read_and_ppid) {
     FactoryGirl.create(:auth_with_profile_and_ppid)
   }
@@ -19,7 +21,7 @@ describe Api::OpenidConnect::UserInfoController do
         @user.pairwise_pseudonymous_identifiers.find_or_create_by(identifier: "https://example.com/uri").guid
       expect(json_body["sub"]).to eq(expected_sub)
       expect(json_body["nickname"]).to eq(@user.name)
-      expect(json_body["profile"]).to eq(File.join(AppConfig.environment.url, "people", @user.guid).to_s)
+      expect(json_body["profile"]).to end_with(api_v1_user_path)
     end
   end
 end

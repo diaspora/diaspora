@@ -19,14 +19,11 @@ module Api
       scope :with_redirect_uri, ->(given_uri) { where redirect_uri: given_uri }
 
       SCOPES = %w[
-        birthdate
         contacts:modify
         contacts:read
         conversations
         email
-        gender
         interactions
-        locale
         name
         nickname
         notifications
@@ -35,14 +32,12 @@ module Api
         private:modify
         private:read
         profile
-        profile
         profile:modify
         public:modify
         public:read
         sub
         tags:modify
         tags:read
-        updated_at
       ].freeze
 
       def setup
