@@ -219,8 +219,8 @@
     "photo_dimensions": {
       "type": "object",
       "properties": {
-        "width": { "type": "integer" },
-        "height": { "type": "integer" }
+        "width": { "type": ["integer", "null"] },
+        "height": { "type": ["integer", "null"] }
       },
       "required": ["width", "height"]
     },
