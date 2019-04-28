@@ -12,7 +12,7 @@ Feature: Two-factor autentication
     And I press "Confirm and activate"
     Then I should see "Two-factor authentication activated"
     And I should see "Recovery codes"
-    When I click on OK
+    When I confirm activation
     Then I should see "Two-factor authentication activated"
     And I should see "Deactivate"
 

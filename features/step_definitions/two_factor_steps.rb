@@ -37,7 +37,7 @@ When /^I fill in a recovery code to deactivate from "([^"]*)"$/ do |username|
   fill_in "two_factor_authentication_code", with: @codes.first
 end
 
-When /^I click on OK$/ do
+When /^I confirm activation$/ do
   find(".btn-primary", match: :first).click
 end
 
