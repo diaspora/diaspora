@@ -6,6 +6,7 @@
 
 ## Features
 * Add a manifest.json file as a first step to make diaspora* a Progressive Web App [#7998](https://github.com/diaspora/diaspora/pull/7998)
+* Allow `web+diaspora://` links to link to a profile with only the diaspora ID [#8000](https://github.com/diaspora/diaspora/pull/8000)
 
 # 0.7.10.0
 

@@ -12,6 +12,8 @@ class DiasporaLinkService
   def find_or_fetch_entity
     if type && guid
       entity_finder.find || fetch_entity
+    elsif author
+      find_or_fetch_person
     end
   end
 
@@ -30,6 +32,12 @@ class DiasporaLinkService
     @entity_finder ||= Diaspora::EntityFinder.new(type, guid)
   end
 
+  def find_or_fetch_person
+    Person.find_or_fetch_by_identifier(author)
+  rescue DiasporaFederation::Discovery::DiscoveryError
+    nil
+  end
+
   def normalize
     link.gsub!(%r{^web\+diaspora://}, "diaspora://") ||
       link.gsub!(%r{^//}, "diaspora://") ||
@@ -42,6 +50,8 @@ class DiasporaLinkService
     match = DiasporaFederation::Federation::DiasporaUrlParser::DIASPORA_URL_REGEX.match(link)
     if match
       @author, @type, @guid = match.captures
+    else
+      @author = %r{^diaspora://(#{Validation::Rule::DiasporaId::DIASPORA_ID_REGEX})$}u.match(link)&.captures&.first
     end
   end
 end
