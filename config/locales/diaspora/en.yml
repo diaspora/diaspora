@@ -937,18 +937,6 @@ en:
         picture:
           name: "picture"
           description: "This grants read access to user's profile picture data to the application."
-        gender:
-          name: "gender"
-          description: "This grants read access to the user's gendere data to the application."
-        birthdate:
-          name: "birthdate"
-          description: "This grants read access ot the user's birthdate to the application."
-        locale:
-          name: "locale"
-          description: "This grants read access ot the user's locale to the application."
-        updated_at:
-          name: "updated_at"
-          description: "This grants read access to the user's profile update time to the application."
         'contacts:read':
           name: "contacts:read"
           description: "This grants read permissions to contacts and related data (like aspects) to the application."

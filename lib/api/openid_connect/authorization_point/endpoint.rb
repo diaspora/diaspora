@@ -47,7 +47,6 @@ module Api
         end
 
         def build_scopes(req)
-          replace_profile_scope_with_specific_claims(req)
           @scopes = req.scope.map {|scope|
             scope.tap do |scope_name|
               req.invalid_scope! I18n.t("api.openid_connect.authorizations.new.unknown_scope") \

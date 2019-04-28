@@ -28,7 +28,7 @@ Then /^I should receive "([^\"]*)"'s id, username, and email$/ do |username|
   user_info_json = JSON.parse(last_response.body)
   user = User.find_by_username(username)
   user_profile_url = File.join(AppConfig.environment.url, "people", user.guid).to_s
-  expect(user_info_json["profile"]).to have_content(user_profile_url)
+  expect(user_info_json["profile"]).to have_content(api_v1_user_path)
 end
 
 Then /^I should receive an "([^\"]*)" error$/ do |error_message|

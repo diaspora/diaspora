@@ -17,10 +17,10 @@ class UserInfoSerializer < ActiveModel::Serializer
   end
 
   def profile
-    File.join(AppConfig.environment.url, "people", object.guid).to_s
+    api_v1_user_url
   end
 
   def picture
-    File.join(AppConfig.environment.url, object.image_url).to_s
+    object.image_url(fallback_to_default: false)
   end
 end
