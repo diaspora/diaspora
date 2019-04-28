@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   include ApplicationHelper
 
   include Diaspora::Federated::Base
+  include Diaspora::Federated::Fetchable
 
   include Diaspora::Likeable
   include Diaspora::Commentable

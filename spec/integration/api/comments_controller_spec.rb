@@ -22,7 +22,7 @@ describe Api::V1::CommentsController do
     FactoryGirl.create(:auth_with_default_scopes)
   }
 
-  let!(:access_token) { auth.created_at_access_token.to_s }
+  let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
   let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
   let(:invalid_token) { SecureRandom.hex(9) }
