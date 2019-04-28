@@ -10,7 +10,9 @@ class DiasporaLinkService
   end
 
   def find_or_fetch_entity
-    entity_finder.find || fetch_entity
+    if type && guid
+      entity_finder.find || fetch_entity
+    end
   end
 
   private
@@ -38,8 +40,8 @@ class DiasporaLinkService
   def parse
     normalize
     match = DiasporaFederation::Federation::DiasporaUrlParser::DIASPORA_URL_REGEX.match(link)
-    @author = match[1]
-    @type = match[2]
-    @guid = match[3]
+    if match
+      @author, @type, @guid = match.captures
+    end
   end
 end
