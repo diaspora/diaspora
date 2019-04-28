@@ -4,6 +4,35 @@ When /^I (?:like|unlike) the post "([^"]*)" in the stream$/ do |post_text|
   like_stream_post(post_text)
 end
 
+Then /^the post "([^"]*)" should have the "([^"]*)" action available$/ do |post_text, action_text|
+  within_post(post_text) do
+    find(".feedback").should have_content(action_text)
+  end
+end
+
+Then /^the post "([^"]*)" shouldn't have any likes$/ do |post_text|
+  within_post(post_text) do
+    find(".likes").should have_no_css(".avatar", visible: true)
+  end
+end
+
+Then /^the post "([^"]*)" should have (\d+) like(?:s|)$/ do |post_text, likes_number|
+  within_post(post_text) do
+    find(".expand-likes").should have_content(likes_number)
+  end
+end
+
+Then /^the post "([^"]*)" should have a like from "([^"]*)"$/ do |post_text, username|
+  within_post(post_text) do
+    find(".expand-likes").click
+    find(".likes .avatar")["data-original-title"].should have_content(username)
+  end
+end
+
+Then /^I should see an image in the publisher$/ do
+  photo_in_publisher.should be_present
+end
+
 Then /^"([^"]*)" should be post (\d+)$/ do |post_text, position|
   stream_element_numbers_content(position).should have_content(post_text)
 end

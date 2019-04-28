@@ -70,5 +70,6 @@ When /^I select "([^"]*)" on the aspect dropdown$/ do |text|
       var elem = $(el);
       if ('" + text + "' == $.trim(elem.text()) ) {
         elem.click();
-      }});")
+      }});"
+  )
 end

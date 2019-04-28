@@ -11,7 +11,7 @@ Given /^I have configured a Bitcoin address$/ do
 end
 
 Then /^I should see the Bitcoin address$/ do
-  find("#bitcoin_address")['value'].should == "AAAAAA"
+  find("#bitcoin_address")["value"].should == "AAAAAA"
 end
 
 Given /^I have configured a Liberapay username$/ do
