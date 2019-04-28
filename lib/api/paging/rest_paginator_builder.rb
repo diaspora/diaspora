@@ -40,7 +40,7 @@ module Api
 
       def current_page_settings(params)
         if params["page"]
-          requested_page = params["page"]
+          requested_page = params["page"].to_i
           requested_page = 1 if requested_page < 1
           requested_page
         elsif @allow_default_page
@@ -71,7 +71,7 @@ module Api
       end
 
       def limit_settings(params)
-        requested_limit = params["per_page"]
+        requested_limit = params["per_page"].to_i if params["per_page"]
         return @default_limit unless requested_limit
 
         requested_limit = [1, requested_limit].max
