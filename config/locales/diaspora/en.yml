@@ -1339,7 +1339,7 @@ en:
       title: "Recovery codes"
       reminder: "Alternatively, you can use one of the recovery codes."
       explanation: "If you ever lose access to your phone, you can use one of the recovery codes below to regain access to your account. Keep the recovery codes safe. For example, you may print them and store them with other important documents."
-      explanation_short: "Recovery codes allow you to regain access to your account if you lose your phone."
+      explanation_short: "Recovery codes allow you to regain access to your account if you lose your phone. Note that you can use each recovery code only once."
       invalidation_notice: "If you've lost your recovery codes, you can regenerate them here. Your old recovery codes will be invalidated."
       button: "Generate new recovery codes"
     flash:
