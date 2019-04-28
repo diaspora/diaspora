@@ -28,7 +28,7 @@ module Api
             author: PersonPresenter.new(r.author).as_api_json
           }
         end
-        render json: reshares_page
+        render_paged_api_response reshares_page
       end
 
       def create

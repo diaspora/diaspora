@@ -363,7 +363,7 @@ describe Api::V1::PhotosController do
   end
 
   def response_body_data(response)
-    response_body(response)["data"]
+    response_body(response)
   end
 
   # rubocop:disable Metrics/AbcSize

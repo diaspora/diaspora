@@ -57,7 +57,7 @@ module Api
         contacts_query = aspects_service.all_contacts
         contacts_page = index_pager(contacts_query).response
         contacts_page[:data] = contacts_page[:data].map {|c| PersonPresenter.new(c.person).as_api_json }
-        render json: contacts_page
+        render_paged_api_response contacts_page
       end
 
       def photos
@@ -66,7 +66,7 @@ module Api
         photos_query = Photo.visible(user_for_query, person, :all, Time.current)
         photos_page = time_pager(photos_query).response
         photos_page[:data] = photos_page[:data].map {|photo| PhotoPresenter.new(photo).as_api_json(true) }
-        render json: photos_page
+        render_paged_api_response photos_page
       end
 
       def posts
@@ -78,7 +78,7 @@ module Api
                       end
         posts_page = time_pager(posts_query).response
         posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post, current_user).as_api_response }
-        render json: posts_page
+        render_paged_api_response posts_page
       end
 
       private

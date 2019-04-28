@@ -22,7 +22,7 @@ module Api
         conversations_query = conversation_service.all_for_user(mapped_params)
         conversations_page = pager(conversations_query, "conversations.created_at").response
         conversations_page[:data] = conversations_page[:data].map {|x| conversation_as_json(x) }
-        render json: conversations_page
+        render_paged_api_response conversations_page
       end
 
       def show

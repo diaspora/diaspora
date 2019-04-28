@@ -12,7 +12,7 @@ module Api
       end
 
       def index
-        render json: tag_followings_service.index.map(&:name)
+        render json: tag_followings_service.index.pluck(:name)
       end
 
       def create

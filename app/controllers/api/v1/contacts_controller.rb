@@ -23,7 +23,7 @@ module Api
         contacts_page[:data] = contacts_page[:data].map do |c|
           ContactPresenter.new(c, current_user).as_api_json_without_contact
         end
-        render json: contacts_page
+        render_paged_api_response contacts_page
       end
 
       def create

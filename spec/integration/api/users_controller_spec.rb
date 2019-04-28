@@ -316,7 +316,7 @@ describe Api::V1::UsersController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq(200)
-      contacts = response_body_data(response)
+      contacts = response_body(response)
       expect(contacts.length).to eq(0)
 
       aspect = auth.user.aspects.create(name: "first")
@@ -326,7 +326,7 @@ describe Api::V1::UsersController do
         params: {access_token: access_token}
       )
       expect(response.status).to eq(200)
-      contacts = response_body_data(response)
+      contacts = response_body(response)
       expect(contacts.length).to eq(1)
       confirm_person_format(contacts[0], alice)
 
@@ -391,7 +391,7 @@ describe Api::V1::UsersController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        photos = response_body_data(response)
+        photos = response_body(response)
         expect(photos.length).to eq(3)
         guids = photos.map {|photo| photo["guid"] }
         expect(guids).to include(@public_photo1.guid, @public_photo2.guid, @shared_photo1.guid)
@@ -407,7 +407,7 @@ describe Api::V1::UsersController do
           params: {access_token: access_token_public_only_read_only}
         )
         expect(response.status).to eq(200)
-        photos = response_body_data(response)
+        photos = response_body(response)
         expect(photos.length).to eq(2)
         guids = photos.map {|photo| photo["guid"] }
         expect(guids).to include(@public_photo1.guid, @public_photo2.guid)
@@ -467,7 +467,7 @@ describe Api::V1::UsersController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        posts = response_body_data(response)
+        posts = response_body(response)
         expect(posts.length).to eq(3)
         guids = posts.map {|post| post["guid"] }
         expect(guids).to include(@public_post1.guid, @public_post2.guid, @shared_post1.guid)
@@ -484,7 +484,7 @@ describe Api::V1::UsersController do
           params: {access_token: access_token}
         )
         expect(response.status).to eq(200)
-        posts = response_body_data(response)
+        posts = response_body(response)
         expect(posts.length).to eq(3)
       end
 
@@ -494,7 +494,7 @@ describe Api::V1::UsersController do
           params: {access_token: access_token_public_only_read_only}
         )
         expect(response.status).to eq(200)
-        posts = response_body_data(response)
+        posts = response_body(response)
         expect(posts.length).to eq(2)
       end
     end
@@ -604,9 +604,5 @@ describe Api::V1::UsersController do
 
   def response_body(response)
     JSON.parse(response.body)
-  end
-
-  def response_body_data(response)
-    response_body(response)["data"]
   end
 end

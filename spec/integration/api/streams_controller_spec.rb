@@ -474,7 +474,7 @@ describe Api::V1::StreamsController do
   # rubocop:enable Metrics/AbcSize
 
   def response_body_data(response)
-    JSON.parse(response.body)["data"]
+    JSON.parse(response.body)
   end
 
   def add_tag(name, user)

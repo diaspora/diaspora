@@ -49,6 +49,15 @@ module Api
         Api::Paging::RestPaginatorBuilder.new(query, request).index_pager(params)
       end
 
+      def render_paged_api_response(page)
+        link_header = []
+        link_header << %(<#{page[:links][:next]}>; rel="next") if page[:links][:next]
+        link_header << %(<#{page[:links][:previous]}>; rel="previous") if page[:links][:previous]
+        response.set_header("Link", link_header.join(", ")) if link_header.present?
+
+        render json: page[:data]
+      end
+
       def time_pager(query)
         Api::Paging::RestPaginatorBuilder.new(query, request).time_pager(params)
       end

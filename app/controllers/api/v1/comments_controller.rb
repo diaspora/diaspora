@@ -35,7 +35,7 @@ module Api
 
         comments_page = time_pager(comments_query).response
         comments_page[:data] = comments_page[:data].map {|x| comment_as_json(x) }
-        render json: comments_page
+        render_paged_api_response comments_page
       end
 
       def destroy

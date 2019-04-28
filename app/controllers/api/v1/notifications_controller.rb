@@ -29,7 +29,7 @@ module Api
         notifications_page[:data] = notifications_page[:data].map do |note|
           NotificationPresenter.new(note, default_serializer_options).as_api_json
         end
-        render json: notifications_page
+        render_paged_api_response notifications_page
       rescue ArgumentError
         render json: I18n.t("api.endpoint_errors.notifications.cant_process"), status: :unprocessable_entity
       end

@@ -54,7 +54,7 @@ module Api
         posts_page = pager(query, query_time_field, data_time_field).response
         posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post, current_user).as_api_response }
         posts_page[:links].delete(:previous)
-        render json: posts_page
+        render_paged_api_response posts_page
       end
 
       def stream_max_time

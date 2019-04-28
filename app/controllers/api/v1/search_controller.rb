@@ -14,13 +14,13 @@ module Api
       def user_index
         user_page = index_pager(people_query).response
         user_page[:data] = user_page[:data].map {|p| PersonPresenter.new(p).as_api_json }
-        render json: user_page
+        render_paged_api_response user_page
       end
 
       def post_index
         posts_page = time_pager(posts_query, "posts.created_at", "created_at").response
         posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post).as_api_response }
-        render json: posts_page
+        render_paged_api_response posts_page
       end
 
       private

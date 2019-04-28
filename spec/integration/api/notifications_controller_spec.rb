@@ -227,7 +227,7 @@ describe Api::V1::NotificationsController do
   private
 
   def response_body_data(response)
-    JSON.parse(response.body)["data"]
+    JSON.parse(response.body)
   end
 
   # rubocop:disable Metrics/AbcSize
