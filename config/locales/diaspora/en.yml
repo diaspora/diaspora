@@ -1328,7 +1328,7 @@ en:
       scan_title: "Scan the QR code"
       scan_explanation: "Please scan the QR code with a TOTP capable app, such as andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
       manual_explanation: "In case you can’t scan the QR code automatically you can manually enter the secret in your app."
-      manual_explanation_cont: "We are using time-based one-time passwords (TOTP) with six-digit tokens. In case your app prompts you for a time interval and algorithm enter 30 seconds and sha1 respectively."
+      manual_explanation_cont: "We are using time-based one-time passwords (TOTP) with six-digit tokens. In case your app prompts you for a time interval and algorithm enter 30 seconds and sha1 respectively. <br /> The spaces are just for readability, please enter the code without them."
       input_title: "Confim with TOTP token"
       input_explanation: "After scanning or entering the secret, enter the six-digit code you see and confirm the setup."
       activate_button: "Confirm and activate"
