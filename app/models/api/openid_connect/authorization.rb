@@ -33,6 +33,7 @@ module Api
         private:read
         profile
         profile:modify
+        profile:read_private
         public:modify
         public:read
         sub
