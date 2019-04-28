@@ -40,5 +40,17 @@ describe DiasporaLinkService do
         expect(service.find_or_fetch_entity).to be_nil
       end
     end
+
+    context "with invalid links" do
+      it "returns nil when the link is invalid" do
+        service = described_class.new("web+diaspora://something_invalid")
+        expect(service.find_or_fetch_entity).to be_nil
+      end
+
+      it "returns nil when the author is valid, but rest of the link is invalid" do
+        service = described_class.new("web+diaspora://#{alice.diaspora_handle}/foo/bar")
+        expect(service.find_or_fetch_entity).to be_nil
+      end
+    end
   end
 end
