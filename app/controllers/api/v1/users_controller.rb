@@ -90,8 +90,13 @@ module Api
       def profile_update_params
         raise RuntimeError if params.has_key?(:id)
 
-        updates = params.permit(:bio, :birthday, :gender, :location, :first_name, :last_name,
+        updates = params.permit(:bio, :birthday, :gender, :location, :name,
                                 :searchable, :show_profile_info, :nsfw, :tags).to_h || {}
+        if updates.has_key?(:name)
+          updates[:first_name] = updates[:name]
+          updates[:last_name] = nil
+          updates.delete(:name)
+        end
         if updates.has_key?(:show_profile_info)
           updates[:public_details] = updates[:show_profile_info]
           updates.delete(:show_profile_info)

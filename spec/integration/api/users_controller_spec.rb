@@ -200,8 +200,7 @@ describe Api::V1::UsersController do
         new_birthday = Date.current + 100
         new_gender = "ask1"
         new_location = "new location"
-        new_first_name = "new first"
-        new_last_name = "new last"
+        new_name = "New Name"
         new_searchable = !auth.user.profile[:searchable]
         new_show_profile_info = !auth.user.profile[:public_details]
         new_nsfw = !auth.user.profile[:nsfw]
@@ -213,8 +212,7 @@ describe Api::V1::UsersController do
             location:          new_location,
             gender:            new_gender,
             birthday:          new_birthday,
-            first_name:        new_first_name,
-            last_name:         new_last_name,
+            name:              new_name,
             searchable:        new_searchable,
             show_profile_info: new_show_profile_info,
             nsfw:              new_nsfw,
@@ -229,7 +227,7 @@ describe Api::V1::UsersController do
         expect(user["birthday"]).to eq(new_birthday.iso8601)
         expect(user["location"]).to eq(new_location)
         expect(user["gender"]).to eq(new_gender)
-        expect(user["name"]).to eq("#{new_first_name} #{new_last_name}")
+        expect(user["name"]).to eq(new_name)
         expect(user["searchable"]).to eq(new_searchable)
         expect(user["show_profile_info"]).to eq(new_show_profile_info)
         expect(user["nsfw"]).to eq(new_nsfw)
@@ -239,8 +237,8 @@ describe Api::V1::UsersController do
         expect(auth.user.profile[:bio]).to eq(new_bio)
         expect(birthday_format(auth.user.profile[:birthday])).to eq(birthday_format(new_birthday))
         expect(auth.user.profile[:gender]).to eq(new_gender)
-        expect(auth.user.profile[:first_name]).to eq(new_first_name)
-        expect(auth.user.profile[:last_name]).to eq(new_last_name)
+        expect(auth.user.profile[:first_name]).to eq(new_name)
+        expect(auth.user.profile[:last_name]).to eq(nil)
         expect(auth.user.profile[:searchable]).to eq(new_searchable)
         expect(auth.user.profile[:public_details]).to eq(new_show_profile_info)
         expect(auth.user.profile[:nsfw]).to eq(new_nsfw)
