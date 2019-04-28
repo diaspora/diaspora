@@ -109,14 +109,16 @@ end
 
 shared_examples_for "migration scenarios initiated remotely" do
   it "resends known contacts to the new user" do
-    contacts = Array.new(2) { FactoryGirl.create(:contact, person: old_user.person, sharing: true) }
-    expect(DiasporaFederation::Federation::Sender).to receive(:private)
-      .twice do |sender_id, obj_str, _urls, _xml|
-      expect(sender_id).to eq(contacts.first.user_id)
-      expect(obj_str).to eq("Contact:#{contacts.first.user.diaspora_handle}:#{new_user.diaspora_handle}")
-      contacts.shift
-      []
+    2.times do
+      contact = FactoryGirl.create(:contact, person: old_user.person, sharing: true)
+      expect(DiasporaFederation::Federation::Sender).to receive(:private)
+        .with(
+          contact.user_id,
+          "Contact:#{contact.user.diaspora_handle}:#{new_user.diaspora_handle}",
+          kind_of(Hash)
+        ).and_return([])
     end
+
     inlined_jobs { run_migration }
   end
 end
