@@ -74,8 +74,7 @@ module ApplicationHelper
   end
 
   def qrcode_uri
-    pod = AppConfig.environment.url
-    label = "#{pod} #{current_user.username}"
-    current_user.otp_provisioning_uri(label, issuer: pod)
+    label = current_user.username
+    current_user.otp_provisioning_uri(label, issuer: AppConfig.environment.url)
   end
 end
