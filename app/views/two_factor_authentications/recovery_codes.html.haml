@@ -1,0 +1,12 @@
+- content_for :page_title do
+  = t("two_factor_auth.title")
+  = t("two_factor_auth.recovery.title")
+
+.container-fluid
+  .row
+    .col-md-3
+      .sidebar
+        = render "shared/settings_nav"
+    .col-md-9
+      .framed-content.clearfix
+        = render "recovery"

@@ -1,0 +1,11 @@
+.col-md-12
+  .row
+    .col-md-12
+      %h3= t("two_factor_auth.title")
+      %p= t("two_factor_auth.explanation")
+
+      .well= t("two_factor_auth.deactivated.status")
+      = form_for "user", url: two_factor_authentication_path, html: {method: :post} do |f|
+        = f.hidden_field :otp_required_for_login, value: true
+        .clearfix.form-group= f.submit t("two_factor_auth.deactivated.change_button"),
+        class: "btn btn-primary pull-right"
