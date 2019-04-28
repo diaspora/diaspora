@@ -161,7 +161,7 @@ describe Api::V1::MessagesController do
   private
 
   def response_body_data(response)
-    JSON.parse(response.body)["data"]
+    JSON.parse(response.body)
   end
 
   def get_conversation(conversation_id)

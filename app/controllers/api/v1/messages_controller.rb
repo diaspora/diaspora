@@ -27,7 +27,7 @@ module Api
         conversation.set_read(current_user)
         messages_page = index_pager(conversation.messages).response
         messages_page[:data] = messages_page[:data].map {|x| message_json(x) }
-        render json: messages_page
+        render_paged_api_response messages_page
       end
 
       private

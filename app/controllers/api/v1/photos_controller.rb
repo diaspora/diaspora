@@ -23,7 +23,7 @@ module Api
                 end
         photos_page = time_pager(query).response
         photos_page[:data] = photos_page[:data].map {|photo| photo_json(photo) }
-        render json: photos_page
+        render_paged_api_response photos_page
       end
 
       def show

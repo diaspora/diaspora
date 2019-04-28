@@ -56,7 +56,7 @@ describe Api::V1::LikesController do
           params: {access_token: access_token_minimum_scopes}
         )
         expect(response.status).to eq(200)
-        likes = response_body_data(response)
+        likes = response_body(response)
         expect(likes.length).to eq(0)
       end
 
@@ -69,7 +69,7 @@ describe Api::V1::LikesController do
           params: {access_token: access_token_minimum_scopes}
         )
         expect(response.status).to eq(200)
-        likes = response_body_data(response)
+        likes = response_body(response)
         expect(likes.length).to eq(3)
         confirm_like_format(likes, alice)
         confirm_like_format(likes, bob)
@@ -277,9 +277,5 @@ describe Api::V1::LikesController do
 
   def response_body(response)
     JSON.parse(response.body)
-  end
-
-  def response_body_data(response)
-    JSON.parse(response.body)["data"]
   end
 end

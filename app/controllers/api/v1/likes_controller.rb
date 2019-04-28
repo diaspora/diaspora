@@ -26,7 +26,7 @@ module Api
         likes_query = like_service.find_for_post(params[:post_id])
         likes_page = index_pager(likes_query).response
         likes_page[:data] = likes_page[:data].map {|x| like_json(x) }
-        render json: likes_page
+        render_paged_api_response likes_page
       end
 
       def create

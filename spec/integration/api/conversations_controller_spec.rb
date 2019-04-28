@@ -165,7 +165,7 @@ describe Api::V1::ConversationsController do
     it "returns all the user conversations" do
       get api_v1_conversations_path, params: {access_token: access_token}
       expect(response.status).to eq(200)
-      returned_conversations = response_body_data(response)
+      returned_conversations = response_body(response)
       expect(returned_conversations.length).to eq(3)
       actual_conversation = returned_conversations.select {|c| c["guid"] == @read_conversation_guid }[0]
       confirm_conversation_format(actual_conversation, @read_conversation, [auth.user, alice])
@@ -179,7 +179,7 @@ describe Api::V1::ConversationsController do
         params: {only_unread: true, access_token: access_token}
       )
       expect(response.status).to eq(200)
-      expect(response_body_data(response).length).to eq(2)
+      expect(response_body(response).length).to eq(2)
     end
 
     it "returns all the user conversations after a given date" do
@@ -188,7 +188,7 @@ describe Api::V1::ConversationsController do
         params: {only_after: @date, access_token: access_token}
       )
       expect(response.status).to eq(200)
-      expect(response_body_data(response).length).to eq(1)
+      expect(response_body(response).length).to eq(1)
     end
 
     context "with improper credentials" do
@@ -364,10 +364,6 @@ describe Api::V1::ConversationsController do
 
   def response_body(response)
     JSON.parse(response.body)
-  end
-
-  def response_body_data(response)
-    JSON.parse(response.body)["data"]
   end
 
   # rubocop:disable Metrics/AbcSize

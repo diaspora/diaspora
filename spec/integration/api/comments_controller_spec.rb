@@ -139,7 +139,7 @@ describe Api::V1::CommentsController do
           params: {access_token: access_token_minimum_scopes}
         )
         expect(response.status).to eq(200)
-        comments = response_body_data(response)
+        comments = response_body(response)
         expect(comments.length).to eq(2)
         confirm_comment_format(comments[0], auth.user, @comment_text1)
         confirm_comment_format(comments[1], auth.user, @comment_text2)
@@ -433,10 +433,6 @@ describe Api::V1::CommentsController do
 
   def response_body(response)
     JSON.parse(response.body)
-  end
-
-  def response_body_data(response)
-    JSON.parse(response.body)["data"]
   end
 
   private

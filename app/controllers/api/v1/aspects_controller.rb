@@ -15,7 +15,7 @@ module Api
         aspects_query = current_user.aspects
         aspects_page = index_pager(aspects_query).response
         aspects_page[:data] = aspects_page[:data].map {|a| aspect_as_json(a, false) }
-        render json: aspects_page
+        render_paged_api_response aspects_page
       end
 
       def show

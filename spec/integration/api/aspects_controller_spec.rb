@@ -342,6 +342,6 @@ describe Api::V1::AspectsController do
   end
 
   def response_body_data(response)
-    JSON.parse(response.body)["data"]
+    JSON.parse(response.body)
   end
 end

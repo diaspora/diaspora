@@ -252,7 +252,7 @@ describe Api::V1::ContactsController do
   end
 
   def response_body_data(response)
-    JSON.parse(response.body)["data"]
+    JSON.parse(response.body)
   end
 
   def aspects_membership_service(user=auth.user)
