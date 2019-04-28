@@ -965,7 +965,7 @@ en:
           name: "public:read"
           description: "This grants read permissions on public posts, interactions, and user data to the application."
         'public:modify':
-          name: "updated_at"
+          name: "public:modify"
           description: "This grants write permissions on public posts (including public post writing), interactions, and user data to the application."
         profile:
           name: "extended profile"
@@ -973,6 +973,9 @@ en:
         'profile:modify':
           name: "profile:modify"
           description: "This grants user profile update permissions to the application."
+        'profile:read_private':
+          name: "profile:read_private"
+          description: "This grants read access to your private profile data to the application."
         'tags:read':
           name: "tags:read"
           description: "This grants read access to user's followed tags and tag streams to the application."
