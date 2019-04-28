@@ -9,7 +9,7 @@
     .col-md-6
       %p= t("two_factor_auth.confirm.scan_explanation")
       .two-factor-qr
-        != RQRCode::QRCode.new(qrcode_uri).as_svg(padding: 0, module_size: 5)
+        != RQRCode::QRCode.new(qrcode_uri).as_svg(offset: 10, fill: "ffffff", module_size: 5)
 
     .col-md-6
       %p= t("two_factor_auth.confirm.manual_explanation")
