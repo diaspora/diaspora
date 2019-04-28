@@ -55,18 +55,6 @@ shared_examples_for "it keeps the person conversations" do
   end
 end
 
-shared_examples_for "it removes the person conversations" do
-  it "removes the person conversations" do
-    expect {
-      account_removal_method
-    }.to change(nil, "conversations empty?") { Conversation.where(author: person).empty? }
-      .to(be_truthy)
-      .and(change(nil, "conversation visibilities of other participants empty?") {
-        ConversationVisibility.where(conversation: Conversation.where(author: person)).empty?
-      }.to(be_truthy))
-  end
-end
-
 # In fact this example group if for testing effect of AccountDeleter.tombstone_person_and_profile
 shared_examples_for "it makes account closed and clears profile" do
   it "" do

@@ -4,7 +4,7 @@
 %meta{charset: "utf-8"}/
 = content_for?(:meta_data) ? yield(:meta_data) : metas_tags
 
-%meta{content: "yes", name: "mobile-web-app-capable"}/
+%link{rel: "manifest", href: "/manifest.json"}
 
 / favicon
 / For Apple devices
