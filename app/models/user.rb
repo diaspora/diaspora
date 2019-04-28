@@ -19,7 +19,15 @@ class User < ApplicationRecord
   scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
   scope :active, -> { joins(:person).where(people: {closed_account: false}) }
 
-  devise :database_authenticatable, :registerable,
+  attribute :otp_secret
+
+  devise :two_factor_authenticatable,
+         :two_factor_backupable,
+         otp_secret_encryption_key:  AppConfig.twofa_encryption_key,
+         otp_backup_code_length:     16,
+         otp_number_of_backup_codes: 10
+
+  devise :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 
@@ -42,6 +50,7 @@ class User < ApplicationRecord
   validate :no_person_with_same_username
 
   serialize :hidden_shareables, Hash
+  serialize :otp_backup_codes, Array
 
   has_one :person, inverse_of: :owner, foreign_key: :owner_id
   has_one :profile, through: :person

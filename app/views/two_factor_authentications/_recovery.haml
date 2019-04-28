@@ -1,0 +1,18 @@
+.col-md-12
+  .row
+    .col-md-12
+      %h3= t("two_factor_auth.title")
+      .well= t("two_factor_auth.activated.status")
+
+      %hr
+
+      %h3= t("two_factor_auth.recovery.title")
+      %p= t("two_factor_auth.recovery.explanation")
+
+      %ol.recovery-codes
+        - @recovery_codes.each do |code|
+          %li<
+            %samp= code
+
+      .form-group.submit_block.clearfix
+        = link_to t("ok"), two_factor_authentication_path, class: "btn btn-primary pull-right"

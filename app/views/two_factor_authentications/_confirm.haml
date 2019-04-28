@@ -1,0 +1,33 @@
+.col-md-12
+  .row
+    .col-md-12
+      %h3= t("two_factor_auth.confirm.title")
+      %p= t("two_factor_auth.confirm.status")
+      .small-horizontal-spacer
+      %h4= t("two_factor_auth.confirm.scan_title")
+  .row
+    .col-md-6
+      %p= t("two_factor_auth.confirm.scan_explanation")
+      .two-factor-qr
+        != RQRCode::QRCode.new(qrcode_uri).as_svg(offset: 10, fill: "ffffff", module_size: 5)
+
+    .col-md-6
+      %p= t("two_factor_auth.confirm.manual_explanation")
+      %p!= t("two_factor_auth.confirm.manual_explanation_cont")
+      %pre.well= current_user.otp_secret.scan(/.{4}/).join(" ")
+
+  .row
+    .col-md-12
+      .small-horizontal-spacer
+      %h4= t("two_factor_auth.confirm.input_title")
+      = t("two_factor_auth.confirm.input_explanation")
+      = form_for "user", url: confirm_two_factor_authentication_path,
+        html: {method: :post, class: "form-horizontal"} do |f|
+        .form-group
+          = f.label :code, t("two_factor_auth.input_token.label"), class: "control-label col-sm-6"
+          .col-sm-6
+            = f.text_field :code, placeholder: t("two_factor_auth.input_token.placeholder"), class: "form-control"
+        .form-group
+          .col-sm-12
+            = link_to t("cancel"), two_factor_authentication_path, class: "btn btn-default"
+            = f.submit t("two_factor_auth.confirm.activate_button"), class: "btn btn-primary pull-right"

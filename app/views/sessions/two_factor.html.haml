@@ -1,0 +1,39 @@
+- content_for :page_title do
+  = AppConfig.settings.pod_name + " - " + t("two_factor_auth.title")
+
+.container#twofa
+  .text-center
+    .logos-asterisk
+    %h1
+      = t("two_factor_auth.title")
+
+
+  = form_for resource, as: resource_name,
+                         url: session_path(resource_name),
+                         html: {class: "block-form"},
+                         method: :post do |f|
+    %fieldset
+      %label.sr-only#otp-label{for: "otp_attempt"}
+        = t("two_factor_auth.input_token.label")
+
+      = f.text_field :otp_attempt,
+      type: :text,
+      placeholder: t("two_factor_auth.input_token.placeholder"),
+      required: true,
+      autofocus: true,
+      class: "input-block-level form-control"
+      %p= t "two_factor_auth.recovery.reminder"
+
+
+    .actions
+      = f.button t("devise.sessions.new.sign_in"),
+      type: :submit,
+      class: "btn btn-large btn-block btn-primary"
+
+  .text-center
+    - if display_password_reset_link?
+      = link_to t("devise.shared.links.forgot_your_password"),
+        new_password_path(resource_name), id: "forgot_password_link"
+      %br
+    - if display_registration_link?
+      = link_to t("devise.shared.links.sign_up"), new_registration_path(resource_name)

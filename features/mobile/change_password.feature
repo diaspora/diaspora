@@ -31,9 +31,8 @@ Feature: Change password
     When I follow the "Change my password" link from the last sent email
     And I fill out the password reset form with "supersecret" and "supersecret"
     And I submit the password reset form
-    Then I should be on the stream page
-    When I sign out
-    And I go to the login page
+    Then I should be on the new user session page
+    When I go to the login page
     And I sign in manually as "georges_abitbol" with password "supersecret" on the mobile website
     Then I should be on the stream page
 

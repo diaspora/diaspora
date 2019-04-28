@@ -119,6 +119,12 @@ Rails.application.routes.draw do
     get "getting_started_completed" => :getting_started_completed
   end
 
+  resource :two_factor_authentication, only: %i[show create destroy] do
+    get :confirm, action: :confirm_2fa
+    post :confirm, action: :confirm_and_activate_2fa
+    get :recovery_codes
+  end
+
   devise_for :users, controllers: {sessions: :sessions}, skip: :registration
   devise_scope :user do
     get "/users/sign_up" => "registrations#new",    :as => :new_user_registration
