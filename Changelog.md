@@ -2,7 +2,7 @@
 
 ## Refactor
 * Enable paranoid mode for devise [#8003](https://github.com/diaspora/diaspora/pull/8003)
-
+* Refactor likes cucumber test [#8002](https://github.com/diaspora/diaspora/pull/8002)
 ## Bug fixes
 
 ## Features
