@@ -55,8 +55,7 @@ class ProfilePresenter < BasePresenter
 
   def base_api_json
     {
-      first_name:  first_name,
-      last_name:   last_name,
+      name:        [first_name, last_name].join(" ").presence,
       diaspora_id: diaspora_handle,
       avatar:      AvatarPresenter.new(@presentable).base_hash,
       tags:        tags.pluck(:name)

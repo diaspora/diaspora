@@ -214,8 +214,7 @@ describe PersonPresenter do
   def confirm_common_profile_elements(profile_hash)
     expect(profile_hash).to have_key(:guid)
     expect(profile_hash).to have_key(:diaspora_id)
-    expect(profile_hash).to have_key(:first_name)
-    expect(profile_hash).to have_key(:last_name)
+    expect(profile_hash).to have_key(:name)
     expect(profile_hash).to have_key(:avatar)
     expect(profile_hash).to have_key(:tags)
   end
