@@ -15,7 +15,7 @@
     %fieldset
       %label.sr-only#otp-label{for: "otp_attempt"}
         = t("two_factor_auth.input_token.label")
-
+      %i.entypo-lock
       = f.text_field :otp_attempt,
       type: :text,
       placeholder: t("two_factor_auth.input_token.placeholder"),
