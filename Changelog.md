@@ -16,6 +16,7 @@
 # 0.7.11.0
 
 ## Refactor
+* Enable paranoid mode for devise [#8003](https://github.com/diaspora/diaspora/pull/8003)
 
 ## Bug fixes
 
