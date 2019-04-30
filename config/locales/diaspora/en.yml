@@ -1316,7 +1316,7 @@ en:
     explanation: "Two-factor authentication is a powerful way to ensure you are the only one able to sign in to your account. When signing in, you will enter a 6-digit code along with your password to prove your identity. Be careful though: if you lose your phone and the recovery codes created when you activate this feature, access to your diaspora* account will be blocked forever."
     activated:
       status: "Two-factor authentication activated"
-      change_label: "Deactivate two-factor authentication by entering a TOTP token."
+      change_label: "Deactivate two-factor authentication by entering your password"
       change_button: "Deactivate"
     deactivated:
       status: "Two-factor authentication not activated"
