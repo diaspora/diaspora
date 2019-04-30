@@ -19,7 +19,6 @@ describe TwoFactorAuthenticationsController, type: :controller do
       get :show
       expect(response.body).to match I18n.t("two_factor_auth.title")
       expect(response.body).to match I18n.t("two_factor_auth.activated.status")
-      expect(response.body).to match I18n.t("two_factor_auth.input_token.label")
       expect(response.body).to match I18n.t("two_factor_auth.recovery.button")
       expect(@user).to have_attributes(otp_required_for_login: true)
     end
@@ -90,16 +89,16 @@ describe TwoFactorAuthenticationsController, type: :controller do
     before do
       activate_2fa
     end
-    it "deactivates 2fa if token is correct" do
-      delete :destroy, params: {two_factor_authentication: {code: @user.current_otp}}
+    it "deactivates 2fa if password is correct" do
+      delete :destroy, params: {two_factor_authentication: {password: @user.password}}
       expect(response).to be_redirect
       expect(flash[:notice]).to match I18n.t("two_factor_auth.flash.success_deactivation")
     end
 
-    it "does nothing if token is wrong" do
-      delete :destroy, params: {two_factor_authentication: {code: "a wrong code"}}
+    it "does nothing if password is wrong" do
+      delete :destroy, params: {two_factor_authentication: {password: "a wrong password"}}
       expect(response).to be_redirect
-      expect(flash[:alert]).to match I18n.t("two_factor_auth.flash.error_token")
+      expect(flash[:alert]).to match I18n.t("users.destroy.wrong_password")
     end
   end
 

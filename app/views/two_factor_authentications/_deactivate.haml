@@ -13,10 +13,9 @@
       = form_for "two_factor_authentication", url: two_factor_authentication_path,
         html: {method: :delete, class: "form-horizontal"} do |f|
         .form-group
-          = f.label :code, t("two_factor_auth.input_token.label"), class: "control-label col-sm-6"
+          = f.label :password, t("users.edit.current_password"), class: "control-label col-sm-6"
           .col-sm-6
-            = f.text_field :code, placeholder: t("two_factor_auth.input_token.placeholder"), class: "form-control"
-            = t("two_factor_auth.recovery.reminder")
+            = f.password_field :password, class: "form-control"
         .clearfix= f.submit t("two_factor_auth.activated.change_button"), class: "btn btn-primary pull-right"
 
       %hr

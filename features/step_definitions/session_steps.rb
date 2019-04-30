@@ -31,7 +31,7 @@ When /^I (?:sign|log) in with password "([^"]*)"( on the mobile website)?$/ do |
 end
 
 When /^I put in my password in "([^"]*)"$/ do |field|
- step %(I fill in "#{field}" with "#{@me.password}")
+  step %(I fill in "#{field}" with "#{@me.password}")
 end
 
 When /^I fill out change password section with my password and "([^"]*)" and "([^"]*)"$/ do |new_pass, confirm_pass|

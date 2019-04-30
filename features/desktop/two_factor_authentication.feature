@@ -51,40 +51,30 @@ Feature: Two-factor autentication
 
   Scenario: Regenerating recovery codes
     Given a user with email "alice@test.com"
-    When I sign in as "alice@test.com"
     And 2fa is activated for "alice@test.com"
+    When I sign in as "alice@test.com"
     When I go to the two-factor authentication page
     Then I should see "Generate new recovery codes"
     When I press the recovery code generate button
     Then I should see a list of recovery codes
 
-  Scenario: Deactivating 2fa with correct token
+  Scenario: Deactivating 2fa with correct password
     Given a user with email "alice@test.com"
-    When I sign in as "alice@test.com"
     And 2fa is activated for "alice@test.com"
+    When I sign in as "alice@test.com"
     When I go to the two-factor authentication page
     Then I should see "Deactivate"
-    When I fill in a valid TOTP token to deactivate for "alice@test.com"
+    When I put in my password in "two_factor_authentication_password"
     And I press "Deactivate"
     Then I should see "Two-factor authentication not activated"
 
-  Scenario: Deactivating 2fa with recovery token
+  Scenario: Trying to deactivate with incorrect password
     Given a user with email "alice@test.com"
-    When I sign in as "alice@test.com"
     And 2fa is activated for "alice@test.com"
+    When I sign in as "alice@test.com"
     When I go to the two-factor authentication page
     Then I should see "Deactivate"
-    When I fill in a recovery code to deactivate from "alice@test.com"
-    And I press "Deactivate"
-    Then I should see "Two-factor authentication not activated"
-
-  Scenario: Trying to deactivate with incorrect token
-    Given a user with email "alice@test.com"
-    When I sign in as "alice@test.com"
-    And 2fa is activated for "alice@test.com"
-    When I go to the two-factor authentication page
-    Then I should see "Deactivate"
-    When I fill in an invalid TOTP token to deactivate
+    When I fill in "two_factor_authentication_password" with "incorrect"
     And I press "Deactivate"
     Then I should see "Two-factor authentication activated"
     And I should see "Deactivate"
