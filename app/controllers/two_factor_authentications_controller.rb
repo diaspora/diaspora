@@ -37,12 +37,12 @@ class TwoFactorAuthenticationsController < ApplicationController
   end
 
   def destroy
-    if acceptable_code?
+    if current_user.valid_password?(params[:two_factor_authentication][:password])
       current_user.otp_required_for_login = false
       current_user.save!
       flash[:notice] = t("two_factor_auth.flash.success_deactivation")
     else
-      flash.now[:alert] = t("two_factor_auth.flash.error_token")
+      flash[:alert] = t("users.destroy.wrong_password")
     end
     redirect_to two_factor_authentication_path
   end
@@ -51,10 +51,5 @@ class TwoFactorAuthenticationsController < ApplicationController
 
   def verify_otp_required
     redirect_to two_factor_authentication_path if current_user.otp_required_for_login?
-  end
-
-  def acceptable_code?
-    current_user.validate_and_consume_otp!(params[:two_factor_authentication][:code]) ||
-      current_user.invalidate_otp_backup_code!(params[:two_factor_authentication][:code])
   end
 end

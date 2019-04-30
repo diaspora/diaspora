@@ -14,27 +14,11 @@ When /^I fill in an invalid TOTP token$/ do
   fill_in "user_otp_attempt", with: "c0ffee"
 end
 
-When /^I fill in a valid TOTP token to deactivate for "([^"]*)"$/ do |username|
-  @me = find_user username
-  fill_in "two_factor_authentication_code", with: @me.current_otp
-end
-
-When /^I fill in an invalid TOTP token to deactivate$/ do
-  fill_in "two_factor_authentication_code", with: "c0ffee"
-end
-
 When /^I fill in a recovery code from "([^"]*)"$/ do |username|
   @me = find_user username
   @codes = @me.generate_otp_backup_codes!
   @me.save!
   fill_in "user_otp_attempt", with: @codes.first
-end
-
-When /^I fill in a recovery code to deactivate from "([^"]*)"$/ do |username|
-  @me = find_user username
-  @codes = @me.generate_otp_backup_codes!
-  @me.save!
-  fill_in "two_factor_authentication_code", with: @codes.first
 end
 
 When /^I confirm activation$/ do
