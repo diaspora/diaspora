@@ -74,3 +74,11 @@ end
 Then (/^I should see the 'getting started' contents$/) do
   confirm_getting_started_contents
 end
+
+Given /^the registrations are closed$/ do
+  AppConfig.settings.enable_registrations = false
+end
+
+When /^I fill in the new user form$/ do
+  fill_in_new_user_form
+end
