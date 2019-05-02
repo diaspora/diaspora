@@ -1,5 +1,4 @@
-.page-registrations.action-new,
-.page-registrations.action-create {
+.page-registrations {
   .ball {
     background: image-url('branding/ball.png') no-repeat;
     background-size: contain;
@@ -12,19 +11,24 @@
     height: 633px;
   }
 
+  @media (max-width: $screen-xs-max) {
+    .v-center {
+      height: auto;
+    }
+  }
+
   .content {
     display: table-cell;
     vertical-align: middle;
 
-    h2 {
+    h1 {
       font-size: 35px;
-      margin: 12px;
-      text-align: center;
+      margin: 12px 0;
     }
   }
 
   form {
-    max-width: 400px;
+    max-width: 500px;
   }
 
   .captcha-img {

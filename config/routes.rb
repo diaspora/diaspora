@@ -129,6 +129,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/users/sign_up" => "registrations#new",    :as => :new_user_registration
     post "/users"        => "registrations#create", :as => :user_registration
+    get "/registrations_closed" => "registrations#registrations_closed", :as => :registrations_closed
   end
 
   get "users/invitations"  => "invitations#new",    :as => "new_user_invitation"
@@ -205,7 +206,6 @@ Rails.application.routes.draw do
 
   # Help
   get 'help' => 'help#faq', :as => 'help'
-  get "help/registration_closed" => "help#registration_closed", :as => "registration_closed"
   get 'help/:topic' => 'help#faq'
 
   #Protocol Url
