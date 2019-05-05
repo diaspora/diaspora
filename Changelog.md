@@ -13,12 +13,19 @@
 * Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
 * Add backend for archive import [#7660](https://github.com/diaspora/diaspora/pull/7660)
 
+# 0.7.12.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.11.0
 
 ## Refactor
 * Enable paranoid mode for devise [#8003](https://github.com/diaspora/diaspora/pull/8003)
 * Refactor likes cucumber test [#8002](https://github.com/diaspora/diaspora/pull/8002)
-## Bug fixes
 
 ## Features
 * Add a manifest.json file as a first step to make diaspora\* a Progressive Web App [#7998](https://github.com/diaspora/diaspora/pull/7998)
