@@ -16,6 +16,7 @@ class ArchiveImporter
            DiasporaFederation::Discovery::InvalidDocument,
            DiasporaFederation::Discovery::DiscoveryError,
            DiasporaFederation::Federation::Fetcher::NotFetchable,
+           OwnRelayableImporter::NoParentError,
            ActiveRecord::RecordInvalid => e
       logger.warn "#{self}: #{e}"
       self.persisted_object = nil
