@@ -5,6 +5,7 @@
 ## Bug fixes
 
 ## Features
+* Add line mentioning diaspora\* on the splash page [#7966](https://github.com/diaspora/diaspora/pull/7966)
 
 # 0.7.11.0
 
