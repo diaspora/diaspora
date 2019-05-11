@@ -553,6 +553,8 @@ en:
   home:
     default:
       headline: "Welcome to %{pod_name}"
+      part_of_diaspora: "Part of the %{diaspora_site_link}"
+      diaspora_site_link: "diaspora* federated network"
       byline: "The online social world where you are in control"
       be_who_you_want_to_be: "Be who you want to be"
       be_who_you_want_to_be_info: "A lot of networks insist that you use your real identity. Not diaspora*. Here you can choose who you want to be, and share as much or as little about yourself as you want. It really is up to you how you want to interact with other people."
@@ -1050,7 +1052,11 @@ en:
       terms_link: "terms of service"
     create:
       success: "You’ve joined diaspora*!"
-    closed: "Signups are closed on this diaspora* pod."
+    closed:
+      closed_pod: "This pod is currently closed to new registrations. However, you can still join the diaspora* network by registering on %{wiki}. Because all pods are interconnected, you will have access to the same content there."
+      another_pod: "another pod"
+      find_pods: "There’s a list of pods you can sign up to at %{poduptime}."
+      other_questions: "If you have any other questions regarding choosing a pod, check out our %{wiki}."
     invalid_invite: "The invite link you provided is no longer valid!"
 
   reshares:

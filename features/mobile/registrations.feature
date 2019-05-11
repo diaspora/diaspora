@@ -5,8 +5,7 @@ Feature: New user registration
   I want to register an account
 
   Background:
-    Given I am on the login page
-    And I follow "Create account" within "#main-nav"
+    Given I am on the new user registration page
 
   Scenario: user signs up and goes to getting started
     When I fill in the new user form

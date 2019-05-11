@@ -2,10 +2,12 @@
 
 class AddDeviseTwoFactorToUsers < ActiveRecord::Migration[5.1]
   def change
-    add_column :users, :encrypted_otp_secret, :string
-    add_column :users, :encrypted_otp_secret_iv, :string
-    add_column :users, :encrypted_otp_secret_salt, :string
-    add_column :users, :consumed_timestep, :integer
-    add_column :users, :otp_required_for_login, :boolean
+    change_table :users, bulk: true do |t|
+      t.string :encrypted_otp_secret
+      t.string :encrypted_otp_secret_iv
+      t.string :encrypted_otp_secret_salt
+      t.integer :consumed_timestep
+      t.boolean :otp_required_for_login
+    end
   end
 end

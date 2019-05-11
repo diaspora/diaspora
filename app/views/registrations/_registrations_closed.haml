@@ -1,0 +1,11 @@
+%h2
+  = t("devise.shared.links.sign_up_closed")
+
+!= t("registrations.closed.closed_pod",
+  wiki: link_to(t("registrations.closed.another_pod"), "https://diasporafoundation.org/getting_started/sign_up"))
+
+!= t("registrations.closed.find_pods",
+  poduptime: link_to("Poduptime", "https://podupti.me/"))
+
+!= t("registrations.closed.other_questions",
+  wiki: link_to("Wiki", "https://wiki.diasporafoundation.org/Choosing_a_pod"))

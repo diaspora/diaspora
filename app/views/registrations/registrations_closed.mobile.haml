@@ -1,0 +1,10 @@
+
+.stream#main-stream
+  - flash.each do |name, msg|
+    .expose#flash-container
+      .flash-message{class: "message alert alert-#{flash_class name}", role: "alert"}
+        = msg
+
+  .login-form
+    .login-container
+      = render partial: "registrations_closed"
