@@ -6,6 +6,7 @@
 
 ## Features
 * Add line mentioning diaspora\* on the splash page [#7966](https://github.com/diaspora/diaspora/pull/7966)
+* Improve communication about signing up on closed pods [#7896](https://github.com/diaspora/diaspora/pull/7896)
 
 # 0.7.11.0
 

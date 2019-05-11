@@ -346,10 +346,6 @@ en:
     tutorials: "tutorials"
     tutorial: "tutorial"
     irc: "IRC"
-    closed_pod: "This pod is currently closed to new registrations. However, you can still join the diaspora* network by registering on %{wiki}. Because all pods are interconnected, you will have access to the same content there."
-    find_pods: "There’s a list of pods you can sign up to at %{poduptime}."
-    other_questions: "If you have any other questions regarding choosing a pod, check out our %{wiki}."
-    choose_another: "Please, choose another pod"
     wiki: "wiki"
     faq: "FAQ"
     markdown: "Markdown"
@@ -1056,7 +1052,11 @@ en:
       terms_link: "terms of service"
     create:
       success: "You’ve joined diaspora*!"
-    closed: "Signups are closed on this diaspora* pod."
+    closed:
+      closed_pod: "This pod is currently closed to new registrations. However, you can still join the diaspora* network by registering on %{wiki}. Because all pods are interconnected, you will have access to the same content there."
+      another_pod: "another pod"
+      find_pods: "There’s a list of pods you can sign up to at %{poduptime}."
+      other_questions: "If you have any other questions regarding choosing a pod, check out our %{wiki}."
     invalid_invite: "The invite link you provided is no longer valid!"
 
   reshares:
