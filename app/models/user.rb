@@ -19,11 +19,10 @@ class User < ApplicationRecord
   scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
   scope :active, -> { joins(:person).where(people: {closed_account: false}) }
 
-  attribute :otp_secret
+  attr_encrypted :otp_secret, if: false, prefix: "plain_"
 
   devise :two_factor_authenticatable,
          :two_factor_backupable,
-         otp_secret_encryption_key:  AppConfig.twofa_encryption_key,
          otp_backup_code_length:     16,
          otp_number_of_backup_codes: 10
 

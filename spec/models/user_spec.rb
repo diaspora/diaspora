@@ -984,9 +984,7 @@ describe User, :type => :model do
             exported_at
             exported_photos_at
             consumed_timestep
-            encrypted_otp_secret
-            encrypted_otp_secret_iv
-            encrypted_otp_secret_salt
+            plain_otp_secret
             otp_backup_codes
             otp_required_for_login
             otp_secret
