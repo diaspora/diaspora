@@ -11,7 +11,6 @@ app/assets/images/custom/
 # Configuration files
 config/diaspora.yml
 config/initializers/secret_token.rb
-config/initializers/twofa_encryption_key.rb 
 .bundle
 vendor/bundle/
 vendor/cache/
