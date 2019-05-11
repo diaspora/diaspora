@@ -68,24 +68,6 @@ module Configuration
       end
     end
 
-    def twofa_encryption_key
-      if heroku?
-        return ENV["TWOFA_ENCRYPTION_KEY"] if ENV["TWOFA_ENCRYPTION_KEY"]
-
-        warn "FATAL: Running on Heroku with TWOFA_ENCRYPTION_KEY unset"
-        warn "       Run heroku config:add TWOFA_ENCRYPTION_KEY=#{SecureRandom.hex(32)}"
-        abort
-      else
-        key_file = File.expand_path(
-          "../config/initializers/twofa_encryption_key.rb",
-          File.dirname(__FILE__)
-        )
-        system "DISABLE_SPRING=1 bin/rake generate:twofa_key" unless File.exist? key_file
-        require key_file
-        Diaspora::Application.config.twofa_encryption_key
-      end
-    end
-
     def version_string
       return @version_string unless @version_string.nil?
 
