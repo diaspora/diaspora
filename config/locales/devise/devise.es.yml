@@ -62,7 +62,6 @@ es:
       new:
         email: "Dirección de correo"
         forgot_password: "¿Has olvidado tu contraseña?"
-        no_account: "No existe una cuenta con ese correo"
         reset_password: "Resetear contraseña"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
       no_token: "No puedes acceder a esta página sin venir un correo de reseteo de contraseña. Si vienes de uno de estos correos, por favor asegúrate de utilizar la URL proporcionada."

@@ -56,7 +56,6 @@ it:
       new:
         email: "Indirizzo email"
         forgot_password: "Hai dimenticato la password?"
-        no_account: "Non esiste un account con questo indirizzo email"
         reset_password: "Azzera password"
         send_password_instructions: "Inviami le istruzioni per reimpostare la password."
       send_instructions: "Tra pochi minuti riceverai una email con le istruzioni su come cambiare la tua password."

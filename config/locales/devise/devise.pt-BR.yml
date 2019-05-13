@@ -62,7 +62,6 @@ pt-BR:
       new:
         email: "Endereço de email"
         forgot_password: "Esqueceu sua senha?"
-        no_account: "Não há nenhuma conta com este email"
         reset_password: "Resetar senha"
         send_password_instructions: "Envie-me instruções para redefinir minha senha."
       no_token: "Você só pode acessar esta página a partir de um e-mail de recuperação de senha. Se esse é o caso, certifique-se que usou o URL fornecido completo."

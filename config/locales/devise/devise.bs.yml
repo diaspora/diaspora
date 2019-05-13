@@ -51,7 +51,6 @@ bs:
         change_password: "Promjeni moju šifru"
       new:
         forgot_password: "Zaboravili ste šifru?"
-        no_account: "Ne postoji račun sa ovom e-mail adresom.  Ako očekujete pozivnicu, šaljemo ih čim prije."
         send_password_instructions: "Pošalji mi uputstva za resetovanje šifre"
       send_instructions: "Dobit ćete e-mail sa uputstvima kako da resetujete vašu šifru za par minuta."
       updated: "Vaša šifra je uspješno promijenjena. Sada ste prijavljeni."

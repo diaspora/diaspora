@@ -12,7 +12,7 @@
       = load_javascript_locales
 
     = include_color_theme
-    = render "head"
+    = render "layouts/head"
     = translation_missing_warnings
 
   %body{class: "page-#{controller_name} action-#{action_name}"}
