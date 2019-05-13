@@ -62,7 +62,6 @@ es-AR:
       new:
         email: "Correo electrónico"
         forgot_password: "¿Olvidaste tu contraseña?"
-        no_account: "No hay ninguna cuenta con esta dirección de correo electrónico. Si estás esperando una invitación, te la enviaremos tan pronto como sea posible."
         reset_password: "Resetear contraseña"
         send_password_instructions: "Enviame instrucciones para cambiar mi contraseña."
       no_token: "No puedes acceder a esta página si no vienes de un mensaje de restablecimiento de contraseña. Si vienes de un mensaje de restablecimiento de contraseña, por favor asegúrate de que has utilizado la URL completa proporcionada en el mensaje."

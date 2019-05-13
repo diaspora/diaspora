@@ -1176,6 +1176,41 @@ pt-BR:
         one: "1 pessoa marcada com %{tag}"
         other: "%{count} pessoas marcadas com %{tag}"
         zero: "Ninguém marcado com %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Desativar"
+      change_label: "Insira sua senha para desativar a autenticação em duas etapas"
+      status: "Autenticação em duas etapas ativada"
+    confirm:
+      activate_button: "Confirmar e ativar"
+      input_explanation: "Depois de escanear ou digitar a senha, insira o código de seis dígitos que apareceu para você e confirme."
+      input_title: "Confirme com o código TOTP"
+      manual_explanation: "Caso não possa escanear o código QR de forma automática, digite a senha manualmente no aplicativo."
+      manual_explanation_cont: "Usamos senhas únicas baseadas em tempo (TOTP) com códigos de seis dígitos. Caso o seu aplicativo pergunte intervalo de tempo e algoritmo, insira 30 segundos e sha1, respectivamente. <br /> Os espaços servem apenas para melhorar a legibilidade; por favor, digite o código sem eles."
+      scan_explanation: "Por favor, escaneie o código QR com um aplicativo que leia TOTP, tal como andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      scan_title: "Escaneie o código QR"
+      status: "A autenticação em duas etapas ainda não foi ativada completamente; você precisa confirmar a ativação com um código TOTP."
+      title: "Confirmar ativação"
+    deactivated:
+      change_button: "Ativar"
+      change_label: "Ativar autenticação em duas etapas"
+      status: "Autenticação em duas etapas desativada"
+    explanation: "A autenticação em duas etapas é uma maneira eficiente de garantir que você seja a única pessoa capaz de entrar na sua conta. Ao entrar, você terá que digitar um código de seis dígitos além da sua senha para provar a sua identidade. Mas cuidado: se você perder seu celular e os códigos de recuperação criados durante a ativação deste recurso, o acesso à sua conta na diaspora* será bloqueado para sempre."
+    flash:
+      error_token: "Código incorreto ou inválido"
+      success_activation: "Autenticação em duas etapas ativada com sucesso"
+      success_deactivation: "Autenticação em duas etapas desativada com sucesso"
+    input_token:
+      label: "Código de autenticação"
+      placeholder: "código de autenticação com seis dígitos"
+    recovery:
+      button: "Gerar novos códigos de recuperação"
+      explanation: "Se algum dia você perder o seu celular, você pode usar um dos códigos de recuperação abaixo para recuperar o acesso à sua conta. Guarde-os em segurança. Por exemplo, você pode imprimi-los e armazená-los junto com outros documentos importantes."
+      explanation_short: "Códigos de recuperação permitem que você recupere o acesso à conta caso você perca seu celular. Repare que você só pode usar cada código uma única vez."
+      invalidation_notice: "Se você perder seus códigos de recuperação, pode regerá-los aqui. Os antigos serão invalidados."
+      reminder: "Uma alternativa é usar um dos códigos de recuperação."
+      title: "Códigos de recuperação"
+    title: "Autenticação em duas etapas"
   username: "Usuário"
   users:
     confirm_email:

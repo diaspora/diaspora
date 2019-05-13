@@ -866,6 +866,40 @@ it:
       follow: "Segui #%{tag}"
       none: "Il tag vuoto non esiste!"
       stop_following: "Non seguire più  #%{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Disattiva"
+      change_label: "Per disattivare l'autenticazione a due fattori inserire la propria password"
+      status: "Autenticazione a due fattori attivata"
+    confirm:
+      activate_button: "Confermare e attivare"
+      input_explanation: "Dopo avere scansionato o inserito il codice segreto inserite il codice di 6 cifre che vedrete sullo schermo e confermate il setup."
+      input_title: "Confermare con token TOTP"
+      manual_explanation: "Nel caso non sia possibile acquisire automaticamente il QR code è possibile inserire il codice segreto nell'app."
+      manual_explanation_cont: "Noi usiamo time-based one-time passwords (TOTP) con token di 6 cifre. Nel caso in cui la vostra app vi chieda un intervallo di tempo e l'algoritmo inserite rispettivamente un tempo di 30 secondi e il valore sha1. <br />  Gli spazi sono inseriti solo per la leggibilità, inserite il codice senza di essi."
+      scan_explanation: "Si prega di scansionare il QR code con una app predisposta per il TOTP come AndOTP (Android), FreeOTP (iOS), SAilOTP (Sailfish OS)."
+      scan_title: "Scansionare il QR code"
+      status: "L'autenticazione a due fattori non è ancora pienamente attiva, è necessario confermate l'attivazione con un token TOTP"
+      title: "Confermare attivazione"
+    deactivated:
+      change_button: "Attivare"
+      change_label: "Attivare l'autenticazione a due fattori"
+      status: "Autenticazione a due fattori non attivata"
+    explanation: "L'autenticazione a due fattori è uno strumento potente per darvi la certezza di essere la sola persona in grado di accedere al vostro account. Al momento di collegarvi, dovrete inserire assieme alla vostra password un codice a 6 cifre per provare la vostra identità. Dovrete però stare attenti: se perdete il telefono e i codici di ripristino che verranno creati all'attivazione della funzionalità il vostro account su diaspora* sarà bloccato per sempre."
+    flash:
+      error_token: "Token sbagliato o non valido"
+      success_activation: "Autenticazione a due fattori attivata"
+      success_deactivation: "Autenticazione a due fattori disattivata"
+    input_token:
+      label: "Token a due fattori"
+      placeholder: "token a due fattori di sei cifre"
+    recovery:
+      button: "Generare i nuovi codici di recupero"
+      explanation: "Se non fosse più possibile accedere al proprio telefono, è ancora possibile usare uno dei seguenti codici di recupero per ottenere nuovamente l'accesso al proprio account. Tenete al sicuro questi codici, ad esempio stampandoli e conservandoli assieme agli altri documenti importanti."
+      explanation_short: "I codici di recupero permettono di riottenere l'accesso al proprio account in caso di smarrimento del telefono. Notare che ogni codice di recupero può essere utilizzato una volta sola."
+      invalidation_notice: "In caso di smarrimento dei codici di recupero possono essere rigenerati qui. I codici di recupero precedenti verranno invalidati."
+      reminder: "Come alternativa potete usare uno dei codici di recupero."
+      title: "Codici di recupero"
   username: "Nome Utente"
   users:
     confirm_email:

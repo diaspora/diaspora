@@ -42,7 +42,6 @@ et:
         change_password: "Muuda parooli"
       new:
         forgot_password: "Unustasid parooli?"
-        no_account: "Sellise e-mailiga kontot pole. Kui sa ootad kutset, siis saadame selle esimesel võimalusel"
         send_password_instructions: "Saada mulle juhised salasõna lähtestamiseks."
       send_instructions: "Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks."
       updated: "Sinu parool on edukalt muudetud. Oled nüüd sisse logitud."

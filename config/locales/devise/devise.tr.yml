@@ -50,7 +50,6 @@ tr:
         change_password: "Parola değiştirme"
       new:
         forgot_password: "Parolanızı mı unuttunuz?"
-        no_account: "Bu e-posta adresiyle alınmış hesap bulunmamaktadır. Eğer bir davetiye için bekliyorsanız, en kısa zamanda size ulaştıracağız."
         send_password_instructions: "Bana parola yenileme talimatları gönder"
       send_instructions: "Bir kaç dakika içerisinde parolanızı nasıl sıfırlayacağınızı açıklayan bir e-posta alacaksınız."
       updated: "Parolanız değiştirilmiştir. Şu anda giriş yapmış bulunuyorsunuz."

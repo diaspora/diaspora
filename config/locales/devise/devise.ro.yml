@@ -51,7 +51,6 @@ ro:
         change_password: "Schimbă-mi parola"
       new:
         forgot_password: "Aţi uitat parola?"
-        no_account: "Nici un cont cu acest e-mail există. Dacă sunteţi în aşteptare pentru o invitaţie, le vom trimite cât mai curând posibil.\n"
         send_password_instructions: "Trimite-mi instrucţiunile pentru a reseta parola"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru resetarea parolei."
       updated: "Parolă schimbată cu success. Sunteți acum autentificat(ă)."

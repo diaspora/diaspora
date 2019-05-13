@@ -50,7 +50,6 @@ lt:
         change_password: "Keisti mano slaptažodį"
       new:
         forgot_password: "Pamiršai slaptažodį?"
-        no_account: "Tokio el. pašto mūsų sistemoje nėra užregistruota. Laukiančius pakvietimo įspėjame, kad išsiųsime juos kai tik galėsime."
         send_password_instructions: "Siųsti nurodymus, kaip atstatyti slaptažodį"
       send_instructions: "Netrukus gausite el. laišką su nurodymais, kaip atstatyti slaptažodį."
       updated: "Slaptažodis sėkmingai pakeistas. Prisijungta."

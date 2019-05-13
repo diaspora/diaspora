@@ -117,7 +117,7 @@ da:
       are_you_sure_lock_account: "Er du sikker på at du vil låse denne konto?"
       are_you_sure_unlock_account: "Er du sikker på at du vil genåbne denne konto?"
       close_account: "Luk konto"
-      delete_admin: "%{name} er blevet fjernet fra admin-listen"
+      delete_admin: "%{name} er blevet fjernet fra admin-listen."
       delete_moderator: "%{name} er blevet fjernet fra moderator-listen."
       delete_spotlight: "%{name} er blevet fjernet fra community spotlight."
       does_not_exist: "Brugeren eksisterer ikke!"
@@ -169,6 +169,9 @@ da:
         login_required: "Du skal logge ind for at kunne autorisere denne applikation"
         title: "Ups! Noget gik galt :("
       scopes:
+        aud:
+          description: "Dette giver aud tilladelser til applicationen"
+          name: "aud"
         name:
           description: "Dette giver applikationen adgang til dit navn"
           name: "navn"
@@ -205,7 +208,7 @@ da:
         tos: "Se applikationens servicevilkår"
   are_you_sure: "Er du sikker?"
   are_you_sure_delete_account: "Er du helt sikker på at du ønsker at lukke din konto? Det kan ikke fortrydes!"
-  are_you_sure_ignore_user: "Vil du ignorere denne bruger. Er du sikker?"
+  are_you_sure_ignore_user: "Du er ved at ignorere denne bruger. Er du sikker?"
   aspect_memberships:
     destroy:
       failure: "Kunne ikke fjerne person fra aspekt."
@@ -485,7 +488,7 @@ da:
       format_text_q: "Hvordan kan jeg formatere teksten i mine indlæg (fed, kursiv, osv.)?"
       hide_posts_a: "Hvis du peger med musen på toppen af et indlæg vil et X dukke op til højre. Tryk på det for at skjule indlægget og fjerne notifikationer om det. Du kan stadig se indlægget hvis du besøger den person der lavede indlæggets profilside."
       hide_posts_q: "Hvordan skjuler jeg et indlæg?"
-      ignore_user_a1: "Hvis du deler med den pågældende person, vil det at fjerne dem fra dine aspekter stoppe de fleste af deres indlæg fra at vises i din strøm. En mere gennemgribende metode er at \"ignorere\" denne konto. Dette forhindrer, at deres indlæg vises i din strøm, og de kan ikke længere lide eller kommentere dine indlæg. De vil dog stadig være i stand til at videresende dine indlæg, kommentere videredelinger af dine indlæg, og deres kommentarer til indlæg fra andre personer der vises i din strøm, vil stadig være synlige for dig."
+      ignore_user_a1: "Hvis du deler med den pågældende person, vil det at fjerne dem fra dine aspekter stoppe de fleste af deres indlæg fra at vises i din strøm. En mere gennemgribende metode er at \"ignorere\" denne konto. Dette forhindrer, at deres indlæg vises i din strøm, og de kan ikke længere synes om eller kommentere dine indlæg. De vil dog stadig være i stand til at videredele dine indlæg, kommentere videredelinger af dine indlæg, og deres kommentarer til indlæg fra andre personer der vises i din strøm, vil stadig være synlige for dig."
       ignore_user_a2: "For at ignorere en konto skal du klikke på ikonet \"ignorér\" (en cirkel med en diagonal linje gennem) øverst til højre for et af deres indlæg. Deres indlæg forsvinder øjeblikkeligt fra din strøm. Alternativt kan du gå til deres profilside og klikke på ignoreringsikonet der. Du kan stadig se deres indlæg på deres profilside eller ved at bruge single-postvisningen."
       ignore_user_a3: "En liste over personer, du ignorerer, findes i dine kontoindstillinger under Privatliv. Hvis du vil stoppe med at ignorere nogen, skal du fjerne dem fra listen på den pågældende side."
       ignore_user_q: "Hvordan sørger jeg for at en brugers indlæg ikke optræder i min strøm?"
@@ -643,6 +646,8 @@ da:
       public_feed: "Offentligt Diaspora-nyhedsfeed for %{name}"
       source_package: "Download kildekoden"
       statistics_link: "Pod statistik"
+      switch_to_standard_mode: "Skift til standard tilstand"
+      switch_to_touch_optimized_mode: "Skift til touch-optimeret tilstand"
       whats_new: "Hvad er nyt?"
     header:
       code: "Kode"
@@ -1193,6 +1198,41 @@ da:
         one: "En person har brugt %{tag} tag"
         other: "%{count} personer har brugt %{tag} tag"
         zero: "Ingen har brugt %{tag} tag"
+  two_factor_auth:
+    activated:
+      change_button: "Deaktiver"
+      change_label: "Deaktiver to-faktor godkendelse ved at indtaste dit kodeord"
+      status: "To-faktor godkendelse aktiveret"
+    confirm:
+      activate_button: "Bekræft og aktiver"
+      input_explanation: "Efter at have skannet eller indtastet hemmeligheden skal du indtaste den sekscifrede kode du ser og bekræfte opsætningen."
+      input_title: "Bekræft med TOTP token"
+      manual_explanation: "Hvis du ikke kan scanne QR-koden automatisk, kan du manuelt indtaste hemmeligheden i din app."
+      manual_explanation_cont: "Vi bruger tidsbaserede engangsadgangskoder (TOTP) med sekscifrede symboler. Hvis din app beder dig om et tidsinterval og en algoritme, indtaster du 30 sekunder og sha1. <br /> Mellemrummene er der kun for bedre læsbarhed. Indtast koden uden dem."
+      scan_explanation: "Skan venligst QR-koden med en TOTP-kompatibel app, f.eks. OgOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      scan_title: "Skan QR koden"
+      status: "To-faktor godkendelse er ikke fuldt aktiveret endnu. Du skal bekræfte aktivering med et TOTP-token"
+      title: "Bekræft aktivering"
+    deactivated:
+      change_button: "Aktiver"
+      change_label: "Aktiver to-faktor godkendelse"
+      status: "To-faktor godkendelse ikke aktiveret"
+    explanation: "To-faktor godkendelse er en effektiv måde at sikre, at du er den eneste, der kan logge ind på din konto. Når du logger ind, indtaster du en 6-cifret kode sammen med dit kodeord for at bevise din identitet. Husk dog at være forsigtig: hvis du mister din telefon og genoprettelseskoderne der oprettes når du aktiverer denne funktion, vil adgang til din Diaspora-konto blive blokeret for altid."
+    flash:
+      error_token: "Token var forkert eller ugyldigt"
+      success_activation: "Vellykket aktivering af to-faktor godkendelse"
+      success_deactivation: "Vellykket deaktivering af to-faktor godkendelse"
+    input_token:
+      label: "To-faktor token"
+      placeholder: "sekscifret to-faktor token"
+    recovery:
+      button: "Generer nye gendannelseskoder"
+      explanation: "Hvis du mister adgang til din telefon, kan du bruge en af genoprettelseskoderne nedenfor for at genvinde adgangen til din konto. Hold genoprettelseskoderne sikre. Du kan f.eks. udskrive dem og gemme dem sammen med andre vigtige dokumenter."
+      explanation_short: "Gendannelseskoder giver dig mulighed for at få adgang til din konto hvis du mister din telefon. Bemærk at du kun kan bruge hver genopretningskode én gang."
+      invalidation_notice: "Hvis du har mistet dine gendannelseskoder, kan du regenerere dem her. Dine gamle gendannelseskoder bliver herefter gjort ugyldige."
+      reminder: "Alternativt kan du bruge en af gendannelseskoderne."
+      title: "Gendannelseskoder"
+    title: "To-faktor godkendelse"
   username: "Brugernavn"
   users:
     confirm_email:
@@ -1241,7 +1281,7 @@ da:
       new_password: "Nyt adgangskode"
       private_message: "... du har modtaget en privat besked."
       protocol_handler:
-        browser: "Denne protokol er i øjeblikket i den eksperimentelle fase, og om de interaktioner der bruger protokollen virker er afhængigt af din browser. Hvis du vil styre eller fjerne denne handler, gør du det via dine browserindstillinger. Knappen nedenfor vil altid være aktiveret, og du skal sætte handleren separat i hver browser du bruger."
+        browser: "Denne protokol er i øjeblikket i den eksperimentelle fase, og om de interaktioner der bruger protokollen virker, er afhængigt af din browser. Hvis du vil styre eller fjerne denne handler, gør du det via dine browserindstillinger. Knappen nedenfor vil altid være aktiveret, og du skal sætte handleren separat i hver browser du bruger."
         description: "web + diaspora: // er en ny webprotokol, som vi har introduceret. Ethvert link til en Diaspora-side på et eksternt websted der bruger denne protokol, kan åbnes i den pod hvor din Diaspora-konto er registreret. Klik på knappen nedenfor for at indstille din browser til at bruge %{pod_url} for at genkende eksterne web + diaspora: // links."
         register: "Registrer web+diaspora:// handler i denne browser"
         title: "web+diaspora:// protokol handler"

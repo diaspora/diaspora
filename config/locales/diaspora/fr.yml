@@ -1183,6 +1183,43 @@ fr:
         one: "1 personne marquée avec %{tag}"
         other: "%{count} personnes marquées avec %{tag}"
         zero: "Personne n'est marqué avec %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Désactiver"
+      change_label: "Désactivez la double authentification en saisissant votre mot de passe"
+      status: "La double authentification est activée"
+    confirm:
+      activate_button: "Confirmer et activer"
+      input_explanation: "Après avoir scanné ou saisi le secret, entrez le code à 6 chiffres affiché par l'application pour confirmer la mise en place de la double authentification."
+      input_title: "Confirmer avec un jeton TOTP"
+      manual_explanation: "Si vous ne pouvez pas scanner le code QR, vous pouvez saisir le secret manuellement dans votre application."
+      manual_explanation_cont: |-
+          Nous utilisons des codes à usage unique TOTP de 6 chiffres. Si votre application vous demande un intervalle de temps et un algorithme, choisissez 30 secondes et sha1 respectivement.<br />
+          Les espaces sont juste ajoutés par souci de lisibilité, merci de les ignorer à la saisie.
+      scan_explanation: "Merci de scanner le code QR avec une application TOTP, telle que andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      scan_title: "Scannez le code QR"
+      status: "La double authentification n'est pas encore complétement activée, vous devez confirmer l'activation avec un jeton TOTP"
+      title: "Confirmer l'activation"
+    deactivated:
+      change_button: "Activer"
+      change_label: "Activer la double authentification"
+      status: "Double authentification inactive"
+    explanation: "La double authentification est un moyen efficace de garantir que vous serez le seul à pouvoir vous identifier avec votre compte. À la connexion, vous saisirez un code à 6 chiffres en plus de votre mot de passe afin de prouver votre identité. Soyez prudent néanmoins : si vous égarez votre téléphone et vos codes de récupération créés à l'activation de cette fonctionnalité, vous perdrez définitivement l'accès à votre compte diaspora*."
+    flash:
+      error_token: "Le jeton est incorrect ou invalide"
+      success_activation: "Double authentification activée avec succès"
+      success_deactivation: "Double authentification désactivée avec succès"
+    input_token:
+      label: "Jeton de double authentification"
+      placeholder: "jeton de double authentification à 6 chiffres"
+    recovery:
+      button: "Générer des nouveaux codes de récupération"
+      explanation: "Si vous perdez l'accès à votre téléphone, vous pouvez utiliser l'un de ces codes de récupération pour récupérer l'accès à votre compte diaspora*. Gardez ces codes dans un lieu sûr. Par exemple, vous pouvez les imprimer et les ranger avec vos autres documents importants."
+      explanation_short: "Les codes de récupération vous permettent de récupérer l'accès à votre compte si vous perdez votre téléphone. Notez que chaque code de récupération ne peut être utilisé qu'une seule fois."
+      invalidation_notice: "Si vous avez perdu vos codes de récupération, vous pouvez les générer à nouveau ici. Vos précédents codes seront invalidés."
+      reminder: "Sinon, vous pouvez utiliser l'un de ces codes de récupération."
+      title: "Codes de récupération"
+    title: "Double authentification"
   username: "Nom d'utilisateur"
   users:
     confirm_email:

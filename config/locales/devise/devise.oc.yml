@@ -62,7 +62,6 @@ oc:
       new:
         email: "Adreça de corrièl"
         forgot_password: "Avètz oblidat vòstre senhal ?"
-        no_account: "Cap de compte es pas associat a aquesta adreça de corrièr electronic."
         reset_password: "Reïnicializar lo senhal"
         send_password_instructions: "Mandar las instruccions de reïnicializacion de senhal"
       no_token: "Podètz pas accedir a aquesta pagina sens venir d'un corrièl de reïnicializacion de senhal. S'es lo cas, mercés de vos assegurar qu'avètz utilizat l'URL completa."

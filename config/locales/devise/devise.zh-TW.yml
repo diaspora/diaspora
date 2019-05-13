@@ -62,7 +62,6 @@ zh-TW:
       new:
         email: "電子信箱"
         forgot_password: "忘記密碼了嗎？"
-        no_account: "沒有和這個電子信箱關聯的帳號"
         reset_password: "重設密碼"
         send_password_instructions: "傳送密碼重設的步驟給我"
       no_token: "這個頁面只給重設密碼的電子郵件使用。如果你真的是點密碼重設信件過來的，請確定用的是信件中完整的網址。"

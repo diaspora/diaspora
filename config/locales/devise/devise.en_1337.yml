@@ -48,7 +48,6 @@ en_1337:
         change_password: "CH4NG3 MY *****"
       new:
         forgot_password: "F0RG07 Y0UR *****?"
-        no_account: "404 - N07 F0UND!"
         send_password_instructions: "R3537 MY *****!!"
       send_instructions: "G0NN4 R3C113V3 R3537 1N57RUC71ON5 BY M41L!"
       updated: "***** CH4NG3D"

@@ -54,7 +54,6 @@ he:
       new:
         email: "כתובת דוא\"ל"
         forgot_password: "שכחת את סיסמתך?"
-        no_account: "לא קיים חשבון עם כתובת דוא״ל זו"
         reset_password: "איפוס סיסמה"
         send_password_instructions: "שליחת הנחיות איפוס הססמה אלי"
       send_instructions: "בעוד מספר דקות תתקבל בתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאפס את סיסמתך."

@@ -62,7 +62,6 @@ pl:
       new:
         email: "Adres e-mail"
         forgot_password: "Nie pamiętasz hasła?"
-        no_account: "Konto z podanym adresem e-mail nie istnieje"
         reset_password: "Resetuj hasło"
         send_password_instructions: "Wyślij mi instrukcję resetowania hasła"
       no_token: "Nie możesz pomyślnie odwiedzić tej strony w inny sposób niż poprzez kliknięcie odnośnika w e-mailu resetu hasła. Jeśli znalazłeś się tutaj właśnie przez tego typu e-mail, upewnij się, że kliknąłeś lub wkleiłeś pełny adres URL."
