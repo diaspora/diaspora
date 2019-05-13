@@ -208,6 +208,7 @@ de:
         tos: "Die Nutzungsbedingungen der Anwendung ansehen"
   are_you_sure: "Bist du dir sicher?"
   are_you_sure_delete_account: "Möchtest du dein Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
+  are_you_sure_ignore_user: "Bist du sicher das du den Nutzer ignorieren möchtest?"
   aspect_memberships:
     destroy:
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden."
@@ -645,6 +646,7 @@ de:
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket runterladen"
       statistics_link: "Pod-Statistiken"
+      switch_to_standard_mode: "In den Standard-Modus wechseln"
       switch_to_touch_optimized_mode: "Wechseln zum touch-optimierten Modus"
       whats_new: "Was gibt’s Neues?"
     header:

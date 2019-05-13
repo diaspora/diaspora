@@ -62,7 +62,6 @@ nb:
       new:
         email: "E-post"
         forgot_password: "Glemt passordet?"
-        no_account: "Det finnes ingen bruker med denne e-post adressen. Hvis du venter på en invitasjon, sender vi dem ut så snart vi kan."
         reset_password: "Resett passord"
         send_password_instructions: "Send meg instruksjoner for å tilbakestille passordet"
       no_token: "Du kan ikke se denne siden uten å komme fra en e-post for å tilbakestille passord. Dersom du kom fra en e-post for å tilbakestille passord, sørg for at du bruker den fullstendige URL-en som ble oppgitt i e-posten."

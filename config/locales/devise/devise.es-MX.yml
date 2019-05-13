@@ -52,7 +52,6 @@ es-MX:
       new:
         email: "Dirección de correo electrónico"
         forgot_password: "¿Olvidaste tu contraseña?"
-        no_account: "No existe una cuenta con este correo electrónico."
         reset_password: "Restablecer contraseña"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña."
       send_instructions: "Recibirás un correo electrónico con instrucciones para restablecer tu contraseña dentro de pocos minutos."

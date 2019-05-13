@@ -62,7 +62,6 @@ de:
       new:
         email: "E-Mail-Adresse"
         forgot_password: "Kennwort vergessen?"
-        no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse"
         reset_password: "Kennwort zurücksetzen"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       no_token: "Du kannst auf diese Seite nicht zugreifen, ohne von einer E-Mail zur Passwortrücksetzung zu kommen. Falls du von einer E-Mail zur Passwortrücksetzung kommst, vergewissere dich bitte, dass du die vollständige angegebene URL verwendet hast."

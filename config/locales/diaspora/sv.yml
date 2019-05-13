@@ -90,15 +90,18 @@ sv:
       week: "Vecka"
     user_entry:
       account_closed: "Konto borttaget"
+      admin: "Administratör"
       diaspora_handle: "Diaspora*-id"
       email: "E-post"
       guid: "Globalt identifieringsnummer (GUID)"
       id: "id"
       invite_token: "Inbjudningskort"
       last_seen: "Sedd senast"
+      moderator: "Moderator"
       ? "no"
       : Nej
       nsfw: "#nsfw"
+      spotlight: "Strålkastarljus"
       unknown: "Okänd"
       ? "yes"
       : Ja
@@ -106,14 +109,29 @@ sv:
       account_closing_scheduled: "Kontot för %{name} är låst och kommer att raderas om en stund."
       account_locking_scheduled: "Kontot för användaren %{name} är schemalagt för att låsas. Det kommer ske om en liten stund..."
       account_unlocking_scheduled: "Kontot för användaren %{name} är schemalagt för att låsas upp. Det kommer ske om en liten stund..."
+      add_admin: "%{name} har skapats som admin."
       add_invites: "Lägg till inbjudningar"
+      add_moderator: "%{name} har gjorts till moderator."
+      add_spotlight: "%{name} har lagts till i strålkastarljuset."
       are_you_sure: "Är du säker på att du vill ta bort ditt konto?"
       are_you_sure_lock_account: "Är du säker på att du vill låsa detta konto?"
       are_you_sure_unlock_account: "Är du säker på att du vill låsa upp detta konta?"
       close_account: "Ta bort konto"
+      delete_admin: "%{name} har tagits bort från administratörslistan."
+      delete_moderator: "%{name} har tagits bort från moderatorlistan."
+      delete_spotlight: "%{name} har tagits ut ur strålkastarljuset."
+      does_not_exist: "Användare finns inte!"
       email_to: "Skicka ett e-brev för att bjuda in"
       invite: "Bjud in"
       lock_account: "Lås konto"
+      make_admin: "Skapa admin"
+      make_moderator: "Skapa moderator"
+      make_spotlight: "Lägg till i strålkastarljuset"
+      remove_admin: "Ta bort som admin"
+      remove_moderator: "Ta bort som moderator"
+      remove_spotlight: "Ta bort ur strålkastarljustet"
+      role_implemented: "%{name} har redan tillgivits rollen!"
+      role_removal_implemented: "%{name} har redan ifråntagits rollen!"
       under_13: "Visa användare som är yngre än 13 år"
       unlock_account: "Lås upp konto"
       users:
@@ -190,6 +208,7 @@ sv:
         tos: "Kika på tillämpningens användarvillkor."
   are_you_sure: "Är du säker?"
   are_you_sure_delete_account: "Är du säker på att du vill avsluta ditt konto? Detta kan inte ångras!"
+  are_you_sure_ignore_user: "Du kommer att ignorera användaren. Är du säker på din sak?"
   aspect_memberships:
     destroy:
       failure: "Kunde inte ta bort personen från aspekten"
@@ -627,6 +646,8 @@ sv:
       public_feed: "Offentligt Diaspora*-flöde för %{name}"
       source_package: "Ladda ned källkodspaketet"
       statistics_link: "Serverstatistik"
+      switch_to_standard_mode: "Ändra till standardläge."
+      switch_to_touch_optimized_mode: "Ändra till fingervänligt läge."
       whats_new: "Vad är nytt?"
     header:
       code: "Källkod"
@@ -1164,6 +1185,21 @@ sv:
         one: "En person är taggad med %{tag}"
         other: "%{count} personer är taggade med %{tag}"
         zero: "Ingen har taggats med %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Inaktivera"
+      change_label: "Inaktivera tvåfaktorautentisering med ditt lösenord"
+      status: "Tvåfaktorautentisering aktiverat"
+    confirm:
+      scan_title: "Läs in QR-kod"
+      status: "Tvåfaktorautentisering har inte the fullo aktiverats än. Du behöver verifiera med en TOTP-pollett."
+      title: "Bekräfta aktivering"
+    deactivated:
+      change_button: "Aktivera"
+      change_label: "Aktivera tvåfaktorautentisering"
+      status: "Tvåfaktorautentisering inaktiverat"
+    explanation: "Tvåfaktorautentisering är ett kraftfullt sätt att försäkra om att det bara är du som kan logga in på ditt konto. När du loggar in, kommer du ange en sexsiffrig kod tillsammans med ditt löseord för att påvisa din identitet. Men var ändock aktsam: om du blir av med din telefon och koderna som genereras för denna funktionalitet, kommer du aldrig kunna komma åt ditt konto igen."
+    title: "Tvåfaktorautentisering"
   username: "Användarnamn"
   users:
     confirm_email:

@@ -54,7 +54,6 @@ hu:
       new:
         email: "E-mail cím"
         forgot_password: "Elfelejtetted a jelszavad?"
-        no_account: "Ehhez az e-mail címhez nem tartozik fiók."
         reset_password: "Jelszó visszaállítása"
         send_password_instructions: "Új jelszót igénylek"
       send_instructions: "Néhány perc múlva kapsz egy e-mailt arról, hogyan állíthatod alaphelyzetbe a jelszavadat."

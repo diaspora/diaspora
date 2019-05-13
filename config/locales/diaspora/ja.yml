@@ -97,6 +97,7 @@ ja:
       ? "no"
       : いいえ
       nsfw: "#nsfw"
+      spotlight: "スポットライト"
       unknown: "不明"
       ? "yes"
       : はい
@@ -107,20 +108,26 @@ ja:
       add_admin: "%{name} さんは管理者に指定された。"
       add_invites: "招待を追加"
       add_moderator: "%{name} さんはモデレータとして指名された"
+      add_spotlight: "%{name} さんがコミュニティのスポットライトに追加されました。"
       are_you_sure: "このアカウントを削除してもよろしいですか？"
       are_you_sure_lock_account: "このアカウントをロックしてもよろしいですか？"
       are_you_sure_unlock_account: "このアカウントのロックを解除してもよろしいですか？"
       close_account: "アカウントを削除する"
       delete_admin: "%{name} さんは管理者から外された。"
       delete_moderator: "%{name} さんはモデレータから外された"
+      delete_spotlight: "%{name} さんがコミュニティのスポットライトから削除されました。"
       does_not_exist: "そのユーザは存在しません。"
       email_to: "招待のメール"
       invite: "招待"
       lock_account: "アカウントをロックする"
       make_admin: "このユーザーを管理者に指名する"
       make_moderator: "このユーザーをモデレーターに指名する"
+      make_spotlight: "コミュニティのスポットライトに追加する"
       remove_admin: "このユーザーを管理者から外す"
       remove_moderator: "このユーザーをモデレーターから外す"
+      remove_spotlight: "コミュニティのスポットライトから削除する"
+      role_implemented: "%{name} さんはすでにこの役割が与えられています!"
+      role_removal_implemented: "%{name} さんはすでにこの役割が削除されています!"
       under_13: "13歳以下のユーザーに表示する (COPPA)"
       unlock_account: "アカウントのロックを解除する"
       users:
@@ -1144,6 +1151,41 @@ ja:
       tagged_people:
         other: "%{count} 人が %{tag} でタグ付けしています"
         zero: "誰も %{tag} でタグ付けしていません"
+  two_factor_auth:
+    activated:
+      change_button: "無効にする"
+      change_label: "パスワードを入力して２要素認証を無効にします"
+      status: "２要素認証を有効にしました"
+    confirm:
+      activate_button: "確認して有効にする"
+      input_explanation: "スキャンまたはシークレットを入力したら、表示された6桁のコードを入力して設定を確認します。"
+      input_title: "TOTPトークンで確認"
+      manual_explanation: "自動的にQRコードをスキャンできない場合は、手動でアプリにシークレットを入力できます。"
+      manual_explanation_cont: "6桁のトークンを使用した、時間ベースのワンタイムパスワード (TOTP) を使用しています。 アプリが、時間間隔とアルゴリズムを入力するように要求した場合は、それぞれ30秒とsha1を入力してください。 <br />スペースは読みやすくするためのものです。スペースを入れずにコードを入力してください。"
+      scan_explanation: "andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS) などのTOTP対応アプリでQRコードをスキャンしてください。"
+      scan_title: "QRコードをスキャン"
+      status: "２要素認証はまだ完全に有効になっていません。TOTPトークンで有効化を確認する必要があります"
+      title: "有効化の確認"
+    deactivated:
+      change_button: "有効にする"
+      change_label: "２要素認証を有効にする"
+      status: "２要素認証は有効になっていません"
+    explanation: "２要素認証は、自分のアカウントにサインインできる唯一の人であることを確認するための強力な方法です。 サインインするときに、あなたのIDを証明するためにパスワードと共に6桁のコードを入力します。 ただし、ご注意ください。携帯電話を紛失したときや、この機能を有効にしたときに作成された回復コードをなくした場合は、ダイアスポラ* アカウントのアクセスは永久にブロックされます。"
+    flash:
+      error_token: "トークンが間違っているか無効です"
+      success_activation: "２要素認証を有効にしました"
+      success_deactivation: "２要素認証を無効にしました"
+    input_token:
+      label: "２要素トークン"
+      placeholder: "6桁の２要素トークン"
+    recovery:
+      button: "新しい回復コードを生成する"
+      explanation: "お使いの携帯電話にアクセスできなくなった場合、アカウントにアクセスできるようにするために下記の回復コードを一つ使うことができます。 回復コードを安全に保管してください。 例えば、それらを印刷して他の重要な書類と共に保存することができます。"
+      explanation_short: "回復コードを使用すると、お使いの携帯電話を紛失した場合でもアカウントへのアクセスを取り戻すことができます。 それぞれの回復コードは1回しか使用できません。"
+      invalidation_notice: "回復コードを紛失した場合は、ここで再生成できます。 古い回復コードは無効になります。"
+      reminder: "あるいは、回復コードを1つ使用することができます。"
+      title: "回復コード"
+    title: "2 要素認証"
   username: "ユーザー名"
   users:
     confirm_email:
@@ -1192,6 +1234,7 @@ ja:
       new_password: "新しいパスワード"
       private_message: "非公開メッセージが届いたとき"
       protocol_handler:
+        browser: "このプロトコルは現在実験段階で、それを使ったインタラクションが成功するかどうかはご利用のブラウザに依存します。 この処理を管理または削除したい場合は、ブラウザの設定でこれを行ってください。 下のボタンは常に有効になっているので、使用するブラウザごとに個別に処理を設定する必要があります。"
         description: "このボタンをクリックするとホームポッドの web+diaspora:// URLを開くことができるハンドラをインストールするようにブラウザに要求されます。これは現在実験中で対応はブラウザによって異なります。"
         register: "登録"
         title: "web+diaspora:// プロトコルハンドラ"
