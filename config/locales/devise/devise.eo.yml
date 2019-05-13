@@ -50,7 +50,6 @@ eo:
         change_password: "Ŝanĝi mian pasvorton"
       new:
         forgot_password: "Ĉu vi forgesis vian pasvorton?"
-        no_account: "Ne ekzistas konto kun ĉi tiu retpoŝtadreso. Se vi atendas inviton, ni plej rapide sendos ilin"
         send_password_instructions: "Sendi al mi instrukciojn por restartigi pasvorton"
       send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel restartigi vian pasvorton."
       updated: "Vi sukcese ŝanĝis vian pasvorton. Vi nun estas ensalutinta."

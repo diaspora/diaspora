@@ -46,7 +46,6 @@ mk:
         change_password: "Промена на лозинка"
       new:
         forgot_password: "Ја заборавивте лозинката?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Испрати ми ги инструкциите за ресетирање на лозинката"
       send_instructions: "За неколку минути ќе добиете е-маил со инструкции за начинот на кој може да ја ресетирате вашата лозинка."
       updated: "Вашата лозинка беше успешно променета. Сега сте најавени."

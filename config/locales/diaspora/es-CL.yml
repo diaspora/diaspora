@@ -673,6 +673,20 @@ es-CL:
       follow: "Seguir a #%{tag}"
       none: "¡La etiqueta vacía no existe!"
       stop_following: "Dejar de seguir a #%{tag}"
+  two_factor_auth:
+    activated:
+      change_label: "Desactiva la verificación en dos pasos ingresando tu contraseña"
+      status: "Verificación en dos pasos activada"
+    confirm:
+      status: "La verificación en dos pasos no está completamente activada. Necesitas confirmar la activación con un token TOTP."
+    deactivated:
+      change_label: "Activar la verificación en dos pasos"
+      status: "La verificación en dos pasos no está activada"
+    explanation: "La verificación en dos pasos es una forma poderosa de asegurar que seas el único que puede acceder a tu cuenta. Al iniciar sesión, ingresarás un código de 6 dígitos junto a tu contraseña para demostrar tu identidad. Ten cuidado: si pierdes tu teléfono y los códigos de recuperación creados cuando actives esta característica, el acceso a tu cuenta de diaspora* será bloquedo para siempre."
+    flash:
+      success_activation: "Verificación en dos pasos activada exitosamente"
+      success_deactivation: "Verificación en dos pasos desactivada exitosamente"
+    title: "Verificación en dos pasos"
   username: "Nombre de usuario"
   users:
     confirm_email:

@@ -50,7 +50,6 @@ vi:
         change_password: "Đổi mật khẩu"
       new:
         forgot_password: "Quên mật khẩu?"
-        no_account: "Không có tài khoản nào với địa chỉ thư điện tử này. Nếu bạn đang chờ để được mời, chúng tôi sẽ cố gắng sớm nhất có thể"
         send_password_instructions: "Gửi cho tôi hướng dẫn thiết đặt lại mật khẩu"
       send_instructions: "Bạn sẽ nhận được thư chứa chỉ dẫn cách thiết lập lại mật khẩu trong ít phút nữa."
       updated: "Đã đổi mật khẩu. Bạn đã đăng nhập."

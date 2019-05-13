@@ -90,15 +90,18 @@ ia:
       week: "Septimana"
     user_entry:
       account_closed: "Conto claudite"
+      admin: "Administrator"
       diaspora_handle: "ID de diaspora*"
       email: "E-mail"
       guid: "GUID"
       id: "ID"
       invite_token: "Indicio de invitation"
       last_seen: "Ultime session"
+      moderator: "Moderator"
       ? "no"
       : "No"
       nsfw: "#nsfw"
+      spotlight: "In evidentia"
       unknown: "Incognite"
       ? "yes"
       : Si
@@ -106,14 +109,29 @@ ia:
       account_closing_scheduled: "Le conto de %{name} es planate a esser claudite. Illo essera processate in alcun momentos…"
       account_locking_scheduled: "Le conto de %{name} es planate a esser blocate. Illo essera processate in alcun momentos…"
       account_unlocking_scheduled: "Le conto de %{name} es planate a esser disblocate. Illo essera processate in alcun momentos…"
+      add_admin: "%{name} ha essite facite administrator."
       add_invites: "Adder invitationes"
+      add_moderator: "%{name} ha essite facite moderator."
+      add_spotlight: "%{name} ha essite addite a \"Usatores in evidentia\"."
       are_you_sure: "Es tu secur de voler clauder iste conto?"
       are_you_sure_lock_account: "Es tu secur de voler blocar iste conto?"
       are_you_sure_unlock_account: "Es tu secur de voler disblocar iste conto?"
       close_account: "Clauder conto"
+      delete_admin: "%{name} ha essite removite del lista de administratores."
+      delete_moderator: "%{name} ha essite removite del lista de moderatores."
+      delete_spotlight: "%{name} ha essite removite de \"Usatores in evidentia\"."
+      does_not_exist: "Usator non existe!"
       email_to: "Adresse de e-mail a invitar"
       invite: "Invitar"
       lock_account: "Blocar conto"
+      make_admin: "Facer administrator"
+      make_moderator: "Facer moderator"
+      make_spotlight: "Adder a \"Usatores in evidentia\""
+      remove_admin: "Remover como administrator"
+      remove_moderator: "Remover como moderator"
+      remove_spotlight: "Remover de \"Usatores in evidentia\""
+      role_implemented: "%{name} ha jam recipite iste rolo!"
+      role_removal_implemented: "%{name} ha jam essite removite de iste rolo!"
       under_13: "Monstrar usatores con minus de 13 annos (COPPA)"
       unlock_account: "Disblocar conto"
       users:
@@ -766,7 +784,7 @@ ia:
       body: |-
           Hallo %{name},
 
-          Le tue datos personal ha essite processate e preparate pro discargamento. Pro discargar, seque [iste ligamine](%{url}).
+          Le archivo de tu datos personal ha essite preparate pro discargamento via [iste ligamine](%{url}).
 
           Amicalmente,
 
@@ -946,7 +964,7 @@ ia:
     edit:
       allow_search: "Permitter que on te cerca in diaspora*"
       basic: "Mi profilo basic"
-      basic_hint: "Cata elemento de profilo es facultative. Le profilo basic es sempre visibile pro le publico."
+      basic_hint: "Cata elemento de tu profilo es optional. Le profilo basic es sempre visibile pro le publico."
       extended: "Mi profilo extendite"
       extended_hint: "Clicca sur le commutator pro definir le visibilitate de tu profilo extendite. \"Public\" vole dicer que illo es visibile pro tote le internet, \"limitate\" vole dicer que solmente le personas in tu aspectos de contacto videra iste information."
       extended_visibility_text: "Visibilitate de tu profilo extendite:"
@@ -1197,7 +1215,7 @@ ia:
       edit_account: "Modificar conto"
       email_awaiting_confirmation: "Nos te ha inviate un ligamine de activation al adresse %{unconfirmed_email}. Usque al momento que tu seque iste ligamine pro activar le nove adresse, nos va continuar a usar tu adresse original %{email}."
       export_data: "Exportar datos"
-      export_in_progress: "Le datos personal tue es actualmente sub preparation. Per favor, reveni in alcun momentos."
+      export_in_progress: "Nos prepara in iste momento un archivo de tu datos personal. Per favor, reveni in alcun momentos."
       export_photos_in_progress: "Le tractamento de tu photos non ha ancora terminate. Per favor, essaya lo de novo in qualque momentos."
       following: "Configuration de divider"
       last_exported_html: "(Ultime actualisation %{timeago})"
@@ -1207,8 +1225,9 @@ ia:
       new_password: "Contrasigno nove"
       private_message: "tu recipe un message private"
       protocol_handler:
-        description: "Un clic sur iste button demandara a tu navigator web de installar un gestor que permitte a nos de aperir le adresses URL web+diaspora:// sur tu pod principal. Isto es ancora experimental e le interactiones dependera de tu navigator web specific."
-        register: "Registrar"
+        browser: "Iste protocollo es actualmente in le stadio experimental e le successo del interactiones que lo usa dependera de tu navigator del web. Si tu vole modificar o remover iste gestor, tu debe facer lo via le configuration de tu navigator. Le button hic infra essera sempre activate, e tu debera configurar le gestor separatemente in cata navigator que tu usa."
+        description: "web+diaspora:// es un nove protocollo web que nos ha introducite. Omne ligamine a un pagina diaspora* sur un sito web externe que usa iste protocollo pote esser aperite in le pod que alberga tu conto diaspora*. Clicca sur le button hic infra pro facer que tu navigator del web usa %{pod_url} pro recognoscer le ligamines web+diaspora:// externe."
+        register: "Registrar le gestor web+diaspora:// sur iste navigator"
         title: "Gestor de protocollo web+diaspora://"
       receive_email_notifications: "Reciper notificationes per e-mail quando:"
       request_export: "Requestar le datos de mi profilo"
