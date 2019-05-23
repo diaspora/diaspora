@@ -8,7 +8,7 @@ describe OpenGraphCache, type: :model do
   describe "fetch_and_save_opengraph_data!" do
     context "with an unsecure video url" do
       it "doesn't save the video url" do
-        expect(OpenGraphReader).to receive(:fetch!).with("https://example.com/article/123").and_return(
+        expect(OpenGraphReader).to receive(:fetch!).with(URI.parse("https://example.com/article/123")).and_return(
           double(
             og: double(
               description: "This is the article lead",
@@ -34,7 +34,7 @@ describe OpenGraphCache, type: :model do
 
     context "with a secure video url" do
       it "saves the video url" do
-        expect(OpenGraphReader).to receive(:fetch!).with("https://example.com/article/123").and_return(
+        expect(OpenGraphReader).to receive(:fetch!).with(URI.parse("https://example.com/article/123")).and_return(
           double(
             og: double(
               description: "This is the article lead",
@@ -55,6 +55,23 @@ describe OpenGraphCache, type: :model do
         expect(ogc.ob_type).to eq("article")
         expect(ogc.url).to eq("https://example.com/acticle/123-seo-foo")
         expect(ogc.video_url).to eq("https://bandcamp.com/EmbeddedPlayer/v=2/track=12/size=small")
+      end
+    end
+
+    context "a mixed case hostname" do
+      it "downcases the hostname" do
+        stub_request(:head, "http:///wetter.com")
+          .with(headers: {
+                  "Accept"     => "text/html",
+                  "User-Agent" => "OpenGraphReader/0.6.2 (+https://github.com/jhass/open_graph_reader)"
+                })
+          .to_return(status: 200, body: "", headers:
+            {"Set-Cookie" => "Dabgroup=A;path=/;Expires=Thu, 23 May 2019 16:12:01 GMT;httpOnly"})
+
+        ogc = OpenGraphCache.new(url: "Wetter.com")
+        expect {
+          ogc.fetch_and_save_opengraph_data!
+        }.to_not raise_error
       end
     end
   end
