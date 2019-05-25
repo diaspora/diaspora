@@ -197,7 +197,7 @@ describe Photo, :type => :model do
 
       @saved_photo.destroy
 
-      Diaspora::Federation::Receive.photo(federation_photo)
+      Diaspora::Federation::Receive.perform(federation_photo)
 
       new_photo = Photo.find_by(guid: @saved_photo.guid)
       expect(new_photo.url).to eq(url)
