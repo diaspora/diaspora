@@ -591,6 +591,10 @@ class User < ApplicationRecord
     end
   end
 
+  def remember_me
+    true
+  end
+
   private
 
   def clearable_fields
