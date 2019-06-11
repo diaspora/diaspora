@@ -1,6 +1,7 @@
 # 0.7.12.0
 
 ## Refactor
+* Harmonize markdown titles sizes [#8029](https://github.com/diaspora/diaspora/pull/8029)
 
 ## Bug fixes
 * Improve handling of mixed case hostnames while fetching OpenGraph data [#8021](https://github.com/diaspora/diaspora/pull/8021)
