@@ -5,6 +5,7 @@
 
 ## Bug fixes
 * Improve handling of mixed case hostnames while fetching OpenGraph data [#8021](https://github.com/diaspora/diaspora/pull/8021)
+* Fix "remember me" with two factor authentication enabled [#8031](https://github.com/diaspora/diaspora/pull/8031)
 
 ## Features
 * Add line mentioning diaspora\* on the splash page [#7966](https://github.com/diaspora/diaspora/pull/7966)

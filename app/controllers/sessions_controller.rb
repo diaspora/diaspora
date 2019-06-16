@@ -12,9 +12,9 @@ class SessionsController < Devise::SessionsController
   # rubocop:enable Rails/LexicallyScopedActionFilter
 
   def find_user
-    return User.find(session[:otp_user_id]) if session[:otp_user_id]
+    return User.find_for_authentication(username: params[:user][:username]) if params[:user][:username]
 
-    User.find_for_authentication(username: params[:user][:username]) if params[:user][:username]
+    User.find(session[:otp_user_id]) if session[:otp_user_id]
   end
 
   def authenticate_with_2fa
