@@ -12,21 +12,21 @@ class SessionsController < Devise::SessionsController
   # rubocop:enable Rails/LexicallyScopedActionFilter
 
   def find_user
-    return User.find(session[:otp_user_id]) if session[:otp_user_id]
+    return User.find_for_authentication(username: params[:user][:username]) if params[:user][:username]
 
-    User.find_for_authentication(username: params[:user][:username]) if params[:user][:username]
+    User.find(session[:otp_user_id]) if session[:otp_user_id]
   end
 
   def authenticate_with_2fa
     self.resource = find_user
-    u = find_user
 
-    return true unless u&.otp_required_for_login?
+    return true unless resource&.otp_required_for_login?
 
     if params[:user][:otp_attempt].present? && session[:otp_user_id]
-      authenticate_with_two_factor_via_otp(u)
-    elsif u&.valid_password?(params[:user][:password])
-      prompt_for_two_factor(u)
+      authenticate_with_two_factor_via_otp(resource)
+    else
+      strategy = Warden::Strategies[:database_authenticatable].new(warden.env, :user)
+      prompt_for_two_factor(strategy.user) if strategy.valid? && strategy._run!.successful?
     end
   end
 

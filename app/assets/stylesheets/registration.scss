@@ -38,16 +38,13 @@
     width: 120px;
   }
 
-  .captcha-input {
+  .form-control.captcha-input {
     border-bottom: 1px solid $input-border;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-sizing: border-box;
-    font-size: 16px;
-    height: 40px;
     line-height: $line-height-base;
-    padding: 10px 10px 10px 130px;
-    width: 100%;
+    padding-left: 130px;
   }
 
   .terms > a {
