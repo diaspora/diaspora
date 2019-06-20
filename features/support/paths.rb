@@ -11,6 +11,8 @@ module NavigationHelpers
       force_mobile_path
     when /^the user applications page$/
       api_openid_connect_user_applications_path
+    when /^the report page$/
+      report_index_path
     when /^the tag page for "([^\"]*)"$/
       tag_path(Regexp.last_match(1))
     when /^its ([\w ]+) page$/

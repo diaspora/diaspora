@@ -7,8 +7,7 @@ Feature: Download Photos
     When I follow "Settings"
     Then I should be on my account settings page
     When I follow "Request my photos"
-    Then I should see a flash message indicating success
-    And I should see a flash message containing "We are currently processing your photos"
+    Then I should see a success flash message containing "We are currently processing your photos"
 
   Scenario: Refresh my photos
     Given I am signed in
@@ -17,8 +16,7 @@ Feature: Download Photos
     When I follow "Settings"
     Then I should be on my account settings page
     When I follow "Refresh my photos"
-    Then I should see a flash message indicating success
-    And I should see a flash message containing "We are currently processing your photos"
+    Then I should see a success flash message containing "We are currently processing your photos"
 
   Scenario: Download my photos
     Given I am signed in

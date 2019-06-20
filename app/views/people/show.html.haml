@@ -43,3 +43,5 @@
         path: new_conversation_path(:contact_id => @contact.id, name: @contact.person.name, modal: true),
         title: t('conversations.index.new_conversation'),
         id: 'conversationModal'
+
+= render "report/report_modal"

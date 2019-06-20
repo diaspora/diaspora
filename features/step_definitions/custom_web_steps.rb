@@ -214,6 +214,16 @@ Then /^I should see a flash message containing "(.+)"$/ do |text|
   flash_message_containing? text
 end
 
+Then /^I should see a success flash message containing "(.+)"$/ do |text|
+  flash_message_success?.should be true
+  flash_message_containing? text
+end
+
+Then /^I should see an error flash message containing "(.+)"$/ do |text|
+  flash_message_failure?.should be true
+  flash_message_containing? text
+end
+
 Given /^the reference screenshot directory is used$/ do
   set_screenshot_location 'reference'
 end

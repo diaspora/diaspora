@@ -1040,6 +1040,15 @@ en:
       reshare_by: "Reshare by %{author}"
 
   report:
+    modal:
+      title: "Reporting content"
+      report_send_email: "Reporting content sends an email to all the moderators of this pod."
+      report_only_if_violated_terms: "Please only report content that violates %{link_to_terms}."
+      terms_link: "%{pod_name} terms"
+      report_only_if_bad: "Please only report content that is not respecting the %{link_to_guidelines}."
+      reason_label: "Please state how the content you are reporting violates our terms of use:"
+      placeholder: "This content violates the terms because..."
+      submit: "Report this content"
     title: "Reports overview"
     post_label: "<strong>Post</strong>: %{content}"
     comment_label: "<strong>Comment</strong>: %{data}"
@@ -1435,5 +1444,3 @@ en:
     disabled: "Not available"
     open: "Open"
     closed: "Closed"
-
-
