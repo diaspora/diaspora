@@ -505,7 +505,6 @@ br:
       updated: "Patrom nevesaet"
   public: "A-wel d'an holl"
   registrations:
-    closed: "Stanket eo an enskrivadur war ar pod diaspora*-mañ"
     create:
       success: "Enskrivet oc'h war diaspora* !"
     invalid_invite: "Al liamm pedadenn roet ganeoc'h n'eo ket mat ken"

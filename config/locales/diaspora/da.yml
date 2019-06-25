@@ -593,9 +593,11 @@ da:
       byline: "Det sociale netværk hvor det er dig der har kontrollen"
       choose_your_audience: "Vælg dit publikum"
       choose_your_audience_info: "Ved hjælp af Diasporas aspekter kan du vælge de mennesker du vil dele med. Du kan privat eller offentlig som du har lyst til. Del et sjovt foto med hele verden, eller en dyb hemmelighed kun med dine nærmeste. Du bestemmer."
+      diaspora_site_link: "Diaspora fødereret netværk"
       headline: "Velkommen til %{pod_name}"
       own_your_data: "Vær i besiddelse af dine egne data"
       own_your_data_info: "Mange sociale netværk tjener penge på dine data ved at analysere din opførsel og derefter bruge informationen til at sælge reklamer. Diaspora bruger ikke dine data til noget, men står til rådighed så du kan kommunikere og dele med andre."
+      part_of_diaspora: "Del af %{diaspora_site_link}"
     podmin:
       byline: "Du er i gang med at ændre internettet. Lad os komme i gang."
       configuration_info: "Åben %{database_path} og %{diaspora_path} i din favorit editor og gennemgå dem omhyggeligt. De er udførligt kommenteret."
@@ -1011,7 +1013,11 @@ da:
       updated: "Profil opdateret"
   public: "Offentlig"
   registrations:
-    closed: "Der er lukket for tilmeldinger på denne Diaspora server."
+    closed:
+      another_pod: "en anden pod"
+      closed_pod: "Denne pod er for tiden lukket for tilgang. Du kan dog stadig blive en del af Diaspora-netværket ved at tilmelde dig på %{wiki}. Fordi alle Diasporas pods er forbundet, vil du stadig have adgang til det samme indhold der."
+      find_pods: "Der er en liste over de pods du kan tilmelde dig på %{poduptime}."
+      other_questions: "Har du nogen spørgsmål vedrørende valg af pod, se vores %{wiki}."
     create:
       success: "Du er nu en del af Diaspora!"
     invalid_invite: "Det invitations-link som du anvendte er ikke længere gyldigt!"

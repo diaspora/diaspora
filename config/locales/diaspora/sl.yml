@@ -443,7 +443,6 @@ sl:
       updated: "Profil posodobljen"
   public: "Javni"
   registrations:
-    closed: "Za ta Pod Diaspore registracije trenutno niso mogoče."
     create:
       success: "Pridružili ste se v omrežje Diaspora!"
     invalid_invite: "Povezava na povabilo, ki ste jo uporabili ni več veljavna!"

@@ -985,7 +985,6 @@ nb:
       updated: "Profil oppdatert"
   public: "Offentlig"
   registrations:
-    closed: "Denne diaspora*-belgen er stengt for registreringer."
     create:
       success: "Du er nå med i diaspora*!"
     invalid_invite: "Invitasjonslenken som du brukte er ikke gyldig lenger!"

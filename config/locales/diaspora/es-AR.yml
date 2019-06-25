@@ -965,7 +965,6 @@ es-AR:
       updated: "Perfil actualizado"
   public: "Público"
   registrations:
-    closed: "Los registros están cerrados en este servidor de diaspora*."
     create:
       success: "¡Te has unido a diaspora*!"
     invalid_invite: "¡El enlace de la invitación ya no es válido!"

@@ -90,15 +90,18 @@ de_formal:
       week: "Woche"
     user_entry:
       account_closed: "Konto wurde geschlossen."
+      admin: "Administrator"
       diaspora_handle: "diaspora* ID"
       email: "E-Mail"
       guid: "GUID"
       id: "ID"
       invite_token: "Einladungstoken"
       last_seen: "Zuletzt gesehen"
+      moderator: "Moderator"
       ? "no"
       : Nein
       nsfw: "NSFW (unangemessen für den Arbeitsplatz)"
+      spotlight: "Schaukasten"
       unknown: "Unbekannt"
       ? "yes"
       : Ja
@@ -106,14 +109,29 @@ de_formal:
       account_closing_scheduled: "Das Konto von %{name} soll geschlossen werden. Dies dauert ein paar Augenblicke..."
       account_locking_scheduled: "Das Konto von %{name} ist zur Sperrung vorgesehen. Es wird in wenigen Augenblicken verarbeitet..."
       account_unlocking_scheduled: "Das Konto von %{name} ist zur Entsperrung vorgesehen. Es wird in wenigen Augenblicken verarbeitet..."
+      add_admin: "%{name} wurde zum Administrator befördert."
       add_invites: "Einladungen hinzufügen"
+      add_moderator: "%{name} wurde zum Moderator befördert."
+      add_spotlight: "%{name} wurde in den Gemeinschafts-Schaukasten gestellt"
       are_you_sure: "Möchten Sie Ihr Konto wirklich schließen?"
       are_you_sure_lock_account: "Sind Sie sicher, dass Sie dieses Konto sperren möchten?"
       are_you_sure_unlock_account: "Sind Sie sicher, dass Sie dieses Konto entsperren möchten?"
       close_account: "Konto schließen"
+      delete_admin: "%{name} wurde von der Liste der Administratoren entfernt."
+      delete_moderator: "%{name} wurde von der Liste der Moderatoren entfernt."
+      delete_spotlight: "%{name} wurde vom Gemeinschafts-Schaukasten entfernt."
+      does_not_exist: "Benutzer existiert nicht!"
       email_to: "per E-Mail einladen"
       invite: "Einladen"
       lock_account: "Konto sperren"
+      make_admin: "Zum Administrator befördern"
+      make_moderator: "Zum Moderator befördern"
+      make_spotlight: "In den Gemeinschafts-Schaukasten stellen"
+      remove_admin: "Als Administrator entfernen"
+      remove_moderator: "Als Moderator entfernen"
+      remove_spotlight: "Aus dem Gemeinschafts-Schaukasten entfernen"
+      role_implemented: "%{name} hat diese Rolle bereits erhalten!"
+      role_removal_implemented: "%{name} wurde diese Rolle bereits entzogen!"
       under_13: "Zeige Benutzer, die unter 13 Jahre alt sind (COPPA)"
       unlock_account: "Konto entsperren"
       users:
@@ -190,6 +208,7 @@ de_formal:
         tos: "Die Nutzungsbedingungen der Anwendung ansehen"
   are_you_sure: "Sind Sie sicher?"
   are_you_sure_delete_account: "Möchten Sie Ihr Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
+  are_you_sure_ignore_user: "Sind Sie sicher, dass Sie den Nutzer ignorieren möchten?"
   aspect_memberships:
     destroy:
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden."
@@ -574,9 +593,11 @@ de_formal:
       byline: "Die soziale Onlinewelt, in der Sie Ihre Daten in der Hand haben"
       choose_your_audience: "Wählen Sie Ihr Publikum"
       choose_your_audience_info: "diaspora*s Aspekte ermöglichen Ihnen, nur mit den Menschen zu teilen, mit denen Sie möchten. Sie können so öffentlich oder privat sein, wie Sie möchten. Teilen Sie ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit Ihren engsten Freunden. Es ist Ihre Entscheidung."
+      diaspora_site_link: "föderierten diaspora*-Netzwerks"
       headline: "Willkommen auf %{pod_name}"
       own_your_data: "Ihre Daten, Ihr Eigentum"
       own_your_data_info: "Viele Netzwerke nutzen Ihre Daten, um Geld zu verdienen, indem Sie Ihre Interaktionen auswerten und diese Informationen verwenden, um Ihnen Werbung anzuzeigen. diaspora* nutzt Ihre Daten zu keinem anderen Zweck, als es Ihnen zu ermöglichen, sich mit anderen zu verbinden und mit ihnen zu teilen."
+      part_of_diaspora: "Teil des %{diaspora_site_link}"
     podmin:
       byline: "Sie sind im Begriff, das Internet zu ändern. Lassen Sie uns gleich alles einrichten, okay?"
       configuration_info: "Öffnen Sie %{database_path} und %{diaspora_path} in Ihrem Lieblingstexteditor und sehen Sie sie gründlich durch, sie sind ausführlich kommentiert."
@@ -627,6 +648,8 @@ de_formal:
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket herunterladen"
       statistics_link: "Pod-Statistiken"
+      switch_to_standard_mode: "In den Standardmodus wechseln"
+      switch_to_touch_optimized_mode: "In den touch-optimierten Modus wechseln"
       whats_new: "Was gibt’s Neues?"
     header:
       code: "Code"
@@ -979,7 +1002,11 @@ de_formal:
       updated: "Profil aktualisiert"
   public: "Öffentlich"
   registrations:
-    closed: "Neuregistrierungen sind auf diesem Pod geschlossen."
+    closed:
+      another_pod: "einem anderen Pod"
+      closed_pod: "Dieser Pod ist derzeit für Neuanmeldungen geschlossen. Sie können dem diaspora*-Netzwerk trotzdem beitreten, indem Sie sich auf %{wiki} registrieren. Da alle Pods miteinander verbunden sind, haben Sie von dort aus Zugriff auf dieselben Inhalte."
+      find_pods: "Es gibt eine Liste von Pods, auf denen Sie sich registrieren können, auf %{poduptime}."
+      other_questions: "Wenn Sie noch weitere Fragen dazu haben, wie Sie einen Pod auswählen, lesen Sie unser %{wiki}."
     create:
       success: "Sie sind diaspora* beigetreten!"
     invalid_invite: "Der von Ihnen erstellte Einladungs-Link ist nicht mehr gültig!"
@@ -1166,6 +1193,41 @@ de_formal:
         one: "1 Person getaggt mit %{tag}"
         other: "%{count} Personen getaggt mit %{tag}"
         zero: "Keiner getaggt mit %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Deaktivieren"
+      change_label: "Die Zwei-Faktor-Authentifizierung deaktivieren durch Eingabe Ihres Passworts"
+      status: "Zwei-Faktor-Authentifizierung aktiviert"
+    confirm:
+      activate_button: "Bestätigen und aktivieren"
+      input_explanation: "Nach dem Scan oder der Eingabe des Schlüssels, geben Sie den sechsstelligen Code ein, der Ihnen angezeigt wird und bestätigen Sie die Einstellungen."
+      input_title: "Bestätigen Sie mit dem TOTP-Token"
+      manual_explanation: "Falls Sie den QR-Code nicht automatisch scannen können, können Sie den Schlüssel manuell in Ihrer App eingeben."
+      manual_explanation_cont: "Wir nutzen ein zeitgesteuertes Einmalpasswortverfahren (Time-based One-time Passwords, TOTP) mit sechsstelligen Tokens. Falls Ihre App Sie nach einem Zeitintervall und Algorithmus fragt, geben Sie 30 Sekunden und sha1 ein. <br /> Die Leerzeichen dienen nur der besseren Lesbarkeit, geben Sie den Code ohne diese ein."
+      scan_explanation: "Bitte scannen Sie den QR-Code mit einer TOTP-fähigen App, wie andOTP (Android), FreeOTP (iOS), oder SailOTP (SailfishOS)."
+      scan_title: "Scannen Sie den QR-Code"
+      status: "Die Zwei-Faktor-Authentifizierung wurde noch nicht vollständig aktiviert. Sie müssen die Aktivierung mit einem TOTP-Token bestätigen."
+      title: "Aktivierung bestätigen"
+    deactivated:
+      change_button: "Aktivieren"
+      change_label: "Zwei-Faktor-Authentifizierung aktivieren"
+      status: "Zwei-Faktor-Authentifizierung nicht aktiviert"
+    explanation: "Die Zwei-Faktor-Authentifizierung ist eine wirkungsvolle Methode, um sicherzustellen, dass Sie die einzige Person sind, die sich in Ihrem Konto anmelden kann. Bei der Anmeldung geben Sie einen 6-stelligen Code zusammen mit Ihrem Passwort ein, um Ihre Identität zu bestätigen. Achtung: Wenn Sie Ihr Telefon verlieren und die bei Aktivierung dieser Funktion erstellten Wiederherstellungscodes verlieren, wird der Zugriff auf Ihr diaspora*-Konto für immer gesperrt."
+    flash:
+      error_token: "Token war falsch oder ungültig"
+      success_activation: "Zwei-Faktor-Authentifizierung erfolgreich aktiviert"
+      success_deactivation: "Zwei-Faktor-Authentifizierung erfolgreich deaktiviert"
+    input_token:
+      label: "Zwei-Faktor-Token"
+      placeholder: "sechsstelliges Zwei-Faktor-Token"
+    recovery:
+      button: "Neue Wiederherstellungscodes generieren"
+      explanation: "Wenn Sie jemals den Zugriff auf Ihr Telefon verlieren, können Sie einen der folgenden Wiederherstellungscodes verwenden, um wieder auf Ihr Konto zuzugreifen. Bewahren Sie die Wiederherstellungscodes sicher auf. Sie können sie beispielsweise ausdrucken und zusammen mit anderen wichtigen Dokumenten ablegen."
+      explanation_short: "Mithilfe von Wiederherstellungscodes können Sie den Zugriff auf Ihr Konto wiederherstellen, wenn Sie Ihr Telefon verlieren. Beachten Sie, dass Sie jeden Wiederherstellungscode nur einmal verwenden können."
+      invalidation_notice: "Wenn Sie Ihre Wiederherstellungscodes verloren haben, können Sie diese hier neu generieren. Ihre alten Wiederherstellungscodes werden ungültig."
+      reminder: "Alternativ können Sie einen der Wiederherstellungscodes benutzen."
+      title: "Wiederherstellungscodes"
+    title: "Zwei-Faktor-Authentifizierung"
   username: "Benutzername"
   users:
     confirm_email:
@@ -1214,8 +1276,9 @@ de_formal:
       new_password: "Neues Passwort"
       private_message: "Sie eine private Nachricht erhalten"
       protocol_handler:
-        description: "Beim Klick auf diese Schaltfläche wird Ihr Browser aufgefordert, einen Handler zu installieren, wodurch web+diaspora:// URLs auf Ihrem Heimatpod geöffnet werden können. Diese Funktion ist derzeit experimentell und die Interaktionen sind abhängig von Ihrem Browser."
-        register: "Registrieren"
+        browser: "Dieses Protokoll befindet sich derzeit in einer experimentellen Phase und der Erfolg der Interaktionen damit ist von Ihrem Browser abhängig. Möchten Sie diesen Handler verwalten oder entfernen, tun Sie dies über Ihre Browsereinstellungen. Die Schaltfläche unten ist immer aktiviert und Sie müssen den Handler in jedem von Ihnen verwendeten Browser separat setzen."
+        description: "web+diaspora:// ist ein neues Webprotokoll, das wir eingeführt haben. Jeder Link nach diaspora* von einer externen Webseite, die dieses Protokoll nutzt, kann auf dem Pod geöffnet werden, auf dem Ihr Konto registriert ist. Klicken Sie auf die untenstehende Schaltfläche, um Ihren Browser so einzustellen, dass er %{pod_url} zur Erkennung von externen web+diaspora:// Links nutzt."
+        register: "Registriere den web+diaspora:// Handler auf diesem Browser"
         title: "web+diaspora:// protocol handler"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn:"
       request_export: "Meine Profildaten anfordern"

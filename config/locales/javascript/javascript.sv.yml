@@ -117,7 +117,7 @@ sv:
     getting_started:
       alright_ill_wait: "Okej, jag väntar."
       hey: "Hej, <%= name %>!"
-      no_tags: "Du, du följer ju inte några taggar! Vill du fortsätta ändå?"
+      no_tags: "Hörru, du följer ju inte några taggar! Vill du fortsätta ändå?"
       preparing_your_stream: "Förbereder din personliga ström..."
     header:
       admin: "Administratör"
@@ -134,6 +134,7 @@ sv:
       recent_notifications: "Tidigare notiser"
       search: "Sök"
       settings: "Inställningar"
+      switch_to_touch_optimized_mode: "Växla till pekskärmläge"
       toggle_navigation: "Växla navigation"
       view_all: "Visa alla"
     hide_post: "Vill du dölja inlägget?"

@@ -444,7 +444,6 @@ ko:
       updated: "프로필을 업데이트했습니다"
   public: "공개"
   registrations:
-    closed: "우리 디아스포라 팓은 가입이 닫혀있습니다."
     create:
       success: "디아스포라에 가입되었습니다!"
     invalid_invite: "내가 제공한 초대 링크가 더 이상 유효하지 않습니다!"

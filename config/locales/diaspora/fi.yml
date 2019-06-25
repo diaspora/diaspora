@@ -919,7 +919,6 @@ fi:
       updated: "Profiili päivitetty"
   public: "Julkinen"
   registrations:
-    closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create:
       success: "Olet liittynyt Diasporaan!"
     invalid_invite: "Antamasi kutsulinkki ei ole enää voimassa!"

@@ -1,3 +1,16 @@
+# 0.7.12.0
+
+## Refactor
+* Harmonize markdown titles sizes [#8029](https://github.com/diaspora/diaspora/pull/8029)
+
+## Bug fixes
+* Improve handling of mixed case hostnames while fetching OpenGraph data [#8021](https://github.com/diaspora/diaspora/pull/8021)
+* Fix "remember me" with two factor authentication enabled [#8031](https://github.com/diaspora/diaspora/pull/8031)
+
+## Features
+* Add line mentioning diaspora\* on the splash page [#7966](https://github.com/diaspora/diaspora/pull/7966)
+* Improve communication about signing up on closed pods [#7896](https://github.com/diaspora/diaspora/pull/7896)
+
 # 0.7.11.0
 
 ## Refactor
