@@ -964,7 +964,6 @@ ja:
       updated: "プロフィールを更新しました"
   public: "公開"
   registrations:
-    closed: "このダイアスポラ＊ポッドでは新規登録を受け付けていません。"
     create:
       success: "ダイアスポラの新規登録が完了しました！"
     invalid_invite: "提供された招待リンクは、もはや有効ではありません！"

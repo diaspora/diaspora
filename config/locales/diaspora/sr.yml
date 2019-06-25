@@ -221,7 +221,6 @@ sr:
       updated: "Ажурирај профил"
   public: "Јавно"
   registrations:
-    closed: "Регистрације су затворене за овај diaspora* под"
     create:
       success: "Придружили сте се diaspora*"
     new:

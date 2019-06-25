@@ -998,7 +998,6 @@ pl:
       updated: "Profil został pomyślnie zaktualizowany"
   public: "Publiczny"
   registrations:
-    closed: "Ten pod diaspory* nie zezwala na rejestrację nowych użytkowników."
     create:
       success: "Dołączyłeś do diaspory*!"
     invalid_invite: "Podane łącze do zaproszenia jest nieważne!"

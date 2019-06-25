@@ -595,9 +595,11 @@ oc:
       byline: "La ret sociala ont gardatz lo contraròtle."
       choose_your_audience: "Causissètz vòstre public"
       choose_your_audience_info: "Los aspèctes de diaspora* vos permeton de partejar solament amb lo mond que volètz. Podètz èsser public o privat tan que volètz. Partejatz una fòto divertissenta amb lo mond complet, o un grand secrèt amb vòstre melhors amics. Avètz lo contraròtle."
+      diaspora_site_link: "Malhum federat diapora*"
       headline: "Benvenguda sus %{pod_name}"
       own_your_data: "Siatz proprietari de vòstras donadas"
       own_your_data_info: "Mantun rets emplegan vòstras donadas per se far de moneda en analisant vòstras interaccions e en emplegant aquelas informacions per vos far de reclama. diaspora* utilizant pas vòstras donadas que per vos permetre de comunicar e partejar amb lo mond."
+      part_of_diaspora: "Membre del %{diaspora_site_link}"
     podmin:
       byline: "Sètz a mand de cambiar la fàcia d'Internet. Prèst a vos lançar ?"
       configuration_info: "Dobrissètz %{database_path} e %{diaspora_path} dins vòstre editor de tèxte favorit e relegissètz-los menimosament, son comentats abondament."
@@ -992,7 +994,8 @@ oc:
       updated: "Perfil a jorn"
   public: "Public"
   registrations:
-    closed: "Las inscripcions son tampadas sus aqueste pod diaspora*."
+    closed:
+      another_pod: "un autre pod"
     create:
       success: "Avètz rejunt diaspora*!"
     invalid_invite: "Lo ligam de convit donat es pas mai valid !"
@@ -1180,6 +1183,30 @@ oc:
         one: "1 persona marcada amb %{tag}"
         other: "%{count} personas marcadas amb %{tag}"
         zero: "Degun es pas marcat amb %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Desactivar"
+      change_label: "Desactivatz l’autentificacion en dos temps en picar vòstre senhal"
+      status: "Autentificacion en dos temps activiada"
+    confirm:
+      activate_button: "Confirmar e activar"
+      input_title: "Confirmar amb un geton TOTP"
+      scan_title: "Numerizar lo còdi QR"
+      title: "Confirmatz l’activacion"
+    deactivated:
+      change_button: "Activar"
+      change_label: "Activar l’autentificacion en dos temps"
+      status: "L’autentificacion en dos temps es pas activada"
+    flash:
+      error_token: "Lo geton èra incorrècte o invalid"
+      success_activation: "Autentificacion en dos temps corrèctament activada"
+      success_deactivation: "Autentificacion en dos temps corrèctament desactivada"
+    input_token:
+      label: "Geton dos factors"
+    recovery:
+      button: "Generar de nòus còdis de recuperacion"
+      title: "Còdis de recuperacion"
+    title: "Autentificacion en dos temps"
   username: "Nom d'utilizaire"
   users:
     confirm_email:

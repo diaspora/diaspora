@@ -298,7 +298,6 @@ lt:
       updated: "Profilis atnaujintas"
   public: "Viešas"
   registrations:
-    closed: "Naujų paskyrų kūrimas šiame Diasporos serveryje yra uždarytas."
     create:
       success: "Prisijungei prie Diasporos!"
     new:

@@ -196,7 +196,7 @@ la:
     publisher:
       new_user_prefill:
         hello: "Salvēte, mihi nōmen est %{new_user_tag}. "
-        newhere: "nova/novus"
+        newhere: "NovusHic"
       posting: "Dīvulgāre..."
       share: "Impertī"
       whats_on_your_mind: "Quid tibi in animō est?"

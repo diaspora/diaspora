@@ -593,9 +593,11 @@ ia:
       byline: "Le mundo social in linea ubi tu ha le controlo"
       choose_your_audience: "Elige tu audientia"
       choose_your_audience_info: "Le \"aspectos\" de diaspora* permitte divider cosas solmente con le personas appropriate. Tu pote scriber in publico o si privatemente como tu vole. Divide un photo amusante con tote le mundo, o divide un secreto personal con tu amicos intime. Le controlo es tue."
+      diaspora_site_link: "rete federate de diaspora*"
       headline: "Benvenite a %{pod_name}"
       own_your_data: "Possede tu datos"
       own_your_data_info: "Multe retes usa tu datos pro ganiar moneta analysante tu interactiones e usante iste information pro diriger publicitate a te. diaspora* non usa tu datos pro alcun scopo, salvo illo de permitter te de connecter e divider cosas con altere personas."
+      part_of_diaspora: "Parte del %{diaspora_site_link}"
     podmin:
       byline: "Tu es sur le puncto de cambiar le facie de Internet. Preste a comenciar?"
       configuration_info: "Aperi %{database_path} e %{diaspora_path} in tu editor de texto preferite e revide los meticulosemente; illos ha commentos extense."
@@ -990,7 +992,6 @@ ia:
       updated: "Profilo actualisate"
   public: "Public"
   registrations:
-    closed: "Le creation de contos es claudite in iste pod de diaspora*."
     create:
       success: "Tu ha adherite a diaspora*!"
     invalid_invite: "Le ligamine de invitation que tu ha fornite non plus es valide."

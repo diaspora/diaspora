@@ -994,7 +994,6 @@ nl:
       updated: "Profiel bijgewerkt"
   public: "Openbaar"
   registrations:
-    closed: "Registratie op deze diaspora* pod is niet mogelijk."
     create:
       success: "Je bent nu lid van diaspora*!"
     invalid_invite: "De uitnodigingslink die je gebruikt is niet langer geldig!"

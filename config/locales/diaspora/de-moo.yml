@@ -90,15 +90,18 @@ de-moo:
       week: "Woche"
     user_entry:
       account_closed: "Konto wurde geschlossen"
+      admin: "Leitkuh"
       diaspora_handle: "diaspora* ID"
       email: "E-Mail"
       guid: "GUID"
       id: "ID"
       invite_token: "Einladungstoken"
       last_seen: "Zuletzt gesehen"
+      moderator: "Moderierkuh"
       ? "no"
       : Nein
       nsfw: "#nsfw"
+      spotlight: "Schaukasten"
       unknown: "Unbekannt"
       ? "yes"
       : Ja
@@ -106,14 +109,29 @@ de-moo:
       account_closing_scheduled: "Das Konto von %{name} soll geschlossen werden. Dies dauert ein paar Augenblicke..."
       account_locking_scheduled: "Das Konto von %{name} ist zur Sperrung vorgesehen. Es wird in wenigen Augenblicken verarbeitet..."
       account_unlocking_scheduled: "Das Konto von %{name} ist zur Entsperrung vorgesehen. Es wird in wenigen Augenblicken verarbeitet..."
+      add_admin: "%{name} wurde zur Leitkuh befördert."
       add_invites: "Einladungen hinzufügen"
+      add_moderator: "%{name} wurde zur Moderierkuh befördert."
+      add_spotlight: "%{name} wurde in den Gemeinschafts-Schaukasten gestellt."
       are_you_sure: "Willst du dein Konto wirklich schließen?"
       are_you_sure_lock_account: "Bist du dir sicher, dass du dieses Konto sperren willst?"
       are_you_sure_unlock_account: "Bist du sicher, dass du dieses Konto entsperren willst?"
       close_account: "Konto schließen"
+      delete_admin: "%{name} wurde von der Liste der Leitkühe entfernt."
+      delete_moderator: "%{name} wurde von der Liste der Moderierkühe entfernt."
+      delete_spotlight: "%{name} wurde vom Gemeinschafts-Schaukasten entfernt."
+      does_not_exist: "Kuh existiert nicht!"
       email_to: "per E-Mail einladen"
       invite: "Einladen"
       lock_account: "Konto sperren"
+      make_admin: "Zur Leitkuh befördern"
+      make_moderator: "Zur Moderierkuh befördern"
+      make_spotlight: "In den Gemeinschafts-Schaukasten stellen"
+      remove_admin: "Als Leitkuh absetzen"
+      remove_moderator: "Als Moderierkuh absetzen"
+      remove_spotlight: "Aus dem Gemeinschafts-Schaukasten entfernen"
+      role_implemented: "%{name} hat diese Rolle bereits erhalten!"
+      role_removal_implemented: "%{name} wurde diese Rolle bereits entzogen!"
       under_13: "Zeige Kühe, die unter 13 Jahre alt sind (COPPA)"
       unlock_account: "Konto entsperren"
       users:
@@ -190,6 +208,7 @@ de-moo:
         tos: "Die Nutzungsbedingungen der Anwendung ansehen"
   are_you_sure: "Bist du dir sicher?"
   are_you_sure_delete_account: "Möchtest du dein Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
+  are_you_sure_ignore_user: "Bist du sicher, dass du diese Kuh ignorieren möchtest?"
   aspect_memberships:
     destroy:
       failure: "Die Kuh konnte nicht aus der Herde entfernt werden."
@@ -364,7 +383,7 @@ de-moo:
       close_account_a: "Gehe an das Ende deiner Kontoeinstellungen und drücke auf die Schaltfläche „Konto schließen“. Um den Vorgang abzuschließen, wirst du dann aufgefordert, dein Kennwort einzugeben. Denk dran: Wenn du dein Konto schließt, kannst du dich auf diesem Bauernhof <strong>nie wieder</strong> mit dem gleichen Benutzernamen registrieren."
       close_account_q: "Wie kann ich mein Konto löschen?"
       data_other_podmins_a: "Wenn du mit jemandem auf einem anderen Bauernhof teilst, werden alle Beiträge, die du teilst, und eine Kopie deiner Profildaten auf dessen Bauernhof gespeichert („gecached“) und sind der Datenbankleitkuh des Bauernhofs zugänglich. Wenn du einen Beitrag oder deine Profildaten löschst, geschieht dies auch auf allen anderen Bauernhöfen, auf denen die Daten bisher gespeichert waren. Deine Bilder werden nur auf deinen eigenen Bauernhof gespeichert; nur Links, die zu ihnen führen, werden anderen Bauernhöfen übermittelt."
-      data_other_podmins_q: "Kann die Leitkuh meines Bauernhofs meine Informationen sehen?"
+      data_other_podmins_q: "Können die Leitkühe anderer Bauernhöfe meine Informationen sehen?"
       data_visible_to_podmin_a: "Kurzum: alles. Die Kommunikation zwischen Bauernhöfen läuft immer verschlüsselt ab (mittels SSL und diaspora*s eigener Übertragungsverschlüsselung), aber gespeichert werden die Daten unverschlüsselt. Wenn sie wollte, könnte die Leitkuh deines Bauernhofs (normalerweise die Kuh, die den Bauernhofs betreibt) auf deine gesamten Kontodaten und alles, was du postest, zugreifen (wie auch bei den meisten anderen Webseiten, die Benutzerdaten speichern). Das ist der Grund dafür, dass wir dich auswählen lassen, auf welchem Bauernhof du dich registrierst, damit du einen Bauernhof auswählen kannst, dessen Leitkuh du deine Daten gerne anvertraust. Das Betreiben eines eigenen Bauernhofs gibt dir mehr Sicherheit, weil du dann den Zugriff auf die Datenbank kontrollierst."
       data_visible_to_podmin_q: "Wie viele Informationen kann die Leitkuh meines Bauernhofs sehen?"
       download_data_a: "Ja. Unten im Bereich „Konto“ deiner Einstellungen sind zwei Schaltflächen, mit denen du deine Daten oder Fotos herunterladen kannst."
@@ -574,9 +593,11 @@ de-moo:
       byline: "Die soziale Onlinewelt, in der du deine Daten in der Hand hast."
       choose_your_audience: "Wähle dein Publikum"
       choose_your_audience_info: "diaspora*s Herden ermöglichen dir, nur mit den Kühen zu teilen, mit denen du möchtest. Du kannst so öffentlich oder privat sein, wie du willst. Teile ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit deinen engsten Freunden. Es ist deine Entscheidung."
+      diaspora_site_link: "föderierten diaspora*-Netzwerks"
       headline: "Willkommen auf %{pod_name}"
       own_your_data: "Deine Daten, dein Eigentum"
       own_your_data_info: "Viele Netzwerke nutzen deine Daten, um Geld zu verdienen, indem sie deine Interaktionen auswerten und diese Informationen verwenden, um dir Werbung zu zeigen. diaspora* nutzt deine Daten zu keinem anderen Zweck, als es dir zu ermöglichen, dich mit anderen zu verbinden und mit ihnen zu teilen."
+      part_of_diaspora: "Teil des %{diaspora_site_link}"
     podmin:
       byline: "Du bist drauf und dran, das Internet zu ändern. Lass uns gleich alles einrichten, okay?"
       configuration_info: "Öffne %{database_path} und %{diaspora_path} in deinem Lieblingstexteditor und sieh sie gründlich durch, sie sind ausführlich kommentiert."
@@ -627,6 +648,8 @@ de-moo:
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quellcodepaket herunterladen"
       statistics_link: "Bauernhof-Statistiken"
+      switch_to_standard_mode: "In den Standardmodus wechseln"
+      switch_to_touch_optimized_mode: "In den touch-optimierten Modus wechseln"
       whats_new: "Was gibt's Neues?"
     header:
       code: "Code"
@@ -1004,7 +1027,11 @@ de-moo:
       updated: "Profil aktualisiert"
   public: "Öffentlich"
   registrations:
-    closed: "Neuregistrierungen sind auf diesem Bauernhof geschlossen."
+    closed:
+      another_pod: "einem anderen Bauernhof"
+      closed_pod: "Dieser Bauernhof ist derzeit für Neuanmeldungen geschlossen. Du kannst dem diaspora*-Netzwerk trotzdem beitreten, indem du sich auf %{wiki} registrierst. Da alle Bauernhöfe miteinander verbunden sind, hast du von dort aus Zugriff auf dieselben Inhalte."
+      find_pods: "Es gibt eine Liste von Bauernhöfen, auf denen du dich registrieren kannst, auf %{poduptime}."
+      other_questions: "Wenn du noch weitere Fragen dazu hast, wie du einen Bauernhof auswählst, lies unser %{wiki}."
     create:
       success: "Du bist diaspora* beigetreten!"
     invalid_invite: "Der von dir erstellte Einladungs-Link ist nicht mehr gültig!"
@@ -1195,6 +1222,41 @@ de-moo:
         one: "Eine Kuh ist mit %{tag} getaggt"
         other: "%{count} Kühe sind mit %{tag} getaggt"
         zero: "Keine Kuh ist mit %{tag} getaggt"
+  two_factor_auth:
+    activated:
+      change_button: "Deaktivieren"
+      change_label: "Die Zwei-Faktor-Authentifizierung deaktivieren durch Eingabe deines Passworts"
+      status: "Zwei-Faktor-Authentifizierung aktiviert"
+    confirm:
+      activate_button: "Bestätigen und aktivieren"
+      input_explanation: "Nach dem Scan oder der Eingabe des Schlüssels, gib den sechsstelligen Code ein, der dir angezeigt wird und bestätige die Einstellungen."
+      input_title: "Bestätige mit dem TOTP-Token"
+      manual_explanation: "Falls du den QR-Code nicht automatisch scannen kannst, kannst du den Schlüssel manuell in deiner App eingeben."
+      manual_explanation_cont: "Wir nutzen ein zeitgesteuertes Einmalpasswortverfahren (Time-based One-time Passwords, TOTP) mit sechsstelligen Tokens. Falls deine App dich nach einem Zeitintervall und Algorithmus fragt, gib 30 Sekunden und sha1 ein. <br /> Die Leerzeichen dienen nur der besseren Lesbarkeit, gib den Code ohne diese ein."
+      scan_explanation: "Bitte scanne den QR-Code mit einer TOTP-fähigen App, wie andOTP (Android), FreeOTP (iOS), oder SailOTP (SailfishOS)."
+      scan_title: "Scanne den QR-Code"
+      status: "Die Zwei-Faktor-Authentifizierung wurde noch nicht vollständig aktiviert. Du musst die Aktivierung mit einem TOTP-Token bestätigen."
+      title: "Aktivierung bestätigen"
+    deactivated:
+      change_button: "Aktivieren"
+      change_label: "Zwei-Faktor-Authentifizierung aktivieren"
+      status: "Zwei-Faktor-Authentifizierung nicht aktiviert"
+    explanation: "Die Zwei-Faktor-Authentifizierung ist eine wirkungsvolle Methode, um sicherzustellen, dass du die einzige Kuh bist, die sich in deinem Konto anmelden kann. Bei der Anmeldung gibst du einen 6-stelligen Code zusammen mit deinem Passwort ein, um deine Identität zu bestätigen. Achtung: Wenn du dein Telefon verlierst und die bei Aktivierung dieser Funktion erstellten Wiederherstellungscodes verloren gehen, wird der Zugriff auf dein diaspora*-Konto für immer gesperrt."
+    flash:
+      error_token: "Token war falsch oder ungültig"
+      success_activation: "Zwei-Faktor-Authentifizierung erfolgreich aktiviert"
+      success_deactivation: "Zwei-Faktor-Authentifizierung erfolgreich deaktiviert"
+    input_token:
+      label: "Zwei-Faktor Token"
+      placeholder: "sechsstelliges Zwei-Faktor-Token"
+    recovery:
+      button: "Neue Wiederherstellungscodes generieren"
+      explanation: "Wenn du jemals den Zugriff auf dein Telefon verlierst, kannst du einen der folgenden Wiederherstellungscodes verwenden, um wieder auf dein Konto zuzugreifen. Bewahre die Wiederherstellungscodes sicher auf. Du kannst sie beispielsweise ausdrucken und zusammen mit anderen wichtigen Dokumenten ablegen."
+      explanation_short: "Mithilfe von Wiederherstellungscodes kannst du den Zugriff auf dein Konto wiederherstellen, wenn du dein Telefon verlierst. Beachte, dass du jeden Wiederherstellungscode nur einmal verwenden kannst."
+      invalidation_notice: "Wenn du deine Wiederherstellungscodes verloren hast, kannst du diese hier neu generieren. Deine alten Wiederherstellungscodes werden ungültig."
+      reminder: "Alternativ kannst du einen der Wiederherstellungscodes benutzen."
+      title: "Wiederherstellungscodes"
+    title: "Zwei-Faktor-Authentifizierung"
   username: "Benutzername"
   users:
     confirm_email:
@@ -1243,8 +1305,9 @@ de-moo:
       new_password: "Neues Kennwort"
       private_message: "… du eine private Nachricht erhältst?"
       protocol_handler:
-        description: "Beim Klick auf diese Schaltfläche wird dein Browser aufgefordert, einen Handler zu installieren, wodurch web+diaspora:// URLs auf deinem Heimatbauernhof geöffnet werden können. Diese Funktion ist derzeit experimentell und die Interaktionen sind abhängig von Ihrem Browser."
-        register: "Registrieren"
+        browser: "Dieses Protokoll befindet sich derzeit in einer experimentellen Phase und der Erfolg der Interaktionen damit ist von deinem Browser abhängig. Möchtest du diesen Handler verwalten oder entfernen, tust du dies über deine Browsereinstellungen. Die Schaltfläche unten ist immer aktiviert und du musst den Handler in jedem von dir verwendeten Browser separat setzen."
+        description: "web+diaspora:// ist ein neues Webprotokoll, das wir eingeführt haben. Jeder Link nach diaspora* von einer externen Webseite, die dieses Protokoll nutzt, kann auf dem Bauernhof geöffnet werden, auf dem dein Konto registriert ist. Klicke auf die untenstehende Schaltfläche, um deinen Browser so einzustellen, dass er %{pod_url} zur Erkennung von externen web+diaspora:// Links nutzt."
+        register: "Registriere den web+diaspora:// Handler auf diesem Browser"
         title: "web+diaspora:// protocol handler"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
       request_export: "Meine Profildaten anfordern"

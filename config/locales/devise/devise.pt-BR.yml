@@ -86,7 +86,7 @@ pt-BR:
         remember_me: "Lembre-se de mim"
         sign_in: "Entrar"
         username: "Nome de usuário"
-      signed_in: "Você entrou com sucesso."
+      signed_in: "Você entrou."
       signed_out: "Você saiu com sucesso."
     shared:
       links:

@@ -482,7 +482,6 @@ nn:
       updated: "Profilen vart oppdatert"
   public: "Offentleg"
   registrations:
-    closed: "Kan ikkje oppretta brukarar på denne Diaspora-poden."
     create:
       success: "Du er vorten med i Diaspora."
     invalid_invite: "Invitasjonslenkja du nytta er ikkje lengjer gyldig!"
