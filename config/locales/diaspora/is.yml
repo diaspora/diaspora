@@ -397,7 +397,6 @@ is:
       updated: "Síðan mín uppfærð"
   public: "Opið öllum"
   registrations:
-    closed: "Lokað er fyrir innskráningar á þessum Diaspora* pod."
     create:
       success: "Nú hefurðu tengst Diaspora*!"
     new:

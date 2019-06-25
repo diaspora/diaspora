@@ -734,7 +734,6 @@ pt-PT:
       updated: "Perfil atualizado"
   public: "Público"
   registrations:
-    closed: "Os registos estão encerrados neste servidor do diaspora*."
     create:
       success: "Aderiu ao diaspora*!"
     invalid_invite: "A hiperligação de convite fornecida já não é válida!"

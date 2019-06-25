@@ -404,7 +404,6 @@ bg:
       updated: "Профилът е обновен"
   public: "Публична"
   registrations:
-    closed: "Нови регистрации не са възможни на този pod на Diaspora."
     create:
       success: "Вие се присъединихте към Diaspora!"
     invalid_invite: "Връзката за покана, която предоставихте, вече не е валидна!"

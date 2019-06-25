@@ -408,7 +408,6 @@ en_pirate:
       updated: "Ye profile updated"
   public: "The Sea can see this"
   registrations:
-    closed: "Signups be closed on this ship!"
     create:
       success: "Ye've joined diaspora*! YARGH!"
     invalid_invite: "The invite link ye provided is no longer valid ye scalawag! Yar!"

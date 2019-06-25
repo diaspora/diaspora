@@ -250,7 +250,6 @@ mk:
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
   public: "Јавно"
   registrations:
-    closed: "Регистрирањето е затворено."
     create:
       success: "Вие и се придруживте на Diaspora!"
     new:

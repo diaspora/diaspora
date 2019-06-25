@@ -550,7 +550,6 @@ sk:
       updated: "Profil aktualizovaný"
   public: "Verejný"
   registrations:
-    closed: "Registrácie sú na tomto pode diaspory* pozastavené."
     create:
       success: "Pridal(a) si sa k diaspore*!"
     invalid_invite: "Odkaz na pozvánku, ktorý si zadal(a), už nie je platný!"
