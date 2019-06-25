@@ -595,9 +595,11 @@ fr:
       byline: "Le réseau social où vous gardez le contrôle."
       choose_your_audience: "Choisissez votre public"
       choose_your_audience_info: "Les aspects de diaspora* vous permettent de partager seulement avec les personnes que vous choisissez. Vous demeurez aussi ouvert ou aussi restreint que vous le souhaitez. Partagez des photos amusantes avec le monde entier, ou un grand secret avec vos amis les plus proches. C'est vous qui avez le contrôle."
+      diaspora_site_link: "réseau fédéré diaspora*"
       headline: "Bienvenue sur %{pod_name}"
       own_your_data: "Soyez propriétaire de vos données"
       own_your_data_info: "De nombreux réseaux utilisent vos données pour gagner de l'argent en analysant vos interactions et en utilisant ces informations pour vous proposer des publicités ciblées. Vos données sur diaspora* ne servent qu'à vous mettre en relation et à partager avec d'autres personnes."
+      part_of_diaspora: "Nœud du %{diaspora_site_link}"
     podmin:
       byline: "Vous êtes sur le point de changer la face d'Internet. Prêt à vous lancer ?"
       configuration_info: "Ouvrez %{database_path} et %{diaspora_path} dans votre éditeur de texte favori et relisez-les soigneusement, ils sont abondamment commentés."
@@ -996,7 +998,11 @@ fr:
       updated: "Profil mis à jour"
   public: "Public"
   registrations:
-    closed: "Les inscriptions sont fermées sur ce pod diaspora*."
+    closed:
+      another_pod: "un autre pod"
+      closed_pod: "Les inscriptions sont actuellement fermées sur ce pod. Néanmoins, vous pouvez toujours rejoindre le réseau diaspora* en vous inscrivant sur %{wiki}. Comme tous les pods sont interconnectés, vous accéderez au même contenu."
+      find_pods: "Une liste de pods sur lesquels vous pouvez vous inscrire est disponible sur %{poduptime}."
+      other_questions: "Si vous avez d'autres questions sur le choix d'un pod, consultez notre %{wiki}."
     create:
       success: "Vous avez rejoint diaspora* !"
     invalid_invite: "Le lien d'invitation que vous avez fourni n'est plus valide !"

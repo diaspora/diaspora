@@ -713,7 +713,6 @@ it:
       updated: "Profilo aggiornato"
   public: "Pubblico"
   registrations:
-    closed: "Su questo pod Diaspora le iscrizioni sono chiuse."
     create:
       success: "Ora fai parte di Diaspora!"
     invalid_invite: "L'invito che hai usato non è più valido!"

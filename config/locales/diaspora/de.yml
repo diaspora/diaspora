@@ -118,7 +118,7 @@ de:
       are_you_sure_unlock_account: "Bist du dir sicher, dass du dieses Konto entsperren möchtest?"
       close_account: "Konto schließen"
       delete_admin: "%{name} wurde von der Liste der Administratoren entfernt."
-      delete_moderator: "%{name}  wurde von der Liste der Moderatoren entfernt."
+      delete_moderator: "%{name} wurde von der Liste der Moderatoren entfernt."
       delete_spotlight: "%{name} wurde vom Gemeinschafts-Schaukasten entfernt."
       does_not_exist: "Benutzer existiert nicht!"
       email_to: "per E-Mail einladen"
@@ -208,7 +208,7 @@ de:
         tos: "Die Nutzungsbedingungen der Anwendung ansehen"
   are_you_sure: "Bist du dir sicher?"
   are_you_sure_delete_account: "Möchtest du dein Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
-  are_you_sure_ignore_user: "Bist du sicher das du den Nutzer ignorieren möchtest?"
+  are_you_sure_ignore_user: "Bist du sicher, dass du den Nutzer ignorieren möchtest?"
   aspect_memberships:
     destroy:
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden."
@@ -593,9 +593,11 @@ de:
       byline: "Die soziale Onlinewelt, in der du deine Daten in der Hand hast."
       choose_your_audience: "Wähle dein Publikum"
       choose_your_audience_info: "diaspora*s Aspekte ermöglichen dir, nur mit den Menschen zu teilen, mit denen du möchtest. Du kannst so öffentlich oder privat sein, wie du willst. Teile ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit deinen engsten Freunden. Es ist deine Entscheidung."
+      diaspora_site_link: "föderierten diaspora*-Netzwerks"
       headline: "Willkommen auf %{pod_name}"
       own_your_data: "Deine Daten, dein Eigentum"
       own_your_data_info: "Viele Netzwerke nutzen deine Daten, um Geld zu verdienen, indem Sie deine Interaktionen auswerten und diese Informationen verwenden, um dir Werbung zu zeigen. diaspora* nutzt deine Daten zu keinem anderen Zweck, als es dir zu ermöglichen, dich mit anderen zu verbinden und mit ihnen zu teilen."
+      part_of_diaspora: "Teil des %{diaspora_site_link}"
     podmin:
       byline: "Du bist drauf und dran, das Internet zu ändern. Lass uns gleich alles einrichten, okay?"
       configuration_info: "Öffne %{database_path} und %{diaspora_path} in deinem Lieblingstexteditor und sieh sie gründlich durch, sie sind ausführlich kommentiert."
@@ -646,8 +648,8 @@ de:
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket runterladen"
       statistics_link: "Pod-Statistiken"
-      switch_to_standard_mode: "In den Standard-Modus wechseln"
-      switch_to_touch_optimized_mode: "Wechseln zum touch-optimierten Modus"
+      switch_to_standard_mode: "In den Standardmodus wechseln"
+      switch_to_touch_optimized_mode: "In den touch-optimierten Modus wechseln"
       whats_new: "Was gibt’s Neues?"
     header:
       code: "Code"
@@ -1008,7 +1010,11 @@ de:
       updated: "Profil aktualisiert"
   public: "Öffentlich"
   registrations:
-    closed: "Neuregistrierungen sind auf diesem diaspora*-Pod geschlossen."
+    closed:
+      another_pod: "einem anderen Pod"
+      closed_pod: "Dieser Pod ist derzeit für Neuanmeldungen geschlossen. Du kannst dem diaspora*-Netzwerk trotzdem beitreten, indem du dich auf %{wiki} registrierst. Da alle Pods miteinander verbunden sind, hast du von dort aus Zugriff auf dieselben Inhalte."
+      find_pods: "Es gibt eine Liste von Pods, auf denen du dich registrieren kannst, auf %{poduptime}."
+      other_questions: "Wenn du noch weitere Fragen dazu hast, wie du einen Pod auswählst, lies unser %{wiki}."
     create:
       success: "Du bist diaspora* beigetreten!"
     invalid_invite: "Der von dir erstellte Einladungs-Link ist nicht mehr gültig!"
@@ -1195,6 +1201,41 @@ de:
         one: "1 Person ist mit %{tag} getaggt"
         other: "%{count} Personen sind mit %{tag} getaggt"
         zero: "Niemand ist mit %{tag} getaggt"
+  two_factor_auth:
+    activated:
+      change_button: "Deaktivieren"
+      change_label: "Die Zwei-Faktor-Authentifizierung deaktivieren durch Eingabe deines Passworts"
+      status: "Zwei-Faktor-Authentifizierung aktiviert"
+    confirm:
+      activate_button: "Bestätigen und aktivieren"
+      input_explanation: "Nach dem Scan oder der Eingabe des Schlüssels, gib den sechsstelligen Code ein, der dir angezeigt wird und bestätige die Einstellungen."
+      input_title: "Bestätige mit dem TOTP-Token"
+      manual_explanation: "Falls du den QR-Code nicht automatisch scannen kannst, kannst du den Schlüssel manuell in deiner App eingeben."
+      manual_explanation_cont: "Wir nutzen ein zeitgesteuertes Einmalpasswortverfahren (Time-based One-time Passwords, TOTP) mit sechsstelligen Tokens. Falls deine App dich nach einem Zeitintervall und Algorithmus fragt, gib 30 Sekunden und sha1 ein. <br /> Die Leerzeichen dienen nur der besseren Lesbarkeit, gib den Code ohne diese ein."
+      scan_explanation: "Bitte scanne den QR-Code mit einer TOTP-fähigen App, wie andOTP (Android), FreeOTP (iOS), oder SailOTP (SailfishOS)."
+      scan_title: "Scanne den QR-Code"
+      status: "Die Zwei-Faktor-Authentifizierung wurde noch nicht vollständig aktiviert. Du musst die Aktivierung mit einem TOTP-Token bestätigen."
+      title: "Aktivierung bestätigen"
+    deactivated:
+      change_button: "Aktivieren"
+      change_label: "Zwei-Faktor-Authentifizierung aktivieren"
+      status: "Zwei-Faktor-Authentifizierung nicht aktiviert"
+    explanation: "Die Zwei-Faktor-Authentifizierung ist eine wirkungsvolle Methode, um sicherzustellen, dass du die einzige Person bist, die sich in deinem Konto anmelden kann. Bei der Anmeldung gibst du einen 6-stelligen Code zusammen mit deinem Passwort ein, um deine Identität zu bestätigen. Achtung: Wenn du dein Telefon verlierst und die bei Aktivierung dieser Funktion erstellten Wiederherstellungscodes verloren gehen, wird der Zugriff auf dein diaspora*-Konto für immer gesperrt."
+    flash:
+      error_token: "Token war falsch oder ungültig"
+      success_activation: "Zwei-Faktor-Authentifizierung erfolgreich aktiviert"
+      success_deactivation: "Zwei-Faktor-Authentifizierung erfolgreich deaktiviert"
+    input_token:
+      label: "Zwei-Faktor-Token"
+      placeholder: "sechsstelliges Zwei-Faktor-Token"
+    recovery:
+      button: "Neue Wiederherstellungscodes generieren"
+      explanation: "Wenn du jemals den Zugriff auf dein Telefon verlierst, kannst du einen der folgenden Wiederherstellungscodes verwenden, um wieder auf dein Konto zuzugreifen. Bewahre die Wiederherstellungscodes sicher auf. Du kannst sie beispielsweise ausdrucken und zusammen mit anderen wichtigen Dokumenten ablegen."
+      explanation_short: "Mithilfe von Wiederherstellungscodes kannst du den Zugriff auf dein Konto wiederherstellen, wenn du dein Telefon verlierst. Beachte, dass du jeden Wiederherstellungscode nur einmal verwenden kannst."
+      invalidation_notice: "Wenn du deine Wiederherstellungscodes verloren hast, kannst du diese hier neu generieren. Deine alten Wiederherstellungscodes werden ungültig."
+      reminder: "Alternativ kannst du einen der Wiederherstellungscodes benutzen."
+      title: "Wiederherstellungscodes"
+    title: "Zwei-Faktor-Authentifizierung"
   username: "Benutzername"
   users:
     confirm_email:
@@ -1243,9 +1284,9 @@ de:
       new_password: "Neues Kennwort"
       private_message: "du eine private Nachricht erhältst"
       protocol_handler:
-        browser: "Dieses Protokoll befindet sich derzeit in einer experimentellen Phase und der Erfolg der Interaktionen, die es verwenden, ist von deinem Browser abhängig. Möchtest du diesen Handler verwalten oder entfernen, tust du dies mit deinen Browser-Einstellungen. Die untere Schaltfläche ist immer aktiviert und du musst den Handler in jedem von dir verwendeten Browser separat setzen."
-        description: "Beim Klick auf diese Schaltfläche wird dein Browser aufgefordert, einen Handler zu installieren, wodurch web+diaspora:// URLs auf deinem Heimatpod geöffnet werden können. Diese Funktion ist derzeit experimentell und die Interaktionen sind abhängig von deinem Browser."
-        register: "Registrieren"
+        browser: "Dieses Protokoll befindet sich derzeit in einer experimentellen Phase und der Erfolg der Interaktionen damit ist von deinem Browser abhängig. Möchtest du diesen Handler verwalten oder entfernen, tust du dies über deine Browsereinstellungen. Die Schaltfläche unten ist immer aktiviert und du musst den Handler in jedem von dir verwendeten Browser separat setzen."
+        description: "web+diaspora:// ist ein neues Webprotokoll, das wir eingeführt haben. Jeder Link nach diaspora* von einer externen Webseite, die dieses Protokoll nutzt, kann auf dem Pod geöffnet werden, auf dem dein Konto registriert ist. Klicke auf die untenstehende Schaltfläche, um deinen Browser so einzustellen, dass er %{pod_url} zur Erkennung von externen web+diaspora:// Links nutzt."
+        register: "Registriere den web+diaspora:// Handler auf diesem Browser"
         title: "web+diaspora:// protocol handler"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
       request_export: "Meine Profildaten anfordern"

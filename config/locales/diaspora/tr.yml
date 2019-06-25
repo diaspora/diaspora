@@ -101,7 +101,7 @@ tr:
       current_server: "Şu andaki sunucu tarihi %{date}"
   all_aspects: "Tüm Yönler"
   are_you_sure: "Emin misin?"
-  are_you_sure_delete_account: "Hesabını kapatmak istediğinden emin misin? Bu geri alınamaz!"
+  are_you_sure_delete_account: "Hesabını kapatmak istediğinden emin misin? Bu işlemi geri alamazsın!"
   aspect_memberships:
     destroy:
       failure: "Yön'den kişi kaldırılamadı"
@@ -178,7 +178,7 @@ tr:
   bookmarklet:
     explanation: "Diaspora'ya istediğin her yerden gönderi yapmak için %{link} bağlantısını yer imlerine ekle."
     heading: "Diaspora yer işareti"
-    post_something: "Diaspora için bir şey gönder"
+    post_something: "Diaspora'ya bir şey gönder"
   cancel: "İptal Et"
   color_themes:
     dark_green: "Koyu yeşil"
@@ -255,7 +255,7 @@ tr:
       change_aspect_of_post_a: "Hayır, ama aynı içerikte başka bir gönderi hazırlayıp bunu farklı bir bakış yönünde gönderebilirsiniz."
       change_aspect_of_post_q: "Bir gönderiyi paylaştıktan sonra onu gören hedef bakışları değiştirebilir miyim?"
       contacts_know_aspect_a: "Hayır. Bakışın adını hiçbir şekilde göremezler."
-      contacts_know_aspect_q: "Diğerleri onları hangi bakışlara koyduğumu bilebilir mi?"
+      contacts_know_aspect_q: "Bağlantılarım onları hangi Cephe'lere koyduğumu bilebilir mi?"
       delete_aspect_a: "Akış görünümündeki kenar çubuğundan \"Yönlerim\"e tıkla ve silmek istediğin yönleri işaretle, ya da erişimlerim sayfasından ilgili yönü seçip çöp simgesine tıkla."
       delete_aspect_q: "Yön nasıl silinir?"
       person_multiple_aspects_a: "Evet. Kişiler sayfasına gidin ve kişilerime tıklayın. Her biri için sağdaki menüyü kullanarak, istediğiniz kadar çok bakışa ekleyip istediğiniz kadarından çıkarabilirsiniz. Profil sayfasındaki bakış seçicisine tıklayarak da bunu yapabilirsiniz. Hatta, imleci adının üzerine götürdüğünüzde çıkan 'kartı' kullanarak da aynı şeyi yapabilirsiniz."
@@ -268,11 +268,11 @@ tr:
       rename_aspect_q: "Bakışın adını değiştirebilir miyim?"
       restrict_posts_i_see_a: "Evet. Kenar çubuğundaki Bakışlarım'a tıklayın ve seçiminizi değiştirmek için ilgili bakışlara tıklayın. Yalnızca seçili bakışlardan gelen gönderiler size görünür olacak."
       restrict_posts_i_see_q: "Gördüğüm gönderileri sadece belli bakışlara  kısıtlayabilir miyim?"
-      title: "Bakışlar"
-      what_is_an_aspect_a: "Bakışlar diaspora* da kişileri gruplamanın bir yolu, dünyaya gösterdiğiniz yüzlerden biridir. Çalıştığınızdaki bakış açınız, ailenize karşı, çevrenizdeki kişilere karşı gösterdiğiniz farklı farklı olabilir."
-      what_is_an_aspect_q: "Bakış nedir?"
+      title: "Cepheler"
+      what_is_an_aspect_a: "Cepheler diaspora* da kişileri gruplamanın bir yoludur. Bir Cephe dünyaya gösterdiğiniz yüzlerden biridir. İş yerinizde veya ailenizde ya da üyesi olduğunuz kulüpteki arkadaşlarınız için kim olduğunuz olabilir."
+      what_is_an_aspect_q: "Cephe nedir?"
       who_sees_post_a: "Sınırlı gönderi yaparsanız, yalnızca o bakış(lar)a koyduğunuz kişilere görünür olacaktır. Bunun dışındakiler, gönderinizi açmadığınız sürece hiçbir şekilde onu göremeyeceklerdir. Yalnızca genel gönderiler hiçbir bakışa koymadığınız kişilere açıktır."
-      who_sees_post_q: "Bir bakışa gönderdiğimde onu kimler görür?"
+      who_sees_post_q: "Bir Cephe'ye gönderi gönderdiğimde onu kimler görür?"
     foundation_website: "diaspora vakfı web sitesi"
     getting_help:
       get_support_a_hashtag: "%{question} etiketini kullanarak diaspora* üzerinde açık bir gönderiyle sorun"
@@ -435,8 +435,8 @@ tr:
       other: "%{actors} senin %{post_link} gönderini beğendi."
       zero: "%{actors} senin %{post_link} gönderini beğendi."
     liked_post_deleted:
-      other: "%{actors} silinmiş gönderinizi iğneledi."
-      zero: "%{actors} silinmiş gönderinizi iğnelemedi."
+      other: "%{actors} silinmiş gönderinizi beğendi.."
+      zero: "%{actors} silinmiş gönderinizi beğendi."
     mentioned:
       other: "%{actors} bir %{post_link} içinde seni andı."
       zero: "%{actors} bir %{post_link} içinde seni andı."
@@ -461,9 +461,9 @@ tr:
       zero: "%{actors} sizinle paylaşıma başladı."
   notifier:
     a_post_you_shared: "gönderi"
-    click_here: "buraya"
+    click_here: "buraya tıklayın"
     comment_on_post:
-      reply: "Yanıtla ya da %{name} gönderisini görüntüle >"
+      reply: "%{name}'in gönderisini yanıtla ya da görüntüle >"
     confirm_email:
       click_link: "Yeni e-mail adresini %{unconfirmed_email} etkinleştirmek için şu bağlantıya tıkla:"
       subject: "Lütfen yeni e-mail adresini %{unconfirmed_email} etkinleştir"
@@ -489,10 +489,10 @@ tr:
           [1]: %{invite_url}
     invited_you: "%{name} sizi Diaspora*'ya davet etti."
     liked:
-      liked: "%{name} gönderini iğneledi."
+      liked: "%{name} gönderini beğendi"
       view_post: "Gönderiyi görüntüle >"
     mentioned:
-      subject: "%{name} sana Diaspora*'da özel mesaj gönderdi "
+      subject: "%{name} Diaspora*'da sizi andı"
     private_message:
       reply_to_or_view: "Yanıtla ya da konuşmayı görüntüle >"
     remove_old_user:
@@ -532,8 +532,8 @@ tr:
       reshared: "%{name} gönderini tekrar paylaştı"
       view_post: "Gönderiyi görüntüle>"
     single_admin:
-      admin: "Diaspora yönetici"
-      subject: "Diaspora hesabı hakkında bir mesaj:"
+      admin: "Diaspora yöneticiniz"
+      subject: "Diaspora hesabınız hakkında bir mesaj:"
     started_sharing:
       sharing: "sizinle paylaşıma başladı!"
       subject: "%{name} Diaspora*'da seninle paylaşıma başladı"
@@ -606,14 +606,13 @@ tr:
       updated: "Profil güncellendi"
   public: "Genel"
   registrations:
-    closed: "Üyelik bu Diaspora'da kapandı."
     create:
-      success: "Diasporaya katıldınız!"
+      success: "Diaspora'ya katıldınız!"
     invalid_invite: "Gönderdiğiniz davetiye bağlantısı artık geçerli değil!"
     new:
       email: "E-POSTA"
       enter_email: "Bir e-posta girin"
-      enter_password: "Bir parola girin"
+      enter_password: "Bir parola girin (en az 6 karakter)"
       enter_password_again: "Daha önce olduğu gibi aynı parolayı girin."
       enter_username: "Bir kullanıcı adı seçin (sadece harfler, rakamlar ve alt çizgi)"
       password: "PAROLA"
@@ -640,7 +639,7 @@ tr:
     reshare:
       deleted: "Gönderi yazarı tarafından silindi."
       reshare_confirmation: "Tekrar paylaş %{author} - %{text}?"
-      reshared_via: "tekrar paylaşıldı, bununla:"
+      reshared_via: "üzerinden yeniden paylaşıldı:"
   search: "Ara"
   services:
     create:

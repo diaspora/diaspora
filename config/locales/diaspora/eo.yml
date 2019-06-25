@@ -529,7 +529,6 @@ eo:
       updated: "Profilo ĝisdatigita"
   public: "Publika"
   registrations:
-    closed: "Registrado estas fermita ĉe tiu ĉi DIASPORA* 'pod' (servilo)."
     create:
       success: "Vi aniĝis al DIASPORA*!"
     invalid_invite: "La invitoligilo, kiun vi donis, ne plu validas!"

@@ -989,7 +989,6 @@ sc:
       updated: "Profilu agiornadu"
   public: "Pùblicu"
   registrations:
-    closed: "Sas registratziones sunt serradas in custu pod de diaspora*."
     create:
       success: "Ti ses registradu in diaspora*!"
     invalid_invite: "Su ligàmene de invitu chi as impreadu no est prus vàlidu!"

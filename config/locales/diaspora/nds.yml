@@ -582,7 +582,6 @@ nds:
       updated: "Profil aktualisiert"
   public: "Öffentlich"
   registrations:
-    closed: "Registrerungen sind op dissen diaspora*-Pod schloten."
     create:
       success: "Du bist nu bi diaspora*!"
     invalid_invite: "Dien Inlodungslink is nich mehr gültig!"

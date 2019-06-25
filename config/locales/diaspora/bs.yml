@@ -495,7 +495,6 @@ bs:
       updated: "Profil ažuriran"
   public: "Javno"
   registrations:
-    closed: "Prijave su zatvorene na ovom Diaspora podu."
     create:
       success: "Pridružili ste se Diaspori!"
     invalid_invite: "Veza pozivnice koji ste obezbijedili više nije važeća!"

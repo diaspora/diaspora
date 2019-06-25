@@ -33,7 +33,7 @@ es:
         reshare:
           attributes:
             root_guid:
-              taken: "Es buena, ¿eh? ¡Ya habías compartido esa publicación!"
+              taken: "Genial pero... ¡ya has compartido esa publicación!"
         user:
           attributes:
             email:
@@ -69,7 +69,7 @@ es:
         zero: "%{count} comentarios"
       current_segment: "El período actual tiene un promedio de <b>%{post_yest}</b> publicaciones por usuario, de <b>%{post_day}</b>"
       daily: "Diario"
-      display_results: "Mostrando resultados del período %{segment}"
+      display_results: "Mostrando resultados en el espacio de tiempo %{segment}"
       go: "Adelante"
       month: "Mes"
       posts:
@@ -94,6 +94,7 @@ es:
       email: "Correo Electrónico"
       guid: "GUID"
       id: "identificador"
+      invite_token: "Token de invitación"
       last_seen: "visto por última vez"
       moderator: "Moderador"
       ? "no"
@@ -170,18 +171,18 @@ es:
         aud:
           description: ""
         name:
-          name: "nombre"
+          name: "Nombre"
         nickname:
           name: "apodo"
         openid:
           description: "Permite que la aplicación lea tu perfil básico"
           name: "perfil básico"
         picture:
-          description: "Esto otorga permisos de imagen a la aplicación."
+          description: "Esto permite a la aplicación el acceso a la galería de imágenes."
           name: "fotografía"
         profile:
-          description: "Esto permite que la aplicación lea tu perfil completo"
-          name: "Perfil completo"
+          description: "Esto permite que la aplicación tenga acceso a la información que figura en tu perfil."
+          name: "Perfil."
         read:
           description: "Esto permite a la aplicación leer tu portada, tus conversaciones y tu perfil completo"
           name: "leer perfil, portada y conversaciones"
@@ -219,7 +220,7 @@ es:
       stay_updated: "Mantente actualizado"
       stay_updated_explanation: "Tu página principal la forman todos tus contactos, las etiquetas que sigues, y si lo deseas, las publicaciones de diferentes miembros creativos de la comunidad."
     destroy:
-      failure: "%{name} no pudo ser eliminado."
+      failure: "%{name} no ha podido eliminarse."
       success: "%{name} fue eliminado con éxito."
       success_auto_follow_back: "Se borró correctamente %{name}. Este aspecto se usaba para seguir automáticamente a los usuarios, revisa tu configuración para seleccionar un nuevo aspecto de autoseguimiento."
     edit:
@@ -249,7 +250,7 @@ es:
         tag_question: "pregunta"
         tutorial_link_text: "Tutoriales"
         tutorials_and_wiki: "%{faq}, %{tutorial} y %{wiki}: ayuda para dar tus primeros pasos."
-      introduce_yourself: "Ésta es tu página principal.  Adelante, preséntate..."
+      introduce_yourself: "Ésta es tu página principal. ¡Adelante, preséntate!"
       keep_pod_running: "Haz que %{pod} vaya más rápido, ¡invita a café a nuestros servidores con una donación mensual!"
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
@@ -275,7 +276,7 @@ es:
       success: "Tu aspecto, %{name}, fue editado con éxito."
   blocks:
     create:
-      failure: "No pude ignorar a este usuario.  #evasion"
+      failure: "No ha sido posible ignorar a este usuario.  #evasiónderesponsabilidades"
       success: "Bien, no verás a esa persona en tu entrada otra vez. #silencio!"
     destroy:
       failure: "No podría dejar de ignorar a ese usuario.  #evasion"
@@ -585,9 +586,11 @@ es:
       byline: "La red social mundial donde tú tienes el control"
       choose_your_audience: "Escoge tu público"
       choose_your_audience_info: "Los aspectos de diaspora* te permiten compartir sólamente con las personas que quieras. Puedes ser tan público o privado como prefieras. Comparte una foto divertida con el mundo entero, o un oscuro secreto con tus amigos más cercanos. Tú tienes el control."
+      diaspora_site_link: "Red federada de diaspora*"
       headline: "Bienvenido a %{pod_name}"
       own_your_data: "Sé el dueño de tus datos"
       own_your_data_info: "Muchas redes usan tus datos para hacer dinero analizando tus interacciones y usando esa información para mostrarte anuncios. diaspora* no usa tus datos para ningún propósito distinto que permitirte estar en contacto con otros."
+      part_of_diaspora: "Parte de %{diaspora_site_link}"
     podmin:
       byline: "Estas a punto de cambiar internet. Vamos a configurarlo, ¿de acuerdo?"
       configuration_info: "Abre %{database_path} y %{diaspora_path} en tu editor de texto favorito y revisalos cuidadosamente, están comentados al detalle."
@@ -608,7 +611,7 @@ es:
       update_your_pod: "Actualiza tu pod"
       update_your_pod_info: "Puedes encontrar %{update_instructions}"
   invitation_codes:
-    already_logged_in: "Has sido invitado por %{inviter} para unirte a este pod, pero ya tienes la sesión iniciada."
+    already_logged_in: "Has recibido una invitación de %{inviter} para unirte a este pod pero ya has iniciado la sesión."
     not_valid: "Ese código de invitación ya no es válido"
   invitations:
     create:
@@ -616,7 +619,7 @@ es:
       empty: "Por favor, introduce al menos una dirección de correo electrónico."
       no_more: "No tienes más invitaciones."
       note_already_sent: "Las invitaciones han sido enviadas a: %{emails}"
-      rejected: "Hubo problemas con las siguientes direcciones de correo: %{emails}"
+      rejected: "Por favor, verifica las siguientes direcciones de correo electrónico: %{emails}"
       sent: "Las invitaciones han sido enviadas a: %{emails}"
     new:
       codes_left:
@@ -649,7 +652,7 @@ es:
       toggle_navigation: "Cambiar navegación"
   likes:
     create:
-      error: "¡Falló el 'me gusta'!"
+      error: "Ha ocurrido un error al darle \"Me gusta\"."
     destroy:
       error: "Ocurrió un error al quitar el \"Me gusta\""
   limited: "Limitado"
@@ -688,6 +691,7 @@ es:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
       mentioned: "Mencionado"
+      mentioned_in_comment: "Mencionado en el comentario."
       no_notifications: "Todavía no tienes ninguna notificación."
       notifications: "Notificaciones"
       reshared: "Compartido"
@@ -710,6 +714,9 @@ es:
       one: "%{actors} te ha mencionado en una publicación eliminada."
       other: "%{actors} te han mencionado en una publicación eliminada."
       zero: "%{actors} te han mencionado en una publicación eliminada."
+    mentioned_in_comment:
+      one: "%{actors} te ha mencionado en <a href='%{comment_path}'>un comentario</a> de la publicación %{post_link}."
+      other: "%{actors} te han mencionado en <a href='%{comment_path}'>un comentario</a> de la publicación %{post_link}."
     mentioned_in_comment_deleted:
       one: "%{actors} te ha mencionado en un comentario eliminado."
       other: "%{actors} te han mencionado en un comentario eliminado."
@@ -748,26 +755,26 @@ es:
       view_profile: "Ver el perfil de %{name}"
     csrf_token_fail:
       body: |-
-          Hola %{name},
+          Hola, %{name}:
 
-          diaspora* ha detectado un intento de acceso a tu cuenta que podría ser no autorizado. Para evitar que tu información pueda verse comprometida, se ha cerrado tu sesión. No te preocupes, puedes entrar otra vez de forma segura.
+          Diaspora* ha detectado un intento de acceso a tu cuenta que podría ser no autorizado. Se ha procedido al cierre de sesión para evitar que tu información pueda verse comprometida. No te preocupes; puedes entrar otra vez de forma segura.
 
-          Se ha recibido una solicitud usando un token CSFR incorrecto o incompleto. Podría ser algo inocente, pero podría ser también una petición falsificada procedente de otra web (CSFR).
+          Se ha recibido una solicitud usando un token CSFR incorrecto o inexistente. Podría ser algo inocente, pero podría ser también una petición falsificada procedente de otra web (un ataque CSFR).
 
-          Esto podría haber sido causado por:
+          Puede haber varios motivos por los que esto puede haber ocurrido:
 
-          - Una extensión manipulando la solicitud o realizando solicitudes sin emplear un token (código de seguridad);
-          - Una pestaña abierta de la sesión anterior;
-          - Otra página web realizando solicitudes, con o sin tu permiso;
+          - Una extensión manipulando la solicitud o realizando solicitudes sin emplear un token (código de seguridad).
+          - Una pestaña abierta de la sesión anterior.
+          - Otra página web realizando solicitudes, con o sin tu permiso.
           - Otras aplicaciones externas;
           - Código malicioso intentando acceder a tu información.
 
           Para más información acerca de CSFR ver %{link}%{link}.
 
-          Si ves este mensaje de forma repetida, por favor revisa los anteriores puntos, incluyendo las extensiones de tu buscador de internet. 
+          Si ves este mensaje de forma repetida, por favor revisa los anteriores puntos, incluyendo las extensiones de tu navegador de internet. 
 
           Gracias,
-          El robot del email de dispora*!
+          ¡El robot de email de dispora*!
       subject: "Hemos recibido una solicitud no autorizada desde tu cuenta, %{name}"
     email_sent_by_diaspora: "Este correo electrónico fue enviado por %{pod_name}. Si quieres dejar de recibir correos como este,"
     export_email:
@@ -842,6 +849,9 @@ es:
     mentioned:
       limited_post: "Se te mencionó en un post privado."
       subject: "%{name} te mencionó en diaspora*"
+    mentioned_in_comment:
+      limited_post: "Te han mencionado en un comentario de una publicación privada."
+      reply: "Contestar o ver esta conversación >"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
       subject: "Tienes un nuevo mensaje privado"
@@ -975,7 +985,11 @@ es:
       updated: "Perfil actualizado"
   public: "Público"
   registrations:
-    closed: "Los registros están cerrados en este servidor de Diaspora."
+    closed:
+      another_pod: "Otro pod"
+      closed_pod: "La inscripción de nuevos usuarios se encuentra cerrada en este momento en este pod. Puedes unirte de todas maneras a la red de diaspora* registrándote en %{wiki}. ¡Tendrás acceso al mismo tipo de contenido ya que todos los pods están entrelazados y conectados de forma interna!"
+      find_pods: "Lista de los pods en los que es posible registrarse: %{poduptime}"
+      other_questions: "Échale un vistazo nuestra %{wiki} si no sabes que pod elegir."
     create:
       success: "¡Te has unido a Diaspora*!"
     invalid_invite: "¡El enlace de la invitación ya no es válido!"
@@ -1050,11 +1064,11 @@ es:
       mobile_row_checked: "%{name} (eliminar)"
       mobile_row_unchecked: "%{name} (añadir)"
       toggle:
-        one: "En %{count} aspecto"
-        other: "En %{count} aspectos"
-        zero: "En ningún aspecto"
+        one: "En %{count} grupo."
+        other: "En %{count} grupos."
+        zero: "En ningún grupo."
     invitations:
-      by_email: "Invita a más personas a través de correo electrónico."
+      by_email: "Mandar invitaciones por correo electrónico."
       invite_your_friends: "Invita a tus contactos"
       invites: "Invitaciones"
       share_this: "¡Comparte este enlace a través de correo electrónico, blog o tu red social favorita!"
@@ -1063,11 +1077,11 @@ es:
       control_your_audience: "Controla tu público"
       logged_in: "Conectado a %{service}"
       manage: "Gestionar servicios conectados"
-      new_user_welcome_message: "Utiliza #etiquetas para clasificar tus publicaciones y encuentra a gente que comparte tus intereses. Nombra a personas especiales usando @Mentions"
+      new_user_welcome_message: "Utiliza #etiquetas para clasificar tus publicaciones y encontrar a gente que comparte tus aficiones. Usa las @menciones para mencionar a quien quieras."
       outside: "Los mensajes públicos podrán ser vistos por otros fuera de Diaspora*."
       share: "Comparte"
       title: "Configurar los servicios conectados"
-      visibility_dropdown: "Usa este menú desplegable para cambiar la visibilidad de tu publicación. (Te sugerimos hacerlo público la primera vez.)"
+      visibility_dropdown: "Usa este menú desplegable para cambiar la visibilidad de tu publicación. (Te recomendamos que esta primera publicación sea pública)."
     publisher:
       discard_post: "Descartar publicación"
       formatWithMarkdown: "Puedes usar %{markdown_link} para dar formato al mensaje."
@@ -1163,6 +1177,41 @@ es:
         one: "Una persona etiquetada con %{tag}"
         other: "%{count} personas etiquetadas con %{tag}"
         zero: "Nadie etiquetado con %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Desactivar."
+      change_label: "Introduce tu contraseña para desactivar la autentificación de doble factor."
+      status: "Se ha activado la autentificación de doble factor."
+    confirm:
+      activate_button: "Confirmar y activar."
+      input_explanation: "Cuando hayas escaneado el código QR o introducido el secreto, introduce el código de seis dígitos y confirma la configuración."
+      input_title: "Confirmar con token TOTP."
+      manual_explanation: "En caso de no poder escanear el código QR automáticamente, puedes introducir manualmente el secreto en tu aplicación."
+      manual_explanation_cont: "Estamos usando contraseñas de un solo uso con tiempo limitado de utilización (TOTP) con tokens de seis dígitos. Si tu aplicación te pide un intervalo de tiempo y un algoritmo, introduce 30 segundos y sha1 respectivamente. <br /> Los espacios se muestran solamente para facilitar la lectura. Por favor, intruce el código sin espacios."
+      scan_explanation: "Por favor, escanea el código QR con una aplicación que soporte TOTP. Algunos ejemplos: andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      scan_title: "Escanea el código QR."
+      status: "La autentificación de doble factor no está completamente activada todavía. Tienes que confirmar la activación con un token TOTP."
+      title: "Confirmar activación."
+    deactivated:
+      change_button: "Activar."
+      change_label: "Activar la autentificación de doble factor."
+      status: "La autentificación de doble factor no está activada."
+    explanation: "La autentificación de doble factor es una forma muy potente de asegurarse que tú eres la única persona que tiene acceso a tu cuenta. En el momento de acceder tendrás que introducir un código de seis dígitos, además de tu contraseña, para verificar tu identidad. ¡Ten mucho cuidado! El acceso a tu cuenta de diaspora* se bloqueará de forma permanente si pierdes el teléfono móvil y los códigos que se crearon al activar esta función."
+    flash:
+      error_token: "El token es incorrecto o no es válido."
+      success_activation: "La autentificación de doble factor ha sido activada correctamente."
+      success_deactivation: "La autentificación de doble factor ha sido desactivada correctamente."
+    input_token:
+      label: "Token de doble factor."
+      placeholder: "Token de seis dígitos para la autentificación de doble factor."
+    recovery:
+      button: "Generar nuevos códigos de recuperación."
+      explanation: "Puedes usar alguno de los códigos de recuperación mostrados más abajo para volver a acceder a tu cuenta si alguna vez dejas de tener acceso a tu teléfono móvil. Un ejemplo para esto sería imprimir los códigos y guardarlos junto a otra documentación importante."
+      explanation_short: "Los códigos de recuperación te permiten volver a acceder a tu cuenta en el caso de pérdida de tu teléfono móvil. Por favor, ten en cuenta que solo puedes usar una vez cada código."
+      invalidation_notice: "Por si acaso has perdido los códigos de recuperación, aquí puedes volver a generarlos. Los códigos de recuperación anteriores dejarán de tener validez."
+      reminder: "También puedes usar uno de los códigos de recuperación."
+      title: "Códigos de recuperación."
+    title: "Autentificación de doble factor."
   username: "Nombre de usuario"
   users:
     confirm_email:
@@ -1195,7 +1244,7 @@ es:
       comment_on_post: "...alguien comentó en tu publicación"
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión..."
-      default_post_visibility: "Seleccionados los aspectos por defecto para publicar."
+      default_post_visibility: "Grupos seleccionados por defecto para publicar."
       download_export: "Descargar mi perfil"
       download_export_photos: "Descargar mis fotografías"
       edit_account: "Editar cuenta"
@@ -1207,11 +1256,14 @@ es:
       last_exported_html: "(Última actualización %{timeago})"
       liked: "a alguien le gusta tu publicación"
       mentioned: "te mencionan en una publicación"
+      mentioned_in_comment: "Te han mencionado en un comentario."
       new_password: "Nueva contraseña"
       private_message: "has recibido un mensaje privado"
       protocol_handler:
         browser: "Este protocolo está actualmente en una fase experimental y su buen funcionamiento dependerá de tu navegador. Si quieres gestionar o eliminar esta funcionalidad, puedes hacerlo a través de la configuración del navegador.  El botón siempre estará activado, y tu necesitas configurar la funcionalidad en cada navegador para usarlo."
+        description: "web+diaspora:// es un protocolo de red que hemos introducido. Todos los enlaces que apunten a una página de diaspora* en una página web externa, y que usen este protocolo, se podrá abrir en el pod en el que tengas registrada tu cuenta de diaspora* . Pincha en el botón más abajo para indicar a tu navegador que use %{pod_url} para reconocer enlaces web+diaspora:// externos."
         register: "Registro"
+        title: "web+diaspora:// controlador de protocolo"
       receive_email_notifications: "Recibir notificaciones por correo cuando..."
       request_export: "Solicitar los datos de mi perfil"
       request_export_photos: "Solicitar mis fotografías"

@@ -96,22 +96,22 @@ es:
     confirm_unload: "Por favor, confirma que quieres abandonar esta página. Los datos que no hayas introducido, no serán guardados."
     contacts:
       add_contact: "Añadir contacto"
-      aspect_chat_is_enabled: "Los contactos de este \"aspecto\" pueden chatear contigo."
-      aspect_chat_is_not_enabled: "Los contactos de este \"aspecto\" no pueden chatear contigo."
+      aspect_chat_is_enabled: "Los contactos de este grupo pueden chatear contigo."
+      aspect_chat_is_not_enabled: "Los contactos de este grupo no pueden chatear contigo."
       error_add: "No se pudo añadir a <%= name %> al aspecto :("
       error_remove: "No se pudo eliminar <%= name %> del aspecto :("
       remove_contact: "Eliminar contacto"
       search_no_results: "No se encontraron contactos"
     conversation:
       create:
-        no_recipient: "¡Eh, primero tienes que agregar un destinatario!"
+        no_recipient: "¡Añade primero un destinatario!"
       new:
         no_contacts: "Necesitas añadir algún contacto antes de empezar una conversación."
     create: "Crear"
     delete: "Eliminar"
     edit: "Editar"
     errors:
-      connection: "No ha sido posible conectarse al servidor."
+      connection: "No se ha podido establecer la conexión con el servidor."
     failed_to_post_message: "¡Error al publicar el mensaje!"
     failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
     getting_started:
@@ -296,7 +296,7 @@ es:
       hour: "1 hora aproximadamente"
       hours:
         other: "%d horas aproximadamente"
-      inPast: "próximamente"
+      inPast: "Próximamente"
       minute: "1 minuto aproximadamente"
       minutes:
         other: "%d minutos"

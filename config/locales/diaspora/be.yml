@@ -15,7 +15,7 @@ be:
         contact:
           attributes:
             person_id:
-              taken: "павінна быць унікальным у кантактах гэтага карыстальніка."
+              taken: "мусіць быць унікальным у кантактах гэтага карыстальніка."
         person:
           attributes:
             diaspora_handle:
@@ -23,7 +23,7 @@ be:
         reshare:
           attributes:
             root_guid:
-              taken: "Добра, але гэта ты ўжо перапосціў!"
+              taken: "Падабаецца? Але ты ўжо падзяліуся гэтым!"
         user:
           attributes:
             email:
@@ -33,42 +33,52 @@ be:
             username:
               invalid: "Памылка. Дазваляюцца літары, лічбы і падкрэсліванні."
               taken: "ужо існуе."
-  all_aspects: "усе катыгорыі"
+  all_aspects: "Усе аспекты"
   are_you_sure: "сапраўды?"
-  are_you_sure_delete_account: "Вы сапраўды хочаце выдаліць Ваш акаўнт? Гэта не магчыма будзе адмяніць!"
+  are_you_sure_delete_account: "Вы сапраўды жадаеце выдаліць Ваш акаўнт? Гэта не магчыма будзе адмяніць!"
   aspects:
     add_to_aspect:
       failure: "Памылка пры спробе дадаць кантакты да аспекта."
       success: "Кантакты паспяхова дададзены ў аспект."
     aspect_listings:
       add_an_aspect: "+ дадаць катыгорыю"
+    aspect_stream:
+      stay_updated: "Заўжды на сувязі"
     destroy:
-      failure: "%{name} не пустая і не можа быць выдалена."
+      failure: "%{name} не магчыма выдаліць."
       success: "%{name} паспяхова выдалена"
     edit:
-      aspect_list_is_not_visible: "спіс катыгорый не бачны для ўсіх"
-      aspect_list_is_visible: "спіс катыгорый бачны для ўсіх"
+      aspect_list_is_not_visible: "Кантакты ў гэтым аспекце ня бачны нікому"
+      aspect_list_is_visible: "Кантакты ў гэтым аспекце бачны для ўсіх"
       confirm_remove_aspect: "ты сапраўды жадаешь выдаліць гэтую катыгорыю?"
       rename: "перайменаваць"
-      update: "абнавіць"
-      updating: "абнаўляю ..."
+      update: "аднавіць"
+      updating: "аднаўляю ..."
     index:
       donate: "падзяка"
       help:
         do_you: "Гэта тычыцца:"
-        here_to_help: "Супольнасці Diaspora тут!"
-        need_help: "дапамога патрэбна?"
+        feature_suggestion: "... жадаеце нешта %{link} прапанаваць?"
+        find_a_bug: "... знайшлі %{link}?"
+        have_a_question: "... маеце %{link}?"
+        here_to_help: "Суполка Дыаспара* заўсёды побач!"
+        need_help: "Патрэбна дапамога?"
         tag_bug: "памылка"
+        tag_feature: "функцыя"
         tag_question: "пытанне"
+      introduce_yourself: "Гэта ваша ручаіна. Скокайце ды пакажыце сябе."
       new_here:
         follow: "Сачы за %{link} і вітай новых карыстальнікаў diaspora*!"
         learn_more: "паказаць больш"
-        title: "Прывітанне, Новы Ўдзельнік!(чалавек)"
+        title: "Прывітай новых удзельнікаў"
+      services:
+        content: "Вы можаце дадаць наступныя паслугі ў diaspora*:"
+        heading: "Далучыць паслугі"
       welcome_to_diaspora: "Вітаем ў Diaspora, %{name}!"
     no_contacts_message:
-      community_spotlight: "супольны прагляд"
+      community_spotlight: "Рэкамендуемыя удзельнікі"
       or_spotlight: "ты можаш таксама падзяліцца %{link}"
-      try_adding_some_more_contacts: "ты можаш знайсці ці дадаць новыя катракты"
+      try_adding_some_more_contacts: "ты можаш знайсці ці %{invite_link} новыя кантакты."
       you_should_add_some_more_contacts: "спачатку дадай пару кантактаў"
     seed:
       acquaintances: "знаёмыя"
@@ -79,13 +89,31 @@ be:
       failure: "не магчыма захаваць катыгорыю %{name}, занадта дліная назва."
       success: "катыгорыя %{name} была паспяхова выдалена"
   cancel: "адмяніць"
+  comments:
+    new_comment:
+      comment: "Каментарыі"
+      commenting: "Каменціраванне"
   contacts:
     index:
-      all_contacts: "усе кантакты"
+      all_contacts: "Усе кантакты"
+      my_contacts: "Мае кантакты"
+      start_a_conversation: "Пачаць гутарку"
+      title: "Кантакты"
   conversations:
+    create:
+      fail: "Памылковае паведамленне"
+      sent: "Паведамленне даслана"
+    index:
+      inbox: "Уваходныя"
+      no_messages: "Няма паведамленняў"
     new:
       send: "даслаць"
       sending: "адсылаю ..."
+      subject: "Тэма"
+    show:
+      delete: "Выдаліць гутарку"
+      reply: "Адачаць"
+      replying: "Адказваем..."
   delete: "выдаліць"
   email: "Email"
   error_messages:
@@ -93,16 +121,33 @@ be:
       correct_the_following_errors_and_try_again: "спраўляй памылкі і паспрабуй зноў."
   fill_me_out: "запоўні мяне"
   find_people: "Пошук людзей ці #тэгаў"
+  help:
+    aspects:
+      title: "Аспекты"
+      what_is_an_aspect_q: "Што такое аспект?"
   invitations:
+    create:
+      no_more: "Больш няма запрашенняў"
     new:
-      invite_someone_to_join: "запрасі каго-небудзь да Diaspora!"
+      invite_someone_to_join: "Запрасі яшчэ кагосці да Diaspora*!"
       language: "мова"
+      send_an_invitation: "Даслаць запрашэнне"
   layouts:
+    application:
+      powered_by: "Заснавана на diaspora*"
+      whats_new: "Што новага?"
     header:
+      code: "Код"
+      logout: "Выйсці"
+      profile: "Профіль"
       settings: "налады"
   limited: "абмежавана"
   more: "больш"
-  no_results: "нічога не знайшлось"
+  no_results: "Нічога не знайшлось"
+  notifier:
+    click_here: "Націсні сюды"
+    hello: "Вітаем, %{name}!"
+    thanks: "Дзякуй,"
   nsfw: "не дзеля ўсіх вачэй"
   ok: "ok"
   privacy: "Прыватнасць"
@@ -110,4 +155,11 @@ be:
   public: "адкрыта"
   search: "Пошук"
   settings: "Налады"
+  streams:
+    aspects:
+      title: "Мае аспекты"
+    aspects_stream: "Аспекты"
   username: "Імя карыстальніка"
+  users:
+    edit:
+      auto_follow_aspect: "Дадаваць гэтых карыстальнікаў у аспект:"

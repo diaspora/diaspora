@@ -391,7 +391,6 @@ vi:
       updated: "Đã cập nhật hồ sơ"
   public: "Công khai"
   registrations:
-    closed: "Pod DIASPORA này không cho đăng kí nữa."
     create:
       success: "Bạn đã tham gia vào Diaspora!"
     invalid_invite: "Liên kết mời bạn cung cấp không còn hợp lệ!"

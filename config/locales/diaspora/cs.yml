@@ -1017,7 +1017,6 @@ cs:
       updated: "Profil aktualizován"
   public: "Veřejné"
   registrations:
-    closed: "Přihlášky nejsou na tomto podu diaspory* otevřeny."
     create:
       success: "Připojili jste se k diaspoře*!"
     invalid_invite: "Odkaz na pozvánku, který jste poskytli, již neplatí!"
