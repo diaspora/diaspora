@@ -30,6 +30,7 @@ en:
         someone_requested: Someone has requested a link to change your password. If
           it was you, you can do this through the link below.
         change: Change my password
+        then_connect: After setting a new password, you will be able to sign into diaspora* again using your username "%{username}" and your new password
         wont_change: Your password won't change until you access the link above and
           create a new one.
         ignore: If you didn't request this, please ignore this email.
@@ -41,8 +42,8 @@ en:
         unlock: Unlock my account
       password_change:
         subject: Password Changed
-      welcome: Welcome %{email}!
-      hello: Hello %{email}!
+      welcome: Welcome %{username}!
+      hello: Hello %{username}!
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} have invited you to join diaspora*"
