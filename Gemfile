@@ -81,7 +81,7 @@ gem "activerecord-import", "1.0.2"
 # File uploading
 
 gem "carrierwave", "1.3.1"
-gem "fog-aws",     "3.4.0"
+gem "fog-aws",     "3.5.1"
 gem "mini_magick", "4.9.3"
 
 # GUID generation
