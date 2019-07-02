@@ -187,7 +187,7 @@ gem "acts-as-taggable-on", "6.0.0"
 
 gem "addressable",        "2.6.0", require: "addressable/uri"
 gem "faraday",            "0.15.4"
-gem "faraday_middleware", "0.12.2"
+gem "faraday_middleware", "0.13.1"
 gem "faraday-cookie_jar", "0.0.6"
 gem "typhoeus",           "1.3.1"
 
