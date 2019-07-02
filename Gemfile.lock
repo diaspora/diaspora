@@ -496,7 +496,7 @@ GEM
     public_suffix (3.0.3)
     raabro (1.1.6)
     rack (2.0.7)
-    rack-cors (1.0.2)
+    rack-cors (1.0.3)
     rack-google-analytics (1.2.0)
       actionpack
       activesupport
@@ -866,7 +866,7 @@ DEPENDENCIES
   pronto-scss (= 0.9.1)
   pry
   pry-byebug
-  rack-cors (= 1.0.2)
+  rack-cors (= 1.0.3)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
   rack-rewrite (= 1.5.1)
