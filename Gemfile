@@ -93,12 +93,12 @@ gem "entypo-rails", "3.0.0"
 # JavaScript
 
 gem "handlebars_assets", "0.23.4"
-gem "jquery-rails",      "4.3.3"
+gem "jquery-rails",      "4.3.5"
 gem "js-routes",         "1.4.4"
 gem "js_image_paths",    "0.1.1"
 
 source "https://rails-assets.org" do
-  gem "rails-assets-jquery",                              "3.3.1" # Should be kept in sync with jquery-rails
+  gem "rails-assets-jquery",                              "3.4.1" # Should be kept in sync with jquery-rails
   gem "rails-assets-jquery.ui",                           "1.11.4"
 
   gem "rails-assets-highlightjs",                         "9.12.0"
