@@ -350,7 +350,7 @@ GEM
       rails (>= 4.0, < 6.0)
       sprockets (>= 3.0.0)
     json (2.2.0)
-    json-jwt (1.10.0)
+    json-jwt (1.10.2)
       activesupport (>= 4.2)
       aes_key_wrap
       bindata
@@ -442,7 +442,7 @@ GEM
     open_graph_reader (0.6.2)
       faraday (>= 0.9.0)
       nokogiri (~> 1.6)
-    openid_connect (1.1.6)
+    openid_connect (1.1.8)
       activemodel
       attr_required (>= 1.0.0)
       json-jwt (>= 1.5.0)
@@ -488,7 +488,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     psych (3.1.0)
-    public_suffix (3.0.3)
+    public_suffix (3.1.1)
     raabro (1.1.6)
     rack (2.0.7)
     rack-cors (1.0.3)
@@ -497,7 +497,7 @@ GEM
       activesupport
     rack-mobile-detect (0.4.0)
       rack
-    rack-oauth2 (1.9.3)
+    rack-oauth2 (1.10.0)
       activesupport
       attr_required
       httpclient
@@ -751,7 +751,7 @@ GEM
     validate_email (0.1.6)
       activemodel (>= 3.0)
       mail (>= 2.2.5)
-    validate_url (1.0.6)
+    validate_url (1.0.8)
       activemodel (>= 3.0.0)
       public_suffix
     versionist (1.7.0)
@@ -843,7 +843,7 @@ DEPENDENCIES
   omniauth-twitter (= 1.4.0)
   omniauth-wordpress (= 0.2.2)
   open_graph_reader (= 0.6.2)
-  openid_connect (= 1.1.6)
+  openid_connect (= 1.1.8)
   pg (= 1.1.4)
   poltergeist (= 1.18.1)
   pronto (= 0.9.5)
