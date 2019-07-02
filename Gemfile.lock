@@ -754,7 +754,7 @@ GEM
     validate_url (1.0.8)
       activemodel (>= 3.0.0)
       public_suffix
-    versionist (1.7.0)
+    versionist (2.0.0)
       activesupport (>= 3)
       railties (>= 3)
       yard (~> 0.9.11)
@@ -773,7 +773,7 @@ GEM
     will_paginate (3.1.7)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.18)
+    yard (0.9.20)
 
 PLATFORMS
   ruby
@@ -917,7 +917,7 @@ DEPENDENCIES
   unicorn (= 5.5.1)
   unicorn-worker-killer (= 0.4.4)
   uuid (= 2.3.9)
-  versionist (= 1.7.0)
+  versionist (= 2.0.0)
   webmock (= 3.5.1)
   will_paginate (= 3.1.7)
 
