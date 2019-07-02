@@ -142,7 +142,7 @@ gem "rails-i18n",           "5.1.3"
 gem "markerb",             "1.1.0"
 
 # Map
-gem "leaflet-rails",       "1.3.1"
+gem "leaflet-rails",       "1.5.1"
 
 # Parsing
 
