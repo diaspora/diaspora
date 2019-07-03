@@ -1,12 +1,11 @@
+require: rubocop-rails
+
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
     - "bin/**/*"
     - "db/schema.rb"
     - "config/locales/cldr/plurals.rb"
-
-Rails:
-  Enabled: true
 
 # Disable for rails 4
 Rails/HttpPositionalArguments:

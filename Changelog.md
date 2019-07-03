@@ -20,6 +20,7 @@
 ## Bug fixes
 
 ## Features
+* Add cronjob to cleanup pending photos which were never posted [#8041](https://github.com/diaspora/diaspora/pull/8041)
 
 # 0.7.12.0
 
