@@ -316,7 +316,7 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "3.4.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "3.4.0", source: "https://rails-assets.org"
+  gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.15.0"
 
   # For `assigns` in controller specs
