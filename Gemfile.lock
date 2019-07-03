@@ -233,7 +233,7 @@ GEM
       http-cookie (~> 1.0.0)
     faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.10.0)
+    ffi (1.11.1)
     fixture_builder (0.5.2.rc3)
       activerecord (>= 2)
       activesupport (>= 2)
