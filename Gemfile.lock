@@ -220,7 +220,7 @@ GEM
       kostya-sigar (~> 2.0.0)
       state_machines
       thor
-    fabrication (2.20.1)
+    fabrication (2.20.2)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.8.0)
