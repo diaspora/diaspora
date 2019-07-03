@@ -153,12 +153,7 @@ class PhotosController < ApplicationController
         current_user.dispatch_post(@photo, to: photo_params[:aspect_ids])
       end
 
-      if photo_params[:set_profile_photo]
-        profile_params = {image_url:        @photo.url(:thumb_large),
-                          image_url_medium: @photo.url(:thumb_medium),
-                          image_url_small:  @photo.url(:thumb_small)}
-        current_user.update_profile(profile_params)
-      end
+      current_user.update_profile(photo: @photo) if photo_params[:set_profile_photo]
 
       respond_to do |format|
         format.json { render(layout: false, json: {"success" => true, "data" => @photo}.to_json) }
