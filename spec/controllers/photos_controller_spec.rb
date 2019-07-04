@@ -44,7 +44,7 @@ describe PhotosController, :type => :controller do
   describe '#create' do
     before do
       allow(@controller).to receive(:file_handler).and_return(uploaded_photo)
-      @params = {:photo => {:user_file => uploaded_photo, :aspect_ids => "all"} }
+      @params = {photo: {user_file: uploaded_photo, aspect_ids: "all", pending: true}}
     end
 
     it "creates a photo" do
@@ -67,11 +67,13 @@ describe PhotosController, :type => :controller do
       expect(Photo.last.author).to eq(alice.person)
     end
 
-    it 'can set the photo as the profile photo' do
+    it "can set the photo as the profile photo and unpends the photo" do
       old_url = alice.person.profile.image_url
       @params[:photo][:set_profile_photo] = true
       post :create, params: @params
-      expect(alice.reload.person.profile.image_url).not_to eq(old_url)
+      new_url = alice.reload.person.profile.image_url
+      expect(new_url).not_to eq(old_url)
+      expect(Photo.find_by(remote_photo_name: new_url.rpartition("_").last).pending).to be_falsey
     end
   end
 
