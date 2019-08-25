@@ -439,7 +439,7 @@ GEM
       rack
     omniauth-wordpress (0.2.2)
       omniauth-oauth2 (>= 1.1.0)
-    open_graph_reader (0.6.2)
+    open_graph_reader (0.7.0)
       faraday (>= 0.9.0)
       nokogiri (~> 1.6)
     openid_connect (1.1.8)
@@ -842,7 +842,7 @@ DEPENDENCIES
   omniauth-tumblr (= 1.2)
   omniauth-twitter (= 1.4.0)
   omniauth-wordpress (= 0.2.2)
-  open_graph_reader (= 0.6.2)
+  open_graph_reader (= 0.7.0)
   openid_connect (= 1.1.8)
   pg (= 1.1.4)
   poltergeist (= 1.18.1)
