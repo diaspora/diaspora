@@ -21,6 +21,10 @@ addons:
   apt:
     packages: libidn11-dev
 
+services:
+  - postgresql
+  - mysql
+
 branches:
   only:
     - 'master'
