@@ -17,6 +17,10 @@ cache:
     - app/assets/images
     - tmp/cache/assets
 
+addons:
+  apt:
+    packages: libidn11-dev
+
 branches:
   only:
     - 'master'
