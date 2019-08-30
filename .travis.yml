@@ -19,7 +19,9 @@ cache:
 
 addons:
   apt:
-    packages: libidn11-dev
+    packages: 
+      - libidn11-dev
+      - ghostscript
 
 services:
   - postgresql
