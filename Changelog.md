@@ -19,6 +19,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix error while trying to fetch some sites with invalid OpenGraph data [#8049](https://github.com/diaspora/diaspora/pull/8049)
 
 ## Features
 * Add cronjob to cleanup pending photos which were never posted [#8041](https://github.com/diaspora/diaspora/pull/8041)
