@@ -47,8 +47,8 @@ class Comment < ApplicationRecord
   end
 
   after_destroy do
-    self.parent.update_comments_counter
-    participation = author.participations.find_by(target_id: post.id)
+    parent&.update_comments_counter
+    participation = author.participations.find_by(target_id: commentable_id)
     participation.unparticipate! if participation.present?
   end
 

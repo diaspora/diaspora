@@ -24,6 +24,14 @@ describe Comment, type: :model do
       participations = Participation.where(target_id: comment_alice.commentable_id, author_id: comment_alice.author_id)
       expect(participations.first.count).to eq(1)
     end
+
+    it "should work if parent is gone" do
+      comment_alice.parent.delete
+      comment_alice.reload
+      expect {
+        comment_alice.destroy
+      }.to_not raise_error
+    end
   end
 
   describe "#subscribers" do
