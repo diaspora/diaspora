@@ -186,8 +186,8 @@ configuration: ## Section
     #rails_environment: 'development'
 
     ## Write unicorn stderr and stdout log.
-    #stderr_log: '/usr/local/app/diaspora/log/unicorn-stderr.log'
-    #stdout_log: '/usr/local/app/diaspora/log/unicorn-stdout.log'
+    #stderr_log: 'log/unicorn-stderr.log'
+    #stdout_log: 'log/unicorn-stdout.log'
 
     ## Number of Unicorn worker processes (default=2).
     ## Increase this if you have many users.
