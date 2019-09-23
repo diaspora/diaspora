@@ -32,7 +32,7 @@ end
 Given /^"([^"]*)" has a public post with text "([^"]*)" and a picture/ do |email, text|
   user = User.find_by(email: email)
   post = user.post(:status_message, text: text, public: true, to: user.aspect_ids)
-  FactoryGirl.create(:photo, status_message: post)
+  FactoryGirl.create(:photo, status_message: post, author: user.person)
 end
 
 Given /^there are (\d+) public posts from "([^"]*)"$/ do |n_posts, email|

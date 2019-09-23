@@ -68,11 +68,9 @@ class Photo < ApplicationRecord
 
   def ownership_of_status_message
     message = StatusMessage.find_by_guid(self.status_message_guid)
-    if self.status_message_guid && message
-      self.diaspora_handle == message.diaspora_handle
-    else
-      true
-    end
+    return unless status_message_guid && message && diaspora_handle != message.diaspora_handle
+
+    errors.add(:base, "Photo must have the same owner as status message")
   end
 
   def self.diaspora_initialize(params={})
