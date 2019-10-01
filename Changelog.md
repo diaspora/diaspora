@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Don't link to deleted users in admin user stats [#8063](https://github.com/diaspora/diaspora/pull/8063)
 
 ## Features
 
