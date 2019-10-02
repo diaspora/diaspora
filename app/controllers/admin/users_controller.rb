@@ -2,7 +2,7 @@
 
 module Admin
   class UsersController < AdminController
-    before_action :validate_user, only: %i(make_admin remove_admin make_moderator remove_moderator make_spotlight remove_spotlight)
+    before_action :validate_user, only: %i[make_admin remove_admin make_moderator remove_moderator make_spotlight remove_spotlight]
 
     def close_account
       u = User.find(params[:id])
@@ -23,11 +23,11 @@ module Admin
     end
 
     def make_admin
-      unless Role.is_admin? @user.person
+      if Role.is_admin? @user.person
+        notice = "admins.user_search.role_implemented"
+      else
         Role.add_admin @user.person
         notice = "admins.user_search.add_admin"
-      else
-        notice = "admins.user_search.role_implemented"
       end
       redirect_to user_search_path, notice: t(notice, name: @user.username)
     end
@@ -43,11 +43,11 @@ module Admin
     end
 
     def make_moderator
-      unless Role.moderator_only? @user.person
+      if Role.moderator_only? @user.person
+        notice = "admins.user_search.role_implemented"
+      else
         Role.add_moderator @user.person
         notice = "admins.user_search.add_moderator"
-      else
-        notice = "admins.user_search.role_implemented"
       end
       redirect_to user_search_path, notice: t(notice, name: @user.username)
     end
@@ -63,11 +63,11 @@ module Admin
     end
 
     def make_spotlight
-      unless Role.spotlight? @user.person
+      if Role.spotlight? @user.person
+        notice = "admins.user_search.role_implemented"
+      else
         Role.add_spotlight @user.person
         notice = "admins.user_search.add_spotlight"
-      else
-        notice = "admins.user_search.role_implemented"
       end
       redirect_to user_search_path, notice: t(notice, name: @user.username)
     end
