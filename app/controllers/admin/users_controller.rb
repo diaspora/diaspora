@@ -2,7 +2,8 @@
 
 module Admin
   class UsersController < AdminController
-    before_action :validate_user, only: %i[make_admin remove_admin make_moderator remove_moderator make_spotlight remove_spotlight]
+    before_action :validate_user, only: %i[make_admin
+                                           remove_admin make_moderator remove_moderator make_spotlight remove_spotlight]
 
     def close_account
       u = User.find(params[:id])
