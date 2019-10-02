@@ -22,7 +22,7 @@ module Api
       before_action :auth_user_unless_prompt_none!
 
       def new
-        auth = Api::OpenidConnect::Authorization.find_by(client_id: params[:client_id],
+        auth = Api::OpenidConnect::Authorization.find_by(o_auth_application_id: params[:client_id],
                                                           user: current_user, scopes: params[:scope])
         reset_auth(auth)
         if logged_in_before?(params[:max_age])
@@ -234,7 +234,7 @@ module Api
       def handle_prompt_with_signed_in_user
         client_id = params[:client_id]
         if client_id
-          auth = Api::OpenidConnect::Authorization.find_by(client_id: client_id,
+          auth = Api::OpenidConnect::Authorization.find_by(o_auth_application_id: client_id,
                                                             user: current_user, scopes: params[:scope])
           if auth
             process_authorization_consent("true")
