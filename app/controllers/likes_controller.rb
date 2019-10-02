@@ -19,12 +19,12 @@ class LikesController < ApplicationController
   def create
     like = like_service.create(params[:post_id])
   rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid
-    render plain: I18n.t("likes.create.error"), status: 422
+    render plain: I18n.t("likes.create.error"), status: :unprocessable_entity
   else
     respond_to do |format|
       format.html { head :created }
       format.mobile { redirect_to post_path(like.post_id) }
-      format.json { render json: like.as_api_response(:backbone), status: 201 }
+      format.json { render json: like.as_api_response(:backbone), status: :created }
     end
   end
 
@@ -32,14 +32,14 @@ class LikesController < ApplicationController
     if like_service.destroy(params[:id])
       head :no_content
     else
-      render plain: I18n.t("likes.destroy.error"), status: 404
+      render plain: I18n.t("likes.destroy.error"), status: :not_found
     end
   end
 
   def index
     render json: like_service.find_for_post(params[:post_id])
       .includes(author: :profile)
-      .as_api_response(:backbone)
+                             .as_api_response(:backbone)
   end
 
   private
