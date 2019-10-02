@@ -41,7 +41,7 @@ class AspectsController < ApplicationController
       flash[:error] = I18n.t "aspects.destroy.failure", name: aspect.name
     end
 
-    if request.referer.include?('contacts')
+    if request.referer.include?("contacts")
       redirect_to contacts_path
     else
       redirect_to aspects_path
@@ -50,24 +50,24 @@ class AspectsController < ApplicationController
 
   def show
     if aspect
-      redirect_to aspects_path('a_ids[]' => aspect.id)
+      redirect_to aspects_path("a_ids[]" => aspect.id)
     else
       redirect_to aspects_path
     end
   end
 
   def update
-    if aspect.update_attributes!(aspect_params)
-      flash[:notice] = I18n.t 'aspects.update.success', :name => aspect.name
+    if aspect.update!(aspect_params)
+      flash[:notice] = I18n.t "aspects.update.success", name: aspect.name
     else
-      flash[:error] = I18n.t 'aspects.update.failure', :name => aspect.name
+      flash[:error] = I18n.t "aspects.update.failure", name: aspect.name
     end
-    render :json => { :id => aspect.id, :name => aspect.name }
+    render json: {id: aspect.id, name: aspect.name}
   end
 
   def update_order
     params[:ordered_aspect_ids].each_with_index do |id, i|
-      current_user.aspects.find(id).update_attributes(order_id: i)
+      current_user.aspects.find(id).update(order_id: i)
     end
     head :no_content
   end
