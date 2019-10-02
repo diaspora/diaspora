@@ -40,16 +40,16 @@ module Api
 
       private
 
-      def http_error_page_as_json(e)
-        render json: {error: :invalid_request, error_description: e.message}, status: 400
+      def http_error_page_as_json(err)
+        render json: {error: :invalid_request, error_description: err.message}, status: :bad_request
       end
 
-      def validation_fail_as_json(e)
-        render json: {error: :invalid_client_metadata, error_description: e.message}, status: 400
+      def validation_fail_as_json(err)
+        render json: {error: :invalid_client_metadata, error_description: err.message}, status: :bad_request
       end
 
-      def validation_fail_redirect_uri(e)
-        render json: {error: :invalid_redirect_uri, error_description: e.message}, status: 400
+      def validation_fail_redirect_uri(err)
+        render json: {error: :invalid_redirect_uri, error_description: err.message}, status: :bad_request
       end
     end
   end

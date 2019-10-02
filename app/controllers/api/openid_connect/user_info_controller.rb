@@ -6,7 +6,7 @@ module Api
       include Api::OpenidConnect::ProtectedResourceEndpoint
 
       before_action do
-        require_access_token %w(openid)
+        require_access_token %w[openid]
       end
 
       def show
@@ -16,7 +16,8 @@ module Api
         attributes_without_essential =
           serializer.attributes.with_indifferent_access.select {|scope| auth.scopes.include? scope }
         attributes = attributes_without_essential.merge(
-          sub: serializer.sub)
+          sub: serializer.sub
+        )
         render json: attributes.to_json
       end
 

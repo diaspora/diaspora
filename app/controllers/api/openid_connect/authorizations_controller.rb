@@ -22,8 +22,8 @@ module Api
       before_action :auth_user_unless_prompt_none!
 
       def new
-        auth = Api::OpenidConnect::Authorization.find_by_client_id_user_and_scopes(params[:client_id],
-                                                                                   current_user, params[:scope])
+        auth = Api::OpenidConnect::Authorization.find_by(client_id: params[:client_id],
+                                                          user: current_user, scopes: params[:scope])
         reset_auth(auth)
         if logged_in_before?(params[:max_age])
           reauthenticate(params)
@@ -54,6 +54,7 @@ module Api
 
       def reset_auth(auth)
         return unless auth
+
         auth.o_auth_access_tokens.destroy_all
         auth.code_used = false
         auth.save
@@ -86,10 +87,13 @@ module Api
 
       def add_claims_to_scopes
         return unless params[:claims]
+
         claims_json = JSON.parse(params[:claims])
         return unless claims_json
+
         claims_array = claims_json["userinfo"].try(:keys)
         return unless claims_array
+
         req = build_rack_request
         claims = claims_array.unshift(req[:scope]).join(" ")
         req.update_param("scope", claims)
@@ -99,7 +103,7 @@ module Api
         if seconds.nil?
           false
         else
-          (Time.now - current_user.current_sign_in_at) > seconds.to_i
+          (Time.zone.now - current_user.current_sign_in_at) > seconds.to_i
         end
       end
 
@@ -137,7 +141,8 @@ module Api
 
       def process_authorization_consent(approved_string)
         endpoint = Api::OpenidConnect::AuthorizationPoint::EndpointConfirmationPoint.new(
-          current_user, to_boolean(approved_string))
+          current_user, to_boolean(approved_string)
+        )
         handle_confirmation_endpoint_response(endpoint)
       end
 
@@ -188,7 +193,7 @@ module Api
 
       def handle_params_error_when_client_id_and_redirect_uri_exists(error, error_description)
         app = Api::OpenidConnect::OAuthApplication.find_by(client_id: params[:client_id])
-        if app && app.redirect_uris.include?(params[:redirect_uri])
+        if app&.redirect_uris&.include?(params[:redirect_uri])
           redirect_prompt_error_display(error, error_description)
         else
           render_error I18n.t("api.openid_connect.error_page.could_not_authorize"),
@@ -204,9 +209,9 @@ module Api
 
       def auth_user_unless_prompt_none!
         prompt = params[:prompt]
-        if prompt && prompt.include?("none")
+        if prompt&.include?("none")
           handle_prompt_none
-        elsif prompt && prompt.include?("login")
+        elsif prompt&.include?("login")
           new_params = params.except("controller", "action").permit!.to_h.merge(prompt: prompt.remove("login"))
           reauthenticate(new_params)
         else
@@ -229,8 +234,8 @@ module Api
       def handle_prompt_with_signed_in_user
         client_id = params[:client_id]
         if client_id
-          auth = Api::OpenidConnect::Authorization.find_by_client_id_user_and_scopes(client_id,
-                                                                                     current_user, params[:scope])
+          auth = Api::OpenidConnect::Authorization.find_by(client_id: client_id,
+                                                            user: current_user, scopes: params[:scope])
           if auth
             process_authorization_consent("true")
           else

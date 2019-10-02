@@ -22,6 +22,7 @@ module Api
         jwt = JSON::JWT.decode jwt_string, :skip_verification
         o_auth_app = Api::OpenidConnect::OAuthApplication.find_by(client_id: jwt["iss"])
         raise Rack::OAuth2::Server::Authorize::BadRequest(:invalid_request) unless o_auth_app
+
         public_key = fetch_public_key(o_auth_app, jwt)
         JSON::JWT.decode(jwt_string, JSON::JWK.new(public_key).to_key)
         req.update_param("client_id", o_auth_app.client_id)
@@ -35,6 +36,7 @@ module Api
           public_key = fetch_public_key_from_json(response.body, jwt)
         end
         raise Rack::OAuth2::Server::Authorize::BadRequest(:unauthorized_client) if public_key.empty?
+
         public_key
       end
 

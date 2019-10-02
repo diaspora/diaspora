@@ -36,15 +36,15 @@ module Api
           jwks_uri:                                    api_openid_connect_url,
           scopes_supported:                            Api::OpenidConnect::Authorization::SCOPES,
           response_types_supported:                    Api::OpenidConnect::OAuthApplication.available_response_types,
-          request_object_signing_alg_values_supported: %i(none),
+          request_object_signing_alg_values_supported: %i[none],
           request_parameter_supported:                 true,
           request_uri_parameter_supported:             true,
-          subject_types_supported:                     %w(public pairwise),
-          id_token_signing_alg_values_supported:       %i(RS256),
-          token_endpoint_auth_methods_supported:       %w(client_secret_basic client_secret_post private_key_jwt),
+          subject_types_supported:                     %w[public pairwise],
+          id_token_signing_alg_values_supported:       %i[RS256],
+          token_endpoint_auth_methods_supported:       %w[client_secret_basic client_secret_post private_key_jwt],
           claims_parameter_supported:                  true,
-          claims_supported:                            %w(sub name nickname profile picture),
-          userinfo_signing_alg_values_supported:       %w(none)
+          claims_supported:                            %w[sub name nickname profile picture],
+          userinfo_signing_alg_values_supported:       %w[none]
         )
       end
     end
