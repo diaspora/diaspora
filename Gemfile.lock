@@ -184,7 +184,6 @@ GEM
     devise_lastseenable (0.0.6)
       devise
       rails (>= 3.0.4)
-    diaspora-prosody-config (0.0.7)
     diaspora_federation (0.2.6)
       faraday (>= 0.9.0, < 0.16.0)
       faraday_middleware (>= 0.10.0, < 0.14.0)
@@ -538,31 +537,18 @@ GEM
     rails-assets-corejs-typeahead (1.2.1)
       rails-assets-jquery (>= 1.11)
     rails-assets-cropperjs (1.4.3)
-    rails-assets-diaspora_jsxc (0.1.5.develop.7)
-      rails-assets-emojione (~> 2.0.1)
-      rails-assets-favico.js (>= 0.3.10, < 0.4)
-      rails-assets-jquery-colorbox (~> 1.6.3)
-      rails-assets-jquery-fullscreen-plugin (~> 0.5.0)
-      rails-assets-jquery.slimscroll (~> 1.3.6)
-      rails-assets-jquery.ui (~> 1.11.4)
-    rails-assets-emojione (2.0.1)
-    rails-assets-favico.js (0.3.10)
     rails-assets-fine-uploader (5.13.0)
     rails-assets-highlightjs (9.12.0)
     rails-assets-jasmine (3.4.0)
     rails-assets-jasmine-ajax (4.0.0)
       rails-assets-jasmine (~> 3)
     rails-assets-jquery (3.4.1)
-    rails-assets-jquery-colorbox (1.6.4)
-      rails-assets-jquery (>= 1.3.2)
-    rails-assets-jquery-fullscreen-plugin (0.5.0)
     rails-assets-jquery-placeholder (2.3.1)
       rails-assets-jquery (>= 1.6)
     rails-assets-jquery-textchange (0.2.3)
       rails-assets-jquery
     rails-assets-jquery.are-you-sure (1.9.0)
       rails-assets-jquery (>= 1.4.2)
-    rails-assets-jquery.slimscroll (1.3.8)
     rails-assets-jquery.ui (1.11.4)
       rails-assets-jquery (>= 1.6)
     rails-assets-markdown-it--markdown-it-for-inline (0.1.1)
@@ -812,7 +798,6 @@ DEPENDENCIES
   devise (= 4.6.1)
   devise-two-factor (= 3.0.3)
   devise_lastseenable (= 0.0.6)
-  diaspora-prosody-config (= 0.0.7)
   diaspora_federation-json_schema (= 0.2.6)
   diaspora_federation-rails (= 0.2.6)
   diaspora_federation-test (= 0.2.6)
@@ -878,7 +863,6 @@ DEPENDENCIES
   rails-assets-bootstrap-markdown (= 2.10.0)!
   rails-assets-corejs-typeahead (= 1.2.1)!
   rails-assets-cropperjs (= 1.4.3)!
-  rails-assets-diaspora_jsxc (= 0.1.5.develop.7)!
   rails-assets-fine-uploader (= 5.13.0)!
   rails-assets-highlightjs (= 9.12.0)!
   rails-assets-jasmine-ajax (= 4.0.0)!

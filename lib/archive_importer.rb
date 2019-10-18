@@ -66,7 +66,7 @@ class ArchiveImporter
   def import_aspects
     contact_groups.each do |group|
       begin
-        user.aspects.create!(group.slice("name", "chat_enabled"))
+        user.aspects.create!(group.slice("name"))
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end

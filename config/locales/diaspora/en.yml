@@ -400,11 +400,6 @@ en:
       rename_aspect_a: "Click “My aspects” in the side-bar from a stream view and click the pencil icon by the aspect you want to rename, or go to your Contacts page and select the relevant aspect. Then click the edit icon next to the aspect name at the top of this page, change the name and press “Update”."
       delete_aspect_q: "How do I delete an aspect?"
       delete_aspect_a: "Click “My aspects” in the side-bar from a stream view and click the pencil icon by the aspect you want to delete, or go to your Contacts page and select the relevant aspect. Then click the trash icon in the top right of the page."
-    chat:
-      title: "Chat"
-      contacts_page: "contacts page"
-      add_contact_roster_q: "How do I chat with someone in diaspora*?"
-      add_contact_roster_a: "First, you need to enable chat for one of the aspects that person is in. To do so, go to the %{contacts_page}, select the aspect you want and click on the chat icon to enable chat for the aspect. %{toggle_privilege} You could, if you prefer, create a special aspect called “Chat” and add the people you want to chat with to that aspect. Once you’ve done this, open the chat interface and select the person you want to chat with."
     mentions:
       title: "Mentions"
       what_is_a_mention_q: "What is a “mention”?"

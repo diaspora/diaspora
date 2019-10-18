@@ -7,7 +7,6 @@
 describe ContactsController, :type => :controller do
   describe '#index' do
     before do
-      AppConfig.chat.enabled = true
       @aspect = bob.aspects.create(:name => "another aspect")
       bob.share_with alice.person, @aspect
       bob.share_with eve.person, @aspect

@@ -76,14 +76,6 @@ class AspectsController < ApplicationController
     head :no_content
   end
 
-  def toggle_chat_privilege
-    @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
-
-    @aspect.chat_enabled = !@aspect.chat_enabled
-    @aspect.save
-    head :no_content
-  end
-
   private
 
   def connect_person_to_aspect(aspecting_person_id)
@@ -97,6 +89,6 @@ class AspectsController < ApplicationController
   end
 
   def aspect_params
-    params.require(:aspect).permit(:name, :chat_enabled, :order_id)
+    params.require(:aspect).permit(:name, :order_id)
   end
 end

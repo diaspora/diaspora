@@ -1,6 +1,5 @@
 describe("app.views.Help", function(){
   beforeEach(function(){
-    gon.appConfig = {chat: {enabled: false}};
     this.locale = JSON.parse(spec.readFixture("locale_en_help_json"));
     Diaspora.I18n.reset();
     Diaspora.I18n.load(this.locale, "en");
@@ -131,32 +130,6 @@ describe("app.views.Help", function(){
       _.each(sections, function(section) {
         self.view.$el.find('a[data-section=' + section + ']').trigger('click');
         expect(app.router.navigate).toHaveBeenCalledWith('help/' + section);
-      });
-    });
-  });
-
-  describe("chat section", function(){
-    describe("chat enabled", function(){
-      beforeEach(function(){
-        gon.appConfig = {chat: {enabled: true}};
-        this.view = new app.views.Help();
-        this.view.render();
-      });
-
-      it('should display the chat', function(){
-        expect(this.view.$el.find('a[data-section=chat]').length).toBe(1);
-      });
-    });
-
-    describe("chat disabled", function(){
-      beforeEach(function(){
-        gon.appConfig = {chat: {enabled: false}};
-        this.view = new app.views.Help();
-        this.view.render();
-      });
-
-      it('should not display the chat', function () {
-        expect(this.view.$el.find('a[data-section=chat]').length).toBe(0);
       });
     });
   });

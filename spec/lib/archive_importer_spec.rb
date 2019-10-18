@@ -63,7 +63,6 @@ describe ArchiveImporter do
               }
             },
             "contact_groups"          => [{
-              "chat_enabled" => true,
               "name"         => "Friends"
             }],
             "followed_tags"           => [target.tag_followings.first.tag.name],

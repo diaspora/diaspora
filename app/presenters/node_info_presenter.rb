@@ -23,7 +23,6 @@ class NodeInfoPresenter
     doc.services.outbound        = available_services
     doc.open_registrations       = open_registrations?
     doc.metadata["nodeName"]     = name
-    doc.metadata["xmppChat"]     = chat_enabled?
     doc.metadata["camo"]         = camo_config
     doc.metadata["adminAccount"] = admin_account
   end
@@ -68,10 +67,6 @@ class NodeInfoPresenter
 
   def open_registrations?
     AppConfig.settings.enable_registrations?
-  end
-
-  def chat_enabled?
-    AppConfig.chat.enabled?
   end
 
   def camo_config

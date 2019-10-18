@@ -1,5 +1,11 @@
 # 0.8.0.0
 
+## The chat integration has been removed
+
+After [a discussion with our community on Discourse](https://discourse.diasporafoundation.org/t/2718), we decided to remove the pieces of XMPP chat integration that were put in place a while ago. When we first added the chat support, we merged the implementation in an unfinished state in the hopes that the open issues will be addressed eventually, and the implementation would end up more polished. This ended up not being the case. After careful consideration and discussion, we did not manage to come up with clear reasons why we need a chat implementation, so we decided that the best way forward would be to remove it.
+
+Although the chat was never enabled per default and was marked as experimental, some production pods did set up the integration and offered an XMPP service to their users. After this release, diaspora\* will no longer contain a chat applet, so users will no longer be able to use the webchat inside diaspora\*. The existing module that is used to enable users to authenticate to Prosody using their diaspora\* credentials will continue to work, but contact list synchronization might not work without further changes to the Prosody module, which is developed independently from this project.
+
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581)
 * Remove backporting of mention syntax [#7788](https://github.com/diaspora/diaspora/pull/7788)
