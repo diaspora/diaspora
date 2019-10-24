@@ -59,7 +59,6 @@ Rails.application.routes.draw do
   get "aspects" => "streams#aspects", :as => "aspects_stream"
 
   resources :aspects, except: %i(index new edit) do
-    put :toggle_chat_privilege
     collection do
       put "order" => :update_order
     end
