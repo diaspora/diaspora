@@ -17,6 +17,7 @@
 # 0.7.13.0
 
 ## Refactor
+* Set better example values for unicorn stdout/stderr log settings [#8058](https://github.com/diaspora/diaspora/pull/8058)
 
 ## Bug fixes
 * Fix error while trying to fetch some sites with invalid OpenGraph data [#8049](https://github.com/diaspora/diaspora/pull/8049)
