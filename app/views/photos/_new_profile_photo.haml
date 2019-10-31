@@ -8,8 +8,9 @@
   .small-horizontal-spacer
   .clearfix
     .text-center
-      #file-upload.btn.btn-primary
+      .btn.btn-primary.file-upload#file-upload
         =t('.upload')
+        %input.uppy-file-picker{name: "file", type: "file"}
 
   .spinner.hidden#file-upload-spinner
 

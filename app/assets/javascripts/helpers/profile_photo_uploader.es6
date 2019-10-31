@@ -11,6 +11,8 @@ Diaspora.ProfilePhotoUploader = class {
     this.info = document.querySelector("#fileInfo");
     this.cropContainer = document.querySelector(".crop-container");
     this.spinner = document.querySelector("#file-upload-spinner");
+    this.allowedExtensions = [".jpg", ".jpeg", ".png"];
+    this.uppy = null;
 
     /**
      * Creates a button
@@ -28,57 +30,80 @@ Diaspora.ProfilePhotoUploader = class {
      */
     this.showMessage = (type, text) => (app.flashMessages ? app.flashMessages[type](text) : alert(text));
 
-    this.initFineUploader();
+    this.initUppy();
   }
 
   /**
-   * Initializes the fine uploader component
+   * Initializes uppy
    */
-  initFineUploader() {
-    this.fineUploader = new qq.FineUploaderBasic({
-      element: this.fileInput,
-      validation: {
-        allowedExtensions: ["jpg", "jpeg", "png"]
+  initUppy() {
+    this.uppy = new window.Uppy.Core({
+      id: "profile-photo-uppy",
+      autoProceed: false,
+      allowMultipleUploads: false,
+      restrictions: {
+        allowedFileTypes: this.allowedExtensions
       },
-      request: {
-        endpoint: Routes.photos(),
-        params: {
-          /* eslint-disable camelcase */
-          authenticity_token: $("meta[name='csrf-token']").attr("content"),
-          /* eslint-enable camelcase */
-          photo: {"pending": true, "aspect_ids": "all", "set_profile_photo": true}
+      locale: {
+        strings: {
+          exceedsSize: Diaspora.I18n.t("photo_uploader.size_error"),
+          youCanOnlyUploadFileTypes: Diaspora.I18n.t("photo_uploader.invalid_ext").replace("{extensions}", "%{types}")
         }
       },
-      button: this.fileInput,
-      autoUpload: false,
+    });
 
-      messages: {
-        typeError: Diaspora.I18n.t("photo_uploader.invalid_ext"),
-        sizeError: Diaspora.I18n.t("photo_uploader.size_error"),
-        emptyError: Diaspora.I18n.t("photo_uploader.empty")
-      },
+    const fileInput = $(".uppy-file-picker");
+    fileInput.attr("accept", this.allowedExtensions.join(","));
 
-      callbacks: {
-        onProgress: (id, fileName, loaded, total) => {
-          (this.info.innerText = `${fileName} ${Math.round(loaded / total * 100)}%`);
-        },
-        onSubmit: (id, name) => this.onPictureSelected(id, name),
-        onComplete: (id, name, responseJSON) => this.onUploadCompleted(id, name, responseJSON),
-        onError: (id, name) => this.showMessage("error", Diaspora.I18n.t("photo_uploader.error", {file: name}))
-      },
-
-      text: {
-        fileInputTitle: ""
-      },
-
-      scaling: {
-        sendOriginal: false,
-
-        sizes: [
-          {maxSize: 1600}
-        ]
+    fileInput.change("change", (event) => {
+      const file = event.target.files[0];
+      try {
+        this.uppy.addFile({
+          source: "file input",
+          name: file.name,
+          type: file.type,
+          data: file
+        });
+      } catch (err) {
+        this.showMessage("error", err.message.replace("{file}", file.name).replace("{sizeLimit}.", ""));
       }
     });
+
+    this.uppy.setMeta({
+      /* eslint-disable camelcase */
+      authenticity_token: $("meta[name='csrf-token']").attr("content"),
+      "photo[pending]": true,
+      "photo[aspect_ids]": "all",
+      "photo[set_profile_photo]": true
+      /* eslint-enable camelcase */
+    });
+
+    this.uppy.use(window.Uppy.XHRUpload, {
+      endpoint: Routes.photos(),
+      fieldName: "file"
+    });
+
+    this.uppy.on("file-added", (file) => {
+      this.uppy.setFileMeta(file.id, {
+        totalfilesize: file.size,
+        filename: file.name
+      });
+      if (file.source === "file input") {
+        this.onPictureSelected(file.id, file.name);
+      }
+    });
+
+    this.uppy.on("upload-progress", (file, progress) => {
+      this.info.innerText = `${file.name} ${Math.round(progress.bytesUploaded / progress.bytesTotal * 100)}%`;
+    });
+
+    this.uppy.on("upload-success", (file, response) =>
+      this.onUploadCompleted(file.id, file.name, response.body)
+    );
+
+    this.uppy.on("upload-error", (file) =>
+      this.showMessage("error", Diaspora.I18n.t("photo_uploader.error", {file: file.name}))
+    );
   }
 
   /**
@@ -89,13 +114,13 @@ Diaspora.ProfilePhotoUploader = class {
   onPictureSelected(id, name) {
     this.setLoading(true);
     this.fileName = name;
-    const file = this.fileInput.querySelector("input").files[0];
+    const file = this.uppy.getFile(id);
 
     // ensure browser's file reader support
     if (FileReader && file) {
       const fileReader = new FileReader();
       fileReader.onload = () => this.initCropper(fileReader.result);
-      fileReader.readAsDataURL(file);
+      fileReader.readAsDataURL(file.data);
     } else {
       this.setLoading(false);
     }
@@ -139,7 +164,7 @@ Diaspora.ProfilePhotoUploader = class {
       rotateRight: this.createButton("cw", () => this.cropper.rotate(45)),
       reset: this.createButton("cycle", () => this.cropper.reset()),
       accept: this.createButton("check", () => this.cropImage()),
-      cancel: this.createButton("trash", () => this.cancel())
+      cancel: this.createButton("trash", () => this.cancel(true))
     };
 
     this.controlRow = $("<div class='controls'>").appendTo(this.cropContainer);
@@ -168,21 +193,25 @@ Diaspora.ProfilePhotoUploader = class {
     const canvas = this.cropper.getCroppedCanvas();
 
     // replace the stored file with the new canvas
-    this.fineUploader.clearStoredFiles();
-    this.fineUploader.addFiles([{
-      canvas: canvas,
-      name: this.fileName,
-      quality: 100,
-      type: this.mimeType
-    }]);
+    this.uppy.reset();
+    const pica = window.pica();
+    pica.toBlob(canvas, "image/jpeg", 0.85)
+      .then(blob => {
+        // we never get PNGs, so we replace the extension in the file name if necessary
+        this.uppy.addFile({
+          source: "cropper",
+          name: this.fileName.replace(/\.png$/i, ".jpg"),
+          type: "image/jpeg",
+          data: blob
+        });
+        // reset all controls
+        this.cancel();
+        this.picture.setAttribute("src", canvas.toDataURL(this.mimeType));
 
-    // reset all controls
-    this.cancel();
-    this.picture.setAttribute("src", canvas.toDataURL(this.mimeType));
-
-    // finally start uploading
-    this.setLoading(true);
-    this.fineUploader.uploadStoredFiles();
+        // finally start uploading
+        this.setLoading(true);
+        this.uppy.upload();
+      });
   }
 
   /**
@@ -212,7 +241,8 @@ Diaspora.ProfilePhotoUploader = class {
       }
 
       this.picture.setAttribute("src", url);
-      $(`.avatar[alt="${gon.user.diaspora_id}"]`).attr("src", url);
+      $(`.avatar[alt="${gon.user.name}"]`).attr("src", url);
+      this.cancel(true, true);
     } else {
       this.cancel();
     }
@@ -236,14 +266,19 @@ Diaspora.ProfilePhotoUploader = class {
   /**
    * Destroys the cropper and resets all elements to initial state.
    */
-  cancel() {
+  cancel(resetUppy = false, success = false) {
     this.cropper.destroy();
     this.picture.onload = null;
     this.picture.setAttribute("style", "");
-    this.picture.setAttribute("src", this.previousPicture);
+    if (!success) {
+      this.picture.setAttribute("src", this.previousPicture);
+    }
     this.controlRow.remove();
     this.fileInput.classList.remove("hidden");
     this.info.innerText = "";
+    if (resetUppy) {
+      this.uppy.reset();
+    }
 
     this.mimeType = null;
     this.name = null;

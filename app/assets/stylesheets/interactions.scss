@@ -63,3 +63,19 @@
 
   .control-icons > a:hover { opacity: 1; }
 }
+
+.file-upload {
+  overflow: hidden;
+  position: relative;
+}
+
+.uppy-file-picker {
+  cursor: pointer;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

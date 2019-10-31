@@ -29,6 +29,10 @@
                 %i.entypo-bar-graph
               .btn.btn-link.file-upload#file-upload
                 %i.entypo-camera.publisher_image
+                %input.uppy-file-picker{name: "file",
+                multiple: "",
+                type: "file",
+                title: t("javascripts.photo_uploader.upload_photos")}
               .btn.btn-link.locator#locator{title: t("shared.publisher.get_location")}
                 %i.entypo-location.publisher_image
               .btn.btn-link.hide-location#hide_location{title: t("shared.publisher.remove_location")}
