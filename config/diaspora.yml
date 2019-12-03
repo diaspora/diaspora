@@ -1,0 +1,6 @@
+ ## OAuth credentials for Wordpress
+    wordpress: ## Section
+
+      enable: true
+      client_id: '67530'
+      secret: 'r6mX6YIWts76iH142UzC5gm5FSSsSZcrPtfGvl7r4I2ig29tNWBq6FoHZW0AZPBK'
