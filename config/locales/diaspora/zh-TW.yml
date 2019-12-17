@@ -950,7 +950,6 @@ zh-TW:
       updated: "個人檔案已經更新了"
   public: "公開"
   registrations:
-    closed: "這個 diaspora* 豆莢不開放註冊。"
     create:
       success: "你已經成功加入 diaspora* 了！"
     invalid_invite: "你提供的邀請連結已經失效了！"

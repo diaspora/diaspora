@@ -29,6 +29,11 @@ def default_job_config
       "class": "Workers::CleanupOldExports"
     },
 
+    cleanup_pending_photos:  {
+      "cron":  "#{random_minute.call} #{random_hour.call} * * *",
+      "class": "Workers::CleanupPendingPhotos"
+    },
+
     queue_users_for_removal: {
       "cron":  "#{random_minute.call} #{random_hour.call} * * *",
       "class": "Workers::QueueUsersForRemoval"

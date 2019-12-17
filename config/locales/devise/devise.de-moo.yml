@@ -62,7 +62,6 @@ de-moo:
       new:
         email: "Email-Adresse"
         forgot_password: "Passwort vergessen?"
-        no_account: "Es existiert keine Kuh mit dieser E-Mail-Adresse"
         reset_password: "Passwort zurücksetzen"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       no_token: "Du kannst auf diese Weide nicht zugreifen, ohne von einer E-Mail zur Passwortrücksetzung zu kommen. Falls du von einer E-Mail zur Passwortrücksetzung kommst, vergewissere dich bitte, dass du die vollständige angegebene URL verwendet hast."

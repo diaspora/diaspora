@@ -28,7 +28,6 @@ art-nvi:
         change_password: "Leykatem oeyä ftemlì'ut"
       new:
         forgot_password: "Ngal tswama' ngeyä ftemlì'uti srak?"
-        no_account: "Kea Diaspora a hu fìImeyl fkeytok. Diasporari txo perey, ayoe terìng ayDiasporat ye'rìn"
         send_password_instructions: "Fpe' oeru aysänumet fte oe tsivun leykivatem oeyä ftemlì'ut"
       send_instructions: "Ngal tayel Imeylit a wìntxu ngaru fya'ot a ngal leykatem ngeyä ftemlì'ut."
       updated: "Ngeyä ftemlì'u lìmatem. Nga tung fìtsengmì set."

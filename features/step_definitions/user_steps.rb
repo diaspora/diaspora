@@ -218,18 +218,10 @@ When /^I view "([^\"]*)"'s first post$/ do |email|
   visit post_path(post)
 end
 
-When /^I fill in the new user form/ do
-  fill_in_new_user_form
-end
-
 And /^I should be able to friend "([^\"]*)"$/ do |email|
   user = User.find_by_email(email)
   step 'I should see a ".aspect-dropdown"'
   step "I should see \"#{user.name}\""
-end
-
-When /^I click the sign in button$/ do
-  click_link "Sign in"
 end
 
 Given /^I did request my photos$/ do

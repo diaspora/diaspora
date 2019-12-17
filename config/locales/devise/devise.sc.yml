@@ -62,7 +62,6 @@ sc:
       new:
         email: "Indiritzu de p. eletrònica"
         forgot_password: "As ismentigadu sa crae tua?"
-        no_account: "Non b'est unu contu cun custu indiritzu de p. eletrònica"
         reset_password: "Torra a impostare sa crae"
         send_password_instructions: "Imbia·mi sas istrutziones pro torrare a impostare sa crae"
       no_token: "Non podes intrare in custa pàgina chene partire dae una lìtera de posta eletrònica pro s'impostatzione de sa crae. Si benis dae una de cussas lìteras ista atentu a impreare s'URL intreu frunidu."

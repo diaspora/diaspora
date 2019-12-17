@@ -1,5 +1,4 @@
-.page-registrations.action-new,
-.page-registrations.action-create {
+.page-registrations {
   .ball {
     background: image-url('branding/ball.png') no-repeat;
     background-size: contain;
@@ -12,19 +11,24 @@
     height: 633px;
   }
 
+  @media (max-width: $screen-xs-max) {
+    .v-center {
+      height: auto;
+    }
+  }
+
   .content {
     display: table-cell;
     vertical-align: middle;
 
-    h2 {
+    h1 {
       font-size: 35px;
-      margin: 12px;
-      text-align: center;
+      margin: 12px 0;
     }
   }
 
   form {
-    max-width: 400px;
+    max-width: 500px;
   }
 
   .captcha-img {
@@ -34,16 +38,13 @@
     width: 120px;
   }
 
-  .captcha-input {
+  .form-control.captcha-input {
     border-bottom: 1px solid $input-border;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-sizing: border-box;
-    font-size: 16px;
-    height: 40px;
     line-height: $line-height-base;
-    padding: 10px 10px 10px 130px;
-    width: 100%;
+    padding-left: 130px;
   }
 
   .terms > a {

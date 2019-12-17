@@ -423,7 +423,6 @@ zh-CN:
       updated: "个人档案更新成功"
   public: "公开"
   registrations:
-    closed: "此 Diaspora pod 不开放注册。"
     create:
       success: "您已成功加入 Diaspora 了！"
     invalid_invite: "此邀请链接已失效！"

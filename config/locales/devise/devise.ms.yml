@@ -53,7 +53,6 @@ ms:
       new:
         email: "Alamat emel"
         forgot_password: "Lupa kata laluan anda?"
-        no_account: "Tiada akaun dengan e-mel ini wujud. Jika anda sedang menunggu untuk jemputan, kami memusing mereka secepat mungkin"
         reset_password: "Tetapkan semula kata laluan"
         send_password_instructions: "Hantar saya arahan menetap semula kata laluan"
       send_instructions: "Anda akan menerima e-mel dengan arahan mengenai cara untuk menetapkan semula kata laluan anda dalam beberapa minit."

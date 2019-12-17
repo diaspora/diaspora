@@ -205,7 +205,6 @@ describe "mentioning", type: :request do
 
     expect(status_msg).not_to be_nil
     expect(status_msg.public?).to be true
-    expect(status_msg.text).to include(user3.name)
     expect(status_msg.text).to include(user3.diaspora_handle)
 
     expect(user3).to be_mentioned_in(status_msg)
@@ -220,7 +219,6 @@ describe "mentioning", type: :request do
 
     expect(status_msg).not_to be_nil
     expect(status_msg.public?).to be false
-    expect(status_msg.text).to include(user2.name)
     expect(status_msg.text).to include(user2.diaspora_handle)
 
     expect(user2).to be_mentioned_in(status_msg)

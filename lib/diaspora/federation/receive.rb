@@ -5,8 +5,8 @@ module Diaspora
     module Receive
       extend Diaspora::Logging
 
-      def self.perform(entity)
-        public_send(Mappings.receiver_for(entity), entity)
+      def self.perform(entity, opts={})
+        public_send(Mappings.receiver_for(entity), entity, opts)
       end
 
       def self.account_deletion(entity)
@@ -17,9 +17,9 @@ module Diaspora
         logger.warn "ignoring error on receive AccountDeletion:#{entity.author}: #{e.class}: #{e.message}"
       end
 
-      def self.account_migration(entity)
+      def self.account_migration(entity, opts)
         old_person = author_of(entity)
-        profile = profile(entity.profile)
+        profile = profile(entity.profile, opts)
         return if AccountMigration.where(old_person: old_person, new_person: profile.person).exists?
         AccountMigration.create!(old_person: old_person, new_person: profile.person)
       rescue => e # rubocop:disable Lint/RescueWithoutErrorClass
@@ -28,8 +28,8 @@ module Diaspora
         nil
       end
 
-      def self.comment(entity)
-        receive_relayable(Comment, entity) do
+      def self.comment(entity, opts)
+        receive_relayable(Comment, entity, opts) do
           Comment.new(
             author:      author_of(entity),
             guid:        entity.guid,
@@ -40,7 +40,7 @@ module Diaspora
         end
       end
 
-      def self.contact(entity)
+      def self.contact(entity, _opts)
         recipient = Person.find_by(diaspora_handle: entity.recipient).owner
         if entity.sharing
           Contact.create_or_update_sharing_contact(recipient, author_of(entity))
@@ -50,7 +50,7 @@ module Diaspora
         end
       end
 
-      def self.conversation(entity)
+      def self.conversation(entity, _opts)
         author = author_of(entity)
         ignore_existing_guid(Conversation, entity.guid, author) do
           Conversation.create!(
@@ -64,8 +64,8 @@ module Diaspora
         end
       end
 
-      def self.like(entity)
-        receive_relayable(Like, entity) do
+      def self.like(entity, opts)
+        receive_relayable(Like, entity, opts) do
           Like.new(
             author:   author_of(entity),
             guid:     entity.guid,
@@ -75,13 +75,13 @@ module Diaspora
         end
       end
 
-      def self.message(entity)
+      def self.message(entity, _opts)
         ignore_existing_guid(Message, entity.guid, author_of(entity)) do
           build_message(entity).tap(&:save!)
         end
       end
 
-      def self.participation(entity)
+      def self.participation(entity, _opts)
         author = author_of(entity)
         ignore_existing_guid(Participation, entity.guid, author) do
           Participation.create!(
@@ -92,7 +92,7 @@ module Diaspora
         end
       end
 
-      def self.photo(entity)
+      def self.photo(entity, _opts)
         author = author_of(entity)
         persisted_photo = load_from_database(Photo, entity.guid, author)
 
@@ -114,8 +114,8 @@ module Diaspora
         end
       end
 
-      def self.poll_participation(entity)
-        receive_relayable(PollParticipation, entity) do
+      def self.poll_participation(entity, opts)
+        receive_relayable(PollParticipation, entity, opts) do
           PollParticipation.new(
             author:           author_of(entity),
             guid:             entity.guid,
@@ -125,7 +125,7 @@ module Diaspora
         end
       end
 
-      def self.profile(entity)
+      def self.profile(entity, _opts)
         author_of(entity).profile.tap do |profile|
           profile.update_attributes(
             first_name:       entity.first_name,
@@ -145,7 +145,7 @@ module Diaspora
         end
       end
 
-      def self.reshare(entity)
+      def self.reshare(entity, _opts)
         author = author_of(entity)
         ignore_existing_guid(Reshare, entity.guid, author) do
           Reshare.create!(
@@ -178,7 +178,7 @@ module Diaspora
         end
       end
 
-      def self.status_message(entity)
+      def self.status_message(entity, _opts) # rubocop:disable Metrics/AbcSize
         try_load_existing_guid(StatusMessage, entity.guid, author_of(entity)) do
           StatusMessage.new(
             author:                author_of(entity),
@@ -257,8 +257,9 @@ module Diaspora
         end
       end
 
-      private_class_method def self.receive_relayable(klass, entity)
-        save_relayable(klass, entity) { yield }.tap {|relayable| relay_relayable(relayable) if relayable }
+      private_class_method def self.receive_relayable(klass, entity, opts)
+        save_relayable(klass, entity) { yield }
+          .tap {|relayable| relay_relayable(relayable) if relayable && !opts[:skip_relaying] }
       end
 
       private_class_method def self.save_relayable(klass, entity)

@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.7.10.0" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.7.99.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -49,21 +49,6 @@ defaults:
     unicorn_timeout: 90
     embed_sidekiq_worker: false
     sidekiq_workers: 1
-  chat:
-    enabled: false
-    server:
-      enabled: true
-      certs: "config/certs"
-      bosh:
-        proxy: false
-        proto: 'http'
-        address: '0.0.0.0'
-        port: 5280
-        bind: '/http-bind'
-      log:
-        info: 'log/prosody.log'
-        error: 'log/prosody.err'
-        debug: false
   map:
     mapbox:
       enabled: false
@@ -150,7 +135,7 @@ defaults:
       title: 'diaspora* social network'
       description: 'diaspora* is the online social world where you are in control.'
     csp:
-      report_only: true
+      report_only: false
       report_uri:
   services:
     twitter:

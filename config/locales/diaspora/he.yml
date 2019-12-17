@@ -467,7 +467,6 @@ he:
       updated: "הפרופיל עודכן"
   public: "ציבורי"
   registrations:
-    closed: "ההרשמה סגורה בפוד זה של דיאספורה*."
     create:
       success: "הצטרפת לדיאספורה*!"
     invalid_invite: "הקישור להזמנה שסיפקת אינו תקף יותר!"

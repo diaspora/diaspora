@@ -4,7 +4,7 @@
     - if mobile
       %legend
         = image_tag("branding/logos/header-logo2x.png", height: 40, width: 40)
-        = t("aspects.aspect_stream.make_something")
+        = AppConfig.settings.pod_name
 
     - if mobile
       = f.label :email, t("registrations.new.email"), class: "control-label", id: "emailLabel"

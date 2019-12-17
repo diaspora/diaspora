@@ -42,6 +42,14 @@
     padding: 15px;
   }
 
+  .part-of-diaspora {
+    font-style: italic;
+
+    a {
+      color: $white;
+    }
+  }
+
   .login-form {
     fieldset { background: none; }
 

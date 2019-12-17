@@ -469,7 +469,6 @@ el:
       updated: "Το προφίλ ενημερώθηκε"
   public: "Δημόσιο"
   registrations:
-    closed: "Οι εγγραφές είναι κλειστές σε αυτό το pod του diaspora*."
     create:
       success: "Έγινες μέλος στο diaspora*!"
     invalid_invite: "Ο σύνδεσμος που έδωσες δεν είναι πια έγκυρος!"

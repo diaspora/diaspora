@@ -59,7 +59,6 @@ Rails.application.routes.draw do
   get "aspects" => "streams#aspects", :as => "aspects_stream"
 
   resources :aspects, except: %i(index new edit) do
-    put :toggle_chat_privilege
     collection do
       put "order" => :update_order
     end
@@ -119,10 +118,17 @@ Rails.application.routes.draw do
     get "getting_started_completed" => :getting_started_completed
   end
 
+  resource :two_factor_authentication, only: %i[show create destroy] do
+    get :confirm, action: :confirm_2fa
+    post :confirm, action: :confirm_and_activate_2fa
+    get :recovery_codes
+  end
+
   devise_for :users, controllers: {sessions: :sessions}, skip: :registration
   devise_scope :user do
     get "/users/sign_up" => "registrations#new",    :as => :new_user_registration
     post "/users"        => "registrations#create", :as => :user_registration
+    get "/registrations_closed" => "registrations#registrations_closed", :as => :registrations_closed
   end
 
   get "users/invitations"  => "invitations#new",    :as => "new_user_invitation"
@@ -239,4 +245,5 @@ Rails.application.routes.draw do
   end
 
   get ".well-known/openid-configuration", to: "api/openid_connect/discovery#configuration"
+  get "manifest.json", to: "manifest#show"
 end

@@ -6,7 +6,7 @@
   .login-form
     .login-container
       = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-        = devise_error_messages!
+        = render partial: "devise/shared/error_messages", formats: [:html]
         = f.hidden_field :reset_password_token
         %fieldset
           %legend

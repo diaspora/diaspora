@@ -13,7 +13,7 @@ describe Devise::PasswordsController, type: :controller do
     context "when there is no such user" do
       it "succeeds" do
         post :create, params: {user: {email: "foo@example.com"}}
-        expect(response).to be_success
+        expect(response).to redirect_to(new_user_session_path)
       end
 
       it "doesn't send email" do
