@@ -63,7 +63,6 @@ describe ArchiveImporter do
               }
             },
             "contact_groups"          => [{
-              "chat_enabled" => true,
               "name"         => "Friends"
             }],
             "followed_tags"           => [target.tag_followings.first.tag.name],
@@ -155,6 +154,7 @@ describe ArchiveImporter do
       expect(archive_importer.user.language).to eq("ru")
       expect(archive_importer.user.disable_mail).to eq(false)
       expect(archive_importer.user.auto_follow_back).to eq(true)
+      expect(archive_importer.user.getting_started).to be_falsey
 
       expect(archive_importer.user.profile.first_name).to eq("First")
       expect(archive_importer.user.profile.last_name).to eq("Last")

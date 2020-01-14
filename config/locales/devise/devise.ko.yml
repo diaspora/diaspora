@@ -54,7 +54,6 @@ ko:
       new:
         email: "이메일"
         forgot_password: "암호를 잊었습니까?"
-        no_account: "등록되지 않은 이메일 주소입니다."
         reset_password: "암호 재설정"
         send_password_instructions: "암호 재설정 메일 보내기"
       send_instructions: "몇 분 안으로 암호를 초기화하기 위한 이메일이 도착합니다."

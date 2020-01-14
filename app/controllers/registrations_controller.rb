@@ -5,9 +5,9 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
-  before_action :check_registrations_open_or_valid_invite!
+  before_action :check_registrations_open_or_valid_invite!, except: :registrations_closed
 
-  layout -> { request.format == :mobile ? "application" : "with_header" }
+  layout -> { request.format == :mobile ? "application" : "with_header_with_footer" }
 
   def create
     @user = User.build(user_params)
@@ -28,13 +28,17 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def registrations_closed
+    render "registrations/registrations_closed"
+  end
+
   private
 
   def check_registrations_open_or_valid_invite!
     return true if AppConfig.settings.enable_registrations? || invite.try(:can_be_used?)
 
-    flash[:error] = params[:invite] ? t("registrations.invalid_invite") : t("registrations.closed")
-    redirect_to new_user_session_path
+    flash[:error] = t("registrations.invalid_invite") if params[:invite]
+    redirect_to registrations_closed_path
   end
 
   def invite

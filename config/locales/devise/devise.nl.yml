@@ -57,7 +57,6 @@ nl:
       new:
         email: "E-mailadres"
         forgot_password: "Wachtwoord vergeten?"
-        no_account: "Er bestaat geen account met dit e-mailadres"
         reset_password: "Herstel wachtwoord"
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
       send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je wachtwoord opnieuw in te stellen."

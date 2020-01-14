@@ -37,7 +37,6 @@ cy:
         change_password: "Newid fy nghyfrinair"
       new:
         forgot_password: "Wedi anghofio eich cyfrinair?"
-        no_account: "Dim cyfrif gyda e-bost hwn yn bodoli. Os ydych yn aros am wahodd, rhaid i chi aros hwyrach bach..."
       send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
       updated: "Newidiwyd eich cyfrinair yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
     registrations:

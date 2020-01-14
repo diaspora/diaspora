@@ -62,7 +62,6 @@ fr:
       new:
         email: "Adresse E-mail"
         forgot_password: "Mot de passe oublié ?"
-        no_account: "Aucun compte n'est associé à cette adresse de courrier électronique."
         reset_password: "Réinitialiser le mot de passe"
         send_password_instructions: "Envoyer les instructions de réinitialisation de mot de passe"
       no_token: "Vous ne pouvez accéder à cette page sans venir d'un e-mail de réinitialisation du mot de passe. Veuillez vérifier que vous avez utiliser l'URL en entier."

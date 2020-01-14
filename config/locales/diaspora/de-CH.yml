@@ -592,7 +592,6 @@ de-CH:
       updated: "Pofil aktualisiert"
   public: "Öffentlich"
   registrations:
-    closed: "Uf dem pod isch d'Registrierig deaktiviert"
     create:
       success: "Du bisch ez volle Hahne bi diaspora* debii!"
     invalid_invite: "De Iiladigslink wo'd benutzt hesch isch nüme gültig!"

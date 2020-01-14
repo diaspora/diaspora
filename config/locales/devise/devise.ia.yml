@@ -62,7 +62,6 @@ ia:
       new:
         email: "Adresse de e-mail"
         forgot_password: "Contrasigno oblidate?"
-        no_account: "Nulle conto con iste adresse de e-mail existe."
         reset_password: "Reinitialisar contrasigno"
         send_password_instructions: "Inviar instructiones pro reinitialisar contrasigno"
       no_token: "Tu non pote acceder a iste pagina sin venir ab un e-mail pro reinitialisar contrasigno. Si tu de facto veni ab un e-mail pro reinitialisar contrasigno, per favor assecura te de usar le totalitate del URL fornite."

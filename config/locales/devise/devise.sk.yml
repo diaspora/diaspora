@@ -55,7 +55,6 @@ sk:
       new:
         email: "E-mailová adresa"
         forgot_password: "Zabudol (-la) si heslo?"
-        no_account: "Účet s takouto e-mailovou adresou neexistuje"
         reset_password: "Obnoviť heslo"
         send_password_instructions: "Pošlite mi pokyny na zmenu hesla"
       no_token: "Na túto stránku sa môžeš dostať iba z e-mailu na obnovenie hesla. Ak ideš z neho, skontroluj, či si zadal/a/ celú URL adresu."

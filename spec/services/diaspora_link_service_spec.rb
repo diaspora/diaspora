@@ -40,5 +40,33 @@ describe DiasporaLinkService do
         expect(service.find_or_fetch_entity).to be_nil
       end
     end
+
+    context "with invalid links" do
+      it "returns nil when the link is invalid" do
+        service = described_class.new("web+diaspora://something_invalid")
+        expect(service.find_or_fetch_entity).to be_nil
+      end
+
+      it "returns nil when the author is valid, but rest of the link is invalid" do
+        service = described_class.new("web+diaspora://#{alice.diaspora_handle}/foo/bar")
+        expect(service.find_or_fetch_entity).to be_nil
+      end
+    end
+
+    context "with only a diaspora ID" do
+      let(:person) { FactoryGirl.create(:person) }
+      let(:link) { "diaspora://#{person.diaspora_handle}" }
+
+      it "returns the person" do
+        expect(service.find_or_fetch_entity).to eq(person)
+      end
+
+      it "returns nil when person is non fetchable" do
+        expect(Person).to receive(:find_or_fetch_by_identifier)
+          .with(person.diaspora_handle).and_raise(DiasporaFederation::Discovery::DiscoveryError)
+
+        expect(service.find_or_fetch_entity).to be_nil
+      end
+    end
   end
 end

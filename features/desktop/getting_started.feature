@@ -98,11 +98,11 @@ Feature: new user registration
     Then I should not be able to sign up
     And I should have a validation error on "user_password, user_password_confirmation"
 
-  Scenario: User signs up with an already existing username and email and then tries to sign in (Issue #6136)
+  Scenario: User signs up with an already existing username and email and then tries to sign in
     When I log out manually
     And I go to the new user registration page
-    And I fill in the new user form with an existing email and username
+    And I fill in the new user form
     And I submit the form
     Then I should see a flash message indicating failure
-    When I click the sign in button
+    When I follow "Sign in"
     Then I should not see a flash message indicating failure

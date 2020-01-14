@@ -62,7 +62,6 @@ sv:
       new:
         email: "E-postadress"
         forgot_password: "Har du glömt ditt lösenord?"
-        no_account: "Det finns inget konto med den här e-postadressen."
         reset_password: "Återställ lösenord"
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
       no_token: "Du får inte tillgång till den här sidan utan en länk för att ställa in ett nytt lösenord via e-post. Om du kom hit genom en sådan, kontrollera att de använde hela URL:en som angavs."

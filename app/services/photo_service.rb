@@ -54,12 +54,7 @@ class PhotoService
   end
 
   def update_profile_photo(photo)
-    profile_params = {
-      image_url:        photo.url(:thumb_large),
-      image_url_medium: photo.url(:thumb_medium),
-      image_url_small:  photo.url(:thumb_small)
-    }
-    @user.update_profile(profile_params)
+    @user.update_profile(photo: photo)
   end
 
   def send_to_streams(photo, photo_params)

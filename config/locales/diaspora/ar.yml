@@ -442,7 +442,6 @@ ar:
       updated: "تم تحديث ملفك الشخصى"
   public: "عامّ"
   registrations:
-    closed: "التسجيلات مغلقة على هذه المنصة"
     create:
       success: "لقد انضممت الى دياسبرا "
     new:

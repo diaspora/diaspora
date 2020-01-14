@@ -37,7 +37,6 @@ nds:
       new:
         email: "E-Mail-Adress"
         forgot_password: "Hest du dien Passwoort vergeten?"
-        no_account: "Dat gift keen Konto mit disse E-Mail-Adress"
         reset_password: "Passwoort trüchsetten"
         send_password_instructions: "Schick mi Anwiesungen ton Trüchsetten von mien Passwoort"
       updated: "Dien Passwoort is erfolgriek ännert worn. Du bist nu anmeld."

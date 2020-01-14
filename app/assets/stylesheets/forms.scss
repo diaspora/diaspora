@@ -93,5 +93,10 @@ textarea {
     }
 
     ::placeholder { text-transform: uppercase; }
+
+    p {
+      margin-top: .5rem;
+      text-align: center;
+    }
   }
 }

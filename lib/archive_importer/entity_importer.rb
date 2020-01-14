@@ -11,7 +11,7 @@ class ArchiveImporter
     end
 
     def import
-      self.persisted_object = Diaspora::Federation::Receive.perform(entity)
+      self.persisted_object = Diaspora::Federation::Receive.perform(entity, skip_relaying: true)
     rescue DiasporaFederation::Entities::Signable::SignatureVerificationFailed,
            DiasporaFederation::Discovery::InvalidDocument,
            DiasporaFederation::Discovery::DiscoveryError,

@@ -54,7 +54,6 @@ br:
       new:
         email: "Chomlec'h postel"
         forgot_password: "Ankouaet ho ker-tremen ganeoc'h?"
-        no_account: "N'eus kont ebet stag ouzh ar postel-mañ."
         reset_password: "Adtermeniñ ar ger-tremen"
         send_password_instructions: "Kas din an titouroù evit adsevel ma ger-tremen"
       send_instructions: "Emaoc'h o vont da resev ur postel a-raok pell gant titouroù evit gouzout an doare da adsevel ho ker-tremen."

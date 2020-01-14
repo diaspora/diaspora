@@ -4,6 +4,10 @@
       .row
         .col-md-8.text-center
           %h1= t("home.default.headline", pod_name: pod_name)
+          - if pod_name != "diaspora*"
+            %h2.part-of-diaspora
+              != t("home.default.part_of_diaspora",
+                diaspora_site_link: link_to(t("home.default.diaspora_site_link"), "https://diasporafoundation.org/"))
           %h2= t("home.default.byline")
         .col-md-4.login-form
           = render partial: "sessions/form", locals: {mobile: false, resource: User.new, resource_name: :user}

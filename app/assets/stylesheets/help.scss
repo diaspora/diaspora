@@ -91,18 +91,6 @@ ul#help_nav {
       border-radius: 0px 0px 4px 4px;
       background-color: white;
       padding: 10px 20px;
-
-      div.help-chat-icons{
-        text-align: center;
-        font-size: 50px;
-        line-height: 70px;
-
-        [class^="entypo-"], [class*="entypo-"] {
-          color: $text-color-pale;
-
-          &.entypo-chat { color: $text-color-active; }
-        }
-      }
     }
   }
 }

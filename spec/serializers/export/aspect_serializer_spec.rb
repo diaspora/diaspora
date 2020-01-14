@@ -6,8 +6,7 @@ describe Export::AspectSerializer do
 
   it "has aspect attributes" do
     expect(serializer.attributes).to eq(
-      name:         aspect.name,
-      chat_enabled: aspect.chat_enabled
+      name: aspect.name
     )
   end
 end

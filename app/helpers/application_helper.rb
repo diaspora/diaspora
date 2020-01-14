@@ -72,4 +72,9 @@ module ApplicationHelper
     buf << [nonced_javascript_tag("$.fx.off = true;")] if Rails.env.test?
     buf.join("\n").html_safe
   end
+
+  def qrcode_uri
+    label = current_user.username
+    current_user.otp_provisioning_uri(label, issuer: AppConfig.environment.url)
+  end
 end

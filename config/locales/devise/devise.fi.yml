@@ -59,7 +59,6 @@ fi:
       new:
         email: "Sähköpostiosoite"
         forgot_password: "Unohditko salasanasi?"
-        no_account: "Tunnusta tälle sähköpostiosoitteelle ei ole olemassa."
         reset_password: "Vaihda salasana"
         send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."

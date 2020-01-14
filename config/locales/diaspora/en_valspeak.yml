@@ -765,7 +765,6 @@ en_valspeak:
       updated: "Profie updated!!! <3"
   public: "like, every1 can c this"
   registrations:
-    closed: "Signups r like... closed on here... sry bout that :\\ totally lame, right?"
     create:
       success: "u've joined d*!!! OMFG YAAAAAYYY!! :DDD"
     invalid_invite: "OMG, dude, ur invite link is like... SOOOO old... like... gross. so like, sry but its no longer valid. Kthxbye<3"
