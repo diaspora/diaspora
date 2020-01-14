@@ -62,7 +62,6 @@ cs:
       new:
         email: "E-mailová adresa"
         forgot_password: "Zapomněli jste heslo?"
-        no_account: "Neexistuje žádný účet s touto e-mailovou adresou. Pokud čekáte na pozvání, budeme je vydávat, co nejdříve to bude možné"
         reset_password: "Znovunastavit heslo"
         send_password_instructions: "Zaslat instrukce k nastavení nového hesla."
       no_token: "Na tuto stránku se nemůžete dostat, pokud nepřicházíte z e-mailu pro obnovení hesla. Pokud z e-mailu přicházíte, ujistěte se, že používáte celé poskytnuté URL."

@@ -17,6 +17,16 @@ cache:
     - app/assets/images
     - tmp/cache/assets
 
+addons:
+  apt:
+    packages: 
+      - libidn11-dev
+      - ghostscript
+
+services:
+  - postgresql
+  - mysql
+
 branches:
   only:
     - 'master'

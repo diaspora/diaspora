@@ -49,21 +49,6 @@ defaults:
     unicorn_timeout: 90
     embed_sidekiq_worker: false
     sidekiq_workers: 1
-  chat:
-    enabled: false
-    server:
-      enabled: true
-      certs: "config/certs"
-      bosh:
-        proxy: false
-        proto: 'http'
-        address: '0.0.0.0'
-        port: 5280
-        bind: '/http-bind'
-      log:
-        info: 'log/prosody.log'
-        error: 'log/prosody.err'
-        debug: false
   map:
     mapbox:
       enabled: false

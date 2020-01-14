@@ -40,6 +40,8 @@ module NavigationHelpers
       edit_user_path
     when /^forgot password page$/
       new_user_password_path
+    when /^the two-factor authentication page$/
+      two_factor_authentication_path
     when %r{^"(/.*)"}
       Regexp.last_match(1)
     else

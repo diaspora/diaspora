@@ -25,16 +25,14 @@ describe RegistrationsController, type: :controller do
       AppConfig.settings.enable_registrations = false
     end
 
-    it "redirects #new to the login page" do
+    it "redirects #new to the registrations closed page" do
       get :new
-      expect(flash[:error]).to eq(I18n.t("registrations.closed"))
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to registrations_closed_path
     end
 
-    it "redirects #create to the login page" do
+    it "redirects #create to the registrations closed page" do
       post :create, params: valid_params
-      expect(flash[:error]).to eq(I18n.t("registrations.closed"))
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to registrations_closed_path
     end
 
     it "does not redirect if there is a valid invite token" do
@@ -45,7 +43,8 @@ describe RegistrationsController, type: :controller do
 
     it "does redirect if there is an invalid invite token" do
       get :new, params: {invite: {token: "fssdfsd"}}
-      expect(response).to redirect_to new_user_session_path
+      expect(flash[:error]).to eq(I18n.t("registrations.invalid_invite"))
+      expect(response).to redirect_to registrations_closed_path
     end
 
     it "does redirect if there are no invites available with this code" do
@@ -53,7 +52,7 @@ describe RegistrationsController, type: :controller do
       code.update_attributes(count: 0)
 
       get :new, params: {invite: {token: code.token}}
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to registrations_closed_path
     end
 
     it "does redirect when invitations are closed now" do
@@ -61,7 +60,7 @@ describe RegistrationsController, type: :controller do
       AppConfig.settings.invitations.open = false
 
       get :new, params: {invite: {token: code.token}}
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to registrations_closed_path
     end
 
     it "does not redirect when the registration is open" do

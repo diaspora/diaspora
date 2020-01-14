@@ -76,7 +76,6 @@ beforeEach(function() {
   // add gon defaults
   window.gon = {
     appConfig: {
-      chat: {enabled: false},
       settings: {podname: "MyPod"},
       map: {
         mapbox: {

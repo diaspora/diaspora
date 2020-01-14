@@ -983,6 +983,11 @@ describe User, :type => :model do
             post_default_public
             exported_at
             exported_photos_at
+            consumed_timestep
+            plain_otp_secret
+            otp_backup_codes
+            otp_required_for_login
+            otp_secret
           )
         )
       end

@@ -37,7 +37,6 @@
                            autocorrect:    "off",
                            aria:           {labelledby: "passwordConfirmationLabel"}
 
-      = hidden_field(:user, :remember_me, value: 1)
       = f.submit t("devise.passwords.edit.change_password"), class: "btn btn-block btn-primary"
 
     .text-center

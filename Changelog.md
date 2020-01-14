@@ -1,9 +1,17 @@
 # 0.8.0.0
 
+## The chat integration has been removed
+
+After [a discussion with our community on Discourse](https://discourse.diasporafoundation.org/t/2718), we decided to remove the pieces of XMPP chat integration that were put in place a while ago. When we first added the chat support, we merged the implementation in an unfinished state in the hopes that the open issues will be addressed eventually, and the implementation would end up more polished. This ended up not being the case. After careful consideration and discussion, we did not manage to come up with clear reasons why we need a chat implementation, so we decided that the best way forward would be to remove it.
+
+Although the chat was never enabled per default and was marked as experimental, some production pods did set up the integration and offered an XMPP service to their users. After this release, diaspora\* will no longer contain a chat applet, so users will no longer be able to use the webchat inside diaspora\*. The existing module that is used to enable users to authenticate to Prosody using their diaspora\* credentials will continue to work, but contact list synchronization might not work without further changes to the Prosody module, which is developed independently from this project.
+
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581)
 * Remove backporting of mention syntax [#7788](https://github.com/diaspora/diaspora/pull/7788)
 * Enable Content-Security-Policy header by default [#7781](https://github.com/diaspora/diaspora/pull/7781)
+* Do not show getting started after account import [#8036](https://github.com/diaspora/diaspora/pull/8036)
+* Remove the JSXC/Prosody integration [#8069](https://github.com/diaspora/diaspora/pull/8069)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
@@ -13,14 +21,43 @@
 * Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
 * Add backend for archive import [#7660](https://github.com/diaspora/diaspora/pull/7660)
 
+# 0.7.13.0
+
+## Refactor
+* Set better example values for unicorn stdout/stderr log settings [#8058](https://github.com/diaspora/diaspora/pull/8058)
+
+## Bug fixes
+* Fix error while trying to fetch some sites with invalid OpenGraph data [#8049](https://github.com/diaspora/diaspora/pull/8049)
+
+## Features
+* Add cronjob to cleanup pending photos which were never posted [#8041](https://github.com/diaspora/diaspora/pull/8041)
+
+# 0.7.12.0
+
+## Refactor
+* Harmonize markdown titles sizes [#8029](https://github.com/diaspora/diaspora/pull/8029)
+
+## Bug fixes
+* Improve handling of mixed case hostnames while fetching OpenGraph data [#8021](https://github.com/diaspora/diaspora/pull/8021)
+* Fix "remember me" with two factor authentication enabled [#8031](https://github.com/diaspora/diaspora/pull/8031)
+
+## Features
+* Add line mentioning diaspora\* on the splash page [#7966](https://github.com/diaspora/diaspora/pull/7966)
+* Improve communication about signing up on closed pods [#7896](https://github.com/diaspora/diaspora/pull/7896)
+
 # 0.7.11.0
 
 ## Refactor
+* Enable paranoid mode for devise [#8003](https://github.com/diaspora/diaspora/pull/8003)
+* Refactor likes cucumber test [#8002](https://github.com/diaspora/diaspora/pull/8002)
 
 ## Bug fixes
+* Fix old photos without remote url for export [#8012](https://github.com/diaspora/diaspora/pull/8012)
 
 ## Features
-* Add a manifest.json file as a first step to make diaspora* a Progressive Web App [#7998](https://github.com/diaspora/diaspora/pull/7998)
+* Add a manifest.json file as a first step to make diaspora\* a Progressive Web App [#7998](https://github.com/diaspora/diaspora/pull/7998)
+* Allow `web+diaspora://` links to link to a profile with only the diaspora ID [#8000](https://github.com/diaspora/diaspora/pull/8000)
+* Support TOTP two factor authentication [#7751](https://github.com/diaspora/diaspora/pull/7751)
 
 # 0.7.10.0
 

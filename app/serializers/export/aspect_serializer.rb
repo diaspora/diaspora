@@ -2,6 +2,6 @@
 
 module Export
   class AspectSerializer < ActiveModel::Serializer
-    attributes :name, :chat_enabled
+    attributes :name
   end
 end

@@ -1,0 +1,11 @@
+- content_for :page_title do
+  = t("two_factor_auth.confirm.title")
+
+.container-fluid
+  .row
+    .col-md-3
+      .sidebar
+        = render "shared/settings_nav"
+    .col-md-9
+      .framed-content.clearfix
+        = render "confirm"

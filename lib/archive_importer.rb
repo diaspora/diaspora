@@ -25,10 +25,12 @@ class ArchiveImporter
       email strip_exif show_community_spotlight_in_stream language disable_mail auto_follow_back
     ]
     data = convert_keys(archive_hash["user"], allowed_keys)
+    # setting getting_started to false as the user doesn't need to see the getting started wizard
     data.merge!(
       username:              attr[:username],
       password:              attr[:password],
       password_confirmation: attr[:password],
+      getting_started:       false,
       person:                {
         profile_attributes: profile_attributes
       }
@@ -64,7 +66,7 @@ class ArchiveImporter
   def import_aspects
     contact_groups.each do |group|
       begin
-        user.aspects.create!(group.slice("name", "chat_enabled"))
+        user.aspects.create!(group.slice("name"))
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end

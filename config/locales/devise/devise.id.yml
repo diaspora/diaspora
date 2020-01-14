@@ -50,7 +50,6 @@ id:
         change_password: "Ubah kata sandi saya"
       new:
         forgot_password: "Lupa kata sandi anda?"
-        no_account: "Tidak ditemukan akun dengan E-mail ini. Jika anda menunggu invitasi (undangan), kami akan menyebarkannya secepatnya"
         send_password_instructions: "Kirimkan saya instruksi untuk membuat ulang kata sandi"
       send_instructions: "Anda akan menerima email berisi petunjuk cara membuat ulang kata sandi Anda dalam beberapa menit."
       updated: "Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk."

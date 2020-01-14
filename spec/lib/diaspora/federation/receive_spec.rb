@@ -43,7 +43,7 @@ describe Diaspora::Federation::Receive do
     }
 
     it "saves the account deletion" do
-      Diaspora::Federation::Receive.account_migration(account_migration_entity)
+      Diaspora::Federation::Receive.perform(account_migration_entity)
 
       expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
     end
@@ -53,7 +53,7 @@ describe Diaspora::Federation::Receive do
 
       expect(AccountMigration).not_to receive(:create!)
 
-      expect(Diaspora::Federation::Receive.account_migration(account_migration_entity)).to be_nil
+      expect(Diaspora::Federation::Receive.perform(account_migration_entity)).to be_nil
 
       expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
     end
@@ -64,7 +64,7 @@ describe Diaspora::Federation::Receive do
         raise "Some database error"
       end
 
-      expect(Diaspora::Federation::Receive.account_migration(account_migration_entity)).to be_nil
+      expect(Diaspora::Federation::Receive.perform(account_migration_entity)).to be_nil
 
       expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
     end
@@ -757,7 +757,7 @@ describe Diaspora::Federation::Receive do
       end
 
       it "does not overwrite the photos if they already exist" do
-        received_photo = Diaspora::Federation::Receive.photo(photo1)
+        received_photo = Diaspora::Federation::Receive.perform(photo1)
         received_photo.text = "foobar"
         received_photo.save!
 

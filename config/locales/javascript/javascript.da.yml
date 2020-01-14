@@ -133,6 +133,7 @@ da:
       recent_notifications: "Seneste notifikationer"
       search: "Søg"
       settings: "Indstillinger"
+      switch_to_touch_optimized_mode: "Skift til touch-optimeret tilstand"
       toggle_navigation: "Slå navigation til/fra"
       view_all: "Se alle"
     hide_post: "Skjul dette indlæg?"

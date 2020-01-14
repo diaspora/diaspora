@@ -1,12 +1,11 @@
 #registration
   .container
     .row
-      .col-md-10.offset1
-        .col-md-7.hidden-phone
-          %h1.ball
-        .col-md-5.v-center
-          .content.text-center
-            %h2#pod-name
-              = AppConfig.settings.pod_name
+      .col-sm-6.hidden-xs
+        .ball
+      .col-sm-6.col-xs-12.v-center
+        .content.text-center
+          %h1#pod-name
+            = AppConfig.settings.pod_name
 
-            = render partial: "form", locals: {mobile: false}
+          = render partial: "form", locals: {mobile: false}

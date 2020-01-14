@@ -50,7 +50,6 @@ nn:
         change_password: "Endra passordet mitt"
       new:
         forgot_password: "Har du gløymt passordet ditt?"
-        no_account: "Det finst ingen konto med denne e-postadressa. Om du ventar på ein invitasjon, skal du veta at vi sender dei ut så fort vi kan."
         send_password_instructions: "Send meg opplysningar om korleis nullstilla passordet"
       send_instructions: "Om ei lita stund vil du få ein e-post med opplysningar om korleis du kan nullstilla passordet ditt."
       updated: "Passordet ditt vart endra. Du er no pålogga."

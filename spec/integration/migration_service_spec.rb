@@ -148,8 +148,7 @@ describe MigrationService do
           }
         ],
         "contact_groups": [
-          {"name":"Friends","chat_enabled":true},
-          {"name":"Friends","chat_enabled":false}
+          {"name":"Friends"}
         ],
         "post_subscriptions": [
           "#{unknown_subscription_guid}",
@@ -303,7 +302,6 @@ describe MigrationService do
 
       aspect = user.aspects.find_by(name: "Friends")
       expect(aspect).not_to be_nil
-      expect(aspect.chat_enabled).to be_truthy
 
       poll_participation = PollParticipation.find_by(author: user.person, guid: poll_participation_entity.guid)
       expect(poll_participation).not_to be_nil

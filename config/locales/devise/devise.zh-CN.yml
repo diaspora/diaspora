@@ -50,7 +50,6 @@ zh-CN:
         change_password: "修改密码"
       new:
         forgot_password: "忘记密码？"
-        no_account: "暂无与此邮箱关联的帐号。如果您在等待邀请函, 我们将尽快寄出."
         send_password_instructions: "请向我发送密码重置步骤"
       send_instructions: "几分钟内您将收到一封包含密码重置步骤的邮件。"
       updated: "密码修改成功。您已经登入了。"

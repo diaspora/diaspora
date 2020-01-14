@@ -9,6 +9,8 @@
       class: request.path == edit_user_path ? "list-group-item active" : "list-group-item"
     = link_to t("privacy"), privacy_settings_path,
       class: current_page?(privacy_settings_path) ? "list-group-item active" : "list-group-item"
+    = link_to t("two_factor_auth.title"), two_factor_authentication_path,
+      class: current_page?(two_factor_authentication_path) ? "list-group-item active" : "list-group-item"
     = link_to t("_services"), services_path,
       class: current_page?(services_path) ? "list-group-item active" : "list-group-item"
     = link_to t("_applications"), api_openid_connect_user_applications_path,

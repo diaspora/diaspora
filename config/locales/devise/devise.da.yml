@@ -62,7 +62,6 @@ da:
       new:
         email: "E-mail adresse"
         forgot_password: "Glemt din adgangskode?"
-        no_account: "Ingen konto med denne email adresse eksisterer."
         reset_password: "Nulstil adgangskode"
         send_password_instructions: "Send mig instruktioner til nulstilning af adgangskode"
       no_token: "Du kan ikke tilgå denne side uden at komme fra en e-mail med nulstilling af dit kodeord. Hvis du kommer fra sådan en e-mail, undersøg venligst at du har brugt hele den URL der stod i mailen."

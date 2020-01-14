@@ -53,15 +53,15 @@ ja:
         up_to_date: "ポッドは最新です！"
     and: "および"
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "アスペクトに追加"
       all_aspects: "全てのアスペクト"
       error: "<%= name %>さんとシェアを始めることができません。  無視しますか?"
       error_remove: "アスペクトから<%= name %>さんを削除できませんでした :("
       mobile_row_checked: "<%= name %> (削除)"
       mobile_row_unchecked: "<%= name %> (追加)"
       select_aspects: "アスペクトを選択する"
-      started_sharing_with: "You have started sharing with <%= name %>!"
-      stopped_sharing_with: "You have stopped sharing with <%= name %>."
+      started_sharing_with: "<%= name %>さんとシェアを始めました!"
+      stopped_sharing_with: "<%= name %>さんとシェアをやめました。"
       toggle:
         other: "<%= count %> アスペクトに"
         zero: "<%= count %> アスペクトに"
@@ -87,7 +87,7 @@ ja:
       hide: "コメントを隠す"
       no_comments: "まだコメントはありません。"
       show: "全てのコメントを表示する"
-    confirm_dialog: "本当にいいですか。"
+    confirm_dialog: "よろしいですか?"
     confirm_unload: "このページを離れることを確認してください。入力したデータは保存されません。"
     contacts:
       add_contact: "連絡先を追加"
@@ -111,7 +111,7 @@ ja:
     failed_to_remove: "エントリーの削除に失敗しました！"
     getting_started:
       alright_ill_wait: "OK、私は待ちます。"
-      hey: "Hey, <%= name %>!"
+      hey: "こんにちは。 <%= name %> さん!"
       no_tags: "タグを何もフォローしていません！続行しますか？"
       preparing_your_stream: "パーソナライズ ストリームを準備しています..."
     header:
