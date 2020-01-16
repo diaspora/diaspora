@@ -49,7 +49,7 @@ module Api
         def build_scopes(req)
           @scopes = req.scope.map {|scope|
             scope.tap do |scope_name|
-              req.invalid_scope! I18n.t("api.openid_connect.authorizations.new.unknown_scope") \
+              req.invalid_scope! I18n.t("api.openid_connect.authorizations.new.unknown_scope", scope_name: scope_name) \
                 unless auth_scopes.include?(scope_name)
             end
           }
