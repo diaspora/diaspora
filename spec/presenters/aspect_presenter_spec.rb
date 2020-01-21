@@ -25,7 +25,6 @@ describe AspectPresenter do
       expect(aspect_json[:id]).to eq(@aspect.id)
       expect(aspect_json[:name]).to eq(@aspect.name)
       expect(aspect_json[:order]).to eq(@aspect.order_id)
-      expect(aspect_json[:chat_enabled]).to eq(@aspect.chat_enabled)
     end
   end
 end
