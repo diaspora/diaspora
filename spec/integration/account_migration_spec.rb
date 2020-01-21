@@ -166,7 +166,7 @@ shared_examples_for "migration scenarios with local user rename" do
     block = FactoryGirl.create(:block, user: old_user)
     notification = FactoryGirl.create(:notification, recipient: old_user)
     report = FactoryGirl.create(:report, user: old_user)
-    authorization = FactoryGirl.create(:auth_with_read, user: old_user)
+    authorization = FactoryGirl.create(:auth_with_read_scopes, user: old_user)
     share_visibility = FactoryGirl.create(:share_visibility, user: old_user)
 
     run_migration
