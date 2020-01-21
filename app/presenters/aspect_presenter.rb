@@ -17,7 +17,6 @@ class AspectPresenter < BasePresenter
       name: @aspect.name
     }
     values[:order] = @aspect.order_id if with_order
-    values[:chat_enabled] = @aspect.chat_enabled if full
     values
   end
 

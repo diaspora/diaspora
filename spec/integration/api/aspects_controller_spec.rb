@@ -80,7 +80,6 @@ describe Api::V1::AspectsController do
         expect(aspect["id"]).to eq(@aspect2.id)
         expect(aspect["name"]).to eq(@aspect2.name)
         expect(aspect["order"]).to eq(@aspect2.order_id)
-        expect(aspect["chat_enabled"]).to eq(@aspect2.chat_enabled)
 
         expect(aspect.to_json).to match_json_schema(:api_v1_schema)
       end
@@ -122,13 +121,12 @@ describe Api::V1::AspectsController do
         new_name = "diaspora developers"
         post(
           api_v1_aspects_path,
-          params: {name: new_name, chat_enabled: true, access_token: access_token}
+          params: {name: new_name, access_token: access_token}
         )
 
         expect(response.status).to eq(200)
         aspect = JSON.parse(response.body)
         expect(aspect["name"]).to eq(new_name)
-        expect(aspect["chat_enabled"]).to be_truthy
         expect(aspect.has_key?("id")).to be_truthy
         expect(aspect.has_key?("order")).to be_truthy
       end
@@ -136,7 +134,7 @@ describe Api::V1::AspectsController do
       it "fails to create duplicate aspect" do
         post(
           api_v1_aspects_path,
-          params: {name: @aspect1.name, chat_enabled: true, access_token: access_token}
+          params: {name: @aspect1.name, access_token: access_token}
         )
 
         expect(response.status).to eq(422)
@@ -148,17 +146,7 @@ describe Api::V1::AspectsController do
       it "fails when missing name" do
         post(
           api_v1_aspects_path,
-          params: {chat_enabled: true, access_token: access_token}
-        )
-
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.aspects.cant_create"))
-      end
-
-      it "fails when missing chat" do
-        post(
-          api_v1_aspects_path,
-          params: {name: "new_aspect", access_token: access_token}
+          params: {order: 0, access_token: access_token}
         )
 
         expect(response.status).to eq(422)
@@ -170,7 +158,7 @@ describe Api::V1::AspectsController do
       it "fails when not logged in" do
         post(
           api_v1_aspects_path,
-          params: {name: "new_name", chat_enabled: true, access_token: invalid_token}
+          params: {name: "new_name", access_token: invalid_token}
         )
         expect(response.status).to eq(401)
       end
@@ -178,7 +166,7 @@ describe Api::V1::AspectsController do
       it "fails when logged in read only" do
         post(
           api_v1_aspects_path,
-          params: {name: "new_name", chat_enabled: true, access_token: access_token_read_only}
+          params: {name: "new_name", access_token: access_token_read_only}
         )
 
         expect(response.status).to eq(403)
@@ -190,17 +178,15 @@ describe Api::V1::AspectsController do
     context "with aspect settings" do
       it "updates full aspect" do
         new_name = "NewAspectName"
-        new_chat = @aspect2.chat_enabled
         new_order = @aspect2.order_id + 1
         patch(
           api_v1_aspect_path(@aspect2.id),
-          params: {name: new_name, chat_enabled: new_chat, order: new_order, access_token: access_token}
+          params: {name: new_name, order: new_order, access_token: access_token}
         )
 
         expect(response.status).to eq(200)
         aspect = JSON.parse(response.body)
         expect(aspect["name"]).to eq(new_name)
-        expect(aspect["chat_enabled"]).to eq(new_chat)
         expect(aspect["order"]).to eq(new_order)
         expect(aspect["id"]).to eq(@aspect2.id)
       end
@@ -215,19 +201,6 @@ describe Api::V1::AspectsController do
         expect(response.status).to eq(200)
         aspect = JSON.parse(response.body)
         expect(aspect["name"]).to eq(new_name)
-        expect(aspect["id"]).to eq(@aspect2.id)
-      end
-
-      it "updates chat only" do
-        new_chat = @aspect2.chat_enabled
-        patch(
-          api_v1_aspect_path(@aspect2.id),
-          params: {chat_enabled: new_chat, access_token: access_token}
-        )
-
-        expect(response.status).to eq(200)
-        aspect = JSON.parse(response.body)
-        expect(aspect["chat_enabled"]).to eq(new_chat)
         expect(aspect["id"]).to eq(@aspect2.id)
       end
 
@@ -253,7 +226,6 @@ describe Api::V1::AspectsController do
         expect(response.status).to eq(200)
         aspect = JSON.parse(response.body)
         expect(aspect["name"]).to eq(@aspect2.name)
-        expect(aspect["chat_enabled"]).to eq(@aspect2.chat_enabled)
         expect(aspect["id"]).to eq(@aspect2.id)
       end
     end

@@ -28,8 +28,8 @@ module Api
       end
 
       def create
-        params.require(%i[name chat_enabled])
-        aspect = current_user.aspects.build(name: params[:name], chat_enabled: params[:chat_enabled])
+        params.require(%i[name])
+        aspect = current_user.aspects.build(name: params[:name])
         if aspect&.save
           render json: aspect_as_json(aspect, true)
         else
@@ -65,7 +65,7 @@ module Api
       private
 
       def aspect_params(allow_order=false)
-        parameters = params.permit(:name, :chat_enabled)
+        parameters = params.permit(:name)
         parameters[:order_id] = params[:order] if params.has_key?(:order) && allow_order
 
         parameters

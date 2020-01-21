@@ -81,12 +81,9 @@
         },
         "order": {
           "type": "integer"
-        },
-        "chat_enabled": {
-          "type": "boolean"
         }
       },
-      "required": ["id", "name", "order", "chat_enabled"],
+      "required": ["id", "name", "order"],
       "additionalProperties": false
     },
 
