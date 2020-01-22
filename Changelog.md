@@ -2,6 +2,7 @@
 
 ## Refactor
 * Set better example values for unicorn stdout/stderr log settings [#8058](https://github.com/diaspora/diaspora/pull/8058)
+* Replace dependency on rails-assets.org with custom gems cache at gems.diasporafoundation.org [#8087](https://github.com/diaspora/diaspora/pull/8087)
 
 ## Bug fixes
 * Fix error while trying to fetch some sites with invalid OpenGraph data [#8049](https://github.com/diaspora/diaspora/pull/8049)
