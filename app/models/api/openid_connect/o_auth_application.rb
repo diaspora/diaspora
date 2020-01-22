@@ -44,6 +44,12 @@ module Api
         redirect_uris.sort!
       end
 
+      def as_json(opts={})
+        data = super
+        data[:client_secret_expires_at] = 0
+        data
+      end
+
       def setup
         self.client_id = SecureRandom.hex(16)
         self.client_secret = SecureRandom.hex(32)

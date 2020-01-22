@@ -3,12 +3,12 @@
 Given /^a client with a provided picture exists for user "([^\"]*)"$/ do |email|
   app = FactoryGirl.create(:o_auth_application, logo_uri: "/assets/user/default.png")
   user = User.find_by(email: email)
-  FactoryGirl.create(:auth_with_read, user: user, o_auth_application: app)
+  FactoryGirl.create(:auth_with_read_scopes, user: user, o_auth_application: app)
 end
 
 Given /^a client exists for user "([^\"]*)"$/ do |email|
   user = User.find_by(email: email)
-  FactoryGirl.create(:auth_with_read, user: user)
+  FactoryGirl.create(:auth_with_read_scopes, user: user)
 end
 
 When /^I register a new client$/ do
@@ -28,7 +28,7 @@ Then /^I should receive "([^\"]*)"'s id, username, and email$/ do |username|
   user_info_json = JSON.parse(last_response.body)
   user = User.find_by_username(username)
   user_profile_url = File.join(AppConfig.environment.url, "people", user.guid).to_s
-  expect(user_info_json["profile"]).to have_content(user_profile_url)
+  expect(user_info_json["profile"]).to have_content(api_v1_user_path)
 end
 
 Then /^I should receive an "([^\"]*)" error$/ do |error_message|

@@ -1,0 +1,416 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://diaspora.software/api/v1/schema.json",
+  "oneOf": [
+    {"$ref": "#/definitions/aspects"},
+    {"$ref": "#/definitions/aspect"},
+    {"$ref": "#/definitions/comments_or_messages"},
+    {"$ref": "#/definitions/users"},
+    {"$ref": "#/definitions/conversations"},
+    {"$ref": "#/definitions/conversation"},
+    {"$ref": "#/definitions/authored_content_references"},
+    {"$ref": "#/definitions/likes"},
+    {"$ref": "#/definitions/notifications"},
+    {"$ref": "#/definitions/notification"},
+    {"$ref": "#/definitions/photos"},
+    {"$ref": "#/definitions/photo"},
+    {"$ref": "#/definitions/post"},
+    {"$ref": "#/definitions/posts"},
+    {"$ref": "#/definitions/tags"},
+    {"$ref": "#/definitions/own_user"},
+    {"$ref": "#/definitions/user"}
+  ],
+
+  "definitions": {
+    "guid": {
+      "type": "string",
+      "minLength": 16,
+      "maxLength": 255
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format":  "date-time"
+    },
+
+    "url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+
+    "short_profile": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "#/definitions/guid" },
+        "diaspora_id": { "type": "string" },
+        "name": { "type": "string" },
+        "avatar": { "$ref": "#/definitions/url" }
+      },
+      "required": ["guid", "diaspora_id", "name"],
+      "additionalProperties": false
+    },
+
+    "aspects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer"
+          }
+        },
+        "required": ["id", "name", "order"],
+        "additionalProperties": false
+      }
+    },
+
+    "aspect": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer"
+        }
+      },
+      "required": ["id", "name", "order"],
+      "additionalProperties": false
+    },
+
+    "comments_or_messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid": { "$ref": "#/definitions/guid" },
+          "created_at": { "$ref": "#/definitions/timestamp" },
+          "author": { "$ref": "#/definitions/short_profile" },
+          "body": { "type": "string" }
+        },
+        "required": ["guid", "created_at", "author", "body"],
+        "additionalProperties": false
+      }
+    },
+
+    "users": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/short_profile" }
+    },
+
+    "conversations": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/conversation" }
+    },
+
+    "conversation": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "#/definitions/guid" },
+        "subject": { "type": "string" },
+        "created_at": { "$ref": "#/definitions/timestamp" },
+        "read": { "type": "boolean" },
+        "participants": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/short_profile" }
+        }
+      },
+      "required": ["subject", "created_at", "read", "participants"],
+      "additionalProperties": false
+    },
+
+    "authored_content_reference": {
+      "type": "object",
+      "created_at": { "$ref": "#/definitions/timestamp" },
+      "properties": {
+        "guid": { "$ref": "#/definitions/guid" },
+        "author": { "$ref": "#/definitions/short_profile" }
+      },
+      "required": ["guid", "created_at", "author"],
+      "additionalProperties": false
+    },
+
+    "authored_content_references": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/authored_content_reference" }
+    },
+
+    "likes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid": { "$ref": "#/definitions/guid" },
+          "author": { "$ref": "#/definitions/short_profile" }
+        },
+        "required": ["guid", "author"],
+        "additionalProperties": false
+      }
+    },
+
+    "notifications": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/notification" }
+    },
+
+    "notification": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "#/definitions/guid" },
+        "type": {
+          "enum": [
+            "also_commented",
+            "comment_on_post",
+            "liked",
+            "mentioned",
+            "mentioned_in_comment",
+            "reshared",
+            "started_sharing",
+            "contacts_birthday"
+          ]
+        },
+        "read": { "type": "boolean" },
+        "created_at": { "$ref": "#/definitions/timestamp" },
+        "target": {
+          "type": "object",
+          "properties": {
+            "guid": { "$ref": "#/definitions/guid" },
+            "author": { "$ref": "#/definitions/short_profile" }
+          },
+          "required": ["guid"]
+        },
+        "event_creators": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/short_profile" }
+        }
+      },
+      "required": ["guid", "type", "read", "created_at", "target"],
+      "additionalProperties": false
+    },
+
+    "photos": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/photo"}
+    },
+
+    "photo_sizes": {
+      "type": "object",
+      "properties": {
+        "large": { "$ref": "#/definitions/url" },
+        "medium": { "$ref": "#/definitions/url" },
+        "small": { "$ref": "#/definitions/url" }
+      },
+      "required": ["large", "medium", "small"],
+      "additionalProperties": true
+    },
+
+    "photo_dimensions": {
+      "type": "object",
+      "properties": {
+        "width": { "type": ["integer", "null"] },
+        "height": { "type": ["integer", "null"] }
+      },
+      "required": ["width", "height"]
+    },
+
+    "photo": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "#/definitions/guid" },
+        "post": { "$ref": "#/definitions/guid" },
+        "created_at": { "$ref": "#/definitions/timestamp" },
+        "dimensions": { "$ref": "#/definitions/photo_dimensions" },
+        "sizes": { "$ref": "#/definitions/photo_sizes" }
+      },
+      "required": ["guid", "created_at", "dimensions", "sizes"],
+      "additionalProperties": false
+    },
+
+    "post_common": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "#/definitions/guid" },
+        "created_at": { "$ref": "#/definitions/timestamp" },
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "provider_display_name": { "type": "string" },
+        "public": { "type": "boolean" },
+        "nsfw": { "type": "boolean" },
+        "author": { "$ref": "#/definitions/short_profile" },
+        "interaction_counters": {
+          "type": "object",
+          "properties": {
+            "comments": { "type": "integer" },
+            "likes": { "type": "integer" },
+            "reshares":{ "type": "integer" }
+          },
+          "required": ["comments", "likes", "reshares"],
+          "additionalProperties": false
+        },
+        "mentioned_people": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/short_profile" }
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dimensions": { "$ref": "#/definitions/photo_dimensions" },
+              "sizes": { "$ref": "#/definitions/photo_sizes" }
+            },
+            "required": ["dimensions", "sizes"]
+          }
+        },
+        "poll": {
+          "type": "object",
+          "properties": {
+            "guid": { "$ref": "#/definitions/guid" },
+            "participation_count": { "type": "integer" },
+            "already_participated": { "type": "boolean" },
+            "question": { "type": "string" },
+            "poll_answers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "integer" },
+                  "answer": { "type": "string" },
+                  "vote_count": { "type": "integer" }
+                },
+                "required": ["id", "answer", "vote_count"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["guid", "participation_count", "already_participated", "question", "poll_answers"],
+          "additionalProperties": false
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "address": { "type": "string" },
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          },
+          "required": ["address", "lat", "lng"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["guid", "created_at", "title", "body", "public", "nsfw", "author", "interaction_counters", "mentioned_people", "photos"]
+    },
+
+    "post": {
+      "anyOf": [
+        {
+          "allOf": [
+            { "$ref": "#/definitions/post_common" },
+            {
+              "properties": {
+                "post_type": { "type": "string", "format": "^StatusMessage$" }
+              },
+              "required": ["post_type"]
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/definitions/post_common" },
+            {
+              "properties": {
+                "post_type": { "type": "string", "format": "^Reshare$" },
+                "root": { "$ref": "#/definitions/authored_content_reference" }
+              },
+              "required": ["post_type", "root"]
+            }
+          ]
+        }
+      ]
+    },
+
+    "posts": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/post" }
+    },
+
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[^#]" }
+    },
+
+    "birthday": { "type": "string", "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$" },
+
+    "user_data": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "#/definitions/guid" },
+        "diaspora_id": { "type": "string" },
+        "name": { "type": "string" },
+        "birthday": { "$ref": "#/definitions/birthday" },
+        "gender": { "type": "string" },
+        "location": { "type": "string" },
+        "bio": { "type": "string" },
+        "avatar": { "$ref": "#/definitions/photo_sizes" },
+        "tags": { "$ref": "#/definitions/tags" }
+      },
+      "required": ["guid", "diaspora_id", "tags"]
+    },
+
+    "own_user": {
+      "allOf": [
+        { "$ref": "#/definitions/user_data" },
+        {
+          "type": "object",
+          "properties": {
+            "searchable": { "type": "boolean" },
+            "show_profile_info": { "type": "boolean" }
+          },
+          "required": ["searchable", "show_profile_info"]
+        }
+      ]
+    },
+
+    "user": {
+      "allOf": [
+        { "$ref": "#/definitions/user_data" },
+        {
+          "type": "object",
+          "properties": {
+            "blocked": { "type": "boolean" },
+            "relationship": {
+              "type": "object",
+              "properties": {
+                "receiving": { "type": "boolean" },
+               "sharing": { "type": "boolean" }
+              },
+              "required": ["receiving", "sharing"],
+              "additionalProperties": false
+            },
+            "aspects": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                   "id": { "type": "integer" },
+                   "name": { "type": "string" }
+                 },
+                "required": ["id", "name"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["blocked", "relationship", "aspects"]
+        }
+      ]
+    }
+  }
+}

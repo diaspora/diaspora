@@ -132,29 +132,11 @@ class PhotosController < ApplicationController
   end
 
   def legacy_create
-    photo_params = params.require(:photo).permit(:pending, :set_profile_photo, aspect_ids: [])
-    if photo_params[:aspect_ids] == "all"
-      photo_params[:aspect_ids] = current_user.aspects.map(&:id)
-    elsif photo_params[:aspect_ids].is_a?(Hash)
-      photo_params[:aspect_ids] = params[:photo][:aspect_ids].values
-    end
+    base_params = photo_params
+    uploaded_file = file_handler(params)
 
-    photo_params[:user_file] = file_handler(params)
-
-    @photo = current_user.build_post(:photo, photo_params)
-
-    if @photo.save
-
-      unless @photo.pending
-        unless @photo.public?
-          aspects = current_user.aspects_from_ids(photo_params[:aspect_ids])
-          current_user.add_to_streams(@photo, aspects)
-        end
-        current_user.dispatch_post(@photo, to: photo_params[:aspect_ids])
-      end
-
-      current_user.update_profile(photo: @photo) if photo_params[:set_profile_photo]
-
+    @photo = photo_service.create_from_params_and_file(base_params, uploaded_file)
+    if @photo
       respond_to do |format|
         format.json { render(layout: false, json: {"success" => true, "data" => @photo}.to_json) }
         format.html { render(layout: false, json: {"success" => true, "data" => @photo}.to_json) }
@@ -179,5 +161,9 @@ class PhotosController < ApplicationController
       format.json { render(layout: false, json: {"success" => false, "error" => message}.to_json) }
       format.html { render(layout: false, json: {"success" => false, "error" => message}.to_json) }
     end
+  end
+
+  def photo_service
+    @photo_service ||= PhotoService.new(current_user, false)
   end
 end

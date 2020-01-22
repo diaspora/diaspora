@@ -13,7 +13,7 @@ atom_feed("xmlns:thr"       => "http://purl.org/syndication/thread/1.0",
   feed.tag! :generator, 'Diaspora', :uri => "#{AppConfig.pod_uri.to_s}"
   feed.title "#{@user.name}'s Public Feed"
   feed.subtitle "Updates from #{@user.name} on #{AppConfig.settings.pod_name}"
-  feed.logo "#{@user.image_url(:thumb_small)}"
+  feed.logo @user.image_url(size: :thumb_small)
   feed.updated @posts[0].created_at if @posts.length > 0
   feed.tag! :link, :rel => 'avatar', :type => 'image/jpeg', 'media:width' => '100',
 	    'media:height' => '100', :href => "#{@user.image_url}"

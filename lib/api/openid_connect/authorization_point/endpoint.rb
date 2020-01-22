@@ -47,12 +47,18 @@ module Api
         end
 
         def build_scopes(req)
-          replace_profile_scope_with_specific_claims(req)
           @scopes = req.scope.map {|scope|
             scope.tap do |scope_name|
-              req.invalid_scope! "Unknown scope: #{scope_name}" unless auth_scopes.include? scope_name
+              req.invalid_scope! I18n.t("api.openid_connect.authorizations.new.unknown_scope", scope_name: scope_name) \
+                unless auth_scopes.include?(scope_name)
             end
           }
+
+          @scopes.push("public:read") unless @scopes.include?("public:read")
+          has_private_scope = @scopes.include?("private:read") || @scopes.include?("private:modify")
+          has_contacts_scope = @scopes.include? "contacts:read"
+          req.invalid_scope! I18n.t("api.openid_connect.authorizations.new.private_contacts_linkage_error") \
+            if has_private_scope && !has_contacts_scope
         end
 
         def auth_scopes

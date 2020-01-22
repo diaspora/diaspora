@@ -2,19 +2,24 @@
 
 class ContactPresenter < BasePresenter
   def base_hash
-    { id: id,
+    {
+      id:        id,
       person_id: person_id
     }
   end
 
   def full_hash
-    base_hash.merge({
+    base_hash.merge(
       aspect_memberships: aspect_memberships.map{ |membership| AspectMembershipPresenter.new(membership).base_hash }
-    })
+    )
   end
 
   def full_hash_with_person
     full_hash.merge(person: person_without_contact)
+  end
+
+  def as_api_json_without_contact
+    PersonPresenter.new(person, current_user).as_api_json
   end
 
   private

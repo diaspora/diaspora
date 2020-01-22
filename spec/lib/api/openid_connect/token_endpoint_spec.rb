@@ -64,9 +64,11 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
       end
 
       it "should not allow a nil code" do
-        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
-             client_id: client.client_id, client_secret: client.client_secret,
-             redirect_uri: "http://localhost:3000/", code: nil}
+        post api_openid_connect_access_tokens_path, params: {grant_type:    "authorization_code",
+                                                             client_id:     client.client_id,
+                                                             client_secret: client.client_secret,
+                                                             redirect_uri:  "http://localhost:3000/",
+                                                             code:          nil}
         expect(JSON.parse(response.body)["error"]).to eq("invalid_request")
       end
     end

@@ -288,6 +288,12 @@ en:
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
+    create:
+      fail: "Comment creation has failed"
+    destroy:
+      success: "Comment %{id} has been successfully deleted"
+      fail: "Comment deletion has failed"
+    not_found: "Post or comment not found"
 
   contacts:
     index:
@@ -335,6 +341,7 @@ en:
     destroy:
       delete_success: "Conversation successfully deleted"
       hide_success: "Conversation successfully hidden"
+    not_found: "Conversation not found"
   date:
     formats:
       fullmonth_day: "%B %d"
@@ -623,8 +630,22 @@ en:
   likes:
     create:
       error: "Failed to like."
+      fail: "Like creation has failed"
     destroy:
       error: "Failed to unlike."
+    people_like_this:
+      zero: "No likes"
+      one: "%{count} like"
+      other: "%{count} likes"
+    people_like_this_comment:
+      zero: "No likes"
+      one: "%{count} like"
+      other: "%{count} likes"
+    people_dislike_this:
+      zero: "No dislikes"
+      one: "%{count} dislike"
+      other: "%{count} dislikes"
+    not_found: "Post or like not found"
 
   notifications:
     started_sharing:
@@ -883,6 +904,8 @@ en:
           deny: "Deny"
           bad_request: "Missing client id or redirect URI"
           client_id_not_found: "No client with client_id %{client_id} with redirect URI %{redirect_uri} found"
+          private_contacts_linkage_error: "private:read and private:modify require contacts:read as well"
+          unknown_scope: "Unknown scope: %{scope_name}"
         destroy:
           fail: "The attempt to revoke the authorization with ID %{id} failed"
       user_applications:
@@ -898,36 +921,117 @@ en:
       scopes:
         openid:
           name: "basic profile"
-          description: "This allows the application to read your basic profile"
+          description: "This grants read access to basic profile information to the application."
         sub:
           name: "sub"
-          description: "This grants sub permissions to the application"
-        aud:
-          name: "aud"
-          description: "This grants aud permissions to the application"
+          description: "This grants sub permissions to the application."
         name:
           name: "name"
-          description: "This grants name permissions to the application"
+          description: "This grants read access to name data to the application."
         nickname:
           name: "nickname"
-          description: "This grants nickname permissions to the application"
-        profile:
-          name: "extended profile"
-          description: "This allows the application to read your extended profile"
+          description: "This grants read access to nickname data to the application."
         picture:
           name: "picture"
-          description: "This grants picture permissions to the application"
-        read:
-          name: "read profile, stream and conversations"
-          description: "This allows the application to read your stream, your conversations and your complete profile"
-        write:
-          name: "send posts, conversations and reactions"
-          description: "This allows the application to send new posts, write conversations, and send reactions"
+          description: "This grants read access to user's profile picture data to the application."
+        'contacts:read':
+          name: "contacts:read"
+          description: "This grants read permissions to contacts and related data (like aspects) to the application."
+        'contacts:modify':
+          name: "contacts:modify"
+          description: "This grants write permissions to contacts and related data (like aspects) to the application."
+        conversations:
+          name: "conversations"
+          description: "This grants read/write permission to private messaging to the application."
+        email:
+          name: "email"
+          description: "This grants read access to the user's email address to the application."
+        interactions:
+          name: "interactions"
+          description: "This grants read and write permissions on interacting wth posts to the application."
+        notifications:
+          name: "notifications"
+          description: "This grants read and write permissions on interactions for the user to the application."
+        'private:read':
+          name: "private:read"
+          description: "This grants read privileges on private posts and streams to the application."
+        'private:modify':
+          name: "private:modify"
+          description: "This grants modification privileges on private posts and streams, including allowing private sharing, to the application."
+        'public:read':
+          name: "public:read"
+          description: "This grants read permissions on public posts, interactions, and user data to the application."
+        'public:modify':
+          name: "public:modify"
+          description: "This grants write permissions on public posts (including public post writing), interactions, and user data to the application."
+        profile:
+          name: "extended profile"
+          description: "This grants read access to extendend profile data to the application."
+        'profile:modify':
+          name: "profile:modify"
+          description: "This grants user profile update permissions to the application."
+        'profile:read_private':
+          name: "profile:read_private"
+          description: "This grants read access to your private profile data to the application."
+        'tags:read':
+          name: "tags:read"
+          description: "This grants read access to user's followed tags and tag streams to the application."
+        'tags:modify':
+          name: "tags:modify"
+          description: "This grants modification access to user's followed tags to the application."
       error_page:
         title: "Oh! Something went wrong :("
         contact_developer: "You should contact the developer of the application and include the following detailed error message:"
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
+    endpoint_errors:
+      aspects:
+        cant_create: "Failed to create the aspect"
+        cant_delete: "Failed to delete the aspect"
+        cant_update: "Failed to update the aspect"
+        not_found: "Aspect with provided ID could not be found"
+      conversations:
+        not_found: "Conversation with provided guid could not be found"
+        cant_process: "Couldn’t accept or process the conversation"
+      comments:
+        not_found: "Comment not found for the given post"
+        not_allowed: "User is not allowed to comment"
+        no_delete: "User not allowed to delete the comment"
+        duplicate_report: "This item already has been reported by this user"
+      contacts:
+        not_found: "Aspect or contact on aspect not found"
+        cant_create: "Failed to add user to aspect"
+        cant_delete: "Failed to remove user from aspect"
+      likes:
+        user_not_allowed_to_like: "User is not allowed to like"
+        like_exists: "Like already exists"
+        no_like: "Like doesn’t exist"
+      interactions:
+        cant_subscribe: "Can't subscribe to this post"
+        cant_vote: "Can't vote on this post"
+      notifications:
+        not_found: "Notification with provided guid could not be found"
+        cant_process: "Couldn't process the notifications request"
+      photos:
+        not_found: "Photo with provided guid could not be found"
+        failed_create: "Failed to create the photo"
+        failed_delete: "Not allowed to delete the photo"
+      posts:
+        post_not_found: "Post with provided guid could not be found"
+        failed_create: "Failed to create the post"
+        failed_delete: "Not allowed to delete the post"
+        cant_report: "Failed to create report on this post"
+      users:
+        cant_update: "Failed to update the user settings"
+        not_found: "User not found"
+      search:
+        cant_process: "Search request could not be processed"
+      tags:
+        cant_process: "Failed to process the tag followings request"
+
+  error:
+    not_found: "No record found for given id."
+    wrong_parameters: "Some parameters are wrong or missing."
 
   people:
     person:
@@ -1375,3 +1479,5 @@ en:
     disabled: "Not available"
     open: "Open"
     closed: "Closed"
+
+
