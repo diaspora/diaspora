@@ -78,7 +78,7 @@ describe Api::V1::PhotosController do
         expect(photo.has_key?("post")).to be_falsey
         confirm_photo_format(photo, @user_photo1)
 
-        expect(photo.to_json).to match_json_schema(:api_v1_schema)
+        expect(photo.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/photo")
       end
 
       it "with correct GUID user's photo used in post and access token" do
@@ -152,7 +152,7 @@ describe Api::V1::PhotosController do
         photos = response_body_data(response)
         expect(photos.length).to eq(2)
 
-        expect(photos.to_json).to match_json_schema(:api_v1_schema)
+        expect(photos.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/photos")
       end
     end
 

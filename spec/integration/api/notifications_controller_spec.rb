@@ -41,7 +41,7 @@ describe Api::V1::NotificationsController do
         expect(notifications.length).to eq(2)
         confirm_notification_format(notifications[1], @notification, "also_commented", nil)
 
-        expect(notifications.to_json).to match_json_schema(:api_v1_schema)
+        expect(notifications.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/notifications")
       end
 
       it "with proper credentials and unread only" do
@@ -120,7 +120,7 @@ describe Api::V1::NotificationsController do
         notification = JSON.parse(response.body)
         confirm_notification_format(notification, @notification, "also_commented", @post)
 
-        expect(notification.to_json).to match_json_schema(:api_v1_schema)
+        expect(notification.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/notification")
       end
     end
 
