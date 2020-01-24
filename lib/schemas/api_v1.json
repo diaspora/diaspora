@@ -337,6 +337,20 @@
       ]
     },
 
+    "reshares": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid":  { "$ref": "#/definitions/guid" },
+          "created_at": { "$ref": "#/definitions/timestamp" },
+          "author": { "$ref": "#/definitions/short_profile" }
+        },
+        "required": ["guid", "created_at", "author"],
+        "additionalProperties": false
+      }
+    },
+
     "posts": {
       "type": "array",
       "items": { "$ref": "#/definitions/post" }
