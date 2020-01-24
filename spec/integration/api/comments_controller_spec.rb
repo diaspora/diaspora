@@ -144,7 +144,7 @@ describe Api::V1::CommentsController do
         confirm_comment_format(comments[0], auth.user, @comment_text1)
         confirm_comment_format(comments[1], auth.user, @comment_text2)
 
-        expect(comments.to_json).to match_json_schema(:api_v1_schema)
+        expect(comments.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/comments_or_messages")
       end
     end
 

@@ -74,7 +74,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         confirm_post_format(post, alice, @status, [bob, eve])
 
-        expect(post.to_json).to match_json_schema(:api_v1_schema)
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
     end
 
@@ -98,7 +98,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         confirm_post_format(post, alice, status_message)
 
-        expect(post.to_json).to match_json_schema(:api_v1_schema)
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
     end
 
@@ -115,7 +115,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         confirm_reshare_format(post, @status, alice)
 
-        expect(post.to_json).to match_json_schema(:api_v1_schema)
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
     end
 

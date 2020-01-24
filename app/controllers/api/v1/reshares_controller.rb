@@ -25,6 +25,7 @@ module Api
         reshares_page[:data] = reshares_page[:data].map do |r|
           {
             guid:   r.guid,
+            created_at: r.created_at,
             author: PersonPresenter.new(r.author).as_api_json
           }
         end

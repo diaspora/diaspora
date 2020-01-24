@@ -63,7 +63,7 @@ describe Api::V1::SearchController do
       users = response_body_data(response)
       expect(users.length).to eq(15)
 
-      expect(users.to_json).to match_json_schema(:api_v1_schema)
+      expect(users.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
     end
 
     it "succeeds by name" do
@@ -75,7 +75,7 @@ describe Api::V1::SearchController do
       users = response_body_data(response)
       expect(users.length).to eq(1)
 
-      expect(users.to_json).to match_json_schema(:api_v1_schema)
+      expect(users.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
     end
 
     it "succeeds by handle" do
@@ -87,7 +87,7 @@ describe Api::V1::SearchController do
       users = response_body_data(response)
       expect(users.length).to eq(1)
 
-      expect(users.to_json).to match_json_schema(:api_v1_schema)
+      expect(users.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
     end
 
     it "doesn't return closed accounts" do
@@ -184,7 +184,7 @@ describe Api::V1::SearchController do
       posts = response_body_data(response)
       expect(posts.length).to eq(2)
 
-      expect(posts.to_json).to match_json_schema(:api_v1_schema)
+      expect(posts.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/posts")
     end
 
     it "only returns public posts without private scope" do
