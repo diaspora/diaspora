@@ -46,7 +46,8 @@ module Api
 
       def as_json(opts={})
         data = super
-        data[:client_secret_expires_at] = 0
+        data["client_secret_expires_at"] = 0
+        data["token_endpoint_auth_method"] ||= "client_secret_post"
         data
       end
 
