@@ -211,7 +211,7 @@
         "small": { "$ref": "#/definitions/url" }
       },
       "required": ["raw", "large", "medium", "small"],
-      "additionalProperties": true
+      "additionalProperties": false
     },
 
     "photo_dimensions": {
