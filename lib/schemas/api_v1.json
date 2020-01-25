@@ -205,11 +205,12 @@
     "photo_sizes": {
       "type": "object",
       "properties": {
+        "raw": { "$ref": "#/definitions/url" },
         "large": { "$ref": "#/definitions/url" },
         "medium": { "$ref": "#/definitions/url" },
         "small": { "$ref": "#/definitions/url" }
       },
-      "required": ["large", "medium", "small"],
+      "required": ["raw", "large", "medium", "small"],
       "additionalProperties": true
     },
 
