@@ -256,6 +256,16 @@
           "required": ["comments", "likes", "reshares"],
           "additionalProperties": false
         },
+        "own_interaction_state": {
+          "type": "object",
+          "properties": {
+            "liked": { "type": "boolean" },
+            "reshared": { "type": "boolean" },
+            "subscribed": { "type": "boolean" }
+          },
+          "required": ["liked", "reshared", "subscribed"],
+          "additionalProperties": false
+        },
         "mentioned_people": {
           "type": "array",
           "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
@@ -306,7 +316,7 @@
           "additionalProperties": false
         }
       },
-      "required": ["guid", "created_at", "title", "body", "public", "nsfw", "author", "interaction_counters", "mentioned_people", "photos"]
+      "required": ["guid", "created_at", "title", "body", "public", "nsfw", "author", "interaction_counters", "own_interaction_state",  "mentioned_people", "photos"]
     },
 
     "post": {
