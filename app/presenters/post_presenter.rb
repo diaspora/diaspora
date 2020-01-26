@@ -32,7 +32,8 @@ class PostPresenter < BasePresenter
       poll:                  PollPresenter.new(@post.poll, current_user).as_api_json,
       mentioned_people:      build_mentioned_people_json,
       photos:                build_photos_json,
-      root:                  root_api_response
+      root:                  root_api_response,
+      own_interaction_state: build_own_interaction_state
     }.compact
   end
 
@@ -90,7 +91,7 @@ class PostPresenter < BasePresenter
       location:                     @post.post_location,
       poll:                         @post.poll,
       poll_participation_answer_id: poll_participation_answer_id,
-      participation:                participate?,
+      participation:                participates?,
       interactions:                 build_interactions_json
     }
   end
@@ -140,6 +141,22 @@ class PostPresenter < BasePresenter
     }
   end
 
+  def build_own_interaction_state
+    if current_user
+      {
+        liked:      @post.likes.where(author: current_user.person).exists?,
+        reshared:   @post.reshares.where(author: current_user.person).exists?,
+        subscribed: participates?
+      }
+    else
+      {
+        liked:      false,
+        reshared:   false,
+        subscribed: false
+      }
+    end
+  end
+
   def user_like
     @post.like_for(current_user).try(:as_api_response, :backbone)
   end
@@ -152,7 +169,7 @@ class PostPresenter < BasePresenter
     @post.poll&.participation_answer(current_user)&.poll_answer_id if user_signed_in?
   end
 
-  def participate?
+  def participates?
     user_signed_in? && current_user.participations.where(target_id: @post).exists?
   end
 

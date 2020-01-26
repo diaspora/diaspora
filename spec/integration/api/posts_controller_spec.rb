@@ -102,6 +102,29 @@ describe Api::V1::PostsController do
       end
     end
 
+    context "access interacted with post by ID" do
+      it "gets post" do
+        auth.user.like!(@status)
+        auth.user.reshare!(@status)
+        @status.reload
+
+        get(
+          api_v1_post_path(@status.guid),
+          params: {
+            access_token: access_token
+          }
+        )
+        expect(response.status).to eq(200)
+        post = response_body(response)
+        confirm_post_format(post, alice, @status, [bob, eve])
+        expect(post["own_interaction_state"]["liked"]).to be true
+        expect(post["own_interaction_state"]["reshared"]).to be true
+        expect(post["own_interaction_state"]["subscribed"]).to be true
+
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+      end
+    end
+
     context "access reshare style post by post ID" do
       it "gets post" do
         reshare_post = FactoryGirl.create(:reshare, root: @status, author: bob.person)
@@ -673,6 +696,7 @@ describe Api::V1::PostsController do
     confirm_post_top_level(post, reference_post)
     confirm_person_format(post["author"], user)
     confirm_interactions(post["interaction_counters"], reference_post)
+    confirm_own_interaction_state(post["own_interaction_state"], reference_post)
 
     mentions.each do |mention|
       post_mentions = post["mentioned_people"]
@@ -701,6 +725,12 @@ describe Api::V1::PostsController do
     expect(interactions["comments"]).to eq(reference_post.comments_count)
     expect(interactions["likes"]).to eq(reference_post.likes_count)
     expect(interactions["reshares"]).to eq(reference_post.reshares_count)
+  end
+
+  def confirm_own_interaction_state(state, reference_post)
+    expect(state["liked"]).to eq(reference_post.likes.where(author: auth.user.person).exists?)
+    expect(state["reshared"]).to eq(reference_post.reshares.where(author: auth.user.person).exists?)
+    expect(state["subscribed"]).to eq(reference_post.participations.where(author: auth.user.person).exists?)
   end
 
   def confirm_person_format(post_person, user)

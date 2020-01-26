@@ -108,7 +108,7 @@ module Api
       end
 
       def post_as_json(post)
-        PostPresenter.new(post).as_api_response
+        PostPresenter.new(post, current_user).as_api_response
       end
     end
   end
