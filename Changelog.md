@@ -35,6 +35,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 
 ## Bug fixes
 * Fix error while trying to fetch some sites with invalid OpenGraph data [#8049](https://github.com/diaspora/diaspora/pull/8049)
+* Don't show sign up link on mobile when registrations are disabled [#8060](https://github.com/diaspora/diaspora/pull/8060)
 
 ## Features
 * Add cronjob to cleanup pending photos which were never posted [#8041](https://github.com/diaspora/diaspora/pull/8041)
