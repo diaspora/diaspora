@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require_relative "api_spec_helper"
 
 describe Api::V1::PostsController do
   let(:auth) {
@@ -128,8 +128,7 @@ describe Api::V1::PostsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
@@ -146,8 +145,7 @@ describe Api::V1::PostsController do
             access_token: access_token_public_only_read_only
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
 
         get(
           api_v1_post_path(shared_post.guid),
@@ -167,8 +165,7 @@ describe Api::V1::PostsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
@@ -322,8 +319,7 @@ describe Api::V1::PostsController do
             photos:       ["999_999_999"]
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
 
       it "creates with poll" do
@@ -364,8 +360,7 @@ describe Api::V1::PostsController do
             }
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
 
       it "fails poll with blank answer" do
@@ -382,8 +377,7 @@ describe Api::V1::PostsController do
             }
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
 
       it "fails poll with blank question and message text" do
@@ -399,8 +393,7 @@ describe Api::V1::PostsController do
             }
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
 
       it "creates with location" do
@@ -476,8 +469,7 @@ describe Api::V1::PostsController do
             public:       true
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
 
       it "fails when no public field and no aspects" do
@@ -489,8 +481,7 @@ describe Api::V1::PostsController do
             body:         message_text
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
 
       it "fails when private no aspects" do
@@ -503,8 +494,7 @@ describe Api::V1::PostsController do
             public:       false
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
 
       it "fails when unknown aspect IDs" do
@@ -518,8 +508,7 @@ describe Api::V1::PostsController do
             aspects:      ["-1"]
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
 
       it "fails when no public field but aspects" do
@@ -534,8 +523,7 @@ describe Api::V1::PostsController do
             aspects:      [aspect.id]
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
       end
     end
 
@@ -638,8 +626,7 @@ describe Api::V1::PostsController do
           api_v1_post_path("999_999_999"),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
@@ -656,8 +643,7 @@ describe Api::V1::PostsController do
           api_v1_post_path(status.guid),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(403)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.failed_delete"))
+        confirm_api_error(response, 403, I18n.t("api.endpoint_errors.posts.failed_delete"))
       end
     end
   end

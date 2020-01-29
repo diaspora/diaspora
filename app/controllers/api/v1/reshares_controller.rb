@@ -12,11 +12,11 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: I18n.t("api.endpoint_errors.posts.post_not_found"), status: :not_found
+        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
       end
 
       rescue_from Diaspora::NonPublic do
-        render json: I18n.t("api.endpoint_errors.posts.post_not_found"), status: :not_found
+        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
       end
 
       def show
@@ -35,7 +35,7 @@ module Api
       def create
         reshare = reshare_service.create(params.require(:post_id))
       rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid, RuntimeError
-        render plain: I18n.t("reshares.create.error"), status: :unprocessable_entity
+        render_error 422, I18n.t("reshares.create.error")
       else
         render json: PostPresenter.new(reshare, current_user).as_api_response
       end

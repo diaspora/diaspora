@@ -14,7 +14,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: I18n.t("api.endpoint_errors.aspects.not_found"), status: :not_found
+        render_error 404, I18n.t("api.endpoint_errors.aspects.not_found")
       end
 
       def index
@@ -34,10 +34,10 @@ module Api
         if aspect_membership
           head :no_content
         else
-          render json: I18n.t("api.endpoint_errors.contacts.cant_create"), status: :unprocessable_entity
+          render_error 422, I18n.t("api.endpoint_errors.contacts.cant_create")
         end
       rescue ActiveRecord::RecordNotUnique
-        render json: I18n.t("api.endpoint_errors.contacts.cant_create"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.contacts.cant_create")
       end
 
       def destroy
@@ -48,10 +48,10 @@ module Api
         if result && result[:success]
           head :no_content
         else
-          render json: I18n.t("api.endpoint_errors.contacts.cant_delete"), status: :unprocessable_entity
+          render_error 422, I18n.t("api.endpoint_errors.contacts.cant_delete")
         end
       rescue ActiveRecord::RecordNotFound
-        render json: I18n.t("api.endpoint_errors.contacts.not_found"), status: :not_found
+        render_error 404, I18n.t("api.endpoint_errors.contacts.not_found")
       end
 
       def aspects_membership_service

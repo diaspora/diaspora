@@ -58,6 +58,10 @@ module Api
         render json: page[:data]
       end
 
+      def render_error(code, message)
+        render json: {code: code, message: message}, status: code
+      end
+
       def time_pager(query)
         Api::Paging::RestPaginatorBuilder.new(query, request).time_pager(params)
       end

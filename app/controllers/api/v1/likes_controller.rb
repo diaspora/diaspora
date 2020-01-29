@@ -12,11 +12,11 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: I18n.t("api.endpoint_errors.posts.post_not_found"), status: :not_found
+        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
       end
 
       rescue_from ActiveRecord::RecordInvalid do
-        render json: I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like")
       end
 
       def show
@@ -35,8 +35,9 @@ module Api
 
         like_service.create(params[:post_id])
       rescue ActiveRecord::RecordInvalid => e
-        return render json: I18n.t("api.endpoint_errors.likes.like_exists"), status: :unprocessable_entity if
-          e.message == "Validation failed: Target has already been taken"
+        if e.message == "Validation failed: Target has already been taken"
+          return render_error 422, I18n.t("api.endpoint_errors.likes.like_exists")
+        end
 
         raise
       else
@@ -51,7 +52,7 @@ module Api
         if success
           head :no_content
         else
-          render json: I18n.t("api.endpoint_errors.likes.no_like"), status: :not_found
+          render_error 404, I18n.t("api.endpoint_errors.likes.no_like")
         end
       end
 

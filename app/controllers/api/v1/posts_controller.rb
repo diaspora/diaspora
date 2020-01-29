@@ -14,7 +14,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: I18n.t("api.endpoint_errors.posts.post_not_found"), status: :not_found
+        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
       end
 
       def show
@@ -31,14 +31,14 @@ module Api
         @status_message = creation_service.create(creation_params)
         render json: PostPresenter.new(@status_message, current_user).as_api_response
       rescue StandardError
-        render json: I18n.t("api.endpoint_errors.posts.failed_create"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.posts.failed_create")
       end
 
       def destroy
         post_service.destroy(params[:id], private_modify?)
         head :no_content
       rescue Diaspora::NotMine, Diaspora::NonPublic
-        render json: I18n.t("api.endpoint_errors.posts.failed_delete"), status: :forbidden
+        render_error 403, I18n.t("api.endpoint_errors.posts.failed_delete")
       end
 
       private

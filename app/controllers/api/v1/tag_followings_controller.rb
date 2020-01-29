@@ -19,7 +19,7 @@ module Api
         tag_followings_service.create(params.require(:name))
         head :no_content
       rescue StandardError
-        render json: I18n.t("api.endpoint_errors.tags.cant_process"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.tags.cant_process")
       end
 
       def destroy

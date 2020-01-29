@@ -12,7 +12,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: I18n.t("api.endpoint_errors.photos.not_found"), status: :not_found
+        render_error 404, I18n.t("api.endpoint_errors.photos.not_found")
       end
 
       def index
@@ -46,7 +46,7 @@ module Api
 
         render json: photo_json(photo)
       rescue CarrierWave::IntegrityError, ActionController::ParameterMissing, RuntimeError
-        render json: I18n.t("api.endpoint_errors.photos.failed_create"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.photos.failed_create")
       end
 
       def destroy
@@ -58,7 +58,7 @@ module Api
         if current_user.retract(photo)
           head :no_content
         else
-          render json: I18n.t("api.endpoint_errors.photos.failed_delete"), status: :unprocessable_entity
+          render_error 422, I18n.t("api.endpoint_errors.photos.failed_delete")
         end
       end
 

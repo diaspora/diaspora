@@ -1,6 +1,6 @@
 # frozen_sTring_literal: true
 
-require "spec_helper"
+require_relative "api_spec_helper"
 
 describe Api::V1::PostInteractionsController do
   let(:auth) {
@@ -82,8 +82,7 @@ describe Api::V1::PostInteractionsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
 
       it "with insufficient token" do
@@ -141,8 +140,7 @@ describe Api::V1::PostInteractionsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
 
       it "with insufficient token" do
@@ -210,8 +208,7 @@ describe Api::V1::PostInteractionsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
 
       it "when not subscribed already" do
@@ -288,8 +285,7 @@ describe Api::V1::PostInteractionsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
 
       it "when already reported" do
@@ -308,8 +304,7 @@ describe Api::V1::PostInteractionsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(409)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.cant_report"))
+        confirm_api_error(response, 409, I18n.t("api.endpoint_errors.posts.cant_report"))
       end
 
       it "when missing reason" do
@@ -319,8 +314,7 @@ describe Api::V1::PostInteractionsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.cant_report"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.cant_report"))
       end
 
       it "with insufficient token" do
@@ -395,8 +389,7 @@ describe Api::V1::PostInteractionsController do
           access_token:   access_token
         }
       )
-      expect(response.status).to eq(422)
-      expect(response.body).to eq(I18n.t("api.endpoint_errors.interactions.cant_vote"))
+      confirm_api_error(response, 422, I18n.t("api.endpoint_errors.interactions.cant_vote"))
     end
 
     it "fails with bad answer id" do
@@ -407,8 +400,7 @@ describe Api::V1::PostInteractionsController do
           access_token:   access_token
         }
       )
-      expect(response.status).to eq(422)
-      expect(response.body).to eq(I18n.t("api.endpoint_errors.interactions.cant_vote"))
+      confirm_api_error(response, 422, I18n.t("api.endpoint_errors.interactions.cant_vote"))
     end
 
     it "fails with bad post id" do
@@ -419,8 +411,7 @@ describe Api::V1::PostInteractionsController do
           access_token:   access_token
         }
       )
-      expect(response.status).to eq(404)
-      expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+      confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
     end
 
     it "with insufficient token" do

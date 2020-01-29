@@ -23,7 +23,7 @@ module Api
         if aspect
           render json: aspect_as_json(aspect, true)
         else
-          render json: I18n.t("api.endpoint_errors.aspects.not_found"), status: :not_found
+          render_error 404, I18n.t("api.endpoint_errors.aspects.not_found")
         end
       end
 
@@ -33,24 +33,24 @@ module Api
         if aspect&.save
           render json: aspect_as_json(aspect, true)
         else
-          render json: I18n.t("api.endpoint_errors.aspects.cant_create"), status: :unprocessable_entity
+          render_error 422, I18n.t("api.endpoint_errors.aspects.cant_create")
         end
       rescue ActionController::ParameterMissing
-        render json: I18n.t("api.endpoint_errors.aspects.cant_create"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.aspects.cant_create")
       end
 
       def update
         aspect = current_user.aspects.where(id: params[:id]).first
 
         if !aspect
-          render json: I18n.t("api.endpoint_errors.aspects.cant_update"), status: :not_found
+          render_error 404, I18n.t("api.endpoint_errors.aspects.cant_update")
         elsif aspect.update!(aspect_params(true))
           render json: aspect_as_json(aspect, true)
         else
-          render json: I18n.t("api.endpoint_errors.aspects.cant_update"), status: :unprocessable_entity
+          render_error 422, I18n.t("api.endpoint_errors.aspects.cant_update")
         end
       rescue ActionController::ParameterMissing, ActiveRecord::RecordInvalid
-        render json: I18n.t("api.endpoint_errors.aspects.cant_update"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.aspects.cant_update")
       end
 
       def destroy
@@ -58,7 +58,7 @@ module Api
         if aspect&.destroy
           head :no_content
         else
-          render json: I18n.t("api.endpoint_errors.aspects.cant_delete"), status: :unprocessable_entity
+          render_error 422, I18n.t("api.endpoint_errors.aspects.cant_delete")
         end
       end
 
