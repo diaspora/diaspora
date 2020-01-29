@@ -12,11 +12,11 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
+        render_error 404, "Post with provided guid could not be found"
       end
 
       rescue_from ActiveRecord::RecordInvalid do
-        render_error 422, I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like")
+        render_error 422, "User is not allowed to like"
       end
 
       def show
@@ -36,7 +36,7 @@ module Api
         like_service.create(params[:post_id])
       rescue ActiveRecord::RecordInvalid => e
         if e.message == "Validation failed: Target has already been taken"
-          return render_error 409, I18n.t("api.endpoint_errors.likes.like_exists")
+          return render_error 409, "Like already exists"
         end
 
         raise
@@ -52,7 +52,7 @@ module Api
         if success
           head :no_content
         else
-          render_error 410, I18n.t("api.endpoint_errors.likes.no_like")
+          render_error 410, "Like doesn’t exist"
         end
       end
 

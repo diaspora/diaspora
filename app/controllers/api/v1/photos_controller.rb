@@ -12,7 +12,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.photos.not_found")
+        render_error 404, "Photo with provided guid could not be found"
       end
 
       def index
@@ -46,7 +46,7 @@ module Api
 
         render json: photo_json(photo)
       rescue CarrierWave::IntegrityError, ActionController::ParameterMissing, RuntimeError
-        render_error 422, I18n.t("api.endpoint_errors.photos.failed_create")
+        render_error 422, "Failed to create the photo"
       end
 
       def destroy
@@ -58,7 +58,7 @@ module Api
         if current_user.retract(photo)
           head :no_content
         else
-          render_error 422, I18n.t("api.endpoint_errors.photos.failed_delete")
+          render_error 422, "Not allowed to delete the photo"
         end
       end
 

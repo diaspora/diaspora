@@ -12,11 +12,11 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
+        render_error 404, "Post with provided guid could not be found"
       end
 
       rescue_from Diaspora::NonPublic do
-        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
+        render_error 404, "Post with provided guid could not be found"
       end
 
       def show
@@ -35,9 +35,9 @@ module Api
       def create
         reshare = reshare_service.create(params.require(:post_id))
       rescue ActiveRecord::RecordInvalid
-        render_error 409, I18n.t("reshares.create.error")
+        render_error 409, "Reshare already exists"
       rescue ActiveRecord::RecordNotFound, RuntimeError
-        render_error 422, I18n.t("reshares.create.error")
+        render_error 422, "Failed to reshare"
       else
         render json: PostPresenter.new(reshare, current_user).as_api_response
       end

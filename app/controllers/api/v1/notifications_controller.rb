@@ -8,7 +8,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.notifications.not_found")
+        render_error 404, "Notification with provided guid could not be found"
       end
 
       def show
@@ -17,7 +17,7 @@ module Api
         if notification
           render json: NotificationPresenter.new(notification).as_api_json(true)
         else
-          render_error 404, I18n.t("api.endpoint_errors.notifications.not_found")
+          render_error 404, "Notification with provided guid could not be found"
         end
       end
 
@@ -31,7 +31,7 @@ module Api
         end
         render_paged_api_response notifications_page
       rescue ArgumentError
-        render_error 422, I18n.t("api.endpoint_errors.notifications.cant_process")
+        render_error 422, "Couldnt process the notifications requestt process the notifications request"
       end
 
       def update
@@ -39,10 +39,10 @@ module Api
         if service.update_status_by_guid(params[:id], read)
           head :no_content
         else
-          render_error 422, I18n.t("api.endpoint_errors.notifications.cant_process")
+          render_error 422, "Couldnt process the notifications requestt process the notifications request"
         end
       rescue ActionController::ParameterMissing
-        render_error 422, I18n.t("api.endpoint_errors.notifications.cant_process")
+        render_error 422, "Couldnt process the notifications requestt process the notifications request"
       end
 
       private

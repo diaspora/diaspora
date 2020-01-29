@@ -87,7 +87,7 @@ describe Api::V1::NotificationsController do
           api_v1_notifications_path,
           params: {only_after: "January 1, 2018", access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.notifications.cant_process"))
+        confirm_api_error(response, 422, "Couldnt process the notifications requestt process the notifications request")
       end
 
       it "with insufficient credentials" do
@@ -129,7 +129,7 @@ describe Api::V1::NotificationsController do
           api_v1_notification_path("999_999_999"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.notifications.not_found"))
+        confirm_api_error(response, 404, "Notification with provided guid could not be found")
       end
 
       it "on someone else's notification" do
@@ -145,7 +145,7 @@ describe Api::V1::NotificationsController do
           api_v1_notification_path(alice_notification.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.notifications.not_found"))
+        confirm_api_error(response, 404, "Notification with provided guid could not be found")
       end
 
       it "with insufficient credentials" do
@@ -190,7 +190,7 @@ describe Api::V1::NotificationsController do
           api_v1_notification_path("999_999_999"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.notifications.cant_process"))
+        confirm_api_error(response, 422, "Couldnt process the notifications requestt process the notifications request")
       end
 
       it "with proper missing read field" do
@@ -198,7 +198,7 @@ describe Api::V1::NotificationsController do
           api_v1_notification_path(@notification.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.notifications.cant_process"))
+        confirm_api_error(response, 422, "Couldnt process the notifications requestt process the notifications request")
       end
 
       it "with insufficient credentials" do

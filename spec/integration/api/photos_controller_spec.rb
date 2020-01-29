@@ -109,7 +109,7 @@ describe Api::V1::PhotosController do
           api_v1_photo_path(@shared_photo1.guid),
           params: {access_token: access_token_public_only_read_only}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.photos.not_found"))
+        confirm_api_error(response, 404, "Photo with provided guid could not be found")
       end
 
       it "with other user's private photo" do
@@ -117,7 +117,7 @@ describe Api::V1::PhotosController do
           api_v1_photo_path(@private_photo1.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.photos.not_found"))
+        confirm_api_error(response, 404, "Photo with provided guid could not be found")
       end
 
       it "with invalid GUID" do
@@ -125,7 +125,7 @@ describe Api::V1::PhotosController do
           api_v1_photo_path("999_999_999"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.photos.not_found"))
+        confirm_api_error(response, 404, "Photo with provided guid could not be found")
       end
 
       it "with invalid access token" do
@@ -241,7 +241,7 @@ describe Api::V1::PhotosController do
           api_v1_photos_path,
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.photos.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the photo")
       end
 
       it "with non-image file" do
@@ -253,7 +253,7 @@ describe Api::V1::PhotosController do
           api_v1_photos_path,
           params: {image: text_file, access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.photos.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the photo")
       end
 
       it "with impromperly identified file" do
@@ -265,7 +265,7 @@ describe Api::V1::PhotosController do
           api_v1_photos_path,
           params: {image: text_file, access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.photos.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the photo")
       end
 
       it "with invalid access token" do
@@ -313,7 +313,7 @@ describe Api::V1::PhotosController do
           api_v1_photo_path(@alice_public_photo.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.photos.not_found"))
+        confirm_api_error(response, 404, "Photo with provided guid could not be found")
       end
 
       it "with other invalid GUID" do
@@ -321,7 +321,7 @@ describe Api::V1::PhotosController do
           api_v1_photo_path("999_999_999"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.photos.not_found"))
+        confirm_api_error(response, 404, "Photo with provided guid could not be found")
       end
 
       it "with invalid access token" do

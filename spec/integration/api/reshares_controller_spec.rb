@@ -85,7 +85,7 @@ describe Api::V1::ResharesController do
           params: {access_token: access_token}
         )
 
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
 
       it "fails with private post it shouldn't see" do
@@ -96,7 +96,7 @@ describe Api::V1::ResharesController do
             access_token: access_token
           }
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
     end
 
@@ -137,7 +137,7 @@ describe Api::V1::ResharesController do
           params: {access_token: access_token}
         )
 
-        confirm_api_error(response, 409, I18n.t("reshares.create.error"))
+        confirm_api_error(response, 409, "Reshare already exists")
       end
     end
 
@@ -148,7 +148,7 @@ describe Api::V1::ResharesController do
           params: {access_token: access_token}
         )
 
-        confirm_api_error(response, 422, I18n.t("reshares.create.error"))
+        confirm_api_error(response, 422, "Failed to reshare")
       end
 
       it "fails with own post" do
@@ -157,7 +157,7 @@ describe Api::V1::ResharesController do
           params: {access_token: access_token}
         )
 
-        confirm_api_error(response, 422, I18n.t("reshares.create.error"))
+        confirm_api_error(response, 422, "Failed to reshare")
       end
 
       it "fails with private post it shouldn't see" do
@@ -168,7 +168,7 @@ describe Api::V1::ResharesController do
             access_token: access_token
           }
         )
-        confirm_api_error(response, 422, I18n.t("reshares.create.error"))
+        confirm_api_error(response, 422, "Failed to reshare")
       end
 
       it "fails with private post it can see" do
@@ -179,7 +179,7 @@ describe Api::V1::ResharesController do
             access_token: access_token
           }
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
     end
 

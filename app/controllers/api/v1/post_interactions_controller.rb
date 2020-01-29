@@ -10,7 +10,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
+        render_error 404, "Post with provided guid could not be found"
       end
 
       def subscribe
@@ -20,7 +20,7 @@ module Api
         current_user.participate!(post)
         head :no_content
       rescue ActiveRecord::RecordInvalid
-        render_error 422, I18n.t("api.endpoint_errors.interactions.cant_subscribe")
+        render_error 422, "Cannot subscribe to this post"
       end
 
       def hide
@@ -49,10 +49,10 @@ module Api
         if report.save
           head :no_content
         else
-          render_error 409, I18n.t("api.endpoint_errors.posts.cant_report")
+          render_error 409, "Failed to create report on this post"
         end
       rescue ActionController::ParameterMissing
-        render_error 422, I18n.t("api.endpoint_errors.posts.cant_report")
+        render_error 422, "Failed to create report on this post"
       end
 
       def vote
@@ -66,10 +66,10 @@ module Api
         if poll_vote
           head :no_content
         else
-          render_error 422, I18n.t("api.endpoint_errors.interactions.cant_vote")
+          render_error 422, "Cant vote on this post"
         end
       rescue ActiveRecord::RecordInvalid
-        render_error 422, I18n.t("api.endpoint_errors.interactions.cant_vote")
+        render_error 422, "Cant vote on this post"
       end
 
       private

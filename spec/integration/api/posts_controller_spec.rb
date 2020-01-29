@@ -128,7 +128,7 @@ describe Api::V1::PostsController do
             access_token: access_token
           }
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
     end
 
@@ -145,7 +145,7 @@ describe Api::V1::PostsController do
             access_token: access_token_public_only_read_only
           }
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
 
         get(
           api_v1_post_path(shared_post.guid),
@@ -165,7 +165,7 @@ describe Api::V1::PostsController do
             access_token: access_token
           }
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
     end
 
@@ -319,7 +319,7 @@ describe Api::V1::PostsController do
             photos:       ["999_999_999"]
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "creates with poll" do
@@ -360,7 +360,7 @@ describe Api::V1::PostsController do
             }
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "fails poll with blank answer" do
@@ -377,7 +377,7 @@ describe Api::V1::PostsController do
             }
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "fails poll with blank question and message text" do
@@ -393,7 +393,7 @@ describe Api::V1::PostsController do
             }
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "creates with location" do
@@ -469,7 +469,7 @@ describe Api::V1::PostsController do
             public:       true
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "fails when no public field and no aspects" do
@@ -481,7 +481,7 @@ describe Api::V1::PostsController do
             body:         message_text
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "fails when private no aspects" do
@@ -494,7 +494,7 @@ describe Api::V1::PostsController do
             public:       false
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "fails when unknown aspect IDs" do
@@ -508,7 +508,7 @@ describe Api::V1::PostsController do
             aspects:      ["-1"]
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "fails when no public field but aspects" do
@@ -523,7 +523,7 @@ describe Api::V1::PostsController do
             aspects:      [aspect.id]
           }
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.posts.failed_create"))
+        confirm_api_error(response, 422, "Failed to create the post")
       end
     end
 
@@ -626,7 +626,7 @@ describe Api::V1::PostsController do
           api_v1_post_path("999_999_999"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
     end
 
@@ -643,7 +643,7 @@ describe Api::V1::PostsController do
           api_v1_post_path(status.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 403, I18n.t("api.endpoint_errors.posts.failed_delete"))
+        confirm_api_error(response, 403, "Not allowed to delete the post")
       end
     end
   end

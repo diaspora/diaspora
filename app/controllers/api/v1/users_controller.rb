@@ -22,7 +22,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.users.not_found")
+        render_error 404, "User not found"
       end
 
       def show
@@ -42,15 +42,15 @@ module Api
         if params_to_update && current_user.update_profile(params_to_update)
           render json: PersonPresenter.new(current_user.person, current_user).profile_hash_as_api_json
         else
-          render_error 422, I18n.t("api.endpoint_errors.users.cant_update")
+          render_error 422, "Failed to update the user settings"
         end
       rescue RuntimeError
-        render_error 422, I18n.t("api.endpoint_errors.users.cant_update")
+        render_error 422, "Failed to update the user settings"
       end
 
       def contacts
         if params.require(:user_id) != current_user.guid
-          render_error 404, I18n.t("api.endpoint_errors.users.not_found")
+          render_error 404, "User not found"
           return
         end
 

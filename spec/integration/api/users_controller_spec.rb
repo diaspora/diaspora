@@ -168,7 +168,7 @@ describe Api::V1::UsersController do
           "/api/v1/users/999_999_999",
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.users.not_found"))
+        confirm_api_error(response, 404, "User not found")
       end
     end
   end
@@ -334,7 +334,7 @@ describe Api::V1::UsersController do
         api_v1_user_contacts_path("999_999_999"),
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 404, I18n.t("api.endpoint_errors.users.not_found"))
+      confirm_api_error(response, 404, "User not found")
     end
 
     it "fails with other user's GUID" do
@@ -342,7 +342,7 @@ describe Api::V1::UsersController do
         api_v1_user_contacts_path(alice.guid),
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 404, I18n.t("api.endpoint_errors.users.not_found"))
+      confirm_api_error(response, 404, "User not found")
     end
 
     it "fails if insufficient scope token" do
@@ -424,7 +424,7 @@ describe Api::V1::UsersController do
         api_v1_user_photos_path("999_999_999"),
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 404, I18n.t("api.endpoint_errors.users.not_found"))
+      confirm_api_error(response, 404, "User not found")
     end
 
     it "fails if invalid token" do
@@ -497,7 +497,7 @@ describe Api::V1::UsersController do
         api_v1_user_posts_path("999_999_999"),
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 404, I18n.t("api.endpoint_errors.users.not_found"))
+      confirm_api_error(response, 404, "User not found")
     end
 
     it "fails if invalid token" do

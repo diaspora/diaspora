@@ -91,7 +91,7 @@ describe Api::V1::AspectsController do
           api_v1_aspect_path("-1"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.aspects.not_found"))
+        confirm_api_error(response, 404, "Aspect with provided ID could not be found")
       end
     end
 
@@ -136,7 +136,7 @@ describe Api::V1::AspectsController do
           params: {name: @aspect1.name, access_token: access_token}
         )
 
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.aspects.cant_create"))
+        confirm_api_error(response, 422, "Failed to create the aspect")
       end
     end
 
@@ -147,7 +147,7 @@ describe Api::V1::AspectsController do
           params: {order: 0, access_token: access_token}
         )
 
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.aspects.cant_create"))
+        confirm_api_error(response, 422, "Failed to create the aspect")
       end
     end
 
@@ -234,7 +234,7 @@ describe Api::V1::AspectsController do
           params: {name: @aspect1.name, access_token: access_token}
         )
 
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.aspects.cant_update"))
+        confirm_api_error(response, 422, "Failed to update the aspect")
       end
 
       it "fails with bad id" do
@@ -243,7 +243,7 @@ describe Api::V1::AspectsController do
           params: {name: "NewAspectName", access_token: access_token}
         )
 
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.aspects.cant_update"))
+        confirm_api_error(response, 404, "Failed to update the aspect")
       end
     end
 
@@ -284,7 +284,7 @@ describe Api::V1::AspectsController do
           api_v1_aspect_path("-1"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.aspects.cant_delete"))
+        confirm_api_error(response, 422, "Failed to delete the aspect")
       end
     end
 

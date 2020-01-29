@@ -85,7 +85,7 @@ describe Api::V1::LikesController do
           api_v1_post_likes_path(post_id: "badguid"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
     end
 
@@ -96,7 +96,7 @@ describe Api::V1::LikesController do
             api_v1_post_likes_path(post_id: @private_status.guid),
             params: {access_token: access_token_public_only}
           )
-          confirm_api_error(response, 422, I18n.t("api.endpoint_errors.likes.user_not_allowed_to_like"))
+          confirm_api_error(response, 422, "User is not allowed to like")
         end
       end
 
@@ -134,7 +134,7 @@ describe Api::V1::LikesController do
           api_v1_post_likes_path(post_id: @status.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 409, I18n.t("api.endpoint_errors.likes.like_exists"))
+        confirm_api_error(response, 409, "Like already exists")
 
         likes = like_service.find_for_post(@status.guid)
         expect(likes.length).to eq(1)
@@ -148,7 +148,7 @@ describe Api::V1::LikesController do
           api_v1_post_likes_path(post_id: 99_999_999),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
     end
 
@@ -206,7 +206,7 @@ describe Api::V1::LikesController do
           api_v1_post_likes_path(post_id: @status.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 410, I18n.t("api.endpoint_errors.likes.no_like"))
+        confirm_api_error(response, 410, "Like doesn’t exist")
 
         likes = like_service.find_for_post(@status.guid)
         expect(likes.length).to eq(0)
@@ -219,7 +219,7 @@ describe Api::V1::LikesController do
           api_v1_post_likes_path(post_id: 99_999_999),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
     end
 
@@ -230,7 +230,7 @@ describe Api::V1::LikesController do
           api_v1_post_likes_path(post_id: @private_status.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, "Post with provided guid could not be found")
       end
 
       it "fails in unliking post without interactions" do

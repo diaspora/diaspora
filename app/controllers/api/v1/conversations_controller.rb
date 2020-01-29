@@ -10,7 +10,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.conversations.not_found")
+        render_error 404, "Conversation with provided guid could not be found"
       end
 
       def index
@@ -40,7 +40,7 @@ module Api
         Diaspora::Federation::Dispatcher.defer_dispatch(current_user, conversation)
         render json: conversation_as_json(conversation), status: :created
       rescue ActiveRecord::RecordInvalid, ActionController::ParameterMissing, ActiveRecord::RecordNotFound
-        render_error 422, I18n.t("api.endpoint_errors.conversations.cant_process")
+        render_error 422, "Couldn’t accept or process the conversation"
       end
 
       def destroy

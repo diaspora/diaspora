@@ -12,18 +12,18 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
+        render_error 404, "Post with provided guid could not be found"
       end
 
       rescue_from ActiveRecord::RecordInvalid do
-        render_error 422, I18n.t("api.endpoint_errors.comments.not_allowed")
+        render_error 422, "User is not allowed to comment"
       end
 
       def create
         find_post
         comment = comment_service.create(params.require(:post_id), params.require(:body))
       rescue ActiveRecord::RecordNotFound
-        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
+        render_error 404, "Post with provided guid could not be found"
       else
         render json: comment_as_json(comment), status: :created
       end
@@ -45,7 +45,7 @@ module Api
           head :no_content
         end
       rescue ActiveRecord::RecordInvalid
-        render_error 403, I18n.t("api.endpoint_errors.comments.no_delete")
+        render_error 403, "User not allowed to delete the comment"
       end
 
       def report
@@ -64,7 +64,7 @@ module Api
         if report.save
           head :no_content
         else
-          render_error 409, I18n.t("api.endpoint_errors.comments.duplicate_report")
+          render_error 409, "This item already has been reported by this user"
         end
       end
 
@@ -72,10 +72,10 @@ module Api
 
       def comment_and_post_validate(post_guid, comment_guid)
         if !comment_exists(comment_guid)
-          render_error 404, I18n.t("api.endpoint_errors.comments.not_found")
+          render_error 404, "Comment not found for the given post"
           false
         elsif !comment_is_for_post(post_guid, comment_guid)
-          render_error 404, I18n.t("api.endpoint_errors.comments.not_found")
+          render_error 404, "Comment not found for the given post"
           false
         else
           true

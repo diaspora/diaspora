@@ -68,7 +68,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contacts_path(-1),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.aspects.not_found"))
+        confirm_api_error(response, 404, "Aspect with provided ID could not be found")
       end
 
       it "fails for other user's Aspect ID" do
@@ -76,7 +76,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contacts_path(@eve_aspect.id),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.aspects.not_found"))
+        confirm_api_error(response, 404, "Aspect with provided ID could not be found")
       end
     end
 
@@ -117,7 +117,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contacts_path(@aspect2.id),
           params: {person_guid: alice.guid, access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.contacts.cant_create"))
+        confirm_api_error(response, 422, "Failed to add user to aspect")
       end
     end
 
@@ -127,7 +127,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contacts_path(-1),
           params: {person_guid: alice.guid, access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.aspects.not_found"))
+        confirm_api_error(response, 404, "Aspect with provided ID could not be found")
       end
 
       it "fails for other user's Aspect ID" do
@@ -135,7 +135,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contacts_path(@eve_aspect.id),
           params: {person_guid: alice.guid, access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.aspects.not_found"))
+        confirm_api_error(response, 404, "Aspect with provided ID could not be found")
       end
     end
 
@@ -145,7 +145,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contacts_path(@aspect2.id),
           params: {person_guid: "999_999_999", access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.contacts.cant_create"))
+        confirm_api_error(response, 422, "Failed to add user to aspect")
       end
     end
 
@@ -188,7 +188,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contact_path(@aspect2.id, eve.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.contacts.not_found"))
+        confirm_api_error(response, 404, "Aspect or contact on aspect not found")
       end
     end
 
@@ -198,7 +198,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contact_path(-1, eve.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.contacts.not_found"))
+        confirm_api_error(response, 404, "Aspect or contact on aspect not found")
       end
 
       it "fails for other user's Aspect ID" do
@@ -206,7 +206,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contact_path(@eve_aspect.id, eve.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.contacts.not_found"))
+        confirm_api_error(response, 404, "Aspect or contact on aspect not found")
       end
     end
 
@@ -216,7 +216,7 @@ describe Api::V1::ContactsController do
           api_v1_aspect_contact_path(@aspect2.id, "999_999_999"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.contacts.cant_delete"))
+        confirm_api_error(response, 422, "Failed to remove user from aspect")
       end
     end
 
