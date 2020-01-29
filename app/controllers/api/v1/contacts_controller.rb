@@ -14,7 +14,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.aspects.not_found")
+        render_error 404, "Aspect with provided ID could not be found"
       end
 
       def index
@@ -34,10 +34,10 @@ module Api
         if aspect_membership
           head :no_content
         else
-          render_error 422, I18n.t("api.endpoint_errors.contacts.cant_create")
+          render_error 422, "Failed to add user to aspect"
         end
       rescue ActiveRecord::RecordNotUnique
-        render_error 422, I18n.t("api.endpoint_errors.contacts.cant_create")
+        render_error 422, "Failed to add user to aspect"
       end
 
       def destroy
@@ -48,10 +48,10 @@ module Api
         if result && result[:success]
           head :no_content
         else
-          render_error 422, I18n.t("api.endpoint_errors.contacts.cant_delete")
+          render_error 422, "Failed to remove user from aspect"
         end
       rescue ActiveRecord::RecordNotFound
-        render_error 404, I18n.t("api.endpoint_errors.contacts.not_found")
+        render_error 404, "Aspect or contact on aspect not found"
       end
 
       def aspects_membership_service

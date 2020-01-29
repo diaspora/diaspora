@@ -128,7 +128,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/users",
         params: {tag: "tag1", name_or_handle: "name", access_token: access_token}
       )
-      confirm_api_error(response, 422, I18n.t("api.endpoint_errors.search.cant_process"))
+      confirm_api_error(response, 422, "Search request could not be processed")
     end
 
     it "fails with no fields" do
@@ -136,7 +136,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/users",
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 422, I18n.t("api.endpoint_errors.search.cant_process"))
+      confirm_api_error(response, 422, "Search request could not be processed")
     end
 
     it "fails with bad credentials" do
@@ -208,7 +208,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/posts",
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 422, I18n.t("api.endpoint_errors.search.cant_process"))
+      confirm_api_error(response, 422, "Search request could not be processed")
     end
 
     it "fails with bad credentials" do

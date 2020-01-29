@@ -984,50 +984,6 @@ en:
         contact_developer: "You should contact the developer of the application and include the following detailed error message:"
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
-    endpoint_errors:
-      aspects:
-        cant_create: "Failed to create the aspect"
-        cant_delete: "Failed to delete the aspect"
-        cant_update: "Failed to update the aspect"
-        not_found: "Aspect with provided ID could not be found"
-      conversations:
-        not_found: "Conversation with provided guid could not be found"
-        cant_process: "Couldn’t accept or process the conversation"
-      comments:
-        not_found: "Comment not found for the given post"
-        not_allowed: "User is not allowed to comment"
-        no_delete: "User not allowed to delete the comment"
-        duplicate_report: "This item already has been reported by this user"
-      contacts:
-        not_found: "Aspect or contact on aspect not found"
-        cant_create: "Failed to add user to aspect"
-        cant_delete: "Failed to remove user from aspect"
-      likes:
-        user_not_allowed_to_like: "User is not allowed to like"
-        like_exists: "Like already exists"
-        no_like: "Like doesn’t exist"
-      interactions:
-        cant_subscribe: "Can't subscribe to this post"
-        cant_vote: "Can't vote on this post"
-      notifications:
-        not_found: "Notification with provided guid could not be found"
-        cant_process: "Couldn't process the notifications request"
-      photos:
-        not_found: "Photo with provided guid could not be found"
-        failed_create: "Failed to create the photo"
-        failed_delete: "Not allowed to delete the photo"
-      posts:
-        post_not_found: "Post with provided guid could not be found"
-        failed_create: "Failed to create the post"
-        failed_delete: "Not allowed to delete the post"
-        cant_report: "Failed to create report on this post"
-      users:
-        cant_update: "Failed to update the user settings"
-        not_found: "User not found"
-      search:
-        cant_process: "Search request could not be processed"
-      tags:
-        cant_process: "Failed to process the tag followings request"
 
   error:
     not_found: "No record found for given id."

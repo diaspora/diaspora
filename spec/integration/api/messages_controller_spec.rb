@@ -71,7 +71,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
+        confirm_api_error(response, 422, "Couldn’t accept or process the conversation")
       end
 
       it "empty string returns a unprocessable entity (422)" do
@@ -79,7 +79,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {body: "", access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
+        confirm_api_error(response, 422, "Couldn’t accept or process the conversation")
       end
     end
 
@@ -89,7 +89,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(42),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.conversations.not_found"))
+        confirm_api_error(response, 404, "Conversation with provided guid could not be found")
       end
     end
 

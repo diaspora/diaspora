@@ -14,7 +14,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render_error 404, I18n.t("api.endpoint_errors.posts.post_not_found")
+        render_error 404, "Post with provided guid could not be found"
       end
 
       def show
@@ -31,14 +31,14 @@ module Api
         @status_message = creation_service.create(creation_params)
         render json: PostPresenter.new(@status_message, current_user).as_api_response
       rescue StandardError
-        render_error 422, I18n.t("api.endpoint_errors.posts.failed_create")
+        render_error 422, "Failed to create the post"
       end
 
       def destroy
         post_service.destroy(params[:id], private_modify?)
         head :no_content
       rescue Diaspora::NotMine, Diaspora::NonPublic
-        render_error 403, I18n.t("api.endpoint_errors.posts.failed_delete")
+        render_error 403, "Not allowed to delete the post"
       end
 
       private

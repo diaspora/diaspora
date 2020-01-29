@@ -57,7 +57,7 @@ describe Api::V1::ConversationsController do
     context "without valid data" do
       it "fails with empty body" do
         post api_v1_conversations_path, params: {access_token: access_token}
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
+        confirm_api_error(response, 422, "Couldn’t accept or process the conversation")
       end
 
       it "fails with missing subject " do
@@ -67,7 +67,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
+        confirm_api_error(response, 422, "Couldn’t accept or process the conversation")
       end
 
       it "fails with missing body " do
@@ -77,7 +77,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
+        confirm_api_error(response, 422, "Couldn’t accept or process the conversation")
       end
 
       it "fails with missing recipients " do
@@ -87,7 +87,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
+        confirm_api_error(response, 422, "Couldn’t accept or process the conversation")
       end
 
       it "fails with bad recipient ID " do
@@ -98,7 +98,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
+        confirm_api_error(response, 422, "Couldn’t accept or process the conversation")
       end
 
       it "fails with invalid recipient (not allowed to message) " do
@@ -109,7 +109,7 @@ describe Api::V1::ConversationsController do
           access_token: access_token
         }
         post api_v1_conversations_path, params: incomplete_conversation
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
+        confirm_api_error(response, 422, "Couldn’t accept or process the conversation")
       end
     end
 
@@ -231,7 +231,7 @@ describe Api::V1::ConversationsController do
           api_v1_conversation_path(-1),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.conversations.not_found"))
+        confirm_api_error(response, 404, "Conversation with provided guid could not be found")
       end
     end
 
@@ -284,7 +284,7 @@ describe Api::V1::ConversationsController do
           @conversation_guid,
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.conversations.not_found"))
+        confirm_api_error(response, 404, "Conversation with provided guid could not be found")
         get api_v1_conversation_path(
           @conversation_guid,
           params: {access_token: access_token_participant}
@@ -309,7 +309,7 @@ describe Api::V1::ConversationsController do
           @conversation_guid,
           params: {access_token: access_token_participant}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.conversations.not_found"))
+        confirm_api_error(response, 404, "Conversation with provided guid could not be found")
 
         expect {
           Conversation.find(guid: @conversation_guid)
@@ -323,7 +323,7 @@ describe Api::V1::ConversationsController do
           api_v1_conversation_path(42),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.conversations.not_found"))
+        confirm_api_error(response, 404, "Conversation with provided guid could not be found")
       end
     end
 

@@ -8,7 +8,7 @@ module Api
       end
 
       rescue_from ActionController::ParameterMissing, RuntimeError do
-        render_error 422, I18n.t("api.endpoint_errors.search.cant_process")
+        render_error 422, "Search request could not be processed"
       end
 
       def user_index
