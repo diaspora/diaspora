@@ -22,7 +22,7 @@ module Api
       end
 
       rescue_from ActiveRecord::RecordNotFound do
-        render json: I18n.t("api.endpoint_errors.users.not_found"), status: :not_found
+        render_error 404, I18n.t("api.endpoint_errors.users.not_found")
       end
 
       def show
@@ -42,15 +42,15 @@ module Api
         if params_to_update && current_user.update_profile(params_to_update)
           render json: PersonPresenter.new(current_user.person, current_user).profile_hash_as_api_json
         else
-          render json: I18n.t("api.endpoint_errors.users.cant_update"), status: :unprocessable_entity
+          render_error 422, I18n.t("api.endpoint_errors.users.cant_update")
         end
       rescue RuntimeError
-        render json: I18n.t("api.endpoint_errors.users.cant_update"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.users.cant_update")
       end
 
       def contacts
         if params.require(:user_id) != current_user.guid
-          render json: I18n.t("api.endpoint_errors.users.not_found"), status: :not_found
+          render_error 404, I18n.t("api.endpoint_errors.users.not_found")
           return
         end
 

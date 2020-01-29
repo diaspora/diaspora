@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require_relative "api_spec_helper"
 
 describe Api::V1::SearchController do
   let(:auth) {
@@ -128,8 +128,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/users",
         params: {tag: "tag1", name_or_handle: "name", access_token: access_token}
       )
-      expect(response.status).to eq(422)
-      expect(response.body).to eq(I18n.t("api.endpoint_errors.search.cant_process"))
+      confirm_api_error(response, 422, I18n.t("api.endpoint_errors.search.cant_process"))
     end
 
     it "fails with no fields" do
@@ -137,8 +136,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/users",
         params: {access_token: access_token}
       )
-      expect(response.status).to eq(422)
-      expect(response.body).to eq(I18n.t("api.endpoint_errors.search.cant_process"))
+      confirm_api_error(response, 422, I18n.t("api.endpoint_errors.search.cant_process"))
     end
 
     it "fails with bad credentials" do
@@ -210,8 +208,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/posts",
         params: {access_token: access_token}
       )
-      expect(response.status).to eq(422)
-      expect(response.body).to eq(I18n.t("api.endpoint_errors.search.cant_process"))
+      confirm_api_error(response, 422, I18n.t("api.endpoint_errors.search.cant_process"))
     end
 
     it "fails with bad credentials" do

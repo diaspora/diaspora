@@ -1,6 +1,6 @@
 # frozen_sTring_literal: true
 
-require "spec_helper"
+require_relative "api_spec_helper"
 
 describe Api::V1::AspectsController do
   let(:auth) {
@@ -91,8 +91,7 @@ describe Api::V1::AspectsController do
           api_v1_aspect_path("-1"),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.aspects.not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.aspects.not_found"))
       end
     end
 
@@ -137,8 +136,7 @@ describe Api::V1::AspectsController do
           params: {name: @aspect1.name, access_token: access_token}
         )
 
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.aspects.cant_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.aspects.cant_create"))
       end
     end
 
@@ -149,8 +147,7 @@ describe Api::V1::AspectsController do
           params: {order: 0, access_token: access_token}
         )
 
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.aspects.cant_create"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.aspects.cant_create"))
       end
     end
 
@@ -237,8 +234,7 @@ describe Api::V1::AspectsController do
           params: {name: @aspect1.name, access_token: access_token}
         )
 
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.aspects.cant_update"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.aspects.cant_update"))
       end
 
       it "fails with bad id" do
@@ -247,8 +243,7 @@ describe Api::V1::AspectsController do
           params: {name: "NewAspectName", access_token: access_token}
         )
 
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.aspects.cant_update"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.aspects.cant_update"))
       end
     end
 
@@ -289,8 +284,7 @@ describe Api::V1::AspectsController do
           api_v1_aspect_path("-1"),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.aspects.cant_delete"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.aspects.cant_delete"))
       end
     end
 

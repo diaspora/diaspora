@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require_relative "api_spec_helper"
 
 describe Api::V1::CommentsController do
   let(:auth) {
@@ -80,8 +80,7 @@ describe Api::V1::CommentsController do
           api_v1_post_comments_path(post_id: "999_999_999"),
           params: {body: "text", access_token: access_token}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
@@ -102,8 +101,7 @@ describe Api::V1::CommentsController do
           api_v1_post_comments_path(post_id: @private_post.guid),
           params: {body: "comment text", access_token: access_token_public_only}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
 
       it "fails without interactions scope" do
@@ -154,8 +152,7 @@ describe Api::V1::CommentsController do
           api_v1_post_comments_path(post_id: "999_999_999"),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
@@ -165,8 +162,7 @@ describe Api::V1::CommentsController do
           api_v1_post_comments_path(post_id: @private_post.guid),
           params: {access_token: access_token_public_only}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
 
       it "fails without valid token" do
@@ -210,8 +206,7 @@ describe Api::V1::CommentsController do
           ),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
@@ -237,8 +232,7 @@ describe Api::V1::CommentsController do
           ),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.comments.not_found"))
       end
     end
 
@@ -252,8 +246,7 @@ describe Api::V1::CommentsController do
           ),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(403)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.no_delete"))
+        confirm_api_error(response, 403, I18n.t("api.endpoint_errors.comments.no_delete"))
       end
     end
 
@@ -316,8 +309,7 @@ describe Api::V1::CommentsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.comments.not_found"))
       end
     end
 
@@ -333,8 +325,7 @@ describe Api::V1::CommentsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
@@ -350,8 +341,7 @@ describe Api::V1::CommentsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
     end
 
@@ -367,8 +357,7 @@ describe Api::V1::CommentsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.comments.not_found"))
       end
     end
 
@@ -396,8 +385,7 @@ describe Api::V1::CommentsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(409)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.comments.duplicate_report"))
+        confirm_api_error(response, 409, I18n.t("api.endpoint_errors.comments.duplicate_report"))
       end
     end
 
@@ -413,8 +401,7 @@ describe Api::V1::CommentsController do
             access_token: access_token_public_only
           }
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.posts.post_not_found"))
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.posts.post_not_found"))
       end
 
       it "fails without valid token" do

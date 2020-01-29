@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require_relative "api_spec_helper"
 
 describe Api::V1::MessagesController do
   let(:auth) {
@@ -71,8 +71,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.cant_process")
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
 
       it "empty string returns a unprocessable entity (422)" do
@@ -80,8 +79,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(@conversation_guid),
           params: {body: "", access_token: access_token}
         )
-        expect(response.status).to eq(422)
-        expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.cant_process")
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.conversations.cant_process"))
       end
     end
 
@@ -91,8 +89,7 @@ describe Api::V1::MessagesController do
           api_v1_conversation_messages_path(42),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(404)
-        expect(response.body).to eq I18n.t("api.endpoint_errors.conversations.not_found")
+        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.conversations.not_found"))
       end
     end
 

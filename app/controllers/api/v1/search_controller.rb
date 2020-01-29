@@ -8,7 +8,7 @@ module Api
       end
 
       rescue_from ActionController::ParameterMissing, RuntimeError do
-        render json: I18n.t("api.endpoint_errors.search.cant_process"), status: :unprocessable_entity
+        render_error 422, I18n.t("api.endpoint_errors.search.cant_process")
       end
 
       def user_index

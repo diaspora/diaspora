@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require_relative "api_spec_helper"
 
 describe Api::V1::TagFollowingsController do
   let(:auth) {
@@ -56,8 +56,7 @@ describe Api::V1::TagFollowingsController do
           params: {access_token: access_token}
         )
 
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.tags.cant_process"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.tags.cant_process"))
       end
     end
 
@@ -68,8 +67,7 @@ describe Api::V1::TagFollowingsController do
           params: {name: "tag3", access_token: access_token}
         )
 
-        expect(response.status).to eq(422)
-        expect(response.body).to eq(I18n.t("api.endpoint_errors.tags.cant_process"))
+        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.tags.cant_process"))
       end
     end
 
