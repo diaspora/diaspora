@@ -18,6 +18,8 @@ module Api
       def create
         tag_followings_service.create(params.require(:name))
         head :no_content
+      rescue TagFollowingService::DuplicateTag
+        render_error 409, I18n.t("api.endpoint_errors.tags.cant_process")
       rescue StandardError
         render_error 422, I18n.t("api.endpoint_errors.tags.cant_process")
       end
@@ -25,6 +27,8 @@ module Api
       def destroy
         tag_followings_service.destroy_by_name(params.require(:id))
         head :no_content
+      rescue ActiveRecord::RecordNotFound
+        render_error 410, I18n.t("api.endpoint_errors.tags.cant_process")
       end
 
       private

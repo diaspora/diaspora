@@ -34,7 +34,9 @@ module Api
 
       def create
         reshare = reshare_service.create(params.require(:post_id))
-      rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid, RuntimeError
+      rescue ActiveRecord::RecordInvalid
+        render_error 409, I18n.t("reshares.create.error")
+      rescue ActiveRecord::RecordNotFound, RuntimeError
         render_error 422, I18n.t("reshares.create.error")
       else
         render json: PostPresenter.new(reshare, current_user).as_api_response

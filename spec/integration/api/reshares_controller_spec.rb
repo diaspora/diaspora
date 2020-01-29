@@ -137,7 +137,7 @@ describe Api::V1::ResharesController do
           params: {access_token: access_token}
         )
 
-        confirm_api_error(response, 422, I18n.t("reshares.create.error"))
+        confirm_api_error(response, 409, I18n.t("reshares.create.error"))
       end
     end
 

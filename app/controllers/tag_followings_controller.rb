@@ -16,6 +16,8 @@ class TagFollowingsController < ApplicationController
   def create
     tag = tag_followings_service.create(params["name"])
     render json: tag.to_json, status: :created
+  rescue TagFollowingService::DuplicateTag
+    render json: tag_followings_service.find(params["name"]), status: created
   rescue StandardError
     head :forbidden
   end
@@ -23,16 +25,14 @@ class TagFollowingsController < ApplicationController
   # DELETE /tag_followings/1
   # DELETE /tag_followings/1.xml
   def destroy
-    success = tag_followings_service.destroy(params["id"])
+    tag_followings_service.destroy(params["id"])
 
-    if success
-      respond_to do |format|
-        format.any(:js, :json) { head :no_content }
-      end
-    else
-      respond_to do |format|
-        format.any(:js, :json) { head :forbidden }
-      end
+    respond_to do |format|
+      format.any(:js, :json) { head :no_content }
+    end
+  rescue ActiveRecord::RecordNotFound
+    respond_to do |format|
+      format.any(:js, :json) { head :forbidden }
     end
   end
 

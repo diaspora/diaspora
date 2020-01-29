@@ -23,6 +23,14 @@ describe TagFollowingService do
       expect { tag_following_service(alice).create("#") }.to raise_error(ArgumentError)
       expect { tag_following_service(alice).create(" ") }.to raise_error(ArgumentError)
     end
+
+    it "throws an error when trying to follow an already followed tag" do
+      name = SecureRandom.uuid
+      tag_following_service.create(name)
+      expect {
+        tag_following_service.create(name)
+      }.to raise_error TagFollowingService::DuplicateTag
+    end
   end
 
   describe "#destroy" do
@@ -44,14 +52,20 @@ describe TagFollowingService do
 
     it "Does nothing with tag that isn't already followed" do
       original_length = alice.followed_tags.length
-      tag_following_service(alice).destroy_by_name(SecureRandom.uuid)
-      tag_following_service(alice).destroy(-1)
+      expect {
+        tag_following_service(alice).destroy_by_name(SecureRandom.uuid)
+      }.to raise_error ActiveRecord::RecordNotFound
+      expect {
+        tag_following_service(alice).destroy(-1)
+      }.to raise_error ActiveRecord::RecordNotFound
       expect(alice.followed_tags.length).to eq(original_length)
     end
 
     it "Does nothing with empty tag name" do
       original_length = alice.followed_tags.length
-      tag_following_service(alice).destroy_by_name("")
+      expect {
+        tag_following_service(alice).destroy_by_name("")
+      }.to raise_error ActiveRecord::RecordNotFound
       expect(alice.followed_tags.length).to eq(original_length)
     end
   end

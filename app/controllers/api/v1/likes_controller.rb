@@ -36,7 +36,7 @@ module Api
         like_service.create(params[:post_id])
       rescue ActiveRecord::RecordInvalid => e
         if e.message == "Validation failed: Target has already been taken"
-          return render_error 422, I18n.t("api.endpoint_errors.likes.like_exists")
+          return render_error 409, I18n.t("api.endpoint_errors.likes.like_exists")
         end
 
         raise
@@ -52,7 +52,7 @@ module Api
         if success
           head :no_content
         else
-          render_error 404, I18n.t("api.endpoint_errors.likes.no_like")
+          render_error 410, I18n.t("api.endpoint_errors.likes.no_like")
         end
       end
 

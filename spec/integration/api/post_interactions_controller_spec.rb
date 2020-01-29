@@ -72,7 +72,7 @@ describe Api::V1::PostInteractionsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(422)
+        expect(response.status).to eq(409)
       end
 
       it "with improper guid" do
@@ -225,7 +225,7 @@ describe Api::V1::PostInteractionsController do
             access_token: access_token
           }
         )
-        expect(response.status).to eq(404)
+        expect(response.status).to eq(410)
       end
 
       it "with insufficient token" do

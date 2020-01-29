@@ -67,7 +67,7 @@ describe Api::V1::TagFollowingsController do
           params: {name: "tag3", access_token: access_token}
         )
 
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.tags.cant_process"))
+        confirm_api_error(response, 409, I18n.t("api.endpoint_errors.tags.cant_process"))
       end
     end
 
@@ -150,7 +150,7 @@ describe Api::V1::TagFollowingsController do
           api_v1_tag_following_path(SecureRandom.uuid.to_s),
           params: {access_token: access_token}
         )
-        expect(response.status).to eq(204)
+        confirm_api_error(response, 410, I18n.t("api.endpoint_errors.tags.cant_process"))
 
         get(
           api_v1_tag_followings_path,
