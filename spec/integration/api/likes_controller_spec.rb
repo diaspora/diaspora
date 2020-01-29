@@ -134,7 +134,7 @@ describe Api::V1::LikesController do
           api_v1_post_likes_path(post_id: @status.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, I18n.t("api.endpoint_errors.likes.like_exists"))
+        confirm_api_error(response, 409, I18n.t("api.endpoint_errors.likes.like_exists"))
 
         likes = like_service.find_for_post(@status.guid)
         expect(likes.length).to eq(1)
@@ -206,7 +206,7 @@ describe Api::V1::LikesController do
           api_v1_post_likes_path(post_id: @status.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 404, I18n.t("api.endpoint_errors.likes.no_like"))
+        confirm_api_error(response, 410, I18n.t("api.endpoint_errors.likes.no_like"))
 
         likes = like_service.find_for_post(@status.guid)
         expect(likes.length).to eq(0)

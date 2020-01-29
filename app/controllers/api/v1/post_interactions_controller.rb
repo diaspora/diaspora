@@ -15,6 +15,8 @@ module Api
 
       def subscribe
         post = find_post
+        return head :conflict if current_user.participations.find_by(target_id: post.id)
+
         current_user.participate!(post)
         head :no_content
       rescue ActiveRecord::RecordInvalid
@@ -29,7 +31,9 @@ module Api
 
       def mute
         post = find_post
-        participation = current_user.participations.find_by!(target_id: post.id)
+        participation = current_user.participations.find_by(target_id: post.id)
+        return head :gone unless participation
+
         participation.destroy
         head :no_content
       end
