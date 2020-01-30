@@ -31,7 +31,7 @@ module Api
 
       def create
         post = post_service.find!(params.require(:post_id))
-        raise ActiveRecord::RecordInvalid unless post.public? || private_modify?
+        raise ActiveRecord::RecordInvalid unless post.public? || private_read?
 
         like_service.create(params[:post_id])
       rescue ActiveRecord::RecordInvalid => e
@@ -46,7 +46,7 @@ module Api
 
       def destroy
         post = post_service.find!(params.require(:post_id))
-        raise ActiveRecord::RecordInvalid unless post.public? || private_modify?
+        raise ActiveRecord::RecordInvalid unless post.public? || private_read?
 
         success = like_service.unlike_post(params[:post_id])
         if success
