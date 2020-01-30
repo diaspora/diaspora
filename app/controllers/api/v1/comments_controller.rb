@@ -8,7 +8,7 @@ module Api
       end
 
       before_action only: %i[create destroy] do
-        require_access_token %w[interactions public:modify]
+        require_access_token %w[interactions public:read]
       end
 
       rescue_from ActiveRecord::RecordNotFound do
