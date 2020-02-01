@@ -314,6 +314,19 @@
           },
           "required": ["address", "lat", "lng"],
           "additionalProperties": false
+        },
+        "open_graph_object": {
+          "type": "object",
+          "properties": {
+            "url": { "type": "string" },
+            "type": { "type": "string" },
+            "title": { "type": "string" },
+            "image": { "type": "string" },
+            "description": { "type": "string" },
+            "video_url": { "type": "string" }
+          },
+          "required": ["url", "type", "title", "image"],
+          "additionalProperties": false
         }
       },
       "required": ["guid", "created_at", "title", "body", "public", "nsfw", "author", "interaction_counters", "own_interaction_state",  "mentioned_people", "photos"]

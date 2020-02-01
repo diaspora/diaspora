@@ -87,6 +87,8 @@ describe Api::V1::PostsController do
         merged_params = merged_params.merge(poll_params)
         merged_params = merged_params.merge(photos: @alice_photo_ids)
         status_message = StatusMessageCreationService.new(alice).create(merged_params)
+        status_message.open_graph_cache = FactoryGirl.create(:open_graph_cache, video_url: "http://example.org")
+        status_message.save
 
         get(
           api_v1_post_path(status_message.guid),
@@ -693,6 +695,7 @@ describe Api::V1::PostsController do
     confirm_poll(post["poll"], reference_post.poll, false) if reference_post.poll
     confirm_location(post["location"], reference_post.location) if reference_post.location
     confirm_photos(post["photos"], reference_post.photos) if reference_post.photos
+    confirm_open_graph_object(post["open_graph_object"], reference_post.open_graph_cache)
   end
 
   def confirm_post_top_level(post, reference_post)
@@ -757,6 +760,17 @@ describe Api::V1::PostsController do
       expect(photo["sizes"]["medium"]).to be_truthy
       expect(photo["sizes"]["large"]).to be_truthy
     end
+  end
+
+  def confirm_open_graph_object(object, ref_cache)
+    return unless ref_cache
+
+    expect(object["type"]).to eq(ref_cache.ob_type)
+    expect(object["url"]).to eq(ref_cache.url)
+    expect(object["title"]).to eq(ref_cache.title)
+    expect(object["image"]).to eq(ref_cache.image)
+    expect(object["description"]).to eq(ref_cache.description)
+    expect(object["video_url"]).to eq(ref_cache.video_url)
   end
 
   def confirm_reshare_format(post, root_post, root_poster)

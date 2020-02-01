@@ -33,7 +33,8 @@ class PostPresenter < BasePresenter
       mentioned_people:      build_mentioned_people_json,
       photos:                build_photos_json,
       root:                  root_api_response,
-      own_interaction_state: build_own_interaction_state
+      own_interaction_state: build_own_interaction_state,
+      open_graph_object:     open_graph_object_api_response
     }.compact
   end
 
@@ -110,6 +111,20 @@ class PostPresenter < BasePresenter
 
   def build_open_graph_cache
     @post.open_graph_cache.try(:as_api_response, :backbone)
+  end
+
+  def open_graph_object_api_response
+    cache = @post.open_graph_cache
+    return unless cache
+
+    {
+      type:        cache.ob_type,
+      url:         cache.url,
+      title:       cache.title,
+      image:       cache.image,
+      description: cache.description,
+      video_url:   cache.video_url
+    }
   end
 
   def build_mentioned_people_json
