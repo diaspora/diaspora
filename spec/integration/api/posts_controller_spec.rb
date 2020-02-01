@@ -80,7 +80,7 @@ describe Api::V1::PostsController do
 
     context "access full post by post ID" do
       it "gets post" do
-        base_params = {status_message: {text: "myText"}, public: true}
+        base_params = {status_message: {text: "myText #nsfw"}, public: true}
         poll_params = {poll_question: "something?", poll_answers: %w[yes no maybe]}
         location_params = {location_address: "somewhere", location_coords: "1,2"}
         merged_params = base_params.merge(location_params)
@@ -704,7 +704,7 @@ describe Api::V1::PostsController do
     expect(post["post_type"]).to eq(reference_post.post_type)
     expect(post["provider_display_name"]).to eq(reference_post.provider_display_name)
     expect(post["public"]).to eq(reference_post.public)
-    expect(post["nsfw"]).to eq(reference_post.nsfw)
+    expect(post["nsfw"]).to eq(!!reference_post.nsfw) # rubocop:disable Style/DoubleNegation
   end
 
   def confirm_interactions(interactions, reference_post)
