@@ -88,6 +88,7 @@ describe Api::V1::PostsController do
         merged_params = merged_params.merge(photos: @alice_photo_ids)
         status_message = StatusMessageCreationService.new(alice).create(merged_params)
         status_message.open_graph_cache = FactoryGirl.create(:open_graph_cache, video_url: "http://example.org")
+        status_message.o_embed_cache = FactoryGirl.create(:o_embed_cache)
         status_message.save
 
         get(
@@ -696,6 +697,7 @@ describe Api::V1::PostsController do
     confirm_location(post["location"], reference_post.location) if reference_post.location
     confirm_photos(post["photos"], reference_post.photos) if reference_post.photos
     confirm_open_graph_object(post["open_graph_object"], reference_post.open_graph_cache)
+    confirm_oembed(post["oembed"], reference_post.o_embed_cache)
   end
 
   def confirm_post_top_level(post, reference_post)
@@ -771,6 +773,13 @@ describe Api::V1::PostsController do
     expect(object["image"]).to eq(ref_cache.image)
     expect(object["description"]).to eq(ref_cache.description)
     expect(object["video_url"]).to eq(ref_cache.video_url)
+  end
+
+  def confirm_oembed(response, ref_cache)
+    return unless ref_cache
+
+    expect(response).to eq(ref_cache.data)
+    expect(response["trusted_endpoint_url"]).to_not be_nil
   end
 
   def confirm_reshare_format(post, root_post, root_poster)

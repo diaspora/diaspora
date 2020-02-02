@@ -34,7 +34,8 @@ class PostPresenter < BasePresenter
       photos:                build_photos_json,
       root:                  root_api_response,
       own_interaction_state: build_own_interaction_state,
-      open_graph_object:     open_graph_object_api_response
+      open_graph_object:     open_graph_object_api_response,
+      oembed:                @post.o_embed_cache.try(:data)
     }.compact
   end
 
