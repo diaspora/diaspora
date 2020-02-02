@@ -145,7 +145,6 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.include JSON::SchemaMatchers
-  config.json_schemas[:archive_schema] = "lib/schemas/archive-format.json"
   config.json_schemas[:archive_schema] = ArchiveValidator::SchemaValidator::JSON_SCHEMA
   config.json_schemas[:api_v1_schema] = "lib/schemas/api_v1.json"
 
