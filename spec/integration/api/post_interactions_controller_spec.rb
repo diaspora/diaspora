@@ -25,6 +25,7 @@ describe Api::V1::PostInteractionsController do
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
   let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }
   let(:invalid_token) { SecureRandom.hex(9) }
+  let(:headers) { {"Authorization" => "Bearer #{access_token}"} }
 
   before do
     @status = alice.post(
@@ -118,17 +119,42 @@ describe Api::V1::PostInteractionsController do
   end
 
   describe "#hide" do
+    def hidden_shareables_count
+      auth.user.reload.hidden_shareables.values.map(&:size).inject(0, :+)
+    end
+
     context "succeeds" do
       it "with proper guid and access token" do
-        hidden_count = auth.user.hidden_shareables.count
+        hidden_count = hidden_shareables_count
         post(
           api_v1_post_hide_path(@status.guid),
-          params: {
-            access_token: access_token
-          }
+          as:      :json,
+          headers: headers,
+          params:  {hide: true}
         )
         expect(response.status).to eq(204)
-        expect(auth.user.reload.hidden_shareables.count).to eq(hidden_count + 1)
+        expect(hidden_shareables_count).to eq(hidden_count + 1)
+      end
+
+      it "to unhide a post" do
+        hidden_count = hidden_shareables_count
+        post(
+          api_v1_post_hide_path(@status.guid),
+          as:      :json,
+          headers: headers,
+          params:  {hide: true}
+        )
+        expect(response.status).to eq(204)
+        expect(hidden_shareables_count).to eq(hidden_count + 1)
+
+        post(
+          api_v1_post_hide_path(@status.guid),
+          as:      :json,
+          headers: headers,
+          params:  {hide: false}
+        )
+        expect(response.status).to eq(204)
+        expect(hidden_shareables_count).to eq(hidden_count)
       end
     end
 
@@ -136,19 +162,56 @@ describe Api::V1::PostInteractionsController do
       it "with improper guid" do
         post(
           api_v1_post_hide_path("999_999_999"),
-          params: {
-            access_token: access_token
-          }
+          as:      :json,
+          headers: headers,
+          params:  {hide: true}
         )
         confirm_api_error(response, 404, "Post with provided guid could not be found")
+      end
+
+      it "without hide param" do
+        post(
+          api_v1_post_hide_path(@status.guid),
+          as:      :json,
+          headers: headers
+        )
+        confirm_api_error(response, 422, "Missing parameter")
+      end
+
+      it "hiding already hidden post" do
+        post(
+          api_v1_post_hide_path(@status.guid),
+          as:      :json,
+          headers: headers,
+          params:  {hide: true}
+        )
+        expect(response.status).to eq(204)
+
+        post(
+          api_v1_post_hide_path(@status.guid),
+          as:      :json,
+          headers: headers,
+          params:  {hide: true}
+        )
+        confirm_api_error(response, 409, "Post already hidden")
+      end
+
+      it "unhiding not hidden post" do
+        post(
+          api_v1_post_hide_path(@status.guid),
+          as:      :json,
+          headers: headers,
+          params:  {hide: false}
+        )
+        confirm_api_error(response, 410, "Post not hidden")
       end
 
       it "with insufficient token" do
         post(
           api_v1_post_hide_path(@status.guid),
-          params: {
-            access_token: access_token_minimum_scopes
-          }
+          as:      :json,
+          headers: {"Authorization" => "Bearer #{access_token_minimum_scopes}"},
+          params:  {hide: true}
         )
         expect(response.status).to eq(403)
       end
@@ -156,9 +219,9 @@ describe Api::V1::PostInteractionsController do
       it "on private post without private token" do
         post(
           api_v1_post_hide_path(@shared_post.guid),
-          params: {
-            access_token: access_token_public_only
-          }
+          as:      :json,
+          headers: {"Authorization" => "Bearer #{access_token_public_only}"},
+          params:  {hide: true}
         )
         expect(response.status).to eq(404)
       end
@@ -166,9 +229,9 @@ describe Api::V1::PostInteractionsController do
       it "with invalid token" do
         post(
           api_v1_post_hide_path(@status.guid),
-          params: {
-            access_token: invalid_token
-          }
+          as:      :json,
+          headers: {"Authorization" => "Bearer #{invalid_token}"},
+          params:  {hide: true}
         )
         expect(response.status).to eq(401)
       end
