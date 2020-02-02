@@ -12,33 +12,32 @@ module Api
       rescue_from Exception do |e|
         logger.error e.message
         logger.error e.backtrace.join("\n")
-        render json: error_body(500, e.message), status: :internal_server_error
+        render_error 500, e.message
+      end
+
+      rescue_from Rack::OAuth2::Server::Resource::Bearer::Unauthorized do |e|
+        logger.error e.message
+        render_error 403, e.message
       end
 
       rescue_from Rack::OAuth2::Server::Resource::Forbidden do |e|
         logger.error e.message
-        render json: error_body(403, e.message), status: :forbidden
+        render_error 403, e.message
       end
 
       rescue_from ActiveRecord::RecordNotFound do |e|
         logger.error e.message
-        message = I18n.t("api.error.not_found")
-        render json: error_body(404, message), status: :not_found
+        render_error 404, "No record found for the given id"
       end
 
       rescue_from ActiveRecord::RecordInvalid do |e|
         logger.error e.message
-        render json: error_body(422, e.to_s), status: :unprocessable_entity
+        render_error 422, e.message
       end
 
       rescue_from ActionController::ParameterMissing do |e|
         logger.error e.message
-        message = I18n.t("api.error.wrong_parameters") + ": " + e.message
-        render json: error_body(422, message), status: :unprocessable_entity
-      end
-
-      def error_body(code, message)
-        {code: code, message: message}
+        render_error 422, "Parameters missing or invalid: #{e.message}"
       end
 
       def current_user
