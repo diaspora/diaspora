@@ -327,6 +327,15 @@
           },
           "required": ["url", "type", "title", "image"],
           "additionalProperties": false
+        },
+        "oembed": {
+          "type": "object",
+          "description": "An oEmbed response according to 2.3.4 of the oEmbed spec.",
+          "properties": {
+            "trusted_endpoint_url": { "type": "string" }
+          },
+          "required": ["trusted_endpoint_url"],
+          "additionalProperties": true
         }
       },
       "required": ["guid", "created_at", "title", "body", "public", "nsfw", "author", "interaction_counters", "own_interaction_state",  "mentioned_people", "photos"]

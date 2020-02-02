@@ -292,7 +292,12 @@ FactoryGirl.define do
 
   factory(:o_embed_cache) do
     url "http://youtube.com/kittens"
-    data {{'data' => 'foo'}}
+    data {
+      {
+        "data"                 => "foo",
+        "trusted_endpoint_url" => "https://www.youtube.com/oembed?scheme=https"
+      }
+    }
   end
 
   factory(:open_graph_cache) do
