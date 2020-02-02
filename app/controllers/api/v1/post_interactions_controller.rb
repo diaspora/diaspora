@@ -58,7 +58,7 @@ module Api
       def vote
         post = find_post
         begin
-          poll_vote = poll_service.vote(post.id, params[:poll_answer_id])
+          poll_vote = poll_service.vote(post.id, params[:poll_answer])
         rescue ActiveRecord::RecordNotFound
           # This, but not the find_post above, should return a 422,
           # we just keep poll_vote nil so it goes into the else below

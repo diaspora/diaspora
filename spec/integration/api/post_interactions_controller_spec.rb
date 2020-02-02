@@ -365,8 +365,8 @@ describe Api::V1::PostInteractionsController do
       post(
         api_v1_post_vote_path(@poll_post.guid),
         params: {
-          poll_answer_id: @poll_answer.id,
-          access_token:   access_token
+          poll_answer:  @poll_answer.id,
+          access_token: access_token
         }
       )
       expect(response.status).to eq(204)
@@ -377,16 +377,16 @@ describe Api::V1::PostInteractionsController do
       post(
         api_v1_post_vote_path(@poll_post.guid),
         params: {
-          poll_answer_id: @poll_answer.id,
-          access_token:   access_token
+          poll_answer:  @poll_answer.id,
+          access_token: access_token
         }
       )
       expect(response.status).to eq(204)
       post(
         api_v1_post_vote_path(@poll_post.guid),
         params: {
-          poll_answer_id: @poll_answer.id,
-          access_token:   access_token
+          poll_answer:  @poll_answer.id,
+          access_token: access_token
         }
       )
       confirm_api_error(response, 422, "Cant vote on this post")
@@ -396,8 +396,8 @@ describe Api::V1::PostInteractionsController do
       post(
         api_v1_post_vote_path(@poll_post.guid),
         params: {
-          poll_answer_id: -1,
-          access_token:   access_token
+          poll_answer:  -1,
+          access_token: access_token
         }
       )
       confirm_api_error(response, 422, "Cant vote on this post")
@@ -407,8 +407,8 @@ describe Api::V1::PostInteractionsController do
       post(
         api_v1_post_vote_path("999_999_999"),
         params: {
-          poll_answer_id: @poll_answer.id,
-          access_token:   access_token
+          poll_answer:  @poll_answer.id,
+          access_token: access_token
         }
       )
       confirm_api_error(response, 404, "Post with provided guid could not be found")
@@ -418,8 +418,8 @@ describe Api::V1::PostInteractionsController do
       post(
         api_v1_post_vote_path(@poll_post.guid),
         params: {
-          poll_answer_id: @poll_answer.id,
-          access_token:   access_token_minimum_scopes
+          poll_answer:  @poll_answer.id,
+          access_token: access_token_minimum_scopes
         }
       )
       expect(response.status).to eq(403)
@@ -429,8 +429,8 @@ describe Api::V1::PostInteractionsController do
       post(
         api_v1_post_vote_path(@shared_post.guid),
         params: {
-          poll_answer_id: @poll_answer.id,
-          access_token:   access_token_public_only
+          poll_answer:  @poll_answer.id,
+          access_token: access_token_public_only
         }
       )
       expect(response.status).to eq(404)
@@ -440,8 +440,8 @@ describe Api::V1::PostInteractionsController do
       post(
         api_v1_post_vote_path(@poll_post.guid),
         params: {
-          poll_answer_id: @poll_answer.id,
-          access_token:   invalid_token
+          poll_answer:  @poll_answer.id,
+          access_token: invalid_token
         }
       )
       expect(response.status).to eq(401)
