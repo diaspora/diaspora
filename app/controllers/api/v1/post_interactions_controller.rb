@@ -24,9 +24,17 @@ module Api
       end
 
       def hide
+        return render_error(422, "Missing parameter") if params[:hide].nil?
+
         post = find_post
-        current_user.toggle_hidden_shareable(post)
-        head :no_content
+        hidden = current_user.is_shareable_hidden?(post)
+
+        if (params[:hide] && !hidden) || (!params[:hide] && hidden)
+          current_user.toggle_hidden_shareable(post)
+          head :no_content
+        else
+          render_error(params[:hide] ? 409 : 410, params[:hide] ? "Post already hidden" : "Post not hidden")
+        end
       end
 
       def mute
