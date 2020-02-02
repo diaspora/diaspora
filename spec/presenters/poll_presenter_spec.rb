@@ -13,12 +13,20 @@ describe PollPresenter do
     it "works with user" do
       presenter = PollPresenter.new(poll, alice)
       confirm_poll_api_json_format(presenter.as_api_json, 0, false)
+      expect(presenter.as_api_json[:poll_answers]).to all(include(own_answer: false))
+
       poll.poll_participations.create(poll_answer: poll_answer, author: alice.person)
+      presenter = PollPresenter.new(poll, alice)
       confirm_poll_api_json_format(presenter.as_api_json, 1, true)
+      expect(presenter.as_api_json[:poll_answers]).to include(include(id: poll_answer.id, own_answer: true))
+
       presenter = PollPresenter.new(poll, eve)
       confirm_poll_api_json_format(presenter.as_api_json, 1, false)
+      expect(presenter.as_api_json[:poll_answers]).to all(include(own_answer: false))
+
       presenter = PollPresenter.new(poll)
       confirm_poll_api_json_format(presenter.as_api_json, 1, false)
+      expect(presenter.as_api_json[:poll_answers]).to_not include(include(:own_answer))
     end
   end
 

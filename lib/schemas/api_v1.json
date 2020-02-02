@@ -285,7 +285,8 @@
                 "properties": {
                   "id": { "type": "integer" },
                   "answer": { "type": "string" },
-                  "vote_count": { "type": "integer" }
+                  "vote_count": { "type": "integer" },
+                  "own_answer": { "type": "boolean" }
                 },
                 "required": ["id", "answer", "vote_count"],
                 "additionalProperties": false
