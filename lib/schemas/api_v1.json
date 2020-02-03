@@ -4,7 +4,8 @@
   "oneOf": [
     {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/aspects"},
     {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/aspect"},
-    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/comments_or_messages"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/comments"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/messages"},
     {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/users"},
     {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/conversations"},
     {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/conversation"},
@@ -87,7 +88,26 @@
       "additionalProperties": false
     },
 
-    "comments_or_messages": {
+    "comments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+          "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+          "author": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" },
+          "body": { "type": "string" },
+          "mentioned_people": {
+            "type": "array",
+            "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+          }
+        },
+        "required": ["guid", "created_at", "author", "body"],
+        "additionalProperties": false
+      }
+    },
+
+    "messages": {
       "type": "array",
       "items": {
         "type": "object",
