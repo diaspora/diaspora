@@ -211,7 +211,7 @@
         "small": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" }
       },
       "required": ["raw", "large", "medium", "small"],
-      "additionalProperties": true
+      "additionalProperties": false
     },
 
     "photo_dimensions": {
