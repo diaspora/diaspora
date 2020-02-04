@@ -34,6 +34,7 @@ describe PhotoPresenter do
     expect(photo[:sizes][:small]).to be_truthy
     expect(photo[:sizes][:medium]).to be_truthy
     expect(photo[:sizes][:large]).to be_truthy
+    expect(photo[:sizes][:raw]).to be_truthy
   end
   # rubocop:enable Metrics/AbcSize
 end

@@ -205,12 +205,13 @@
     "photo_sizes": {
       "type": "object",
       "properties": {
+        "raw": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" },
         "large": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" },
         "medium": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" },
         "small": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" }
       },
-      "required": ["large", "medium", "small"],
-      "additionalProperties": true
+      "required": ["raw", "large", "medium", "small"],
+      "additionalProperties": false
     },
 
     "photo_dimensions": {
