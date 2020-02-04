@@ -12,7 +12,8 @@ class PhotoPresenter < BasePresenter
       sizes:      {
         small:  url(:thumb_small),
         medium: url(:thumb_medium),
-        large:  url(:scaled_full)
+        large:  url(:scaled_full),
+        raw:    url
       }
     }
   end
@@ -26,7 +27,8 @@ class PhotoPresenter < BasePresenter
       sizes:      {
         small:  url(:thumb_small),
         medium: url(:thumb_medium),
-        large:  url(:scaled_full)
+        large:  url(:scaled_full),
+        raw:    url
       }
     }
 
