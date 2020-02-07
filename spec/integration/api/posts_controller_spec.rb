@@ -109,6 +109,7 @@ describe Api::V1::PostsController do
       it "gets post" do
         auth.user.like!(@status)
         auth.user.reshare!(@status)
+        auth.user.reports.create!(item: @status, text: "Meh!")
         @status.reload
 
         get(
@@ -123,6 +124,7 @@ describe Api::V1::PostsController do
         expect(post["own_interaction_state"]["liked"]).to be true
         expect(post["own_interaction_state"]["reshared"]).to be true
         expect(post["own_interaction_state"]["subscribed"]).to be true
+        expect(post["own_interaction_state"]["reported"]).to be true
 
         expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
@@ -722,6 +724,7 @@ describe Api::V1::PostsController do
     expect(state["liked"]).to eq(reference_post.likes.where(author: auth.user.person).exists?)
     expect(state["reshared"]).to eq(reference_post.reshares.where(author: auth.user.person).exists?)
     expect(state["subscribed"]).to eq(reference_post.participations.where(author: auth.user.person).exists?)
+    expect(state["reported"]).to eq(reference_post.reports.where(user: auth.user).exists?)
   end
 
   def confirm_person_format(post_person, user)

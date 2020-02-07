@@ -104,7 +104,7 @@ module Api
       end
 
       def comment_as_json(comment)
-        CommentPresenter.new(comment).as_api_response
+        CommentPresenter.new(comment, current_user).as_api_response
       end
 
       def find_post

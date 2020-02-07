@@ -100,9 +100,10 @@
           "mentioned_people": {
             "type": "array",
             "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
-          }
+          },
+          "reported": { "type": "boolean" }
         },
-        "required": ["guid", "created_at", "author", "body"],
+        "required": ["guid", "created_at", "author", "body", "reported"],
         "additionalProperties": false
       }
     },
@@ -282,9 +283,10 @@
           "properties": {
             "liked": { "type": "boolean" },
             "reshared": { "type": "boolean" },
-            "subscribed": { "type": "boolean" }
+            "subscribed": { "type": "boolean" },
+            "reported": { "type": "boolean" }
           },
-          "required": ["liked", "reshared", "subscribed"],
+          "required": ["liked", "reshared", "subscribed", "reported"],
           "additionalProperties": false
         },
         "mentioned_people": {
