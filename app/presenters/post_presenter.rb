@@ -162,13 +162,15 @@ class PostPresenter < BasePresenter
       {
         liked:      @post.likes.where(author: current_user.person).exists?,
         reshared:   @post.reshares.where(author: current_user.person).exists?,
-        subscribed: participates?
+        subscribed: participates?,
+        reported:   @post.reports.where(user: current_user).exists?
       }
     else
       {
         liked:      false,
         reshared:   false,
-        subscribed: false
+        subscribed: false,
+        reported:   false
       }
     end
   end

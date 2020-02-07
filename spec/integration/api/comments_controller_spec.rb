@@ -139,7 +139,7 @@ describe Api::V1::CommentsController do
     before do
       @comment_text1 = "This is a comment"
       @comment_text2 = "This is a comment 2"
-      comment_service.create(@status.guid, @comment_text1)
+      @comment1 = comment_service.create(@status.guid, @comment_text1)
       comment_service.create(@status.guid, @comment_text2)
     end
 
@@ -154,8 +154,20 @@ describe Api::V1::CommentsController do
         expect(comments.length).to eq(2)
         confirm_comment_format(comments[0], auth.user, @comment_text1)
         confirm_comment_format(comments[1], auth.user, @comment_text2)
+        expect(comments).to all(include("reported" => false))
 
         expect(comments.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/comments")
+      end
+
+      it "returns reported status of a comment" do
+        auth_minimum_scopes.user.reports.create!(item: @comment1, text: "Meh!")
+        get(
+          api_v1_post_comments_path(post_id: @status.guid),
+          params: {access_token: access_token_minimum_scopes}
+        )
+        comments = response_body(response)
+        expect(comments[0]["reported"]).to eq(true)
+        expect(comments[1]["reported"]).to eq(false)
       end
     end
 
