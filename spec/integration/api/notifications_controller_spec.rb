@@ -62,6 +62,20 @@ describe Api::V1::NotificationsController do
         expect(notification.length).to eq(1)
       end
 
+      it "with proper credentials and unread only explicitly false" do
+        @notification.set_read_state(true)
+        get(
+          api_v1_notifications_path,
+          params: {only_unread: false, access_token: access_token}
+        )
+        expect(response.status).to eq(200)
+        notifications = response_body_data(response)
+        expect(notifications.length).to eq(2)
+        confirm_notification_format(notifications[1], @notification, "also_commented", nil)
+
+        expect(notifications.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/notifications")
+      end
+
       it "with proper credentials and after certain date" do
         get(
           api_v1_notifications_path,
@@ -87,7 +101,7 @@ describe Api::V1::NotificationsController do
           api_v1_notifications_path,
           params: {only_after: "January 1, 2018", access_token: access_token}
         )
-        confirm_api_error(response, 422, "Couldnt process the notifications requestt process the notifications request")
+        confirm_api_error(response, 422, "Could not process the notifications request")
       end
 
       it "with insufficient credentials" do
@@ -190,7 +204,7 @@ describe Api::V1::NotificationsController do
           api_v1_notification_path("999_999_999"),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, "Couldnt process the notifications requestt process the notifications request")
+        confirm_api_error(response, 422, "Could not process the notifications request")
       end
 
       it "with proper missing read field" do
@@ -198,7 +212,7 @@ describe Api::V1::NotificationsController do
           api_v1_notification_path(@notification.guid),
           params: {access_token: access_token}
         )
-        confirm_api_error(response, 422, "Couldnt process the notifications requestt process the notifications request")
+        confirm_api_error(response, 422, "Could not process the notifications request")
       end
 
       it "with insufficient credentials" do
