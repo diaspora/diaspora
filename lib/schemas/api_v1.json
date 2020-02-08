@@ -213,7 +213,7 @@
           "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
         }
       },
-      "required": ["guid", "type", "read", "created_at", "target"],
+      "required": ["guid", "type", "read", "created_at"],
       "additionalProperties": false
     },
 

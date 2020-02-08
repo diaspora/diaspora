@@ -15,7 +15,7 @@ module Api
         notification = service.get_by_guid(params[:id])
 
         if notification
-          render json: NotificationPresenter.new(notification).as_api_json(true)
+          render json: NotificationPresenter.new(notification).as_api_json
         else
           render_error 404, "Notification with provided guid could not be found"
         end

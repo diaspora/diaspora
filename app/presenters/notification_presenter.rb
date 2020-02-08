@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class NotificationPresenter < BasePresenter
-  def as_api_json(include_target=true)
+  def as_api_json
     data = base_hash
-    data = data.merge(target: target_json) if include_target && linked_object
+    data = data.merge(target: target_json) if target
     data
   end
 
@@ -20,8 +20,8 @@ class NotificationPresenter < BasePresenter
   end
 
   def target_json
-    json = {guid: linked_object.guid}
-    json[:author] = PersonPresenter.new(linked_object.author).as_api_json if linked_object.author
+    json = {guid: target.guid}
+    json[:author] = PersonPresenter.new(target.author).as_api_json if target.author
     json
   end
 
@@ -31,5 +31,10 @@ class NotificationPresenter < BasePresenter
 
   def type_as_json
     NotificationService::NOTIFICATIONS_REVERSE_JSON_TYPES[type]
+  end
+
+  def target
+    return linked_object if linked_object&.is_a?(Post)
+    return linked_object.post if linked_object&.respond_to?(:post)
   end
 end
