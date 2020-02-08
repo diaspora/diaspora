@@ -3,6 +3,8 @@
 module Api
   module V1
     class NotificationsController < Api::V1::BaseController
+      BOOLEAN_TYPE = ActiveModel::Type::Boolean.new
+
       before_action do
         require_access_token %w[notifications]
       end
@@ -24,25 +26,25 @@ module Api
       def index
         after_date = Date.iso8601(params[:only_after]) if params.has_key?(:only_after)
 
-        notifications_query = service.index(params[:only_unread], after_date)
+        notifications_query = service.index(BOOLEAN_TYPE.cast(params[:only_unread]), after_date)
         notifications_page = time_pager(notifications_query).response
         notifications_page[:data] = notifications_page[:data].map do |note|
           NotificationPresenter.new(note, default_serializer_options).as_api_json
         end
         render_paged_api_response notifications_page
       rescue ArgumentError
-        render_error 422, "Couldnt process the notifications requestt process the notifications request"
+        render_error 422, "Could not process the notifications request"
       end
 
       def update
-        read = ActiveModel::Type::Boolean.new.cast(params.require(:read))
+        read = BOOLEAN_TYPE.cast(params.require(:read))
         if service.update_status_by_guid(params[:id], read)
           head :no_content
         else
-          render_error 422, "Couldnt process the notifications requestt process the notifications request"
+          render_error 422, "Could not process the notifications request"
         end
       rescue ActionController::ParameterMissing
-        render_error 422, "Couldnt process the notifications requestt process the notifications request"
+        render_error 422, "Could not process the notifications request"
       end
 
       private
