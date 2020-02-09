@@ -21,7 +21,7 @@
   = stylesheet_link_tag :poltergeist_disable_transition, media: "all"
 
 = jquery_include_tag
-= include_gon(camel_case: true, nonce: content_security_policy_nonce(:script))
+= include_gon(camel_case: true, nonce: content_security_policy_script_nonce)
 = yield(:javascript)
 
 = csrf_meta_tag
