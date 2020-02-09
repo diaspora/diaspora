@@ -31,7 +31,7 @@ describe 'a user receives a post', :type => :request do
       bob.dispatch_post(sm, :to => @bobs_aspect)
     end
 
-    expect(alice.visible_shareables(Post).count(:all)).to eq(1)
+    expect(Post.from(alice.visible_shareables(Post)).count).to eq(1)
   end
 
   describe 'post refs' do

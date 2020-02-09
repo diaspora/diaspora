@@ -76,7 +76,7 @@ class PeopleController < ApplicationController
           @contact = current_user.contact_for(@person)
         end
         gon.preloads[:person] = @presenter.as_json
-        gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
+        gon.preloads[:photos_count] = Photo.from(Photo.visible(current_user, @person)).count
         respond_with @presenter, layout: "with_header"
       end
 
