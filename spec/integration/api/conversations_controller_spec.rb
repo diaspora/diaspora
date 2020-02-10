@@ -173,7 +173,16 @@ describe Api::V1::ConversationsController do
         params: {only_unread: true, access_token: access_token}
       )
       expect(response.status).to eq(200)
-      expect(response_body(response).length).to eq(2)
+      expect(response_body(response).length).to eq(1)
+    end
+
+    it "returns all the user unread conversations with only_unread explicitly false" do
+      get(
+        api_v1_conversations_path,
+        params: {only_unread: false, access_token: access_token}
+      )
+      expect(response.status).to eq(200)
+      expect(response_body(response).length).to eq(3)
     end
 
     it "returns all the user conversations after a given date" do

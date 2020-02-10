@@ -15,7 +15,7 @@ class ConversationService
     visibility_filter = if filter[:unread]
                           {
                             person_id: @user.person_id,
-                            unread:    0
+                            unread:    1
                           }
                         else
                           {person_id: @user.person_id}
