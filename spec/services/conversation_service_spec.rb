@@ -41,7 +41,7 @@ describe ConversationService do
       @conversation.conversation_visibilities[0].unread = true
       @conversation.conversation_visibilities[0].save!
       conversations = bob_conversation_service.all_for_user(unread: true)
-      expect(conversations.length).to eq(2)
+      expect(conversations.length).to eq(1)
     end
 
     it "returns conversation after a given date" do
