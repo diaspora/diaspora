@@ -162,7 +162,7 @@ class Person < ApplicationRecord
         contacts.id IS NOT NULL AS is_contact
         SQL
              )
-      .order(<<-SQL
+      .order(Arel.sql(<<-SQL
         is_author DESC,
         is_commenter DESC,
         is_liker DESC,
@@ -170,7 +170,7 @@ class Person < ApplicationRecord
         profiles.full_name,
         people.diaspora_handle
         SQL
-            )
+                     ))
   }
 
   def self.community_spotlight
@@ -241,7 +241,7 @@ class Person < ApplicationRecord
     query = query.where(contacts: {sharing: true, receiving: true}) if mutual
 
     query.where(closed_account: false)
-         .order(["contacts.user_id IS NULL", "profiles.last_name ASC", "profiles.first_name ASC"])
+         .order([Arel.sql("contacts.user_id IS NULL"), "profiles.last_name ASC", "profiles.first_name ASC"])
   end
 
   def name(opts = {})
