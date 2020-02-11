@@ -211,7 +211,7 @@ class Person < ApplicationRecord
     self.guid
   end
 
-  private_class_method def self.search_query_string(query)
+  def self.search_query_string(query)
     query = query.downcase
     like_operator = AppConfig.postgres? ? "ILIKE" : "LIKE"
 
