@@ -1,5 +1,8 @@
 # 0.7.13.0
 
+## Security
+* Fixes [USN-4274-1](https://usn.ubuntu.com/4274-1/), a potential Denial-of-Service vulnerability in Nokogiri. [#8108](https://github.com/diaspora/diaspora/pull/8108)
+
 ## Refactor
 * Set better example values for unicorn stdout/stderr log settings [#8058](https://github.com/diaspora/diaspora/pull/8058)
 * Replace dependency on rails-assets.org with custom gems cache at gems.diasporafoundation.org [#8087](https://github.com/diaspora/diaspora/pull/8087)
