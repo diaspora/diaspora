@@ -5,11 +5,21 @@
 
 
 th:
+  _applications: "แอปพลิเคชั่น"
   _services: "บริการ"
   account: "บัญชี"
+  are_you_sure: "คุณแน่ใจแล้วใช่ไหม"
+  are_you_sure_delete_account: "คุณแน่ใจแล้วใช่ไหมที่จะลบบัญชีของคุณ มันไม่สามารถกู้คืนได้นะ"
   aspects:
     index:
       donate_liberapay: "บริจาคให้ลิเบร่าเพย์"
+  cancel: "ยกเลิก"
+  delete: "ลบ"
+  email: "อีเมล"
+  limited: "จำกัดการเข้าถึง"
+  ok: "ตกลง"
   privacy: "ส่วนตัว"
   profile: "โปรไฟล์"
+  public: "สาธารณะ"
   settings: "ตั้งค่า"
+  username: "ชื่อผู้ใช้"

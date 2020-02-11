@@ -282,7 +282,7 @@ pt-PT:
       birthday_with_year: "%d de %B de %Y"
       fullmonth_day: "%d de %B"
   delete: "Eliminar"
-  email: "Correio Eletrónico"
+  email: "E-mail"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."

@@ -424,6 +424,7 @@ es-AR:
     mentions:
       how_to_mention_a: "Escribe el signo \"@\" y comience a escribir el nombre. Un menú desplegable con opciones aparecerá para seleccionarlo más fácilmente. Sólo es posible mencionar a las personas que tienes agregadas a uno o varios aspectos."
       how_to_mention_q: "¿Cómo puedo mencionar a alguien cuando hago una publicación?"
+      mention_in_comment_a: "¡Si! Desde la versión 0.7.0.0 puedes mencionar a alguien en un comentario de la misma forma que lo harías en una publicación, escribiendo \"@\" seguido de su nombre. Por favor tenga en cuenta que cuando usted comenta en una publicación que no es pública solo puede mencionar usuarios los cuales ya hayan interactuado con la publicación."
       mention_in_comment_q: "¿Puedo mencionar a alguien en un comentario?"
       see_mentions_a: "Sí, haz clic en \"@Menciones\" en la columna izquierda de tu página de inicio."
       see_mentions_q: "¿Existe alguna manera de ver las publicaciones en las cuales he sido mencionado?"
@@ -462,6 +463,7 @@ es-AR:
       ignore_user_a3: "La lista de personas que has ignorado puedes verla en los ajustes de tu cuenta, en la sección Privacidad. Para dejar de ignorar a alguien, debes quitar a esa persona de la lista en esa página."
       ignore_user_q: "¿Cómo puedo impedir que las publicaciones de una persona aparezcan en mi Entrada?"
       insert_images_a: "Haz clic en el icono pequeño con forma de cámara para insertar imágenes en una publicación. Presiona el icono de imágenes nuevamente para añadir otra foto, o selecciona varias al mismo tiempo. También puedes arrastrar y soltar una o varias imágenes desde tu computadora a ese icono. Si quieres insertar una imagen desde la web en tu publicación, haz clic en el botón de imagen en la parte superior del cuadro de publicación, lo que creará el código Markdown para vos."
+      insert_images_comments_a: "Podés utilizar Markdown para ingresar una imagen desde la web a un comentario, igual que en las publicaciones. Sin embargo, no podés subir imagenes desde tu computadora directamente a los comentarios. Cargalos a un servicio de hosting para imagenes y entonces ingresarlos usando el botón de imagen encima del editor."
       insert_images_comments_q: "¿Puedo insertar imágenes en los comentarios?"
       insert_images_q: "¿Cómo puedo insertar imágenes en las publicaciones?"
       post_location_a: "Pulsa el icono de localización al lado de la cámara en el publicador (el cuadro de publicación). Ello insertará tu localización desde OpenStreetMap. Puedes editar tu localización y escoger publicar sólo el nombre de la ciudad en la que estás en lugar de tu dirección exacta."
@@ -965,6 +967,9 @@ es-AR:
       updated: "Perfil actualizado"
   public: "Público"
   registrations:
+    closed:
+      another_pod: "otro pod"
+      closed_pod: "En este momento este pod se encuentra cerrado a nuevas registros. De igual forma, todavía puedes unirte a la red de diaspora* registrandote en %{wiki}. Ya que todos los pods están interconectados, tendrás acceso al mismo contenido."
     create:
       success: "¡Te has unido a diaspora*!"
     invalid_invite: "¡El enlace de la invitación ya no es válido!"
@@ -1199,7 +1204,7 @@ es-AR:
       new_password: "Contraseña nueva"
       private_message: "...recibís un mensaje privado?"
       protocol_handler:
-        register: "Regístrate"
+        register: "Regístrate web+diaspora:// controlador en este navegador"
       receive_email_notifications: "¿Recibir notificaciones por correo electrónico cuando..."
       request_export: "Solicitar los datos de mi perfil"
       request_export_photos: "Solicitar la descarga de mis fotos"

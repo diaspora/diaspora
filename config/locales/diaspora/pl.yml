@@ -989,7 +989,7 @@ pl:
       your_birthday: "Twoje urodziny"
       your_gender: "Twoja płeć"
       your_location: "Lokalizacja"
-      your_name: "Imię"
+      your_name: "Nazwa"
       your_photo: "Twoje zdjęcie"
       your_tags: "Opisz siebie w pięciu słowach"
       your_tags_placeholder: "np. #filmy #kotki #podróże #nauczyciel #warszawa"
@@ -1191,6 +1191,21 @@ pl:
         one: "1 osoba otagowana %{tag}"
         other: "%{count} osób otagowanych %{tag}"
         zero: "Nikogo otagowanego %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Dezaktywuj"
+      status: "Uwierzytelnianie dwuskładnikowe jest aktywne"
+    confirm:
+      activate_button: "Potwierdź i aktywuj"
+      status: "Uwierzytelnianie dwuskładnikowe nie jest jeszcze w pełni aktywne, musisz je zatwierdzić tokenem TOTP"
+    deactivated:
+      change_button: "Aktywuj"
+      change_label: "Aktywuj uwierzytelnianie dwuskładnikowe"
+      status: "Uwierzytelnianie dwuskładnikowe nieaktywne"
+    flash:
+      success_activation: "Pomyślnie aktywowano uwierzytelnianie dwuskładnikowe"
+      success_deactivation: "Pomyślnie dezaktywowano uwierzytelnianie dwuskładnikowe"
+    title: "Uwierzytelnianie dwuskładnikowe"
   username: "Nazwa użytkownika"
   users:
     confirm_email:

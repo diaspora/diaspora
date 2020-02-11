@@ -230,7 +230,7 @@ nb:
       aspect_list_is_visible: "Kontakter i dette aspektet er i stand til å se hverandre."
       confirm_remove_aspect: "Er du sikker på at du vil slette dette aspektet?"
       rename: "Endre navn"
-      update: "Oppdatér"
+      update: "Oppdater"
       updating: "Oppdaterer"
     index:
       donate: "Doner"
@@ -285,7 +285,7 @@ nb:
       success: "La oss se hva de har å si! #sihallo"
   bookmarklet:
     explanation: "Publiser til diaspora* fra hvor som helst ved å bokmerke denne lenken => %{link}"
-    heading: "Diaspora Bookmarklet"
+    heading: "Bookmarklet for diaspora*"
     post_something: "Publiser noe på diaspora*"
   cancel: "Avbryt"
   color_themes:
@@ -588,9 +588,11 @@ nb:
       byline: "Det sosiale nettverket der det er du som har kontrollen"
       choose_your_audience: "Velg publikum"
       choose_your_audience_info: "Med aspektene til diaspora* kan du velge akkurat hvem du vil dele noe med. Du kan være så offentlig eller privat som du ønsker. Del et morsomt bilde med hele verden eller en dyp hemmelighet med et par av dine nærmeste venner. Du har kontrollen."
+      diaspora_site_link: "føderale diaspora*-nettverket"
       headline: "Velkommen til %{pod_name}"
       own_your_data: "Bestem over dataene dine"
       own_your_data_info: "Mange nettverk bruker dataene dine til å tjene penger. De analyserer hva du gjør og så bruker de denne informasjonen til å vise deg reklame. diaspora* bruker ikke dataene dine til noen annet formål enn å la deg kontakte og dele med andre."
+      part_of_diaspora: "En del av det %{diaspora_site_link}"
     podmin:
       byline: "Du er i ferd med å endre Internett. La oss få deg på plass, skal vi?"
       configuration_info: "Åpne %{database_path} og %{diaspora_path} i et tekstredigeringsprogram og gå nøye gjennom dem. De er betydelig kommentert."
@@ -641,12 +643,14 @@ nb:
       public_feed: "Offentlig diaspora*-feed for %{name}"
       source_package: "Last ned kildekoden"
       statistics_link: "Statistikk for belgen"
+      switch_to_standard_mode: "Bytt til standardvisning"
+      switch_to_touch_optimized_mode: "Bytt til touch-optimalisert visning"
       whats_new: "Hva er nytt?"
     header:
       code: "Kode"
       logout: "logg ut"
-      profile: "profil"
-      settings: "innstillinger"
+      profile: "Profil"
+      settings: "Innstillinger"
       toggle_navigation: "Veksle navigasjon"
   likes:
     create:
@@ -920,7 +924,7 @@ nb:
     person:
       thats_you: "Det er deg!"
     profile_sidebar:
-      bio: "mitt livsløp (bio)"
+      bio: "Biografi"
       born: "Bursdag"
       gender: "Kjønn"
       location: "Sted"
@@ -972,7 +976,7 @@ nb:
       public: "Offentlig"
       settings: "Profilinnstillinger"
       update_profile: "Oppdater profil"
-      your_bio: "Om meg"
+      your_bio: "Din biografi"
       your_birthday: "Din fødselsdato"
       your_gender: "Ditt kjønn"
       your_location: "Hvor bor du?"
