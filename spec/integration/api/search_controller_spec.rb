@@ -213,8 +213,56 @@ describe Api::V1::SearchController do
 
     it "fails with bad credentials" do
       get(
-        "/api/v1/search/users",
+        "/api/v1/search/posts",
         params: {tag: "tag1", access_token: invalid_token}
+      )
+      expect(response.status).to eq(401)
+    end
+  end
+
+  describe "tag_index" do
+    before do
+      FactoryGirl.create(:tag, name: "apipartyone")
+      FactoryGirl.create(:tag, name: "apipartytwo")
+      FactoryGirl.create(:tag, name: "apipartythree")
+    end
+
+    it "succeeds" do
+      get(
+        "/api/v1/search/tags",
+        params: {query: "apiparty", access_token: access_token_public_only_read_only}
+      )
+      expect(response.status).to eq(200)
+      tags = response_body_data(response)
+      expect(tags.size).to eq(3)
+
+      expect(tags.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/tags")
+    end
+
+    it "does a prefix search" do
+      get(
+        "/api/v1/search/tags",
+        params: {query: "apipartyt", access_token: access_token_public_only_read_only}
+      )
+      expect(response.status).to eq(200)
+      tags = response_body_data(response)
+      expect(tags.size).to eq(2)
+
+      expect(tags.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/tags")
+    end
+
+    it "fails with missing parameters" do
+      get(
+        "/api/v1/search/tags",
+        params: {access_token: access_token}
+      )
+      confirm_api_error(response, 422, "Search request could not be processed")
+    end
+
+    it "fails with bad credentials" do
+      get(
+        "/api/v1/search/tags",
+        params: {query: "apiparty", access_token: invalid_token}
       )
       expect(response.status).to eq(401)
     end
