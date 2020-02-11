@@ -23,6 +23,12 @@ module Api
         render_paged_api_response posts_page
       end
 
+      def tag_index
+        tags_page = index_pager(tags_query).response
+        tags_page[:data] = tags_page[:data].pluck(:name)
+        render_paged_api_response tags_page
+      end
+
       private
 
       def time_pager(query, query_time_field, data_time_field)
@@ -52,6 +58,10 @@ module Api
         else
           Stream::Tag.new(nil, params.require(:tag)).posts
         end
+      end
+
+      def tags_query
+        ActsAsTaggableOn::Tag.autocomplete(params.require(:query))
       end
     end
   end
