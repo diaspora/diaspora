@@ -54,7 +54,7 @@ gem "configurate", "0.3.1"
 
 # Cross-origin resource sharing
 
-gem "rack-cors", "1.0.3", require: "rack/cors"
+gem "rack-cors", "1.1.1", require: "rack/cors"
 
 # CSS
 
