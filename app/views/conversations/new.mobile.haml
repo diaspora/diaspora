@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%script{nonce: content_security_policy_nonce(:script)}
+%script{nonce: content_security_policy_script_nonce}
   :plain
     $(document).ready(function () {
       var data = $.parseJSON( "#{escape_javascript(@contacts_json).html_safe}" ),

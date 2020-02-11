@@ -37,7 +37,7 @@ describe NotificationsController, :type => :controller do
       end
 
       get :update, params: {id: note.id, set_unread: "true"}, format: :json
-      expect(response).to be_success
+      expect(response).to be_successful
 
       updated_note = Notification.find(note.id)
       expect(updated_note.unread).to eq(true)
@@ -64,7 +64,7 @@ describe NotificationsController, :type => :controller do
 
     it 'succeeds' do
       get :index
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(assigns[:notifications].count).to eq(1)
     end
 
@@ -73,7 +73,7 @@ describe NotificationsController, :type => :controller do
         @notification.touch
       end
       get :index, format: :json
-      expect(response).to be_success
+      expect(response).to be_successful
       response_json = JSON.parse(response.body)
       note_html = Nokogiri::HTML(response_json["notification_list"][0]["also_commented"]["note_html"])
       timeago_content = note_html.css("time")[0]["data-time-ago"]
@@ -94,7 +94,7 @@ describe NotificationsController, :type => :controller do
 
     it 'succeeds on mobile' do
       get :index, format: :mobile
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'paginates the notifications' do
@@ -128,7 +128,7 @@ describe NotificationsController, :type => :controller do
       it 'succeeds on mobile' do
         eve.share_with(alice.person, eve.aspects.first)
         get :index, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -157,12 +157,12 @@ describe NotificationsController, :type => :controller do
 
       it "succeeds" do
         get :index
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it "succeeds on mobile" do
         get :index, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end

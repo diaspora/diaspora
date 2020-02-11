@@ -81,17 +81,17 @@ describe PhotosController, :type => :controller do
     it "succeeds without any available pictures" do
       get :index, params: {person_id: FactoryGirl.create(:person).guid}
 
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "succeeds on mobile devices without any available pictures" do
       get :index, params: {person_id: FactoryGirl.create(:person).guid}, format: :mobile
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "succeeds on mobile devices with available pictures" do
       get :index, params: {person_id: bob.person.guid}, format: :mobile
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "displays the logged in user's pictures" do
@@ -145,7 +145,7 @@ describe PhotosController, :type => :controller do
 
       it "succeeds on the mobile site" do
         get :index, params: {person_id: @person.to_param}, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it "forces to sign in if the person is remote" do
@@ -227,7 +227,7 @@ describe PhotosController, :type => :controller do
 
     it 'should return 200 for existing stuff on mobile devices' do
       get :show, params: {person_id: alice.person.guid, id: @alices_photo.id}, format: :mobile
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "doesn't leak private photos to the public" do

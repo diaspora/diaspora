@@ -29,7 +29,7 @@ class AspectsMembershipService
   end
 
   def contacts_in_aspect(aspect_id)
-    order = ["contact_id IS NOT NULL DESC", "profiles.first_name ASC", "profiles.last_name ASC",
+    order = [Arel.sql("contact_id IS NOT NULL DESC"), "profiles.first_name ASC", "profiles.last_name ASC",
              "profiles.diaspora_handle ASC"]
     @user.aspects.find(aspect_id) # to provide better error code if aspect isn't correct
     contacts = @user.contacts.arel_table

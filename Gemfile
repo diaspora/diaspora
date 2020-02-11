@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "5.1.7"
+gem "rails", "5.2.4.1"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -27,7 +27,7 @@ gem "yajl-ruby",   "1.4.1"
 
 # Authentication
 
-gem "devise", "4.6.1"
+gem "devise", "4.7.1"
 gem "devise-two-factor", "3.0.3"
 gem "devise_lastseenable", "0.0.6"
 gem "rqrcode", "0.10.1"
@@ -55,7 +55,7 @@ gem "configurate", "0.3.1"
 
 # Cross-origin resource sharing
 
-gem "rack-cors", "1.0.3", require: "rack/cors"
+gem "rack-cors", "1.1.1", require: "rack/cors"
 
 # CSS
 
@@ -82,7 +82,7 @@ gem "activerecord-import", "1.0.2"
 
 gem "carrierwave", "1.3.1"
 gem "fog-aws",     "3.5.1"
-gem "mini_magick", "4.9.3"
+gem "mini_magick", "4.10.1"
 
 # GUID generation
 gem "uuid", "2.3.9"
@@ -146,7 +146,7 @@ gem "leaflet-rails",       "1.5.1"
 
 # Parsing
 
-gem "nokogiri",          "1.10.3"
+gem "nokogiri",          "1.10.8"
 gem "open_graph_reader", "0.7.0" # also update User-Agent in features/support/webmock.rb
 gem "redcarpet",         "3.4.0"
 gem "ruby-oembed",       "0.12.0"
@@ -158,7 +158,7 @@ gem "string-direction", "1.2.1"
 
 # Security Headers
 
-gem "secure_headers", "6.1.1"
+gem "secure_headers", "6.3.0"
 
 # Services
 
@@ -201,7 +201,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "1.2.2", require: "zip"
+gem "rubyzip", "1.3.0", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
