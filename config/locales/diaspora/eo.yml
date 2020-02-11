@@ -669,6 +669,7 @@ eo:
       auto_follow_aspect: "Aspekto por aŭtomate sekvataj uzantoj"
       auto_follow_back: "Aŭtomate konigu reen, se iu konigas al vi."
       change: "Ŝanĝi"
+      change_color_theme: "Ŝanĝi koloran etoson"
       change_email: "Redakti retpoŝtadreson"
       change_language: "Ŝanĝi lingvon"
       change_password: "Ŝanĝi pasvorton"
@@ -717,6 +718,7 @@ eo:
     public:
       does_not_exist: "Uzanto %{username} ne ekzistas!"
     update:
+      color_theme_changed: "La kolora etoso estas sukcese ŝanĝita"
       email_notifications_changed: "Retpoŝtaj sciigoj ŝanĝitaj"
       follow_settings_changed: "Agordoj pri sekvado ŝanĝitaj"
       follow_settings_not_changed: "Ŝanĝo de sekvo-agordoj malsukcesis."

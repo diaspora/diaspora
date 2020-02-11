@@ -596,7 +596,7 @@ de:
       diaspora_site_link: "föderierten diaspora*-Netzwerks"
       headline: "Willkommen auf %{pod_name}"
       own_your_data: "Deine Daten, dein Eigentum"
-      own_your_data_info: "Viele Netzwerke nutzen deine Daten, um Geld zu verdienen, indem Sie deine Interaktionen auswerten und diese Informationen verwenden, um dir Werbung zu zeigen. diaspora* nutzt deine Daten zu keinem anderen Zweck, als es dir zu ermöglichen, dich mit anderen zu verbinden und mit ihnen zu teilen."
+      own_your_data_info: "Viele Netzwerke nutzen deine Daten, um Geld zu verdienen, indem sie deine Interaktionen auswerten und diese Informationen verwenden, um dir Werbung zu zeigen. diaspora* nutzt deine Daten zu keinem anderen Zweck, als es dir zu ermöglichen, dich mit anderen zu verbinden und mit ihnen zu teilen."
       part_of_diaspora: "Teil des %{diaspora_site_link}"
     podmin:
       byline: "Du bist drauf und dran, das Internet zu ändern. Lass uns gleich alles einrichten, okay?"
