@@ -17,7 +17,7 @@ describe StatusMessagesController, :type => :controller do
   describe '#bookmarklet' do
     it 'succeeds' do
       get :bookmarklet
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'contains a complete html document' do
@@ -34,14 +34,14 @@ describe StatusMessagesController, :type => :controller do
         title: "Surprised Kitty",
         notes: "cute kitty"
       }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
   describe '#new' do
     it 'succeeds' do
       get :new, params: {person_id: bob.person.id}
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'should redirect on desktop version' do

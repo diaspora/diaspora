@@ -30,7 +30,7 @@ describe AdminsController, :type => :controller do
 
       it "succeeds" do
         get :dashboard
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it "warns the user about unreviewed reports" do
@@ -62,7 +62,7 @@ describe AdminsController, :type => :controller do
 
       it 'succeeds and renders user_search' do
         get :user_search
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(response).to render_template(:user_search)
       end
 
@@ -139,7 +139,7 @@ describe AdminsController, :type => :controller do
 
     it "succeeds and renders stats" do
       get :stats
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response).to render_template(:stats)
       expect(response.body).to include(
         I18n.translate(
@@ -151,7 +151,7 @@ describe AdminsController, :type => :controller do
     it "succeeds and renders stats for different ranges" do
       %w(week 2weeks month).each do |range|
         get :stats, params: {range: range}
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(response).to render_template(:stats)
         expect(response.body).not_to include(
           I18n.translate(

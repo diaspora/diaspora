@@ -327,12 +327,12 @@ describe UsersController, :type => :controller do
   describe 'getting_started' do
     it 'does not fail miserably' do
       get :getting_started
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'does not fail miserably on mobile' do
       get :getting_started, format: :mobile
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     context "with inviter" do

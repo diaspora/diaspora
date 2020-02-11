@@ -29,7 +29,7 @@ describe CommentsController, :type => :controller do
 
       it 'responds to format mobile' do
         post :create, params: comment_hash, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -136,7 +136,7 @@ describe CommentsController, :type => :controller do
 
     it 'works for mobile' do
       get :index, params: {post_id: @message.id}, format: :mobile
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'returns all the comments for a post' do
