@@ -13,7 +13,7 @@ describe ResharesController, :type => :controller do
 
     it 'requires authentication' do
       post_request!
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
     end
 
     context 'with an authenticated user' do
@@ -23,7 +23,7 @@ describe ResharesController, :type => :controller do
       end
 
       it 'succeeds' do
-        expect(response).to be_success
+        expect(response).to be_successful
         post_request!
       end
 

@@ -5,7 +5,7 @@ describe NodeInfoController do
     it "responds to JSON" do
       get :jrd, format: :json
 
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "returns a JRD" do
@@ -38,7 +38,7 @@ describe NodeInfoController do
         it "responds to JSON" do
           get :document, params: {version: version}, format: :json
 
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it "calls NodeInfoPresenter" do

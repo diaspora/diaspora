@@ -33,12 +33,12 @@ describe HomeController, type: :controller do
   describe "#podmin" do
     it "succeeds" do
       get :podmin
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "succeeds on mobile" do
       get :podmin, format: :mobile
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
