@@ -26,7 +26,7 @@ gem "json-schema", "2.8.1"
 
 # Authentication
 
-gem "devise", "4.6.1"
+gem "devise", "4.7.1"
 gem "devise-two-factor", "3.0.3"
 gem "devise_lastseenable", "0.0.6"
 gem "rqrcode", "0.10.1"
