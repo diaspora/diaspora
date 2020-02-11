@@ -66,7 +66,7 @@ class ContactsController < ApplicationController
       when "receiving"
         current_user.contacts.receiving
       when "by_aspect"
-        order.unshift "contact_id IS NOT NULL DESC"
+        order.unshift Arel.sql("contact_id IS NOT NULL DESC")
         contacts_by_aspect(@aspect.id)
       else
         raise ArgumentError, "unknown type #{type}"

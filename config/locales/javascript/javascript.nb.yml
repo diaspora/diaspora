@@ -83,9 +83,9 @@ nb:
         success: "Ditt nye aspekt <%= name %> ble opprettet"
       name: "Navn"
     bookmarklet:
-      post_something: "Post noe på Diaspora"
-      post_submit: "Sender innlegg..."
-      post_success: "Lukker popup vinduet..."
+      post_something: "Publiser noe på diaspora*"
+      post_submit: "Sender innlegg ..."
+      post_success: "Publisert! Lukker popup-vinduet ..."
     cancel: "Avbryt"
     comma: ","
     comments:
@@ -134,6 +134,7 @@ nb:
       recent_notifications: "Nylige varsel"
       search: "Søk"
       settings: "Innstillinger"
+      switch_to_touch_optimized_mode: "Bytt til touch-optimalisert visning"
       toggle_navigation: "Veksle navigasjon"
       view_all: "Vis alle"
     hide_post: "Gjem dette innlegget?"

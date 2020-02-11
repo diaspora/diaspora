@@ -996,6 +996,9 @@ oc:
   registrations:
     closed:
       another_pod: "un autre pod"
+      closed_pod: "Aqueste pod es actualament pas dubèrt per las inscripcions. Pasmens, podètz jonher lo malhum diaspora* en vos marcar sus %{wiki} . Perque totes los pods son connectats entre eles, enlà auretz accès al meteis contengut."
+      find_pods: "Vaquí una lista de pods ont podètz vos marcar %{poduptime}."
+      other_questions: "S’avètz mai de questions tocant la causida d’un pod, gaitatz nòstre %{wiki}."
     create:
       success: "Avètz rejunt diaspora*!"
     invalid_invite: "Lo ligam de convit donat es pas mai valid !"
@@ -1190,21 +1193,32 @@ oc:
       status: "Autentificacion en dos temps activiada"
     confirm:
       activate_button: "Confirmar e activar"
+      input_explanation: "Aprèp aver numerizat o picat lo secret, picatz lo còdi de sièis chifras que vesètz e confirmatz lo parametratge."
       input_title: "Confirmar amb un geton TOTP"
+      manual_explanation: "Se per cas poscatz pas numerizar lo còdi QR automaticament podètz picar a la man lo secret dins vòstra aplicacion."
+      manual_explanation_cont: "Utilizam TOTP (time-based one-time passwords, senhal unic basat sus l’ora) amb de getons de sièis chifras. Se per cas vòstra aplicacion vos demande un interval de temps e un algoritme picatz 30 segondas e sha1.<br /> Los espacis son per una lectura de bon legir, volgatz picar lo còdi sens eles."
+      scan_explanation: "Volgatz numerizar lo còdi QR amb una aplicacion compatibla TOTP, coma andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
       scan_title: "Numerizar lo còdi QR"
+      status: "L’autentificacion es pas complètament activada, vos cal confirmar l’activacion amb un geton TOTP"
       title: "Confirmatz l’activacion"
     deactivated:
       change_button: "Activar"
       change_label: "Activar l’autentificacion en dos temps"
       status: "L’autentificacion en dos temps es pas activada"
+    explanation: "L’autentificacion dos factors es un biais poderós de s’assegurar que sètz ben vos l’unica persona a vos connectar a vòstre compte. Al moment de vos connectar, picaretz un còdi de 6 chifras aprèp vòstre senhal per provar vòstra identitat. Siatz prudent : se perdatz vòstre mobil e los còdis de recuperacion creats a l’activacion d’aquesta foncionalitat, l’accès a vòstre compte diaspora* serà blocat per totjorn."
     flash:
       error_token: "Lo geton èra incorrècte o invalid"
       success_activation: "Autentificacion en dos temps corrèctament activada"
       success_deactivation: "Autentificacion en dos temps corrèctament desactivada"
     input_token:
       label: "Geton dos factors"
+      placeholder: "geton dos factor en sièis chifras"
     recovery:
       button: "Generar de nòus còdis de recuperacion"
+      explanation: "Se per cas perdatz lo mobil, podètz utilizar un dels còdis de recuperacion çai-jos per tornar obténer l’accès al compte. Gardatz los còdis de recuperacion en un lòc segur. Per exemple, podètz los imprimir e gardar amb d’autres documents importants."
+      explanation_short: "Los còdis de recuperacion vos permeton de tornar obténer l’accès al compte se per cas perdatz lo mobil. Notatz que podètz pas qu’utilizar cada còdi pas qu’un còp."
+      invalidation_notice: "Se perdètz los còdis de recuperacion, podètz los regenerar aquí. Los ancians còdis de recuperacion seràn pas mai valids."
+      reminder: "Autrament podètz utilizar un dels còdis de recuperacion."
       title: "Còdis de recuperacion"
     title: "Autentificacion en dos temps"
   username: "Nom d'utilizaire"

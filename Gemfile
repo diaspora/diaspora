@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "5.1.6.2"
+gem "rails", "5.2.4.1"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -10,7 +10,7 @@ gem "responders", "2.4.1"
 
 # Appserver
 
-gem "unicorn", "5.5.0", require: false
+gem "unicorn", "5.5.1", require: false
 gem "unicorn-worker-killer", "0.4.4"
 
 # Federation
@@ -26,7 +26,7 @@ gem "json-schema", "2.8.1"
 
 # Authentication
 
-gem "devise", "4.6.1"
+gem "devise", "4.7.1"
 gem "devise-two-factor", "3.0.3"
 gem "devise_lastseenable", "0.0.6"
 gem "rqrcode", "0.10.1"
@@ -38,7 +38,7 @@ gem "simple_captcha2", "0.4.3", require: "simple_captcha"
 # Background processing
 
 gem "redis", "3.3.5" # Pinned to 3.3.x because of https://github.com/antirez/redis/issues/4272
-gem "sidekiq", "5.2.5"
+gem "sidekiq", "5.2.7"
 
 # Scheduled processing
 
@@ -54,7 +54,7 @@ gem "configurate", "0.3.1"
 
 # Cross-origin resource sharing
 
-gem "rack-cors", "1.0.2", require: "rack/cors"
+gem "rack-cors", "1.1.1", require: "rack/cors"
 
 # CSS
 
@@ -75,13 +75,13 @@ group :postgresql, optional: true do
 end
 
 
-gem "activerecord-import", "1.0.1"
+gem "activerecord-import", "1.0.2"
 
 # File uploading
 
 gem "carrierwave", "1.3.1"
-gem "fog-aws",     "3.4.0"
-gem "mini_magick", "4.9.3"
+gem "fog-aws",     "3.5.1"
+gem "mini_magick", "4.10.1"
 
 # GUID generation
 gem "uuid", "2.3.9"
@@ -92,13 +92,13 @@ gem "entypo-rails", "3.0.0"
 
 # JavaScript
 
-gem "handlebars_assets", "0.23.3"
-gem "jquery-rails",      "4.3.3"
-gem "js-routes",         "1.4.4"
+gem "handlebars_assets", "0.23.4"
+gem "jquery-rails",      "4.3.5"
+gem "js-routes",         "1.4.7"
 gem "js_image_paths",    "0.1.1"
 
-source "https://rails-assets.org" do
-  gem "rails-assets-jquery",                              "3.3.1" # Should be kept in sync with jquery-rails
+source "https://gems.diasporafoundation.org" do
+  gem "rails-assets-jquery",                              "3.4.1" # Should be kept in sync with jquery-rails
   gem "rails-assets-jquery.ui",                           "1.11.4"
 
   gem "rails-assets-highlightjs",                         "9.12.0"
@@ -138,12 +138,12 @@ gem "rails-i18n",           "5.1.3"
 gem "markerb",             "1.1.0"
 
 # Map
-gem "leaflet-rails",       "1.3.1"
+gem "leaflet-rails",       "1.5.1"
 
 # Parsing
 
-gem "nokogiri",          "1.10.1"
-gem "open_graph_reader", "0.6.2" # also update User-Agent in features/support/webmock.rb
+gem "nokogiri",          "1.10.8"
+gem "open_graph_reader", "0.7.0" # also update User-Agent in features/support/webmock.rb
 gem "redcarpet",         "3.4.0"
 gem "ruby-oembed",       "0.12.0"
 gem "twitter-text",      "1.14.7"
@@ -154,7 +154,7 @@ gem "string-direction", "1.2.1"
 
 # Security Headers
 
-gem "secure_headers", "6.1.0"
+gem "secure_headers", "6.3.0"
 
 # Services
 
@@ -165,7 +165,7 @@ gem "omniauth-wordpress", "0.2.2"
 gem "twitter",            "6.2.0"
 
 # OpenID Connect
-gem "openid_connect", "1.1.6"
+gem "openid_connect", "1.1.8"
 
 # Serializers
 
@@ -173,7 +173,7 @@ gem "active_model_serializers", "0.9.7"
 
 # XMPP chat dependencies
 gem "diaspora-prosody-config",    "0.0.7"
-gem "rails-assets-diaspora_jsxc", "0.1.5.develop.7", source: "https://rails-assets.org"
+gem "rails-assets-diaspora_jsxc", "0.1.5.develop.7", source: "https://gems.diasporafoundation.org"
 
 # Tags
 
@@ -181,16 +181,16 @@ gem "acts-as-taggable-on", "6.0.0"
 
 # URIs and HTTP
 
-gem "addressable",        "2.5.2", require: "addressable/uri"
+gem "addressable",        "2.6.0", require: "addressable/uri"
 gem "faraday",            "0.15.4"
-gem "faraday_middleware", "0.12.2"
+gem "faraday_middleware", "0.13.1"
 gem "faraday-cookie_jar", "0.0.6"
 gem "typhoeus",           "1.3.1"
 
 # Views
 
 gem "gon",                     "6.2.1"
-gem "hamlit",                  "2.9.2"
+gem "hamlit",                  "2.9.3"
 gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.17.1"
 gem "will_paginate",           "3.1.7"
@@ -201,7 +201,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "1.2.2", require: "zip"
+gem "rubyzip", "1.3.0", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -210,7 +210,7 @@ gem "rubyzip", "1.2.2", require: "zip"
 # https://github.com/discourse/discourse/pull/238
 gem "minitest"
 
-gem "versionist", "1.7.0"
+gem "versionist", "2.0.0"
 
 # Windows and OSX have an execjs compatible runtime built-in, Linux users should
 # install Node.js or use "therubyracer".
@@ -249,12 +249,13 @@ group :development do
 
   # Linters
   gem "haml_lint",      "0.28.0", require: false
-  gem "pronto",         "0.9.5", require: false
-  gem "pronto-eslint",  "0.9.1", require: false
-  gem "pronto-haml",    "0.9.0", require: false
-  gem "pronto-rubocop", "0.9.1", require: false
-  gem "pronto-scss",    "0.9.1", require: false
-  gem "rubocop",        "0.66.0", require: false
+  gem "pronto",         "0.10.0", require: false
+  gem "pronto-eslint",  "0.10.0", require: false
+  gem "pronto-haml",    "0.10.0", require: false
+  gem "pronto-rubocop", "0.10.0", require: false
+  gem "pronto-scss",    "0.10.0", require: false
+  gem "rubocop",        "0.72.0", require: false
+  gem "rubocop-rails",  "2.1.0", require: false
 
   # Preloading environment
 
@@ -276,7 +277,7 @@ group :test do
   # RSpec (unit tests, some integration tests)
 
   gem "fixture_builder",   "0.5.2.rc3"
-  gem "fuubar",            "2.3.2"
+  gem "fuubar",            "2.4.1"
   gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
 
@@ -293,12 +294,12 @@ group :test do
   gem "factory_girl_rails", "4.8.0"
   gem "shoulda-matchers",   "4.0.1"
   gem "timecop",            "0.9.1"
-  gem "webmock",            "3.5.1", require: false
+  gem "webmock",            "3.6.0", require: false
 
   gem "diaspora_federation-test", "0.2.6"
 
   # Coverage
-  gem "coveralls", "0.8.22", require: false
+  gem "coveralls", "0.8.23", require: false
 end
 
 group :development, :test do
@@ -306,12 +307,12 @@ group :development, :test do
   gem "rspec-rails", "3.8.2"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "1.6.0", require: false
+  gem "cucumber-rails", "1.7.0", require: false
 
   # Jasmine (client side application tests (JS))
-  gem "jasmine",                   "3.3.0"
+  gem "jasmine",                   "3.4.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "3.4.0", source: "https://rails-assets.org"
+  gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"
 
   # For `assigns` in controller specs

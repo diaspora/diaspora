@@ -104,8 +104,9 @@ module Api
       end
 
       def handle_start_point_response(endpoint)
-        _status, header, response = endpoint.call(request.env)
-        if response.redirect?
+        status, header, _response = endpoint.call(request.env)
+
+        if status.in?([301, 302, 303, 307, 308])
           redirect_to header["Location"]
         else
           save_params_and_render_consent_form(endpoint)

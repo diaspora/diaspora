@@ -25,7 +25,7 @@ describe AspectMembershipsController, type: :controller do
 
     it "succeeds" do
       post :create, params: {person_id: bob.person.id, aspect_id: @aspect1.id}, format: :json
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "creates an aspect membership" do
@@ -75,14 +75,14 @@ describe AspectMembershipsController, type: :controller do
     it "removes contacts from an aspect" do
       membership = alice.add_contact_to_aspect(@contact, @aspect1)
       delete :destroy, params: {id: membership.id}, format: :json
-      expect(response).to be_success
+      expect(response).to be_successful
       @aspect1.reload
       expect(@aspect1.contacts.to_a).not_to include @contact
     end
 
     it "aspect membership does not exist" do
       delete :destroy, params: {id: 123}, format: :json
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.body).to eq(I18n.t("aspect_memberships.destroy.no_membership"))
     end
   end

@@ -51,7 +51,11 @@ class AdminsController < Admin::AdminController
   end
 
   def stats
-    @popular_tags = ActsAsTaggableOn::Tagging.joins(:tag).limit(50).order('count(taggings.id) DESC').group(:tag).count
+    @popular_tags = ActsAsTaggableOn::Tagging.joins(:tag)
+                                             .limit(50)
+                                             .order(Arel.sql("count(taggings.id) DESC"))
+                                             .group(:tag)
+                                             .count
 
     case params[:range]
     when "week"
@@ -72,7 +76,10 @@ class AdminsController < Admin::AdminController
       create_hash(model, :range => range)
     end
 
-    @posts_per_day = Post.where("created_at >= ?", Date.today - 21.days).group("DATE(created_at)").order("DATE(created_at) ASC").count
+    @posts_per_day = Post.where("created_at >= ?", Time.zone.today - 21.days)
+                         .group(Arel.sql("DATE(created_at)"))
+                         .order(Arel.sql("DATE(created_at) ASC"))
+                         .count
     @most_posts_within = @posts_per_day.values.max.to_f
 
     @user_count = User.count

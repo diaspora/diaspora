@@ -13,7 +13,7 @@ class ReshareService
 
   def find_for_post(post_id)
     reshares = post_service.find!(post_id).reshares
-    user ? reshares.order("author_id = #{user.person.id} DESC") : reshares
+    user ? reshares.order(Arel.sql("author_id = #{user.person.id} DESC")) : reshares
   end
 
   private
