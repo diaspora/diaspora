@@ -46,7 +46,7 @@ module Api
       def normalized_create_params
         mapped_parameters = {
           status_message: {
-            text: params.require(:body)
+            text: params[:body]
           },
           public:         params.require(:public),
           aspect_ids:     normalize_aspect_ids(params.permit(aspects: []))
