@@ -238,6 +238,7 @@ describe Api::V1::PostsController do
         expect(response.status).to eq(200)
         post = response_body(response)
         confirm_post_format(post, auth.user, post_for_ref_only)
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
 
       it "or creates a private post" do
@@ -260,6 +261,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         expect(response.status).to eq(200)
         confirm_post_format(post, auth.user, post_for_ref_only)
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
 
       it "doesn't creates a private post without private:modify scope in token" do
@@ -274,7 +276,7 @@ describe Api::V1::PostsController do
           }
         )
 
-        expect(response.status).to eq(422)
+        confirm_api_error(response, 422, "Failed to create the post")
       end
     end
 
@@ -303,6 +305,7 @@ describe Api::V1::PostsController do
         post_for_ref_only = StatusMessageCreationService.new(auth.user).create(merged_params)
 
         confirm_post_format(post, auth.user, post_for_ref_only)
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
 
       it "fails to add other's photos" do
@@ -317,7 +320,7 @@ describe Api::V1::PostsController do
             photos:       @alice_photo_guids
           }
         )
-        expect(response.status).to eq(422)
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "fails to add non-pending photos" do
@@ -332,7 +335,7 @@ describe Api::V1::PostsController do
             photos:       [@user_photo3.guid]
           }
         )
-        expect(response.status).to eq(422)
+        confirm_api_error(response, 422, "Failed to create the post")
       end
 
       it "fails to add bad photo guids" do
@@ -372,6 +375,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         expect(response.status).to eq(200)
         confirm_post_format(post, auth.user, post_for_ref_only)
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
 
       it "fails poll with no answers" do
@@ -447,6 +451,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         expect(response.status).to eq(200)
         confirm_post_format(post, auth.user, post_for_ref_only)
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
 
       it "creates with mentions" do
@@ -485,10 +490,62 @@ describe Api::V1::PostsController do
         expect(response.status).to eq(200)
         post = response_body(response)
         expect(post["nsfw"]).to be_truthy
+        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
       end
     end
 
-    context "when given missing format" do
+    context "when given just photos" do
+      it "creates the post" do
+        post(
+          api_v1_posts_path,
+          params: {
+            access_token: access_token,
+            public:       true,
+            photos:       @user_photo_guids
+          }
+        )
+        expect(response.status).to eq(200)
+        expect(response.body).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+      end
+
+      it "fails to add other's photos" do
+        post(
+          api_v1_posts_path,
+          params: {
+            access_token: access_token,
+            public:       true,
+            photos:       @alice_photo_guids
+          }
+        )
+        confirm_api_error(response, 422, "Failed to create the post")
+      end
+
+      it "fails to add non-pending photos" do
+        post(
+          api_v1_posts_path,
+          params: {
+            access_token: access_token,
+            public:       true,
+            photos:       [@user_photo3.guid]
+          }
+        )
+        confirm_api_error(response, 422, "Failed to create the post")
+      end
+
+      it "fails to add bad photo guids" do
+        post(
+          api_v1_posts_path,
+          params: {
+            access_token: access_token,
+            public:       true,
+            photos:       ["999_999_999"]
+          }
+        )
+        confirm_api_error(response, 422, "Failed to create the post")
+      end
+    end
+
+    context "when given bad post" do
       it "fails when no body" do
         post(
           api_v1_posts_path,
