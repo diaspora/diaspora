@@ -6,7 +6,8 @@ describe Api::V1::UsersController do
   include PeopleHelper
 
   let(:full_scopes) {
-    %w[openid public:read public:modify private:read private:modify contacts:read profile profile:modify]
+    %w[openid public:read public:modify private:read private:modify
+       contacts:read contacts:modify profile profile:modify]
   }
 
   let(:auth) {
@@ -506,6 +507,99 @@ describe Api::V1::UsersController do
         params: {access_token: invalid_token}
       )
       expect(response.status).to eq(401)
+    end
+  end
+
+  describe "#block" do
+    let(:person) { FactoryGirl.create(:user).person }
+
+    context "success" do
+      it "with proper credentials and flags" do
+        auth.user.share_with(person, auth.user.aspects.create(name: "Test"))
+        person.owner.share_with(auth.user.person, person.owner.aspects.create(name: "Victims"))
+
+        post(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(201)
+        expect(auth.user.blocks.exists?(person_id: person.id)).to be(true)
+        contact = auth.user.contact_for(person)
+        expect(contact.receiving).to be(false)
+
+        delete(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(204)
+        expect(auth.user.blocks.exists?(person: person)).to be(false)
+      end
+    end
+
+    context "fails" do
+      it "with invalid GUID" do
+        post(
+          api_v1_user_block_path("999_999_999"),
+          params: {access_token: access_token}
+        )
+        confirm_api_error(response, 404, "User not found")
+
+        delete(
+          api_v1_user_block_path("999_999_999"),
+          params: {access_token: access_token}
+        )
+        confirm_api_error(response, 404, "User not found")
+      end
+
+      it "to block already blocked user" do
+        post(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(201)
+
+        post(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: access_token}
+        )
+        confirm_api_error(response, 409, "User is already blocked")
+      end
+
+      it "to unblock not blocked user" do
+        delete(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: access_token}
+        )
+        confirm_api_error(response, 410, "User is not blocked")
+      end
+
+      it "with insufficient credentials" do
+        post(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+
+        delete(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: access_token_minimum_scopes}
+        )
+        expect(response.status).to eq(403)
+      end
+
+      it "with improper credentials" do
+        post(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: "999_999_999"}
+        )
+        expect(response.status).to eq(401)
+
+        delete(
+          api_v1_user_block_path(person.guid),
+          params: {access_token: "999_999_999"}
+        )
+        expect(response.status).to eq(401)
+      end
     end
   end
 

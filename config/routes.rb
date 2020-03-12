@@ -255,6 +255,8 @@ Rails.application.routes.draw do
       get :contacts
       get :photos
       get :posts
+      post :block
+      delete :block
     end
     resources :tag_followings, only: %i[index create destroy]
     get "search/users" => "search#user_index", :as => "user_index"
