@@ -17,6 +17,10 @@ module Api
         require_access_token %w[contacts:read]
       end
 
+      before_action only: %i[block] do
+        require_access_token %w[contacts:modify]
+      end
+
       before_action only: %i[show] do
         require_access_token %w[profile]
       end
@@ -79,6 +83,28 @@ module Api
         posts_page = time_pager(posts_query).response
         posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post, current_user).as_api_response }
         render_paged_api_response posts_page
+      end
+
+      def block
+        person = Person.find_by!(guid: params[:user_id])
+        service = BlockService.new(current_user)
+        if request.request_method_symbol == :post
+          begin
+            service.block(person)
+            head :created
+          rescue ActiveRecord::RecordNotUnique
+            render_error 409, "User is already blocked"
+          end
+        elsif request.request_method_symbol == :delete
+          begin
+            service.unblock(person)
+            head :no_content
+          rescue ActiveRecord::RecordNotFound
+            render_error 410, "User is not blocked"
+          end
+        else
+          raise AbstractController::ActionNotFound
+        end
       end
 
       private

@@ -199,15 +199,15 @@ describe Api::V1::NotificationsController do
     end
 
     context "fails" do
-      it "with proper invalid GUID" do
+      it "with invalid GUID" do
         patch(
           api_v1_notification_path("999_999_999"),
-          params: {access_token: access_token}
+          params: {read: true, access_token: access_token}
         )
-        confirm_api_error(response, 422, "Could not process the notifications request")
+        confirm_api_error(response, 404, "Notification with provided guid could not be found")
       end
 
-      it "with proper missing read field" do
+      it "with missing read field" do
         patch(
           api_v1_notification_path(@notification.guid),
           params: {access_token: access_token}
