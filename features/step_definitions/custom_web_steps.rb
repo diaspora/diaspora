@@ -85,20 +85,20 @@ And /^I click on the first selector "([^"]*)"$/ do |selector|
 end
 
 And /^I confirm the alert after (.*)$/ do |action|
-  accept_alert do
+  page.accept_confirm do
     step action
   end
 end
 
 And /^I reject the alert after (.*)$/ do |action|
-  dismiss_confirm do
+  page.dismiss_confirm do
     step action
   end
 end
 
 And /^I should not see any alert after (.*)$/ do |action|
   expect {
-    accept_alert do
+    page.accept_confirm do
       step action
     end
   }.to raise_error(Capybara::ModalNotFound)
