@@ -6,7 +6,7 @@ describe Api::V1::SearchController do
   let(:auth) {
     FactoryGirl.create(
       :auth_with_default_scopes,
-      scopes: %w[openid public:read public:modify private:read private:modify]
+      scopes: %w[openid public:read public:modify private:read contacts:read private:modify]
     )
   }
 
@@ -55,13 +55,19 @@ describe Api::V1::SearchController do
     end
 
     it "succeeds by tag" do
+      tag = SecureRandom.hex(5)
+      5.times do
+        FactoryGirl.create(:person, profile: FactoryGirl.build(:profile, tag_string: "##{tag}"))
+      end
+      FactoryGirl.create(:person, closed_account: true, profile: FactoryGirl.build(:profile, tag_string: "##{tag}"))
+
       get(
         "/api/v1/search/users",
-        params: {tag: "one", access_token: access_token}
+        params: {tag: tag, access_token: access_token}
       )
       expect(response.status).to eq(200)
       users = response_body_data(response)
-      expect(users.length).to eq(15)
+      expect(users.length).to eq(5)
 
       expect(users.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
     end
@@ -88,6 +94,242 @@ describe Api::V1::SearchController do
       expect(users.length).to eq(1)
 
       expect(users.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
+    end
+
+    context "with a contacts filter" do
+      let(:name) { "A contact" }
+
+      it "only returns contacts" do
+        add_contact(true, false)
+        add_contact(false, true)
+        add_contact(true, true)
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: name,
+            filter:         "contacts",
+            access_token:   access_token
+          }
+        )
+
+        expect(response.status).to eq(200)
+        users = response_body_data(response)
+        expect(users.length).to eq(3)
+      end
+
+      it "only returns receiving contacts" do
+        add_contact(true, false)
+        add_contact(true, false)
+        add_contact(false, true)
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: name,
+            filter:         "contacts:receiving",
+            access_token:   access_token
+          }
+        )
+
+        expect(response.status).to eq(200)
+        users = response_body_data(response)
+        expect(users.length).to eq(2)
+      end
+
+      it "only returns sharing contacts" do
+        add_contact(true, false)
+        add_contact(false, true)
+        add_contact(false, true)
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: name,
+            filter:         "contacts:sharing",
+            access_token:   access_token
+          }
+        )
+
+        expect(response.status).to eq(200)
+        users = response_body_data(response)
+        expect(users.length).to eq(2)
+      end
+
+      it "only returns mutually sharing contacts" do
+        add_contact(true, false)
+        add_contact(false, true)
+        add_contact(true, true)
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: name,
+            filter:         ["contacts:receiving", "contacts:sharing"],
+            access_token:   access_token
+          }
+        )
+
+        expect(response.status).to eq(200)
+        users = response_body_data(response)
+        expect(users.length).to eq(1)
+      end
+
+      it "fails with an invalid filter" do
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: name,
+            filter:         "contacts:thingsiwant",
+            access_token:   access_token
+          }
+        )
+
+        confirm_api_error(response, 422, "Invalid filter")
+      end
+
+      it "fails without contacts:read scope" do
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: name,
+            filter:         "contacts",
+            access_token:   access_token_read_only
+          }
+        )
+
+        confirm_api_error(response, 403, "insufficient_scope")
+      end
+
+      def add_contact(receiving, sharing)
+        other = FactoryGirl.create(:user)
+        other.profile.update(first_name: name)
+
+        if receiving
+          aspect = auth.user.aspects.find_or_create_by(name: "Test")
+          auth.user.share_with(other.person, aspect)
+        end
+
+        if sharing # rubocop:disable Style/GuardClause
+          aspect = other.aspects.create(name: "Test")
+          other.share_with(auth.user.person, aspect)
+        end
+      end
+    end
+
+    context "with an aspects filter" do
+      let(:contact_name) { "My aspect contact" }
+      let(:aspect) { auth.user.aspects.create(name: "Test") }
+      let(:second_aspect) { auth.user.aspects.create(name: "Second test") }
+
+      it "only returns members of given aspects" do
+        add_contact(aspect)
+        add_contact(second_aspect)
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: contact_name,
+            filter:         "aspect:#{aspect.id}",
+            access_token:   access_token
+          }
+        )
+
+        expect(response.status).to eq(200)
+        users = response_body_data(response)
+        expect(users.length).to eq(1)
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: contact_name,
+            filter:         "aspect:#{aspect.id},#{second_aspect.id}",
+            access_token:   access_token
+          }
+        )
+
+        expect(response.status).to eq(200)
+        users = response_body_data(response)
+        expect(users.length).to eq(2)
+      end
+
+      it "only returns people matching all aspect filters" do
+        add_contact(aspect)
+        add_contact(second_aspect)
+        add_contact(aspect, second_aspect)
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: contact_name,
+            filter:         ["aspect:#{aspect.id}", "aspect:#{second_aspect.id}"],
+            access_token:   access_token
+          }
+        )
+
+        expect(response.status).to eq(200)
+        users = response_body_data(response)
+        expect(users.length).to eq(1)
+      end
+
+      it "fails with an invalid aspect" do
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: contact_name,
+            filter:         "aspect:0",
+            access_token:   access_token
+          }
+        )
+
+        confirm_api_error(response, 422, "Invalid aspect filter")
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: contact_name,
+            filter:         "aspect:#{aspect.id},0",
+            access_token:   access_token
+          }
+        )
+
+        confirm_api_error(response, 422, "Invalid aspect filter")
+      end
+
+      it "fails without contacts:read scope" do
+        aspect = auth_read_only.user.aspects.create(name: "Test")
+
+        get(
+          "/api/v1/search/users",
+          params: {
+            name_or_handle: contact_name,
+            filter:         "aspect:#{aspect.id}",
+            access_token:   access_token_read_only
+          }
+        )
+
+        confirm_api_error(response, 403, "insufficient_scope")
+      end
+
+      def add_contact(*aspects)
+        other = FactoryGirl.create(:person, profile: FactoryGirl.build(:profile, first_name: contact_name))
+        aspects.each do |aspect|
+          auth.user.share_with(other, aspect)
+        end
+      end
+    end
+
+    it "fails with an invalid filter" do
+      get(
+        "/api/v1/search/users",
+        params: {
+          name_or_handle: "findable",
+          filter:         "thingsiwant",
+          access_token:   access_token
+        }
+      )
+
+      confirm_api_error(response, 422, "Invalid filter")
     end
 
     it "doesn't return closed accounts" do
@@ -128,7 +370,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/users",
         params: {tag: "tag1", name_or_handle: "name", access_token: access_token}
       )
-      confirm_api_error(response, 422, "Search request could not be processed")
+      confirm_api_error(response, 422, "Parameters tag and name_or_handle are exclusive")
     end
 
     it "fails with no fields" do
@@ -136,7 +378,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/users",
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 422, "Search request could not be processed")
+      confirm_api_error(response, 422, "Missing parameter tag or name_or_handle")
     end
 
     it "fails with bad credentials" do
@@ -208,7 +450,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/posts",
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 422, "Search request could not be processed")
+      confirm_api_error(response, 422, "param is missing or the value is empty: tag")
     end
 
     it "fails with bad credentials" do
@@ -256,7 +498,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/tags",
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 422, "Search request could not be processed")
+      confirm_api_error(response, 422, "param is missing or the value is empty: query")
     end
 
     it "fails with bad credentials" do

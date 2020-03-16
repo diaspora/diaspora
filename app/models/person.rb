@@ -66,8 +66,15 @@ class Person < ApplicationRecord
   validates :diaspora_handle, :uniqueness => true
 
   scope :searchable, -> (user) {
-    joins(:profile).where("profiles.searchable = true OR contacts.user_id = ?", user.id)
+    if user
+      joins("LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id")
+        .joins(:profile)
+        .where("profiles.searchable = true OR contacts.user_id = ?", user.id)
+    else
+      joins(:profile).where(profiles: {searchable: true})
+    end
   }
+
   scope :remote, -> { where('people.owner_id IS NULL') }
   scope :local, -> { where('people.owner_id IS NOT NULL') }
   scope :for_json, -> { select("people.id, people.guid, people.diaspora_handle").includes(:profile) }
@@ -87,6 +94,15 @@ class Person < ApplicationRecord
   scope :in_aspects, ->(aspect_ids) {
     joins(contacts: :aspect_memberships)
       .where(aspect_memberships: {aspect_id: aspect_ids}).distinct
+  }
+
+  scope :in_all_aspects, ->(aspect_ids) {
+    joins(contacts: :aspect_memberships)
+      .where(aspect_memberships: {aspect_id: aspect_ids})
+  }
+
+  scope :contacts_of, ->(user) {
+    joins(:contacts).where(contacts: {user_id: user.id})
   }
 
   scope :profile_tagged_with, ->(tag_name) {
@@ -233,11 +249,9 @@ class Person < ApplicationRecord
     return query if query.is_a?(ActiveRecord::NullRelation)
 
     query = if only_contacts
-              query.joins(:contacts).where(contacts: {user_id: user.id})
+              query.contacts_of(user)
             else
-              query.joins(
-                "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
-              ).searchable(user)
+              query.searchable(user)
             end
 
     query = query.where(contacts: {sharing: true, receiving: true}) if mutual
