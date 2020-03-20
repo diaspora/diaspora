@@ -248,7 +248,7 @@ group :development do
   gem "rb-inotify",     "0.10.1", require: false
 
   # Linters
-  gem "haml_lint",      "0.28.0", require: false
+  gem "haml_lint",      "0.35.0", require: false
   gem "pronto",         "0.10.0", require: false
   gem "pronto-eslint",  "0.10.0", require: false
   gem "pronto-haml",    "0.10.0", require: false
