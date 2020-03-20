@@ -71,7 +71,7 @@ GEM
       execjs
     backports (3.17.0)
     bcrypt (3.1.13)
-    bindata (2.4.4)
+    bindata (2.4.6)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
