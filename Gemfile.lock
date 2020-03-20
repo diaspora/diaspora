@@ -512,7 +512,7 @@ GEM
       json-jwt (>= 1.11.0)
       rack
     rack-piwik (0.3.0)
-    rack-protection (2.0.5)
+    rack-protection (2.0.8.1)
       rack
     rack-rewrite (1.5.1)
     rack-ssl (1.4.1)
