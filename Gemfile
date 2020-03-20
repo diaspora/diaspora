@@ -310,7 +310,7 @@ group :development, :test do
   gem "cucumber-rails", "2.0.0", require: false
 
   # Jasmine (client side application tests (JS))
-  gem "jasmine",                   "3.4.0"
+  gem "jasmine",                   "3.5.1"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"
