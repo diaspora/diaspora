@@ -411,7 +411,7 @@ GEM
     multi_test (0.1.2)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    mysql2 (0.5.2)
+    mysql2 (0.5.3)
     naught (1.1.0)
     nenv (0.3.0)
     nio4r (2.5.2)
@@ -845,7 +845,7 @@ DEPENDENCIES
   mini_magick (= 4.10.1)
   minitest
   mobile-fu (= 1.4.0)
-  mysql2 (= 0.5.2)
+  mysql2 (= 0.5.3)
   nokogiri (= 1.10.9)
   omniauth (= 1.9.0)
   omniauth-tumblr (= 1.2)
