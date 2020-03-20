@@ -12,7 +12,7 @@ Rails/HttpPositionalArguments:
   Enabled: false
 
 # Commonly used screens these days easily fit more than 80 characters.
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 # Too short methods lead to extraction of single-use methods, which can make
@@ -62,7 +62,7 @@ Style/SymbolArray:
   Enabled: true
 
 # Most readable form.
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
@@ -83,7 +83,6 @@ Style/CollectionMethods:
   PreferredMethods:
     # inject seems more common in the community.
     reduce: "inject"
-
 
 # Either allow this style or don't. Marking it as safe with parenthesis
 # is silly. Let's try to live without them for now.
@@ -111,7 +110,7 @@ Style/SignalException:
 # Suppressing exceptions can be perfectly fine, and be it to avoid to
 # explicitly type nil into the rescue since that's what you want to return,
 # or suppressing LoadError for optional dependencies
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: false
 
 Layout/SpaceInsideBlockBraces:
@@ -174,3 +173,13 @@ Style/NumericPredicate:
 # Reset some HoundCI changes back to Rubocop defaults
 Layout/DotPosition:
   EnforcedStyle: leading
+
+# Not enabled by default but good
+Style/HashEachMethods:
+  Enabled: true
+
+# TODO: Enable with Ruby 2.5
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
+  Enabled: false
