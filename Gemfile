@@ -75,7 +75,7 @@ group :postgresql, optional: true do
 end
 
 
-gem "activerecord-import", "1.0.2"
+gem "activerecord-import", "1.0.4"
 
 # File uploading
 
