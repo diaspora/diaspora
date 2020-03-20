@@ -336,7 +336,7 @@ GEM
       i18n-inflector (~> 2.6)
       railties (>= 3.0.0)
     ipaddress (0.8.3)
-    jaro_winkler (1.5.3)
+    jaro_winkler (1.5.4)
     jasmine (3.5.1)
       jasmine-core (~> 3.5.0)
       phantomjs
