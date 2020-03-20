@@ -254,8 +254,8 @@ group :development do
   gem "pronto-haml",    "0.10.0", require: false
   gem "pronto-rubocop", "0.10.0", require: false
   gem "pronto-scss",    "0.10.0", require: false
-  gem "rubocop",        "0.72.0", require: false
-  gem "rubocop-rails",  "2.1.0", require: false
+  gem "rubocop",        "0.80.1", require: false
+  gem "rubocop-rails",  "2.4.1", require: false
 
   # Preloading environment
 
