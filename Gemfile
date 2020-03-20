@@ -284,7 +284,7 @@ group :test do
   # Cucumber (integration tests)
 
   gem "capybara",           "3.15.0"
-  gem "database_cleaner",   "1.7.0"
+  gem "database_cleaner",   "1.8.3"
   gem "poltergeist",        "1.18.1"
 
   gem "cucumber-api-steps", "0.14", require: false
