@@ -10,7 +10,7 @@ gem "responders", "2.4.1"
 
 # Appserver
 
-gem "unicorn", "5.5.1", require: false
+gem "unicorn", "5.5.3", require: false
 gem "unicorn-worker-killer", "0.4.4"
 
 # Federation
