@@ -33,7 +33,7 @@ gem "rqrcode", "0.10.1"
 
 # Captcha
 
-gem "simple_captcha2", "0.4.3", require: "simple_captcha"
+gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
