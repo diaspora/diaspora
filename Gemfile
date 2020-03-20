@@ -193,7 +193,7 @@ gem "gon",                     "6.3.2"
 gem "hamlit",                  "2.11.0"
 gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.17.1"
-gem "will_paginate",           "3.1.7"
+gem "will_paginate",           "3.3.0"
 
 # Logging
 
