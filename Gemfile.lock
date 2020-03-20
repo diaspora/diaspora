@@ -368,7 +368,7 @@ GEM
       multi_json
       to_regexp (~> 0.2.1)
     jwt (2.2.1)
-    kgio (2.11.2)
+    kgio (2.11.3)
     kostya-sigar (2.0.6)
     leaflet-rails (1.5.1)
       rails (>= 4.2.0)
