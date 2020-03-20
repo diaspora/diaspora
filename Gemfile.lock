@@ -710,7 +710,7 @@ GEM
       httpclient (>= 2.4)
     sysexits (1.2.0)
     systemu (2.6.5)
-    temple (0.8.1)
+    temple (0.8.2)
     term-ansicolor (1.7.1)
       tins (~> 1.0)
     terminal-table (1.8.0)
