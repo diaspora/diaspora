@@ -763,10 +763,10 @@ GEM
     validate_url (1.0.8)
       activemodel (>= 3.0.0)
       public_suffix
-    versionist (2.0.0)
+    versionist (2.0.1)
       activesupport (>= 3)
       railties (>= 3)
-      yard (~> 0.9.11)
+      yard (~> 0.9.20)
     warden (1.2.8)
       rack (>= 2.0.6)
     webfinger (1.1.0)
@@ -927,7 +927,7 @@ DEPENDENCIES
   unicorn (= 5.5.3)
   unicorn-worker-killer (= 0.4.4)
   uuid (= 2.3.9)
-  versionist (= 2.0.0)
+  versionist (= 2.0.1)
   webmock (= 3.8.3)
   will_paginate (= 3.1.7)
 
