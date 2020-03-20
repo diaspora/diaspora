@@ -782,7 +782,7 @@ GEM
     will_paginate (3.1.7)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.20)
+    yard (0.9.24)
 
 PLATFORMS
   ruby
