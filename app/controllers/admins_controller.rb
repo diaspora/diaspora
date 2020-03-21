@@ -43,7 +43,7 @@ class AdminsController < Admin::AdminController
     @created_users = User.where("username IS NOT NULL and created_at IS NOT NULL")
     @created_users.find_each do |u|
       week = u.created_at.beginning_of_week.strftime("%Y-%m-%d")
-      @created_users_by_week[week] << u.username
+      @created_users_by_week[week] << {username: u.username, closed_account: u.person.closed_account}
     end
 
     @selected_week = params[:week] || @created_users_by_week.keys.last
