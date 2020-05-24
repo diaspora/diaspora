@@ -50,7 +50,6 @@ eu:
         change_password: "Nire pasahitza aldatu"
       new:
         forgot_password: "Pasahitza ahaztu duzu?"
-        no_account: "Ez da konturik e-posta horrekin. Gonbidapen baten zain bazaude, ahal dugun azkarren bidaliko dizugu bat"
         send_password_instructions: "Bidali iezadazu pasahitzaren berrezarpenerako argibideak"
       send_instructions: "Hurrengo minutuetan email bat jasoko dituzu pasahitza berrezartzeko argibideekin."
       updated: "Zure pasahitza arrakastaz aldatu duzu. Autentikatuta zaude orain."

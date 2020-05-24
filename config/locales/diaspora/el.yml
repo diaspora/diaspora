@@ -290,7 +290,6 @@ el:
       powered_by: "Powered by diaspora*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του diaspora* για τον χρήστη %{name}"
       source_package: "Μεταφορτώστε το πακέτο του πηγαίου κώδικα"
-      toggle: "Αλλαγή σε κινητό"
       whats_new: "Τι νέα;"
     header:
       code: "Κώδικας"
@@ -470,7 +469,6 @@ el:
       updated: "Το προφίλ ενημερώθηκε"
   public: "Δημόσιο"
   registrations:
-    closed: "Οι εγγραφές είναι κλειστές σε αυτό το pod του diaspora*."
     create:
       success: "Έγινες μέλος στο diaspora*!"
     invalid_invite: "Ο σύνδεσμος που έδωσες δεν είναι πια έγκυρος!"
@@ -633,8 +631,6 @@ el:
     getting_started:
       awesome_take_me_to_diaspora: "Εξαιρετικά! Πήγαινέ με στο diaspora*"
       community_welcome: "Η κοινότητα του diaspora* είναι χαρούμενη που σε έχει κοντά της!"
-      connect_to_facebook: "Μπορούμε να επιταχύνουμε λίγο τα πράγματα με %{link} στο diaspora*. Αυτό θα τραβήξει το όνομα και τη φωτογραφία σας, και θα ενεργοποιήσει την πολλαπλή ανάρτηση."
-      connect_to_facebook_link: "Γίνεται ενσωμάτωση του λογαριασμού σας στο Facebook"
       hashtag_explanation: "Τα hashtags ή ετικέτες σας επιτρέπουν να συζητάτε και να ακολουθείτε συγκεκριμένα ενδιαφέροντα.  Επίσης είναι ένας εξαιρετικό τρόπος για να εντοπίσετε νέα πρόσωπα στο diaspora*."
       hashtag_suggestions: "Δοκιμάστε να ακολουθήσεις ετικέτες όπως #art, #movies, #gif, κτλ."
       well_hello_there: "Λοιπόν, γεια σου!"

@@ -227,7 +227,6 @@ vi:
       powered_by: "ĐƯỢC HỖ TRỢ BỞI DIASPORA*"
       public_feed: "Nguồn tin Diaspora công khai cho %{name}"
       source_package: "tải về gói mã nguồn"
-      toggle: "bật/tắt di động"
       whats_new: "có gì mới?"
     header:
       code: "mã nguồn"
@@ -392,7 +391,6 @@ vi:
       updated: "Đã cập nhật hồ sơ"
   public: "Công khai"
   registrations:
-    closed: "Pod DIASPORA này không cho đăng kí nữa."
     create:
       success: "Bạn đã tham gia vào Diaspora!"
     invalid_invite: "Liên kết mời bạn cung cấp không còn hợp lệ!"
@@ -547,7 +545,6 @@ vi:
     getting_started:
       awesome_take_me_to_diaspora: "Tuyệt vời! Đưa tối đến Diaspora*"
       community_welcome: "Cộng đồng Diaspora hân hạnh được chào đón bạn!"
-      connect_to_facebook_link: "Liên kết với tài khoản Facebook của bạn"
       hashtag_explanation: "Thẻ cho phép bạn trò chuyện và theo dõi những gì bạn quan tâm. Chúng cũng giúp bạn tìm bạn mới trên Diaspora."
       hashtag_suggestions: "Thử theo dõi các thẻ như #art, #movies, #gif, v.v..."
       well_hello_there: "Chào bạn!"

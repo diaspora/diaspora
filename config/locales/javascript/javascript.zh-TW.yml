@@ -129,7 +129,7 @@ zh-TW:
       recent_notifications: "最新消息"
       search: "搜尋"
       settings: "設定"
-      toggle_mobile: "切換行動版頁面"
+      switch_to_touch_optimized_mode: "切換到觸控模式"
       toggle_navigation: "瀏覽模式切換"
       view_all: "看全部"
     hide_post: "要隱藏貼文嗎？"

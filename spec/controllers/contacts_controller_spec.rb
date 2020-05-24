@@ -14,14 +14,14 @@ describe ContactsController, :type => :controller do
     context 'format mobile' do
       it "succeeds" do
         get :index, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
     context 'format html' do
       it "succeeds" do
         get :index
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it "doesn't assign contacts" do
@@ -43,7 +43,7 @@ describe ContactsController, :type => :controller do
 
         it "succeeds" do
           get :index, params: {q: @person1.first_name}, format: :json
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it "responds with json" do
@@ -133,7 +133,7 @@ describe ContactsController, :type => :controller do
   describe '#spotlight' do
     it 'succeeds' do
       get :spotlight
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'gets queries for users in the app config' do

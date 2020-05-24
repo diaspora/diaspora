@@ -57,7 +57,6 @@ en_valspeak:
       new:
         email: "Email addy"
         forgot_password: "Oh noes!? did u like, forget ur passwerd? D:"
-        no_account: "sry but liek, no account that has this email existz... sry bout that :\\"
         reset_password: "Reset passwerd"
         send_password_instructions: "Send meh stuff on how 2 reset mah passwerd plz! Kthxbye <3"
       send_instructions: "U will like, receive an email wit some txt on how 2 liek... reset ur passwerd in a few min, kay? So just chillax till then, kay? Kay. <3"

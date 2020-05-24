@@ -8,6 +8,8 @@ class StatusMessageCreationService
   end
 
   def create(params)
+    validate_content(params)
+
     build_status_message(params).tap do |status_message|
       load_aspects(params[:aspect_ids]) unless status_message.public?
       add_attachments(status_message, params)
@@ -19,6 +21,10 @@ class StatusMessageCreationService
   private
 
   attr_reader :user, :aspects
+
+  def validate_content(params)
+    raise MissingContent unless params[:status_message][:text].present? || params[:photos].present?
+  end
 
   def build_status_message(params)
     public = params[:public] || false
@@ -79,5 +85,8 @@ class StatusMessageCreationService
   end
 
   class BadAspectsIDs < RuntimeError
+  end
+
+  class MissingContent < RuntimeError
   end
 end

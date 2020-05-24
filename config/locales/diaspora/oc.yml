@@ -90,15 +90,18 @@ oc:
       week: "Setmana"
     user_entry:
       account_closed: "Compte tampat"
+      admin: "Admin"
       diaspora_handle: "identificant diaspora*"
       email: "Corrièl"
       guid: "GUID"
       id: "ID"
       invite_token: "Geton de convit"
       last_seen: "Darrièra connexion"
+      moderator: "Moderator"
       ? "no"
       : Non
       nsfw: "#nsfw"
+      spotlight: "Especials"
       unknown: "Desconegut"
       ? "yes"
       : Òc
@@ -106,14 +109,29 @@ oc:
       account_closing_scheduled: "La tampadura del compte %{name} es planificada. Serà efectuada dins gaire de temps."
       account_locking_scheduled: "Lo compte de %{name} va èsser verrolhat dins un momenton"
       account_unlocking_scheduled: "Lo compte de %{name} va èsser desverrolhat dins un momenton."
+      add_admin: "%{name} es admin."
       add_invites: "Apondre de convits"
+      add_moderator: "%{name} es moderator."
+      add_spotlight: "%{name} es estat apondut als especials de la comunitat."
       are_you_sure: "Sètz segur que volètz tampar aqueste compte ?"
       are_you_sure_lock_account: "Sètz segur que volètz verrolhar aqueste compte ?"
       are_you_sure_unlock_account: "Sètz segur que volètz desverrolhar aqueste compte ?"
       close_account: "Tampar aqueste compte"
+      delete_admin: "%{name} es estat tirat de la lista dels admin."
+      delete_moderator: "%{name} es estat tirat de la lista dels moderators."
+      delete_spotlight: "%{name} es estat tirat dels especials de la comunitat."
+      does_not_exist: "L’utilizaire existís pas"
       email_to: "Adreça electronica de la persona de convidar"
       invite: "Convidar"
       lock_account: "Verrolhar lo compte"
+      make_admin: "Far venir admin"
+      make_moderator: "Far venir moderator"
+      make_spotlight: "Apondre als especials de la comunitat"
+      remove_admin: "Quitar d’èsser admin"
+      remove_moderator: "Quitar d’èsser moderator"
+      remove_spotlight: "Tirar dels especials de la comunitat"
+      role_implemented: "Òm a ja donat aquel ròtle a %{name} !"
+      role_removal_implemented: "Òm a ja tirat aquel ròtle a %{name} !"
       under_13: "Mostrar los utilizaires qu'an mens de 13 ans (COPPA)"
       unlock_account: "Desverrolhar lo compte"
       users:
@@ -190,6 +208,7 @@ oc:
         tos: "Veire las condicions d'utilizacion de l'aplicacion"
   are_you_sure: "Sètz segur ?"
   are_you_sure_delete_account: "Sètz segur que volètz tampar vòstre compte ? Aquò se pòt pas anullar !"
+  are_you_sure_ignore_user: "Sètz per ignorar aquel utilizaire. Confirmatz ?"
   aspect_memberships:
     destroy:
       failure: "La persona a pas pogut èsser levada de l'aspècte amb succès."
@@ -576,9 +595,11 @@ oc:
       byline: "La ret sociala ont gardatz lo contraròtle."
       choose_your_audience: "Causissètz vòstre public"
       choose_your_audience_info: "Los aspèctes de diaspora* vos permeton de partejar solament amb lo mond que volètz. Podètz èsser public o privat tan que volètz. Partejatz una fòto divertissenta amb lo mond complet, o un grand secrèt amb vòstre melhors amics. Avètz lo contraròtle."
+      diaspora_site_link: "Malhum federat diapora*"
       headline: "Benvenguda sus %{pod_name}"
       own_your_data: "Siatz proprietari de vòstras donadas"
       own_your_data_info: "Mantun rets emplegan vòstras donadas per se far de moneda en analisant vòstras interaccions e en emplegant aquelas informacions per vos far de reclama. diaspora* utilizant pas vòstras donadas que per vos permetre de comunicar e partejar amb lo mond."
+      part_of_diaspora: "Membre del %{diaspora_site_link}"
     podmin:
       byline: "Sètz a mand de cambiar la fàcia d'Internet. Prèst a vos lançar ?"
       configuration_info: "Dobrissètz %{database_path} e %{diaspora_path} dins vòstre editor de tèxte favorit e relegissètz-los menimosament, son comentats abondament."
@@ -629,7 +650,8 @@ oc:
       public_feed: "Flux diaspora* public per %{name}"
       source_package: "Telecargatz lo còdi font"
       statistics_link: "Estatisticas del pod"
-      toggle: "Activar/desactivar la version mobila"
+      switch_to_standard_mode: "Passar al mòde estandard"
+      switch_to_touch_optimized_mode: "Passar al mòde optimizat pel tactil"
       whats_new: "Qué de nòu ?"
     header:
       code: "Còdi"
@@ -972,7 +994,11 @@ oc:
       updated: "Perfil a jorn"
   public: "Public"
   registrations:
-    closed: "Las inscripcions son tampadas sus aqueste pod diaspora*."
+    closed:
+      another_pod: "un autre pod"
+      closed_pod: "Aqueste pod es actualament pas dubèrt per las inscripcions. Pasmens, podètz jonher lo malhum diaspora* en vos marcar sus %{wiki} . Perque totes los pods son connectats entre eles, enlà auretz accès al meteis contengut."
+      find_pods: "Vaquí una lista de pods ont podètz vos marcar %{poduptime}."
+      other_questions: "S’avètz mai de questions tocant la causida d’un pod, gaitatz nòstre %{wiki}."
     create:
       success: "Avètz rejunt diaspora*!"
     invalid_invite: "Lo ligam de convit donat es pas mai valid !"
@@ -1038,7 +1064,6 @@ oc:
       share_to: "Partejar amb %{provider}"
       title: "Gerir los servicis connectats"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1161,6 +1186,41 @@ oc:
         one: "1 persona marcada amb %{tag}"
         other: "%{count} personas marcadas amb %{tag}"
         zero: "Degun es pas marcat amb %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Desactivar"
+      change_label: "Desactivatz l’autentificacion en dos temps en picar vòstre senhal"
+      status: "Autentificacion en dos temps activiada"
+    confirm:
+      activate_button: "Confirmar e activar"
+      input_explanation: "Aprèp aver numerizat o picat lo secret, picatz lo còdi de sièis chifras que vesètz e confirmatz lo parametratge."
+      input_title: "Confirmar amb un geton TOTP"
+      manual_explanation: "Se per cas poscatz pas numerizar lo còdi QR automaticament podètz picar a la man lo secret dins vòstra aplicacion."
+      manual_explanation_cont: "Utilizam TOTP (time-based one-time passwords, senhal unic basat sus l’ora) amb de getons de sièis chifras. Se per cas vòstra aplicacion vos demande un interval de temps e un algoritme picatz 30 segondas e sha1.<br /> Los espacis son per una lectura de bon legir, volgatz picar lo còdi sens eles."
+      scan_explanation: "Volgatz numerizar lo còdi QR amb una aplicacion compatibla TOTP, coma andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      scan_title: "Numerizar lo còdi QR"
+      status: "L’autentificacion es pas complètament activada, vos cal confirmar l’activacion amb un geton TOTP"
+      title: "Confirmatz l’activacion"
+    deactivated:
+      change_button: "Activar"
+      change_label: "Activar l’autentificacion en dos temps"
+      status: "L’autentificacion en dos temps es pas activada"
+    explanation: "L’autentificacion dos factors es un biais poderós de s’assegurar que sètz ben vos l’unica persona a vos connectar a vòstre compte. Al moment de vos connectar, picaretz un còdi de 6 chifras aprèp vòstre senhal per provar vòstra identitat. Siatz prudent : se perdatz vòstre mobil e los còdis de recuperacion creats a l’activacion d’aquesta foncionalitat, l’accès a vòstre compte diaspora* serà blocat per totjorn."
+    flash:
+      error_token: "Lo geton èra incorrècte o invalid"
+      success_activation: "Autentificacion en dos temps corrèctament activada"
+      success_deactivation: "Autentificacion en dos temps corrèctament desactivada"
+    input_token:
+      label: "Geton dos factors"
+      placeholder: "geton dos factor en sièis chifras"
+    recovery:
+      button: "Generar de nòus còdis de recuperacion"
+      explanation: "Se per cas perdatz lo mobil, podètz utilizar un dels còdis de recuperacion çai-jos per tornar obténer l’accès al compte. Gardatz los còdis de recuperacion en un lòc segur. Per exemple, podètz los imprimir e gardar amb d’autres documents importants."
+      explanation_short: "Los còdis de recuperacion vos permeton de tornar obténer l’accès al compte se per cas perdatz lo mobil. Notatz que podètz pas qu’utilizar cada còdi pas qu’un còp."
+      invalidation_notice: "Se perdètz los còdis de recuperacion, podètz los regenerar aquí. Los ancians còdis de recuperacion seràn pas mai valids."
+      reminder: "Autrament podètz utilizar un dels còdis de recuperacion."
+      title: "Còdis de recuperacion"
+    title: "Autentificacion en dos temps"
   username: "Nom d'utilizaire"
   users:
     confirm_email:
@@ -1209,6 +1269,7 @@ oc:
       new_password: "Senhal novèl"
       private_message: "avètz recebut un messatge privat."
       protocol_handler:
+        browser: "Aqueste protocòl es a una etapa experimentala e lo bon foncionament de las interraccions depend del navigador. Se volètz gerir o tirar aqueste gestionari, avètz d’utilizar los paramètres del navegador. Lo boton çai-jos serà totjorn activat, vos caldrà configurar lo gestionari a despart en cada navegador qu’utilizatz."
         description: "Clicatz lo boton per configurar lo navegador per permetre la dobertura de las URL web+diaspora:// a partir de vòstre pod preferit. Aquò es experimental pel moment e las interaccions dependràn de vòstre navegador."
         register: "Enregistrar"
         title: "Gestionari de protocòl web+diaspora://"
@@ -1229,8 +1290,6 @@ oc:
     getting_started:
       awesome_take_me_to_diaspora: "Òsca ! Mena-me cap a diaspora*"
       community_welcome: "La comunautat diaspora* es contenta de vos aver a bòrd."
-      connect_to_facebook: "Podèm accelerar un pauc las causas de %{link} sus diaspora*. Aquò botarà vòstre nom e foto, e activar la publicacion multiplataforma."
-      connect_to_facebook_link: "Connexion amb vòtre compte Facebook en cors"
       hashtag_explanation: "Las etiquetas vos permeton de charrar e seguir vòstres interèsses. Son tanben una bona manièra de trobar de mond novèl sus diaspora*."
       hashtag_suggestions: "Ensajatz etiquetas coma aquestas #art #filmes #gif, etc."
       well_hello_there: "E ben, adiu monde !"

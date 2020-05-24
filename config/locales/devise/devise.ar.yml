@@ -54,7 +54,6 @@ ar:
       new:
         email: "البريد الإلكترونيّ"
         forgot_password: "أنسيت كلمة المرور؟"
-        no_account: "ليس هناك حساب بهذا البريد الإلكترونيّ"
         reset_password: "صفّر كلمة المرور"
         send_password_instructions: "أرسل لي إرشادات تصفير كلمة المرور"
       send_instructions: "سيصلك بريد إلكترونيّ قريبًا فيه إرشادات تصفير كلمة المرور."

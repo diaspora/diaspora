@@ -72,17 +72,6 @@ When /^I click on my name$/ do
   click_link("#{@me.first_name} #{@me.last_name}")
 end
 
-Given /^I have an aspect called "([^\"]*)"$/ do |aspect_name|
-  @me.aspects.create!(:name => aspect_name)
-  @me.reload
-end
-
-Given /^I have following aspect[s]?:$/ do |fields|
-  fields.raw.each do |field|
-    step %{I have an aspect called "#{field[0]}"}
-  end
-end
-
 When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |username, aspect|
   user = User.find_by_username(username)
   contact = @me.reload.contact_for(user.person)
@@ -229,18 +218,10 @@ When /^I view "([^\"]*)"'s first post$/ do |email|
   visit post_path(post)
 end
 
-When /^I fill in the new user form/ do
-  fill_in_new_user_form
-end
-
 And /^I should be able to friend "([^\"]*)"$/ do |email|
   user = User.find_by_email(email)
   step 'I should see a ".aspect-dropdown"'
   step "I should see \"#{user.name}\""
-end
-
-When /^I click the sign in button$/ do
-  click_link "Sign in"
 end
 
 Given /^I did request my photos$/ do

@@ -214,6 +214,12 @@ describe PostPresenter do
         post = FactoryGirl.create(:status_message, public: true, open_graph_cache: open_graph_cache)
         expect(PostPresenter.new(post).send(:build_open_graph_cache)).to eq(open_graph_cache.as_api_response(:backbone))
       end
+
+      it "returns the open graph data in the api" do
+        open_graph_cache = FactoryGirl.create(:open_graph_cache)
+        post = FactoryGirl.create(:status_message, public: true, open_graph_cache: open_graph_cache)
+        expect(PostPresenter.new(post).as_api_response[:open_graph_object][:url]).to eq(open_graph_cache.url)
+      end
     end
   end
 end

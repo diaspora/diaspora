@@ -1,3 +1,5 @@
+require: rubocop-rails
+
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
@@ -5,20 +7,17 @@ AllCops:
     - "db/schema.rb"
     - "config/locales/cldr/plurals.rb"
 
-Rails:
-  Enabled: true
-
 # Disable for rails 4
 Rails/HttpPositionalArguments:
   Enabled: false
 
 # Commonly used screens these days easily fit more than 80 characters.
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
-Metrics/MethodLength: 
+Metrics/MethodLength:
   Max: 20
 
 # The guiding principle of classes is SRP, SRP can't be accurately measured by LoC
@@ -26,9 +25,15 @@ Metrics/ClassLength:
   Max: 1500
 Metrics/ModuleLength:
   Max: 1500
-  
-# Raise AbcSize from 15 to 20
+
+# Raise complexity metrics
 Metrics/AbcSize:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/PerceivedComplexity:
   Max: 20
 
 # Some blocks are longer.
@@ -57,7 +62,7 @@ Style/SymbolArray:
   Enabled: true
 
 # Most readable form.
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
@@ -79,7 +84,6 @@ Style/CollectionMethods:
     # inject seems more common in the community.
     reduce: "inject"
 
-
 # Either allow this style or don't. Marking it as safe with parenthesis
 # is silly. Let's try to live without them for now.
 Style/ParenthesesAroundCondition:
@@ -88,7 +92,7 @@ Lint/AssignmentInCondition:
   AllowSafeAssignment: false
 
 # A specialized exception class will take one or more arguments and construct the message from it.
-# So both variants make sense. 
+# So both variants make sense.
 Style/RaiseArgs:
   Enabled: false
 
@@ -106,7 +110,7 @@ Style/SignalException:
 # Suppressing exceptions can be perfectly fine, and be it to avoid to
 # explicitly type nil into the rescue since that's what you want to return,
 # or suppressing LoadError for optional dependencies
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: false
 
 Layout/SpaceInsideBlockBraces:
@@ -151,11 +155,11 @@ Lint/ShadowingOuterLocalVariable:
 
 # Check with yard instead.
 Style/Documentation:
-  Enabled: false 
+  Enabled: false
 
 # This is just silly. Calling the argument `other` in all cases makes no sense.
 Naming/BinaryOperatorParameterName:
-  Enabled: false 
+  Enabled: false
 
 # There are valid cases, for example debugging Cucumber steps,
 # also they'll fail CI anyway
@@ -169,3 +173,13 @@ Style/NumericPredicate:
 # Reset some HoundCI changes back to Rubocop defaults
 Layout/DotPosition:
   EnforcedStyle: leading
+
+# Not enabled by default but good
+Style/HashEachMethods:
+  Enabled: true
+
+# TODO: Enable with Ruby 2.5
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
+  Enabled: false

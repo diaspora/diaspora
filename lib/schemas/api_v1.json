@@ -1,0 +1,486 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://diaspora.software/api/v1/schema.json",
+  "oneOf": [
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/aspects"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/aspect"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/comments"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/messages"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/users"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/conversations"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/conversation"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/authored_content_references"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/likes"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/notifications"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/notification"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/photos"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/photo"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/post"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/posts"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/tags"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/own_user"},
+    {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/user"}
+  ],
+
+  "definitions": {
+    "guid": {
+      "type": "string",
+      "minLength": 16,
+      "maxLength": 255
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format":  "date-time"
+    },
+
+    "url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+
+    "short_profile": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+        "diaspora_id": { "type": "string" },
+        "name": { "type": "string" },
+        "avatar": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" }
+      },
+      "required": ["guid", "diaspora_id", "name"],
+      "additionalProperties": false
+    },
+
+    "aspects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer"
+          }
+        },
+        "required": ["id", "name", "order"],
+        "additionalProperties": false
+      }
+    },
+
+    "aspect": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer"
+        }
+      },
+      "required": ["id", "name", "order"],
+      "additionalProperties": false
+    },
+
+    "comments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+          "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+          "author": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" },
+          "body": { "type": "string" },
+          "mentioned_people": {
+            "type": "array",
+            "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+          },
+          "reported": { "type": "boolean" }
+        },
+        "required": ["guid", "created_at", "author", "body", "reported"],
+        "additionalProperties": false
+      }
+    },
+
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+          "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+          "author": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" },
+          "body": { "type": "string" }
+        },
+        "required": ["guid", "created_at", "author", "body"],
+        "additionalProperties": false
+      }
+    },
+
+    "users": {
+      "type": "array",
+      "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+    },
+
+    "conversations": {
+      "type": "array",
+      "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/conversation" }
+    },
+
+    "conversation": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+        "subject": { "type": "string" },
+        "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+        "read": { "type": "boolean" },
+        "participants": {
+          "type": "array",
+          "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+        }
+      },
+      "required": ["subject", "created_at", "read", "participants"],
+      "additionalProperties": false
+    },
+
+    "authored_content_reference": {
+      "type": "object",
+      "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+      "properties": {
+        "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+        "author": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+      },
+      "required": ["guid", "created_at", "author"],
+      "additionalProperties": false
+    },
+
+    "authored_content_references": {
+      "type": "array",
+      "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/authored_content_reference" }
+    },
+
+    "likes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+          "author": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+        },
+        "required": ["guid", "author"],
+        "additionalProperties": false
+      }
+    },
+
+    "notifications": {
+      "type": "array",
+      "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/notification" }
+    },
+
+    "notification": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+        "type": {
+          "enum": [
+            "also_commented",
+            "comment_on_post",
+            "liked",
+            "mentioned",
+            "mentioned_in_comment",
+            "reshared",
+            "started_sharing",
+            "contacts_birthday"
+          ]
+        },
+        "read": { "type": "boolean" },
+        "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+        "target": {
+          "type": "object",
+          "properties": {
+            "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+            "author": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+          },
+          "required": ["guid"]
+        },
+        "event_creators": {
+          "type": "array",
+          "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+        }
+      },
+      "required": ["guid", "type", "read", "created_at"],
+      "additionalProperties": false
+    },
+
+    "photos": {
+      "type": "array",
+      "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/photo"}
+    },
+
+    "photo_sizes": {
+      "type": "object",
+      "properties": {
+        "raw": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" },
+        "large": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" },
+        "medium": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" },
+        "small": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/url" }
+      },
+      "required": ["raw", "large", "medium", "small"],
+      "additionalProperties": false
+    },
+
+    "photo_dimensions": {
+      "type": "object",
+      "properties": {
+        "width": { "type": ["integer", "null"] },
+        "height": { "type": ["integer", "null"] }
+      },
+      "required": ["width", "height"]
+    },
+
+    "photo": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+        "post": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+        "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+        "dimensions": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/photo_dimensions" },
+        "sizes": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/photo_sizes" }
+      },
+      "required": ["guid", "created_at", "dimensions", "sizes"],
+      "additionalProperties": false
+    },
+
+    "post_common": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+        "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "provider_display_name": { "type": "string" },
+        "public": { "type": "boolean" },
+        "nsfw": { "type": "boolean" },
+        "author": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" },
+        "interaction_counters": {
+          "type": "object",
+          "properties": {
+            "comments": { "type": "integer" },
+            "likes": { "type": "integer" },
+            "reshares":{ "type": "integer" }
+          },
+          "required": ["comments", "likes", "reshares"],
+          "additionalProperties": false
+        },
+        "own_interaction_state": {
+          "type": "object",
+          "properties": {
+            "liked": { "type": "boolean" },
+            "reshared": { "type": "boolean" },
+            "subscribed": { "type": "boolean" },
+            "reported": { "type": "boolean" }
+          },
+          "required": ["liked", "reshared", "subscribed", "reported"],
+          "additionalProperties": false
+        },
+        "mentioned_people": {
+          "type": "array",
+          "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dimensions": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/photo_dimensions" },
+              "sizes": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/photo_sizes" }
+            },
+            "required": ["dimensions", "sizes"]
+          }
+        },
+        "poll": {
+          "type": "object",
+          "properties": {
+            "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+            "participation_count": { "type": "integer" },
+            "already_participated": { "type": "boolean" },
+            "question": { "type": "string" },
+            "poll_answers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "integer" },
+                  "answer": { "type": "string" },
+                  "vote_count": { "type": "integer" },
+                  "own_answer": { "type": "boolean" }
+                },
+                "required": ["id", "answer", "vote_count"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["guid", "participation_count", "already_participated", "question", "poll_answers"],
+          "additionalProperties": false
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "address": { "type": "string" },
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          },
+          "required": ["address", "lat", "lng"],
+          "additionalProperties": false
+        },
+        "open_graph_object": {
+          "type": "object",
+          "properties": {
+            "url": { "type": "string" },
+            "type": { "type": "string" },
+            "title": { "type": "string" },
+            "image": { "type": "string" },
+            "description": { "type": "string" },
+            "video_url": { "type": "string" }
+          },
+          "required": ["url", "type", "title", "image"],
+          "additionalProperties": false
+        },
+        "oembed": {
+          "type": "object",
+          "description": "An oEmbed response according to 2.3.4 of the oEmbed spec.",
+          "properties": {
+            "trusted_endpoint_url": { "type": "string" }
+          },
+          "required": ["trusted_endpoint_url"],
+          "additionalProperties": true
+        }
+      },
+      "required": ["guid", "created_at", "title", "body", "public", "nsfw", "author", "interaction_counters", "own_interaction_state",  "mentioned_people", "photos"]
+    },
+
+    "post": {
+      "anyOf": [
+        {
+          "allOf": [
+            { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/post_common" },
+            {
+              "properties": {
+                "post_type": { "type": "string", "format": "^StatusMessage$" }
+              },
+              "required": ["post_type"]
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/post_common" },
+            {
+              "properties": {
+                "post_type": { "type": "string", "format": "^Reshare$" },
+                "root": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/authored_content_reference" }
+              },
+              "required": ["post_type", "root"]
+            }
+          ]
+        }
+      ]
+    },
+
+    "reshares": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid":  { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+          "created_at": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/timestamp" },
+          "author": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
+        },
+        "required": ["guid", "created_at", "author"],
+        "additionalProperties": false
+      }
+    },
+
+    "posts": {
+      "type": "array",
+      "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/post" }
+    },
+
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[^#]" }
+    },
+
+    "birthday": { "type": "string", "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$" },
+
+    "user_data": {
+      "type": "object",
+      "properties": {
+        "guid": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/guid" },
+        "diaspora_id": { "type": "string" },
+        "name": { "type": "string" },
+        "birthday": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/birthday" },
+        "gender": { "type": "string" },
+        "location": { "type": "string" },
+        "bio": { "type": "string" },
+        "avatar": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/photo_sizes" },
+        "tags": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/tags" }
+      },
+      "required": ["guid", "diaspora_id", "tags"]
+    },
+
+    "own_user": {
+      "allOf": [
+        { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/user_data" },
+        {
+          "type": "object",
+          "properties": {
+            "searchable": { "type": "boolean" },
+            "show_profile_info": { "type": "boolean" }
+          },
+          "required": ["searchable", "show_profile_info"]
+        }
+      ]
+    },
+
+    "user": {
+      "allOf": [
+        { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/user_data" },
+        {
+          "type": "object",
+          "properties": {
+            "blocked": { "type": "boolean" },
+            "relationship": {
+              "type": "object",
+              "properties": {
+                "receiving": { "type": "boolean" },
+               "sharing": { "type": "boolean" }
+              },
+              "required": ["receiving", "sharing"],
+              "additionalProperties": false
+            },
+            "aspects": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                   "id": { "type": "integer" },
+                   "name": { "type": "string" }
+                 },
+                "required": ["id", "name"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["blocked", "relationship", "aspects"]
+        }
+      ]
+    }
+  }
+}

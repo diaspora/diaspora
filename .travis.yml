@@ -1,8 +1,8 @@
 language: ruby
 
 rvm:
-  - 2.4.2
-  - 2.3.5
+  - 2.4.9
+  - 2.3.8
 
 env:
   - DB=postgresql BUILD_TYPE=cucumber
@@ -16,6 +16,16 @@ cache:
   directories:
     - app/assets/images
     - tmp/cache/assets
+
+addons:
+  apt:
+    packages: 
+      - libidn11-dev
+      - ghostscript
+
+services:
+  - postgresql
+  - mysql
 
 branches:
   only:

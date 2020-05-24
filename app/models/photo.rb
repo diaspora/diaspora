@@ -6,7 +6,6 @@
 
 class Photo < ApplicationRecord
   include Diaspora::Federated::Base
-  include Diaspora::Commentable
   include Diaspora::Shareable
 
   # NOTE API V1 to be extracted

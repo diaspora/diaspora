@@ -601,7 +601,6 @@ fi:
       public_feed: "Käyttäjän %{name} julkinen Diaspora-uutisvirta"
       source_package: "Lataa lähdekoodipaketti"
       statistics_link: "Podin tilastot"
-      toggle: "Mobiilisivusto päälle/pois"
       whats_new: "Uutta"
     header:
       code: "Lähdekoodi"
@@ -920,7 +919,6 @@ fi:
       updated: "Profiili päivitetty"
   public: "Julkinen"
   registrations:
-    closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create:
       success: "Olet liittynyt Diasporaan!"
     invalid_invite: "Antamasi kutsulinkki ei ole enää voimassa!"
@@ -986,7 +984,6 @@ fi:
       share_to: "Jaa: %{provider}"
       title: "Hallitse yhdistettyjä palveluita"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1172,8 +1169,6 @@ fi:
     getting_started:
       awesome_take_me_to_diaspora: "Loistavaa! Mennään Diasporaan"
       community_welcome: "Diaspora-yhteisö on iloinen saadessaan sinut mukaan!"
-      connect_to_facebook: "Voimme nopeuttaa asioita linkillä %{link} Diasporaan. Tämä noutaa nimesi ja valokuvasi ja mahdollistaa ristilähetyksen."
-      connect_to_facebook_link: "yhdistämällä Facebook-tilisi"
       hashtag_explanation: "Hashtagien avulla voit keskustella ja seurata keskusteluja kiinnostuksen kohteistasi. Ne ovat myös hyvä keino löytää ihmisiä Diasporassa."
       hashtag_suggestions: "Voit seurata tageja kuten #taide, #elokuvat, #gif jne."
       well_hello_there: "No, mutta hei!"

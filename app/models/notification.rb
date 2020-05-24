@@ -5,6 +5,8 @@
 #   the COPYRIGHT file.
 #
 class Notification < ApplicationRecord
+  include Diaspora::Fields::Guid
+
   belongs_to :recipient, class_name: "User"
   has_many :notification_actors, dependent: :delete_all
   has_many :actors, class_name: "Person", through: :notification_actors, source: :person

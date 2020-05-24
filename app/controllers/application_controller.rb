@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
   before_action :gon_set_current_user
   before_action :gon_set_appconfig
   before_action :gon_set_preloads
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   inflection_method grammatical_gender: :gender
 
@@ -161,7 +162,6 @@ class ApplicationController < ActionController::Base
 
   def gon_set_appconfig
     gon.push(appConfig: {
-               chat:     {enabled: AppConfig.chat.enabled?},
                settings: {podname: AppConfig.settings.pod_name},
                map:      {mapbox: {
                  enabled:      AppConfig.map.mapbox.enabled?,
@@ -181,5 +181,11 @@ class ApplicationController < ActionController::Base
   def gon_set_preloads
     return unless gon.preloads.nil?
     gon.preloads = {}
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
   end
 end

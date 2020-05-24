@@ -190,7 +190,6 @@ en_pirate:
       powered_by: "This ship be POWERED BY diaspora*"
       public_feed: "Sea-wide diaspora* feed for %{name}"
       source_package: "Download the blueprints! Argh!"
-      toggle: "toggl' mobile site"
       whats_new: "what be new?"
     header:
       code: "Code"
@@ -409,7 +408,6 @@ en_pirate:
       updated: "Ye profile updated"
   public: "The Sea can see this"
   registrations:
-    closed: "Signups be closed on this ship!"
     create:
       success: "Ye've joined diaspora*! YARGH!"
     invalid_invite: "The invite link ye provided is no longer valid ye scalawag! Yar!"
@@ -575,7 +573,6 @@ en_pirate:
     getting_started:
       awesome_take_me_to_diaspora: "Yo ho ho! Take me to diaspora*"
       community_welcome: "diaspora*'s crew be happy to have ye aboard matey! ARGH!"
-      connect_to_facebook_link: "Hookin' up ye Facebook ship."
       hashtag_explanation: "Hashtags allow ye to talk about and follow ye interests.  They be a great way to find new mateys on diaspora*."
       hashtag_suggestions: "Try followin things like #treasure, #rum, #wenches, etc."
       well_hello_there: "Ya har me matey!"

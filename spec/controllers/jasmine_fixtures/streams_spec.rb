@@ -54,7 +54,7 @@ TXT
 
       Timecop.travel(time) do
         get :multi, :format => :json
-        expect(response).to be_success
+        expect(response).to be_successful
         save_fixture(response.body, "stream_json")
       end
     end

@@ -18,4 +18,8 @@
 = t(".amount_of", count: counter)
 %br
 - created_users_by_week[selected_week].each do |m|
-  = link_to m, "/u/#{m}"
+  - if m[:closed_account]
+    %s
+      = m[:username]
+  - else
+    = link_to m[:username], "/u/#{m[:username]}"

@@ -1,0 +1,27 @@
+.col-md-12
+  .row
+    .col-md-12
+      %h3= t("two_factor_auth.title")
+      %p= t("two_factor_auth.explanation")
+      .well= t("two_factor_auth.activated.status")
+
+      %hr
+
+      %h4= t("two_factor_auth.activated.change_button")
+      %p= t("two_factor_auth.activated.change_label")
+
+      = form_for "two_factor_authentication", url: two_factor_authentication_path,
+        html: {method: :delete, class: "form-horizontal"} do |f|
+        .form-group
+          = f.label :password, t("users.edit.current_password"), class: "control-label col-sm-6"
+          .col-sm-6
+            = f.password_field :password, class: "form-control"
+        .clearfix= f.submit t("two_factor_auth.activated.change_button"), class: "btn btn-primary pull-right"
+
+      %hr
+
+      %h4= t("two_factor_auth.recovery.title")
+      %p= t("two_factor_auth.recovery.explanation_short")
+      %p= t("two_factor_auth.recovery.invalidation_notice")
+      %p= link_to t("two_factor_auth.recovery.button"),
+      recovery_codes_two_factor_authentication_path, class: "btn btn-default"

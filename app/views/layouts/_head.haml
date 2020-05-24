@@ -1,0 +1,30 @@
+%title
+  = page_title yield(:page_title)
+
+%meta{charset: "utf-8"}/
+= content_for?(:meta_data) ? yield(:meta_data) : metas_tags
+
+%link{rel: "manifest", href: "/manifest.json"}
+
+/ favicon
+/ For Apple devices
+%link{rel: "apple-touch-icon", href: image_path("apple-touch-icon.png")}
+/ For Nokia devices
+%link{rel: "shortcut icon", href: image_path("apple-touch-icon.png")}
+/ All others
+%link{rel: "shortcut icon", href: image_path("favicon.png")}
+
+- if rtl?
+  = stylesheet_link_tag :rtl, media: "all"
+
+- if Rails.env.test?
+  = stylesheet_link_tag :poltergeist_disable_transition, media: "all"
+
+= jquery_include_tag
+= include_gon(camel_case: true, nonce: content_security_policy_script_nonce)
+= yield(:javascript)
+
+= csrf_meta_tag
+= current_user_atom_tag
+
+= yield(:head)

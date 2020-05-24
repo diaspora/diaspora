@@ -16,6 +16,29 @@ class PostPresenter < BasePresenter
          .merge(non_directly_retrieved_attributes)
   end
 
+  def as_api_response # rubocop:disable Metrics/AbcSize
+    {
+      guid:                  @post.guid,
+      body:                  build_text,
+      title:                 title,
+      post_type:             @post.post_type,
+      public:                @post.public,
+      created_at:            @post.created_at,
+      nsfw:                  @post.nsfw,
+      author:                PersonPresenter.new(@post.author).as_api_json,
+      provider_display_name: @post.provider_display_name,
+      interaction_counters:  PostInteractionPresenter.new(@post, current_user).as_counters,
+      location:              location_as_api_json,
+      poll:                  PollPresenter.new(@post.poll, current_user).as_api_json,
+      mentioned_people:      build_mentioned_people_json,
+      photos:                build_photos_json,
+      root:                  root_api_response,
+      own_interaction_state: build_own_interaction_state,
+      open_graph_object:     open_graph_object_api_response,
+      oembed:                @post.o_embed_cache.try(:data)
+    }.compact
+  end
+
   def with_interactions
     interactions = PostInteractionPresenter.new(@post, current_user)
     as_json.merge!(interactions: interactions.as_json)
@@ -70,7 +93,7 @@ class PostPresenter < BasePresenter
       location:                     @post.post_location,
       poll:                         @post.poll,
       poll_participation_answer_id: poll_participation_answer_id,
-      participation:                participate?,
+      participation:                participates?,
       interactions:                 build_interactions_json
     }
   end
@@ -91,18 +114,37 @@ class PostPresenter < BasePresenter
     @post.open_graph_cache.try(:as_api_response, :backbone)
   end
 
+  def open_graph_object_api_response
+    cache = @post.open_graph_cache
+    return unless cache
+
+    {
+      type:        cache.ob_type,
+      url:         cache.url,
+      title:       cache.title,
+      image:       cache.image,
+      description: cache.description,
+      video_url:   cache.video_url
+    }
+  end
+
   def build_mentioned_people_json
-    @post.mentioned_people.as_api_response(:backbone)
+    @post.mentioned_people.map {|m| PersonPresenter.new(m).as_api_json }
   end
 
   def build_photos_json
-    @post.photos.map {|p| p.as_api_response(:backbone) }
+    @post.photos.map {|p| PhotoPresenter.new(p).as_api_json }
   end
 
   def root
     if @post.respond_to?(:absolute_root) && @post.absolute_root.present?
       PostPresenter.new(@post.absolute_root, current_user).as_json
     end
+  end
+
+  def root_api_response
+    is_root_post_exist = @post.respond_to?(:absolute_root) && @post.absolute_root.present?
+    PostPresenter.new(@post.absolute_root, current_user).as_api_response if is_root_post_exist
   end
 
   def build_interactions_json
@@ -113,6 +155,24 @@ class PostPresenter < BasePresenter
       likes_count:    @post.likes_count,
       reshares_count: @post.reshares_count
     }
+  end
+
+  def build_own_interaction_state
+    if current_user
+      {
+        liked:      @post.likes.where(author: current_user.person).exists?,
+        reshared:   @post.reshares.where(author: current_user.person).exists?,
+        subscribed: participates?,
+        reported:   @post.reports.where(user: current_user).exists?
+      }
+    else
+      {
+        liked:      false,
+        reshared:   false,
+        subscribed: false,
+        reported:   false
+      }
+    end
   end
 
   def user_like
@@ -127,7 +187,7 @@ class PostPresenter < BasePresenter
     @post.poll&.participation_answer(current_user)&.poll_answer_id if user_signed_in?
   end
 
-  def participate?
+  def participates?
     user_signed_in? && current_user.participations.where(target_id: @post).exists?
   end
 
@@ -166,5 +226,14 @@ class PostPresenter < BasePresenter
 
   def description
     message.try(:plain_text_without_markdown, truncate: 1000)
+  end
+
+  def location_as_api_json
+    location = @post.post_location
+    return if location.values.all?(&:nil?)
+
+    location[:lat] = location[:lat].to_f
+    location[:lng] = location[:lng].to_f
+    location
   end
 end

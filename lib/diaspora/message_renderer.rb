@@ -35,11 +35,12 @@ module Diaspora
 
       def append_and_truncate
         if options[:truncate]
-          @message = message.truncate options[:truncate]-options[:append].to_s.size
+          # TODO: Remove .dup when upgrading to Rails 6.x.
+          @message = @message.truncate(options[:truncate] - options[:append].to_s.size).dup
         end
 
-        message << options[:append].to_s
-        message << options[:append_after_truncate].to_s
+        @message << options[:append].to_s
+        @message << options[:append_after_truncate].to_s
       end
 
       def escape

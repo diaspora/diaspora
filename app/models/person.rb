@@ -17,10 +17,10 @@ class Person < ApplicationRecord
       person.diaspora_handle
     }, :as => :diaspora_id
     t.add lambda { |person|
-      {:small => person.profile.image_url(:thumb_small),
-       :medium => person.profile.image_url(:thumb_medium),
-       :large => person.profile.image_url(:thumb_large) }
-    }, :as => :avatar
+      {small:  person.profile.image_url(size: :thumb_small),
+       medium: person.profile.image_url(size: :thumb_medium),
+       large:  person.profile.image_url(size: :thumb_large)}
+    }, as:     :avatar
   end
 
   has_one :profile, dependent: :destroy
@@ -57,6 +57,8 @@ class Person < ApplicationRecord
 
   has_many :mentions, :dependent => :destroy
 
+  has_one :account_migration, foreign_key: :old_person_id, dependent: :nullify, inverse_of: :old_person
+
   validate :owner_xor_pod
   validate :other_person_with_same_guid, on: :create
   validates :profile, :presence => true
@@ -64,8 +66,15 @@ class Person < ApplicationRecord
   validates :diaspora_handle, :uniqueness => true
 
   scope :searchable, -> (user) {
-    joins(:profile).where("profiles.searchable = true OR contacts.user_id = ?", user.id)
+    if user
+      joins("LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id")
+        .joins(:profile)
+        .where("profiles.searchable = true OR contacts.user_id = ?", user.id)
+    else
+      joins(:profile).where(profiles: {searchable: true})
+    end
   }
+
   scope :remote, -> { where('people.owner_id IS NULL') }
   scope :local, -> { where('people.owner_id IS NOT NULL') }
   scope :for_json, -> { select("people.id, people.guid, people.diaspora_handle").includes(:profile) }
@@ -85,6 +94,15 @@ class Person < ApplicationRecord
   scope :in_aspects, ->(aspect_ids) {
     joins(contacts: :aspect_memberships)
       .where(aspect_memberships: {aspect_id: aspect_ids}).distinct
+  }
+
+  scope :in_all_aspects, ->(aspect_ids) {
+    joins(contacts: :aspect_memberships)
+      .where(aspect_memberships: {aspect_id: aspect_ids})
+  }
+
+  scope :contacts_of, ->(user) {
+    joins(:contacts).where(contacts: {user_id: user.id})
   }
 
   scope :profile_tagged_with, ->(tag_name) {
@@ -162,7 +180,7 @@ class Person < ApplicationRecord
         contacts.id IS NOT NULL AS is_contact
         SQL
              )
-      .order(<<-SQL
+      .order(Arel.sql(<<-SQL
         is_author DESC,
         is_commenter DESC,
         is_liker DESC,
@@ -170,7 +188,7 @@ class Person < ApplicationRecord
         profiles.full_name,
         people.diaspora_handle
         SQL
-            )
+                     ))
   }
 
   def self.community_spotlight
@@ -185,6 +203,8 @@ class Person < ApplicationRecord
   #   end
   # will not work!  The nil profile will be overriden with an empty one.
   def initialize(params={})
+    params = {} if params.nil?
+
     profile_set = params.has_key?(:profile) || params.has_key?("profile")
     params[:profile_attributes] = params.delete(:profile) if params.has_key?(:profile) && params[:profile].is_a?(Hash)
     super
@@ -207,7 +227,7 @@ class Person < ApplicationRecord
     self.guid
   end
 
-  private_class_method def self.search_query_string(query)
+  def self.search_query_string(query)
     query = query.downcase
     like_operator = AppConfig.postgres? ? "ILIKE" : "LIKE"
 
@@ -229,17 +249,15 @@ class Person < ApplicationRecord
     return query if query.is_a?(ActiveRecord::NullRelation)
 
     query = if only_contacts
-              query.joins(:contacts).where(contacts: {user_id: user.id})
+              query.contacts_of(user)
             else
-              query.joins(
-                "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
-              ).searchable(user)
+              query.searchable(user)
             end
 
     query = query.where(contacts: {sharing: true, receiving: true}) if mutual
 
     query.where(closed_account: false)
-         .order(["contacts.user_id IS NULL", "profiles.last_name ASC", "profiles.first_name ASC"])
+         .order([Arel.sql("contacts.user_id IS NULL"), "profiles.last_name ASC", "profiles.first_name ASC"])
   end
 
   def name(opts = {})
@@ -346,7 +364,7 @@ class Person < ApplicationRecord
       id:     id,
       guid:   guid,
       name:   name,
-      avatar: profile.image_url(:thumb_small),
+      avatar: profile.image_url(size: :thumb_small),
       handle: diaspora_handle,
       url:    Rails.application.routes.url_helpers.person_path(self)
     }

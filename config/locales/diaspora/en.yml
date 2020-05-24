@@ -20,6 +20,7 @@ en:
   email: "Email"
   are_you_sure: "Are you sure?"
   are_you_sure_delete_account: "Are you sure you want to close your account? This can’t be undone!"
+  are_you_sure_ignore_user: "You are going to ignore that user. Are you sure?"
   fill_me_out: "Fill me out"
   public: "Public"
   limited: "Limited"
@@ -287,6 +288,12 @@ en:
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
+    create:
+      fail: "Comment creation has failed"
+    destroy:
+      success: "Comment %{id} has been successfully deleted"
+      fail: "Comment deletion has failed"
+    not_found: "Post or comment not found"
 
   contacts:
     index:
@@ -334,6 +341,7 @@ en:
     destroy:
       delete_success: "Conversation successfully deleted"
       hide_success: "Conversation successfully hidden"
+    not_found: "Conversation not found"
   date:
     formats:
       fullmonth_day: "%B %d"
@@ -399,11 +407,6 @@ en:
       rename_aspect_a: "Click “My aspects” in the side-bar from a stream view and click the pencil icon by the aspect you want to rename, or go to your Contacts page and select the relevant aspect. Then click the edit icon next to the aspect name at the top of this page, change the name and press “Update”."
       delete_aspect_q: "How do I delete an aspect?"
       delete_aspect_a: "Click “My aspects” in the side-bar from a stream view and click the pencil icon by the aspect you want to delete, or go to your Contacts page and select the relevant aspect. Then click the trash icon in the top right of the page."
-    chat:
-      title: "Chat"
-      contacts_page: "contacts page"
-      add_contact_roster_q: "How do I chat with someone in diaspora*?"
-      add_contact_roster_a: "First, you need to enable chat for one of the aspects that person is in. To do so, go to the %{contacts_page}, select the aspect you want and click on the chat icon to enable chat for the aspect. %{toggle_privilege} You could, if you prefer, create a special aspect called “Chat” and add the people you want to chat with to that aspect. Once you’ve done this, open the chat interface and select the person you want to chat with."
     mentions:
       title: "Mentions"
       what_is_a_mention_q: "What is a “mention”?"
@@ -552,6 +555,8 @@ en:
   home:
     default:
       headline: "Welcome to %{pod_name}"
+      part_of_diaspora: "Part of the %{diaspora_site_link}"
+      diaspora_site_link: "diaspora* federated network"
       byline: "The online social world where you are in control"
       be_who_you_want_to_be: "Be who you want to be"
       be_who_you_want_to_be_info: "A lot of networks insist that you use your real identity. Not diaspora*. Here you can choose who you want to be, and share as much or as little about yourself as you want. It really is up to you how you want to interact with other people."
@@ -615,7 +620,8 @@ en:
       whats_new: "What’s new?"
       statistics_link: "Pod statistics"
       discourse: "Project discussions and support"
-      toggle: "Toggle mobile"
+      switch_to_touch_optimized_mode: "Switch to touch-optimized mode"
+      switch_to_standard_mode: "Switch to standard mode"
       public_feed: "Public diaspora* feed for %{name}"
       back_to_top: "Back to top"
       source_package: "Download the source code package"
@@ -624,8 +630,22 @@ en:
   likes:
     create:
       error: "Failed to like."
+      fail: "Like creation has failed"
     destroy:
       error: "Failed to unlike."
+    people_like_this:
+      zero: "No likes"
+      one: "%{count} like"
+      other: "%{count} likes"
+    people_like_this_comment:
+      zero: "No likes"
+      one: "%{count} like"
+      other: "%{count} likes"
+    people_dislike_this:
+      zero: "No dislikes"
+      one: "%{count} dislike"
+      other: "%{count} dislikes"
+    not_found: "Post or like not found"
 
   notifications:
     started_sharing:
@@ -884,6 +904,8 @@ en:
           deny: "Deny"
           bad_request: "Missing client id or redirect URI"
           client_id_not_found: "No client with client_id %{client_id} with redirect URI %{redirect_uri} found"
+          private_contacts_linkage_error: "private:read and private:modify require contacts:read as well"
+          unknown_scope: "Unknown scope: %{scope_name}"
         destroy:
           fail: "The attempt to revoke the authorization with ID %{id} failed"
       user_applications:
@@ -899,31 +921,64 @@ en:
       scopes:
         openid:
           name: "basic profile"
-          description: "This allows the application to read your basic profile"
+          description: "This grants read access to basic profile information to the application."
         sub:
           name: "sub"
-          description: "This grants sub permissions to the application"
-        aud:
-          name: "aud"
-          description: "This grants aud permissions to the application"
+          description: "This grants sub permissions to the application."
         name:
           name: "name"
-          description: "This grants name permissions to the application"
+          description: "This grants read access to name data to the application."
         nickname:
           name: "nickname"
-          description: "This grants nickname permissions to the application"
-        profile:
-          name: "extended profile"
-          description: "This allows the application to read your extended profile"
+          description: "This grants read access to nickname data to the application."
         picture:
           name: "picture"
-          description: "This grants picture permissions to the application"
-        read:
-          name: "read profile, stream and conversations"
-          description: "This allows the application to read your stream, your conversations and your complete profile"
-        write:
-          name: "send posts, conversations and reactions"
-          description: "This allows the application to send new posts, write conversations, and send reactions"
+          description: "This grants read access to user's profile picture data to the application."
+        'contacts:read':
+          name: "contacts:read"
+          description: "This grants read permissions to contacts and related data (like aspects) to the application."
+        'contacts:modify':
+          name: "contacts:modify"
+          description: "This grants write permissions to contacts and related data (like aspects) to the application."
+        conversations:
+          name: "conversations"
+          description: "This grants read/write permission to private messaging to the application."
+        email:
+          name: "email"
+          description: "This grants read access to the user's email address to the application."
+        interactions:
+          name: "interactions"
+          description: "This grants read and write permissions on interacting wth posts to the application."
+        notifications:
+          name: "notifications"
+          description: "This grants read and write permissions on interactions for the user to the application."
+        'private:read':
+          name: "private:read"
+          description: "This grants read privileges on private posts and streams to the application."
+        'private:modify':
+          name: "private:modify"
+          description: "This grants modification privileges on private posts and streams, including allowing private sharing, to the application."
+        'public:read':
+          name: "public:read"
+          description: "This grants read permissions on public posts, interactions, and user data to the application."
+        'public:modify':
+          name: "public:modify"
+          description: "This grants write permissions on public posts (including public post writing), interactions, and user data to the application."
+        profile:
+          name: "extended profile"
+          description: "This grants read access to extendend profile data to the application."
+        'profile:modify':
+          name: "profile:modify"
+          description: "This grants user profile update permissions to the application."
+        'profile:read_private':
+          name: "profile:read_private"
+          description: "This grants read access to your private profile data to the application."
+        'tags:read':
+          name: "tags:read"
+          description: "This grants read access to user's followed tags and tag streams to the application."
+        'tags:modify':
+          name: "tags:modify"
+          description: "This grants modification access to user's followed tags to the application."
       error_page:
         title: "Oh! Something went wrong :("
         contact_developer: "You should contact the developer of the application and include the following detailed error message:"
@@ -1048,7 +1103,11 @@ en:
       terms_link: "terms of service"
     create:
       success: "You’ve joined diaspora*!"
-    closed: "Signups are closed on this diaspora* pod."
+    closed:
+      closed_pod: "This pod is currently closed to new registrations. However, you can still join the diaspora* network by registering on %{wiki}. Because all pods are interconnected, you will have access to the same content there."
+      another_pod: "another pod"
+      find_pods: "There’s a list of pods you can sign up to at %{poduptime}."
+      other_questions: "If you have any other questions regarding choosing a pod, check out our %{wiki}."
     invalid_invite: "The invite link you provided is no longer valid!"
 
   reshares:
@@ -1309,6 +1368,42 @@ en:
       email_confirmed: "Email %{email} activated"
       email_not_confirmed: "Email could not be activated. Wrong link?"
 
+  two_factor_auth:
+    title: "Two-factor authentication"
+    explanation: "Two-factor authentication is a powerful way to ensure you are the only one able to sign in to your account. When signing in, you will enter a 6-digit code along with your password to prove your identity. Be careful though: if you lose your phone and the recovery codes created when you activate this feature, access to your diaspora* account will be blocked forever."
+    activated:
+      status: "Two-factor authentication activated"
+      change_label: "Deactivate two-factor authentication by entering your password"
+      change_button: "Deactivate"
+    deactivated:
+      status: "Two-factor authentication not activated"
+      change_label: "Activate two-factor authentication"
+      change_button: "Activate"
+    confirm:
+      title: "Confirm activation"
+      status: "Two-factor authentication is not fully activated yet, you need to confirm activation with a TOTP token"
+      scan_title: "Scan the QR code"
+      scan_explanation: "Please scan the QR code with a TOTP capable app, such as andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      manual_explanation: "In case you can’t scan the QR code automatically you can manually enter the secret in your app."
+      manual_explanation_cont: "We are using time-based one-time passwords (TOTP) with six-digit tokens. In case your app prompts you for a time interval and algorithm enter 30 seconds and sha1 respectively. <br /> The spaces are just for readability, please enter the code without them."
+      input_title: "Confim with TOTP token"
+      input_explanation: "After scanning or entering the secret, enter the six-digit code you see and confirm the setup."
+      activate_button: "Confirm and activate"
+    input_token:
+      label: "Two-factor token"
+      placeholder: "six-digit two-factor token"
+    recovery:
+      title: "Recovery codes"
+      reminder: "Alternatively, you can use one of the recovery codes."
+      explanation: "If you ever lose access to your phone, you can use one of the recovery codes below to regain access to your account. Keep the recovery codes safe. For example, you may print them and store them with other important documents."
+      explanation_short: "Recovery codes allow you to regain access to your account if you lose your phone. Note that you can use each recovery code only once."
+      invalidation_notice: "If you've lost your recovery codes, you can regenerate them here. Your old recovery codes will be invalidated."
+      button: "Generate new recovery codes"
+    flash:
+      success_activation: "Successfully activated two-factor authentication"
+      success_deactivation: "Successfully deactivated two-factor authentication"
+      error_token: "Token was incorrect or invalid"
+
   will_paginate:
     previous_label: "&laquo; previous"
     next_label: "next &raquo;"
@@ -1336,3 +1431,5 @@ en:
     disabled: "Not available"
     open: "Open"
     closed: "Closed"
+
+

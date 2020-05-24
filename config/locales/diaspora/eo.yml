@@ -326,7 +326,6 @@ eo:
       powered_by: "FUNKCIAS PER DIASPORA*"
       public_feed: "Publika DIASPORA* Afiŝostrio de %{name}"
       source_package: "elŝutu la pakaĵon kun la fontkodo"
-      toggle: "ŝalti inter tiu kaj poŝtelefona versio"
       whats_new: "kio estas nova?"
     header:
       code: "kodo"
@@ -530,7 +529,6 @@ eo:
       updated: "Profilo ĝisdatigita"
   public: "Publika"
   registrations:
-    closed: "Registrado estas fermita ĉe tiu ĉi DIASPORA* 'pod' (servilo)."
     create:
       success: "Vi aniĝis al DIASPORA*!"
     invalid_invite: "La invitoligilo, kiun vi donis, ne plu validas!"
@@ -671,6 +669,7 @@ eo:
       auto_follow_aspect: "Aspekto por aŭtomate sekvataj uzantoj"
       auto_follow_back: "Aŭtomate konigu reen, se iu konigas al vi."
       change: "Ŝanĝi"
+      change_color_theme: "Ŝanĝi koloran etoson"
       change_email: "Redakti retpoŝtadreson"
       change_language: "Ŝanĝi lingvon"
       change_password: "Ŝanĝi pasvorton"
@@ -707,8 +706,6 @@ eo:
     getting_started:
       awesome_take_me_to_diaspora: "Brile! Gvidu min al Diaspora*"
       community_welcome: "La komunumo de DIASPORA* feliĉas, ke vi aniĝis!"
-      connect_to_facebook: "Ni povas plirapidigi la aferon per %{link} al Diaspora. Tio altiros vian nomon kaj foton, kaj ebligos krucreferencadon."
-      connect_to_facebook_link: "Konektante vian Facebook-konton"
       hashtag_explanation: "Etikedoj permesas al vi priparoli kaj aboni viajn interesojn. Ili estas ankaŭ bona metodo por trovi novajn homojn ĉe DIASPORA*."
       hashtag_suggestions: "Provu sekvi etikedojn kiel #arto, #filmoj, #gif, ktp."
       well_hello_there: "Bone, saluton al vi tie!"
@@ -721,6 +718,7 @@ eo:
     public:
       does_not_exist: "Uzanto %{username} ne ekzistas!"
     update:
+      color_theme_changed: "La kolora etoso estas sukcese ŝanĝita"
       email_notifications_changed: "Retpoŝtaj sciigoj ŝanĝitaj"
       follow_settings_changed: "Agordoj pri sekvado ŝanĝitaj"
       follow_settings_not_changed: "Ŝanĝo de sekvo-agordoj malsukcesis."

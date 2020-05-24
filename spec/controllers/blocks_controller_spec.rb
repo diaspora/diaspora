@@ -16,11 +16,6 @@ describe BlocksController, :type => :controller do
       post :create, params: {block: {person_id: eve.person.id}}, format: :json
       expect(response.status).to eq(204)
     end
-
-    it "calls #send_message" do
-      expect(@controller).to receive(:send_message).with(an_instance_of(Block))
-      post :create, params: {block: {person_id: bob.person.id}}, format: :json
-    end
   end
 
   describe "#destroy" do
@@ -64,35 +59,6 @@ describe BlocksController, :type => :controller do
     it "handles when the block to delete doesn't exist" do
       delete :destroy, params: {id: -1}
       expect(flash[:error]).to eq(I18n.t("blocks.destroy.failure"))
-    end
-  end
-
-  describe "#send_message" do
-    before do
-      allow(@controller).to receive(:current_user).and_return(alice)
-    end
-
-    it "calls disconnect if there is a contact for a given user" do
-      block = alice.blocks.create(person: bob.person)
-      contact = alice.contact_for(bob.person)
-      expect(alice).to receive(:contact_for).and_return(contact)
-      expect(alice).to receive(:disconnect).with(contact)
-      expect(Diaspora::Federation::Dispatcher).not_to receive(:defer_dispatch)
-      @controller.send(:send_message, block)
-    end
-
-    it "queues a message with the block if the person is remote and there is no contact for a given user" do
-      block = alice.blocks.create(person: remote_raphael)
-      expect(alice).not_to receive(:disconnect)
-      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, block)
-      @controller.send(:send_message, block)
-    end
-
-    it "does nothing if the person is local and there is no contact for a given user" do
-      block = alice.blocks.create(person: eve.person)
-      expect(alice).not_to receive(:disconnect)
-      expect(Diaspora::Federation::Dispatcher).not_to receive(:defer_dispatch)
-      @controller.send(:send_message, block)
     end
   end
 end

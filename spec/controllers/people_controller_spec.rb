@@ -33,7 +33,7 @@ describe PeopleController, :type => :controller do
     describe 'via json' do
       it 'succeeds' do
         get :index, params: {q: "Korth"}, format: :json
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'responds with json' do
@@ -109,23 +109,23 @@ describe PeopleController, :type => :controller do
         it "succeeds if there is exactly one match" do
           get :index, params: {q: "Korth"}
           expect(assigns[:people].length).to eq(1)
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it "succeeds if there are no matches" do
           get :index, params: {q: "Korthsauce"}
           expect(assigns[:people].length).to eq(0)
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it 'succeeds if you search for the empty term' do
           get :index, params: {q: ""}
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it 'succeeds if you search for punctuation' do
           get :index, params: {q: "+"}
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it "excludes people who have searchable off" do
@@ -225,7 +225,7 @@ describe PeopleController, :type => :controller do
       profile = user2.profile
       profile.update_attribute(:first_name, "</script><script> alert('xss attack');</script>")
       get :show, params: {id: user2.person.to_param}
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response.body).not_to include(profile.first_name)
     end
 
@@ -244,12 +244,12 @@ describe PeopleController, :type => :controller do
     context "when the person is the current user" do
       it "succeeds" do
         get :show, params: {id: @user.person.to_param}
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'succeeds on the mobile site' do
         get :show, params: {id: @user.person.to_param}, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it "assigns the right person" do
@@ -271,7 +271,7 @@ describe PeopleController, :type => :controller do
 
       it 'succeeds on the mobile site' do
         get :show, params: {id: @person.to_param}, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'forces to sign in if the person is remote' do
@@ -316,12 +316,12 @@ describe PeopleController, :type => :controller do
 
       it "succeeds" do
         get :show, params: {id: @person.to_param}
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'succeeds on the mobile site' do
         get :show, params: {id: @person.to_param}, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'marks a corresponding notifications as read' do
@@ -351,12 +351,12 @@ describe PeopleController, :type => :controller do
 
       it "succeeds" do
         get :show, params: {id: @person.to_param}
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'succeeds on the mobile site' do
         get :show, params: {id: @person.to_param}, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it "leaks no private profile info" do
@@ -406,7 +406,7 @@ describe PeopleController, :type => :controller do
         message = @user.post :status_message, :text => 'test more', :to => @aspect.id
         @user.comment!(message, cmmt)
         get :stream, params: {person_id: @user.person.to_param}, format: :json
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(response.body).to include(cmmt)
       end
     end

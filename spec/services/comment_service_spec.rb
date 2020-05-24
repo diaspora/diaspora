@@ -33,6 +33,21 @@ describe CommentService do
     end
   end
 
+  describe "#find!" do
+    let(:comment) { CommentService.new(bob).create(post.id, "hi") }
+
+    it "returns comment" do
+      result = CommentService.new(bob).find!(comment.guid)
+      expect(result.id).to eq(comment.id)
+    end
+
+    it "raises exception the comment does not exist" do
+      expect {
+        CommentService.new(bob).find!("unknown id")
+      }.to raise_error ActiveRecord::RecordNotFound
+    end
+  end
+
   describe "#destroy" do
     let(:comment) { CommentService.new(bob).create(post.id, "hi") }
 
@@ -54,6 +69,32 @@ describe CommentService do
     it "fails if the comment does not exist" do
       expect {
         CommentService.new(bob).destroy("unknown id")
+      }.to raise_error ActiveRecord::RecordNotFound
+    end
+  end
+
+  describe "#destroy!" do
+    let(:comment) { CommentService.new(bob).create(post.id, "hi") }
+
+    it "lets the user destroy his own comment" do
+      result = CommentService.new(bob).destroy!(comment.guid)
+      expect(result).to be_truthy
+    end
+
+    it "lets the parent author destroy others comment" do
+      result = CommentService.new(alice).destroy!(comment.guid)
+      expect(result).to be_truthy
+    end
+
+    it "does not let someone destroy others comment" do
+      expect {
+        CommentService.new(eve).destroy!(comment.guid)
+      }.to raise_error ActiveRecord::RecordInvalid
+    end
+
+    it "raises exception the comment does not exist" do
+      expect {
+        CommentService.new(bob).destroy!("unknown id")
       }.to raise_error ActiveRecord::RecordNotFound
     end
   end

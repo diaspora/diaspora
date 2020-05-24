@@ -24,6 +24,8 @@ module User::SocialActions
   end
 
   def reshare!(target, opts={})
+    raise I18n.t("reshares.create.error") if target.author.guid == guid
+
     build_post(:reshare, :root_guid => target.guid).tap do |reshare|
       reshare.save!
       update_or_create_participation!(target)

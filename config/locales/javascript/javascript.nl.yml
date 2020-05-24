@@ -137,7 +137,7 @@ nl:
       recent_notifications: "Recente meldingen"
       search: "Zoek"
       settings: "Instellingen"
-      toggle_mobile: "Omschakelen mobiel"
+      switch_to_touch_optimized_mode: "Schakel over naar de aanraakmodus"
       toggle_navigation: "Omschakelen navigatie"
       view_all: "Bekijk alle"
     hide_post: "Dit bericht verbergen?"

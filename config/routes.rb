@@ -59,7 +59,6 @@ Rails.application.routes.draw do
   get "aspects" => "streams#aspects", :as => "aspects_stream"
 
   resources :aspects, except: %i(index new edit) do
-    put :toggle_chat_privilege
     collection do
       put "order" => :update_order
     end
@@ -119,10 +118,17 @@ Rails.application.routes.draw do
     get "getting_started_completed" => :getting_started_completed
   end
 
+  resource :two_factor_authentication, only: %i[show create destroy] do
+    get :confirm, action: :confirm_2fa
+    post :confirm, action: :confirm_and_activate_2fa
+    get :recovery_codes
+  end
+
   devise_for :users, controllers: {sessions: :sessions}, skip: :registration
   devise_scope :user do
     get "/users/sign_up" => "registrations#new",    :as => :new_user_registration
     post "/users"        => "registrations#create", :as => :user_registration
+    get "/registrations_closed" => "registrations#registrations_closed", :as => :registrations_closed
   end
 
   get "users/invitations"  => "invitations#new",    :as => "new_user_invitation"
@@ -221,6 +227,50 @@ Rails.application.routes.draw do
   root :to => 'home#show'
   get "podmin", to: "home#podmin"
 
+  api_version(module: "Api::V1", path: {value: "api/v1"}) do
+    resources :aspects, only: %i[show index create destroy update] do
+      resources :contacts, only: %i[index create destroy]
+    end
+    resources :photos, only: %i[show index create destroy]
+    resources :posts, only: %i[show create destroy] do
+      resources :comments, only: %i[create index destroy] do
+        post "report" => "comments#report"
+      end
+      resource :reshares, only: %i[show create]
+      resource :likes, only: %i[show create destroy]
+      post "subscribe" => "post_interactions#subscribe"
+      post "mute" => "post_interactions#mute"
+      post "hide" => "post_interactions#hide"
+      post "report" => "post_interactions#report"
+      post "vote" => "post_interactions#vote"
+    end
+    resources :conversations, only: %i[show index create destroy] do
+      resources :messages, only: %i[index create]
+    end
+    resources :notifications, only: %i[index show update]
+
+    patch "user" => "users#update"
+    get "user" => "users#show"
+    resources :users, only: %i[show] do
+      get :contacts
+      get :photos
+      get :posts
+      post :block
+      delete :block
+    end
+    resources :tag_followings, only: %i[index create destroy]
+    get "search/users" => "search#user_index", :as => "user_index"
+    get "search/posts" => "search#post_index", :as => "post_index"
+    get "search/tags" => "search#tag_index", :as => "tag_index"
+    get "streams/activity" => "streams#activity", :as => "activity_stream"
+    get "streams/main" => "streams#multi", :as => "stream"
+    get "streams/tags" => "streams#followed_tags", :as => "followed_tags_stream"
+    get "streams/mentions" => "streams#mentions", :as => "mentions_stream"
+    get "streams/liked" => "streams#liked", :as => "liked_stream"
+    get "streams/commented" => "streams#commented", :as => "commented_stream"
+    get "streams/aspects" => "streams#aspects", :as => "aspects_stream"
+  end
+
   namespace :api do
     namespace :openid_connect do
       resources :clients, only: :create
@@ -239,4 +289,5 @@ Rails.application.routes.draw do
   end
 
   get ".well-known/openid-configuration", to: "api/openid_connect/discovery#configuration"
+  get "manifest.json", to: "manifest#show"
 end

@@ -22,7 +22,18 @@ class LikeService
 
   def find_for_post(post_id)
     likes = post_service.find!(post_id).likes
-    user ? likes.order("author_id = #{user.person.id} DESC") : likes
+    user ? likes.order(Arel.sql("author_id = #{user.person.id} DESC")) : likes
+  end
+
+  def unlike_post(post_id)
+    likes = post_service.find!(post_id).likes
+    likes = likes.order(Arel.sql("author_id = #{user.person.id} DESC"))
+    if !likes.empty? && user.owns?(likes[0])
+      user.retract(likes[0])
+      true
+    else
+      false
+    end
   end
 
   private

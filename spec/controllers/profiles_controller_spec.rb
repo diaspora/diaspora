@@ -25,7 +25,7 @@ describe ProfilesController, :type => :controller do
   describe '#edit' do
     it 'succeeds' do
       get :edit
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'sets the profile to the current users profile' do

@@ -30,8 +30,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "name": { "type": "string" },
-              "chat_enabled": { "type": "boolean" }
+              "name": { "type": "string" }
             },
             "required": [
               "name"

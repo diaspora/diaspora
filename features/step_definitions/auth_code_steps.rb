@@ -3,7 +3,7 @@
 O_AUTH_QUERY_PARAMS_WITH_CODE = {
   redirect_uri:  "http://example.org/",
   response_type: "code",
-  scope:         "openid profile read",
+  scope:         "openid profile",
   nonce:         "hello",
   state:         "hi"
 }

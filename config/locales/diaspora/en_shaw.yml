@@ -125,7 +125,6 @@ en_shaw:
     application:
       powered_by: "𐑐𐑬𐑮𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
       public_feed: "𐑐𐑳𐑚𐑤𐑦𐑒 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑰𐑛 𐑓𐑹 %{name}"
-      toggle: "𐑑𐑪𐑜𐑩𐑤 𐑥𐑴𐑚𐑩𐑤 𐑕𐑲𐑑"
       whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
     header:
       code: "𐑒𐑴𐑛"
@@ -305,7 +304,6 @@ en_shaw:
       updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
   public: "𐑐𐑳𐑚𐑤𐑦𐑒"
   registrations:
-    closed: "𐑕𐑲𐑯𐑩𐑐𐑕 𐑸 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛."
     create:
       success: "𐑿'𐑝 𐑡𐑶𐑯𐑛 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
     new:

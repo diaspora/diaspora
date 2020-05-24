@@ -40,7 +40,6 @@ pa:
         change_password: "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ"
       new:
         forgot_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ ਹੋ?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
       updated: "ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਠੀਕ ਤਹ੍ਹਾਂ ਬਦਲਿਆ ਗਿਆ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ।"
     sessions:
       new:

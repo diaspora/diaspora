@@ -186,8 +186,8 @@ configuration: ## Section
     #rails_environment: 'development'
 
     ## Write unicorn stderr and stdout log.
-    #stderr_log: '/usr/local/app/diaspora/log/unicorn-stderr.log'
-    #stdout_log: '/usr/local/app/diaspora/log/unicorn-stdout.log'
+    #stderr_log: 'log/unicorn-stderr.log'
+    #stdout_log: 'log/unicorn-stdout.log'
 
     ## Number of Unicorn worker processes (default=2).
     ## Increase this if you have many users.
@@ -207,68 +207,6 @@ configuration: ## Section
     ## In most cases it is better to
     ## increase environment.sidekiq.concurrency instead!
     #sidekiq_workers: 1
-
-  ## Diaspora has an internal XMPP web-client. If you want to enable the chat
-  ## functionality or want to use a custom XMPP server, then you should edit
-  ## the following configuration.
-  chat: ## Section
-
-    ## Enable the chat service and all its components.
-    ##
-    ## Please make sure that you followed the Installation-Instructions first:
-    ## https://wiki.diasporafoundation.org/Integration/Chat#Installation.2FUpdate
-    #enabled: true
-
-    ## Custom XMPP server configuration goes here.
-    server: ## Section
-
-      ## Use the configuration bridge to prosody (default=true).
-      ## In case you want to run your own server or want to configure
-      ## prosody on your own, you should disable it.
-      #enabled: false
-
-      ## Set the directory in which to look for virtual hosts TLS certificates.
-      #certs: 'config/certs'
-
-      ## XEP-0124 BOSH requests
-      ## The easiest way of avoiding certificate and mixed-content issues
-      ## is to use a proxy, e.g.:
-      ##
-      ## Apache: https://wiki.diasporafoundation.org/Integration/Chat#Apache2
-      ## Nginx: https://wiki.diasporafoundation.org/Integration/Chat#Nginx
-      ##
-      ## If you configured your proxy correctly,
-      ## you should set the proxy option to 'true'
-      bosh: ## Section
-
-        ## If you'd like to use a proxy, you should set the proxy
-        ## option to true, otherwise jsxc always tries to
-        ## connect directly to the port specified below.
-        #proxy: true
-
-        ## Configure the protocol used to access the BOSH endpoint
-        #proto: http
-
-        ## Configure the address that prosody should listen on.
-        #address: '0.0.0.0'
-
-        ## Configure the BOSH port.
-        #port: 5280
-
-        ## Configure the bind endpoint.
-        #bind: '/http-bind'
-
-      ## Specify log behaviour here.
-      log: ## Section
-
-        ## Log file location.
-        #info: 'log/prosody.log'
-
-        ## Error log file location.
-        #error: 'log/prosody.err'
-
-        ## The debug level logs all XML sent and received by the server.
-        #debug: false
 
   ## Displays the location of a post in a map. Per default we are using the map
   ## tiles of the Heidelberg University (http://giscience.uni-hd.de).

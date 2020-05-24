@@ -54,7 +54,6 @@ is:
       new:
         email: "Netfang"
         forgot_password: "Gleymdirðu lykilorðinu þínu?"
-        no_account: "Enginn notandi með þetta netfang ert til"
         reset_password: "Endurstilla lykilorð"
         send_password_instructions: "Senda mér leiðbeiningar um hvernig ég get endurstillt lykilorðið mitt"
       send_instructions: "Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur endurstillt lykilorð þitt."

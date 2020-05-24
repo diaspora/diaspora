@@ -72,11 +72,15 @@ FactoryGirl.define do
     password "bluepin7"
     password_confirmation { |u| u.password }
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
-    after(:build) do |u|
+    transient do
+      profile nil
+    end
+    after(:build) do |u, e|
       u.person = FactoryGirl.build(:person,
                                    pod:                   nil,
                                    serialized_public_key: u.encryption_key.public_key.export,
                                    diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
+      u.person.profile = e.profile if e.profile
     end
     after(:create) do |u|
       u.person.save
@@ -288,7 +292,12 @@ FactoryGirl.define do
 
   factory(:o_embed_cache) do
     url "http://youtube.com/kittens"
-    data {{'data' => 'foo'}}
+    data {
+      {
+        "data"                 => "foo",
+        "trusted_endpoint_url" => "https://www.youtube.com/oembed?scheme=https"
+      }
+    }
   end
 
   factory(:open_graph_cache) do
@@ -403,28 +412,59 @@ FactoryGirl.define do
     redirect_uris %w(http://localhost:3000/)
   end
 
-  factory :auth_with_read, class: Api::OpenidConnect::Authorization do
+  factory :auth_with_default_scopes, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
-    scopes %w(openid sub aud profile picture nickname name read)
+    scopes %w[openid public:read]
     after(:build) {|m|
       m.redirect_uri = m.o_auth_application.redirect_uris[0]
     }
   end
 
-  factory :auth_with_read_and_ppid, class: Api::OpenidConnect::Authorization do
+  factory :auth_with_profile_and_ppid, class: Api::OpenidConnect::Authorization do
     association :o_auth_application, factory: :o_auth_application_with_ppid
     user
-    scopes %w(openid sub aud profile picture nickname name read)
+    scopes %w[openid sub profile picture nickname name]
     after(:build) {|m|
       m.redirect_uri = m.o_auth_application.redirect_uris[0]
     }
   end
 
-  factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
+  factory :auth_with_all_scopes, class: Api::OpenidConnect::Authorization do
     o_auth_application
-    user
-    scopes %w(openid sub aud profile picture nickname name read write)
+    association :user, factory: :user_with_aspect
+    scopes Api::OpenidConnect::Authorization::SCOPES
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
+  end
+
+  factory :auth_with_all_scopes_not_private, class: Api::OpenidConnect::Authorization do
+    o_auth_application
+    association :user, factory: :user_with_aspect
+    scopes %w[openid sub name nickname profile picture gender birthdate locale updated_at contacts:read contacts:modify
+              conversations email interactions notifications public:read public:modify profile profile:modify tags:read
+              tags:modify]
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
+  end
+
+  factory :auth_with_read_scopes, class: Api::OpenidConnect::Authorization do
+    o_auth_application
+    association :user, factory: :user_with_aspect
+    scopes %w[openid sub name nickname profile picture contacts:read conversations
+              email interactions notifications private:read public:read profile tags:read]
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
+  end
+
+  factory :auth_with_read_scopes_not_private, class: Api::OpenidConnect::Authorization do
+    o_auth_application
+    association :user, factory: :user_with_aspect
+    scopes %w[openid sub name nickname profile picture gender contacts:read conversations
+              email interactions notifications public:read profile tags:read]
     after(:build) {|m|
       m.redirect_uri = m.o_auth_application.redirect_uris[0]
     }

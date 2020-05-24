@@ -20,7 +20,7 @@ describe ConversationsController, :type => :controller do
     context "desktop" do
       it "succeeds" do
         get :new, params: {modal: true}
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -76,13 +76,13 @@ describe ConversationsController, :type => :controller do
 
     it "succeeds" do
       get :index
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(assigns[:visibilities]).to match_array(@visibilities)
     end
 
     it "succeeds with json" do
       get :index, format: :json
-      expect(response).to be_success
+      expect(response).to be_successful
       json = JSON.parse(response.body)
       expect(json.first["conversation"]).to be_present
     end
@@ -94,7 +94,7 @@ describe ConversationsController, :type => :controller do
 
     it "retrieves a conversation" do
       get :index, params: {conversation_id: @conversations.first.id}
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(assigns[:visibilities]).to match_array(@visibilities)
       expect(assigns[:conversation]).to eq(@conversations.first)
     end
@@ -108,7 +108,7 @@ describe ConversationsController, :type => :controller do
     it "retrieves a conversation message with out markdown content " do
       get :index
       @conversation = @conversations.first
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response.body).to match(/cool stuff/)
       expect(response.body).not_to match(%r{<strong>cool stuff</strong>})
     end
@@ -134,7 +134,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with the conversation id as JSON" do
           post :create, params: params, format: :js
-          expect(response).to be_success
+          expect(response).to be_successful
           expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
         end
 
@@ -172,7 +172,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with the conversation id as JSON" do
           post :create, params: params, format: :js
-          expect(response).to be_success
+          expect(response).to be_successful
           expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
         end
       end
@@ -195,7 +195,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with an error message" do
           post :create, params: params, format: :js
-          expect(response).not_to be_success
+          expect(response).not_to be_successful
           expect(response.body).to eq(I18n.t("conversations.create.fail"))
         end
       end
@@ -218,7 +218,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with an error message" do
           post :create, params: params, format: :js
-          expect(response).not_to be_success
+          expect(response).not_to be_successful
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
@@ -241,7 +241,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with an error message" do
           post :create, params: params, format: :js
-          expect(response).not_to be_success
+          expect(response).not_to be_successful
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
@@ -272,7 +272,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with an error message" do
           post :create, params: params, format: :js
-          expect(response).not_to be_success
+          expect(response).not_to be_successful
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
@@ -301,7 +301,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with the conversation id as JSON" do
           post :create, params: params, format: :js
-          expect(response).to be_success
+          expect(response).to be_successful
           expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
         end
 
@@ -339,7 +339,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with the conversation id as JSON" do
           post :create, params: params, format: :js
-          expect(response).to be_success
+          expect(response).to be_successful
           expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
         end
       end
@@ -362,7 +362,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with an error message" do
           post :create, params: params, format: :js
-          expect(response).not_to be_success
+          expect(response).not_to be_successful
           expect(response.body).to eq(I18n.t("conversations.create.fail"))
         end
       end
@@ -385,7 +385,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with an error message" do
           post :create, params: params, format: :js
-          expect(response).not_to be_success
+          expect(response).not_to be_successful
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
@@ -408,7 +408,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with an error message" do
           post :create, params: params, format: :js
-          expect(response).not_to be_success
+          expect(response).not_to be_successful
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
@@ -433,7 +433,7 @@ describe ConversationsController, :type => :controller do
 
         it "responds with an error message" do
           post :create, params: params, format: :js
-          expect(response).not_to be_success
+          expect(response).not_to be_successful
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
@@ -452,7 +452,7 @@ describe ConversationsController, :type => :controller do
 
     it "succeeds with json" do
       get :show, params: {id: conversation.id}, format: :json
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(assigns[:conversation]).to eq(conversation)
       expect(response.body).to include conversation.guid
     end

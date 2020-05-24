@@ -15,19 +15,19 @@ describe StreamsController, :type => :controller do
     describe "#public" do
       it "succeeds" do
         get :public
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
     describe "#multi" do
       it "succeeds" do
         get :multi
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it "succeeds on mobile" do
         get :multi, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       context "getting started" do
@@ -54,7 +54,7 @@ describe StreamsController, :type => :controller do
       describe "a GET to #{stream_path}" do
         it "assigns a stream of the proper class" do
           get stream_path
-          expect(response).to be_success
+          expect(response).to be_successful
           expect(assigns[:stream]).to be_a stream_class
         end
       end
@@ -65,12 +65,12 @@ describe StreamsController, :type => :controller do
     describe "#public" do
       it "succeeds" do
         get :public
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it "succeeds on mobile" do
         get :public, format: :mobile
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 

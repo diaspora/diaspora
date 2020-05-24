@@ -53,7 +53,6 @@ pt-PT:
       new:
         email: "Endereço de e-mail"
         forgot_password: "Esqueceu a sua palavra-passe?"
-        no_account: "Não existe nenhuma conta com este e-mail."
         reset_password: "Redefinir palavra-passe"
         send_password_instructions: "Enviem-me instruções para redefinir a minha palavra-passe"
       send_instructions: "Dentro de alguns minutos irá receber uma mensagem com as instruções sobre como redefinir a sua palavra-passe."

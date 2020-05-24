@@ -90,15 +90,18 @@ pt-BR:
       week: "Semana"
     user_entry:
       account_closed: "Conta encerrada"
+      admin: "Admin"
       diaspora_handle: "diaspora* ID"
       email: "Email"
       guid: "GUID"
       id: "ID"
       invite_token: "Convite"
       last_seen: "Última visita"
+      moderator: "Moderação"
       ? "no"
       : Não
       nsfw: "#nsfw"
+      spotlight: "Destaque"
       unknown: "Desconhecido"
       ? "yes"
       : Sim
@@ -106,14 +109,29 @@ pt-BR:
       account_closing_scheduled: "A conta de %{name} está programada para ser encerrada. Isto acontecerá em alguns instantes..."
       account_locking_scheduled: "A conta de %{name} será bloqueada em instantes."
       account_unlocking_scheduled: "A conta de %{name} será desbloqueada em instantes."
+      add_admin: "%{name} agora é admin."
       add_invites: "Adicionar convites"
+      add_moderator: "%{name} agora faz parte da moderação."
+      add_spotlight: "%{name} entrou para o Destaque da Comunidade."
       are_you_sure: "Tem certeza que deseja encerrar esta conta?"
       are_you_sure_lock_account: "Tem certeza de que deseja bloquear esta conta?"
       are_you_sure_unlock_account: "Tem certeza de que deseja desbloquear esta conta?"
       close_account: "Encerrar conta"
+      delete_admin: "%{name} não é mais admin."
+      delete_moderator: "%{name} não faz mais parte da moderação."
+      delete_spotlight: "%{name} saiu do Destaque da Comunidade."
+      does_not_exist: "Essa conta não existe!"
       email_to: "E-mail para convidar"
       invite: "Convidar"
       lock_account: "Bloquear conta"
+      make_admin: "Tornar admin"
+      make_moderator: "Tornar moderação"
+      make_spotlight: "Adicionar ao Destaque da Comunidade"
+      remove_admin: "Remover da administração"
+      remove_moderator: "Remover da moderação"
+      remove_spotlight: "Remover do Destaque da Comunidade"
+      role_implemented: "%{name} já recebeu essa função!"
+      role_removal_implemented: "%{name} já perdeu essa função!"
       under_13: "Mostrar usuários menores de 13 anos"
       unlock_account: "Desbloquear conta"
       users:
@@ -190,6 +208,7 @@ pt-BR:
         tos: "Ver termos de serviço do aplicativo"
   are_you_sure: "Tem certeza?"
   are_you_sure_delete_account: "Tem certeza de que deseja cancelar sua conta? Isso não poderá ser desfeito!"
+  are_you_sure_ignore_user: "Você vai ignorar esse usuário. Tem certeza?"
   aspect_memberships:
     destroy:
       failure: "Falha ao remover pessoa do aspecto."
@@ -249,7 +268,7 @@ pt-BR:
         heading: "Conecte-se"
       welcome_to_diaspora: "Bem-vindo(a) a diaspora*, %{name}!"
     no_contacts_message:
-      community_spotlight: "Destaques da Comunidade"
+      community_spotlight: "Destaque da Comunidade"
       invite_link_text: "convidar"
       or_spotlight: "Ou você pode compartilhar com %{link}"
       try_adding_some_more_contacts: "Você pode buscar ou %{invite_link} mais pessoas."
@@ -412,7 +431,7 @@ pt-BR:
       get_support_a_wiki: "Pesquise na %{link}"
       get_support_q: "E se minha pergunta não for respondida neste FAQ? Onde mais eu posso encontrar ajuda?"
       getting_started_a: "Você está com sorte. Experimente a %{tutorial_series} no site do projeto. Ela é um guia, passo a passo, para o processo de cadastro e para os recursos básicos da diaspora*."
-      getting_started_q: "Socorro! Preciso de alguma ajuda básica para começar!"
+      getting_started_q: "Socorro! Preciso aprender o básico para começar!"
       title: "Obter ajuda"
     getting_started_tutorial: "a série tutorial \"Começando\""
     here: "aqui"
@@ -574,9 +593,11 @@ pt-BR:
       byline: "O mundo social on-line em que você está no controle"
       choose_your_audience: "Escolha sua plateia"
       choose_your_audience_info: "Os aspectos da diaspora* permitem que você decida com quem vai compartilhar. Você escolhe quanta privacidade quer ter. Compartilhe uma foto engraçada com todo mundo e guarde aquele segredo para os seus amigos mais próximos. Você está no controle."
+      diaspora_site_link: "rede federada diaspora*"
       headline: "É bom ver você em %{pod_name}"
       own_your_data: "Os seus dados são seus"
       own_your_data_info: "Várias redes lucram com seus dados, analisando as suas interações e usando as informações obtidas para fazer publicidade. A diaspora* não usa seus dados para nada além de possibilitar que você se conecte e compartilhe com outras pessoas."
+      part_of_diaspora: "Parte da %{diaspora_site_link}"
     podmin:
       byline: "Você está prestes a revolucionar a internet. Vamos começar?"
       configuration_info: "Abra %{database_path} e %{diaspora_path} no seu editor de texto favorito e revise-os cuidadosamente, estão minuciosamente comentados."
@@ -627,7 +648,8 @@ pt-BR:
       public_feed: "Feed público de diaspora* para %{name}"
       source_package: "Baixar pacote do código-fonte"
       statistics_link: "Estatísticas do servidor"
-      toggle: "Versão móvel"
+      switch_to_standard_mode: "Alternar para modo padrão"
+      switch_to_touch_optimized_mode: "Alternar para modo tátil"
       whats_new: "O que há de novo?"
     header:
       code: "Código"
@@ -969,7 +991,11 @@ pt-BR:
       updated: "Perfil Atualizado!"
   public: "Público"
   registrations:
-    closed: "Os cadastros estão temporariamente desabilitados neste servidor diaspora*."
+    closed:
+      another_pod: "outro pod"
+      closed_pod: "Este pod está fechado para novos cadastros, porém você ainda pode entrar na rede diaspora* cadastrando-se em %{wiki}. Como todos os pods estão interconectados, de lá você terá acesso ao mesmo conteúdo."
+      find_pods: "Há uma lista de pods nos quais você pode se cadastrar em %{poduptime}."
+      other_questions: "Se você tiver alguma outra pergunta sobre a seleção de pods, confira nossa %{wiki}."
     create:
       success: "Você se juntou à diaspora*!"
     invalid_invite: "O link com o convite não é mais válido."
@@ -1035,7 +1061,6 @@ pt-BR:
       share_to: "Compartilhar no %{provider}"
       title: "Gerenciar serviços conectados"
     provider:
-      facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
@@ -1157,6 +1182,41 @@ pt-BR:
         one: "1 pessoa marcada com %{tag}"
         other: "%{count} pessoas marcadas com %{tag}"
         zero: "Ninguém marcado com %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Desativar"
+      change_label: "Insira sua senha para desativar a autenticação em duas etapas"
+      status: "Autenticação em duas etapas ativada"
+    confirm:
+      activate_button: "Confirmar e ativar"
+      input_explanation: "Depois de escanear ou digitar a senha, insira o código de seis dígitos que apareceu para você e confirme."
+      input_title: "Confirme com o código TOTP"
+      manual_explanation: "Caso não possa escanear o código QR de forma automática, digite a senha manualmente no aplicativo."
+      manual_explanation_cont: "Usamos senhas únicas baseadas em tempo (TOTP) com códigos de seis dígitos. Caso o seu aplicativo pergunte intervalo de tempo e algoritmo, insira 30 segundos e SHA-1, respectivamente. <br /> Os espaços servem apenas para melhorar a legibilidade; por favor, digite o código sem eles."
+      scan_explanation: "Por favor, escaneie o código QR com um aplicativo que leia TOTP, tal como andOTP (Android), FreeOTP (iOS) ou SailOTP (SailfishOS)."
+      scan_title: "Escaneie o código QR"
+      status: "A autenticação em duas etapas ainda não foi ativada completamente; você precisa confirmar a ativação com um código TOTP."
+      title: "Confirmar ativação"
+    deactivated:
+      change_button: "Ativar"
+      change_label: "Ativar autenticação em duas etapas"
+      status: "Autenticação em duas etapas desativada"
+    explanation: "A autenticação em duas etapas é uma maneira eficiente de garantir que você seja a única pessoa capaz de entrar na sua conta. Ao entrar, você terá que digitar um código de seis dígitos, além da sua senha, para provar a sua identidade. Mas cuidado: se você perder seu celular e os códigos de recuperação criados durante a ativação deste recurso, o acesso à sua conta na diaspora* será bloqueado para sempre."
+    flash:
+      error_token: "Código incorreto ou inválido"
+      success_activation: "Autenticação em duas etapas ativada com sucesso"
+      success_deactivation: "Autenticação em duas etapas desativada com sucesso"
+    input_token:
+      label: "Código de autenticação"
+      placeholder: "código de autenticação com seis dígitos"
+    recovery:
+      button: "Gerar novos códigos de recuperação"
+      explanation: "Se algum dia você perder o seu celular, poderá usar um dos códigos de recuperação abaixo para recuperar o acesso à sua conta. Guarde-os em segurança. Por exemplo, você pode imprimi-los e armazená-los junto com outros documentos importantes."
+      explanation_short: "Códigos de recuperação permitem que você recupere o acesso à conta caso perca seu celular. Repare que você só pode usar cada código uma única vez."
+      invalidation_notice: "Se você perder seus códigos de recuperação, poderá regerá-los aqui. Os antigos serão invalidados."
+      reminder: "Uma alternativa é usar um dos códigos de recuperação."
+      title: "Códigos de recuperação"
+    title: "Autenticação em duas etapas"
   username: "Usuário"
   users:
     confirm_email:
@@ -1205,8 +1265,9 @@ pt-BR:
       new_password: "Nova senha"
       private_message: "você receber uma mensagem privada"
       protocol_handler:
-        description: "Ao clicar nesse botão, você solicitará ao navegador a instalação de um protocolo que permitirá abrir URLs web+diaspora:// no seu servidor nativo. Atualmente, esse recurso é experimental, e possíveis interações dependerão do seu navegador."
-        register: "Registrar"
+        browser: "Esse protocolo está atualmente em estágio experimental e o sucesso das suas interações ao usá-lo dependerá do seu navegador. Se você quiser gerenciá-lo ou removê-lo, acesse as configurações do seu navegador. O botão abaixo estará sempre ativo, e você deve configurar o protocolo separadamente em cada navegador que utilizar."
+        description: "web+diaspora:// é um protocolo web que estamos introduzindo. Qualquer link de página na diaspora* que o utilize, em site externo, poderá ser aberto no pod no qual sua conta diaspora* está registrada. Clique no botão abaixo para configurar seu navegador de modo a usar %{pod_url} para reconhecer links web+diaspora:// externos."
+        register: "Registrar protocolo web+diaspora:// neste navegador"
         title: "protocolo web+diaspora://"
       receive_email_notifications: "Receber notificações por e-mail quando:"
       request_export: "Solicitar dados do meu perfil"
@@ -1225,8 +1286,6 @@ pt-BR:
     getting_started:
       awesome_take_me_to_diaspora: "Incrível! Quero ir para a diaspora*"
       community_welcome: "A comunidade diaspora* está feliz em ter você a bordo!"
-      connect_to_facebook: "Podemos acelerar um pouco as coisas %{link} a diaspora*. Seu nome e foto serão recuperados, e a publicação simultânea, habilitada."
-      connect_to_facebook_link: "Conectando seu Facebook"
       hashtag_explanation: "Hashtags permitem que você compartilhe e acompanhe seus interesses. Elas também são uma ótima maneira de conhecer novas pessoas na diaspora*."
       hashtag_suggestions: "Tente tags como #arte, #cinema, #gif, etc."
       well_hello_there: "Bem, olá!"

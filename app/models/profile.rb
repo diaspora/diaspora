@@ -5,6 +5,7 @@
 #   the COPYRIGHT file.
 
 class Profile < ApplicationRecord
+  MAX_TAGS = 5
   self.include_root_in_json = false
 
   include Diaspora::Federated::Base
@@ -51,7 +52,7 @@ class Profile < ApplicationRecord
     (self.person) ? self.person.diaspora_handle : self[:diaspora_handle]
   end
 
-  def image_url(size=:thumb_large)
+  def image_url(size: :thumb_large, fallback_to_default: true)
     result = if size == :thumb_medium && self[:image_url_medium]
                self[:image_url_medium]
              elsif size == :thumb_small && self[:image_url_small]
@@ -66,7 +67,7 @@ class Profile < ApplicationRecord
       else
         result
       end
-    else
+    elsif fallback_to_default
       ActionController::Base.helpers.image_path("user/default.png")
     end
   end
