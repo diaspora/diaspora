@@ -56,7 +56,6 @@ sq:
         confirm_password: Ripohoni fjalëkalimin
       new:
         forgot_password: Harruat fjalëkalimin?
-        no_account: S’ka llogari me këtë email
         reset_password: Ricaktoni fjalëkalimin
         email: Adresë email
         send_password_instructions: Dërgomëni udhëzime ricaktimi fjalëkalimi

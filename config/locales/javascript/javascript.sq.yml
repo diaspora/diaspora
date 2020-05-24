@@ -121,8 +121,6 @@ sq:
 
     contacts:
       add_contact: "Shtoni kontakt"
-      aspect_chat_is_enabled: "Kontaktet në këtë aspekt janë në gjendje të fjalosen me ju."
-      aspect_chat_is_not_enabled: "Kontaktet në këtë aspekt s’janë në gjendje të fjalosen me ju"
       remove_contact: "Hiqe kontaktin"
       error_add: "S’u shtua dot <%= name %> te aspekti :("
       error_remove: "S’u hoq dot <%= name %> prej aspekti :("
@@ -311,7 +309,7 @@ sq:
       moderator: "Moderator"
       log_out: "Dilni"
       toggle_navigation: "Shfaqni/fshihni lëvizjen"
-      toggle_mobile: "Shfaqeni/fshiheni për celular"
+      switch_to_touch_optimized_mode: "Kalo nën mënyrën e optimizuar për touch"
 
       notifications: "Njoftime"
       conversations: "Biseda"

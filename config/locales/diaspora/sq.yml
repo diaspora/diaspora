@@ -20,6 +20,7 @@ sq:
   email: "Email"
   are_you_sure: "Jeni i sigurt?"
   are_you_sure_delete_account: "Jeni i sigurt se doni të mbyllet llogaria juaj? Kjo s’mund të zhbëhet!"
+  are_you_sure_ignore_user: "Do ta shpërfillni këtë përdorues. Jeni i sigurt?"
   fill_me_out: "Plotësomëni"
   public: "Publike"
   limited: "E kufizuar"
@@ -287,6 +288,12 @@ sq:
     new_comment:
       comment: "Koment"
       commenting: "Po komentohet…"
+    create:
+      fail: "Krijimi i komentit dështoi"
+    destroy:
+      success: "Komenti %{id} u fshi me sukses"
+      fail: "Fshirja e komentit dështoi"
+    not_found: "S’u gjet postim ose koment"
 
   contacts:
     index:
@@ -334,6 +341,7 @@ sq:
     destroy:
       delete_success: "Biseda u fshi me sukses"
       hide_success: "Biseda u fsheh me sukses"
+    not_found: "S’u gjet bisedë"
   date:
     formats:
       fullmonth_day: "%d %B"
@@ -399,11 +407,6 @@ sq:
       rename_aspect_a: "Klikoni “Aspektet e mia” te anështylla, që prej skenës së rrjedhës, dhe klikoni ikonën laps në krah të aspektit që doni të riemërtoni, ose shkoni te faqja e Kontakteve tuaj dhe përzgjidhni aspektin që doni. Mandej klikoni ikonën e përpunimit në krah të emrit të aspektit, në krye të kësaj faqeje, ndryshoni emrin dhe shtypni “Përditësoje”."
       delete_aspect_q: "Si ta fshij një aspekt?"
       delete_aspect_a: "Klikoni “Aspektet e mia” te anështylla, që prej skenës së rrjedhës, dhe klikoni ikonën laps në krah të aspektit që doni të fshini, ose shkoni te faqja e Kontakteve tuaj dhe përzgjidhni aspektin që doni. Mandej klikoni ikonën e hedhurinave në cepin e sipërm djathtas të faqes."
-    chat:
-      title: "Fjalosje"
-      contacts_page: "faqe kontaktesh"
-      add_contact_roster_q: "Si të fjalosem me dikë në diaspora*?"
-      add_contact_roster_a: "Së pari, duhet të aktivizoni fjalosjet për një nga aspektet ku gjendet ai person. Për ta bërë këtë, shkoni te %{contacts_page}, përzgjidhni aspektin që doni dhe klikoni mbi ikonën e fjalosjeve që të aktivizoni fjalosjet për atë aspekt. %{toggle_privilege} Nëse parapëlqeni, mund të krijoni një aspekt special të quajtur “Fjalosje” dhe të shtoni në atë aspekt persona me të cilët doni të fjaloseni. Pasi ta keni bërë këtë, hapni ndërfaqen e fjalosjes dhe përzgjidhni personin me të cilin doni të fjaloseni."
     mentions:
       title: "Përmendje"
       what_is_a_mention_q: "Ç’është një “përmendje”?"
@@ -552,6 +555,8 @@ sq:
   home:
     default:
       headline: "Mirë se vini te %{pod_name}"
+      part_of_diaspora: "Pjesë e %{diaspora_site_link}"
+      diaspora_site_link: "rrjetit të federuar diaspora*"
       byline: "Bota internetore shoqërore ku keni kontrollin"
       be_who_you_want_to_be: "Jini ai që doni të jini"
       be_who_you_want_to_be_info: "Mjaft rrjete ngulin këmbë që të përdorini identitetin tuaj të njëmendtë. Jo diaspora*. Këtu mund të zgjidhni cili doni të jini, dhe të ndani aq shumë ose aq pak rreth vetes sa doni. Vërtet e keni vetë në dorë se si doni të ndërveproni me persona të tjerë."
@@ -615,7 +620,8 @@ sq:
       whats_new: "Ç’ka të re?"
       statistics_link: "Statistika nyjeje"
       discourse: "Diskutime dhe asistencë mbi projektin"
-      toggle: "Aktivizojeni/Çaktivizojeni për celular"
+      switch_to_touch_optimized_mode: "Kalo nën mënyrën e optimizuar për touch"
+      switch_to_standard_mode: "Kalo në mënyrën standarde"
       public_feed: "Prurje publike diaspora për %{name}"
       back_to_top: "Kthehuni në krye"
       source_package: "Shkarkoni paketën e kodit burim"
@@ -624,8 +630,22 @@ sq:
   likes:
     create:
       error: "S’u arrit të pëlqehej."
+      fail: "Krijimi i pëlqimit dështoi"
     destroy:
       error: "S’u arrit të hiqej pëlqimi."
+    people_like_this:
+      zero: "Pa pëlqime"
+      one: "%{count} pëlqim"
+      other: "%{count} pëlqime"
+    people_like_this_comment:
+      zero: "Pa pëlqime"
+      one: "%{count} pëlqim"
+      other: "%{count} pëlqime"
+    people_dislike_this:
+      zero: "Pa mospëlqime"
+      one: "%{count} mospëlqim"
+      other: "%{count} mospëlqime"
+    not_found: "S’u gjet postim ose pëlqim"
 
   notifications:
     started_sharing:
@@ -884,6 +904,8 @@ sq:
           deny: "Hidhe poshtë"
           bad_request: "Mungon ID klienti ose URI ridrejtimesh"
           client_id_not_found: "S’u gjet klient me client_id %{client_id} me URI ridrejtimesh %{redirect_uri}"
+          private_contacts_linkage_error: "private:read dhe private:modify lypin edhe contacts:read"
+          unknown_scope: "Fushëveprim i panjohur: %{scope_name}"
         destroy:
           fail: "Përpjekja për të shfuqizuar autorizimin me ID %{id} dështoi"
       user_applications:
@@ -899,31 +921,64 @@ sq:
       scopes:
         openid:
           name: "profil bazë"
-          description: "Kjo i lejon aplikacionit të lexojë profilin tuaj bazë"
+          description: "Kjo i akordon aplikacionit leje leximi të dhënash të profilit bazë."
         sub:
           name: "sub"
-          description: "Kjo i akordon aplikacionit leje sub"
-        aud:
-          name: "aud"
-          description: "Kjo i akordon aplikacionit leje aud"
+          description: "Kjo i akordon aplikacionit leje sub."
         name:
           name: "emër"
-          description: "Kjo i akordon aplikacionit leje emrash"
+          description: "Kjo i akordon aplikacionit leje leximi të dhënash emri."
         nickname:
           name: "nofkë"
-          description: "Kjo i akordon aplikacionit leje nofkash"
-        profile:
-          name: "profil i zgjeruar"
-          description: "Kjo i lejon aplikacionit të lexojë profilin tuaj të zgjeruar"
+          description: "Kjo i akordon aplikacionit leje leximi të dhënash nofke."
         picture:
           name: "foto"
-          description: "Kjo i akordon aplikacionit leje fotosh"
-        read:
-          name: "lexo profil, rrjedhë dhe biseda"
-          description: "Kjo i lejon aplikacionit të lexojë rrjedhën tuaj, bisedat tuaja dhe profilin tuaj të plotë"
-        write:
-          name: "dërgo postime, biseda dhe reagime"
-          description: "Kjo i lejon aplikacionit të dërgojë postime të reja, të shkruajë biseda, dhe të dërgojë reagime"
+          description: "Kjo i akordon aplikacionit leje leximi të dhënash fotoje profili të përdoruesit."
+        'contacts:read':
+          name: "kontakte:lexim"
+          description: "Kjo i akordon aplikacionit leje leximi të dhënash kontakti dhe të dhënash të lidhura me to (bie fjala, aspekte)."
+        'contacts:modify':
+          name: "kontakte:modifikim"
+          description: "Kjo i akordon aplikacionit leje shkrimi të dhënash kontakti dhe të dhënash të lidhura me to (bie fjala, aspekte)."
+        conversations:
+          name: "biseda"
+          description: "Kjo i akordon aplikacionit leje leximi/shkrimi te mesazhet private."
+        email:
+          name: "email"
+          description: "Kjo i akordon aplikacionit leje leximi të adresës email të përdoruesit."
+        interactions:
+          name: "ndërveprime"
+          description: "Kjo i akordon aplikacionit leje leximi dhe shkrimi në ndërveprime me postimet."
+        notifications:
+          name: "njoftime"
+          description: "Kjo i akordon aplikacionit leje leximi dhe shkrimi në ndërveprime për përdoruesin."
+        'private:read':
+          name: "private:lexim"
+          description: "Kjo i akordon aplikacionit privilegje leximi mbi postime dhe rrjedha private."
+        'private:modify':
+          name: "private:modifikim"
+          description: "Kjo i akordon aplikacionit privilegje modifikimii mbi postime dhe rrjedha private, përfshi lejim ndarjesh private me të tjerët."
+        'public:read':
+          name: "publike:lexim"
+          description: "Kjo i akordon aplikacionit leje leximi mbi postime publike, ndërveprime publike dhe të dhëna publike përdoruesi."
+        'public:modify':
+          name: "publike:modifkim"
+          description: "Kjo i akordon aplikacionit leje shkrimi mbi postime publike (përfshi shkrim postimesh publike), ndërveprime dhe të dhëna përdoruesi publike."
+        profile:
+          name: "profil i zgjeruar"
+          description: "Kjo i akordon aplikacionit leje leximi të të dhënave të profilit të zgjeruar."
+        'profile:modify':
+          name: "profil:modifikim"
+          description: "Kjo i akordon aplikacionit leje përditësimi të profilit të përdoruesit."
+        'profile:read_private':
+          name: "profil:lexim_privat"
+          description: "Kjo i akordon aplikacionit leje leximi të profilit tuaj privat."
+        'tags:read':
+          name: "etiketa:lexim"
+          description: "Kjo i akordon aplikacionit leje leximi të etiketave të ndjekura dhe rrjedhave të etiketave të përdoruesit."
+        'tags:modify':
+          name: "etiketa:modifikim"
+          description: "Kjo i akordon aplikacionit të drejta modifikimi të etiketave të ndjekura nga përdoruesi."
       error_page:
         title: "Oh! Diç shkoi ters :("
         contact_developer: "Duhet të lidheni me zhvilluesin e aplikacionit dhe të përfshini në komunikim mesazhin e hollësishëm vijues të gabimit:"
@@ -1038,7 +1093,7 @@ sq:
       enter_username: "Zgjidhni një emër përdoruesi (shkronja, numra dhe nënvija vetëm)"
       enter_password: "Jepni një fjalëkalim (minimumi gjashtë shenja)"
       enter_password_again: "Jepni të njëjtin fjalëkalim si më parë"
-      sign_up: "Regjistrohuni"
+      sign_up: "Krijoni llogari"
       email: "Email"
       username: "Emër përdoruesi"
       password: "Fjalëkalim"
@@ -1048,8 +1103,12 @@ sq:
       terms_link: "kushtet e shërbimit."
     create:
       success: "U bëtë pjesë e diaspora*-s!"
-    closed: "Në këtë nyjë të diaspora*-s regjistrimet janë mbyllur."
-    invalid_invite: "Lidhja e ftesës që ofruat s’është më e vlefshme!"
+    closed:
+      closed_pod: "Kjo nyjë është aktualisht e mbyllur ndaj regjistrimeve të reja. Sidoqoftë, mundeni prapë të bëheni pjesë e rrjetit diaspora*, duke u regjistruar në %{wiki}. Ngaqë krejt nyjat janë të lidhura me njëra-tjetrën, do të mund të përdorni të njëjtën lëndë si këtu."
+      another_pod: "tjetër nyjë"
+      find_pods: "Ka një listë nyjash te të cilat mund të regjistroheni në %{poduptime}."
+      other_questions: "Nëse keni pyetje të tjera rreth zgjedhjes së një nyje, hidhini një sy %{wiki} tonë."
+    invalid_invite: "Lidhja e ftesës që dhatë s’është më e vlefshme!"
 
   reshares:
     create:
@@ -1151,7 +1210,7 @@ sq:
         other: "%{count} persona të etiketuar me %{tag}"
       follow: "Ndiqeni #%{tag}"
       stop_following: "Resht së ndjekuri #%{tag}"
-      none: "Etiketa e zbrazët s’ka kuptim!"
+      none: "Etiketa e zbrazët s’ekziston!"
     name_too_long: "Ju lutemi, bëjeni emrin e etiketës tuaj më të shkurtër se %{count} shenja. Tani është %{current_length} shenja"
 
   tag_followings:
@@ -1309,6 +1368,42 @@ sq:
       email_confirmed: "Email-i %{email} u aktivizua"
       email_not_confirmed: "Email-i s’u aktivizua dot. Lidhje e gabuar?"
 
+  two_factor_auth:
+    title: "Mirëfilltësim dyfaktorësh"
+    explanation: "Mirëfilltësimi dyfaktorësh është një rrugë e sigurt për të garantuar se jeni i vetmi që mund të hyjë në llogarinë tuaj. Kur bëhet hyrja, tok me fjalëkalimin tuaj do të jepni një kod 6-shifror, për të dëshmuar identitetin tuaj. Por, hapni sytë: nëse humbni telefonin tuaj dhe kodet e rimarrjes të krijuar kur aktivizoni këtë veçori, hyrja te llogaria juaj diaspora* do të bllokohet përgjithmonë."
+    activated:
+      status: "Mirëfilltësimi dyfaktorësh i aktivizuar"
+      change_label: "Çaktivizoni mirëfilltësimin dyfaktorësh duke dhënë fjalëkalimin tuaj"
+      change_button: "Çaktivizoje"
+    deactivated:
+      status: "Mirëfilltësimi dyfaktorësh jo i aktivizuar"
+      change_label: "Aktivizoni mirëfilltësimin dyfaktorësh"
+      change_button: "Aktivizoje"
+    confirm:
+      title: "Ripohoni aktivizimin"
+      status: "Mirëfilltësimi dyfaktorësh s’është aktivizuar ende plotësisht, lypset të ripohoni aktivizimin me një token TOTP"
+      scan_title: "Skanoni kodin QR"
+      scan_explanation: "Ju lutemi, skanojeni kodin QR me një aplikacion që mbulon TOTP, bie fjala, andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      manual_explanation: "Në rast se nuk skanoni dot automatikisht kodin QR, mund ta jepni dorazi të fshehtën te aplikacioni juaj."
+      manual_explanation_cont: "Po përdorim fjalëkalime njëpërdorimsh me bazë kohën (TOTP) me token-ë gjashtëshifrorë. Në rast se aplikacioni juaj ju kërkon një interval kohor dhe një alogritëm, jepni përkatësisht 30 sekonda dhe sha1. <br /> Hapësirat janë thjesht për ta bërë të lexueshëm, ju lutemi, kodin jepeni pa to."
+      input_title: "Ripohojeni me token TOTP"
+      input_explanation: "Pas skanimi ose dhënies së të fshehtës, jepni kodin me gjashtë shifra që shihni dhe ripohoni ujdisjen."
+      activate_button: "Ripohojeni dhe aktivizojeni"
+    input_token:
+      label: "Token dyfaktorësh"
+      placeholder: "token dyfaktorësh gjashtëshifror"
+    recovery:
+      title: "Kode rimarrjesh"
+      reminder: "Ndryshe, mund të përdorni një nga kodet e rimarrjes."
+      explanation: "Nëse humbni ndonjëherë hyrje në telefonin tuaj, që të rifitoni hyrje në llogarinë tuaj, mund të përdorni një nga kodet e rimarrjeve më poshtë. Mbajini të parrezik kodet e rimarrjeve. Për shembull, mund t’i shtypni dhe t’i ruani tok me dokumente të tjerë të rëndësishëm."
+      explanation_short: "Kodet e rimarrjes ju lejojnë të rifitoni hyrje te llogaria juaj, nëse humbni telefonin tuaj. Kini parasysh se çdo kod rimarrjeje mund ta përdorni vetëm një herë."
+      invalidation_notice: "Nëse humbët kodet tuaj të rimarrjeve, mund t’i riprodhoni që këtu. Kodet tuaj të vjetër të rimarrjeve do të bëhen të pavlefshëm."
+      button: "Prodho kode të rinj rimarrjeje"
+    flash:
+      success_activation: "Mirëfilltësimi dyfaktorësh u aktivizua me sukses"
+      success_deactivation: "Mirëfilltësimi dyfaktorësh u çaktivizua me sukses"
+      error_token: "Token-i qe i pasaktë ose i pavlefshëm"
+
   will_paginate:
     previous_label: "&laquo; e mëparshmja"
     next_label: "pasuesja &raquo;"
@@ -1334,5 +1429,7 @@ sq:
     registrations: "Regjistrime"
     enabled: "Aktivizuar"
     disabled: "Çaktivizuar"
-    open: "Open"
-    closed: "Closed"
+    open: "E hapur"
+    closed: "E mbyllur"
+
+
