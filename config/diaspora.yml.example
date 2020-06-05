@@ -45,6 +45,8 @@ configuration: ## Section
     #certificate_authorities: '/etc/ssl/certs/ca-certificates.crt'
     ## For CentOS, Fedora:
     #certificate_authorities: '/etc/pki/tls/certs/ca-bundle.crt'
+    ## For FreeBSD (port security/ca_root_nss):
+    #certificate_authorities: '/usr/local/share/certs/ca-root-nss.crt'
 
     ## URL for a remote Redis (default=localhost).
     ## Don't forget to restrict IP access if you uncomment these!
