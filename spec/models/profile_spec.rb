@@ -124,6 +124,18 @@ describe Profile, :type => :model do
     end
   end
 
+  describe "of gender" do
+    it "can be 255 characters long" do
+      profile = FactoryGirl.build(:profile, gender: "a" * 255)
+      expect(profile).to be_valid
+    end
+
+    it "cannot be 256 characters" do
+      profile = FactoryGirl.build(:profile, gender: "a" * 256)
+      expect(profile).not_to be_valid
+    end
+  end
+
   describe "image_url setters" do
     %i(image_url image_url_small image_url_medium).each do |method|
       describe "##{method}=" do
