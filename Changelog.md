@@ -34,6 +34,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 
 ## Bug fixes
 * Don't link to deleted users in admin user stats [#8063](https://github.com/diaspora/diaspora/pull/8063)
+* Properly validate a profile's gender field length instead of failing with a database error. [#8127](https://github.com/diaspora/diaspora/pull/8127)
 
 ## Features
 
