@@ -488,7 +488,7 @@ ia:
       format_text_q: "Como pote io formatar le texto in mi entratas (grasse, italic, etc.)?"
       hide_posts_a: "Si tu puncta le mouse verso le parte superior de un entrata, un × appare al dextra. Clicca sur illo pro celar le entrata e silentiar le notificationes sur illo. Tu pote ancora vider le entrata si tu visita le pagina de profilo del persona qui lo ha inviate."
       hide_posts_q: "Como cela io un entrata?"
-      ignore_user_a1: "Si tu actualmente divide cosas con ille persona, remover la de tote tu aspectos eliminara le majoritate de su entratas de tu fluxo. Un methodo plus complete es \"ignorar\" le conto in question. Isto impedira que alcun entrata sue appare in tu fluxo, e illa non plus potera commentar o appreciar tu entratas. Nonobstante, illa ancora pote repeter tu entratas e commentar le repetitiones de tu entratas, e su commentos sur entratas de altere personas que appare in tu fluxo continuara a esser visibile pro te."
+      ignore_user_a1: "Si tu actualmente divide cosas con ille persona, remover la de tote tu aspectos elimina le majoritate de su entratas de tu fluxo. Un methodo plus complete es \"ignorar\" le conto in question. Isto impedi que alcun entrata sue appare in tu fluxo, e illa non plus pote commentar o appreciar tu entratas. Nonobstante, illa ancora pote repeter tu entratas e commentar le repetitiones de tu entratas, e su commentos sur entratas de altere personas que appare in tu fluxo continua a esser visibile pro te."
       ignore_user_a2: "Pro ignorar un conto, clicca sur le icone “ignorar” (un circulo con un linea diagonal que lo transversa) in cyma al dextra de un de su entratas. Su entratas disparera immediatemente de tu fluxo. Alternativemente, visita su pagina de profilo e clicca sur le icone “ignorar” illac. Tu potera ancora vider su entratas sur su pagina de profilo, o per usar le vista de entrata singule."
       ignore_user_a3: "Le lista de personas que tu ignora se trova in le configuration de tu conto sub Confidentialitate. Pro cessar de ignorar un persona, remove la del lista sur ille pagina."
       ignore_user_q: "Como impedi io que le entratas de un persona appare in mi fluxo?"
@@ -679,9 +679,9 @@ ia:
       other: "%{actors} commentava tu entrata %{post_link}."
       zero: "%{actors} commentava tu entrata %{post_link}."
     contacts_birthday:
-      one: "%{actors} ha su anniversario le %{date}."
-      other: "%{actors} ha lor anniversario le %{date}."
-      zero: "%{actors} ha lor anniversario le %{date}."
+      one: "%{actors} ha su anniversario %{date}."
+      other: "%{actors} ha lor anniversario %{date}."
+      zero: "%{actors} ha lor anniversario %{date}."
     index:
       all_notifications: "Tote le notificationes"
       also_commented: "Etiam commentava"
