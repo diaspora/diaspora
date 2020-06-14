@@ -593,9 +593,11 @@ sc:
       byline: "Su mundu sotziale in lìnia in ue tenes su controllu"
       choose_your_audience: "Issèbera su pùblicu tuo"
       choose_your_audience_info: "Sas caras de diaspora* ti permitint de cumpartzire cun petzi cussas persones cun las cales cheres tue. Podes èssere pùblicu o privadu cantu cheres. Cumpartzire una fotografia ispassiosa cun totu su mundu, o unu segretu de importu cun petzi sos amigos tuos. Tenes tue su controllu."
+      diaspora_site_link: "retza federada de diaspora*"
       headline: "Bene bènnidu in %{pod_name}"
       own_your_data: "Sos datos tuos sunt petzi tuos"
       own_your_data_info: "Medas retzas sotziales impreant sos datos tuos pro fàghere dinare analizende sas interatziones tuas pro ti bèndere cosa. diaspora* no impreat sos datos tuos pro cale si siat punna chi non siet sa de ti permìtere de ti connètere e de cumpartzire cun sos àteros."
+      part_of_diaspora: "Parte de su %{diaspora_site_link}"
     podmin:
       byline: "Istas pro cambiare ìnternet. Incumintzamus, ite naras?"
       configuration_info: "Aberi %{database_path} e %{diaspora_path} in s'editore de testu preferidu dae tie e revisiona·los cun atentzione. Sunt cummentados estensivamente."
@@ -989,6 +991,11 @@ sc:
       updated: "Profilu agiornadu"
   public: "Pùblicu"
   registrations:
+    closed:
+      another_pod: "un'àteru pod"
+      closed_pod: "Custu pod est, in custu momentu, serradu pro sas registratziones noas. Nointames, ti podes aunire su matessi a sa retza de diaspora* registrende·ti in %{wiki}. Essende totu sos pods connessos intre issos, as a tènnere atzessu a sos matessi cuntenutos in cue."
+      find_pods: "Podes agatare una lista de pods in ue ti podes registrare in %{poduptime}"
+      other_questions: "Si tenes cale si siat àtera pregunta chi pertocat a s'issèberu de unu pod, leghe·ti sa %{wiki} nostra"
     create:
       success: "Ti ses registradu in diaspora*!"
     invalid_invite: "Su ligàmene de invitu chi as impreadu no est prus vàlidu!"
@@ -1175,6 +1182,41 @@ sc:
         one: "1 persone etichetadas cun %{tag}"
         other: "%{count} persones etichetadas cun %{tag}"
         zero: "Nemos etichetadu cun %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Disativa"
+      change_label: "Disativa s'autenticatzione in duas fases insertende sa crae de intrada tua"
+      status: "Autenticatzione in duas fases ativada"
+    confirm:
+      activate_button: "Cunfirma e ativa"
+      input_explanation: "A pustis de s'iscansidura o de s'insertadura de su còdighe segretu, inserta su còdighe de ses tzifras chi as a bìdere e cunfirma s'impostatzione."
+      input_title: "Cunfirma cun unu getone TOTP"
+      manual_explanation: "S'in casu mai non potzas iscansire su còdighe QR in manera automàtica podes insertare su còdighe segretu manualmente in s'aplicatzione."
+      manual_explanation_cont: "Semus impreende craes de intrada bàlidas pro una borta ebbia (TOTP) basadas subra su tempus cun getones a ses tzifras. S'in casu mai s'aplicatzione tua ti pedat un'intervallu de tempus e un's'algoritmu, inserta pare-pare 30 segundos e sha1. <br /> Sos ispàtzios bi sunt pro leghibilidade ebbia, inserta su còdighe chene de issos."
+      scan_explanation: "Pro praghere iscansi su còdighe QR cun un'aplicatzione cun capatzidade TOTP, che a andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      scan_title: "Iscansi su còdighe QR"
+      status: "S'autenticatzione in duas fases no est galu ativada de su totu, depes cunfirmare s'ativatzione cun unu getone TOTP"
+      title: "Cunfirma s'ativatzione"
+    deactivated:
+      change_button: "Ativa"
+      change_label: "Ativa s'autenticatzione in duas fases"
+      status: "Autenticatzione in duas fases disativada"
+    explanation: "S'autenticatzione in duas fases est una manera poderosa pro t'assegurare de èssere s'ùnicu in gradu de atzèdere a su contu tuo. Cando faghes s'atzessu, inserta unu còdighe de 6 tzifras in paris cun sa crae tua pro dimustrare s'identidade tua. Dae cara: si perdes su telèfonu e sos còdighes de riprìstinu creados cando ativas custa funtzionalidade, as a tènnere s'atzessu a su contu de diaspora* tuo blocadu pro semper."
+    flash:
+      error_token: "Su getone fiat non curretu o non vàlidu"
+      success_activation: "Autenticatzione in duas fases ativada chene problemas"
+      success_deactivation: "Autenticatzione in duas fases disativada chene problemas"
+    input_token:
+      label: "Getone in duas fases"
+      placeholder: "getone in duas fases a ses tzifras"
+    recovery:
+      button: "Ingendra còdighes de recùperu noos"
+      explanation: "S'in casu mai as a pèrdere s'atzessu a su telèfonu tuo as a pòdere impreare unu de sos còdighes de recùperu inoghe in suta pro torrare a otènnere s'atzessu a su contu tuo. Ampara bene sos còdighes de recùperu. Pro fàghere un'esèmpiu, los dias pòdere imprentare e pònnere cun àteros documentos de importu."
+      explanation_short: "Sos còdighes de recùperu ti permitint de torrare a otènnere s'atzessu a su contu tuo si as pèrdidu su telèfonu tuo. Ammenta·ti chi podes impreare cada còdighe de recùperu una borta ebbia."
+      invalidation_notice: "Si as pèrdidu sos còdighes de recùperu tuos, los podes torrare a ingendrare inoghe. Sos còdighes de recùperu betzos ant a èssere invalidados."
+      reminder: "Si nono, podes impreare unu de sos còdighes de recùperu."
+      title: "Còdighes de recùperu"
+    title: "Autenticatzione in duas fases"
   username: "Nùmene impreadore"
   users:
     confirm_email:
