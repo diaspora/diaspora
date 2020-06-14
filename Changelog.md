@@ -27,6 +27,14 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
 * Add backend for archive import [#7660](https://github.com/diaspora/diaspora/pull/7660)
 
+# 0.7.15.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.14.0
 
 ## Refactor
