@@ -1,8 +1,8 @@
 language: ruby
 
 rvm:
-  - 2.4.2
-  - 2.3.5
+  - 2.6.6
+  - 2.5.8
 
 env:
   - DB=postgresql BUILD_TYPE=cucumber

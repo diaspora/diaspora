@@ -1,3 +1,14 @@
+# 0.7.14.0
+
+## Refactor
+* Update the suggested Ruby version to 2.6. If you run into trouble during the update and you followed our installation guides, run `rvm install 2.6`. [#7929](https://github.com/diaspora/diaspora/pull/7929)
+
+## Bug fixes
+* Don't link to deleted users in admin user stats [#8063](https://github.com/diaspora/diaspora/pull/8063)
+* Properly validate a profile's gender field length instead of failing with a database error. [#8127](https://github.com/diaspora/diaspora/pull/8127)
+
+## Features
+
 # 0.7.13.0
 
 ## Security
