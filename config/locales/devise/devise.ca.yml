@@ -1,124 +1,87 @@
-#   Copyright © 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-#   Jordi Mallach <jordi@softcatala.org>, 2011.
-#   Abans d'actualitzar aquesta traducció, si us plau poseu-vos en contacte
-#   amb Jordi Mallach o Softcatalà <info@softcatala.org>.
+
+
 
 ca:
-  errors:
-    messages:
-      not_found: "no s'ha trobat"
-      already_confirmed: "ja estava confirmat"
-      not_locked: "no estava blocat"
-
   devise:
+    confirmations:
+      confirmed: "S'ha confirmat el vostre compte amb èxit. Ara esteu autenticat."
+      new:
+        resend_confirmation: "Torna a enviar les instruccions per a la confirmació"
+      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a confirmar la vostra contrasenya."
     failure:
-      unauthenticated: "Heu d'entrar o registrar-vos abans de continuar."
-      unconfirmed: "Heu de confirmar el vostre compte abans de continuar."
-      locked: "El vostre compte és blocat."
+      inactive: "El vostre compte encara no era actiu."
       invalid: "El nom d'usuari o contrasenya no són vàlids."
       invalid_token: "El testimoni d'autenticació és invàlid."
+      locked: "El vostre compte és blocat."
       timeout: "La vostra sessió ha caducat, torneu a entrar per a continuar."
-      inactive: "El vostre compte encara no era actiu."
-    sessions:
-      new:
-        login: "Entra"
-        username: "Nom d'usuari"
-        password: "Contrasenya"
-        sign_in: "Entra"
-        remember_me: "Recorda'm"
-        alpha_software: "Esteu a punt d'emprar programari en estat alfa."
-        bugs_and_feedback: "Tingueu en compte que aneu a experimentar errors. Us encoratgem a emprar el botó de comentaris del costat dret del vostre navegador per a informar de qualsevol problema. Treballarem tan ràpid com siga possible per a resoldre tots aquells problemes de què informeu."
-        bugs_and_feedback_mobile: "Tingueu en compte que aneu a experimentar errors. Us encoratgem a informar de qualsevol problema. Treballarem tan ràpid com siga possible per a resoldre tots aquells problemes de què informeu."
-        modern_browsers: "només suporta navegadors moderns."
-      signed_in: "Heu entrat correctament."
-      signed_out: "Heu sortit correctament."
+      unauthenticated: "Heu d'entrar o registrar-vos abans de continuar."
+      unconfirmed: "Heu de confirmar el vostre compte abans de continuar."
+    invitations:
+      invitation_token_invalid: "Disculpeu! Aquest testimoni de invitació no és vàlid."
+      send_instructions: "S'ha enviat la vostra invitació."
+      updated: "S'ha establert la vostra contrasenya amb èxit. Ara esteu autenticat."
+    mailer:
+      confirmation_instructions:
+        confirm: "Confirma el meu compte"
+        subject: "Instruccions per a la confirmació"
+        you_can_confirm: "Podeu confirmar el vostre compte mitjançant l'enllaç següent:"
+      hello: "Hola, %{email}!"
+      inviter:
+        accept_at: "a %{url}, podeu acceptar-ho mitjançant l'enllaç següent."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} us han convidat a unir-vos a Diàspora"
+      reset_password_instructions:
+        change: "Canvia la meua contrasenya"
+        ignore: "Si no heu demanat això, ignoreu aquest correu electrònic."
+        someone_requested: "Algú ha demanat un enllaç per a canviar la vostra contrasenya, i podeu fer-ho mitjançant l'enllaç següent."
+        subject: "Instruccions per al restabliment de la contrasenya"
+        wont_change: "La vostra contrasenya no es canviarà fins que no accediu l'enllaç anterior i en creeu una de nova."
+      unlock_instructions:
+        account_locked: "S'ha blocat el vostre compte degut a un nombre excessiu d'entrades fallides."
+        click_to_unlock: "Feu clic a l'enllaç següent per desblocar el vostre compte:"
+        subject: "Instruccions per al desblocatge"
+        unlock: "Desbloca el meu compte"
+      welcome: "Benvingut/da, %{email}!"
     passwords:
-      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a reestablir la vostra contrasenya."
-      updated: "S'ha canviat la vostra contrasenya amb èxit. Ara esteu autenticat."
       edit:
         change_password: "Canvia la contrasenya"
       new:
         forgot_password: "Heu oblidat la vostra contrasenya?"
-        no_account: "No existeix cap compte amb aquest correu electrònic. Si espereu una invitació, aquestes s'enviaran el més aviat possible."
         send_password_instructions: "Envia'm instruccions per a reestablir la contrasenya"
-    confirmations:
-      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a confirmar la vostra contrasenya."
-      confirmed: "S'ha confirmat el vostre compte amb èxit. Ara esteu autenticat."
-      new:
-        resend_confirmation: "Torna a enviar les instruccions per a la confirmació"
+      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a reestablir la vostra contrasenya."
+      updated: "S'ha canviat la vostra contrasenya amb èxit. Ara esteu autenticat."
     registrations:
+      destroyed: "Adéu! S'ha canceŀlat el vostre compte amb èxit. Esperem tornar a veure-vos molt aviat."
       signed_up: "Us heu registrat amb èxit. Si està habilitat, s'haurà enviat un correu electrònic de confirmació a la vostra adreça."
       updated: "Heu actualitzat el compte amb èxit."
-      destroyed: "Adéu! S'ha canceŀlat el vostre compte amb èxit. Esperem tornar a veure-vos molt aviat."
-    unlocks:
-      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a desblocar el vostre compte."
-      unlocked: "El vostre compte s'ha desblocat amb èxit. Ara esteu autenticat."
+    sessions:
       new:
-        resend_unlock: "Torna a enviar les instruccions per al deblocatge"
-    invitations:
-      send_instructions: "S'ha enviat la vostra invitació."
-      invitation_token_invalid: "Disculpeu! Aquest testimoni de invitació no és vàlid."
-      updated: "S'ha establert la vostra contrasenya amb èxit. Ara esteu autenticat."
-    mailer:
-      welcome: "Benvingut/da, %{email}!"
-      hello: "Hola, %{email}!"
-      confirmation_instructions:
-        subject: "Instruccions per a la confirmació"
-        you_can_confirm: "Podeu confirmar el vostre compte mitjançant l'enllaç següent:"
-        confirm: "Confirma el meu compte"
-      reset_password_instructions:
-        subject: "Instruccions per al restabliment de la contrasenya"
-        someone_requested: "Algú ha demanat un enllaç per a canviar la vostra contrasenya, i podeu fer-ho mitjançant l'enllaç següent."
-        change: "Canvia la meua contrasenya"
-        wont_change: "La vostra contrasenya no es canviarà fins que no accediu l'enllaç anterior i en creeu una de nova."
-        ignore: "Si no heu demanat això, ignoreu aquest correu electrònic."
-      unlock_instructions:
-        subject: "Instruccions per al desblocatge"
-        account_locked: "S'ha blocat el vostre compte degut a un nombre excessiu d'entrades fallides."
-        click_to_unlock: "Feu clic a l'enllaç següent per desblocar el vostre compte:"
-        unlock: "Desbloca el meu compte"
-      invitation_instructions:
-        displaying_correctly: "No veieu aquest correu correctament? %{link}"
-        view_in: "Vegeu-ho al vostre navegador."
-        finally: "Finalment, és aquí"
-        arrived: "La xarxa social que estaveu esperant ha arribat. Redissenyada, més segura i més divertida, %{strong_diaspora} és a punt per ajudar-vos a compartir i explorar el web d'una manera totalment nova."
-        sign_up_now: "Registreu-vos ara &rarr;"
-        friends_saying: "Què diuen els vostres amics…"
-        more_people: "Més gent encara està contenta de veure-vos!"
-        get_connected: "Connecteu-vos"
-        get_connected_paragraph: "Un moviment internacional amb una visió compartida per un web millor, la principal característica de %{strong_diaspora} és la seva comunitat. Trobeu gent nova, connecteu amb els amics i passeu-ho bé amb nosaltres."
-        be_yourself: "Sigues tu mateix"
-        be_yourself_paragraph: "Internet ha creat formes noves i singulars perquè ens expressem. ${strong_diaspora} us permet ser vosaltres mateixos i compartir com preferiu, amb o sense el vostre nom real."
-        cubbies: "Cubbi.es"
-        have_fun: "Passeu-ho bé"
-        have_fun_paragraph: "%{strong_diaspora} vol dir descobrir continguts i gent increïble a la xarxa. %{link}, la primera aplicació de %{strong_diaspora} és només el principi. Rebeu i compartiu el web amb tot el seu potencial."
-        made_by_people: "%{strong_diaspora} es composa de gent que estima Internet tant com vosaltres. %{jointeam} o %{helpfund}!"
-        join_team: "Uniu-vos a l'equip"
-        or: "o"
-        help_fund: "ajudeu amb el finançament del Diàspora*"
-        unsubscribe: "Per desubscrivir-vos, feu click %{link}."
-        here: "aquí"
-        love: "Adéu,"
-        team_diaspora: "L'equip del Diàspora"
-        email_us: "Per preguntes generals o suport amb el vostre compte del diàspora, escriviu-nos a %{email}."
-        email_address: "questions@joindiaspora.com"
-        subject: "Us han convidat a unir-vos a Diàspora!"
-        accept: "Accepta la invitació"
-        ignore: "Si no voleu acceptar la invitació, ignoreu aquest correu electrònic."
-        no_account_till: "No es crearà el vostre compte fins que no accediu l'enllaç anterior i us registreu."
-      inviter:
-        has_invited_you: "%{name}"
-        have_invited_you: "%{names} us han convidat a unir-vos a Diàspora"
-        accept_at: "a %{url}, podeu acceptar-ho mitjançant l'enllaç següent."
+        login: "Entra"
+        modern_browsers: "només suporta navegadors moderns."
+        password: "Contrasenya"
+        remember_me: "Recorda'm"
+        sign_in: "Entra"
+        username: "Nom d'usuari"
+      signed_in: "Heu entrat correctament."
+      signed_out: "Heu sortit correctament."
     shared:
-      mail_signup_form:
-        sign_up_for_an_invite: "Registreu-vos per a rebre una invitació!"
       links:
-        sign_in: "Entreu"
-        sign_up: "Registreu-vos"
-        sign_up_closed: "El registre lliure està tancat ara mateix."
         forgot_your_password: "Heu oblidat la vostra contrasenya?"
         receive_confirmation: "No heu rebut les instruccions per a la confirmació?"
         receive_unlock: "No heu rebut les instruccions per al desblocatge?"
+        sign_in: "Entreu"
+        sign_up: "Registreu-vos"
+        sign_up_closed: "El registre lliure està tancat ara mateix."
+    unlocks:
+      new:
+        resend_unlock: "Torna a enviar les instruccions per al deblocatge"
+      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a desblocar el vostre compte."
+      unlocked: "El vostre compte s'ha desblocat amb èxit. Ara esteu autenticat."
+  errors:
+    messages:
+      already_confirmed: "ja estava confirmat"
+      not_found: "no s'ha trobat"
+      not_locked: "no estava blocat"

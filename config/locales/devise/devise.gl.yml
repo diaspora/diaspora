@@ -1,92 +1,114 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-gl:
-  errors:
-    messages:
-      not_found: "non se atopou"
-      already_confirmed: "xa foi confirmado"
-      not_locked: "non foi bloqueado"
 
+
+gl:
   devise:
-    failure:
-      unauthenticated: 'Ten que acceder ou rexistrarse para continuar.'
-      unconfirmed: 'Ten que confirmar a súa conta para continuar.'
-      locked: 'A súa conta está bloqueada.'
-      not_found_in_database: 'O enderezo ou contrasinal son incorrectos.'
-      invalid: 'O correo electrónico ou contrasinal son incorrectos.'
-      invalid_token: 'O código de autenticación é incorrecto.'
-      timeout: 'A súa sesión rematou, volva identificarse para continuar.'
-      inactive: 'Aínda non se activou a súa conta.'
-    sessions:
-      new:
-        login: 'Acceder'
-        username: 'Nome de usuario'
-        password: 'Contrasinal'
-        sign_in: 'Acceder'
-        remember_me: "Lembrar os datos."
-        modern_browsers: 'só é compatíbel con navegadores web modernos.'
-      signed_in: 'Accedeu correctamente.'
-      signed_out: 'Saíu correctamente.'
-    passwords:
-      send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para cambiar o contrasinal.'
-      updated: 'O seu contrasinal cambiouse correctamente, e xa está identificado co novo.'
-      edit:
-        change_password: "Cambiar o contrasinal"
-        new_password: "Novo contrasinal"
-        confirm_password: "Confirmar o contrasinal"
-      new:
-        forgot_password: "Esqueceu o contrasinal?"
-        no_account: 'O enderezo non se corresponde con ningunha conta.'
-        reset_password: "Restablecer o contrasinal"
-        email: "Enderezo de correo"
-        send_password_instructions: "Recibir instrucións para cambiar de contrasinal"
     confirmations:
-      send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para confirmar a súa conta.'
-      confirmed: 'Confirmouse a súa conta, e xa está identificado con ela.'
+      confirmed: "Confirmouse a túa conta, e xa estás identificado con ela."
       new:
         resend_confirmation: "Volver enviar as instrucións de confirmación"
-    registrations:
-      signed_up: 'Rexistrouse correctamente. Se así o solicitou, enviaráselle un correo electrónico de confirmación.'
-      updated: 'A súa conta actualizouse correctamente.'
-      destroyed: 'A súa conta eliminouse correctamente. Ata outra!'
-    unlocks:
-      send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para desbloquear a súa conta.'
-      unlocked: 'Desbloqueouse a súa conta, e xa está identificado con ela.'
-      new:
-        resend_unlock: "Volver enviar as instrucións de desbloqueo"
+      send_instructions: "Nuns minutos recibirás un correo electrónico con instrucións para confirmar a túa conta."
+      send_paranoid_instructions: "Se o enderezo de email existe na nosa base de datos, nuns minutos recibirás un correo con instruccións de cómo confirmar o enderezo de correo."
+    failure:
+      already_authenticated: "Xa estás conectada."
+      inactive: "Aínda non se activou a túa conta."
+      invalid: "Contrasinal ou %{authentication_keys} non válidos."
+      invalid_token: "O código de autenticación é incorrecto."
+      last_attempt: "Quédache un só intento antes de que se bloquee o acceso."
+      locked: "A súa conta está bloqueada."
+      not_found_in_database: "%{authentication_keys} ou contrasinal non válidos"
+      timeout: "A sesión rematou, introduce as credenciais para continuar."
+      unauthenticated: "Ten que acceder ou rexistrarse para continuar."
+      unconfirmed: "Tes que confirmar a túa conta para continuar."
     invitations:
-      send_instructions: 'Envióuselle unha invitación.'
-      invitation_token_invalid: 'O código da invitación non é correcto.'
-      updated: 'Estableceuse o seu contrasinal, e xa está identificado con el.'
+      invitation_token_invalid: "O código da invitación non é correcto."
+      send_instructions: "Envióuselle unha invitación."
+      updated: "Estableceuse o seu contrasinal, e xa está identificado con el."
     mailer:
-      welcome: "Benvido, %{email}!"
-      hello: "Ola, %{email}!"
       confirmation_instructions:
-        subject: 'Instrucións de confirmación'
-        you_can_confirm: "Pode confirmar a súa conta mediante a seguinte ligazón:"
         confirm: "Confirmar a conta"
-      reset_password_instructions:
-        subject: 'Instrucións para cambiar o contrasinal'
-        someone_requested: "Alguén solicitou unha ligazón para cambiar de contrasinal. Se foi vostede, siga a seguinte ligazón:"
-        change: "Cambiar de contrasinal"
-        wont_change: "Para cambiar de contrasinal, prema a seguinte ligazón e escolla un novo."
-        ignore: "Se non foi vostede quen solicitou o cambio, pode ignorar esta mensaxe."
-      unlock_instructions:
-        subject: 'Instrucións para desbloquear a conta'
-        account_locked: "A súa conta bloqueouse por mor do gran número de intentos errados de identificarse con ela."
-        click_to_unlock: "Siga a seguinte ligazón para desbloqueala:"
-        unlock: "Desbloquear a conta"
+        subject: "Instrucións de confirmación"
+        you_can_confirm: "Pode confirmar a súa conta mediante a seguinte ligazón:"
+      hello: "Ola, %{email}!"
       inviter:
-        has_invited_you: "%{name}"
-        have_invited_you: "%{names} invitárono a unirse a diaspora*"
         accept_at: "en %{url}, pode aceptar seguindo a seguinte ligazón."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} convidoute a unirte a diaspora*"
+      password_change:
+        subject: "Contrasinal cambiado"
+      reset_password_instructions:
+        change: "Cambiar de contrasinal"
+        ignore: "Se non foi vostede quen solicitou o cambio, pode ignorar esta mensaxe."
+        someone_requested: "Alguén solicitou cambiar o teu contrasinal. Se foches ti, preme na seguinte ligazón:"
+        subject: "Instrucións para cambiar o contrasinal"
+        wont_change: "Para cambiar de contrasinal, prema a seguinte ligazón e escolla un novo."
+      unlock_instructions:
+        account_locked: "A conta bloqueouse por mor do gran número de intentos errados de identificarse con ela."
+        click_to_unlock: "Siga a seguinte ligazón para desbloqueala:"
+        subject: "Instrucións para desbloquear a conta"
+        unlock: "Desbloquear a conta"
+      welcome: "Benvido, %{email}!"
+    omniauth_callbacks:
+      failure: "Non se puido autenticar desde %{kind} debido a \"%{reason}\"."
+      success: "Autenticada correctamente desde a conta %{kind}"
+    passwords:
+      edit:
+        change_password: "Cambiar o contrasinal"
+        confirm_password: "Confirmar contrasinal"
+        new_password: "Novo contrasinal"
+      new:
+        email: "Enderezo de correo-e"
+        forgot_password: "Esqueceu o contrasinal?"
+        reset_password: "Restablecer contrasinal"
+        send_password_instructions: "Recibir instrucións para cambiar de contrasinal"
+      no_token: "Non podes acceder a esta páxina sen proceder desde un correo de restablecemento de contrasinal. Se procedes de un correo de restablecemento de contrasinal, por favor asegúrate de que utilizas o URL completo que che proporcionaron."
+      send_instructions: "Nuns minutos recibirás un correo electrónico con instrucións para cambiar o contrasinal."
+      send_paranoid_instructions: "Se o enderezo de correo existe na nosa base de datos, recibirás en poucos minutos unha ligazón de restablecemento de contrasinal nun correo electrónico."
+      updated: "O teu contrasinal cambiouse correctamente, e xa estás identificado co novo."
+      updated_not_active: "Cambiaches correctamente o contrasinal."
+    registrations:
+      destroyed: "Ata outra! A conta eliminouse correctamente. Agardamos verte de novo por aquí."
+      signed_up: "Rexistrouse correctamente. Se así o solicitou, enviaráselle un correo electrónico de confirmación."
+      signed_up_but_inactive: "Rexistro correcto. Porén, non puidemos conectarte porque a conta aínda non foi activada."
+      signed_up_but_locked: "Rexistro correcto. Porén, non puidemos conectarte porque a conta está bloqueada."
+      signed_up_but_unconfirmed: "Enviamosche unha mensaxe de correo-e cunha ligazón de confirmación. Por favor sigue a ligazón para activar a conta."
+      update_needs_confirmation: "Actualizaches correctamente a conta, mais precisamos validar o novo enderezo de correo. Por favor comproba o correo e sigue a ligazón enviada para confirmar o novo enderezo de correo."
+      updated: "A túa conta actualizouse correctamente."
+    sessions:
+      already_signed_out: "Desconexión correcta."
+      new:
+        login: "Iniciar sesión"
+        modern_browsers: "só é compatíbel con navegadores web modernos."
+        password: "Contrasinal"
+        remember_me: "Lembrar os datos."
+        sign_in: "Acceder"
+        username: "Nome de usuario"
+      signed_in: "Accedeu correctamente."
+      signed_out: "Saíu correctamente."
     shared:
       links:
-        sign_in: 'Acceder'
-        sign_up: 'Rexistrarse'
-        sign_up_closed: 'Nestes momentos non poden rexistrarse contas.'
-        forgot_your_password: 'Esqueceu o contrasinal?'
-        receive_confirmation: 'Non recibiu as instrucións de confirmación?'
-        receive_unlock: 'Non recibiu as instrucións de desbloqueo?'
+        forgot_your_password: "Esqueceu o contrasinal?"
+        receive_confirmation: "Non recibiu as instrucións de confirmación?"
+        receive_unlock: "Non recibiu as instrucións de desbloqueo?"
+        sign_in: "Acceder"
+        sign_up: "Crear conta"
+        sign_up_closed: "Nestes momentos non poden rexistrarse contas."
+    unlocks:
+      new:
+        resend_unlock: "Volver enviar as instrucións de desbloqueo"
+      send_instructions: "Nuns minutos recibirás un correo electrónico con instrucións para desbloquear a túa conta."
+      send_paranoid_instructions: "Se a conta existe, nuns minutos recibirás un correo-e con instruccións para desbloqueala."
+      unlocked: "Desbloqueouse a conta, por favor conéctate para continuar."
+  errors:
+    messages:
+      already_confirmed: "xa foi confirmado, intenta conectarte"
+      confirmation_period_expired: "necesita ser confirmado en %{period}, por favor solicita un novo"
+      expired: "caducou, por favor solicita un novo"
+      not_found: "non se atopou"
+      not_locked: "non foi bloqueado"
+      not_saved:
+        one: "%{count}  fallo non permite que se garde %{resource}:"
+        other: "%{count} fallos non permiten que se garde %{resource}:"
