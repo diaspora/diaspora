@@ -6,9 +6,9 @@ require 'sidekiq/middleware/i18n'
 # Single process-mode
 if AppConfig.environment.single_process_mode? && Rails.env != "test"
   if Rails.env == 'production'
-    puts "WARNING: You are running Diaspora in production without Sidekiq"
-    puts "         workers turned on.  Please set single_process_mode to false in"
-    puts "         config/diaspora.yml."
+    warn "WARNING: You are running Diaspora in production without Sidekiq"
+    warn "         workers turned on.  Please set single_process_mode to false in"
+    warn "         config/diaspora.toml."
   end
   require 'sidekiq/testing/inline'
 end

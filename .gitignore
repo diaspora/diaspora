@@ -4,6 +4,7 @@ app/views/terms/terms.*
 app/assets/images/custom/
 
 # Configuration files
+config/diaspora.toml
 config/diaspora.yml
 config/initializers/secret_token.rb
 .bundle
