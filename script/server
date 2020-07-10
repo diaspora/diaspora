@@ -55,10 +55,15 @@ then
   fatal "config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!"
 fi
 
-# Check if diaspora.yml exists
-if [ ! -e "config/diaspora.yml" ]
+# Check if diaspora.toml exists
+if [ -e "config/diaspora.toml" ]
 then
-  fatal "config/diaspora.yml is missing! Copy over config/diaspora.yml.example to config/diaspora.yml and edit it properly!"
+  CONFIG_FILE="config/diaspora.toml"
+elif [ -e "config/diaspora.yml" ]
+then
+  CONFIG_FILE="config/diaspora.yml"
+else
+  fatal "config/diaspora.toml is missing! Copy over config/diaspora.toml.example to config/diaspora.toml and edit it properly!"
 fi
 
 command -v git > /dev/null 2>&1
@@ -100,7 +105,7 @@ fi
 if [ -z "$RAILS_ENV" ]
 then
   RAILS_ENV=$(bin/bundle exec ruby ./script/get_config.rb server.rails_environment | grep -vE "is not writable|as your home directory temporarily" )
-  on_failure "Couldn't parse config/diaspora.yml!"
+  on_failure "Couldn't parse $CONFIG_FILE!"
   export RAILS_ENV
 fi
 
@@ -116,7 +121,7 @@ vars=$(bin/bundle exec ruby ./script/get_config.rb \
   redis_url=environment.redis \
   | grep -vE "is not writable|as your home directory temporarily"
 )
-on_failure "Couldn't parse config/diaspora.yml!"
+on_failure "Couldn't parse $CONFIG_FILE!"
 eval "$vars"
 
 args="$@"
@@ -170,10 +175,10 @@ then
   if [ -n "$redis_url" ]
   then
     redis_param="url: '$redis_url'"
-  fi 
+  fi
   if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null | grep -vE "is not writable|as your home directory temporarily" )" != "PONG" ]
   then
-    fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in config/diaspora.yml."
+    fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in $CONFIG_FILE."
   fi
 fi
 

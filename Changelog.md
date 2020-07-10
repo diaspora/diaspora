@@ -5,6 +5,7 @@
 ## Bug fixes
 
 ## Features
+* Support and recommend TOML as configuration format [#8132](https://github.com/diaspora/diaspora/pull/8132)
 
 # 0.7.14.0
 

@@ -3,6 +3,7 @@
 require "pathname"
 require "bundler/setup"
 require "configurate"
+require "configurate/provider/toml"
 
 rails_env = ENV["RAILS_ENV"] || ENV["RACK_ENV"] || "development"
 
@@ -20,18 +21,35 @@ AppConfig ||= Configurate::Settings.create do
   add_provider Configurate::Provider::Dynamic
   add_provider Configurate::Provider::Env
 
-  unless heroku? || rails_env == "test" || File.exist?(File.join(config_dir, "diaspora.yml"))
-    warn "FATAL: Configuration not found. Copy over diaspora.yml.example"
-    warn "       to diaspora.yml and edit it to your needs."
+  unless heroku? ||
+    rails_env == "test" ||
+    File.exist?(File.join(config_dir, "diaspora.toml")) ||
+    File.exist?(File.join(config_dir, "diaspora.yml"))
+    warn "FATAL: Configuration not found. Copy over diaspora.toml.example"
+    warn "       to diaspora.toml and edit it to your needs."
     exit!
   end
 
-  add_provider Configurate::Provider::YAML,
-               File.join(config_dir, "diaspora.yml"),
-               namespace: rails_env, required: false
-  add_provider Configurate::Provider::YAML,
-               File.join(config_dir, "diaspora.yml"),
-               namespace: "configuration", required: false
+  if File.exist?(File.join(config_dir, "diaspora.toml"))
+    if File.exist?(File.join(config_dir, "diaspora.yml"))
+      warn "WARNING: diaspora.toml found, ignoring diaspora.yml. Move or delete diaspora.yml to remove this warning."
+    end
+
+    add_provider Configurate::Provider::TOML,
+                 File.join(config_dir, "diaspora.toml"),
+                 namespace: rails_env, required: false
+    add_provider Configurate::Provider::TOML,
+                 File.join(config_dir, "diaspora.toml"),
+                 namespace: "configuration", required: false
+  else
+    add_provider Configurate::Provider::YAML,
+                 File.join(config_dir, "diaspora.yml"),
+                 namespace: rails_env, required: false
+    add_provider Configurate::Provider::YAML,
+                 File.join(config_dir, "diaspora.yml"),
+                 namespace: "configuration", required: false
+  end
+
   add_provider Configurate::Provider::YAML,
                File.join(config_dir, "defaults.yml"),
                namespace: rails_env

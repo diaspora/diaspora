@@ -50,7 +50,8 @@ gem "uglifier", "4.2.0"
 
 # Configuration
 
-gem "configurate", "0.3.1"
+gem "configurate", "0.4.0"
+gem "tomlrb", "1.3.0"
 
 # Cross-origin resource sharing
 
