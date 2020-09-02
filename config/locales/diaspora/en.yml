@@ -146,6 +146,7 @@ en:
       email: "Email"
       diaspora_handle: "diaspora* ID"
       last_seen: "Last seen"
+      current_sign_in_ip: "IP address at current sign in"
       account_closed: "Account closed"
       nsfw: "#nsfw"
       admin: "Admin"
