@@ -27,6 +27,8 @@
           %dd= user.person.diaspora_handle
           %dt= t(".last_seen")
           %dd= user.last_seen || t(".unknown")
+          %dt= t(".current_sign_in_ip")
+          %dd= user.current_sign_in_ip || t(".unknown")
           - if user.invited_by.present?
             %dt= t(".invite_token")
             %dd= invite_code_url(user.invited_by.invitation_code)
