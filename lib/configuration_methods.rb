@@ -128,11 +128,6 @@ module Configuration
     end
 
     def bitcoin_donation_address
-      if AppConfig.settings.bitcoin_wallet_id.present?
-        warn "WARNING: bitcoin_wallet_id is now bitcoin_address. Change in diaspora.yml."
-        return AppConfig.settings.bitcoin_wallet_id
-      end
-
       if AppConfig.settings.bitcoin_address.present?
         AppConfig.settings.bitcoin_address
       end
