@@ -43,12 +43,6 @@ chk_service()
 realpath=$( ruby -e "puts File.expand_path(\"$0\")")
 cd $(dirname $realpath)/..
 
-#Warn if legacy config exists
-if [ -e "config/script_server.yml" ]
-then
-  warning "config/script_server.yml was merged into config/diaspora.yml. Please read the changelog!"
-fi
-
 # Check if database.yml exists
 if [ ! -e "config/database.yml" ]
 then
