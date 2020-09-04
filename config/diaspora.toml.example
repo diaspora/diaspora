@@ -1,0 +1,636 @@
+## Some notes about this file:
+## - All comments start with a double #
+## - All settings are commented out with a single #
+##   To change the default settings, you need both to uncomment the lines
+##   AND, in most cases, to change the value that is given.
+## - Take care to keep proper quoting. All " must have a matching " at
+##   the end of the same line. The same goes for '
+## - The values true, false and numbers should have no quote marks.
+##   Everything else should.
+##
+## You can set and/or override all these settings through environment variables
+## with the following conversion rules:
+## - Strip the top level namespace (configuration, production, etc.)
+## - Build the path to the setting, for example environment.s3.enable
+## - Replace the dots with underscores: environment_s3_enable
+## - Convert to upper case: ENVIRONMENT_S3_ENABLE
+## - Specify lists/arrays as comma-separated values
+##
+## - For example, on Heroku:
+##   heroku config:set SERVICES_TWITTER_KEY=yourkey SERVICES_TWITTER_SECRET=yoursecret
+
+## You need to change or at least review the settings in this section
+## in order for your pod to work.
+[configuration.environment]
+
+## Set the hostname of the machine you're running Diaspora on, as seen
+## from the internet. This should be the URL you want to use to
+## access the pod. So if you plan to use a reverse proxy, it should be
+## the URL the proxy listens on. DO NOT CHANGE THIS AFTER INITIAL SETUP!
+## However changing http to https is okay and has no consequences.
+## If you do change the URL, you will have to start again as the URL
+## will be hardcoded into the database.
+#url = "https://example.org/"
+
+## Set the bundle of certificate authorities (CA) certificates.
+## This is specific to your operating system.
+## Examples (uncomment the relevant one or add your own):
+## For Debian, Ubuntu, Archlinux, Gentoo (package ca-certificates):
+#certificate_authorities = "/etc/ssl/certs/ca-certificates.crt"
+## For CentOS, Fedora:
+#certificate_authorities = "/etc/pki/tls/certs/ca-bundle.crt"
+
+## URL for a remote Redis (default="localhost").
+## Don't forget to restrict IP access if you uncomment these!
+#redis = "redis://example_host"
+#redis = "redis://username:password@host:6379/0"
+#redis = "unix:///tmp/redis.sock"
+
+## Require SSL (default=true).
+## When set, your pod will force the use of HTTPS in production mode.
+## Since OAuth2 requires SSL, Diaspora's future API might not work if
+## you're not using SSL. Also there is no guarantee that posting to
+## services will be possible if SSL is disabled.
+## Do not change this default unless you are sure!
+#require_ssl = true
+
+## Single-process mode (default=false).
+## If set to true, Diaspora will work with just the appserver (Unicorn by
+## default) running. However, this makes it quite slow as intensive jobs
+## must be run all the time inside the request cycle. We strongly
+## recommended you leave this disabled for production setups.
+## Set to true to enable.
+#single_process_mode = false
+
+## Set redirect URL for an external image host (Amazon S3 or other).
+## If hosting images for your pod on an external server (even your own),
+## add its URL here. All requests made to images under /uploads/images
+## will be redirected to https://images.example.org/uploads/images/
+#image_redirect_url = "https://images.example.org"
+
+## Pubsub server (default="https://pubsubhubbub.appspot.com/"").
+## Diaspora is only tested against the default pubsub server.
+## You probably don't want to uncomment or change this.
+#pubsub_server = "https://pubsubhubbub.appspot.com/"
+
+## Sidekiq - background processing
+[configuration.environment.sidekiq]
+
+## Number of parallel threads Sidekiq uses (default=5).
+## If you touch this, please set the pool setting in your database.yml
+## to a value that's at minimum close to this! You can safely increase
+## it to 25 and more on a medium-sized pod. This applies per started
+## Sidekiq worker, so if you set it to 25 and start two workers, you'll
+## process up to 50 jobs in parallel.
+#concurrency = 5
+
+## Number of times a job is retried (default=10).
+## There's an exponential effect to this: if you set this too high you
+## might get too many jobs building up in the queue.
+## Set it to 0 to disable it completely.
+#retry = 10
+
+## Lines of backtrace that are stored on failure (default=15).
+## Set n to the required value. Set this to false to reduce Redis memory
+## usage (and log size) if you're not interested in this data.
+#backtrace = 15
+
+## Number of jobs to keep in the dead queue (default=5000).
+## Jobs get into the dead queue after they failed and exhausted all retries.
+## Increasing this setting will increase the memory usage of Redis.
+## Once gone from the dead queue, a failed job is permanently lost and
+## cannot be retried manually.
+#dead_jobs_limit = 1000
+
+## Number of seconds a job remains in the dead queue (default=3628800 (six weeks)).
+## Jobs get into the dead queue after they failed and exhausted all retries.
+## Increasing this setting will increase the memory usage of Redis.
+## Once gone from the dead queue, a failed job is permanently lost and
+## cannot be retried manually.
+#dead_jobs_timeout = 15552000 # 6 months
+
+## Log file for Sidekiq (default="log/sidekiq.log")
+#log = "log/sidekiq.log"
+
+## Use Amazon S3 instead of your local filesystem
+## to handle uploaded pictures (disabled by default).
+[configuration.environment.s3]
+
+#enable = true
+#key = "change_me"
+#secret = "change_me"
+#bucket = "my_photos"
+#region = "us-east-1"
+
+## Use max-age header on Amazon S3 resources (default=true).
+## When true, this allows locally cached images to be served for up to
+## one year. This can improve load speed and save requests to the image
+## host. Set to false to revert to browser defaults (usually less than
+## one year).
+#cache = true
+
+[configuration.environment.assets]
+
+## Serve static assets via the appserver (default=false).
+## This is highly discouraged for production use. Let your reverse
+## proxy/webserver do it by serving the files under public/ directly.
+#serve = false
+
+## Upload your assets to S3 (default=false).
+#upload = false
+
+## Specify an asset host. Ensure it does not have a trailing slash (/).
+#host = "http://cdn.example.org/diaspora"
+
+## Logger configuration
+[configuration.environment.logging]
+
+## Roll the application log on a daily basis (default=true).
+#logrotate.enable = true
+
+## The number of days to keep (default=7)
+#logrotate.days = 7
+
+## Enables the debug-logging for SQL (default=false)
+## This logs every SQL-statement!
+#debug.sql = true
+
+## Enables the federation-debug-log (default=false)
+## This logs all XMLs that are used for the federation
+#debug.federation = true
+
+## Settings affecting how ./script/server behaves.
+[configuration.server]
+
+## Where the appserver should listen to (default="unix:tmp/diaspora.sock")
+#listen = "unix:tmp/diaspora.sock"
+#listen = "unix:/run/diaspora/diaspora.sock"
+#listen = "127.0.0.1:3000"
+
+## Set the path for the PID file of the unicorn master process (default=tmp/pids/web.pid)
+#pid = "tmp/pids/web.pid"
+
+## Rails environment (default="development").
+## The environment in which the server should be started by default.
+## Change this to "production" if you wish to run a production environment.
+#rails_environment = "production"
+
+## Write unicorn stderr and stdout log.
+#stderr_log = "log/unicorn-stderr.log"
+#stdout_log = "log/unicorn-stdout.log"
+
+## Number of Unicorn worker processes (default=2).
+## Increase this if you have many users.
+#unicorn_worker = 2
+
+## Number of seconds before a request is aborted (default=90).
+## Increase if you get empty responses, or if large image uploads fail.
+## Decrease if you're under heavy load and don't care if some
+## requests fail.
+#unicorn_timeout = 90
+
+## Embed a Sidekiq worker inside the unicorn process (default=false).
+## Useful for minimal Heroku setups.
+#embed_sidekiq_worker = false
+
+## Number of Sidekiq worker processes (default=1).
+## In most cases it is better to
+## increase environment.sidekiq.concurrency instead!
+#sidekiq_workers = 1
+
+## Displays the location of a post in a map. Per default we are using the map
+## tiles of the Heidelberg University (http://giscience.uni-hd.de).
+## You also have the possibility to use the map tiles of https://www.mapbox.com
+## which is probably more reliable. There you have to create an account to get
+## an access token which is limited. If you want to get an unlimited account
+## you can write an email to team@diasporafoundation.org.
+## Please enable mapbox and fill out your access_token.
+[configuration.map.mapbox]
+
+#enabled = false
+#access_token = "youraccesstoken"
+#style = "mapbox/streets-v9"
+
+## Settings potentially affecting the privacy of your users.
+[configuration.privacy]
+
+## Include jQuery from jquery.com's CDN (default=false).
+## Enabling this can reduce traffic and speed up load time since most
+## clients already have this one cached. When set to false (the default),
+## the jQuery library will be loaded from your pod's own resources.
+#jquery_cdn = false
+
+## Google Analytics (disabled by default).
+## Provide a key to enable tracking by Google Analytics.
+#google_analytics_key = "yourkey"
+
+## Piwik Tracking (disabled by default).
+## Provide a site ID and the host piwik is running on to enable
+## tracking through Piwik.
+#piwik.enable = true
+#piwik.host = "stats.example.org"
+#piwik.site_id = 1
+
+## Statistics
+## Your pod will report its name, software version and whether
+## or not registrations are open via /statistics and NodeInfo.
+## Uncomment the options below to enable more statistics.
+[configuration.privacy.statistics]
+
+## Local user total and 6 month active counts.
+#user_counts = true
+
+## Local post total count.
+#post_counts = true
+#comment_counts = true
+
+## Use Camo to proxy embedded remote images.
+## Do not enable this setting unless you have a working Camo setup. Using
+## camo to proxy embedded images will improve the privacy and security of
+## your pod's frontend, but it will increase the traffic on your server.
+## Check out https://wiki.diasporafoundation.org/Installation/Camo for
+## more details and installation instructions.
+[configuration.privacy.camo]
+
+## Proxy images embedded via markdown (default=false).
+## Embedded images are quite often from non-SSL sites and may cause a
+## partial content warning, so this is recommended.
+#proxy_markdown_images = true
+
+## Proxy Open Graph thumbnails (default=false).
+## Open Graph thumbnails may or may not be encrypted and loaded from
+## servers outside the network. Recommended.
+#proxy_opengraph_thumbnails = true
+
+## Proxy remote pod's images (default=false).
+## Profile pictures and photos from other pods usually are encrypted,
+## so enabling this is only useful if you want to avoid HTTP requests to
+## third-party servers. This will create a lot of traffic on your camo
+## instance. You have been warned.
+#proxy_remote_pod_images = true
+
+## Root of your Camo installation
+#root = "https://example.com/camo/"
+
+## Shared key of your Camo installation
+#key = "example123example456example!"
+
+## General settings
+[configuration.settings]
+
+## Pod name (default="diaspora*")
+## The pod name displayed in various locations, including the header.
+#pod_name = "diaspora*"
+
+## Allow registrations (default=true)
+## Set this to false to prevent people from signing up to your pod
+## without an invitation. Note that this needs to be set to true
+## (or commented out) to enable the first registration (you).
+#enable_registrations = true
+
+## Auto-follow on sign-up (default=true)
+## Users will automatically follow a specified account on creation.
+## Set this to false if you don't want your users to automatically
+## follow an account upon creation.
+#autofollow_on_join = true
+
+## Auto-follow account (default="hq@pod.diaspora.software")
+## The diaspora* HQ account keeps users up to date with news about Diaspora.
+## If you set another auto-follow account (for example your podmin account),
+## please consider resharing diaspora* HQ's posts for your pod's users!
+#autofollow_on_join_user = "hq@pod.diaspora.software"
+
+## Liberapay.com is a free platform which allow donations like patreon
+## Set your username to include your Liberapay button
+#liberapay_username = "change_me"
+
+## Bitcoin donations
+## You can provide a bitcoin address here to allow your users to provide
+## donations towards the running of their pod.
+#bitcoin_address = "change_me"
+
+## Source code URL
+## URL to the source code your pod is currently running.
+## If not set your pod will provide a downloadable archive.
+#source_url = "https://example.org/username/diaspora"
+
+## Changelog URL
+## URL to the changelog of the diaspora-version your pod is currently running.
+## If not set an auto-generated url to github is used.
+#changelog_url = "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
+
+## Default color theme
+## You can change which color theme is displayed when a user is not signed in
+## or has not selected any color theme from the available ones. You simply have
+## to enter the name of the theme's folder in "app/assets/stylesheets/color_themes/".
+## ("original" for the theme in "app/assets/stylesheets/color_themes/original/", for
+## example).
+#default_color_theme: "original"
+
+## CURL debug (default=false)
+## Turn on extra verbose output when sending stuff. Note: you
+## don't need to touch this unless explicitly told to.
+#typhoeus_verbose = false
+
+## Maximum number of parallel HTTP requests made to other pods (default=20)
+## Be careful, raising this setting will heavily increase the memory usage
+## of your Sidekiq workers.
+#typhoeus_concurrency = 20
+
+## Maximum number of parallel user data export jobs (default=1)
+## Be careful, exports of big/old profiles can use a lot of memory, running
+## many of them in parallel can be a problem for small servers.
+#export_concurrency = 1
+
+## Welcome Message settings
+[configuration.settings.welcome_message]
+
+## Welcome Message on registration (default=false)
+## Send a message to new users after registration
+## to tell them about your pod and how things
+## are handled on it.
+#enabled = false
+
+## Welcome Message subject (default="Welcome Message")
+## The subject of the conversation that is started
+## by your welcome message.
+#subject = "Welcome Message"
+
+## Welcome Message text (default="Hello %{username}, welcome to diaspora*.")
+## The content of your welcome message.
+## The placeholder "%{username}" will be replaced by the username
+## of the new user.
+#text = "Hello %{username}, welcome to diaspora*."
+
+## Invitation settings
+[configuration.settings.invitations]
+
+## Enable invitations (default=true)
+## Set this to false if you don't want users to be able to send invites.
+#open = true
+
+## Number of invitations per invite link (default=25)
+## Every user will see such a link if you have enabled
+## invitations on your pod.
+#count = 25
+
+## Paypal donations (disabled by default)
+## You can set details for a Paypal button here to allow donations
+## towards running the pod.
+## First, enable the function, then set the currency in which you
+## wish to receive donations, and **either** a hosted button id
+## **or** an encrypted key for an unhosted button.
+[configuration.settings.paypal_donations]
+#enable = false
+
+## Currency used (USD, EUR...)
+#currency = "USD"
+
+## Hosted Paypal button ID
+#paypal_hosted_button_id = "change_me"
+
+## OR encrypted key of unhosted button
+#paypal_unhosted_button_encrypted = "-----BEGIN PKCS7-----"
+
+## Community spotlight (disabled by default)
+## The community spotlight shows new users public posts from people you
+## think are interesting in Diaspora's community. To add an account
+## to the community spotlight add the "spotlight" role to it.
+[configuration.settings.community_spotlight]
+#enable = true
+
+## E-mail address to which users can make suggestions about who
+## should be in the community spotlight (optional).
+#suggest_email = "admin@example.org"
+
+## Captcha settings
+[configuration.settings.captcha]
+
+## Enable captcha (default=true)
+## Set this to false if you don't want to use captcha for signup process.
+#enable = true
+
+## Captcha image size (default="120x20")
+#image_size = "120x20"
+
+## Length of captcha text (default=5)(max=12)
+#captcha_length = 5
+
+## Captcha image style (default="simply_green")
+## Available options for captcha image styles are: "simply_blue",
+## "simply_red" "simply_green", "charcoal_grey", "embossed_silver",
+## "all_black", "distorted_black", "almost_invisible", "random".
+#image_style = "simply_green"
+
+## Captcha image distortion (default="low")
+## Sets the level of image distortion used in the captcha.
+## Available options are: "low", "medium", "high", "random".
+#distortion = "low"
+
+## Terms of Service
+## Show a default or customized terms of service for users.
+## You can create a custom Terms of Service by placing a template
+## as app/views/terms/terms.haml or app/views/terms/terms.erb
+## The default terms of service that can be extended is
+## at app/views/terms/default.haml
+## NOTE! The default terms have not been checked over by a lawyer and
+## thus are unlikely to provide full legal protection for all situations
+## for a podmin using them. They are also not specific to all countries
+## and jurisdictions. If you are unsure, please check with a lawyer.
+## We provide these for podmins as some basic rules that podmins
+## can communicate to users easily via the diaspora* server software.
+## Uncomment to enable this feature.
+[configuration.settings.terms]
+
+## First enable it by uncommenting below.
+#enable = true
+
+## Important! If you enable the terms, you should always
+## set a location under which laws any disputes are governed
+## under. For example, country or state/country, depending
+## on the country in question.
+## If this is not set, the whole paragraph about governing
+## laws *is not shown* in the terms page.
+#jurisdiction = ""
+
+## Age limit for signups.
+## Set a number to activate this setting. This age limit is shown
+## in the default ToS document.
+#minimum_age = false
+
+## Maintenance
+## Various pod maintenance related settings are controlled from here.
+[configuration.settings.maintenance]
+
+## Removing old inactive users can be done automatically by background
+## processing. The amount of inactivity is set by `after_days`. A warning
+## email will be sent to the user and after an additional `warn_days`, the
+## account will be automatically closed.
+## This maintenance is not enabled by default.
+#remove_old_users.enable = true
+#remove_old_users.after_days = 730
+#remove_old_users.warn_days = 30
+#remove_old_users.limit_removals_to_per_day = 100 ## Limit queuing for removal per day.
+
+
+
+## Default meta tags
+## You can change here the default meta tags content included on the pages of your pod.
+## Title will be used for the opengraph og:site_name property while description will be used
+## for description and og:description.
+[configuration.settings.default_metas]
+#title = "diaspora* social network"
+#description = "diaspora* is the online social world where you are in control."
+
+## CSP (Content Security Policy) header
+## CSP allows limiting origins from where resources are allowed to be loaded. This
+## improves security, since it helps to detect and mitigate cross-site scripting
+## and data injection attacks. The default policy of diaspora* allows all third
+## party domains from services that are included in diaspora*, like OEmbed
+## scripts, so you can safely activate it by setting `report_only` to false. If
+## you customized diaspora* (edited templates or added own JS), additional work
+## may be required. You can test the policy with the `report_uri`. Our default CSP
+## does not work with Google analytics or Piwik, because they inject JS code that
+## is blocked by CSP.
+[configuration.settings.csp]
+
+## Report-Only header (default=false)
+## By default diaspora* adds a "Content-Security-Policy" header. If you set
+## this to true, the "Content-Security-Policy-Report-Only" header is added instead.
+#report_only = true
+
+## CSP report URI
+## You can set an URI here, where the user agent reports violations as JSON document via a POST request.
+#report_uri = "/csp_violation_reports"
+
+## Posting from Diaspora to external services (all are disabled by default).
+[configuration.services]
+
+## OAuth credentials for Twitter
+#twitter.enable = true
+#twitter.key = "change_me"
+#twitter.secret = "change_me"
+
+## OAuth credentials for Tumblr
+#tumblr.enable = true
+#tumblr.key = "change_me"
+#tumblr.secret = "change_me"
+
+## OAuth credentials for Wordpress
+#wordpress.enable = true
+#wordpress.client_id = "change_me"
+#wordpress.secret = "change_me"
+
+## Allow your pod to send emails for notifications, password recovery
+## and other purposes (disabled by default).
+[configuration.mail]
+
+## First you need to enable it.
+#enable = true
+
+## Sender address used in mail sent by Diaspora.
+#sender_address = "no-reply@example.org"
+
+## This selects which mailer should be used. Use "smtp" for a smtp
+## connection or "sendmail" to use the sendmail binary.
+#method = "smtp"
+
+## Ignored if method isn't "smtp".
+[configuration.mail.smtp]
+
+## Host and port of the smtp server handling outgoing mail.
+## This should match the common name of the certificate sent by
+## the SMTP server, if it sends one. (default port=587)
+#host = "smtp.example.org"
+#port = 587
+
+## Authentication required to send mail (default="plain").
+## Use one of "plain", "login" or "cram_md5". Use "none"
+## if server does not support authentication.
+#authentication = "plain"
+
+## Credentials to log in to the SMTP server.
+## May be necessary if authentication is not "none".
+#username = "change_me"
+#password = "change_me"
+
+## Automatically enable TLS (default=true).
+## Leave this commented out if authentication is set to "none".
+#starttls_auto = true
+
+## The domain for the HELO command, if needed.
+#domain = "smtp.example.org"
+
+## OpenSSL verify mode used when connecting to a SMTP server with TLS (default="peer").
+## Set this to "none" if and only if you have a self-signed certificate.
+## Possible values: "none", "peer".
+#openssl_verify_mode = "none"
+
+## Ignored if method isn't "sendmail".
+[configuration.mail.sendmail]
+
+## The path to the sendmail binary (default="/usr/sbin/sendmail")
+#location = "/usr/sbin/sendmail"
+
+## Use exim and sendmail (default=false)
+#exim_fix = false
+
+## Administrator settings
+[configuration.admins]
+
+## Set the admin account.
+## This doesn't make the user an admin but is used when a generic
+## admin contact is needed, much like the postmaster role in mail
+## systems. Set only the username, NOT the full ID.
+#account = "podmin"
+
+## E-mail address via which the administrator can be contacted.
+#podmin_email = "podmin@example.org"
+
+## Settings related to relays
+## Relays are applications that exist to push public posts around to
+## pods which want to subscribe to them but would not otherwise
+## receive them due to not having direct contact with the remote pods.
+##
+## See more regarding relays: https://wiki.diasporafoundation.org/Relay_servers_for_public_posts
+[configuration.relay]
+## Enable this setting to send out public posts from this pod to a relay
+#outbound.send = true
+
+## Change default remote relay url used for sending out here
+#outbound.url = "https://relay.iliketoast.net/receive/public"
+
+## Enable this to receive public posts from relays
+#inbound.subscribe = true
+
+## Scope is either "all" or "tags" (default="tags").
+## - "all", means this pod wants to receive all public posts from a relay
+## - "tags", means this pod wants only posts tagged with certain tags
+#inbound.scope = "tags"
+
+## If scope is "tags", should we include tags that users on this pod follow?
+## These are added in addition to "pod_tags", if set.
+#inbound.include_user_tags = false
+
+## If scope is "tags", a comma separated list of tags here can be set.
+## For example "linux,diaspora", to receive posts related to these tags
+#inbound.pod_tags = "linux,diaspora"
+
+## Advanced - ignore unless you know better
+
+## You can override settings defined above if you need
+## them to be different in different environments. "configuration"
+## in the namespaces above refers to all environments, replace it with a
+## specific environment here.
+
+[production]
+#environment.redis = "redis://production.example.org:6379"
+
+[production.mail.sendmail]
+#location = "/usr/local/bin/sendmail"
+
+[development]
+#environment.redis = "redis://dev.example.org:6379"
+
+[development.mail.sendmail]
+#location = "/opt/bin/sendmail"

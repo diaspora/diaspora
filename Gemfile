@@ -51,7 +51,8 @@ gem "uglifier", "4.2.0"
 
 # Configuration
 
-gem "configurate", "0.3.1"
+gem "configurate", "0.4.0"
+gem "tomlrb", "1.3.0"
 
 # Cross-origin resource sharing
 
@@ -258,10 +259,6 @@ group :development do
   gem "rubocop-rails",  "2.4.1", require: false
 
   # Preloading environment
-
-  gem "spring", "2.1.0"
-  gem "spring-commands-rspec", "1.0.4"
-  gem "spring-commands-cucumber", "1.0.1"
 
   # Debugging
   gem "pry"

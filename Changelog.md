@@ -1,5 +1,9 @@
 # 0.8.0.0
 
+## New configuration file!
+
+We already recommended you to move to our new TOML based configuration file. With this release diaspora\* will no longer read the YAML based configuration file at `config/diaspora.yml`. If you have not yet done so, please copy `config/diaspora.toml.example` to `config/diaspora.toml` and migrate your configuration.
+
 ## API!
 
 With the release of diaspora\* Version 0.8.0.0, we now officially support building applications on top of the diaspora\* API! Please check out [the official API documentation](https://diaspora.github.io/api-documentation/) for instructions, and please do file bugs if you notice something that could be improved!
@@ -34,6 +38,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 ## Bug fixes
 
 ## Features
+* Support and recommend TOML as configuration format [#8132](https://github.com/diaspora/diaspora/pull/8132)
 
 # 0.7.14.0
 
