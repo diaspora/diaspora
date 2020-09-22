@@ -25,9 +25,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    active_model_serializers (0.9.7)
-      activemodel (>= 3.2)
-      concurrent-ruby (~> 1.0)
+    active_model_serializers (0.10.10)
+      actionpack (>= 4.1, < 6.1)
+      activemodel (>= 4.1, < 6.1)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (5.2.4.3)
       activesupport (= 5.2.4.3)
       globalid (>= 0.3.6)
@@ -95,6 +97,8 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    case_transform (0.2)
+      activesupport
     celluloid (0.17.4)
       celluloid-essentials
       celluloid-extras
@@ -374,6 +378,7 @@ GEM
     json-schema-rspec (0.0.4)
       json-schema (~> 2.5)
       rspec
+    jsonapi-renderer (0.2.2)
     jsonpath (1.0.5)
       multi_json
       to_regexp (~> 0.2.1)
@@ -794,7 +799,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (= 0.9.7)
+  active_model_serializers (= 0.10.10)
   activerecord-import (= 1.0.4)
   acts-as-taggable-on (= 6.5.0)
   acts_as_api (= 1.0.1)
