@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Export
-  class UserSerializer < ActiveModel::Serializer
+  class UserSerializer < AMS::V09::Serializer
     attributes :username,
                :email,
                :language,

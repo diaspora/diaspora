@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UserInfoSerializer < ActiveModel::Serializer
+class UserInfoSerializer < AMS::V09::Serializer
   attributes :sub, :name, :nickname, :profile, :picture
 
   def sub

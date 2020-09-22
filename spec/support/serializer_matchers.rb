@@ -72,7 +72,7 @@ RSpec::Matchers.define :serialize_association do |association_name|
   def pick_serializer_class
     return association_serializer_class unless association_serializer_class.nil?
     return @serializer_from_options unless @serializer_from_options.nil?
-    return ActiveModel::ArraySerializer unless each_serializer_class.nil?
+    return ActiveModelSerializers::SerializableResource unless each_serializer_class.nil?
   end
 end
 
@@ -82,6 +82,6 @@ end
 # NOTE: this matcher uses knowledge of AMS internals
 RSpec::Matchers.define :serialize_each_with do |expected|
   match do |actual|
-    actual.is_a?(ActiveModel::ArraySerializer) && actual.instance_variable_get("@each_serializer") == expected
+    actual.is_a?(ActiveModelSerializers::SerializableResource) && actual.instance_variable_get("@each_serializer") == expected
   end
 end

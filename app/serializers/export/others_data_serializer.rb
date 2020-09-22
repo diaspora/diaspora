@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Export
-  class OthersDataSerializer < ActiveModel::Serializer
+  class OthersDataSerializer < AMS::V09::Serializer
     # Relayables of other people in the archive: comments, likes, participations, poll participations where author is
     # the archive owner
     has_many :relayables, serializer: FlatMapArraySerializer, each_serializer: FederationEntitySerializer
