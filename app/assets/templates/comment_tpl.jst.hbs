@@ -11,7 +11,7 @@
       {{#if canRemove}}
         <a href="#" class="delete comment_delete" title="{{t "delete"}}">
           <i class="entypo-trash"></i>
-        <a/>
+        </a>
       {{else}}
         <a href="#" data-type="Comment" class="comment_report" title="{{t "report.name"}}">
           <i class="entypo-warning"></i>
@@ -26,7 +26,7 @@
       {{/linkToAuthor}}
       -
       <a href="/posts/{{parent.id}}#{{guid}}" class="permalink_comment">
-        <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>
+        <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"></time>
       </a>
       <a href="/posts/{{parent.guid}}#{{guid}}" class="permalink gray" title="{{t "stream.permalink"}}">
         <i class="entypo-link"></i>

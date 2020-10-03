@@ -27,10 +27,10 @@
     <div class="footer-container">
       {{#if status_message}}
         <a href="{{urlTo "post" status_message.id}}">
-          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"></time>
         </a>
       {{else}}
-          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"></time>
       {{/if}}
     </div>
   </div>

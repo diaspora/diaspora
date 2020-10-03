@@ -2,6 +2,7 @@
 
 ## Refactor
 * Cache local posts/comments count for statistics [#8241](https://github.com/diaspora/diaspora/pull/8241)
+* Fix html-syntax in some handlebars templates [#8251](https://github.com/diaspora/diaspora/pull/8251)
 
 ## Bug fixes
 
