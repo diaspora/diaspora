@@ -6,6 +6,16 @@ describe Services::Tumblr, type: :model do
   let(:service) { Services::Tumblr.new(access_token: "yeah", access_secret: "foobar") }
   let(:post_id) { "bla" }
 
+  describe "#provider" do
+    subject(:provider) { service.provider }
+
+    let(:expected_provider) { "tumblr" }
+
+    it "returns service provider" do
+      is_expected.to eq expected_provider
+    end
+  end
+
   describe "#post" do
     let(:post_request) { {body: service.build_tumblr_post(post, "")} }
     let(:post_response) { {status: 201, body: {response: {id: post_id}}.to_json} }
@@ -16,12 +26,19 @@ describe Services::Tumblr, type: :model do
     end
 
     context "with multiple blogs" do
-      let(:user_info) {
-        {response: {user: {blogs: [
-          {primary: false, url: "http://foo.tumblr.com"},
-          {primary: true, url: "http://bar.tumblr.com"}
-        ]}}}.to_json
-      }
+      let(:user_info) do
+        {
+          response:
+                    {
+                      user: {
+                        blogs: [
+                          {primary: false, url: "http://foo.tumblr.com"},
+                          {primary: true, url: "http://bar.tumblr.com"}
+                        ]
+                      }
+                    }
+        }.to_json
+      end
 
       it "posts a status message to the primary blog and stores the id" do
         stub = stub_request(:post, "http://api.tumblr.com/v2/blog/bar.tumblr.com/post")
