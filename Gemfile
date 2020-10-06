@@ -38,7 +38,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
-gem "redis", "3.3.5" # Pinned to 3.3.x because of https://github.com/antirez/redis/issues/4272
+gem "redis", "4.2.2"
 gem "sidekiq", "5.2.8"
 
 # Scheduled processing
