@@ -120,6 +120,7 @@ module Api
         @scopes = endpoint.scopes
         save_request_parameters
         @app = UserApplicationPresenter.new @o_auth_application, @scopes
+        override_content_security_policy_directives(form_action: %w[])
         render :new
       end
 
