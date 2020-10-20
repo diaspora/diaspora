@@ -379,7 +379,7 @@ GEM
       to_regexp (~> 0.2.1)
     jwt (2.2.1)
     kgio (2.11.3)
-    kostya-sigar (2.0.6)
+    kostya-sigar (2.0.8)
     leaflet-rails (1.6.0)
       rails (>= 4.2.0)
     listen (3.2.1)
