@@ -17,7 +17,7 @@ class TagFollowingsController < ApplicationController
     tag = tag_followings_service.create(params["name"])
     render json: tag.to_json, status: :created
   rescue TagFollowingService::DuplicateTag
-    render json: tag_followings_service.find(params["name"]), status: created
+    render json: tag_followings_service.find(params["name"]), status: :created
   rescue StandardError
     head :forbidden
   end
