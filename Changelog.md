@@ -36,6 +36,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 ## Refactor
 
 ## Bug fixes
+* Update comment counter when weleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
 
 ## Features
 * Support and recommend TOML as configuration format [#8132](https://github.com/diaspora/diaspora/pull/8132)
