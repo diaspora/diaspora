@@ -8,7 +8,7 @@ describe Api::OpenidConnect::DiscoveryController, type: :controller do
 
     it "should have the issuer as the root url" do
       json_body = JSON.parse(response.body)
-      expect(json_body["issuer"]).to eq(root_url)
+      expect(json_body["issuer"]).to eq(AppConfig.environment.url)
     end
 
     it "should have the appropriate user info endpoint" do
