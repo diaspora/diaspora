@@ -53,7 +53,7 @@ module Api
       def claims
         sub = build_sub
         @claims ||= {
-          iss:       Rails.application.routes.url_helpers.root_url,
+          iss:       AppConfig.environment.url,
           sub:       sub,
           aud:       @authorization.o_auth_application.client_id,
           exp:       @expires_at.to_i,
