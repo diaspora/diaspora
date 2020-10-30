@@ -952,7 +952,7 @@ en:
           description: "This grants read and write permissions on interacting with posts to the application."
         notifications:
           name: "notifications"
-          description: "This grants read and write permissions on interactions for the user to the application."
+          description: "This grants read and write permissions on notifications for the user to the application."
         'private:read':
           name: "private:read"
           description: "This grants read privileges on private posts and streams to the application."
