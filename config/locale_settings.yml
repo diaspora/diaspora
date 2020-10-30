@@ -123,6 +123,8 @@ fallbacks:
     - "ur"
   de_formal:
     - "de"
+  de_moo:
+    - "de"
   de-CH:
     - "de"
   nds:
