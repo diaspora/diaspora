@@ -96,8 +96,6 @@ sq:
     confirm_unload: "Ju lutemi, ripohoni se doni ta braktisni këtë faqe. Të dhënat që keni dhënë s’do të ruhen."
     contacts:
       add_contact: "Shtoni kontakt"
-      aspect_chat_is_enabled: "Kontaktet në këtë aspekt janë në gjendje të bisedojnë me ju."
-      aspect_chat_is_not_enabled: "Kontaktet në këtë aspekt s’janë në gjendje të bisedojnë me ju."
       error_add: "S’u shtua dot <%= name %> te aspekti :("
       error_remove: "S’u hoq dot <%= name %> prej aspekti :("
       remove_contact: "Hiqe kontaktin"

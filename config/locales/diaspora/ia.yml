@@ -169,9 +169,6 @@ ia:
         login_required: "Tu debe aperir session ante de poter autorisar iste application"
         title: "Un problema ha occurrite."
       scopes:
-        aud:
-          description: "Isto concede permissiones \"aud\" al application"
-          name: "aud"
         name:
           description: "Isto concede permissiones \"name\" al application"
           name: "nomine"
@@ -187,15 +184,9 @@ ia:
         profile:
           description: "Isto permitte que le application lege tu profilo extendite"
           name: "profilo extendite"
-        read:
-          description: "Isto permitte que le application lege tu fluxo, tu conversationes e tu profilo complete"
-          name: "leger profilo, fluxo e conversationes"
         sub:
           description: "Isto concede permissiones \"sub\" al application"
           name: "sub"
-        write:
-          description: "Isto permitte que le application publica nove entratas, scribe conversationes e invia reactiones"
-          name: "inviar entratas, conversationes e reactiones"
       user_applications:
         index:
           access: "%{name} ha accesso a:"
@@ -302,10 +293,14 @@ ia:
     original_white: "Fundo blanc original"
   comments:
     create:
-      error: "Commento fallite."
+      fail: "Le creation del commento ha fallite"
+    destroy:
+      fail: "Le deletion del commento ha fallite"
+      success: "Le commento %{id} ha essite delite"
     new_comment:
       comment: "Commentar"
       commenting: "Commenta…"
+    not_found: "Entrata o commento non trovate"
   contacts:
     index:
       add_contact: "Adder contacto"
@@ -345,6 +340,7 @@ ia:
       to: "A"
     new_conversation:
       fail: "Message non valide"
+    not_found: "Conversation non trovate"
     show:
       delete: "Deler conversation"
       hide: "Celar e silentiar le conversation"
@@ -413,11 +409,6 @@ ia:
       what_is_an_aspect_q: "Que es un aspecto?"
       who_sees_post_a: "Si tu scribe un entrata limitate, illo essera visibile solmente pro le personas que tu ha mittite in ille aspecto (o in ille aspectos, si tu lo ha inviate a plure aspectos) ante de publicar le entrata. Tu contactos que non es in le aspecto non potera vider le entrata. Entratas limitate nunquam essera visibile pro alcun persona que tu non ha mittite in un de tu aspectos."
       who_sees_post_q: "Quando io invia qualcosa a un aspecto, qui lo videra?"
-    chat:
-      add_contact_roster_a: "Primo tu debe activar le chat pro un del aspectos in le quales iste persona es presente. Pro facer isto, va al %{contacts_page}, selige le aspecto que tu vole e clicca sur le icone de chat pro activar le chat pro ille aspecto. %{toggle_privilege} Alternativemente, tu pote crear un aspecto special nominate 'Chat' e adder a ille aspecto le personas con qui tu vole chattar. Un vice que tu ha facite isto, aperi le interfacie de chat e selige le persona con qui tu vole chattar."
-      add_contact_roster_q: "Como pote io parlar in directo a qualcuno in diaspora*?"
-      contacts_page: "pagina de contactos"
-      title: "Chat"
     community_guidelines: "directivas del communitate"
     faq: "FAQ"
     foundation_website: "le sito web del fundation diaspora*"
@@ -660,8 +651,17 @@ ia:
   likes:
     create:
       error: "Appreciation fallite."
+      fail: "Le creation del appreciation ha fallite"
     destroy:
       error: "Le cancellation del appreciation ha fallite."
+    people_like_this:
+      one: "1 appreciation"
+      other: "%{count} appreciationes"
+      zero: "Nulle appreciation"
+    people_like_this_comment:
+      one: "1 appreciation"
+      other: "%{count} appreciationes"
+      zero: "Nulle appreciation"
   limited: "Limitate"
   more: "Plus"
   no_results: "Nulle resultato trovate"

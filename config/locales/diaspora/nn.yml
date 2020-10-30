@@ -167,8 +167,6 @@ nn:
     post_something: "denne lenkja"
   cancel: "Avbryt"
   comments:
-    create:
-      error: "Fekk ikkje kommentert."
     new_comment:
       comment: "Kommenter"
       commenting: "Kommenterer …"

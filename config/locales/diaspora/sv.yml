@@ -162,40 +162,85 @@ sv:
           client_id_not_found: "Ingen klient med client_id %{client_id} med omdirigerings-URI %{redirect_uri} funnen."
           deny: "Neka"
           no_requirement: "%{name} kräver inga tillstånd."
+          private_contacts_linkage_error: "privat:läst och privat:ändra förväntade kontakter:också läst"
           redirection_message: "Är du säker på att du vill ge tillgång till %{redirect_uri}?"
+          unknown_scope: "Okänt omfång: %{scope_name}"
       error_page:
         contact_developer: "Du borde kontakta tillämpningsutvecklaren och bifoga följande felmeddelande:"
         could_not_authorize: "Denna tillämpning kunde inte auktoriseras."
         login_required: "Du måste logga in innan du kan auktorisera denna tillämpning."
         title: "Rackarns! Något gick åt pipan."
       scopes:
-        aud:
-          description: "Detta skänker aud-rättigheter till applikationen"
-          name: "aud"
+        ? "contacts:modify"
+        :
+          description: "Det här ger skrivrättigheter av kontakter och besläktad data (såsom aspekter) till applikationen"
+          name: "kontakter:ändra"
+        ? "contacts:read"
+        :
+          description: "Det här ger läsrättigheter av kontakter och besläktad data (såsom aspekter) till applikationen."
+          name: "kontakter:läst"
+        conversations:
+          description: "Det här ger skriv- och läsrättigheter av privata meddelanden till applikationen."
+          name: "konversationer"
+        email:
+          description: "Det här ger läsrättigheter av användares e-postadress till applikationen."
+          name: "e-post"
+        interactions:
+          description: "Det ger läs- och skrivrättigheter av interaktioner med inlägg till applikationen."
+          name: "interaktioner"
         name:
-          description: "Det här beviljar namnrättigheter till applikationen."
+          description: "Det här beviljar läsrättigheter av namndata till applikationen."
           name: "namn"
         nickname:
-          description: "Det här beviljar smeknamnsrättigheter till applikationen."
+          description: "Det här beviljar läsrättigheter av smeknamnsdata till applikationen."
           name: "smeknamn"
+        notifications:
+          description: "Det här ger läs- och skrivrättigheter av interaktioner med användaren till applikationen."
+          name: "notifikationer"
         openid:
-          description: "Detta låter tillämpningar att läsa din grundprofil."
+          description: "Detta tillåter andra program att läsa din grundprofil."
           name: "grundprofil"
         picture:
-          description: "Det här beviljar bildrättigheter till applikationen."
+          description: "Det här beviljar läsrättigheter av användarens bilddata till applikationen."
           name: "bild"
+        ? "private:modify"
+        :
+          description: "Det här ändringsrättigheter av privata inlägg och strömningar, inklusive privata delningar, till applikationen."
+          name: "privat:ändra"
+        ? "private:read"
+        :
+          description: "Det här ger läsrättigheter av privata inlägg och strömningar till applikationer."
+          name: "privat:läst"
         profile:
           description: "Det här beviljar rättigheter att se din utökade profil till applikationen."
           name: "utökad profil"
-        read:
-          description: "Detta låter tillämpningar att läsa din ström, dina konversationer och hela din profil."
-          name: "läs profil, ström och konversationer"
+        ? "profile:modify"
+        :
+          description: "Det här ger applikationen rättigheter att ändra användarprofilen."
+          name: "profil:ändra"
+        ? "profile:read_private"
+        :
+          description: "Det här ger läsrättigheter till din privata profildata till applikationen."
+          name: "profil:läst_privat"
+        ? "public:modify"
+        :
+          description: "Det här ger skrivrättigheter av offentliga inlägg (inklusive skriva offentliga inlägg), interaktioner och användardata till applikationen."
+          name: "offentlig:ändra"
+        ? "public:read"
+        :
+          description: "Det här ger läsrättigheter av offentliga inlägg, interaktioner och användardata till applikationen."
+          name: "publik:läst"
         sub:
           description: "Det här skänker dig underprivilegier för denna tillämpning."
           name: "under"
-        write:
-          description: "Detta låter tillämpningar att skicka nya bilder, författa konversationer och skicka reaktioner"
-          name: "göra inlägg, konversationer och reaktioner"
+        ? "tags:modify"
+        :
+          description: "Det här ger rättigheter att ändra tillgång till användarens följda taggar till applikationen."
+          name: "taggar:ändra"
+        ? "tags:read"
+        :
+          description: "Det här ger läsrättigheter av användarens följda taggar och taggstörmmar till applikationen."
+          name: "tagg:läst"
       user_applications:
         index:
           access: "%{name} har tillgång till:"
@@ -302,10 +347,14 @@ sv:
     original_white: "Ursprunglig vit bakgrund"
   comments:
     create:
-      error: "Lyckades inte kommentera."
+      fail: "Misslyckades att skapa kommentar"
+    destroy:
+      fail: "Misslyckades att ta bort kommentar"
+      success: "Kommentar %{id} har tagits bort"
     new_comment:
       comment: "Kommentera"
       commenting: "Kommenterar..."
+    not_found: "Inlägg eller kommentar ej funnen"
   contacts:
     index:
       add_contact: "Lägg till kontakt"
@@ -345,6 +394,7 @@ sv:
       to: "Till"
     new_conversation:
       fail: "Ogiltigt meddelande"
+    not_found: "Konversationen ej funnen"
     show:
       delete: "Ta bort konversationen"
       hide: "Dölj och tysta konversation"
@@ -413,11 +463,6 @@ sv:
       what_is_an_aspect_q: "Vad är en Aspekt?"
       who_sees_post_a: "Om du skulle göra ett inlägg med begränsad spridning, kommer det bara vara synligt för dem du har i just den aspekten (eller de aspekterna, om det skickas till flertalet aspekter). Kontakter som inte finns i aspekten kommer inte att kunna se inlägget. Bara offentliga inlägg kommer att bli synliga för dina kontakter som inte ligger i någon aspekt."
       who_sees_post_q: "Vem ser det inlägg jag gjort i en aspekt?"
-    chat:
-      add_contact_roster_a: "Först av allt måste du tillåta chatt i aspekter med dem du vill chatta med. Du gör genom att gå till %{contacts_page} och väljer aspekten du vill tillåta chatt i. %{toggle_privilege} Om du hellre vill, kan du skapa en egen aspekt speciellt för dem du vill chatta med. När du har aspekt med chattar tillåtna, är det bara att öppna chatten och välj den du vill chatta med."
-      add_contact_roster_q: "Hur chattar jag med någon på Diaspora?"
-      contacts_page: "kontaktsida"
-      title: "Chatt"
     community_guidelines: "Gemenskapsriktlinjer"
     faq: "Vanliga frågor"
     foundation_website: "Diaspora*-föreningens hemsida"
@@ -660,8 +705,22 @@ sv:
   likes:
     create:
       error: "Lyckades inte gilla."
+      fail: "Gillande misslyckades"
     destroy:
       error: "Misslyckades med ogillandet."
+    not_found: "Inlägg eller gillning ej funnen"
+    people_dislike_this:
+      one: "En ogillar"
+      other: "%{count} ogillar"
+      zero: "Ingen ogillar"
+    people_like_this:
+      one: "En gillar"
+      other: "%{count} gillar"
+      zero: "Ingen gillar"
+    people_like_this_comment:
+      one: "En gillar"
+      other: "%{count} gillar"
+      zero: "Ingen gillar"
   limited: "Begränsad"
   more: "Mer"
   no_results: "Inga sökresultat"

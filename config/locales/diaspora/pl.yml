@@ -171,12 +171,6 @@ pl:
         profile:
           description: "Pozwala aplikacji na czytanie profilu poszerzonego"
           name: "rozszerzony profil"
-        read:
-          description: "Pozwala aplikacji czytać Twój strumień, rozmowy oraz cały profil."
-          name: "czytaj profil, strumień i rozmowy"
-        write:
-          description: "Pozwala aplikacji dodawać nowe wpisy i reakcje oraz uczestniczyć w rozmowach."
-          name: "wysyłaj wpisy, rozmowy i reakcje"
       user_applications:
         index:
           access: "%{name} ma dostęp do:"
@@ -281,8 +275,6 @@ pl:
     original: "Oryginalny szary"
     original_white: "Oryginalny z białym tłem"
   comments:
-    create:
-      error: "Nie udało się dodać komentarza."
     new_comment:
       comment: "Skomentuj"
       commenting: "Dodawanie komentarza..."
@@ -393,11 +385,6 @@ pl:
       what_is_an_aspect_q: "Czym jest aspekt?"
       who_sees_post_a: "Jeśli zamieszczasz wpis o ograniczonej widoczności, będzie on widoczny tylko dla ludzi którzy znajdują się w danym aspekcie (lub aspektach, jeśli post jest ograniczony do wielu aspektów). Kontakty które należą do innych aspektów nie będą miały jak zobaczyć wpisu, chyba że uczynisz go publicznym. Tylko publiczne posty będą widoczne dla kogokolwiek spoza Twoich aspektów."
       who_sees_post_q: "Kiedy udostępniam w aspekcie, kto widzi mój wpis?"
-    chat:
-      add_contact_roster_a: "Najpierw musisz włączyć czat dla aspektu w którym osoba się znajduje. Aby to zrobić, idź do %{contacts_page}, wybierz aspekt który chcesz zmienić i kliknij na ikonę czatu dla aspektu. %{toggle_privilege} Możesz, jeżeli wolisz, utworzyć specjalny aspekt nazwany \"Czat\" i dodać do niego wszystkie osoby z którymi chcesz czatować. Gdy już to zrobisz, możesz otworzyć interfejs czatu i wybrać osoby z którymi chcesz czatować."
-      add_contact_roster_q: "Jak mogę czatować z kimś na diasporze*?"
-      contacts_page: "strony kontaktów"
-      title: "Czat"
     community_guidelines: "zasady społeczności"
     faq: "często zadawane pytania"
     foundation_website: "Strona fundacji diaspora*"

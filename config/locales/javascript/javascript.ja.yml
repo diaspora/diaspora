@@ -91,8 +91,6 @@ ja:
     confirm_unload: "このページを離れることを確認してください。入力したデータは保存されません。"
     contacts:
       add_contact: "連絡先を追加"
-      aspect_chat_is_enabled: "このアスペクトの連絡先は、あなたとチャットすることができます。"
-      aspect_chat_is_not_enabled: "このアスペクトの連絡先は、あなたとチャットすることができません。"
       error_add: "アスペクトに<%= name %>さんを追加できませんでした :(\n"
       error_remove: "アスペクトから<%= name %>さんを削除できませんでした :("
       remove_contact: "連絡先を削除"

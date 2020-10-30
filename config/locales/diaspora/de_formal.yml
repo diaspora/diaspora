@@ -169,9 +169,6 @@ de_formal:
         login_required: "Sie müssen sich erst anmelden, bevor Sie diese Anwendung zulassen können."
         title: "Oh! Etwas ist schiefgegangen :("
       scopes:
-        aud:
-          description: "Dies gewährt der Anwendung aud-Berechtigungen"
-          name: "aud"
         name:
           description: "Dies gewährt der Anwendung Name-Berechtigungen"
           name: "Name"
@@ -187,15 +184,9 @@ de_formal:
         profile:
           description: "Dies ermöglicht der Anwendung, Ihr erweitertes Profil auszulesen"
           name: "erweitertes Profil"
-        read:
-          description: "Das ermöglicht der Anwendung, Ihren Stream, Ihre Konversationen und Ihr vollständiges Profil auszulesen"
-          name: "Profil, Stream und Konversationen lesen"
         sub:
           description: "Dies gewährt der Anwendung sub-Berechtigungen"
           name: "sub"
-        write:
-          description: "Dies ermöglicht der Anwendung, neue Beiträge zu senden, Konversationen zu schreiben und Reaktionen zu senden"
-          name: "Beiträge, Konversationen und Reaktionen senden"
       user_applications:
         index:
           access: "%{name} hat Zugriff auf:"
@@ -301,8 +292,6 @@ de_formal:
     original: "Original Grau"
     original_white: "Original weißer Hintergrund"
   comments:
-    create:
-      error: "Kommentieren fehlgeschlagen."
     new_comment:
       comment: "Kommentieren"
       commenting: "Kommentieren …"
@@ -413,11 +402,6 @@ de_formal:
       what_is_an_aspect_q: "Was sind Aspekte?"
       who_sees_post_a: "Wenn Sie einen begrenzten Beitrag posten, wird dieser nur für Leute sichtbar sein, die sich bereits vor dem Verfassen des Beitrags in dem ausgewählten Aspekt (oder in den ausgewählten Aspekten, falls Sie mehrere ausgewählt haben) befinden. Ihre anderen Kontakte werden ihn nicht sehen. Begrenzte Beiträge werden nie für Leute sichtbar sein, die sie nicht zu Ihren Aspekten hinzugefügt haben."
       who_sees_post_q: "Wenn ich einen Beitrag an einen Aspekt poste, wer sieht ihn dann?"
-    chat:
-      add_contact_roster_a: "Zuerst müssen Sie den Chat für einen der Aspekte aktivieren, in denen sich die Person befindet. Dazu gehen Sie zur %{contacts_page}, wählen den gewünschten Aspekt aus und klicken auf das Chat-Icon, um den Chat für den Aspekt zu aktivieren. %{toggle_privilege} Wenn es Ihnen lieber ist, können Sie auch einen speziellen Aspekt namens „Chat” erstellen und zu ihm die Personen hinzufügen, mit denen Sie chatten möchten. Wenn Sie das erledigt haben, öffnen Sie die Chatoberfläche und wählen die Person aus, mit der Sie chatten möchten."
-      add_contact_roster_q: "Wie kann ich auf diaspora* mit jemandem chatten?"
-      contacts_page: "Kontaktseite"
-      title: "Chat"
     community_guidelines: "Community-Richtlinien"
     faq: "FAQ"
     foundation_website: "Webseite der diaspora*-Stiftung"

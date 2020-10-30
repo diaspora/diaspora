@@ -169,15 +169,29 @@ de:
         login_required: "Du musst dich erst anmelden, bevor du diese Anwendung zulassen kannst"
         title: "Oh! Etwas ist schiefgegangen :("
       scopes:
-        aud:
-          description: "Dies gewährt der Anwendung aud-Berechtigungen"
-          name: "aud"
+        ? "contacts:modify"
+        :
+          description: "Dies gewährt der Anwendung Schreibberechtigungen für Kontakte und zugehörige Daten (wie Aspekte)."
+        ? "contacts:read"
+        :
+          description: "Dies gewährt der Anwendung Leseberechtigungen für Kontakte und zugehörige Daten (wie Aspekte)."
+        conversations:
+          description: "Dies gewährt der Anwendung Lese-/Schreibberechtigung für private Nachrichten."
+          name: "Konversationen"
+        email:
+          description: "Dies gewährt der Anwendung Lesezugriff auf die E-Mail-Adresse des Nutzers."
+          name: "E-Mail"
+        interactions:
+          name: "Interaktionen"
         name:
           description: "Dies gewährt der Anwendung Name-Berechtigungen"
           name: "Name"
         nickname:
           description: "Dies gewährt der Anwendung Benutzername-Berechtigungen"
           name: "Benutzername"
+        notifications:
+          description: "Dies gewährt der Anwendung Lese-/Schreibzugriff auf Interaktionen für den Benutzer."
+          name: "Benachrichtigungen"
         openid:
           description: "Das ermöglicht der Anwendung, dein grundlegendes Profil auszulesen"
           name: "grundlegendes Profil"
@@ -187,15 +201,9 @@ de:
         profile:
           description: "Dies ermöglicht der Anwendung, Ihr erweitertes Profil auszulesen"
           name: "erweitertes Profil"
-        read:
-          description: "Das ermöglicht der Anwendung, deinen Stream, deine Konversationen und dein vollständiges Profil auszulesen"
-          name: "Profil, Stream und Konversationen lesen"
         sub:
           description: "Dies vererbt der Anwendung Berechtigungen"
           name: "sub"
-        write:
-          description: "Das ermöglicht der Anwendung, neue Beiträge zu senden, Konversationen zu schreiben und Reaktionen zu senden"
-          name: "Beiträge, Konversationen und Reaktionen senden"
       user_applications:
         index:
           access: "%{name} hat Zugriff auf:"
@@ -302,10 +310,14 @@ de:
     original_white: "Original weißer Hintergrund"
   comments:
     create:
-      error: "Kommentieren fehlgeschlagen."
+      fail: "Kommentar erstellen fehlgeschlagen"
+    destroy:
+      fail: "Kommentar löschen fehlgeschlagen"
+      success: "Kommentar %{id} wurde erfolgreich gelöscht"
     new_comment:
       comment: "Kommentieren"
       commenting: "Kommentieren …"
+    not_found: "Beitrag oder Kommentar nicht gefunden"
   contacts:
     index:
       add_contact: "Kontakt hinzufügen"
@@ -345,6 +357,7 @@ de:
       to: "An"
     new_conversation:
       fail: "Ungültige Nachricht"
+    not_found: "Konversation nicht gefunden"
     show:
       delete: "Gespräch löschen"
       hide: "Unterhaltung ausblenden und stumm schalten."
@@ -413,11 +426,6 @@ de:
       what_is_an_aspect_q: "Was sind Aspekte?"
       who_sees_post_a: "Wenn du einen begrenzten Beitrag erstellst, wird dieser nur für Leute sichtbar sein, die du dem ausgewählten Aspekt (oder den ausgewählten Aspekten, falls du mehrere ausgewählt hast) vor dem Erstellen des Beitrags hinzugefügt hast. Kontakte, die du hast, die aber nicht in dem Aspekt sind, haben keine Möglichkeit den Beitrag zu sehen. Begrenzte Beiträge werden nie für Leute sichtbar sein, die du nicht einem deiner Aspekte hinzugefügt hast."
       who_sees_post_q: "Wenn ich einen Beitrag an einen Aspekt poste, wer sieht ihn dann?"
-    chat:
-      add_contact_roster_a: "Zuerst musst du den Chat für einen der Aspekte aktivieren, in denen sich die Person befindet. Dafür gehst du zur %{contacts_page}, wählst den gewünschten Aspekt aus und klickst auf das Chat-Icon, um den Chat für den Aspekt zu aktivieren. %{toggle_privilege} Wenn es dir lieber ist, kannst du auch einen speziellen Aspekt namens 'Chat' erstellen und zu ihm die Leute hinzufügen, mit denen du chatten willst. Wenn du damit fertig bist, öffnest du die Chatoberfläche und wählst die Person aus, mit der du chatten willst."
-      add_contact_roster_q: "Wie kann ich auf diaspora* mit jemandem chatten?"
-      contacts_page: "Kontaktseite"
-      title: "Chat"
     community_guidelines: "Community-Richtlinien"
     faq: "FAQ"
     foundation_website: "Webseite der diaspora*-Stiftung"
@@ -660,8 +668,22 @@ de:
   likes:
     create:
       error: "Gefällt mir ist fehlgeschlagen."
+      fail: "Gefällt mir erstellen fehlgeschlagen"
     destroy:
       error: "Gefällt mir nicht mehr ist fehlgeschlagen."
+    not_found: "Beitrag oder Gefällt mir nicht gefunden"
+    people_dislike_this:
+      one: "%{count} Gefällt mir nicht"
+      other: "%{count} Gefällt mir nicht"
+      zero: "Kein Gefällt mir nicht"
+    people_like_this:
+      one: "%{count} Gefällt mir"
+      other: "%{count} Gefällt mir"
+      zero: "Kein Gefällt mir"
+    people_like_this_comment:
+      one: "%{count} Gefällt mir"
+      other: "%{count} Gefällt mir"
+      zero: "Kein Gefällt mir"
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"

@@ -169,9 +169,6 @@ nl:
         login_required: "Je moet eerst inloggen voordat je deze applicatie kunt autoriseren"
         title: "Ohhh! Er ging iets verkeerd :("
       scopes:
-        aud:
-          description: "Dit verleent aud toegang tot de applicatie"
-          name: "aud"
         name:
           description: "Dit verleent naam toegang tot de applicatie"
           name: "naam"
@@ -187,15 +184,9 @@ nl:
         profile:
           description: "Dit staat de applicatie toe je uitgebreide profiel te zien"
           name: "uitgebreid profiel"
-        read:
-          description: "Dit staat de applicatie toe om je stream, je gesprekken en je complete profiel te zien"
-          name: "lees profiel, stream en gesprekken"
         sub:
           description: "Dit verleent sub toegang tot de applicatie"
           name: "sub"
-        write:
-          description: "Dit staat de applicatie toe om nieuwe berichten te plaatsen, gesprekken te schrijven en reacties in te sturen"
-          name: "plaats berichten, gesprekken en reacties"
       user_applications:
         index:
           access: "%{name} heeft toegang tot:"
@@ -301,8 +292,6 @@ nl:
     original: "Origineel grijs"
     original_white: "Originele witte achtergrond"
   comments:
-    create:
-      error: "Reageren mislukt."
     new_comment:
       comment: "Reactie"
       commenting: "Reageren..."
@@ -408,13 +397,6 @@ nl:
       what_is_an_aspect_q: "Wat is een aspect?"
       who_sees_post_a: "Als je een 'beperkt' bericht plaatst, is het alleen zichtbaar voor de mensen die je in dat aspect (of die aspecten als je meer aspecten hebt gekozen) hebt gestopt. Contactpersonen die niet in het betreffende aspect zitten, zullen het bericht niet kunnen zien. Beperkte berichten zijn nooit zichtbaar voor mensen die niet in je aspect(en) zitten."
       who_sees_post_q: "Als ik een bericht plaats voor een aspect, wie ziet dat dan?"
-    chat:
-      add_contact_roster_a: |-
-          Eerst moet je de chatmogeljikheid inschakelen voor een van de aspecten waar die persoon in zit. Ga naar de %{contacts_page}, selecteer het aspect en klik op het chat pictogram om chat voor het aspect mogelijk te maken.
-          %{toggle_privilege} Je kunt, als je dat wilt, een speciaal aspect genaamd 'Chat' maken en daar personen met wie je wilt chatten aan toevoegen. Als je dat hebt gedaan, open dan de chat interface en selecteer de persoon met wie je wilt chatten.
-      add_contact_roster_q: "Hoe kan ik met iemand binnen diaspora* chatten?"
-      contacts_page: "contactpersonenpagina"
-      title: "Chat"
     community_guidelines: "Gemeenschapsprotocollen"
     faq: "FAQ"
     foundation_website: "diaspora* foundation website"

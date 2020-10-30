@@ -183,9 +183,15 @@ ca:
     post_something: "Publiqueu al Diàspora"
   cancel: "Canceŀla"
   comments:
+    create:
+      fail: "Ha fallat la creació del comentari"
+    destroy:
+      fail: "Ha fallat l'esborrat del comentari"
+      success: "El comentari %{id} s'ha esborrat correctament"
     new_comment:
       comment: "Comenta"
       commenting: "S'està comentant…"
+    not_found: "No es troba l'article o el comentari"
   contacts:
     index:
       all_contacts: "Tots els contactes"
@@ -211,6 +217,7 @@ ca:
       sending: "S'està enviant…"
       subject: "assumpte"
       to: "a"
+    not_found: "No es troba la conversa"
     show:
       delete: "suprimeix i bloca la conversa"
       reply: "respon"
@@ -282,6 +289,9 @@ ca:
       logout: "Surt"
       profile: "Perfil"
       settings: "Paràmetres"
+  likes:
+    create:
+      fail: "Ha fallat la creació del m'agrada"
   limited: "Limitat"
   more: "Més"
   no_results: "No s'ha trobat cap resultat"

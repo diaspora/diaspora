@@ -99,8 +99,6 @@ nl:
     confirm_unload: "Bevestig dat je deze pagina wilt verlaten - gegevens die je hebt ingevoerd, worden niet bewaard."
     contacts:
       add_contact: "Toevoegen contact"
-      aspect_chat_is_enabled: "Contactpersonen in dit aspect kunnen met jou chatten."
-      aspect_chat_is_not_enabled: "Contactpersonen in dit aspect kunnen niet met jou chatten."
       error_add: "Kon <%= name %> niet toevoegen aan het aspect :("
       error_remove: "Kon <%= name %> niet verwijderen uit het aspect :("
       remove_contact: "Verwijder contact"

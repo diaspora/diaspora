@@ -169,9 +169,6 @@ da:
         login_required: "Du skal logge ind for at kunne autorisere denne applikation"
         title: "Ups! Noget gik galt :("
       scopes:
-        aud:
-          description: "Dette giver aud tilladelser til applicationen"
-          name: "aud"
         name:
           description: "Dette giver applikationen adgang til dit navn"
           name: "navn"
@@ -187,15 +184,9 @@ da:
         profile:
           description: "Dette tillader applikationen at læse din udvidede profil"
           name: "udvidet profil"
-        read:
-          description: "Dette tillader applikationen at læse fra din strøm, dine samtaler og hele din profil"
-          name: "læs profil, strøm og samtaler"
         sub:
           description: "Dette giver underprivilegier til applikationen"
           name: "under"
-        write:
-          description: "Dette tillader applikationen at sende indlæg, skrive meddelelser og sende reaktioner"
-          name: "send indlæg, samtaler og reaktioner"
       user_applications:
         index:
           access: "%{name} har adgang til:"
@@ -301,8 +292,6 @@ da:
     original: "Original grå"
     original_white: "Original hvid baggrund"
   comments:
-    create:
-      error: "Du kunne ikke kommentere."
     new_comment:
       comment: "Kommenter"
       commenting: "Kommenterer ..."
@@ -413,11 +402,6 @@ da:
       what_is_an_aspect_q: "Hvad er et aspekt?"
       who_sees_post_a: "Hvis du laver et lukket indlæg, vil det kun være synligt for de personer du har lagt i dette aspekt (eller aspekter, hvis det er lavet til flere aspekter) før du lavede dit indlæg. Kontakter der ikke er i det aspekt kan ikke se indlægget. Lukkede indlæg vil aldrig kunne ses af andre end dem du har i dine aspekter."
       who_sees_post_q: "Hvis jeg skriver et indlæg til et aspekt hvem kan så se det?"
-    chat:
-      add_contact_roster_a: "Først skal du slå chat til for det af dine aspekter personen er i. For at gøre det gå til %{contacts_page}, vælg det aspekt du ønsker og klik chat-ikonnet. Herved slår du chat til for det aspekt. %{toggle_privilege} Hvis du ønsker det kan du lave et nyt aspekt kaldet \"Chat\" og så tilføje de personer du er interesseret i at chatte med. Når du har gjort det, åben chat interfacet og vælg den person du vil chatte med."
-      add_contact_roster_q: "Hvordan chatter jeg med nogen i Diaspora?"
-      contacts_page: "kontakt side"
-      title: "Chat"
     community_guidelines: "Sociale retningslinier"
     faq: "FAQ"
     foundation_website: "Diaspora-stiftelsens hjemmeside"

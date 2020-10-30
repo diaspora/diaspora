@@ -4,7 +4,7 @@
 
 
 
-de-moo:
+de_moo:
   _applications: "Anwendungen"
   _contacts: "Mitkühe"
   _help: "Hilfe"
@@ -169,9 +169,6 @@ de-moo:
         login_required: "Du musst dich erst anmelden, bevor du diese Anwendung zulassen kannst"
         title: "Oh! Etwas ist schiefgegangen :("
       scopes:
-        aud:
-          description: "Dies gewährt der Anwendung aud-Berechtigungen"
-          name: "aud"
         name:
           description: "Dies gewährt der Anwendung Name-Berechtigungen"
           name: "Name"
@@ -187,15 +184,9 @@ de-moo:
         profile:
           description: "Das ermöglicht der Anwendung, dein erweitertes Profil auszulesen"
           name: "erweitertes Profil"
-        read:
-          description: "Das ermöglicht der Anwendung, deine Weide, deine Konversationen und dein vollständiges Profil auszulesen"
-          name: "Profil, Weiden und Konversationen lesen"
         sub:
           description: "Dies gewährt der Anwendung sub-Berechtigungen"
           name: "sub"
-        write:
-          description: "Das ermöglicht der Anwendung, neue Beiträge zu senden, Konversationen zu schreiben und Reaktionen zu senden"
-          name: "Beiträge, Konversationen und Reaktionen senden"
       user_applications:
         index:
           access: "%{name} hat Zugriff auf:"
@@ -301,8 +292,6 @@ de-moo:
     original: "Original Grau"
     original_white: "Original weißer Hintergrund"
   comments:
-    create:
-      error: "Kommentieren fehlgeschlagen."
     new_comment:
       comment: "Kommentieren"
       commenting: "Kommentieren …"
@@ -413,11 +402,6 @@ de-moo:
       what_is_an_aspect_q: "Was ist eine Herde?"
       who_sees_post_a: "Wenn du einen begrenzten Beitrag erstellst, wird dieser nur für Kühe sichtbar sein, die du der ausgewählten Herde (oder den ausgewählten Herden, falls du mehrere ausgewählt hast) vor dem Erstellen des Beitrags hinzugefügt hast. Mitkühe, die du hast, die aber nicht in dieser Herde sind, haben keine Möglichkeit, den Beitrag zu sehen. Begrenzte Beiträge werden nie für Kühe sichtbar sein, die du nicht einer deiner Herden hinzugefügt hast."
       who_sees_post_q: "Wenn ich einen Beitrag an einee Herde poste, wer sieht ihn dann?"
-    chat:
-      add_contact_roster_a: "Zuerst musst du den Chat für eine der Herden aktivieren, in denen sich die Mitkuh befindet. Dafür gehst du zur %{contacts_page}, wählst die gewünschte Herde aus und klickst auf das Chat-Icon, um den Chat für diese Herde zu aktivieren. %{toggle_privilege} Wenn es dir lieber ist, kannst du auch eine spezielle Herde namens 'Chat' erstellen und zu dieser die Kühe hinzufügen, mit denen du chatten willst. Wenn du damit fertig bist, öffnest du die Chatoberfläche und wählst die Mitkuh aus, mit der du chatten willst."
-      add_contact_roster_q: "Wie kann ich mit Kühen in diaspora* chatten?"
-      contacts_page: "Mitküheweide"
-      title: "Chat"
     community_guidelines: "Community-Richtlinien"
     faq: "FAQ"
     foundation_website: "Webseite der diaspora* Foundation"

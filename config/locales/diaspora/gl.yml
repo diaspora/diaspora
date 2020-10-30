@@ -167,9 +167,6 @@ gl:
         login_required: "Debes conectarte antes de poder autorizar esta aplicación"
         title: "Vaia! Algo foi mal :("
       scopes:
-        aud:
-          description: "Esto proporciona permisos de aud a aplicación"
-          name: "aud"
         name:
           description: "Esto proporciona permisos de nome a aplicación"
           name: "nome"
@@ -185,15 +182,9 @@ gl:
         profile:
           description: "Esto permite a aplicación ler o teu perfil extendido"
           name: "perfil extendido"
-        read:
-          description: "Esto permite a aplicación ler a túa cronoloxía, conversas e o perfil completo"
-          name: "ler perfil, cronoloxía e conversas"
         sub:
           description: "Esto garante sub permisos a aplicación"
           name: "sub"
-        write:
-          description: "Esto permite que a aplicación envíe novas publicacións, escriba conversas, e envíe reaccións"
-          name: "enviar publicacións, conversas e reaccións"
       user_applications:
         index:
           access: "%{name} ten acceso a:"
@@ -299,8 +290,6 @@ gl:
     original: "Gris orixinal"
     original_white: "Fondo branco orixinal"
   comments:
-    create:
-      error: "Fallo ao comentar."
     new_comment:
       comment: "Deixar un comentario"
       commenting: "Comentando…"
@@ -411,11 +400,6 @@ gl:
       what_is_an_aspect_q: "Que é un aspecto?"
       who_sees_post_a: "Si fai unha publicación limitada, só será visible para a xente que vostede incluíu en ese aspecto (ou aspectos, se se publica en varios) antes de facer a publicación. Os contactos que teña que non estén en esos aspectos non teñen forma de ver a publicación. As publicacións limitadas non serán visibles para ninguén que vostede non incluíse en algún dos seus aspectos."
       who_sees_post_q: "Cando publico nun aspecto, quen o ve?"
-    chat:
-      add_contact_roster_a: "Primeiro, debes activar o chat para un dos aspectos en que está esa persoa. Para facelo, vaite a %{contacts_page}, escolle o aspecto que desexas e pulsa na icona de chat para activar o chat nese aspecto. %{toggle_privilege} Poderías, se quixeses, crear un novo aspecto especial chamado \"Chat\" e engadir a el as persoas coas que queres conversar. Unha vez feito, abre a interface de chat e escolle a persoa coa que queres conversar."
-      add_contact_roster_q: "Como converso con alguén en diaspora*?"
-      contacts_page: "páxina de contactos"
-      title: "Chat"
     community_guidelines: "normas da comunidade"
     faq: "PMF"
     foundation_website: "sitio web da diaspora* foundation"
@@ -665,11 +649,8 @@ gl:
   no_results: "Non se atopou nada"
   notifications:
     also_commented:
-      few: "%{actors} comentaron tamén a %{post_link} de %{post_author}."
-      many: "%{actors} comentaron tamén a %{post_link} de %{post_author}."
       one: "%{actors} comentou tamén a publicación %{post_link} de %{post_author}."
       other: "%{actors} comentaron tamén a publicación %{post_link} de %{post_author}."
-      two: "%{actors} comentaron tamén a %{post_link} de %{post_author}."
       zero: "%{actors} comentou tamén a publicación %{post_link} de %{post_author}."
     also_commented_deleted:
       few: "%{actors} comentaron unha publicación eliminada."
@@ -679,11 +660,8 @@ gl:
       two: "%{actors} comentaron unha publicación eliminada."
       zero: "%{actors} comentou unha publicación eliminada."
     comment_on_post:
-      few: "%{actors} comentaron a súa %{post_link}."
-      many: "%{actors} comentaron a súa %{post_link}."
       one: "%{actors} comentou a súa publicación %{post_link}."
       other: "%{actors} comentaron a súa publicación %{post_link}."
-      two: "%{actors} comentaron a súa %{post_link}."
       zero: "%{actors} comentou a súa publicación %{post_link}."
     contacts_birthday:
       one: "%{actors} cumplen anos o %{date}"
@@ -716,32 +694,20 @@ gl:
       show_unread: "Mostrar non lido"
       started_sharing: "Comezou a compartir"
     liked:
-      few: "A %{actors} gustoulles a súa %{post_link}."
-      many: "A %{actors} gustoulles a súa %{post_link}."
       one: "A %{actors} gustoulle a súa  publicación %{post_link}."
       other: "A %{actors} gustoulles a súa publicación %{post_link}."
-      two: "A %{actors} gustoulles a súa %{post_link}."
       zero: "A %{actors} gustoulle a súa  publicación %{post_link}."
     liked_post_deleted:
-      few: "A %{actors} gustoulles a súa publicación eliminada."
-      many: "A %{actors} gustoulles a súa publicación eliminada."
       one: "A %{actors} gustoulle a súa publicación eliminada."
       other: "A %{actors} gustoulles a súa publicación eliminada."
-      two: "A %{actors} gustoulles a súa publicación eliminada."
       zero: "A %{actors} gustoulle a súa publicación eliminada."
     mentioned:
-      few: "%{actors} mencionárono nunha %{post_link}."
-      many: "%{actors} mencionárono nunha %{post_link}."
       one: "%{actors} mencionouno na publicación %{post_link}."
       other: "%{actors} mencionárono na publicación %{post_link}."
-      two: "%{actors} mencionárono nunha %{post_link}."
       zero: "%{actors} o mencionou nunha %{post_link}."
     mentioned_deleted:
-      few: "%{actors} mencionárono nunha publicación eliminada."
-      many: "%{actors} mencionárono nunha publicación eliminada."
       one: "%{actors} mencionouno nunha publicación eliminada."
       other: "%{actors} mencionárono nunha publicación eliminada."
-      two: "%{actors} mencionárono nunha publicación eliminada."
       zero: "%{actors} mencionouno nunha publicación eliminada."
     mentioned_in_comment:
       one: "%{actors} mencionoute nun <a href='%{comment_path}'>comentario</a> a publicación %{post_link}."
@@ -1110,11 +1076,8 @@ gl:
       mobile_row_checked: "%{name} (eliminar)"
       mobile_row_unchecked: "%{name} (engadir)"
       toggle:
-        few: "En %{count} aspectos"
-        many: "En %{count} aspectos"
         one: "En %{count} aspecto"
         other: "En %{count} aspectos"
-        two: "En dous aspectos"
         zero: "En ningún aspecto"
     invitations:
       by_email: "Convidar a contactos por correo electrónico"

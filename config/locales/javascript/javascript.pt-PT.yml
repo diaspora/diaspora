@@ -81,8 +81,6 @@ pt-PT:
     confirm_dialog: "Tem a certeza?"
     contacts:
       add_contact: "Adicionar contacto"
-      aspect_chat_is_enabled: "Os contactos neste aspeto podem conversar consigo."
-      aspect_chat_is_not_enabled: "Os contactos neste aspeto não podem conversar consigo."
       error_add: "Não foi possível adicionar <%= name %> ao aspeto :("
       error_remove: "Não foi possível remover <%= name%> do aspeto :("
       remove_contact: "Remover contacto"

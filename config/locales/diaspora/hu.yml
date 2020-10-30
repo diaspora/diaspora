@@ -46,6 +46,7 @@ hu:
               taken: "már foglalt."
   admins:
     admin_bar:
+      dashboard: "Vezérlőpult"
       pages: "Oldalak"
       pod_network: "Pod hálózat"
       pod_stats: "Pod statisztika"
@@ -310,9 +311,6 @@ hu:
       what_is_an_aspect_a: "A csoport (vagy eredetileg \"aspektus\") az a mód, ahogy a kapcsolataidat rendszerezed a diaspora-n. Különböző arcaidat, oldalaidat különbözőképpen mutathatod meg például a munkatársaid, a családod, netán meghatározott közösséghez tartozó barátaid számára."
       what_is_an_aspect_q: "Mit jelent a \"csoport\"?"
       who_sees_post_q: "Amikor bejegyzést írok egy csoportba, ki láthatja azt?"
-    chat:
-      add_contact_roster_q: "Hogyan tudok csevegni valakivel a diasporán*?"
-      title: "Csevegés"
     faq: "GYIK"
     foundation_website: "diaspora* alapítvány"
     getting_help:

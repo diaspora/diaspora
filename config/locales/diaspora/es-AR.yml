@@ -151,9 +151,6 @@ es-AR:
         login_required: "Tienes que loguearte para poder autorizar a esta aplicación"
         title: "¡Oh! Algo salió mal :("
       scopes:
-        aud:
-          description: "Esto otorga permisos aud a la aplicación"
-          name: "aud"
         name:
           description: "Esto otorga permisos de nombre a la aplicación"
           name: "nombre"
@@ -169,15 +166,9 @@ es-AR:
         profile:
           description: "Permite que la aplicación lea tu perfil extendido"
           name: "perfil extendido"
-        read:
-          description: "Esto permite a la aplicación leer tu Entrada, tus conversaciones y tu perfil completo"
-          name: "leer perfil, Entrada y conversaciones"
         sub:
           description: "Esto otorga permisos sub a la aplicación"
           name: "sub"
-        write:
-          description: "Permite a la aplicación enviar nuevos posts, escribir conversaciones y enviar reacciones"
-          name: "enviar publicaciones, conversaciones y reacciones"
       user_applications:
         index:
           access: "%{name} tiene acceso a:"
@@ -282,8 +273,6 @@ es-AR:
     original: "Gris original"
     original_white: "Fondo blanco original"
   comments:
-    create:
-      error: "Hubo un error al comentar."
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
@@ -385,11 +374,6 @@ es-AR:
       what_is_an_aspect_q: "¿Qué es un aspecto?"
       who_sees_post_a: "Si haces una publicación restringida (limitada, privada), ésta solo será visible para las personas que hayas incluido en ese aspecto (o esos aspectos, si la hiciste para varios aspectos). Los contactos que no pertenecen a ese o esos aspectos no tendrán forma de ver la publicación, a menos que la hagas pública. Solo las publicaciones públicas serán visibles para cualquiera que no hayas incluido en uno o varios de tus aspectos."
       who_sees_post_q: "Cuando publico en un aspecto, ¿quienes pueden verlo?"
-    chat:
-      add_contact_roster_a: "Primero, necesitas activar el chat para uno de los aspectos en donde está el usuario. Para hacer eso, ve a la %{contacts_page}, selecciona el aspecto que quieras y haz clic en el icono de chat para activarlo en ese aspecto. %{toggle_privilege} Si lo prefieres, puedes crear un aspecto especial llamado \"Chat\" y agregar allí a los usuarios con los que quieres chatear. Una vez que hayas hecho ésto, abre la interfaz de chat ubicada a la derecha de tu Entrada y selecciona al usuario con quien quieres chatear."
-      add_contact_roster_q: "¿Cómo hago para chatear con alguien en diaspora*?"
-      contacts_page: "página de contactos"
-      title: "Chat"
     community_guidelines: "Normas de la comunidad"
     faq: "Preguntas frecuentes"
     foundation_website: "página web de la Fundación diaspora*"

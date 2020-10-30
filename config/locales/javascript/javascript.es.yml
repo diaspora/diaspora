@@ -96,8 +96,6 @@ es:
     confirm_unload: "Por favor, confirma que quieres abandonar esta página. Los datos que no hayas introducido, no serán guardados."
     contacts:
       add_contact: "Añadir contacto"
-      aspect_chat_is_enabled: "Los contactos de este grupo pueden chatear contigo."
-      aspect_chat_is_not_enabled: "Los contactos de este grupo no pueden chatear contigo."
       error_add: "No se pudo añadir a <%= name %> al aspecto :("
       error_remove: "No se pudo eliminar <%= name %> del aspecto :("
       remove_contact: "Eliminar contacto"

@@ -168,12 +168,16 @@ es:
         login_required: "Tienes que identificarte antes de autorizar esta aplicación"
         title: "¡Oh! Algo salió mal :("
       scopes:
-        aud:
-          description: ""
+        email:
+          name: "correo"
+        interactions:
+          name: "interacciones"
         name:
           name: "Nombre"
         nickname:
           name: "apodo"
+        notifications:
+          name: "notificaciones"
         openid:
           description: "Permite que la aplicación lea tu perfil básico"
           name: "perfil básico"
@@ -183,12 +187,6 @@ es:
         profile:
           description: "Esto permite que la aplicación tenga acceso a la información que figura en tu perfil."
           name: "Perfil."
-        read:
-          description: "Esto permite a la aplicación leer tu portada, tus conversaciones y tu perfil completo"
-          name: "leer perfil, portada y conversaciones"
-        write:
-          description: "Permite a la aplicación enviar nuevos mensajes, escribir conversaciones y enviar reacciones"
-          name: "enviar mensajes, conversaciones y reacciones"
       user_applications:
         index:
           access: "%{name} tiene acceso a:"
@@ -295,10 +293,14 @@ es:
     original_white: "Fondo blanco original"
   comments:
     create:
-      error: "Hubo un error al comentar."
+      fail: "La creación del comentario ha fallado"
+    destroy:
+      fail: "El borrado del comentario ha fallado"
+      success: "El comentario %{id} se ha borrado correctamente"
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
+    not_found: "Post o comentario no encontrado"
   contacts:
     index:
       add_contact: "Añadir contacto"
@@ -338,6 +340,7 @@ es:
       to: "Para"
     new_conversation:
       fail: "Mensaje no válido"
+    not_found: "Conversación no encontrada"
     show:
       delete: "Borrar conversación"
       hide: "ocultar y silenciar la conversación"
@@ -406,11 +409,6 @@ es:
       what_is_an_aspect_q: "¿Qué es un aspecto?"
       who_sees_post_a: "Si haces una publicación limitada, solo será visible para las personas que hayas puesto en ese especto (o los aspectos, si está hecho para múltiples aspectos). Los contactos que tengas que no estén en el aspecto, no tienen forma de ver la publicación, a menos que la hayas hecho pública. Solo las publicaciones públicas serán visibles alguna vez por alguien que no hayas incluido en alguno de tus aspectos."
       who_sees_post_q: "Cuando publico en un aspecto, ¿Quienes pueden verlo?"
-    chat:
-      add_contact_roster_a: "En primer lugar, necesitas activar el chat para uno de los aspectos en los que está esa persona. Para hacerlo, ve a la %{contacts_page}, selecciona el aspecto que quieras y pulsa sobre el icono del chat para activar el chat en ese aspecto. %{toggle_privilege} Si lo prefieres, podrías crear un aspecto especial llamado \"Chat\" y añadir a la persona con la que quieras chatear en ese aspecto. Ona vez que hayas hecho esto, abre la ventana de chat y selecciona la persona con la que quieras hablar."
-      add_contact_roster_q: "¿Cómo puedo chatear con alguien en Diaspora*?"
-      contacts_page: "página de contactos"
-      title: "Chat"
     community_guidelines: "normas de la comunidad"
     faq: "Preguntas Más Frecuentes"
     foundation_website: "página web de la fundación Diaspora*"
@@ -653,8 +651,22 @@ es:
   likes:
     create:
       error: "Ha ocurrido un error al darle \"Me gusta\"."
+      fail: "La creación del enlace falló"
     destroy:
       error: "Ocurrió un error al quitar el \"Me gusta\""
+    not_found: "Post o like no encontrado"
+    people_dislike_this:
+      one: "Un \"no me gusta\""
+      other: "%{count} \"no me gusta\""
+      zero: "Ningún \"no me gusta\""
+    people_like_this:
+      one: "Un like"
+      other: "%{count} likes"
+      zero: "Sin likes"
+    people_like_this_comment:
+      one: "Un like"
+      other: "%{count} likes"
+      zero: "Sin likes"
   limited: "Limitado"
   more: "Más"
   no_results: "No hay resultados"

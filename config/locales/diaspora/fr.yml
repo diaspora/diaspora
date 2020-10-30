@@ -169,9 +169,6 @@ fr:
         login_required: "Vous devez d'abord vous connecter afin de pouvoir autoriser cette application"
         title: "Oups ! Quelque-chose n'a pas marché :("
       scopes:
-        aud:
-          description: "Cela donne la permission aud à l'application"
-          name: "aud"
         name:
           description: "Cela donne la permission nom à l'application"
           name: "nom"
@@ -187,15 +184,9 @@ fr:
         profile:
           description: "Ceci autorise l'application à lire votre profil complet"
           name: "profil complet"
-        read:
-          description: "Ceci permet à l'application de voir votre flux, vos conversations et votre profil complet"
-          name: "voir profil, flux et conversations"
         sub:
           description: "Ceci octroie des sous-permissions à l'application"
           name: "sous"
-        write:
-          description: "Ceci permet à l'application d'envoyer de nouvelles publications, écrire des conversations et publier des réactions"
-          name: "envoyer publications, conversations et réactions"
       user_applications:
         index:
           access: "%{name} a accès à :"
@@ -301,8 +292,6 @@ fr:
     original: "Gris par défaut"
     original_white: "Fond blanc"
   comments:
-    create:
-      error: "Impossible de commenter."
     new_comment:
       comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
@@ -413,13 +402,6 @@ fr:
       what_is_an_aspect_q: "Qu'est-ce qu'un aspect ?"
       who_sees_post_a: "Si vous créez un message privé, il sera uniquement visible par les gens que vous avez placés dans cet aspect (ou ces aspects, si vous le publiez à plusieurs aspects). Les contacts que vous avez et qui ne sont pas dans ces aspects n'ont aucun moyen de voir le message, sauf si vous l'avez rendu public. Les messages limités ne seront jamais visibles aux personnes que vous n'avez pas placé dans vos aspects."
       who_sees_post_q: "Lorsque je publie un message dans un aspect, qui peut le voir ?"
-    chat:
-      add_contact_roster_a: |-
-          Tout d'abord, vous devez activer le chat pour l'un des aspects dans lequel cette personne se trouve. Pour ce faire, allez sur %{contacts_page}, sélectionnez l'aspect désiré et cliquez sur l'icône du chat pour activer le chat pour cet aspect.
-          %{toggle_privilege} Vous pouvez, si vous préférez, créer un aspect dédié appeler "Chat" et ajouter les personnes avec qui vous souhaitez discuter dans cet aspect. Une fois ceci fait, ouvrez l'interface du chat et sélectionner la personne avec qui vous souhaitez discuter.
-      add_contact_roster_q: "Comment chatter avec quelqu'un dans diaspora* ?"
-      contacts_page: "page des contacts"
-      title: "Chat"
     community_guidelines: "Lignes directrices pour la communauté"
     faq: "FAQ"
     foundation_website: "site Internet de la fondation diaspora*"

@@ -169,9 +169,6 @@ pt-BR:
         login_required: "Você deve entrar no sistema para autorizar esse aplicativo"
         title: "Opa! Alguma coisa deu errado :("
       scopes:
-        aud:
-          description: "O aplicativo teria acesso a aud"
-          name: "aud"
         name:
           description: "O aplicativo teria acesso ao seu nome"
           name: "nome"
@@ -187,15 +184,9 @@ pt-BR:
         profile:
           description: "O aplicativo teria permissão para ler seu perfil ampliado"
           name: "perfil ampliado"
-        read:
-          description: "O aplicativo teria permissão para ler seu fluxo, conversas e perfil completo"
-          name: "ler perfil, fluxo e conversas"
         sub:
           description: "O aplicativo teria acesso a sub"
           name: "sub"
-        write:
-          description: "O aplicativo teria permissão para publicar, conversar e enviar reações"
-          name: "enviar publicações, conversas e reações"
       user_applications:
         index:
           access: "%{name} tem acesso a:"
@@ -301,8 +292,6 @@ pt-BR:
     original: "Cinza original"
     original_white: "Fundo branco original"
   comments:
-    create:
-      error: "Falha ao comentar."
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
@@ -413,11 +402,6 @@ pt-BR:
       what_is_an_aspect_q: "O que é um aspecto?"
       who_sees_post_a: "Uma publicação limitada é visível apenas para as pessoas incluídas anteriormente no aspecto (ou aspectos) ao qual ela é destinada. Contatos que não pertencem ao aspecto não podem, de nenhuma maneira, ver a publicação."
       who_sees_post_q: "Quando eu publico em um aspecto, quem vê?"
-    chat:
-      add_contact_roster_a: "Primeiro, é preciso habilitar o bate-papo para um dos aspectos que incluem essa pessoa. Para fazer isso, vá até a %{contacts_page}, selecione o aspecto desejado e clique no ícone de bate-papo. %{toggle_privilege} Se preferir, você pode criar um aspecto apenas com quem você quer conversar. Então, basta entrar na sala de bate-papo do aspecto e selecionar a pessoa."
-      add_contact_roster_q: "Como bater papo com alguém na diaspora*?"
-      contacts_page: "página de contatos"
-      title: "Bate-papo"
     community_guidelines: "normas da comunidade"
     faq: "FAQ"
     foundation_website: "site da Fundação Diaspora"

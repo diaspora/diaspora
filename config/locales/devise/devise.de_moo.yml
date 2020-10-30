@@ -4,7 +4,7 @@
 
 
 
-de-moo:
+de_moo:
   devise:
     confirmations:
       confirmed: "Deine E-Mail-Adresse wurde erfolgreich bestätigt."

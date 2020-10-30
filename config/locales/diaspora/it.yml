@@ -220,9 +220,15 @@ it:
     egyptian_blue: "Blu pompeiano"
     magenta: "Magenta"
   comments:
+    create:
+      fail: "La creazione dei commenti è fallita"
+    destroy:
+      fail: "La cancellazione del commento è fallita"
+      success: "Commento numero %{id} è stato rimosso con successo"
     new_comment:
       comment: "Commenta"
       commenting: "Invio commento in corso..."
+    not_found: "Commento o post non trovati"
   contacts:
     index:
       add_contact: "Aggiungi contatto"
@@ -256,6 +262,7 @@ it:
       to: "A"
     new_conversation:
       fail: "Messaggio non valido"
+    not_found: "Conversazione non trovata"
     show:
       delete: "Elimina la conversazione"
       reply: "Rispondi"
@@ -320,8 +327,6 @@ it:
       what_is_an_aspect_q: "Cosa è un aspetto?"
       who_sees_post_a: "Se crei un post privato, sarà visibile solamente alle persone negli aspetti che avrai scelto. I contatti che non sono nell'aspetto o negli aspetti scelti non avranno modo di vedere il post, a meno che non sia pubblico. Solo i post pubblici saranno visibili da tutti coloro che non hai messo in nessun aspetto."
       who_sees_post_q: "Quando pubblico un contenuto ad un aspetto, chi lo vede?"
-    chat:
-      title: "Chat"
     community_guidelines: "Linee guida della Community"
     faq: "FAQ"
     foundation_website: "Sito web diaspora foundation"
@@ -504,6 +509,9 @@ it:
       logout: "Esci"
       profile: "Profilo"
       settings: "Impostazioni"
+  likes:
+    create:
+      fail: "La creazione dei like è fallita"
   limited: "Non pubblico"
   more: "Altro"
   no_results: "La ricerca non ha prodotto risultati"

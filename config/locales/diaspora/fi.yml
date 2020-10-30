@@ -159,12 +159,6 @@ fi:
           name: "kuva"
         profile:
           name: "Laajennettu profiili"
-        read:
-          description: "Tämä antaa sovellukselle oikeudet lukea virtasi, keskustelusi ja täysprofiilisi"
-          name: "lue profiili, virta ja keskustelut"
-        write:
-          description: "Tämä antaa sovellukselle oikeudet lähettää uusia julkaisuja, kirjoittaa keskusteluja ja lähettää reaktioita."
-          name: "lähetä julkaisut, keskustelut ja reaktiot"
       user_applications:
         index:
           access: "Käyttäjällä %{name} on pääsy näihin kohteisiin:"
@@ -269,8 +263,6 @@ fi:
     original: "Alkuperäinen harmaa"
     original_white: "Alkuperäinen valkoinen tausta"
   comments:
-    create:
-      error: "Kommentin luominen epäonnistui."
     new_comment:
       comment: "Kommentoi"
       commenting: "Kommentoidaan..."
@@ -381,10 +373,6 @@ fi:
       what_is_an_aspect_q: "Mikä on näkymä?"
       who_sees_post_a: "Jos teet rajoitetun julkaisun sen näkevät vain henkilöt, jotka olet sijoittanut kyseiseen näkymään (tai näkymiin). Henkilöt, jotka eivät kuulu kyseiseen näkymään, eivät voi mitenkään nähdä sellaista julkaisua ellet ole tehnyt siitä julkista. Vain julkiset julkaisut ovat sellaisten henkilöiden nähtävillä, jotka eivät kuulu mihinkään näkymistäsi."
       who_sees_post_q: "Kun julkaisen näkymälle kuka voi nähdä sen?"
-    chat:
-      add_contact_roster_q: "Kuinka keskustelen jonkun kanssa Diasporassa?"
-      contacts_page: "Kontaktit-sivu"
-      title: "Keskustelu"
     community_guidelines: "yhteisön suositukset"
     faq: "UKK"
     foundation_website: "Diaspora-säätiön kotisivu"

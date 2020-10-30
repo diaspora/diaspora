@@ -169,9 +169,6 @@ sc:
         login_required: "Depes intrare in su contu tuo in antis de pòdere autorizare custa aplicatzione"
         title: "Oh! B'est istadu unu problema :("
       scopes:
-        aud:
-          description: "Custu at a frunire sos permissos \"aud\" a s'aplicatzione"
-          name: "aud"
         name:
           description: "Custu at a frunire sos permissos de nùmeme a s'aplicatzione"
           name: "nùmene"
@@ -187,15 +184,9 @@ sc:
         profile:
           description: "Custu permitit a s'aplicatzione de lèghere su profilu intreu tuo"
           name: "profilu intreu"
-        read:
-          description: "Custu permitit a s'aplicatzione de lèghere su flussu tuo, sos arresonos tuos e su profilu intreu tuo"
-          name: "leghere su profilu, su flussu e sos arresonos"
         sub:
           description: "Custu at a frunire sos permissos \"sub\" a s'aplicatzione"
           name: "sub"
-        write:
-          description: "Custu permitit a s'aplicatzione de imbiare publicatziones noas, iscrìere arresonos, e imbiare reatziones"
-          name: "imbiare publicatziones, arresonos e reatziones"
       user_applications:
         index:
           access: "%{name} tenet atzessu a :"
@@ -301,8 +292,6 @@ sc:
     original: "Murru originale"
     original_white: "Isfundu biancu originale"
   comments:
-    create:
-      error: "B'est istadu un'errore cummentende."
     new_comment:
       comment: "Cummenta"
       commenting: "Cummentende..."
@@ -413,11 +402,6 @@ sc:
       what_is_an_aspect_q: "Ite est una cara?"
       who_sees_post_a: "Cando faghes una publicatzione limitada cussa at a èssere visìbile pro sas persones chi as postu in cussa cara (o in cussas caras, si est fata in prus caras) in antis de fàghere sa publicatzione. Sos cuntatos chi non tenes in cussas caras no ant a pòdere bìdere cussa publicatzione. Sas publicatziones limitadas no ant a èssere mai visìbiles a chie non tenes in una de sas caras tuas."
       who_sees_post_q: "Cando pùblico in una cara, chie lu bidet?"
-    chat:
-      add_contact_roster_a: "In antis de totu depes abilitare sa tzarrada pro una de sas caras in ue est cussa persone. Pro lu fàghere intra in sa %{contacts_page}, issèbera sa cara chi boles e incarca in s'iscona de sa tzarrada pro abilitare sa tzarrada pro cussa cara. %{toggle_privilege} Dias podere, si preferis, creare una cara ispetziale mutida \"Tzarrada\" e annànghere sas persones cun sas cales cheres tzarrare in cussa cara."
-      add_contact_roster_q: "Comente potzo tzarrare cun calicunu in diaspora*?"
-      contacts_page: "pàgina de sos cuntatos"
-      title: "Tzarrada"
     community_guidelines: "normas de sa comunidade"
     faq: "Pregontas fitianas"
     foundation_website: "situ web de sa fundatzione diaspora*"

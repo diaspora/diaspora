@@ -169,9 +169,6 @@ sq:
         login_required: "Përpara se të mund të autorizoni këtë aplikacion, duhet të hyni në llogarinë tuaj"
         title: "Oh! Diç shkoi ters :("
       scopes:
-        aud:
-          description: "Kjo i akordon aplikacionit leje aud"
-          name: "aud"
         name:
           description: "Kjo i akordon aplikacionit leje emrash"
           name: "emër"
@@ -187,15 +184,9 @@ sq:
         profile:
           description: "Kjo i lejon aplikacionit të lexojë profilin tuaj të zgjeruar"
           name: "profil i zgjeruar"
-        read:
-          description: "Kjo i lejon aplikacionit të lexojë rrjedhën tuaj, bisedat tuaja dhe profilin tuaj të plotë"
-          name: "lexim profili, rrjedhe dhe bisedash"
         sub:
           description: "Kjo i akordon aplikacionit leje sub"
           name: "sub"
-        write:
-          description: "Kjo i lejon aplikacionit të dërgojë postime të rinj, të shkruajë biseda dhe të dërgojë reagime"
-          name: "dërgim postimesh, biseda dhe reagime"
       user_applications:
         index:
           access: "%{name} mund të hyjë në:"
@@ -301,8 +292,6 @@ sq:
     original: "Origjinalja gri"
     original_white: "Origjinalja me sfond të bardhë"
   comments:
-    create:
-      error: "S’u arrit të komentohej."
     new_comment:
       comment: "Koment"
       commenting: "Po komentohet..."
@@ -413,11 +402,6 @@ sq:
       what_is_an_aspect_q: "Ç’është një aspekt?"
       who_sees_post_a: "Nëse bëni një postim të kufizuar, do të jetë i dukshëm vetëm për persona që keni vendosur në atë aspekt (ose aspekte, nëse është bërë në disa aspekte) përpara dërgimit të postimit. Kontaktet që nuk janë pjesë e aspektit, nuk kanë asnjë mundësi ta shohin postimin. Postimet e kufizuara nuk do të jenë kurrë të dukshme për cilindo që s’e keni vendosur në aspektin përkatës."
       who_sees_post_q: "Ç’është një aspekt?"
-    chat:
-      add_contact_roster_a: "Së pari, duhet të aktivizoni fjalosjet për një nga aspektet ku gjendet ai person. Për ta bërë këtë, shkoni te %{contacts_page}, përzgjidhni aspektin që doni dhe klikoni mbi ikonën e fjalosjeve që të aktivizoni fjalosjet për atë aspekt. %{toggle_privilege} Nëse parapëlqeni, mund të krijoni një aspekt special të quajtur “Fjalosje” dhe të shtoni në atë aspekt persona me të cilët doni të fjaloseni. Pasi ta keni bërë këtë, hapni ndërfaqen e fjalosjes dhe përzgjidhni personin me të cilin doni të fjaloseni."
-      add_contact_roster_q: "Si të fjalosem me dikë në diaspora*?"
-      contacts_page: "faqe kontaktesh"
-      title: "Fjalosje"
     community_guidelines: "udhëzime bashkësie"
     faq: "PBR"
     foundation_website: "sajti i diaspora* foundation"
