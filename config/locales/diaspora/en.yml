@@ -917,72 +917,72 @@ en:
           no_requirement: "%{name} requires no permissions"
         no_applications: "You have no authorized applications"
         revoke_autorization: "Revoke"
-        tos: "See the application's terms of service"
-        policy: "See the application's privacy policy"
+        tos: "See the application’s terms of service"
+        policy: "See the application’s privacy policy"
       scopes:
         openid:
-          name: "basic profile"
-          description: "This grants read access to basic profile information to the application."
+          name: "Basic profile information"
+          description: "This grants read-only access to your basic profile information."
         sub:
-          name: "sub"
-          description: "This grants sub permissions to the application."
+          name: "Unique identifier"
+          description: "This grants read-only access to your unique identifier."
         name:
-          name: "name"
-          description: "This grants read access to name data to the application."
+          name: "Full name"
+          description: "This grants read-only access to your full name."
         nickname:
-          name: "nickname"
-          description: "This grants read access to nickname data to the application."
+          name: "Username"
+          description: "This grants read-only access to your username."
         picture:
-          name: "picture"
-          description: "This grants read access to user's profile picture data to the application."
+          name: "Profile picture"
+          description: "This grants read-only access to your profile picture."
         'contacts:read':
-          name: "contacts:read"
-          description: "This grants read permissions to contacts and related data (like aspects) to the application."
+          name: "Contacts (Read-only)"
+          description: "This grants read-only access to contacts and related data (such as aspects)."
         'contacts:modify':
-          name: "contacts:modify"
-          description: "This grants write permissions to contacts and related data (like aspects) to the application."
+          name: "Contacts (Write)"
+          description: "This grants write access to contacts and related data (such as aspects)."
         conversations:
-          name: "conversations"
-          description: "This grants read/write permission to private messaging to the application."
+          name: "Conversations"
+          description: "This grants read and write permission to private messages."
         email:
-          name: "email"
-          description: "This grants read access to the user's email address to the application."
+          name: "E-Mail"
+          description: "This grants read-only access to your email address."
         interactions:
-          name: "interactions"
-          description: "This grants read and write permissions on interacting with posts to the application."
+          name: "Interactions"
+          description: "This grants access to interact with posts, for instance liking or submitting a comment."
         notifications:
-          name: "notifications"
-          description: "This grants read and write permissions on notifications for the user to the application."
+          name: "Notifications"
+          description: "This grants read and write access to your notifications."
         'private:read':
-          name: "private:read"
-          description: "This grants read privileges on private posts and streams to the application."
+          name: "Private Posts (Read-only)"
+          description: "This grants read-only access to your and your contacts’ private posts."
         'private:modify':
-          name: "private:modify"
-          description: "This grants modification privileges on private posts and streams, including allowing private sharing, to the application."
+          name: "Private Posts (Write)"
+          description: "This grants access to publish private posts."
         'public:read':
-          name: "public:read"
-          description: "This grants read permissions on public posts, interactions, and user data to the application."
+          name: "Public Posts (Read-only)"
+          description: "This grants access to your public posts, including interactions and related data."
         'public:modify':
-          name: "public:modify"
-          description: "This grants write permissions on public posts (including public post writing), interactions, and user data to the application."
+          name: "Public Posts (Write)"
+          description: "This grants write access to publish private posts and related data (such as votes and attached media)."
         profile:
-          name: "extended profile"
-          description: "This grants read access to extendend profile data to the application."
+          name: "Extended profile (Read-only)"
+          description: "This grants read-only access to your extended profile data."
         'profile:modify':
-          name: "profile:modify"
-          description: "This grants user profile update permissions to the application."
+          name: "Extended profile (Write)"
+          description: "This grants access to update your extended profile data."
         'profile:read_private':
-          name: "profile:read_private"
-          description: "This grants read access to your private profile data to the application."
+          name: "Private profile data (Read-only)"
+          description: "This grants read-only access to your private profile data."
         'tags:read':
-          name: "tags:read"
-          description: "This grants read access to user's followed tags and tag streams to the application."
+          name: "Tags (Read-only)"
+          description: "This grants read-only access to your followed tags and tag streams."
         'tags:modify':
-          name: "tags:modify"
-          description: "This grants modification access to user's followed tags to the application."
+          name: "Tags (Write)"
+          description: "This grants access to change the tags you follow."
       error_page:
         title: "Oh! Something went wrong :("
-        contact_developer: "You should contact the developer of the application and include the following detailed error message:"
+        contact_developer: "Please contact the application’s developer and include the following detailed error message:"
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
 
