@@ -122,6 +122,13 @@
 #bucket = "my_photos"
 #region = "us-east-1"
 
+# If you intend to use a provider other than AWS, you must
+# install that provider's corresponding fog support gem
+# A list of available providers may be found at https://fog.io/about/provider_documentation.html
+# Provider gems are typically named fog-provider, where
+# 'provider' is the name of the provider (e.g. "fog-digitalocean", "fog-google")
+#provider = "AWS"
+
 ## Use max-age header on Amazon S3 resources (default=true).
 ## When true, this allows locally cached images to be served for up to
 ## one year. This can improve load speed and save requests to the image

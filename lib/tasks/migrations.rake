@@ -9,8 +9,14 @@ namespace :migrations do
     require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
     puts AppConfig.environment.s3.key
 
-    connection = Aws::S3.new( AppConfig.environment.s3.key, AppConfig.environment.s3.secret)
-    bucket = connection.bucket(AppConfig.environment.s3.bucket)
+    connection = Fog::Storage.new(
+      provider:              AppConfig.environment.s3.provider.get,
+      aws_access_key_id:     AppConfig.environment.s3.key.get,
+      aws_secret_access_key: AppConfig.environment.s3.secret.get,
+      region:                AppConfig.environment.s3.region.get
+    )
+
+    bucket = connection.directories.get(AppConfig.environment.s3.bucket)
     dir_name = File.dirname(__FILE__) + "/../../public/uploads/images/"
 
     count = Dir.foreach(dir_name).count
@@ -19,9 +25,12 @@ namespace :migrations do
     Dir.foreach(dir_name){|file_name| puts file_name;
       if file_name != '.' && file_name != '..';
         begin
-          key = Aws::S3::Key.create(bucket, 'uploads/images/' + file_name);
-          key.put(File.open(dir_name+ '/' + file_name).read, 'public-read');
-          key.public_link();
+          file = bucket.files.new(
+            key:    "uploads/images/#{file_name}",
+            body:   File.open("#{dir_name}/#{file_name}"),
+            public: true
+          )
+          puts file.public_url
           puts "Uploaded #{current} of #{count}"
           current += 1
         rescue => e

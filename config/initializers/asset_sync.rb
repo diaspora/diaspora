@@ -3,12 +3,12 @@
 if defined? AssetSync
   AssetSync.configure do |config|
     config.enabled = true
-    
-    config.fog_provider = 'AWS'
+
+    config.fog_provider = AppConfig.environment.s3.provider.get
     config.aws_access_key_id = AppConfig.environment.s3.key.get
     config.aws_secret_access_key = AppConfig.environment.s3.secret.get
     config.fog_directory = AppConfig.environment.s3.bucket.get
-  
+
     # Increase upload performance by configuring your region
     config.fog_region = AppConfig.environment.s3.region.get
     #
@@ -18,7 +18,7 @@ if defined? AssetSync
     # Automatically replace files with their equivalent gzip compressed version
     # config.gzip_compression = true
     #
-    # Use the Rails generated 'manifest.yml' file to produce the list of files to 
+    # Use the Rails generated 'manifest.yml' file to produce the list of files to
     # upload instead of searching the assets directory.
     # config.manifest = true
     #
