@@ -1,11 +1,6 @@
 # diaspora\*
 ### A privacy-aware, distributed, open source social network
 
-[![Coverage Status next-minor](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=next-minor)](https://coveralls.io/github/diaspora/diaspora?branch=next-minor)|
-**develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=develop)](http://travis-ci.org/diaspora/diaspora)
-[![Coverage Status develop](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=develop)](https://coveralls.io/github/diaspora/diaspora?branch=develop) |
-[![Code Climate](https://codeclimate.com/github/diaspora/diaspora/badges/gpa.svg)](https://codeclimate.com/github/diaspora/diaspora)
-
 [Project site](https://diasporafoundation.org) |
 [Wiki](https://wiki.diasporafoundation.org) |
 [Bugtracker](https://github.com/diaspora/diaspora/issues) |
