@@ -294,9 +294,6 @@ group :test do
   gem "webmock",            "3.8.3", require: false
 
   gem "diaspora_federation-test", "0.2.6"
-
-  # Coverage
-  gem "coveralls", "0.8.23", require: false
 end
 
 group :development, :test do
@@ -307,7 +304,7 @@ group :development, :test do
   gem "cucumber-rails", "2.0.0", require: false
 
   # Jasmine (client side application tests (JS))
-  gem "jasmine",                   "3.5.1"
+  gem "jasmine",                   "3.6.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"

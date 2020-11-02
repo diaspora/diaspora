@@ -6,9 +6,6 @@
 
 ENV["RAILS_ENV"] ||= "test"
 
-require 'coveralls'
-Coveralls.wear!('rails')
-
 require File.join(File.dirname(__FILE__), "..", "config", "environment")
 require Rails.root.join("spec", "helper_methods")
 require "rspec/rails"
