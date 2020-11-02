@@ -1,0 +1,60 @@
+name: CI
+on:
+  push:
+    branches:
+      - develop
+      - next-minor
+      - main
+      - master
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby:
+          - 2.6
+          - 2.5
+        db:
+          - mysql
+          - postgresql
+        kind:
+          - cucumber
+          - other
+    env:
+      DB: ${{ matrix.db }}
+      RAILS_ENV: test
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - name: Install system dependencies
+        run: sudo apt-get install -y libidn11-dev
+      - name: Start MySQL
+        run: sudo systemctl start mysql.service
+        if: matrix.db == 'mysql'
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Prepare
+        run: script/ci/prepare.sh
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: bundler-${{ runner.os }}-${{ matrix.ruby }}-${{ matrix.db }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install dependencies
+        run: bundle
+      - name: Run tests
+        run: bin/rake --trace ci:${{ matrix.kind }}
