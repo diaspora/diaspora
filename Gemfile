@@ -294,9 +294,6 @@ group :test do
   gem "webmock",            "3.8.3", require: false
 
   gem "diaspora_federation-test", "0.2.6"
-
-  # Coverage
-  gem "coveralls", "0.8.23", require: false
 end
 
 group :development, :test do

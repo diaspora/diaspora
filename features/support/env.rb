@@ -7,9 +7,6 @@ ENV["RAILS_ENV"] ||= "test"
 # Have all rests run with english browser locale
 ENV["LANG"] = "C"
 
-require 'coveralls'
-Coveralls.wear!('rails')
-
 require "cucumber/rails"
 
 require "capybara/rails"
