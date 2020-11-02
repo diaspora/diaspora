@@ -12,7 +12,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
       matrix:
         ruby:
           - 2.6
