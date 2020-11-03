@@ -2,12 +2,12 @@ FROM ruby:2.4.4-slim-stretch
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
-    apt-get install -y -qq \
+    apt-get install -y -qq --no-install-recommends \
         build-essential \
         cmake \
         curl \
-        ghostscript \
         git \
+        gsfonts \
         imagemagick \
         libcurl4-openssl-dev \
         libidn11-dev \
@@ -16,7 +16,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
         libpq-dev \
         libssl-dev \
         libxml2-dev \
-        libxslt-dev \
+        libxslt1-dev \
         nodejs \
         gosu \
     && \
