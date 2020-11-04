@@ -964,7 +964,7 @@ en:
           description: "This grants access to your public posts, including interactions and related data."
         'public:modify':
           name: "Public Posts (Write)"
-          description: "This grants write access to publish private posts and related data (such as votes and attached media)."
+          description: "This grants write access to publish public posts and related data (such as votes and attached media)."
         profile:
           name: "Extended profile (Read-only)"
           description: "This grants read-only access to your extended profile data."
