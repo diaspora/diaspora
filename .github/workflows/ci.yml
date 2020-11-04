@@ -58,3 +58,7 @@ jobs:
         run: bundle
       - name: Run tests
         run: bin/rake --trace ci:${{ matrix.kind }}
+      - name: Run Jasmine
+        run: bin/rake jasmine:ci
+        timeout-minutes: 2
+        if: matrix.kind == 'other'
