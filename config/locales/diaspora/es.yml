@@ -90,6 +90,7 @@ es:
     user_entry:
       account_closed: "cuenta cerrada"
       admin: "Administrador"
+      current_sign_in_ip: "Dirección IP del inicio de sesión actual"
       diaspora_handle: "Administrar Diaspora"
       email: "Correo Electrónico"
       guid: "GUID"
@@ -161,22 +162,40 @@ es:
           client_id_not_found: "Ningún se encontro ningún cliente con el ID de cliente %{client_id} o con la URI de redireccionamiento %{redirect_uri}"
           deny: "Denegar"
           no_requirement: "%{name} no necesita permisos"
+          private_contacts_linkage_error: "Privado:lectura y privado:Contáctos necesita modificación:leer completo"
           redirection_message: "¿Estás seguro que quieres dar acceso a %{redirect_uri}?"
+          unknown_scope: "Alcance desconocido: %{scope_name}"
       error_page:
         contact_developer: "Deberías contactar con el desarrollador de la aplicación y enviarle el siguiente mensaje de error:"
         could_not_authorize: "No se pudo autorizar la aplicación"
         login_required: "Tienes que identificarte antes de autorizar esta aplicación"
         title: "¡Oh! Algo salió mal :("
       scopes:
+        ? "contacts:modify"
+        :
+          description: "Se conceden a la aplicación permisos de escritura de la información de contacto e información relacionada (aspectos como)."
+          name: "Contactos:modificar"
+        ? "contacts:read"
+        :
+          description: "Se conceden a la aplicación permisos de lectura de la información de contacto e información relacionada (aspectos como)."
+          name: "Contáctos:lectura"
+        conversations:
+          description: "Se conceden a la aplicación permisos de lectura y escritura de mensajes privados."
+          name: "conversaciones"
         email:
+          description: "Se concede a la aplicación acceso para leer los datos de la dirección de correo electrónico del usuario."
           name: "correo"
         interactions:
+          description: "Se concede a la aplicación permiso de lectura, escritura y para interactuar con las publicaciones."
           name: "interacciones"
         name:
+          description: "Esto concede a la aplicación acceso de lectura a los datos de los nombres."
           name: "Nombre"
         nickname:
+          description: "Esto concede a la aplicación acceso de lectura a los datos del nombre de usuario."
           name: "apodo"
         notifications:
+          description: "Se concede a la aplicación permisos de lectura y escritura en las notificaciones para el usuario."
           name: "notificaciones"
         openid:
           description: "Permite que la aplicación lea tu perfil básico"
@@ -184,9 +203,30 @@ es:
         picture:
           description: "Esto permite a la aplicación el acceso a la galería de imágenes."
           name: "fotografía"
+        ? "private:modify"
+        :
+          name: "privado:modificar"
+        ? "private:read"
+        :
+          name: "privado:lectura"
         profile:
           description: "Esto permite que la aplicación tenga acceso a la información que figura en tu perfil."
           name: "Perfil."
+        ? "profile:modify"
+        :
+          name: "perfil:modificar"
+        ? "profile:read_private"
+        :
+          name: "perfil:leer_privado"
+        ? "public:modify"
+        :
+          name: "publico:modificar"
+        ? "public:read"
+        :
+          name: "público:lectura"
+        sub:
+          description: "Esto concede permisos secundarios a la aplicación."
+          name: "secundario"
       user_applications:
         index:
           access: "%{name} tiene acceso a:"

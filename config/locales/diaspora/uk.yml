@@ -99,6 +99,7 @@ uk:
     user_entry:
       account_closed: "аккаунт закрито"
       admin: "Адмін"
+      current_sign_in_ip: "IP адреса при поточному вході"
       diaspora_handle: "Ідентифікатор в Діаспорі*"
       email: "Пошта"
       guid: "Груповий ідентифікатор"

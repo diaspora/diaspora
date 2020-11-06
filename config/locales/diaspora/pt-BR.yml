@@ -292,9 +292,12 @@ pt-BR:
     original: "Cinza original"
     original_white: "Fundo branco original"
   comments:
+    destroy:
+      success: "Comentário %{id} deletado com sucesso."
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
+    not_found: "Publicação ou comentário não encontrado"
   contacts:
     index:
       add_contact: "Adicionar contato"
@@ -334,6 +337,7 @@ pt-BR:
       to: "Para"
     new_conversation:
       fail: "Mensagem inválida"
+    not_found: "Conversa não encontrada"
     show:
       delete: "Apagar conversa"
       hide: "Esconder e silenciar conversa"
@@ -646,6 +650,15 @@ pt-BR:
       error: "Falha ao curtir."
     destroy:
       error: "Falha ao descurtir."
+    not_found: "Publicação ou curtida não encontrada"
+    people_like_this:
+      one: "%{count} curtida"
+      other: "%{count} curtidas"
+      zero: "Nenhuma curtida"
+    people_like_this_comment:
+      one: "%{count} curtida"
+      other: "%{count} curtidas"
+      zero: "Nenhuma curtida"
   limited: "Limitado"
   more: "Mais"
   no_results: "Nenhum resultado encontrado"

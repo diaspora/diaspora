@@ -91,6 +91,7 @@ sv:
     user_entry:
       account_closed: "Konto borttaget"
       admin: "Administratör"
+      current_sign_in_ip: "IP-address för denna inloggning"
       diaspora_handle: "Diaspora*-id"
       email: "E-post"
       guid: "Globalt identifieringsnummer (GUID)"

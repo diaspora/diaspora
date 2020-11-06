@@ -69,6 +69,7 @@ ca:
       week: "Setmanals"
     user_entry:
       admin: "Administrador"
+      current_sign_in_ip: "Adreça IP de l'inici de sessió actual"
       moderator: "Moderador"
       spotlight: "Especials"
     user_search:

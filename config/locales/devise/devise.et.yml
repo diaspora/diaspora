@@ -18,7 +18,7 @@ et:
       locked: "Sinu konto on suletud."
       timeout: "Sinu seanss aegus, jätkamiseks logi palun uuesti sisse."
       unauthenticated: "Enne jätkamist pead konto looma või sisse logima."
-      unconfirmed: "Enne jätkamist pead oma konto kinnitama."
+      unconfirmed: "Enne jätkamist pead oma eposti kinnitama."
     invitations:
       invitation_token_invalid: "Vabandame! See kutse võti ei kehti."
       send_instructions: "Sinu kutse on saadetud."
@@ -65,7 +65,7 @@ et:
         receive_confirmation: "Juhised konto kinnitamiseks ei saabunud?"
         receive_unlock: "Juhised konto taasavamiseks ei saabunud?"
         sign_in: "Logi sisse"
-        sign_up: "Liitu"
+        sign_up: "Loo konto"
         sign_up_closed: "Avatud liitumised on hetkel peatatud."
     unlocks:
       new:
@@ -74,6 +74,6 @@ et:
       unlocked: "Sinu konto on edukalt taasavatud. Oled nüüd sisse logitud."
   errors:
     messages:
-      already_confirmed: "on juba kinnitatud"
+      already_confirmed: "on juba kinnitatud, palun proovi sisse logida"
       not_found: "ei leitud"
       not_locked: "ei ole lukustatud"

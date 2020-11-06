@@ -32,7 +32,7 @@ bs:
             person:
               invalid: "je nevažeće."
             username:
-              invalid: "je nevažeće. Mi samo dozvoljavamo slova, brojeve i podcrte."
+              invalid: "je nevažeće. Mi samo dozvoljavamo slova, brojeve i podvlačenja."
               taken: "je već uzeto."
   admins:
     admin_bar:
@@ -76,6 +76,8 @@ bs:
         other: "%{count} korisnika"
         zero: "%{count} korisnika"
       week: "Sedmica"
+    user_entry:
+      current_sign_in_ip: "IP adresa pri trenutnoj prijavi"
     user_search:
       add_invites: "dodaj pozivnice"
       email_to: "Email za Pozivnicu"
@@ -97,7 +99,7 @@ bs:
         zero: "količina novih korisnika ove sedmice: %{count}"
       current_server: "Trenutni datum servera je %{date}"
   all_aspects: "Svi Aspekti"
-  are_you_sure: "Jeste sigurni?"
+  are_you_sure: "Jeste li sigurni?"
   are_you_sure_delete_account: "Jeste sigurni da želite zatvoriti račun? Ovo se ne može poništiti!"
   aspect_memberships:
     destroy:
@@ -109,7 +111,7 @@ bs:
       failure: "Neuspješno dodavanje kontakta u aspekt."
       success: "Uspješno dodavanje kontakta u aspekt."
     aspect_listings:
-      add_an_aspect: "+ Dodaj jedan aspekt"
+      add_an_aspect: "+ Dodaj aspekt"
     aspect_stream:
       make_something: "Napravi nešto"
       stay_updated: "Budite Ažurni"
@@ -136,7 +138,7 @@ bs:
         here_to_help: "Diaspora zajednica je ovdje!"
         mail_podmin: "Podmin E-Mail"
         need_help: "Trebate Pomoć?"
-        tag_bug: "grešku"
+        tag_bug: "greška"
         tag_feature: "značajku"
         tag_question: "pitanje"
         tutorial_link_text: "Tutorijali"
@@ -432,7 +434,7 @@ bs:
       view_profile: "Pogledaj profil od %{name}"
     thanks: "Hvala."
     to_change_your_notification_settings: "da bi izmijenili vaše postavke obavijesti"
-  nsfw: "Nije pogodno"
+  nsfw: "Bezobrazno"
   ok: "Uredu"
   people:
     add_contact:
@@ -503,7 +505,7 @@ bs:
       enter_email: "Unesite email"
       enter_password: "Unesite šifru (šest karaktera minimalno)"
       enter_password_again: "Unesite istu šifru kao i maloprije"
-      enter_username: "Izaberite korisničko ime (samo slova, brojevi i podcrte)"
+      enter_username: "Izaberite korisničko ime (samo slova, brojevi i podvlačenja)"
       password: "ŠIFRA"
       password_confirmation: "POTVRDA ŠIFRE"
       sign_up: "REGISTRACIJA"

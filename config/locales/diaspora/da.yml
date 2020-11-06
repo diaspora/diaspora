@@ -169,23 +169,25 @@ da:
         login_required: "Du skal logge ind for at kunne autorisere denne applikation"
         title: "Ups! Noget gik galt :("
       scopes:
+        email:
+          name: "e-mail"
         name:
-          description: "Dette giver applikationen adgang til dit navn"
+          description: "Dette giver applikationen læserettigheder til navnedata."
           name: "navn"
         nickname:
-          description: "Dette giver applikationen adgang til dit kælenavn"
+          description: "Dette giver applikationen læserettigheder til kaldenavnsdata."
           name: "kælenavn"
         openid:
-          description: "Dette tillader applikationen at læse fra din basis profil"
+          description: "Dette tildeler applikationen læserettigheder til din basis profils informationer."
           name: "basis profil"
         picture:
-          description: "Dette giver applikationen adgang til dine billeder"
+          description: "Dette giver applikationen læserettigheder til dine profilbillededata."
           name: "billede"
         profile:
-          description: "Dette tillader applikationen at læse din udvidede profil"
+          description: "Dette giver applikationen læserettigheder til udvidede profildata."
           name: "udvidet profil"
         sub:
-          description: "Dette giver underprivilegier til applikationen"
+          description: "Dette giver underprivilegier til applikationen."
           name: "under"
       user_applications:
         index:
@@ -292,9 +294,15 @@ da:
     original: "Original grå"
     original_white: "Original hvid baggrund"
   comments:
+    create:
+      fail: "Oprettelse af kommentar fejlede"
+    destroy:
+      fail: "Sletning af kommentar fejlede"
+      success: "Kommentar %{id} er blevet slettet"
     new_comment:
       comment: "Kommenter"
       commenting: "Kommenterer ..."
+    not_found: "Indlæg eller kommentar blev ikke fundet"
   contacts:
     index:
       add_contact: "Tilføj kontakt"
@@ -334,6 +342,7 @@ da:
       to: "Til"
     new_conversation:
       fail: "Ugyldig meddelelse"
+    not_found: "Samtale blev ikke fundet"
     show:
       delete: "Slet samtalen"
       hide: "Skjul konversationen og gør den tavs"
@@ -501,7 +510,7 @@ da:
       can_comment_q: "Hvem kan kommentere eller like mine private indlæg?"
       can_reshare_a: "Ingen. Private indlæg kan ikke videresendes. Diaspora-brugerne der kan se indlægget fordi de er i samme aspekt kan dog potentielt kopiere og indsætte det i et af deres egne indlæg. Hvad det angår er det op til dig hvem du stoler på."
       can_reshare_q: "Hvem kan videredele mine private indlæg?"
-      see_comment_a: "Kun de mennesker som indlægget blev delt med (dem der er i det aspekt som den oprindelige forfatter valgte for indlægget) kan se kommentarer og likes. "
+      see_comment_a: "Kun de mennesker som indlægget blev delt med (dem der er i det aspekt som den oprindelige forfatter valgte for indlægget) kan se kommentarer og \"synes om\". "
       see_comment_q: "Når jeg kommenterer eller synes om privat indlæg, hvem kan så se det"
       title: "Private indlæg"
       who_sees_post_a: "Kun Diaspora-brugere der er logget ind, og som du har placeret i dette aspekt inden du skrev dit begrænsede indlæg kan se det."
@@ -643,9 +652,15 @@ da:
       toggle_navigation: "Slå navigation til/fra"
   likes:
     create:
-      error: "Du kunne ikke like."
+      error: "Du kunne ikke \"synes om\"."
+      fail: "Oprettelse af \"synes om\" fejlede"
     destroy:
-      error: "Kunne ikke fjerne synes om."
+      error: "Kunne ikke fjerne \"synes om\"."
+    not_found: "Indlæg eller \"synes om\" ikke fundet"
+    people_like_this:
+      one: "%{count} \"synes om\""
+      other: "%{count}  \"synes om\""
+      zero: "Ingen \"synes om\""
   limited: "Begrænset"
   more: "Mere"
   no_results: "Ingen resultater fundet"

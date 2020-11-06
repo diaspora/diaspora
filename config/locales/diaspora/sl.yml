@@ -76,6 +76,8 @@ sl:
         two: "%{count} uporabnika"
         zero: "%{count} uporabnikov"
       week: "Teden"
+    user_entry:
+      current_sign_in_ip: "Naslov IP ob trenutni prijavi"
     user_search:
       add_invites: "dodaj vabila"
       email_to: "Povabila na e-poštni naslov"

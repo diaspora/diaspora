@@ -91,6 +91,7 @@ ia:
     user_entry:
       account_closed: "Conto claudite"
       admin: "Administrator"
+      current_sign_in_ip: "Adresse IP al initio del session actual"
       diaspora_handle: "ID de diaspora*"
       email: "E-mail"
       guid: "GUID"
@@ -162,31 +163,85 @@ ia:
           client_id_not_found: "Nulle cliente con client_id %{client_id} con URI de redirection %{redirect_uri} trovate"
           deny: "Refusar"
           no_requirement: "%{name} non require permissiones"
+          private_contacts_linkage_error: "private:lectura e private:modification require etiam contactos:lectura"
           redirection_message: "Es tu secur de voler dar accesso a %{redirect_uri}?"
+          unknown_scope: "Portata incognite: %{scope_name}"
       error_page:
         contact_developer: "Per favor, contacta le programmator del application e include tote le message de error sequente:"
         could_not_authorize: "Le application non poteva esser autorisate"
         login_required: "Tu debe aperir session ante de poter autorisar iste application"
         title: "Un problema ha occurrite."
       scopes:
+        ? "contacts:modify"
+        :
+          description: "Isto permitte que le application modifica le contactos e le datos associate (como aspectos)."
+          name: "contactos:modification"
+        ? "contacts:read"
+        :
+          description: "Isto permitte que le application lege le contactos e le datos associate (como aspectos)."
+          name: "contactos:lectura"
+        conversations:
+          description: "Isto permitte que le application lege e scribe messages private."
+          name: "conversationes"
+        email:
+          description: "Isto permitte que le application lege le adresse de e-mail del usator."
+          name: "e-mail"
+        interactions:
+          description: "Isto permitte que le application interage con entratas in modo lectura e scriptura."
+          name: "interactiones"
         name:
           description: "Isto concede permissiones \"name\" al application"
           name: "nomine"
         nickname:
           description: "Isto concede permissiones \"nickname\" al application"
           name: "pseudonymo"
+        notifications:
+          description: "Isto permitte que le application lege e crea notificationes pro le usator."
+          name: "notificationes"
         openid:
           description: "Isto permitte que le application lege tu profilo basic"
           name: "profilo basic"
         picture:
           description: "Isto concede permissiones \"picture\" al application"
           name: "imagine"
+        ? "private:modify"
+        :
+          description: "Isto permitte que le application modifica entratas e fluxos private e divide entratas in privato."
+          name: "private:modification"
+        ? "private:read"
+        :
+          description: "Isto permitte que le application lege entratas e fluxos private."
+          name: "private:lectura"
         profile:
           description: "Isto permitte que le application lege tu profilo extendite"
           name: "profilo extendite"
+        ? "profile:modify"
+        :
+          description: "Isto permitte que le application actualisa le profilo del usator."
+          name: "profilo:modification"
+        ? "profile:read_private"
+        :
+          description: "Isto permitte que le application lege tu datos de profilo private."
+          name: "profilo:lectura_private"
+        ? "public:modify"
+        :
+          description: "Isto permitte que le application scribe (i.e. crea e modifica) entratas, interactiones e datos de usator public."
+          name: "public:modification"
+        ? "public:read"
+        :
+          description: "Isto permitte que le application lege entratas, interactiones e datos de usator public."
+          name: "public:lectura"
         sub:
           description: "Isto concede permissiones \"sub\" al application"
           name: "sub"
+        ? "tags:modify"
+        :
+          description: "Isto permitte que le application modifica le etiquettas que le usator seque."
+          name: "etiquettas:modification"
+        ? "tags:read"
+        :
+          description: "Isto permitte que le application lege le etiquettas e fluxos de etiquetta que le usator seque."
+          name: "etiquettas:lectura"
       user_applications:
         index:
           access: "%{name} ha accesso a:"
@@ -654,6 +709,11 @@ ia:
       fail: "Le creation del appreciation ha fallite"
     destroy:
       error: "Le cancellation del appreciation ha fallite."
+    not_found: "Entrata o appreciation non trovate"
+    people_dislike_this:
+      one: "%{count} dispreciation"
+      other: "%{count} dispreciationes"
+      zero: "Nulle dispreciation"
     people_like_this:
       one: "1 appreciation"
       other: "%{count} appreciationes"

@@ -91,6 +91,7 @@ de_formal:
     user_entry:
       account_closed: "Konto wurde geschlossen."
       admin: "Administrator"
+      current_sign_in_ip: "IP Adresse der aktuellen Anmeldung"
       diaspora_handle: "diaspora* ID"
       email: "E-Mail"
       guid: "GUID"

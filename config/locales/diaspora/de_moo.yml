@@ -91,6 +91,7 @@ de_moo:
     user_entry:
       account_closed: "Konto wurde geschlossen"
       admin: "Leitkuh"
+      current_sign_in_ip: "IP-Adresse der aktuellen Anmeldung"
       diaspora_handle: "diaspora* ID"
       email: "E-Mail"
       guid: "GUID"
@@ -162,31 +163,85 @@ de_moo:
           client_id_not_found: "Kein Client mit client_id %{client_id} und Weiterleitungs-URI %{redirect_uri} gefunden"
           deny: "Verweigern"
           no_requirement: "%{name} benötigt keine Berechtigungen"
+          private_contacts_linkage_error: "private:read und private:modify erfordern außerdem contacts:read"
           redirection_message: "Bist du dir sicher, dass du Zugriff von %{redirect_uri} zulassen möchtest?"
+          unknown_scope: "Unbekannte Berechtigung: %{scope_name}"
       error_page:
-        contact_developer: "Du solltest den Entwickler der Anwendung kontaktieren und die folgende ausführliche Fehlermeldung beifügen:"
+        contact_developer: "Du solltest die Leitkuh der Anwendung kontaktieren und die folgende ausführliche Fehlermeldung beifügen:"
         could_not_authorize: "Die Anwendung konnte nicht zugelassen werden"
         login_required: "Du musst dich erst anmelden, bevor du diese Anwendung zulassen kannst"
         title: "Oh! Etwas ist schiefgegangen :("
       scopes:
+        ? "contacts:modify"
+        :
+          description: "Dies gewährt Schreibzugriff auf Mitkühe und zugehörige Daten (wie Herden)."
+          name: "Mitkühe (Schreiben)"
+        ? "contacts:read"
+        :
+          description: "Dies gewährt Lesezugriff auf Mitkühe und zugehörige Daten (wie Herden)."
+          name: "Mitkühe (Nur lesen)"
+        conversations:
+          description: "Dies gewährt Lese- und Schreibzugriff auf private Nachrichten."
+          name: "Konversationen"
+        email:
+          description: "Dies gewährt Lesezugriff auf deine E-Mail-Adresse."
+          name: "E-Mail"
+        interactions:
+          description: "Dies gewährt die Berechtigung, mit Beiträgen zu interagieren, wie beispielsweise ein Gefällt mir oder einen Kommentar abzugeben."
+          name: "Interaktionen"
         name:
-          description: "Dies gewährt der Anwendung Name-Berechtigungen"
-          name: "Name"
+          description: "Dies gewährt Lesezugriff auf deinen vollständigen Namen."
+          name: "Vollständiger Name"
         nickname:
-          description: "Dies gewährt der Anwendung Benutzername-Berechtigungen"
+          description: "Dies gewährt Lesezugriff auf deinen Benutzernamen."
           name: "Benutzername"
+        notifications:
+          description: "Dies gewährt Lese- und Schreibzugriff auf deine Benachrichtigungen."
+          name: "Benachrichtigungen"
         openid:
           description: "Das ermöglicht der Anwendung, dein grundlegendes Profil auszulesen"
           name: "grundlegendes Profil"
         picture:
-          description: "Dies gewährt der Anwendung Bild-Berechtigungen"
-          name: "Bild"
+          description: "Dies gewährt Lesezugriff auf dein Profilbild."
+          name: "Profilbild"
+        ? "private:modify"
+        :
+          description: "Dies gewährt die Berechtigung private Beiträge zu veröffentlichen."
+          name: "Private Beiträge (Schreiben)"
+        ? "private:read"
+        :
+          description: "Dies gewährt Lesezugriff auf deine privaten Beiträge sowie die deiner Mitkühe."
+          name: "Private Beiträge (Nur lesen)"
         profile:
-          description: "Das ermöglicht der Anwendung, dein erweitertes Profil auszulesen"
-          name: "erweitertes Profil"
+          description: "Dies gewährt Lesezugriff auf die Daten in deinem erweiterten Profil."
+          name: "Erweitertes Profil (Nur lesen)"
+        ? "profile:modify"
+        :
+          description: "Dies gewährt Zugriff um die Daten in deinem erweiterten Profil zu aktualisieren."
+          name: "Erweitertes Profil (Schreiben)"
+        ? "profile:read_private"
+        :
+          description: "Dies gewährt Lesezugriff auf die Daten in deinem privaten Profil."
+          name: "Private Profildaten (Nur lesen)"
+        ? "public:modify"
+        :
+          description: "Dies gewährt Schreibzugriff um öffentliche Beiträge und zugehörige Daten zu veröffentlichen (einschließlich Abstimmungen und angehängte Medien)."
+          name: "Öffentliche Beiträge (Schreiben)"
+        ? "public:read"
+        :
+          description: "Dies gewährt Zugriff auf deine öffentlichen Beiträge, einschließlich Interaktionen und zugehörige Daten."
+          name: "Öffentliche Beiträge (Nur lesen)"
         sub:
-          description: "Dies gewährt der Anwendung sub-Berechtigungen"
-          name: "sub"
+          description: "Dies gewährt Lesezugriff auf deine Ohrmarke."
+          name: "Ohrmarke"
+        ? "tags:modify"
+        :
+          description: "Dies gewährt Zugriff um die von dir gefolgten Tags zu verändern."
+          name: "Tags (Schreiben)"
+        ? "tags:read"
+        :
+          description: "Dies gewährt Lesezugriff auf deine gefolgten Tags und Tag-Weiden."
+          name: "Tags (Nur lesen)"
       user_applications:
         index:
           access: "%{name} hat Zugriff auf:"
@@ -292,9 +347,15 @@ de_moo:
     original: "Original Grau"
     original_white: "Original weißer Hintergrund"
   comments:
+    create:
+      fail: "Kommentieren fehlgeschlagen"
+    destroy:
+      fail: "Kommentar löschen fehlgeschlagen"
+      success: "Kommentar %{id} wurde erfolgreich gelöscht"
     new_comment:
       comment: "Kommentieren"
       commenting: "Kommentieren …"
+    not_found: "Beitrag oder Kommentar nicht gefunden"
   contacts:
     index:
       add_contact: "Kuh hinzufügen"
@@ -334,6 +395,7 @@ de_moo:
       to: "An"
     new_conversation:
       fail: "Ungültige Nachricht"
+    not_found: "Konversation nicht gefunden"
     show:
       delete: "Diese Konversation löschen und blockieren"
       hide: "Konversation ausblenden und stumm schalten."
@@ -644,8 +706,22 @@ de_moo:
   likes:
     create:
       error: "Gefällt mir ist fehlgeschlagen."
+      fail: "Gefällt mir fehlgeschlagen"
     destroy:
       error: "Gefällt mir nicht mehr ist fehlgeschlagen."
+    not_found: "Beitrag oder Gefällt mir nicht gefunden"
+    people_dislike_this:
+      one: "%{count} Gefällt mir nicht"
+      other: "%{count} Gefällt mir nicht"
+      zero: "Kein Gefällt mir nicht"
+    people_like_this:
+      one: "%{count} Gefällt mir"
+      other: "%{count} Gefällt mir"
+      zero: "Kein Gefällt mir"
+    people_like_this_comment:
+      one: "%{count} Gefällt mir"
+      other: "%{count} Gefällt mir"
+      zero: "Kein Gefällt mir"
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden."

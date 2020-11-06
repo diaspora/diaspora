@@ -91,6 +91,7 @@ nl:
     user_entry:
       account_closed: "Account afgesloten"
       admin: "Admin"
+      current_sign_in_ip: "IP-adres bij inloggen"
       diaspora_handle: "diaspora* id"
       email: "E-mailadres"
       guid: "GUID"
@@ -292,6 +293,11 @@ nl:
     original: "Origineel grijs"
     original_white: "Originele witte achtergrond"
   comments:
+    create:
+      fail: "Het aanmaken van de reactie is mislukt"
+    destroy:
+      fail: "Het verwijderen van de reactie is mislukt"
+      success: "De reactie %{id} is verwijderd"
     new_comment:
       comment: "Reactie"
       commenting: "Reageren..."
@@ -566,9 +572,11 @@ nl:
       byline: "De online sociale online wereld waar jij de controle hebt"
       choose_your_audience: "Kies je publiek"
       choose_your_audience_info: "diaspora*'s aspecten maken het mogelijk om uitsluitend te delen met de mensen waarmee jij dat wilt. Je kunt zo openbaar of privé zijn als je wilt. Deel een grappige foto met de hele wereld, of een groot geheim alleen met je beste vrienden. Jij bent in control."
+      diaspora_site_link: "federatieve diaspora*-netwerk"
       headline: "Welkom op %{pod_name}"
       own_your_data: "Beschik over je eigen gegevens"
       own_your_data_info: "Veel netwerken verdienen hun geld door jouw gedrag en interacties vanuit jouw gegevens te analyseren om 'op maat gesneden' advertenties te serveren. diaspora* gebruikt je data alleen om je in de gelegenheid te stellen te communiceren en te delen met anderen."
+      part_of_diaspora: "Deel van het %{diaspora_site_link}"
     podmin:
       byline: "Je staat op het punt om het internet te veranderen. Zullen we daar maar eens mee beginnen?"
       configuration_info: "Open %{database_path} en %{diaspora_path} in je voorkeurs teksteditor en bestudeer ze grondig. Ze zijn rijkelijk voorzien van commentaar."
@@ -976,6 +984,11 @@ nl:
       updated: "Profiel bijgewerkt"
   public: "Openbaar"
   registrations:
+    closed:
+      another_pod: "een andere pod"
+      closed_pod: "Deze pod is momenteel gesloten voor nieuwe inschrijvingen. Wel kun je je aansluiten bij het diaspora*-netwerk door je in te schrijven bij %{wiki}. Alle pods zijn met elkaar verbonden, dus krijg je toegang tot dezelfde content."
+      find_pods: "Een lijst van pods waar je je kunt inschrijven vind je op %{poduptime}."
+      other_questions: "Heb je nog andere vragen over het kiezen van een pod, zie dan onze %{wiki}."
     create:
       success: "Je bent nu lid van diaspora*!"
     invalid_invite: "De uitnodigingslink die je gebruikt is niet langer geldig!"
