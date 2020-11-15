@@ -219,10 +219,6 @@ de_moo:
         :
           description: "Dies gewährt Zugriff um die Daten in deinem erweiterten Profil zu aktualisieren."
           name: "Erweitertes Profil (Schreiben)"
-        ? "profile:read_private"
-        :
-          description: "Dies gewährt Lesezugriff auf die Daten in deinem privaten Profil."
-          name: "Private Profildaten (Nur lesen)"
         ? "public:modify"
         :
           description: "Dies gewährt Schreibzugriff um öffentliche Beiträge und zugehörige Daten zu veröffentlichen (einschließlich Abstimmungen und angehängte Medien)."

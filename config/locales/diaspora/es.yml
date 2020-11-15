@@ -215,9 +215,6 @@ es:
         ? "profile:modify"
         :
           name: "perfil:modificar"
-        ? "profile:read_private"
-        :
-          name: "perfil:leer_privado"
         ? "public:modify"
         :
           name: "publico:modificar"

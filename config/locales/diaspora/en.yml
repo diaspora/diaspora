@@ -971,9 +971,6 @@ en:
         'profile:modify':
           name: "Extended profile (Write)"
           description: "This grants access to update your extended profile data."
-        'profile:read_private':
-          name: "Private profile data (Read-only)"
-          description: "This grants read-only access to your private profile data."
         'tags:read':
           name: "Tags (Read-only)"
           description: "This grants read-only access to your followed tags and tag streams."

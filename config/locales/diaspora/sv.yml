@@ -219,10 +219,6 @@ sv:
         :
           description: "Det här ger applikationen rättigheter att ändra användarprofilen."
           name: "profil:ändra"
-        ? "profile:read_private"
-        :
-          description: "Det här ger läsrättigheter till din privata profildata till applikationen."
-          name: "profil:läst_privat"
         ? "public:modify"
         :
           description: "Det här ger skrivrättigheter av offentliga inlägg (inklusive skriva offentliga inlägg), interaktioner och användardata till applikationen."

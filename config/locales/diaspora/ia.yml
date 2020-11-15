@@ -219,10 +219,6 @@ ia:
         :
           description: "Isto permitte que le application actualisa le profilo del usator."
           name: "profilo:modification"
-        ? "profile:read_private"
-        :
-          description: "Isto permitte que le application lege tu datos de profilo private."
-          name: "profilo:lectura_private"
         ? "public:modify"
         :
           description: "Isto permitte que le application scribe (i.e. crea e modifica) entratas, interactiones e datos de usator public."
