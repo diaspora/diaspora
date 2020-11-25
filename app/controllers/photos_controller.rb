@@ -105,18 +105,17 @@ class PhotosController < ApplicationController
   end
 
   def file_handler(params)
-    # For XHR file uploads, request.params[:qqfile] will be the path to the temporary file
-    # For regular form uploads (such as those made by Opera), request.params[:qqfile] will be an
+    # For XHR file uploads, request.params[:file] will be the path to the temporary file
+    # For regular form uploads (such as those made by Opera), request.params[:file] will be an
     # UploadedFile which can be returned unaltered.
-    if !request.params[:qqfile].is_a?(String)
-      qqfile = params[:qqfile]
-      # Cropped or manipulated files have their real filename only in qqfilename. Take care of this.
-      qqfile.original_filename = params[:qqfilename] if qqfile.original_filename == "blob"
-      qqfile
+    if !request.params[:file].is_a?(String)
+      file = params[:file]
+      # Cropped or manipulated files have their real filename only in filename. Take care of this.
+      file.original_filename = params[:filename] if file.original_filename == "blob"
     else
       ######################## dealing with local files #############
       # get file name
-      file_name = params[:qqfile]
+      file_name = params[:file]
       # get file content type
       att_content_type = request.content_type.to_s == "" ? "application/octet-stream" : request.content_type.to_s
       # create temporal file
@@ -127,8 +126,8 @@ class PhotosController < ApplicationController
       # create several required methods for this temporal file
       Tempfile.send(:define_method, "content_type") { return att_content_type }
       Tempfile.send(:define_method, "original_filename") { return file_name }
-      file
     end
+    file
   end
 
   def legacy_create

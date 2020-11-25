@@ -16,8 +16,8 @@ describe PhotosController, :type => :controller do
   describe '#create' do
     before do
       @params = {
-        :photo => {:aspect_ids => "all"},
-        :qqfile => Rack::Test::UploadedFile.new(
+        photo: {aspect_ids: "all"},
+        file:  Rack::Test::UploadedFile.new(
           Rails.root.join("spec", "fixtures", "button.png").to_s,
           "image/png"
         )

@@ -547,7 +547,6 @@ GEM
     rails-assets-corejs-typeahead (1.2.1)
       rails-assets-jquery (>= 1.11)
     rails-assets-cropperjs (1.4.3)
-    rails-assets-fine-uploader (5.13.0)
     rails-assets-highlightjs (9.12.0)
     rails-assets-jasmine (3.4.0)
     rails-assets-jasmine-ajax (4.0.0)
@@ -867,7 +866,6 @@ DEPENDENCIES
   rails-assets-bootstrap-markdown (= 2.10.0)!
   rails-assets-corejs-typeahead (= 1.2.1)!
   rails-assets-cropperjs (= 1.4.3)!
-  rails-assets-fine-uploader (= 5.13.0)!
   rails-assets-highlightjs (= 9.12.0)!
   rails-assets-jasmine-ajax (= 4.0.0)!
   rails-assets-jquery (= 3.4.1)!

@@ -10,11 +10,12 @@
 //= require autosize
 //= require keycodes
 //= require jquery.autoSuggest.custom
-//= require fine-uploader/fine-uploader.core
 //= require jquery.timeago
 //= require underscore
 //= require bootstrap
 //= require pica
+//= require uppy
+//= require helpers/ResizerPlugin
 //= require diaspora
 //= require helpers/i18n
 //= require helpers/tags_autocomplete

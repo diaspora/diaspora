@@ -16,7 +16,6 @@
 //= require jquery.ui/ui/sortable
 //= require keycodes
 //= require jquery.autoSuggest.custom
-//= require fine-uploader/fine-uploader.core
 //= require handlebars.runtime
 //= require_tree ../templates
 //= require posix-bracket-expressions
@@ -33,6 +32,9 @@
 //= require corejs-typeahead
 //= require app/app
 //= require diaspora
+//= require pica
+//= require uppy
+//= require helpers/ResizerPlugin
 //= require_tree ./helpers
 //= require_tree ./pages
 //= require_tree ./widgets
@@ -48,4 +50,3 @@
 //= require helpers/protocol_handler
 //= require jquery.are-you-sure
 //= require cropperjs/dist/cropper.js
-//= require pica

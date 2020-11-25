@@ -530,11 +530,9 @@ describe("app.views.Publisher", function() {
       );
     });
 
-    it("initializes the FineUploader plugin", function() {
-      spyOn(qq, "FineUploaderBasic");
-      new app.views.Publisher();
-
-      expect(qq.FineUploaderBasic).toHaveBeenCalled();
+    it("initializes uppy library", function() {
+      const publisher = new app.views.Publisher();
+      expect(publisher.viewUploader.uploader.uppy).toBeDefined();
     });
 
     context('event handlers', function() {

@@ -34,6 +34,10 @@
 
     #file-upload-publisher{class: "btn btn-default"}
       %i.entypo-camera.middle
+      %input.uppy-file-picker{name: "file",
+      multiple: "",
+      type: "file",
+      title: t("javascripts.photo_uploader.upload_photos")}
     #publisher_mobile
       = submit_tag t("shared.publisher.share"),
         class: "btn btn-primary",

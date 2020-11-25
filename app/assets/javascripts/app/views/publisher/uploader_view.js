@@ -38,8 +38,8 @@ app.views.PublisherUploader = Backbone.View.extend({
   },
 
   progressHandler: function(id, fileName, progress) {
-    this.publisher.photozoneEl
-      .find("li.loading#upload-" + id + " .progress-bar")
+    $(document.getElementById("upload-" + id))
+      .find(".progress-bar")
       .width(progress + "%");
   },
 
@@ -71,7 +71,7 @@ app.views.PublisherUploader = Backbone.View.extend({
       "<input type=\"hidden\", value=\"" + photoId + "\" name=\"photos[]\" />"
     );
     // replace placeholder
-    var placeholder = publisher.photozoneEl.find("li.loading#upload-" + id);
+    var placeholder = $(document.getElementById("upload-" + id));
 
     var imgElement = document.createElement("img");
     imgElement.src = image.thumb_medium.url;
@@ -100,7 +100,7 @@ app.views.PublisherUploader = Backbone.View.extend({
   },
 
   _cancelPhotoUpload: function(id) {
-    this.publisher.photozoneEl.find("li.loading#upload-" + id).remove();
+    $(document.getElementById("upload-" + id)).remove();
   },
 
   // remove an already uploaded photo

@@ -621,6 +621,11 @@ h1.session {
   text-align: center;
   padding: 0;
 
+  .file-upload {
+    overflow: hidden;
+    position: relative;
+  }
+
   img {
     border-radius: 5px;
     box-shadow: 0 1px 2px #666;
@@ -698,7 +703,20 @@ select#aspect_ids_ {
   float: left;
   padding: 3px 12px;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
   .entypo-camera { margin-right: 0; }
+}
+
+.uppy-file-picker {
+  cursor: pointer;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .mobile-icon-bar {

@@ -47,10 +47,10 @@ Feature: editing your profile
     And I should see a ".crop-container" within "#profile_photo_upload"
     And the "#profile_public_details" bootstrap-switch should be on
 
-    When I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload"
+    When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
     Then I should see a flash message indicating failure
 
-    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload"
+    When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
     Then I should see a ".cropper-container" within ".crop-container"
     And I should see a ".controls" within ".crop-container"
     And I should see a ".preview" within ".controls"
@@ -61,7 +61,7 @@ Feature: editing your profile
     Then I should see a ".avatar" within ".crop-container"
     But I should not see a ".cropper-container" within ".crop-container"
 
-    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload"
+    When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
     Then I should see a ".cropper-container" within ".crop-container"
     And I should see a ".controls" within ".crop-container"
     And I should see a ".preview" within ".controls"
