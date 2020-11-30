@@ -24,7 +24,6 @@ module Api
 
       def index
         conversation = conversation_service.find!(params.require(:conversation_id))
-        conversation.set_read(current_user)
         messages_page = index_pager(conversation.messages).response
         messages_page[:data] = messages_page[:data].map {|x| message_json(x) }
         render_paged_api_response messages_page
