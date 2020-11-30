@@ -35,9 +35,13 @@ class Conversation < ApplicationRecord
   end
 
   def set_read(user)
+    update_read_for(user, read: true)
+  end
+
+  def update_read_for(user, read:)
     visibility = conversation_visibilities.find_by(person_id: user.person.id)
     return unless visibility
-    visibility.unread = 0
+    visibility.unread = read ? 0 : 1
     visibility.save
   end
 

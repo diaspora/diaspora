@@ -42,7 +42,17 @@ module Api
         Diaspora::Federation::Dispatcher.defer_dispatch(current_user, conversation)
         render json: conversation_as_json(conversation), status: :created
       rescue ActiveRecord::RecordInvalid, ActionController::ParameterMissing, ActiveRecord::RecordNotFound
-        render_error 422, "Couldn’t accept or process the conversation"
+        render_error 422, "Couldn't accept or process the conversation"
+      end
+
+      def update
+        read = BOOLEAN_TYPE.cast(params.require(:read))
+        conversation = conversation_service.find!(params[:id])
+        conversation.update_read_for(current_user, read: read)
+
+        render json: conversation_as_json(conversation)
+      rescue ActiveRecord::RecordInvalid, ActionController::ParameterMissing, ActiveRecord::RecordNotFound
+        render_error 422, "Couldn't update the conversation"
       end
 
       def destroy
