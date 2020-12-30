@@ -325,7 +325,7 @@
 ## to enter the name of the theme's folder in "app/assets/stylesheets/color_themes/".
 ## ("original" for the theme in "app/assets/stylesheets/color_themes/original/", for
 ## example).
-#default_color_theme: "original"
+#default_color_theme = "original"
 
 ## CURL debug (default=false)
 ## Turn on extra verbose output when sending stuff. Note: you
