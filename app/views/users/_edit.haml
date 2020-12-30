@@ -20,10 +20,11 @@
 
 
         = form_for "user", url: edit_user_path,
-          html: {method: :put, class: "form-horizontal col-md-12", id: "email-form"} do |f|
+          html: {method: :put, class: "form-horizontal", id: "email-form"} do |f|
           = f.error_messages
           .form-group
-            = f.text_field :email, value: @user.unconfirmed_email || @user.email, class: "col-md-7 form-control"
+            .col-sm-12
+              = f.text_field :email, value: @user.unconfirmed_email || @user.email, class: "form-control"
           .clearfix= f.submit t(".change_email"), class: "btn btn-primary pull-right"
         - if @user.unconfirmed_email.present?
           %div= t(".email_awaiting_confirmation", email: @user.email, unconfirmed_email: @user.unconfirmed_email)
