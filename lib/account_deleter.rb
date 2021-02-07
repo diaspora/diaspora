@@ -39,6 +39,7 @@ class AccountDeleter
     remove_share_visibilities_on_contacts_posts
     disconnect_contacts
     delete_standard_user_associations
+    delete_user_invitation_code
     tombstone_user
   end
 
@@ -54,6 +55,10 @@ class AccountDeleter
         User.reflect_on_association(asso).class_name.constantize.where(id: ids).destroy_all
       end
     end
+  end
+
+  def delete_user_invitation_code
+    InvitationCode.find_by(user_id: user.id).try(:destroy)
   end
 
   def normal_ar_person_associates_to_delete

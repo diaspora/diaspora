@@ -76,6 +76,7 @@ describe AccountDeleter do
   describe "#close_user" do
     user_removal_methods = %i[
       delete_standard_user_associations
+      delete_user_invitation_code
       remove_share_visibilities_on_contacts_posts
       disconnect_contacts tombstone_user
     ]
@@ -92,7 +93,7 @@ describe AccountDeleter do
   end
 
   describe "#delete_standard_user_associations" do
-    it 'removes all standard user associaltions' do
+    it "removes all standard user associations" do
       @account_deletion.normal_ar_user_associates_to_delete.each do |asso|
         association_double = double
         expect(association_double).to receive(:ids).and_return([42])
@@ -107,11 +108,23 @@ describe AccountDeleter do
     end
   end
 
+  describe "#delete_user_invitation_code" do
+    it "deletes user invitation code" do
+      expect(bob.invitation_code).not_to be_nil
+      expect(bob.invitation_code).to eq(InvitationCode.find_by(user_id: bob.id))
+      invitation_code_double = double
+      expect(InvitationCode).to receive(:find_by).with(user_id: bob.id).and_return(invitation_code_double)
+      expect(invitation_code_double).to receive(:destroy)
+
+      @account_deletion.delete_user_invitation_code
+    end
+  end
+
   describe "#delete_standard_person_associations" do
     before do
       @account_deletion.person = bob.person
     end
-    it 'removes all standard person associaltions' do
+    it "removes all standard person associations" do
       @account_deletion.normal_ar_person_associates_to_delete.each do |asso|
         association_double = double
         expect(association_double).to receive(:ids).and_return([42])
