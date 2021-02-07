@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="700" height="762.8667" id="svg2" style="display:inline">
+<!-- Created with Inkscape (https://www.inkscape.org/) -->
+<svg xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:cc="https://creativecommons.org/ns#" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="https://www.w3.org/2000/svg" xmlns="https://www.w3.org/2000/svg" xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape" version="1.1" width="700" height="762.8667" id="svg2" style="display:inline">
   <title id="title5724">Diaspora* Official Promo Artwork Toolkit</title>
   <defs id="defs4">
     <inkscape:path-effect effect="spiro" id="path-effect6401"/>
@@ -167,7 +167,7 @@
     <rdf:RDF>
       <cc:Work rdf:about="">
         <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:type rdf:resource="https://purl.org/dc/dcmitype/StillImage"/>
         <dc:title>Diaspora* Official Promo Artwork Toolkit</dc:title>
         <dc:date>2011-08-21</dc:date>
         <dc:rights>
@@ -181,15 +181,15 @@
             <rdf:li>distributed social network</rdf:li>
           </rdf:Bag>
         </dc:subject>
-        <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/"/>
+        <cc:license rdf:resource="https://creativecommons.org/licenses/by-sa/3.0/"/>
       </cc:Work>
-      <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
-        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
-        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
-        <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
-        <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
-        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
-        <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
+      <cc:License rdf:about="https://creativecommons.org/licenses/by-sa/3.0/">
+        <cc:permits rdf:resource="https://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="https://creativecommons.org/ns#Distribution"/>
+        <cc:requires rdf:resource="https://creativecommons.org/ns#Notice"/>
+        <cc:requires rdf:resource="https://creativecommons.org/ns#Attribution"/>
+        <cc:permits rdf:resource="https://creativecommons.org/ns#DerivativeWorks"/>
+        <cc:requires rdf:resource="https://creativecommons.org/ns#ShareAlike"/>
       </cc:License>
     </rdf:RDF>
   </metadata>

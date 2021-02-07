@@ -9,8 +9,8 @@ describe NotifierHelper, :type => :helper do
     before do
       # post for markdown test
       @markdown_post = FactoryGirl.create(:status_message,
-        text: "[link](http://diasporafoundation.org) **bold text** *other text*", public: true)
-      @striped_markdown_post = "link (http://diasporafoundation.org) bold text other text"
+        text: "[link](https://diasporafoundation.org) **bold text** *other text*", public: true)
+      @striped_markdown_post = "link (https://diasporafoundation.org) bold text other text"
     end
 
     it 'strip markdown in the post' do
@@ -37,8 +37,8 @@ describe NotifierHelper, :type => :helper do
       # comment for markdown test
       @markdown_comment = FactoryGirl.create(:comment)
       @markdown_comment.post.public = true
-      @markdown_comment.text = "[link](http://diasporafoundation.org) **bold text** *other text*"
-      @striped_markdown_comment = "link (http://diasporafoundation.org) bold text other text"
+      @markdown_comment.text = "[link](https://diasporafoundation.org) **bold text** *other text*"
+      @striped_markdown_comment = "link (https://diasporafoundation.org) bold text other text"
 
       # comment for limited post
       @limited_comment = FactoryGirl.create(:comment)

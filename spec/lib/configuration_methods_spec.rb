@@ -17,24 +17,24 @@ describe Configuration::Methods do
     end
 
     it "properly parses the pod url" do
-      @settings.environment.url = "http://example.org/"
+      @settings.environment.url = "https://example.org/"
       expect(@settings.pod_uri.scheme).to eq("http")
       expect(@settings.pod_uri.host).to eq("example.org")
     end
 
     it "adds a trailing slash if there isn't one" do
-      @settings.environment.url = "http://example.org"
-      expect(@settings.pod_uri.to_s).to eq("http://example.org/")
+      @settings.environment.url = "https://example.org"
+      expect(@settings.pod_uri.to_s).to eq("https://example.org/")
     end
 
     it "does not add an extra trailing slash" do
-      @settings.environment.url = "http://example.org/"
-      expect(@settings.pod_uri.to_s).to eq("http://example.org/")
+      @settings.environment.url = "https://example.org/"
+      expect(@settings.pod_uri.to_s).to eq("https://example.org/")
     end
 
-    it "adds http:// on the front if it's missing" do
+    it "adds https:// on the front if it's missing" do
       @settings.environment.url = "example.org/"
-      expect(@settings.pod_uri.to_s).to eq("http://example.org/")
+      expect(@settings.pod_uri.to_s).to eq("https://example.org/")
     end
 
     it "adds https:// on the front if require_ssl is true" do
@@ -45,7 +45,7 @@ describe Configuration::Methods do
 
     it "changes http to https if require_ssl is true" do
       @settings.environment.require_ssl = true
-      @settings.environment.url = "http://example.org/"
+      @settings.environment.url = "https://example.org/"
       expect(@settings.pod_uri.to_s).to eq("https://example.org/")
     end
 

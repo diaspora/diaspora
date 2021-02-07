@@ -5,23 +5,23 @@
 daily_motion:
   endpoint: "https://www.dailymotion.com/services/oembed"
   urls:
-    - http://www.dailymotion.com/video/*
+    - https://www.dailymotion.com/video/*
     - https://www.dailymotion.com/video/*
 
 twitter:
   endpoint: "https://api.twitter.com/1/statuses/oembed.json"
   urls:
-    - http://twitter.com/*/status/*
+    - https://twitter.com/*/status/*
     - https://twitter.com/*/status/*
 
 mixcloud:
-  endpoint: "http://www.mixcloud.com/oembed/"
+  endpoint: "https://www.mixcloud.com/oembed/"
   urls:
-    - http://www.mixcloud.com/*/*
+    - https://www.mixcloud.com/*/*
     - https://www.mixcloud.com/*/*
 
 mediacccde:
   endpoint: "https://media.ccc.de/public/oembed/"
   urls:
-    - http://media.ccc.de/v/*
+    - https://media.ccc.de/v/*
     - https://media.ccc.de/v/*

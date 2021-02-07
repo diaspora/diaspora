@@ -4,8 +4,8 @@ describe Workers::GatherOpenGraphData do
   before do
     @ogsite_title = 'Homepage'
     @ogsite_type = 'website'
-    @ogsite_image = 'http://www.we-support-open-graph.com/img/something.png'
-    @ogsite_url = 'http://www.we-support-open-graph.com'
+    @ogsite_image = 'https://www.we-support-open-graph.com/img/something.png'
+    @ogsite_url = 'https://www.we-support-open-graph.com'
     @ogsite_description = 'Homepage'
 
     @ogsite_body =
@@ -18,7 +18,7 @@ describe Workers::GatherOpenGraphData do
       </head><body></body></html>"
 
     @oglong_title = "D" * 256
-    @oglong_url = 'http://www.we-are-too-long.com'
+    @oglong_url = 'https://www.we-are-too-long.com'
     @oglong_body =
       "<html><head><title>#{@oglong_title}</title>
       <meta property=\"og:title\" content=\"#{@oglong_title}\"/>
@@ -28,7 +28,7 @@ describe Workers::GatherOpenGraphData do
       <meta property=\"og:description\" content=\"#{@ogsite_description}\" />
       </head><body></body></html>"
 
-    @no_open_graph_url = 'http://www.we-do-not-support-open-graph.com/index.html'
+    @no_open_graph_url = 'https://www.we-do-not-support-open-graph.com/index.html'
 
     @status_message = FactoryGirl.create(:status_message)
 

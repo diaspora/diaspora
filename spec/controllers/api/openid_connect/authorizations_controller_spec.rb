@@ -75,7 +75,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
       context "when redirect uri is missing" do
         context "when only one redirect URL is pre-registered" do
           it "should return a form page" do
-            # Note this intentionally behavior diverts from OIDC spec http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
+            # Note this intentionally behavior diverts from OIDC spec https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
             # When client has only one redirect uri registered, only that redirect uri can be used. Hence,
             # we should implicitly assume the client wants to use that registered URI.
             # See https://github.com/nov/rack-oauth2/blob/master/lib/rack/oauth2/server/authorize.rb#L63
@@ -176,7 +176,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
       context "when prompt is none and redirect URI does not match pre-registered URIs" do
         it "should return an account_selection_required error" do
           post api_openid_connect_authorizations_new_path, params: {client_id: client.client_id,
-               redirect_uri: "http://randomuri:3000/",
+               redirect_uri: "https://randomuri:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"}
           expect(response.body).to include("Invalid client id or redirect uri")
         end

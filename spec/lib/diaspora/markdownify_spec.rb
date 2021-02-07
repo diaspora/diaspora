@@ -7,7 +7,7 @@ describe Diaspora::Markdownify::HTML do
     end
 
     it "should make all of the links open in a new tab" do
-      markdownified = @html.autolink("http://joindiaspora.com", nil)
+      markdownified = @html.autolink("https://joindiaspora.com", nil)
       doc = Nokogiri.parse(markdownified)
 
       link = doc.css("a")
@@ -16,7 +16,7 @@ describe Diaspora::Markdownify::HTML do
     end
 
     it "should add noopener and noreferrer to autolinks' rel attributes" do
-      markdownified = @html.autolink("http://joindiaspora.com", nil)
+      markdownified = @html.autolink("https://joindiaspora.com", nil)
       doc = Nokogiri.parse(markdownified)
 
       link = doc.css("a")

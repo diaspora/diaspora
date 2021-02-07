@@ -889,7 +889,7 @@ Fix evil regression caused by Active Model no longer exposing
 # 0.5.5.1
 
 * Fix XSS on profile pages
-* Bump nokogiri to fix several libxml2 CVEs, see http://www.ubuntu.com/usn/usn-2834-1/
+* Bump nokogiri to fix several libxml2 CVEs, see https://www.ubuntu.com/usn/usn-2834-1/
 
 # 0.5.5.0
 
@@ -1304,7 +1304,7 @@ diaspora* no longer adds a `div.container` to wrap custom splash pages. This add
 
 # 0.4.1.3
 
-* Update Redcarped, fixes [OSVDB-120415](http://osvdb.org/show/osvdb/120415).
+* Update Redcarped, fixes [OSVDB-120415](https://osvdb.org/show/osvdb/120415).
 
 # 0.4.1.2
 
@@ -1357,7 +1357,7 @@ Example shell command (depending on your environment);
 
 `RAILS_ENV=production bundle exec rake podmin:admin_mail['active_monthly','./message.html','Important message from pod']`
 
-Read more about [specifying arguments to Rake tasks](http://stackoverflow.com/a/825832/1489738).
+Read more about [specifying arguments to Rake tasks](https://stackoverflow.com/a/825832/1489738).
 
 ## Refactor
 * Port help pages to Bootstrap [#5050](https://github.com/diaspora/diaspora/pull/5050)
@@ -1475,7 +1475,7 @@ Read more in [#4249](https://github.com/diaspora/diaspora/pull/4249) and [#4883]
 
 # 0.3.0.3
 
-* Bump Rails to 3.2.17, fixes CVE-2014-0081, CVE-2014-0082. For more information see http://weblog.rubyonrails.org/2014/2/18/Rails_3_2_17_4_0_3_and_4_1_0_beta2_have_been_released/
+* Bump Rails to 3.2.17, fixes CVE-2014-0081, CVE-2014-0082. For more information see https://weblog.rubyonrails.org/2014/2/18/Rails_3_2_17_4_0_3_and_4_1_0_beta2_have_been_released/
 
 # 0.3.0.2
 
@@ -1672,7 +1672,7 @@ Updated:
 
 # 0.2.0.1
 
-* Bump rails to version 3.2.16, fixes several security issues, see http://weblog.rubyonrails.org/2013/12/3/Rails_3_2_16_and_4_0_2_have_been_released/
+* Bump rails to version 3.2.16, fixes several security issues, see https://weblog.rubyonrails.org/2013/12/3/Rails_3_2_16_and_4_0_2_have_been_released/
 * Bump recommended Ruby version to 1.9.3-p484, see https://www.ruby-lang.org/en/news/2013/11/22/heap-overflow-in-floating-point-parsing-cve-2013-4164/
 
 # 0.2.0.0
@@ -1801,7 +1801,7 @@ Updated:
 * Refactored config/ directory [#4144](https://github.com/diaspora/diaspora/pull/4145).
 * Drop misleading fallback donation form. [Proposal](https://www.loomio.org/discussions/1045?proposal=2722)
 * Update Typhoeus to 0.6.3 and refactor HydraWrapper. [#4162](https://github.com/diaspora/diaspora/pull/4162)
-* Bump recomended Ruby version to 1.9.3-p448, see [Ruby news](http://www.ruby-lang.org/en/news/2013/06/27/hostname-check-bypassing-vulnerability-in-openssl-client-cve-2013-4073/).
+* Bump recomended Ruby version to 1.9.3-p448, see [Ruby news](https://www.ruby-lang.org/en/news/2013/06/27/hostname-check-bypassing-vulnerability-in-openssl-client-cve-2013-4073/).
 * Remove length restriciton on GUIDs in the database schema [#4249](https://github.com/diaspora/diaspora/pull/4249)
 
 ## Bug fixes
@@ -1900,7 +1900,7 @@ To update do the following:
    RAILS_ENV=production QUEUE=* bundle exec rake resque:work
    ```
 
-   Visit Resque web via http://your_host:5678, wait until all queues but the
+   Visit Resque web via https://your_host:5678, wait until all queues but the
    failed one are empty (show 0 jobs).
 5. Kill the Resque worker by hitting Ctrl+C. Kill Resque web with:
 
@@ -2066,7 +2066,7 @@ everything is set up.
 
 # 0.0.3.4
 
-* Bump Rails to 3.2.13, fixes CVE-2013-1854, CVE-2013-1855, CVE-2013-1856 and CVE-2013-1857. [Read more](http://weblog.rubyonrails.org/2013/3/18/SEC-ANN-Rails-3-2-13-3-1-12-and-2-3-18-have-been-released/)
+* Bump Rails to 3.2.13, fixes CVE-2013-1854, CVE-2013-1855, CVE-2013-1856 and CVE-2013-1857. [Read more](https://weblog.rubyonrails.org/2013/3/18/SEC-ANN-Rails-3-2-13-3-1-12-and-2-3-18-have-been-released/)
 
 # 0.0.3.3
 
@@ -2133,7 +2133,7 @@ everything is set up.
 * moved Aspects JS initializer to the correct place so aspect selection / deselection works again. [#3737](https://github.com/diaspora/diaspora/pull/3737)
 * Do not strip "markdown" in links when posting to services. [#3765](https://github.com/diaspora/diaspora/issues/3765)
 * Renamed `server.db` to `server.database` to match the example configuration.
-* Fix insecure image of cat on user edit page - New photo courtesy of [khanb1 on flickr](http://www.flickr.com/photos/albaraa/) under CC BY 2.0.
+* Fix insecure image of cat on user edit page - New photo courtesy of [khanb1 on flickr](https://www.flickr.com/photos/albaraa/) under CC BY 2.0.
 * Allow translation of "suggest member" of Community Spotlight. [#3791](https://github.com/diaspora/diaspora/issues/3791)
 * Resize deletelabel and ignoreuser images to align them. [#3779](https://github.com/diaspora/diaspora/issues/3779)
 * Patch in Armenian pluralization rule until CLDR provides it.
@@ -2217,11 +2217,11 @@ everything is set up.
 
 # 0.0.2.3
 
-* Upgrade to Devise 2.1.3 [Read more](http://blog.plataformatec.com.br/2013/01/security-announcement-devise-v2-2-3-v2-1-3-v2-0-5-and-v1-5-3-released/)
+* Upgrade to Devise 2.1.3 [Read more](https://blog.plataformatec.com.br/2013/01/security-announcement-devise-v2-2-3-v2-1-3-v2-0-5-and-v1-5-3-released/)
 
 # 0.0.2.2
 
-* Upgrade to Rails 3.2.11 (CVE-2012-0155, CVE-2012-0156). [Read more](http://weblog.rubyonrails.org/2013/1/8/Rails-3-2-11-3-1-10-3-0-19-and-2-3-15-have-been-released/)
+* Upgrade to Rails 3.2.11 (CVE-2012-0155, CVE-2012-0156). [Read more](https://weblog.rubyonrails.org/2013/1/8/Rails-3-2-11-3-1-10-3-0-19-and-2-3-15-have-been-released/)
 
 # 0.0.2.1
 
@@ -2249,7 +2249,7 @@ everything is set up.
 
 ## Features
 
-* Add "My Activity" icon mobile -[Author Icon](http://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
+* Add "My Activity" icon mobile -[Author Icon](https://www.gentleface.com/free_icon_set.html)-. [#3687](https://github.com/diaspora/diaspora/pull/3687)
 * Add password_confirmation field to registration page. [#3647](https://github.com/diaspora/diaspora/pull/3647)
 * When posting to Twitter, behaviour changed so that URL to post will only be added to the post when length exceeds 140 chars or post contains uploaded photos.
 * Remove markdown formatting from post message when posting to Facebook or Twitter.
@@ -2258,7 +2258,7 @@ everything is set up.
 
 * Fix missing X-Frame headers [#3739](https://github.com/diaspora/diaspora/pull/3739)
 * Fix image path for padlocks [#3682](https://github.com/diaspora/diaspora/pull/3682)
-* Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](http://wiki.diasporafoundation.org/Integrating_Other_Social_Networks) for new Facebook instructions.
+* Fix posting to Facebook and Tumblr. Have a look at the updated [services guide](https://wiki.diasporafoundation.org/Integrating_Other_Social_Networks) for new Facebook instructions.
 * Fix overflow button in mobile reset password. [#3697](https://github.com/diaspora/diaspora/pull/3697)
 * Fix issue with interacted_at in post fetcher. [#3607](https://github.com/diaspora/diaspora/pull/3607)
 * Fix error with show post Community Spotlight. [#3658](https://github.com/diaspora/diaspora/pull/3658)
@@ -2320,7 +2320,7 @@ Fix exception when the root of a reshare of a reshare got deleted [#3546](https:
 
 ## New configuration system!
 
-Copy over config/diaspora.yml.example to config/diaspora.yml and migrate your settings! An updated Heroku guide including basic hints on howto migrate is [here](http://wiki.diasporafoundation.org/Installing_on_Heroku).
+Copy over config/diaspora.yml.example to config/diaspora.yml and migrate your settings! An updated Heroku guide including basic hints on howto migrate is [here](https://wiki.diasporafoundation.org/Installing_on_Heroku).
 
 The new configuration system allows all possible settings to be overriden by environment variables. This makes it possible to deploy heroku without checking any credentials into git. Read the top of `config/diaspora.yml.example` for an explanation on how to convert the setting names to environment variables.
 

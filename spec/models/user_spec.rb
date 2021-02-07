@@ -522,10 +522,10 @@ describe User, :type => :model do
     end
 
     it 'updates image_url' do
-      params = {:image_url => "http://clown.com"}
+      params = {:image_url => "https://clown.com"}
 
       expect(alice.update_profile(params)).to be true
-      expect(alice.reload.profile.image_url).to eq("http://clown.com")
+      expect(alice.reload.profile.image_url).to eq("https://clown.com")
     end
 
     context 'passing in a photo' do

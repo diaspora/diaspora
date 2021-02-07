@@ -1,4 +1,4 @@
-// for docs, see http://jasmine.github.io
+// for docs, see https://jasmine.github.io
 
 var realXMLHttpRequest = window.XMLHttpRequest;
 

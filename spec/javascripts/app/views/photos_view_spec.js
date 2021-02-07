@@ -1,6 +1,6 @@
 describe("app.views.Photos", function() {
   beforeEach(function() {
-    loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({name: "alice", avatar : {small : "https://avatar.com/photo.jpg"}});
 
     this.photos = $.parseJSON(spec.readFixture("photos_json"))["photos"];
 

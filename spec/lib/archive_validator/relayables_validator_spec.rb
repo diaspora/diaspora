@@ -9,7 +9,7 @@ describe ArchiveValidator::RelayablesValidator do
   let(:parent_guid) { FactoryGirl.create(:status_message).guid }
   let(:not_found_guid) {
     UUID.generate(:compact).tap {|guid|
-      stub_request(:get, "http://example.net/fetch/post/#{guid}").to_return(status: 404)
+      stub_request(:get, "https://example.net/fetch/post/#{guid}").to_return(status: 404)
     }
   }
 

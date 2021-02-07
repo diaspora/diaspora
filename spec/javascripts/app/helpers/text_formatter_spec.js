@@ -155,13 +155,13 @@ describe("app.helpers.textFormatter", function(){
   context("markdown", function(){
     it("autolinks", function(){
       var links = [
-        "http://google.com",
+        "https://google.com",
         "https://joindiaspora.com",
-        "http://www.yahooligans.com",
-        "http://obama.com",
-        "http://japan.co.jp",
-        "http://www.mygreat-example-website.de",
-        "http://www.jenseitsderfenster.de",  // from issue #3468
+        "https://www.yahooligans.com",
+        "https://obama.com",
+        "https://japan.co.jp",
+        "https://www.mygreat-example-website.de",
+        "https://www.jenseitsderfenster.de",  // from issue #3468
         "mumble://mumble.coding4.coffee",
         "xmpp:podmin@pod.tld",
         "mailto:podmin@pod.tld"
@@ -176,16 +176,16 @@ describe("app.helpers.textFormatter", function(){
         expect(linkElement.attr("target")).toContain("_blank");
       });
 
-      expect(this.formatter("<http://google.com>")).toContain("<a href");
-      expect(this.formatter("<http://google.com>")).toContain("_blank");
+      expect(this.formatter("<https://google.com>")).toContain("<a href");
+      expect(this.formatter("<https://google.com>")).toContain("_blank");
 
-      expect(this.formatter("<http://google.com>")).toContain("noopener");
-      expect(this.formatter("<http://google.com>")).toContain("noreferrer");
+      expect(this.formatter("<https://google.com>")).toContain("noopener");
+      expect(this.formatter("<https://google.com>")).toContain("noreferrer");
     });
 
-    it("adds a missing http://", function() {
-      expect(this.formatter('[test](www.google.com)')).toContain('href="http://www.google.com"');
-      expect(this.formatter('[test](http://www.google.com)')).toContain('href="http://www.google.com"');
+    it("adds a missing https://", function() {
+      expect(this.formatter('[test](www.google.com)')).toContain('href="https://www.google.com"');
+      expect(this.formatter('[test](https://www.google.com)')).toContain('href="https://www.google.com"');
     });
 
     it("respects code blocks", function() {
@@ -195,11 +195,11 @@ describe("app.helpers.textFormatter", function(){
     });
 
     it("adds 'img-responsive' to the image class", function() {
-      var content = "![alt](http://google.com)]";
+      var content = "![alt](https://google.com)]";
       var wrapper = $("<div>").html(this.formatter(content));
       expect(wrapper.find("img")).toHaveClass("img-responsive");
 
-      content = "<img src=\"http://google.com\">";
+      content = "<img src=\"https://google.com\">";
       wrapper = $("<div>").html(this.formatter(content));
       expect(wrapper.find("img")).toHaveClass("img-responsive");
     });
@@ -237,21 +237,21 @@ describe("app.helpers.textFormatter", function(){
       beforeEach(function() {
         /* jshint -W100 */
         this.evilUrls = [
-          "http://www.bürgerentscheid-krankenhäuser.de", // example from issue #2665
-          "http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
-          "http://موقع.وزارة-الاتصالات.مصر/", // example from #3082
-          "http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html", // example from #3063,
-          "http://de.wikipedia.org/wiki/Liste_der_Abkürzungen_(Netzjargon)", // #3645
-          "http://wiki.com/?query=Kr%E4fte", // #4874
+          "https://www.bürgerentscheid-krankenhäuser.de", // example from issue #2665
+          "https://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
+          "https://موقع.وزارة-الاتصالات.مصر/", // example from #3082
+          "https://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html", // example from #3063,
+          "https://de.wikipedia.org/wiki/Liste_der_Abkürzungen_(Netzjargon)", // #3645
+          "https://wiki.com/?query=Kr%E4fte", // #4874
         ];
         /* jshint +W100 */
         this.asciiUrls = [
-          "http://www.xn--brgerentscheid-krankenhuser-xkc78d.de",
-          "http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
-          "http://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/",
-          "http://lyricstranslate.com/en/someone-you-%E0%B4%A8%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%86-%E0%B4%AA%E0%B5%8B%E0%B4%B2%E0%B5%8A%E0%B4%B0%E0%B4%BE%E0%B4%B3%E0%B5%8D%E2%80%8D.html",
-          "http://de.wikipedia.org/wiki/Liste_der_Abk%C3%BCrzungen_(Netzjargon)",
-          "http://wiki.com/?query=Kr%E4fte",
+          "https://www.xn--brgerentscheid-krankenhuser-xkc78d.de",
+          "https://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
+          "https://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/",
+          "https://lyricstranslate.com/en/someone-you-%E0%B4%A8%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%86-%E0%B4%AA%E0%B5%8B%E0%B4%B2%E0%B5%8A%E0%B4%B0%E0%B4%BE%E0%B4%B3%E0%B5%8D%E2%80%8D.html",
+          "https://de.wikipedia.org/wiki/Liste_der_Abk%C3%BCrzungen_(Netzjargon)",
+          "https://wiki.com/?query=Kr%E4fte",
         ];
       });
 
@@ -327,7 +327,7 @@ describe("app.helpers.textFormatter", function(){
 
       context("percent-encoded input url", function() {
         beforeEach(function() {
-          this.input = "http://www.soilandhealth.org/01aglibrary/010175.tree%20crops.pdf";  // #4507
+          this.input = "https://www.soilandhealth.org/01aglibrary/010175.tree%20crops.pdf";  // #4507
           this.correctHref = 'href="'+this.input+'"';
         });
 
@@ -400,10 +400,10 @@ describe("app.helpers.textFormatter", function(){
   context("real world examples", function(){
     it("renders them as expected", function(){
       var contents = [
-        'oh, cool, nginx 1.7.9 supports json autoindexes: http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format'
+        'oh, cool, nginx 1.7.9 supports json autoindexes: https://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format'
       ];
       var results = [
-        '<p>oh, cool, nginx 1.7.9 supports json autoindexes: <a href="http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format" target="_blank" rel="noopener noreferrer">http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format</a></p>'
+        '<p>oh, cool, nginx 1.7.9 supports json autoindexes: <a href="https://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format" target="_blank" rel="noopener noreferrer">https://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format</a></p>'
       ];
       for (var i = 0; i < contents.length; i++) {
         expect(this.formatter(contents[i])).toContain(results[i]);

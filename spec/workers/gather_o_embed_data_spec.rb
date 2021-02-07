@@ -6,10 +6,10 @@ describe Workers::GatherOEmbedData do
       "trusted_endpoint_url" => "__!SPOOFED!__",
       "version" => "1.0",
       "type" => "photo",
-      "author_url" => "http://www.flickr.com/photos/bees/",
+      "author_url" => "https://www.flickr.com/photos/bees/",
       "cache_age" => 3600,
       "provider_name" => "Flickr",
-      "provider_url" => "http://www.flickr.com/",
+      "provider_url" => "https://www.flickr.com/",
       "title" => "ZB8T0193",
       "author_name" => "Bees",
       "width" => "240",
@@ -18,11 +18,11 @@ describe Workers::GatherOEmbedData do
     }
 
     @flickr_oembed_url = "https://www.flickr.com/services/oembed/"
-    @flickr_photo_url = "http://www.flickr.com/photos/bees/2341623661"
+    @flickr_photo_url = "https://www.flickr.com/photos/bees/2341623661"
     @flickr_oembed_get_request = "#{@flickr_oembed_url}" \
       "?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=#{@flickr_photo_url}"
 
-    @no_oembed_url = 'http://www.we-do-not-support-oembed.com/index.html'
+    @no_oembed_url = 'https://www.we-do-not-support-oembed.com/index.html'
 
     @status_message = FactoryGirl.create(:status_message)
 

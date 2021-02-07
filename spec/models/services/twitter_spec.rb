@@ -60,7 +60,7 @@ describe Services::Twitter, :type => :model do
     end
 
     it "should not truncate a long message with an http url" do
-      long_message = " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
+      long_message = " https://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
       long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       @post.text = long_message
       answer = @service.send(:build_twitter_post, @post)
@@ -70,7 +70,7 @@ describe Services::Twitter, :type => :model do
 
     it "should not cut links when truncating a post" do
       long_message = SecureRandom.hex(40) +
-         " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " +
+         " https://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " +
          SecureRandom.hex(195)
       long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       answer = @service.send(:build_twitter_post, long_post)
@@ -80,9 +80,9 @@ describe Services::Twitter, :type => :model do
     end
 
     it "should append the otherwise-cut link when truncating a post" do
-      long_message = "http://joindiaspora.com/a-very-long-decoy-url.html " + SecureRandom.hex(20) +
-         " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(195) +
-         " http://joindiaspora.com/a-very-long-decoy-url-part-2.html"
+      long_message = "https://joindiaspora.com/a-very-long-decoy-url.html " + SecureRandom.hex(20) +
+         " https://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + SecureRandom.hex(195) +
+         " https://joindiaspora.com/a-very-long-decoy-url-part-2.html"
       long_post = double(message: double(plain_text_without_markdown: long_message), id: 1, photos: [])
       answer = @service.send(:build_twitter_post, long_post)
 
@@ -139,11 +139,11 @@ describe Services::Twitter, :type => :model do
   describe "#profile_photo_url" do
     it 'returns the original profile photo url' do
       user_double = double
-      expect(user_double).to receive(:profile_image_url_https).with("original").and_return("http://a2.twimg.com/profile_images/uid/avatar.png")
+      expect(user_double).to receive(:profile_image_url_https).with("original").and_return("https://a2.twimg.com/profile_images/uid/avatar.png")
       expect_any_instance_of(Twitter::REST::Client).to receive(:user).with("joindiaspora").and_return(user_double)
 
       @service.nickname = "joindiaspora"
-      expect(@service.profile_photo_url).to eq("http://a2.twimg.com/profile_images/uid/avatar.png")
+      expect(@service.profile_photo_url).to eq("https://a2.twimg.com/profile_images/uid/avatar.png")
     end
   end
 

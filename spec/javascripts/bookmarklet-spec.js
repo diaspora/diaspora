@@ -1,5 +1,5 @@
 describe("bookmarklet", function(){
-  var fakeUrl = "http://pod.example.com/bookmarklet";
+  var fakeUrl = "https://pod.example.com/bookmarklet";
 
   it("opens a popup window", function(){
     spyOn(window, "open").and.returnValue(true);

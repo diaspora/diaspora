@@ -62,7 +62,7 @@ class Services::Tumblr < Service
 
   private
   def client
-    @consumer ||= OAuth::Consumer.new(consumer_key, consumer_secret, :site => 'http://api.tumblr.com')
+    @consumer ||= OAuth::Consumer.new(consumer_key, consumer_secret, :site => 'https://api.tumblr.com')
     @client ||= OAuth::AccessToken.new(@consumer, self.access_token, self.access_secret)
   end
 end

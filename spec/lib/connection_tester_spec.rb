@@ -66,9 +66,9 @@ describe ConnectionTester do
     end
 
     it "updates ssl after https redirect" do
-      tester = ConnectionTester.new("http://pod.example.com/", result)
-      stub_request(:get, "http://pod.example.com/").to_return(status: 200, body: "Hello World!")
-      stub_request(:get, "http://pod.example.com/.well-known/host-meta")
+      tester = ConnectionTester.new("https://pod.example.com/", result)
+      stub_request(:get, "https://pod.example.com/").to_return(status: 200, body: "Hello World!")
+      stub_request(:get, "https://pod.example.com/.well-known/host-meta")
         .to_return(status: 301, headers: {"Location" => "#{url}/.well-known/host-meta"})
       stub_request(:get, "#{url}/.well-known/host-meta").to_return(status: 200, body: "host-meta")
 

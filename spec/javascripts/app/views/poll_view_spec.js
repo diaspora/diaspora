@@ -1,6 +1,6 @@
 describe("app.views.Poll", function(){
   beforeEach(function() {
-    loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({name: "alice", avatar : {small : "https://avatar.com/photo.jpg"}});
     this.view = new app.views.Poll({ model: factory.postWithPoll()});
     spec.content().html(this.view.render().el);
   });

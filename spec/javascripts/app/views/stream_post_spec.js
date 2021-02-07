@@ -36,23 +36,23 @@ describe("app.views.StreamPost", function(){
     };
 
     var open_graph_cache = {
-      "url": "http://example.com/articles/123",
+      "url": "https://example.com/articles/123",
       "title": "Example title",
       "description": "Test description",
-      "image": "http://example.com/thumb.jpg",
+      "image": "https://example.com/thumb.jpg",
       "ob_type": "article"
     };
 
     var open_graph_cache_extralong = {
-      "url": "http://example.com/articles/123",
+      "url": "https://example.com/articles/123",
       "title": "Example title",
       "description": Array(62).join("Test description"), // 992 chars
-      "image": "http://example.com/thumb.jpg",
+      "image": "https://example.com/thumb.jpg",
       "ob_type": "article"
     };
 
     beforeEach(function(){
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs({name: "alice", avatar : {small : "https://avatar.com/photo.jpg"}});
     });
 
     context("reshares", function(){

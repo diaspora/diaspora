@@ -22,7 +22,7 @@ module OEmbedHelper
     else
     end
 
-    return html.gsub('http://', 'https://').html_safe
+    return html.gsub('https://', 'https://').html_safe
   end
 
   def link_to_oembed_image(cache, prefix = 'thumbnail_')

@@ -6,7 +6,7 @@ describe("app.views.ProfileHeader", function() {
       name: "User Name",
       relationship: "mutual",
       profile: {
-        avatar: {small: "http://example.org/avatar.jpg"},
+        avatar: {small: "https://example.org/avatar.jpg"},
         tags: ["test"]
       }
     });

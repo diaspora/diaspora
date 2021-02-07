@@ -10,7 +10,7 @@ class IntegrationSessionsController < ActionController::Base
   end
 end
 
-#Copypasta from http://openhood.com/rails/rails%203/2010/07/20/add-routes-at-runtime-rails-3/
+#Copypasta from https://openhood.com/rails/rails%203/2010/07/20/add-routes-at-runtime-rails-3/
 begin
   _routes = Diaspora::Application.routes
   _routes.disable_clear_and_finalize = true

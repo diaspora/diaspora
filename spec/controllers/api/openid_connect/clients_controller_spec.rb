@@ -4,7 +4,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
   describe "#create" do
     context "when valid parameters are passed" do
       before do
-        stub_request(:get, "http://example.com/uris")
+        stub_request(:get, "https://example.com/uris")
           .with(headers: {
                   "Accept"          => "*/*",
                   "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
@@ -13,9 +13,9 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
         post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
              response_types: [], grant_types: [], application_type: "web", contacts: [],
-             logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
-             policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos",
-             sector_identifier_uri: "http://example.com/uris", subject_type: "pairwise"}      end
+             logo_uri: "https://example.com/logo.png", client_uri: "https://example.com/client",
+             policy_uri: "https://example.com/policy", tos_uri: "https://example.com/tos",
+             sector_identifier_uri: "https://example.com/uris", subject_type: "pairwise"}      end
 
       it "should return a client id" do
         client_json = JSON.parse(response.body)
@@ -36,7 +36,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
 
     context "when valid parameters with jwks is passed" do
       before do
-        stub_request(:get, "http://example.com/uris")
+        stub_request(:get, "https://example.com/uris")
           .with(headers: {
                   "Accept"          => "*/*",
                   "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
@@ -45,9 +45,9 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
         post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
              response_types: [], grant_types: [], application_type: "web", contacts: [],
-             logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
-             policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos",
-             sector_identifier_uri: "http://example.com/uris", subject_type: "pairwise",
+             logo_uri: "https://example.com/logo.png", client_uri: "https://example.com/client",
+             policy_uri: "https://example.com/policy", tos_uri: "https://example.com/tos",
+             sector_identifier_uri: "https://example.com/uris", subject_type: "pairwise",
              token_endpoint_auth_method: "private_key_jwt",
              jwks: {
                keys:
@@ -105,7 +105,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
 
     context "when valid parameters with jwks_uri is passed" do
       it "should return a client id" do
-        stub_request(:get, "http://example.com/uris")
+        stub_request(:get, "https://example.com/uris")
           .with(headers: {
                   "Accept"          => "*/*",
                   "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
@@ -122,9 +122,9 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
                      body: "{\"keys\":[{\"kty\":\"RSA\",\"e\":\"AQAB\",\"n\":\"qpW\",\"use\":\"sig\"}]}", headers: {})
         post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
              response_types: [], grant_types: [], application_type: "web", contacts: [],
-             logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
-             policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos",
-             sector_identifier_uri: "http://example.com/uris", subject_type: "pairwise",
+             logo_uri: "https://example.com/logo.png", client_uri: "https://example.com/client",
+             policy_uri: "https://example.com/policy", tos_uri: "https://example.com/tos",
+             sector_identifier_uri: "https://example.com/uris", subject_type: "pairwise",
              token_endpoint_auth_method: "private_key_jwt",
              jwks_uri: "https://kentshikama.com/api/openid_connect/jwks.json"}
         client_json = JSON.parse(response.body)
@@ -136,8 +136,8 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
     context "when redirect uri is missing" do
       it "should return a invalid_client_metadata error" do
         post :create, params: {response_types: [], grant_types: [], application_type: "web", contacts: [],
-          logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
-          policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos"}
+          logo_uri: "https://example.com/logo.png", client_uri: "https://example.com/client",
+          policy_uri: "https://example.com/policy", tos_uri: "https://example.com/tos"}
         client_json = JSON.parse(response.body)
         expect(client_json["error"]).to have_content("invalid_client_metadata")
       end

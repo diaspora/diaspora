@@ -4,7 +4,7 @@
 class ConnectionTester
   include Diaspora::Logging
 
-  NODEINFO_SCHEMA   = "http://nodeinfo.diaspora.software/ns/schema/1.0"
+  NODEINFO_SCHEMA   = "https://nodeinfo.diaspora.software/ns/schema/1.0"
   NODEINFO_FRAGMENT = "/.well-known/nodeinfo"
 
   class << self

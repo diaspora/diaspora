@@ -5,7 +5,7 @@ module MetaDataHelper
   include ActionView::Helpers::TagHelper
 
   def og_prefix
-    'og: http://ogp.me/ns# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#'
+    'og: https://ogp.me/ns# article: https://ogp.me/ns/article# profile: https://ogp.me/ns/profile#'
   end
 
   def site_url

@@ -26,7 +26,7 @@ def create_undiscovered_user(pod)
       FactoryGirl.build(:person,
                         profile:               FactoryGirl.build(:profile),
                         serialized_public_key: user.encryption_key.public_key.export,
-                        pod:                   Pod.find_or_create_by(url: "http://#{pod}"),
+                        pod:                   Pod.find_or_create_by(url: "https://#{pod}"),
                         diaspora_handle:       "#{user.username}@#{pod}")
     )
   end

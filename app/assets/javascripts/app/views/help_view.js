@@ -14,7 +14,7 @@ app.views.Help = app.views.StaticContentView.extend({
 
   initialize : function() {
     this.GETTING_HELP_SUBS = {
-      getting_started_a: {tutorial_series: this.linkHtml("http://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t("getting_started_tutorial"))},
+      getting_started_a: {tutorial_series: this.linkHtml("https://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t("getting_started_tutorial"))},
       get_support_a_website: {link: this.linkHtml("https://diasporafoundation.org/", Diaspora.I18n.t("foundation_website"))},
       get_support_a_tutorials: {tutorials: this.linkHtml("https://diasporafoundation.org/tutorials", Diaspora.I18n.t("tutorials"))},
       get_support_a_wiki: {link: this.linkHtml("https://wiki.diasporafoundation.org/Special:Search", Diaspora.I18n.t("wiki"))},
@@ -27,8 +27,8 @@ app.views.Help = app.views.StaticContentView.extend({
     this.POSTS_AND_POSTING_SUBS = {
       post_report_a: {community_guidelines: this.linkHtml("https://diasporafoundation.org/community_guidelines", Diaspora.I18n.t("community_guidelines"))},
       format_text_a: {
-        markdown: this.linkHtml("http://diasporafoundation.org/formatting", Diaspora.I18n.t( 'markdown' )),
-        here: this.linkHtml("http://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' ))
+        markdown: this.linkHtml("https://diasporafoundation.org/formatting", Diaspora.I18n.t( 'markdown' )),
+        here: this.linkHtml("https://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' ))
       }
     };
 

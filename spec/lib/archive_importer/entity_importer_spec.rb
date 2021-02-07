@@ -70,7 +70,7 @@ describe ArchiveImporter::EntityImporter do
       it "does not relay a remote comment during import" do
         comment_author = FactoryGirl.build(:user)
         comment_author.person.owner = nil
-        comment_author.person.pod = Pod.find_or_create_by(url: "http://example.net")
+        comment_author.person.pod = Pod.find_or_create_by(url: "https://example.net")
         comment_author.person.save!
 
         status_message = FactoryGirl.create(:status_message, author: alice.person, public: true)

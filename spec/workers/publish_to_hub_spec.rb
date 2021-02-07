@@ -7,7 +7,7 @@
 describe Workers::PublishToHub do
   describe ".perform" do
     it "calls pubsubhubbub" do
-      url = "http://example.com/public/username.atom"
+      url = "https://example.com/public/username.atom"
       m = double
 
       expect(m).to receive(:publish).with(url)

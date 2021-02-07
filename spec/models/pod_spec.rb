@@ -25,7 +25,7 @@ describe Pod, type: :model do
     end
 
     it "updates ssl boolean if upgraded to https" do
-      pod = Pod.find_or_create_by(url: "http://example.org/")
+      pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be false
       pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
@@ -34,7 +34,7 @@ describe Pod, type: :model do
     it "does not update ssl boolean if downgraded to http" do
       pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
-      pod = Pod.find_or_create_by(url: "http://example.org/")
+      pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
     end
 
@@ -61,7 +61,7 @@ describe Pod, type: :model do
         uri = URI.parse("https://example.org/")
         allow(AppConfig).to receive(:pod_uri).and_return(uri)
 
-        pod = Pod.find_or_create_by(url: "http://example.org/")
+        pod = Pod.find_or_create_by(url: "https://example.org/")
         expect(pod).not_to be_valid
       end
     end

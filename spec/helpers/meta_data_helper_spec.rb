@@ -24,31 +24,31 @@ describe MetaDataHelper, type: :helper do
     before do
       @attributes = {
         description: {name: "description", content: "i am a test"},
-        og_website:  {property: "og:website", content: "http://www.test2.com"}
+        og_website:  {property: "og:website", content: "https://www.test2.com"}
       }
       default_attributes = {
         description: {name: "description", content: "default description"},
-        og_url:      {property: "og:url",  content: "http://www.defaulturl.com"}
+        og_url:      {property: "og:url",  content: "https://www.defaulturl.com"}
       }
       allow(helper).to receive(:general_metas).and_return(default_attributes)
     end
 
     it "returns the default meta datas if passed nothing" do
       metas_html = %(<meta name="description" content="default description" />\n) +
-                   %(<meta property="og:url" content="http://www.defaulturl.com" />)
+                   %(<meta property="og:url" content="https://www.defaulturl.com" />)
       expect(helper.metas_tags).to eq(metas_html)
     end
 
     it "combines by default the general meta datas with the passed attributes" do
       metas_html = %(<meta name="description" content="i am a test" />\n) +
-                   %(<meta property="og:url" content="http://www.defaulturl.com" />\n) +
-                   %(<meta property="og:website" content="http://www.test2.com" />)
+                   %(<meta property="og:url" content="https://www.defaulturl.com" />\n) +
+                   %(<meta property="og:website" content="https://www.test2.com" />)
       expect(helper.metas_tags(@attributes)).to eq(metas_html)
     end
 
     it "does not combines the general meta datas with the passed attributes if option is disabled" do
       default_metas_html = %(<meta name="description" content="default description" />\n) +
-                           %(<meta property="og:url" content="http://www.defaulturl.com" />)
+                           %(<meta property="og:url" content="https://www.defaulturl.com" />)
       expect(helper.metas_tags(@attributes, false)).not_to include(default_metas_html)
     end
   end

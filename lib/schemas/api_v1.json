@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://diaspora.software/api/v1/schema.json",
   "oneOf": [
     {"$ref": "https://diaspora.software/api/v1/schema.json#/definitions/aspects"},

@@ -459,7 +459,7 @@ zh-TW:
       char_limit_services_q: "我如果把貼文同時發表到字數上限比較少的外部服務去會怎樣？"
       character_limit_a: "65,535 的字。這已經比 Twitter 還要多 65,395 個字了！;)"
       character_limit_q: "貼文的字數上限是多少？"
-      embed_multimedia_a: "通常只要在你的貼文中貼影片或音訊的網址(比如說: http://www.youtube.com/watch?v=nnnnnnnnnnn)，就會自動嵌入了。支援的網站有: YouTube, Vimeo, SoundCloud, Flickr 等等。diaspora* 用 oEmbed 機制來提供這個功能。如果你貼的是音訊或影片的直接網址，diaspora* 就會嵌入標準的 HTML5 撥放器。我們會陸續支援更多的媒體來源網站。請記得一定要貼單純、完整的網址，不能是縮短過的，也不要有多餘的控制參數。貼完後要看預覽畫面的話，請先等一段時間再重新載入頁面。"
+      embed_multimedia_a: "通常只要在你的貼文中貼影片或音訊的網址(比如說: https://www.youtube.com/watch?v=nnnnnnnnnnn)，就會自動嵌入了。支援的網站有: YouTube, Vimeo, SoundCloud, Flickr 等等。diaspora* 用 oEmbed 機制來提供這個功能。如果你貼的是音訊或影片的直接網址，diaspora* 就會嵌入標準的 HTML5 撥放器。我們會陸續支援更多的媒體來源網站。請記得一定要貼單純、完整的網址，不能是縮短過的，也不要有多餘的控制參數。貼完後要看預覽畫面的話，請先等一段時間再重新載入頁面。"
       embed_multimedia_q: "要怎樣在貼文中嵌入一段影片、音訊、或是其他多媒體作品？"
       format_text_a: "diaspora* 用一種叫%{markdown}的簡化排版系統。發表對話框上有一些按鈕可以幫助排版。如果你想要自己手動排版的話，在%{here}有完整的格式說明。\"預覽\"分頁可以讓你在分享出去之前，先知道貼文看起來會是什麼樣子。要知道貼文後是不能再修改的，所以在分享出去之前，請用預覽來確定它完美無瑕！"
       format_text_q: "要怎樣對我的貼文加格式(比如說加粗、推斜等等)?"

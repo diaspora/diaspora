@@ -132,7 +132,7 @@ describe("app.views.Notifications", function() {
       context("with a header", function() {
         beforeEach(function() {
           /* jshint camelcase: false */
-          loginAs({name: "alice", avatar: {small: "http://avatar.com/photo.jpg"}, notifications_count: 2, guid: "foo"});
+          loginAs({name: "alice", avatar: {small: "https://avatar.com/photo.jpg"}, notifications_count: 2, guid: "foo"});
           /* jshint camelcase: true */
           gon.appConfig = {settings: {podname: "MyPod"}};
           app.notificationsCollection = this.collection;
@@ -226,7 +226,7 @@ describe("app.views.Notifications", function() {
       spec.loadFixture("aspects_manage");
       this.view = new app.views.Notifications({el: "#notifications_container", collection: this.collection});
       /* jshint camelcase: false */
-      loginAs({name: "alice", avatar: {small: "http://avatar.com/photo.jpg"}, notifications_count: 2, guid: "foo"});
+      loginAs({name: "alice", avatar: {small: "https://avatar.com/photo.jpg"}, notifications_count: 2, guid: "foo"});
       /* jshint camelcase: true */
       gon.appConfig = {settings: {podname: "MyPod"}};
       app.notificationsCollection = this.collection;

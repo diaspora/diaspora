@@ -1,6 +1,6 @@
 describe("app.views.ContactStream", function() {
   beforeEach(function() {
-    loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({name: "alice", avatar : {small : "https://avatar.com/photo.jpg"}});
     spec.loadFixture("aspects_manage");
     this.contacts = new app.collections.Contacts();
     this.contactsData = $.parseJSON(spec.readFixture("contacts_json"));

@@ -5,8 +5,8 @@
 #   the COPYRIGHT file.
 
 #For Guidance
-#http://github.com/thoughtbot/factory_girl
-# http://railscasts.com/episodes/158-factories-not-fixtures
+#https://github.com/thoughtbot/factory_girl
+# https://railscasts.com/episodes/158-factories-not-fixtures
 
 def r_str
   SecureRandom.hex(3)
@@ -27,9 +27,9 @@ FactoryGirl.define do
   end
 
   factory :profile_with_image_url, :parent => :profile do
-    image_url "http://example.com/image.jpg"
-    image_url_medium "http://example.com/image_mid.jpg"
-    image_url_small "http://example.com/image_small.jpg"
+    image_url "https://example.com/image.jpg"
+    image_url_medium "https://example.com/image_mid.jpg"
+    image_url_small "https://example.com/image_small.jpg"
   end
 
   factory(:person, aliases: %i(author)) do
@@ -38,7 +38,7 @@ FactoryGirl.define do
     end
 
     sequence(:diaspora_handle) {|n| "bob-person-#{n}#{r_str}@example.net" }
-    pod { Pod.find_or_create_by(url: "http://example.net") }
+    pod { Pod.find_or_create_by(url: "https://example.net") }
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     after(:build) do |person, evaluator|
       unless person.profile.first_name.present?
@@ -291,7 +291,7 @@ FactoryGirl.define do
   end
 
   factory(:o_embed_cache) do
-    url "http://youtube.com/kittens"
+    url "https://youtube.com/kittens"
     data {
       {
         "data"                 => "foo",
@@ -301,12 +301,12 @@ FactoryGirl.define do
   end
 
   factory(:open_graph_cache) do
-    url "http://example.com/articles/123"
-    image "http://example.com/images/123.jpg"
+    url "https://example.com/articles/123"
+    image "https://example.com/images/123.jpg"
     title "Some article"
     ob_type "article"
     description "This is the article lead"
-    video_url "http://example.com/videos/123.html"
+    video_url "https://example.com/videos/123.html"
   end
 
   factory(:tag_following) do
@@ -494,8 +494,8 @@ FactoryGirl.define do
   end
 
   factory :federation_profile_from_hcard_with_image_url, parent: :federation_profile_from_hcard do
-    image_url "http://example.com/image.jpg"
-    image_url_medium "http://example.com/image_mid.jpg"
-    image_url_small "http://example.com/image_small.jpg"
+    image_url "https://example.com/image.jpg"
+    image_url_medium "https://example.com/image_mid.jpg"
+    image_url_small "https://example.com/image_small.jpg"
   end
 end

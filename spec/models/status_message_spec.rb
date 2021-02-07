@@ -230,7 +230,7 @@ describe StatusMessage, type: :model do
   end
 
   describe "opengraph" do
-    let(:ninegag_url) { "http://9gag.com/gag/a1AMW16" }
+    let(:ninegag_url) { "https://9gag.com/gag/a1AMW16" }
     let(:youtube_url) { "https://www.youtube.com/watch?v=3PtFwlKfvHI" }
     let(:message_text) { "#{ninegag_url} is so cool. so is this link -> https://joindiaspora.com" }
     let(:oemessage_text) { "#{youtube_url} is so cool. so is this link -> https://joindiaspora.com" }

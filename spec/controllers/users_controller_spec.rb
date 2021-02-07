@@ -55,7 +55,7 @@ describe UsersController, :type => :controller do
           :status_message,
           public: true,
           author: @user.person,
-          text:   "Go to http://diasporafoundation.org/ now!"
+          text:   "Go to https://diasporafoundation.org/ now!"
         )
       end
 

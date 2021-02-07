@@ -102,7 +102,7 @@ module NodeInfo
     end
 
     def content_type
-      "application/json; profile=http://nodeinfo.diaspora.software/ns/schema/#{version}#"
+      "application/json; profile=https://nodeinfo.diaspora.software/ns/schema/#{version}#"
     end
 
     def schema
@@ -169,7 +169,7 @@ module NodeInfo
     {
       "links" => VERSIONS.map {|version|
         {
-          "rel"  => "http://nodeinfo.diaspora.software/ns/schema/#{version}",
+          "rel"  => "https://nodeinfo.diaspora.software/ns/schema/#{version}",
           "href" => endpoint % {version: version}
         }
       }

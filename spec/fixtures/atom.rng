@@ -4,7 +4,7 @@
   RELAX NG Compact Syntax Grammar for the
   Atom Format Specification Version 11
 -->
-<grammar xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:s="http://www.ascc.net/xml/schematron" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar xmlns:xhtml="https://www.w3.org/1999/xhtml" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:s="https://www.ascc.net/xml/schematron" xmlns="https://relaxng.org/ns/structure/1.0" datatypeLibrary="https://www.w3.org/2001/XMLSchema-datatypes">
   <start>
     <choice>
       <ref name="atomFeed"/>
@@ -456,7 +456,7 @@
     <element>
       <anyName>
         <except>
-          <nsName ns="http://www.w3.org/2005/Atom"/>
+          <nsName ns="https://www.w3.org/2005/Atom"/>
         </except>
       </anyName>
       <text/>
@@ -467,7 +467,7 @@
     <element>
       <anyName>
         <except>
-          <nsName ns="http://www.w3.org/2005/Atom"/>
+          <nsName ns="https://www.w3.org/2005/Atom"/>
         </except>
       </anyName>
       <choice>
@@ -552,7 +552,7 @@
     <element>
       <anyName>
         <except>
-          <nsName ns="http://www.w3.org/2005/Atom"/>
+          <nsName ns="https://www.w3.org/2005/Atom"/>
         </except>
       </anyName>
       <zeroOrMore>
@@ -569,7 +569,7 @@
   <!-- XHTML -->
   <define name="anyXHTML">
     <element>
-      <nsName ns="http://www.w3.org/1999/xhtml"/>
+      <nsName ns="https://www.w3.org/1999/xhtml"/>
       <zeroOrMore>
         <choice>
           <attribute>

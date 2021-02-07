@@ -15,10 +15,10 @@ describe NodeInfoController do
 
       jrd = JSON.parse(response.body)
       expect(jrd).to include "links" => [{
-        "rel"  => "http://nodeinfo.diaspora.software/ns/schema/1.0",
+        "rel"  => "https://nodeinfo.diaspora.software/ns/schema/1.0",
         "href" => node_info_url("1.0")
       }, {
-        "rel"  => "http://nodeinfo.diaspora.software/ns/schema/2.0",
+        "rel"  => "https://nodeinfo.diaspora.software/ns/schema/2.0",
         "href" => node_info_url("2.0")
       }]
     end
@@ -52,7 +52,7 @@ describe NodeInfoController do
           get :document, params: {version: version}, format: :json
 
           expect(response.content_type)
-            .to eq("application/json; profile=http://nodeinfo.diaspora.software/ns/schema/#{version}#")
+            .to eq("application/json; profile=https://nodeinfo.diaspora.software/ns/schema/#{version}#")
         end
       end
     end

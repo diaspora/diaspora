@@ -15,7 +15,7 @@ describe AspectMembershipsController, type: :controller do
     alice.save
     sign_in alice, scope: :user
     allow(@controller).to receive(:current_user).and_return(alice)
-    request.env["HTTP_REFERER"] = "http://" + request.host
+    request.env["HTTP_REFERER"] = "https://" + request.host
   end
 
   describe "#create" do

@@ -9,7 +9,7 @@ describe Diaspora::Camo do
     AppConfig.privacy.camo.root = 'http://localhost:3000/camo/'
     AppConfig.privacy.camo.key = 'kittenpower'
 
-    @raw_image_url = 'http://example.com/kitten.jpg'
+    @raw_image_url = 'https://example.com/kitten.jpg'
     @camo_image_url = AppConfig.privacy.camo.root + '5bc5b9d7ebd202841ab0667c4fc8d4304278f902/687474703a2f2f6578616d706c652e636f6d2f6b697474656e2e6a7067'
   end
 

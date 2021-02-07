@@ -9,7 +9,7 @@ require "sidekiq/cron/web"
 Sidekiq::Web.set :sessions, false # disable rack session cookie
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :report, except: %i(edit new show)
 
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # Federation
   mount DiasporaFederation::Engine => "/"
 
-  get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
+  get "/atom.xml" => redirect('https://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
 
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
@@ -208,7 +208,7 @@ Rails.application.routes.draw do
   get 'help/:topic' => 'help#faq'
 
   #Protocol Url
-  get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")
+  get 'protocol' => redirect("https://wiki.diasporafoundation.org/Federation_Protocol_Overview")
 
   # NodeInfo
   get ".well-known/nodeinfo", to: "node_info#jrd"
@@ -279,7 +279,7 @@ Rails.application.routes.draw do
       post "access_tokens", to: "token_endpoint#create"
 
       # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint
-      # See http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation
+      # See https://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation
       resources :authorizations, only: %i(new create destroy)
       post "authorizations/new", to: "authorizations#new"
       get "user_applications", to: "user_applications#index"

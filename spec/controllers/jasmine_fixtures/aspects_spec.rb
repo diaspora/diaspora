@@ -10,7 +10,7 @@ describe StreamsController, :type => :controller do
       sign_in alice, scope: :user
       @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
 
-      request.env["HTTP_REFERER"] = 'http://' + request.host
+      request.env["HTTP_REFERER"] = 'https://' + request.host
     end
 
     context 'jasmine fixtures' do
@@ -89,7 +89,7 @@ describe StreamsController, :type => :controller do
       it "generates a jasmine fixture with a post containing a video", :fixture => true do
         stub_request(
           :get,
-          "https://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&scheme=https&url=http://www.youtube.com/watch?v=UYrkQL1bX4A"
+          "https://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&scheme=https&url=https://www.youtube.com/watch?v=UYrkQL1bX4A"
         ).with(
           :headers => {'Accept'=>'*/*'}
         ).to_return(
@@ -98,7 +98,7 @@ describe StreamsController, :type => :controller do
           :headers => {}
         )
 
-        alice.post(:status_message, :text => "http://www.youtube.com/watch?v=UYrkQL1bX4A", :to => @alices_aspect_2.id)
+        alice.post(:status_message, :text => "https://www.youtube.com/watch?v=UYrkQL1bX4A", :to => @alices_aspect_2.id)
         get :aspects
         save_fixture(html_for("body"), "aspects_index_with_video_post")
       end

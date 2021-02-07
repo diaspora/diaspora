@@ -11,16 +11,16 @@ describe OEmbedHelper, :type => :helper do
           "title" => "ZB8T0193",
           "width" => "240",
           "height" => "160",
-          "url" => "http://farm4.static.flickr.com/3123/2341623661_7c99f48bbf_m.jpg"
+          "url" => "https://farm4.static.flickr.com/3123/2341623661_7c99f48bbf_m.jpg"
         },
-        "link_url" => 'http://www.flickr.com/photos/bees/2341623661',
-        "oembed_get_request" => "http://www.flickr.com/services/oembed/?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://www.flickr.com/photos/bees/2341623661",
+        "link_url" => 'https://www.flickr.com/photos/bees/2341623661',
+        "oembed_get_request" => "https://www.flickr.com/services/oembed/?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=https://www.flickr.com/photos/bees/2341623661",
       },
 
       "unsupported" => {
         "oembed_data" => "",
-        "oembed_get_request" => 'http://www.we-do-not-support-oembed.com/index.html',
-        "link_url" => 'http://www.we-do-not-support-oembed.com/index.html'
+        "oembed_get_request" => 'https://www.we-do-not-support-oembed.com/index.html',
+        "link_url" => 'https://www.we-do-not-support-oembed.com/index.html'
       },
 
       "secure_video" => {
@@ -32,16 +32,16 @@ describe OEmbedHelper, :type => :helper do
           "trusted_endpoint_url" => ::OEmbed::Providers::Youtube.endpoint,
           "title" => "Amazing Nintendo Facts",
           "html" => "<object width=\"425\" height=\"344\">
-              <param name=\"movie\" value=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
+              <param name=\"movie\" value=\"https://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
               <param name=\"allowFullScreen\" value=\"true\"></param>
               <param name=\"allowscriptaccess\" value=\"always\"></param>
-              <embed src=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"
+              <embed src=\"https://www.youtube.com/v/M3r2XDceM6A&fs=1\"
                 type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
                 allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
             </object>",
         },
-        "link_url" => "http://youtube.com/watch?v=M3r2XDceM6A&format=json",
-        "oembed_get_request" => "http://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
+        "link_url" => "https://youtube.com/watch?v=M3r2XDceM6A&format=json",
+        "oembed_get_request" => "https://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=https://youtube.com/watch?v=M3r2XDceM6A",
       },
 
       "unsecure_video" => {
@@ -50,17 +50,17 @@ describe OEmbedHelper, :type => :helper do
           "type" => "video",
           "title" => "This is a video from an unsecure source",
           "html" => "<object width=\"425\" height=\"344\">
-              <param name=\"movie\" value=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
+              <param name=\"movie\" value=\"https://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
               <param name=\"allowFullScreen\" value=\"true\"></param>
               <param name=\"allowscriptaccess\" value=\"always\"></param>
-              <embed src=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"
+              <embed src=\"https://www.youtube.com/v/M3r2XDceM6A&fs=1\"
                 type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
                 allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
             </object>",
         },
-        "link_url" => "http://mytube.com/watch?v=M3r2XDceM6A&format=json",
-        "discovery_data" => '<link rel="alternate" type="application/json+oembed" href="http://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://mytube.com/watch?v=M3r2XDceM6A" />',
-        "oembed_get_request" => "http://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://mytube.com/watch?v=M3r2XDceM6A",
+        "link_url" => "https://mytube.com/watch?v=M3r2XDceM6A&format=json",
+        "discovery_data" => '<link rel="alternate" type="application/json+oembed" href="https://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=https://mytube.com/watch?v=M3r2XDceM6A" />',
+        "oembed_get_request" => "https://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=https://mytube.com/watch?v=M3r2XDceM6A",
       },
 
       "secure_rich" => {
@@ -72,16 +72,16 @@ describe OEmbedHelper, :type => :helper do
           "trusted_endpoint_url" => ::OEmbed::Providers::Youtube.endpoint,
           "title" => "Amazing Nintendo Facts",
           "html" => "<object width=\"425\" height=\"344\">
-              <param name=\"movie\" value=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
+              <param name=\"movie\" value=\"https://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
               <param name=\"allowFullScreen\" value=\"true\"></param>
               <param name=\"allowscriptaccess\" value=\"always\"></param>
-              <embed src=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"
+              <embed src=\"https://www.youtube.com/v/M3r2XDceM6A&fs=1\"
                 type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
                 allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
             </object>",
         },
-        "link_url" => "http://youtube.com/watch?v=M3r2XDceM6A&format=json",
-        "oembed_get_request" => "http://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
+        "link_url" => "https://youtube.com/watch?v=M3r2XDceM6A&format=json",
+        "oembed_get_request" => "https://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=https://youtube.com/watch?v=M3r2XDceM6A",
       },
 
       "unsecure_rich" => {
@@ -90,17 +90,17 @@ describe OEmbedHelper, :type => :helper do
           "type" => "rich",
           "title" => "This is a video from an unsecure source",
           "html" => "<object width=\"425\" height=\"344\">
-              <param name=\"movie\" value=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
+              <param name=\"movie\" value=\"https://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
               <param name=\"allowFullScreen\" value=\"true\"></param>
               <param name=\"allowscriptaccess\" value=\"always\"></param>
-              <embed src=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"
+              <embed src=\"https://www.youtube.com/v/M3r2XDceM6A&fs=1\"
                 type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
                 allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
             </object>",
         },
-        "link_url" => "http://mytube.com/watch?v=M3r2XDceM6A&format=json",
-        "discovery_data" => '<link rel="alternate" type="application/json+oembed" href="http://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://mytube.com/watch?v=M3r2XDceM6A" />',
-        "oembed_get_request" => "http://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://mytube.com/watch?v=M3r2XDceM6A",
+        "link_url" => "https://mytube.com/watch?v=M3r2XDceM6A&format=json",
+        "discovery_data" => '<link rel="alternate" type="application/json+oembed" href="https://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=https://mytube.com/watch?v=M3r2XDceM6A" />',
+        "oembed_get_request" => "https://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=https://mytube.com/watch?v=M3r2XDceM6A",
       },
     }
 
@@ -109,7 +109,7 @@ describe OEmbedHelper, :type => :helper do
         real_data = data['oembed_data']
         cache =  OEmbedCache.new(:url => data['link_url'])
         cache.data = real_data
-        formatted = o_embed_html(cache).gsub('https://', 'http://')
+        formatted = o_embed_html(cache).gsub('https://', 'https://')
         case type
           when 'photo'
             expect(formatted).to match(/#{data['oembed_data']['url']}/)

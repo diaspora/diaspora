@@ -60,7 +60,7 @@ describe OpenGraphCache, type: :model do
 
     context "a mixed case hostname" do
       it "downcases the hostname" do
-        stub_request(:head, "http:///wetter.com")
+        stub_request(:head, "https:///wetter.com")
           .with(headers: {
                   "Accept"     => "text/html",
                   "User-Agent" => "OpenGraphReader/0.7.0 (+https://github.com/jhass/open_graph_reader)"

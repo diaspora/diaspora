@@ -1,8 +1,8 @@
 
 
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://nodeinfo.diaspora.software/ns/schema/2.0#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "id": "https://nodeinfo.diaspora.software/ns/schema/2.0#",
   "description": "NodeInfo schema version 2.0.",
   "type": "object",
   "additionalProperties": false,

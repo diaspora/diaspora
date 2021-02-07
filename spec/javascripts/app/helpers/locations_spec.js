@@ -7,7 +7,7 @@ describe("app.helpers.locations", function() {
 
       it("returns tiles from the Heidelberg University", function() {
         var tiles = app.helpers.locations.getTiles();
-        expect(tiles._url).toMatch("http://korona.geog.uni-heidelberg.de/");
+        expect(tiles._url).toMatch("https://korona.geog.uni-heidelberg.de/");
         expect(tiles._url).not.toMatch("https://api.tiles.mapbox.com/");
       });
     });
@@ -22,7 +22,7 @@ describe("app.helpers.locations", function() {
       it("returns tiles from mapbox", function() {
         var tiles = app.helpers.locations.getTiles();
         expect(tiles._url).toMatch("https://api.mapbox.com/");
-        expect(tiles._url).not.toMatch("http://korona.geog.uni-heidelberg.de/");
+        expect(tiles._url).not.toMatch("https://korona.geog.uni-heidelberg.de/");
       });
     });
   });

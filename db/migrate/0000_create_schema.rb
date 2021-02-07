@@ -66,7 +66,7 @@ class CreateSchema < ActiveRecord::Migration[4.2]
 
     create_table :chat_contacts do |t|
       t.integer :user_id,                  null: false
-      ## JID <= 3071 bytes http://tools.ietf.org/html/rfc6122
+      ## JID <= 3071 bytes https://tools.ietf.org/html/rfc6122
       t.string  :jid,                      null: false
       t.string  :name,         limit: 255, null: true
       t.string  :ask,          limit: 128, null: true

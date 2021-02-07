@@ -8,7 +8,7 @@ def create_remote_contact(user, pod_host)
     user:   user,
     person: FactoryGirl.create(
       :person,
-      pod:             Pod.find_or_create_by(url: "http://#{pod_host}"),
+      pod:             Pod.find_or_create_by(url: "https://#{pod_host}"),
       diaspora_handle: "#{r_str}@#{pod_host}"
     )
   )

@@ -1,6 +1,6 @@
 describe("app.views.LikesInfo", function(){
   beforeEach(function(){
-    loginAs({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({id : -1, name: "alice", avatar : {small : "https://avatar.com/photo.jpg"}});
     var posts = $.parseJSON(spec.readFixture("stream_json"));
     this.post = new app.models.Post(posts[0]); // post with a like
     this.view = new app.views.LikesInfo({model: this.post});

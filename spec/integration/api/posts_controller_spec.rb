@@ -87,7 +87,7 @@ describe Api::V1::PostsController do
         merged_params = merged_params.merge(poll_params)
         merged_params = merged_params.merge(photos: @alice_photo_ids)
         status_message = StatusMessageCreationService.new(alice).create(merged_params)
-        status_message.open_graph_cache = FactoryGirl.create(:open_graph_cache, video_url: "http://example.org")
+        status_message.open_graph_cache = FactoryGirl.create(:open_graph_cache, video_url: "https://example.org")
         status_message.o_embed_cache = FactoryGirl.create(:o_embed_cache)
         status_message.save
 

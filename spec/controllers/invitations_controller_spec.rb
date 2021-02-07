@@ -6,7 +6,7 @@
 
 describe InvitationsController, type: :controller do
   describe "#create" do
-    let(:referer) { "http://test.host/cats/foo" }
+    let(:referer) { "https://test.host/cats/foo" }
     let(:invite_params) { {email_inviter: {emails: "abc@example.com"}} }
 
     before do

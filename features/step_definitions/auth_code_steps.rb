@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 O_AUTH_QUERY_PARAMS_WITH_CODE = {
-  redirect_uri:  "http://example.org/",
+  redirect_uri:  "https://example.org/",
   response_type: "code",
   scope:         "openid profile",
   nonce:         "hello",
@@ -26,7 +26,7 @@ When /^I parse the auth code and create a request to the token endpoint$/ do
   code = current_url[/(?<=code=)[^&]+/]
   expect(code).to be_present
   post api_openid_connect_access_tokens_path, code: code,
-       redirect_uri: "http://example.org/", grant_type: "authorization_code",
+       redirect_uri: "https://example.org/", grant_type: "authorization_code",
        client_id: @client_id, client_secret: @client_secret
 end
 

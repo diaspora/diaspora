@@ -13,7 +13,7 @@ describe AspectsController, :type => :controller do
     @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
 
     allow(@controller).to receive(:current_user).and_return(alice)
-    request.env["HTTP_REFERER"] = 'http://' + request.host
+    request.env["HTTP_REFERER"] = 'https://' + request.host
   end
 
   describe "#show" do

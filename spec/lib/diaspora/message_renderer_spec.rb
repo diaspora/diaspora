@@ -26,7 +26,7 @@ describe Diaspora::MessageRenderer do
         end
 
         it 'returns header without markdown' do
-          expect(message("## **[My title](http://diasporafoundation.org)**\n Post content...").title).to eq "My title (http://diasporafoundation.org)"
+          expect(message("## **[My title](https://diasporafoundation.org)**\n Post content...").title).to eq "My title (https://diasporafoundation.org)"
         end
       end
 
@@ -132,7 +132,7 @@ describe Diaspora::MessageRenderer do
 
       it 'strips onClick handlers from links' do
         expect(
-          message('[XSS](http://joindiaspora.com/" onClick="$\(\'a\'\).remove\(\))').markdownified
+          message('[XSS](https://joindiaspora.com/" onClick="$\(\'a\'\).remove\(\))').markdownified
         ).to_not match(/ onClick/i)
       end
     end
@@ -143,8 +143,8 @@ describe Diaspora::MessageRenderer do
 
     it 'autolinks standard url links' do
       expect(
-        message("http://joindiaspora.com/").markdownified
-      ).to include 'href="http://joindiaspora.com/"'
+        message("https://joindiaspora.com/").markdownified
+      ).to include 'href="https://joindiaspora.com/"'
     end
 
     it "normalizes" do
@@ -227,7 +227,7 @@ describe Diaspora::MessageRenderer do
 
   describe "#plain_text_without_markdown" do
     it 'does not remove markdown in links' do
-      text = "some text and here comes http://exampe.org/foo_bar_baz a link"
+      text = "some text and here comes https://exampe.org/foo_bar_baz a link"
       expect(message(text).plain_text_without_markdown).to eq text
     end
 
@@ -275,8 +275,8 @@ describe Diaspora::MessageRenderer do
 
   describe "#urls" do
     it "extracts the urls from the raw message" do
-      text = "[Perdu](http://perdu.com/) and [DuckDuckGo](https://duckduckgo.com/) can help you"
-      expect(message(text).urls).to eql ["http://perdu.com/", "https://duckduckgo.com/"]
+      text = "[Perdu](https://perdu.com/) and [DuckDuckGo](https://duckduckgo.com/) can help you"
+      expect(message(text).urls).to eql ["https://perdu.com/", "https://duckduckgo.com/"]
     end
 
     it "extracts urls from continous markdown correctly" do
@@ -285,18 +285,18 @@ describe Diaspora::MessageRenderer do
     end
 
     it "encodes extracted urls" do
-      url = "http://www.example.com/url/with/umlauts/ä/index.html"
-      expect(message(url).urls).to eq ["http://www.example.com/url/with/umlauts/%C3%A4/index.html"]
+      url = "https://www.example.com/url/with/umlauts/ä/index.html"
+      expect(message(url).urls).to eq ["https://www.example.com/url/with/umlauts/%C3%A4/index.html"]
     end
 
     it "not double encodes an already encoded url" do
-      encoded_url = "http://www.example.com/url/with/umlauts/%C3%A4/index.html"
+      encoded_url = "https://www.example.com/url/with/umlauts/%C3%A4/index.html"
       expect(message(encoded_url).urls).to eq [encoded_url]
     end
 
     it "parses IDN correctly" do
-      url = "http://www.hören.at/"
-      expect(message(url).urls).to eq ["http://www.xn--hren-5qa.at/"]
+      url = "https://www.hören.at/"
+      expect(message(url).urls).to eq ["https://www.xn--hren-5qa.at/"]
     end
   end
 

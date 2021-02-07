@@ -15,8 +15,8 @@
  * and the Facelist plugin by: Ian Tearle (iantearle.com)
  *
  * This AutoSuggest jQuery plug-in is dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
+ *   https://www.opensource.org/licenses/mit-license.php
+ *   https://www.gnu.org/licenses/gpl.html
  */
 
 (function($){

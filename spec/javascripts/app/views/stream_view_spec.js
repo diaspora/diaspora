@@ -1,6 +1,6 @@
 describe("app.views.Stream", function() {
   beforeEach(function() {
-    loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({name: "alice", avatar : {small : "https://avatar.com/photo.jpg"}});
 
     this.posts = $.parseJSON(spec.readFixture("stream_json"));
 

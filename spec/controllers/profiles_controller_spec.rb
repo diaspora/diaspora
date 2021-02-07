@@ -133,7 +133,7 @@ describe ProfilesController, :type => :controller do
                       :last_name  => eve.person.profile.last_name,
                       :first_name => eve.person.profile.first_name }}
 
-        eve.person.profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
+        eve.person.profile.image_url = "https://tom.joindiaspora.com/images/user/tom.jpg"
         eve.person.profile.save
       end
 

@@ -31,7 +31,7 @@ describe Profile, :type => :model do
 
     describe 'from_omniauth_hash' do
       before do
-        @from_omniauth = {'first_name' => 'bob', 'last_name' => 'jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif'}
+        @from_omniauth = {'first_name' => 'bob', 'last_name' => 'jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'https://cats.com/gif.gif'}
       end
 
       it 'outputs a hash that can update a diaspora profile' do
@@ -45,7 +45,7 @@ describe Profile, :type => :model do
       end
 
       it 'sets full name to first name' do
-        @from_omniauth = {'name' => 'bob jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif'}
+        @from_omniauth = {'name' => 'bob jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'https://cats.com/gif.gif'}
 
         profile = Profile.new
         expect(profile.from_omniauth_hash(@from_omniauth)['first_name']).to eq('bob jones')
@@ -141,7 +141,7 @@ describe Profile, :type => :model do
       describe "##{method}=" do
         before do
           @profile = FactoryGirl.build(:profile)
-          @profile.public_send("#{method}=", "http://tom.joindiaspora.com/images/user/tom.jpg")
+          @profile.public_send("#{method}=", "https://tom.joindiaspora.com/images/user/tom.jpg")
           @pod_url = AppConfig.pod_uri.to_s.chomp("/")
         end
 
@@ -161,8 +161,8 @@ describe Profile, :type => :model do
         end
 
         it "doesn't change absolute urls" do
-          @profile.public_send("#{method}=", "http://not/a/relative/url")
-          expect(@profile.public_send(method)).to eq("http://not/a/relative/url")
+          @profile.public_send("#{method}=", "https://not/a/relative/url")
+          expect(@profile.public_send(method)).to eq("https://not/a/relative/url")
         end
 
         it "saves the default-url as nil" do

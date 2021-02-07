@@ -12,7 +12,7 @@ Given /^a client exists for user "([^\"]*)"$/ do |email|
 end
 
 When /^I register a new client$/ do
-  post api_openid_connect_clients_path, redirect_uris: ["http://example.org/"], client_name: "diaspora client"
+  post api_openid_connect_clients_path, redirect_uris: ["https://example.org/"], client_name: "diaspora client"
 end
 
 When /^I use received valid bearer tokens to access user info$/ do

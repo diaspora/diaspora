@@ -17,7 +17,7 @@ describe("app.views.Bookmarklet", function() {
 
   beforeEach(function() {
     app.stream = null;  // avoid rendering posts
-    loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({name: "alice", avatar : {small : "https://avatar.com/photo.jpg"}});
     spec.loadFixture("bookmarklet");
   });
 

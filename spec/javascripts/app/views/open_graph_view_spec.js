@@ -2,10 +2,10 @@ describe("app.views.OpenGraph", function() {
   context("without a video_url", function() {
     beforeEach(function() {
       this.openGraphCache = {
-        "url": "http://example.com/articles/123",
+        "url": "https://example.com/articles/123",
         "title": "Example title",
         "description": "Test description",
-        "image": "http://example.com/thumb.jpg",
+        "image": "https://example.com/thumb.jpg",
         "ob_type": "article"
       };
       this.statusMessage = factory.statusMessage({
@@ -31,12 +31,12 @@ describe("app.views.OpenGraph", function() {
   context("with a video_url", function() {
     beforeEach(function() {
       this.openGraphCache = {
-        "url": "http://example.com/articles/123",
+        "url": "https://example.com/articles/123",
         "title": "Example title",
         "description": "Test description",
-        "image": "http://example.com/thumb.jpg",
+        "image": "https://example.com/thumb.jpg",
         "ob_type": "article",
-        "video_url": "http://example.com"
+        "video_url": "https://example.com"
       };
       this.statusMessage = factory.statusMessage({
         "open_graph_cache": this.openGraphCache
