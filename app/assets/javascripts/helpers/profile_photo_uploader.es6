@@ -38,6 +38,7 @@ Diaspora.ProfilePhotoUploader = class {
     this.fineUploader = new qq.FineUploaderBasic({
       element: this.fileInput,
       validation: {
+        acceptFiles: "image/png, image/jpeg",
         allowedExtensions: ["jpg", "jpeg", "png"]
       },
       request: {

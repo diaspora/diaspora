@@ -11,6 +11,7 @@ Diaspora.ProfilePhotoUploader.prototype = {
     new qq.FineUploaderBasic({
       element: document.getElementById("file-upload"),
       validation: {
+        acceptFiles: "image/png, image/jpeg, image/gif",
         allowedExtensions: ["jpg", "jpeg", "png"],
         sizeLimit: 4194304
       },
