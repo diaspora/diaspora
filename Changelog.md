@@ -25,6 +25,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
+* Photo-upload file picker now correctly restricts possible file types [#8205](https://github.com/diaspora/diaspora/pull/8205)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
