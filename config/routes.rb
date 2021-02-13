@@ -244,7 +244,7 @@ Rails.application.routes.draw do
       post "report" => "post_interactions#report"
       post "vote" => "post_interactions#vote"
     end
-    resources :conversations, only: %i[show index create destroy] do
+    resources :conversations do
       resources :messages, only: %i[index create]
     end
     resources :notifications, only: %i[index show update]

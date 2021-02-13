@@ -116,6 +116,10 @@ describe Api::V1::MessagesController do
     before do
       post api_v1_conversations_path, params: @conversation
       @conversation_guid = JSON.parse(response.body)["guid"]
+      Conversation.find_by(guid: @conversation_guid)
+                  .conversation_visibilities
+                  .where(person: auth.user.person)
+                  .update(unread: true)
     end
 
     context "retrieving messages" do
@@ -132,7 +136,7 @@ describe Api::V1::MessagesController do
 
         confirm_message_format(messages[0], "first message", auth.user)
         conversation = get_conversation(@conversation_guid)
-        expect(conversation[:read]).to be_truthy
+        expect(conversation[:read]).to be_falsy
       end
 
       context "improper credentials" do
