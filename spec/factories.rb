@@ -85,7 +85,6 @@ FactoryGirl.define do
     after(:create) do |u|
       u.person.save
       u.person.profile.save
-      FactoryGirl.create(:invitation_code, user: u)
     end
   end
 

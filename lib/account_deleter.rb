@@ -58,7 +58,7 @@ class AccountDeleter
   end
 
   def delete_user_invitation_code
-    InvitationCode.find_by(user_id: user.id).destroy
+    InvitationCode.find_by(user_id: user.id).try(:destroy)
   end
 
   def normal_ar_person_associates_to_delete
