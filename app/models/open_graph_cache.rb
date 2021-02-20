@@ -33,7 +33,7 @@ class OpenGraphCache < ApplicationRecord
   end
 
   def fetch_and_save_opengraph_data!
-    uri = URI.parse(url.start_with?("http") ? url : "http://#{url}")
+    uri = URI.parse(url.start_with?("http") ? url : "https://#{url}")
     uri.normalize!
     object = OpenGraphReader.fetch!(uri)
 
