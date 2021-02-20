@@ -1,6 +1,7 @@
 # 0.7.15.0
 
 ## Refactor
+* Replaced some `http://` links in the UI with their `https://` counterparts [#8207](https://github.com/diaspora/diaspora/pull/8207)
 
 ## Bug fixes
 * Update comment counter when weleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
