@@ -12,6 +12,7 @@ app.views.Help = app.views.StaticContentView.extend({
     "click .faq-link-keyboard-shortcuts": "keyboardShortcuts"
   },
 
+  /* eslint-disable camelcase */
   initialize : function() {
     this.GETTING_HELP_SUBS = {
       getting_started_a: {tutorial_series: this.linkHtml("https://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t("getting_started_tutorial"))},
@@ -27,10 +28,11 @@ app.views.Help = app.views.StaticContentView.extend({
     this.POSTS_AND_POSTING_SUBS = {
       post_report_a: {community_guidelines: this.linkHtml("https://diasporafoundation.org/community_guidelines", Diaspora.I18n.t("community_guidelines"))},
       format_text_a: {
-        markdown: this.linkHtml("https://diasporafoundation.org/formatting", Diaspora.I18n.t( 'markdown' )),
-        here: this.linkHtml("https://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' ))
+        markdown: this.linkHtml("https://diasporafoundation.org/formatting", Diaspora.I18n.t("markdown")),
+        here: this.linkHtml("https://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t("here"))
       }
     };
+  /* eslint-enable camelcase */
 
     this.TAGS_SUBS = {
       filter_tags_a: {
