@@ -1,0 +1,23 @@
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">×</button>
+        <h3 class="modal-title"><%= t("report.modal.title", pod_name: pod_name) %></h3>
+      </div>
+      <div class="modal-body">
+        <% if AppConfig.settings.terms.enable? %>
+          <p><%= t("report.modal.report_only_if_violated_terms") %> <%= link_to(t("report.modal.terms_link", pod_name: pod_name), terms_path, target: "_blank") %></a>.</p>
+        <% end %>
+        <p><%= t("report.modal.you_can_blocK") %></p>
+        <form id="report-content-form" accept-charset="UTF-8">
+          <p><label for="report-reason-field"><%= t("report.modal.reason_label") %></label></p>
+          <p><input type="ẗext" id="report-reason-field" class="form-control" required /></p>
+          <div class="clearfix">
+            <input type="submit" class="btn btn-primary pull-right" value="<%= t("report.modal.submit") %>" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

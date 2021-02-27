@@ -5,7 +5,6 @@ Feature: The public stream
       | username    | email             |
       | Alice Smith | alice@alice.alice |
       | Bob Jones   | bob@bob.bob       |
-
     And "bob@bob.bob" has a public post with text "Bob’s public post"
 
   Scenario: seeing public posts

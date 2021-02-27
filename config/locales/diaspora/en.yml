@@ -1039,6 +1039,13 @@ en:
       reshare_by: "Reshare by %{author}"
 
   report:
+    modal:
+      title: "You are about to send an email to all %{pod_name} moderators"
+      report_only_if_violated_terms: "You should only report posts or comments which violates"
+      terms_link: "%{pod_name} terms"
+      you_can_blocK: "If the content isn't forbidden but you don't want to see it, you can block the authors from their profile page."
+      reason_label: "Please indicate below why the content you are reporting violates the terms of use:"
+      submit: "Report that content"
     title: "Reports overview"
     post_label: "<strong>Post</strong>: %{content}"
     comment_label: "<strong>Comment</strong>: %{data}"
