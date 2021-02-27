@@ -39,6 +39,21 @@ module MobileHelper
     end
   end
 
+  def mobile_like_comment_icon(comment)
+    puts "Mobile like on comment!"
+    if current_user && current_user.liked?(comment)
+      link_to content_tag(:span, comment.likes.size, class: "count like-count"),
+              "#",
+              data:  {url: comment_like_path(comment.id, current_user.like_for(comment).id)},
+              class: "entypo-heart like-action active"
+    else
+      link_to content_tag(:span, comment.likes.size, class: "count like-count"),
+              "#",
+              data:  {url: comment_likes_path(comment.id)},
+              class: "entypo-heart like-action inactive"
+    end
+  end
+
   def mobile_comment_icon(post)
     link_to content_tag(:span, post.comments.size, class: "count comment-count"),
             new_post_comment_path(post),

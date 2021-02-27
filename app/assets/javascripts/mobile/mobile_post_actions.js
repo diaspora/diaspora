@@ -75,8 +75,8 @@
 
     onLike: function(evt){
       evt.preventDefault();
-      var link = $(evt.target).closest(".like-action"),
-          likeCounter = $(evt.target).closest(".stream-element").find(".like-count");
+      var link = $(evt.target).closest(".like-action").first(),
+          likeCounter = $(evt.target).find(".like-count").first();
 
       if(!link.hasClass("loading") && link.hasClass("inactive")) {
         Diaspora.Mobile.PostActions.like(likeCounter, link);

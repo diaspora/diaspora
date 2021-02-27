@@ -71,11 +71,20 @@
     .entypo-heart.active { color: $red; }
   }
 
+  .comment-stats {
+    @extend .post-stats;
+    bottom: 25px;
+  }
+
   .post-action {
     display: flex;
     margin: 0 7px;
 
     .disabled { color: $medium-gray; }
+  }
+  
+  .comment-action {
+    @extend .post-action;
   }
 
   .add-comment-switcher { padding-top: 10px; }
