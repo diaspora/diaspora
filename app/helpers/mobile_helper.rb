@@ -26,7 +26,7 @@ module MobileHelper
   end
 
   def mobile_like_icon(post)
-    if current_user && current_user.liked?(post)
+    if current_user&.liked?(post)
       link_to content_tag(:span, post.likes.size, class: "count like-count"),
               "#",
               data:  {url: post_like_path(post.id, current_user.like_for(post).id)},
@@ -40,8 +40,7 @@ module MobileHelper
   end
 
   def mobile_like_comment_icon(comment)
-    puts "Mobile like on comment!"
-    if current_user && current_user.liked?(comment)
+    if current_user&.liked?(comment)
       link_to content_tag(:span, comment.likes.size, class: "count like-count"),
               "#",
               data:  {url: comment_like_path(comment.id, current_user.like_for(comment).id)},

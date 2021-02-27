@@ -3,6 +3,11 @@
     initialize: function() {
       $(".like-action", ".stream").bind("tap click", this.onLike);
       $(".reshare-action", ".stream").bind("tap click", this.onReshare);
+      // Add handler to newly loaded comments
+      var self = this;
+      $(".stream").bind("comments.loaded", function() {
+        $(".like-action", ".stream").bind("tap click", self.onLike);
+      });
     },
 
     showLoader: function(link) {
