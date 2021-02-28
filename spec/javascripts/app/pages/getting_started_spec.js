@@ -10,6 +10,6 @@ describe("app.pages.GettingStarted", function() {
 
   it("renders aspect membership dropdown", function() {
     this.view.render();
-    expect($("ul.dropdown-menu.aspect_membership").length).toEqual(1);
+    expect($("ul.dropdown-menu.aspect-membership").length).toEqual(1);
   });
 });
