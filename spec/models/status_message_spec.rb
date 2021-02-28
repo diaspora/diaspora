@@ -306,7 +306,7 @@ describe StatusMessage, type: :model do
     let(:post) { FactoryGirl.create(:status_message, author: alice.person) }
 
     it "receives attached photos" do
-      photo = FactoryGirl.create(:photo, status_message: post)
+      photo = FactoryGirl.create(:photo, status_message: post, author: alice.person)
 
       post.receive([bob.id])
 
@@ -321,7 +321,7 @@ describe StatusMessage, type: :model do
     end
 
     it "works with already received attached photos" do
-      photo = FactoryGirl.create(:photo, status_message: post)
+      photo = FactoryGirl.create(:photo, status_message: post, author: alice.person)
 
       photo.receive([bob.id])
       post.receive([bob.id])
