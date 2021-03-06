@@ -1,14 +1,7 @@
 -# Note: all_aspects is a global in the ApplicationController
-:ruby
-  dropdown_css = {"data-toggle" => "dropdown"}
-  if current_user.getting_started?
-    dropdown_css[:title] = popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}")
-    dropdown_css["data-content"] = t("shared.public_explain.visibility_dropdown")
-  end
 
 .btn-group.aspect-dropdown
-  %button.btn.btn-default.dropdown-toggle{dropdown_css}
-    %i.entypo-lock.small#visibility-icon
+  %button.btn.btn-default.dropdown-toggle{data: {toggle: "dropdown"}}
     %span.text
       = t("all_aspects")
     %span.caret
