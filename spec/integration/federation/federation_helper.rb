@@ -21,10 +21,10 @@ def allow_public_key_fetch(user)
 end
 
 def create_undiscovered_user(pod)
-  FactoryGirl.build(:user).tap do |user|
+  FactoryBot.build(:user).tap do |user|
     allow(user).to receive(:person).and_return(
-      FactoryGirl.build(:person,
-                        profile:               FactoryGirl.build(:profile),
+      FactoryBot.build(:person,
+                        profile:               FactoryBot.build(:profile),
                         serialized_public_key: user.encryption_key.public_key.export,
                         pod:                   Pod.find_or_create_by(url: "http://#{pod}"),
                         diaspora_handle:       "#{user.username}@#{pod}")

@@ -2,10 +2,10 @@
 
 shared_examples_for "a shareable" do
   describe "#subscribed_pods_uris" do
-    let(:pods) { Array.new(3) { FactoryGirl.create(:pod) } }
+    let(:pods) { Array.new(3) { FactoryBot.create(:pod) } }
     let(:subscribers) {
       pods.map {|pod|
-        FactoryGirl.create(:person, pod: pod)
+        FactoryBot.create(:person, pod: pod)
       }
     }
     let(:pods_uris) {

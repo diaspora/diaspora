@@ -10,7 +10,7 @@ describe Workers::QueueUsersForRemoval do
     end
     
     it '#does not queue user that is not inactive' do
-      user = FactoryGirl.create(:user, :last_seen => Time.now-728.days, :sign_in_count => 5)
+      user = FactoryBot.create(:user, :last_seen => Time.now-728.days, :sign_in_count => 5)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
       expect(user.remove_after).to eq(nil)
@@ -19,7 +19,7 @@ describe Workers::QueueUsersForRemoval do
     
     it '#queues user that is inactive' do
       removal_date = Time.now + (AppConfig.settings.maintenance.remove_old_users.warn_days.to_i).days
-      user = FactoryGirl.create(:user, :last_seen => Time.now-732.days, :sign_in_count => 5)
+      user = FactoryBot.create(:user, :last_seen => Time.now-732.days, :sign_in_count => 5)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
       expect(user.remove_after.to_i).to eq(removal_date.utc.to_i)
@@ -28,7 +28,7 @@ describe Workers::QueueUsersForRemoval do
     
     it '#queues user that is inactive and has not logged in' do
       removal_date = Time.now
-      user = FactoryGirl.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 0)
+      user = FactoryBot.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 0)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
       expect(user.remove_after.to_i).to eq(removal_date.utc.to_i)
@@ -36,7 +36,7 @@ describe Workers::QueueUsersForRemoval do
     end
     
     it '#does not queue user that is not inactive and has not logged in' do
-      user = FactoryGirl.create(:user, :last_seen => Time.now-728.days, :sign_in_count => 0)
+      user = FactoryBot.create(:user, :last_seen => Time.now-728.days, :sign_in_count => 0)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
       expect(user.remove_after).to eq(nil)
@@ -45,7 +45,7 @@ describe Workers::QueueUsersForRemoval do
     
     it '#does not queue user that has already been flagged for removal' do
       removal_date = Date.today + 5.days
-      user = FactoryGirl.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 5, :remove_after => removal_date)
+      user = FactoryBot.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 5, :remove_after => removal_date)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
       expect(user.remove_after).to eq(removal_date)
@@ -53,8 +53,8 @@ describe Workers::QueueUsersForRemoval do
     end
 
     it '#does not queue more warnings than has been configured as limit' do
-      FactoryGirl.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 1)
-      FactoryGirl.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 1)
+      FactoryBot.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 1)
+      FactoryBot.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 1)
       Workers::QueueUsersForRemoval.new.perform
       expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
@@ -71,7 +71,7 @@ describe Workers::QueueUsersForRemoval do
     end
     
     it '#does not queue user that is not inactive' do
-      user = FactoryGirl.create(:user, :last_seen => Time.now-728.days, :sign_in_count => 5)
+      user = FactoryBot.create(:user, :last_seen => Time.now-728.days, :sign_in_count => 5)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
       expect(user.remove_after).to eq(nil)
@@ -79,7 +79,7 @@ describe Workers::QueueUsersForRemoval do
     end
     
     it '#does not queue user that is inactive' do
-      user = FactoryGirl.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 5)
+      user = FactoryBot.create(:user, :last_seen => Time.now-735.days, :sign_in_count => 5)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
       expect(user.remove_after).to eq(nil)

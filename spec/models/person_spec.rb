@@ -7,7 +7,7 @@
 describe Person, :type => :model do
   before do
     @user = bob
-    @person = FactoryGirl.create(:person)
+    @person = FactoryBot.create(:person)
   end
 
   it 'always has a profile' do
@@ -81,8 +81,8 @@ describe Person, :type => :model do
 
     describe ".who_have_reshared a user's posts" do
       it 'pulls back users who reshared the status message of a user' do
-        sm = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
-        reshare = FactoryGirl.create(:reshare, :root => sm)
+        sm = FactoryBot.create(:status_message, :author => alice.person, :public => true)
+        reshare = FactoryBot.create(:reshare, :root => sm)
         expect(Person.who_have_reshared_a_users_posts(alice)).to eq([reshare.author])
       end
     end
@@ -97,13 +97,13 @@ describe Person, :type => :model do
 
       it "finds a person with a profile name containing the substring" do
         substring = r_str
-        person = FactoryGirl.create(:person, first_name: "A#{substring}A")
+        person = FactoryBot.create(:person, first_name: "A#{substring}A")
         expect(Person.find_by_substring(substring)).to include(person)
       end
 
       it "finds a person with a diaspora ID starting with the substring" do
         substring = r_str
-        person = FactoryGirl.create(:person, diaspora_handle: "#{substring}A@pod.tld")
+        person = FactoryBot.create(:person, diaspora_handle: "#{substring}A@pod.tld")
         expect(Person.find_by_substring(substring)).to include(person)
       end
     end
@@ -112,8 +112,8 @@ describe Person, :type => :model do
       let(:status_bob) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
 
       it "returns the author and people who have commented or liked the private post" do
-        kate = FactoryGirl.create(:user_with_aspect, friends: [bob])
-        olga = FactoryGirl.create(:user_with_aspect, friends: [bob])
+        kate = FactoryBot.create(:user_with_aspect, friends: [bob])
+        olga = FactoryBot.create(:user_with_aspect, friends: [bob])
         alice.comment!(status_bob, "why so formal?")
         eve.comment!(status_bob, "comment text")
         kate.like!(status_bob)
@@ -138,12 +138,12 @@ describe Person, :type => :model do
     end
 
     describe ".sort_for_mention_suggestion" do
-      let(:status_message) { FactoryGirl.create(:status_message) }
+      let(:status_message) { FactoryBot.create(:status_message) }
 
       it "returns people sorted in the order: post author > commenters > likers > contacts" do
-        like = FactoryGirl.create(:like, target: status_message)
-        comment = FactoryGirl.create(:comment, post: status_message)
-        current_user = FactoryGirl.create(:user_with_aspect, friends: [alice])
+        like = FactoryBot.create(:like, target: status_message)
+        comment = FactoryBot.create(:comment, post: status_message)
+        current_user = FactoryBot.create(:user_with_aspect, friends: [alice])
         result = Person.select(:id, :guid).sort_for_mention_suggestion(status_message, current_user)
         expect(result[0]).to eq(status_message.author)
         expect(result[1]).to eq(comment.author)
@@ -152,9 +152,9 @@ describe Person, :type => :model do
       end
 
       it "sorts people of the same priority by profile name" do
-        current_user = FactoryGirl.create(:user_with_aspect)
-        person1 = FactoryGirl.create(:person, first_name: "x2")
-        person2 = FactoryGirl.create(:person, first_name: "x1")
+        current_user = FactoryBot.create(:user_with_aspect)
+        person1 = FactoryBot.create(:person, first_name: "x2")
+        person2 = FactoryBot.create(:person, first_name: "x1")
         result = Person
                  .select(:id, :guid)
                  .where(id: [person1.id, person2.id])
@@ -164,10 +164,10 @@ describe Person, :type => :model do
       end
 
       it "sorts people of the same priority and same names by diaspora ID" do
-        current_user = FactoryGirl.create(:user_with_aspect)
-        person1 = FactoryGirl.create(:person, diaspora_handle: "x2@pod.tld")
+        current_user = FactoryBot.create(:user_with_aspect)
+        person1 = FactoryBot.create(:person, diaspora_handle: "x2@pod.tld")
         person1.profile.update(first_name: "John", last_name: "Doe")
-        person2 = FactoryGirl.create(:person, diaspora_handle: "x1@pod.tld")
+        person2 = FactoryBot.create(:person, diaspora_handle: "x1@pod.tld")
         person2.profile.update(first_name: "John", last_name: "Doe")
         result = Person
                  .select(:id, :guid)
@@ -180,17 +180,17 @@ describe Person, :type => :model do
 
     describe ".in_aspects" do
       it "returns person that is in the aspect" do
-        aspect = FactoryGirl.create(:aspect)
-        contact = FactoryGirl.create(:contact, user: aspect.user)
+        aspect = FactoryBot.create(:aspect)
+        contact = FactoryBot.create(:contact, user: aspect.user)
         aspect.contacts << contact
         expect(Person.in_aspects([aspect.id])).to include(contact.person)
       end
 
       it "returns same person in multiple aspects only once" do
         user = bob
-        contact = FactoryGirl.create(:contact, user: user)
+        contact = FactoryBot.create(:contact, user: user)
         ids = Array.new(2) do
-          aspect = FactoryGirl.create(:aspect, user: user, name: r_str)
+          aspect = FactoryBot.create(:aspect, user: user, name: r_str)
           aspect.contacts << contact
           aspect.id
         end
@@ -210,7 +210,7 @@ describe Person, :type => :model do
 
   describe "valid url" do
     context "https urls" do
-      let(:person) { FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com")) }
+      let(:person) { FactoryBot.build(:person, pod: Pod.find_or_create_by(url: "https://example.com")) }
 
       it "should add trailing slash" do
         expect(person.url).to eq("https://example.com/")
@@ -231,7 +231,7 @@ describe Person, :type => :model do
 
     context "messed up urls" do
       let(:person) {
-        FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com/a/bit/messed/up"))
+        FactoryBot.build(:person, pod: Pod.find_or_create_by(url: "https://example.com/a/bit/messed/up"))
       }
 
       it "should return the correct url" do
@@ -252,12 +252,12 @@ describe Person, :type => :model do
     end
 
     it "should allow ports in the url" do
-      person = FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com:3000/"))
+      person = FactoryBot.build(:person, pod: Pod.find_or_create_by(url: "https://example.com:3000/"))
       expect(person.url).to eq("https://example.com:3000/")
     end
 
     it "should remove https port in the url" do
-      person = FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com:443/"))
+      person = FactoryBot.build(:person, pod: Pod.find_or_create_by(url: "https://example.com:443/"))
       expect(person.url).to eq("https://example.com/")
     end
   end
@@ -284,12 +284,12 @@ describe Person, :type => :model do
 
     describe 'validation' do
       it 'is unique' do
-        person_two = FactoryGirl.build(:person, :diaspora_handle => @person.diaspora_handle)
+        person_two = FactoryBot.build(:person, :diaspora_handle => @person.diaspora_handle)
         expect(person_two).not_to be_valid
       end
 
       it 'is case insensitive' do
-        person_two = FactoryGirl.build(:person, :diaspora_handle => @person.diaspora_handle.upcase)
+        person_two = FactoryBot.build(:person, :diaspora_handle => @person.diaspora_handle.upcase)
         expect(person_two).not_to be_valid
       end
     end
@@ -342,8 +342,8 @@ describe Person, :type => :model do
   end
 
   it '#owns? posts' do
-    person_message = FactoryGirl.create(:status_message, :author => @person)
-    person_two = FactoryGirl.create(:person)
+    person_message = FactoryBot.create(:status_message, :author => @person)
+    person_two = FactoryBot.create(:person)
 
     expect(@person.owns?(person_message)).to be true
     expect(person_two.owns?(person_message)).to be false
@@ -351,7 +351,7 @@ describe Person, :type => :model do
 
   describe "disconnecting" do
     before do
-      @user2 = FactoryGirl.create(:user)
+      @user2 = FactoryBot.create(:user)
       @aspect = @user.aspects.create(:name => "Dudes")
       @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
     end
@@ -389,18 +389,18 @@ describe Person, :type => :model do
   describe '.search' do
     before do
       Person.delete_all
-      @user = FactoryGirl.create(:user_with_aspect)
+      @user = FactoryBot.create(:user_with_aspect)
       user_profile = @user.person.profile
       user_profile.first_name = "aiofj"
       user_profile.last_name = "asdji"
       user_profile.save
 
-      @robert_grimm = FactoryGirl.build(:person)
-      @eugene_weinstein = FactoryGirl.build(:person)
-      @yevgeniy_dodis = FactoryGirl.build(:person)
-      @casey_grippi = FactoryGirl.build(:person)
-      @invisible_person = FactoryGirl.build(:person)
-      @closed_account = FactoryGirl.build(:person, closed_account: true)
+      @robert_grimm = FactoryBot.build(:person)
+      @eugene_weinstein = FactoryBot.build(:person)
+      @yevgeniy_dodis = FactoryBot.build(:person)
+      @casey_grippi = FactoryBot.build(:person)
+      @invisible_person = FactoryBot.build(:person)
+      @closed_account = FactoryBot.build(:person, closed_account: true)
 
       @robert_grimm.profile.first_name = "Robert"
       @robert_grimm.profile.last_name = "Grimm"
@@ -597,8 +597,8 @@ describe Person, :type => :model do
   end
 
   context 'people finders for webfinger' do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:person) { FactoryGirl.create(:person) }
+    let(:user) { FactoryBot.create(:user) }
+    let(:person) { FactoryBot.create(:person) }
 
     describe '.by_account_identifier' do
       it 'should find a local users person' do
@@ -617,27 +617,27 @@ describe Person, :type => :model do
       end
 
       it "finds a local person with a mixed-case username" do
-        user = FactoryGirl.create(:user, :username => "SaMaNtHa")
+        user = FactoryBot.create(:user, :username => "SaMaNtHa")
         person = Person.by_account_identifier(user.person.diaspora_handle)
         expect(person).to eq(user.person)
       end
 
       it "is case insensitive" do
-        user1 = FactoryGirl.create(:user, :username => "SaMaNtHa")
+        user1 = FactoryBot.create(:user, :username => "SaMaNtHa")
         person = Person.by_account_identifier(user1.person.diaspora_handle.upcase)
         expect(person).to eq(user1.person)
       end
 
       it "should only find people who are exact matches (1/2)" do
-        FactoryGirl.create(:person, diaspora_handle: "tomtom@tom.joindiaspora.com")
-        FactoryGirl.create(:person, diaspora_handle: "tom@tom.joindiaspora.com")
+        FactoryBot.create(:person, diaspora_handle: "tomtom@tom.joindiaspora.com")
+        FactoryBot.create(:person, diaspora_handle: "tom@tom.joindiaspora.com")
         expect(Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle)
           .to eq("tom@tom.joindiaspora.com")
       end
 
       it "should only find people who are exact matches (2/2)" do
-        FactoryGirl.create(:person, diaspora_handle: "tomtom@tom.joindiaspora.com")
-        FactoryGirl.create(:person, diaspora_handle: "tom@tom.joindiaspora.comm")
+        FactoryBot.create(:person, diaspora_handle: "tomtom@tom.joindiaspora.com")
+        FactoryBot.create(:person, diaspora_handle: "tom@tom.joindiaspora.comm")
         expect(Person.by_account_identifier("tom@tom.joindiaspora.com")).to be_nil
       end
     end
@@ -694,7 +694,7 @@ describe Person, :type => :model do
 
   describe "#clear_profile!!" do
     before do
-      @person = FactoryGirl.build(:person)
+      @person = FactoryBot.build(:person)
     end
 
     it 'calls Profile#tombstone!' do
@@ -705,7 +705,7 @@ describe Person, :type => :model do
 
   context "validation" do
     it "validates that no other person with same guid exists" do
-      person = FactoryGirl.build(:person)
+      person = FactoryBot.build(:person)
       person.guid = alice.guid
 
       expect(person.valid?).to be_falsey

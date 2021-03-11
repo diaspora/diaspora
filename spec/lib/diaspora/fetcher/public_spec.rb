@@ -12,7 +12,7 @@ describe Diaspora::Fetcher::Public do
     # the guid of the person is "7445f9a0a6c28ebb"
     @fixture = File.open(Rails.root.join('spec', 'fixtures', 'public_posts.json')).read
     @fetcher = Diaspora::Fetcher::Public.new
-    @person = FactoryGirl.create(:person, guid:            "7445f9a0a6c28ebb",
+    @person = FactoryBot.create(:person, guid:            "7445f9a0a6c28ebb",
                                           pod:             Pod.find_or_create_by(url: "https://remote-testpod.net"),
                                           diaspora_handle: "testuser@remote-testpod.net")
 
@@ -154,13 +154,13 @@ describe Diaspora::Fetcher::Public do
 
       it 'returns false if the person is unfetchable' do
         expect(public_fetcher.instance_eval {
-          @person = FactoryGirl.create(:person, {:fetch_status => Diaspora::Fetcher::Public::Status_Unfetchable})
+          @person = FactoryBot.create(:person, {:fetch_status => Diaspora::Fetcher::Public::Status_Unfetchable})
           qualifies_for_fetching?
         }).to be false
       end
 
       it 'returns false and sets the person unfetchable for a local account' do
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         expect(public_fetcher.instance_eval {
           @person = user.person
           qualifies_for_fetching?
@@ -169,7 +169,7 @@ describe Diaspora::Fetcher::Public do
       end
 
       it 'returns false if the person is processing already (or has been processed)' do
-        person = FactoryGirl.create(:person)
+        person = FactoryBot.create(:person)
         person.fetch_status = Diaspora::Fetcher::Public::Status_Fetched
         person.save
         expect(public_fetcher.instance_eval {
@@ -179,7 +179,7 @@ describe Diaspora::Fetcher::Public do
       end
 
       it "returns true, if the user is remote and hasn't been fetched" do
-        person = FactoryGirl.create(:person, {:diaspora_handle => 'neo@theone.net'})
+        person = FactoryBot.create(:person, {:diaspora_handle => 'neo@theone.net'})
         expect(public_fetcher.instance_eval {
           @person = person
           qualifies_for_fetching?
@@ -216,7 +216,7 @@ describe Diaspora::Fetcher::Public do
 
     describe '#check_existing' do
       it 'returns false if a post with the same guid exists' do
-        post = {'guid' => FactoryGirl.create(:status_message).guid}
+        post = {'guid' => FactoryBot.create(:status_message).guid}
         expect(public_fetcher.instance_eval { check_existing post }).to be false
       end
 
@@ -227,7 +227,7 @@ describe Diaspora::Fetcher::Public do
     end
 
     describe '#check_author' do
-      let!(:some_person) { FactoryGirl.create(:person) }
+      let!(:some_person) { FactoryBot.create(:person) }
 
       before do
         person = some_person

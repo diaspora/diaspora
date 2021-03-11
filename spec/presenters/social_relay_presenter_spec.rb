@@ -42,10 +42,10 @@ describe SocialRelayPresenter do
       before do
         AppConfig.relay.inbound.pod_tags = ""
         AppConfig.relay.inbound.include_user_tags = true
-        ceetag = FactoryGirl.create(:tag, name: "cee")
-        lootag = FactoryGirl.create(:tag, name: "loo")
-        FactoryGirl.create(:tag_following, user: alice, tag: ceetag)
-        FactoryGirl.create(:tag_following, user: alice, tag: lootag)
+        ceetag = FactoryBot.create(:tag, name: "cee")
+        lootag = FactoryBot.create(:tag, name: "loo")
+        FactoryBot.create(:tag_following, user: alice, tag: ceetag)
+        FactoryBot.create(:tag_following, user: alice, tag: lootag)
         alice.last_seen = Time.zone.now - 2.months
         alice.save
       end
@@ -63,10 +63,10 @@ describe SocialRelayPresenter do
       before do
         AppConfig.relay.inbound.pod_tags = "foo, bar"
         AppConfig.relay.inbound.include_user_tags = true
-        ceetag = FactoryGirl.create(:tag, name: "cee")
-        lootag = FactoryGirl.create(:tag, name: "loo")
-        FactoryGirl.create(:tag_following, user: alice, tag: ceetag)
-        FactoryGirl.create(:tag_following, user: alice, tag: lootag)
+        ceetag = FactoryBot.create(:tag, name: "cee")
+        lootag = FactoryBot.create(:tag, name: "loo")
+        FactoryBot.create(:tag_following, user: alice, tag: ceetag)
+        FactoryBot.create(:tag_following, user: alice, tag: lootag)
         alice.last_seen = Time.zone.now - 2.months
         alice.save
       end
@@ -84,10 +84,10 @@ describe SocialRelayPresenter do
       before do
         AppConfig.relay.inbound.pod_tags = ""
         AppConfig.relay.inbound.include_user_tags = true
-        ceetag = FactoryGirl.create(:tag, name: "cee")
-        lootag = FactoryGirl.create(:tag, name: "loo")
-        FactoryGirl.create(:tag_following, user: alice, tag: ceetag)
-        FactoryGirl.create(:tag_following, user: alice, tag: lootag)
+        ceetag = FactoryBot.create(:tag, name: "cee")
+        lootag = FactoryBot.create(:tag, name: "loo")
+        FactoryBot.create(:tag_following, user: alice, tag: ceetag)
+        FactoryBot.create(:tag_following, user: alice, tag: lootag)
         alice.last_seen = Time.zone.now - 8.months
         alice.save
       end
@@ -106,8 +106,8 @@ describe SocialRelayPresenter do
         AppConfig.relay.inbound.scope = "all"
         AppConfig.relay.inbound.pod_tags = "foo,bar"
         AppConfig.relay.inbound.include_user_tags = true
-        ceetag = FactoryGirl.create(:tag, name: "cee")
-        FactoryGirl.create(:tag_following, user: alice, tag: ceetag)
+        ceetag = FactoryBot.create(:tag, name: "cee")
+        FactoryBot.create(:tag_following, user: alice, tag: ceetag)
       end
 
       it "provides empty tags list" do

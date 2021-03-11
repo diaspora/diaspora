@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Workers::CleanupOldExports do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   context "with profile data" do
     before do

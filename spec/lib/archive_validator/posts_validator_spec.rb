@@ -7,7 +7,7 @@ describe ArchiveValidator::PostsValidator do
   include_context "with known author"
 
   let(:correct_item) {
-    status_message = FactoryGirl.create(:status_message)
+    status_message = FactoryBot.create(:status_message)
     {
       "entity_data" => {
         "guid"        => UUID.generate(:compact),

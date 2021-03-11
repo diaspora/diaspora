@@ -6,7 +6,7 @@ describe ArchiveValidator::RelayablesValidator do
   include_context "validators shared context"
   include_context "with known author"
 
-  let(:parent_guid) { FactoryGirl.create(:status_message).guid }
+  let(:parent_guid) { FactoryBot.create(:status_message).guid }
   let(:not_found_guid) {
     UUID.generate(:compact).tap {|guid|
       stub_request(:get, "http://example.net/fetch/post/#{guid}").to_return(status: 404)

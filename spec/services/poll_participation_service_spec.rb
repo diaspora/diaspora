@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe PollParticipationService do
-  let(:poll_post) { FactoryGirl.create(:status_message_with_poll, public: true) }
+  let(:poll_post) { FactoryBot.create(:status_message_with_poll, public: true) }
   let(:poll_answer) { poll_post.poll.poll_answers.first }
 
   describe "voting on poll" do

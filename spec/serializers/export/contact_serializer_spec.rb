@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 describe Export::ContactSerializer do
-  let(:contact) { FactoryGirl.create(:contact) }
+  let(:contact) { FactoryBot.create(:contact) }
   let(:serializer) { Export::ContactSerializer.new(contact) }
-  let(:aspect) { FactoryGirl.create(:aspect) }
+  let(:aspect) { FactoryBot.create(:aspect) }
 
   it "has contact attributes" do
     expect(serializer.attributes).to eq(

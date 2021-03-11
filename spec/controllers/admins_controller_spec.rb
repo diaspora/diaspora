@@ -6,7 +6,7 @@
 
 describe AdminsController, :type => :controller do
   before do
-    @user = FactoryGirl.create :user
+    @user = FactoryBot.create :user
     sign_in @user, scope: :user
   end
 
@@ -82,11 +82,11 @@ describe AdminsController, :type => :controller do
       end
 
       it 'searches on age < 13 (COPPA)' do
-        u_13 = FactoryGirl.create(:user)
+        u_13 = FactoryBot.create(:user)
         u_13.profile.birthday = 10.years.ago.to_date
         u_13.profile.save!
 
-        o_13 = FactoryGirl.create(:user)
+        o_13 = FactoryBot.create(:user)
         o_13.profile.birthday = 20.years.ago.to_date
         o_13.profile.save!
 

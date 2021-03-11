@@ -30,7 +30,7 @@ describe Workers::GatherOpenGraphData do
 
     @no_open_graph_url = 'http://www.we-do-not-support-open-graph.com/index.html'
 
-    @status_message = FactoryGirl.create(:status_message)
+    @status_message = FactoryBot.create(:status_message)
 
     stub_request(:head, @ogsite_url).to_return(status: 200, body: "", headers: {'Content-Type' => 'text/html; utf-8'})
     stub_request(:get, @ogsite_url).to_return(status: 200, body: @ogsite_body, headers: {'Content-Type' => 'text/html; utf-8'})

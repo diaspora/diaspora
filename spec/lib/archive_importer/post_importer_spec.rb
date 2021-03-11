@@ -5,14 +5,14 @@ require "lib/archive_importer/own_entity_importer_shared"
 describe ArchiveImporter::PostImporter do
   describe "#import" do
     let(:old_person) { post.author }
-    let(:new_user) { FactoryGirl.create(:user) }
+    let(:new_user) { FactoryBot.create(:user) }
     let(:entity) { Diaspora::Federation::Entities.build(post) }
     let(:entity_json) { entity.to_json.as_json }
     let(:instance) { described_class.new(entity_json, new_user) }
 
     it_behaves_like "own entity importer" do
       let(:entity_class) { StatusMessage }
-      let!(:post) { FactoryGirl.create(:status_message) }
+      let!(:post) { FactoryBot.create(:status_message) }
 
       let(:known_entity_with_correct_author) {
         entity.to_json
@@ -20,7 +20,7 @@ describe ArchiveImporter::PostImporter do
 
       let(:known_entity_with_incorrect_author) {
         result = known_entity_with_correct_author
-        result[:entity_data][:author] = FactoryGirl.create(:person).diaspora_handle
+        result[:entity_data][:author] = FactoryBot.create(:person).diaspora_handle
         result
       }
 
@@ -33,8 +33,8 @@ describe ArchiveImporter::PostImporter do
     end
 
     context "with subscription" do
-      let(:post) { FactoryGirl.build(:status_message, public: true) }
-      let(:subscribed_person) { FactoryGirl.create(:person) }
+      let(:post) { FactoryBot.build(:status_message, public: true) }
+      let(:subscribed_person) { FactoryBot.create(:person) }
       let(:subscribed_person_id) { subscribed_person.diaspora_handle }
 
       before do
@@ -66,7 +66,7 @@ describe ArchiveImporter::PostImporter do
       end
 
       context "when subscribed user has migrated" do
-        let(:account_migration) { FactoryGirl.create(:account_migration) }
+        let(:account_migration) { FactoryBot.create(:account_migration) }
         let(:subscribed_person) { account_migration.old_person }
 
         # TODO: rewrite this test when new subscription implementation is there

@@ -2,17 +2,17 @@
 
 describe InvitationCode, :type => :model do
   it 'has a valid factory' do
-    expect(FactoryGirl.build(:invitation_code)).to be_valid
+    expect(FactoryBot.build(:invitation_code)).to be_valid
   end
 
   it 'sets the count to a default value' do
-    code = FactoryGirl.create(:invitation_code)
+    code = FactoryBot.create(:invitation_code)
     expect(code.count).to be > 0
   end
 
   describe '#use!' do
     it 'decrements the count of the code' do
-      code = FactoryGirl.create(:invitation_code)
+      code = FactoryBot.create(:invitation_code)
 
       expect{
         code.use!

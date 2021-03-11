@@ -21,7 +21,7 @@ describe Stream::Base do
       before do
         bob.post(:status_message, :text => "sup", :to => bob.aspects.first.id)
         @liked_status = bob.posts.last
-        @like = FactoryGirl.create(:like, :target => @liked_status, :author => alice.person)
+        @like = FactoryBot.create(:like, :target => @liked_status, :author => alice.person)
       end
 
       it "marks the posts as liked" do
@@ -32,33 +32,33 @@ describe Stream::Base do
 
   describe '.can_comment?' do
     before do
-      @person = FactoryGirl.create(:person)
+      @person = FactoryBot.create(:person)
       allow(@stream).to receive(:people).and_return([bob.person, eve.person, @person])
     end
 
     it 'allows me to comment on my local contacts post' do
-      post = FactoryGirl.create(:status_message, :author => bob.person)
+      post = FactoryBot.create(:status_message, :author => bob.person)
       expect(@stream.can_comment?(post)).to be true
     end
 
     it 'allows me to comment on my own post' do
-      post = FactoryGirl.create(:status_message, :author => alice.person)
+      post = FactoryBot.create(:status_message, :author => alice.person)
       expect(@stream.can_comment?(post)).to be true
     end
 
     it 'allows me to comment on any local public post' do
-      post = FactoryGirl.create(:status_message, :author => eve.person)
+      post = FactoryBot.create(:status_message, :author => eve.person)
       expect(@stream.can_comment?(post)).to be true
     end
 
     it 'allows me to comment on a remote contacts post' do
       Contact.create!(:user => @stream.user, :person => @person)
-      post = FactoryGirl.create(:status_message, :author => @person)
+      post = FactoryBot.create(:status_message, :author => @person)
       expect(@stream.can_comment?(post)).to be true
     end
 
     it 'returns false if person is remote and not a contact' do
-      post = FactoryGirl.create(:status_message, :author => @person)
+      post = FactoryBot.create(:status_message, :author => @person)
       expect(@stream.can_comment?(post)).to be false
     end
   end

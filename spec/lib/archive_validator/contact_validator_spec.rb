@@ -17,7 +17,7 @@ describe ArchiveValidator::ContactValidator do
   end
 
   context "with a correct contact" do
-    let(:known_id) { FactoryGirl.create(:person).diaspora_handle }
+    let(:known_id) { FactoryBot.create(:person).diaspora_handle }
 
     before do
       include_in_input_archive(
@@ -47,7 +47,7 @@ describe ArchiveValidator::ContactValidator do
     context "and discovery is successful" do
       before do
         expect_any_instance_of(DiasporaFederation::Discovery::Discovery).to receive(:fetch_and_save) {
-          FactoryGirl.create(:person, diaspora_handle: unknown_id)
+          FactoryBot.create(:person, diaspora_handle: unknown_id)
         }
       end
 
@@ -72,7 +72,7 @@ describe ArchiveValidator::ContactValidator do
   end
 
   context "when person is deleted" do
-    let(:person) { FactoryGirl.create(:person) }
+    let(:person) { FactoryBot.create(:person) }
     let(:diaspora_id) { person.diaspora_handle }
 
     let(:contact) {
@@ -95,7 +95,7 @@ describe ArchiveValidator::ContactValidator do
   end
 
   context "when person is migrated" do
-    let(:account_migration) { FactoryGirl.create(:account_migration).tap(&:perform!) }
+    let(:account_migration) { FactoryBot.create(:account_migration).tap(&:perform!) }
     let(:person) { account_migration.old_person }
     let(:diaspora_id) { person.diaspora_handle }
 

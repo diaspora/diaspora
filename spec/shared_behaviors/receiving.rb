@@ -117,7 +117,7 @@ shared_examples_for "it sends a participation to the author" do
 
   it "uses the first user with an admin role if no admin is configured in the config" do
     AppConfig.admins.account = nil
-    admin_role = FactoryGirl.create(:role, name: "admin")
+    admin_role = FactoryBot.create(:role, name: "admin")
 
     expect(Diaspora::Federation::Dispatcher).to receive(:build) do |user, _participation, _opts|
       expect(user.username).to eq(admin_role.person.owner.username)

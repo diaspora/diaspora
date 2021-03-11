@@ -2,7 +2,7 @@
 
 describe PollAnswer, :type => :model do
   before do
-    @status = FactoryGirl.create(:status_message_with_poll)
+    @status = FactoryBot.create(:status_message_with_poll)
     @user = alice
     @answer = @status.poll.poll_answers.first
   end

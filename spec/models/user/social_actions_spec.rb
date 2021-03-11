@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe User::SocialActions, type: :model do
-  let(:status) { FactoryGirl.create(:status_message, public: true, author: bob.person) }
+  let(:status) { FactoryBot.create(:status_message, public: true, author: bob.person) }
 
   describe "User#comment!" do
     it "sets the comment text" do
@@ -69,7 +69,7 @@ describe User::SocialActions, type: :model do
   end
 
   describe "User#participate_in_poll!" do
-    let(:poll) { FactoryGirl.create(:poll, status_message: status) }
+    let(:poll) { FactoryBot.create(:poll, status_message: status) }
     let(:answer) { poll.poll_answers.first }
 
     it "federates" do
