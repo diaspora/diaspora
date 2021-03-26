@@ -411,6 +411,8 @@ describe Person, type: :model do
       @casey_grippi = FactoryBot.build(:person)
       @invisible_person = FactoryBot.build(:person)
       @closed_account = FactoryBot.build(:person, closed_account: true)
+      @blocked_by_pod = FactoryBot.build(:person)
+      @pod = Pod.find_or_create_by(url: "https://example.org")
 
       @robert_grimm.profile.first_name = "Robert"
       @robert_grimm.profile.last_name = "Grimm"
@@ -442,6 +444,12 @@ describe Person, type: :model do
       @closed_account.profile.last_name = "Account"
       @closed_account.profile.save
       @closed_account.reload
+
+      @blocked_by_pod.pod = @pod
+      @blocked_by_pod.profile.first_name = "Blocked_pod"
+      @blocked_by_pod.profile.last_name = "Blocked"
+      @blocked_by_pod.profile.save
+      @blocked_by_pod.reload
     end
 
     it "orders results by last name" do
@@ -500,6 +508,18 @@ describe Person, type: :model do
       expect(Person.search("Closed", @user)).to be_empty
       expect(Person.search("Account", @user)).to be_empty
       expect(Person.search(@closed_account.diaspora_handle, @user)).to be_empty
+    end
+
+    it "doesn't display persons from blocked pods" do
+      @blocked_by_pod.pod.blocked = true
+      @blocked_by_pod.pod.save
+      expect(Person.search("blocked_pod", @user)).to be_empty
+    end
+
+    it "display persons from unblocked pods" do
+      @blocked_by_pod.pod.blocked = false
+      @blocked_by_pod.pod.save
+      expect(Person.search("blocked_pod", @user).first).to eq(@blocked_by_pod)
     end
 
     it "displays contacts that are not searchable" do

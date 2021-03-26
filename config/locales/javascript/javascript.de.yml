@@ -23,6 +23,7 @@ de:
         no_info: "Zurzeit keine weiteren Informationen verfügbar"
         not_available: "nicht verfügbar"
         offline_since: "offline seit:"
+        blocked: "Blockiert"
         pod: "Pod"
         recheck:
           failure: "Die Überprüfung wurde nicht durchgeführt."
@@ -49,6 +50,13 @@ de:
         version_failed:
           one: "Es gibt einen Pod, der keine Version hat (alter Pod, kein NodeInfo)."
           other: "Es gibt <%= count %> Pods, die keine Version haben (alte Pods, kein NodeInfo)."
+        is_blocked: "Der Pod wurde blockiert"
+        blocked:
+          one: "Ein Pod wurde blockiert"
+          other: "<%= count %> Pods wurden blockiert"
+        total_pods: 
+          one: "Es gibt genau einen Pod."
+          other: "Es gibt insgesamt <%= count %> Pods."
     admins:
       dashboard:
         compare_versions: "Die neueste diaspora*-Version ist <%= latestVersion %>, dein Pod verwendet <%= podVersion %>."

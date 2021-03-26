@@ -36,7 +36,7 @@ class Person < ApplicationRecord
   end
 
   has_many :contacts, :dependent => :destroy # Other people's contacts for this person
-  has_many :posts, :foreign_key => :author_id, :dependent => :destroy # This person's own posts
+  has_many :posts, foreign_key: :author_id, inverse_of: :author, dependent: :destroy # This person's own posts
   has_many :photos, :foreign_key => :author_id, :dependent => :destroy # This person's own photos
   has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
   has_many :likes, foreign_key: :author_id, dependent: :destroy # This person's own likes
@@ -257,6 +257,9 @@ class Person < ApplicationRecord
 
     query = query.where(contacts: {sharing: true, receiving: true}) if mutual
 
+    # return only unblocked or local persons
+    query = query.includes(:pod).where("pods.blocked = false or pods.blocked is null").references(:pod)
+
     query.where(closed_account: false)
          .order([Arel.sql("contacts.user_id IS NULL"), "profiles.last_name ASC", "profiles.first_name ASC"])
   end
@@ -335,13 +338,24 @@ class Person < ApplicationRecord
   def self.find_or_fetch_by_identifier(diaspora_id)
     # exiting person?
     person = by_account_identifier(diaspora_id)
-    return person if person.present? && person.profile.present?
+    if person.present? && person.profile.present?
+      # Return if pod is not blocked
+      return person if person.pod.nil?
+      return person unless person.pod.blocked
 
+      nil
+    end
     # create or update person from webfinger
     logger.info "webfingering #{diaspora_id}, it is not known or needs updating"
     DiasporaFederation::Discovery::Discovery.new(diaspora_id).fetch_and_save
+    person = by_account_identifier(diaspora_id)
+    return person if person.pod.nil?
+    return person unless person.pod.blocked
 
-    by_account_identifier(diaspora_id)
+    nil
+  rescue DiasporaFederation::Discovery::InvalidDocument
+    logger.info "#{diaspora_id} returns not as a valid document"
+    nil
   end
 
   def self.by_account_identifier(diaspora_id)

@@ -31,7 +31,7 @@ app.pages.AdminPods = app.views.Base.extend({
     var msgs = document.createDocumentFragment();
     if (gon.totalCount && gon.totalCount > 0) {
       let totalPods = $("<div class='alert alert-info' role='alert' />")
-        .append(Diaspora.I18n.t("admin.pods.total", {count: gon.totalCount}));
+        .append(Diaspora.I18n.t("admin.pods.total", {count: gon.totalCount.toLocaleString()}));
       if (gon.activeCount) {
         if (gon.activeCount === 0) {
           totalPods
@@ -42,7 +42,7 @@ app.pages.AdminPods = app.views.Base.extend({
             .append(" " + Diaspora.I18n.t("admin.pods.all_active"));
         } else {
           totalPods
-            .append(" " + Diaspora.I18n.t("admin.pods.active", {count: gon.activeCount}));
+            .append(" " + Diaspora.I18n.t("admin.pods.active", {count: gon.activeCount.toLocaleString()}));
         }
       }
       msgs.appendChild(totalPods[0]);
@@ -50,18 +50,23 @@ app.pages.AdminPods = app.views.Base.extend({
 
     if( gon.uncheckedCount && gon.uncheckedCount > 0 ) {
       var unchecked = $("<div class='alert alert-info' role='alert' />")
-        .append(Diaspora.I18n.t("admin.pods.unchecked", {count: gon.uncheckedCount}));
+        .append(Diaspora.I18n.t("admin.pods.unchecked", {count: gon.uncheckedCount.toLocaleString()}));
       msgs.appendChild(unchecked[0]);
     }
     if( gon.versionFailedCount && gon.versionFailedCount > 0 ) {
       var versionFailed = $("<div class='alert alert-warning' role='alert' />")
-          .append(Diaspora.I18n.t("admin.pods.version_failed", {count: gon.versionFailedCount}));
+          .append(Diaspora.I18n.t("admin.pods.version_failed", {count: gon.versionFailedCount.toLocaleString()}));
       msgs.appendChild(versionFailed[0]);
     }
     if( gon.errorCount && gon.errorCount > 0 ) {
       var errors = $("<div class='alert alert-danger' role='alert' />")
-        .append(Diaspora.I18n.t("admin.pods.errors", {count: gon.errorCount}));
+        .append(Diaspora.I18n.t("admin.pods.errors", {count: gon.errorCount.toLocaleString()}));
         msgs.appendChild(errors[0]);
+    }
+    if (gon.blockedCount && gon.blockedCount > 0) {
+      var blocked = $("<div class='alert alert-danger' role='alert' />")
+        .append(Diaspora.I18n.t("admin.pods.blocked", {count: gon.blockedCount.toLocaleString()}));
+      msgs.appendChild(blocked[0]);
     }
 
     $("#pod-alerts").html(msgs);

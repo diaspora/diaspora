@@ -15,6 +15,7 @@ class PodPresenter < BasePresenter
       offline_since: offline_since,
       created_at:    created_at,
       software:      software,
+      blocked:       blocked,
       error:         error
     }
   end

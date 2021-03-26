@@ -27,6 +27,8 @@ class Post < ApplicationRecord
   has_many :reshares, class_name: "Reshare", foreign_key: :root_guid, primary_key: :guid
   has_many :resharers, class_name: "Person", through: :reshares, source: :author
 
+  belongs_to :author, class_name: "Person", inverse_of: :posts, optional: true
+
   belongs_to :o_embed_cache, optional: true
   belongs_to :open_graph_cache, optional: true
 
@@ -49,7 +51,11 @@ class Post < ApplicationRecord
     ) #note should include root and photos, but i think those are both on status_message
   }
 
-  scope :all_public, -> { where(public: true) }
+  scope :all_public, -> {
+    left_outer_joins(author: [:pod])
+      .where("(pods.blocked = false or pods.blocked is null)")
+      .where(public: true)
+  }
 
   scope :all_local_public, -> {
     where(" exists (
@@ -60,12 +66,15 @@ class Post < ApplicationRecord
 
   scope :commented_by, ->(person)  {
     select('DISTINCT posts.*')
-      .joins(:comments)
+      .left_outer_joins(:comments, author: [:pod])
+      .where("(pods.blocked = false or pods.blocked is null)")
       .where(:comments => {:author_id => person.id})
   }
 
   scope :liked_by, ->(person) {
-    joins(:likes).where(:likes => {:author_id => person.id})
+    left_outer_joins(:likes, author: [:pod])
+      .where("(pods.blocked = false or pods.blocked is null)")
+      .where(likes: {author_id: person.id})
   }
 
   scope :subscribed_by, ->(user) {
@@ -96,17 +105,18 @@ class Post < ApplicationRecord
 
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}
-    scope = all
+    scope = left_outer_joins(author: [:pod])
+            .where("(pods.blocked = false or pods.blocked is null)")
 
     if people.any?
       scope = scope.where("posts.author_id NOT IN (?)", people)
     end
-
     scope
   end
 
   def self.excluding_hidden_shareables(user)
-    scope = all
+    scope = left_outer_joins(author: [:pod])
+            .where("(pods.blocked = false or pods.blocked is null)")
     if user.has_hidden_shareables_of_type?
       scope = scope.where('posts.id NOT IN (?)', user.hidden_shareables["#{self.base_class}"])
     end
