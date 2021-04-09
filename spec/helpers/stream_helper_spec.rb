@@ -24,7 +24,7 @@ describe StreamHelper, type: :helper do
       allow(helper).to receive(:current_page?).and_return(false)
       expect(helper).to receive(:current_page?).with(:local_public_stream).and_return(true)
       allow(helper).to receive(:controller).and_return(build_controller(StreamsController))
-      expect(helper.next_page_path).to include "/local-public"
+      expect(helper.next_page_path).to include local_public_stream_path
     end
 
     it "works for stream page when current page is stream" do
