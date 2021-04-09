@@ -1245,6 +1245,8 @@ de:
       title: "Stream"
     public:
       title: "Öffentliche Aktivität"
+    local_public:
+      title: "Lokale Posts"
     tags:
       title: "Getaggte Beiträge: %{tags}"
   tag_followings:

@@ -25,6 +25,10 @@ class StreamsController < ApplicationController
     stream_responder(Stream::Public)
   end
 
+  def local_public
+    stream_responder(Stream::LocalPublic)
+  end
+
   def activity
     stream_responder(Stream::Activity)
   end

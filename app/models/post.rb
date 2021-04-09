@@ -51,6 +51,12 @@ class Post < ApplicationRecord
 
   scope :all_public, -> { where(public: true) }
 
+  scope :all_local_public, -> {
+    left_outer_joins(author: [:pod])
+      .where("pods.host is null") # local posts have no host in pods
+      .where(public: true)
+  }
+
   scope :commented_by, ->(person)  {
     select('DISTINCT posts.*')
       .joins(:comments)
