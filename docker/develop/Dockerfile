@@ -43,13 +43,6 @@ RUN addgroup --gid $DIA_GID diaspora && \
     chown -R diaspora:diaspora $HOME /diaspora
 
 
-RUN curl -L \
-        https://cifiles.diasporafoundation.org/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
-        | tar -xj -C /usr/local/bin \
-            --transform='s#.*/##' \
-            phantomjs-2.1.1-linux-x86_64/bin/phantomjs
-
-
 ENV BUNDLE_PATH="$GEM_HOME" \
     BUNDLE_BIN="$GEM_HOME/bin" \
     BUNDLE_APP_CONFIG="/diaspora/.bundle"

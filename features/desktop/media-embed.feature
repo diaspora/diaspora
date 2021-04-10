@@ -1,5 +1,4 @@
  # We can create a separate cucumber profile that will run these tests with Selenium
-@nophantomjs
 @javascript
 Feature: oembed
   In order to make videos easy accessible
