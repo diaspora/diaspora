@@ -22,6 +22,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Enable Content-Security-Policy header by default [#7781](https://github.com/diaspora/diaspora/pull/7781)
 * Do not show getting started after account import [#8036](https://github.com/diaspora/diaspora/pull/8036)
 * Remove the JSXC/Prosody integration [#8069](https://github.com/diaspora/diaspora/pull/8069)
+* Replace factory\_girl with factory\_bot [#8218](https://github.com/diaspora/diaspora/pull/8218)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)

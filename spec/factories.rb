@@ -4,10 +4,6 @@
 #   licensed under the Affero General Public License version 3 or late  See
 #   the COPYRIGHT file.
 
-#For Guidance
-#http://github.com/thoughtbot/factory_girl
-# http://railscasts.com/episodes/158-factories-not-fixtures
-
 def r_str
   SecureRandom.hex(3)
 end
@@ -16,23 +12,23 @@ require "diaspora_federation/test/factories"
 
 FactoryBot.define do
   factory :profile do
-    sequence(:first_name) { |n| "Robert#{n}#{r_str}" }
-    sequence(:last_name)  { |n| "Grimm#{n}#{r_str}" }
+    sequence(:first_name) {|n| "Robert#{n}#{r_str}" }
+    sequence(:last_name)  {|n| "Grimm#{n}#{r_str}" }
     bio { "I am a cat lover and I love to run" }
     gender { "robot" }
     location { "Earth" }
-    birthday { Date.today }
+    birthday { Time.zone.today }
     tag_string { "#one #two" }
     association :person
   end
 
-  factory :profile_with_image_url, :parent => :profile do
+  factory :profile_with_image_url, parent: :profile do
     image_url { "http://example.com/image.jpg" }
     image_url_medium { "http://example.com/image_mid.jpg" }
     image_url_small { "http://example.com/image_small.jpg" }
   end
 
-  factory(:person, aliases: %i(author)) do
+  factory(:person, aliases: %i[author]) do
     transient do
       first_name { nil }
     end
@@ -41,7 +37,7 @@ FactoryBot.define do
     pod { Pod.find_or_create_by(url: "http://example.net") }
     serialized_public_key { OpenSSL::PKey::RSA.generate(1024).public_key.export }
     after(:build) do |person, evaluator|
-      unless person.profile.first_name.present?
+      if person.profile.first_name.blank?
         person.profile = FactoryBot.build(:profile, person: person)
         person.profile.first_name = evaluator.first_name if evaluator.first_name
       end
@@ -61,25 +57,25 @@ FactoryBot.define do
   end
 
   factory :like do
-    association :author, :factory => :person
-    association :target, :factory => :status_message
+    association :author, factory: :person
+    association :target, factory: :status_message
   end
 
   factory :user do
     getting_started { false }
-    sequence(:username) { |n| "bob#{n}#{r_str}" }
-    sequence(:email) { |n| "bob#{n}#{r_str}@pivotallabs.com" }
+    sequence(:username) {|n| "bob#{n}#{r_str}" }
+    sequence(:email) {|n| "bob#{n}#{r_str}@pivotallabs.com" }
     password { "bluepin7" }
-    password_confirmation { |u| u.password }
-    serialized_private_key  { OpenSSL::PKey::RSA.generate(1024).export }
+    password_confirmation(&:password)
+    serialized_private_key { OpenSSL::PKey::RSA.generate(1024).export }
     transient do
       profile { nil }
     end
     after(:build) do |u, e|
       u.person = FactoryBot.build(:person,
-                                   pod:                   nil,
-                                   serialized_public_key: u.encryption_key.public_key.export,
-                                   diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
+                                  pod:                   nil,
+                                  serialized_public_key: u.encryption_key.public_key.export,
+                                  diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
       u.person.profile = e.profile if e.profile
     end
     after(:create) do |u|
@@ -106,7 +102,7 @@ FactoryBot.define do
     user
   end
 
-  factory(:status_message, aliases: %i(status_message_without_participation)) do
+  factory(:status_message, aliases: %i[status_message_without_participation]) do
     sequence(:text) {|n| "jimmy's #{n} whales" }
     author
 
@@ -136,7 +132,7 @@ FactoryBot.define do
     end
 
     factory(:status_message_in_aspect) do
-      public { false }
+      public { false } # rubocop:disable Layout/EmptyLinesAroundAccessModifier
       author { FactoryBot.create(:user_with_aspect).person }
       after(:build) do |sm|
         sm.aspects << sm.author.owner.aspects.first
@@ -202,51 +198,51 @@ FactoryBot.define do
   end
 
   factory(:photo) do
-    sequence(:random_string) {|n| SecureRandom.hex(10) }
-    association :author, :factory => :person
+    sequence(:random_string) { SecureRandom.hex(10) }
+    association :author, factory: :person
     height { 42 }
     width { 23 }
     after(:build) do |p|
-      p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
+      p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), "fixtures", "button.png"))
       p.update_remote_path
     end
   end
 
-  factory(:remote_photo, :parent => :photo) do
-    remote_photo_path { 'https://photo.com/images/' }
-    remote_photo_name { 'kittehs.jpg' }
-    association :author,:factory => :person
+  factory(:remote_photo, parent: :photo) do
+    remote_photo_path { "https://photo.com/images/" }
+    remote_photo_name { "kittehs.jpg" }
+    association :author, factory: :person
     processed_image { nil }
     unprocessed_image { nil }
   end
 
   factory :reshare do
-    association(:root, :public => true, :factory => :status_message)
-    association(:author, :factory => :person)
+    association(:root, public: true, factory: :status_message)
+    association(:author, factory: :person)
   end
 
   factory :invitation do
     service { "email" }
     identifier { "bob.smith@smith.com" }
-    association :sender, :factory => :user_with_aspect
+    association :sender, factory: :user_with_aspect
     after(:build) do |i|
       i.aspect = i.sender.aspects.first
     end
   end
 
   factory :invitation_code do
-    sequence(:token){|n| "sdfsdsf#{n}"}
+    sequence(:token) {|n| "sdfsdsf#{n}" }
     association :user
     count { 0 }
   end
 
-  factory :service do |service|
+  factory :service do
     nickname { "sirrobertking" }
     type { "Services::Twitter" }
 
-    sequence(:uid)           { |token| "00000#{token}" }
-    sequence(:access_token)  { |token| "12345#{token}" }
-    sequence(:access_secret) { |token| "98765#{token}" }
+    sequence(:uid)           {|token| "00000#{token}" }
+    sequence(:access_token)  {|token| "12345#{token}" }
+    sequence(:access_secret) {|token| "98765#{token}" }
 
     user
   end
@@ -257,7 +253,7 @@ FactoryBot.define do
   end
 
   factory(:comment) do
-    sequence(:text) {|n| "#{n} cats"}
+    sequence(:text) {|n| "#{n} cats" }
     association(:author, factory: :person)
     association(:post, factory: :status_message)
   end
@@ -277,8 +273,8 @@ FactoryBot.define do
   end
 
   factory(:notification, class: Notifications::AlsoCommented) do
-    association :recipient, :factory => :user
-    association :target, :factory => :comment
+    association :recipient, factory: :user
+    association :target, factory: :comment
 
     after(:build) do |note|
       note.actors << FactoryBot.build(:person)
@@ -295,7 +291,7 @@ FactoryBot.define do
     end
   end
 
-  factory(:tag, :class => ActsAsTaggableOn::Tag) do
+  factory(:tag, class: ActsAsTaggableOn::Tag) do
     name { "partytimeexcellent" }
   end
 
@@ -319,13 +315,13 @@ FactoryBot.define do
   end
 
   factory(:tag_following) do
-    association(:tag, :factory => :tag)
-    association(:user, :factory => :user)
+    association(:tag, factory: :tag)
+    association(:user, factory: :user)
   end
 
   factory(:contact) do
-    association(:person, :factory => :person)
-    association(:user, :factory => :user)
+    association(:person, factory: :person)
+    association(:user, factory: :user)
   end
 
   factory(:mention) do
@@ -389,7 +385,7 @@ FactoryBot.define do
     additional_data { {"new_property" => "some text"} }
   end
 
-  factory(:note, :parent => :status_message) do
+  factory(:note, parent: :status_message) do
     text { SecureRandom.hex(1000) }
   end
 
@@ -408,7 +404,7 @@ FactoryBot.define do
 
   factory :o_auth_application, class: Api::OpenidConnect::OAuthApplication do
     client_name { "Diaspora Test Client #{r_str}" }
-    redirect_uris { %w(http://localhost:3000/) }
+    redirect_uris { %w[http://localhost:3000/] }
   end
 
   factory :o_auth_application_with_ppid, parent: :o_auth_application do
@@ -418,7 +414,7 @@ FactoryBot.define do
 
   factory :o_auth_application_with_xss, class: Api::OpenidConnect::OAuthApplication do
     client_name { "<script>alert(0);</script>" }
-    redirect_uris { %w(http://localhost:3000/) }
+    redirect_uris { %w[http://localhost:3000/] }
   end
 
   factory :auth_with_default_scopes, class: Api::OpenidConnect::Authorization do
@@ -451,9 +447,11 @@ FactoryBot.define do
   factory :auth_with_all_scopes_not_private, class: Api::OpenidConnect::Authorization do
     o_auth_application
     association :user, factory: :user_with_aspect
-    scopes { %w[openid sub name nickname profile picture gender birthdate locale updated_at contacts:read contacts:modify
-              conversations email interactions notifications public:read public:modify profile profile:modify tags:read
-              tags:modify] }
+    scopes {
+      %w[openid sub name nickname profile picture gender birthdate locale updated_at contacts:read contacts:modify
+         conversations email interactions notifications public:read public:modify profile profile:modify tags:read
+         tags:modify]
+    }
     after(:build) {|m|
       m.redirect_uri = m.o_auth_application.redirect_uris[0]
     }
@@ -462,8 +460,10 @@ FactoryBot.define do
   factory :auth_with_read_scopes, class: Api::OpenidConnect::Authorization do
     o_auth_application
     association :user, factory: :user_with_aspect
-    scopes { %w[openid sub name nickname profile picture contacts:read conversations
-              email interactions notifications private:read public:read profile tags:read] }
+    scopes {
+      %w[openid sub name nickname profile picture contacts:read conversations
+         email interactions notifications private:read public:read profile tags:read]
+    }
     after(:build) {|m|
       m.redirect_uri = m.o_auth_application.redirect_uris[0]
     }
@@ -472,8 +472,10 @@ FactoryBot.define do
   factory :auth_with_read_scopes_not_private, class: Api::OpenidConnect::Authorization do
     o_auth_application
     association :user, factory: :user_with_aspect
-    scopes { %w[openid sub name nickname profile picture gender contacts:read conversations
-              email interactions notifications public:read profile tags:read] }
+    scopes {
+      %w[openid sub name nickname profile picture gender contacts:read conversations
+         email interactions notifications public:read profile tags:read]
+    }
     after(:build) {|m|
       m.redirect_uri = m.o_auth_application.redirect_uris[0]
     }
@@ -488,7 +490,8 @@ FactoryBot.define do
     exported_key { OpenSSL::PKey::RSA.generate(1024).public_key.export }
     profile {
       DiasporaFederation::Entities::Profile.new(
-        FactoryBot.attributes_for(:federation_profile_from_hcard, diaspora_id: diaspora_id))
+        FactoryBot.attributes_for(:federation_profile_from_hcard, diaspora_id: diaspora_id)
+      )
     }
   end
 

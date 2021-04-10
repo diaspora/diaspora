@@ -31,10 +31,10 @@ describe StatusMessage, type: :model do
 
     context "tag_streams" do
       before do
-        @status_message_1 = FactoryBot.create(:status_message, text: "#hashtag", public: true)
-        @status_message_2 = FactoryBot.create(:status_message, text: "#hashtag")
-        @status_message_3 = FactoryBot.create(:status_message, text: "hashtags are #awesome", public: true)
-        @status_message_4 = FactoryBot.create(:status_message, text: "hashtags are #awesome")
+        @status_message1 = FactoryBot.create(:status_message, text: "#hashtag", public: true)
+        @status_message2 = FactoryBot.create(:status_message, text: "#hashtag")
+        @status_message3 = FactoryBot.create(:status_message, text: "hashtags are #awesome", public: true)
+        @status_message4 = FactoryBot.create(:status_message, text: "hashtags are #awesome")
 
         @tag_id = ActsAsTaggableOn::Tag.where(name: "hashtag").first.id
       end
@@ -42,14 +42,14 @@ describe StatusMessage, type: :model do
       describe ".tag_steam" do
         it "returns status messages tagged with the tag" do
           tag_stream = StatusMessage.send(:tag_stream, [@tag_id])
-          expect(tag_stream).to include @status_message_1
-          expect(tag_stream).to include @status_message_2
+          expect(tag_stream).to include @status_message1
+          expect(tag_stream).to include @status_message2
         end
       end
 
       describe ".public_tag_stream" do
         it "returns public status messages tagged with the tag" do
-          expect(StatusMessage.public_tag_stream([@tag_id])).to eq([@status_message_1])
+          expect(StatusMessage.public_tag_stream([@tag_id])).to eq([@status_message1])
         end
 
         it "returns a post with two tags only once" do
@@ -57,7 +57,7 @@ describe StatusMessage, type: :model do
           test_tag_id = ActsAsTaggableOn::Tag.where(name: "test").first.id
 
           expect(StatusMessage.public_tag_stream([@tag_id, test_tag_id]))
-            .to match_array([@status_message_1, status_message])
+            .to match_array([@status_message1, status_message])
         end
       end
 
@@ -75,10 +75,10 @@ describe StatusMessage, type: :model do
 
   describe ".guids_for_author" do
     it "returns an array of the status_message guids" do
-      status_message_1 = FactoryBot.create(:status_message, author: alice.person)
+      status_message1 = FactoryBot.create(:status_message, author: alice.person)
       FactoryBot.create(:status_message, author: bob.person)
       guids = StatusMessage.guids_for_author(alice.person)
-      expect(guids).to eq([status_message_1.guid])
+      expect(guids).to eq([status_message1.guid])
     end
   end
 

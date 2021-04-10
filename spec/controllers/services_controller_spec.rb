@@ -118,7 +118,7 @@ describe ServicesController, :type => :controller do
 
   describe '#destroy' do
     before do
-      @service1 = FactoryBot.create(:service, :user => user)
+      @service1 = FactoryBot.create(:service, user: user)
     end
 
     it 'destroys a service selected by id' do

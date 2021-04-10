@@ -98,7 +98,7 @@ describe User::Querying, :type => :model do
 
   describe "#visible_shareables" do
     it 'never contains posts from people not in your aspects' do
-      FactoryBot.create(:status_message, :public => true)
+      FactoryBot.create(:status_message, public: true)
       expect(bob.visible_shareables(Post).count(:all)).to eq(0)
     end
 
