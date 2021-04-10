@@ -37,8 +37,9 @@
               = render "aspects/aspect_listings", stream: @stream
             %li.nested-list
               = render "tags/followed_tags_listings"
-            %li{data: {stream: "local_public"}}
-              = link_to t("streams.local_public.title"), local_public_stream_path, rel: "backbone", class: "hoverable"
+            - if show_local_posts_link?(current_user)
+              %li{data: {stream: "local_public"}}
+                = link_to t("streams.local_public.title"), local_public_stream_path, rel: "backbone", class: "hoverable"
             %li{data: {stream: "public"}}
               = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
 

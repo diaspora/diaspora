@@ -74,6 +74,7 @@ defaults:
   settings:
     pod_name: 'diaspora*'
     enable_registrations: true
+    enable_show_local_post_link: 'disabled'
     autofollow_on_join: true
     autofollow_on_join_user: 'hq@pod.diaspora.software'
     welcome_message:

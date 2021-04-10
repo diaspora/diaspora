@@ -42,6 +42,17 @@ module ApplicationHelper
       "bookmarklet('#{bookmarklet_url}', #{width}, #{height});"
   end
 
+  def show_local_posts_link?(current_user)
+    return true if AppConfig.settings.enable_show_local_post_link == "always"
+    return true if AppConfig.settings.enable_show_local_post_link == "admin" &&
+                   Role.is_admin?(current_user)
+
+    return true if AppConfig.settings.enable_show_local_post_link == "moderator" &&
+                   (Role.moderator?(current_user) || Role.is_admin?(current_user))
+
+    false
+  end
+
   def all_services_connected?
     current_user.services.size == AppConfig.configured_services.size
   end

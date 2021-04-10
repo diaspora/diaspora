@@ -287,6 +287,12 @@
 ## (or commented out) to enable the first registration (you).
 #enable_registrations = true
 
+## Show local posts (default="disabled")
+## If any other setting than disabled local public posts
+## created on this pod can be showed.
+## Choose one setting
+# enable_show_local_post_link= "disabled"|"admin"|"moderator"|"always"
+
 ## Auto-follow on sign-up (default=true)
 ## Users will automatically follow a specified account on creation.
 ## Set this to false if you don't want your users to automatically

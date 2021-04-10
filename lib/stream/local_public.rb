@@ -4,6 +4,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+# rubocop:disable Style/ClassAndModuleChildren
 class Stream::LocalPublic < Stream::Base
   def link(opts={})
     Rails.application.routes.url_helpers.local_public_stream_path(opts)
@@ -27,3 +28,4 @@ class Stream::LocalPublic < Stream::Base
     ["public"]
   end
 end
+# rubocop:enable Style/ClassAndModuleChildren

@@ -122,6 +122,43 @@ describe ApplicationHelper, :type => :helper do
     end
   end
 
+  describe "#enable_show_local_post_link" do
+    let!(:moderator) { create(:person) }
+    let!(:admin) { create(:person) }
+    before do
+      moderator.roles.create(name: "moderator")
+      admin.roles.create(name: "admin")
+    end
+
+    it "return false if show_local_posts_link is 'disabled'" do
+      AppConfig.settings.enable_show_local_post_link = "disabled"
+      expect(helper.show_local_posts_link?(admin)).to be false
+      expect(helper.show_local_posts_link?(moderator)).to be false
+      expect(helper.show_local_posts_link?(alice)).to be false
+    end
+
+    it "return true for admins if show_local_posts_link is 'admin'" do
+      AppConfig.settings.enable_show_local_post_link = "admin"
+      expect(helper.show_local_posts_link?(admin)).to be true
+      expect(helper.show_local_posts_link?(moderator)).to be false
+      expect(helper.show_local_posts_link?(alice)).to be false
+    end
+
+    it "return true for admins and moderators if show_local_posts_link is 'moderator'" do
+      AppConfig.settings.enable_show_local_post_link = "moderator"
+      expect(helper.show_local_posts_link?(admin)).to be true
+      expect(helper.show_local_posts_link?(moderator)).to be true
+      expect(helper.show_local_posts_link?(alice)).to be false
+    end
+
+    it "return true for everybody if show_local_posts_link is 'always'" do
+      AppConfig.settings.enable_show_local_post_link = "always"
+      expect(helper.show_local_posts_link?(admin)).to be true
+      expect(helper.show_local_posts_link?(moderator)).to be true
+      expect(helper.show_local_posts_link?(alice)).to be true
+    end
+  end
+
   describe "#changelog_url" do
     let(:changelog_url_setting) {
       double.tap {|double| allow(AppConfig).to receive(:settings).and_return(double(changelog_url: double)) }
