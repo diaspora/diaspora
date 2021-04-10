@@ -12,12 +12,11 @@ Feature: Invitations
     And I press "Create account"
     Then I should be on the getting started page
     And I should see "Well, hello there!"
-    And I fill in the following:
+    When I fill in the following:
       | profile_first_name         | O             |
-
-    And I confirm the alert after I follow "awesome_button"
-    Then I should be on the stream page
-    And I close the publisher
+    Then I wait until ajax requests finished
+    When I go to the stream page
+    Then I close the publisher
 
   Scenario: accept invitation from user
     Given I have been invited by "alice@alice.alice"
@@ -27,11 +26,10 @@ Feature: Invitations
     Then I should be on the getting started page
     And I should see "Well, hello there!"
     And I should be able to friend "alice@alice.alice"
-    And I fill in the following:
+    When I fill in the following:
       | profile_first_name         | O             |
-
-    And I confirm the alert after I follow "awesome_button"
-    Then I should be on the stream page
+    Then I wait until ajax requests finished
+    When I go to the stream page
     And I close the publisher
     And I log out
     And I sign in as "alice@alice.alice"
