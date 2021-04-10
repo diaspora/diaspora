@@ -179,6 +179,10 @@ FactoryBot.define do
       p.poll_answers << FactoryBot.build(:poll_answer, poll: p)
       p.poll_answers << FactoryBot.build(:poll_answer, poll: p)
     end
+
+    trait(:with_author) {
+      association :author
+    }
   end
 
   factory(:poll_answer) do
@@ -189,6 +193,11 @@ FactoryBot.define do
   factory :poll_participation do
     association :author, factory: :person
     association :poll_answer
+
+    trait(:with_poll_author) do
+      after(:build) {|p| p.poll.author ||= p.author }
+    end
+
     after(:build) {|p| p.poll = p.poll_answer.poll }
   end
 

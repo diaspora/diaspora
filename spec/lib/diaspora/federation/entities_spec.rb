@@ -190,7 +190,7 @@ describe Diaspora::Federation::Entities do
     end
 
     it "builds a poll participation" do
-      diaspora_entity = FactoryBot.build(:poll_participation)
+      diaspora_entity = FactoryBot.build(:poll_participation, :with_poll_author)
       federation_entity = described_class.build(diaspora_entity)
 
       expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::PollParticipation)
@@ -204,7 +204,7 @@ describe Diaspora::Federation::Entities do
 
     it "builds a poll participation with signature" do
       signature = FactoryBot.build(:poll_participation_signature)
-      diaspora_entity = FactoryBot.build(:poll_participation, signature: signature)
+      diaspora_entity = FactoryBot.build(:poll_participation, :with_poll_author, signature: signature)
       federation_entity = described_class.build(diaspora_entity)
 
       expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::PollParticipation)
