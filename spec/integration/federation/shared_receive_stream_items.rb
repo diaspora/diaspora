@@ -63,7 +63,7 @@ shared_examples_for "messages which are indifferent about sharing fact" do
       end
     end
 
-    %w(comment like).each do |entity|
+    %w[comment like].each do |entity|
       context "with #{entity}" do
         let(:entity_name) { "#{entity}_entity".to_sym }
         let(:klass) { entity.camelize.constantize }

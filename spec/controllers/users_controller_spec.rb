@@ -85,18 +85,22 @@ describe UsersController, :type => :controller do
       end
     end
 
-    it 'includes reshares in the atom feed' do
-      reshare = FactoryBot.create(:reshare, :author => @user.person)
+    it "includes reshares in the atom feed" do
+      reshare = FactoryBot.create(:reshare, author: @user.person)
+
       get :public, params: {username: @user.username}, format: :atom
+
       expect(response.body).to include reshare.root.text
     end
 
-    it 'do not show reshares in atom feed if origin post is deleted' do
-      post = FactoryBot.create(:status_message, :public => true);
-      reshare = FactoryBot.create(:reshare, :root => post, :author => @user.person)
+    it "do not show reshares in atom feed if origin post is deleted" do
+      post = FactoryBot.create(:status_message, public: true)
+      FactoryBot.create(:reshare, root: post, author: @user.person)
       post.delete
+
       get :public, params: {username: @user.username}, format: :atom
-      expect(response.code).to eq('200')
+
+      expect(response.code).to eq("200")
     end
 
     it 'redirects to a profile page if html is requested' do

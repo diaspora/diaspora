@@ -3,7 +3,7 @@
 describe PersonPresenter do
   let(:profile_user) {
     FactoryBot.create(:user_with_aspect,
-                       profile: FactoryBot.create(:profile_with_image_url))
+                      profile: FactoryBot.create(:profile_with_image_url))
   }
   let(:person) { profile_user.person }
 
@@ -28,18 +28,18 @@ describe PersonPresenter do
 
       it "returns the user's additional profile if the user has set additional profile public" do
         person.profile.public_details = true
-        expect(PersonPresenter.new(person, nil).as_json[:profile]).to include(*%i(location bio gender birthday))
+        expect(PersonPresenter.new(person, nil).as_json[:profile]).to include(:location, :bio, :gender, :birthday)
       end
 
       it "doesn't return user's additional profile if the user hasn't set additional profile public" do
         person.profile.public_details = false
-        expect(PersonPresenter.new(person, nil).as_json[:profile]).not_to include(*%i(location bio gender birthday))
+        expect(PersonPresenter.new(person, nil).as_json[:profile]).not_to include(:location, :bio, :gender, :birthday)
       end
     end
 
     context "with a current_user" do
       let(:current_user) { FactoryBot.create(:user) }
-      let(:presenter){ PersonPresenter.new(person, current_user) }
+      let(:presenter) { PersonPresenter.new(person, current_user) }
       # here private information == addtional user profile, because additional profile by default is private
 
       it "doesn't share private information when the users aren't connected" do
@@ -149,7 +149,7 @@ describe PersonPresenter do
   describe "#profile_hash_as_api_json" do
     let(:current_user) {
       FactoryBot.create(:user,
-                         profile: FactoryBot.create(:profile_with_image_url))
+                        profile: FactoryBot.create(:profile_with_image_url))
     }
 
     before do

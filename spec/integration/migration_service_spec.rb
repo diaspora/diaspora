@@ -317,9 +317,9 @@ describe MigrationService do
   context "old user is a known remote user" do
     let(:old_person) {
       FactoryBot.create(:person,
-                         profile:               FactoryBot.build(:profile),
-                         serialized_public_key: archive_private_key.public_key.export,
-                         diaspora_handle:       archive_author)
+                        profile:               FactoryBot.build(:profile),
+                        serialized_public_key: archive_private_key.public_key.export,
+                        diaspora_handle:       archive_author)
     }
 
     # Some existing data for old_person to test data merge/migration
@@ -327,8 +327,8 @@ describe MigrationService do
 
     let!(:existing_subscription) {
       FactoryBot.create(:participation,
-                         author: old_person,
-                         target: FactoryBot.create(:status_message, guid: existing_subscription_guid))
+                        author: old_person,
+                        target: FactoryBot.create(:status_message, guid: existing_subscription_guid))
     }
     let!(:existing_status_message) {
       FactoryBot.create(:status_message,

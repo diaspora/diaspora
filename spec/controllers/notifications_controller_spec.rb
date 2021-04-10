@@ -4,27 +4,27 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-describe NotificationsController, :type => :controller do
+describe NotificationsController, type: :controller do
   before do
     sign_in alice, scope: :user
   end
 
-  describe '#update' do
-    it 'marks a notification as read if it gets no other information' do
+  describe "#update" do
+    it "marks a notification as read if it gets no other information" do
       note = FactoryBot.create(:notification)
       expect(Notification).to receive(:where).and_return([note])
       expect(note).to receive(:set_read_state).with(true)
       get :update, params: {id: note.id}, format: :json
     end
 
-    it 'marks a notification as read if it is told to' do
+    it "marks a notification as read if it is told to" do
       note = FactoryBot.create(:notification)
       expect(Notification).to receive(:where).and_return([note])
       expect(note).to receive(:set_read_state).with(true)
       get :update, params: {id: note.id, set_unread: "false"}, format: :json
     end
 
-    it 'marks a notification as unread if it is told to' do
+    it "marks a notification as unread if it is told to" do
       note = FactoryBot.create(:notification)
       expect(Notification).to receive(:where).and_return([note])
       expect(note).to receive(:set_read_state).with(false)
@@ -44,11 +44,11 @@ describe NotificationsController, :type => :controller do
       expect(updated_note.updated_at.iso8601).to eq(note.updated_at.iso8601)
     end
 
-    it 'only lets you read your own notifications' do
+    it "only lets you read your own notifications" do
       user2 = bob
 
-      FactoryBot.create(:notification, :recipient => alice)
-      note = FactoryBot.create(:notification, :recipient => user2)
+      FactoryBot.create(:notification, recipient: alice)
+      note = FactoryBot.create(:notification, recipient: user2)
 
       get :update, params: {id: note.id, set_unread: "false"}, format: :json
 
@@ -56,13 +56,13 @@ describe NotificationsController, :type => :controller do
     end
   end
 
-  describe '#index' do
+  describe "#index" do
     before do
       @post = FactoryBot.create(:status_message)
       @notification = FactoryBot.create(:notification, recipient: alice, target: @post)
     end
 
-    it 'succeeds' do
+    it "succeeds" do
       get :index
       expect(response).to be_successful
       expect(assigns[:notifications].count).to eq(1)
@@ -92,13 +92,13 @@ describe NotificationsController, :type => :controller do
       expect(response.body).to match(/note_html/)
     end
 
-    it 'succeeds on mobile' do
+    it "succeeds on mobile" do
       get :index, format: :mobile
       expect(response).to be_successful
     end
 
-    it 'paginates the notifications' do
-      25.times { FactoryBot.create(:notification, :recipient => alice, :target => @post) }
+    it "paginates the notifications" do
+      25.times { FactoryBot.create(:notification, recipient: alice, target: @post) }
       get :index
       expect(assigns[:notifications].count).to eq(25)
       get :index, params: {page: 2}
@@ -106,16 +106,16 @@ describe NotificationsController, :type => :controller do
     end
 
     it "supports a limit per_page parameter" do
-      2.times { FactoryBot.create(:notification, :recipient => alice, :target => @post) }
+      2.times { FactoryBot.create(:notification, recipient: alice, target: @post) }
       get :index, params: {per_page: 2}
       expect(assigns[:notifications].count).to eq(2)
     end
 
     describe "special case for start sharing notifications" do
       it "should not provide a contacts menu for standard notifications" do
-        FactoryBot.create(:notification, :recipient => alice, :target => @post)
+        FactoryBot.create(:notification, recipient: alice, target: @post)
         get :index, params: {per_page: 5}
-        expect(Nokogiri(response.body).css('.aspect_membership')).to be_empty
+        expect(Nokogiri(response.body).css(".aspect_membership")).to be_empty
       end
 
       it "should provide a contacts menu for start sharing notifications" do
@@ -125,7 +125,7 @@ describe NotificationsController, :type => :controller do
         expect(Nokogiri(response.body).css(".aspect-membership-dropdown")).not_to be_empty
       end
 
-      it 'succeeds on mobile' do
+      it "succeeds on mobile" do
         eve.share_with(alice.person, eve.aspects.first)
         get :index, format: :mobile
         expect(response).to be_successful
@@ -134,15 +134,15 @@ describe NotificationsController, :type => :controller do
 
     describe "filter notifications" do
       it "supports filtering by notification type" do
-        FactoryBot.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
+        FactoryBot.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
         get :index, params: {type: "started_sharing"}
         expect(assigns[:notifications].count).to eq(1)
       end
 
       it "supports filtering by read/unread" do
-        FactoryBot.create(:notification, :recipient => alice, :target => @post)
+        FactoryBot.create(:notification, recipient: alice, target: @post)
         get :read_all
-        FactoryBot.create(:notification, :recipient => alice, :target => @post)
+        FactoryBot.create(:notification, recipient: alice, target: @post)
         get :index, params: {show: "unread"}
         expect(assigns[:notifications].count).to eq(1)
       end

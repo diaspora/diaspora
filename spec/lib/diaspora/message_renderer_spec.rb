@@ -180,7 +180,7 @@ describe Diaspora::MessageRenderer do
       end
 
       it "should leave mentions intact for real diaspora handles" do
-        new_person = FactoryBot.create(:person, diaspora_handle: 'maxwell@joindiaspora.com')
+        new_person = FactoryBot.create(:person, diaspora_handle: "maxwell@joindiaspora.com")
         expect(
           message(
             "Hey @{maxwell@joindiaspora.com; #{new_person.diaspora_handle}}!",
