@@ -12,7 +12,7 @@ require "cucumber/rails"
 require "capybara/rails"
 require "capybara/cucumber"
 require "capybara/session"
-require "capybara/poltergeist"
+require "capybara/apparition"
 
 require "cucumber/api_steps"
 
@@ -23,11 +23,11 @@ Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
 Capybara.server = :webrick
 
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, timeout: 30)
+Capybara.register_driver :apparition do |app|
+  # Pass headless: false here if you need to see the browser
+  Capybara::Apparition::Driver.new(app, headless: true)
 end
-
-Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :apparition
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd

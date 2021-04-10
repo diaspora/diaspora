@@ -6,10 +6,24 @@ module PublishingCukeHelpers
   end
 
   def append_to_publisher(txt)
-    status_message_text = find("#status_message_text").value
-    fill_in id: "status_message_text", with: "#{status_message_text} #{txt}"
+    update_publisher_with(txt) do |input|
+      fill_in id: "status_message_text", with: "#{input.value} #{txt}"
+    end
+  end
+
+  def type_into_publisher(txt)
+    update_publisher_with(txt) {|input| input.send_keys txt }
+  end
+
+  def update_publisher_with(txt)
+    input = find("#status_message_text")
+
+    yield input
+
     # trigger JavaScript event listeners
-    find("#status_message_text").native.send_key(:end)
+    input.native.send_key(:end)
+
+    expect(input).to have_value(txt) # Wait for all key presses being processed
   end
 
   def upload_file_with_publisher(path)

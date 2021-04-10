@@ -19,7 +19,6 @@ Feature: commenting
     When I focus the comment field
     And I fill in the following:
         | text            | is that a poodle?    |
-    And I reject the alert after I follow "My activity"
     And I press "Comment"
     Then I should see "is that a poodle?" within ".comment"
     And I should see "less than a minute ago" within ".comment time"

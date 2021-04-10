@@ -42,7 +42,7 @@ Feature: Mentions
     Then I should see "Bob Jones" within ".tt-suggestion"
     When I click on the first user in the mentions dropdown list
     When I press the "A" key in the publisher
-    And I append "@Bob" to the publisher
+    And I type "@Bob" into the publisher
     Then I should not see the mentions dropdown list
     When I press "Share"
     Then I should see "Bob Jones" within ".stream-element"
@@ -80,8 +80,8 @@ Feature: Mentions
     And I enter "@Bob" in the comment field
     Then I should see "Bob Jones" within ".tt-suggestion"
     When I click on the first user in the mentions dropdown list
-    And I press the "A" key in the publisher
-    And I append "@Bob" to the publisher
+    And I enter " A " in the comment field
+    And I enter "@Bob" in the comment field
     Then I should not see the mentions dropdown list
     When I press "Comment"
     Then I should see "Bob Jones" within ".comments .comment:last-child"
