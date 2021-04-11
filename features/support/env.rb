@@ -7,6 +7,7 @@ ENV["RAILS_ENV"] ||= "test"
 # Have all rests run with english browser locale
 ENV["LANG"] = "C"
 
+require "database_cleaner/active_record"
 require "cucumber/rails"
 
 require "capybara/rails"
@@ -52,6 +53,7 @@ Capybara.default_max_wait_time = 30
 # of your scenarios, as this makes it hard to discover errors in your application.
 ActionController::Base.allow_rescue = false
 
+DatabaseCleaner.strategy = :truncation
 Cucumber::Rails::Database.autorun_database_cleaner = true
 Cucumber::Rails::World.use_transactional_tests = false
 

@@ -274,8 +274,8 @@ group :test do
   # Cucumber (integration tests)
 
   gem "apparition",       "0.6.0"
-  gem "capybara",         "3.15.0"
-  gem "database_cleaner", "1.8.3"
+  gem "capybara",         "3.35.3"
+  gem "database_cleaner-active_record", "1.8.0"
 
   gem "cucumber-api-steps", "0.14", require: false
 
@@ -294,7 +294,7 @@ group :development, :test do
   gem "rspec-rails", "3.9.1"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "2.0.0", require: false
+  gem "cucumber-rails", "2.3.0", require: false
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
