@@ -242,14 +242,14 @@ end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.35.0", require: false
-  gem "pronto",         "0.10.0", require: false
-  gem "pronto-eslint",  "0.10.0", require: false
-  gem "pronto-haml",    "0.10.0", require: false
-  gem "pronto-rubocop", "0.10.0", require: false
-  gem "pronto-scss",    "0.10.0", require: false
-  gem "rubocop",        "0.80.1", require: false
-  gem "rubocop-rails",  "2.4.1", require: false
+  gem "haml_lint",      "0.37.0", require: false
+  gem "pronto",         "0.11.0", require: false
+  gem "pronto-eslint",  "0.11.0", require: false
+  gem "pronto-haml",    "0.11.0", require: false
+  gem "pronto-rubocop", "0.11.1", require: false
+  gem "pronto-scss",    "0.11.0", require: false
+  gem "rubocop",        "0.93.1", require: false
+  gem "rubocop-rails",  "2.9.1", require: false
 
   # Preloading environment
 
