@@ -251,8 +251,6 @@ group :development do
   gem "rubocop",        "0.93.1", require: false
   gem "rubocop-rails",  "2.9.1", require: false
 
-  # Preloading environment
-
   # Debugging
   gem "pry"
   gem "pry-byebug"
@@ -298,7 +296,7 @@ group :development, :test do
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
-  gem "jasmine",                   "3.6.0"
+  gem "jasmine",                   "3.7.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"
