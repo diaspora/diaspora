@@ -54,7 +54,7 @@ Feature: preview posts in the stream
       Given I expand the publisher
       And I mention Alice in the publisher
       And I preview the post
-      And I confirm the alert after I follow "Alice Smith"
+      And I follow "Alice Smith"
       Then I should see "Alice Smith"
 
     Scenario: preview a post on tag page

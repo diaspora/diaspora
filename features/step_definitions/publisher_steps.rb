@@ -47,6 +47,10 @@ When /^I append "([^"]*)" to the publisher$/ do |text|
   append_to_publisher(text)
 end
 
+When /^I type "([^"]*)" into the publisher$/ do |text|
+  type_into_publisher(text)
+end
+
 When /^I attach "([^"]*)" to the publisher$/ do |path|
   upload_file_with_publisher(path)
 end

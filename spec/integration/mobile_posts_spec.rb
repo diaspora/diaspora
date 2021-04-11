@@ -2,7 +2,7 @@
 
 describe PostsController, type: :request do
   context "with a poll" do
-    let(:sm) { FactoryGirl.build(:status_message_with_poll, public: true) }
+    let(:sm) { FactoryBot.build(:status_message_with_poll, public: true) }
 
     it "displays the poll" do
       get "/posts/#{sm.id}", params: {format: :mobile}
@@ -23,7 +23,7 @@ describe PostsController, type: :request do
   end
 
   context "with a location" do
-    let(:sm) { FactoryGirl.build(:status_message_with_location, public: true) }
+    let(:sm) { FactoryBot.build(:status_message_with_location, public: true) }
 
     it "displays the location" do
       get "/posts/#{sm.id}", params: {format: :mobile}

@@ -2,7 +2,7 @@
 
 describe ConversationsHelper, :type => :helper do
   before do
-    @conversation = FactoryGirl.create(:conversation)
+    @conversation = FactoryBot.create(:conversation)
   end
 
   describe '#conversation_class' do

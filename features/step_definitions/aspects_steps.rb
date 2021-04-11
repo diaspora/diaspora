@@ -119,6 +119,7 @@ When /^(.*) in the aspect creation modal$/ do |action|
 end
 
 When /^I drag "([^"]*)" (up|down)$/ do |aspect_name, direction|
+  expect(page).to have_js_defined("$('body').sortable")
   page.execute_script("$('#aspect_nav .list-group').sortable('option', 'tolerance', 'pointer');")
   aspect_id = @me.aspects.where(name: aspect_name).first.id
   aspect = find(:xpath, "//div[@id='aspect_nav']/ul/a[@data-aspect-id='#{aspect_id}']")

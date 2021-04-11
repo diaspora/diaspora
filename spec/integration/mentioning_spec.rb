@@ -138,9 +138,9 @@ describe "mentioning", type: :request do
     end
   end
 
-  let(:user1) { FactoryGirl.create(:user_with_aspect) }
-  let(:user2) { FactoryGirl.create(:user_with_aspect, friends: [user1, user3]) }
-  let(:user3) { FactoryGirl.create(:user_with_aspect) }
+  let(:user1) { FactoryBot.create(:user_with_aspect) }
+  let(:user2) { FactoryBot.create(:user_with_aspect, friends: [user1, user3]) }
+  let(:user3) { FactoryBot.create(:user_with_aspect) }
 
   # see: https://github.com/diaspora/diaspora/issues/4160
   it "only mentions people that are in the target aspect" do
@@ -226,18 +226,18 @@ describe "mentioning", type: :request do
   end
 
   context "in comments" do
-    let(:author) { FactoryGirl.create(:user_with_aspect) }
+    let(:author) { FactoryBot.create(:user_with_aspect) }
 
     shared_context "commenter is author" do
       let(:commenter) { author }
     end
 
     shared_context "commenter is author's friend" do
-      let(:commenter) { FactoryGirl.create(:user_with_aspect, friends: [author]) }
+      let(:commenter) { FactoryBot.create(:user_with_aspect, friends: [author]) }
     end
 
     shared_context "commenter is not author's friend" do
-      let(:commenter) { FactoryGirl.create(:user) }
+      let(:commenter) { FactoryBot.create(:user) }
     end
 
     shared_context "mentioned user is author" do
@@ -245,15 +245,15 @@ describe "mentioning", type: :request do
     end
 
     shared_context "mentioned user is author's friend" do
-      let(:mentioned_user) { FactoryGirl.create(:user_with_aspect, friends: [author]) }
+      let(:mentioned_user) { FactoryBot.create(:user_with_aspect, friends: [author]) }
     end
 
     shared_context "mentioned user is not author's friend" do
-      let(:mentioned_user) { FactoryGirl.create(:user) }
+      let(:mentioned_user) { FactoryBot.create(:user) }
     end
 
     context "with public post" do
-      let(:status_msg) { FactoryGirl.create(:status_message, author: author.person, public: true) }
+      let(:status_msg) { FactoryBot.create(:status_message, author: author.person, public: true) }
 
       [
         ["commenter is author's friend", "mentioned user is not author's friend"],
@@ -281,7 +281,7 @@ describe "mentioning", type: :request do
       context "when comment is received via federation" do
         context "when mentioned user is remote" do
           it "relays the comment to the mentioned user" do
-            mentioned_person = FactoryGirl.create(:person)
+            mentioned_person = FactoryBot.create(:person)
             expect_any_instance_of(Diaspora::Federation::Dispatcher::Public)
               .to receive(:deliver_to_remote).with([mentioned_person])
 
@@ -301,7 +301,7 @@ describe "mentioning", type: :request do
           include_context commenters_context
           include_context mentioned_context
 
-          let(:parent) { FactoryGirl.create(:status_message_in_aspect, author: author.person) }
+          let(:parent) { FactoryBot.create(:status_message_in_aspect, author: author.person) }
           let(:comment) {
             inlined_jobs do
               commenter.comment!(parent, text_mentioning(mentioned_user))
@@ -318,7 +318,7 @@ describe "mentioning", type: :request do
       end
 
       context "when comment is received via federation" do
-        let(:parent) { FactoryGirl.create(:status_message_in_aspect, author: user2.person) }
+        let(:parent) { FactoryBot.create(:status_message_in_aspect, author: user2.person) }
 
         before do
           user3.like!(parent)
@@ -355,7 +355,7 @@ describe "mentioning", type: :request do
       end
 
       context "commenter can't mention a non-participant" do
-        let(:status_msg) { FactoryGirl.create(:status_message_in_aspect, author: author.person) }
+        let(:status_msg) { FactoryBot.create(:status_message_in_aspect, author: author.person) }
 
         [
           ["commenter is author's friend", "mentioned user is not author's friend"],
@@ -381,8 +381,8 @@ describe "mentioning", type: :request do
       end
 
       it "only creates one notification for the mentioned person, when mentioned person commented twice before" do
-        parent = FactoryGirl.create(:status_message_in_aspect, author: author.person)
-        mentioned_user = FactoryGirl.create(:user_with_aspect, friends: [author])
+        parent = FactoryBot.create(:status_message_in_aspect, author: author.person)
+        mentioned_user = FactoryBot.create(:user_with_aspect, friends: [author])
         mentioned_user.comment!(parent, "test comment 1")
         mentioned_user.comment!(parent, "test comment 2")
         comment = inlined_jobs do

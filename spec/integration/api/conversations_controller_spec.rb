@@ -4,19 +4,19 @@ require_relative "api_spec_helper"
 
 describe Api::V1::ConversationsController do
   let(:auth) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid conversations],
-      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
+      user:   FactoryBot.create(:user, profile: FactoryBot.create(:profile_with_image_url))
     )
   }
 
   let(:auth_participant) {
-    FactoryGirl.create(:auth_with_all_scopes)
+    FactoryBot.create(:auth_with_all_scopes)
   }
 
   let(:auth_minimum_scopes) {
-    FactoryGirl.create(:auth_with_default_scopes)
+    FactoryBot.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
@@ -25,7 +25,7 @@ describe Api::V1::ConversationsController do
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
-    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+    alice.person.profile = FactoryBot.create(:profile_with_image_url)
 
     auth.user.aspects.create(name: "first")
     auth.user.share_with(alice.person, auth.user.aspects[0])

@@ -4,21 +4,21 @@ require_relative "api_spec_helper"
 
 describe Api::V1::SearchController do
   let(:auth) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify private:read contacts:read private:modify]
     )
   }
 
   let(:auth_read_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read private:read]
     )
   }
 
   let(:auth_public_only_read_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read]
     )
@@ -31,21 +31,21 @@ describe Api::V1::SearchController do
 
   describe "#user_index" do
     before do
-      @searchable_user = FactoryGirl.create(
+      @searchable_user = FactoryBot.create(
         :person,
         diaspora_handle: "findable@example.org",
-        profile:         FactoryGirl.build(:profile, first_name: "Terry", last_name: "Smith")
+        profile:         FactoryBot.build(:profile, first_name: "Terry", last_name: "Smith")
       )
 
-      @closed_user = FactoryGirl.create(
+      @closed_user = FactoryBot.create(
         :person,
         closed_account: true,
-        profile:        FactoryGirl.build(:profile, first_name: "Closed", last_name: "Account")
+        profile:        FactoryBot.build(:profile, first_name: "Closed", last_name: "Account")
       )
-      @unsearchable_user = FactoryGirl.create(
+      @unsearchable_user = FactoryBot.create(
         :person,
         diaspora_handle: "unsearchable@example.org",
-        profile:         FactoryGirl.build(
+        profile:         FactoryBot.build(
           :profile,
           first_name: "Unsearchable",
           last_name:  "Person",
@@ -57,9 +57,9 @@ describe Api::V1::SearchController do
     it "succeeds by tag" do
       tag = SecureRandom.hex(5)
       5.times do
-        FactoryGirl.create(:person, profile: FactoryGirl.build(:profile, tag_string: "##{tag}"))
+        FactoryBot.create(:person, profile: FactoryBot.build(:profile, tag_string: "##{tag}"))
       end
-      FactoryGirl.create(:person, closed_account: true, profile: FactoryGirl.build(:profile, tag_string: "##{tag}"))
+      FactoryBot.create(:person, closed_account: true, profile: FactoryBot.build(:profile, tag_string: "##{tag}"))
 
       get(
         "/api/v1/search/users",
@@ -202,7 +202,7 @@ describe Api::V1::SearchController do
       end
 
       def add_contact(receiving, sharing)
-        other = FactoryGirl.create(:user)
+        other = FactoryBot.create(:user)
         other.profile.update(first_name: name)
 
         if receiving
@@ -312,7 +312,7 @@ describe Api::V1::SearchController do
       end
 
       def add_contact(*aspects)
-        other = FactoryGirl.create(:person, profile: FactoryGirl.build(:profile, first_name: contact_name))
+        other = FactoryBot.create(:person, profile: FactoryBot.build(:profile, first_name: contact_name))
         aspects.each do |aspect|
           auth.user.share_with(other, aspect)
         end
@@ -464,9 +464,9 @@ describe Api::V1::SearchController do
 
   describe "tag_index" do
     before do
-      FactoryGirl.create(:tag, name: "apipartyone")
-      FactoryGirl.create(:tag, name: "apipartytwo")
-      FactoryGirl.create(:tag, name: "apipartythree")
+      FactoryBot.create(:tag, name: "apipartyone")
+      FactoryBot.create(:tag, name: "apipartytwo")
+      FactoryBot.create(:tag, name: "apipartythree")
     end
 
     it "succeeds" do

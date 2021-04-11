@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 describe PostPresenter do
-  let(:status_message) { FactoryGirl.create(:status_message, public: true) }
-  let(:status_message_with_poll) { FactoryGirl.create(:status_message_with_poll, public: true) }
+  let(:status_message) { FactoryBot.create(:status_message, public: true) }
+  let(:status_message_with_poll) { FactoryBot.create(:status_message_with_poll, public: true) }
   let(:presenter) { PostPresenter.new(status_message, bob) }
   let(:unauthenticated_presenter) { PostPresenter.new(status_message) }
 
@@ -95,9 +95,9 @@ describe PostPresenter do
 
   describe "#root" do
     it "does not raise if the absolute_root does not exists" do
-      first_reshare = FactoryGirl.create :reshare
+      first_reshare = FactoryBot.create :reshare
       first_reshare.root = nil
-      reshare = FactoryGirl.create :reshare, root: first_reshare
+      reshare = FactoryBot.create :reshare, root: first_reshare
 
       expect {
         PostPresenter.new(reshare).send(:root)
@@ -105,7 +105,7 @@ describe PostPresenter do
     end
 
     it "does not raise if the root does not exists" do
-      reshare = FactoryGirl.create :reshare
+      reshare = FactoryBot.create :reshare
       reshare.root = nil
       expect {
         PostPresenter.new(reshare).send(:root)
@@ -154,21 +154,21 @@ describe PostPresenter do
 
   describe "#tags" do
     it "returns the tag of the post" do
-      post = FactoryGirl.create(:status_message, text: "#hello #world", public: true)
+      post = FactoryBot.create(:status_message, text: "#hello #world", public: true)
 
       expect(PostPresenter.new(post).send(:tags)).to match_array(%w(hello world))
     end
 
     it "returns the tag of the absolute_root of a Reshare" do
-      post = FactoryGirl.create(:status_message, text: "#hello #world", public: true)
-      first_reshare = FactoryGirl.create(:reshare, root: post)
-      second_reshare = FactoryGirl.create(:reshare, root: first_reshare)
+      post = FactoryBot.create(:status_message, text: "#hello #world", public: true)
+      first_reshare = FactoryBot.create(:reshare, root: post)
+      second_reshare = FactoryBot.create(:reshare, root: first_reshare)
 
       expect(PostPresenter.new(second_reshare).send(:tags)).to match_array(%w(hello world))
     end
 
     it "does not raise if the root of a reshare does not exist anymore" do
-      reshare = FactoryGirl.create(:reshare)
+      reshare = FactoryBot.create(:reshare)
       reshare.root = nil
 
       expect(PostPresenter.new(reshare).send(:tags)).to eq([])
@@ -177,19 +177,19 @@ describe PostPresenter do
 
   describe "#description" do
     it "returns the first 1000 chars of the text" do
-      post = FactoryGirl.create(:status_message, text: "a" * 1001, public: true)
+      post = FactoryBot.create(:status_message, text: "a" * 1001, public: true)
 
       expect(PostPresenter.new(post).send(:description)).to eq("#{'a' * 997}...")
     end
 
     it "does not change the message if less or equal 1000 chars" do
-      post = FactoryGirl.create(:status_message, text: "a" * 1000, public: true)
+      post = FactoryBot.create(:status_message, text: "a" * 1000, public: true)
 
       expect(PostPresenter.new(post).send(:description)).to eq("a" * 1000)
     end
 
     it "does not raise if the root of a reshare does not exist anymore" do
-      reshare = FactoryGirl.create(:reshare)
+      reshare = FactoryBot.create(:reshare)
       reshare.update(root: nil)
 
       expect(PostPresenter.new(Post.find(reshare.id)).send(:description)).to eq(nil)
@@ -210,14 +210,14 @@ describe PostPresenter do
       end
 
       it "returns the open graph cache data" do
-        open_graph_cache = FactoryGirl.create(:open_graph_cache)
-        post = FactoryGirl.create(:status_message, public: true, open_graph_cache: open_graph_cache)
+        open_graph_cache = FactoryBot.create(:open_graph_cache)
+        post = FactoryBot.create(:status_message, public: true, open_graph_cache: open_graph_cache)
         expect(PostPresenter.new(post).send(:build_open_graph_cache)).to eq(open_graph_cache.as_api_response(:backbone))
       end
 
       it "returns the open graph data in the api" do
-        open_graph_cache = FactoryGirl.create(:open_graph_cache)
-        post = FactoryGirl.create(:status_message, public: true, open_graph_cache: open_graph_cache)
+        open_graph_cache = FactoryBot.create(:open_graph_cache)
+        post = FactoryBot.create(:status_message, public: true, open_graph_cache: open_graph_cache)
         expect(PostPresenter.new(post).as_api_response[:open_graph_object][:url]).to eq(open_graph_cache.url)
       end
     end

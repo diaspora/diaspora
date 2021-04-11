@@ -198,10 +198,9 @@
 ## increase environment.sidekiq.concurrency instead!
 #sidekiq_workers = 1
 
-## Displays the location of a post in a map. Per default we are using the map
-## tiles of the Heidelberg University (http://giscience.uni-hd.de).
-## You also have the possibility to use the map tiles of https://www.mapbox.com
-## which is probably more reliable. There you have to create an account to get
+## Displays the location of a post in a map.
+## If you enable this setting you use the map tiles of https://www.mapbox.com
+## which is reliable. There you have to create an account to get
 ## an access token which is limited. If you want to get an unlimited account
 ## you can write an email to team@diasporafoundation.org.
 ## Please enable mapbox and fill out your access_token.
@@ -209,7 +208,7 @@
 
 #enabled = false
 #access_token = "youraccesstoken"
-#style = "mapbox/streets-v9"
+#style = "mapbox/streets-v11"
 
 ## Settings potentially affecting the privacy of your users.
 [configuration.privacy]

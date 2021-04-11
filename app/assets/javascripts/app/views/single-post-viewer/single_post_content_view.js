@@ -36,8 +36,9 @@ app.views.SinglePostContent = app.views.Base.extend({
 
     var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);
     var tiles = app.helpers.locations.getTiles();
-
-    tiles.addTo(map);
+    if (tiles) {
+      tiles.addTo(map);
+    }
 
     // put marker on map
     L.marker(location).addTo(map);

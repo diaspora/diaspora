@@ -2,7 +2,7 @@
 
 describe LikesPresenter do
   before do
-    bob.person.profile = FactoryGirl.create(:profile_with_image_url)
+    bob.person.profile = FactoryBot.create(:profile_with_image_url)
     @status = alice.post(
       :status_message,
       text:   "This is a status message from alice",

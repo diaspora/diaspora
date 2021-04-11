@@ -5,8 +5,8 @@
 #   the COPYRIGHT file.
 
 describe Notifications::AlsoCommented, type: :model do
-  let(:sm) { FactoryGirl.build(:status_message, author: alice.person, public: true) }
-  let(:comment) { FactoryGirl.create(:comment, commentable: sm) }
+  let(:sm) { FactoryBot.build(:status_message, author: alice.person, public: true) }
+  let(:comment) { FactoryBot.create(:comment, commentable: sm) }
   let(:notification) { Notifications::AlsoCommented.new(recipient: bob) }
 
   describe ".notify" do
@@ -28,7 +28,7 @@ describe Notifications::AlsoCommented, type: :model do
     end
 
     it "does not notify the a remote participant" do
-      FactoryGirl.create(:participation, target: sm)
+      FactoryBot.create(:participation, target: sm)
 
       expect(Notifications::AlsoCommented).not_to receive(:concatenate_or_create)
 
@@ -37,7 +37,7 @@ describe Notifications::AlsoCommented, type: :model do
 
     it "does not notify the author of the comment" do
       bob.participate!(sm)
-      comment = FactoryGirl.create(:comment, commentable: sm, author: bob.person)
+      comment = FactoryBot.create(:comment, commentable: sm, author: bob.person)
 
       expect(Notifications::AlsoCommented).not_to receive(:concatenate_or_create)
 

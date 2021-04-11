@@ -6,7 +6,7 @@ describe ArchiveValidator::AuthorPrivateKeyValidator do
   include_context "validators shared context"
 
   context "when private key doesn't match the key in the archive" do
-    let(:author) { FactoryGirl.create(:person) }
+    let(:author) { FactoryBot.create(:person) }
 
     it "contains error" do
       expect(validator.messages)
@@ -19,7 +19,7 @@ describe ArchiveValidator::AuthorPrivateKeyValidator do
       let(:author_pkey) { OpenSSL::PKey::RSA.generate(512) }
       let(:archive_private_key) { author_pkey.export }
 
-      let(:author) { FactoryGirl.create(:person, serialized_public_key: author_pkey.public_key.export) }
+      let(:author) { FactoryBot.create(:person, serialized_public_key: author_pkey.public_key.export) }
 
       include_examples "validation result is valid"
     end
@@ -38,7 +38,7 @@ describe ArchiveValidator::AuthorPrivateKeyValidator do
       RSA
 
       let(:author) {
-        FactoryGirl.create(:person, serialized_public_key: <<~RSA)
+        FactoryBot.create(:person, serialized_public_key: <<~RSA)
           -----BEGIN RSA PUBLIC KEY-----
           MEgCQQDbMMJomgsvb5XguS+UrQnvPrq2/1CkMGKYXlgPgRUin/VSwU24C8FjHIKB
           lKi2kuka4XBlcZperynttJSxacThAgMBAAE=

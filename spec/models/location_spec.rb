@@ -2,7 +2,7 @@
 
 describe Location, type: :model do
   describe "before validation" do
-    let(:status) { FactoryGirl.create(:status_message) }
+    let(:status) { FactoryBot.create(:status_message) }
 
     it "should create new location when it has coordinates" do
       location = Location.new(coordinates: "1,2", status_message: status)

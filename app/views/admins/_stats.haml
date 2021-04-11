@@ -38,8 +38,8 @@
   .row
     %p.col-md-12.alert.alert-info.text-center{role: "alert"}
       != t("admins.stats.current_segment",
-        post_yest: content_tag(:strong, posts[:yesterday] / user_count),
-        post_day: content_tag(:strong, posts[:day_before] / user_count))
+        post_yest: content_tag(:strong, "%0.2f" % (posts[:yesterday] / user_count)),
+        post_day: content_tag(:strong, "%0.2f" % (posts[:day_before] / user_count)))
 
   .row
     .col-md-12

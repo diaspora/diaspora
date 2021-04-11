@@ -4,20 +4,20 @@ require_relative "api_spec_helper"
 
 describe Api::V1::TagFollowingsController do
   let(:auth) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid tags:read tags:modify]
     )
   }
 
   let(:auth_read_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid tags:read]
     )
   }
 
-  let(:auth_minimum_scopes) { FactoryGirl.create(:auth_with_default_scopes) }
+  let(:auth_minimum_scopes) { FactoryBot.create(:auth_with_default_scopes) }
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
   let!(:access_token_minimum_scopes) { auth_minimum_scopes.create_access_token.to_s }

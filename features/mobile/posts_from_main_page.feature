@@ -43,7 +43,7 @@ Feature: posting from the mobile main page
 
   Scenario: back out of posting a photo-only post
     Given I visit the mobile publisher page
-    When I confirm the alert after I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload-publisher"
+    When I accept the alert after I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload-publisher"
     Then I should not see an uploaded image within the photo drop zone
     When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload-publisher"
     And I should see "button.png completed"

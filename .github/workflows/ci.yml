@@ -26,6 +26,10 @@ jobs:
     env:
       DB: ${{ matrix.db }}
       RAILS_ENV: test
+      BUNDLE_WITH: ${{ matrix.db }}
+      BUNDLE_WITHOUT: development
+      BUNDLE_FROZEN: true
+      BUNDLE_DISABLE_SHARED_GEMS: true
     services:
       postgres:
         image: postgres
@@ -48,15 +52,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
       - name: Prepare
         run: script/ci/prepare.sh
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: bundler-${{ runner.os }}-${{ matrix.ruby }}-${{ matrix.db }}-${{ hashFiles('Gemfile.lock') }}
-      - name: Install dependencies
-        run: bundle
       - name: Run tests
         run: bin/rake --trace ci:${{ matrix.kind }}
       - name: Run Jasmine

@@ -31,7 +31,7 @@ describe Contact, type: :model do
     end
 
     it "validates uniqueness" do
-      person = FactoryGirl.create(:person)
+      person = FactoryBot.create(:person)
 
       contact1 = alice.contacts.create(person: person)
       expect(contact1).to be_valid
@@ -42,7 +42,7 @@ describe Contact, type: :model do
 
     describe "#not_contact_with_closed_account" do
       it "adds error if the person's account is closed" do
-        person = FactoryGirl.create(:person, closed_account: true)
+        person = FactoryBot.create(:person, closed_account: true)
         bad_contact = alice.contacts.create(person: person)
 
         expect(bad_contact).not_to be_valid
@@ -84,13 +84,13 @@ describe Contact, type: :model do
     describe "sharing" do
       it "returns contacts with sharing true" do
         expect {
-          alice.contacts.create!(sharing: true, person: FactoryGirl.create(:person))
+          alice.contacts.create!(sharing: true, person: FactoryBot.create(:person))
         }.to change {
           Contact.sharing.count
         }.by(1)
 
         expect {
-          alice.contacts.create!(sharing: false, person: FactoryGirl.create(:person))
+          alice.contacts.create!(sharing: false, person: FactoryBot.create(:person))
         }.to change {
           Contact.sharing.count
         }.by(0)
@@ -100,13 +100,13 @@ describe Contact, type: :model do
     describe "receiving" do
       it "returns contacts with sharing true" do
         expect {
-          alice.contacts.create!(receiving: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: true, person: FactoryBot.build(:person))
         }.to change {
           Contact.receiving.count
         }.by(1)
 
         expect {
-          alice.contacts.create!(receiving: false, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: false, person: FactoryBot.build(:person))
         }.to change {
           Contact.receiving.count
         }.by(0)
@@ -116,14 +116,14 @@ describe Contact, type: :model do
     describe "mutual" do
       it "returns contacts with sharing true and receiving true" do
         expect {
-          alice.contacts.create!(receiving: true, sharing: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: true, sharing: true, person: FactoryBot.build(:person))
         }.to change {
           Contact.mutual.count
         }.by(1)
 
         expect {
-          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
-          alice.contacts.create!(receiving: true, sharing: false, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: false, sharing: true, person: FactoryBot.build(:person))
+          alice.contacts.create!(receiving: true, sharing: false, person: FactoryBot.build(:person))
         }.to change {
           Contact.mutual.count
         }.by(0)
@@ -133,15 +133,15 @@ describe Contact, type: :model do
     describe "only_sharing" do
       it "returns contacts with sharing true and receiving false" do
         expect {
-          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
-          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: false, sharing: true, person: FactoryBot.build(:person))
+          alice.contacts.create!(receiving: false, sharing: true, person: FactoryBot.build(:person))
         }.to change {
           Contact.only_sharing.count
         }.by(2)
 
         expect {
-          alice.contacts.create!(receiving: true, sharing: true, person: FactoryGirl.build(:person))
-          alice.contacts.create!(receiving: true, sharing: false, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: true, sharing: true, person: FactoryBot.build(:person))
+          alice.contacts.create!(receiving: true, sharing: false, person: FactoryBot.build(:person))
         }.to change {
           Contact.only_sharing.count
         }.by(0)
@@ -150,10 +150,10 @@ describe Contact, type: :model do
 
     describe "all_contacts_of_person" do
       it "returns all contacts where the person is the passed in person" do
-        person = FactoryGirl.create(:person)
+        person = FactoryBot.create(:person)
 
-        contact1 = FactoryGirl.create(:contact, person: person)
-        FactoryGirl.create(:contact) # contact2
+        contact1 = FactoryBot.create(:contact, person: person)
+        FactoryBot.create(:contact) # contact2
 
         expect(Contact.all_contacts_of_person(person)).to eq([contact1])
       end
@@ -194,7 +194,7 @@ describe Contact, type: :model do
 
   describe "#object_to_receive" do
     it "returns the contact for the recipient" do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       contact = alice.contacts.create(person: user.person)
       receive = contact.object_to_receive
       expect(receive.user).to eq(user)

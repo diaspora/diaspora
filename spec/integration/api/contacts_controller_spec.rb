@@ -4,21 +4,21 @@ require_relative "api_spec_helper"
 
 describe Api::V1::ContactsController do
   let(:auth) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid contacts:read contacts:modify]
     )
   }
 
   let(:auth_read_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid contacts:read]
     )
   }
 
   let(:auth_minimum_scopes) {
-    FactoryGirl.create(:auth_with_default_scopes)
+    FactoryBot.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
@@ -31,7 +31,7 @@ describe Api::V1::ContactsController do
     auth.user.share_with(eve.person, @aspect1)
     @aspect2 = auth.user.aspects.create(name: "another aspect")
     @eve_aspect = eve.aspects.first
-    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+    alice.person.profile = FactoryBot.create(:profile_with_image_url)
   end
 
   describe "#show" do

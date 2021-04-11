@@ -39,6 +39,19 @@ RSpec::Matchers.define :have_value do |expected|
   end
 end
 
+RSpec::Matchers.define :have_js_defined do |expected|
+  match do |actual|
+    await_condition { actual.evaluate_script("#{expected} !== undefined") == true }
+  end
+
+  failure_message_for_should do |actual|
+    "expected #{actual.inspect} to have a value for #{expected.inspect} in Javascript but it did not"
+  end
+  failure_message_for_should_not do |actual|
+    "expected #{actual.inspect} to not have a value for #{expected.inspect} in Javascript but it had"
+  end
+end
+
 def await_condition &condition
   start_time = Time.zone.now
   until condition.call

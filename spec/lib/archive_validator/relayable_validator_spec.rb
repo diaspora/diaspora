@@ -6,7 +6,7 @@ describe ArchiveValidator::RelayableValidator do
   include_context "validators shared context"
   include_context "relayable validator context"
 
-  let(:author) { FactoryGirl.create(:user).person }
+  let(:author) { FactoryBot.create(:user).person }
 
   context "with comment" do
     let(:relayable_entity) { :comment_entity }

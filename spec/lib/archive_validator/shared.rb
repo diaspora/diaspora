@@ -45,7 +45,7 @@ shared_context "validators shared context" do
 end
 
 shared_context "with known author" do
-  let(:author) { FactoryGirl.create(:person) }
+  let(:author) { FactoryBot.create(:person) }
 end
 
 shared_examples "validation result is valid" do
@@ -87,7 +87,7 @@ shared_examples "a relayable validator" do
 
   context "when the comment is already known" do
     let!(:original_comment) {
-      FactoryGirl.create(:comment, guid: guid, author: Person.by_account_identifier(relayable_author))
+      FactoryBot.create(:comment, guid: guid, author: Person.by_account_identifier(relayable_author))
     }
 
     include_examples "validation result is valid"
