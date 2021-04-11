@@ -296,7 +296,7 @@ GEM
       i18n (>= 0.7)
       multi_json
       request_store (>= 1.0)
-    haml (5.1.2)
+    haml (5.2.1)
       temple (>= 0.8.0)
       tilt
     haml_lint (0.37.0)
