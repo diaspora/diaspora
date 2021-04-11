@@ -191,7 +191,7 @@ gem "typhoeus",           "1.4.0"
 # Views
 
 gem "gon",                     "6.3.2"
-gem "hamlit",                  "2.11.0"
+gem "hamlit",                  "2.14.6"
 gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.18.0"
 gem "will_paginate",           "3.3.0"
