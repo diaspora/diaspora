@@ -48,6 +48,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Removed support for defunct Uni Heidelberg OSM tile server, Mapbox is now required if you want to show maps [#8215](https://github.com/diaspora/diaspora/pull/8215)
 * Render only two fractional digits in the posts per user/day admin statistics [#8227](https://github.com/diaspora/diaspora/pull/8227)
 * Make aspect dropdowns scrollable [#8213](https://github.com/diaspora/diaspora/pull/8213)
+* Fix `Photo#ownserhip_of_status_message` validation [#8214](https://github.com/diaspora/diaspora/pull/8214)
 
 ## Features
 * Support and recommend TOML as configuration format [#8132](https://github.com/diaspora/diaspora/pull/8132)
