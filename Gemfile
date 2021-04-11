@@ -144,7 +144,7 @@ gem "leaflet-rails",       "1.6.0"
 # Parsing
 
 gem "nokogiri",          "1.11.3"
-gem "open_graph_reader", "0.7.0" # also update User-Agent in features/support/webmock.rb
+gem "open_graph_reader", "0.7.1" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.5.1"
 gem "ruby-oembed",       "0.12.0"
 gem "twitter-text",      "1.14.7"
