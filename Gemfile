@@ -259,6 +259,8 @@ group :development do
   gem "simplecov", "0.21.2", require: false
 
   gem "turbo_dev_assets", "0.0.2"
+
+  gem "listen", "3.5.1"
 end
 
 group :test do
