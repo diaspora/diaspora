@@ -145,7 +145,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
   end
 
   describe "#find" do
-    let!(:client) { FactoryGirl.create(:o_auth_application) }
+    let!(:client) { FactoryBot.create(:o_auth_application) }
 
     context "when an OIDC client already exists" do
       it "should return a client id" do

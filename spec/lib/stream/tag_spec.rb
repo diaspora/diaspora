@@ -29,7 +29,7 @@ describe Stream::Tag do
    end
 
    it 'displays a public post that was sent to no one' do
-     stranger = FactoryGirl.create(:user_with_aspect)
+     stranger = FactoryBot.create(:user_with_aspect)
      stranger_post = stranger.post(:status_message, :text => "#what", :public => true, :to => 'all')
      expect(@stream.posts).to eq([stranger_post])
    end
@@ -81,14 +81,14 @@ describe Stream::Tag do
 
   describe 'shared behaviors' do
     before do
-      @stream = Stream::Tag.new(FactoryGirl.create(:user), FactoryGirl.create(:tag).name)
+      @stream = Stream::Tag.new(FactoryBot.create(:user), FactoryBot.create(:tag).name)
     end
     it_should_behave_like 'it is a stream'
   end
 
   describe '#stream_posts' do
     it "returns an empty array if the tag does not exist" do
-      stream = Stream::Tag.new(FactoryGirl.create(:user), "test")
+      stream = Stream::Tag.new(FactoryBot.create(:user), "test")
       expect(stream.stream_posts).to eq([])
     end
 
@@ -100,7 +100,7 @@ describe Stream::Tag do
 
     it "returns the post containing the tag" do
       post = alice.post(:status_message, text: "#what", public: true)
-      stream = Stream::Tag.new(FactoryGirl.create(:user), "what")
+      stream = Stream::Tag.new(FactoryBot.create(:user), "what")
       expect(stream.stream_posts).to eq([post])
     end
   end

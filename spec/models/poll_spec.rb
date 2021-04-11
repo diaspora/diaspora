@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Poll, type: :model do
-  let(:status) { FactoryGirl.create(:status_message) }
+  let(:status) { FactoryBot.create(:status_message) }
   let(:poll) { Poll.new(question: "What do you think about apples?", status_message: status) }
 
   describe "validation" do

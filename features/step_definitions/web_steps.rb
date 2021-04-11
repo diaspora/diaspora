@@ -92,8 +92,7 @@ end
 
 When /^(?:|I )attach the file "([^"]*)" to (?:hidden )?"([^"]*)"(?: within "([^"]*)")?$/ do |path, field, selector|
   with_scope(selector) do
-    page.execute_script("$(\"input[name='#{field}']\").css('opacity', '1');")
-    attach_file(field, Rails.root.join(path).to_s)
+    attach_file(field, Rails.root.join(path).to_s, make_visible: true)
   end
   # wait for the image to be ready
   page.assert_no_selector(".loading")

@@ -4,7 +4,7 @@ require "integration/federation/federation_helper"
 
 describe ArchiveImporter do
   describe "#import" do
-    let(:target) { FactoryGirl.create(:user) }
+    let(:target) { FactoryBot.create(:user) }
     let(:archive_importer) {
       archive_importer = ArchiveImporter.new(archive_hash)
       archive_importer.user = target
@@ -32,7 +32,7 @@ describe ArchiveImporter do
     end
 
     context "with subscription" do
-      let(:status_message) { FactoryGirl.create(:status_message) }
+      let(:status_message) { FactoryBot.create(:status_message) }
       let(:archive_hash) {
         {
           "user" => {

@@ -1,30 +1,30 @@
 # frozen_string_literal: true
 
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
-  @me ||= FactoryGirl.create(:user, :username => username, :password => password,
-                  :password_confirmation => password, :getting_started => false)
-  @me.aspects.create(:name => "Besties")
-  @me.aspects.create(:name => "Unicorns")
+  @me ||= FactoryBot.create(:user, username: username, password: password,
+                  password_confirmation: password, getting_started: false)
+  @me.aspects.create(name: "Besties")
+  @me.aspects.create(name: "Unicorns")
   @me.reload
 end
 
 Given /^a user with email "([^\"]*)"$/ do |email|
-  create_user(:email => email)
+  create_user(email: email)
 end
 
 Given /^a user with username "([^\"]*)"$/ do |username|
-  create_user(:email => username + "@" + username + '.' + username, :username => username)
+  create_user(email: username + "@" + username + "." + username, username: username)
 end
 
 Given /^a user named "([^\"]*)" with email "([^\"]*)"$/ do |name, email|
   first, last = name.split
-  user = create_user(:email => email, :username => "#{first}_#{last}")
-  user.profile.update_attributes!(:first_name => first, :last_name => last) if first
+  user = create_user(email: email, username: "#{first}_#{last}")
+  user.profile.update!(first_name: first, last_name: last) if first
 end
 
 Given /^a nsfw user with email "([^\"]*)"$/ do |email|
-  user = create_user(:email => email)
-  user.profile.update_attributes(:nsfw => true)
+  user = create_user(email: email)
+  user.profile.update(nsfw: true)
 end
 
 Given /^a moderator with email "([^\"]*)"$/ do |email|
@@ -39,18 +39,18 @@ end
 
 Given /^(?:|[tT]hat )?following user[s]?(?: exist[s]?)?:$/ do |table|
   table.hashes.each do |hash|
-    if hash.has_key? "username" and hash.has_key? "email"
-      step %{a user named "#{hash['username']}" with email "#{hash['email']}"}
+    if hash.has_key?("username") && hash.has_key?("email")
+      step %(a user named "#{hash['username']}" with email "#{hash['email']}")
     elsif hash.has_key? "username"
-      step %{a user with username "#{hash['username']}"}
+      step %(a user with username "#{hash['username']}")
     elsif hash.has_key? "email"
-      step %{a user with email "#{hash['email']}"}
+      step %(a user with email "#{hash['email']}")
     end
   end
 end
 
 Given /^I have been invited by an admin$/ do
-  admin = FactoryGirl.create(:user)
+  admin = FactoryBot.create(:user)
   admin.invitation_code
   i = EmailInviter.new("new_invitee@example.com", admin)
   i.send!
@@ -58,14 +58,14 @@ end
 
 Given /^I have been invited by "([^\"]+)"$/ do |email|
   AppConfig.settings.enable_registrations = false
-  @inviter = User.find_by_email(email)
+  @inviter = User.find_by(email: email)
   @inviter_invite_count = @inviter.invitation_code.count
   i = EmailInviter.new("new_invitee@example.com", @inviter)
   i.send!
 end
 
 When /^I should see one less invite$/ do
-  step "I should see \"#{@inviter_invite_count -1} invites left\""
+  step "I should see \"#{@inviter_invite_count - 1} invites left\""
 end
 
 When /^I click on my name$/ do
@@ -73,47 +73,55 @@ When /^I click on my name$/ do
 end
 
 When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |username, aspect|
-  user = User.find_by_username(username)
+  user = User.find_by(username: username)
   contact = @me.reload.contact_for(user.person)
-  contact.aspects << @me.aspects.find_by_name(aspect)
+  contact.aspects << @me.aspects.find_by(name: aspect)
 end
 
 Given /^a user with email "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
-  user1 = User.where(:email => arg1).first
-  user2 = User.where(:email => arg2).first
-  connect_users(user1, user1.aspects.where(:name => "Besties").first, user2, user2.aspects.where(:name => "Besties").first)
+  user1 = User.where(email: arg1).first
+  user2 = User.where(email: arg2).first
+  connect_users(user1, user1.aspects.where(name: "Besties").first, user2, user2.aspects.where(name: "Besties").first)
 end
 
 Given /^a user with username "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
-  user1 = User.where(:username => arg1).first
-  user2 = User.where(:username => arg2).first
-  connect_users(user1, user1.aspects.where(:name => "Besties").first, user2, user2.aspects.where(:name => "Besties").first)
+  user1 = User.where(username: arg1).first
+  user2 = User.where(username: arg2).first
+  connect_users(user1, user1.aspects.where(name: "Besties").first, user2, user2.aspects.where(name: "Besties").first)
 end
 
 Given /^there is a user "([^\"]*)" who's tagged "([^\"]*)"$/ do |full_name, tag|
   username = full_name.gsub(/\W/, "").underscore
   step "a user named \"#{full_name}\" with email \"#{username}@example.com\""
-  user = User.find_by_username(username)
+  user = User.find_by(username: username)
   user.profile.tag_string = tag
   user.profile.build_tags
   user.profile.save!
 end
 
 Given /^a user with email "([^\"]*)" is tagged "([^\"]*)"$/ do |email, tags|
-  user = User.find_by_email(email)
+  user = User.find_by(email: email)
   user.profile.tag_string = tags
   user.profile.build_tags
   user.profile.save!
 end
 
 Given /^many posts from alice for bob$/ do
-  alice = FactoryGirl.create(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
-  bob = FactoryGirl.create(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)
+  alice = FactoryBot.create(
+    :user_with_aspect,
+    username: "alice", email: "alice@alice.alice", password: "password", getting_started: false
+  )
+  bob = FactoryBot.create(
+    :user_with_aspect,
+    username: "bob", email: "bob@bob.bob", password: "password", getting_started: false
+  )
   connect_users_with_aspects(alice, bob)
-  time_fulcrum = Time.now - 40000
+  time_fulcrum = Time.zone.now - 40_000
   time_interval = 1000
   (1..30).each do |n|
-    post = alice.post :status_message, :text => "#{alice.username} - #{n} - #seeded", :to => alice.aspects.where(:name => "generic").first.id
+    post = alice.post :status_message,
+                      text: "#{alice.username} - #{n} - #seeded",
+                      to:   alice.aspects.where(name: "generic").first.id
     post.created_at = time_fulcrum - time_interval
     post.updated_at = time_fulcrum + time_interval
     post.save
@@ -122,21 +130,21 @@ Given /^many posts from alice for bob$/ do
 end
 
 Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
-  @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
+  @me.aspects.where(name: aspect_name).first.contacts.count.should == n_contacts.to_i
 end
 
-When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect(?: within "([^"]*)")?$/ do |aspect_name, within_selector| # rubocop:disable Metrics/LineLength
+When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect(?: within "([^"]*)")?$/ do |aspect_name, within_selector| # rubocop:disable Layout/LineLength
   with_scope(within_selector) do
     toggle_aspect_via_ui(aspect_name)
   end
 end
 
 When /^I post a status with the text "([^\"]*)"$/ do |text|
-  @me.post(:status_message, :text => text, :public => true, :to => 'all')
+  @me.post(:status_message, text: text, public: true, to: "all")
 end
 
 When /^I post a limited status with the text "([^\"]*)"$/ do |text|
-  @me.post(:status_message, :text => text, :public => false, :to => @me.aspect_ids)
+  @me.post(:status_message, text: text, public: false, to: @me.aspect_ids)
 end
 
 And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
@@ -144,11 +152,11 @@ And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
   email_text = Devise.mailer.deliveries.first.html_part.body.raw_source if email_text.blank?
   doc = Nokogiri("<div>" + email_text + "</div>")
 
-  links = doc.css('a')
-  link = links.detect{ |link| link.text == link_text }
-  link = links.detect{ |link| link.attributes["href"].value.include?(link_text)} unless link
+  links = doc.css("a")
+  link = links.find {|link| link.text == link_text }
+  link ||= links.find {|link| link.attributes["href"].value.include?(link_text) }
   path = link.attributes["href"].value
-  visit URI::parse(path).request_uri
+  visit URI.parse(path).request_uri
 end
 
 Then /^I should have (\d+) Devise email delivery$/ do |n|
@@ -170,8 +178,8 @@ Then /^I should( not)? see "([^\"]*)" in the last sent email$/ do |negate, text|
 end
 
 When /^"([^\"]+)" has posted a (public )?status message with a photo$/ do |email, public_status|
-  user = User.find_for_database_authentication(:username => email)
-  post = FactoryGirl.create(
+  user = User.find_for_database_authentication(username: email)
+  post = FactoryBot.create(
     :status_message_with_photo,
     text:   "Look at this dog",
     author: user.person,
@@ -195,31 +203,31 @@ Given /^I have (\d+) contacts$/ do |n|
   aspect_memberships = []
 
   count.times do
-    person = FactoryGirl.create(:person)
+    person = FactoryBot.create(:person)
     people << person
   end
 
   people.each do |person|
-    contacts << Contact.new(:person_id => person.id, :user_id => @me.id, :sharing => true, :receiving => true)
+    contacts << Contact.new(person_id: person.id, user_id: @me.id, sharing: true, receiving: true)
   end
   Contact.import(contacts)
   contacts = @me.contacts.limit(n.to_i)
 
-  aspect_id = @me.aspects.length == 1 ? @me.aspects.first.id : @me.aspects.where(:name => "Besties").first.id
+  aspect_id = @me.aspects.length == 1 ? @me.aspects.first.id : @me.aspects.where(name: "Besties").first.id
   contacts.each do |contact|
-    aspect_memberships << AspectMembership.new(:contact_id => contact.id, :aspect_id => aspect_id)
+    aspect_memberships << AspectMembership.new(contact_id: contact.id, aspect_id: aspect_id)
   end
   AspectMembership.import(aspect_memberships)
 end
 
 When /^I view "([^\"]*)"'s first post$/ do |email|
-  user = User.find_by_email(email)
+  user = User.find_by(email: email)
   post = user.posts.first
   visit post_path(post)
 end
 
 And /^I should be able to friend "([^\"]*)"$/ do |email|
-  user = User.find_by_email(email)
+  user = User.find_by(email: email)
   step 'I should see a ".aspect-dropdown"'
   step "I should see \"#{user.name}\""
 end
@@ -233,5 +241,5 @@ Then /^I should get a zipped file$/ do
 end
 
 And /^a person with ID "([^\"]*)" has been discovered$/ do |diaspora_id|
-  FactoryGirl.create(:person, diaspora_handle: diaspora_id)
+  FactoryBot.create(:person, diaspora_handle: diaspora_id)
 end

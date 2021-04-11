@@ -2,7 +2,7 @@
 
 shared_examples "own entity importer" do
   describe "#import" do
-    let(:new_user) { FactoryGirl.create(:user) }
+    let(:new_user) { FactoryBot.create(:user) }
     let(:instance) { described_class.new(entity_json.as_json, new_user) }
 
     context "with known entity" do

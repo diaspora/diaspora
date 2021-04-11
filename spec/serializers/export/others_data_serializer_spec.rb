@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Export::OthersDataSerializer do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
   let(:serializer) { Export::OthersDataSerializer.new(user.id) }
 
   it "uses FederationEntitySerializer for array serializing relayables" do

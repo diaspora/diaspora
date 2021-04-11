@@ -3,8 +3,8 @@
 describe EvilQuery::MultiStream do
   let(:evil_query) { EvilQuery::MultiStream.new(alice, "created_at", Time.zone.now, true) }
 
-  describe 'community_spotlight_posts!' do
-    it 'does not raise an error' do
+  describe "community_spotlight_posts!" do
+    it "does not raise an error" do
       expect { evil_query.community_spotlight_posts! }.to_not raise_error
     end
   end
@@ -47,7 +47,7 @@ end
 
 describe EvilQuery::Participation do
   before do
-    @status_message = FactoryGirl.create(:status_message, :author => bob.person)
+    @status_message = FactoryBot.create(:status_message, author: bob.person)
   end
 
   it "includes posts liked by the user" do
@@ -66,35 +66,35 @@ describe EvilQuery::Participation do
 
   describe "ordering" do
     before do
-      @status_messageA = FactoryGirl.create(:status_message, :author => bob.person)
-      @status_messageB = FactoryGirl.create(:status_message, :author => bob.person)
-      @status_messageD = FactoryGirl.create(:status_message, :author => bob.person)
-      @status_messageE = FactoryGirl.create(:status_message, :author => bob.person)
+      @status_message_a = FactoryBot.create(:status_message, author: bob.person)
+      @status_message_b = FactoryBot.create(:status_message, author: bob.person)
+      @status_message_d = FactoryBot.create(:status_message, author: bob.person)
+      @status_message_e = FactoryBot.create(:status_message, author: bob.person)
 
-      time = Time.now
+      time = Time.zone.now
 
       Timecop.freeze do
         Timecop.travel time += 1.month
 
-        alice.comment!(@status_messageB, "party")
+        alice.comment!(@status_message_b, "party")
         Timecop.travel time += 1.month
 
-        alice.like!(@status_messageA)
+        alice.like!(@status_message_a)
         Timecop.travel time += 1.month
 
-        alice.comment!(@status_messageE, "party")
+        alice.comment!(@status_message_e, "party")
       end
     end
 
-    let(:posts) {EvilQuery::Participation.new(alice).posts}
+    let(:posts) { EvilQuery::Participation.new(alice).posts }
 
     it "doesn't include Posts that aren't acted on" do
-      expect(posts.map(&:id)).not_to include(@status_messageD.id)
-      expect(posts.map(&:id)).to match_array([@status_messageA.id, @status_messageB.id, @status_messageE.id])
+      expect(posts.map(&:id)).not_to include(@status_message_d.id)
+      expect(posts.map(&:id)).to match_array([@status_message_a.id, @status_message_b.id, @status_message_e.id])
     end
 
     it "returns the posts that the user has commented on most recently first" do
-      expect(posts.map(&:id)).to eq([@status_messageE.id, @status_messageB.id, @status_messageA.id])
+      expect(posts.map(&:id)).to eq([@status_message_e.id, @status_message_b.id, @status_message_a.id])
     end
   end
 

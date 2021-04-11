@@ -43,10 +43,10 @@ describe MigrationService do
     Fabricate(:like_entity,
               author:           archive_author,
               author_signature: "ignored XXXXXXXXXXXXXXXXXXXXXXXXXXX",
-              parent_guid:      FactoryGirl.create(:status_message).guid)
+              parent_guid:      FactoryBot.create(:status_message).guid)
   }
   let(:poll_participation_entity) {
-    poll = FactoryGirl.create(:status_message_with_poll).poll
+    poll = FactoryBot.create(:status_message_with_poll).poll
     Fabricate(:poll_participation_entity,
               author:           archive_author,
               author_signature: "ignored XXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -70,14 +70,14 @@ describe MigrationService do
     Fabricate(:comment_entity, data)
   }
 
-  let(:post_subscriber) { FactoryGirl.create(:person) }
-  let(:known_contact_person) { FactoryGirl.create(:person) }
-  let!(:collided_status_message) { FactoryGirl.create(:status_message, guid: colliding_status_message_entity.guid) }
-  let!(:collided_like) { FactoryGirl.create(:like, guid: like_entity.guid) }
-  let!(:reshare_root_author) { FactoryGirl.create(:person, diaspora_handle: reshare_entity.root_author) }
+  let(:post_subscriber) { FactoryBot.create(:person) }
+  let(:known_contact_person) { FactoryBot.create(:person) }
+  let!(:collided_status_message) { FactoryBot.create(:status_message, guid: colliding_status_message_entity.guid) }
+  let!(:collided_like) { FactoryBot.create(:like, guid: like_entity.guid) }
+  let!(:reshare_root_author) { FactoryBot.create(:person, diaspora_handle: reshare_entity.root_author) }
 
   # This is for testing migrated contacts handling
-  let(:account_migration) { FactoryGirl.create(:account_migration).tap(&:perform!) }
+  let(:account_migration) { FactoryBot.create(:account_migration).tap(&:perform!) }
   let(:migrated_contact_diaspora_id) { account_migration.old_person.diaspora_handle }
   let(:migrated_contact_new_diaspora_id) { account_migration.new_person.diaspora_handle }
 
@@ -175,7 +175,7 @@ describe MigrationService do
     expect(DiasporaFederation::Federation::Fetcher)
       .to receive(:fetch_public)
         .with(root_author.diaspora_handle, "Post", root_guid) {
-          FactoryGirl.create(:status_message, guid: root_guid, author: root_author, public: true)
+          FactoryBot.create(:status_message, guid: root_guid, author: root_author, public: true)
         }
   end
 
@@ -195,13 +195,13 @@ describe MigrationService do
 
     # This is expected to be called during relayable validation
     expect_relayable_parent_fetch(archive_author, comment_entity.parent_guid) {
-      FactoryGirl.create(:status_message, guid: comment_entity.parent_guid)
+      FactoryBot.create(:status_message, guid: comment_entity.parent_guid)
     }
 
     expect_relayable_parent_fetch(archive_author, unknown_poll_guid, "Poll") {
-      FactoryGirl.create(
+      FactoryBot.create(
         :poll_answer,
-        poll: FactoryGirl.create(:poll, guid: unknown_poll_guid),
+        poll: FactoryBot.create(:poll, guid: unknown_poll_guid),
         guid: unknown_poll_answer_guid
       )
     }
@@ -219,7 +219,7 @@ describe MigrationService do
   shared_examples "imports archive" do
     it "imports archive" do
       expect_relayable_parent_fetch(archive_author, unknown_subscription_guid) {
-        FactoryGirl.create(:status_message, guid: unknown_subscription_guid)
+        FactoryBot.create(:status_message, guid: unknown_subscription_guid)
       }
 
       expect_reshare_root_fetch(reshare_root_author, reshare_entity.root_guid)
@@ -316,22 +316,22 @@ describe MigrationService do
 
   context "old user is a known remote user" do
     let(:old_person) {
-      FactoryGirl.create(:person,
-                         profile:               FactoryGirl.build(:profile),
-                         serialized_public_key: archive_private_key.public_key.export,
-                         diaspora_handle:       archive_author)
+      FactoryBot.create(:person,
+                        profile:               FactoryBot.build(:profile),
+                        serialized_public_key: archive_private_key.public_key.export,
+                        diaspora_handle:       archive_author)
     }
 
     # Some existing data for old_person to test data merge/migration
-    let!(:existing_contact) { FactoryGirl.create(:contact, person: old_person, sharing: true, receiving: true) }
+    let!(:existing_contact) { FactoryBot.create(:contact, person: old_person, sharing: true, receiving: true) }
 
     let!(:existing_subscription) {
-      FactoryGirl.create(:participation,
-                         author: old_person,
-                         target: FactoryGirl.create(:status_message, guid: existing_subscription_guid))
+      FactoryBot.create(:participation,
+                        author: old_person,
+                        target: FactoryBot.create(:status_message, guid: existing_subscription_guid))
     }
     let!(:existing_status_message) {
-      FactoryGirl.create(:status_message,
+      FactoryBot.create(:status_message,
                          author: old_person,
                          guid:   known_status_message_entity.guid).tap {|status_message|
         status_message.participants << post_subscriber
@@ -347,7 +347,7 @@ describe MigrationService do
     context "when account migration already exists" do
       before do
         setup_validation_time_expectations
-        FactoryGirl.create(:account_migration, old_person: old_person)
+        FactoryBot.create(:account_migration, old_person: old_person)
       end
 
       it "raises exception" do

@@ -2,7 +2,7 @@
 
 describe Admin::UsersController, :type => :controller do
   before do
-    @user = FactoryGirl.create :user
+    @user = FactoryBot.create :user
     Role.add_admin(@user.person)
 
     sign_in @user, scope: :user
@@ -10,7 +10,7 @@ describe Admin::UsersController, :type => :controller do
 
   describe '#close_account' do
     it 'queues a job to disable the given account' do
-      other_user = FactoryGirl.create :user
+      other_user = FactoryBot.create :user
       expect(other_user).to receive(:close_account!)
       allow(User).to receive(:find).and_return(other_user)
 
@@ -20,7 +20,7 @@ describe Admin::UsersController, :type => :controller do
 
   describe '#lock_account' do
     it 'it locks the given account' do
-      other_user = FactoryGirl.create :user
+      other_user = FactoryBot.create :user
       other_user.lock_access!
       expect(other_user.reload.access_locked?).to be_truthy
     end
@@ -28,7 +28,7 @@ describe Admin::UsersController, :type => :controller do
 
   describe '#unlock_account' do
     it 'it unlocks the given account' do
-      other_user = FactoryGirl.create :user
+      other_user = FactoryBot.create :user
       other_user.lock_access!
       other_user.unlock_access!
       expect(other_user.reload.access_locked?).to be_falsey

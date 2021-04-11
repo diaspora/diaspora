@@ -7,7 +7,7 @@ describe ArchiveValidator::ContactsValidator do
   include_context "with known author"
 
   let(:correct_item) {
-    person = FactoryGirl.create(:person)
+    person = FactoryBot.create(:person)
     {
       "contact_groups_membership" => [],
       "person_guid"               => person.guid,
@@ -30,7 +30,7 @@ describe ArchiveValidator::ContactsValidator do
   }
 
   let(:incorrect_item) {
-    person = FactoryGirl.create(:person)
+    person = FactoryBot.create(:person)
     person.lock_access!
     {
       "contact_groups_membership" => [],

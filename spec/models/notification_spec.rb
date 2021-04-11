@@ -6,8 +6,8 @@
 
 describe Notification, :type => :model do
   before do
-    @sm = FactoryGirl.create(:status_message)
-    @person = FactoryGirl.create(:person)
+    @sm = FactoryBot.create(:status_message)
+    @person = FactoryBot.create(:person)
     @user = alice
     @user2 = eve
     @aspect  = @user.aspects.create(:name => "dudes")
@@ -26,7 +26,7 @@ describe Notification, :type => :model do
 
   describe '.for' do
     it 'returns all of a users notifications' do
-      user2 = FactoryGirl.create(:user)
+      user2 = FactoryBot.create(:user)
       4.times do
         Notification.create(@opts)
       end

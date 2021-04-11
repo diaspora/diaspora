@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-describe NotificationsController, :type => :controller do
-  describe '#index' do
+describe NotificationsController, type: :controller do
+  describe "#index" do
     before do
       sign_in alice, scope: :user
-      @post = FactoryGirl.create(:status_message)
-      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+      @post = FactoryBot.create(:status_message)
+      FactoryBot.create(:notification, recipient: alice, target: @post)
       get :read_all
-      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+      FactoryBot.create(:notification, recipient: alice, target: @post)
       eve.share_with(alice.person, eve.aspects.first)
     end
 
-    it "generates a jasmine fixture", :fixture => true do
+    it "generates a jasmine fixture", fixture: true do
       get :index
       save_fixture(html_for("body"), "notifications")
       get :index, format: :json

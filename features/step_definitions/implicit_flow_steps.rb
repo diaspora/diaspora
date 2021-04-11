@@ -54,7 +54,6 @@ Then /^I should not see any tokens in the redirect url$/ do
 end
 
 When /^I parse the bearer tokens and use it to access user info$/ do
-  current_url = page.driver.network_traffic.last.url # We get a redirect to example.org that we can't follow
   access_token = current_url[/(?<=access_token=)[^&]+/]
   expect(access_token).to be_present
   get api_openid_connect_user_info_path, access_token: access_token

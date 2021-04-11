@@ -39,7 +39,7 @@ Feature: editing the profile in the mobile view
     Then I should see "#kamino" within "ul#as-selections-tags"
     And I should see "#starwars" within "ul#as-selections-tags"
 
-    When I confirm the alert after I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload"
+    When I accept the alert after I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload"
     And I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload"
     Then I should see "button.png completed"
     And I should see a "img" within "#profile_photo_upload"

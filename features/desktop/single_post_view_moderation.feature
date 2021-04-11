@@ -44,7 +44,7 @@
     And I sign in as "alice@alice.alice"
 
     And I open the show page of the "Here is a post to test with" post
-    And I confirm the alert after I click to report the post
+    And I confirm the prompt after I click to report the post
 
     And I should see a flash message containing "The report has successfully been created"
 

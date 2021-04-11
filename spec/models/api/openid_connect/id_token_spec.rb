@@ -2,7 +2,7 @@
 
 describe Api::OpenidConnect::IdToken, type: :model do
   describe "#to_jwt" do
-    let(:auth) { FactoryGirl.create(:auth_with_default_scopes) }
+    let(:auth) { FactoryBot.create(:auth_with_default_scopes) }
     let(:id_token) { Api::OpenidConnect::IdToken.new(auth, "nonce") }
 
     describe "decoded data" do

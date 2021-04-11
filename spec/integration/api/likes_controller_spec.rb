@@ -4,22 +4,22 @@ require_relative "api_spec_helper"
 
 describe Api::V1::LikesController do
   let(:auth) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify private:read private:modify interactions],
-      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
+      user:   FactoryBot.create(:user, profile: FactoryBot.create(:profile_with_image_url))
     )
   }
 
   let(:auth_public_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify interactions]
     )
   }
 
   let(:auth_minimum_scopes) {
-    FactoryGirl.create(:auth_with_default_scopes)
+    FactoryBot.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
@@ -28,8 +28,8 @@ describe Api::V1::LikesController do
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
-    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
-    bob.person.profile = FactoryGirl.create(:profile_with_image_url)
+    alice.person.profile = FactoryBot.create(:profile_with_image_url)
+    bob.person.profile = FactoryBot.create(:profile_with_image_url)
 
     @status = auth.user.post(
       :status_message,

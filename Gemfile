@@ -280,15 +280,15 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "capybara",           "3.15.0"
-  gem "database_cleaner",   "1.8.3"
-  gem "poltergeist",        "1.18.1"
+  gem "apparition",       "0.6.0"
+  gem "capybara",         "3.15.0"
+  gem "database_cleaner", "1.8.3"
 
   gem "cucumber-api-steps", "0.14", require: false
 
   # General helpers
 
-  gem "factory_girl_rails", "4.9.0"
+  gem "factory_bot_rails",  "6.1.0"
   gem "shoulda-matchers",   "4.0.1"
   gem "timecop",            "0.9.1"
   gem "webmock",            "3.8.3", require: false
@@ -304,6 +304,7 @@ group :development, :test do
   gem "cucumber-rails", "2.0.0", require: false
 
   # Jasmine (client side application tests (JS))
+  gem "chrome_remote",             "0.3.0"
   gem "jasmine",                   "3.6.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"

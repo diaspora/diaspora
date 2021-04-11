@@ -8,7 +8,7 @@ describe PostsHelper, :type => :helper do
 
   describe '#post_page_title' do
     before do
-      @sm = FactoryGirl.create(:status_message)
+      @sm = FactoryBot.create(:status_message)
     end
 
     context 'with posts with text' do
@@ -22,7 +22,7 @@ describe PostsHelper, :type => :helper do
 
     context "with a reshare" do
       it "returns 'Reshare by...'" do
-        reshare = FactoryGirl.create(:reshare, author: alice.person)
+        reshare = FactoryBot.create(:reshare, author: alice.person)
         expect(post_page_title(reshare)).to eq I18n.t("posts.show.reshare_by", author: reshare.author_name)
       end
     end
@@ -31,7 +31,7 @@ describe PostsHelper, :type => :helper do
 
   describe '#post_iframe_url' do
     before do
-      @post = FactoryGirl.create(:status_message)
+      @post = FactoryBot.create(:status_message)
     end
 
     it "returns an iframe tag" do

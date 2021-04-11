@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 describe Api::OpenidConnect::TokenEndpoint, type: :request do
-  let!(:client) { FactoryGirl.create(:o_auth_application_with_ppid) }
+  let!(:client) { FactoryBot.create(:o_auth_application_with_ppid) }
   let!(:auth) {
     Api::OpenidConnect::Authorization.find_or_create_by(
       o_auth_application: client, user: bob, redirect_uri: "http://localhost:3000/", scopes: ["openid"])
   }
   let!(:code) { auth.create_code }
-  let!(:client_with_specific_id) { FactoryGirl.create(:o_auth_application_with_ppid) }
+  let!(:client_with_specific_id) { FactoryBot.create(:o_auth_application_with_ppid) }
   let!(:auth_with_specific_id) do
     client_with_specific_id.client_id = "14d692cd53d9c1a9f46fd69e0e57443e"
     client_with_specific_id.jwks = File.read(jwks_file_path)

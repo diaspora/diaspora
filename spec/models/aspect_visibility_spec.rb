@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 describe AspectVisibility, type: :model do
-  let(:status_message) { FactoryGirl.create(:status_message) }
-  let(:aspect) { FactoryGirl.create(:aspect) }
-  let(:status_message_in_aspect) { FactoryGirl.create(:status_message_in_aspect) }
+  let(:status_message) { FactoryBot.create(:status_message) }
+  let(:aspect) { FactoryBot.create(:aspect) }
+  let(:status_message_in_aspect) { FactoryBot.create(:status_message_in_aspect) }
   let(:photo_with_same_id) {
-    Photo.find_by_id(status_message_in_aspect.id) || FactoryGirl.create(:photo, id: status_message_in_aspect.id)
+    Photo.find_by(id: status_message_in_aspect.id) || FactoryBot.create(:photo, id: status_message_in_aspect.id)
   }
 
   describe ".create" do

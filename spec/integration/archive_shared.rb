@@ -6,7 +6,7 @@ def expect_person_fetch(diaspora_id, public_key)
       expect(instance).to receive(:fetch_and_save) {
         attributes = {diaspora_handle: diaspora_id}
         attributes[:serialized_public_key] = public_key if public_key.present?
-        FactoryGirl.create(:person, attributes)
+        FactoryBot.create(:person, attributes)
       }
     }
   }

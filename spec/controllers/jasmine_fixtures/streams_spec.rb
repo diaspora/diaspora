@@ -21,7 +21,7 @@ describe StreamsController, :type => :controller do
           Timecop.travel(time += 1.minute)
           posts << alice.post(:status_message, :text => "hella infos yo!", :to => alice.aspects.first.id)
           Timecop.travel(time += 1.minute)
-          posts << alice.post(:reshare, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => 'all')
+          posts << alice.post(:reshare, root_guid: FactoryBot.create(:status_message, public: true).guid, to: "all")
           Timecop.travel(time += 1.minute)
           if i == 9
             posts << alice.post(:status_message,

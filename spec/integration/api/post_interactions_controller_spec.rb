@@ -4,21 +4,21 @@ require_relative "api_spec_helper"
 
 describe Api::V1::PostInteractionsController do
   let(:auth) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify private:read private:modify interactions]
     )
   }
 
   let(:auth_public_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify interactions]
     )
   }
 
   let(:auth_minimum_scopes) {
-    FactoryGirl.create(:auth_with_default_scopes)
+    FactoryBot.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
