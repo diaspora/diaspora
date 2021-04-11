@@ -730,7 +730,7 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
-    twitter-text (3.0.0)
+    twitter-text (3.1.0)
       idn-ruby
       unf (~> 0.1.0)
     typhoeus (1.4.0)
@@ -911,7 +911,7 @@ DEPENDENCIES
   toml-rb (= 2.0.1)
   turbo_dev_assets (= 0.0.2)
   twitter (= 7.0.0)
-  twitter-text (= 3.0.0)
+  twitter-text (= 3.1.0)
   typhoeus (= 1.4.0)
   uglifier (= 4.2.0)
   unicorn (= 5.5.3)
