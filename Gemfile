@@ -241,13 +241,6 @@ group :production do # we don"t install these on travis to speed up test runs
 end
 
 group :development do
-  # Automatic test runs
-  gem "guard",          "2.16.1", require: false
-  gem "guard-rspec",    "4.7.3", require: false
-  gem "guard-rubocop",  "1.3.0", require: false
-  gem "rb-fsevent",     "0.10.3", require: false
-  gem "rb-inotify",     "0.10.1", require: false
-
   # Linters
   gem "haml_lint",      "0.35.0", require: false
   gem "pronto",         "0.10.0", require: false
