@@ -62,7 +62,7 @@ gem "rack-cors", "1.1.1", require: "rack/cors"
 
 gem "autoprefixer-rails",     "10.2.4.0"
 gem "bootstrap-sass",         "3.4.1"
-gem "bootstrap-switch-rails", "3.3.5"
+gem "bootstrap-switch-rails", "3.3.3" # 3.3.4 and 3.3.5 is broken, see https://github.com/Bttstrp/bootstrap-switch/issues/691
 gem "compass-rails",          "3.1.0"
 gem "sass-rails",             "5.0.7"
 gem "sprockets-rails",        "3.2.1"
@@ -259,6 +259,8 @@ group :development do
   gem "simplecov", "0.21.2", require: false
 
   gem "turbo_dev_assets", "0.0.2"
+
+  gem "listen", "3.5.1"
 end
 
 group :test do
