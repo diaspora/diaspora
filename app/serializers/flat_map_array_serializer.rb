@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FlatMapArraySerializer < ActiveModel::ArraySerializer
+class FlatMapArraySerializer < ActiveModelSerializers::SerializableResource
   def serializable_object(options={})
     @object.flat_map do |subarray|
       subarray.map do |item|

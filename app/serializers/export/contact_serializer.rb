@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Export
-  class ContactSerializer < ActiveModel::Serializer
+  class ContactSerializer < AMS::V09::Serializer
     attributes :sharing,
                :receiving,
                :following,

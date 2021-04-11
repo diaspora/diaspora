@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class NotificationSerializer < ActiveModel::Serializer
+class NotificationSerializer < AMS::V09::Serializer
   attributes :id,
              :target_type,
              :target_id,

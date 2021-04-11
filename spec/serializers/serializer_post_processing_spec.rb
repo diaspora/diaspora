@@ -2,8 +2,8 @@
 
 describe SerializerPostProcessing do
   describe "#modify_serializable_object" do
-    it "allows to modify serializable object of ActiveModel::Serializer ancestor" do
-      class TestSerializer < ActiveModel::Serializer
+    it "allows to modify serializable object of AMS::V09::Serializer ancestor" do
+      class TestSerializer < AMS::V09::Serializer
         include SerializerPostProcessing
 
         def modify_serializable_object(*)
@@ -21,7 +21,7 @@ describe SerializerPostProcessing do
 
   describe "#except" do
     it "allows to except a key from attributes" do
-      class TestSerializer2 < ActiveModel::Serializer
+      class TestSerializer2 < AMS::V09::Serializer
         include SerializerPostProcessing
 
         attributes :key_to_exclude
