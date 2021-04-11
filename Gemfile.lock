@@ -70,7 +70,7 @@ GEM
     attr_encrypted (3.1.0)
       encryptor (~> 3.0.0)
     attr_required (1.0.1)
-    autoprefixer-rails (8.6.5)
+    autoprefixer-rails (10.2.4.0)
       execjs
     backports (3.17.0)
     bcrypt (3.1.13)
@@ -793,7 +793,7 @@ DEPENDENCIES
   addressable (= 2.7.0)
   apparition (= 0.6.0)
   asset_sync (= 2.11.0)
-  autoprefixer-rails (= 8.6.5)
+  autoprefixer-rails (= 10.2.4.0)
   bootstrap-sass (= 3.4.1)
   bootstrap-switch-rails (= 3.3.5)
   capybara (= 3.15.0)
