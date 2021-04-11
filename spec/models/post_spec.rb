@@ -75,8 +75,8 @@ describe Post, type: :model do
       end
     end
 
-    describe '.for_a_stream' do
-      it 'calls #for_visible_shareable_sql' do
+    describe ".for_a_stream" do
+      it "calls #for_visible_shareable_sql" do
         time = double
         order = double
         expect(Post).to receive(:for_visible_shareable_sql).with(time, order).and_return(Post)

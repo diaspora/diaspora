@@ -26,18 +26,11 @@ class StreamsController < ApplicationController
   end
 
   def local_public
-    return stream_responder(Stream::LocalPublic) if AppConfig.settings.enable_show_local_post_link == "always"
-
-    if AppConfig.settings.enable_show_local_post_link == "admin" && Role.is_admin?(current_user)
-      return stream_responder(Stream::LocalPublic)
+    if AppConfig.local_posts_stream?(current_user)
+      stream_responder(Stream::LocalPublic)
+    else
+      head :not_found
     end
-
-    if AppConfig.settings.enable_show_local_post_link == "moderator" &&
-       (Role.moderator?(current_user) || Role.is_admin?(current_user))
-      return stream_responder(Stream::LocalPublic)
-    end
-
-    stream_responder(Stream::Public)
   end
 
   def activity
