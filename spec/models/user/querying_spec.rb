@@ -98,7 +98,7 @@ describe User::Querying, :type => :model do
 
   describe "#visible_shareables" do
     it 'never contains posts from people not in your aspects' do
-      FactoryGirl.create(:status_message, :public => true)
+      FactoryBot.create(:status_message, public: true)
       expect(bob.visible_shareables(Post).count(:all)).to eq(0)
     end
 
@@ -176,9 +176,9 @@ describe User::Querying, :type => :model do
       end
 
       it "returns local/remote people objects for a users contact in each aspect" do
-        local_user1 = FactoryGirl.create(:user)
-        local_user2 = FactoryGirl.create(:user)
-        remote_person = FactoryGirl.create(:person)
+        local_user1 = FactoryBot.create(:user)
+        local_user2 = FactoryBot.create(:user)
+        remote_person = FactoryBot.create(:person)
 
         asp1 = local_user1.aspects.create(name: "lol")
         asp2 = local_user2.aspects.create(name: "brb")
@@ -193,7 +193,7 @@ describe User::Querying, :type => :model do
       end
 
       it 'does not return people not connected to user on same pod' do
-        3.times { FactoryGirl.create(:user) }
+        3.times { FactoryBot.create(:user) }
         expect(alice.people_in_aspects([@alices_aspect]).count).to eq(1)
       end
 
@@ -208,9 +208,9 @@ describe User::Querying, :type => :model do
   end
 
   context 'contact querying' do
-    let(:person_one) { FactoryGirl.create :person }
-    let(:person_two) { FactoryGirl.create :person }
-    let(:person_three) { FactoryGirl.create :person }
+    let(:person_one) { FactoryBot.create :person }
+    let(:person_two) { FactoryBot.create :person }
+    let(:person_three) { FactoryBot.create :person }
     let(:aspect) { alice.aspects.create(:name => 'heroes') }
 
     describe '#contact_for_person_id' do
@@ -275,7 +275,7 @@ describe User::Querying, :type => :model do
   end
 
   describe "#block_for" do
-    let(:person) { FactoryGirl.create :person }
+    let(:person) { FactoryBot.create :person }
 
     before do
       eve.blocks.create({person: person})
@@ -290,7 +290,7 @@ describe User::Querying, :type => :model do
 
   describe '#posts_from' do
     before do
-      @user3 = FactoryGirl.create(:user)
+      @user3 = FactoryBot.create(:user)
       @aspect3 = @user3.aspects.create(:name => "bros")
 
       @public_message = @user3.post(:status_message, :text => "hey there", :to => 'all', :public => true)

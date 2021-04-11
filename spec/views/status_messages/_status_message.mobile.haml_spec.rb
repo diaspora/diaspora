@@ -8,7 +8,7 @@ describe "status_messages/_status_message.mobile.haml" do
       image:       "https://example.org/\"><script>alert(0);</script>",
       description: "<script>alert(0);</script>"
     )
-    post = FactoryGirl.create(:status_message, public: true, open_graph_cache: open_graph_cache)
+    post = FactoryBot.create(:status_message, public: true, open_graph_cache: open_graph_cache)
 
     render file: "status_messages/_status_message.mobile.haml", locals: {post: post, photos: post.photos}
 

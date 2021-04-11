@@ -2,7 +2,7 @@
 
 describe Workers::FetchWebfinger do
   it "should webfinger and queue a job to fetch public posts" do
-    @person = FactoryGirl.create(:person)
+    @person = FactoryBot.create(:person)
     allow(Person).to receive(:find_or_fetch_by_identifier).and_return(@person)
 
     expect(Diaspora::Fetcher::Public).to receive(:queue_for).exactly(1).times

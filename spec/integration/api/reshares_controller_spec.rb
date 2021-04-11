@@ -4,15 +4,15 @@ require_relative "api_spec_helper"
 
 describe Api::V1::ResharesController do
   let(:auth) {
-    FactoryGirl.create(:auth_with_all_scopes)
+    FactoryBot.create(:auth_with_all_scopes)
   }
 
   let(:auth_read_only) {
-    FactoryGirl.create(:auth_with_read_scopes)
+    FactoryBot.create(:auth_with_read_scopes)
   }
 
   let(:auth_minimum_scopes) {
-    FactoryGirl.create(:auth_with_default_scopes)
+    FactoryBot.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
@@ -21,7 +21,7 @@ describe Api::V1::ResharesController do
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
-    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
+    alice.person.profile = FactoryBot.create(:profile_with_image_url)
 
     @user_post = auth.user.post(
       :status_message,

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Diaspora::Federation::Dispatcher do
-  let(:post) { FactoryGirl.create(:status_message, author: alice.person, text: "hello", public: true) }
+  let(:post) { FactoryBot.create(:status_message, author: alice.person, text: "hello", public: true) }
   let(:opts) { {service_types: "Services::Twitter"} }
 
   describe ".build" do
@@ -14,7 +14,7 @@ describe Diaspora::Federation::Dispatcher do
     end
 
     it "creates a private dispatcher for a private post" do
-      private = FactoryGirl.create(:status_message, author: alice.person, text: "hello", public: false)
+      private = FactoryBot.create(:status_message, author: alice.person, text: "hello", public: false)
 
       expect(Diaspora::Federation::Dispatcher::Private).to receive(:new).with(alice, private, opts).and_call_original
 
@@ -34,7 +34,7 @@ describe Diaspora::Federation::Dispatcher do
     end
 
     it "uses the parent author as sender for a comment if the parent is local" do
-      comment = FactoryGirl.create(:comment, author: bob.person, post: post)
+      comment = FactoryBot.create(:comment, author: bob.person, post: post)
 
       expect(Diaspora::Federation::Dispatcher::Public).to receive(:new).with(alice, comment, {}).and_call_original
 
@@ -44,8 +44,8 @@ describe Diaspora::Federation::Dispatcher do
     end
 
     it "uses the original sender for a comment if the parent is not local" do
-      remote_post = FactoryGirl.create(:status_message, author: remote_raphael, text: "hello", public: true)
-      comment = FactoryGirl.create(:comment, author: bob.person, post: remote_post)
+      remote_post = FactoryBot.create(:status_message, author: remote_raphael, text: "hello", public: true)
+      comment = FactoryBot.create(:comment, author: bob.person, post: remote_post)
 
       expect(Diaspora::Federation::Dispatcher::Public).to receive(:new).with(bob, comment, {}).and_call_original
 

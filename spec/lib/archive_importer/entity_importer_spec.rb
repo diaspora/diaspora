@@ -19,7 +19,7 @@ describe ArchiveImporter::EntityImporter do
       JSON
 
       context "with known author" do
-        let!(:author) { FactoryGirl.create(:person, diaspora_handle: "author@example.com") }
+        let!(:author) { FactoryBot.create(:person, diaspora_handle: "author@example.com") }
 
         it "runs entity receive routine" do
           expect(Diaspora::Federation::Receive).to receive(:perform)
@@ -45,8 +45,8 @@ describe ArchiveImporter::EntityImporter do
     end
 
     context "with comment" do
-      let(:status_message) { FactoryGirl.create(:status_message) }
-      let(:author) { FactoryGirl.create(:user) }
+      let(:status_message) { FactoryBot.create(:status_message) }
+      let(:author) { FactoryBot.create(:user) }
       let(:comment_entity) {
         data = Fabricate.attributes_for(:comment_entity,
                                         author:      author.diaspora_handle,
@@ -68,12 +68,12 @@ describe ArchiveImporter::EntityImporter do
       end
 
       it "does not relay a remote comment during import" do
-        comment_author = FactoryGirl.build(:user)
+        comment_author = FactoryBot.build(:user)
         comment_author.person.owner = nil
         comment_author.person.pod = Pod.find_or_create_by(url: "http://example.net")
         comment_author.person.save!
 
-        status_message = FactoryGirl.create(:status_message, author: alice.person, public: true)
+        status_message = FactoryBot.create(:status_message, author: alice.person, public: true)
         comment_data = Fabricate.attributes_for(:comment_entity,
                                                 author:      comment_author.diaspora_handle,
                                                 parent_guid: status_message.guid).tap do |data|

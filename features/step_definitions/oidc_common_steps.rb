@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 Given /^a client with a provided picture exists for user "([^\"]*)"$/ do |email|
-  app = FactoryGirl.create(:o_auth_application, logo_uri: "/assets/user/default.png")
+  app = FactoryBot.create(:o_auth_application, logo_uri: "/assets/user/default.png")
   user = User.find_by(email: email)
-  FactoryGirl.create(:auth_with_read_scopes, user: user, o_auth_application: app)
+  FactoryBot.create(:auth_with_read_scopes, user: user, o_auth_application: app)
 end
 
 Given /^a client exists for user "([^\"]*)"$/ do |email|
   user = User.find_by(email: email)
-  FactoryGirl.create(:auth_with_read_scopes, user: user)
+  FactoryBot.create(:auth_with_read_scopes, user: user)
 end
 
 When /^I register a new client$/ do

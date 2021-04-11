@@ -51,7 +51,7 @@ describe UsersController, :type => :controller do
   describe '#public' do
     context "entry xml contents" do
       before do
-        @sm = FactoryGirl.create(
+        @sm = FactoryBot.create(
           :status_message,
           public: true,
           author: @user.person,
@@ -78,25 +78,29 @@ describe UsersController, :type => :controller do
       end
 
       it "contains the original author for reshares" do
-        FactoryGirl.create(:reshare, root: @sm, author: bob.person)
+        FactoryBot.create(:reshare, root: @sm, author: bob.person)
         get :public, params: {username: bob.username}, format: :atom
         doc = Nokogiri::XML(response.body)
         expect(doc.css("entry author name")[0].content).to eq(@sm.author_name)
       end
     end
 
-    it 'includes reshares in the atom feed' do
-      reshare = FactoryGirl.create(:reshare, :author => @user.person)
+    it "includes reshares in the atom feed" do
+      reshare = FactoryBot.create(:reshare, author: @user.person)
+
       get :public, params: {username: @user.username}, format: :atom
+
       expect(response.body).to include reshare.root.text
     end
 
-    it 'do not show reshares in atom feed if origin post is deleted' do
-      post = FactoryGirl.create(:status_message, :public => true);
-      reshare = FactoryGirl.create(:reshare, :root => post, :author => @user.person)
+    it "do not show reshares in atom feed if origin post is deleted" do
+      post = FactoryBot.create(:status_message, public: true)
+      FactoryBot.create(:reshare, root: post, author: @user.person)
       post.delete
+
       get :public, params: {username: @user.username}, format: :atom
-      expect(response.code).to eq('200')
+
+      expect(response.code).to eq("200")
     end
 
     it 'redirects to a profile page if html is requested' do

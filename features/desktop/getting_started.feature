@@ -11,10 +11,10 @@ Feature: new user registration
   Scenario: new user goes through the setup wizard
     When I fill in the following:
       | profile_first_name | O             |
-    And I confirm the alert after I follow "awesome_button"
-    Then I should be on the stream page
-    And the publisher should be expanded
-    And I close the publisher
+    Then I wait until ajax requests finished
+    When I go to the stream page
+    Then the publisher should be expanded
+    When I close the publisher
     Then I should not see "awesome_button"
     And I should not see any posts in my stream
 

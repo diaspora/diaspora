@@ -4,35 +4,35 @@ require_relative "api_spec_helper"
 
 describe Api::V1::PostsController do
   let(:auth) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify private:read private:modify],
-      user:   FactoryGirl.create(:user, profile: FactoryGirl.create(:profile_with_image_url))
+      user:   FactoryBot.create(:user, profile: FactoryBot.create(:profile_with_image_url))
     )
   }
 
   let(:auth_public_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read public:modify]
     )
   }
 
   let(:auth_read_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read private:read]
     )
   }
 
   let(:auth_public_only_read_only) {
-    FactoryGirl.create(
+    FactoryBot.create(
       :auth_with_default_scopes,
       scopes: %w[openid public:read]
     )
   }
 
-  let(:auth_minimum_scopes) { FactoryGirl.create(:auth_with_default_scopes) }
+  let(:auth_minimum_scopes) { FactoryBot.create(:auth_with_default_scopes) }
   let!(:access_token) { auth.create_access_token.to_s }
   let!(:access_token_public_only) { auth_public_only.create_access_token.to_s }
   let!(:access_token_read_only) { auth_read_only.create_access_token.to_s }
@@ -41,9 +41,9 @@ describe Api::V1::PostsController do
   let(:invalid_token) { SecureRandom.hex(9) }
 
   before do
-    alice.person.profile = FactoryGirl.create(:profile_with_image_url)
-    bob.person.profile = FactoryGirl.create(:profile_with_image_url)
-    eve.person.profile = FactoryGirl.create(:profile_with_image_url)
+    alice.person.profile = FactoryBot.create(:profile_with_image_url)
+    bob.person.profile = FactoryBot.create(:profile_with_image_url)
+    eve.person.profile = FactoryBot.create(:profile_with_image_url)
 
     @alice_aspect = alice.aspects.first
     @alice_photo1 = alice.post(:photo, pending: true, user_file: File.open(photo_fixture_name), to: @alice_aspect.id)
@@ -87,8 +87,8 @@ describe Api::V1::PostsController do
         merged_params = merged_params.merge(poll_params)
         merged_params = merged_params.merge(photos: @alice_photo_ids)
         status_message = StatusMessageCreationService.new(alice).create(merged_params)
-        status_message.open_graph_cache = FactoryGirl.create(:open_graph_cache, video_url: "http://example.org")
-        status_message.o_embed_cache = FactoryGirl.create(:o_embed_cache)
+        status_message.open_graph_cache = FactoryBot.create(:open_graph_cache, video_url: "http://example.org")
+        status_message.o_embed_cache = FactoryBot.create(:o_embed_cache)
         status_message.save
 
         get(
@@ -132,7 +132,7 @@ describe Api::V1::PostsController do
 
     context "access reshare style post by post ID" do
       it "gets post" do
-        reshare_post = FactoryGirl.create(:reshare, root: @status, author: bob.person)
+        reshare_post = FactoryBot.create(:reshare, root: @status, author: bob.person)
         get(
           api_v1_post_path(reshare_post.guid),
           params: {

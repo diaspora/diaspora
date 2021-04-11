@@ -26,6 +26,7 @@ Then /^the post "([^"]*)" should have a like from "([^"]*)"$/ do |post_text, use
   within_post(post_text) do
     find(".expand-likes").click
     find(".likes .avatar")["data-original-title"].should have_content(username)
+    find(".likes .entypo-heart").hover # unfocus avatar to get rid of tooltip
   end
 end
 
@@ -68,14 +69,14 @@ When /^I prepare hiding the first post$/ do
 end
 
 When /^I click to delete the first post$/ do
-  accept_alert do
+  accept_confirm do
     step "I prepare the deletion of the first post"
   end
   expect(find(".stream")).to have_no_css(".stream-element.loaded.deleting")
 end
 
 When /^I click to hide the first post$/ do
-  accept_alert do
+  accept_confirm do
     step "I prepare hiding the first post"
   end
 end

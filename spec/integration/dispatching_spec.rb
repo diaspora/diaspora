@@ -4,7 +4,7 @@ describe "Dispatching", type: :request do
   context "a comment retraction on a public post" do
     it "triggers a public dispatch" do
       # Alice has a public post and comments on it
-      post = FactoryGirl.create(:status_message, public: true, author: alice.person)
+      post = FactoryBot.create(:status_message, public: true, author: alice.person)
 
       comment = alice.comment!(post, "awesomesauseum")
 

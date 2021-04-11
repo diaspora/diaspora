@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe ArchiveImporter::ContactImporter do
-  let(:target) { FactoryGirl.create(:user) }
+  let(:target) { FactoryBot.create(:user) }
   let(:contact_importer) { described_class.new(import_object, target) }
 
   describe "#import" do
@@ -33,8 +33,8 @@ describe ArchiveImporter::ContactImporter do
     end
 
     context "with correct data" do
-      let(:aspect) { FactoryGirl.create(:aspect, user: target) }
-      let(:person) { FactoryGirl.create(:person) }
+      let(:aspect) { FactoryBot.create(:aspect, user: target) }
+      let(:person) { FactoryBot.create(:person) }
       let(:import_object) {
         {
           "person_guid"               => person.guid,

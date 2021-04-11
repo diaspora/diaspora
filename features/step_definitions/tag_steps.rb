@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 When(/^I unfollow the "(.*?)" tag$/) do |tag|
-  accept_alert do
+  accept_confirm do
     within("#tags_list") do
       li = find("li", text: tag)
       li.hover
@@ -11,5 +11,5 @@ When(/^I unfollow the "(.*?)" tag$/) do |tag|
 end
 
 When /^I follow the "(.*?)" tag$/ do |tag|
-  TagFollowing.create!(tag: FactoryGirl.create(:tag, name: tag), user: @me)
+  TagFollowing.create!(tag: FactoryBot.create(:tag, name: tag), user: @me)
 end

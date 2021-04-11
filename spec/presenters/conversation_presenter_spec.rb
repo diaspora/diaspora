@@ -2,7 +2,7 @@
 
 describe ConversationPresenter do
   before do
-    @conversation = FactoryGirl.create(:conversation)
+    @conversation = FactoryBot.create(:conversation)
     @presenter = ConversationPresenter.new(@conversation)
   end
 

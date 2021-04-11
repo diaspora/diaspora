@@ -2,57 +2,57 @@
 
 describe Reshare, type: :model do
   it "has a valid Factory" do
-    expect(FactoryGirl.build(:reshare)).to be_valid
+    expect(FactoryBot.build(:reshare)).to be_valid
   end
 
   context "validation" do
     it "requires root when the author is local" do
-      reshare = FactoryGirl.build(:reshare, root: nil, author: alice.person)
+      reshare = FactoryBot.build(:reshare, root: nil, author: alice.person)
       expect(reshare).not_to be_valid
     end
 
     it "doesn't require root when the author is remote" do
-      reshare = FactoryGirl.build(:reshare, root: nil, author: remote_raphael)
+      reshare = FactoryBot.build(:reshare, root: nil, author: remote_raphael)
       expect(reshare).to be_valid
     end
 
     it "require public root" do
-      reshare = FactoryGirl.build(:reshare, root: FactoryGirl.create(:status_message, public: false))
+      reshare = FactoryBot.build(:reshare, root: FactoryBot.create(:status_message, public: false))
       expect(reshare).not_to be_valid
       expect(reshare.errors[:base]).to include("Only posts which are public may be reshared.")
     end
 
     it "allows two reshares without a root" do
-      reshare1 = FactoryGirl.create(:reshare, author: alice.person)
-      reshare2 = FactoryGirl.create(:reshare, author: alice.person)
+      reshare1 = FactoryBot.create(:reshare, author: alice.person)
+      reshare2 = FactoryBot.create(:reshare, author: alice.person)
 
-      reshare1.update_attributes(root_guid: nil)
+      reshare1.update(root_guid: nil)
 
       reshare2.root_guid = nil
       expect(reshare2).to be_valid
     end
 
     it "doesn't allow to reshare the same post twice" do
-      post = FactoryGirl.create(:status_message, public: true)
-      FactoryGirl.create(:reshare, author: alice.person, root: post)
+      post = FactoryBot.create(:status_message, public: true)
+      FactoryBot.create(:reshare, author: alice.person, root: post)
 
-      expect(FactoryGirl.build(:reshare, author: alice.person, root: post)).not_to be_valid
+      expect(FactoryBot.build(:reshare, author: alice.person, root: post)).not_to be_valid
     end
 
     it "allows to reshare the same post with different people" do
-      post = FactoryGirl.create(:status_message, public: true)
-      FactoryGirl.create(:reshare, author: alice.person, root: post)
+      post = FactoryBot.create(:status_message, public: true)
+      FactoryBot.create(:reshare, author: alice.person, root: post)
 
-      expect(FactoryGirl.build(:reshare, author: bob.person, root: post)).to be_valid
+      expect(FactoryBot.build(:reshare, author: bob.person, root: post)).to be_valid
     end
   end
 
   it "forces public" do
-    expect(FactoryGirl.create(:reshare, public: false).public).to be true
+    expect(FactoryBot.create(:reshare, public: false).public).to be true
   end
 
   describe "#root_diaspora_id" do
-    let(:reshare) { create(:reshare, root: FactoryGirl.build(:status_message, author: bob.person, public: true)) }
+    let(:reshare) { create(:reshare, root: FactoryBot.build(:status_message, author: bob.person, public: true)) }
 
     it "should return the root diaspora id" do
       expect(reshare.root_diaspora_id).to eq(bob.person.diaspora_handle)
@@ -65,7 +65,7 @@ describe Reshare, type: :model do
   end
 
   describe "#receive" do
-    let(:reshare) { create(:reshare, root: FactoryGirl.build(:status_message, author: bob.person, public: true)) }
+    let(:reshare) { create(:reshare, root: FactoryBot.build(:status_message, author: bob.person, public: true)) }
 
     it "participates root author in the reshare" do
       reshare.receive([])
@@ -96,20 +96,20 @@ describe Reshare, type: :model do
 
   describe "#absolute_root" do
     before do
-      @status_message = FactoryGirl.build(:status_message, author: alice.person, public: true)
-      reshare_1 = FactoryGirl.build(:reshare, root: @status_message)
-      reshare_2 = FactoryGirl.build(:reshare, root: reshare_1)
-      @reshare_3 = FactoryGirl.build(:reshare, root: reshare_2)
+      @status_message = FactoryBot.build(:status_message, author: alice.person, public: true)
+      reshare1 = FactoryBot.build(:reshare, root: @status_message)
+      reshare2 = FactoryBot.build(:reshare, root: reshare1)
+      @reshare3 = FactoryBot.build(:reshare, root: reshare2)
 
-      status_message = FactoryGirl.create(:status_message, author: alice.person, public: true)
-      reshare_1 = FactoryGirl.create(:reshare, root: status_message)
-      @of_deleted = FactoryGirl.build(:reshare, root: reshare_1)
+      status_message = FactoryBot.create(:status_message, author: alice.person, public: true)
+      reshare1 = FactoryBot.create(:reshare, root: status_message)
+      @of_deleted = FactoryBot.build(:reshare, root: reshare1)
       status_message.destroy
-      reshare_1.reload
+      reshare1.reload
     end
 
     it "resolves root posts to the top level" do
-      expect(@reshare_3.absolute_root).to eq(@status_message)
+      expect(@reshare3.absolute_root).to eq(@status_message)
     end
 
     it "can handle deleted reshares" do
@@ -117,19 +117,19 @@ describe Reshare, type: :model do
     end
 
     it "is used everywhere" do
-      expect(@reshare_3.message).to eq @status_message.message
+      expect(@reshare3.message).to eq @status_message.message
       expect(@of_deleted.message).to be_nil
-      expect(@reshare_3.photos).to eq @status_message.photos
+      expect(@reshare3.photos).to eq @status_message.photos
       expect(@of_deleted.photos).to be_empty
-      expect(@reshare_3.o_embed_cache).to eq @status_message.o_embed_cache
+      expect(@reshare3.o_embed_cache).to eq @status_message.o_embed_cache
       expect(@of_deleted.o_embed_cache).to be_nil
-      expect(@reshare_3.open_graph_cache).to eq @status_message.open_graph_cache
+      expect(@reshare3.open_graph_cache).to eq @status_message.open_graph_cache
       expect(@of_deleted.open_graph_cache).to be_nil
-      expect(@reshare_3.mentioned_people).to eq @status_message.mentioned_people
+      expect(@reshare3.mentioned_people).to eq @status_message.mentioned_people
       expect(@of_deleted.mentioned_people).to be_empty
-      expect(@reshare_3.nsfw).to eq @status_message.nsfw
+      expect(@reshare3.nsfw).to eq @status_message.nsfw
       expect(@of_deleted.nsfw).to be_nil
-      expect(@reshare_3.address).to eq @status_message.location.try(:address)
+      expect(@reshare3.address).to eq @status_message.location.try(:address)
       expect(@of_deleted.address).to be_nil
     end
   end
@@ -158,21 +158,21 @@ describe Reshare, type: :model do
 
   describe "#subscribers" do
     it "adds root author to subscribers" do
-      user = FactoryGirl.create(:user_with_aspect)
+      user = FactoryBot.create(:user_with_aspect)
       user.share_with(alice.person, user.aspects.first)
 
       post = eve.post(:status_message, text: "hello", public: true)
-      reshare = FactoryGirl.create(:reshare, root: post, author: user.person)
+      reshare = FactoryBot.create(:reshare, root: post, author: user.person)
 
       expect(reshare.subscribers).to match_array([alice.person, eve.person, user.person])
     end
 
     it "does not add the root author if the root post was deleted" do
-      user = FactoryGirl.create(:user_with_aspect)
+      user = FactoryBot.create(:user_with_aspect)
       user.share_with(alice.person, user.aspects.first)
 
       post = eve.post(:status_message, text: "hello", public: true)
-      reshare = FactoryGirl.create(:reshare, root: post, author: user.person)
+      reshare = FactoryBot.create(:reshare, root: post, author: user.person)
       post.destroy
 
       expect(reshare.reload.subscribers).to match_array([alice.person, user.person])

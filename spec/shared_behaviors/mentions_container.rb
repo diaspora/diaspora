@@ -6,7 +6,7 @@ shared_examples_for "it is mentions container" do
     "@{Raphael; #{people[0].diaspora_handle}} can mention people like @{Ilya; #{people[1].diaspora_handle}}"\
     "can mention people like @{Daniel; #{people[2].diaspora_handle}}"
   }
-  let(:target) { FactoryGirl.build(described_class.to_s.underscore.to_sym, text: test_string, author: alice.person) }
+  let(:target) { FactoryBot.build(described_class.to_s.underscore.to_sym, text: test_string, author: alice.person) }
   let(:target_persisted) {
     target.save!
     target

@@ -5,7 +5,7 @@ describe DiasporaLinkService do
 
   describe "#find_or_fetch_entity" do
     context "when entity is known" do
-      let(:post) { FactoryGirl.create(:status_message) }
+      let(:post) { FactoryBot.create(:status_message) }
       let(:link) { "diaspora://#{post.author.diaspora_handle}/post/#{post.guid}" }
 
       it "returns the entity" do
@@ -14,7 +14,7 @@ describe DiasporaLinkService do
     end
 
     context "when entity is unknown" do
-      let(:remote_person) { FactoryGirl.create(:person) }
+      let(:remote_person) { FactoryBot.create(:person) }
       let(:guid) { "1234567890abcdef" }
       let(:link) { "diaspora://#{remote_person.diaspora_handle}/post/#{guid}" }
 
@@ -22,7 +22,7 @@ describe DiasporaLinkService do
         expect(DiasporaFederation::Federation::Fetcher)
           .to receive(:fetch_public)
             .with(remote_person.diaspora_handle, "post", guid) {
-              FactoryGirl.create(:status_message, author: remote_person, guid: guid)
+              FactoryBot.create(:status_message, author: remote_person, guid: guid)
             }
 
         entity = service.find_or_fetch_entity
@@ -54,7 +54,7 @@ describe DiasporaLinkService do
     end
 
     context "with only a diaspora ID" do
-      let(:person) { FactoryGirl.create(:person) }
+      let(:person) { FactoryBot.create(:person) }
       let(:link) { "diaspora://#{person.diaspora_handle}" }
 
       it "returns the person" do

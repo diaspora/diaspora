@@ -4,11 +4,11 @@ require_relative "api_spec_helper"
 
 describe Api::V1::NotificationsController do
   let(:auth) {
-    FactoryGirl.create(:auth_with_all_scopes)
+    FactoryBot.create(:auth_with_all_scopes)
   }
 
   let(:auth_minimum_scopes) {
-    FactoryGirl.create(:auth_with_default_scopes)
+    FactoryBot.create(:auth_with_default_scopes)
   }
 
   let!(:access_token) { auth.create_access_token.to_s }
@@ -25,8 +25,8 @@ describe Api::V1::NotificationsController do
       :status_message,
       text: "This is a status message mentioning @{#{auth.user.diaspora_handle}}"
     )
-    @notification = FactoryGirl.create(:notification, recipient: auth.user, target: @post, created_at: 1.hour.ago)
-    @mentioned = FactoryGirl.create(:notification_mentioned_in_comment, recipient: auth.user, target: @post)
+    @notification = FactoryBot.create(:notification, recipient: auth.user, target: @post, created_at: 1.hour.ago)
+    @mentioned = FactoryBot.create(:notification_mentioned_in_comment, recipient: auth.user, target: @post)
   end
 
   describe "#index" do
@@ -153,7 +153,7 @@ describe Api::V1::NotificationsController do
           public: true,
           to:     "all"
         )
-        alice_notification = FactoryGirl.create(:notification, recipient: alice, target: alice_post)
+        alice_notification = FactoryBot.create(:notification, recipient: alice, target: alice_post)
 
         get(
           api_v1_notification_path(alice_notification.guid),

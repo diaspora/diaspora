@@ -7,7 +7,7 @@
 describe ApplicationHelper, :type => :helper do
   before do
     @user = alice
-    @person = FactoryGirl.create(:person)
+    @person = FactoryBot.create(:person)
   end
 
   describe "#all_services_connected?" do
@@ -25,7 +25,7 @@ describe ApplicationHelper, :type => :helper do
     end
 
     it 'returns true if all networks are connected' do
-      3.times { |t| @current_user.services << FactoryGirl.build(:service) }
+      3.times { @current_user.services << FactoryBot.build(:service) }
       expect(all_services_connected?).to be true
     end
 
@@ -48,7 +48,7 @@ describe ApplicationHelper, :type => :helper do
     end
 
     it "returns false if the service is already connected" do
-      @current_user.services << FactoryGirl.build(:service, provider: "service")
+      @current_user.services << FactoryBot.build(:service, provider: "service")
       expect(AppConfig).to receive(:show_service?).with("service", alice).and_return(true)
       expect(service_unconnected?("service")).to be false
     end

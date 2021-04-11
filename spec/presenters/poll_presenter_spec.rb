@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe PollPresenter do
-  let(:poll) { FactoryGirl.create(:status_message_with_poll, public: true).poll }
+  let(:poll) { FactoryBot.create(:status_message_with_poll, public: true).poll }
   let(:poll_answer) { poll.poll_answers.first }
 
   describe "#poll" do

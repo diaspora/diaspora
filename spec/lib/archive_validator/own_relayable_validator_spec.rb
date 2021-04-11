@@ -7,14 +7,14 @@ describe ArchiveValidator::OwnRelayableValidator do
   include_context "relayable validator context"
 
   let(:relayable_entity) { :comment_entity }
-  let(:author) { FactoryGirl.create(:user).person }
+  let(:author) { FactoryBot.create(:user).person }
 
   let(:relayable_author) {
     author_id
   }
 
   def create_root
-    FactoryGirl.create(:status_message, guid: parent_guid)
+    FactoryBot.create(:status_message, guid: parent_guid)
   end
 
   before do
@@ -32,7 +32,7 @@ describe ArchiveValidator::OwnRelayableValidator do
         expect(DiasporaFederation::Federation::Fetcher)
           .to receive(:fetch_public)
             .with(author.diaspora_handle, "Post", parent_guid) {
-              FactoryGirl.create(:status_message, guid: parent_guid)
+              FactoryBot.create(:status_message, guid: parent_guid)
             }
       end
 
@@ -85,7 +85,7 @@ describe ArchiveValidator::OwnRelayableValidator do
 
     context "with known root" do
       def create_root
-        smwp = FactoryGirl.create(:status_message_with_poll)
+        smwp = FactoryBot.create(:status_message_with_poll)
         smwp.poll.update(guid: parent_guid)
       end
 
@@ -100,7 +100,7 @@ describe ArchiveValidator::OwnRelayableValidator do
           expect(DiasporaFederation::Federation::Fetcher)
             .to receive(:fetch_public)
               .with(author.diaspora_handle, "Poll", parent_guid) {
-                FactoryGirl.create(:poll, guid: parent_guid)
+                FactoryBot.create(:poll, guid: parent_guid)
               }
         end
 

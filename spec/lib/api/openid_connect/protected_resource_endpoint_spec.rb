@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Api::OpenidConnect::ProtectedResourceEndpoint, type: :request do
-  let(:auth_with_read) { FactoryGirl.create(:auth_with_read_scopes) }
+  let(:auth_with_read) { FactoryBot.create(:auth_with_read_scopes) }
   let!(:access_token_with_read) { auth_with_read.create_access_token.to_s }
   let!(:expired_access_token) do
     access_token = auth_with_read.o_auth_access_tokens.create!

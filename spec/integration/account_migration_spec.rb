@@ -3,10 +3,10 @@
 require "integration/federation/federation_helper"
 
 def create_remote_contact(user, pod_host)
-  FactoryGirl.create(
+  FactoryBot.create(
     :contact,
     user:   user,
-    person: FactoryGirl.create(
+    person: FactoryBot.create(
       :person,
       pod:             Pod.find_or_create_by(url: "http://#{pod_host}"),
       diaspora_handle: "#{r_str}@#{pod_host}"
@@ -16,29 +16,29 @@ end
 
 shared_examples_for "every migration scenario" do
   it "updates person references" do
-    contact = FactoryGirl.create(:contact, person: old_person)
-    post = FactoryGirl.create(:status_message, author: old_person)
-    reshare = FactoryGirl.create(:reshare, author: old_person)
-    photo = FactoryGirl.create(:photo, author: old_person)
-    comment = FactoryGirl.create(:comment, author: old_person)
-    like = FactoryGirl.create(:like, author: old_person)
-    participation = FactoryGirl.create(:participation, author: old_person)
-    poll_participation = FactoryGirl.create(:poll_participation, author: old_person)
-    mention = FactoryGirl.create(:mention, person: old_person)
-    message = FactoryGirl.create(:message, author: old_person)
-    conversation = FactoryGirl.create(:conversation, author: old_person)
-    block = FactoryGirl.create(:user).blocks.create(person: old_person)
-    role = FactoryGirl.create(:role, person: old_person)
+    contact = FactoryBot.create(:contact, person: old_person)
+    post = FactoryBot.create(:status_message, author: old_person)
+    reshare = FactoryBot.create(:reshare, author: old_person)
+    photo = FactoryBot.create(:photo, author: old_person)
+    comment = FactoryBot.create(:comment, author: old_person)
+    like = FactoryBot.create(:like, author: old_person)
+    participation = FactoryBot.create(:participation, author: old_person)
+    poll_participation = FactoryBot.create(:poll_participation, author: old_person)
+    mention = FactoryBot.create(:mention, person: old_person)
+    message = FactoryBot.create(:message, author: old_person)
+    conversation = FactoryBot.create(:conversation, author: old_person)
+    block = FactoryBot.create(:user).blocks.create(person: old_person)
+    role = FactoryBot.create(:role, person: old_person)
 
     # Create ConversationVisibility by creating a conversation with participants
-    conversation2 = FactoryGirl.build(:conversation)
-    FactoryGirl.create(:contact, user: old_user, person: conversation2.author) if old_person.local?
+    conversation2 = FactoryBot.build(:conversation)
+    FactoryBot.create(:contact, user: old_user, person: conversation2.author) if old_person.local?
     conversation2.participants << old_person
     conversation2.save!
     visibility = ConversationVisibility.find_by(person_id: old_person.id)
 
     # In order to create a notification actor we need to create a notification first
-    notification = FactoryGirl.build(:notification)
+    notification = FactoryBot.build(:notification)
     notification.actors << old_person
     notification.save!
     actor = notification.notification_actors.find_by(person_id: old_person.id)
@@ -110,7 +110,7 @@ end
 shared_examples_for "migration scenarios initiated remotely" do
   it "resends known contacts to the new user" do
     2.times do
-      contact = FactoryGirl.create(:contact, person: old_user.person, sharing: true)
+      contact = FactoryBot.create(:contact, person: old_user.person, sharing: true)
       expect(DiasporaFederation::Federation::Sender).to receive(:private)
         .with(
           contact.user_id,
@@ -157,17 +157,17 @@ end
 
 shared_examples_for "migration scenarios with local user rename" do
   it "updates user references" do
-    invited_user = FactoryGirl.create(:user, invited_by: old_user)
-    aspect = FactoryGirl.create(:aspect, user: old_user, name: r_str)
-    contact = FactoryGirl.create(:contact, user: old_user)
-    service = FactoryGirl.create(:service, user: old_user)
+    invited_user = FactoryBot.create(:user, invited_by: old_user)
+    aspect = FactoryBot.create(:aspect, user: old_user, name: r_str)
+    contact = FactoryBot.create(:contact, user: old_user)
+    service = FactoryBot.create(:service, user: old_user)
     pref = UserPreference.create!(user: old_user, email_type: "also_commented")
-    tag_following = FactoryGirl.create(:tag_following, user: old_user)
-    block = FactoryGirl.create(:block, user: old_user)
-    notification = FactoryGirl.create(:notification, recipient: old_user)
-    report = FactoryGirl.create(:report, user: old_user)
-    authorization = FactoryGirl.create(:auth_with_read_scopes, user: old_user)
-    share_visibility = FactoryGirl.create(:share_visibility, user: old_user)
+    tag_following = FactoryBot.create(:tag_following, user: old_user)
+    block = FactoryBot.create(:block, user: old_user)
+    notification = FactoryBot.create(:notification, recipient: old_user)
+    report = FactoryBot.create(:report, user: old_user)
+    authorization = FactoryBot.create(:auth_with_read_scopes, user: old_user)
+    share_visibility = FactoryBot.create(:share_visibility, user: old_user)
 
     run_migration
 
@@ -229,7 +229,7 @@ describe "account migration" do
 
     # this is the case when we're a pod, which was left by a person in favor of remote one
     context "old user is local, new user is remote" do
-      let(:old_user) { FactoryGirl.create(:user) }
+      let(:old_user) { FactoryBot.create(:user) }
       let(:old_person) { old_user.person }
       let(:new_user) { remote_user_on_pod_b }
       let(:new_person) { new_user.person }
@@ -282,7 +282,7 @@ describe "account migration" do
     context "old user is remote and new user is local" do
       let(:old_user) { remote_user_on_pod_c }
       let(:old_person) { old_user.person }
-      let(:new_user) { FactoryGirl.create(:user) }
+      let(:new_user) { FactoryBot.create(:user) }
       let(:new_person) { new_user.person }
 
       def run_migration
@@ -300,7 +300,7 @@ describe "account migration" do
       end
 
       context "when new person has been migrated before" do
-        let(:intermidiate_person) { FactoryGirl.create(:user).person }
+        let(:intermidiate_person) { FactoryBot.create(:user).person }
 
         before do
           AccountMigration.create!(old_person: intermidiate_person, new_person: new_person).perform!
@@ -320,9 +320,9 @@ describe "account migration" do
 
     # this is the case when a user changes diaspora id but stays on the same pod
     context "old user is local and new user is local" do
-      let(:old_user) { FactoryGirl.create(:user) }
+      let(:old_user) { FactoryBot.create(:user) }
       let(:old_person) { old_user.person }
-      let(:new_user) { FactoryGirl.create(:user) }
+      let(:new_user) { FactoryBot.create(:user) }
       let(:new_person) { new_user.person }
 
       def run_migration
@@ -345,7 +345,7 @@ describe "account migration" do
       include_examples "migration scenarios with local user rename"
 
       context "when new user has been migrated before" do
-        let(:intermidiate_person) { FactoryGirl.create(:user).person }
+        let(:intermidiate_person) { FactoryBot.create(:user).person }
 
         before do
           AccountMigration.create!(old_person: intermidiate_person, new_person: new_person).perform!

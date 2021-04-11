@@ -10,7 +10,7 @@ describe ProfilesController, :type => :controller do
   end
 
   describe '#show' do
-    let(:mock_person) { FactoryGirl.create(:user) }
+    let(:mock_person) { FactoryBot.create(:user) }
     let(:mock_presenter) { double(:as_json => {:rock_star => "Jamie Cai"})}
 
     it "returns a post Presenter" do
@@ -147,7 +147,7 @@ describe ProfilesController, :type => :controller do
 
     context 'mass assignment' do
       before do
-        new_person = FactoryGirl.create(:person)
+        new_person = FactoryBot.create(:person)
         @profile_params = {:profile =>{ :person_id => new_person.id,
                                     :diaspora_handle => 'abc@a.com'}}
       end

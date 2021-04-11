@@ -22,6 +22,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Enable Content-Security-Policy header by default [#7781](https://github.com/diaspora/diaspora/pull/7781)
 * Do not show getting started after account import [#8036](https://github.com/diaspora/diaspora/pull/8036)
 * Remove the JSXC/Prosody integration [#8069](https://github.com/diaspora/diaspora/pull/8069)
+* Replace factory\_girl with factory\_bot [#8218](https://github.com/diaspora/diaspora/pull/8218)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
@@ -37,12 +38,14 @@ Although the chat was never enabled per default and was marked as experimental, 
 
 ## Refactor
 * Replaced some `http://` links in the UI with their `https://` counterparts [#8207](https://github.com/diaspora/diaspora/pull/8207)
+* Testing: Replaced phantomjs with headless Chrome/Chromium [#8234](https://github.com/diaspora/diaspora/pull/8234)
 
 ## Bug fixes
 * Update comment counter when weleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
 * Link diaspora only poduptime list [#8174](https://github.com/diaspora/diaspora/pull/8174)
 * Delete a user's invitation code during account deletion [#8202](https://github.com/diaspora/diaspora/pull/8202)
 * Bump mimemagic [#8231](https://github.com/diaspora/diaspora/pull/8231)
+* Removed support for defunct Uni Heidelberg OSM tile server, Mapbox is now required if you want to show maps [#8215](https://github.com/diaspora/diaspora/pull/8215)
 
 ## Features
 * Support and recommend TOML as configuration format [#8132](https://github.com/diaspora/diaspora/pull/8132)

@@ -85,7 +85,19 @@ And /^I click on the first selector "([^"]*)"$/ do |selector|
 end
 
 And /^I confirm the alert after (.*)$/ do |action|
+  accept_confirm do
+    step action
+  end
+end
+
+And /^I accept the alert after (.*)$/ do |action|
   accept_alert do
+    step action
+  end
+end
+
+And /^I confirm the prompt after (.*)$/ do |action|
+  accept_prompt do
     step action
   end
 end
@@ -159,6 +171,10 @@ end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
   has_css?("#people-stream .stream-element", count: n_posts.to_i).should be true
+end
+
+When /^I scroll a bit$/ do
+  page.execute_script("window.scrollBy(0,200)")
 end
 
 And /^I scroll down$/ do
