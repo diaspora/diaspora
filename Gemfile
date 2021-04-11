@@ -258,7 +258,7 @@ group :development do
   gem "pry-byebug"
 
   # test coverage
-  gem "simplecov", "0.16.1", require: false
+  gem "simplecov", "0.21.2", require: false
 
   gem "turbo_dev_assets", "0.0.2"
 end
@@ -267,7 +267,7 @@ group :test do
   # RSpec (unit tests, some integration tests)
 
   gem "fixture_builder",   "0.5.2"
-  gem "fuubar",            "2.5.0"
+  gem "fuubar",            "2.5.1"
   gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
 
@@ -282,16 +282,16 @@ group :test do
   # General helpers
 
   gem "factory_girl_rails", "4.9.0"
-  gem "shoulda-matchers",   "4.0.1"
-  gem "timecop",            "0.9.1"
-  gem "webmock",            "3.8.3", require: false
+  gem "shoulda-matchers",   "4.5.1"
+  gem "timecop",            "0.9.4"
+  gem "webmock",            "3.12.2", require: false
 
   gem "diaspora_federation-test", "0.2.6"
 end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "3.9.1"
+  gem "rspec-rails", "5.0.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "2.3.0", require: false
