@@ -447,6 +447,7 @@ app.views.Publisher = Backbone.View.extend({
 
   checkSubmitAvailability: function() {
     if (this._submittable()) {
+      this.open();
       this.setButtonsEnabled(true);
     } else {
       this.setButtonsEnabled(false);
