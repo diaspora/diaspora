@@ -34,6 +34,14 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Add backend for archive import [#7660](https://github.com/diaspora/diaspora/pull/7660)
 * For pods running PostgreSQL, make sure that no upper-case/mixed-case tags exist, and create a `lower(name)` index on tags to speed up ActsAsTaggableOn [#8206](https://github.com/diaspora/diaspora/pull/8206)
 
+# 0.7.16.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.15.0
 
 ## Refactor
