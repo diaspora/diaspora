@@ -22,7 +22,7 @@
         - else
           = t("shared.aspect_dropdown.toggle", count: selected_aspects.size)
     %span.caret
-  %ul.dropdown-menu.pull-right{unSelectable: "on"}
+  %ul.dropdown-menu.aspect-membership.pull-right{unSelectable: "on"}
 
     %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if public_selected?(selected_aspects))}
       %a

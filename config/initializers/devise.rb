@@ -31,7 +31,7 @@ Devise.setup do |config|
       Rails.logger.warn("No smtp sender address set, mail may fail.")
       warn "WARNING: No smtp sender address set, mail may fail."
     end
-    config.mailer_sender = "please-change-me@config-diaspora-yml.com"
+    config.mailer_sender = "please-change-me@config-diaspora-toml.com"
   end
 
   # Configure the class responsible to send e-mails.

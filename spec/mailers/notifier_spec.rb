@@ -216,7 +216,7 @@ describe Notifier, type: :mailer do
     end
 
     it "can handle status_messages without text" do
-      photo = FactoryGirl.create(:photo, public: true)
+      photo = FactoryGirl.create(:photo, public: true, author: alice.person)
       status = FactoryGirl.create(:status_message, author: alice.person, text: nil, photos: [photo], public: true)
       like = status.likes.create!(author: bob.person)
       mail = Notifier.send_notification("liked", alice.id, like.author.id, like.id)

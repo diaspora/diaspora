@@ -19,6 +19,7 @@ config("with #{database}")
 
 if rails_env == "production"
   config("without test:development")
+  config("ignore_messages true")
 elsif rails_env == "test"
   config("without development")
 end

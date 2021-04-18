@@ -1,0 +1,63 @@
+name: CI
+on:
+  push:
+    branches:
+      - develop
+      - next-minor
+      - main
+      - master
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - 2.6
+          - 2.5
+        db:
+          - mysql
+          - postgresql
+        kind:
+          - cucumber
+          - other
+    env:
+      DB: ${{ matrix.db }}
+      RAILS_ENV: test
+      BUNDLE_WITH: ${{ matrix.db }}
+      BUNDLE_WITHOUT: development
+      BUNDLE_FROZEN: true
+      BUNDLE_DISABLE_SHARED_GEMS: true
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - name: Install system dependencies
+        run: sudo apt-get install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev
+      - name: Start MySQL
+        run: sudo systemctl start mysql.service
+        if: matrix.db == 'mysql'
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: Prepare
+        run: script/ci/prepare.sh
+      - name: Run tests
+        run: bin/rake --trace ci:${{ matrix.kind }}
+      - name: Run Jasmine
+        run: bin/rake jasmine:ci
+        timeout-minutes: 2
+        if: matrix.kind == 'other'

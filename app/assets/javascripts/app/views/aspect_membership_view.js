@@ -16,10 +16,8 @@ app.views.AspectMembership = app.views.Base.extend({
   },
 
   events: {
-    "click ul.aspect_membership.dropdown-menu > li.aspect_selector"
-        : "_clickHandler",
-    "keypress ul.aspect_membership.dropdown-menu > li.aspect_selector"
-        : "_clickHandler"
+    "click ul.aspect-membership.dropdown-menu > li.aspect_selector": "_clickHandler",
+    "keypress ul.aspect-membership.dropdown-menu > li.aspect_selector": "_clickHandler"
   },
 
   initialize: function(opts) {

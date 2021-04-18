@@ -1,3 +1,22 @@
+# 0.7.15.0
+
+## Refactor
+* Replaced some `http://` links in the UI with their `https://` counterparts [#8207](https://github.com/diaspora/diaspora/pull/8207)
+* Testing: Replaced phantomjs with headless Chrome/Chromium [#8234](https://github.com/diaspora/diaspora/pull/8234)
+
+## Bug fixes
+* Update comment counter when weleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
+* Link diaspora only poduptime list [#8174](https://github.com/diaspora/diaspora/pull/8174)
+* Delete a user's invitation code during account deletion [#8202](https://github.com/diaspora/diaspora/pull/8202)
+* Bump mimemagic [#8231](https://github.com/diaspora/diaspora/pull/8231)
+* Removed support for defunct Uni Heidelberg OSM tile server, Mapbox is now required if you want to show maps [#8215](https://github.com/diaspora/diaspora/pull/8215)
+* Render only two fractional digits in the posts per user/day admin statistics [#8227](https://github.com/diaspora/diaspora/pull/8227)
+* Make aspect dropdowns scrollable [#8213](https://github.com/diaspora/diaspora/pull/8213)
+* Fix `Photo#ownserhip_of_status_message` validation [#8214](https://github.com/diaspora/diaspora/pull/8214)
+
+## Features
+* Support and recommend TOML as configuration format [#8132](https://github.com/diaspora/diaspora/pull/8132)
+
 # 0.7.14.0
 
 ## Refactor

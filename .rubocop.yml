@@ -1,7 +1,8 @@
 require: rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.6
+  NewCops: enable
   Exclude:
     - "bin/**/*"
     - "db/schema.rb"

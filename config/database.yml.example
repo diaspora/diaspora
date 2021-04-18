@@ -3,7 +3,7 @@ postgresql: &postgresql
   host: "localhost"
   port: 5432
   username: "postgres"
-  password: ""
+  password: "postgres"
   encoding: unicode
 
 mysql: &mysql
@@ -11,7 +11,7 @@ mysql: &mysql
   host: "localhost"
   port: 3306
   username: "root"
-  password: ""
+  password: "root"
 #  socket: /tmp/mysql.sock
   encoding: utf8mb4
   collation: utf8mb4_bin
@@ -30,6 +30,7 @@ common: &common
 ##################################################
 #### CONFIGURE ABOVE #############################
 ##################################################
+
 
 # Normally you don't need to touch anything here
 

@@ -257,7 +257,7 @@ dia_config() {
   if [ ! -z $dia_config_delete ]; then
     rm "$DIASPORA_CONFIG_DIA" "$DIASPORA_CONFIG_DB"
   fi
-  # Create new diaspora.yml if none exists
+  # Create new diaspora.toml if none exists
   if [ ! -f "$DIASPORA_CONFIG_DIA" ]; then
     cp "$DIASPORA_CONFIG_DIA".example "$DIASPORA_CONFIG_DIA"
   fi
@@ -477,7 +477,7 @@ export SCRIPT_ROOT=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 export DIASPORA_ROOT=$(dirname "$SCRIPT_ROOT")
 export DIASPORA_ROOT_UID=1001
 export DIASPORA_ROOT_GID=1001
-export DIASPORA_CONFIG_DIA=$DIASPORA_ROOT/config/diaspora.yml
+export DIASPORA_CONFIG_DIA=$DIASPORA_ROOT/config/diaspora.toml
 export DIASPORA_CONFIG_DB=$DIASPORA_ROOT/config/database.yml
 export DIASPORA_DOCKER_DB=$(dia_get_db)
 
