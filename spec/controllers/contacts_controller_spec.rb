@@ -64,6 +64,22 @@ describe ContactsController, :type => :controller do
           get :index, params: {q: @person3.first_name, mutual: true}, format: :json
           expect(response.body).to eq([@person3].to_json)
         end
+
+        it "returns local contacts if admin" do
+          Role.add_admin bob.person
+          local_user = FactoryBot.create(:person)
+          local_user.owner_id = 42
+          local_user.save
+          get :index, params: {q: local_user.first_name, mutual: true}, format: :json
+          expect(response.body).to eq([local_user].to_json)
+        end
+
+        it "wont return remote user if admin" do
+          remote_user = FactoryBot.create(:person)
+          Role.add_admin bob.person
+          get :index, params: {q: remote_user.first_name, mutual: true}, format: :json
+          expect(response.body).to eq([].to_json)
+        end
       end
 
       context "for pagination on the contacts page" do

@@ -368,7 +368,7 @@ class User < ApplicationRecord
   end
 
   ######### Posts and Such ###############
-  def retract(target)
+  def cretract(target)
     retraction = Retraction.for(target)
     retraction.defer_dispatch(self)
     retraction.perform
