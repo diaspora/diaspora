@@ -15,7 +15,7 @@ class Conversation < ApplicationRecord
     recipients.each do |recipient|
       if recipient.local?
         unless recipient.owner.contacts.where(person_id: author.id).any? ||
-            (author.owner && author.owner.podmin_account?)
+            (author.owner && (author.owner.podmin_account? || author.owner.admin?))
           errors.add(:all_recipients, "recipient not allowed")
         end
       end

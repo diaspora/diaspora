@@ -20,7 +20,11 @@ class ContactsController < ApplicationController
       format.json {
         @people = if params[:q].present?
                     mutual = params[:mutual].present? && params[:mutual]
-                    Person.search(params[:q], current_user, only_contacts: true, mutual: mutual).limit(15)
+                    if current_user.admin?
+                      Person.search_for_admin(params[:q], current_user, only_contacts: true, mutual: mutual).limit(15)
+                    else
+                      Person.search(params[:q], current_user, only_contacts: true, mutual: mutual).limit(15)
+                    end
                   else
                     set_up_contacts_json
                   end

@@ -24,9 +24,8 @@ class ConversationsController < ApplicationController
     end
 
     gon.contacts = contacts_data
-
     respond_with do |format|
-      format.html { render "index", locals: {no_contacts: current_user.contacts.mutual.empty?} }
+      format.html { render "index", locals: {no_contacts: has_no_contacts?} }
       format.json { render json: @visibilities.map(&:conversation), status: 200 }
     end
   end
@@ -37,7 +36,12 @@ class ConversationsController < ApplicationController
     # This will have to be removed when mobile autocomplete is ported to Typeahead
     recipients_param, column = [%i(contact_ids id), %i(person_ids person_id)].find {|param, _| params[param].present? }
     if recipients_param
-      person_ids = current_user.contacts.mutual.where(column => params[recipients_param].split(",")).pluck(:person_id)
+      # As an admin, I want to send a message to all local user
+      if current_user.admin? 
+        person_ids = JSON.parse("[#{params[:person_ids]}]")
+      else
+        person_ids = current_user.contacts.mutual.where(column => params[recipients_param].split(",")).pluck(:person_id)
+      end
     end
 
     unless person_ids.present?
@@ -49,7 +53,7 @@ class ConversationsController < ApplicationController
     opts[:participant_ids] = person_ids
     opts[:message] = { text: params[:conversation][:text] }
     @conversation = current_user.build_conversation(opts)
-
+    puts "Built conversation: #{@conversation} "
     if @conversation.save
       Diaspora::Federation::Dispatcher.defer_dispatch(current_user, @conversation)
       flash[:notice] = I18n.t("conversations.create.sent")
@@ -117,5 +121,11 @@ class ConversationsController < ApplicationController
       .map {|contact_id, *name_attrs|
         {value: contact_id, name: ERB::Util.h(Person.name_from_attrs(*name_attrs)) }
       }
+  end
+
+  def has_no_contacts?
+    # an admin always has at least all local contcts
+    return false if current_user.admin?
+    current_user.contacts.mutual.empty? 
   end
 end

@@ -105,6 +105,11 @@ class Person < ApplicationRecord
     joins(:contacts).where(contacts: {user_id: user.id})
   }
 
+  scope :contacts_of_for_admins, ->(user) {
+    left_outer_joins(:contacts).where(contacts: {user_id: user.id})
+    .or(Person.where("order_id > 0"))
+  }
+
   scope :profile_tagged_with, ->(tag_name) {
     joins(:profile => :tags)
       .where(:tags => {:name => tag_name})
@@ -247,17 +252,32 @@ class Person < ApplicationRecord
   def self.search(search_str, user, only_contacts: false, mutual: false)
     query = find_by_substring(search_str)
     return query if query.is_a?(ActiveRecord::NullRelation)
-
     query = if only_contacts
               query.contacts_of(user)
             else
               query.searchable(user)
             end
-
     query = query.where(contacts: {sharing: true, receiving: true}) if mutual
 
     query.where(closed_account: false)
          .order([Arel.sql("contacts.user_id IS NULL"), "profiles.last_name ASC", "profiles.first_name ASC"])
+  end
+
+  def self.search_for_admin(search_str, user, only_contacts: false, mutual: false)
+    query = find_by_substring(search_str)
+    return query if query.is_a?(ActiveRecord::NullRelation)
+    query = if only_contacts
+              query.where("exists (" + exists_in_contacts(user, mutual) + ") or people.owner_id is not null")
+            else
+              query.searchable(user)
+            end
+    query.where(closed_account: false)
+         .order(["profiles.last_name ASC", "profiles.first_name ASC"])
+  end
+  
+  def self.exists_in_contacts(user, mutual)
+    return "select 1 from contacts where contacts.user_id = #{user.id}" unless mutual
+    "select 1 from contacts where contacts.user_id = #{user.id} and sharing = true and receiving = true"
   end
 
   def name(opts = {})
