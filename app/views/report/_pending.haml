@@ -1,0 +1,43 @@
+- @unreviewed_reports.each do |report|
+  .panel.panel-default
+    - reported_by = report.user.username
+    .panel-heading
+      .reporter.pull-right
+        != t("report.reported_label", person: link_to(reported_by, user_profile_path(reported_by)))
+      .author
+        %span.reason-label
+          != "#{t('report.reported_author')}:"
+        %span
+          = report.reported_author.name if report.item
+          != "-" if report.item.nil?
+      .created-at
+        %span.reason-label
+          != "#{t('report.report_created_at')}:"
+        %span
+          = I18n.l(report.created_at, format: :short)
+      .reason
+        %span.reason-label
+          = t("report.reason_label")
+        %span
+          = report.text
+    .panel-body
+      .content
+        = report_content(report)
+      .segment-selection
+        - if report.item.present?
+          = button_to t("report.reported_user_details"),
+                      user_search_path(admins_controller_user_search: {guid: report.reported_author.guid}),
+                      class:  "btn pull-left btn-info btn-small col-md-3 col-xs-12",
+                      method: :post
+        = button_to t("report.review_link"),
+                    report_path(report.id, type: report.item_type),
+                    class:  "btn pull-left btn-info btn-small col-md-3 col-xs-12",
+                    method: :put
+        = button_to t("report.delete_link"),
+                    report_path(report.id, type: report.item_type),
+                    data:   {confirm: t("report.confirm_deletion")},
+                    class:  "btn pull-right btn-danger btn-small col-md-3 col-xs-12",
+                    method: :delete
+- if @unreviewed_reports.empty?
+  %h3
+    = t("report.no_pending_reports")
