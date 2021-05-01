@@ -1,6 +1,6 @@
 // This class contains code extracted from interactions.js to factorize likes management between posts and comments
 
-app.models.Post.LikeInteractions = Backbone.Model.extend({
+app.models.LikeInteractions = Backbone.Model.extend({
 
   initialize: function(options) {
     this.likes = new app.collections.Likes(this.get("likes"), options);

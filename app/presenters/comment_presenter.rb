@@ -20,7 +20,7 @@ class CommentPresenter < BasePresenter
       author:           PersonPresenter.new(author).as_api_json,
       created_at:       created_at,
       mentioned_people: build_mentioned_people_json,
-      reported:         current_user.present? && reports.where(user: current_user).exists?,
+      reported:         current_user.present? && reports.exists?(user: current_user),
       interactions:     build_interactions_json
     }
   end

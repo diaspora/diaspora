@@ -52,6 +52,8 @@
 
       $.post(form.attr("action") + "?format=mobile", form.serialize(), function(data){
         Diaspora.Mobile.Comments.updateStream(form, data);
+        // Register new comments
+        $(".stream").trigger("comments.loaded");
       }, "html").fail(function(response) {
         Diaspora.Mobile.Alert.handleAjaxError(response);
         Diaspora.Mobile.Comments.resetCommentBox(form);

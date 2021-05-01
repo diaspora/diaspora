@@ -20,7 +20,7 @@ app.collections.Comments = Backbone.Collection.extend({
         comment.set({author: app.currentUser.toJSON(), parent: self.post });
 
         // Need interactions after make
-        comment.interactions = new app.models.Post.LikeInteractions(
+        comment.interactions = new app.models.LikeInteractions(
           _.extend({comment: comment, post: self.post}, comment.get("interactions"))
         );
         self.add(comment);

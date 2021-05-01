@@ -1,10 +1,8 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-//= require ./like_interactions
-
-app.models.Post.Interactions = app.models.Post.LikeInteractions.extend({
+app.models.PostInteractions = app.models.LikeInteractions.extend({
   initialize: function(options) {
-    app.models.Post.LikeInteractions.prototype.initialize.apply(this, arguments);
+    app.models.LikeInteractions.prototype.initialize.apply(this, arguments);
     this.post = options.post;
     this.comments = new app.collections.Comments(this.get("comments"), {post: this.post});
     this.reshares = new app.collections.Reshares(this.get("reshares"), {post: this.post});
