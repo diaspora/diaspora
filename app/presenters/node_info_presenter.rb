@@ -100,17 +100,17 @@ class NodeInfoPresenter
   end
 
   def local_posts
-    Rails.cache.fetch("NodeInfoPresenter/local_posts", expires_in: 1.hours) do
+    Rails.cache.fetch("NodeInfoPresenter/local_posts", expires_in: 1.hour) do
       @local_posts ||= Post.where(type: "StatusMessage")
-                          .joins(:author)
-                          .where("owner_id IS NOT null")
-                          .count
+                           .joins(:author)
+                           .where.not(people: {owner_id: nil})
+                           .count
     end
   end
 
   def local_comments
     @local_comments ||= Comment.joins(:author)
-                               .where("owner_id IS NOT null")
+                               .where.not(people: {owner_id: nil})
                                .count
   end
 end
