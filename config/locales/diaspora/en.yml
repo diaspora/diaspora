@@ -32,6 +32,7 @@ en:
   no_results: "No results found"
   _contacts: "Contacts"
   _terms: "Terms"
+  _podmin_mail: "Podmin Mail"
   _statistics: "Statistics"
 
   # For reference translation; the real ActiveRecord English transations are actually
