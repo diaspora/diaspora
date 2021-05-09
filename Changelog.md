@@ -16,6 +16,7 @@
 * Allow points and dashes in the username [#8266](https://github.com/diaspora/diaspora/pull/8266)
 * Add support for footnotes in markdown [#8277](https://github.com/diaspora/diaspora/pull/8277)
 * Send `AccountMigration` if receiving message to a migrated account [#8288](https://github.com/diaspora/diaspora/pull/8288)
+* Add podmin mail address to the footer [#8242](https://github.com/diaspora/diaspora/pull/8242)
 
 # 0.7.15.0
 
