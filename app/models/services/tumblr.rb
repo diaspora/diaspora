@@ -8,11 +8,14 @@ module Services
       "tumblr"
     end
 
-    def post(post, url="")
+    def post(post, url="") # rubocop:disable Metrics/AbcSize
+      return true if post.nil? # return if post is deleted while waiting in queue
+
       body = build_tumblr_post(post, url)
       user_info = JSON.parse(client.get("/v2/user/info").body)
       blogs = user_info["response"]["user"]["blogs"]
       primaryblog = blogs.find {|blog| blog["primary"] } || blogs[0]
+
       tumblr_ids = {}
 
       blogurl = URI.parse(primaryblog["url"])
@@ -35,13 +38,13 @@ module Services
     end
 
     def build_tumblr_post(post, url)
-      {type: "text", format: "markdown", body: tumblr_template(post, url)}
+      {type: "text", format: "markdown", body: tumblr_template(post, url), tags: tags(post), native_inline_images: true}
     end
 
     private
 
     def client
-      @consumer ||= OAuth::Consumer.new(consumer_key, consumer_secret, site: "http://api.tumblr.com")
+      @consumer ||= OAuth::Consumer.new(consumer_key, consumer_secret, site: "https://api.tumblr.com")
       @client ||= OAuth::AccessToken.new(@consumer, access_token, access_secret)
     end
 
@@ -51,13 +54,17 @@ module Services
       "#{photo_html}#{post.message.html(mentioned_people: [])}\n\n[original post](#{url})"
     end
 
+    def tags(post)
+      post.tags.pluck(:name).join(",").to_s
+    end
+
     def delete_from_tumblr(blog_name, service_post_id)
       client.post("/v2/blog/#{blog_name}/post/delete", "id" => service_post_id)
     end
 
     def request_to_external_blog(blogurl, body)
       resp = client.post("/v2/blog/#{blogurl.host}/post", body)
-      JSON.parse(resp.body)["response"]["id"] if resp.code == "201"
+      JSON.parse(resp.body)["response"]["id"] if resp.code == 201
     end
 
     def consumer_key
