@@ -7,6 +7,7 @@
 ## Bug fixes
 
 ## Features
+* Add tags to tumblr posts [#8244](https://github.com/diaspora/diaspora/pull/8244)
 
 # 0.7.15.0
 

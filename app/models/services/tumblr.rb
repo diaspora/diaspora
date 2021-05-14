@@ -64,7 +64,7 @@ module Services
 
     def request_to_external_blog(blogurl, body)
       resp = client.post("/v2/blog/#{blogurl.host}/post", body)
-      JSON.parse(resp.body)["response"]["id"] if resp.code == 201
+      JSON.parse(resp.body)["response"]["id"] if resp.code == "201"
     end
 
     def consumer_key
