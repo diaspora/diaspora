@@ -1,0 +1,9 @@
+- if person != @current_user.person && !person.closed_account?
+  = link_to person.owner.present? ? t("admins.user_search.close_account") : t("admins.user_search.close_local_account"),
+    admin_close_account_path(person.id),
+    method: :post, data: {confirm: t("admins.user_search.are_you_sure")},
+    class: "btn btn-danger btn-block"
+  = link_to person.owner.present? ? t("admins.user_search.wipe_and_close_account") : t("admins.user_search.wipe_and_close_local_account"),
+    admin_wipe_and_close_account_path(person.id),
+    method: :post, data: {confirm: t("admins.user_search.are_you_sure_close_and_wipe_account")},
+    class: "btn btn-danger btn-block"

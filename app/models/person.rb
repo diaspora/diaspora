@@ -372,9 +372,42 @@ class Person < ApplicationRecord
     json
   end
 
+  # Verifies whether local user is temporay locked or not
+  def locked_access?
+    return owner.access_locked? if owner.present?
+
+    false
+  end
+
+  # Locks revocably the users account and access to this instance if local
   def lock_access!
-    self.closed_account = true
-    self.save
+    owner.lock_access!({send_instructions: false}) if owner.present?
+  end
+
+  def unlock_access
+    owner.unlock_access! if owner.present?
+  end
+
+  # Verifies whether user account is permanetly locked or not
+  def closed_account?
+    closed_account
+  end
+
+  # Locks user and closes account permanently. Messages from external users will not enter this pod
+  def close_account!
+    update(closed_account: true)
+    lock_access!
+    AccountDeletion.create(person: self) unless AccountDeletion.exists?(person: self)
+  end
+
+  # Locks user and closes account permanently. Messages from external users will not enter this pod
+  # All messages and comments will be deleted
+  def wipe_and_close_account!
+    update(closed_account: true)
+    lock_access!
+    owner.lock_access! if owner.present?
+    AccountDeletion.create(person: self) unless AccountDeletion.exists?(person: self)
+    Workers::WipeAccount.perform_async(id)
   end
 
   def clear_profile!
