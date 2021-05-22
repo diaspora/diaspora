@@ -248,7 +248,7 @@ class Person < ApplicationRecord
 
     [where_clause, q_tokens]
   end
- 
+
   # rubocop:disable Rails/DynamicFindBy
   def self.search(search_str, user, only_contacts: false, mutual: false)
     query = find_by_substring(search_str)
