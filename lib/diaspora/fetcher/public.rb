@@ -51,9 +51,7 @@ module Diaspora; module Fetcher; class Public
         return false
       end
 
-      unless @person.pod.nil?
-        return false if @person.pod.blocked
-      end
+      return false if @person.pod&.blocked
 
       # this record is already being worked on
       return false if @person.fetch_status > Public::Status_Initial
