@@ -264,7 +264,7 @@ class Person < ApplicationRecord
          .order([Arel.sql("contacts.user_id IS NULL"), "profiles.last_name ASC", "profiles.first_name ASC"])
   end
 
-  def self.search_for_admin(search_str, user, only_contacts: false, mutual: false)
+  def self.search_as_admin(search_str, user, only_contacts: false, mutual: false)
     query = find_by_substring(search_str)
     return query if query.is_a?(ActiveRecord::NullRelation)
 
@@ -279,10 +279,10 @@ class Person < ApplicationRecord
   # rubocop:enable Rails/DynamicFindBy
 
   def self.exists_in_contacts(user, mutual)
-    return "select 1 from contacts where contacts.person_id = people.id and contacts.user_id = #{user.id}" unless mutual
+    return "SELECT 1 FROM contacts WHERE contacts.person_id = people.id AND contacts.user_id = #{user.id}" unless mutual
 
-    "select 1 from contacts where contacts.person_id = people.id
-     and contacts.user_id = #{user.id} and sharing = true and receiving = true"
+    "SELECT 1 FROM contacts WHERE contacts.person_id = people.id
+     AND contacts.user_id = #{user.id} AND sharing = TRUE AND receiving = TRUE"
   end
 
   def name(opts = {})

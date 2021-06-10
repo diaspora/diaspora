@@ -123,7 +123,7 @@ class ConversationsController < ApplicationController
   end
 
   def no_contacts?
-    # an admin always has at least all local contcts
+    # an admin always has at least all local contacts
     return false if current_user.admin?
 
     current_user.contacts.mutual.empty?

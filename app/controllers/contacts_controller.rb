@@ -21,7 +21,7 @@ class ContactsController < ApplicationController
         @people = if params[:q].present?
                     mutual = params[:mutual].present? && params[:mutual]
                     if current_user.admin?
-                      Person.search_for_admin(params[:q], current_user, only_contacts: true, mutual: mutual).limit(15)
+                      Person.search_as_admin(params[:q], current_user, only_contacts: true, mutual: mutual).limit(15)
                     else
                       Person.search(params[:q], current_user, only_contacts: true, mutual: mutual).limit(15)
                     end
