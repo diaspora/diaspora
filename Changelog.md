@@ -1,6 +1,7 @@
 # 0.7.16.0
 
 ## Refactor
+* Cache local posts/comments count for statistics [#8241](https://github.com/diaspora/diaspora/pull/8241)
 
 ## Bug fixes
 
