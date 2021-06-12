@@ -174,15 +174,6 @@ defaults:
   admins:
     account:
     podmin_email:
-  relay:
-    outbound:
-      send: false
-      url: 'https://relay.iliketoast.net/receive/public'
-    inbound:
-      subscribe: false
-      scope: tags
-      include_user_tags: false
-      pod_tags:
 
 development:
   environment:

@@ -17,38 +17,6 @@ describe Diaspora::Federation::Dispatcher::Public do
       end
     end
 
-    context "relay functionality" do
-      before do
-        AppConfig.relay.outbound.url = "https://relay.iliketoast.net/receive/public"
-      end
-
-      it "delivers public post to relay when relay is enabled" do
-        AppConfig.relay.outbound.send = true
-
-        expect(Workers::SendPublic).to receive(:perform_async) do |_user_id, _entity_string, urls, _xml|
-          expect(urls).to include("https://relay.iliketoast.net/receive/public")
-        end
-
-        Diaspora::Federation::Dispatcher.build(alice, post).dispatch
-      end
-
-      it "does not deliver post to relay when relay is disabled" do
-        AppConfig.relay.outbound.send = false
-
-        expect(Workers::SendPublic).not_to receive(:perform_async)
-
-        Diaspora::Federation::Dispatcher.build(alice, post).dispatch
-      end
-
-      it "does not deliver comments to relay" do
-        AppConfig.relay.outbound.send = true
-
-        expect(Workers::SendPublic).not_to receive(:perform_async)
-
-        Diaspora::Federation::Dispatcher.build(alice, comment).dispatch
-      end
-    end
-
     context "deliver to remote user" do
       let(:encryption_key) { double }
       let(:magic_env) { double }
