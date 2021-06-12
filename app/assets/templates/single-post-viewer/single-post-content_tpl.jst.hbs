@@ -40,11 +40,11 @@
             <span class="post-time">
               {{#if root}}
                 <a href="/posts/{{root.guid}}">
-                  <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
+                  <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}"></time>
                 </a>
               {{else}}
                 <a href="/posts/{{guid}}">
-                  <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+                  <time datetime="{{created_at}}" title="{{localTime created_at}}"></time>
                 </a>
               {{/if}}
             </span>
@@ -59,12 +59,12 @@
             {{/if}}
           </div>
           {{#unless root}}
-            <div id="single-post-moderation" />
+            <div id="single-post-moderation"></div>
           {{/unless}}
         </div>
       </div>
       {{#unless root}}
-        <div id="single-post-actions" class="col-md-4" />
+        <div id="single-post-actions" class="col-md-4"></div>
       {{/unless}}
     </div>
     {{#if location.lat}}
@@ -92,13 +92,13 @@
           <div class="post-context">
             <span class="post-time">
               <a href="/posts/{{guid}}">
-                <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+                <time datetime="{{created_at}}" title="{{localTime created_at}}"></time>
               </a>
             </span>
-            <span id="single-post-moderation" />
+            <span id="single-post-moderation"></span>
           </div>
         </div>
-        <div id="single-post-actions" class="col-md-4" />
+        <div id="single-post-actions" class="col-md-4"></div>
       </div>
     {{/if}}
   </div>

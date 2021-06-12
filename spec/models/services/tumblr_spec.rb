@@ -6,25 +6,42 @@ describe Services::Tumblr, type: :model do
   let(:service) { Services::Tumblr.new(access_token: "yeah", access_secret: "foobar") }
   let(:post_id) { "bla" }
 
+  describe "#provider" do
+    subject(:provider) { service.provider }
+
+    let(:expected_provider) { "tumblr" }
+
+    it "returns service provider" do
+      is_expected.to eq expected_provider
+    end
+  end
+
   describe "#post" do
     let(:post_request) { {body: service.build_tumblr_post(post, "")} }
     let(:post_response) { {status: 201, body: {response: {id: post_id}}.to_json} }
 
     before do
       user.services << service
-      stub_request(:get, "http://api.tumblr.com/v2/user/info").to_return(status: 200, body: user_info)
+      stub_request(:get, "https://api.tumblr.com/v2/user/info").to_return(status: 200, body: user_info)
     end
 
     context "with multiple blogs" do
-      let(:user_info) {
-        {response: {user: {blogs: [
-          {primary: false, url: "http://foo.tumblr.com"},
-          {primary: true, url: "http://bar.tumblr.com"}
-        ]}}}.to_json
-      }
+      let(:user_info) do
+        {
+          response:
+                    {
+                      user: {
+                        blogs: [
+                          {primary: false, url: "https://foo.tumblr.com"},
+                          {primary: true, url: "https://bar.tumblr.com"}
+                        ]
+                      }
+                    }
+        }.to_json
+      end
 
       it "posts a status message to the primary blog and stores the id" do
-        stub = stub_request(:post, "http://api.tumblr.com/v2/blog/bar.tumblr.com/post")
+        stub = stub_request(:post, "https://api.tumblr.com/v2/blog/bar.tumblr.com/post")
                .with(post_request).to_return(post_response)
 
         expect(post).to receive(:tumblr_ids=).with({"bar.tumblr.com" => post_id}.to_json)
@@ -36,10 +53,10 @@ describe Services::Tumblr, type: :model do
     end
 
     context "with a single blog" do
-      let(:user_info) { {response: {user: {blogs: [{url: "http://foo.tumblr.com"}]}}}.to_json }
+      let(:user_info) { {response: {user: {blogs: [{url: "https://foo.tumblr.com"}]}}}.to_json }
 
       it "posts a status message to the returned blog" do
-        stub = stub_request(:post, "http://api.tumblr.com/v2/blog/foo.tumblr.com/post")
+        stub = stub_request(:post, "https://api.tumblr.com/v2/blog/foo.tumblr.com/post")
                .with(post_request).to_return(post_response)
 
         service.post(post)
@@ -63,7 +80,7 @@ describe Services::Tumblr, type: :model do
   describe "#delete_from_service" do
     it "removes posts from tumblr" do
       tumblr_ids = {"foodbar.tumblr.com" => post_id}.to_json
-      stub = stub_request(:post, "http://api.tumblr.com/v2/blog/foodbar.tumblr.com/post/delete")
+      stub = stub_request(:post, "https://api.tumblr.com/v2/blog/foodbar.tumblr.com/post/delete")
              .with(body: {"id" => post_id}).to_return(status: 200)
 
       service.delete_from_service(tumblr_ids: tumblr_ids)

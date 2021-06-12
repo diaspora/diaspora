@@ -37,10 +37,13 @@ Although the chat was never enabled per default and was marked as experimental, 
 # 0.7.16.0
 
 ## Refactor
+* Cache local posts/comments count for statistics [#8241](https://github.com/diaspora/diaspora/pull/8241)
+* Fix html-syntax in some handlebars templates [#8251](https://github.com/diaspora/diaspora/pull/8251)
 
 ## Bug fixes
 
 ## Features
+* Add tags to tumblr posts [#8244](https://github.com/diaspora/diaspora/pull/8244)
 
 # 0.7.15.0
 
