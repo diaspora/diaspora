@@ -128,6 +128,43 @@ describe Configuration::Methods do
     end
   end
 
+  describe "#has_local_posts_stream" do
+    let!(:moderator) { create(:person) }
+    let!(:admin) { create(:person) }
+    before do
+      moderator.roles.create(name: "moderator")
+      admin.roles.create(name: "admin")
+    end
+
+    it "return false if show_local_posts_link is 'disabled'" do
+      AppConfig.settings.enable_local_posts_stream = "disabled"
+      expect(AppConfig.local_posts_stream?(admin)).to be false
+      expect(AppConfig.local_posts_stream?(moderator)).to be false
+      expect(AppConfig.local_posts_stream?(alice)).to be false
+    end
+
+    it "return true for admins if show_local_posts_link is 'admins'" do
+      AppConfig.settings.enable_local_posts_stream = "admins"
+      expect(AppConfig.local_posts_stream?(admin)).to be true
+      expect(AppConfig.local_posts_stream?(moderator)).to be false
+      expect(AppConfig.local_posts_stream?(alice)).to be false
+    end
+
+    it "return true for admins and moderators if show_local_posts_link is 'moderators'" do
+      AppConfig.settings.enable_local_posts_stream = "moderators"
+      expect(AppConfig.local_posts_stream?(admin)).to be true
+      expect(AppConfig.local_posts_stream?(moderator)).to be true
+      expect(AppConfig.local_posts_stream?(alice)).to be false
+    end
+
+    it "return true for everybody if show_local_posts_link is 'everyone'" do
+      AppConfig.settings.enable_local_posts_stream = "everyone"
+      expect(AppConfig.local_posts_stream?(admin)).to be true
+      expect(AppConfig.local_posts_stream?(moderator)).to be true
+      expect(AppConfig.local_posts_stream?(alice)).to be true
+    end
+  end
+
   describe "#version_string" do
     before do
       @version = double
