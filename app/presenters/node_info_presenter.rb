@@ -109,8 +109,10 @@ class NodeInfoPresenter
   end
 
   def local_comments
-    @local_comments ||= Comment.joins(:author)
-                               .where.not(people: {owner_id: nil})
-                               .count
+    Rails.cache.fetch("NodeInfoPresenter/local_comments", expires_in: 1.hour) do
+      @local_comments ||= Comment.joins(:author)
+                                 .where.not(people: {owner_id: nil})
+                                 .count
+    end
   end
 end
