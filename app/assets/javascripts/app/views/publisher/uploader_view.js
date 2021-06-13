@@ -10,7 +10,7 @@ app.views.PublisherUploader = Backbone.View.extend({
     this.publisher.photozoneEl.on("click", ".x", _.bind(this._removePhoto, this));
 
     // Initialize the PostPhotoUploader and subscribe its events
-    this.uploader = new Diaspora.PostPhotoUploader(this.el);
+    this.uploader = new Diaspora.PostPhotoUploader(this.el, opts.dropZoneElementIds);
     this.uploader.onUploadStarted = _.bind(this.uploadStartedHandler, this);
     this.uploader.onProgress = _.bind(this.progressHandler, this);
     this.uploader.onUploadCompleted = _.bind(this.uploadCompleteHandler, this);
