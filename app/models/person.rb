@@ -336,8 +336,6 @@ class Person < ApplicationRecord
 
   # discovery (webfinger)
   def self.find_or_fetch_by_identifier(diaspora_id)
-    return nil if diaspora_handle_from_blocked_pod?(diaspora_id)
-
     # exiting person?
     person = by_account_identifier(diaspora_id)
     return person if person.present? && person.profile.present?

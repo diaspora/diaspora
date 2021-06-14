@@ -225,6 +225,27 @@ module Diaspora
           parent: entity.respond_to?(:parent) ? related_entity(entity.parent) : nil
         )
       end
+
+      def self.should_perform(entity)
+        author = entity.try(:diaspora_handle)
+        return false if author.present? && Person.diaspora_handle_from_blocked_pod(author.diaspora_id)
+
+        root_author = entity.try(:root_diaspora_id)
+        return false if root_author.present? && Person.diaspora_handle_from_blocked_pod(root_author)
+
+        return false if closed_account(author)
+
+        return false if closed_account(root_author)
+
+        true
+      end
+
+      def self.closed_account(diaspora_handle)
+        return false if diaspora_handle.nil?
+
+        person = Person.find_or_fetch_by_identifier(diaspora_handle)
+        person&.closed?
+      end
     end
   end
 end

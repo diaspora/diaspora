@@ -43,12 +43,11 @@ class PeopleController < ApplicationController
         # only do it if it is a diaspora*-ID
         if diaspora_id?(search_query)
           @people = Person.left_outer_joins(:pod)
-                          .where("(pods.blocked = false or pods.blocked is null)")
                           .where(diaspora_handle: search_query.downcase, closed_account: false)
-
           # TODO: Dont make a background fetch, if search_query references a pod which is blocked
           background_search(search_query) if @people.empty?
         end
+        @people = @people.where("(pods.blocked = FALSE or pods.blocked is NULL)")
         @people = @people.paginate(:page => params[:page], :per_page => 15)
         @hashes = hashes_for_people(@people, @aspects)
       end

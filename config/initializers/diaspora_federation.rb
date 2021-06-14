@@ -114,8 +114,10 @@ DiasporaFederation.configure do |config|
       when DiasporaFederation::Entities::Retraction
         Diaspora::Federation::Receive.retraction(entity, recipient_id)
       else
-        persisted = Diaspora::Federation::Receive.perform(entity)
-        Workers::ReceiveLocal.perform_async(persisted.class.to_s, persisted.id, [recipient_id].compact) if persisted
+        if Diaspora::Federation::Entities.should_perform(entity)
+          persisted = Diaspora::Federation::Receive.perform(entity)
+          Workers::ReceiveLocal.perform_async(persisted.class.to_s, persisted.id, [recipient_id].compact) if persisted
+        end
       end
     end
 
