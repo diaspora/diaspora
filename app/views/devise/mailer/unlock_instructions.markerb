@@ -1,4 +1,4 @@
-<%= t('devise.mailer.hello', :email => @resource.email) %>
+<%= t('devise.mailer.hello', :email => @resource.username) %>
 
 <%= t('.account_locked') %>
 

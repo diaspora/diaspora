@@ -1,4 +1,4 @@
-<%= t('devise.mailer.welcome', :email => @resource.email) %>
+<%= t('devise.mailer.welcome', :email => @resource.username) %>
 
 <%= t('.you_can_confirm') %>
 
