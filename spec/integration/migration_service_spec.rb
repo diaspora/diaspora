@@ -287,17 +287,17 @@ describe MigrationService do
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(contact1_diaspora_id))
       expect(contact).not_to be_nil
-      expect(contact.sharing).to be_falsey
+      expect(contact.sharing).to be_truthy
       expect(contact.receiving).to be_falsey
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(contact2_diaspora_id))
       expect(contact).not_to be_nil
-      expect(contact.sharing).to be_falsey
+      expect(contact.sharing).to be_truthy
       expect(contact.receiving).to be_truthy
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(migrated_contact_new_diaspora_id))
       expect(contact).not_to be_nil
-      expect(contact.sharing).to be_falsey
+      expect(contact.sharing).to be_truthy
       expect(contact.receiving).to be_truthy
 
       aspect = user.aspects.find_by(name: "Friends")
