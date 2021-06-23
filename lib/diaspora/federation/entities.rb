@@ -241,7 +241,7 @@ module Diaspora
       end
 
       def self.closed_account?(diaspora_handle)
-        return false if diaspora_handle.present?
+        return false if diaspora_handle.blank?
 
         person = Person.find_or_fetch_by_identifier(diaspora_handle)
         person&.closed?
