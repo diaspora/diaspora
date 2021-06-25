@@ -19,7 +19,7 @@ app.views.Location = Backbone.View.extend({
     var locator = new OSM.Locator();
     locator.getAddress(function(address, latlng){
       $(element).empty();
-      $("<input/>",
+      $("<input></input>",
         { id: "location_address",
           value: address,
           type: "text",

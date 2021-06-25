@@ -47,7 +47,7 @@ describe("app", function() {
 
   describe("setupForms", function() {
     beforeEach(function() {
-      spec.content().append("<textarea/> <input/>");
+      spec.content().append("<textarea></textarea> <input></input>");
     });
 
     it("calls jQuery.placeholder() for inputs", function() {
