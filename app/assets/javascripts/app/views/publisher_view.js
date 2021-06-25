@@ -351,7 +351,7 @@ app.views.Publisher = Backbone.View.extend({
     };
 
     var previewPost = new app.views.PreviewPost({model: new app.models.Post(previewMessage)}).render().el;
-    return $("<div/>").append(previewPost).html();
+    return $("<div></div>").append(previewPost).html();
   },
 
   keyDown : function(evt) {

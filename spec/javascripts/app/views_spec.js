@@ -62,8 +62,8 @@ describe("app.views.Base", function(){
             },
 
             postRenderTemplate : function(){
-              $(this.el).append("<div class=subview1/>");
-              $(this.el).append("<div class=subview2/>");
+              $(this.el).append("<div class=subview1></div>");
+              $(this.el).append("<div class=subview2></div>");
             },
 
             createSubview2 : function(){
@@ -121,7 +121,7 @@ describe("app.views.Base", function(){
       it("replaces .time with relative time ago in words", function() {
         this.view.templateName = false;
         spyOn($.fn, "timeago");
-        this.view.$el.append("<time/>");
+        this.view.$el.append("<time></time>");
         this.view.render();
         expect($.fn.timeago).toHaveBeenCalled();
         expect($.fn.timeago.calls.mostRecent().object.first().is("time")).toBe(true);
@@ -145,7 +145,7 @@ describe("app.views.Base", function(){
     beforeEach(function() {
       this.view.$el.htmlOriginal = this.view.$el.html;
       spyOn(this.view.$el, "html").and.callFake(function() {
-        this.htmlOriginal("<input><textarea/></input>");
+        this.htmlOriginal("<input><textarea></textarea></input>");
         return this;
       });
     });

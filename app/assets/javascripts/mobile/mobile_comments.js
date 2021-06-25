@@ -185,8 +185,8 @@
 
     addNewComments: function(bottomBar, data) {
       if ($(".comment-container", bottomBar).length === 0) {
-        $(".show-comments", bottomBar).after($("<div/>", {"class": "comment-container"}));
-        $(".comment-container", bottomBar).append($("<ul/>", {"class": "comments"}));
+        $(".show-comments", bottomBar).after($("<div></div>", {"class": "comment-container"}));
+        $(".comment-container", bottomBar).append($("<ul></ul>", {"class": "comments"}));
       }
       $(".comment-container .comments", bottomBar).append(data);
     },
@@ -212,8 +212,10 @@
         var postGuid = bottomBar.parents(".stream-element").data("guid");
 
         toggleReactionsLink.remove();
-        toggleReactionsLink = $("<a/>", {"class": "show-comments", "href": Routes.postComments(postGuid) + ".mobile"})
-          .html(text + "<i class='entypo-chevron-up'/>");
+        toggleReactionsLink = $("<a></a>", {
+          "class": "show-comments",
+          "href": Routes.postComments(postGuid) + ".mobile"
+        }).html(text + "<i class='entypo-chevron-up'/>");
         parent.prepend(toggleReactionsLink);
         bottomBar.removeClass("inactive").addClass("active");
       }
