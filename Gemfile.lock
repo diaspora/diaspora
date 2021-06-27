@@ -309,7 +309,7 @@ GEM
       rainbow
       rubocop (>= 0.50.0)
       sysexits (~> 1.1)
-    hamlit (2.14.6)
+    hamlit (2.15.0)
       temple (>= 0.8.2)
       thor
       tilt
@@ -832,7 +832,7 @@ DEPENDENCIES
   fuubar (= 2.5.1)
   gon (= 6.4.0)
   haml_lint (= 0.37.1)
-  hamlit (= 2.14.6)
+  hamlit (= 2.15.0)
   handlebars_assets (= 0.23.8)
   http_accept_language (= 2.1.1)
   i18n-inflector-rails (= 1.0.7)
