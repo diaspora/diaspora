@@ -241,7 +241,7 @@ end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.37.0", require: false
+  gem "haml_lint",      "0.37.1", require: false
   gem "pronto",         "0.11.0", require: false
   gem "pronto-eslint",  "0.11.0", require: false
   gem "pronto-haml",    "0.11.0", require: false
