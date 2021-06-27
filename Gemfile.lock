@@ -453,7 +453,7 @@ GEM
     open_graph_reader (0.7.1)
       faraday (>= 0.9.0)
       nokogiri (~> 1.6)
-    openid_connect (1.1.8)
+    openid_connect (1.2.0)
       activemodel
       attr_required (>= 1.0.0)
       json-jwt (>= 1.5.0)
@@ -512,7 +512,7 @@ GEM
       activesupport
     rack-mobile-detect (0.4.0)
       rack
-    rack-oauth2 (1.16.0)
+    rack-oauth2 (1.17.0)
       activesupport
       attr_required
       httpclient
@@ -858,7 +858,7 @@ DEPENDENCIES
   omniauth-twitter (= 1.4.0)
   omniauth-wordpress (= 0.2.2)
   open_graph_reader (= 0.7.1)
-  openid_connect (= 1.1.8)
+  openid_connect (= 1.2.0)
   pg (= 1.2.3)
   pronto (= 0.11.0)
   pronto-eslint (= 0.11.0)
