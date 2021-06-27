@@ -94,7 +94,7 @@ gem "entypo-rails", "3.0.0"
 
 gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.4.0"
-gem "js-routes",         "1.4.9"
+gem "js-routes",         "1.4.14"
 gem "js_image_paths",    "0.1.1"
 
 source "https://gems.diasporafoundation.org" do
