@@ -86,19 +86,23 @@ describe StreamsController, :type => :controller do
         save_fixture(html_for("body"), "aspects_index_with_one_followed_tag")
       end
 
-      it "generates a jasmine fixture with a post containing a video", :fixture => true do
+      it "generates a jasmine fixture with a post containing a video", fixture: true do
         stub_request(
           :get,
-          "https://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&scheme=https&url=http://www.youtube.com/watch?v=UYrkQL1bX4A"
+          "https://www.youtube.com/oembed/?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&scheme=https&url=https://www.youtube.com/watch?v=UYrkQL1bX4A"
         ).with(
-          :headers => {'Accept'=>'*/*'}
+          headers: {
+            "Accept"          => "*/*",
+            "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+            "User-Agent"      => "Mozilla/5.0 (compatible; ruby-oembed/#{OEmbed::VERSION})"
+          }
         ).to_return(
-          :status  => 200,
-          :body    => '{ "title": "LazyTown song - Cooking By The Boo" }',
-          :headers => {}
+          status:  200,
+          body:    '{ "title": "LazyTown song - Cooking By The Boo" }',
+          headers: {}
         )
 
-        alice.post(:status_message, :text => "http://www.youtube.com/watch?v=UYrkQL1bX4A", :to => @alices_aspect_2.id)
+        alice.post(:status_message, text: "https://www.youtube.com/watch?v=UYrkQL1bX4A", to: @alices_aspect_2.id)
         get :aspects
         save_fixture(html_for("body"), "aspects_index_with_video_post")
       end
