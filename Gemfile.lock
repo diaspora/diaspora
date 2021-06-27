@@ -313,7 +313,7 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
-    handlebars_assets (0.23.8)
+    handlebars_assets (0.23.9)
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
@@ -833,7 +833,7 @@ DEPENDENCIES
   gon (= 6.4.0)
   haml_lint (= 0.37.1)
   hamlit (= 2.15.0)
-  handlebars_assets (= 0.23.8)
+  handlebars_assets (= 0.23.9)
   http_accept_language (= 2.1.1)
   i18n-inflector-rails (= 1.0.7)
   jasmine (= 3.7.0)
