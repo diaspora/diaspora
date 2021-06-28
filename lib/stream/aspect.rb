@@ -80,15 +80,6 @@ class Stream::Aspect < Stream::Base
     @all_aspects ||= aspects.size == user.aspects.size
   end
 
-  # This is perfomance optimization, as everyone in your aspect stream you have
-  # a contact.
-  #
-  # @param post [Post]
-  # @return [Boolean]
-  def can_comment?(post)
-    true
-  end
-
   private
 
   def aspect_ids
