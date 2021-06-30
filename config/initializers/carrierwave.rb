@@ -8,9 +8,9 @@
 ENV['SSL_CERT_FILE'] = AppConfig.environment.certificate_authorities.get
 CarrierWave.configure do |config|
   if !Rails.env.test? && AppConfig.environment.s3.enable?
-    config.fog_provider = "fog/aws"
     require "carrierwave/storage/fog"
     config.storage = :fog
+    config.cache_storage = :file
     config.cache_dir = Rails.root.join('tmp', 'uploads').to_s
     config.fog_credentials = {
         provider:              'AWS',

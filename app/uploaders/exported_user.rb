@@ -9,7 +9,7 @@ class ExportedUser < SecureUploader
     "uploads/users"
   end
 
-  def extension_whitelist
+  def extension_allowlist
     %w[gz]
   end
 
