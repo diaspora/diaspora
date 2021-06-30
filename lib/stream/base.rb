@@ -17,12 +17,6 @@ class Stream::Base
     'change me in lib/base_stream.rb!'
   end
 
-  # @return [Boolean]
-  def can_comment?(post)
-    return true if post.author.local?
-    post_is_from_contact?(post)
-  end
-
   def post_from_group(post)
     []
   end
@@ -104,14 +98,5 @@ class Stream::Base
   # @return [Array<Contact>]
   def contacts_in_stream
     @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map(&:id)).load
-  end
-
-  # @param post [Post]
-  # @return [Boolean]
-  def post_is_from_contact?(post)
-    @can_comment_cache ||= {}
-    @can_comment_cache[post.id] ||= contacts_in_stream.find{|contact| contact.person_id == post.author.id}.present?
-    @can_comment_cache[post.id] ||= (user.person_id == post.author_id)
-    @can_comment_cache[post.id]
   end
 end

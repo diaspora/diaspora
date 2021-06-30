@@ -30,39 +30,6 @@ describe Stream::Base do
     end
   end
 
-  describe ".can_comment?" do
-    before do
-      @person = FactoryBot.create(:person)
-      allow(@stream).to receive(:people).and_return([bob.person, eve.person, @person])
-    end
-
-    it "allows me to comment on my local contacts post" do
-      post = FactoryBot.create(:status_message, author: bob.person)
-      expect(@stream.can_comment?(post)).to be true
-    end
-
-    it "allows me to comment on my own post" do
-      post = FactoryBot.create(:status_message, author: alice.person)
-      expect(@stream.can_comment?(post)).to be true
-    end
-
-    it "allows me to comment on any local public post" do
-      post = FactoryBot.create(:status_message, author: eve.person)
-      expect(@stream.can_comment?(post)).to be true
-    end
-
-    it "allows me to comment on a remote contacts post" do
-      Contact.create!(user: @stream.user, person: @person)
-      post = FactoryBot.create(:status_message, author: @person)
-      expect(@stream.can_comment?(post)).to be true
-    end
-
-    it "returns false if person is remote and not a contact" do
-      post = FactoryBot.create(:status_message, author: @person)
-      expect(@stream.can_comment?(post)).to be false
-    end
-  end
-
   describe "#people" do
     it "excludes blocked people" do
       expect(@stream).to receive(:stream_posts).and_return(double.as_null_object)

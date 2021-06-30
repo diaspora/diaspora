@@ -15,10 +15,6 @@ class Stream::LocalPublic < Stream::Base
     @posts ||= Post.all_local_public
   end
 
-  def can_comment?(post)
-    post.author.local?
-  end
-
   # Override base class method
   def aspects
     ["public"]
