@@ -18,6 +18,7 @@ class ArchiveImporter
     import_relayables
     import_subscriptions
     import_others_relayables
+    import_blocks
   end
 
   def create_user(attr)
@@ -37,11 +38,34 @@ class ArchiveImporter
     )
     self.user = User.build(data)
     user.save!
+    import_blocks
   end
 
   private
 
   attr_reader :archive_hash
+
+  def import_blocks
+    blocks = archive_hash["user"]["blocks"]
+    return if blocks.present?
+
+    blocks.each do |blocked_id|
+      p = Person.find_or_fetch_by_identifier(blocked_id)
+      if p.present?
+        migrant_person = handle_migrant_person(p)
+        user.blocks.create(person_id: migrant_person.id) if migrant_person.present?
+      end
+    rescue ActiveRecord::RecordInvalid,
+           DiasporaFederation::Discovery::DiscoveryError => e # TODO: this is not raised after #8257 is merged
+      logger.warn "#{self}: #{e}"
+    end
+  end
+
+  def handle_migrant_person(person)
+    return person if person.account_migration.nil?
+
+    person.account_migration.newest_person
+  end
 
   def profile_attributes
     allowed_keys = %w[first_name last_name image_url bio gender location birthday searchable nsfw tag_string]

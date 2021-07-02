@@ -113,6 +113,7 @@ describe ArchiveImporter do
 
   describe "#create_user" do
     let(:archive_importer) { ArchiveImporter.new(archive_hash) }
+    let(:person_to_block) { FactoryBot.create(:person) }
     let(:archive_hash) {
       {
         "user" => {
@@ -138,12 +139,21 @@ describe ArchiveImporter do
           "show_community_spotlight_in_stream" => false,
           "language"                           => "ru",
           "disable_mail"                       => false,
-          "auto_follow_back"                   => true
+          "auto_follow_back"                   => true,
+          "blocks"                             => ["bad_guy@unknown.pod", person_to_block.diaspora_handle]
         }
       }
     }
 
     it "creates user" do
+      # an unknown blocked person
+      stub_request(:get, "https://unknown.pod/.well-known/webfinger?resource=acct:bad_guy@unknown.pod")
+        .to_return(status: 404, body: "", headers: {})
+      stub_request(:get, "https://unknown.pod/.well-known/host-meta")
+        .to_return(status: 404, body: "", headers: {})
+      stub_request(:get, "http://unknown.pod/.well-known/host-meta")
+        .to_return(status: 404)
+
       expect {
         archive_importer.create_user(username: "new_name", password: "123456")
       }.to change(User, :count).by(1)
@@ -167,6 +177,7 @@ describe ArchiveImporter do
       expect(archive_importer.user.profile.public_details).to eq(true)
       expect(archive_importer.user.profile.nsfw).to eq(true)
       expect(archive_importer.user.profile.tag_string).to eq("#diaspora #linux #partying")
+      expect(archive_importer.user.blocks.first.person_id).to eq(person_to_block.id)
     end
   end
 end
