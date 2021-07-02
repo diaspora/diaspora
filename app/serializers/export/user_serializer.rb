@@ -10,7 +10,8 @@ module Export
                :show_community_spotlight_in_stream,
                :auto_follow_back,
                :auto_follow_back_aspect,
-               :strip_exif
+               :strip_exif,
+               :blocks
     has_one    :profile, serializer: FederationEntitySerializer
     has_many   :contact_groups, each_serializer: Export::AspectSerializer
     has_many   :contacts, each_serializer: Export::ContactSerializer
@@ -43,6 +44,10 @@ module Export
       [comments, likes, poll_participations].map {|relayable|
         relayable.find_each(batch_size: 20)
       }
+    end
+
+    def blocks
+      object.blocks.map(&:person_diaspora_handle)
     end
 
     %i[comments likes poll_participations].each {|collection|

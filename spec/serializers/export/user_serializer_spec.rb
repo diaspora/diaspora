@@ -14,7 +14,8 @@ describe Export::UserSerializer do
       show_community_spotlight_in_stream: user.show_community_spotlight_in_stream,
       auto_follow_back:                   user.auto_follow_back,
       auto_follow_back_aspect:            user.auto_follow_back_aspect,
-      strip_exif:                         user.strip_exif
+      strip_exif:                         user.strip_exif,
+      blocks:                             user.blocks
     )
   end
 

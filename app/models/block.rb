@@ -4,7 +4,7 @@ class Block < ApplicationRecord
   belongs_to :person
   belongs_to :user
 
-  delegate :name, to: :person, prefix: true
+  delegate :name, :diaspora_handle, to: :person, prefix: true
 
   validates :person_id, uniqueness: {scope: :user_id}
 
