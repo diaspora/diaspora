@@ -47,7 +47,7 @@ class ArchiveImporter
 
   def import_blocks
     blocks = archive_hash["user"]["blocks"]
-    return if blocks.present?
+    return if blocks.nil?
 
     blocks.each do |blocked_id|
       p = Person.find_or_fetch_by_identifier(blocked_id)
