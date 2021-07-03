@@ -20,7 +20,12 @@
           ]
         },
         "strip_exif": { "type": "boolean" },
-
+        "blocks": {
+          "type": "array",
+          "items" : {
+            "type": "string"
+          }
+        },
         "profile": {
           "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/profile"
         },
