@@ -3,6 +3,7 @@
 ## Refactor
 * Cache local posts/comments count for statistics [#8241](https://github.com/diaspora/diaspora/pull/8241)
 * Fix html-syntax in some handlebars templates [#8251](https://github.com/diaspora/diaspora/pull/8251)
+* Remove `chat_enabled` flag from archive export [#8265](https://github.com/diaspora/diaspora/pull/8265)
 
 ## Bug fixes
 
