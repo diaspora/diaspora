@@ -261,11 +261,6 @@ describe User, type: :model do
         expect(alice).not_to be_valid
       end
 
-      it "should not contain periods" do
-        alice.username = "kittens."
-        expect(alice).not_to be_valid
-      end
-
       it "can be 32 characters long" do
         alice.username = "hexagoooooooooooooooooooooooooon"
         expect(alice).to be_valid

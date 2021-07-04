@@ -186,7 +186,11 @@ Rails.application.routes.draw do
       post 'by_handle' => :retrieve_remote, :as => 'person_by_handle'
     end
   end
-  get '/u/:username' => 'people#show', :as => 'user_profile', :constraints => { :username => /[^\/]+/ }
+
+  # Note: The contraint for this route's username parameter cannot be removed.
+  # This constraint turns off the format parameter, so that an username
+  # doctor.example would not try to render the user `doctor` in `example` format.
+  get "/u/:username" => "people#show", :as => "user_profile", :constraints => {username: %r{[^/]+}}
 
   # External
 
