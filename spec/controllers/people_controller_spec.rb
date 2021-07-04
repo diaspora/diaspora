@@ -206,16 +206,6 @@ describe PeopleController, type: :controller do
       expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
-    it "404s if no person is found via diaspora handle" do
-      get :show, params: {username: "delicious@pod.net"}
-      expect(response.code).to eq("404")
-    end
-
-    it "finds a person via diaspora handle" do
-      get :show, params: {username: @person.diaspora_handle}
-      expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
-    end
-
     it "redirects home for closed account" do
       @person = FactoryBot.create(:person, closed_account: true)
       get :show, params: {id: @person.to_param}
