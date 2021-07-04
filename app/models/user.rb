@@ -36,10 +36,8 @@ class User < ApplicationRecord
   before_validation :set_current_language, :on => :create
   before_validation :set_default_color_theme, on: :create
 
-  validates :username, :presence => true, :uniqueness => true
-  validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
-  validates_length_of :username, :maximum => 32
-  validates_exclusion_of :username, :in => AppConfig.settings.username_blacklist
+  validates :username, presence: true, uniqueness: true, format: {with: /\A[A-Za-z0-9_.\-]+\z/},
+                       length: {maximum: 32}, exclusion: {in: AppConfig.settings.username_blacklist}
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
   validates :color_theme, inclusion: {in: AVAILABLE_COLOR_THEMES}, allow_blank: true
   validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
