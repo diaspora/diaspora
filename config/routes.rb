@@ -213,7 +213,7 @@ Rails.application.routes.draw do
   get 'help/:topic' => 'help#faq'
 
   #Protocol Url
-  get "protocol" => redirect("https://wiki.diasporafoundation.org/Federation_Protocol_Overview")
+  get "protocol" => redirect("https://diaspora.github.io/diaspora_federation/")
 
   # NodeInfo
   get ".well-known/nodeinfo", to: "node_info#jrd"
