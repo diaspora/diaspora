@@ -105,6 +105,11 @@ class Person < ApplicationRecord
     joins(:contacts).where(contacts: {user_id: user.id})
   }
 
+  scope :contacts_of_for_admins, ->(user) {
+    left_outer_joins(:contacts).where(contacts: {user_id: user.id})
+                               .or(Person.where("order_id > 0"))
+  }
+
   scope :profile_tagged_with, ->(tag_name) {
     joins(:profile => :tags)
       .where(:tags => {:name => tag_name})
@@ -244,20 +249,40 @@ class Person < ApplicationRecord
     [where_clause, q_tokens]
   end
 
+  # rubocop:disable Rails/DynamicFindBy
   def self.search(search_str, user, only_contacts: false, mutual: false)
     query = find_by_substring(search_str)
     return query if query.is_a?(ActiveRecord::NullRelation)
-
     query = if only_contacts
               query.contacts_of(user)
             else
               query.searchable(user)
             end
-
     query = query.where(contacts: {sharing: true, receiving: true}) if mutual
 
     query.where(closed_account: false)
          .order([Arel.sql("contacts.user_id IS NULL"), "profiles.last_name ASC", "profiles.first_name ASC"])
+  end
+
+  def self.search_as_admin(search_str, user, only_contacts: false, mutual: false)
+    query = find_by_substring(search_str)
+    return query if query.is_a?(ActiveRecord::NullRelation)
+
+    query = if only_contacts
+              query.where("exists (#{exists_in_contacts(user, mutual)} or people.owner_id is not null)")
+            else
+              query.searchable(user)
+            end
+    query.where(closed_account: false)
+         .order(["profiles.last_name ASC", "profiles.first_name ASC"])
+  end
+  # rubocop:enable Rails/DynamicFindBy
+
+  def self.exists_in_contacts(user, mutual)
+    return "SELECT 1 FROM contacts WHERE contacts.person_id = people.id AND contacts.user_id = #{user.id}" unless mutual
+
+    "SELECT 1 FROM contacts WHERE contacts.person_id = people.id
+     AND contacts.user_id = #{user.id} AND sharing = TRUE AND receiving = TRUE"
   end
 
   def name(opts = {})
