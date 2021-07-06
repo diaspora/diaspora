@@ -19,6 +19,25 @@ module ReportHelper
     end
   end
 
+  def link_to_content(report)
+    case (item = report.item)
+    when Post
+      link_to("", post_path(item.id),
+              {title:  "View reported element",
+               class:  "entypo-eye",
+               target: "_blank",
+               rel:    "noopener"})
+    when Comment
+      link_to("", post_path(item.post.id, anchor: item.guid),
+              {title:  "View reported comment",
+               class:  "entypo-eye",
+               target: "_blank",
+               rel:    "noopener"})
+    else
+      t("report.not_found")
+    end
+  end
+
   def unreviewed_reports_count
     @unreviewed_reports_count ||= Report.where(reviewed: false).size
   end

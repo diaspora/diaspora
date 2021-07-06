@@ -17,6 +17,11 @@ class Report < ApplicationRecord
 
   after_commit :send_report_notification, :on => :create
 
+  scope :join_originator, -> {
+    joins("LEFT JOIN people ON originator_diaspora_handle = people.diaspora_handle ")
+      .select("reports.*, people.guid as originator_guid")
+  }
+
   def reported_author
     item.author if item
   end
@@ -50,12 +55,21 @@ class Report < ApplicationRecord
         item.destroy
       end
     end
-    mark_as_reviewed
+    mark_as_reviewed_and_deleted
+  end
+
+  # rubocop:disable Rails/SkipsModelValidations
+
+  def mark_as_reviewed_and_deleted
+    Report.where(item_id: item_id, item_type: item_type)
+          .update_all(reviewed: true, action: "Deleted")
   end
 
   def mark_as_reviewed
-    Report.where(item_id: item_id, item_type: item_type).update_all(reviewed: true)
+    Report.where(item_id: item_id, item_type: item_type)
+          .update_all(reviewed: true, action: "No Action")
   end
+  # rubocop:enable Rails/SkipsModelValidations
 
   def send_report_notification
     Workers::Mail::ReportWorker.perform_async(id)
