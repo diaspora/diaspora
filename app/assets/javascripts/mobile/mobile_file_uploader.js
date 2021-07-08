@@ -6,7 +6,8 @@ function createUploader(){
   var fileInfo = $("#fileInfo-publisher");
 
   // Initialize the PostPhotoUploader and subscribe its events
-  this.uploader = new Diaspora.PostPhotoUploader(document.getElementById("file-upload-publisher"), aspectIds);
+  this.uploader = new Diaspora.PostPhotoUploader(document.getElementById("file-upload-publisher"),
+    ["publisher-textarea-wrapper", "status_message_text", "file-upload-publisher"]);
 
   this.uploader.onUploadStarted = _.bind(uploadStartedHandler, this);
   this.uploader.onProgress = _.bind(progressHandler, this);
