@@ -34,7 +34,7 @@ class ArchiveImporter
 
     def create_contact
       person = Person.by_account_identifier(json.fetch("account_id"))
-      user.contacts.create!(person_id: person.id, sharing: false, receiving: json.fetch("receiving"))
+      user.contacts.create!(person_id: person.id, sharing: json.fetch("sharing"), receiving: json.fetch("receiving"))
     end
   end
 end
