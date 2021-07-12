@@ -34,6 +34,10 @@ class ArchiveImporter
       @person ||= Person.find_or_fetch_by_identifier(archive_author_diaspora_id)
     end
 
+    def blocks
+      @blocks ||= archive_hash.fetch("user").fetch("blocks", [])
+    end
+
     def private_key
       OpenSSL::PKey::RSA.new(serialized_private_key)
     end

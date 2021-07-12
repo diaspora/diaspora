@@ -18,6 +18,7 @@ class ArchiveImporter
     import_relayables
     import_subscriptions
     import_others_relayables
+    import_blocks
   end
 
   def create_user(attr)
@@ -84,6 +85,10 @@ class ArchiveImporter
 
   def import_others_relayables
     import_collection(others_relayables, EntityImporter)
+  end
+
+  def import_blocks
+    import_collection(blocks, BlockImporter)
   end
 
   def import_collection(collection, importer_class)
