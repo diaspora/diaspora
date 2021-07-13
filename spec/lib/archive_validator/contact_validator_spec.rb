@@ -65,7 +65,7 @@ describe ArchiveValidator::ContactValidator do
       it "is not valid" do
         expect(validator.valid?).to be_falsey
         expect(validator.messages).to include(
-          "ArchiveValidator::ContactValidator: failed to fetch person #{unknown_id}: discovery error reasons"
+          "ArchiveValidator::ContactValidator: failed to fetch person #{unknown_id}"
         )
       end
     end

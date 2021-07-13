@@ -113,6 +113,7 @@ RSpec.configure do |config|
       "https://example.com/.well-known/host-meta"
     )
     $process_queue = false
+    Rails.cache.clear
   end
 
   config.expect_with :rspec do |expect_config|

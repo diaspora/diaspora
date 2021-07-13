@@ -63,7 +63,7 @@ describe DiasporaLinkService do
 
       it "returns nil when person is non fetchable" do
         expect(Person).to receive(:find_or_fetch_by_identifier)
-          .with(person.diaspora_handle).and_raise(DiasporaFederation::Discovery::DiscoveryError)
+          .with(person.diaspora_handle).and_return(nil)
 
         expect(service.find_or_fetch_entity).to be_nil
       end

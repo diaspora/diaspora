@@ -34,8 +34,6 @@ class DiasporaLinkService
 
   def find_or_fetch_person
     Person.find_or_fetch_by_identifier(author)
-  rescue DiasporaFederation::Discovery::DiscoveryError
-    nil
   end
 
   def normalize

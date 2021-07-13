@@ -24,6 +24,8 @@ class ArchiveImporter
       json.fetch("subscribed_users_ids", []).each do |diaspora_id|
         begin
           person = Person.find_or_fetch_by_identifier(diaspora_id)
+          next if person.nil? # not found and not fetchable
+
           person = person.account_migration.newest_person unless person.account_migration.nil?
           next if person.closed_account?
           # TODO: unless person.nil? import subscription: subscription import is not supported yet

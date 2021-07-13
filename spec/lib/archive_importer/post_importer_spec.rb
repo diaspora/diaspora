@@ -113,5 +113,39 @@ describe ArchiveImporter::PostImporter do
         end
       end
     end
+
+    context "with reshare" do
+      let!(:author) { FactoryBot.create(:person, diaspora_handle: "author@example.com") }
+      let(:entity_json) { JSON.parse(<<~JSON) }
+        {
+          "entity_data" : {
+            "created_at" : "2015-10-19T13:58:16Z",
+            "guid" : "#{UUID.generate(:compact)}",
+            "text" : "test post",
+            "author" : "author@example.com",
+            "root_author": "root_author@remote-pod.com",
+            "root_guid":   "#{UUID.generate(:compact)}"
+          },
+          "entity_type": "reshare"
+        }
+      JSON
+
+      context "when a remote pod responds 403 to discovery requests" do
+        before do
+          stub_request(:get, "https://remote-pod.com/.well-known/webfinger?resource=acct:root_author@remote-pod.com")
+            .to_return(status: 403, body: "", headers: {})
+          stub_request(:get, "https://remote-pod.com/.well-known/host-meta")
+            .to_return(status: 403, body: "", headers: {})
+          stub_request(:get, "http://remote-pod.com/.well-known/host-meta")
+            .to_return(status: 403, body: "", headers: {})
+        end
+
+        it "doesn't raise error" do
+          expect {
+            instance.import
+          }.not_to raise_error
+        end
+      end
+    end
   end
 end

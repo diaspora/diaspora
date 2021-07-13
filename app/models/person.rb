@@ -330,17 +330,29 @@ class Person < ApplicationRecord
     serialized_public_key
   end
 
-  # discovery (webfinger)
+  # discovery (webfinger), returns nil if not found
   def self.find_or_fetch_by_identifier(diaspora_id)
-    # exiting person?
-    person = by_account_identifier(diaspora_id)
-    return person if person.present? && person.profile.present?
-
-    # create or update person from webfinger
-    logger.info "webfingering #{diaspora_id}, it is not known or needs updating"
-    DiasporaFederation::Discovery::Discovery.new(diaspora_id).fetch_and_save
+    # exiting person and has profile?rspec
+    person_exists_and_valid = Rails.cache.fetch("#{diaspora_id}/person_exists_in_network", expires_in: 1.hour) do
+      unless person_is_logical_valid(diaspora_id)
+        # create or update person from webfinger
+        logger.info "webfingering #{diaspora_id}, it is not known or needs updating"
+        begin
+          DiasporaFederation::Discovery::Discovery.new(diaspora_id).fetch_and_save
+        rescue DiasporaFederation::Discovery::DiscoveryError => e
+          logger.warn "#{self}: #{e}"
+        end
+      end
+      person_is_logical_valid(diaspora_id)
+    end
+    return unless person_exists_and_valid
 
     by_account_identifier(diaspora_id)
+  end
+
+  def self.person_is_logical_valid(diaspora_id)
+    person = by_account_identifier(diaspora_id)
+    person.present? && person.profile.present?
   end
 
   def self.by_account_identifier(diaspora_id)

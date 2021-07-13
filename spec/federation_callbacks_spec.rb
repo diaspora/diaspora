@@ -231,14 +231,12 @@ describe "diaspora federation callbacks" do
       expect(key.to_s).to eq(person.serialized_public_key)
     end
 
-    it "forwards the DiscoveryError when the person can't be fetched" do
+    it "return nil if the person can't be fetched" do
       diaspora_id = Fabricate.sequence(:diaspora_id)
       expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
-        .and_raise(DiasporaFederation::Discovery::DiscoveryError)
+                                                             .and_return(nil)
 
-      expect {
-        DiasporaFederation.callbacks.trigger(:fetch_public_key, diaspora_id)
-      }.to raise_error DiasporaFederation::Discovery::DiscoveryError
+      DiasporaFederation.callbacks.trigger(:fetch_public_key, diaspora_id)
     end
   end
 
@@ -483,16 +481,6 @@ describe "diaspora federation callbacks" do
       expect(
         DiasporaFederation.callbacks.trigger(:fetch_person_url_to, person.diaspora_handle, "/path/on/pod")
       ).to eq("https://#{pod.host}/path/on/pod")
-    end
-
-    it "forwards the DiscoveryError" do
-      diaspora_id = Fabricate.sequence(:diaspora_id)
-      expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
-        .and_raise(DiasporaFederation::Discovery::DiscoveryError)
-
-      expect {
-        DiasporaFederation.callbacks.trigger(:fetch_person_url_to, diaspora_id, "/path/on/pod")
-      }.to raise_error DiasporaFederation::Discovery::DiscoveryError
     end
   end
 

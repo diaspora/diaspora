@@ -11,10 +11,12 @@ class ArchiveValidator
 
     def validate
       handle_migrant_contact
-      self.valid = account_open?
-    rescue DiasporaFederation::Discovery::DiscoveryError => e
-      messages.push("#{self.class}: failed to fetch person #{diaspora_id}: #{e}")
-      self.valid = false
+      self.valid = if person.nil?
+                     messages.push("#{self.class}: failed to fetch person #{diaspora_id}")
+                     false
+                   else
+                     account_open?
+                   end
     end
 
     attr_reader :contact
@@ -24,7 +26,7 @@ class ArchiveValidator
     end
 
     def handle_migrant_contact
-      return if person.account_migration.nil?
+      return if person&.account_migration.nil?
 
       contact["account_id"] = person.account_migration.newest_person.diaspora_handle
       @person = nil

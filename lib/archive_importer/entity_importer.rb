@@ -11,12 +11,17 @@ class ArchiveImporter
     end
 
     def import
-      self.persisted_object = Diaspora::Federation::Receive.perform(entity, skip_relaying: true)
+      self.persisted_object = Diaspora::Federation::Receive.perform(entity, skip_relaying: true) unless entity.nil?
     rescue DiasporaFederation::Entities::Signable::SignatureVerificationFailed,
+           DiasporaFederation::Entities::Signable::PublicKeyNotFound,
+           DiasporaFederation::Entity::ValidationError,
            DiasporaFederation::Discovery::InvalidDocument,
            DiasporaFederation::Discovery::DiscoveryError,
+           DiasporaFederation::Federation::Fetcher::NotFetchable,
+           OwnRelayableImporter::NoParentError,
            ActiveRecord::RecordInvalid => e
       logger.warn "#{self}: #{e}"
+      self.persisted_object = nil
     end
 
     attr_reader :json
