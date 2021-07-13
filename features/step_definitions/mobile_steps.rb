@@ -23,3 +23,26 @@ Then /^the aspect dropdown within "([^"]*)" should be labeled "([^"]*)"/ do |sel
     current_scope.should have_css("option.list_cover", text: label)
   end
 end
+
+When /^I toggle like on comment with text "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  within(id: comment_guid) do
+    find(".entypo-heart.like-action").click
+  end
+end
+
+Then /^I should see a like on comment with text "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  within(id: comment_guid) do
+    find(".entypo-heart.like-action.active")
+    expect(find(".count.like-count")).to have_text "1"
+  end
+end
+
+Then /^I should see an unliked comment with text "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  within(id: comment_guid) do
+    find(".entypo-heart.like-action.inactive")
+    expect(find(".count.like-count")).to have_text "0"
+  end
+end

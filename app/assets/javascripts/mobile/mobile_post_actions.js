@@ -3,6 +3,11 @@
     initialize: function() {
       $(".like-action", ".stream").bind("tap click", this.onLike);
       $(".reshare-action", ".stream").bind("tap click", this.onReshare);
+      // Add handler to newly loaded comments
+      var self = this;
+      $(".stream").bind("comments.loaded", function() {
+        $(".like-action", ".stream").bind("tap click", self.onLike);
+      });
     },
 
     showLoader: function(link) {
@@ -75,8 +80,8 @@
 
     onLike: function(evt){
       evt.preventDefault();
-      var link = $(evt.target).closest(".like-action"),
-          likeCounter = $(evt.target).closest(".stream-element").find(".like-count");
+      var link = $(evt.target).closest(".like-action").first(),
+          likeCounter = $(evt.target).find(".like-count").first();
 
       if(!link.hasClass("loading") && link.hasClass("inactive")) {
         Diaspora.Mobile.PostActions.like(likeCounter, link);

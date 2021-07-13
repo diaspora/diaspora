@@ -14,8 +14,8 @@ class CommentService
     post_service.find!(post_id).comments.for_a_stream
   end
 
-  def find!(comment_guid)
-    Comment.find_by!(guid: comment_guid)
+  def find!(id_or_guid)
+    Comment.find_by!(comment_key(id_or_guid) => id_or_guid)
   end
 
   def destroy(comment_id)
@@ -44,6 +44,11 @@ class CommentService
   private
 
   attr_reader :user
+
+  # We can assume a guid is at least 16 characters long as we have guids set to hex(8) since we started using them.
+  def comment_key(id_or_guid)
+    id_or_guid.to_s.length < 16 ? :id : :guid
+  end
 
   def post_service
     @post_service ||= PostService.new(user)

@@ -101,9 +101,16 @@
             "type": "array",
             "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
           },
-          "reported": { "type": "boolean" }
+          "reported": { "type": "boolean" },
+          "interactions": {
+            "type": "object",
+            "properties" : {
+              "likes" : { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/likes"},
+              "likes_count" : { "type": "integer"}
+            }
+          }
         },
-        "required": ["guid", "created_at", "author", "body", "reported"],
+        "required": ["guid", "created_at", "author", "body", "reported", "interactions"],
         "additionalProperties": false
       }
     },

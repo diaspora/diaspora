@@ -33,7 +33,7 @@ module Api
         post = post_service.find!(params.require(:post_id))
         raise ActiveRecord::RecordInvalid unless post.public? || private_read?
 
-        like_service.create(params[:post_id])
+        like_service.create_for_post(params[:post_id])
       rescue ActiveRecord::RecordInvalid => e
         if e.message == "Validation failed: Target has already been taken"
           return render_error 409, "Like already exists"

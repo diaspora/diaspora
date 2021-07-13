@@ -9,6 +9,20 @@
   zoom: 1;
 }
 
+.comment {
+  .media {
+    .bd,
+    .entypo-heart,
+    .author-name {
+      display: inline-block;
+    }
+  }
+
+  .likes {
+    margin-top: 10px;
+  }
+}
+
 .media .img {
   float: left;
   margin-right: 10px;

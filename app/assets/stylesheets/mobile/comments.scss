@@ -37,7 +37,7 @@
     }
   }
 
-  .post-stats {
+  %stats {
     float: right;
     position: relative;
     display: flex;
@@ -71,11 +71,28 @@
     .entypo-heart.active { color: $red; }
   }
 
-  .post-action {
+  .post-stats {
+    @extend %stats;
+  }
+
+  .comment-stats {
+    @extend %stats;
+    bottom: 25px;
+  }
+
+  %action {
     display: flex;
     margin: 0 7px;
 
     .disabled { color: $medium-gray; }
+  }
+
+  .post-action {
+    @extend %action;
+  }
+
+  .comment-action {
+    @extend %action;
   }
 
   .add-comment-switcher { padding-top: 10px; }

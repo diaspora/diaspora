@@ -7,7 +7,7 @@ app.views.StreamPost = app.views.Post.extend({
   subviews : {
     ".feedback": "feedbackView",
     ".comments": "commentStreamView",
-    ".likes": "likesInfoView",
+    ".likes-on-post": "likesInfoView",
     ".reshares": "resharesInfoView",
     ".post-controls": "postControlsView",
     ".post-content": "postContentView",

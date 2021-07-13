@@ -1,73 +1,25 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-//require ../post
-
-app.models.Post.Interactions = Backbone.Model.extend({
-  initialize : function(options){
+app.models.PostInteractions = app.models.LikeInteractions.extend({
+  initialize: function(options) {
+    app.models.LikeInteractions.prototype.initialize.apply(this, arguments);
     this.post = options.post;
-    this.comments = new app.collections.Comments(this.get("comments"), {post : this.post});
-    this.likes = new app.collections.Likes(this.get("likes"), {post : this.post});
-    this.reshares = new app.collections.Reshares(this.get("reshares"), {post : this.post});
+    this.comments = new app.collections.Comments(this.get("comments"), {post: this.post});
+    this.reshares = new app.collections.Reshares(this.get("reshares"), {post: this.post});
   },
 
-  likesCount : function(){
-    return this.get("likes_count");
-  },
-
-  resharesCount : function(){
+  resharesCount: function() {
     return this.get("reshares_count");
   },
 
-  commentsCount : function(){
+  commentsCount: function() {
     return this.get("comments_count");
   },
 
-  userLike : function(){
-    return this.likes.select(function(like){
-      return like.get("author") && like.get("author").guid === app.currentUser.get("guid");
-    })[0];
-  },
-
-  userReshare : function(){
+  userReshare: function() {
     return this.reshares.select(function(reshare){
       return reshare.get("author") && reshare.get("author").guid === app.currentUser.get("guid");
     })[0];
-  },
-
-  toggleLike : function() {
-    if(this.userLike()) {
-      this.unlike();
-    } else {
-      this.like();
-    }
-  },
-
-  like : function() {
-    var self = this;
-    this.likes.create({}, {
-      success: function() {
-        self.post.set({participation: true});
-        self.trigger("change");
-        self.set({"likes_count" : self.get("likes_count") + 1});
-        self.likes.trigger("change");
-      },
-      error: function(model, response) {
-        app.flashMessages.handleAjaxError(response);
-      }
-    });
-  },
-
-  unlike : function() {
-    var self = this;
-    this.userLike().destroy({success : function() {
-      self.post.set({participation: false});
-      self.trigger('change');
-      self.set({"likes_count" : self.get("likes_count") - 1});
-      self.likes.trigger("change");
-    },
-      error: function(model, response) {
-        app.flashMessages.handleAjaxError(response);
-    }});
   },
 
   comment: function(text, options) {
@@ -109,7 +61,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
       });
   },
 
-  userCanReshare : function(){
+  userCanReshare: function() {
     var isReshare = this.post.get("post_type") === "Reshare"
       , rootExists = (isReshare ? this.post.get("root") : true)
       , publicPost = this.post.get("public")

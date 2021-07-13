@@ -43,3 +43,14 @@ Feature: reactions mobile post
     And I click on selector "a.comment-action"
     And I confirm the alert after I click on selector "a.remove"
     Then I should see "0 comments" within ".show-comments"
+  
+  Scenario: liking and unliking a comment
+    When I click on selector "a.comment-action.inactive"
+    And I fill in the following:
+        | text            | is that a poodle?    |
+    And I press "Comment"
+    Then I should see "is that a poodle?" within ".comment-container"
+    When I toggle like on comment with text "is that a poodle?"
+    Then I should see a like on comment with text "is that a poodle?"
+    When I toggle like on comment with text "is that a poodle?"
+    Then I should see an unliked comment with text "is that a poodle?"
