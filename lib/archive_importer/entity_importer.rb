@@ -15,6 +15,7 @@ class ArchiveImporter
     rescue DiasporaFederation::Entities::Signable::SignatureVerificationFailed,
            DiasporaFederation::Discovery::InvalidDocument,
            DiasporaFederation::Discovery::DiscoveryError,
+           DiasporaFederation::Federation::Fetcher::NotFetchable,
            ActiveRecord::RecordInvalid => e
       logger.warn "#{self}: #{e}"
     end
