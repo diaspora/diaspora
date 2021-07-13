@@ -8,6 +8,12 @@ O_AUTH_QUERY_PARAMS_WITH_CODE = {
   state:         "hi"
 }
 
+Then("take a screenshot") do
+  sleep 0.5
+  Capybara.save_path = ENV["SCREENSHOT_PATH"]
+  save_screenshot("#{Time.now.utc} aspects.png", full: true)
+end
+
 Given /^I send a post request from that client to the code flow authorization endpoint$/ do
   client_json = JSON.parse(last_response.body)
   @client_id = client_json["client_id"]

@@ -153,7 +153,7 @@ Feature: posting from the main page
       And I go to the aspects page
       Then I should not see "I am eating a yogurt"
 
-    Scenario: change post target aspects with the aspect-dropdown before posting
+    Scenario: change post target aspects with the aspect_dropdown before posting
       When I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "PostingTo"
