@@ -7,3 +7,5 @@
 %li= link_to t("layouts.application.switch_to_touch_optimized_mode"), toggle_mobile_path
 - if AppConfig.settings.terms.enable?
   %li= link_to t("_terms"), terms_path
+- unless AppConfig.admins.podmin_email.nil?
+  %li= mail_to AppConfig.admins.podmin_email, t("_podmin_mail")
