@@ -39,6 +39,8 @@ class Stream::Aspect < Stream::Base
                                              :order => "#{order} DESC",
                                              :max_time => max_time
                    )
+    @posts = @posts.left_outer_joins(author: [:pod])
+                   .where("(pods.blocked = false or pods.blocked is null)")
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects

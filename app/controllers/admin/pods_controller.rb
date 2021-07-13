@@ -14,11 +14,23 @@ module Admin
           gon.unchecked_count = Pod.unchecked.count
           gon.version_failed_count = Pod.version_failed.count
           gon.error_count = Pod.check_failed.count
-
+          gon.blocked_count = Pod.blocked.count
+          gon.total_pod_count = Pod.count
           render "admins/pods"
         end
         format.mobile { render "admins/pods" }
         format.json { render json: pods_json }
+      end
+    end
+
+    def update
+      permitted = params.permit(:blocked)
+      pod = Pod.find(params[:id])
+      pod.update!(permitted)
+
+      respond_with do |format|
+        format.html { redirect_to admin_pods_path }
+        format.json { render json: PodPresenter.new(pod).as_json }
       end
     end
 

@@ -178,6 +178,19 @@ describe Diaspora::Fetcher::Public do
         }).to be false
       end
 
+      it "returns false if the person resides on a blocked pod" do
+        user = FactoryBot.create(:user)
+        pod = FactoryBot.create(:pod)
+        pod.blocked = true
+        user.person.pod = pod
+        user.person.save
+        expect(public_fetcher.instance_eval {
+          @person = user.person
+          qualifies_for_fetching?
+        }).to be false
+        expect(user.person.fetch_status).to eql Diaspora::Fetcher::Public::Status_Unfetchable
+      end
+
       it "returns true, if the user is remote and hasn't been fetched" do
         person = FactoryBot.create(:person, {diaspora_handle: "neo@theone.net"})
         expect(public_fetcher.instance_eval {

@@ -24,6 +24,8 @@ module EvilQuery
       author_id = @user.person_id
       Post.joins("LEFT OUTER JOIN participations ON participations.target_id = posts.id AND " \
                  "participations.target_type = 'Post'")
+          .left_outer_joins(author: [:pod])
+          .where("(pods.blocked = false or pods.blocked is null)")
           .where(::Participation.arel_table[:author_id].eq(author_id).or(Post.arel_table[:author_id].eq(author_id)))
           .order("posts.interacted_at DESC")
           .distinct
@@ -63,7 +65,10 @@ module EvilQuery
       logger.debug("[EVIL-QUERY] make_relation!")
       post_ids = aspects_post_ids! + ids!(followed_tags_posts!) + ids!(mentioned_posts)
       post_ids += ids!(community_spotlight_posts!) if @include_spotlight
-      Post.where(:id => post_ids)
+      logger.debug("Make blocked query")
+      Post.left_outer_joins(author: [:pod])
+          .where(id: post_ids)
+          .where("(pods.blocked = false or pods.blocked is null)")
     end
 
     def aspects_post_ids!

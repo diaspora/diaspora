@@ -149,7 +149,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :pods, only: :index do
+    resources :pods, only: %i[index update] do
       post :recheck
     end
 

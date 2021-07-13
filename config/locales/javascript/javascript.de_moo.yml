@@ -23,6 +23,7 @@ de_moo:
         no_info: "Zurzeit sind keine weiteren Informationen verfügbar"
         not_available: "nicht verfügbar"
         offline_since: "offline seit:"
+        blocked: "Blockiert"
         pod: "Bauernhof"
         recheck:
           failure: "Die Überprüfung wurde nicht durchgeführt."

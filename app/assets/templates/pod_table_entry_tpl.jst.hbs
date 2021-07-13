@@ -13,7 +13,11 @@
 </td>
 <td>
   {{#if has_no_errors}}
-    <i title="{{status_text}}" class="glyphicon glyphicon-ok"></i>
+    {{#if is_blocked}}
+      <i title="{{status_text}}" class="glyphicon glyphicon-ban-circle"></i> {{t 'admin.pods.is_blocked'}}
+    {{else}}
+      <i title="{{status_text}}" class="glyphicon glyphicon-ok"></i>
+    {{/if}}
   {{else}}
     {{status_text}}
   {{/if}}
@@ -33,6 +37,11 @@
   </pre>
 </td>
 <td class="actions">
+  {{#if is_blocked}}
+    <a class="pod-unblock" href="#"><i title="Sync pod again" class="entypo entypo-play"></i></a>
+  {{else}}
+    <a class="pod-block" href="#"><i title="Stop syncing pod and hide posts" class="entypo entypo-block"></i></a>
+  {{/if}}
   {{#unless is_unchecked}}
     <a class="more" href="#"><i title="{{t 'admin.pods.more_info'}}" class="entypo-circled-help"></i></a>
   {{/unless}}

@@ -50,6 +50,8 @@ module Api
       def stream_responder(stream_klass=nil, query_time_field="posts.created_at", data_time_field="created_at")
         @stream = stream_klass.present? ? stream_klass.new(current_user, max_time: stream_max_time) : @stream
         query = @stream.stream_posts
+        query = query.left_outer_joins(author: [:pod])
+        query = query.where("(pods.blocked = false or pods.blocked is null)")
         query = query.where(public: true) unless private_read?
         posts_page = pager(query, query_time_field, data_time_field).response
         posts_page[:data] = posts_page[:data].map {|post| PostPresenter.new(post, current_user).as_api_response }

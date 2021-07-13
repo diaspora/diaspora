@@ -18,6 +18,7 @@ describe Admin::PodsController, type: :controller do
 
     it "contains the preloads" do
       get :index
+      expect(response.body).to match(/totalPodCount=/im)
       expect(response.body).to match(/uncheckedCount=/im)
       expect(response.body).to match(/errorCount=/im)
       expect(response.body).to match(/preloads.*"pods"\s?\:/im)

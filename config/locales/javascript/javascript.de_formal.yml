@@ -23,6 +23,7 @@ de_formal:
         no_info: "Zur Zeit sind keine weiteren Informationen verfügbar"
         not_available: "Nicht verfügbar"
         offline_since: "offline seit:"
+        blocked: "Blockiert"
         pod: "Pod"
         recheck:
           failure: "Die Überprüfung wurde nicht durchgeführt."

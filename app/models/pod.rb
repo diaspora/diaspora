@@ -39,6 +39,8 @@ class Pod < ApplicationRecord
     where(arel_table[:status].gt(Pod.statuses[:no_errors])).where.not(status: Pod.statuses[:version_failed])
   }
 
+  scope :blocked, -> { where(blocked: true) }
+
   validate :not_own_pod
 
   class << self
@@ -70,7 +72,7 @@ class Pod < ApplicationRecord
   end
 
   def offline?
-    Pod.offline_statuses.include?(Pod.statuses[status])
+    Pod.offline_statuses.include?(Pod.statuses[status]) || blocked
   end
 
   # a pod is active if it is online or was online less than 14 days ago
@@ -93,6 +95,10 @@ class Pod < ApplicationRecord
     transaction do
       update_from_result(result)
     end
+  rescue URI::InvalidComponentError
+    logger.error "Invalid pod host: #{host}"
+  rescue StandardError => e
+    logger.error "While updating pod: #{host}, #{e.inspect}"
   end
 
   # @param path [String]

@@ -55,6 +55,7 @@ en:
           unknown_error: "An unspecified error has happened during the check"
         actions: "Actions"
         offline_since: "offline since:"
+        blocked: "Blocked"
         last_check: "last check:"
         more_info: "show more information"
         check: "perform connection test"
@@ -79,7 +80,13 @@ en:
         errors:
           one: "The connection test returned an error for one pod."
           other: "The connection test returned an error for <%= count %> pods."
-
+        is_blocked: "Pod is blocked"
+        blocked:
+          one: "One pod is blocked"
+          other: "<%= count %> pods are blocked"
+        total_pods:
+          one: "There is only one pod."
+          other: "There are <%= count %> pods total."
     aspects:
       name: "Name"
       create:

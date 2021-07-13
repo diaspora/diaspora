@@ -17,6 +17,8 @@ module Diaspora; module Fetcher; class Public
   Status_Unfetchable = 6
 
   def self.queue_for(person)
+    return if person.pod&.blocked
+
     Workers::FetchPublicPosts.perform_async(person.diaspora_handle) unless person.fetch_status > Status_Initial
   end
 
@@ -48,6 +50,8 @@ module Diaspora; module Fetcher; class Public
         set_fetch_status Public::Status_Unfetchable
         return false
       end
+
+      return false if @person.pod&.blocked
 
       # this record is already being worked on
       return false if @person.fetch_status > Public::Status_Initial
