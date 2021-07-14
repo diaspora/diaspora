@@ -19,11 +19,20 @@ class MigrationService
     find_or_create_user
     import_archive
     run_migration
+    remove_intermediate_file
   end
 
   # when old person can't be resolved we still import data but we don't create&perform AccountMigration instance
   def only_import?
     old_person.nil?
+  end
+
+  def remove_intermediate_file
+    # If an unzip operation created an unzipped file, remove it after migration
+    return if @intermediate_file.nil?
+    return unless File.exist?(@intermediate_file)
+
+    File.delete(@intermediate_file)
   end
 
   private
@@ -64,8 +73,46 @@ class MigrationService
   end
 
   def archive_file
-    # TODO: archive is likely to be a .json.gz file
+    return uncompressed_zip if zip_file?
+    return uncompressed_gz if gzip_file?
+
     File.new(archive_path, "r")
+  end
+
+  def zip_file?
+    filetype = MIME::Types.type_for(archive_path).first.content_type
+    filetype.eql?("application/zip")
+  end
+
+  def gzip_file?
+    filetype = MIME::Types.type_for(archive_path).first.content_type
+    filetype.eql?("application/gzip")
+  end
+
+  def uncompressed_gz
+    target_dir = File.dirname(archive_path) + Pathname::SEPARATOR_LIST
+    unzipped_archive_file = "#{File.join(target_dir, SecureRandom.hex)}.json" # never override an existing file
+
+    Zlib::GzipReader.open(archive_path) {|gz|
+      File.open(unzipped_archive_file, "w") do |output_stream|
+        IO.copy_stream(gz, output_stream)
+      end
+      @intermediate_file = unzipped_archive_file
+    }
+    File.new(unzipped_archive_file, "r")
+  end
+
+  def uncompressed_zip
+    target_dir = File.dirname(archive_path) + Pathname::SEPARATOR_LIST
+    zip_stream = Zip::InputStream.open(archive_path)
+    while entry = zip_stream.get_next_entry # rubocop:disable Lint/AssignmentInCondition
+      next unless entry.name.end_with?(".json")
+
+      target_file = "#{File.join(target_dir, SecureRandom.hex)}.json" # never override an existing file
+      entry.extract(target_file)
+      @intermediate_file = target_file
+      return File.new(target_file, "r")
+    end
   end
 
   class ArchiveValidationFailed < RuntimeError

@@ -26,6 +26,8 @@ namespace :accounts do
       puts "Errors in the archive found:\n#{exception.message}\n-----"
     rescue MigrationService::MigrationAlreadyExists
       puts "Migration record already exists for the user, can't continue"
+    ensure
+      service.remove_intermediate_file
     end
   end
 

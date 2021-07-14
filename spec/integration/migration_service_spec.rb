@@ -188,7 +188,7 @@ describe MigrationService do
   let(:new_username) { "newuser" }
   let(:new_user_handle) { "#{new_username}@#{AppConfig.bare_pod_uri}" }
 
-  let(:archive_file) { Tempfile.new("archive") }
+  let(:archive_file) { Tempfile.new(["archive", ".json"]) }
 
   def setup_validation_time_expectations
     expect_person_fetch(contact2_diaspora_id, nil)
@@ -311,6 +311,50 @@ describe MigrationService do
       comment = Comment.find_by(guid: others_comment_entity.guid)
       expect(comment.author.diaspora_handle).to eq(others_comment_entity.author)
       expect(comment.parent.author.diaspora_handle).to eq(user.diaspora_handle)
+    end
+  end
+
+  context "compressed archives" do
+    let(:old_person) {
+      FactoryBot.create(:person,
+                        profile:               FactoryBot.build(:profile),
+                        serialized_public_key: archive_private_key.public_key.export,
+                        diaspora_handle:       archive_author)
+    }
+
+    it "uncompresses gz archive" do
+      gz_compressed_file = create_gz_archive
+      service = MigrationService.new(gz_compressed_file, new_username)
+      expect(service.only_import?).to be_truthy
+    end
+
+    it "uncompresses zip archive" do
+      zip_ccompressed_file = create_zip_archive
+      service = MigrationService.new(zip_ccompressed_file, new_username)
+      expect(service.only_import?).to be_truthy
+    end
+
+    def create_gz_archive
+      target_path = File.dirname(archive_file.path)
+      target_file = File.join(target_path, "archive.json.gz")
+      Zlib::GzipWriter.open(target_file) do |gz|
+        File.open(archive_file.path).each do |line|
+          gz.write line
+        end
+      end
+      target_file
+    end
+
+    def create_zip_archive
+      target_path = File.dirname(archive_file.path)
+      target_file = File.join(target_path, "archive.zip")
+      Zip::OutputStream.open(target_file) do |zip|
+        zip.put_next_entry("archive.json")
+        File.open(archive_file.path).each do |line|
+          zip.write line
+        end
+      end
+      target_file
     end
   end
 
