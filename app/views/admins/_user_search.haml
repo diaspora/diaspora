@@ -36,8 +36,9 @@
 .row
   .users.col-md-12
     %ul.media-list
-      - @users.each do |user|
-        = render partial: "user_entry", locals: {user: user}
+      - if @persons.present?
+        - @persons.each do |person|
+          = render partial: "user_entry", locals: {person: person}
 
 .row
   .more_invites.col-md-12

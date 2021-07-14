@@ -1,0 +1,13 @@
+- if person.owner.present? && person != @current_user.person && !person.closed_account?
+  - if person.locked_access?
+    = link_to t("admins.user_search.unlock_account"),
+      admin_unlock_account_path(person.user_id),
+      method: :post,
+      data: {confirm: t("admins.user_search.are_you_sure_unlock_account")},
+      class: "btn btn-danger btn-block"
+  - else
+    = link_to t("admins.user_search.lock_account"),
+      admin_lock_account_path(person.user_id),
+      method: :post,
+      data: {confirm: t("admins.user_search.are_you_sure_lock_account")},
+      class: "btn btn-danger btn-block"

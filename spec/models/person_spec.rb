@@ -696,9 +696,23 @@ describe Person, type: :model do
   end
 
   describe "#lock_access!" do
-    it "sets the closed_account flag" do
-      @person.lock_access!
-      expect(@person.reload.closed_account).to be true
+    it "sets the locked access flag" do
+      person = FactoryBot.create(:user).person
+      person.lock_access!
+      expect(person.reload.locked_access?).to be true
+    end
+
+    it "closes the account" do
+      person = FactoryBot.create(:user).person
+      person.close_account!
+      expect(person.reload.closed_account?).to be true
+    end
+
+    it "closes and wipes the account" do
+      expect(Workers::WipeAccount).to receive(:perform_async).with(@user.person.id)
+      @user.post(:status_message, text: "hello", to: @user.aspect_ids)
+      @user.person.wipe_and_close_account!
+      expect(@user.person.reload.closed_account?).to be true
     end
   end
 

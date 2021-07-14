@@ -1,0 +1,4 @@
+- if person.owner.present? && !person.closed_account?
+  = link_to t("admins.user_search.add_invites"),
+    add_invites_path(person.user_id),
+    class: "btn btn-info btn-block"

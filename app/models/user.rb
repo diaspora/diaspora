@@ -537,13 +537,12 @@ class User < ApplicationRecord
   end
 
   def close_account!
-    self.person.lock_access!
-    self.lock_access!
-    AccountDeletion.create(person: person)
+    person.close_account!
+    AccountDeletion.create(person: person) unless AccountDeletion.exists?(person: person)
   end
 
   def closed_account?
-    self.person.closed_account
+    person.closed_account
   end
 
   def clear_account!

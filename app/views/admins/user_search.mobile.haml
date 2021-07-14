@@ -3,4 +3,4 @@
     .flash-message{class: "message alert alert-#{flash_class name}", role: "alert"}
       = msg
 
-= render partial: "admins/user_search", locals: {nb_users: @users.count}
+= render partial: "admins/user_search", locals: {nb_users: @persons.count(:all)}
