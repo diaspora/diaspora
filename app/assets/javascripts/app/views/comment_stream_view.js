@@ -43,9 +43,9 @@ app.views.CommentStream = app.views.Base.extend({
 
   presenter: function(){
     return _.extend(this.defaultPresenter(), {
-      moreCommentsCount : (this.model.interactions.commentsCount() - 3),
-      showExpandCommentsLink : (this.model.interactions.commentsCount() > 3),
-      commentsCount : this.model.interactions.commentsCount()
+      moreCommentsCount: (this.model.interactions.commentsCount() - this.model.comments.length),
+      showExpandCommentsLink: (this.model.interactions.commentsCount() > this.model.comments.length),
+      commentsCount: this.model.interactions.commentsCount()
     });
   },
 
@@ -146,8 +146,9 @@ app.views.CommentStream = app.views.Base.extend({
     if(evt){ evt.preventDefault(); }
     this.model.comments.fetch({
       success: function() {
-        this.$("div.comment.show_comments").addClass("hidden");
+        this.$("div.comment.show-comments").addClass("hidden");
         this.$(".loading-comments").addClass("hidden");
+        this.trigger("commentsExpanded");
       }.bind(this)
     });
   },

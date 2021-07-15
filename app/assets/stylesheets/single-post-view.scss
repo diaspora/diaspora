@@ -116,9 +116,10 @@
 
   .no-comments { text-align: center; }
 
-  a {
+  .author-name {
     color: $link-color;
   }
+
   .count {
     float: left;
     i {
@@ -143,6 +144,14 @@
   .comments > .comment,
   .comment.new-comment-form-wrapper {
     padding: 10px;
+  }
+
+  .show-comments {
+    text-align: center;
+  }
+
+  .loading-comments {
+    text-align: left;
   }
 
   .count,

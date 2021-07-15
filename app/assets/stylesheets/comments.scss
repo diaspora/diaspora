@@ -1,5 +1,5 @@
 .comment_stream {
-  .show_comments {
+  .show-comments {
     border-top: 1px solid $border-grey;
     line-height: $line-height-computed;
     margin-top: 5px;
@@ -11,8 +11,9 @@
   }
 
   .loading-comments {
-    height: $line-height-computed + 11px; // height of .show_comments: line-height, 10px margin, 1px border
+    height: $line-height-computed + 11px; // height of .show-comments: line-height, 10px margin, 1px border
     margin-top: -$line-height-computed - 11px;
+    text-align: center;
 
     .loader {
       height: 20px;

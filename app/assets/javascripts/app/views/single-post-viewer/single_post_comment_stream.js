@@ -5,35 +5,42 @@ app.views.SinglePostCommentStream = app.views.CommentStream.extend({
 
   initialize: function(){
     this.CommentView = app.views.ExpandedComment;
-    $(window).on('hashchange',this.highlightPermalinkComment);
+    $(window).on("hashchange", this.highlightPermalinkComment.bind(this));
     this.setupBindings();
-    this.model.comments.fetch({success: function() {
-      setTimeout(this.highlightPermalinkComment, 0);
-    }.bind(this)});
   },
 
   highlightPermalinkComment: function() {
-    if (document.location.hash && $(document.location.hash).length > 0) {
-      var element = $(document.location.hash);
-      var headerSize = 60;
-      $(".highlighted").removeClass("highlighted");
-      element.addClass("highlighted");
-      var pos = element.offset().top - headerSize;
-      $("html,body").animate({scrollTop: pos});
+    if (!document.location.hash) {
+      return;
     }
+
+    var selector = document.location.hash;
+
+    if (this.$(selector).length === 0) {
+      this.once("commentsExpanded", function() { _.defer(this.highlightComment, selector); });
+      this.expandComments();
+    } else {
+      this.highlightComment(selector);
+    }
+  },
+
+  highlightComment: function(selector) {
+    if (this.$(selector).length === 0) {
+      return;
+    }
+
+    var element = this.$(selector);
+    var headerSize = $("nav.navbar-fixed-top").height() + 10;
+    this.$(".highlighted").removeClass("highlighted");
+    element.addClass("highlighted");
+    var pos = element.offset().top - headerSize;
+    window.scroll(0, pos);
   },
 
   postRenderTemplate: function() {
     app.views.CommentStream.prototype.postRenderTemplate.apply(this);
     this.$(".new-comment-form-wrapper").removeClass("hidden");
-  },
-
-  presenter: function(){
-    return _.extend(this.defaultPresenter(), {
-      moreCommentsCount : 0,
-      showExpandCommentsLink : false,
-      commentsCount : this.model.interactions.commentsCount()
-    });
-  },
+    _.defer(this.highlightPermalinkComment.bind(this));
+  }
 });
 // @license-end
