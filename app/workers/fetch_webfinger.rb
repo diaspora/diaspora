@@ -12,7 +12,9 @@ module Workers
       person = Person.find_or_fetch_by_identifier(account)
 
       # also, schedule to fetch a few public posts from that person
-      Diaspora::Fetcher::Public.queue_for(person) unless person.nil?
+      Diaspora::Fetcher::Public.queue_for(person)
+    rescue DiasporaFederation::Discovery::DiscoveryError
+      # Ignored
     end
   end
 end
