@@ -271,10 +271,11 @@ describe MigrationService do
       status_message = StatusMessage.find_by(guid: status_message_with_photos_entity.guid)
       expect(status_message.author).to eq(user.person)
       expect(
-        status_message.photos.pluck(:guid, :text, :remote_photo_path, :remote_photo_name, :width, :height)
+        status_message.photos.pluck(:guid, :text, :remote_photo_name, :width, :height)
       ).to match_array(
         status_message_with_photos_entity.photos.map {|photo|
-          [photo.guid, photo.text, photo.remote_photo_path, photo.remote_photo_name, photo.width, photo.height]
+          # remote_photo_path is rewritten with new local path
+          [photo.guid, photo.text, photo.remote_photo_name, photo.width, photo.height]
         }
       )
 

@@ -29,6 +29,7 @@ class AccountMigration < ApplicationRecord
   # executes a migration plan according to this AccountMigration object
   def perform!
     raise "already performed" if performed?
+
     validate_sender if locally_initiated?
     tombstone_old_user_and_update_all_references if old_person
     dispatch if locally_initiated?

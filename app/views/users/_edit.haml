@@ -193,8 +193,11 @@
     %hr
 
     .row
-      .col-md-6.account-data
+      .col-md-12
         %h3= t(".export_data")
+        %p If you want to migrate this account to another pod, start by exporting your data and photos using the buttons below.
+    .row
+      .col-md-6.account-data
         %h4= t("profile")
         .form-group
           - if current_user.exporting
@@ -210,6 +213,7 @@
             = link_to t(".request_export"), export_profile_user_path, method: :post,
               class: "btn btn-default"
 
+      .col-md-6
         %h4= t("javascripts.profile.photos")
         .form-group
           - if current_user.exporting_photos
@@ -224,7 +228,24 @@
             = link_to t(".request_export_photos"), export_photos_user_path, method: :post,
               class: "btn btn-default"
 
-      .col-md-6
+    .row
+      .col-md-12
+        %h3
+          Import another account into
+          = current_user.diaspora_handle
+        %p
+          diaspora* allows you to merge an account into another, even if the accounts are in two different pods.
+          This way, you can migrate from one pod to another one.
+          For this, you need to upload into this account the data and the photo archives you have exported from the
+          settings in the other account.
+          %strong There is no way back,
+          an account merged into another one can't be restored.
+        .form-group
+          .btn.btn-primary{id: "import_account", data: {toggle: "modal", target: "#importAccountModal"}}
+            Import another account...
+          = render "import_account_modal"
+    .row
+      .col-md-12
         %h3
           = t(".close_account_text")
         .form-group

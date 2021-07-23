@@ -22,7 +22,7 @@ class Photo < ApplicationRecord
         large:  photo.url(:scaled_full),
         raw:    photo.url
       }
-    }, :as => :sizes
+    }, as: :sizes
     t.add lambda { |photo|
       {
         height: photo.height,
@@ -48,25 +48,25 @@ class Photo < ApplicationRecord
   before_destroy :ensure_user_picture
   after_destroy :clear_empty_status_message
 
-  after_commit :on => :create do
-    queue_processing_job if self.author.local?
+  after_commit on: :create do
+    queue_processing_job if author.local?
 
   end
 
   scope :on_statuses, ->(post_guids) {
-    where(:status_message_guid => post_guids)
+    where(status_message_guid: post_guids)
   }
 
   def clear_empty_status_message
-    if self.status_message && self.status_message.text_and_photos_blank?
-      self.status_message.destroy
+    if status_message&.text_and_photos_blank?
+      status_message.destroy
     else
       true
     end
   end
 
   def ownership_of_status_message
-    message = StatusMessage.find_by_guid(self.status_message_guid)
+    message = StatusMessage.find_by(guid: status_message_guid)
     return unless status_message_guid && message && diaspora_handle != message.diaspora_handle
 
     errors.add(:base, "Photo must have the same owner as status message")
@@ -96,20 +96,22 @@ class Photo < ApplicationRecord
   end
 
   def update_remote_path
-    unless self.unprocessed_image.url.match(/^https?:\/\//)
-      remote_path = "#{AppConfig.pod_uri.to_s.chomp("/")}#{self.unprocessed_image.url}"
-    else
-      remote_path = self.unprocessed_image.url
-    end
+    remote_path = if unprocessed_image.url.match(%r{^https?://})
+                    unprocessed_image.url
+                  else
+                    "#{AppConfig.pod_uri.to_s.chomp('/')}#{unprocessed_image.url}"
+                  end
 
-    name_start = remote_path.rindex '/'
+    name_start = remote_path.rindex "/"
     self.remote_photo_path = "#{remote_path.slice(0, name_start)}/"
     self.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)
   end
 
-  def url(name = nil)
-    if remote_photo_path
-      name = name.to_s + '_' if name
+  def url(name=nil)
+    # During migration in bad cases this might be happen
+    # If this happens, stream loading stops. Better dont show photos as stop loading stream
+    if remote_photo_path.present? && remote_photo_name.present?
+      name = "#{name.to_s}_" if name
       image_url = remote_photo_path + name.to_s + remote_photo_name
       if AppConfig.privacy.camo.proxy_remote_pod_images?
         Diaspora::Camo.image_url(image_url)
@@ -124,7 +126,7 @@ class Photo < ApplicationRecord
   end
 
   def ensure_user_picture
-    profiles = Profile.where(:image_url => url(:thumb_large))
+    profiles = Profile.where(image_url: url(:thumb_large))
     profiles.each { |profile|
       profile.image_url = nil
       profile.save
@@ -132,7 +134,7 @@ class Photo < ApplicationRecord
   end
 
   def queue_processing_job
-    Workers::ProcessPhoto.perform_async(self.id)
+    Workers::ProcessPhoto.perform_async(id)
   end
 
   def self.visible(current_user, person, limit=:all, max_time=nil)

@@ -16,9 +16,9 @@ module Workers
       return false if photo.processed? || unprocessed_image.path.try(:include?, ".gif")
 
       photo.processed_image.store!(unprocessed_image)
-
       photo.save!
     rescue ActiveRecord::RecordNotFound # Deleted before the job was run
+      # Ignored
     end
   end
 end

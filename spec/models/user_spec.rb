@@ -1006,7 +1006,7 @@ describe User, type: :model do
       expect(user.export).to be_present
       expect(user.exported_at).to be_present
       expect(user.exporting).to be_falsey
-      expect(user.export.filename).to match(/.json/)
+      expect(user.export.filename).to match(/.gz/)
       expect(ActiveSupport::Gzip.decompress(user.export.file.read)).to include user.username
     end
 

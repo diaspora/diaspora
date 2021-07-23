@@ -9,7 +9,14 @@ class ExportedPhotos < SecureUploader
     "uploads/users"
   end
 
+  def extension_allowlist
+    %w[zip]
+  end
+
   def filename
-    "#{model.username}_photos_#{secure_token}.zip" if original_filename.present?
+    if original_filename.present? # rubocop:disable Style/GuardClause
+      extension = File.extname(@filename) if @filename
+      "#{model.username}_photos_#{secure_token}#{extension}"
+    end
   end
 end
