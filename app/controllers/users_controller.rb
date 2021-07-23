@@ -151,7 +151,7 @@ class UsersController < ApplicationController
     elsif user_data[:color_theme]
       change_settings(user_data, "users.update.color_theme_changed", "users.update.color_theme_not_changed")
     elsif user_data[:export] || user_data[:exported_photos_file]
-      upload_export_files(user_data)
+      process_user_import_files(user_data)
     else
       change_settings(user_data)
     end
@@ -215,17 +215,46 @@ class UsersController < ApplicationController
     end
   end
 
-  def upload_export_files(user_data)
+  def process_user_import_files(user_data)
     logger.info "Start importing account"
-    @user.export = user_data[:export] if user_data[:export]
-    @user.exported_photos_file = user_data[:exported_photos_file] if user_data[:exported_photos_file]
-    if @user.save
-      flash.now[:notice] = "Your account migration has been scheduled"
+    import_files    = copy_import_files(user_data)
+    import_is_valid = import_parameter?(import_files)
+
+    if import_is_valid
+      flash.now[:notice] = t("users.import.import_has_been_scheduled")
+      Workers::ImportUser.perform_async(@user.id, import_files)
     else
-      flash.now[:error] = "Your account migration could not be scheduled for the following reason:"\
-                          " #{@user.errors.full_messages}"
+      flash.now[:error] = t("users.import.import_has_no_files_received")
     end
-    Workers::ImportUser.perform_async(@user.id)
+  end
+
+  def import_parameter?(import_files)
+    profile_exists = import_files[:profile_path] && File.exist?(import_files[:profile_path])
+    photos_exist = import_files[:photos_path] && File.exist?(import_files[:photos_path])
+
+    profile_exists || photos_exist
+  end
+
+  def copy_import_files(user_data)
+    {
+      profile_path: copy_import_file(user_data[:export]),
+      photos_path:  copy_import_file(user_data[:exported_photos_file])
+    }
+  end
+
+  # @param tmp_file [ActionDispatch]
+  def copy_import_file(tmp_file)
+    return if tmp_file.blank?
+
+    begin
+      file_path_to_save_to = Rails.root.join("private", "uploads", "users",
+                                             "#{current_user.username}_#{tmp_file.original_filename}")
+      FileUtils.cp tmp_file.path, file_path_to_save_to
+      file_path_to_save_to
+    rescue StandardError => e
+      logger.error "Failed to copy file: #{e.message}"
+      nil
+    end
   end
 
   def change_settings(user_data, successful="users.update.settings_updated", error="users.update.settings_not_updated")
