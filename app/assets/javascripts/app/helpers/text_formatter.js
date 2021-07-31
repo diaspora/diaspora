@@ -16,6 +16,9 @@
       typographer: true
     });
 
+    var footnote = window.markdownitFootnote;
+    md.use(footnote);
+
     var inlinePlugin = window.markdownitForInline;
     md.use(inlinePlugin, "utf8_symbols", "text", function (tokens, idx) {
       tokens[idx].content = tokens[idx].content.replace(/<->/g, "↔")

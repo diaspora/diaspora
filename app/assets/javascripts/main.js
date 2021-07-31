@@ -23,6 +23,7 @@
 //= require markdown-it
 //= require markdown-it-diaspora-mention
 //= require markdown-it-for-inline
+//= require markdown-it-footnote
 //= require markdown-it-hashtag
 //= require markdown-it-sanitizer
 //= require markdown-it-sub

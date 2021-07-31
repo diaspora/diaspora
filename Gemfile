@@ -103,10 +103,11 @@ source "https://gems.diasporafoundation.org" do
 
   gem "rails-assets-highlightjs",                         "9.12.0"
   gem "rails-assets-markdown-it",                         "8.4.2"
-  gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "1.2.0"
-  gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
+  gem "rails-assets-markdown-it-footnote",                "3.0.3"
+  gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
+  gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
 
