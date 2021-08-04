@@ -108,12 +108,12 @@ describe Stream::Tag do
   describe '#tag_name=' do
     it 'downcases the tag' do
       stream = Stream::Tag.new(nil, "WHAT")
-      expect(stream.tag_name).to eq('what')
+      expect(stream.tag_names).to eq("what")
     end
 
     it 'removes #es' do
       stream = Stream::Tag.new(nil, "#WHAT")
-      expect(stream.tag_name).to eq('what')
+      expect(stream.tag_names).to eq("what")
     end
   end
 

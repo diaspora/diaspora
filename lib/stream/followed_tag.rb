@@ -16,7 +16,12 @@ class Stream::FollowedTag < Stream::Base
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    @posts ||= StatusMessage.user_tag_stream(user, tag_ids)
+    if tag_ids.empty?
+      @posts = StatusMessage.none
+    else
+      @posts ||= StatusMessage.any_user_tag_stream(user, tag_ids)
+    end
+    @posts
   end
 
   private

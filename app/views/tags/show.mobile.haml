@@ -5,13 +5,14 @@
 %h1
   = @stream.display_tag_name
 - if user_signed_in?
-  - unless tag_followed?
-    .btn.btn-success.tag_following_action{data: {name: @stream.tag_name}}
-      = t(".follow", tag: @stream.tag_name)
+  -# rubocop:disable Style/IdenticalConditionalBranches
+  - if tag_followed?
+    .btn.btn-danger.tag_following_action{data: {name: @stream.tag_names}}
+      = t(".stop_following", tag: @stream.tag_names)
   - else
-    .btn.btn-danger.tag_following_action{data: {name: @stream.tag_name}}
-      = t(".stop_following", tag: @stream.tag_name)
-
+    .btn.btn-success.tag_following_action{data: {name: @stream.tag_names}}
+      = t(".follow", tag: @stream.tag_names)
+  -# rubocop:enable Style/IdenticalConditionalBranches
 #main-stream.stream
   = render 'shared/stream', :posts => @stream.stream_posts
   = render 'shared/stream_more_button'
