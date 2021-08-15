@@ -181,10 +181,6 @@ Rails.application.routes.draw do
     resources :photos, except:  %i(new update)
     get :stream
     get :hovercard
-
-    collection do
-      post 'by_handle' => :retrieve_remote, :as => 'person_by_handle'
-    end
   end
 
   # Note: The contraint for this route's username parameter cannot be removed.
