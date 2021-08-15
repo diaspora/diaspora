@@ -43,6 +43,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Fix html-syntax in some handlebars templates [#8251](https://github.com/diaspora/diaspora/pull/8251)
 * Remove `chat_enabled` flag from archive export [#8265](https://github.com/diaspora/diaspora/pull/8265)
 * Change thumbnails in image slideshow to squares [#8275](https://github.com/diaspora/diaspora/pull/8275)
+* Replace uglifier with terser for JS compression [#8268](https://github.com/diaspora/diaspora/pull/8268)
 
 ## Bug fixes
 
