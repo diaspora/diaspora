@@ -50,7 +50,10 @@ module Diaspora
       end
 
       def strip_markdown
-        renderer = Redcarpet::Markdown.new Redcarpet::Render::StripDown, options[:stripdown_options]
+        stripdown_options = options[:markdown_options]
+        # Footnotes are not supported in text-only outputs (mail, crossposts etc)
+        stripdown_options[:footnotes] = false
+        renderer = Redcarpet::Markdown.new Redcarpet::Render::StripDown, stripdown_options
         @message = renderer.render(message).strip
       end
 
@@ -114,14 +117,6 @@ module Diaspora
                 squish:                  false,
                 escape:                  true,
                 escape_tags:             false,
-                stripdown_options:       {
-                  autolink:            true,
-                  fenced_code_blocks:  true,
-                  space_after_headers: true,
-                  strikethrough:       true,
-                  tables:              true,
-                  no_intra_emphasis:   true
-                },
                 markdown_options:        {
                   autolink:            true,
                   fenced_code_blocks:  true,
