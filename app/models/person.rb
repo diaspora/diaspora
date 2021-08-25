@@ -368,7 +368,7 @@ class Person < ApplicationRecord
       handle: diaspora_handle,
       url:    Rails.application.routes.url_helpers.person_path(self)
     }
-    json.merge!(:tags => self.profile.tags.map{|t| "##{t.name}"}) if opts[:includes] == "tags"
+    json.merge!(tags: self.profile.tags.map {|t| "##{t.name}" }) if opts[:includes] == "tags"
     json
   end
 
