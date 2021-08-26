@@ -336,6 +336,13 @@ class Person < ApplicationRecord
 
   # discovery (webfinger)
   def self.find_or_fetch_by_identifier(diaspora_id)
+    # pod blocked?
+    if diaspora_handle_from_blocked_pod?(diaspora_id)
+      logger.info "Rejecting #{diaspora_id}, from blocked pod"
+      raise DiasporaFederation::Discovery::DiscoveryError,
+            "Failed discovery for #{diaspora_id}: blocked pod"
+    end
+
     # exiting person?
     person = by_account_identifier(diaspora_id)
     return person if person.present? && person.profile.present?

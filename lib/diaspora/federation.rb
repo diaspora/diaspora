@@ -13,6 +13,10 @@ module Diaspora
     # Raised, if the recipient account is closed already
     class RecipientClosed < RuntimeError
     end
+
+    # Raised if pod is blocked by admin
+    class PodBlocked < RuntimeError
+    end
   end
 end
 
