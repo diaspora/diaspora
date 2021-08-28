@@ -6,6 +6,7 @@
 
 class Person < ApplicationRecord
   include Diaspora::Fields::Guid
+  include Diaspora::Federation
 
   # NOTE API V1 to be extracted
   acts_as_api
