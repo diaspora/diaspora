@@ -15,12 +15,14 @@ class ArchiveImporter
     rescue DiasporaFederation::Entities::Signable::SignatureVerificationFailed,
            DiasporaFederation::Discovery::InvalidDocument,
            DiasporaFederation::Discovery::DiscoveryError,
+           DiasporaFederation::Federation::Fetcher::NotFetchable,
+           OwnRelayableImporter::NoParentError,
            ActiveRecord::RecordInvalid => e
       logger.warn "#{self}: #{e}"
+      self.persisted_object = nil
     end
 
-    attr_reader :json
-    attr_reader :user
+    attr_reader :json, :user
     attr_accessor :persisted_object
 
     def entity

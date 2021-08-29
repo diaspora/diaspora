@@ -21,11 +21,13 @@ class ArchiveImporter
     attr_reader :old_author_id
 
     def persisted_object
-      @persisted_object ||= (instance if real_author == old_author_id)
+      return @persisted_object if defined?(@persisted_object)
+
+      @persisted_object = (instance if real_author == old_author_id)
     end
 
     def real_author
-      instance.author.diaspora_handle
+      instance&.author&.diaspora_handle
     end
   end
 end
