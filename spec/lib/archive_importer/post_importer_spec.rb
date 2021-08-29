@@ -115,14 +115,13 @@ describe ArchiveImporter::PostImporter do
     end
 
     context "with reshare" do
-      let!(:author) { FactoryGirl.create(:person, diaspora_handle: "author@example.com") }
+      let(:guid) { UUID.generate(:compact) }
       let(:entity_json) { JSON.parse(<<~JSON) }
         {
           "entity_data" : {
              "created_at" : "2015-10-19T13:58:16Z",
-             "guid" : "#{UUID.generate(:compact)}",
-             "text" : "test post",
-             "author" : "author@example.com",
+             "guid" : "#{guid}",
+             "author" : "#{new_user.diaspora_handle}",
              "root_author": "root_author@remote-pod.com",
              "root_guid":   "#{UUID.generate(:compact)}"
           },
@@ -130,20 +129,16 @@ describe ArchiveImporter::PostImporter do
         }
       JSON
 
-      context "when a remote pod responds 403 to discovery requests" do
-        before do
-          stub_request(:get, "https://remote-pod.com/.well-known/webfinger?resource=acct:root_author@remote-pod.com")
-            .to_return(status: 403, body: "", headers: {})
-          stub_request(:get, "https://remote-pod.com/.well-known/host-meta")
-            .to_return(status: 403, body: "", headers: {})
-          stub_request(:get, "http://remote-pod.com/.well-known/host-meta")
-            .to_return(status: 403, body: "", headers: {})
-        end
+      context "with fetch problems" do
+        it "handles unfetchable root post" do
+          allow(DiasporaFederation::Federation::Fetcher).to receive(:fetch_public)
+            .and_raise(DiasporaFederation::Federation::Fetcher::NotFetchable)
 
-        it "doesn't raise error" do
           expect {
             instance.import
           }.not_to raise_error
+
+          expect(Reshare.find_by(guid: guid)).to be_nil
         end
       end
     end
