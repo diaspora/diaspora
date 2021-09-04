@@ -8,6 +8,7 @@
 * Replace uglifier with terser for JS compression [#8268](https://github.com/diaspora/diaspora/pull/8268)
 
 ## Bug fixes
+* Ensure the log folder exists [#8287](https://github.com/diaspora/diaspora/pull/8287)
 
 ## Features
 * Add tags to tumblr posts [#8244](https://github.com/diaspora/diaspora/pull/8244)
