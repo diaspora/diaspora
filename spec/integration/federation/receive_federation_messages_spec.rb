@@ -74,15 +74,6 @@ describe "Receive federation messages feature" do
           }.to raise_error(ActiveRecord::RecordInvalid)
         end
 
-        it "doesn't accept second migration for the same new user profile" do
-          run_migration
-          expect {
-            sender = create_remote_user("example.org")
-            entity = create_account_migration_entity(sender.diaspora_handle, new_user)
-            post_message(generate_payload(entity, sender))
-          }.to raise_error(ActiveRecord::RecordInvalid)
-        end
-
         context "when our pod was left" do
           let(:sender) { FactoryBot.create(:user) }
 
