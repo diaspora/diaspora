@@ -8,3 +8,4 @@
 //= link error_pages.css
 //= link admin.css
 //= link rtl.css
+//= link archive-uploader

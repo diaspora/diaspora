@@ -8,41 +8,42 @@
         %button.close{type: "button", data: {dismiss: "modal"}, aria: {hidden: "true"}}
           &times;
         %h3.modal-title{id: "importAccountModalLabel"}
-          Import another account
+          = t("users.import_modal.title")
         .modal-body
           %p
-            You are about to import and merge another account into
-            = current_user.diaspora_handle
-            /.
-            Here is what's going to happen:
+            = simple_format(t("users.import_modal.subtext", {accountname: current_user.diaspora_handle}))
           %ol
             %li
-              Your profile (name, bio, birthday, gender...) will be updated with the content from the imported account
+              = t("users.import_modal.list1")
             %li
-              Your settings (theme, visibility...) will be updated with those from the imported account
+              = t("users.import_modal.list2")
             %li
-              All your aspects and contacts will be added to this account. This will be transparent for them, they
-              will be linked to that account as they were linked with the account you are importing
+              = t("users.import_modal.list3")
             %li
-              All posts and comments you made with the imported account will be imported in that account and seen
-              as posted by this accounts by the other users
-            %li
-              %strong
-                The imported account and all its linked data will be deleted from the previous pod.
-
-          %p
-            If the pod of the account you are importing is offline, your contacts and posts will still be imported,
-            but your contacts will receive a notification as if you started sharing with them.
+              = t("users.import_modal.list4")
+          %strong
+            = simple_format(t("users.import_modal.closing_text"))
           = form_for current_user,
                      url: edit_user_path,
                      html: {method: :put, multipart: true, class: "form-horizontal"} do |f|
             .row
-              .col-md-6
-                %label Select the data archive:
-                = f.file_field :export, accept: "application/json, application/zip, application/gzip"
-              .col-md-6
-                %label Select the photo archive:
-                = f.file_field :exported_photos_file, accept: "application/zip"
+              .col-md-12
+                .upload-btn-wrapper
+                  .btn.btn-primary
+                    Select profile archive
+                  = f.file_field :export, accept: "application/json, application/zip, application/gzip",
+                    id: 'profile-file-btn'
+                  %span#profile-file-chosen
+                    No profile set
+            .row
+              .col-md-12
+                .upload-btn-wrapper
+                  .btn.btn-primary
+                    Select photo archive
+                  = f.file_field :exported_photos_file, accept: "application/zip",
+                    id:'photos-file-btn'
+                  %span#photos-file-chosen
+                    No photos set
             %h4
               The original account will be imported
               %strong
@@ -53,3 +54,4 @@
                   Cancel
                 = f.submit "Import and merge", class: "btn btn-primary.pull-right", id: "change_email_preferences"
 
+= javascript_include_tag "archive-uploader"
