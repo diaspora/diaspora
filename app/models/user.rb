@@ -404,10 +404,18 @@ class User < ApplicationRecord
   end
 
   ###Helpers############
-  def self.build(opts = {})
+  def self.build(opts={})
     u = User.new(opts.except(:person, :id))
     u.setup(opts)
     u
+  end
+
+  def self.find_or_build(opts={})
+    user = User.find_or_create_by(username: opts[:username], email: opts[:email])
+    user.password ||= opts[:password]
+    user.password_confirmation ||= opts[:password]
+    user.setup(opts)
+    user
   end
 
   def setup(opts)
@@ -417,6 +425,10 @@ class User < ApplicationRecord
     self.language ||= I18n.locale.to_s
     self.color_theme = opts[:color_theme]
     self.color_theme ||= AppConfig.settings.default_color_theme
+    self.strip_exif &&= opts[:strip_exif]
+    self.show_community_spotlight_in_stream = opts[:show_community_spotlight_in_stream]
+    self.auto_follow_back ||= opts[:auto_follow_back]
+    self.getting_started = false
     self.valid?
     errors = self.errors
     errors.delete :person

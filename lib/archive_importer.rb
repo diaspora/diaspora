@@ -36,7 +36,7 @@ class ArchiveImporter
         profile_attributes: profile_attributes
       }
     )
-    self.user = User.build(data)
+    self.user = User.find_or_build(data)
     user.save!
   end
 
