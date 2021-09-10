@@ -111,13 +111,9 @@ class Photo < ApplicationRecord
     # During migration in bad cases this might be happen
     # If this happens, stream loading stops. Better dont show photos as stop loading stream
     if remote_photo_path.present? && remote_photo_name.present?
-      name = "#{name.to_s}_" if name
+      name = "#{name.to_s}_" if name # rubocop:disable Lint/RedundantStringCoercion
       image_url = remote_photo_path + name.to_s + remote_photo_name
-      if AppConfig.privacy.camo.proxy_remote_pod_images?
-        Diaspora::Camo.image_url(image_url)
-      else
-        image_url
-      end
+      camo_image_url(image_url)
     elsif processed?
       processed_image.url(name)
     else
@@ -144,5 +140,15 @@ class Photo < ApplicationRecord
                Photo.where(author_id: person.id, public: true)
              end
     photos.where(pending: false).order("created_at DESC")
+  end
+
+  private
+
+  def camo_image_url(image_url)
+    if AppConfig.privacy.camo.proxy_remote_pod_images?
+      Diaspora::Camo.image_url(image_url)
+    else
+      image_url
+    end
   end
 end

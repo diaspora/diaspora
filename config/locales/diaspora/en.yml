@@ -1305,6 +1305,7 @@ en:
       request_export: "Request my profile data"
       request_export_update: "Refresh my profile data"
       export_data: "Export data"
+      export_data_subline: "If you want to migrate this account to another pod, start by exporting your data and photos using the buttons below."
       export_in_progress: "We are currently processing your data. Please check back in a few moments."
       last_exported_html: "(Last updated %{timeago})"
       download_export_photos: "Download my photos"

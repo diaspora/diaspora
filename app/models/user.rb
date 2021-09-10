@@ -425,14 +425,14 @@ class User < ApplicationRecord
     self.language ||= I18n.locale.to_s
     self.color_theme = opts[:color_theme]
     self.color_theme ||= AppConfig.settings.default_color_theme
-    self.strip_exif &&= opts[:strip_exif]
-    self.show_community_spotlight_in_stream = opts[:show_community_spotlight_in_stream]
+    self.strip_exif = opts.fetch(:strip_exif, true)
+    self.show_community_spotlight_in_stream = opts.fetch(:show_community_spotlight_in_stream, false)
     self.auto_follow_back ||= opts[:auto_follow_back]
-    self.getting_started = false
-    self.valid?
+    valid?
     errors = self.errors
     errors.delete :person
     return if errors.size > 0
+
     self.set_person(Person.new((opts[:person] || {}).except(:id)))
     self.generate_keys
     self

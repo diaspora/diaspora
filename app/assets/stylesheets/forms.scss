@@ -16,21 +16,21 @@ textarea {
     box-shadow: none;
   }
 }
-// scss-lint:enable QualifyingElement
 
 .upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
   display: inline-block;
-}
+  overflow: hidden;
+  position: relative;
 
-.upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
+  input[type=file] {
+    font-size: 100px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+  }
 }
+// scss-lint:enable QualifyingElement
 
 textarea {
   resize: vertical;
