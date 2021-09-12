@@ -36,9 +36,9 @@ class ArchiveImporter
         profile_attributes: profile_attributes
       }
     )
-    user = User.find_or_build(data)
-    user.getting_started = false
-    user.save!
+    @user = User.find_or_build(data)
+    @user.getting_started = false
+    @user.save!
   end
 
   private
@@ -61,14 +61,14 @@ class ArchiveImporter
     name = archive_hash["user"]["auto_follow_back_aspect"]
     return if name.nil?
 
-    aspect = user.aspects.find_by(name: name)
-    user.update(auto_follow_back_aspect: aspect) if aspect
+    aspect = @user.aspects.find_by(name: name)
+    @user.update(auto_follow_back_aspect: aspect) if aspect
   end
 
   def import_aspects
     contact_groups.each do |group|
       begin
-        user.aspects.create!(group.slice("name"))
+        @user.aspects.create!(group.slice("name"))
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end
@@ -94,7 +94,7 @@ class ArchiveImporter
 
   def import_collection(collection, importer_class)
     collection.each do |object|
-      importer_class.new(object, user).import
+      importer_class.new(object, @user).import
     end
   end
 
@@ -102,7 +102,7 @@ class ArchiveImporter
     archive_hash.fetch("user").fetch("followed_tags", []).each do |tag_name|
       begin
         tag = ActsAsTaggableOn::Tag.find_or_create_by(name: tag_name)
-        user.tag_followings.create!(tag: tag)
+        @user.tag_followings.create!(tag: tag)
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end
@@ -117,7 +117,7 @@ class ArchiveImporter
         next
       end
       begin
-        user.participations.create!(target: post)
+        @user.participations.create!(target: post)
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end
