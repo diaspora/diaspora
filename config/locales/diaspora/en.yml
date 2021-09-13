@@ -1343,12 +1343,20 @@ en:
       list2: "Your settings (theme, default post visibility, etc.) will be transferred from the imported account"
       list3: "All your aspects and contacts from that account will be added to this account"
       list4: "All posts and comments from that account will be added to this account"
-      closing_text: "The imported account and all its linked data will be deleted from the previous pod.<br>
-                     Your contacts do not need to do anything; they will automatically be connected to this account.<br>
-                     If your old pod is offline when you migrate, your contacts and posts will still be imported, but 
-                     your contacts will receive a notification that you have started sharing with them from 
-                     this account."
-      
+      closing_text: "The imported account and all its linked data will be deleted from the previous pod."
+      closing_recommendation: "Your contacts do not need to do anything; they will automatically be connected to this account."
+      old_pod_offline: "If your old pod is offline when you migrate, your contacts and posts will still be imported, but 
+                        your contacts will receive a notification that you have started sharing with them from 
+                        this account."
+      select_profile_archive: "Select profile archive"
+      select_photo_archive: "Select photo archive"
+      no_profile_file_set: "No profile set"
+      no_photos_file_set: "No photos set"
+      import_starts: "Your data will be imported."
+      original_account_will_be_deleted: "The original account will be deleted."
+      cancel: "Cancel"
+      start_import: "Start and Import"
+
     privacy_settings:
       title: "Privacy settings"
       strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"

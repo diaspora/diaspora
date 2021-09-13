@@ -22,7 +22,12 @@
             %li
               = t("users.import_modal.list4")
           %strong
-            = simple_format(t("users.import_modal.closing_text"))
+            = t("users.import_modal.closing_text")
+          %p
+            = t("users.import_modal.closing_recommendation")
+          %p
+            = t("users.import_modal.old_pod_offline")
+
           = form_for current_user,
                      url: edit_user_path,
                      html: {method: :put, multipart: true, class: "form-horizontal"} do |f|
@@ -30,28 +35,28 @@
               .col-md-12
                 .upload-btn-wrapper
                   .btn.btn-primary
-                    Select profile archive
+                    = t("users.import_modal.select_profile_archive")
                   = f.file_field :export, accept: "application/json, application/zip, application/gzip",
                     id: "profile-file-btn"
                   %span#profile-file-chosen
-                    No profile set
+                    = t("users.import_modal.no_profile_file_set")
             .row
               .col-md-12
                 .upload-btn-wrapper
                   .btn.btn-primary
-                    Select photo archive
+                    = t("users.import_modal.select_photo_archive")
                   = f.file_field :exported_photos_file, accept: "application/zip",
                     id: "photos-file-btn"
                   %span#photos-file-chosen
-                    No photos set
+                    = t("users.import_modal.no_photos_file_set")
             %h4
-              The original account will be imported
+              = t("users.import_modal.import_starts")
               %strong
-                and the original account deleted.
+              = t("users.import_modal.original_account_will_be_deleted")
             %p
               .clearfix
                 .btn.btn-default{data: {dismiss: "modal"}}
-                  Cancel
-                = f.submit "Import and merge", class: "btn btn-primary.pull-right", id: "change_email_preferences"
+                  = t("users.import_modal.cancel")
+                = f.submit t("users.import_modal.start_import"), class: "btn btn-primary.pull-right", id: "change_email_preferences"
 
 = javascript_include_tag "archive-uploader"
