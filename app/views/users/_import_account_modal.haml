@@ -57,6 +57,9 @@
               .clearfix
                 .btn.btn-default{data: {dismiss: "modal"}}
                   = t("users.import_modal.cancel")
-                = f.submit t("users.import_modal.start_import"), class: "btn btn-primary.pull-right", id: "change_email_preferences"
+                = f.submit t("users.import_modal.start_import"),
+                class: "btn btn-primary.pull-right",
+                id: "upload_profile_files",
+                disabled: true
 
 = javascript_include_tag "archive-uploader"
