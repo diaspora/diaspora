@@ -50,9 +50,8 @@ module Diaspora
       end
 
       def strip_markdown
-        stripdown_options = options[:markdown_options]
         # Footnotes are not supported in text-only outputs (mail, crossposts etc)
-        stripdown_options[:footnotes] = false
+        stripdown_options = options[:markdown_options].except(:footnotes)
         renderer = Redcarpet::Markdown.new Redcarpet::Render::StripDown, stripdown_options
         @message = renderer.render(message).strip
       end
