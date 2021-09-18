@@ -50,7 +50,9 @@ module Diaspora
       end
 
       def strip_markdown
-        renderer = Redcarpet::Markdown.new Redcarpet::Render::StripDown, options[:markdown_options]
+        # Footnotes are not supported in text-only outputs (mail, crossposts etc)
+        stripdown_options = options[:markdown_options].except(:footnotes)
+        renderer = Redcarpet::Markdown.new Redcarpet::Render::StripDown, stripdown_options
         @message = renderer.render(message).strip
       end
 
@@ -105,26 +107,27 @@ module Diaspora
       end
     end
 
-    DEFAULTS = {mentioned_people: [],
-                link_all_mentions: false,
-                disable_hovercards: false,
-                truncate: false,
-                append: nil,
-                append_after_truncate: nil,
-                squish: false,
-                escape: true,
-                escape_tags: false,
-                markdown_options: {
-                  autolink: true,
+    DEFAULTS = {mentioned_people:        [],
+                link_all_mentions:       false,
+                disable_hovercards:      false,
+                truncate:                false,
+                append:                  nil,
+                append_after_truncate:   nil,
+                squish:                  false,
+                escape:                  true,
+                escape_tags:             false,
+                markdown_options:        {
+                  autolink:            true,
                   fenced_code_blocks:  true,
                   space_after_headers: true,
-                  strikethrough: true,
-                  tables: true,
-                  no_intra_emphasis: true,
+                  strikethrough:       true,
+                  footnotes:           true,
+                  tables:              true,
+                  no_intra_emphasis:   true
                 },
                 markdown_render_options: {
-                  filter_html: true,
-                  hard_wrap: true,
+                  filter_html:     true,
+                  hard_wrap:       true,
                   safe_links_only: true
                 }}.freeze
 

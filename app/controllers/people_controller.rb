@@ -113,15 +113,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  def retrieve_remote
-    if params[:diaspora_handle]
-      Workers::FetchWebfinger.perform_async(params[:diaspora_handle])
-      head :ok
-    else
-      head :unprocessable_entity
-    end
-  end
-
   private
 
   def find_person
