@@ -2,6 +2,8 @@
 
 class ArchiveImporter
   class OwnRelayableImporter < OwnEntityImporter
+    class NoParentError < RuntimeError; end
+
     def entity
       fetch_parent(symbolized_entity_data)
       entity_class.new(symbolized_entity_data)
@@ -19,6 +21,8 @@ class ArchiveImporter
         break entity_class::PARENT_TYPE if entity_class.const_defined?(:PARENT_TYPE)
       }
       entity = Diaspora::Federation::Mappings.model_class_for(type).find_by(guid: data.fetch(:parent_guid))
+      raise NoParentError if entity.nil?
+
       data[:parent] = Diaspora::Federation::Entities.related_entity(entity)
     end
   end

@@ -113,5 +113,34 @@ describe ArchiveImporter::PostImporter do
         end
       end
     end
+
+    context "with reshare" do
+      let(:guid) { UUID.generate(:compact) }
+      let(:entity_json) { JSON.parse(<<~JSON) }
+        {
+          "entity_data" : {
+             "created_at" : "2015-10-19T13:58:16Z",
+             "guid" : "#{guid}",
+             "author" : "#{new_user.diaspora_handle}",
+             "root_author": "root_author@remote-pod.com",
+             "root_guid":   "#{UUID.generate(:compact)}"
+          },
+          "entity_type": "reshare"
+        }
+      JSON
+
+      context "with fetch problems" do
+        it "handles unfetchable root post" do
+          allow(DiasporaFederation::Federation::Fetcher).to receive(:fetch_public)
+            .and_raise(DiasporaFederation::Federation::Fetcher::NotFetchable)
+
+          expect {
+            instance.import
+          }.not_to raise_error
+
+          expect(Reshare.find_by(guid: guid)).to be_nil
+        end
+      end
+    end
   end
 end

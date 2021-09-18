@@ -28,4 +28,27 @@ describe ArchiveImporter::OwnRelayableImporter do
       ).to_json
     }
   end
+
+  context "with comment with unknown parent" do
+    let(:new_user) { FactoryBot.create(:user) }
+    let(:instance) { described_class.new(entity_json, new_user) }
+    let(:entity_json) { JSON.parse(<<~JSON) }
+      {
+        "entity_data" : {
+           "created_at" : "2015-10-19T13:58:16Z",
+           "guid" : "#{UUID.generate(:compact)}",
+           "text" : "test post",
+           "author" : "author@example.com",
+           "parent_guid": "#{UUID.generate(:compact)}"
+        },
+        "entity_type": "comment"
+      }
+    JSON
+
+    it "doesn't raise error" do
+      expect {
+        instance.import
+      }.not_to raise_error
+    end
+  end
 end
