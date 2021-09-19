@@ -53,6 +53,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Add blocks to the archive export [#8263](https://github.com/diaspora/diaspora/pull/8263)
 * Allow points and dashes in the username [#8266](https://github.com/diaspora/diaspora/pull/8266)
 * Add support for footnotes in markdown [#8277](https://github.com/diaspora/diaspora/pull/8277)
+* Send `AccountMigration` if receiving message to a migrated account [#8288](https://github.com/diaspora/diaspora/pull/8288)
 
 # 0.7.15.0
 
