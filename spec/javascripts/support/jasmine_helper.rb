@@ -5,4 +5,7 @@ Jasmine.configure do |config|
   config.runner_browser = :chromeheadless
   config.chrome_startup_timeout = 20
   config.chrome_cli_options["autoplay-policy"] = "no-user-gesture-required"
+  config.chrome_cli_options["disable-gpu"] = nil
+  config.chrome_cli_options["disable-software-rasterizer"] = nil
+  config.chrome_cli_options["disable-dev-shm-usage"] = nil
 end
