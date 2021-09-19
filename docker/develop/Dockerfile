@@ -20,6 +20,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
         nodejs \
         gosu \
     && \
+    curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o ./google-chrome.deb && \
+    apt install -y -qq --no-install-recommends ./google-chrome.deb && \
+    rm ./google-chrome.deb && \
     rm -rf /var/lib/apt/lists/*
 
 
