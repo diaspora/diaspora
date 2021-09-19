@@ -10,9 +10,12 @@ class MigrationService
   end
 
   def validate
+    return unless archive_file_exists?
+
     archive_validator.validate
     raise ArchiveValidationFailed, errors.join("\n") if errors.any?
     raise MigrationAlreadyExists if AccountMigration.where(old_person: old_person).any?
+    raise SelfMigrationNotAllowed if self_import?
   end
 
   def perform!
@@ -21,6 +24,12 @@ class MigrationService
     run_migration
   ensure
     remove_intermediate_file
+  end
+
+  def self_import?
+    source_diaspora_id = archive_validator.archive_author_diaspora_id
+    target_diaspora_id = "#{new_user_name}#{User.diaspora_id_host}"
+    source_diaspora_id == target_diaspora_id
   end
 
   # when old person can't be resolved we still import data but we don't create&perform AccountMigration instance
@@ -73,6 +82,10 @@ class MigrationService
     File.new(archive_path, "r")
   end
 
+  def archive_file_exists?
+    File.exist?(archive_path)
+  end
+
   def zip_file?
     filetype = MIME::Types.type_for(archive_path).first.content_type
     filetype.eql?("application/zip")
@@ -121,5 +134,8 @@ class MigrationService
   end
 
   class MigrationAlreadyExists < RuntimeError
+  end
+
+  class SelfMigrationNotAllowed < RuntimeError
   end
 end

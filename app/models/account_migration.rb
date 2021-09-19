@@ -7,7 +7,7 @@ class AccountMigration < ApplicationRecord
   belongs_to :new_person, class_name: "Person"
 
   validates :old_person, uniqueness: true
-  validates :new_person, uniqueness: true
+  validates :new_person, presence: true
 
   after_create :lock_old_user!
 
@@ -28,7 +28,6 @@ class AccountMigration < ApplicationRecord
     @sender ||= old_user || ephemeral_sender
   end
 
-  # executes a migration plan according to this AccountMigration object
   def perform!
     raise "already performed" if performed?
 

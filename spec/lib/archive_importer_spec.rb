@@ -147,7 +147,6 @@ describe ArchiveImporter do
       expect {
         archive_importer.create_user(username: "new_name", password: "123456")
       }.to change(User, :count).by(1)
-
       expect(archive_importer.user.email).to eq("user@example.com")
       expect(archive_importer.user.strip_exif).to eq(false)
       expect(archive_importer.user.show_community_spotlight_in_stream).to eq(false)

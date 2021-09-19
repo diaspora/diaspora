@@ -9,7 +9,15 @@ class ExportedPhotos < SecureUploader
     "uploads/users"
   end
 
+  def extension_allowlist
+    %w[zip]
+  end
+
   def filename
-    "#{model.username}_photos_#{secure_token}.zip" if original_filename.present?
+    return if original_filename.blank?
+
+    filename_parts = original_filename.split(".")
+    extensions = filename_parts.join(".")
+    "#{model.username}_photos_#{secure_token}.#{extensions}" if original_filename.present?
   end
 end

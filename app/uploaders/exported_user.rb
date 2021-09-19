@@ -10,10 +10,14 @@ class ExportedUser < SecureUploader
   end
 
   def extension_allowlist
-    %w[gz]
+    %w[gz zip json]
   end
 
   def filename
-    "#{model.username}_diaspora_data_#{secure_token}.json.gz" if original_filename.present?
+    return if original_filename.blank?
+
+    filename_parts = original_filename.split(".")
+    extensions = filename_parts.join(".")
+    "#{model.username}_data_#{secure_token}.#{extensions}"
   end
 end

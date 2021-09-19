@@ -31,12 +31,14 @@ class ArchiveImporter
       username:              attr[:username],
       password:              attr[:password],
       password_confirmation: attr[:password],
-      getting_started:       false,
       person:                {
         profile_attributes: profile_attributes
       }
     )
-    self.user = User.build(data)
+    self.user = User.find_or_build(data)
+    user.show_community_spotlight_in_stream = data.fetch(:show_community_spotlight_in_stream, true)
+    user.strip_exif = data.fetch(:strip_exif, true)
+    user.getting_started = false
     user.save!
   end
 
