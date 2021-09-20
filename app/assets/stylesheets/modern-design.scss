@@ -1,0 +1,66 @@
+$breakpoint: 700px;
+
+$subtle: $text-dark-grey;
+
+$default-size: 16px;
+$smaller: .9em;
+
+$default-margin: 16px; // Will be 1rem once the default-size will be set on <html>
+$double-margin: $default-margin * 2;
+$triple-margin: $default-margin * 3;
+
+$radius: 4px;
+
+
+.modern-design {
+  font-size: $default-size;
+
+  // Style
+  h1 {
+    font-size: 3em;
+    margin: $double-margin 0;
+
+    @media screen and (max-width: $breakpoint) {
+      font-size: 2em;
+      margin: $default-margin 0;
+    }
+  }
+
+  section {
+    margin-bottom: $double-margin;
+  }
+
+  section:last-child {
+    margin-bottom: 0;
+  }
+
+  .advice {
+    color: $subtle;
+    font-size: $smaller;
+    font-style: italic;
+  }
+  // End of style
+
+  // Layout
+  // This cleans the famous children "margin-top" problem
+  .small-container::before,
+  .small-container::after {
+    content: ' ';
+    display: table;
+  }
+
+  .small-container {
+    margin: auto;
+    max-width: 800px;
+
+    @media screen and (max-width: $breakpoint) {
+      padding: 10px;
+    }
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  // End of layout
+}

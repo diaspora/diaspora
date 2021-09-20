@@ -17,7 +17,7 @@
     %meta{name: "MobileOptimized", content: "320"}/
     %meta{"http-equiv" => "cleartype", :content => "on"}/
 
-  %body
+  %body{class: "page-#{controller_name} action-#{action_name}"}
     #app
       = render "layouts/header"
       - if user_signed_in?

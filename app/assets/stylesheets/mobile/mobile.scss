@@ -21,6 +21,10 @@
 
 @import 'typography';
 
+// New design, can be used adding the .modern-design class to a <div> around the page which is ported
+@import 'modern-design';
+@import 'registration';
+
 a {
   color: #2489ce;
   text-decoration: none;

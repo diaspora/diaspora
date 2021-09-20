@@ -173,10 +173,6 @@ app.Router = Backbone.Router.extend({
     });
   },
 
-  registration: function() {
-    app.page = new app.pages.Registration();
-  },
-
   settings: function() {
     app.page = new app.pages.Settings();
   },
