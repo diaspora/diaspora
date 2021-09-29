@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CreateSchema < ActiveRecord::Migration[4.2]
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength, Layout/ExtraSpacing
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Layout/LineLength, Layout/ExtraSpacing
   def up
     create_table :account_deletions do |t|
       t.string   :diaspora_handle
@@ -672,5 +672,5 @@ class CreateSchema < ActiveRecord::Migration[4.2]
 
     add_foreign_key :share_visibilities, :users, name: :share_visibilities_user_id_fk, on_delete: :cascade
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength, Layout/ExtraSpacing
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Layout/LineLength, Layout/ExtraSpacing
 end
