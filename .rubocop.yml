@@ -182,9 +182,3 @@ Style/HashEachMethods:
 # It makes more sense to allow to structure and group them how it makes sense in the code
 Style/AccessorGrouping:
   Enabled: false
-
-# TODO: Enable with Ruby 2.5
-Style/HashTransformKeys:
-  Enabled: false
-Style/HashTransformValues:
-  Enabled: false
