@@ -13,6 +13,8 @@ class ArchiveImporter
     attr_reader :user
 
     def import
+      return unless json.fetch("receiving")
+
       @imported_contact = create_contact
       add_to_aspects
     rescue ActiveRecord::RecordInvalid => e
@@ -34,7 +36,8 @@ class ArchiveImporter
 
     def create_contact
       person = Person.by_account_identifier(json.fetch("account_id"))
-      user.contacts.create!(person_id: person.id, sharing: false, receiving: json.fetch("receiving"))
+      # see AccountMigration#dispatch_contacts for the other half of this when the contact is sharing with the user
+      user.contacts.create!(person_id: person.id, sharing: false, receiving: true)
     end
   end
 end

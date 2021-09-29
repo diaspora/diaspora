@@ -14,6 +14,8 @@ class AccountMigration < ApplicationRecord
   attr_accessor :old_private_key
   attr_writer :old_person_diaspora_id
 
+  attr_accessor :archive_contacts
+
   def receive(*)
     perform!
   end
@@ -29,10 +31,11 @@ class AccountMigration < ApplicationRecord
   # executes a migration plan according to this AccountMigration object
   def perform!
     raise "already performed" if performed?
+
     validate_sender if locally_initiated?
     tombstone_old_user_and_update_all_references if old_person
     dispatch if locally_initiated?
-    dispatch_contacts if remotely_initiated?
+    dispatch_contacts
     update(completed_at: Time.zone.now)
   end
 
@@ -40,13 +43,20 @@ class AccountMigration < ApplicationRecord
     !completed_at.nil?
   end
 
-  # We assume that migration message subscribers are people that are subscribed to a new user profile updates.
-  # Since during the migration we update contact references, this includes all the contacts of the old person.
+  # Send migration to all imported contacts, but also send it to all contacts from the archive which weren't imported,
+  # but maybe share with the old account, so they can update contact information and resend the contact message.
   # In case when a user migrated to our pod from a remote one, we include remote person to subscribers so that
   # the new pod is informed about the migration as well.
   def subscribers
     new_user.profile.subscribers.remote.to_a.tap do |subscribers|
       subscribers.push(old_person) if old_person&.remote?
+      archive_contacts&.each do |contact|
+        diaspora_id = contact.fetch("account_id")
+        next if subscribers.any? {|s| s.diaspora_handle == diaspora_id }
+
+        person = Person.by_account_identifier(diaspora_id)
+        subscribers.push(person) if person&.remote?
+      end
     end
   end
 
