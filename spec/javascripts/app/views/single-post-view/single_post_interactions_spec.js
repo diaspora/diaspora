@@ -20,6 +20,7 @@ describe("app.views.SinglePostInteractions", function() {
 
   describe("interaction changes", function() {
     it("don't drop the comment textbox value", function() {
+      loginAs({name: "alice"}); // We log in otherwise the textarea isn't displayed
       this.view.render();
       this.view.$("textarea").val("great post!");
       expect(this.view.$("#likes").length).toBe(0);

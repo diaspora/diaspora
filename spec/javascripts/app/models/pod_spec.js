@@ -1,4 +1,4 @@
-describe("app.model.Pod", function() {
+describe("app.models.Pod", function() {
   var podId = 123;
 
   beforeEach(function() {

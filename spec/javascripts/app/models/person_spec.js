@@ -1,4 +1,3 @@
-
 describe("app.models.Person", function() {
   beforeEach(function() {
     this.mutualContact = factory.person({relationship: "mutual"});
