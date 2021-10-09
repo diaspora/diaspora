@@ -452,7 +452,7 @@ dia_start() {
   else
     options=$1
   fi
-  dia_docker_compose up $options diaspora
+  dia_docker_compose up $options
 }
 
 dia_status() {
