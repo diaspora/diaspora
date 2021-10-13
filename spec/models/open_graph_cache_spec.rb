@@ -63,7 +63,7 @@ describe OpenGraphCache, type: :model do
         stub_request(:head, "http:///wetter.com")
           .with(headers: {
                   "Accept"     => "text/html",
-                  "User-Agent" => "OpenGraphReader/0.7.1 (+https://github.com/jhass/open_graph_reader)"
+                  "User-Agent" => "OpenGraphReader/0.7.2 (+https://github.com/jhass/open_graph_reader)"
                 })
           .to_return(status: 200, body: "", headers:
             {"Set-Cookie" => "Dabgroup=A;path=/;Expires=Thu, 23 May 2019 16:12:01 GMT;httpOnly"})
