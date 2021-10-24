@@ -200,7 +200,7 @@ describe AccountDeleter do
   it "has all person association keys accounted for" do
     ignored_or_special_ar_person_associations = %i[comments likes poll_participations contacts notification_actors
                                                    notifications owner profile pod conversations messages
-                                                   account_migration]
+                                                   account_deletion account_migration]
     all_keys = @account_deletion.normal_ar_person_associates_to_delete + ignored_or_special_ar_person_associations
     expect(all_keys.sort_by(&:to_s)).to eq(Person.reflections.keys.sort_by(&:to_s).map(&:to_sym))
   end

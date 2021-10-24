@@ -103,18 +103,9 @@ DiasporaFederation.configure do |config|
     end
 
     on :receive_entity do |entity, sender, recipient_id|
-      Person.by_account_identifier(sender).pod.try(:schedule_check_if_needed)
-      unless recipient_id.nil?
-        User.find_by(id: recipient_id).tap do |user|
-          next unless user.person.account_migration
-
-          Diaspora::Federation::Dispatcher.build(
-            user,
-            user.person.account_migration,
-            subscribers: [Person.by_account_identifier(sender)]
-          ).dispatch
-        end
-      end
+      sender_person = Person.by_account_identifier(sender)
+      sender_person.pod&.schedule_check_if_needed
+      Diaspora::Federation::Receive.handle_closed_recipient(sender_person, User.find(recipient_id)) if recipient_id
 
       case entity
       when DiasporaFederation::Entities::AccountDeletion

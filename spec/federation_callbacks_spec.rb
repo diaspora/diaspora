@@ -387,12 +387,13 @@ describe "diaspora federation callbacks" do
     it "receives a entity for a recipient" do
       received = Fabricate(:status_message_entity, author: remote_person.diaspora_handle)
       persisted = FactoryGirl.create(:status_message)
-      recipient_id = FactoryGirl.create(:user).id
+      recipient = FactoryGirl.create(:user)
 
+      expect(Diaspora::Federation::Receive).to receive(:handle_closed_recipient).with(remote_person, recipient)
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
-      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [recipient_id])
+      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [recipient.id])
 
-      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, recipient_id)
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, recipient.id)
     end
 
     it "does not trigger a ReceiveLocal job if Receive.perform returned nil" do

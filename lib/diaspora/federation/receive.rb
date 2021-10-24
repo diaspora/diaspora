@@ -9,6 +9,15 @@ module Diaspora
         public_send(Mappings.receiver_for(entity), entity)
       end
 
+      def self.handle_closed_recipient(sender, recipient)
+        return unless recipient.closed_account?
+
+        entity = recipient.person.account_migration || recipient.person.account_deletion
+        Diaspora::Federation::Dispatcher.build(recipient, entity, subscribers: [sender]).dispatch if entity.present?
+
+        raise Diaspora::Federation::RecipientClosed
+      end
+
       def self.account_deletion(entity)
         person = author_of(entity)
         AccountDeletion.create!(person: person) unless AccountDeletion.where(person: person).exists?

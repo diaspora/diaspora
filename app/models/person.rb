@@ -57,6 +57,7 @@ class Person < ApplicationRecord
 
   has_many :mentions, :dependent => :destroy
 
+  has_one :account_deletion, dependent: :destroy
   has_one :account_migration, foreign_key: :old_person_id, dependent: :nullify, inverse_of: :old_person
 
   validate :owner_xor_pod

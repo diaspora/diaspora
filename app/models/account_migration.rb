@@ -128,7 +128,7 @@ class AccountMigration < ApplicationRecord
 
   def person_references
     references = Person.reflections.reject {|key, _|
-      %w[profile owner notifications pod account_migration].include?(key)
+      %w[profile owner notifications pod account_deletion account_migration].include?(key)
     }
 
     references.map {|key, value|
