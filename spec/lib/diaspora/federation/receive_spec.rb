@@ -91,13 +91,16 @@ describe Diaspora::Federation::Receive do
     let(:new_person) { FactoryBot.create(:person) }
     let(:profile_entity) { Fabricate(:profile_entity, author: new_person.diaspora_handle) }
     let(:account_migration_entity) {
-      Fabricate(:account_migration_entity, author: sender.diaspora_handle, profile: profile_entity)
+      Fabricate(:account_migration_entity, author: sender.diaspora_handle, profile: profile_entity, signature: "aa")
     }
 
     it "saves the account deletion" do
-      Diaspora::Federation::Receive.perform(account_migration_entity)
+      received = Diaspora::Federation::Receive.perform(account_migration_entity)
 
-      expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
+      migration = AccountMigration.find_by(old_person: sender, new_person: new_person)
+
+      expect(received).to eq(migration)
+      expect(migration.signature).to be_nil
     end
 
     it "ignores duplicate the account migrations" do
@@ -119,6 +122,16 @@ describe Diaspora::Federation::Receive do
       expect(Diaspora::Federation::Receive.perform(account_migration_entity)).to be_nil
 
       expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
+    end
+
+    it "saves signature from the new person if the old person is local" do
+      sender = FactoryBot.create(:user).person
+      account_migration_entity =
+        Fabricate(:account_migration_entity, author: sender.diaspora_handle, profile: profile_entity, signature: "aa")
+
+      received = Diaspora::Federation::Receive.perform(account_migration_entity)
+
+      expect(received.signature).to eq("aa")
     end
   end
 
