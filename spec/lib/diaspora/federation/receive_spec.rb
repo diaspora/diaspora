@@ -4,6 +4,58 @@ describe Diaspora::Federation::Receive do
   let(:sender) { FactoryBot.create(:person) }
   let(:post) { FactoryBot.create(:status_message, text: "hello", public: true, author: alice.person) }
 
+  describe ".handle_closed_recipient" do
+    let(:closed_recipient) { FactoryBot.create(:user).tap {|u| u.person.lock_access! } }
+
+    it "does nothing if the recipient isn't closed" do
+      recipient = FactoryBot.create(:user)
+      expect { Diaspora::Federation::Receive.handle_closed_recipient(sender, recipient) }.not_to raise_error
+    end
+
+    it "raises if the recipient is closed, but no AccountMigration and/or AccountDeletion exists" do
+      expect(Diaspora::Federation::Dispatcher).not_to receive(:build)
+      expect { Diaspora::Federation::Receive.handle_closed_recipient(sender, closed_recipient) }
+        .to raise_error(Diaspora::Federation::RecipientClosed)
+    end
+
+    it "resends AccountMigration if the recipient is closed and an AccountMigration exists" do
+      migration = AccountMigration.create(old_person: closed_recipient.person, new_person: FactoryBot.create(:person))
+
+      dispatcher = double
+      expect(Diaspora::Federation::Dispatcher).to receive(:build)
+        .with(closed_recipient, migration, subscribers: [sender]).and_return(dispatcher)
+      expect(dispatcher).to receive(:dispatch)
+
+      expect { Diaspora::Federation::Receive.handle_closed_recipient(sender, closed_recipient) }
+        .to raise_error(Diaspora::Federation::RecipientClosed)
+    end
+
+    it "resends AccountDeletion if the recipient is closed and an AccountDeletion exists" do
+      deletion = AccountDeletion.create(person: closed_recipient.person)
+
+      dispatcher = double
+      expect(Diaspora::Federation::Dispatcher).to receive(:build)
+        .with(closed_recipient, deletion, subscribers: [sender]).and_return(dispatcher)
+      expect(dispatcher).to receive(:dispatch)
+
+      expect { Diaspora::Federation::Receive.handle_closed_recipient(sender, closed_recipient) }
+        .to raise_error(Diaspora::Federation::RecipientClosed)
+    end
+
+    it "resends AccountMigration if the recipient is closed and both an AccountMigration and AccountDeletion exists" do
+      AccountDeletion.create(person: closed_recipient.person)
+      migration = AccountMigration.create(old_person: closed_recipient.person, new_person: FactoryBot.create(:person))
+
+      dispatcher = double
+      expect(Diaspora::Federation::Dispatcher).to receive(:build)
+        .with(closed_recipient, migration, subscribers: [sender]).and_return(dispatcher)
+      expect(dispatcher).to receive(:dispatch)
+
+      expect { Diaspora::Federation::Receive.handle_closed_recipient(sender, closed_recipient) }
+        .to raise_error(Diaspora::Federation::RecipientClosed)
+    end
+  end
+
   describe ".account_deletion" do
     let(:account_deletion_entity) { Fabricate(:account_deletion_entity, author: sender.diaspora_handle) }
 
