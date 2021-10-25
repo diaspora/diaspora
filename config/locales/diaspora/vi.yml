@@ -1025,7 +1025,7 @@ vi:
     closed:
       another_pod: "máy chủ khác"
       closed_pod: "Máy chủ này hiện không còn cho đăng ký. Tuy nhiên, bạn vẫn có thể tham gia mạng xã hội Diaspora bằng cách đăng ký trên %{wiki}. Mọi máy chủ đều giao tiếp được với nhau nên bạn có thể truy cập cùng nội dung ở đây."
-      find_pods: "Bạn có thể tham khảo các máy chủ khác tại %{poduptime}."
+      find_pods: "Bạn có thể tham khảo các máy chủ khác tại %{fediverse_observer}."
       other_questions: "Nếu bạn đang băn khoăn về việc chọn một máy chủ, hãy đọc qua %{wiki}."
     create:
       success: "Bạn đã đăng ký Diaspora thành công!"

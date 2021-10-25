@@ -1063,7 +1063,7 @@ sv:
     closed:
       another_pod: "annan pod"
       closed_pod: "Denna pod är för närvarande stängd för nya registreringar. Du kan ändå gå med i Diaspora* genom registrering på %{wiki}. I och med att alla poddar är anslutna till varandra, kommer du komma åt allt innehåll ändå."
-      find_pods: "En lista med poddar du kan registrera dig på finns på %{poduptime}."
+      find_pods: "En lista med poddar du kan registrera dig på finns på %{fediverse_observer}."
       other_questions: "Om du har frågor gällande att välja pod, kan du läsa vår %{wiki}."
     create:
       success: "Du har nu gått med i Diaspora*!"

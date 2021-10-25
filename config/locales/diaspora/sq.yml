@@ -1096,7 +1096,7 @@ sq:
     closed:
       another_pod: "nyjë tjetër"
       closed_pod: "Kjo nyjë është aktualisht e mbyllur për regjistrime të reja. Sidoqoftë, mundeni prapë të merrni pjesë në rrjetin diaspora* duke u regjistruar në %{wiki}. Ngaqë krejt nyjat janë të lidhura me njëra-tjetrën, do të mund të përdorni po të njëjtën lëndë të këtushme."
-      find_pods: "Te %{poduptime} ka një listë nyjash te të cilat mund të regjistroheni."
+      find_pods: "Te %{fediverse_observer} ka një listë nyjash te të cilat mund të regjistroheni."
       other_questions: "Nëse keni çfarëdo pyetje tjetër lidhur me zgjedhjen e një nyjeje, shihni %{wiki} tonë."
     create:
       success: "U bëtë pjesë e diaspora*-s!"

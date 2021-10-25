@@ -1076,7 +1076,7 @@ da:
     closed:
       another_pod: "en anden pod"
       closed_pod: "Denne pod er for tiden lukket for tilgang. Du kan dog stadig blive en del af Diaspora-netværket ved at tilmelde dig på %{wiki}. Fordi alle Diasporas pods er forbundet, vil du stadig have adgang til det samme indhold der."
-      find_pods: "Der er en liste over de pods du kan tilmelde dig på %{poduptime}."
+      find_pods: "Der er en liste over de pods du kan tilmelde dig på %{fediverse_observer}."
       other_questions: "Har du nogen spørgsmål vedrørende valg af pod, se vores %{wiki}."
     create:
       success: "Du er nu en del af Diaspora!"

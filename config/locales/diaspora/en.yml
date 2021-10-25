@@ -1056,7 +1056,7 @@ en:
     closed:
       closed_pod: "This pod is currently closed to new registrations. However, you can still join the diaspora* network by registering on %{wiki}. Because all pods are interconnected, you will have access to the same content there."
       another_pod: "another pod"
-      find_pods: "There’s a list of pods you can sign up to at %{poduptime}."
+      find_pods: "There’s a list of pods you can sign up to at %{fediverse_observer}."
       other_questions: "If you have any other questions regarding choosing a pod, check out our %{wiki}."
     invalid_invite: "The invite link you provided is no longer valid!"
 

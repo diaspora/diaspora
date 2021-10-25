@@ -1076,7 +1076,7 @@ gl:
     closed:
       another_pod: "outra instancia"
       closed_pod: "Actualmente esta instancia ten o rexistro pechado. Porén, podes igualmente unirte a rede diaspora* rexistrándote en %{wiki}. Como todos os nodos están conectados, terás acceso ao mesmo contido desde alí."
-      find_pods: "Existe unha lista de instancias nas que podes rexistrarse en %{poduptime}."
+      find_pods: "Existe unha lista de instancias nas que podes rexistrarse en %{fediverse_observer}."
       other_questions: "Se tes preguntas sobre a elección dunha instancia, lé a nosa %{wiki}."
     create:
       success: "Xa está en diaspora*!"

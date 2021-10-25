@@ -1059,7 +1059,7 @@ fr:
     closed:
       another_pod: "un autre pod"
       closed_pod: "Les inscriptions sont actuellement fermées sur ce pod. Néanmoins, vous pouvez toujours rejoindre le réseau diaspora* en vous inscrivant sur %{wiki}. Comme tous les pods sont interconnectés, vous accéderez au même contenu."
-      find_pods: "Une liste de pods sur lesquels vous pouvez vous inscrire est disponible sur %{poduptime}."
+      find_pods: "Une liste de pods sur lesquels vous pouvez vous inscrire est disponible sur %{fediverse_observer}."
       other_questions: "Si vous avez d'autres questions sur le choix d'un pod, consultez notre %{wiki}."
     create:
       success: "Vous avez rejoint diaspora* !"

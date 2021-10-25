@@ -1054,7 +1054,7 @@ sc:
     closed:
       another_pod: "un'àteru pod"
       closed_pod: "Custu pod est, in custu momentu, serradu pro sas registratziones noas. Nointames, ti podes aunire su matessi a sa retza de diaspora* registrende·ti in %{wiki}. Essende totu sos pods connessos intre issos, as a tènnere atzessu a sos matessi cuntenutos in cue."
-      find_pods: "Podes agatare una lista de pods in ue ti podes registrare in %{poduptime}"
+      find_pods: "Podes agatare una lista de pods in ue ti podes registrare in %{fediverse_observer}"
       other_questions: "Si tenes cale si siat àtera pregunta chi pertocat a s'issèberu de unu pod, leghe·ti sa %{wiki} nostra"
     create:
       success: "Ti ses registradu in diaspora*!"

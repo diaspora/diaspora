@@ -1090,7 +1090,7 @@ de_moo:
     closed:
       another_pod: "einem anderen Bauernhof"
       closed_pod: "Dieser Bauernhof ist derzeit für Neuanmeldungen geschlossen. Du kannst dem diaspora*-Netzwerk trotzdem beitreten, indem du sich auf %{wiki} registrierst. Da alle Bauernhöfe miteinander verbunden sind, hast du von dort aus Zugriff auf dieselben Inhalte."
-      find_pods: "Es gibt eine Liste von Bauernhöfen, auf denen du dich registrieren kannst, auf %{poduptime}."
+      find_pods: "Es gibt eine Liste von Bauernhöfen, auf denen du dich registrieren kannst, auf %{fediverse_observer}."
       other_questions: "Wenn du noch weitere Fragen dazu hast, wie du einen Bauernhof auswählst, lies unser %{wiki}."
     create:
       success: "Du bist diaspora* beigetreten!"

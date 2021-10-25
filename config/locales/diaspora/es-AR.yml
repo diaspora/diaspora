@@ -1046,7 +1046,7 @@ es-AR:
     closed:
       another_pod: "otro pod"
       closed_pod: "En este momento este pod se encuentra cerrado a nuevos registros. De igual forma, todavía puedes unirte a la red de diaspora* registrándote en %{wiki}. Ya que todos los pods están interconectados, tendrás acceso al mismo contenido."
-      find_pods: "Aquí hay una lista de los pods en los que es posible registrarse: %{poduptime}"
+      find_pods: "Aquí hay una lista de los pods en los que es posible registrarse: %{fediverse_observer}"
       other_questions: "Visita nuestra %{wiki} si no sabes qué pod elegir o si tienes dudas respecto a la elección de un pod."
     create:
       success: "¡Te has unido a diaspora*!"
