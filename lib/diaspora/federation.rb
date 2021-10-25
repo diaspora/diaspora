@@ -9,6 +9,10 @@ module Diaspora
     # Raised, if the author of the existing object doesn't match the received author
     class InvalidAuthor < RuntimeError
     end
+
+    # Raised, if the recipient account is closed already
+    class RecipientClosed < RuntimeError
+    end
   end
 end
 

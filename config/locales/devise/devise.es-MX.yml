@@ -29,7 +29,7 @@ es-MX:
         confirm: "Confirmar mi cuenta"
         subject: "Instrucciones de confirmación"
         you_can_confirm: "Puedes confirmar tu cuenta a través del siguiente enlace:"
-      hello: "¡Hola %{email}!"
+      hello: "¡Hola %{username}!"
       inviter:
         accept_at: "en %{url} puedes aceptarlo a través del siguiente enlace."
         has_invited_you: "%{name}"
@@ -45,7 +45,7 @@ es-MX:
         click_to_unlock: "Haz clic en el siguiente enlace para desbloquear tu cuenta:"
         subject: "Instrucciones de desbloqueo"
         unlock: "Desbloquear mi cuenta"
-      welcome: "¡Bienvenido/a %{email}!"
+      welcome: "¡Bienvenido/a %{username}!"
     passwords:
       edit:
         change_password: "Cambiar mi contraseña"

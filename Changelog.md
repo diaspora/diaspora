@@ -55,6 +55,8 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Add support for footnotes in markdown [#8277](https://github.com/diaspora/diaspora/pull/8277)
 * Send `AccountMigration` if receiving message to a migrated account [#8288](https://github.com/diaspora/diaspora/pull/8288)
 * Add podmin mail address to the footer [#8242](https://github.com/diaspora/diaspora/pull/8242)
+* Add username to password-reset mail [#8037](https://github.com/diaspora/diaspora/pull/8037)
+* Resend account migration and deletion for closed recipients [#8309](https://github.com/diaspora/diaspora/pull/8309)
 
 # 0.7.15.0
 

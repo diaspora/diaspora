@@ -29,7 +29,7 @@ he:
         confirm: "אימות החשבון שלי"
         subject: "הנחיות לאימות"
         you_can_confirm: "באפשרותך לאמת את החשבון שלך באמצעות הקישור שלהלן:"
-      hello: "שלום %{email}!"
+      hello: "שלום %{username}!"
       inviter:
         accept_at: "בכתובת %{url}, באפשרותך לקבל זאת באמצעות הקישור שלהלן."
         has_invited_you: "%{name}"
@@ -45,7 +45,7 @@ he:
         click_to_unlock: "יש ללחוץ על הקישור שלהלן כדי לשחרר את חשבונך:"
         subject: "הנחיות לביטול הנעילה"
         unlock: "שחרור החשבון שלי"
-      welcome: "ברוך בואך %{email}!"
+      welcome: "ברוך בואך %{username}!"
     passwords:
       edit:
         change_password: "שינוי הסיסמה שלי"

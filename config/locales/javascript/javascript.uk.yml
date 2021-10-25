@@ -198,6 +198,7 @@ uk:
       result: "Результати"
       show_result: "Показати результати"
       vote: "Голосувати"
+      your_vote: "Ваш голос"
     profile:
       add_some: "додати"
       bio: "Про себе"

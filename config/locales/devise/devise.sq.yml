@@ -32,7 +32,7 @@ sq:
         confirm: "Ripohim i llogarisë time"
         subject: "Udhëzime ripohimi"
         you_can_confirm: "Llogarinë tuaj mund të ripohoni përmes lidhjes më poshtë:"
-      hello: "Tungjatjeta %{email}!"
+      hello: "Tungjatjeta %{username}!"
       inviter:
         accept_at: "te %{url}, mund ta pranoni përmes lidhjes më poshtë."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ sq:
         click_to_unlock: "Që të shkyçni llogarinë tuaj, klikoni lidhjen më poshtë:"
         subject: "Udhëzime shkyçjeje"
         unlock: "Shkyçe llogarinë time"
-      welcome: "Mirë se vini %{email}!"
+      welcome: "Mirë se vini %{username}!"
     omniauth_callbacks:
       failure: "S’u bë dot mirëfilltësimi juaj me %{kind}, ngaqë \"%{reason}\"."
       success: "Mirëfilltësimi u bë me sukses me llogarinë %{kind}."

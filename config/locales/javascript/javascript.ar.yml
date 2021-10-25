@@ -88,7 +88,7 @@ ar:
       create:
         no_recipient: "أضف المراسل أولا"
       new:
-        no_contacts: "أضف جهات اتصال لبدأ محادثة"
+        no_contacts: "أضف متراسلا لبدأ محادثة"
     create: "أنشئ"
     delete: "احذف"
     edit: "حرر"

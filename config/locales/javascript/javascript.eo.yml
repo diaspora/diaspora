@@ -8,6 +8,10 @@ eo:
   javascripts:
     admin:
       pods:
+        added: "Aldonita"
+        follow_link: "malfermi ligilon en retumilon"
+        states:
+          no_errors: "Bone"
         version_failed:
           one: "Estas unu pod (Diaspora-servilo) kiu ne havas version (malnova pod, sen NodeInfo)."
           other: "Estas <%= count %> pods (Diaspora-serviloj) kiuj ne havas version (malnova pod, sen NodeInfo)."
@@ -28,9 +32,13 @@ eo:
       deselect_all: "Malselekti ĉiujn"
       no_aspects: "Neniuj aspektoj selektitaj"
       select_all: "Selekti ĉiujn"
+    bookmarklet:
+      post_something: "Afiŝi al diaspora*"
+    cancel: "Rezigni"
     comma: ","
     comments:
       hide: "Kaŝi komentojn"
+      no_comments: "Estas neniom da komentoj ankoraŭ."
       show: "Vidi ĉiujn komentojn"
     confirm_dialog: "Ĉu vi certas?"
     delete: "Forviŝi"
@@ -45,6 +53,7 @@ eo:
       admin: "administranto"
       close: "fermi"
       contacts: "Kontaktoj"
+      help: "Helpo"
       home: "Ĉefpaĝo"
       log_out: "Elsaluti"
       mark_all_as_read: "Marku ĉiujn kiel legitaj"
@@ -54,15 +63,50 @@ eo:
       search: "Serĉi"
       settings: "Agordoj"
       view_all: "Vidi ĉiujn"
+    hide_post: "Kaŝi ĉi tiun afiŝon?"
     ignore: "Ignori"
     my_activity: "Mia aktiveco"
     my_aspects: "Viaj aspektoj"
     my_stream: "Torento"
+    notifications:
+      mark_read: "Marki legita"
+      mark_unread: "Marki nelegita"
     people:
+      message: "Mesaĝo"
       not_found: "...kaj neniu troviĝis."
     photo_uploader:
       completed: "<%= file %> kompletita"
       looking_good: "Diable, vi aspektas bonege!"
+    poll:
+      answer_count:
+        one: "<%=count%> voĉo"
+        other: "<%=count%> voĉoj"
+        zero: "Sen voĉoj"
+      close_result: "Kaŝi rezulton"
+      count:
+        one: "<%=count%> voĉo ĝis nun"
+        other: "<%=count%> voĉoj ĝis nun"
+      result: "Rezulto"
+      show_result: "Montri rezulton"
+      vote: "Voĉdoni"
+      your_vote: "Via voĉo"
+    profile:
+      add_some: "Aldoni iom"
+      born: "Naskiĝtago"
+      edit: "Redakti"
+      gender: "Sekso"
+      photos: "Fotoj"
+      posts: "Afiŝoj"
+    publisher:
+      add_option: "Aldoni respondon"
+      markdown_editor:
+        tooltips:
+          write: "Redakti mesaĝon"
+        write: "Skribi"
+      near_from: "Afiŝita el: <%= location %>"
+      option: "Respondo"
+      question: "Demando"
+    remove_post: "Forigi ĉi tiun afiŝon?"
     reshares:
       post: "Ĉu vi deziras rekonigi la mesaĝon de <%= name %>?"
       successful: "La afiŝo estis sukcese rekonigita!"
@@ -101,6 +145,7 @@ eo:
         stop_following: "Ĉesi sekvadon de #<%= tag %>"
       unfollow: "Ne plu sekvi"
       unlike: "Ne plu ŝati"
+      via: "per <%= provider %>"
     tags:
       wasnt_that_interesting: "Nu, mi supozas, ke #<%= tagName %> ne estis tiel interesa..."
     timeago:

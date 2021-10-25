@@ -29,7 +29,7 @@ hu:
         confirm: "Fiókom megerősítése"
         subject: "Megerősítési utasítások"
         you_can_confirm: "Megerősítheted a fiókod ezen a linken keresztül:"
-      hello: "Szia %{email}!"
+      hello: "Szia %{username}!"
       inviter:
         accept_at: "Meghívás elfogadása: %{url}"
         has_invited_you: "%{name} meghívott a Diaspora* közösségi oldalra."
@@ -45,7 +45,7 @@ hu:
         click_to_unlock: "Kattints az alábbi linkre, hogy feloldd a fiókod:"
         subject: "Feloldási utasítások"
         unlock: "Fiókom feloldása"
-      welcome: "Üdv %{email}!"
+      welcome: "Üdv %{username}!"
     passwords:
       edit:
         change_password: "Megváltoztatom a jelszavamat"

@@ -32,7 +32,7 @@ de_formal:
         confirm: "Mein Konto bestätigen"
         subject: "Bestätigung Ihres diaspora*-Kontos"
         you_can_confirm: "Sie können Ihr Konto über den nachfolgenden Link bestätigen:"
-      hello: "Hallo %{email}!"
+      hello: "Hallo %{username}!"
       inviter:
         accept_at: "unter %{url}, können Sie sie über den untenstehenden Link akzeptieren."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ de_formal:
         click_to_unlock: "Folgen Sie dem unten aufgeführten Link, um Ihr Konto zu entsperren:"
         subject: "Anweisungen zum Entsperren"
         unlock: "Mein Konto entsperren"
-      welcome: "Willkommen %{email}!"
+      welcome: "Willkommen %{username}!"
     omniauth_callbacks:
       failure: "Konnte Sie nicht mittels %{kind} authentifizieren, denn „%{reason}”."
       success: "Erfolgreich authentifiziert mittels %{kind}-Konto."

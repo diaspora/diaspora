@@ -28,7 +28,7 @@ lt:
         confirm: "Patvirtinti paskyrą"
         subject: "Nurodymai, kaip patvirtinti paskyrą"
         you_can_confirm: "Paskyrą galite patvirtinti paspaudę nuorodą pateiktą žemiau:"
-      hello: "Labas, %{email}!"
+      hello: "Labas, %{username}!"
       inviter:
         accept_at: "priimti kvietimą galite paspaudę nuorodą žemiau %{url}"
         has_invited_you: ""
@@ -44,7 +44,7 @@ lt:
         click_to_unlock: "Spustelk šią nuorodą ir paskyra bus atrakinta:"
         subject: "Nurodymai, kaip atrakinti"
         unlock: "Atrakinti mano paskyrą"
-      welcome: "Labas, %{email}!"
+      welcome: "Labas, %{username}!"
     passwords:
       edit:
         change_password: "Keisti mano slaptažodį"

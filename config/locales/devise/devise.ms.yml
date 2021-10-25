@@ -29,7 +29,7 @@ ms:
         confirm: "Sahkan akaun saya"
         subject: "pengesahan tunjuk-cara"
         you_can_confirm: "Anda boleh mengesahkan akaun anda melalui link di bawah:"
-      hello: "Hello %{email}!"
+      hello: "Hello %{username}!"
       inviter:
         accept_at: "pada% {url}, anda boleh menerimanya melalui link di bawah."
         have_invited_you: "%{names} telah menjemput anda untuk menyertai Diaspora"
@@ -44,7 +44,7 @@ ms:
         click_to_unlock: "Klik pautan di bawah untuk membuka akaun anda:"
         subject: "Arahan Membuka Kunci"
         unlock: "Buka kunci akaun saya"
-      welcome: "Selamat Datang %{email}!"
+      welcome: "Selamat Datang %{username}!"
     passwords:
       edit:
         change_password: "Tukar kata laluan saya"

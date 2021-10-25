@@ -32,7 +32,7 @@ fi:
         confirm: "Vahvista käyttäjätilini"
         subject: "Vahvistamisohjeet"
         you_can_confirm: "Voit vahvistaa käyttäjätilisi alla olevan linkin kautta:"
-      hello: "Hei, %{email}!"
+      hello: "Hei, %{username}!"
       inviter:
         accept_at: "osoitteessa %{url}, hyväksyminen alla olevasta linkistä."
         has_invited_you: "%{names}"
@@ -50,7 +50,7 @@ fi:
         click_to_unlock: "Poista käyttäjätilisi lukitus alla olevasta linkistä:"
         subject: "Lukituksen poisto-ohjeet"
         unlock: "Poista käyttäjätilini lukitus"
-      welcome: "Tervetuloa %{email}!"
+      welcome: "Tervetuloa %{username}!"
     passwords:
       edit:
         change_password: "Vaihda salasanani"

@@ -32,7 +32,7 @@ da:
         confirm: "Bekræft min konto"
         subject: "Bekræftelsesinstruktioner"
         you_can_confirm: "Du kan bekræfte din konto via nedenstående link:"
-      hello: "Hej %{email}!"
+      hello: "Hej %{username}!"
       inviter:
         accept_at: "på %{url}, du kan acceptere ved at følge linket nedenunder."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ da:
         click_to_unlock: "Klik på linket nedenfor for at aktivere din konto:"
         subject: "Aktiver instruktioner"
         unlock: "Aktiver min konto"
-      welcome: "Velkommen %{email}!"
+      welcome: "Velkommen %{username}!"
     omniauth_callbacks:
       failure: "Kunne ikke godkende dig fra %{kind} fordi \"%{reason}\"."
       success: "Godkendelse modtaget fra %{kind} kontoen."

@@ -28,7 +28,7 @@ bg:
         confirm: "Потвърждаване на акаунта"
         subject: "Инструкции за потвърждаване"
         you_can_confirm: "Можете да потвърдите акаунта си чрез долната връзка:"
-      hello: "Здравейте %{email}!"
+      hello: "Здравейте %{username}!"
       inviter:
         accept_at: "от %{url}, можете да приемете чрез връзката по-долу в писмото."
         has_invited_you: "%{name}"
@@ -44,7 +44,7 @@ bg:
         click_to_unlock: "За отключване на акаунта кликнете върху долната връзка:"
         subject: "Инструкции за отключване"
         unlock: "Отключване на акаунта"
-      welcome: "Добре дошли %{email}!"
+      welcome: "Добре дошли %{username}!"
     passwords:
       edit:
         change_password: "Промяна на паролата"

@@ -28,7 +28,7 @@ ca:
         confirm: "Confirma el meu compte"
         subject: "Instruccions per a la confirmació"
         you_can_confirm: "Podeu confirmar el vostre compte mitjançant l'enllaç següent:"
-      hello: "Hola, %{email}!"
+      hello: "Hola, %{username}!"
       inviter:
         accept_at: "a %{url}, podeu acceptar-ho mitjançant l'enllaç següent."
         has_invited_you: "%{name}"
@@ -44,7 +44,7 @@ ca:
         click_to_unlock: "Feu clic a l'enllaç següent per desblocar el vostre compte:"
         subject: "Instruccions per al desblocatge"
         unlock: "Desbloca el meu compte"
-      welcome: "Benvingut/da, %{email}!"
+      welcome: "Benvingut/da, %{username}!"
     passwords:
       edit:
         change_password: "Canvia la contrasenya"

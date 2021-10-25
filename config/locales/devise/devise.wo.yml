@@ -7,10 +7,10 @@
 wo:
   devise:
     mailer:
-      hello: "Na nga def %{email}?"
+      hello: "Na nga def %{username}?"
       reset_password_instructions:
         change: "Soppil sama baatujàll"
-      welcome: "Dalal-jàmm %{email}!"
+      welcome: "Dalal-jàmm %{username}!"
     passwords:
       edit:
         change_password: "Soppil sama baatujàll"

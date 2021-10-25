@@ -59,7 +59,7 @@ sq:
     aspect_dropdown:
       add_to_aspect: "Shtoni kontakt"
       all_aspects: "Krejt aspektet"
-      error: "Nuk u fillua dot ndarja e gjërave me <%= name %>.  Mos po e shpërfillni?"
+      error: "S’u fillua dot ndarje gjërash me <%= name %>.  Mos po e shpërfillni?"
       error_remove: "S’u hoq dot <%= name %> prej aspekti :("
       mobile_row_checked: "<%= name %> (hiqe)"
       mobile_row_unchecked: "<%= name %> (shtoje)"
@@ -73,7 +73,7 @@ sq:
       updating: "po përditësohet…"
     aspect_navigation:
       add_an_aspect: "+ Shtoni një aspekt"
-      deselect_all: "Çpërzgjidhi krejt"
+      deselect_all: "Shpërzgjidhi krejt"
       no_aspects: "Nuk janë përzgjedhur aspekte"
       select_all: "Përzgjidhi krejt"
     aspects:
@@ -89,9 +89,9 @@ sq:
     cancel: "Anuloje"
     comma: ","
     comments:
-      hide: "fshihi komentet"
+      hide: "Fshihi komentet"
       no_comments: "Ende s’ka komente."
-      show: "shfaqi krejt komentet"
+      show: "Shfaqi krejt komentet"
     confirm_dialog: "Jeni i sigurt?"
     confirm_unload: "Ju lutemi, ripohoni se doni ta braktisni këtë faqe. Të dhënat që keni dhënë s’do të ruhen."
     contacts:
@@ -130,9 +130,9 @@ sq:
       notifications: "Njoftime"
       profile: "Profil"
       recent_notifications: "Njoftime së fundi"
-      search: "Find people or #tags"
+      search: "Gjeni persona ose #etiketa"
       settings: "Rregullime"
-      switch_to_touch_optimized_mode: "Kalo nën mënyrën e optimizuar për ekrane touch"
+      switch_to_touch_optimized_mode: "Kalo nën mënyrën e optimizuar për ekrane me prekje"
       toggle_navigation: "Shfaq/fshih lëvizjen"
       view_all: "Shihni krejt"
     hide_post: "Të kalohet i fshehur ky postim?"
@@ -238,7 +238,7 @@ sq:
       post: "Të rindahet postimi i <%= name %>?"
       successful: "Postimi u rinda me sukses!"
     show_all: "Shfaqi krejt"
-    show_more: "shfaq më tepër"
+    show_more: "Shfaq më tepër"
     stream:
       comment: "Komentojeni"
       comments:
@@ -257,18 +257,18 @@ sq:
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
+        one: "<%= count %> Pëlqim"
+        other: "<%= count %> Pëlqime"
         two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        zero: "<%= count %> Pëlqime"
       limited: "E kufizuar"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
+        one: "Shfaq <%= count %> koment më tepër"
+        other: "Shfaq <%= count %> komente më tepër"
         two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        zero: "Shfaq <%= count %> komente të tjerë"
       no_posts_yet: "Këtu s’ka ende postime për t’u shfaqur."
       original_post_deleted: "Postimi origjinal është fshirë nga autori."
       permalink: "Permalidhje"
@@ -277,10 +277,10 @@ sq:
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
+        one: "<%= count %> Rindarje"
+        other: "<%= count %> Rindarje"
         two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        zero: "<%= count %> Rindarje"
       show_nsfw_post: "Shfaqe postimin"
       show_nsfw_posts: "Shfaqi krejt"
       tags:
@@ -294,10 +294,11 @@ sq:
       unlike: "Hiqja pëlqimin"
       via: "përmes <%= provider %>"
     tags:
-      wasnt_that_interesting: "OK, Them se #<%= tagName %> nuk qe kushedi se çë interesant..."
+      wasnt_that_interesting: "OK, Them se #<%= tagName %> nuk qe kushedi se çë interesant…"
     timeago:
       day: "një ditë"
       days:
+        one: "1 ditë"
         other: "%d ditë"
       hour: "rreth një orë"
       hours:
@@ -310,6 +311,7 @@ sq:
         other: "%d minuta"
       month: "rreth një muaj"
       months:
+        one: "1 muaj"
         other: "%d muaj"
       prefixAgo: ""
       prefixFromNow: ""
@@ -318,7 +320,8 @@ sq:
       suffixFromNow: "nga tani"
       year: "rreth një vit"
       years:
-        other: "%d vjetë"
+        one: "1 vit"
+        other: "%d vjet"
     unblock_failed: "Zhbllokimi i këtij përdoruesi dështoi"
     viewer:
       reshared: "I rindarë"

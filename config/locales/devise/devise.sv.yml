@@ -32,7 +32,7 @@ sv:
         confirm: "Aktivera mitt konto"
         subject: "Instruktioner för att aktivera ditt konto"
         you_can_confirm: "Klicka på länken nedan för att aktivera ditt konto:"
-      hello: "Hej %{email}!"
+      hello: "Hej %{username}!"
       inviter:
         accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ sv:
         click_to_unlock: "Klicka på länken nedan för att låsa upp ditt konto:"
         subject: "Upplåsningsinstruktioner"
         unlock: "Lås upp mitt konto"
-      welcome: "Välkommen %{email}!"
+      welcome: "Välkommen %{username}!"
     omniauth_callbacks:
       failure: "Kunde inte autentisera dig från %{kind} på grund av: %{reason}"
       success: "Lyckades autentisera från kontot %{kind}."

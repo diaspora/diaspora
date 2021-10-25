@@ -28,7 +28,7 @@ sl:
         confirm: "Potrdi uporabniški račun"
         subject: "Navodila za potrditev uporabniškega računa"
         you_can_confirm: "Vaš uporabniški račun lahko potrdite s pomočjo spodnje povezave:"
-      hello: "Pozdravljeni %{email}!"
+      hello: "Pozdravljeni %{username}!"
       inviter:
         accept_at: "na %{url}, sprejmete lahko preko spodnje povezave."
         has_invited_you: "%{name}"
@@ -44,7 +44,7 @@ sl:
         click_to_unlock: "Odklenite svoj uporabniški račun s klikom na spodnjo povezavo:"
         subject: "Navodila za odklepanje uporabniškega računa"
         unlock: "Odkleni uporabniški račun"
-      welcome: "Dobrodošli %{email}!"
+      welcome: "Dobrodošli %{username}!"
     passwords:
       edit:
         change_password: "Spremeni geslo"

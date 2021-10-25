@@ -32,7 +32,7 @@ ja:
         confirm: "アカウントを認証する"
         subject: "認証手続き"
         you_can_confirm: "次のリンクからアカウントが認証できます。"
-      hello: "%{email}さん、こんにちは！"
+      hello: "%{username}さん、こんにちは！"
       inviter:
         accept_at: "%{url} で、下のリンクから受け入れることができます。"
         has_invited_you: "%{name}さん"
@@ -50,7 +50,7 @@ ja:
         click_to_unlock: "アカウントのロックを解除するのに下記のリンクにクリックしてください。"
         subject: "ロック解除説明"
         unlock: "アカウントのロックを解除する"
-      welcome: "%{email}さん、ようこそ！"
+      welcome: "%{username}さん、ようこそ！"
     omniauth_callbacks:
       failure: "\"%{reason}\" のため、%{kind} から認証できませんでした。"
       success: "%{kind} のアカウントから正常に認証しました。"

@@ -990,7 +990,7 @@ de_formal:
     closed:
       another_pod: "einem anderen Pod"
       closed_pod: "Dieser Pod ist derzeit für Neuanmeldungen geschlossen. Sie können dem diaspora*-Netzwerk trotzdem beitreten, indem Sie sich auf %{wiki} registrieren. Da alle Pods miteinander verbunden sind, haben Sie von dort aus Zugriff auf dieselben Inhalte."
-      find_pods: "Es gibt eine Liste von Pods, auf denen Sie sich registrieren können, auf %{poduptime}."
+      find_pods: "Es gibt eine Liste von Pods, auf denen Sie sich registrieren können, auf %{fediverse_observer}."
       other_questions: "Wenn Sie noch weitere Fragen dazu haben, wie Sie einen Pod auswählen, lesen Sie unser %{wiki}."
     create:
       success: "Sie sind diaspora* beigetreten!"

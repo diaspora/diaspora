@@ -25,13 +25,13 @@ cy:
     mailer:
       confirmation_instructions:
         subject: "Cyfarwyddiadau Cadarnhad"
-      hello: "Helo %{email}!"
+      hello: "Helo %{username}!"
       reset_password_instructions:
         change: "Newid y cyfrinair"
       unlock_instructions:
         subject: "Cyfarwyddiadau i ddatgloi"
         unlock: "Datgloi fy nghyfrif"
-      welcome: "Croeso %{email}!"
+      welcome: "Croeso %{username}!"
     passwords:
       edit:
         change_password: "Newid fy nghyfrinair"

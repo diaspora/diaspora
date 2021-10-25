@@ -32,7 +32,7 @@ ia:
         confirm: "Confirmar mi conto"
         subject: "Instructiones pro confirmar"
         you_can_confirm: "Tu pote confirmar tu conto per le ligamine sequente:"
-      hello: "Salute, %{email}!"
+      hello: "Salute, %{username}!"
       inviter:
         accept_at: "a %{url}, tu pote acceptar lo per le ligamine sequente."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ ia:
         click_to_unlock: "Clicca sur le ligamine sequente pro disblocar tu conto:"
         subject: "Instructiones pro disblocar"
         unlock: "Disblocar mi conto"
-      welcome: "Benvenite, %{email}!"
+      welcome: "Benvenite, %{username}!"
     omniauth_callbacks:
       failure: "Impossibile authenticar te a partir de %{kind} perque \"%{reason}\"."
       success: "Authentication a partir del conto %{kind} succedite."

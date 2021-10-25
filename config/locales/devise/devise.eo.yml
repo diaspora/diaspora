@@ -16,6 +16,7 @@ eo:
       invalid: "Nevalida uzantnomo aŭ pasvorto."
       invalid_token: "Malvalida identiga ĵetono."
       locked: "Via konto estas ŝlosita."
+      not_found_in_database: "Nevalida %{authentication_keys} aŭ pasvorto."
       timeout: "Via seanco senvalidiĝis. Bonvolu ree ensaluti por daŭrigi."
       unauthenticated: "Vi devas ensaluti aŭ enskribiĝi antaŭ ol daŭrigi."
       unconfirmed: "Vi devas konfirmi vian konton antaŭ ol daŭrigi."
@@ -28,11 +29,13 @@ eo:
         confirm: "Konfirmi mian konton"
         subject: "Instrukcioj por konfirmi"
         you_can_confirm: "Vi povas konfirmi vian konton per la suba ligilo:"
-      hello: "Saluton, %{email}!"
+      hello: "Saluton, %{username}!"
       inviter:
         accept_at: "ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} invitis vin aniĝi je DIASPORA*"
+      password_change:
+        subject: "Pasvorta ŝanĝita"
       reset_password_instructions:
         change: "Ŝanĝi mian pasvorton"
         ignore: "Se vi ne petis ĉi tion, bonvolu ignori ĉi tiun retpoŝton."
@@ -44,11 +47,13 @@ eo:
         click_to_unlock: "Alklaku la suban ligilon por malŝlosi vian konton:"
         subject: "Instrukcioj por malŝlosi"
         unlock: "Malŝlosi mian konton."
-      welcome: "Bonvenon %{email}!"
+      welcome: "Bonvenon %{username}!"
     passwords:
       edit:
         change_password: "Ŝanĝi mian pasvorton"
+        new_password: "Nova pasvorto"
       new:
+        email: "Retpoŝtadreso"
         forgot_password: "Ĉu vi forgesis vian pasvorton?"
         send_password_instructions: "Sendi al mi instrukciojn por restartigi pasvorton"
       send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel restartigi vian pasvorton."

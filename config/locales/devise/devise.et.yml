@@ -28,7 +28,7 @@ et:
         confirm: "Kinnita mu konto"
         subject: "Kinnitamise juhised"
         you_can_confirm: "Sa saad oma konto kinnitada järgneva lingi abil:"
-      hello: "Tere %{email}!"
+      hello: "Tere %{username}!"
       inviter:
         accept_at: "aadressil %{url}, sa saad kutse aksepteerida.kasutades alljärgnevat linki."
         has_invited_you: "%{name}"
@@ -36,7 +36,7 @@ et:
       reset_password_instructions:
         change: "Muuda mu parooli"
         subject: "Parooli taastamise juhised"
-      welcome: "%{email}, tere tulemast!"
+      welcome: "%{username}, tere tulemast!"
     passwords:
       edit:
         change_password: "Muuda parooli"

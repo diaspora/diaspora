@@ -979,7 +979,7 @@ oc:
     closed:
       another_pod: "un autre pod"
       closed_pod: "Aqueste pod es actualament pas dubèrt per las inscripcions. Pasmens, podètz jonher lo malhum diaspora* en vos marcar sus %{wiki} . Perque totes los pods son connectats entre eles, enlà auretz accès al meteis contengut."
-      find_pods: "Vaquí una lista de pods ont podètz vos marcar %{poduptime}."
+      find_pods: "Vaquí una lista de pods ont podètz vos marcar %{fediverse_observer}."
       other_questions: "S’avètz mai de questions tocant la causida d’un pod, gaitatz nòstre %{wiki}."
     create:
       success: "Avètz rejunt diaspora*!"

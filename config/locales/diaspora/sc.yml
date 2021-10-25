@@ -91,6 +91,7 @@ sc:
     user_entry:
       account_closed: "Contu serradu"
       admin: "Amministradore"
+      current_sign_in_ip: "Indiritzu IP de s'intrada in sa sessione atuale"
       diaspora_handle: "ID diaspora*"
       email: "P. eletr. (e-mail)"
       guid: "GUID"
@@ -162,31 +163,85 @@ sc:
           client_id_not_found: "Perunu cliente agatadu cun client_id %{client_id} cun URI de reindirizatzione %{redirect_uri}"
           deny: "Refuda"
           no_requirement: "%{name} non tenet bisòngiu de permissos"
+          private_contacts_linkage_error: "private:read e private:modify bisòngiant fintzas de contacts:read"
           redirection_message: "Seguru ses de chèrrere permìtere s'atzessu a %{redirect_uri}?"
+          unknown_scope: "Àmbitu disconnotu: %{scope_name}"
       error_page:
-        contact_developer: "Dias dèpere cuntatare s'isvilupadore de s'aplicatzione e incluire custu messàgiu de errore detalliadu:"
+        contact_developer: "Pro praghere cuntata s'isvilupadore de s'aplicatzione e inclue custu messàgiu de errore a sa minuda:"
         could_not_authorize: "No est istadu possìbile a autorizare custa aplicatzione"
         login_required: "Depes intrare in su contu tuo in antis de pòdere autorizare custa aplicatzione"
         title: "Oh! B'est istadu unu problema :("
       scopes:
+        ? "contacts:modify"
+        :
+          description: "Custu frunit un'atzessu pro s'iscritura a sos cuntatos e a sos datos ligados (che a sas caras)"
+          name: "Cuntatos (iscrie)"
+        ? "contacts:read"
+        :
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a sos cuntatos e a sos datos ligados (che a sas caras)"
+          name: "Cuntatos (leghidura ebbia)"
+        conversations:
+          description: "Custu frunit un'atzessu pro s'iscritura e sa leghidura a sos messàgios privados."
+          name: "Arresonos"
+        email:
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a s'indiritzu de posta eletrònica tuo."
+          name: "Posta eletrònica"
+        interactions:
+          description: "Custu frunit s'atzessu pro interagire cun sas publicatziones, a esèmpiu pro agradèssere o imbiare unu cummentu."
+          name: "Interatziones"
         name:
-          description: "Custu at a frunire sos permissos de nùmeme a s'aplicatzione"
-          name: "nùmene"
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a su nùmene intreu tuo."
+          name: "Nùmene intreu"
         nickname:
-          description: "Custu at a frunire sos permissos de paranùmeme a s'aplicatzione"
-          name: "paranùmene"
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a su nùmene impreadore tuo."
+          name: "Nùmene impreadore"
+        notifications:
+          description: "Custu frunit un'atzessu pro s'iscritura e sa leghidura a sas notìficas tuas."
+          name: "Notìficas"
         openid:
-          description: "Custu permitit a s'aplicatzione de lèghere su proflu de base tuo"
-          name: "profilu de base"
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a sas informatziones de base de su profilu tuo."
+          name: "Informatziones de base de su profilu"
         picture:
-          description: "Custu at a frunire a s'aplicatzione sos permissos ligados a sas immàgines"
-          name: "immàgine"
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a s'immàgine de profilu tua."
+          name: "Immàgine de profilu"
+        ? "private:modify"
+        :
+          description: "Custu frunit un'atzessu pro creare publicatziones privadas."
+          name: "Publicatziones privadas (iscrie)"
+        ? "private:read"
+        :
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a sas publicatziones privadas tuas e de sos cuntatos tuos."
+          name: "Publicatziones privadas (leghidura ebbia)"
         profile:
-          description: "Custu permitit a s'aplicatzione de lèghere su profilu intreu tuo"
-          name: "profilu intreu"
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a sos datos de su profilu intreu tuo."
+          name: "Profilu intreu (leghidura ebbia)"
+        ? "profile:modify"
+        :
+          description: "Custu frunit s'atzessu pro agiornare sos datos de su profilu intreu tuo."
+          name: "Profilu intreu (iscrie)"
+        ? "profile:read_private"
+        :
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a sos datos privados de su profilu tuo."
+          name: "Datos privados de su profilu (leghidura ebbia)"
+        ? "public:modify"
+        :
+          description: "Custu frunit s'atzessu pro creare publicatziones pùblicas e datos ligados (che a sos votos e a sos documentos alliongiados)."
+          name: "Publicatziones pùblicas (iscrie)"
+        ? "public:read"
+        :
+          description: "Custu frunit s'atzessu a sas publicatziones pùblicas tuas, incluende fintzas sas interatziones e sos datos ligados."
+          name: "Publicatziones pùblicas (leghidura ebbia)"
         sub:
-          description: "Custu at a frunire sos permissos \"sub\" a s'aplicatzione"
-          name: "sub"
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a s'identificadore ùnicu tuo."
+          name: "Identificadore ùnicu"
+        ? "tags:modify"
+        :
+          description: "Custu frunit s'atzessu pro mudare sas etichetas chi sighis."
+          name: "Etichetas (iscrie)"
+        ? "tags:read"
+        :
+          description: "Custu frunit un'atzessu pro sa leghidura ebbia a sas etichetas e a sos flussos de etichetas chi sighis."
+          name: "Etichetas (leghidura ebbia)"
       user_applications:
         index:
           access: "%{name} tenet atzessu a :"
@@ -194,9 +249,9 @@ sc:
           no_requirement: "%{name} non tenet bisòngiu de permissos"
           title: "Aplicatziones autorizadas"
         no_applications: "Non tenes aplicatziones autorizadas"
-        policy: "Abbista sa polìtica de privadesa de s'aplicatzione"
+        policy: "Pòmpia sa polìtica de riservadesa de s'aplicatzione"
         revoke_autorization: "Rèvoca"
-        tos: "Abbista sos tèrmines de servìtziu de s'aplicatzione"
+        tos: "Pòmpia sos tèrmines de servìtziu de s'aplicatzione"
   are_you_sure: "Seguru ses?"
   are_you_sure_delete_account: "Seguru ses de bòlere serrare su contu tuo? Est una cosa chi non podet èssere annullada!"
   are_you_sure_ignore_user: "As a ignorare custu impreadore. Seguru ses?"
@@ -292,9 +347,15 @@ sc:
     original: "Murru originale"
     original_white: "Isfundu biancu originale"
   comments:
+    create:
+      fail: "Sa creatzione de su cummentu est fallida"
+    destroy:
+      fail: "S'iscantzellamentu de su cummentu est fallidu"
+      success: "Cummentu %{id} iscantzelladu chene problemas"
     new_comment:
       comment: "Cummenta"
       commenting: "Cummentende..."
+    not_found: "Publicatzione o cummentu no agatados"
   contacts:
     index:
       add_contact: "Annanghe unu cuntatu"
@@ -334,6 +395,7 @@ sc:
       to: "A"
     new_conversation:
       fail: "Messàgiu non vàlidu"
+    not_found: "Arresonu no agatadu"
     show:
       delete: "Iscantzella s'arresonu"
       hide: "Istichi e pone a sa muda s'arresonu"
@@ -644,8 +706,22 @@ sc:
   likes:
     create:
       error: "B'est istadu un'errore ponende s'agradessimentu."
+      fail: "Sa creatzione de s'agradessimentu est fallida"
     destroy:
       error: "B'est istadu un'errore boghende s'agradessimentu."
+    not_found: "Publicatzione o agradessimentu no agatados"
+    people_dislike_this:
+      one: "%{count} disagradessimentu"
+      other: "%{count} disagradessimentos"
+      zero: "Perunu disagradessimentu"
+    people_like_this:
+      one: "%{count} agradessimentu"
+      other: "%{count} agradessimentos"
+      zero: "Perunu agradessimentu"
+    people_like_this_comment:
+      one: "%{count} agradessimentu"
+      other: "%{count} agradessimentos"
+      zero: "Perunu agradessimentu"
   limited: "Limitadu"
   more: "Àteru"
   no_results: "Perunu resurtadu agatadu"
@@ -978,7 +1054,7 @@ sc:
     closed:
       another_pod: "un'àteru pod"
       closed_pod: "Custu pod est, in custu momentu, serradu pro sas registratziones noas. Nointames, ti podes aunire su matessi a sa retza de diaspora* registrende·ti in %{wiki}. Essende totu sos pods connessos intre issos, as a tènnere atzessu a sos matessi cuntenutos in cue."
-      find_pods: "Podes agatare una lista de pods in ue ti podes registrare in %{poduptime}"
+      find_pods: "Podes agatare una lista de pods in ue ti podes registrare in %{fediverse_observer}"
       other_questions: "Si tenes cale si siat àtera pregunta chi pertocat a s'issèberu de unu pod, leghe·ti sa %{wiki} nostra"
     create:
       success: "Ti ses registradu in diaspora*!"

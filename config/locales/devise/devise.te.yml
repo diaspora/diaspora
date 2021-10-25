@@ -29,7 +29,7 @@ te:
         confirm: "నా ఖాతాను నిర్థారించండి"
         subject: "నిర్ధారణ సూచనలు"
         you_can_confirm: "మీరు క్రింది లింకు ద్వారా మీ ఖాతాను నిర్ధారించవచ్చు:"
-      hello: "హలో %{email}!"
+      hello: "హలో %{username}!"
       inviter:
         accept_at: "%{url} వద్ద, మీరు క్రింది లింకు ద్వారా అంగీకరించవచ్చు"
         has_invited_you: "%{name}"
@@ -45,7 +45,7 @@ te:
         click_to_unlock: "మీ ఖాతాను అన్లాక్ చేయటానికి కింది లింకును క్లిక్ చేయండి:"
         subject: "అన్​లాక్ సూచనలు"
         unlock: "నా ఖాతాను అన్లాక్ చెయ్యి"
-      welcome: "స్వాగతం %{email}!"
+      welcome: "స్వాగతం %{username}!"
     passwords:
       edit:
         change_password: "నా సంకేతపదాన్ని మార్చు"

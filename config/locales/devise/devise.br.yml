@@ -29,7 +29,7 @@ br:
         confirm: "Kadarnaat ma c'hont"
         subject: "Titouroù kadarnaat"
         you_can_confirm: "Gallout a rit kadarnaat ho kont gant al liamm dindan:"
-      hello: "Demat deoc'h, %{email}!"
+      hello: "Demat deoc'h, %{username}!"
       inviter:
         accept_at: "e %{url}, gallout a rit e zegemer dre al liamm a-is."
         has_invited_you: "%{name}"
@@ -45,7 +45,7 @@ br:
         click_to_unlock: "Klikit war al liamm dindan evit dibrennañ ho kont:"
         subject: "Titouroù dibrennañ"
         unlock: "Dibrennañ ma c'hont"
-      welcome: "Donemat deoc'h, %{email}!"
+      welcome: "Donemat deoc'h, %{username}!"
     passwords:
       edit:
         change_password: "Cheñch ma ger-tremen"

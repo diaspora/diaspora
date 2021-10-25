@@ -32,7 +32,7 @@ hye:
         confirm: "Հաստատել իմ հաշիվը"
         subject: "Հաստատման ցուցումներ"
         you_can_confirm: "Կարող ես հաշիվդ հաստատել հետևյալ հղմամբ՝"
-      hello: "Ողջու՜յն, %{email}"
+      hello: "Ողջու՜յն, %{username}"
       inviter:
         accept_at: "%{url} հասցեով, որը կարող ես հաստատել ստորև բերված հղման միջոցով։"
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ hye:
         click_to_unlock: "Սեղմիր ներքևի հղումը, որպեսզի ապաարգելափակես հաշիվդ։"
         subject: "Ապաարգելափակման ցուցումներ"
         unlock: "Ապաարգելափակել հաշիվս"
-      welcome: "Բարի գալու՜ստ, %{email}"
+      welcome: "Բարի գալու՜ստ, %{username}"
     passwords:
       edit:
         change_password: "Փոխել իմ գաղտնաբառը"

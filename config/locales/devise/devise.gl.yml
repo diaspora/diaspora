@@ -32,7 +32,7 @@ gl:
         confirm: "Confirmar a conta"
         subject: "Instrucións de confirmación"
         you_can_confirm: "Pode confirmar a súa conta mediante a seguinte ligazón:"
-      hello: "Ola, %{email}!"
+      hello: "Ola, %{username}!"
       inviter:
         accept_at: "en %{url}, pode aceptar seguindo a seguinte ligazón."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ gl:
         click_to_unlock: "Siga a seguinte ligazón para desbloqueala:"
         subject: "Instrucións para desbloquear a conta"
         unlock: "Desbloquear a conta"
-      welcome: "Benvido, %{email}!"
+      welcome: "Benvido, %{username}!"
     omniauth_callbacks:
       failure: "Non se puido autenticar desde %{kind} debido a \"%{reason}\"."
       success: "Autenticada correctamente desde a conta %{kind}"

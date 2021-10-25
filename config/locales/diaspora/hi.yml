@@ -5,9 +5,11 @@
 
 
 hi:
+  _applications: "ऍप्लिकेशन"
   _services: "सेवाएं"
   account: "खाता"
   are_you_sure: "क्या आपको यकीन है?"
+  are_you_sure_delete_account: "क्या आप वाकई अपना खाता बंद करना चाहते हैं? इसे पूर्ववत नहीं किया जा सकता!"
   aspects:
     index:
       help:
@@ -15,8 +17,12 @@ hi:
   cancel: "रद्द करें"
   delete: "मिटाओ"
   email: "ईमेल"
+  fill_me_out: "मुझे भरें"
+  limited: "सीमित"
   ok: "ठीक"
   privacy: "गोपनीयता"
   profile: "प्रोफ़ाइल"
-  settings: "विन्यास"
+  public: "सार्वजनिक"
+  search: "खोज"
+  settings: "सेटिंग्स"
   username: "उपयोगकर्ता नाम"

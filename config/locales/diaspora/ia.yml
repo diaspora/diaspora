@@ -1055,7 +1055,7 @@ ia:
     closed:
       another_pod: "un altere pod"
       closed_pod: "Iste pod es actualmente claudite pro le creation de contos, ma tu pote totevia adherer al rete de diaspora* per inscriber te a %{wiki}. Post que tote le pods es interconnectite, tu potera acceder al mesme contento."
-      find_pods: "Un lista de pods ubi tu pote inscriber te se trova a %{poduptime}."
+      find_pods: "Un lista de pods ubi tu pote inscriber te se trova a %{fediverse_observer}."
       other_questions: "Si tu ha altere questiones sur le election de un pod, consulta nostre %{wiki}."
     create:
       success: "Tu ha adherite a diaspora*!"

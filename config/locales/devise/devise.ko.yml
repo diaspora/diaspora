@@ -29,7 +29,7 @@ ko:
         confirm: "내 계정 확인하기"
         subject: "확인 절차"
         you_can_confirm: "아래 링크로 계정을 확인할 수 있습니다:"
-      hello: "%{email}님!"
+      hello: "%{username}님!"
       inviter:
         accept_at: "%{URL}에서, 아래의 링크를 통해 확인할 수 있습니다."
         has_invited_you: "%{name}"
@@ -45,7 +45,7 @@ ko:
         click_to_unlock: "아래 링크로 계정을 풀을 수 있습니다:"
         subject: "계정 풀기 안내"
         unlock: "내 계정 풀기"
-      welcome: "%{email}님 환영합니다!"
+      welcome: "%{username}님 환영합니다!"
     passwords:
       edit:
         change_password: "암호 바꾸기"

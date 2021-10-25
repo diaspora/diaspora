@@ -34,7 +34,7 @@ ar:
         reshare:
           attributes:
             root_guid:
-              taken: "لقد أعدت نشر هذه المشاركة بالفعل!"
+              taken: "أعدت نشر هذه المشاركة بالفعل!"
         user:
           attributes:
             email:
@@ -123,6 +123,7 @@ ar:
       lock_account: "أقفل الحساب"
       make_admin: "اجعله مديرا"
       make_moderator: "اجعله مشرفا"
+      make_spotlight: "أضفه لأعلام المجتمع"
       remove_admin: "أزله من الإدارة"
       remove_moderator: "أزله من الاشراف"
       under_13: "اعرض المستخدمين الاصغر من  13 سنة"
@@ -261,7 +262,7 @@ ar:
     aspect_stream:
       make_something: "افعل شيئا"
       stay_updated: "إبقَ على اطلاع"
-      stay_updated_explanation: "تيّارك الرئيس مَمْلُوءٌ بجميع جهات إتصالك و الوسوم التي تتابع و منشورات من بعض أعضاء المجتمع المبدعين."
+      stay_updated_explanation: "ساحة المشاركات مَمْلُوءٌ بمشاركات متراسليك و الوسوم التي تتابع وبعض أعضاء المجتمع المبدعين."
     destroy:
       failure: "%{name} ليس خاليا ولا يمكن حذفه"
       success: ".بنجاح %{name} تم إزالة"
@@ -348,9 +349,9 @@ ar:
   contacts:
     index:
       add_contact: "أضف جهة اتصال"
-      all_contacts: "كل جهات الاتصال"
+      all_contacts: "كل المتراسلين"
       community_spotlight: "ضوء المجتمع"
-      my_contacts: "جهات الاتصال الخاصة بي"
+      my_contacts: "متراسليِّ"
       no_contacts: "لا توجد جهات اتصال."
       no_contacts_in_aspect: "ليس لديك جهات اتصال في هذه الفئة. أضف جهات اتصال لهذه الفئة من أدناه."
       no_contacts_message: "انظر في  {community_spotlight}%"
@@ -425,7 +426,7 @@ ar:
       data_visible_to_podmin_q: "ماهي البيانات التي يمكن لمدير الخادم رأيتها؟"
       download_data_a: "بالطبع، في تبويب الحساب من صفحة الاعدادات ستجد في نهايتها زرين: واحد لتزيل البيانات والآخر لتزيل الصور."
       download_data_q: "هل يمكنني تحميل كل بياناتي؟"
-      move_pods_a: "قدَم الاصدار 0.7.0.0 من دياسبورا المرحلة الأولى لترحيل الحسابات: يمكنك الآن تصدير كل بياناتك من قسم \"للحساب\" في اعدادات المستخدم. في المستقبل ستتمكن من ترحيل حسابك كاملا بما في ذلك منشوراتك وجهات اتصالك لخادم آخر."
+      move_pods_a: "قدَم الاصدار 0.7.0.0 من دياسبورا المرحلة الأولى لترحيل الحسابات: يمكنك الآن تصدير كل بياناتك من قسم \"للحساب\" في اعدادات المستخدم. في المستقبل ستتمكن من ترحيل حسابك كاملا بما في ذلك منشوراتك ومتراسليك لخادم آخر."
       move_pods_q: "كيف أنقل حسابي من خادم لآخر؟"
       title: "إدارة الحساب والبيانات"
     aspects:
@@ -464,6 +465,7 @@ ar:
       title: "الحصول على المساعدة"
     getting_started_tutorial: "سلسلة دروس \"بدأ الاستخدام\""
     here: "هنا"
+    irc: "IRC"
     keyboard_shortcuts:
       keyboard_shortcuts_a1: "يمكنك استخدام الاختصارات التالية في ساحة المشاركات:"
       keyboard_shortcuts_li1: "j – انتقل للمشاركة التالية"
@@ -1083,6 +1085,13 @@ ar:
       follow: "تابع #%{tag}"
       none: "الوسم الفارغ غير موجود!"
       stop_following: "أوقف متابعة #%{tag}"
+      tagged_people:
+        few: "‎%{count}‎ أشهاص بوسم ‎%{tag}‎ "
+        many: "‎%{count}‎ شخصًا بوسم ‎%{tag}‎ "
+        one: "شخص واحد بوسم ‎%{tag}‎ "
+        other: "‎ ‎%{count}‎ شخص بوسم ‎%{tag}‎ "
+        two: "شخصان بوسم ‎%{tag}‎ "
+        zero: "لا أشخاص بوسم ‎%{tag}‎ "
   two_factor_auth:
     activated:
       change_button: "عطِّل"
@@ -1149,6 +1158,7 @@ ar:
       request_export_photos: "طلب صوري"
       request_export_update: "أنعش بيانات ملفي الشخصيّ"
       reshared: "...أعاد أحدهم نشر مشاركتك؟"
+      show_community_spotlight: "أظهر أعلام المجتمع في دفق المشاركات"
       show_getting_started: "اعرض تلميحات \"بدأ الاستخدام\""
       someone_reported: "أرسل شخص تبليغا"
       started_sharing: "...بدأ أحدهم المشاركة معك؟"
