@@ -95,8 +95,6 @@ de:
     confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst. - Von dir eingegebene Daten werden nicht gespeichert."
     contacts:
       add_contact: "Kontakt hinzufügen"
-      aspect_chat_is_enabled: "Kontakte in diesem Aspekt können mit dir chatten."
-      aspect_chat_is_not_enabled: "Kontakte in diesem Aspekt können nicht mit dir chatten."
       error_add: "Konnte <%= name %> nicht zum Aspekt hinzufügen :("
       error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
       remove_contact: "Kontakt entfernen"

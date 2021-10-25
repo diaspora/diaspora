@@ -23,7 +23,7 @@ ms:
         reshare:
           attributes:
             root_guid:
-              taken: "Baik, kan? Anda telah berkongsi semula pos itu!"
+              taken: "Baik, kan? Anda telah berkongsi semula hantaran tersebut!"
         user:
           attributes:
             email:
@@ -33,14 +33,14 @@ ms:
             username:
               invalid: "adalah tidak sah. Kami hanya membenarkan huruf, nombor, dan garis bawah."
               taken: "sudah diambil."
-  all_aspects: "Semua Aspek"
+  all_aspects: "Semua aspek"
   are_you_sure: "Anda yakin?"
-  are_you_sure_delete_account: "Adakah anda pasti anda mahu menutup akaun anda? Ini tidak boleh diundur!"
+  are_you_sure_delete_account: "Adakah anda ingin menutup akaun anda? Ini tidak boleh dibuat asal!"
   aspect_memberships:
     destroy:
-      failure: "Gagal mengeluarkan individu daripada aspek"
-      no_membership: "Tidak dapat mencari orang yang dipilih dalam aspek itu"
-      success: "Orang berjaya dikeluarkan dari aspek"
+      failure: "Individu tersebut telah gagal dikeluarkan daripada aspek."
+      no_membership: "Individu yang dipilih tidak dijumpai dalam aspek tersebut."
+      success: "Individu tersebut telah berjaya dikeluarkan daripada aspek."
   aspects:
     add_to_aspect:
       failure: "Gagal menambah kenalan kepada aspek."
@@ -48,7 +48,7 @@ ms:
     aspect_listings:
       add_an_aspect: "+ Tambah aspek"
     aspect_stream:
-      stay_updated: "Kekal Dikemaskini"
+      stay_updated: "Kekal dengan perkembangan semasa"
       stay_updated_explanation: "Aliran utama anda dipenuhi dengan semua kenalan anda, tag anda ikuti, dan pos daripada beberapa ahli kreatif komuniti."
     destroy:
       failure: "%{name} tidak boleh dibuang."
@@ -68,19 +68,19 @@ ms:
         find_a_bug: "... mencari %{link}?"
         have_a_question: "... mempunyai %{link}?"
         here_to_help: "Komuniti diaspora* di sini!"
-        need_help: "Perlukan Bantuan?"
+        need_help: "Perlukan bantuan?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      introduce_yourself: "Ini adalah aliran anda. Sertai dan kenalkan diri anda."
+      introduce_yourself: "Ini aliran anda. Sertai dan perkenalkan diri anda."
       new_here:
         follow: "Ikuti %{link} dan selamat datang pengguna baru ke diaspora *!"
         learn_more: "Ketahui lebih lanjut"
-        title: "Alukan Pengguna Baru"
+        title: "Mengalu-alukan para pengguna baharu"
       services:
         content: "Anda boleh menyambung perkhidmatan berikut kepada diaspora*:"
-        heading: "Khidmat Perhubungan"
-      welcome_to_diaspora: "Selamat datang ke Diaspora, %{name}!"
+        heading: "Kaitkan perkhidmatan"
+      welcome_to_diaspora: "Selamat datang ke diaspora*, %{name}!"
     no_contacts_message:
       community_spotlight: "Komuniti tumpuan"
       or_spotlight: "Atau anda boleh berkongsi dengan %{link}"
@@ -106,7 +106,7 @@ ms:
   contacts:
     index:
       all_contacts: "Semua Kenalan"
-      my_contacts: "Kenalan Saya"
+      my_contacts: "Kenalan saya"
       no_contacts: "Nampaknya anda perlu menambah beberapa kenalan!"
       only_sharing_with_me: "Hanya berkongsi dengan saya"
       start_a_conversation: "Mulakan perbualan"

@@ -134,7 +134,7 @@ zh-CN:
       services:
         content: "您可以将以下服务连接至 Diaspora："
         heading: "连接服务"
-      welcome_to_diaspora: "%{name}，欢迎加入 Diaspora!"
+      welcome_to_diaspora: "%{name}，欢迎加入 Diaspora！"
     no_contacts_message:
       community_spotlight: "社区热点"
       or_spotlight: "或者您也可以和 %{link} 分享内容"
@@ -244,6 +244,9 @@ zh-CN:
     tutorial: "教程"
     tutorials: "教程"
     wiki: "百科"
+  home:
+    default:
+      headline: "欢迎来到 %{pod_name}"
   invitations:
     create:
       empty: "请至少填写一个邮箱"
@@ -452,13 +455,13 @@ zh-CN:
     destroy:
       success: "验证删除成功。"
     failure:
-      error: "与该服务连接时有错误"
+      error: "与该服务连接时发生错误"
     index:
       disconnect: "断开连接"
       edit_services: "编辑服务"
       logged_in_as: "登录为"
       really_disconnect: "切断与 %{service} 的连接？"
-      services_explanation: "您连接第三方共享服务后，diaspora*就能自动把您所发出的帖子自动转发出去。"
+      services_explanation: "连接第三方共享服务后，diaspora* 就能把您的帖子自动转发出去。"
   settings: "设置"
   shared:
     aspect_dropdown:
@@ -552,7 +555,7 @@ zh-CN:
         locked_out: "接下来您会被退出，帐号将关闭。"
         make_diaspora_better: "希望您能帮助我们让 Diaspora 更好，而不是选择离开。如果您坚持，我们也希望让您知道未来的发展。"
         mr_wiggles: "Mr Wiggles 会对于您的离开很难过。"
-        no_turning_back: "现在已经不能后悔了。"
+        no_turning_back: "这将无法撤销！如果您真的确定要这么做，请输入您的密码。"
         what_we_delete: "我们会尽快删除您发布的内容和个人资料。您的评论会保留，但没有您的个人信息。"
       close_account_text: "关闭帐号"
       comment_on_post: "…当有人对您的内容发表评论时？"

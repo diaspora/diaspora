@@ -91,6 +91,7 @@ de:
     user_entry:
       account_closed: "Konto wurde geschlossen."
       admin: "Administrator"
+      current_sign_in_ip: "IP-Adresse der aktuellen Anmeldung"
       diaspora_handle: "diaspora* ID"
       email: "E-Mail"
       guid: "GUID"
@@ -162,40 +163,85 @@ de:
           client_id_not_found: "Kein Client mit client_id %{client_id} und Weiterleitungs-URI %{redirect_uri} gefunden"
           deny: "Ablehnen"
           no_requirement: "%{name} benötigt keine Berechtigungen"
+          private_contacts_linkage_error: "private:read und private:modify erfordern außerdem contacts:read"
           redirection_message: "Bist du dir sicher, dass du Zugriff von %{redirect_uri} zulassen möchtest?"
+          unknown_scope: "Unbekannte Berechtigung: %{scope_name}"
       error_page:
         contact_developer: "Du solltest den Entwickler der Anwendung kontaktieren und die folgende ausführliche Fehlermeldung beifügen:"
         could_not_authorize: "Die Anwendung konnte nicht zugelassen werden"
         login_required: "Du musst dich erst anmelden, bevor du diese Anwendung zulassen kannst"
         title: "Oh! Etwas ist schiefgegangen :("
       scopes:
-        aud:
-          description: "Dies gewährt der Anwendung aud-Berechtigungen"
-          name: "aud"
+        ? "contacts:modify"
+        :
+          description: "Dies gewährt Schreibzugriff auf Kontakte und zugehörige Daten (wie Aspekte)."
+          name: "Kontakte (Schreiben)"
+        ? "contacts:read"
+        :
+          description: "Dies gewährt Lesezugriff auf Kontakte und zugehörige Daten (wie Aspekte)."
+          name: "Kontakte (Nur lesen)"
+        conversations:
+          description: "Dies gewährt Lese- und Schreibzugriff auf private Nachrichten."
+          name: "Konversationen"
+        email:
+          description: "Dies gewährt Lesezugriff auf deine E-Mail-Adresse."
+          name: "E-Mail"
+        interactions:
+          description: "Dies gewährt die Berechtigung, mit Beiträgen zu interagieren, wie beispielsweise ein Gefällt mir oder einen Kommentar abzugeben."
+          name: "Interaktionen"
         name:
-          description: "Dies gewährt der Anwendung Name-Berechtigungen"
-          name: "Name"
+          description: "Dies gewährt Lesezugriff auf deinen vollständigen Namen."
+          name: "Vollständiger Name"
         nickname:
-          description: "Dies gewährt der Anwendung Benutzername-Berechtigungen"
+          description: "Dies gewährt Lesezugriff auf deinen Benutzernamen."
           name: "Benutzername"
+        notifications:
+          description: "Dies gewährt Lese- und Schreibzugriff auf deine Benachrichtigungen."
+          name: "Benachrichtigungen"
         openid:
-          description: "Das ermöglicht der Anwendung, dein grundlegendes Profil auszulesen"
-          name: "grundlegendes Profil"
+          description: "Das gewährt Lesezugriff auf deine grundlegenden Profilinformationen."
+          name: "Informationen im grundlegenden Profil"
         picture:
-          description: "Dies gewährt der Anwendung Bild-Berechtigungen"
-          name: "Bild"
+          description: "Dies gewährt Lesezugriff auf dein Profilbild."
+          name: "Profilbild"
+        ? "private:modify"
+        :
+          description: "Dies gewährt die Berechtigung private Beiträge zu veröffentlichen."
+          name: "Private Beiträge (Schreiben)"
+        ? "private:read"
+        :
+          description: "Dies gewährt Lesezugriff auf deine privaten Beiträge sowie die deiner Kontakte."
+          name: "Private Beiträge (Nur lesen)"
         profile:
-          description: "Dies ermöglicht der Anwendung, Ihr erweitertes Profil auszulesen"
-          name: "erweitertes Profil"
-        read:
-          description: "Das ermöglicht der Anwendung, deinen Stream, deine Konversationen und dein vollständiges Profil auszulesen"
-          name: "Profil, Stream und Konversationen lesen"
+          description: "Dies gewährt Lesezugriff auf die Daten in deinem erweiterten Profil."
+          name: "Erweitertes Profil (Nur lesen)"
+        ? "profile:modify"
+        :
+          description: "Dies gewährt Zugriff um die Daten in deinem erweiterten Profil zu aktualisieren."
+          name: "Erweitertes Profil (Schreiben)"
+        ? "profile:read_private"
+        :
+          description: "Dies gewährt Lesezugriff auf die Daten in deinem privaten Profil."
+          name: "Private Profildaten (Nur lesen)"
+        ? "public:modify"
+        :
+          description: "Dies gewährt Schreibzugriff um öffentliche Beiträge und zugehörige Daten zu veröffentlichen (einschließlich Abstimmungen und angehängte Medien)."
+          name: "Öffentliche Beiträge (Schreiben)"
+        ? "public:read"
+        :
+          description: "Dies gewährt Zugriff auf deine öffentlichen Beiträge, einschließlich Interaktionen und zugehörige Daten."
+          name: "Öffentliche Beiträge (Nur lesen)"
         sub:
-          description: "Dies vererbt der Anwendung Berechtigungen"
-          name: "sub"
-        write:
-          description: "Das ermöglicht der Anwendung, neue Beiträge zu senden, Konversationen zu schreiben und Reaktionen zu senden"
-          name: "Beiträge, Konversationen und Reaktionen senden"
+          description: "Dies gewährt Lesezugriff auf deine eindeutige Kennung."
+          name: "Eindeutige Kennung"
+        ? "tags:modify"
+        :
+          description: "Dies gewährt Zugriff um die von dir gefolgten Tags zu verändern."
+          name: "Tags (Schreiben)"
+        ? "tags:read"
+        :
+          description: "Dies gewährt Lesezugriff auf deine gefolgten Tags und Tag-Streams."
+          name: "Tags (Nur lesen)"
       user_applications:
         index:
           access: "%{name} hat Zugriff auf:"
@@ -302,10 +348,14 @@ de:
     original_white: "Original weißer Hintergrund"
   comments:
     create:
-      error: "Kommentieren fehlgeschlagen."
+      fail: "Kommentieren fehlgeschlagen"
+    destroy:
+      fail: "Kommentar löschen fehlgeschlagen"
+      success: "Kommentar %{id} wurde erfolgreich gelöscht"
     new_comment:
       comment: "Kommentieren"
       commenting: "Kommentieren …"
+    not_found: "Beitrag oder Kommentar nicht gefunden"
   contacts:
     index:
       add_contact: "Kontakt hinzufügen"
@@ -345,6 +395,7 @@ de:
       to: "An"
     new_conversation:
       fail: "Ungültige Nachricht"
+    not_found: "Konversation nicht gefunden"
     show:
       delete: "Gespräch löschen"
       hide: "Unterhaltung ausblenden und stumm schalten."
@@ -413,11 +464,6 @@ de:
       what_is_an_aspect_q: "Was sind Aspekte?"
       who_sees_post_a: "Wenn du einen begrenzten Beitrag erstellst, wird dieser nur für Leute sichtbar sein, die du dem ausgewählten Aspekt (oder den ausgewählten Aspekten, falls du mehrere ausgewählt hast) vor dem Erstellen des Beitrags hinzugefügt hast. Kontakte, die du hast, die aber nicht in dem Aspekt sind, haben keine Möglichkeit den Beitrag zu sehen. Begrenzte Beiträge werden nie für Leute sichtbar sein, die du nicht einem deiner Aspekte hinzugefügt hast."
       who_sees_post_q: "Wenn ich einen Beitrag an einen Aspekt poste, wer sieht ihn dann?"
-    chat:
-      add_contact_roster_a: "Zuerst musst du den Chat für einen der Aspekte aktivieren, in denen sich die Person befindet. Dafür gehst du zur %{contacts_page}, wählst den gewünschten Aspekt aus und klickst auf das Chat-Icon, um den Chat für den Aspekt zu aktivieren. %{toggle_privilege} Wenn es dir lieber ist, kannst du auch einen speziellen Aspekt namens 'Chat' erstellen und zu ihm die Leute hinzufügen, mit denen du chatten willst. Wenn du damit fertig bist, öffnest du die Chatoberfläche und wählst die Person aus, mit der du chatten willst."
-      add_contact_roster_q: "Wie kann ich auf diaspora* mit jemandem chatten?"
-      contacts_page: "Kontaktseite"
-      title: "Chat"
     community_guidelines: "Community-Richtlinien"
     faq: "FAQ"
     foundation_website: "Webseite der diaspora*-Stiftung"
@@ -660,8 +706,22 @@ de:
   likes:
     create:
       error: "Gefällt mir ist fehlgeschlagen."
+      fail: "Gefällt mir fehlgeschlagen"
     destroy:
       error: "Gefällt mir nicht mehr ist fehlgeschlagen."
+    not_found: "Beitrag oder Gefällt mir nicht gefunden"
+    people_dislike_this:
+      one: "%{count} Gefällt mir nicht"
+      other: "%{count} Gefällt mir nicht"
+      zero: "Kein Gefällt mir nicht"
+    people_like_this:
+      one: "%{count} Gefällt mir"
+      other: "%{count} Gefällt mir"
+      zero: "Kein Gefällt mir"
+    people_like_this_comment:
+      one: "%{count} Gefällt mir"
+      other: "%{count} Gefällt mir"
+      zero: "Kein Gefällt mir"
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"

@@ -96,8 +96,6 @@ hye-classical:
     confirm_unload: "Հաստատիր, որ ուզում ես լքել այս էջը․ քո մուտքագրած տուեալները չեն պահպանուի։"
     contacts:
       add_contact: "Աւելացնել"
-      aspect_chat_is_enabled: "Այս խմբի մարդիկ կարող են չաթուել քո հետ։"
-      aspect_chat_is_not_enabled: "Այս խմբի մարդիկ չեն կարող չաթուել քո հետ։"
       error_add: "Չստացուեց <%= name %>ին աւելացնել խմբում։ Ափսո՜ս։"
       error_remove: "Չստացուեց հեռացնել <%= name %>-ին խմբից ։Չ"
       remove_contact: "Հեռացնել"

@@ -96,8 +96,6 @@ sv:
     confirm_unload: "Bekräfta att du vill gå från sidan. Du har osparad information här."
     contacts:
       add_contact: "Lägg till kontakt"
-      aspect_chat_is_enabled: "Kontakter i den här aspekten får chatta med dig"
-      aspect_chat_is_not_enabled: "Kontakter i den här aspekten får inte chatta med dig"
       error_add: "Kunde inte lägga till <%= name %> till aspekten. :-("
       error_remove: "Kunde inte ta bort <%= name %> från aspekten. :-("
       remove_contact: "Ta bort kontakt"

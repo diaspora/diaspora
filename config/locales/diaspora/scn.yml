@@ -1,0 +1,274 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+scn:
+  _applications: "Applicazioni"
+  _contacts: "Cuntatti"
+  _help: "Ajutu"
+  _services: "Servizi"
+  account: "Cuntu"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "havi a èssiri ùnicu ntra sti cuntatti."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "Già si lu pigghiaru."
+        user:
+          attributes:
+            email:
+              taken: "Già si lu pigghiaru."
+            person:
+              invalid: "Non è vàlidu"
+            username:
+              invalid: "Non è validu. Si ponnu usari sulu lèttiri, nùmiri e tratti vasci"
+              taken: "Già si lu pigghiaru."
+  admins:
+    admin_bar:
+      pages: "Pàgini"
+    stats:
+      2weeks: "Dui simani"
+      50_most: "Li 50 tag chiù populari"
+      go: "Vai"
+      month: "Misi"
+      week: "Simana"
+    user_search:
+      add_invites: "Agghiunci inviti"
+  all_aspects: "Tutti l'aspetti"
+  are_you_sure: "Sì' sicuru?"
+  are_you_sure_delete_account: "Si' sicuru di vuliri chiùjiri lu to cuntu? Doppu non si po chiù turnari ndarreri!"
+  aspect_memberships:
+    destroy:
+      failure: "Tentativu fallutu di livari na persuna di l'aspettu."
+      success: "Livasti cu successu na persuna di l'aspettu."
+  aspects:
+    add_to_aspect:
+      failure: "Non è possìbili agghiùnciri lu cuntattu a l'aspettu."
+      success: "Lu cuntattu s'agghiuncìu cu successu a l'aspettu."
+    aspect_listings:
+      add_an_aspect: "+ Agghiunci 'n aspettu"
+    aspect_stream:
+      make_something: "Fai qualchi cosa"
+    destroy:
+      failure: "%{name} non si potti rimòviri."
+      success: "%{name} si rimuvìu cu successu."
+    edit:
+      aspect_list_is_not_visible: "Li cuntatti nni st'aspettu non si ponnu vìdiri l'unu cu l'àutru."
+      aspect_list_is_visible: "Li cuntatti nni st'aspettu si ponnu vìdiri l'unu cu l'àutru."
+      confirm_remove_aspect: "Sì' sicuru di vuliri livari st'aspettu?"
+      rename: "Nòmina arreri"
+    index:
+      donate: "Duna"
+      help:
+        do_you: "Tu:"
+        feature_suggestion: "... hai un %{link} suggerimentu?"
+        find_a_bug: "trova un %{link}"
+        have_a_question: "hai un %{link}?"
+        here_to_help: "La cumunità \"diaspora\" è cca!"
+        need_help: "Hai bisognu d'ajutu?"
+        tag_bug: "erruri"
+        tag_feature: "caratterìstica"
+        tag_question: "dumanna"
+      introduce_yourself: "Chistu è lu to stream. Trasi e prisèntati."
+      new_here:
+        learn_more: "Mpara chiossai"
+        title: "Benvinutu novu utilizzaturi"
+      services:
+        content: "Po' cunnèttiri sti servizi a diaspora*:"
+        heading: "Cunnetti servizi"
+      welcome_to_diaspora: "Benvinutu nni diaspora, %{name}"
+    no_contacts_message:
+      try_adding_some_more_contacts: "Tu po' circari o %{invite_link} a àutri cuntatti"
+      you_should_add_some_more_contacts: "Avissi a agghiùnciri àutri cuntatti!"
+    seed:
+      acquaintances: "Canuscenti"
+      family: "Famigghia"
+      friends: "Amici"
+      work: "Travagghiu"
+    update:
+      failure: "Lu to aspettu, %{name}, avìa un nomu troppu longu pi èssiri sarbatu."
+      success: "Lu to aspettu, %{name}, s'arriniscìu a editari cu successu."
+  bookmarklet:
+    post_something: "Pùbblica nni diaspora"
+  cancel: "Cancella"
+  comments:
+    new_comment:
+      comment: "Cummentu"
+      commenting: "Cummintannu..."
+  contacts:
+    index:
+      all_contacts: "Tutti li cuntatti"
+      my_contacts: "Li me' cuntatti"
+      only_sharing_with_me: "Spàrtilu sulu cu mia"
+      start_a_conversation: "Accumincia na conversazioni"
+      title: "Cuntatti"
+  conversations:
+    create:
+      fail: "Messaggiu non vàlidu"
+      sent: "Messaggiu mannatu"
+    index:
+      inbox: "Posta in arrivu"
+      no_messages: "Nuddu messaggiu"
+    new:
+      send: "Manna"
+      sending: "Mannannu..."
+      subject: "Suggettu"
+      to: "A"
+    show:
+      reply: "Arrispunni"
+      replying: "Arrispunnennu..."
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "Variàbili: %d"
+      fullmonth_day: "%B %d"
+  delete: "Cancella"
+  email: "Email"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Currèggiri li seguenti erruri e pruvari arreri"
+  fill_me_out: "Jìnchimi"
+  find_people: "Trova persuni o #tags"
+  help:
+    getting_help:
+      get_support_a_wiki: "Cerca lu %{link}"
+    here: "cca"
+    irc: "IRC"
+  invitations:
+    create:
+      no_more: "Non hai àutri inviti"
+      rejected: "Sti ndirizzi e-mail hannu problemi: %{emails}"
+      sent: "Lu nvitu si mannau a: %{emails}"
+    new:
+      invite_someone_to_join: "Invita qualchidunu a diaspora"
+      language: "Lingua"
+      send_an_invitation: "Manna 'n invitu"
+  layouts:
+    application:
+      back_to_top: "Torna 'n capu"
+      powered_by: "Putenziatu pi \"diaspora\""
+      whats_new: "Nuvitati?"
+    header:
+      code: "Còdici"
+      logout: "Nesci"
+      profile: "Profilu"
+      settings: "Mpustazioni"
+  limited: "Limitatu"
+  more: "Chiossai"
+  no_results: "Non si truvau nuddu risultatu"
+  notifications:
+    index:
+      and: "e"
+  notifier:
+    a_post_you_shared: "un post"
+    click_here: "Ammacca cca"
+    comment_on_post:
+      reply: "Arrispunni o vidi lu post di %{name}"
+    confirm_email:
+      click_link: "Pi attivari lu to novu ndirizzu email %{unconfirmed_email}, pi favuri vai a stu link:"
+      subject: "Pi favuri, attiva lu to novu ndirizzu email %{unconfirmed_email}"
+    email_sent_by_diaspora: "St'email la mannau %{pod_name}. Si ti piacissi non ricìviri chiù email comu chissa,"
+    hello: "Ciau %{name}"
+    liked:
+      liked: "A %{name} ci piacìu lu to post"
+      view_post: "Vidi lu post"
+    mentioned:
+      subject: "%{name} ti ammuntuau in diaspora*"
+    private_message:
+      reply_to_or_view: "Arrispunni a o vidi sta conversazioni >"
+    reshared:
+      view_post: "Vidi lu post"
+    single_admin:
+      admin: "Lu to amministraturi diaspora*"
+      subject: "Un missaggiu circa lu to cuntu diaspora*:"
+    started_sharing:
+      view_profile: "Vidi lu profilu di %{name}"
+    thanks: "Grazi"
+    to_change_your_notification_settings: "pi canciari li mpustazioni di nutìfica"
+  nsfw: "Non si truvau nudda traduzioni pi sta palora"
+  ok: "Va bonu"
+  people:
+    index:
+      no_one_found: "...e non si truvau a nuddu"
+      no_results: "Attiatù! Nicèssiti ricircari qualchi cosa."
+      searching: "Sta circannu, pi favuri, 'n tanticchia di pacenzia..."
+    person:
+      thats_you: "Chissu sì' tu!"
+    profile_sidebar:
+      bio: "Biografìa"
+    show:
+      closed_account: "Stu cuntu si chiudìu."
+      does_not_exist: "Sta pirsuna non esisti!"
+  photos:
+    new_profile_photo:
+      upload: "Càrrica na nova fotu pi lu pròfilu"
+  privacy: "Privasìa"
+  profile: "Profilu"
+  profiles:
+    edit:
+      first_name: "Nomu"
+      last_name: "Cugnomu"
+      your_bio: "La to biografìa"
+      your_birthday: "Lu to cumpleannu"
+      your_gender: "Lu to gèniri"
+      your_name: "Lu to nomu"
+      your_photo: "La to fotu"
+      your_tags: "Presèntati in 4 palori"
+  public: "Pùbblicu"
+  registrations:
+    new:
+      enter_email: "Scrivi lu to ndirizzu email"
+      enter_password: "Scrivi na palora secreta (di mìnimu 6 caràtteri)"
+      enter_password_again: "Scrivi la stissa palora secreta di antura"
+  search: "Cerca"
+  services:
+    create:
+      failure: "Autenticazioni falluta."
+      success: "Autenticazioni juta a bon fini."
+    failure:
+      error: "Cci fu 'n erruri"
+    index:
+      logged_in_as: "Trasisti comu %{nickname}"
+  settings: "Mpustazioni"
+  shared:
+    invitations:
+      invite_your_friends: "Invita li to' amici"
+      invites: "Invita"
+    publisher:
+      new_user_prefill:
+        invited_by: "Grazi pi l'invitu, "
+  streams:
+    activity:
+      title: "La me attività"
+    aspects:
+      title: "Li me' aspetti"
+    aspects_stream: "Aspetti"
+    followed_tag:
+      add_a_tag: "Agghiunci un tag"
+    mentioned_stream: "@Menziuni"
+    mentions:
+      title: "@Menziuni"
+  username: "Nomu di l'utilizzaturi"
+  users:
+    edit:
+      change_email: "Cancia email"
+      change_language: "Cancia lingua"
+      change_password: "Cancia palora secreta"
+      character_minimum_expl: "havi a aviri almenu sei caràtteri"
+      comment_on_post: "qualchidunu cummenta lu to post"
+      current_password: "Attuali palora secreta"
+      new_password: "Nova palora secreta"
+      your_email: "La to email"
+    getting_started:
+      who_are_you: "Cu' si'?"
+    update:
+      language_changed: "Lingua canciata"
+      language_not_changed: "Canciu di lingua fallutu"
+      unconfirmed_email_not_changed: "Canciu di email fallutu"

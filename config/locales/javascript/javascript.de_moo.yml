@@ -4,7 +4,7 @@
 
 
 
-de-moo:
+de_moo:
   javascripts:
     admin:
       pods:
@@ -95,8 +95,6 @@ de-moo:
     confirm_unload: "Bitte bestätige, dass du diese Weide verlassen willst. - Von dir eingegebene Daten werden nicht gespeichert."
     contacts:
       add_contact: "Mitkuh hinzufügen"
-      aspect_chat_is_enabled: "Mitkühe in dieser Herde können mit dir chatten."
-      aspect_chat_is_not_enabled: "Mitkühe in dieser Herde können nicht mit dir chatten."
       error_add: "Konnte <%= name %> nicht zur Herde hinzufügen :("
       error_remove: "Konnte <%= name %> nicht aus der Herde entfernen :("
       remove_contact: "Mitkuh entfernen"
@@ -139,8 +137,8 @@ de-moo:
     hide_post: "Diesen Beitrag ausblenden?"
     hide_post_failed: "Ausblenden des Beitrags nicht möglich"
     ignore: "Ignorieren"
-    ignore_failed: "Konnte Kuh nicht ignorieren"
-    ignore_user: "Diese Kuh ignorieren?"
+    ignore_failed: "Konnte Rindvieh nicht ignorieren"
+    ignore_user: "Dieses Rindvieh ignorieren?"
     my_activity: "Meine Aktivität"
     my_aspects: "Meine Herden"
     my_stream: "Weide"
@@ -311,7 +309,7 @@ de-moo:
       seconds: "weniger als eine Minute"
       suffixAgo: ""
       suffixFromNow: "ab jetzt"
-      wordSeparator: ""
+      wordSeparator: " "
       year: "etwa einem Jahr"
       years:
         one: "einem Jahr"

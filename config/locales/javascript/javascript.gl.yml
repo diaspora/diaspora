@@ -99,8 +99,6 @@ gl:
     confirm_unload: "Por favor confirma que queres saír da páxina. Os datos introducidos non serán gardados."
     contacts:
       add_contact: "Engadir contacto"
-      aspect_chat_is_enabled: "Os contactos neste aspecto poden conversar contigo."
-      aspect_chat_is_not_enabled: "Os contactos neste aspecto non poden conversar contigo."
       error_add: "Non se puido engadir a <%= name %> ao aspecto :("
       error_remove: "Non se puido eliminar a <%= name %> do aspecto :("
       remove_contact: "Eliminar contacto"

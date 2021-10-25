@@ -95,8 +95,6 @@ ia:
     confirm_unload: "Per favor, confirma que tu vole quitar iste pagina. Le datos que tu ha inserite non essera salveguardate."
     contacts:
       add_contact: "Adder contacto"
-      aspect_chat_is_enabled: "Le contactos in iste aspecto pote chattar con te."
-      aspect_chat_is_not_enabled: "Le contactos in iste aspecto non pote chattar con te."
       error_add: "Non poteva adder <%= name %> al aspecto."
       error_remove: "Non poteva remover <%= name %> del aspecto."
       remove_contact: "Remover contacto"

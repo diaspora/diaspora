@@ -92,8 +92,6 @@ hye:
     confirm_unload: "Հաստատիր, որ ուզում ես լքել այս էջը․ քո մուտքագրած տվյալները չեն պահպանվի։"
     contacts:
       add_contact: "Ավելացնել"
-      aspect_chat_is_enabled: "Այս խմբի մարդիկ կարող են չաթվել քո հետ։"
-      aspect_chat_is_not_enabled: "Այս խմբի մարդիկ չեն կարող չաթվել քո հետ։"
       error_add: "Չստացվեց <%= name %>ին ավելացնել խմբում։ Ափսո՜ս։"
       error_remove: "Չստացվեց հեռացնել <%= name %>-ին խմբից ։Չ"
       remove_contact: "Հեռացնել"

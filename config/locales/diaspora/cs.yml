@@ -176,9 +176,6 @@ cs:
         login_required: "Pro přístup k aplikaci musíte být autorizován přihlášením."
         title: "Jejda! Něco se pokazilo :-("
       scopes:
-        aud:
-          description: "Tohle udělí aplikaci oprávnění aud"
-          name: "aud"
         name:
           description: "Tohle udělí aplikaci oprávnění pro jméno"
           name: "jméno"
@@ -194,15 +191,9 @@ cs:
         profile:
           description: "To umožňuje aplikaci číst váš rozšířený profil"
           name: "Rozšířený profil"
-        read:
-          description: "Toto umožňuje aplikaci číst Váš proud, Vaše konverzace a Váš celý profil."
-          name: "číst profil, stream a konverzace"
         sub:
           description: "Tohle udělí aplikaci oprávnění sub"
           name: "sub"
-        write:
-          description: "Toto povolí aplikaci odesílat nové příspěvky, psát konverzace a odesílat reakce."
-          name: "posílat příspěvky, konverzace a reakce"
       user_applications:
         index:
           access: "%{name} má přístup k:"
@@ -308,8 +299,6 @@ cs:
     original: "Originální šedá"
     original_white: "Originální bílé pozadí"
   comments:
-    create:
-      error: "Komentář se nezdařil."
     new_comment:
       comment: "komentář"
       commenting: "Komentování..."
@@ -420,11 +409,6 @@ cs:
       what_is_an_aspect_q: "Co je to aspekt?"
       who_sees_post_a: "Pokud vytvoříte omezený příspěvek, bude viditelný jen lidem, které máte v tomto aspektu (nebo aspektech, pokud je určen několika aspektům). Vaše kontakty, které nejsou v tomto aspektu, příspěvek neuvidí, pokud jste ho neudělal(a) veřejným. Vždy jen veřejné příspěvky budou viditelné těm, které jste nezařadil(a) do vašich aspektů."
       who_sees_post_q: "Když posílám do určitého aspektu, kdo to vidí?"
-    chat:
-      add_contact_roster_a: "V první řadě musíte povolit chat s jedním z aspektů, kterého je daný uživatel členem. Za tímto účelem půjdete do %{contacts_page}, vyberete aspekt a kliknete na ikonku chatu. %{toggle_privilege} Můžete, pokud chcete, vytvořit speciální aspekt, který nazvete 'Chat' а uživatele, se kterými chcete moci chatovat přidáte do tohoto aspektu. Poté co toto uděláte, můžete otevřít uživatelské rozhraní chatu a vybrat osobu, se kterou chcete chatovat."
-      add_contact_roster_q: "Jak mohu s někým chatovat na diaspora* ?"
-      contacts_page: "Stránka kontaktů"
-      title: "Chat"
     community_guidelines: "komunitní směrnice"
     faq: "často kladenými otázkami"
     foundation_website: "webové stránky diaspora* foundation"

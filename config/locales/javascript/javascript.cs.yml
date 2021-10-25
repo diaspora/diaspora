@@ -101,8 +101,6 @@ cs:
     confirm_unload: "Prosím potvrďte, že chcete tuto stránku opustit. Data, která jste vložil/a, nebudou uložena."
     contacts:
       add_contact: "Přidej kontakt"
-      aspect_chat_is_enabled: "Kontakty v tomto aspektu si s Vámi mohou povídat."
-      aspect_chat_is_not_enabled: "Kontakty v tomto aspektu si s Vámi nemohou povídat."
       error_add: "Nelze přidat uživatele <%= name %> do tohoto aspektu :("
       error_remove: "Nelze odebrat uživatele <%= name %> z tohoto aspektu :("
       remove_contact: "Odstraň kontakt"

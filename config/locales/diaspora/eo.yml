@@ -72,19 +72,25 @@ eo:
       diaspora_handle: "DIASPORA* identigilo"
       email: "Retpoŝtadreso"
       id: "Identigilo"
+      last_seen: "Laste vidita"
       ? "no"
       : Ne
       nsfw: "#nsfw"
+      unknown: "Nekonata"
       ? "yes"
       : Jes
     user_search:
       add_invites: "aldonu invitojn"
+      close_account: "Fermi konton"
+      does_not_exist: "Uzanto ne ekzistas!"
       email_to: "Retmesaĝo por inviti"
+      invite: "Inviti"
       under_13: "Montru uzantojn malpli ol 13-jaraĝajn (por la usona regularo COPPA)"
       users:
         one: "%{count} uzanto trovita"
         other: "%{count} uzantoj trovitaj"
-        zero: "%{count} uzantoj trovitaj"
+        zero: "Neniu uzanto trovita"
+      view_profile: "Vidi profilon"
       you_currently:
         other: "vi aktuale havas ankoraŭ %{user_invitation} invitojn %{link}"
     weekly_user_stats:
@@ -94,6 +100,24 @@ eo:
         zero: "Kiomo de novaj uzantoj ĉi-semajne: neniu"
       current_server: "Aktuala dato de servilo estas %{date}"
   all_aspects: "Ĉiuj aspektoj"
+  api:
+    openid_connect:
+      error_page:
+        title: "Ho! Io misokazis :("
+      scopes:
+        email:
+          name: "Retpoŝtadreso"
+        name:
+          name: "Tuta nomo"
+        nickname:
+          name: "Uzantnomo"
+        notifications:
+          name: "Atentigoj"
+        picture:
+          name: "Profilbildo"
+      user_applications:
+        index:
+          access: "%{name} rajtas al:"
   are_you_sure: "Ĉu vi certas?"
   are_you_sure_delete_account: "Ĉu vi certe volas forigi vian konton? Vi ne povos malfari tion!"
   aspect_memberships:
@@ -133,6 +157,7 @@ eo:
         here_to_help: "Jen la DIASPORA* komunumo!"
         mail_podmin: "Podestra retpoŝtadreso"
         need_help: "Ĉu Vi Bezonas Helpon?"
+        support_forum: "Vi povas ankaŭ aniĝi %{support_forum}."
         tag_bug: "cimo"
         tag_feature: "trajtpeto"
         tag_question: "demando"
@@ -150,6 +175,7 @@ eo:
       welcome_to_diaspora: "Bonvenon al diaspora*, %{name}!"
     no_contacts_message:
       community_spotlight: "en komunuma ĉeflumo"
+      invite_link_text: "inviti"
       or_spotlight: "Aŭ vi povas kunhavigi kun %{link}"
       try_adding_some_more_contacts: "Vi povas serĉi aŭ %{invite_link} pliajn kontaktojn."
       you_should_add_some_more_contacts: "Vi devus aldoni pliajn kontaktojn!"
@@ -173,6 +199,8 @@ eo:
     heading: "Legosigneto"
     post_something: "Afiŝi ion en DIASPORA*"
   cancel: "Nuligi"
+  color_themes:
+    dark: "Malhela"
   comments:
     new_comment:
       comment: "Komenti"
@@ -201,9 +229,11 @@ eo:
       new_conversation: "Nova konversacio"
       no_messages: "neniuj mesaĝoj"
     new:
+      message: "Mesaĝo"
       send: "Sendi"
       sending: "Poŝtanta..."
       subject: "temo"
+      subject_default: "Sen temo"
       to: "al"
     new_conversation:
       fail: "Nevalida mesaĝo"
@@ -252,7 +282,7 @@ eo:
       get_support_a_hashtag: "Demandu per publika afiŝo uzante la %{question} etikedo"
       get_support_a_irc: "aliĝu al ni en %{irc} (rektbabilejo)"
       get_support_a_tutorials: "Vidu niajn %{tutorials}"
-      get_support_a_website: "vizitu nian %{link}"
+      get_support_a_website: "Vizitu nian %{link}"
       get_support_a_wiki: "serĉi en %{link}"
       get_support_q: "Kio, se mia demando ne estas respondita en ĉi tiu respondaro? Kie alie mi povas atingi helpon?"
       getting_started_a: "Vi bonŝancas. Provu la %{tutorial_series} en nia projektrejejo. Ĝi enkondukos vin paŝo post paŝo tra la aliĝilon kaj instruos vin ĉiujn bazajn bezonatajn informojn pri la uzado de diaspora*."
@@ -261,6 +291,9 @@ eo:
     getting_started_tutorial: "\"Instrukcio por komencantoj\""
     here: "ĉi tie"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_li4: "l – Ŝati la aktualan afiŝon"
+      keyboard_shortcuts_li8: "Ctrl+Enter – Sendas skribatan mesaĝon"
     markdown: "Markdown"
     mentions:
       how_to_mention_q: "Kiel mi povas mencii iun ajn, farante afiŝon?"
@@ -285,6 +318,9 @@ eo:
     private_posts:
       can_reshare_q: "Kiu povas rediskonigi mian privatan afiŝon?"
       title: "Privataj afiŝoj"
+    profile:
+      title: "Profile"
+      whats_in_profile_q: "Kio estas en mia profilo?"
     public_posts:
       find_public_post_q: "Kiel aliaj personoj povas trovi mian publikan afiŝon?"
       title: "Publikaj afiŝoj"
@@ -302,6 +338,13 @@ eo:
     tutorial: "enkonduko"
     tutorials: "enkondukoj"
     wiki: "vikio"
+  home:
+    default:
+      diaspora_site_link: "diaspora* federita reto"
+      headline: "Bonvenon al %{pod_name}"
+    podmin:
+      create_an_account: "Krei konton"
+      headline: "Bonvenon, amiko."
   invitations:
     create:
       empty: "Bonvole tajpu almenaŭ unu retpoŝtadreson."
@@ -332,6 +375,19 @@ eo:
       logout: "Elsaluti"
       profile: "Profilo"
       settings: "Agordoj"
+  likes:
+    people_dislike_this:
+      one: "%{count} malŝato"
+      other: "%{count} malŝatoj"
+      zero: "Sen malŝatoj"
+    people_like_this:
+      one: "%{count} ŝato"
+      other: "%{count} ŝatoj"
+      zero: "Sen ŝatoj"
+    people_like_this_comment:
+      one: "%{count} ŝato"
+      other: "%{count} ŝatoj"
+      zero: "Sen ŝatoj"
   limited: "Limigita"
   more: "Pli"
   no_results: "Neniuj rezultoj estas trovitaj"
@@ -363,6 +419,8 @@ eo:
         other: "kaj %{count} aliaj"
         zero: "kaj neniu alia"
       comment_on_post: "Komenti afiŝon"
+      contacts_birthday: "Naskiĝtago"
+      liked: "Ŝatita"
       mark_all_as_read: "Marki ĉiujn kvazaŭ legitaj"
       mark_read: "Marki kiel legita"
       mark_unread: "Marku kiel nelegita"
@@ -421,6 +479,8 @@ eo:
     confirm_email:
       click_link: "Por aktivigi vian novan retpoŝtadreson %{unconfirmed_email}, bonvolu iru al tiu ĉi ligilo:"
       subject: "Bonvolu aktivigi vian novan retpoŝtadreson %{unconfirmed_email}"
+    contacts_birthday:
+      view_profile: "Vidi %{name}-an profilon"
     email_sent_by_diaspora: "Tiu ĉi mesaĝo estis sendita de %{pod_name}. Se vi deziras haltigi la ricevadon de mesaĝoj kiel tiu ĉi,"
     hello: "Saluton %{name}!"
     invite:
@@ -496,6 +556,11 @@ eo:
       notice: "Bildo forviŝiĝis."
     new_profile_photo:
       upload: "Alŝutu novan profilbildon!"
+  polls:
+    votes:
+      one: "%{count} voĉo ĝis nun"
+      other: "%{count} voĉoj ĝis nun"
+      zero: "Sen voĉoj ĝis nun"
   posts:
     presenter:
       title: "Mesaĝo de %{name}"
@@ -515,6 +580,7 @@ eo:
       allow_search: "Permesu al homoj serĉi vin ene de DIASPORA*"
       first_name: "Persona nomo"
       last_name: "Familinomo"
+      settings: "Profilaj agordoj"
       update_profile: "Ĝisdatigi profilon"
       your_bio: "Via biografio"
       your_birthday: "Via naskiĝtago"
@@ -571,6 +637,7 @@ eo:
     failure:
       error: "estis eraro, kiam ni provis konekti tiun servon"
     index:
+      connect: "Konekti"
       disconnect: "malkonekti"
       edit_services: "Redakti servojn"
       logged_in_as: "ensalutinta kiel"
@@ -611,6 +678,8 @@ eo:
         i_like: "Mi interesiĝas pri %{tags}."
         invited_by: "Dankon pro la invito,"
         newhere: "NewHere"
+      poll:
+        add_a_poll: "Aldoni enketon"
       posting: "Afiŝanta..."
       remove_location: "Forigi lokon"
       share: "Konigi"
@@ -621,6 +690,14 @@ eo:
   simple_captcha:
     label: "Enigu la kodo en la dialogujon."
     placeholder: "Enigu la signifon de la bildo"
+  statistics:
+    closed: "Fermita"
+    disabled: "Ne disponebla"
+    enabled: "Disponebla"
+    name: "Nomo"
+    network: "Reto"
+    open: "Malfermita"
+    version: "Versio"
   status_messages:
     new:
       mentioning: "Mencianta: %{person}"
@@ -636,11 +713,14 @@ eo:
     community_spotlight_stream: "Komunuma Ĉeflumo"
     followed_tag:
       add_a_tag: "Aldoni etikedon"
+      all: "Ĉiuj etikedoj"
       follow: "Sekvi"
       title: "#Sekvataj etikedoj"
     followed_tags_stream: "#Sekvataj etikedoj"
     like_stream:
       title: "Kiel torento"
+    liked:
+      title: "Ŝatitaj afiŝoj"
     mentioned_stream: "@Mencioj"
     mentions:
       title: "@Mencioj"
@@ -686,6 +766,7 @@ eo:
       comment_on_post: "...iu komentas pri via afiŝo?"
       current_password: "Nuna pasvorto"
       current_password_expl: "tiu per kiu vi ensalutis..."
+      download_export: "Elŝuti mian profilon"
       edit_account: "Redakti konton"
       email_awaiting_confirmation: "Ni sendis al vi aktivigan ligilon ĉe %{unconfirmed_email}.  Ĝis kiam vi klakos tiun ĉi ligilon kaj aktivigos la novan repoŝtadreson, ni uzados vian ĝisnunan retpoŝtadreson %{email}."
       export_data: "Eksporti datumojn"

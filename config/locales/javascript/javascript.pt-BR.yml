@@ -97,8 +97,6 @@ pt-BR:
     confirm_unload: "Por favor, confirme se deseja sair desta página. Os dados que você informou não serão salvos."
     contacts:
       add_contact: "Adicionar contato"
-      aspect_chat_is_enabled: "Contatos neste aspecto podem bater papo com você."
-      aspect_chat_is_not_enabled: "Contatos neste aspecto não podem bater papo com você."
       error_add: "Não foi possível adicionar <%= name %> ao aspecto. :("
       error_remove: "Não foi possível remover <%= name %> do aspecto. :("
       remove_contact: "Remover contato"
