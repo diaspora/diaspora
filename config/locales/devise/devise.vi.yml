@@ -32,7 +32,7 @@ vi:
         confirm: "Xác thực tài khoản của tôi"
         subject: "Hướng dẫn xác thực"
         you_can_confirm: "Bạn có thể xác thực tài khoản thông qua liên kết sau:"
-      hello: "Xin chào %{email}!"
+      hello: "Xin chào %{username}!"
       inviter:
         accept_at: "tại %{url}, bạn có thể chấp nhận nó qua đường dẫn bên dưới."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ vi:
         click_to_unlock: "Nhấn vào liên kết bên dưới để mở khoá tài khoản:"
         subject: "Hướng dẫn mở khoá"
         unlock: "Mở khoá tài khoản"
-      welcome: "Chào mừng %{email}!"
+      welcome: "Chào mừng %{username}!"
     omniauth_callbacks:
       failure: "Không thể cấp phép bạn từ %{kind} vì lý do \"%{reason}\"."
       success: "Cấp phép thành công từ tài khoản %{kind}."

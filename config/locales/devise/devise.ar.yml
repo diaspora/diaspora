@@ -32,7 +32,7 @@ ar:
         confirm: "أكّد حسابي"
         subject: "إرشادات التّأكيد"
         you_can_confirm: "يمكنك تأكيد حسابك عبر الوصلة الآتية:"
-      hello: "أهلًا %{email}!"
+      hello: "أهلًا %{username}!"
       inviter:
         accept_at: ", %{url}, يمكنك قبولها عبر الرابط التالي"
         has_invited_you: "%{name} يدعوك للإنضمام إلى دياسبرا"
@@ -50,7 +50,7 @@ ar:
         click_to_unlock: "انقر الوصلة أدناه لفكّ الحساب:"
         subject: "إرشادات فكّ القفل"
         unlock: "فكّ حسابي"
-      welcome: "مرحبًا %{email}!"
+      welcome: "مرحبًا %{username}!"
     omniauth_callbacks:
       failure: "لا يمكنك الاستيثاق من ‎%{kind}‎ بسبب \"‎%{reason}‎\"."
       success: "استثقت من حساب ‎%{kind}‎ بنجاح"

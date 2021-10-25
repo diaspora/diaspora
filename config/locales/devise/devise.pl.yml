@@ -32,7 +32,7 @@ pl:
         confirm: "Aktywuj moje konto"
         subject: "Instrukcja aktywacji"
         you_can_confirm: "Możesz aktywować swoje konto klikając poniższe łącze:"
-      hello: "Cześć %{email}!"
+      hello: "Cześć %{username}!"
       inviter:
         accept_at: "na %{url}, możesz je zaakceptować używając poniższego łącza."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ pl:
         click_to_unlock: "Kliknij poniższe łącze, aby odblokować konto:"
         subject: "Instrukcja odblokowania"
         unlock: "Odblokuj moje konto"
-      welcome: "Witaj %{email}!"
+      welcome: "Witaj %{username}!"
     omniauth_callbacks:
       failure: "Nie udało się uwierzytelnić Cię z %{kind} z powodu „%{reason}”."
       success: "Pomyślnie uwierzytelniono kontem %{kind}."

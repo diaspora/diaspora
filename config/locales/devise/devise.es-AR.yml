@@ -32,7 +32,7 @@ es-AR:
         confirm: "Confirmar mi cuenta"
         subject: "Instrucciones para la confirmación"
         you_can_confirm: "Podés confirmar tu cuenta a través del siguiente enlace:"
-      hello: "¡Hola %{email}!"
+      hello: "¡Hola %{username}!"
       inviter:
         accept_at: "en %{url}, podes aceptarlo desde el link  de abajo "
         has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
@@ -50,7 +50,7 @@ es-AR:
         click_to_unlock: "Hacé click en el siguiente enlace para desbloquear tu cuenta:"
         subject: "Instrucciones para desbloquear la cuenta"
         unlock: "Desbloquear mi cuenta"
-      welcome: "¡Bienvenid@ %{email}!"
+      welcome: "¡Bienvenid@ %{username}!"
     omniauth_callbacks:
       failure: "Podrías no ser autenticado desde %{kind} porque \"%{reason}\"."
       success: "Autenticado correctamente desde la cuenta %{kind}."

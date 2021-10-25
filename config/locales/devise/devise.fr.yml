@@ -32,7 +32,7 @@ fr:
         confirm: "Confirmer mon compte"
         subject: "Instructions de confirmation"
         you_can_confirm: "Vous pouvez confirmer votre compte en cliquant sur le lien ci-dessous :"
-      hello: "Bonjour %{email} !"
+      hello: "Bonjour %{username} !"
       inviter:
         accept_at: "à %{url}, vous pouvez l'accepter à travers le lien ci-dessous."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ fr:
         click_to_unlock: "Cliquez sur le lien ci-dessous pour débloquer votre compte :"
         subject: "Instructions de déverrouillage"
         unlock: "Débloquer mon compte"
-      welcome: "Bienvenue %{email} !"
+      welcome: "Bienvenue %{username} !"
     omniauth_callbacks:
       failure: "Impossible de vous authentifier depuis %{kind} car \"%{reason}\"."
       success: "Authentification réussie depuis le compte %{kind}."

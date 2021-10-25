@@ -30,7 +30,7 @@ sk:
         confirm: "Potvrdiť svoj účet"
         subject: "Pokyny na potvrdenie"
         you_can_confirm: "Svoj účet môžeš potvrdiť kliknutím na tento odkaz:"
-      hello: "Ahoj %{email}!"
+      hello: "Ahoj %{username}!"
       inviter:
         accept_at: "Kliknutím na odkaz na stránku %{url} ju môžeš prijať."
         has_invited_you: "%{name}"
@@ -46,7 +46,7 @@ sk:
         click_to_unlock: "Klikni na tento odkaz a tvoj účet sa odomkne:"
         subject: "Pokyny na odomknutie"
         unlock: "Odomknúť môj účet"
-      welcome: "Vitaj %{email}!"
+      welcome: "Vitaj %{username}!"
     passwords:
       edit:
         change_password: "Zmeniť moje heslo"

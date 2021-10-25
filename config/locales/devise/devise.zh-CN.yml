@@ -28,7 +28,7 @@ zh-CN:
         confirm: "确认帐号"
         subject: "帐号确认步骤"
         you_can_confirm: "您可以点击下面的链接确认帐号："
-      hello: "您好, %{email}!"
+      hello: "您好, %{username}!"
       inviter:
         accept_at: "在 %{url}， 您可以通过以下链接接受"
         has_invited_you: "%{name}"
@@ -44,7 +44,7 @@ zh-CN:
         click_to_unlock: "点击下面的链接以解锁您的帐号："
         subject: "帐号解锁步骤"
         unlock: "解锁帐号"
-      welcome: "欢迎您, %{email}!"
+      welcome: "欢迎您, %{username}!"
     passwords:
       edit:
         change_password: "修改密码"

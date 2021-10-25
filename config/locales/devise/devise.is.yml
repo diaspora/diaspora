@@ -29,7 +29,7 @@ is:
         confirm: "Staðfesta aðganginn minn"
         subject: "Leiðbeiningar um staðfestingu"
         you_can_confirm: "Þú getur staðfest aðganginn þinn með því að elta hlekkinn hér fyrir neðan:"
-      hello: "Halló %{email}!"
+      hello: "Halló %{username}!"
       inviter:
         accept_at: "á %{url}. Þú getur þegið boðið með því að fylgja hlekknum hér fyrir neðan."
         has_invited_you: "%{name}"
@@ -45,7 +45,7 @@ is:
         click_to_unlock: "Eltu hlekkinn hér fyrir neðan til að taka aðgang þinn úr lás."
         subject: "Leiðbeiningar fyrir aflæsingu"
         unlock: "Taka aðgang minn úr lás"
-      welcome: "Velkomin/n %{email}!"
+      welcome: "Velkomin/n %{username}!"
     passwords:
       edit:
         change_password: "Breyta lykilorði"

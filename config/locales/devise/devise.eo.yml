@@ -29,7 +29,7 @@ eo:
         confirm: "Konfirmi mian konton"
         subject: "Instrukcioj por konfirmi"
         you_can_confirm: "Vi povas konfirmi vian konton per la suba ligilo:"
-      hello: "Saluton, %{email}!"
+      hello: "Saluton, %{username}!"
       inviter:
         accept_at: "ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
         has_invited_you: "%{name}"
@@ -47,7 +47,7 @@ eo:
         click_to_unlock: "Alklaku la suban ligilon por malŝlosi vian konton:"
         subject: "Instrukcioj por malŝlosi"
         unlock: "Malŝlosi mian konton."
-      welcome: "Bonvenon %{email}!"
+      welcome: "Bonvenon %{username}!"
     passwords:
       edit:
         change_password: "Ŝanĝi mian pasvorton"

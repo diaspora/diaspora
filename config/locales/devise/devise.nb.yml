@@ -32,7 +32,7 @@ nb:
         confirm: "Bekreft kontoen min"
         subject: "Bekreftelsesinstrukser"
         you_can_confirm: "Du kan bekrefte kontoen via linken nedenfor:"
-      hello: "Hei %{email}!"
+      hello: "Hei %{username}!"
       inviter:
         accept_at: "via %{url}, kan du akseptere lenken du ser under"
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ nb:
         click_to_unlock: "Klikk på linken nedenfor for å låse opp kontoen:"
         subject: "Instrukser for å låse opp"
         unlock: "Lås opp kontoen min"
-      welcome: "Velkommen %{email}!"
+      welcome: "Velkommen %{username}!"
     omniauth_callbacks:
       failure: "Kunne ikke autentisere deg fra %{kind} på grunn av «%{reason}»."
       success: "Du ble autentisert fra %{kind}-konto."

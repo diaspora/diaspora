@@ -32,7 +32,7 @@ sc:
         confirm: "Cunfirma su contu meu"
         subject: "Istrutziones pro sa cunfirma"
         you_can_confirm: "Podes cunfirmare su contu tuo pro mèdiu de su ligàmene inoghe in suta:"
-      hello: "Salude %{email}!"
+      hello: "Salude %{username}!"
       inviter:
         accept_at: "in %{url}, lu podes atzetare pro mèdiu de su ligàmene inoghe in suta."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ sc:
         click_to_unlock: "Incarca in su ligàmene inoghe pro isblocare su contu tuo:"
         subject: "Istrutziones de isblocu"
         unlock: "Isbloca su contu meu"
-      welcome: "Bene bènnidu %{email}!"
+      welcome: "Bene bènnidu %{username}!"
     omniauth_callbacks:
       failure: "Impossìbile fàghere s'autenticatzione pro tie dae %{kind}, ca \"%{reason}\"."
       success: "Autenticatzione dae su contu %{kind} resissida."
