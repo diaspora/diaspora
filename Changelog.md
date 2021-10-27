@@ -11,6 +11,7 @@
 * Ensure the log folder exists [#8287](https://github.com/diaspora/diaspora/pull/8287)
 * Limit name length in header [#8313] (https://github.com/diaspora/diaspora/pull/8313)
 * Fix fallback avatar in hovercards [#8316](https://github.com/diaspora/diaspora/pull/8316)
+* Use old person private key for export if relayable author migrated away [#8310](https://github.com/diaspora/diaspora/pull/8310)
 
 ## Features
 * Add tags to tumblr posts [#8244](https://github.com/diaspora/diaspora/pull/8244)
