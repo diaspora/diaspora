@@ -15,8 +15,8 @@ gem "unicorn-worker-killer", "0.4.5"
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.6"
-gem "diaspora_federation-rails", "0.2.6"
+gem "diaspora_federation-json_schema", "0.2.7"
+gem "diaspora_federation-rails", "0.2.7"
 
 # API and JSON
 
@@ -183,7 +183,7 @@ gem "acts-as-taggable-on", "8.1.0"
 # URIs and HTTP
 
 gem "addressable",        "2.7.0", require: "addressable/uri"
-gem "faraday",            "0.15.4"
+gem "faraday",            "0.17.4"
 gem "faraday_middleware", "0.13.1"
 gem "faraday-cookie_jar", "0.0.6"
 gem "typhoeus",           "1.4.0"
@@ -286,7 +286,7 @@ group :test do
   gem "timecop",           "0.9.4"
   gem "webmock",           "3.13.0", require: false
 
-  gem "diaspora_federation-test", "0.2.6"
+  gem "diaspora_federation-test", "0.2.7"
 end
 
 group :development, :test do
