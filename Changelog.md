@@ -22,6 +22,7 @@
 * Add username to password-reset mail [#8037](https://github.com/diaspora/diaspora/pull/8037)
 * Resend account migration and deletion for closed recipients [#8309](https://github.com/diaspora/diaspora/pull/8309)
 * Add sharing status to hovercards [#8317](https://github.com/diaspora/diaspora/pull/8317)
+* Migrate photo URLs and cleanup old uploaded photos [#8314](https://github.com/diaspora/diaspora/pull/8314)
 
 # 0.7.15.0
 

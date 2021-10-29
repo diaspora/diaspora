@@ -90,6 +90,10 @@ class AccountMigration < ApplicationRecord
     old_user && new_user
   end
 
+  def includes_photo_migration?
+    remote_photo_path.present?
+  end
+
   # We need to resend contacts of users of our pod for the remote new person so that the remote pod received this
   # contact information from the authoritative source.
   def dispatch_contacts
@@ -122,6 +126,7 @@ class AccountMigration < ApplicationRecord
   end
 
   def update_all_references
+    update_remote_photo_path if remotely_initiated? && includes_photo_migration?
     update_person_references
     update_user_references if user_changed_id_locally?
   end
@@ -198,6 +203,20 @@ class AccountMigration < ApplicationRecord
       .joins("INNER JOIN tag_followings as t2 ON (tag_followings.tag_id = t2.tag_id AND"\
         " tag_followings.user_id=#{old_user.id} AND t2.user_id=#{new_user.id})")
       .destroy_all
+  end
+
+  def update_remote_photo_path
+    Photo.where(author: old_person)
+         .update_all(remote_photo_path: remote_photo_path) # rubocop:disable Rails/SkipsModelValidations
+    return unless user_left_our_pod?
+
+    Photo.where(author: old_person).find_in_batches do |batch|
+      batch.each do |photo|
+        photo.processed_image = nil
+        photo.unprocessed_image = nil
+        logger.warn "Error cleaning up photo #{photo.id}" unless photo.save
+      end
+    end
   end
 
   def update_person_references

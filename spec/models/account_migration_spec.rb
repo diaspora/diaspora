@@ -16,7 +16,9 @@ describe AccountMigration, type: :model do
   let(:old_person) { FactoryGirl.create(:person) }
   let(:new_person) { FactoryGirl.create(:person) }
   let(:account_migration) {
-    AccountMigration.create!(old_person: old_person, new_person: new_person)
+    AccountMigration.create!(old_person:        old_person,
+                             new_person:        new_person,
+                             remote_photo_path: "https://diaspora.example.tld/uploads/images/")
   }
 
   describe "receive" do
@@ -124,6 +126,34 @@ describe AccountMigration, type: :model do
         contact = FactoryGirl.create(:contact, person: old_person, sharing: true)
         expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(contact.user, contact)
         account_migration.perform!
+      end
+
+      it "cleans up old local photos" do
+        photo = FactoryGirl.create(:photo, author: old_person)
+        photo.processed_image.store!(photo.unprocessed_image)
+        photo.save!
+
+        account_migration.perform!
+
+        updated_photo = photo.reload
+        expect(updated_photo.remote_photo_path).to eq("https://diaspora.example.tld/uploads/images/")
+        expect(updated_photo.processed_image.path).to be_nil
+        expect(updated_photo.unprocessed_image.path).to be_nil
+      end
+
+      it "does nothing if migration doesn't contain a new remote_photo_path" do
+        photo = FactoryGirl.create(:photo, author: old_person)
+        photo.processed_image.store!(photo.unprocessed_image)
+        photo.save!
+
+        remote_photo_path = photo.remote_photo_path
+
+        AccountMigration.create!(old_person: old_person, new_person: new_person).perform!
+
+        updated_photo = photo.reload
+        expect(updated_photo.remote_photo_path).to eq(remote_photo_path)
+        expect(updated_photo.processed_image.path).not_to be_nil
+        expect(updated_photo.unprocessed_image.path).not_to be_nil
       end
     end
 

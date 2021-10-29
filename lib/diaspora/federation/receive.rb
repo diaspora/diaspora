@@ -31,7 +31,11 @@ module Diaspora
         profile = profile(entity.profile)
         return if AccountMigration.exists?(old_person: old_person, new_person: profile.person)
 
-        AccountMigration.create!(old_person: old_person, new_person: profile.person).tap do |migration|
+        AccountMigration.create!(
+          old_person:        old_person,
+          new_person:        profile.person,
+          remote_photo_path: entity.remote_photo_path
+        ).tap do |migration|
           migration.signature = entity.signature if old_person.local?
           migration.save!
         end
