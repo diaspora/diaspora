@@ -149,9 +149,29 @@ shared_examples_for "migration scenarios initiated locally" do
       []
     end
 
-    inlined_jobs do
-      run_migration
-    end
+    inlined_jobs { run_migration }
+  end
+
+  it "does not change the remote paths" do
+    photo = FactoryBot.create(:photo, author: old_person)
+    remote_photo_path = photo.remote_photo_path
+
+    run_migration
+
+    expect(photo.reload.remote_photo_path).to eq(remote_photo_path)
+  end
+end
+
+shared_examples_for "remote photo migration" do
+  it "changes the remote paths of photos of the old person" do
+    old_photo = FactoryBot.create(:photo, author: old_person)
+    new_photo = FactoryBot.create(:photo, author: new_person)
+    new_remote_photo_path = old_photo.remote_photo_path
+
+    run_migration
+
+    expect(old_photo.reload.remote_photo_path).to eq("https://diaspora.example.tld/uploads/images/")
+    expect(new_photo.reload.remote_photo_path).to eq(new_remote_photo_path)
   end
 end
 
@@ -210,6 +230,8 @@ describe "account migration" do
 
       include_examples "migration scenarios initiated remotely"
 
+      include_examples "remote photo migration"
+
       context "when new person has been migrated before" do
         let(:intermidiate_person) { create_remote_user("remote-d.net").person }
 
@@ -237,6 +259,8 @@ describe "account migration" do
       include_examples "every migration scenario"
 
       include_examples "migration scenarios initiated remotely"
+
+      include_examples "remote photo migration"
 
       it_behaves_like "migration scenarios with local old user"
 
@@ -287,9 +311,10 @@ describe "account migration" do
 
       def run_migration
         AccountMigration.create!(
-          old_person:      old_user.person,
-          new_person:      new_user.person,
-          old_private_key: old_user.serialized_private_key
+          old_person:        old_user.person,
+          new_person:        new_user.person,
+          old_private_key:   old_user.serialized_private_key,
+          remote_photo_path: "https://diaspora.example.tld/uploads/images/"
         ).perform!
       end
 
@@ -326,7 +351,9 @@ describe "account migration" do
       let(:new_person) { new_user.person }
 
       def run_migration
-        AccountMigration.create!(old_person: old_person, new_person: new_person).perform!
+        AccountMigration.create!(old_person:        old_person,
+                                 new_person:        new_person,
+                                 remote_photo_path: "https://diaspora.example.tld/uploads/images/").perform!
       end
 
       include_examples "every migration scenario"
