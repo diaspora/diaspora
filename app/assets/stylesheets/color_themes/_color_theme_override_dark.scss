@@ -55,8 +55,8 @@ body {
 
   .tag:hover { background-color: desaturate(darken($link-color, 35%), 20%); }
 
-  #profile_container .profile_header {
-    #author_info #sharing_message.entypo-check { color: lighten($green, 10%); }
+  #sharing_message.entypo-check {
+    color: lighten($green, 10%);
   }
 
   #invitationsModal #email_invitation { border-top: 1px dashed $gray-light; }

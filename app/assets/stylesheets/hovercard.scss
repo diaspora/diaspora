@@ -33,6 +33,12 @@
     text-overflow: ellipsis;
   }
 
+  .status-container {
+    align-items: center;
+    display: flex;
+    margin-bottom: 5px;
+  }
+
   #hovercard_dropdown_container {
     overflow: visible !important; /* otherwise the aspect dropdown is cropped */
   }
@@ -53,10 +59,7 @@
 
   .handle {
     color: $text-grey;
-    line-height: 18px;
-    padding-top: 0px;
-    margin-top: 0px;
-    margin-bottom: 5px;
+    margin-right: 2px;
   }
 
   .btn-group.aspect-membership-dropdown { margin: 0 !important; }

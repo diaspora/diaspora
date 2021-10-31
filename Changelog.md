@@ -21,6 +21,7 @@
 * Add podmin mail address to the footer [#8242](https://github.com/diaspora/diaspora/pull/8242)
 * Add username to password-reset mail [#8037](https://github.com/diaspora/diaspora/pull/8037)
 * Resend account migration and deletion for closed recipients [#8309](https://github.com/diaspora/diaspora/pull/8309)
+* Add sharing status to hovercards [#8317](https://github.com/diaspora/diaspora/pull/8317)
 
 # 0.7.15.0
 

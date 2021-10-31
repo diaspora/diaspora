@@ -90,6 +90,36 @@ describe("app.views.Hovercard", function() {
         expect(first.first()[0].href).toContain(Routes.tag("first"));
         expect(second.first()[0].href).toContain(Routes.tag("second"));
       });
+
+      it("indicates when the user is sharing with me", function() {
+        this.view._populateHovercard();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({
+            id: 1337,
+            guid: "ba64fce01b04013aa8db34c93d7886ce",
+            name: "Edward Snowden",
+            relationship: "sharing"
+          })
+        });
+        var message = this.view.$el.find("#sharing_message");
+        expect(message).toHaveClass("entypo-check");
+      });
+
+      it("indicates when the user is not sharing with me", function() {
+        this.view._populateHovercard();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({
+            id: 1337,
+            guid: "ba64fce01b04013aa8db34c93d7886ce",
+            name: "Edward Snowden",
+            relationship: "receiving"
+          })
+        });
+        var message = this.view.$el.find("#sharing_message");
+        expect(message).toHaveClass("entypo-record");
+      });
     });
   });
 });
