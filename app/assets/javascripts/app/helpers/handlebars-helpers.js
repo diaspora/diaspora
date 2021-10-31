@@ -44,7 +44,7 @@ Handlebars.registerHelper('linkToPerson', function(context, block) {
 // relationship indicator for profile page
 Handlebars.registerHelper("sharingMessage", function(person) {
   var i18nScope = "people.helper.is_not_sharing";
-  var icon = "circle";
+  var icon = "entypo-record";
   if( person.is_sharing ) {
     i18nScope = "people.helper.is_sharing";
     icon = "entypo-check";

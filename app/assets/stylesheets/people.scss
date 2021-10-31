@@ -5,6 +5,7 @@
   }
   .invitations-button { padding-left: 0; }
 }
+
 #people-stream {
   .media, .media-body {
     overflow: visible;
@@ -28,6 +29,7 @@
     .info { font-size: $font-size-small; }
   }
 }
+
 #blocked_people {
   .blocked-person {
     border-bottom: 1px solid $border-grey;
@@ -43,5 +45,15 @@
     }
     .info { font-size: $font-size-small; }
     .btn-danger { margin-top: 9px; }
+  }
+}
+
+#sharing_message {
+  &.entypo-check {
+    color: darken($brand-success, 20%);
+  }
+
+  &.entypo-record {
+    color: $text-grey;
   }
 }

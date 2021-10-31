@@ -107,11 +107,12 @@ app.views.Hovercard = app.views.Base.extend({
       if( !person || person.length === 0 ) {
         throw new Error("received data is not a person object");
       }
-
-      if (app.currentUser.authenticated()) {
-        self.aspectMembershipDropdown = new app.views.AspectMembership({person: new app.models.Person(person)});
-      }
+      var personModel = new app.models.Person(person);
+      person.is_sharing = personModel.isSharing();
       self.person = person;
+      if (app.currentUser.authenticated()) {
+        self.aspectMembershipDropdown = new app.views.AspectMembership({person: personModel});
+      }
       self.render();
 
       if( !self.showMe ) {
