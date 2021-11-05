@@ -59,7 +59,7 @@ gem "rack-cors", "1.1.1", require: "rack/cors"
 
 # CSS
 
-gem "autoprefixer-rails",     "10.2.5.1"
+gem "autoprefixer-rails",     "10.3.3.0"
 gem "bootstrap-sass",         "3.4.1"
 gem "bootstrap-switch-rails", "3.3.3" # 3.3.4 and 3.3.5 is broken, see https://github.com/Bttstrp/bootstrap-switch/issues/691
 gem "compass-rails",          "3.1.0"
