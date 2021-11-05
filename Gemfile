@@ -275,7 +275,7 @@ group :test do
 
   gem "apparition",       "0.6.0"
   gem "capybara",         "3.35.3"
-  gem "database_cleaner-active_record", "1.8.0"
+  gem "database_cleaner-active_record", "2.0.1"
 
   gem "cucumber-api-steps", "0.14", require: false
 
