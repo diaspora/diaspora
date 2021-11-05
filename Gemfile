@@ -294,7 +294,7 @@ group :development, :test do
   gem "rspec-rails", "5.0.1"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "2.3.0", require: false
+  gem "cucumber-rails", "2.4.0", require: false
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
