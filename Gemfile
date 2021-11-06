@@ -298,7 +298,7 @@ group :development, :test do
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
-  gem "jasmine",                   "3.7.0"
+  gem "jasmine",                   "3.10.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"
