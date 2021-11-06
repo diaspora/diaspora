@@ -378,7 +378,7 @@ GEM
       rspec
     jsonpath (1.1.0)
       multi_json
-    jwt (2.2.3)
+    jwt (2.3.0)
     kgio (2.11.4)
     kostya-sigar (2.0.10)
     leaflet-rails (1.7.0)
@@ -435,15 +435,19 @@ GEM
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    omniauth (1.9.1)
+    omniauth (2.0.4)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
+      rack-protection
     omniauth-oauth (1.2.0)
       oauth
       omniauth (>= 1.0, < 3)
-    omniauth-oauth2 (1.7.1)
+    omniauth-oauth2 (1.7.2)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     omniauth-tumblr (1.2)
       multi_json
       omniauth-oauth (~> 1.0)
@@ -516,6 +520,8 @@ GEM
       json-jwt (>= 1.11.0)
       rack (>= 2.1.0)
     rack-piwik (0.3.0)
+    rack-protection (2.1.0)
+      rack
     rack-rewrite (1.5.1)
     rack-ssl (1.4.1)
       rack
@@ -852,7 +858,8 @@ DEPENDENCIES
   mobile-fu (= 1.4.0)
   mysql2 (= 0.5.3)
   nokogiri (= 1.12.5)
-  omniauth (= 1.9.1)
+  omniauth (= 2.0.4)
+  omniauth-rails_csrf_protection (= 1.0.0)
   omniauth-tumblr (= 1.2)
   omniauth-twitter (= 1.4.0)
   omniauth-wordpress (= 0.2.2)
