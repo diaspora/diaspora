@@ -410,7 +410,7 @@ GEM
     mime-types-data (3.2021.0901)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.5.3)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     mobile-fu (1.4.0)
       rack-mobile-detect
@@ -422,8 +422,8 @@ GEM
     mysql2 (0.5.3)
     naught (1.1.0)
     nio4r (2.5.7)
-    nokogiri (1.11.7)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     oauth (0.5.6)
     oauth2 (1.4.7)
@@ -851,7 +851,7 @@ DEPENDENCIES
   minitest
   mobile-fu (= 1.4.0)
   mysql2 (= 0.5.3)
-  nokogiri (= 1.11.7)
+  nokogiri (= 1.12.5)
   omniauth (= 1.9.1)
   omniauth-tumblr (= 1.2)
   omniauth-twitter (= 1.4.0)
