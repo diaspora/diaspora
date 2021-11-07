@@ -129,11 +129,11 @@ describe Configuration::Methods do
   end
 
   describe "#has_local_posts_stream" do
-    let!(:moderator) { create(:person) }
-    let!(:admin) { create(:person) }
+    let!(:moderator) { create(:user) }
+    let!(:admin) { create(:user) }
     before do
-      moderator.roles.create(name: "moderator")
-      admin.roles.create(name: "admin")
+      Role.add_moderator(moderator.person)
+      Role.add_admin(admin.person)
     end
 
     it "return false if show_local_posts_link is 'disabled'" do

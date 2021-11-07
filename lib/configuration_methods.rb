@@ -52,9 +52,9 @@ module Configuration
 
     def local_posts_stream?(user)
       return true if settings.enable_local_posts_stream == "admins" &&
-                     Role.is_admin?(user)
+                      user.admin?
       return true if settings.enable_local_posts_stream == "moderators" &&
-                     (Role.moderator?(user) || Role.is_admin?(user))
+                      user.moderator?
 
       settings.enable_local_posts_stream == "everyone"
     end
