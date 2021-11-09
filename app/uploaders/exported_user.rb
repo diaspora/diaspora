@@ -14,10 +14,6 @@ class ExportedUser < SecureUploader
   end
 
   def filename
-    return if original_filename.blank?
-
-    filename_parts = original_filename.split(".")
-    extensions = filename_parts.join(".")
-    "#{model.username}_data_#{secure_token}.#{extensions}"
+    "diaspora_#{model.username}_data_#{secure_token}#{extension}"
   end
 end

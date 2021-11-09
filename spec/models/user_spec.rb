@@ -976,13 +976,14 @@ describe User, type: :model do
   end
 
   describe "#export" do
-    it "doesn't change the filename when the user is saved" do
+    it "doesn't change the url when the user is saved" do
       user = FactoryBot.create(:user)
 
-      filename = user.export.filename
+      user.perform_export!
+      url = user.export.url
       user.save!
 
-      expect(User.find(user.id).export.filename).to eq(filename)
+      expect(User.find(user.id).export.url).to eq(url)
     end
   end
 
