@@ -22,7 +22,7 @@ class PersonPresenter < BasePresenter
   def full_hash
     base_hash_with_contact.merge(
       relationship:      relationship,
-      block:             is_blocked? ? BlockPresenter.new(current_user_person_block).base_hash : false,
+      block:             block_details,
       is_own_profile:    own_profile?,
       show_profile_info: public_details? || own_profile? || person_is_following_current_user
     )
@@ -47,7 +47,7 @@ class PersonPresenter < BasePresenter
   end
 
   def hovercard
-    base_hash_with_contact.merge(profile: ProfilePresenter.new(profile).for_hovercard)
+    base_hash_with_contact.merge(block: block_details, profile: ProfilePresenter.new(profile).for_hovercard)
   end
 
   def metas_attributes
@@ -150,6 +150,10 @@ class PersonPresenter < BasePresenter
 
   def is_blocked?
     current_user_person_block.present?
+  end
+
+  def block_details
+    is_blocked? ? BlockPresenter.new(current_user_person_block).base_hash : false
   end
 
   def title
