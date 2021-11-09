@@ -344,10 +344,10 @@
 ## of your Sidekiq workers.
 #typhoeus_concurrency = 20
 
-## Maximum number of parallel user data export jobs (default=1)
-## Be careful, exports of big/old profiles can use a lot of memory, running
-## many of them in parallel can be a problem for small servers.
-#export_concurrency = 1
+## Maximum number of parallel user data import/export jobs (default=1)
+## Be careful, imports and exports of big/old profiles can use a lot of memory,
+## running many of them in parallel can be a problem for small servers.
+#archive_jobs_concurrency = 1
 
 ## Welcome Message settings
 [configuration.settings.welcome_message]
