@@ -3,14 +3,14 @@
 class ImportService
   include Diaspora::Logging
 
-  def import_by_user(user)
-    import_by_files(user.export.current_path, user.exported_photos_file.current_path, user.username)
+  def import_by_user(user, opts={})
+    import_by_files(user.export.current_path, user.exported_photos_file.current_path, user.username, opts)
   end
 
-  def import_by_files(path_to_profile, path_to_photos, username)
+  def import_by_files(path_to_profile, path_to_photos, username, opts={})
     if path_to_profile.present?
       logger.info "Import for profile #{username} at path #{path_to_profile} requested"
-      import_user_profile(path_to_profile, username)
+      import_user_profile(path_to_profile, username, opts)
     end
 
     user = User.find_by(username: username)
@@ -25,10 +25,10 @@ class ImportService
 
   private
 
-  def import_user_profile(path_to_profile, username)
+  def import_user_profile(path_to_profile, username, opts)
     raise ArgumentError, "Profile file not found at path: #{path_to_profile}" unless File.exist?(path_to_profile)
 
-    service = MigrationService.new(path_to_profile, username)
+    service = MigrationService.new(path_to_profile, username, opts)
     logger.info "Start validating user profile #{username}"
     service.validate
     logger.info "Start importing user profile for '#{username}'"

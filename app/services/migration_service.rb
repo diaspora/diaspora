@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class MigrationService
-  attr_reader :archive_path, :new_user_name
+  attr_reader :archive_path, :new_user_name, :opts
+
   delegate :errors, :warnings, to: :archive_validator
 
-  def initialize(archive_path, new_user_name)
+  def initialize(archive_path, new_user_name, opts={})
     @archive_path = archive_path
     @new_user_name = new_user_name
+    @opts = opts
   end
 
   def validate
@@ -40,12 +42,11 @@ class MigrationService
   private
 
   def find_or_create_user
-    archive_importer.user = User.find_by(username: new_user_name)
-    archive_importer.create_user(username: new_user_name, password: SecureRandom.hex) if archive_importer.user.nil?
+    archive_importer.find_or_create_user(username: new_user_name, password: SecureRandom.hex)
   end
 
   def import_archive
-    archive_importer.import
+    archive_importer.import(opts)
   end
 
   def run_migration
