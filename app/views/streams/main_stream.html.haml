@@ -124,7 +124,7 @@
                     - if service_unconnected?(service)
                       = link_to(content_tag(:div, nil,
                         class: "social-media-logos-#{service.to_s.downcase}-24x24",
-                        title: service.to_s.titleize), "/auth/#{service}")
+                        title: service.to_s.titleize), "/auth/#{service}", method: :post)
 
           .section.collapsed
             .title
