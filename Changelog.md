@@ -48,6 +48,9 @@ Although the chat was never enabled per default and was marked as experimental, 
 
 ## Bug fixes
 * Ensure the log folder exists [#8287](https://github.com/diaspora/diaspora/pull/8287)
+* Limit name length in header [#8313] (https://github.com/diaspora/diaspora/pull/8313)
+* Fix fallback avatar in hovercards [#8316](https://github.com/diaspora/diaspora/pull/8316)
+* Use old person private key for export if relayable author migrated away [#8310](https://github.com/diaspora/diaspora/pull/8310)
 
 ## Features
 * Add tags to tumblr posts [#8244](https://github.com/diaspora/diaspora/pull/8244)
@@ -58,6 +61,8 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Add podmin mail address to the footer [#8242](https://github.com/diaspora/diaspora/pull/8242)
 * Add username to password-reset mail [#8037](https://github.com/diaspora/diaspora/pull/8037)
 * Resend account migration and deletion for closed recipients [#8309](https://github.com/diaspora/diaspora/pull/8309)
+* Add sharing status to hovercards [#8317](https://github.com/diaspora/diaspora/pull/8317)
+* Migrate photo URLs and cleanup old uploaded photos [#8314](https://github.com/diaspora/diaspora/pull/8314)
 
 # 0.7.15.0
 

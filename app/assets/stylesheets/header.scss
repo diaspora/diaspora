@@ -119,6 +119,19 @@
     }
   }
 
+  .dropdown-toggle {
+    align-items: center;
+    display: flex;
+
+    .user-name {
+      margin-right: 3px;
+      max-width: 250px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
   .user-menu-dropdown {
     padding: 0;
   }
