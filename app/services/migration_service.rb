@@ -49,7 +49,8 @@ class MigrationService
       old_person:             old_person,
       new_person:             archive_importer.user.person,
       old_private_key:        archive_importer.serialized_private_key,
-      old_person_diaspora_id: archive_importer.archive_author_diaspora_id
+      old_person_diaspora_id: archive_importer.archive_author_diaspora_id,
+      archive_contacts:       archive_importer.contacts
     )
   end
 

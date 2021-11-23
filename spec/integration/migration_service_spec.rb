@@ -128,7 +128,7 @@ describe MigrationService do
             "following": true,
             "followed": false,
             "account_id": "#{contact1_diaspora_id}",
-            "contact_groups_membership": ["Family"]
+            "contact_groups_membership": []
           },
           {
             "sharing": true,
@@ -286,18 +286,16 @@ describe MigrationService do
       expect(like.author).not_to eq(user.person)
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(contact1_diaspora_id))
-      expect(contact).not_to be_nil
-      expect(contact.sharing).to be_truthy
-      expect(contact.receiving).to be_falsey
+      expect(contact).to be_nil
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(contact2_diaspora_id))
       expect(contact).not_to be_nil
-      expect(contact.sharing).to be_truthy
+      expect(contact.sharing).to be_falsey
       expect(contact.receiving).to be_truthy
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(migrated_contact_new_diaspora_id))
       expect(contact).not_to be_nil
-      expect(contact.sharing).to be_truthy
+      expect(contact.sharing).to be_falsey
       expect(contact.receiving).to be_truthy
 
       aspect = user.aspects.find_by(name: "Friends")

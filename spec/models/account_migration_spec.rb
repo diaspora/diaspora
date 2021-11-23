@@ -95,6 +95,34 @@ describe AccountMigration, type: :model do
           expect(account_migration.subscribers).to be_empty
         end
       end
+
+      context "with contacts from the archive" do
+        it "includes contacts from the archive" do
+          archive_person = FactoryBot.create(:person)
+          remote_contact = DataGenerator.create(new_user, :remote_mutual_friend)
+          contacts = [
+            {
+              "sharing"                   => true,
+              "receiving"                 => false,
+              "following"                 => true,
+              "followed"                  => false,
+              "account_id"                => archive_person.diaspora_handle,
+              "contact_groups_membership" => []
+            },
+            {
+              "sharing"                   => true,
+              "receiving"                 => true,
+              "following"                 => true,
+              "followed"                  => true,
+              "account_id"                => remote_contact.person.diaspora_handle,
+              "contact_groups_membership" => []
+            }
+          ]
+          account_migration =
+            AccountMigration.create!(old_person: old_person, new_person: new_person, archive_contacts: contacts)
+          expect(account_migration.subscribers).to match_array([remote_contact.person, archive_person, old_person])
+        end
+      end
     end
   end
 
