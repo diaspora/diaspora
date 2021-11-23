@@ -10,7 +10,7 @@ class ImportService
   def import_by_files(path_to_profile, path_to_photos, username, opts={})
     if path_to_profile.present?
       logger.info "Import for profile #{username} at path #{path_to_profile} requested"
-      import_user_profile(path_to_profile, username, opts)
+      import_user_profile(path_to_profile, username, opts.merge(photo_migration: path_to_photos.present?))
     end
 
     user = User.find_by(username: username)

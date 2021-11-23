@@ -60,7 +60,8 @@ class MigrationService
       new_person:             archive_importer.user.person,
       old_private_key:        archive_importer.serialized_private_key,
       old_person_diaspora_id: archive_importer.archive_author_diaspora_id,
-      archive_contacts:       archive_importer.contacts
+      archive_contacts:       archive_importer.contacts,
+      remote_photo_path:      remote_photo_path
     )
   end
 
@@ -129,6 +130,16 @@ class MigrationService
     return unless File.exist?(@intermediate_file)
 
     File.delete(@intermediate_file)
+  end
+
+  def remote_photo_path
+    return unless opts.fetch(:photo_migration, false)
+
+    if AppConfig.environment.s3.enable?
+      return "https://#{AppConfig.environment.s3.bucket.get}.s3.amazonaws.com/uploads/images/"
+    end
+
+    "#{AppConfig.pod_uri}uploads/images/"
   end
 
   class ArchiveValidationFailed < RuntimeError
