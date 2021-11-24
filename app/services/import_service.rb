@@ -47,25 +47,38 @@ class ImportService
 
     uncompressed_photos_folder = unzip_photos_file(path_to_photos)
     user.posts.find_in_batches do |posts|
-      import_photos_for_posts(posts, uncompressed_photos_folder)
+      import_photos_for_posts(user, posts, uncompressed_photos_folder)
     end
-    FileUtils.rmdir(uncompressed_photos_folder)
+    FileUtils.rm_r(uncompressed_photos_folder)
   end
 
-  def import_photos_for_posts(posts, source_dir)
+  def import_photos_for_posts(user, posts, source_dir)
     posts.each do |post|
       post.photos.each do |photo|
         uploaded_file = "#{source_dir}/#{photo.remote_photo_name}"
         next unless File.exist?(uploaded_file) && photo.remote_photo_name.present?
 
-        File.open(uploaded_file) do |file|
-          photo.random_string = File.basename(uploaded_file, ".*")
-          photo.unprocessed_image = file
-          photo.save(touch: false)
-        end
-        photo.queue_processing_job
+        # Don't overwrite existing photos if they have the same filename.
+        # Generate a new random filename if a conflict exists and re-federate the photo to update on remote pods.
+        random_string = File.basename(uploaded_file, ".*")
+        conflicting_photo_exists = Photo.where.not(id: photo.id).exists?(random_string: random_string)
+        random_string = SecureRandom.hex(10) if conflicting_photo_exists
+
+        store_and_process_photo(photo, uploaded_file, random_string)
+
+        Diaspora::Federation::Dispatcher.build(user, photo).dispatch if conflicting_photo_exists
       end
     end
+  end
+
+  def store_and_process_photo(photo, uploaded_file, random_string)
+    File.open(uploaded_file) do |file|
+      photo.random_string = random_string
+      photo.unprocessed_image.store! file
+      photo.update_remote_path
+      photo.save(touch: false)
+    end
+    photo.queue_processing_job
   end
 
   def unzip_photos_file(photo_file_path)
