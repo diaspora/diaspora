@@ -1,39 +1,45 @@
 .nav.navbar-inverse.navbar-fixed-top#main-nav
   .container-fluid
     .navbar
-      = link_to(image_tag("branding/logos/asterisk_white_mobile.png", class: "img-responsive"),
-          stream_path, class: "navbar-brand header-title")
-
+      - if open_id_context?
+        = image_tag("branding/logos/asterisk_white_mobile.png", class: "img-responsive navbar-brand header-title")
+      - else
+        = link_to(image_tag("branding/logos/asterisk_white_mobile.png", class: "img-responsive"),
+            stream_path, class: "navbar-brand header-title")
       - if user_signed_in?
         %ul.nav.navbar-nav#nav-badges
           -# Notifications
           %li
-            = link_to notifications_path, class: "badge-link", id: "notification-badge" do
-              %i.entypo-bell
-              - if current_user.unread_notifications.size > 0
-                %span.badge.badge-important#notification
-                  = current_user.unread_notifications.size
+            - unless open_id_context?
+              = link_to notifications_path, class: "badge-link", id: "notification-badge" do
+                %i.entypo-bell
+                - unless current_user.unread_notifications.empty?
+                  %span.badge.badge-important#notification
+                    = current_user.unread_notifications.size
 
           -# Conversations
           %li
-            = link_to conversations_path, class: "badge-link", id: "conversations-badge" do
-              %i.entypo-mail
-              - if current_user.unread_message_count > 0
-                %span.badge.badge-important#conversation
-                  = current_user.unread_message_count
+            - unless open_id_context?
+              = link_to conversations_path, class: "badge-link", id: "conversations-badge" do
+                %i.entypo-mail
+                - if current_user.unread_message_count > 0
+                  %span.badge.badge-important#conversation
+                    = current_user.unread_message_count
 
           -# Publisher
           %li
-            = link_to new_status_message_path, class: "badge-link", id: "compose-badge" do
-              %i.diaspora-custom-compose
+            - unless open_id_context?
+              = link_to new_status_message_path, class: "badge-link", id: "compose-badge" do
+                %i.diaspora-custom-compose
 
           -# Menu
-          %li
-            %button.navbar-toggle#menu-badge{type: "button"}
-              %span.sr-only
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
+          - unless open_id_context?
+            %li
+              %button.navbar-toggle#menu-badge{type: "button"}
+                %span.sr-only
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
 
       - else
         = render "layouts/header_not_connected"
