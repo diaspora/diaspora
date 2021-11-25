@@ -976,13 +976,14 @@ describe User, type: :model do
   end
 
   describe "#export" do
-    it "doesn't change the filename when the user is saved" do
+    it "doesn't change the url when the user is saved" do
       user = FactoryBot.create(:user)
 
-      filename = user.export.filename
+      user.perform_export!
+      url = user.export.url
       user.save!
 
-      expect(User.find(user.id).export.filename).to eq(filename)
+      expect(User.find(user.id).export.url).to eq(url)
     end
   end
 
@@ -1006,7 +1007,7 @@ describe User, type: :model do
       expect(user.export).to be_present
       expect(user.exported_at).to be_present
       expect(user.exporting).to be_falsey
-      expect(user.export.filename).to match(/.json/)
+      expect(user.export.filename).to match(/\.json\.gz$/)
       expect(ActiveSupport::Gzip.decompress(user.export.file.read)).to include user.username
     end
 

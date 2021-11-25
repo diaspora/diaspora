@@ -10,7 +10,7 @@ class ArchiveImporter
     @archive_hash = archive_hash
   end
 
-  def import
+  def import(opts={})
     import_tag_followings
     import_aspects
     import_contacts
@@ -19,24 +19,24 @@ class ArchiveImporter
     import_subscriptions
     import_others_relayables
     import_blocks
+    import_settings if opts.fetch(:import_settings, true)
+    import_profile if opts.fetch(:import_profile, true)
   end
 
-  def create_user(attr)
-    allowed_keys = %w[
-      email strip_exif show_community_spotlight_in_stream language disable_mail auto_follow_back
-    ]
+  def find_or_create_user(attr)
+    allowed_keys = %w[email language]
     data = convert_keys(archive_hash["user"], allowed_keys)
     # setting getting_started to false as the user doesn't need to see the getting started wizard
     data.merge!(
       username:              attr[:username],
       password:              attr[:password],
       password_confirmation: attr[:password],
-      getting_started:       false,
       person:                {
         profile_attributes: profile_attributes
       }
     )
-    self.user = User.build(data)
+    self.user = User.find_or_build(data)
+    user.getting_started = false
     user.save!
   end
 
@@ -61,7 +61,7 @@ class ArchiveImporter
     return if name.nil?
 
     aspect = user.aspects.find_by(name: name)
-    user.update(auto_follow_back_aspect: aspect) if aspect
+    user.update(auto_follow_back: true, auto_follow_back_aspect: aspect) if aspect
   end
 
   def import_aspects
@@ -72,7 +72,6 @@ class ArchiveImporter
         logger.warn "#{self}: #{e}"
       end
     end
-    set_auto_follow_back_aspect
   end
 
   def import_posts
@@ -120,6 +119,21 @@ class ArchiveImporter
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end
+    end
+  end
+
+  def import_settings
+    allowed_keys = %w[language show_community_spotlight_in_stream strip_exif]
+    convert_keys(archive_hash["user"], allowed_keys).each do |key, value|
+      user.update(key => value) unless value.nil?
+    end
+
+    set_auto_follow_back_aspect if archive_hash.fetch("user").fetch("auto_follow_back", false)
+  end
+
+  def import_profile
+    profile_attributes.each do |key, value|
+      user.person.profile.update(key => value) unless value.nil?
     end
   end
 

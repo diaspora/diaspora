@@ -312,6 +312,32 @@ describe MigrationService do
     end
   end
 
+  context "photo migration" do
+    it "doesn't include a new remote_photo_path" do
+      service = MigrationService.new(archive_file.path, new_username)
+      service.send(:find_or_create_user)
+      account_migration = service.send(:account_migration)
+      expect(account_migration.remote_photo_path).to be_nil
+    end
+
+    it "includes url to new pod image upload folder in remote_photo_path" do
+      service = MigrationService.new(archive_file.path, new_username, photo_migration: true)
+      service.send(:find_or_create_user)
+      account_migration = service.send(:account_migration)
+      expect(account_migration.remote_photo_path).to eq("#{AppConfig.pod_uri}uploads/images/")
+    end
+
+    it "includes url to S3 image upload folder in remote_photo_path when S3 is enabled" do
+      AppConfig.environment.s3.enable = true
+      AppConfig.environment.s3.bucket = "test-bucket"
+
+      service = MigrationService.new(archive_file.path, new_username, photo_migration: true)
+      service.send(:find_or_create_user)
+      account_migration = service.send(:account_migration)
+      expect(account_migration.remote_photo_path).to eq("https://test-bucket.s3.amazonaws.com/uploads/images/")
+    end
+  end
+
   context "compressed archives" do
     it "uncompresses gz archive" do
       gz_compressed_file = create_gz_archive

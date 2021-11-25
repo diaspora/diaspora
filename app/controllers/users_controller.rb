@@ -154,6 +154,8 @@ class UsersController < ApplicationController
       :post_default_public,
       :otp_required_for_login,
       :otp_secret,
+      :exported_photos_file,
+      :export,
       email_preferences: UserPreference::VALID_EMAIL_TYPES.map(&:to_sym)
     )
   end
@@ -172,6 +174,8 @@ class UsersController < ApplicationController
       change_post_default(user_data)
     elsif user_data[:color_theme]
       change_settings(user_data, "users.update.color_theme_changed", "users.update.color_theme_not_changed")
+    elsif user_data[:export] || user_data[:exported_photos_file]
+      upload_export_files(user_data)
     else
       change_settings(user_data)
     end
@@ -233,6 +237,19 @@ class UsersController < ApplicationController
         flash.now[:error] = t("users.update.unconfirmed_email_not_changed")
       end
     end
+  end
+
+  def upload_export_files(user_data)
+    logger.info "Start importing account"
+    @user.export = user_data[:export] if user_data[:export]
+    @user.exported_photos_file = user_data[:exported_photos_file] if user_data[:exported_photos_file]
+    if @user.save
+      flash.now[:notice] = "Your account migration has been scheduled"
+    else
+      flash.now[:error] = "Your account migration could not be scheduled for the following reason:"\
+                          " #{@user.errors.full_messages}"
+    end
+    Workers::ImportUser.perform_async(@user.id)
   end
 
   def change_settings(user_data, successful="users.update.settings_updated", error="users.update.settings_not_updated")
