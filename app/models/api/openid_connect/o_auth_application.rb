@@ -73,7 +73,7 @@ module Api
         private
 
         def build_client_application(registrar)
-          attributes = registrar_attributes(registrar)
+          attributes = register_attributes(registrar)
           check_sector_identifier_uri(attributes)
           check_redirect_uris(attributes)
           create! attributes
@@ -104,7 +104,7 @@ module Api
              sector_identifier_uri subject_type token_endpoint_auth_method jwks jwks_uri)
         end
 
-        def registrar_attributes(registrar)
+        def register_attributes(registrar)
           supported_metadata.each_with_object({}) do |key, attr|
             value = registrar.public_send(key)
             next unless value
