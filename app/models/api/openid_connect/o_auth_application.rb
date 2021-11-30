@@ -61,7 +61,7 @@ module Api
       end
 
       class << self
-        def available_response_types
+        def available_esponse_types
           ["id_token", "id_token token", "code"]
         end
 
