@@ -2,6 +2,7 @@
 
 class Stream::Base
   TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare']
+  HTTP_MATCHER = %r{(http|https)://([\w_+]+(?:\.[\w_-]+)*:\d{3,4})?(/posts/(\w+))}.freeze
 
   attr_accessor :max_time, :order, :user, :publisher
 
@@ -35,6 +36,7 @@ class Stream::Base
   def stream_posts
     self.posts.for_a_stream(max_time, order, self.user).tap do |posts|
       like_posts_for_stream!(posts) #some sql person could probably do this with joins.
+      normalize_internal_post_links(posts)
     end
   end
 
@@ -85,6 +87,15 @@ class Stream::Base
 
     posts.each do |post|
       post.user_like = like_hash[post.id]
+    end
+  end
+
+  def normalize_internal_post_links(posts)
+    posts.each do |post|
+      post.text.match(HTTP_MATCHER) do |m|
+        link_post_id = m[4]
+        post.text.gsub!(HTTP_MATCHER, "/posts/#{link_post_id}") if Post.exists?(guid: link_post_id)
+      end
     end
   end
 
