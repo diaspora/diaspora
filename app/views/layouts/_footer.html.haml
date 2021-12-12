@@ -1,6 +1,6 @@
 %footer.footer
   .container
     .powered-by-diaspora.pull-left
-      = link_to_unless open_id_context?, t("layouts.application.powered_by"), "https://diasporafoundation.org"
+      = link_to_unless authorization_context?, t("layouts.application.powered_by"), "https://diasporafoundation.org"
     %ul#footer_nav.pull-right
       = render partial: "shared/links"

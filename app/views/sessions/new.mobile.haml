@@ -14,7 +14,7 @@
 
 %footer.footer
   %ul
-    - unless open_id_context?
+    - unless authorization_context?
       - if display_password_reset_link?
         %li
           = link_to t("devise.shared.links.forgot_your_password"),

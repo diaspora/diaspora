@@ -3,21 +3,13 @@
 module SessionsHelper
   def prefilled_username
     uri = Addressable::URI.parse(session["user_return_to"])
-    if uri && uri.query_values
-      uri.query_values["username"]
-    else
-      nil
-    end
+    uri.query_values["login_hint"] if uri&.query_values
   end
 
-  def open_id_context?
+  def authorization_context?
     uri = Addressable::URI.parse(session["user_return_to"])
     client_id = session["client_id"]
-    if uri && uri.path.match("openid_connect").present? || client_id.present?
-      true
-    else
-      false
-    end
+    uri && uri.path.match("openid_connect").present? || client_id.present?
   end
 
   def display_registration_link?

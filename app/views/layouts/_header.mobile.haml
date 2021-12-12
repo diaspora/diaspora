@@ -1,7 +1,7 @@
 .nav.navbar-inverse.navbar-fixed-top#main-nav
   .container-fluid
     .navbar
-      - if open_id_context?
+      - if authorization_context?
         = image_tag("branding/logos/asterisk_white_mobile.png", class: "img-responsive navbar-brand header-title")
       - else
         = link_to(image_tag("branding/logos/asterisk_white_mobile.png", class: "img-responsive"),
@@ -10,7 +10,7 @@
         %ul.nav.navbar-nav#nav-badges
           -# Notifications
           %li
-            - unless open_id_context?
+            - unless authorization_context?
               = link_to notifications_path, class: "badge-link", id: "notification-badge" do
                 %i.entypo-bell
                 - unless current_user.unread_notifications.empty?
@@ -19,7 +19,7 @@
 
           -# Conversations
           %li
-            - unless open_id_context?
+            - unless authorization_context?
               = link_to conversations_path, class: "badge-link", id: "conversations-badge" do
                 %i.entypo-mail
                 - if current_user.unread_message_count > 0
@@ -28,12 +28,12 @@
 
           -# Publisher
           %li
-            - unless open_id_context?
+            - unless authorization_context?
               = link_to new_status_message_path, class: "badge-link", id: "compose-badge" do
                 %i.diaspora-custom-compose
 
           -# Menu
-          - unless open_id_context?
+          - unless authorization_context?
             %li
               %button.navbar-toggle#menu-badge{type: "button"}
                 %span.sr-only
