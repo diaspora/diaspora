@@ -274,7 +274,8 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "apparition",       "0.6.0"
+  # Switch apparition back to a release when https://github.com/twalpole/apparition/issues/81 will be fixed
+  gem "apparition", github: "twalpole/apparition", ref: "ca86be4d54af835d531dbcd2b86e7b2c77f85f34"
   gem "capybara",         "3.35.3"
   gem "database_cleaner-active_record", "2.0.1"
 
