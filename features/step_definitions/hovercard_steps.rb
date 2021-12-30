@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 When(/^I activate the first hovercard$/) do
-  page.execute_script("$('.hovercardable').first().trigger('mouseenter');")
+  first(".hovercardable").hover
 end
 
 Then(/^I should see a hovercard$/) do
@@ -14,7 +14,7 @@ Then(/^I should see "([^"]*)" hashtag in the hovercard$/) do |tag|
 end
 
 When(/^I deactivate the first hovercard$/) do
-  page.execute_script("$('.hovercardable').first().trigger('mouseleave');")
+  find("input#q").click # Click something else instead — e.g., search — to deactive it
 end
 
 Then(/^I should not see a hovercard$/) do
