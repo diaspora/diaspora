@@ -13,9 +13,11 @@ Then /^the publisher should be expanded$/ do
 end
 
 When /^I click to delete the first uploaded photo$/ do
-  page.execute_script("$('#photodropzone .x').css('display', 'block');")
   image_count = all(".publisher_photo img", wait: false).count
-  find("#photodropzone .x", match: :first).trigger "click"
+  within "ul#photodropzone" do
+    first("img").hover
+    find(".x", match: :first).trigger "click"
+  end
   page.assert_selector(".publisher_photo img", count: image_count - 1)
 end
 
@@ -68,12 +70,6 @@ When /^I post an extremely long status message$/ do
 end
 
 When /^I select "([^"]*)" on the aspect dropdown$/ do |text|
-  page.execute_script(
-    "$('#publisher .dropdown .dropdown_list, #publisher .aspect-dropdown .dropdown-menu')
-      .find('li').each(function(i,el){
-      var elem = $(el);
-      if ('" + text + "' == $.trim(elem.text()) ) {
-        elem.click();
-      }});"
-  )
+  find("button.dropdown-toggle").click
+  find(".dropdown-menu li", text: text).click
 end
