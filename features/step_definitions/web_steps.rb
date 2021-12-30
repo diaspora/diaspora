@@ -195,3 +195,8 @@ Then /^I wait until ajax requests finished$/ do
     loop until page.evaluate_script("jQuery.active") == 0
   end
 end
+
+When /^I scroll to "([^"]*)"$/ do |element_id|
+  element = find_by_id(element_id) # rubocop:disable Rails/DynamicFindBy
+  page.scroll_to(element, align: :bottom)
+end
