@@ -171,8 +171,8 @@ Then /^the "([^"]*)" bootstrap-switch should be (on|off)$/ do |label, state|
   end
 end
 
-Then /^I toggle the "([^"]*)" bootstrap-switch$/ do |label|
-  page.execute_script("return $('#{label}').bootstrapSwitch('toggleState')")
+Then /^I toggle the "#([^"]*)" bootstrap-switch$/ do |id|
+  find(".bootstrap-switch-id-#{id}").click
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
