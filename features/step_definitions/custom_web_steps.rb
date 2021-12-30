@@ -173,10 +173,6 @@ Then /^I should see (\d+) contacts$/ do |n_posts|
   has_css?("#people-stream .stream-element", count: n_posts.to_i).should be true
 end
 
-When /^I scroll a bit$/ do
-  page.execute_script("window.scrollBy(0,200)")
-end
-
 And /^I scroll down$/ do
   page.execute_script("window.scrollBy(0,3000000)")
 end
