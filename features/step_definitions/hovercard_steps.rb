@@ -14,7 +14,7 @@ Then(/^I should see "([^"]*)" hashtag in the hovercard$/) do |tag|
 end
 
 When(/^I deactivate the first hovercard$/) do
-  find("input#q").click # Click something else instead — e.g., search — to deactive it
+  find("input#q").click # Click something else instead to deactive it
 end
 
 Then(/^I should not see a hovercard$/) do
