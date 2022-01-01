@@ -170,6 +170,7 @@ FactoryBot.define do
 
   factory(:poll) do
     sequence(:question) {|n| "What do you think about #{n} ninjas?" }
+    association :author, factory: :person
     association :status_message
     after(:build) do |p|
       p.poll_answers << FactoryBot.build(:poll_answer, poll: p)

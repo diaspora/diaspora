@@ -281,7 +281,7 @@ group :test do
 
   # General helpers
 
-  gem "factory_bot_rails",  "4.11.1"
+  gem "factory_bot_rails",  "5.2.0"
   gem "shoulda-matchers",   "4.5.1"
   gem "timecop",            "0.9.4"
   gem "webmock",            "3.12.2", require: false
