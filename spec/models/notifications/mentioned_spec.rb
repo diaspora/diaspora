@@ -11,7 +11,7 @@ describe Notifications::Mentioned do
 
   describe ".notify" do
     let(:status_message) {
-      FactoryGirl.create(:status_message, text: text_mentioning(remote_raphael, alice, bob, eve), author: eve.person)
+      FactoryBot.create(:status_message, text: text_mentioning(remote_raphael, alice, bob, eve), author: eve.person)
     }
 
     it "calls filter_mentions on self" do
@@ -37,7 +37,7 @@ describe Notifications::Mentioned do
     end
 
     it "creates email notification for mention" do
-      status_message = FactoryGirl.create(:status_message, text: text_mentioning(alice), author: eve.person)
+      status_message = FactoryBot.create(:status_message, text: text_mentioning(alice), author: eve.person)
       expect_any_instance_of(TestNotification).to receive(:email_the_user).with(
         Mention.where(mentions_container: status_message, person: alice.person_id).first,
         status_message.author
@@ -53,7 +53,7 @@ describe Notifications::Mentioned do
     end
 
     it "doesn't create notification if it already exists" do
-      status_message = FactoryGirl.create(:status_message, text: text_mentioning(alice), author: eve.person)
+      status_message = FactoryBot.create(:status_message, text: text_mentioning(alice), author: eve.person)
       TestNotification.create(
         recipient: alice,
         target:    Mention.where(mentions_container: status_message, person: alice.person_id).first,

@@ -80,7 +80,7 @@ describe MessagesController, :type => :controller do
       end
 
       it "doesn't overwrite author_id" do
-        new_user = FactoryGirl.create(:user)
+        new_user = FactoryBot.create(:user)
         @message_params[:author_id] = new_user.person.id.to_s
 
         post :create, params: @message_params

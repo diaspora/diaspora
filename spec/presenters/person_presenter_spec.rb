@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 describe PersonPresenter do
-  let(:profile_user) { FactoryGirl.create(:user_with_aspect) }
+  let(:profile_user) { FactoryBot.create(:user_with_aspect) }
   let(:person) { profile_user.person }
 
   let(:mutual_contact) {
-    FactoryGirl.create(:contact, user: current_user, person: person, sharing: true, receiving: true)
+    FactoryBot.create(:contact, user: current_user, person: person, sharing: true, receiving: true)
   }
   let(:receiving_contact) {
-    FactoryGirl.create(:contact, user: current_user, person: person, sharing: false, receiving: true)
+    FactoryBot.create(:contact, user: current_user, person: person, sharing: false, receiving: true)
   }
   let(:sharing_contact) {
-    FactoryGirl.create(:contact, user: current_user, person: person, sharing: true, receiving: false)
+    FactoryBot.create(:contact, user: current_user, person: person, sharing: true, receiving: false)
   }
   let(:non_contact) {
-    FactoryGirl.create(:contact, user: current_user, person: person, sharing: false, receiving: false)
+    FactoryBot.create(:contact, user: current_user, person: person, sharing: false, receiving: false)
   }
 
   describe "#as_json" do
@@ -35,7 +35,7 @@ describe PersonPresenter do
     end
 
     context "with a current_user" do
-      let(:current_user) { FactoryGirl.create(:user) }
+      let(:current_user) { FactoryBot.create(:user) }
       let(:presenter){ PersonPresenter.new(person, current_user) }
       # here private information == addtional user profile, because additional profile by default is private
 
@@ -87,7 +87,7 @@ describe PersonPresenter do
   end
 
   describe "#full_hash" do
-    let(:current_user) { FactoryGirl.create(:user) }
+    let(:current_user) { FactoryBot.create(:user) }
 
     before do
       @p = PersonPresenter.new(person, current_user)
@@ -130,7 +130,7 @@ describe PersonPresenter do
   end
 
   describe "#hovercard" do
-    let(:current_user) { FactoryGirl.create(:user) }
+    let(:current_user) { FactoryBot.create(:user) }
     let(:presenter) { PersonPresenter.new(person, current_user) }
 
     it "contains data required for hovercard" do

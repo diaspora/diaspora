@@ -51,9 +51,9 @@ describe AccountDeletion, type: :model do
     end
 
     it "includes remote resharers" do
-      status_message = FactoryGirl.create(:status_message, public: true, author: alice.person)
-      FactoryGirl.create(:reshare, author: remote_raphael, root: status_message)
-      FactoryGirl.create(:reshare, author: local_luke.person, root: status_message)
+      status_message = FactoryBot.create(:status_message, public: true, author: alice.person)
+      FactoryBot.create(:reshare, author: remote_raphael, root: status_message)
+      FactoryBot.create(:reshare, author: local_luke.person, root: status_message)
 
       expect(account_deletion.subscribers).to eq([remote_raphael])
     end

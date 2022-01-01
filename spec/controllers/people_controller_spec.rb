@@ -15,18 +15,18 @@ describe PeopleController, :type => :controller do
 
   describe '#index (search)' do
     before do
-      @eugene = FactoryGirl.create(
+      @eugene = FactoryBot.create(
         :person,
-        profile: FactoryGirl.build(:profile, first_name: "Eugene", last_name: "w")
+        profile: FactoryBot.build(:profile, first_name: "Eugene", last_name: "w")
       )
-      @korth = FactoryGirl.create(
+      @korth = FactoryBot.create(
         :person,
-        profile: FactoryGirl.build(:profile, first_name: "Evan", last_name: "Korth")
+        profile: FactoryBot.build(:profile, first_name: "Evan", last_name: "Korth")
       )
-      @closed = FactoryGirl.create(
+      @closed = FactoryBot.create(
         :person,
         closed_account: true,
-        profile:        FactoryGirl.build(:profile, first_name: "Closed", last_name: "Account")
+        profile:        FactoryBot.build(:profile, first_name: "Closed", last_name: "Account")
       )
     end
 
@@ -57,8 +57,8 @@ describe PeopleController, :type => :controller do
     describe 'via html' do
       context 'query is a diaspora ID' do
         before do
-          @unsearchable_eugene = FactoryGirl.create(:person, :diaspora_handle => "eugene@example.org",
-                                         :profile => FactoryGirl.build(:profile, :first_name => "Eugene",
+          @unsearchable_eugene = FactoryBot.create(:person, :diaspora_handle => "eugene@example.org",
+                                         :profile => FactoryBot.build(:profile, :first_name => "Eugene",
                                                                    :last_name => "w", :searchable => false))
         end
         it 'finds people even if they have searchable off' do
@@ -99,8 +99,8 @@ describe PeopleController, :type => :controller do
         end
 
         it "assigns people" do
-          eugene2 = FactoryGirl.create(:person,
-                            :profile => FactoryGirl.build(:profile, :first_name => "Eugene",
+          eugene2 = FactoryBot.create(:person,
+                            :profile => FactoryBot.build(:profile, :first_name => "Eugene",
                                                       :last_name => "w"))
           get :index, params: {q: "Eug"}
           expect(assigns[:people].map { |x| x.id }).to match_array([@eugene.id, eugene2.id])
@@ -129,8 +129,8 @@ describe PeopleController, :type => :controller do
         end
 
         it "excludes people who have searchable off" do
-          eugene2 = FactoryGirl.create(:person,
-                            :profile => FactoryGirl.build(:profile, :first_name => "Eugene",
+          eugene2 = FactoryBot.create(:person,
+                            :profile => FactoryBot.build(:profile, :first_name => "Eugene",
                                                       :last_name => "w", :searchable => false))
           get :index, params: {q: "Eug"}
           expect(assigns[:people]).not_to match_array([eugene2])
@@ -150,7 +150,7 @@ describe PeopleController, :type => :controller do
       @posts = []
       @users = []
       8.times do |n|
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         @users << user
         aspect = user.aspects.create(:name => 'people')
         connect_users(@user, @user.aspects.first, user, aspect)
@@ -173,7 +173,7 @@ describe PeopleController, :type => :controller do
 
   describe '#show' do
     before do
-      @person = FactoryGirl.create(:user).person
+      @person = FactoryBot.create(:user).person
       @presenter = PersonPresenter.new(@person, @user)
     end
 
@@ -214,7 +214,7 @@ describe PeopleController, :type => :controller do
     end
 
     it 'redirects home for closed account' do
-      @person = FactoryGirl.create(:person, :closed_account => true)
+      @person = FactoryBot.create(:person, :closed_account => true)
       get :show, params: {id: @person.to_param}
       expect(response).to be_redirect
       expect(flash[:notice]).not_to be_blank
@@ -275,7 +275,7 @@ describe PeopleController, :type => :controller do
       end
 
       it 'forces to sign in if the person is remote' do
-        p = FactoryGirl.create(:person)
+        p = FactoryBot.create(:person)
 
         get :show, params: {id: p.to_param}
         expect(response).to be_redirect
@@ -325,7 +325,7 @@ describe PeopleController, :type => :controller do
       end
 
       it 'marks a corresponding notifications as read' do
-        note = FactoryGirl.create(:notification, :recipient => @user, :target => @person, :unread => true)
+        note = FactoryBot.create(:notification, :recipient => @user, :target => @person, :unread => true)
 
         expect {
           get :show, params: {id: @person.to_param}
@@ -417,7 +417,7 @@ describe PeopleController, :type => :controller do
       end
 
       it "includes reshares" do
-        reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
+        reshare = @user.post(:reshare, :public => true, :root_guid => FactoryBot.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
         get :stream, params: {person_id: @user.person.to_param}, format: :json
         expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
       end
@@ -455,7 +455,7 @@ describe PeopleController, :type => :controller do
       end
 
       it "posts include reshares" do
-        reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
+        reshare = @user.post(:reshare, :public => true, :root_guid => FactoryBot.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
         get :stream, params: {person_id: @user.person.to_param}, format: :json
         expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
       end
@@ -479,7 +479,7 @@ describe PeopleController, :type => :controller do
         end
 
         it "posts include reshares" do
-          reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
+          reshare = @user.post(:reshare, :public => true, :root_guid => FactoryBot.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
           get :stream, params: {person_id: @user.person.to_param}, format: :json
           expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
         end
@@ -499,7 +499,7 @@ describe PeopleController, :type => :controller do
 
   describe '#hovercard' do
     before do
-      @hover_test = FactoryGirl.create(:person)
+      @hover_test = FactoryBot.create(:person)
       @hover_test.profile.tag_string = '#test #tags'
       @hover_test.profile.save!
     end
@@ -542,18 +542,18 @@ describe PeopleController, :type => :controller do
 
   describe '#refresh_search ' do
     before(:each)do
-      @eugene = FactoryGirl.create(
+      @eugene = FactoryBot.create(
         :person,
-        profile: FactoryGirl.build(:profile, first_name: "Eugene", last_name: "w")
+        profile: FactoryBot.build(:profile, first_name: "Eugene", last_name: "w")
       )
-      @korth = FactoryGirl.create(
+      @korth = FactoryBot.create(
         :person,
-        profile: FactoryGirl.build(:profile, first_name: "Evan", last_name: "Korth")
+        profile: FactoryBot.build(:profile, first_name: "Evan", last_name: "Korth")
       )
-      @closed = FactoryGirl.create(
+      @closed = FactoryBot.create(
         :person,
         closed_account: true,
-        profile:        FactoryGirl.build(:profile, first_name: "Closed", last_name: "Account")
+        profile:        FactoryBot.build(:profile, first_name: "Closed", last_name: "Account")
       )
     end
 

@@ -32,7 +32,7 @@ describe StreamsController, :type => :controller do
 
       context "getting started" do
         it "add the inviter to gon" do
-          user = FactoryGirl.create(:user, getting_started: true, invited_by: alice)
+          user = FactoryBot.create(:user, getting_started: true, invited_by: alice)
           sign_in user
 
           get :multi

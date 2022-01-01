@@ -7,7 +7,7 @@
 describe PeopleHelper, :type => :helper do
   before do
     @user = alice
-    @person = FactoryGirl.create(:person)
+    @person = FactoryBot.create(:person)
   end
 
   describe "#birthday_format" do
@@ -47,7 +47,7 @@ describe PeopleHelper, :type => :helper do
 
   describe '#person_link' do
     before do
-      @person = FactoryGirl.create(:person)
+      @person = FactoryBot.create(:person)
     end
 
     it 'includes the name of the person if they have a first name' do
@@ -86,7 +86,7 @@ describe PeopleHelper, :type => :helper do
 
   describe '#local_or_remote_person_path' do
     before do
-      @user = FactoryGirl.create(:user)
+      @user = FactoryBot.create(:user)
     end
 
     it "links by id if there is a period in the user's username" do

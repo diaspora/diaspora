@@ -150,7 +150,7 @@ STR
       end
 
       it "fetches unknown handles" do
-        person = FactoryGirl.build(:person)
+        person = FactoryBot.build(:person)
         expect(Person).to receive(:find_or_fetch_by_identifier).with("xxx@xxx.xx").and_return(person)
         ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx}")
         expect(ppl).to eq([person])
@@ -166,9 +166,9 @@ STR
   end
 
   describe ".filter_people" do
-    let(:user_a) { FactoryGirl.create(:user_with_aspect, username: "user_a") }
-    let(:user_b) { FactoryGirl.create(:user, username: "user_b") }
-    let(:user_c) { FactoryGirl.create(:user, username: "user_c") }
+    let(:user_a) { FactoryBot.create(:user_with_aspect, username: "user_a") }
+    let(:user_b) { FactoryBot.create(:user, username: "user_b") }
+    let(:user_c) { FactoryBot.create(:user, username: "user_c") }
 
     before do
       user_a.aspects.create!(name: "second")
@@ -225,8 +225,8 @@ STR
     end
 
     it "removes curly braces from name of the mentioned person when adding it" do
-      profile = FactoryGirl.build(:profile, first_name: "{Alice}", last_name: "(Smith) [123]")
-      person = FactoryGirl.create(:person, profile: profile)
+      profile = FactoryBot.build(:profile, first_name: "{Alice}", last_name: "(Smith) [123]")
+      person = FactoryBot.create(:person, profile: profile)
       text = "mention @{#{person.diaspora_handle}} text"
       expected_text = "mention @{Alice (Smith) [123]; #{person.diaspora_handle}} text"
       expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(expected_text)

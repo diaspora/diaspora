@@ -54,14 +54,14 @@ describe PhotosController, :type => :controller do
     end
 
     it "doesn't allow mass assignment of person" do
-      new_user = FactoryGirl.create(:user)
+      new_user = FactoryBot.create(:user)
       @params[:photo][:author] = new_user
       post :create, params: @params
       expect(Photo.last.author).to eq(alice.person)
     end
 
     it "doesn't allow mass assignment of person_id" do
-      new_user = FactoryGirl.create(:user)
+      new_user = FactoryBot.create(:user)
       @params[:photo][:author_id] = new_user.id
       post :create, params: @params
       expect(Photo.last.author).to eq(alice.person)
@@ -79,13 +79,13 @@ describe PhotosController, :type => :controller do
 
   describe '#index' do
     it "succeeds without any available pictures" do
-      get :index, params: {person_id: FactoryGirl.create(:person).guid}
+      get :index, params: {person_id: FactoryBot.create(:person).guid}
 
       expect(response).to be_successful
     end
 
     it "succeeds on mobile devices without any available pictures" do
-      get :index, params: {person_id: FactoryGirl.create(:person).guid}, format: :mobile
+      get :index, params: {person_id: FactoryBot.create(:person).guid}, format: :mobile
       expect(response).to be_successful
     end
 
@@ -149,7 +149,7 @@ describe PhotosController, :type => :controller do
       end
 
       it "forces to sign in if the person is remote" do
-        p = FactoryGirl.create(:person)
+        p = FactoryBot.create(:person)
 
         get :index, params: {person_id: p.to_param}
         expect(response).to be_redirect

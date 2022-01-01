@@ -84,7 +84,7 @@ describe "Receive federation messages feature" do
         end
 
         context "when our pod was left" do
-          let(:sender) { FactoryGirl.create(:user) }
+          let(:sender) { FactoryBot.create(:user) }
 
           it "locks the old user account access" do
             run_migration
@@ -108,7 +108,7 @@ describe "Receive federation messages feature" do
 
     context "reshare" do
       it "reshare of public post passes" do
-        post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+        post = FactoryBot.create(:status_message, author: alice.person, public: true)
         reshare = Fabricate(
           :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id)
 
@@ -128,7 +128,7 @@ describe "Receive federation messages feature" do
       end
 
       it "reshare of private post fails" do
-        post = FactoryGirl.create(:status_message, author: alice.person, public: false)
+        post = FactoryBot.create(:status_message, author: alice.person, public: false)
         reshare = Fabricate(
           :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id)
         expect {
@@ -211,7 +211,7 @@ describe "Receive federation messages feature" do
       context "with message" do
         context "local" do
           let(:parent) {
-            FactoryGirl.build(:conversation, author: alice.person).tap do |target|
+            FactoryBot.build(:conversation, author: alice.person).tap do |target|
               target.participants << remote_user_on_pod_b.person
               target.participants << remote_user_on_pod_c.person
               target.save
@@ -238,7 +238,7 @@ describe "Receive federation messages feature" do
 
         context "remote" do
           let(:parent) {
-            FactoryGirl.build(:conversation, author: remote_user_on_pod_b.person).tap do |target|
+            FactoryBot.build(:conversation, author: remote_user_on_pod_b.person).tap do |target|
               target.participants << alice.person
               target.participants << remote_user_on_pod_c.person
               target.save

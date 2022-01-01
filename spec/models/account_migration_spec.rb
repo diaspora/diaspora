@@ -8,13 +8,13 @@ describe AccountMigration, type: :model do
 
     it "locks old local user after creation" do
       expect {
-        AccountMigration.create!(old_person: old_person, new_person: FactoryGirl.create(:person))
+        AccountMigration.create!(old_person: old_person, new_person: FactoryBot.create(:person))
       }.to change { old_user.reload.access_locked? }.to be_truthy
     end
   end
 
-  let(:old_person) { FactoryGirl.create(:person) }
-  let(:new_person) { FactoryGirl.create(:person) }
+  let(:old_person) { FactoryBot.create(:person) }
+  let(:new_person) { FactoryBot.create(:person) }
   let(:account_migration) {
     AccountMigration.create!(old_person: old_person, new_person: new_person)
   }
@@ -62,11 +62,11 @@ describe AccountMigration, type: :model do
     end
 
     it "is truthy when completed_at is set" do
-      expect(FactoryGirl.create(:account_migration, completed_at: Time.zone.now).performed?).to be_truthy
+      expect(FactoryBot.create(:account_migration, completed_at: Time.zone.now).performed?).to be_truthy
     end
 
     it "is falsey when completed_at is null" do
-      account_migration = FactoryGirl.create(:account_migration, completed_at: nil)
+      account_migration = FactoryBot.create(:account_migration, completed_at: nil)
       account_migration.old_person.lock_access!
       expect(account_migration.performed?).to be_falsey
     end
@@ -121,7 +121,7 @@ describe AccountMigration, type: :model do
       end
 
       it "resends contacts to the remote pod" do
-        contact = FactoryGirl.create(:contact, person: old_person, sharing: true)
+        contact = FactoryBot.create(:contact, person: old_person, sharing: true)
         expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(contact.user, contact)
         account_migration.perform!
       end
@@ -162,25 +162,25 @@ describe AccountMigration, type: :model do
 
     context "with remote account merging (non-empty new person)" do
       before do
-        FactoryGirl.create(
+        FactoryBot.create(
           :contact,
           person: new_person,
-          user:   FactoryGirl.create(:contact, person: old_person).user
+          user:   FactoryBot.create(:contact, person: old_person).user
         )
-        FactoryGirl.create(
+        FactoryBot.create(
           :like,
           author: new_person,
-          target: FactoryGirl.create(:like, author: old_person).target
+          target: FactoryBot.create(:like, author: old_person).target
         )
-        FactoryGirl.create(
+        FactoryBot.create(
           :participation,
           author: new_person,
-          target: FactoryGirl.create(:participation, author: old_person).target
+          target: FactoryBot.create(:participation, author: old_person).target
         )
-        FactoryGirl.create(
+        FactoryBot.create(
           :poll_participation,
           author:      new_person,
-          poll_answer: FactoryGirl.create(:poll_participation, author: old_person).poll_answer
+          poll_answer: FactoryBot.create(:poll_participation, author: old_person).poll_answer
         )
       end
 
@@ -200,20 +200,20 @@ describe AccountMigration, type: :model do
       include_context "with local new user"
 
       before do
-        FactoryGirl.create(
+        FactoryBot.create(
           :aspect,
           user: new_person.owner,
-          name: FactoryGirl.create(:aspect, user: old_person.owner).name
+          name: FactoryBot.create(:aspect, user: old_person.owner).name
         )
-        FactoryGirl.create(
+        FactoryBot.create(
           :contact,
           user:   new_person.owner,
-          person: FactoryGirl.create(:contact, user: old_person.owner).person
+          person: FactoryBot.create(:contact, user: old_person.owner).person
         )
-        FactoryGirl.create(
+        FactoryBot.create(
           :tag_following,
           user: new_person.owner,
-          tag:  FactoryGirl.create(:tag_following, user: old_person.owner).tag
+          tag:  FactoryBot.create(:tag_following, user: old_person.owner).tag
         )
       end
 

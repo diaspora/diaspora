@@ -3,8 +3,8 @@
 describe Workers::Mail::Liked do
   describe "#perform" do
     it "should call .deliver_now on the notifier object" do
-      sm = FactoryGirl.build(:status_message, author: bob.person, public: true)
-      like = FactoryGirl.build(:like, author: alice.person, target: sm)
+      sm = FactoryBot.build(:status_message, author: bob.person, public: true)
+      like = FactoryBot.build(:like, author: alice.person, target: sm)
 
       mail_double = double
       expect(mail_double).to receive(:deliver_now)
@@ -15,8 +15,8 @@ describe Workers::Mail::Liked do
     end
 
     it "should not fail if the like is not found" do
-      sm = FactoryGirl.build(:status_message, author: bob.person, public: true)
-      like = FactoryGirl.build(:like, author: alice.person, target: sm)
+      sm = FactoryBot.build(:status_message, author: bob.person, public: true)
+      like = FactoryBot.build(:like, author: alice.person, target: sm)
 
       expect(Notifier).to receive(:send_notification).with("liked", bob.id, like.author.id, like.id)
         .and_raise(ActiveRecord::RecordNotFound.new("Couldn't find Like with 'id'=42"))
@@ -25,8 +25,8 @@ describe Workers::Mail::Liked do
     end
 
     it "should fail if the sender is not found" do
-      sm = FactoryGirl.build(:status_message, author: bob.person, public: true)
-      like = FactoryGirl.build(:like, author: alice.person, target: sm)
+      sm = FactoryBot.build(:status_message, author: bob.person, public: true)
+      like = FactoryBot.build(:like, author: alice.person, target: sm)
 
       expect(Notifier).to receive(:send_notification).with("liked", bob.id, like.author.id, like.id)
         .and_raise(ActiveRecord::RecordNotFound.new("Couldn't find Person with 'id'=42"))

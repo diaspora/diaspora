@@ -11,7 +11,7 @@ describe Participation, type: :model do
     end
 
     it "returns the parent author on remote parent" do
-      remote_parent = FactoryGirl.create(:status_message, author: remote_raphael)
+      remote_parent = FactoryBot.create(:status_message, author: remote_raphael)
       participation = local_luke.participate!(remote_parent)
       expect(participation.subscribers).to match_array([remote_raphael])
     end

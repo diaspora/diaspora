@@ -10,7 +10,7 @@ require File.join(File.dirname(__FILE__), "..", "config", "environment")
 require Rails.root.join("spec", "helper_methods")
 require "rspec/rails"
 require "webmock/rspec"
-require "factory_girl"
+require "factory_bot_rails"
 require "sidekiq/testing"
 require "shoulda/matchers"
 require "diaspora_federation/schemas"
@@ -131,7 +131,7 @@ RSpec.configure do |config|
     RequestStore.store[:gon].gon.clear unless RequestStore.store[:gon].nil?
   end
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   config.include JSON::SchemaMatchers
   config.json_schemas[:archive_schema] = "lib/schemas/archive-format.json"

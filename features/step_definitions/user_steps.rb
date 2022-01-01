@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
-  @me ||= FactoryGirl.create(:user, :username => username, :password => password,
+  @me ||= FactoryBot.create(:user, :username => username, :password => password,
                   :password_confirmation => password, :getting_started => false)
   @me.aspects.create(:name => "Besties")
   @me.aspects.create(:name => "Unicorns")
@@ -50,7 +50,7 @@ Given /^(?:|[tT]hat )?following user[s]?(?: exist[s]?)?:$/ do |table|
 end
 
 Given /^I have been invited by an admin$/ do
-  admin = FactoryGirl.create(:user)
+  admin = FactoryBot.create(:user)
   admin.invitation_code
   i = EmailInviter.new("new_invitee@example.com", admin)
   i.send!
@@ -107,8 +107,8 @@ Given /^a user with email "([^\"]*)" is tagged "([^\"]*)"$/ do |email, tags|
 end
 
 Given /^many posts from alice for bob$/ do
-  alice = FactoryGirl.create(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
-  bob = FactoryGirl.create(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)
+  alice = FactoryBot.create(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
+  bob = FactoryBot.create(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)
   connect_users_with_aspects(alice, bob)
   time_fulcrum = Time.now - 40000
   time_interval = 1000
@@ -171,7 +171,7 @@ end
 
 When /^"([^\"]+)" has posted a (public )?status message with a photo$/ do |email, public_status|
   user = User.find_for_database_authentication(:username => email)
-  post = FactoryGirl.create(
+  post = FactoryBot.create(
     :status_message_with_photo,
     text:   "Look at this dog",
     author: user.person,
@@ -195,7 +195,7 @@ Given /^I have (\d+) contacts$/ do |n|
   aspect_memberships = []
 
   count.times do
-    person = FactoryGirl.create(:person)
+    person = FactoryBot.create(:person)
     people << person
   end
 
@@ -233,5 +233,5 @@ Then /^I should get a zipped file$/ do
 end
 
 And /^a person with ID "([^\"]*)" has been discovered$/ do |diaspora_id|
-  FactoryGirl.create(:person, diaspora_handle: diaspora_id)
+  FactoryBot.create(:person, diaspora_handle: diaspora_id)
 end

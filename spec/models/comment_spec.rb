@@ -27,9 +27,9 @@ describe Comment, type: :model do
   end
 
   describe "#subscribers" do
-    let(:status_bob) { FactoryGirl.create(:status_message, public: true, author: bob.person) }
+    let(:status_bob) { FactoryBot.create(:status_message, public: true, author: bob.person) }
     let(:comment_alice) {
-      FactoryGirl.create(
+      FactoryBot.create(
         :comment,
         text:   text_mentioning(remote_raphael, local_luke),
         post:   status_bob,
@@ -48,7 +48,7 @@ describe Comment, type: :model do
     end
 
     context "on a non parent post pod" do
-      let(:status_bob) { FactoryGirl.create(:status_message) } # make the message remote
+      let(:status_bob) { FactoryBot.create(:status_message) } # make the message remote
 
       it "doesn't include mentioned people to subscribers list" do
         expect(comment_alice.subscribers).not_to include(remote_raphael)
@@ -110,11 +110,11 @@ describe Comment, type: :model do
   end
 
   it_behaves_like "it is relayable" do
-    let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_raphael) }
+    let(:remote_parent) { FactoryBot.create(:status_message, author: remote_raphael) }
     let(:local_parent) { local_luke.post(:status_message, text: "hi", to: local_luke.aspects.first) }
     let(:object_on_local_parent) { local_luke.comment!(local_parent, "yo!") }
     let(:object_on_remote_parent) { local_luke.comment!(remote_parent, "Yeah, it was great") }
-    let(:remote_object_on_local_parent) { FactoryGirl.create(:comment, post: local_parent, author: remote_raphael) }
+    let(:remote_object_on_local_parent) { FactoryBot.create(:comment, post: local_parent, author: remote_raphael) }
     let(:relayable) { Comment::Generator.new(alice, status_bob, "why so formal?").build }
   end
 
