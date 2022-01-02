@@ -2,7 +2,6 @@
 //= require js_image_paths
 
 function createUploader(){
-  var aspectIds = gon.preloads.aspect_ids;
   var fileInfo = $("#fileInfo-publisher");
 
   // Initialize the PostPhotoUploader and subscribe its events
