@@ -1,5 +1,6 @@
 describe("Diaspora.MarkdownEditor", function() {
   beforeEach(function() {
+    Diaspora.I18n.load(spec.defaultLocale, "en");
     spec.content().html("<textarea id='fake-textarea'></textarea>");
     this.$el = $("#fake-textarea");
   });

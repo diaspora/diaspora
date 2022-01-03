@@ -1,6 +1,7 @@
 describe('app.Router', function () {
   describe('followed_tags', function() {
     beforeEach(function() {
+      loginAs({name: 'alice'});
       factory.preloads({tagFollowings: []});
       spec.loadFixture("aspects_index");
     });
@@ -74,6 +75,7 @@ describe('app.Router', function () {
 
   describe("aspects", function() {
     it("calls _initializeStreamView", function() {
+      new app.models.Stream();
       spyOn(app.router, "_initializeStreamView");
       app.router.aspects();
       expect(app.router._initializeStreamView).toHaveBeenCalled();
@@ -123,6 +125,7 @@ describe('app.Router', function () {
 
   describe("stream", function() {
     it("calls _initializeStreamView", function() {
+      app.publisher = new app.views.Publisher({standalone: true});
       spyOn(app.router, "_initializeStreamView");
       app.router.stream();
       expect(app.router._initializeStreamView).toHaveBeenCalled();
