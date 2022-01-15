@@ -1,6 +1,7 @@
 describe("app.views.Stream", function() {
   beforeEach(function() {
     // This puts `app.page` into the proper state.
+    delete app.page;
     new app.Router().stream();
 
     loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});

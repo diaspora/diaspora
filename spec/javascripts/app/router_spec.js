@@ -1,4 +1,9 @@
 describe('app.Router', function () {
+  beforeEach(function () {
+    delete app.page;
+    new app.Router().stream();
+  });
+
   describe('followed_tags', function() {
     beforeEach(function() {
       loginAs({name: 'alice'});
