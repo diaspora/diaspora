@@ -33,6 +33,10 @@ describe("app", function() {
   });
 
   describe("user", function() {
+    beforeEach(function() {
+      logout();
+    });
+
     it("returns false if the current_user isn't set", function() {
       app._user = undefined;
       expect(app.user()).toEqual(false);
