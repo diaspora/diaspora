@@ -14,6 +14,12 @@ describe("app.collections.Notifications", function() {
 
     it("initializes attributes", function() {
       var target = new app.collections.Notifications();
+      /* I don't know how backbone is working, but if I don't force reset the old values are kept from previous test */
+      if (target !== undefined) {
+        target.unreadCount = 0;
+        target.unreadCountByType = {};
+      }
+      /* end of force refresh */
       expect(target.model).toBe(app.models.Notification);
       /* eslint-disable camelcase */
       expect(target.url).toBe(Routes.notifications({per_page: 10, page: 1}));
@@ -174,6 +180,12 @@ describe("app.collections.Notifications", function() {
   describe("parse", function() {
     beforeEach(function() {
       this.target = new app.collections.Notifications();
+      /* I don't know how backbone is working, but if I don't force reset the old values are kept from previous test */
+      if (this.target !== undefined) {
+        this.target.unreadCount = 0;
+        this.target.unreadCountByType = {};
+      }
+      /* end of force refresh */
     });
 
     it("sets the unreadCount and unreadCountByType attributes", function() {
