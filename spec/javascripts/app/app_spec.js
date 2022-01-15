@@ -1,4 +1,8 @@
 describe("app", function() {
+  beforeAll(function() {
+    Diaspora.I18n.load(spec.defaultLocale, "en");
+  });
+
   afterAll(function() {
     Backbone.history.stop();
     app.initialize();
