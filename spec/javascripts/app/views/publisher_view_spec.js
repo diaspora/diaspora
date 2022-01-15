@@ -199,7 +199,7 @@ describe("app.views.Publisher", function() {
 
     describe("createStatusMessage", function(){
       it("adds the status message to the stream", function() {
-        new app.models.Stream();
+        app.stream = new app.models.Stream();
 
         spyOn(app.stream, "addNow");
         this.view.createStatusMessage($.Event());
