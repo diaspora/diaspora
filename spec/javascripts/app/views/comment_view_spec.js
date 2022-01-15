@@ -47,6 +47,10 @@ describe("app.views.Comment", function(){
   });
 
   describe("canRemove", function(){
+    beforeEach(function(){
+      loginAs({name:'alice'});
+    });
+
     context("is truthy", function(){
       it("when ownComment is true", function(){
         spyOn(this.view, "ownComment").and.returnValue(true);
