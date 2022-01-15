@@ -81,6 +81,7 @@ describe('app.Router', function () {
   describe("aspects", function() {
     it("calls _initializeStreamView", function() {
       new app.models.Stream();
+      app.publisher = new app.views.Publisher({standalone: true});
       spyOn(app.router, "_initializeStreamView");
       app.router.aspects();
       expect(app.router._initializeStreamView).toHaveBeenCalled();
