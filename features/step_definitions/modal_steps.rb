@@ -9,7 +9,9 @@ Then /^I should see the mention modal$/ do
 end
 
 When /^I put in my password in the close account modal$/ do
-  fill_in("#close_account_password", with: @me.password)
+  # Capybara helpers fill_in, set and send_keys currently don't work
+  # inside of Bootstrap modals on Travis CI
+  execute_script("$(\"#closeAccountModal input#close_account_password\").val(\"#{@me.password}\")")
   expect(find("#closeAccountModal input#close_account_password").value).to eq(@me.password)
 end
 
