@@ -3,7 +3,7 @@
 module SessionsHelper
   def prefilled_username
     uri = Addressable::URI.parse(session["user_return_to"])
-    uri.query_values["login_hint"] if uri&.query_values
+    uri&.query_values&.fetch("login_hint")
   end
 
   def authorization_context?
