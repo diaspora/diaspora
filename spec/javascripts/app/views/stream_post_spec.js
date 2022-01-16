@@ -3,7 +3,7 @@ describe("app.views.StreamPost", function(){
     // This puts `app.page` into the proper state.
     delete app.page;
     new app.Router().stream();
-    
+
     this.PostViewClass = app.views.StreamPost;
 
     var posts = $.parseJSON(spec.readFixture("stream_json"));

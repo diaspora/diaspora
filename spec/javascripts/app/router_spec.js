@@ -1,12 +1,12 @@
 describe('app.Router', function () {
-  beforeEach(function () {
+  beforeEach(function() {
     delete app.page;
     new app.Router().stream();
   });
 
   describe('followed_tags', function() {
     beforeEach(function() {
-      loginAs({name: 'alice'});
+      loginAs({name: "alice"});
       factory.preloads({tagFollowings: []});
       spec.loadFixture("aspects_index");
     });

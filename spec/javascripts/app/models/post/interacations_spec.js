@@ -122,11 +122,11 @@ describe("app.models.Post.Interactions", function(){
     });
 
     it("adds the reshare to the default, activity and aspects stream", function() {
-      app.stream = new app.models.Stream(_, { basePath: "/aspects/all" });
+      app.stream = new app.models.Stream(_, {basePath: "/aspects/all"});
 
       spyOn(app.stream, "addNow");
       var self = this;
-      
+
       ["/stream", "/activity", "/aspects"].forEach(function(path) {
         app.stream.basePath = function() { return path; };
         self.interactions.reshare();
@@ -135,11 +135,11 @@ describe("app.models.Post.Interactions", function(){
         expect(app.stream.addNow).toHaveBeenCalledWith({id: 1});
       });
 
-      new app.models.Stream(_, { basePath: "/aspects/all" });
+      app.stream = new app.models.Stream(_, {basePath: "/aspects/all"});
     });
 
     it("doesn't add the reshare to any other stream", function() {
-      app.stream = new app.models.Stream(_, { basePath: "/aspects/all" });
+      app.stream = new app.models.Stream(_, {basePath: "/aspects/all"});
 
       spyOn(app.stream, "addNow");
       var self = this;
@@ -150,7 +150,7 @@ describe("app.models.Post.Interactions", function(){
         expect(app.stream.addNow).not.toHaveBeenCalled();
       });
 
-      new app.models.Stream(_, { basePath: "/aspects/all" });
+      app.stream = new app.models.Stream(_, {basePath: "/aspects/all"});
     });
 
     it("sets the participation flag for the post", function() {
