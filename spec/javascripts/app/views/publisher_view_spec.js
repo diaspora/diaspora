@@ -26,7 +26,7 @@ describe("app.views.Publisher", function() {
     describe("createStatusMessage", function(){
       it("doesn't add the status message to the stream", function() {
         app.stream = new app.models.Stream();
-      
+
         spyOn(app.stream, "addNow");
         this.view.createStatusMessage($.Event());
         jasmine.Ajax.requests.mostRecent().respondWith({ status: 200, responseText: "{\"id\": 1}" });
