@@ -9,6 +9,7 @@ describe('app.Router', function () {
       loginAs({name: "alice"});
       factory.preloads({tagFollowings: []});
       spec.loadFixture("aspects_index");
+      app.publisher = new app.views.Publisher({standalone: true});
     });
 
     it('decodes name before passing it into TagFollowingAction', function () {
