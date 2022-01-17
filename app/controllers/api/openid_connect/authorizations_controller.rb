@@ -19,6 +19,7 @@ module Api
         handle_params_error("bad_request", e.message)
       end
 
+      before_action :remember_authorization_context, only: [:new]
       before_action :auth_user_unless_prompt_none!
 
       def new
@@ -33,6 +34,10 @@ module Api
         else
           handle_authorization_form(auth)
         end
+      end
+
+      def remember_authorization_context
+        session[:authorization_context] = true
       end
 
       def create
@@ -131,6 +136,7 @@ module Api
         session[:scopes] = scopes_as_space_seperated_values
         session[:state] = params[:state]
         session[:nonce] = params[:nonce]
+        session.delete(:authorization_context)
       end
 
       def scopes_as_space_seperated_values
