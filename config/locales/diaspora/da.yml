@@ -8,6 +8,7 @@ da:
   _applications: "Applikationer"
   _contacts: "Kontakter"
   _help: "Hjælp"
+  _podmin_mail: "Kontakt Podmin"
   _services: "Tjenester"
   _statistics: "Statistik"
   _terms: "Betingelser"
@@ -971,7 +972,7 @@ da:
 
           Diasporas email-robot!
 
-          [1]:%{url}
+          [1]: %{url}
       subject: "%{type} blev markeret som stødende"
       type:
         comment: "kommentar"
@@ -1241,6 +1242,8 @@ da:
       title: "'Synes om' strøm"
     liked:
       title: "Indlæg nogen syntes om"
+    local_public:
+      title: "Lokale indlæg"
     mentioned_stream: "@Omtaler"
     mentions:
       title: "Dine omtaler"

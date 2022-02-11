@@ -44,6 +44,7 @@ sv:
         ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."
         someone_requested: "Någon har efterfrågat en länk för att återställa ditt lösenord. För att återställa lösenordet, klicka på länken nedan."
         subject: "Instruktioner för att återställa lösenordet"
+        then_connect: "Efter att ett nytt lösenord satts kommer du behöva logga in igen med användarnamnet \"%{username}\" och ditt nya lösenord."
         wont_change: "Ditt lösenord kommer inte ändras förrän du klickat på länken och ändrat det."
       unlock_instructions:
         account_locked: "Ditt konto har låsts eftersom fel lösenord har angivits för många gånger."

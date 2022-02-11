@@ -44,6 +44,7 @@ gl:
         ignore: "Se non foi vostede quen solicitou o cambio, pode ignorar esta mensaxe."
         someone_requested: "Alguén solicitou cambiar o teu contrasinal. Se foches ti, preme na seguinte ligazón:"
         subject: "Instrucións para cambiar o contrasinal"
+        then_connect: "Após establecer o novo contrasinal terás que volver a conectarte a diaspora* utilizando o identificador \"%{username}\" e o novo contrasinal."
         wont_change: "Para cambiar de contrasinal, prema a seguinte ligazón e escolla un novo."
       unlock_instructions:
         account_locked: "A conta bloqueouse por mor do gran número de intentos errados de identificarse con ela."

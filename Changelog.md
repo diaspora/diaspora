@@ -37,7 +37,19 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Allow podmins/moderators to see all local public posts to improve moderation [#8232](https://github.com/diaspora/diaspora/pull/8232) [#8320](https://github.com/diaspora/diaspora/pull/8320)
 * Add support for directly paste images to upload them [#8237](https://github.com/diaspora/diaspora/pull/8237)
 
+# 0.7.17.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.16.0
+
+## Security
+
+* Update rails to fix [CVE-2022-23633](https://github.com/advisories/GHSA-wh98-p28r-vrc9) [#8336](https://github.com/diaspora/diaspora/pull/8336)
 
 ## Refactor
 * Cache local posts/comments count for statistics [#8241](https://github.com/diaspora/diaspora/pull/8241)
@@ -48,7 +60,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 
 ## Bug fixes
 * Ensure the log folder exists [#8287](https://github.com/diaspora/diaspora/pull/8287)
-* Limit name length in header [#8313] (https://github.com/diaspora/diaspora/pull/8313)
+* Limit name length in header [#8313](https://github.com/diaspora/diaspora/pull/8313)
 * Fix fallback avatar in hovercards [#8316](https://github.com/diaspora/diaspora/pull/8316)
 * Use old person private key for export if relayable author migrated away [#8310](https://github.com/diaspora/diaspora/pull/8310)
 

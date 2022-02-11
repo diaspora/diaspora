@@ -8,6 +8,7 @@ sv:
   _applications: "Applikationer"
   _contacts: "Kontakter"
   _help: "Hjälp"
+  _podmin_mail: "Kontakta podadministratör"
   _services: "Tjänster"
   _statistics: "Statistik"
   _terms: "Användningsvillkor"
@@ -167,7 +168,7 @@ sv:
           redirection_message: "Är du säker på att du vill ge tillgång till %{redirect_uri}?"
           unknown_scope: "Okänt omfång: %{scope_name}"
       error_page:
-        contact_developer: "Du borde kontakta tillämpningsutvecklaren och bifoga följande detaljerade felmeddelande:"
+        contact_developer: "Du borde kontakta applikationsutvecklaren och bifoga följande detaljerade felmeddelande:"
         could_not_authorize: "Denna tillämpning kunde inte auktoriseras."
         login_required: "Du måste logga in innan du kan auktorisera denna tillämpning."
         title: "Rackarns! Något gick åt pipan."
@@ -193,7 +194,7 @@ sv:
           description: "Det här beviljar läsrättigheter till ditt fullständiga namn."
           name: "Fullständigt namn"
         nickname:
-          description: "Det här beviljar läsrättigheter för din smeknamnsdata."
+          description: "Det här beviljar läsrättigheter för din användarnamn."
           name: "Användarnamn"
         notifications:
           description: "Det här ger läs- och skrivrättigheter till dina notifikationer."
@@ -207,7 +208,7 @@ sv:
         ? "private:modify"
         :
           description: "Det här ändringsrättigheter till att göra publika inlägg."
-          name: "Privata inlägg (Skriva)"
+          name: "Privata inlägg (Skrivning)"
         ? "private:read"
         :
           description: "Det här ger läsrättigheter till dina och dina kontakters privata inlägg."
@@ -945,7 +946,7 @@ sv:
       body: |-
           Hejsan.
 
-          %{type} med id:et %{id} var märkt som stötande.
+          %{type} med id:t %{id} var märkt som stötande.
 
           Orsak: "%{reason}"
 
@@ -1228,6 +1229,8 @@ sv:
       title: "Gilla flöde"
     liked:
       title: "Gillade inlägg"
+    local_public:
+      title: "Lokala inlägg"
     mentioned_stream: "@Omnämnanden"
     mentions:
       title: "@Omnämnanden"
@@ -1299,7 +1302,7 @@ sv:
       also_commented: "någon kommenterar ett inlägg som du redan kommenterat"
       auto_follow_aspect: "Aspekt för de användare som följts automatiskt:"
       auto_follow_back: "Följ automatiskt dem som börjar följa dig"
-      birthday: "någon har fyller år i dag"
+      birthday: "någon fyller år"
       change: "Ändra"
       change_color_theme: "Byt färgtema"
       change_email: "Ändra e-postadress"

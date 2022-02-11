@@ -44,6 +44,7 @@ de:
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."
         someone_requested: "Jemand hat einen Link angefordert, um dein Kennwort zu ändern. Falls du das warst, kannst du das durch den unten aufgeführten Link tun."
         subject: "Setze dein Kenwort zurück"
+        then_connect: "Nachdem du ein neues Passwort eingegeben hast, kannst du dich wieder mit deinem Benutzernamen \"%{username}\" und deinem neuen Passwort in diaspora* einloggen"
         wont_change: "Dein Kennwort bleibt unverändert, bis du es über den Link änderst und ein neues erstellst."
       unlock_instructions:
         account_locked: "Dein Konto wurde aufgrund von zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."

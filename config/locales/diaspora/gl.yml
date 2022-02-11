@@ -8,6 +8,7 @@ gl:
   _applications: "Aplicacións"
   _contacts: "Contactos"
   _help: "Axuda"
+  _podmin_mail: "Contacta con Podmin"
   _services: "Servizos"
   _statistics: "Estatísticas"
   _terms: "Termos"
@@ -141,7 +142,9 @@ gl:
         zero: "%{count} usuarias atopadas"
       view_profile: "Ver perfil"
       you_currently:
-        other: "Ten actualmente %{user_invitation} invitacións, restan %{link}"
+        one: "Tes %{count}  convite restante %{link} "
+        other: "Tes %{count} convites restantes %{link}"
+        zero: "Non tes convites restantes %{link}"
     weekly_user_stats:
       amount_of:
         one: "Número de novas usuarias esta semana: %{count}"
@@ -840,13 +843,13 @@ gl:
       body: |-
           Ola %{name},
 
-          diaspora* detectou un intento de acceso a túa sesión que podería non ter autorización. Para evitar calquera posibilidade de que os teus datos fosen comprometidos, procedemos a desconectala. Non te preocupes, podes voltar a conectar novamente de xeito seguro.
+          diaspora* detectou un intento de acceso a túa sesión que podería non ter autorización. Para evitar calquera posibilidade de que os teus datos fosen comprometidos, procedemos a desconectala. Non te preocupes, podes volver a conectar novamente de xeito seguro.
 
-          Fíxose unha solicitude utilizando un testemuño CSRF incorrecto ou omitido. Esto podería ser totalmente inofensivo, pero podería tratarse dun intento de suplantación (ataque CSRF).
+          Fíxose unha solicitude utilizando un testemuño CSRF incorrecto ou omiteuse. Esto podería ser totalmente inofensivo, pero podería tratarse dun intento de suplantación (ataque CSRF).
 
           Esto podería estar causado por:
 
-            - Un engadido do navegador manipulando a petición ou facendo peticións sen o testemuño;
+            - Un complemento do navegador manipulando a petición ou facendo peticións sen o testemuño;
             - Unha lapela que quedou aberta dunha sesión anterior;
             - Outro sitio web facendo peticións, con ou sen o teu permiso;
             - Outras ferramentas externas;
@@ -854,7 +857,7 @@ gl:
 
           Para máis información sobre CSRF mira [%{link}](%{link}).
 
-          Se esta mensaxe aparece de xeito repetido, por favor comproba a lista superior, incluíndo os engadidos para o navegador.
+          Se esta mensaxe aparece de xeito repetido, por favor comproba a lista superior, incluíndo os complementos para o navegador.
 
           Grazas,
           O robot de correo de diaspora*!
@@ -874,8 +877,8 @@ gl:
       body: |-
           Ola %{name}
 
-          Algo aconteceu mentras procesábamos os seus datos para descargar.
-          Inténteo de novo!
+          Algo aconteceu mentras procesábamos os teus datos para descargar.
+          Inténtao de novo!
 
           Lamentámolo,
 
@@ -907,20 +910,20 @@ gl:
       message: |-
           Ola,
 
-          Foi convidado por %{user} a unirse a diaspora*
+          %{user} convidoute a unirte a diaspora*
 
-          Prema nesta ligazón para comezar
+          Preme nesta ligazón para comezar
 
           [%{invite_url}][1]
 
-          Ou pode engadir a %{diaspora_id} aos seus contactos se xa ten unha conta.
+          Ou podes engadir a %{diaspora_id} aos teus contactos se xa tes unha conta.
 
 
           Chuchos.
 
           O robot de correo de diaspora*
 
-          P.S.: Por se non coñece (aínda) o que é diaspora*, [aqui][2] ten a resposta!
+          P.S.: Por se non coñeces (aínda) o que é diaspora*, [aqui][2] tes a resposta!
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
@@ -964,7 +967,7 @@ gl:
 
           [%{url}][1]
 
-          Por favor revísea o antes posible!
+          Por favor revísaa o antes posible!
 
 
           Saúdos,
@@ -1242,6 +1245,8 @@ gl:
       title: "Favoritos"
     liked:
       title: "Publicacións gustadas"
+    local_public:
+      title: "Publicacións locais"
     mentioned_stream: "@Mencións"
     mentions:
       title: "@Mencións"
@@ -1326,7 +1331,7 @@ gl:
         locked_out: "Pecharase a súas sesión e non poderá volver entrar coa súa conta."
         make_diaspora_better: "Estaríamos encantados de que non marchase e nos axudase a mellorar diaspora* en lugar de marchar. Se realmente desexa marchar, aquí ten o que acontece a seguir:"
         mr_wiggles: "Botarémolo de menos."
-        no_turning_back: "Non hai volta atrás! Se realmente está seguro, introduza aqui abaixo o contrasinal."
+        no_turning_back: "Non hai volta atrás! Se tes certeza sobre o que estás a facer, escribe aqui abaixo o contrasinal."
         what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios en publicacións alleas seguirán aparecendo, pero estarán asociados ao seu ID en diaspora* e non ao seu nome."
       close_account_text: "Pechar a conta"
       comment_on_post: "comentarios nas publicacións propias."

@@ -44,6 +44,7 @@ ia:
         ignore: "Si tu non ha demandate isto, per favor ignora iste message."
         someone_requested: "Qualcuno ha demandate un ligamine pro cambiar tu contrasigno. Si tu faceva iste demanda, tu pote facer isto per le ligamine sequente."
         subject: "Instructiones pro reinitialisar contrasigno"
+        then_connect: "Post haber definite un nove contrasigno, tu potera aperir session in diaspora* de novo usante tu nomine de usator “%{username}” e tu nove contrasigno."
         wont_change: "Le contrasigno non cambiara si tu non clicca sur le ligamine precedente e specifica un nove."
       unlock_instructions:
         account_locked: "Tu conto ha essite blocate a causa de un numero excessive de tentativas fallite de accesso."

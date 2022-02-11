@@ -304,8 +304,8 @@ es:
       prefixAgo: "Hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
-      suffixAgo: ""
-      suffixFromNow: ""
+      suffixAgo: "hace"
+      suffixFromNow: "a partir de ahora"
       wordSeparator: " "
       year: "un año aproximadamente"
       years:
