@@ -981,7 +981,7 @@ fr:
       invited_by: "Vous avez été invité(e) par"
     index:
       couldnt_find_them: "Vous ne les trouvez pas ?"
-      looking_for: "Rechercher des commentaires taggés %{tag_link}?"
+      looking_for: "Rechercher des messages tagués %{tag_link}?"
       no_one_found: "… et personne n'a été trouvé."
       no_results: "Hé ! Vous devez rechercher quelque chose."
       results_for: "Utilisateurs correspondant à %{search_term}"

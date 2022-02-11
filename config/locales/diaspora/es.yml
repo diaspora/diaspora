@@ -8,6 +8,7 @@ es:
   _applications: "Aplicaciones"
   _contacts: "Contactos"
   _help: "Ayuda"
+  _podmin_mail: "Contactar administrador"
   _services: "Servicios"
   _statistics: "Estadísticas"
   account: "Cuenta"
@@ -205,28 +206,42 @@ es:
           name: "fotografía"
         ? "private:modify"
         :
+          description: "Concede permiso para publicar publicaciones privadas."
           name: "privado:modificar"
         ? "private:read"
         :
+          description: "Concede permiso de solo lectura a tus publicaciones privadas y las publicaciones privadas de tus contactos."
           name: "privado:lectura"
         profile:
           description: "Esto permite que la aplicación tenga acceso a la información que figura en tu perfil."
           name: "Perfil."
         ? "profile:modify"
         :
+          description: "Concede permiso para actualizar los datos de tu perfil extendido."
           name: "perfil:modificar"
         ? "profile:read_private"
         :
+          description: "Concede perimiso de solo lectura a los datos de tu perfil privado."
           name: "perfil:leer_privado"
         ? "public:modify"
         :
+          description: "Concede permiso de escritura para publicar publicaciónes públicas y datos relacionados (como votos y archivos adjuntos)."
           name: "publico:modificar"
         ? "public:read"
         :
+          description: "Concede permiso para acceder a tus publicaciones púbicas, incluyendo interacciones y datos relacionados."
           name: "público:lectura"
         sub:
           description: "Esto concede permisos secundarios a la aplicación."
           name: "secundario"
+        ? "tags:modify"
+        :
+          description: "Concede permiso para cambiar las etiquetas que sigues."
+          name: "Etiquetas (Escritura)"
+        ? "tags:read"
+        :
+          description: "Concede permiso de solo-lectura a las etiquetas que sigues y entradas de etiquetas."
+          name: "Etiquetas (Solo lectura)"
       user_applications:
         index:
           access: "%{name} tiene acceso a:"
@@ -1206,6 +1221,8 @@ es:
       title: "Me gusta"
     liked:
       title: "Publicaciones que te han gustado"
+    local_public:
+      title: "Publicaciones locales"
     mentioned_stream: "@Menciones"
     mentions:
       title: "@Menciones"

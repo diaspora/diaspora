@@ -44,6 +44,7 @@ vi:
         ignore: "Nếu bạn không yêu cầu, hãy bỏ qua thư này."
         someone_requested: "Ai đó đã yêu cầu \x1dreset mật khẩu của bạn. Nếu đúng là bạn, \bhãy nhấn vào liên kết dưới đây."
         subject: "Hướng dẫn khôi phục mật khẩu"
+        then_connect: "Sau khi reset mật khẩu, bạn sẽ có thể tiếp tục đăng nhập Diaspora với tài khoản \"%{username}\""
         wont_change: "Mật khẩu của bạn sẽ không được thay đổi cho đến khi bạn truy cập liên kết trên và tạo mật khẩu mới."
       unlock_instructions:
         account_locked: "Tài khoản của bạn bị khoá do đăng nhập thất bại quá số lần quy định."

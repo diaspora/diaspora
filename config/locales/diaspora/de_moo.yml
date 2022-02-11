@@ -8,6 +8,7 @@ de_moo:
   _applications: "Anwendungen"
   _contacts: "Mitkühe"
   _help: "Hilfe"
+  _podmin_mail: "Leitkuh kontaktieren"
   _services: "Dienste"
   _statistics: "Statistiken"
   _terms: "Bedingungen"
@@ -330,7 +331,7 @@ de_moo:
   blocks:
     create:
       failure: "Ich konnte dieses Rindvieh nicht ignorieren. #evasion"
-      success: "Alles klar, du wirst diese Kuh nicht mehr in deiner Weide sehen. #silencio!"
+      success: "Alles klar, du wirst dieses Rindvieh nicht mehr auf deiner Weide sehen. #silencio!"
     destroy:
       failure: "Ich konnte das Ignorieren dieser Kuh nicht beenden.  #evasion"
       success: "Mal sehen, was sie zu sagen haben! #sayhello"
@@ -1259,6 +1260,8 @@ de_moo:
       title: "\"Gefällt mir\"-Weide"
     liked:
       title: "Beiträge, die dir gefallen"
+    local_public:
+      title: "Lokale Beiträge"
     mentioned_stream: "@Anmuuuhungen"
     mentions:
       title: "@Anmuuuhungen"

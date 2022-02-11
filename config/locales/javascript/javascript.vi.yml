@@ -289,8 +289,8 @@ vi:
       month: "nửa tháng trước"
       months:
         other: "%d tháng"
-      prefixAgo: ""
-      prefixFromNow: ""
+      prefixAgo: "trước"
+      prefixFromNow: "kể từ lúc này"
       seconds: "vừa xong"
       suffixAgo: "trước"
       suffixFromNow: "vừa xong"
