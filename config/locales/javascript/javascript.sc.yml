@@ -95,8 +95,6 @@ sc:
     confirm_unload: "Pro praghere cunfirma chi cheres essire dae custa pàgina. Sos datos chi as insertadu no ant a èssere sarvados."
     contacts:
       add_contact: "Annanghe unu cuntatu"
-      aspect_chat_is_enabled: "Sos cuntatos in custa cara podent tzarrare cun tie."
-      aspect_chat_is_not_enabled: "Sos cuntatos in custa cara non podent tzarrare cun tie."
       error_add: "No est istadu possìbile a annànghere <%= name %> a sa cara :("
       error_remove: "No est istadu possìbile a bogare <%= name %> dae sa cara :("
       remove_contact: "Boga custu cuntatu"

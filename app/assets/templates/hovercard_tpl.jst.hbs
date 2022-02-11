@@ -1,15 +1,22 @@
+{{#with person}}
 <div id="hovercard">
-  <a class='person_avatar'>
-    <img class="avatar">
+  <a class="person_avatar" href="{{urlTo 'person' guid}}">
+    <img class="avatar" src="{{profile.avatar}}" />
   </a>
   <h4>
-    <a class="person"></a>
+    <a class="person" href="{{urlTo 'person' guid}}">{{name}}</a>
   </h4>
-  <div class="handle"></div>
+  <div class="status-container">
+    <div class="handle">{{diaspora_id}}</div>
+    {{{sharingMessage this}}}
+  </div>
   <div id="hovercard_dropdown_container"></div>
   <div class="card-footer">
     <div class="footer-container">
-      <div class="hashtags"></div>
+      <div class="hashtags">
+        {{fmtTags profile.tags}}
+      </div>
     </div>
   </div>
 </div>
+{{/with}}

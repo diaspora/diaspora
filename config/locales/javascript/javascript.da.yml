@@ -95,8 +95,6 @@ da:
     confirm_unload: "Bekræft venligst at du ønsker at forlade denne side - data, du har indtastet, vil ikke blive gemt."
     contacts:
       add_contact: "Tilføj kontakt"
-      aspect_chat_is_enabled: "Kontakter i dette aspekt kan chatte med dig."
-      aspect_chat_is_not_enabled: "Kontakter i dette aspekt kan ikke chatte med dig."
       error_add: "Kunne ikke tilføje <%= name %> til aspektet :("
       error_remove: "Kunne ikke fjerne <%= name %> fra aspektet :("
       remove_contact: "Fjern kontakt"
@@ -315,8 +313,8 @@ da:
       months:
         one: "1 måned"
         other: "%d måneder"
-      prefixAgo: ""
-      prefixFromNow: ""
+      prefixAgo: "før"
+      prefixFromNow: "om"
       seconds: "mindre end et minut"
       suffixAgo: "siden"
       suffixFromNow: "fra nu"

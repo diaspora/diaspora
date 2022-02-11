@@ -26,6 +26,7 @@ module Workers
            DiasporaFederation::Salmon::InvalidEncoding,
            Diaspora::Federation::AuthorIgnored,
            Diaspora::Federation::InvalidAuthor,
+           Diaspora::Federation::RecipientClosed,
            # TODO: deprecated
            DiasporaFederation::Salmon::MissingMagicEnvelope,
            DiasporaFederation::Salmon::MissingAuthor,

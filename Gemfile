@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "5.2.5"
+gem "rails", "5.2.6.2"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -15,8 +15,8 @@ gem "unicorn-worker-killer", "0.4.5"
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.6"
-gem "diaspora_federation-rails", "0.2.6"
+gem "diaspora_federation-json_schema", "0.2.7"
+gem "diaspora_federation-rails", "0.2.7"
 
 # API and JSON
 
@@ -26,10 +26,10 @@ gem "json-schema", "2.8.1"
 
 # Authentication
 
-gem "devise", "4.7.3"
-gem "devise-two-factor", "4.0.0"
+gem "devise", "4.8.0"
 gem "devise_lastseenable", "0.0.6"
-gem "rqrcode", "1.1.2"
+gem "devise-two-factor", "4.0.1"
+gem "rqrcode", "2.1.0"
 
 # Captcha
 
@@ -37,8 +37,8 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
-gem "redis", "4.2.5"
-gem "sidekiq", "6.2.1"
+gem "redis", "4.5.1"
+gem "sidekiq", "6.2.2"
 
 # Scheduled processing
 
@@ -46,12 +46,12 @@ gem "sidekiq-cron", "1.2.0"
 
 # Compression
 
-gem "uglifier", "4.2.0"
+gem "terser", "1.1.7"
 
 # Configuration
 
 gem "configurate", "0.5.0"
-gem "toml-rb", "2.0.1"
+gem "toml-rb", "2.1.0"
 
 # Cross-origin resource sharing
 
@@ -59,12 +59,12 @@ gem "rack-cors", "1.1.1", require: "rack/cors"
 
 # CSS
 
-gem "autoprefixer-rails",     "10.2.4.0"
+gem "autoprefixer-rails",     "10.3.3.0"
 gem "bootstrap-sass",         "3.4.1"
 gem "bootstrap-switch-rails", "3.3.3" # 3.3.4 and 3.3.5 is broken, see https://github.com/Bttstrp/bootstrap-switch/issues/691
 gem "compass-rails",          "3.1.0"
 gem "sass-rails",             "5.0.7"
-gem "sprockets-rails",        "3.2.1"
+gem "sprockets-rails",        "3.2.2"
 
 # Database
 
@@ -75,14 +75,13 @@ group :postgresql, optional: true do
   gem "pg",     "1.2.3"
 end
 
-
-gem "activerecord-import", "1.0.4"
+gem "activerecord-import", "1.1.0"
 
 # File uploading
 
-gem "carrierwave", "1.3.2"
-gem "fog-aws",     "3.5.2"
-gem "mini_magick", "4.10.1"
+gem "carrierwave", "2.2.2"
+gem "fog-aws",     "3.12.0"
+gem "mini_magick", "4.11.0"
 
 # GUID generation
 gem "uuid", "2.3.9"
@@ -93,21 +92,22 @@ gem "entypo-rails", "3.0.0"
 
 # JavaScript
 
-gem "handlebars_assets", "0.23.8"
-gem "jquery-rails",      "4.3.5"
-gem "js-routes",         "1.4.9"
+gem "handlebars_assets", "0.23.9"
+gem "jquery-rails",      "4.4.0"
+gem "js-routes",         "2.1.2"
 gem "js_image_paths",    "0.1.1"
 
 source "https://gems.diasporafoundation.org" do
-  gem "rails-assets-jquery",                              "3.4.1" # Should be kept in sync with jquery-rails
+  gem "rails-assets-jquery",                              "3.5.1" # Should be kept in sync with jquery-rails
   gem "rails-assets-jquery.ui",                           "1.11.4"
 
   gem "rails-assets-highlightjs",                         "9.12.0"
   gem "rails-assets-markdown-it",                         "8.4.2"
-  gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "1.2.0"
-  gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
+  gem "rails-assets-markdown-it-footnote",                "3.0.3"
+  gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
+  gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
 
@@ -139,14 +139,14 @@ gem "rails-i18n",           "5.1.3"
 gem "markerb",             "1.1.0"
 
 # Map
-gem "leaflet-rails",       "1.6.0"
+gem "leaflet-rails",       "1.7.0"
 
 # Parsing
 
-gem "nokogiri",          "1.11.3"
-gem "open_graph_reader", "0.7.1" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
+gem "nokogiri",          "1.12.5"
+gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.5.1"
-gem "ruby-oembed",       "0.12.0"
+gem "ruby-oembed",       "0.15.0"
 gem "twitter-text",      "1.14.7"
 
 # RTL support
@@ -155,18 +155,19 @@ gem "string-direction", "1.2.2"
 
 # Security Headers
 
-gem "secure_headers", "6.3.2"
+gem "secure_headers", "6.3.3"
 
 # Services
 
-gem "omniauth",           "1.9.1"
-gem "omniauth-tumblr",    "1.2"
-gem "omniauth-twitter",   "1.4.0"
-gem "omniauth-wordpress", "0.2.2"
-gem "twitter",            "7.0.0"
+gem "omniauth",                       "2.0.4"
+gem "omniauth-rails_csrf_protection", "1.0.0"
+gem "omniauth-tumblr",                "1.2"
+gem "omniauth-twitter",               "1.4.0"
+gem "omniauth-wordpress",             "0.2.2"
+gem "twitter",                        "7.0.0"
 
 # OpenID Connect
-gem "openid_connect", "1.1.8"
+gem "openid_connect", "1.3.0"
 
 # Serializers
 
@@ -178,23 +179,23 @@ gem "rails-assets-diaspora_jsxc", "0.1.5.develop.7", source: "https://gems.diasp
 
 # Tags
 
-gem "acts-as-taggable-on", "6.5.0"
+gem "acts-as-taggable-on", "8.1.0"
 
 # URIs and HTTP
 
-gem "addressable",        "2.7.0", require: "addressable/uri"
-gem "faraday",            "0.15.4"
-gem "faraday_middleware", "0.13.1"
-gem "faraday-cookie_jar", "0.0.6"
+gem "addressable",        "2.8.0", require: "addressable/uri"
+gem "faraday",            "0.17.4"
+gem "faraday-cookie_jar", "0.0.7"
+gem "faraday_middleware", "0.14.0"
 gem "typhoeus",           "1.4.0"
 
 # Views
 
-gem "gon",                     "6.3.2"
-gem "hamlit",                  "2.14.6"
+gem "gon",                     "6.4.0"
+gem "hamlit",                  "2.15.1"
 gem "mobile-fu",               "1.4.0"
-gem "rails-timeago",           "2.18.0"
-gem "will_paginate",           "3.3.0"
+gem "rails-timeago",           "2.19.1"
+gem "will_paginate",           "3.3.1"
 
 # Logging
 
@@ -202,7 +203,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "2.3.0", require: "zip"
+gem "rubyzip", "2.3.2", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -237,12 +238,12 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Third party asset hosting
 
-  gem "asset_sync", "2.11.0", require: false
+  gem "asset_sync", "2.15.0", require: false
 end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.37.0", require: false
+  gem "haml_lint",      "0.37.1", require: false
   gem "pronto",         "0.11.0", require: false
   gem "pronto-eslint",  "0.11.0", require: false
   gem "pronto-haml",    "0.11.0", require: false
@@ -275,7 +276,7 @@ group :test do
 
   gem "apparition",       "0.6.0"
   gem "capybara",         "3.35.3"
-  gem "database_cleaner-active_record", "1.8.0"
+  gem "database_cleaner-active_record", "2.0.1"
 
   gem "cucumber-api-steps", "0.14", require: false
 
@@ -284,25 +285,25 @@ group :test do
   gem "factory_girl_rails", "4.9.0"
   gem "shoulda-matchers",   "4.5.1"
   gem "timecop",            "0.9.4"
-  gem "webmock",            "3.12.2", require: false
+  gem "webmock",            "3.14.0", require: false
 
-  gem "diaspora_federation-test", "0.2.6"
+  gem "diaspora_federation-test", "0.2.7"
 end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "5.0.1"
+  gem "rspec-rails", "5.0.2"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "2.3.0", require: false
+  gem "cucumber-rails", "2.4.0", require: false
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
-  gem "jasmine",                   "3.7.0"
+  gem "jasmine",                   "3.10.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"
 
   # For `assigns` in controller specs
-  gem "rails-controller-testing", "1.0.4"
+  gem "rails-controller-testing", "1.0.5"
 end

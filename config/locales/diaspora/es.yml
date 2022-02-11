@@ -8,6 +8,7 @@ es:
   _applications: "Aplicaciones"
   _contacts: "Contactos"
   _help: "Ayuda"
+  _podmin_mail: "Contactar administrador"
   _services: "Servicios"
   _statistics: "Estadísticas"
   account: "Cuenta"
@@ -90,6 +91,7 @@ es:
     user_entry:
       account_closed: "cuenta cerrada"
       admin: "Administrador"
+      current_sign_in_ip: "Dirección IP del inicio de sesión actual"
       diaspora_handle: "Administrar Diaspora"
       email: "Correo Electrónico"
       guid: "GUID"
@@ -161,34 +163,85 @@ es:
           client_id_not_found: "Ningún se encontro ningún cliente con el ID de cliente %{client_id} o con la URI de redireccionamiento %{redirect_uri}"
           deny: "Denegar"
           no_requirement: "%{name} no necesita permisos"
+          private_contacts_linkage_error: "Privado:lectura y privado:Contáctos necesita modificación:leer completo"
           redirection_message: "¿Estás seguro que quieres dar acceso a %{redirect_uri}?"
+          unknown_scope: "Alcance desconocido: %{scope_name}"
       error_page:
         contact_developer: "Deberías contactar con el desarrollador de la aplicación y enviarle el siguiente mensaje de error:"
         could_not_authorize: "No se pudo autorizar la aplicación"
         login_required: "Tienes que identificarte antes de autorizar esta aplicación"
         title: "¡Oh! Algo salió mal :("
       scopes:
-        aud:
-          description: ""
+        ? "contacts:modify"
+        :
+          description: "Se conceden a la aplicación permisos de escritura de la información de contacto e información relacionada (aspectos como)."
+          name: "Contactos:modificar"
+        ? "contacts:read"
+        :
+          description: "Se conceden a la aplicación permisos de lectura de la información de contacto e información relacionada (aspectos como)."
+          name: "Contáctos:lectura"
+        conversations:
+          description: "Se conceden a la aplicación permisos de lectura y escritura de mensajes privados."
+          name: "conversaciones"
+        email:
+          description: "Se concede a la aplicación acceso para leer los datos de la dirección de correo electrónico del usuario."
+          name: "correo"
+        interactions:
+          description: "Se concede a la aplicación permiso de lectura, escritura y para interactuar con las publicaciones."
+          name: "interacciones"
         name:
+          description: "Esto concede a la aplicación acceso de lectura a los datos de los nombres."
           name: "Nombre"
         nickname:
+          description: "Esto concede a la aplicación acceso de lectura a los datos del nombre de usuario."
           name: "apodo"
+        notifications:
+          description: "Se concede a la aplicación permisos de lectura y escritura en las notificaciones para el usuario."
+          name: "notificaciones"
         openid:
           description: "Permite que la aplicación lea tu perfil básico"
           name: "perfil básico"
         picture:
           description: "Esto permite a la aplicación el acceso a la galería de imágenes."
           name: "fotografía"
+        ? "private:modify"
+        :
+          description: "Concede permiso para publicar publicaciones privadas."
+          name: "privado:modificar"
+        ? "private:read"
+        :
+          description: "Concede permiso de solo lectura a tus publicaciones privadas y las publicaciones privadas de tus contactos."
+          name: "privado:lectura"
         profile:
           description: "Esto permite que la aplicación tenga acceso a la información que figura en tu perfil."
           name: "Perfil."
-        read:
-          description: "Esto permite a la aplicación leer tu portada, tus conversaciones y tu perfil completo"
-          name: "leer perfil, portada y conversaciones"
-        write:
-          description: "Permite a la aplicación enviar nuevos mensajes, escribir conversaciones y enviar reacciones"
-          name: "enviar mensajes, conversaciones y reacciones"
+        ? "profile:modify"
+        :
+          description: "Concede permiso para actualizar los datos de tu perfil extendido."
+          name: "perfil:modificar"
+        ? "profile:read_private"
+        :
+          description: "Concede perimiso de solo lectura a los datos de tu perfil privado."
+          name: "perfil:leer_privado"
+        ? "public:modify"
+        :
+          description: "Concede permiso de escritura para publicar publicaciónes públicas y datos relacionados (como votos y archivos adjuntos)."
+          name: "publico:modificar"
+        ? "public:read"
+        :
+          description: "Concede permiso para acceder a tus publicaciones púbicas, incluyendo interacciones y datos relacionados."
+          name: "público:lectura"
+        sub:
+          description: "Esto concede permisos secundarios a la aplicación."
+          name: "secundario"
+        ? "tags:modify"
+        :
+          description: "Concede permiso para cambiar las etiquetas que sigues."
+          name: "Etiquetas (Escritura)"
+        ? "tags:read"
+        :
+          description: "Concede permiso de solo-lectura a las etiquetas que sigues y entradas de etiquetas."
+          name: "Etiquetas (Solo lectura)"
       user_applications:
         index:
           access: "%{name} tiene acceso a:"
@@ -295,10 +348,14 @@ es:
     original_white: "Fondo blanco original"
   comments:
     create:
-      error: "Hubo un error al comentar."
+      fail: "La creación del comentario ha fallado"
+    destroy:
+      fail: "El borrado del comentario ha fallado"
+      success: "El comentario %{id} se ha borrado correctamente"
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
+    not_found: "Post o comentario no encontrado"
   contacts:
     index:
       add_contact: "Añadir contacto"
@@ -338,6 +395,7 @@ es:
       to: "Para"
     new_conversation:
       fail: "Mensaje no válido"
+    not_found: "Conversación no encontrada"
     show:
       delete: "Borrar conversación"
       hide: "ocultar y silenciar la conversación"
@@ -406,11 +464,6 @@ es:
       what_is_an_aspect_q: "¿Qué es un aspecto?"
       who_sees_post_a: "Si haces una publicación limitada, solo será visible para las personas que hayas puesto en ese especto (o los aspectos, si está hecho para múltiples aspectos). Los contactos que tengas que no estén en el aspecto, no tienen forma de ver la publicación, a menos que la hayas hecho pública. Solo las publicaciones públicas serán visibles alguna vez por alguien que no hayas incluido en alguno de tus aspectos."
       who_sees_post_q: "Cuando publico en un aspecto, ¿Quienes pueden verlo?"
-    chat:
-      add_contact_roster_a: "En primer lugar, necesitas activar el chat para uno de los aspectos en los que está esa persona. Para hacerlo, ve a la %{contacts_page}, selecciona el aspecto que quieras y pulsa sobre el icono del chat para activar el chat en ese aspecto. %{toggle_privilege} Si lo prefieres, podrías crear un aspecto especial llamado \"Chat\" y añadir a la persona con la que quieras chatear en ese aspecto. Ona vez que hayas hecho esto, abre la ventana de chat y selecciona la persona con la que quieras hablar."
-      add_contact_roster_q: "¿Cómo puedo chatear con alguien en Diaspora*?"
-      contacts_page: "página de contactos"
-      title: "Chat"
     community_guidelines: "normas de la comunidad"
     faq: "Preguntas Más Frecuentes"
     foundation_website: "página web de la fundación Diaspora*"
@@ -653,8 +706,22 @@ es:
   likes:
     create:
       error: "Ha ocurrido un error al darle \"Me gusta\"."
+      fail: "La creación del enlace falló"
     destroy:
       error: "Ocurrió un error al quitar el \"Me gusta\""
+    not_found: "Post o like no encontrado"
+    people_dislike_this:
+      one: "Un \"no me gusta\""
+      other: "%{count} \"no me gusta\""
+      zero: "Ningún \"no me gusta\""
+    people_like_this:
+      one: "Un like"
+      other: "%{count} likes"
+      zero: "Sin likes"
+    people_like_this_comment:
+      one: "Un like"
+      other: "%{count} likes"
+      zero: "Sin likes"
   limited: "Limitado"
   more: "Más"
   no_results: "No hay resultados"
@@ -988,7 +1055,7 @@ es:
     closed:
       another_pod: "Otro pod"
       closed_pod: "La inscripción de nuevos usuarios se encuentra cerrada en este momento en este pod. Puedes unirte de todas maneras a la red de diaspora* registrándote en %{wiki}. ¡Tendrás acceso al mismo tipo de contenido ya que todos los pods están entrelazados y conectados de forma interna!"
-      find_pods: "Lista de los pods en los que es posible registrarse: %{poduptime}"
+      find_pods: "Lista de los pods en los que es posible registrarse: %{fediverse_observer}"
       other_questions: "Échale un vistazo nuestra %{wiki} si no sabes que pod elegir."
     create:
       success: "¡Te has unido a Diaspora*!"
@@ -1154,6 +1221,8 @@ es:
       title: "Me gusta"
     liked:
       title: "Publicaciones que te han gustado"
+    local_public:
+      title: "Publicaciones locales"
     mentioned_stream: "@Menciones"
     mentions:
       title: "@Menciones"

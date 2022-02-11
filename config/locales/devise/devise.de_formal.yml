@@ -32,7 +32,7 @@ de_formal:
         confirm: "Mein Konto bestätigen"
         subject: "Bestätigung Ihres diaspora*-Kontos"
         you_can_confirm: "Sie können Ihr Konto über den nachfolgenden Link bestätigen:"
-      hello: "Hallo %{email}!"
+      hello: "Hallo %{username}!"
       inviter:
         accept_at: "unter %{url}, können Sie sie über den untenstehenden Link akzeptieren."
         has_invited_you: "%{name}"
@@ -44,13 +44,14 @@ de_formal:
         ignore: "Wenn Sie dies nicht angefordert haben, ignorieren Sie bitte diese E-Mail."
         someone_requested: "Jemand hat einen Link angefordert, um Ihr Passwort zu ändern. Wenn Sie das waren, können Sie das durch den unten aufgeführten Link tun."
         subject: "Setzen Sie Ihr Passwort zurück"
+        then_connect: "Nachdem Sie ein neues Passwort eingegeben haben, können Sie sich wieder mit Ihrem Benutzernamen \"%{username}\" und Ihrem neuen Passwort in diaspora* einloggen"
         wont_change: "Ihr Passwort bleibt unverändert, bis Sie es über den Link ändern und ein neues erstellen."
       unlock_instructions:
         account_locked: "Ihr Konto wurde aufgrund von zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."
         click_to_unlock: "Folgen Sie dem unten aufgeführten Link, um Ihr Konto zu entsperren:"
         subject: "Anweisungen zum Entsperren"
         unlock: "Mein Konto entsperren"
-      welcome: "Willkommen %{email}!"
+      welcome: "Willkommen %{username}!"
     omniauth_callbacks:
       failure: "Konnte Sie nicht mittels %{kind} authentifizieren, denn „%{reason}”."
       success: "Erfolgreich authentifiziert mittels %{kind}-Konto."

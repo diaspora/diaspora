@@ -96,8 +96,6 @@ nb:
     confirm_unload: "Bekreft at du ønsker å forlate denne siden. Data du har lagt inn vil ikke bli lagret."
     contacts:
       add_contact: "Legg til kontakt"
-      aspect_chat_is_enabled: "Kontakter i dette aspektet vil kunne chatte med deg."
-      aspect_chat_is_not_enabled: "Kontakter i dette aspektet vil ikke kunne chatte med deg."
       error_add: "Kunne ikke legge til <%= name %> til aspektet :("
       error_remove: "Kunne ikke fjerne <%= name %> fra aspektet :("
       remove_contact: "Fjern kontakt"

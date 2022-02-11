@@ -9,7 +9,7 @@
 </td>
 <td class="pod-title" title="{{host}}">{{host}}</td>
 <td class="added">
-  <small><time datetime="{{created_at}}" title="{{localTime created_at}}" /></small>
+  <small><time datetime="{{created_at}}" title="{{localTime created_at}}"></time></small>
 </td>
 <td>
   {{#if has_no_errors}}
@@ -18,10 +18,10 @@
     {{status_text}}
   {{/if}}
   {{#unless is_unchecked}}
-    <br><small>{{t 'admin.pods.last_check'}} <time datetime="{{checked_at}}" title="{{localTime checked_at}}" /></small>
+    <br><small>{{t 'admin.pods.last_check'}} <time datetime="{{checked_at}}" title="{{localTime checked_at}}"></time></small>
   {{/unless}}
   {{#if offline}}
-    | <small>{{t 'admin.pods.offline_since'}} <time datetime="{{offline_since}}" title="{{localTime offline_since}}" /></small>
+    | <small>{{t 'admin.pods.offline_since'}} <time datetime="{{offline_since}}" title="{{localTime offline_since}}"></time></small>
   {{/if}}
   {{#if is_unchecked}}<br><small class="text-muted">{{t 'admin.pods.no_info'}}</small>{{/if}}
   <pre class="details" style="display: none;">

@@ -169,9 +169,6 @@ pt-BR:
         login_required: "Você deve entrar no sistema para autorizar esse aplicativo"
         title: "Opa! Alguma coisa deu errado :("
       scopes:
-        aud:
-          description: "O aplicativo teria acesso a aud"
-          name: "aud"
         name:
           description: "O aplicativo teria acesso ao seu nome"
           name: "nome"
@@ -187,15 +184,9 @@ pt-BR:
         profile:
           description: "O aplicativo teria permissão para ler seu perfil ampliado"
           name: "perfil ampliado"
-        read:
-          description: "O aplicativo teria permissão para ler seu fluxo, conversas e perfil completo"
-          name: "ler perfil, fluxo e conversas"
         sub:
           description: "O aplicativo teria acesso a sub"
           name: "sub"
-        write:
-          description: "O aplicativo teria permissão para publicar, conversar e enviar reações"
-          name: "enviar publicações, conversas e reações"
       user_applications:
         index:
           access: "%{name} tem acesso a:"
@@ -301,11 +292,12 @@ pt-BR:
     original: "Cinza original"
     original_white: "Fundo branco original"
   comments:
-    create:
-      error: "Falha ao comentar."
+    destroy:
+      success: "Comentário %{id} deletado com sucesso."
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
+    not_found: "Publicação ou comentário não encontrado"
   contacts:
     index:
       add_contact: "Adicionar contato"
@@ -345,6 +337,7 @@ pt-BR:
       to: "Para"
     new_conversation:
       fail: "Mensagem inválida"
+    not_found: "Conversa não encontrada"
     show:
       delete: "Apagar conversa"
       hide: "Esconder e silenciar conversa"
@@ -413,11 +406,6 @@ pt-BR:
       what_is_an_aspect_q: "O que é um aspecto?"
       who_sees_post_a: "Uma publicação limitada é visível apenas para as pessoas incluídas anteriormente no aspecto (ou aspectos) ao qual ela é destinada. Contatos que não pertencem ao aspecto não podem, de nenhuma maneira, ver a publicação."
       who_sees_post_q: "Quando eu publico em um aspecto, quem vê?"
-    chat:
-      add_contact_roster_a: "Primeiro, é preciso habilitar o bate-papo para um dos aspectos que incluem essa pessoa. Para fazer isso, vá até a %{contacts_page}, selecione o aspecto desejado e clique no ícone de bate-papo. %{toggle_privilege} Se preferir, você pode criar um aspecto apenas com quem você quer conversar. Então, basta entrar na sala de bate-papo do aspecto e selecionar a pessoa."
-      add_contact_roster_q: "Como bater papo com alguém na diaspora*?"
-      contacts_page: "página de contatos"
-      title: "Bate-papo"
     community_guidelines: "normas da comunidade"
     faq: "FAQ"
     foundation_website: "site da Fundação Diaspora"
@@ -662,6 +650,15 @@ pt-BR:
       error: "Falha ao curtir."
     destroy:
       error: "Falha ao descurtir."
+    not_found: "Publicação ou curtida não encontrada"
+    people_like_this:
+      one: "%{count} curtida"
+      other: "%{count} curtidas"
+      zero: "Nenhuma curtida"
+    people_like_this_comment:
+      one: "%{count} curtida"
+      other: "%{count} curtidas"
+      zero: "Nenhuma curtida"
   limited: "Limitado"
   more: "Mais"
   no_results: "Nenhum resultado encontrado"
@@ -994,7 +991,7 @@ pt-BR:
     closed:
       another_pod: "outro pod"
       closed_pod: "Este pod está fechado para novos cadastros, porém você ainda pode entrar na rede diaspora* cadastrando-se em %{wiki}. Como todos os pods estão interconectados, de lá você terá acesso ao mesmo conteúdo."
-      find_pods: "Há uma lista de pods nos quais você pode se cadastrar em %{poduptime}."
+      find_pods: "Há uma lista de pods nos quais você pode se cadastrar em %{fediverse_observer}."
       other_questions: "Se você tiver alguma outra pergunta sobre a seleção de pods, confira nossa %{wiki}."
     create:
       success: "Você se juntou à diaspora*!"

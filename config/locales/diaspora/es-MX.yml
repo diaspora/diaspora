@@ -21,6 +21,14 @@ es-MX:
           attributes:
             diaspora_handle:
               taken: "ya está ocupado."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "No se han proporcionado suficientes opciones de encuesta."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "¡Ya participó en esta encuesta!"
         reshare:
           attributes:
             root_guid:
@@ -38,6 +46,7 @@ es-MX:
     admin_bar:
       pages: "Páginas"
       pod_stats: "Estadísticas del servidor"
+      report: "Informes"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Búsqueda de usuario"
       weekly_user_stats: "Estadísticas semanales de usuario"
@@ -70,12 +79,15 @@ es-MX:
       week: "Semana"
     user_search:
       add_invites: "añadir invitaciones"
+      are_you_sure: "¿Está seguro de que desea cerrar esta cuenta?"
+      close_account: "Cerrar cuenta"
       email_to: "Mandar invitación por correo electrónico a"
       under_13: "Mostrar usuarios menores de 13 años (COPPA)"
       users:
         one: "Un usuario encontrado"
         other: "%{count} usuarios encontrados"
         zero: "Ningún usuario encontrado"
+      view_profile: "Ver perfil"
       you_currently:
         other: "Actuamente tienes %{user_invitation} invitaciones para enviar %{link}"
     weekly_user_stats:
@@ -266,6 +278,7 @@ es-MX:
     mentions:
       how_to_mention_a: "Escribe el símbolo «@», y comienza a escribir su nombre. Un menú contextual aparecerá para permitirte seleccionar más fácilmente los nombres. Ten en cuenta que únicamente es posible mencionar a aquellas personas que hayas añadido a un aspecto."
       how_to_mention_q: "¿Cómo menciono a alguien al realizar una publicación?"
+      mention_in_comment_a: "Desde la versión 0.7.0.0, ¡sí!  Puede mencionar a alguien en un comentario de la misma manera que lo haría en una publicación, escribiendo “@” y luego comience a escribir su nombre.  Tenga en cuenta que cuando comenta una publicación que no es pública, solo puede mencionar a los usuarios que ya han interactuado con la publicación.mención"
       mention_in_comment_q: "¿Puedo mencionar a alguien en un comentario?"
       see_mentions_a: "Sí, haz clic en «Menciones», en la columna izquierda de tu página de inicio."
       see_mentions_q: "¿Es posible ver las publicaciones en las cuales he sido mencionado?"
@@ -279,6 +292,7 @@ es-MX:
       diaspora_app_q: "¿Existe una aplicación de diaspora* para Android o iOS?"
       photo_albums_a: "No actualmente. Sin embargo, puedes ver las imágenes que un usuario ha subido, desde la sección de «Fotos», en la barra lateral de su página de perfil."
       photo_albums_q: "¿Existen álbumes de fotos o videos?"
+      subscribe_feed_a: "Sí, pero esta todavía no es una característica pulida y el formato de los resultados sigue siendo bastante aproximado.  Si desea probarlo de todos modos, vaya a la página de perfil de alguien y haga clic en el botón de alimentación en su navegador, o puede copiar la URL del perfil (por ejemplo, https://podname.org/people/somenumber) y pegarla en un lector de feeds  .  La dirección de la fuente resultante se ve así: https://podname.org/public/username.atom - diaspora * usa Atom en lugar de RSS."
       subscribe_feed_q: "¿Puedo suscribirme a las publicaciones públicas de alguien utilizando un lector de fuentes web?"
       title: "Misceláneo"
     pods:
@@ -316,19 +330,26 @@ es-MX:
       can_comment_q: "¿Quién puede comentar o dar \"Me gusta\" a mi publicación privada?"
       can_reshare_a: "Nadie. Las publicaciones privadas no son re-compartibles. Sin embargo, los usuarios de diaspora* en ese aspecto pueden potencialmente copiar y pegarlo. Depende de si usted confía en esas personas."
       can_reshare_q: "¿Quién puede volver a compartir mi publicación privada?"
+      see_comment_a: "Solo las personas con las que se compartió la publicación (las personas que están en los aspectos seleccionados por el póster original) pueden ver sus comentarios y me gusta."
+      see_comment_q: "Cuando comento o me gusta una publicación privada, ¿quién puede verla?"
       title: "Publicaciones privadas"
       who_sees_post_a: "Únicamente los usuarios de diaspora* que hayan iniciado sesión, y a quienes hayas añadido a dicho aspecto, podrán ver tu publicación limitada."
       who_sees_post_q: "¿Cuando publico un mensaje para un aspecto (es decir, una publicación privada) quién puede verlo?"
     public_posts:
       can_comment_reshare_like_a: "Cualquier usuario de diaspora* que haya iniciado sesión puede marcar como «me gusta», volver a compartir, o comentar en tu publicación pública."
       can_comment_reshare_like_q: "¿Quién puede marcar como «me gusta», volver a compartir, o comentar en mi publicación pública?"
+      deselect_aspect_posting_a: "Anular la selección de aspectos no afecta a una publicación pública.  Seguirá siendo público y aparecerá en las novedades de todos sus contactos.  Para hacer que una publicación sea visible solo para aspectos específicos, debe seleccionar esos aspectos en el selector de aspectos debajo del editor."
+      deselect_aspect_posting_q: "¿Qué sucede cuando anulo la selección de uno o más aspectos en la columna de la izquierda al hacer una publicación pública?"
       find_public_post_a: "Tus publicaciones públicas aparecerán en la «Entrada» de cualquiera que te esté siguiendo. Si añadiste #etiquetas en la publicación, cualquiera que esté siguiendo dichas etiquetas encontrará tu publicación en su «Entrada». Cada publicación pública también tiene una URL específica, que toda persona puede ver, incluso si no ha iniciado sesión. Así que las publicaciones públicas pueden ser enlazadas directamente desde Twitter, blogs, etcétera. También podrían ser indexadas por motores de búsqueda."
       find_public_post_q: "¿Cómo pueden encontrar otras personas una de mis publicaciones públicas?"
+      see_comment_reshare_like_a: "Los comentarios, los me gusta y las opciones para compartir de publicaciones públicas también son públicos.  Cualquier usuario de la diáspora * que haya iniciado sesión y cualquier otra persona en Internet puede ver sus interacciones con una publicación pública. "
       see_comment_reshare_like_q: "¿Cuando marco como «me gusta», vuelvo a compartir, o comento en una publicación, quién puede verlo?"
       title: "Publicaciones públicas"
       who_sees_post_a: "Cualquiera que utilice el Internet podría ver una publicación que marques como «pública»; por tanto, asegúrate de que realmente deseas hacerla pública. Es una buena manera de compartir con el mundo."
       who_sees_post_q: "¿Cuándo realizo una publicación pública, quién puede verla?"
     resharing_posts:
+      reshare_private_post_aspects_a: "No, no es posible compartir ninguna publicación privada.  Esto es para respetar las intenciones del cartel original, que lo compartió solo con un grupo particular de personas."
+      reshare_private_post_aspects_q: "¿Puedo compartir una publicación privada con aspectos seleccionados?"
       reshare_public_post_aspects_a: "No, cuando vuelves a compartir una publicación pública, esta se convierte automáticamente en una de tus publicación públicas. Para compartirla solamente con ciertos aspectos, copia y pega el contenido de esta en una nueva publicación."
       reshare_public_post_aspects_q: "¿Puedo volver a compartir una publicación pública solo para ciertos aspectos?"
       title: "Volver a compartir publicaciones"
@@ -337,6 +358,9 @@ es-MX:
       add_to_aspect_a2: "Esto se conoce como «intercambio asimétrico». Si Ben también agrega a Amy a un aspecto, entonces se convertirá en «intercambio mutuo»; por tanto, las publicaciones públicas —y las publicaciones privadas pertinentes— tanto de Amy como de Ben, aparecerán en la «Entrada» de ambos. "
       add_to_aspect_li1: "Ben recibirá una notificación, indicándole que Amy ha «comenzado a compartir» con él."
       add_to_aspect_li2: "Las publicaciones públicas de Ben comenzarán a aparecer en la «Entrada» de Amy."
+      add_to_aspect_li3: "Amy no verá ninguna de las publicaciones privadas de Ben."
+      add_to_aspect_li4: "Ben no verá las publicaciones públicas o privadas de Amy en su Entrada."
+      add_to_aspect_li5: "Pero si Ben va a la página de perfil de Amy, verá las publicaciones privadas que Amy hace sobre el aspecto en el que lo ha colocado (así como sus publicaciones públicas, que cualquiera puede ver allí)."
       add_to_aspect_li6: "Ben podrá ver el perfil privado de Amy (biografía, ubicación geográfica, género y fecha de cumpleaños)."
       add_to_aspect_li7: "Amy aparecerá como «compartiendo solo conmigo», en la página de contactos de Ben."
       add_to_aspect_q: "¿Qué sucede cuando agrego a alguien a uno de mis aspectos? ¿O cuando alguien me añade a uno de los suyos?"
@@ -360,6 +384,7 @@ es-MX:
       what_are_tags_for_a: "Las etiquetas son una forma de categorizar una publicación, usualmente de acuerdo al tema. Buscar un etiqueta en particular muestra todas las publicaciones que incluyan esta, y las cuales puedas ver (tanto públicas como privadas). Lo cual permite a la gente que esté interesada en un tema en específico encontrar publicaciones relacionadas."
       what_are_tags_for_q: "¿Cuál es la función de las etiquetas?"
     third_party_tools: "herramientas de terceros"
+    title_header: "Ayuda"
     tutorial: "tutorial"
     tutorials: "tutoriales"
     wiki: "wiki"
@@ -410,14 +435,24 @@ es-MX:
       other: "%{actors} comentaron en tu %{post_link}."
       zero: "%{actors} comentó en tu %{post_link}."
     index:
+      all_notifications: "Todas las Notificaciones"
+      also_commented: "También comentó"
       and: "y"
       and_others:
         one: "y uno más"
         other: "y %{count} más"
         zero: "y nadie más"
+      comment_on_post: "Comentar en la publicación"
+      liked: "Me gusta"
       mark_all_as_read: "Marcar todo como leído"
+      mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
+      mentioned: "Mencionado en la publicación"
       notifications: "Notificaciones"
+      reshared: "Compartido"
+      show_all: "Mostrar todo"
+      show_unread: "Mostrar no leído"
+      started_sharing: "Comenzó a compartir"
     liked:
       one: "A %{actors} le gustó tu %{post_link}."
       other: "A %{actors} les gustó tu %{post_link}."
@@ -484,6 +519,28 @@ es-MX:
       subject: "%{name} te mencionó en diaspora*"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
+    report_email:
+      body: |-
+          Hola,
+
+           el% {type} con ID% {id} se marcó como ofensivo.
+
+           Razón:% {razón}
+
+           [% {url}] [1]
+
+           ¡Revíselo lo antes posible!
+
+
+           Salud,
+
+           ¡El robot de correo electrónico de la diáspora *!
+
+           [1]:% {url}
+      subject: "Se marcó un nuevo% {type} como ofensivo"
+      type:
+        comment: "comentario"
+        post: "correo"
     reshared:
       reshared: "%{name} compartió tu publicación"
       view_post: "Ver publicación >"
@@ -502,11 +559,14 @@ es-MX:
     add_contact:
       invited_by: "fuiste invitado por"
     index:
+      couldnt_find_them: "¿No pudiste encontrarlos?"
       looking_for: "¿Buscando publicaciones etiquetadas con %{tag_link}?"
       no_one_found: "…y nadie fue encontrado."
       no_results: "¡Eh! Necesitas buscar algo."
       results_for: "buscar resultados para"
+      search_handle: "Utilice su * ID de diáspora (username@pod.tld) ​​para asegurarse de encontrar a sus amigos."
       searching: "buscando, por favor sé paciente…"
+      send_invite: "¿Todavía nada?  Envíe una invitación"
     person:
       thats_you: "¡Ese eres tú!"
     profile_sidebar:
@@ -574,6 +634,19 @@ es-MX:
       sign_up: "REGISTRARSE"
       submitting: "Enviando…"
       username: "NOMBRE DE USUARIO"
+  report:
+    comment_label: "<strong> Comentario </strong>:% {data}"
+    confirm_deletion: "¿Estás seguro de eliminar el artículo?"
+    delete_link: "Eliminar elemento"
+    not_found: "No se encontró la publicación / comentario.  ¡Parece que fue eliminado por el usuario!"
+    post_label: "<strong> Publicación </strong>:% {content}"
+    reason_label: "Razón"
+    reported_label: "<strong> Informado por </strong>% {person}"
+    review_link: "Marcar como revisado"
+    status:
+      destroyed: "La publicación ha sido eliminada"
+      failed: "Algo salió mal"
+    title: "Resumen de informes"
   reshares:
     comment_email_subject: "%{resharer} compartió una pubilcación de %{author}"
     reshare:
@@ -628,7 +701,10 @@ es-MX:
         i_like: "Tengo interés en %{tags}. "
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
+      poll:
+        add_a_poll: "Agregar una encuesta"
       posting: "Publicando…"
+      remove_location: "Quitar ubicación"
       share: "Comparte"
       whats_on_your_mind: "¿Qué tienes en mente?"
     stream_element:
@@ -717,6 +793,7 @@ es-MX:
       reshared: "Alguien comparte tu publicación."
       show_community_spotlight: "¿Mostrar «Lo más destacado de la comunidad» en tu Entrada?"
       show_getting_started: "Volver a activar la guía de primeros pasos"
+      someone_reported: "alguien envía un informe"
       started_sharing: "Alguien comienza a compartir contigo."
       stream_preferences: "Preferencias de Entrada"
       your_email: "Tu correo electrónico"

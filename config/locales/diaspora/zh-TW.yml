@@ -8,6 +8,7 @@ zh-TW:
   _applications: "應用程式"
   _contacts: "聯絡人"
   _help: "說明"
+  _podmin_mail: "跟莢主聯絡"
   _services: "外部服務"
   _statistics: "統計"
   _terms: "使用條款"
@@ -162,9 +163,6 @@ zh-TW:
         login_required: "你必須先登入才能授權給這個應用程式"
         title: "呃！出事了 :("
       scopes:
-        aud:
-          description: "允許應用程式存取客戶端識別碼"
-          name: "客戶端"
         name:
           description: "允許應用程式存取姓名"
           name: "姓名"
@@ -180,15 +178,9 @@ zh-TW:
         profile:
           description: "允許應用程式讀取你的進階個人檔案"
           name: "進階個人檔案"
-        read:
-          description: "允許應用程式讀取你的流水帳、對話內容、以及完整的個人檔案"
-          name: "讀取個人檔案、流水帳、以及對話內容"
         sub:
           description: "允許應用程式存取使用者識別碼"
           name: "使用者"
-        write:
-          description: "允許應用程式發表新的貼文、對話、以及回應"
-          name: "發表貼文、對話、以及回應"
       user_applications:
         index:
           access: "%{name}有以下存取權:"
@@ -294,8 +286,6 @@ zh-TW:
     original: "原始灰"
     original_white: "原始白背"
   comments:
-    create:
-      error: "留言失敗。"
     new_comment:
       comment: "留言"
       commenting: "發表留言中..."
@@ -406,11 +396,6 @@ zh-TW:
       what_is_an_aspect_q: "什麼是社交面？"
       who_sees_post_a: "當你發表了一篇有限制的貼文，就只有那個面(或是那些面，因為你也可以選擇好幾面)中的人才看得到。不在那個(或是那些面)中的聯絡人，就看不到那篇貼文，除非你把它公開。只有公開的貼文可以讓不在你任何社交面中的其它人看到。"
       who_sees_post_q: "當我貼文到某個社交面時，有誰會看見？"
-    chat:
-      add_contact_roster_a: "首先，你要把聊天的權限給那個人所在的社交面。我們來開始：先到%{contacts_page}，選你要的那個社交面，然後點聊天的圖示就可以打開權限。%{toggle_privilege}如果你想的話，也可以先開一個社交面專門給你想跟他們即時聊天的人，比如說就叫做『聊天』，然後把那些人加進去。完成以後就可以到聊天的頁面，選你想即時聊天的人開始聊天。"
-      add_contact_roster_q: "要怎樣在 diaspora* 跟某人即時聊天？"
-      contacts_page: "聯絡人頁面"
-      title: "即時聊天"
     community_guidelines: "社群共識"
     faq: "常見問答"
     foundation_website: "diaspora* 基金會網站"

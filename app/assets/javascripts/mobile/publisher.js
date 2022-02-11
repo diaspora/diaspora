@@ -33,7 +33,7 @@ $(document).ready(function(){
     if(hiddenField.length > 0) { hiddenField.remove(); }
     else {
       $("#new_status_message").append(
-        $("<input/>", {
+        $("<input></input>", {
           name: "services[]",
           type: "hidden",
           value: provider

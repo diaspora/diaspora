@@ -32,7 +32,7 @@ es:
         confirm: "Confirmar mi cuenta"
         subject: "Instrucciones de confirmación"
         you_can_confirm: "Puedes confirmar tu cuenta a través del siguiente enlace:"
-      hello: "¡Hola %{email}!"
+      hello: "¡Hola %{username}!"
       inviter:
         accept_at: "en %{url}, puedes aceptar en el enlace inferior."
         has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
@@ -44,13 +44,14 @@ es:
         ignore: "Si no has solicitado esto, por favor ignora este mensaje."
         someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña. Si fuiste tú, puedes hacerlo a través del siguiente enlace."
         subject: "Instrucciones para cambiar tu contraseña"
+        then_connect: "Tras establecer tu nueva contraseña podrás entrar de nuevo en diaspora* con tu nombre de usuario \"%{username}\" y tu nueva contraseña."
         wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
       unlock_instructions:
         account_locked: "Tu cuenta ha sido bloqueada debido a demasiados intentos de ingreso fallidos."
         click_to_unlock: "Sigue el siguiente enlace para desbloquear tu cuenta:"
         subject: "Instrucciones para desbloquear la cuenta"
         unlock: "Desbloquear mi cuenta"
-      welcome: "¡Bienvenid@ %{email}!"
+      welcome: "¡Bienvenid@ %{username}!"
     omniauth_callbacks:
       failure: "No pudimos identificarte desde %{kind} por \"%{reason}\"."
       success: "Identificado correctamente desde la cuenta %{kind}."

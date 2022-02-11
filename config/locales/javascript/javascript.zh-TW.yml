@@ -91,8 +91,6 @@ zh-TW:
     confirm_unload: "請確認要離開這個頁面。你目前輸入的資料將不會保留。"
     contacts:
       add_contact: "加聯絡人"
-      aspect_chat_is_enabled: "這個社交面中的聯絡人可以跟你聊天。"
-      aspect_chat_is_not_enabled: "這個社交面中的聯絡人不能跟你聊天。"
       error_add: "沒辦法把 <%= name %> 加進這個社交面 :("
       error_remove: "沒辦法把 <%= name %> 從這個社交面中移除 :("
       remove_contact: "刪聯絡人"
@@ -295,7 +293,6 @@ zh-TW:
       seconds: "少於一分鐘"
       suffixAgo: "前"
       suffixFromNow: "前"
-      wordSeparator: ""
       year: "約一年"
       years:
         other: "%d年"

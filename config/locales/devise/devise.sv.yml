@@ -32,7 +32,7 @@ sv:
         confirm: "Aktivera mitt konto"
         subject: "Instruktioner för att aktivera ditt konto"
         you_can_confirm: "Klicka på länken nedan för att aktivera ditt konto:"
-      hello: "Hej %{email}!"
+      hello: "Hej %{username}!"
       inviter:
         accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
         has_invited_you: "%{name}"
@@ -44,13 +44,14 @@ sv:
         ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."
         someone_requested: "Någon har efterfrågat en länk för att återställa ditt lösenord. För att återställa lösenordet, klicka på länken nedan."
         subject: "Instruktioner för att återställa lösenordet"
+        then_connect: "Efter att ett nytt lösenord satts kommer du behöva logga in igen med användarnamnet \"%{username}\" och ditt nya lösenord."
         wont_change: "Ditt lösenord kommer inte ändras förrän du klickat på länken och ändrat det."
       unlock_instructions:
         account_locked: "Ditt konto har låsts eftersom fel lösenord har angivits för många gånger."
         click_to_unlock: "Klicka på länken nedan för att låsa upp ditt konto:"
         subject: "Upplåsningsinstruktioner"
         unlock: "Lås upp mitt konto"
-      welcome: "Välkommen %{email}!"
+      welcome: "Välkommen %{username}!"
     omniauth_callbacks:
       failure: "Kunde inte autentisera dig från %{kind} på grund av: %{reason}"
       success: "Lyckades autentisera från kontot %{kind}."

@@ -24,7 +24,7 @@ class PersonPresenter < BasePresenter
   end
 
   def hovercard
-    base_hash_with_contact.merge(profile: ProfilePresenter.new(profile).for_hovercard)
+    full_hash.merge(profile: ProfilePresenter.new(profile).for_hovercard)
   end
 
   def metas_attributes

@@ -169,9 +169,6 @@ oc:
         login_required: "D'en primièr, vos cal vos connectar per fin de poder autorizar aquesta aplicacion"
         title: "Ops ! Quicòm a trucat :("
       scopes:
-        aud:
-          description: "Aquò dòna la permission aud a l'aplicacion"
-          name: "aud"
         name:
           description: "Aquò dòna la permission del nom a l'aplicacion"
           name: "nom"
@@ -187,15 +184,9 @@ oc:
         profile:
           description: "Aquò autoriza l'aplicacion a legir vòstre perfil complet"
           name: "perfil complet"
-        read:
-          description: "Aquò autoriza l'aplicacion a legir vòstre flux d'actualitat, vòstras conversacions e vòtre perfil complet"
-          name: "veire perfil, flux e conversacions"
         sub:
           description: "Aquò autreja de sospermissions a l'aplicacion"
           name: "jos"
-        write:
-          description: "Aquò permet a l'aplicacion de mandar de publicacions novèlas, escriure de conversacions e publicar de reaccions."
-          name: "mandar publicacions, conversacions e reaccions"
       user_applications:
         index:
           access: "%{name} a accès a :"
@@ -301,8 +292,6 @@ oc:
     original: "Gris d’origina"
     original_white: "Fons blanc d’origina"
   comments:
-    create:
-      error: "Fracàs al moment de comentar."
     new_comment:
       comment: "Comentar"
       commenting: "Comentari en cors de mandadís..."
@@ -413,13 +402,6 @@ oc:
       what_is_an_aspect_q: "De qué es un aspècte ?"
       who_sees_post_a: "Se fasètz una publicacion limitada, serà visibla pas que pel mond qu'avètz plaçat dins aqueste aspècte (o aspèctes, s'es fach per mai d'un aspècte) abans de publicar. Los contactes qu'avètz e que son pas dins l'aspècte, an pas cap de biais de veire la publicacion. Las publicacions limitadas seràn pas jamai visiblas pel mond qu'avètz pas plaçat dins vòstres aspèctes."
       who_sees_post_q: "Quand publiqui en un aspècte, qual pòt o veire ?"
-    chat:
-      add_contact_roster_a: |-
-          D'en primièr, vos cal activar la conversacion per un aspècte ont es la persona. Per aquò far, anatz sus %{contacts_page}, seleccionatz l'aspècte que volètz e clicatz l'icòna de conversacion per l'activar sus l'aspècte.
-          %{toggle_privilege} Poiriatz, se vos agrada mai, crear un aspècte especial apelat « Chat » e i ajustar lo mond amb qui volètz parlar. Un còp fach, dobrissètz l'interfàcia de conversacion e causissètz la persona amb qui volètz parlar.
-      add_contact_roster_q: "Cossí discutir amb qualqu'un dins diaspora* ?"
-      contacts_page: "pagina dels contactes"
-      title: "Chat"
     community_guidelines: "règlas de comportament de la comunautat"
     faq: "FAQ"
     foundation_website: "site internet de la fondacion diaspora*"
@@ -595,7 +577,7 @@ oc:
       byline: "La ret sociala ont gardatz lo contraròtle."
       choose_your_audience: "Causissètz vòstre public"
       choose_your_audience_info: "Los aspèctes de diaspora* vos permeton de partejar solament amb lo mond que volètz. Podètz èsser public o privat tan que volètz. Partejatz una fòto divertissenta amb lo mond complet, o un grand secrèt amb vòstre melhors amics. Avètz lo contraròtle."
-      diaspora_site_link: "Malhum federat diapora*"
+      diaspora_site_link: "malhum federat diapora*"
       headline: "Benvenguda sus %{pod_name}"
       own_your_data: "Siatz proprietari de vòstras donadas"
       own_your_data_info: "Mantun rets emplegan vòstras donadas per se far de moneda en analisant vòstras interaccions e en emplegant aquelas informacions per vos far de reclama. diaspora* utilizant pas vòstras donadas que per vos permetre de comunicar e partejar amb lo mond."
@@ -997,7 +979,7 @@ oc:
     closed:
       another_pod: "un autre pod"
       closed_pod: "Aqueste pod es actualament pas dubèrt per las inscripcions. Pasmens, podètz jonher lo malhum diaspora* en vos marcar sus %{wiki} . Perque totes los pods son connectats entre eles, enlà auretz accès al meteis contengut."
-      find_pods: "Vaquí una lista de pods ont podètz vos marcar %{poduptime}."
+      find_pods: "Vaquí una lista de pods ont podètz vos marcar %{fediverse_observer}."
       other_questions: "S’avètz mai de questions tocant la causida d’un pod, gaitatz nòstre %{wiki}."
     create:
       success: "Avètz rejunt diaspora*!"

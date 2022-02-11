@@ -103,7 +103,9 @@ DiasporaFederation.configure do |config|
     end
 
     on :receive_entity do |entity, sender, recipient_id|
-      Person.by_account_identifier(sender).pod.try(:schedule_check_if_needed)
+      sender_person = Person.by_account_identifier(sender)
+      sender_person.pod&.schedule_check_if_needed
+      Diaspora::Federation::Receive.handle_closed_recipient(sender_person, User.find(recipient_id)) if recipient_id
 
       case entity
       when DiasporaFederation::Entities::AccountDeletion

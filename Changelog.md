@@ -1,3 +1,34 @@
+# 0.7.16.0
+
+## Security
+
+* Update rails to fix [CVE-2022-23633](https://github.com/advisories/GHSA-wh98-p28r-vrc9) [#8336](https://github.com/diaspora/diaspora/pull/8336)
+
+## Refactor
+* Cache local posts/comments count for statistics [#8241](https://github.com/diaspora/diaspora/pull/8241)
+* Fix html-syntax in some handlebars templates [#8251](https://github.com/diaspora/diaspora/pull/8251)
+* Remove `chat_enabled` flag from archive export [#8265](https://github.com/diaspora/diaspora/pull/8265)
+* Change thumbnails in image slideshow to squares [#8275](https://github.com/diaspora/diaspora/pull/8275)
+* Replace uglifier with terser for JS compression [#8268](https://github.com/diaspora/diaspora/pull/8268)
+
+## Bug fixes
+* Ensure the log folder exists [#8287](https://github.com/diaspora/diaspora/pull/8287)
+* Limit name length in header [#8313](https://github.com/diaspora/diaspora/pull/8313)
+* Fix fallback avatar in hovercards [#8316](https://github.com/diaspora/diaspora/pull/8316)
+* Use old person private key for export if relayable author migrated away [#8310](https://github.com/diaspora/diaspora/pull/8310)
+
+## Features
+* Add tags to tumblr posts [#8244](https://github.com/diaspora/diaspora/pull/8244)
+* Add blocks to the archive export [#8263](https://github.com/diaspora/diaspora/pull/8263)
+* Allow points and dashes in the username [#8266](https://github.com/diaspora/diaspora/pull/8266)
+* Add support for footnotes in markdown [#8277](https://github.com/diaspora/diaspora/pull/8277)
+* Send `AccountMigration` if receiving message to a migrated account [#8288](https://github.com/diaspora/diaspora/pull/8288)
+* Add podmin mail address to the footer [#8242](https://github.com/diaspora/diaspora/pull/8242)
+* Add username to password-reset mail [#8037](https://github.com/diaspora/diaspora/pull/8037)
+* Resend account migration and deletion for closed recipients [#8309](https://github.com/diaspora/diaspora/pull/8309)
+* Add sharing status to hovercards [#8317](https://github.com/diaspora/diaspora/pull/8317)
+* Migrate photo URLs and cleanup old uploaded photos [#8314](https://github.com/diaspora/diaspora/pull/8314)
+
 # 0.7.15.0
 
 ## Refactor

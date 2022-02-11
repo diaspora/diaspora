@@ -354,11 +354,12 @@ describe "diaspora federation callbacks" do
 
     it "receives a Retraction" do
       retraction = Fabricate(:retraction_entity, author: remote_person.diaspora_handle)
+      recipient_id = FactoryGirl.create(:user).id
 
-      expect(Diaspora::Federation::Receive).to receive(:retraction).with(retraction, 42)
+      expect(Diaspora::Federation::Receive).to receive(:retraction).with(retraction, recipient_id)
       expect(Workers::ReceiveLocal).not_to receive(:perform_async)
 
-      DiasporaFederation.callbacks.trigger(:receive_entity, retraction, retraction.author, 42)
+      DiasporaFederation.callbacks.trigger(:receive_entity, retraction, retraction.author, recipient_id)
     end
 
     it "receives a entity" do
@@ -386,11 +387,13 @@ describe "diaspora federation callbacks" do
     it "receives a entity for a recipient" do
       received = Fabricate(:status_message_entity, author: remote_person.diaspora_handle)
       persisted = FactoryGirl.create(:status_message)
+      recipient = FactoryGirl.create(:user)
 
+      expect(Diaspora::Federation::Receive).to receive(:handle_closed_recipient).with(remote_person, recipient)
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
-      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [42])
+      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [recipient.id])
 
-      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, 42)
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, recipient.id)
     end
 
     it "does not trigger a ReceiveLocal job if Receive.perform returned nil" do

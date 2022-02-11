@@ -7,7 +7,7 @@
 fil:
   devise:
     mailer:
-      hello: "Kumusta %{email}!"
+      hello: "Kumusta %{username}!"
     sessions:
       new:
         remember_me: "Tandaan Ako"

@@ -32,7 +32,7 @@ oc:
         confirm: "Confirmar mon compte"
         subject: "Instruccions de confirmacion"
         you_can_confirm: "Podètz confirmar vòstre compte en clicant sul ligam çaijós :"
-      hello: "Adieusiatz %{email} !"
+      hello: "Adieusiatz %{username} !"
       inviter:
         accept_at: "a %{url}, lo podètz acceptar a travèrs lo ligal çaijós."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ oc:
         click_to_unlock: "Clicatz sul ligam çaijós per desblocar vòstre compte :"
         subject: "Instruccions de desverrolhatge"
         unlock: "Desverrolhar mon compte"
-      welcome: "Benvenguda %{email} !"
+      welcome: "Benvenguda %{username} !"
     omniauth_callbacks:
       failure: "Impossible de vos indentificar de %{kind} perque %{reason}"
       success: "Autentificacion capitada de lo compte %{kind}."

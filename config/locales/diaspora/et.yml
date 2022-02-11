@@ -118,10 +118,6 @@ et:
     helper:
       correct_the_following_errors_and_try_again: "Palun paranda järgnevad vead ja proovi uuesti:"
   find_people: "Otsi inimesi või #silte"
-  help:
-    chat:
-      contacts_page: "kontaktide leht"
-      title: "Vestlus"
   home:
     default:
       choose_your_audience: "Vali oma publik"

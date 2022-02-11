@@ -23,7 +23,7 @@ pa:
       confirmation_instructions:
         confirm: "ਮੇਰੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
         subject: "ਪੁਸ਼ਟੀ ਹਦਾਇਤਾਂ"
-      hello: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ %{email}!"
+      hello: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ %{username}!"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} ਨੇ ਤੁਹਾਨੂੰ ਡਿਆਸਪਰਾ ਨਾਲ ਜੁੜਨ ਲਈ ਸੱਦਿਆ ਹੈ"
@@ -34,7 +34,7 @@ pa:
         click_to_unlock: "ਆਪਣਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰਨ ਲਈ ਹੇਠਲੇ ਲਿੰਕ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ:"
         subject: "ਅਣ-ਲਾਕ ਹਦਾਇਤਾਂ"
         unlock: "ਮੇਰਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰੋ"
-      welcome: "%{email} ਜੀ ਆਇਆਂ ਨੂੰ!"
+      welcome: "%{username} ਜੀ ਆਇਆਂ ਨੂੰ!"
     passwords:
       edit:
         change_password: "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ"

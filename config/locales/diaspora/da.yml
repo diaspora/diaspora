@@ -8,6 +8,7 @@ da:
   _applications: "Applikationer"
   _contacts: "Kontakter"
   _help: "Hjælp"
+  _podmin_mail: "Kontakt Podmin"
   _services: "Tjenester"
   _statistics: "Statistik"
   _terms: "Betingelser"
@@ -91,6 +92,7 @@ da:
     user_entry:
       account_closed: "Konto lukket"
       admin: "Admin"
+      current_sign_in_ip: "IP-adresse ved nuværende indlogning"
       diaspora_handle: "Diaspora ID"
       email: "E-mail"
       guid: "GUID"
@@ -162,40 +164,85 @@ da:
           client_id_not_found: "Der er ikke fundet nogen klient med client_id %{client_id} og omdirigerings URI %{redirect_uri}"
           deny: "Afvis"
           no_requirement: "%{name} kræver ingen tilladelser"
+          private_contacts_linkage_error: "private:read og  private:modify kræver også contacts:read"
           redirection_message: "Er du sikker på at du vil give adgang til %{redirect_uri}?"
+          unknown_scope: "Ukendt scope: %{scope_name}"
       error_page:
-        contact_developer: "Du bør kontakte applikationens udvikler og vedlægge følgende fejlmeddelelse:"
+        contact_developer: "Du bør kontakte applikationens udvikler og vedlægge følgende detaljerede fejlmeddelelse:"
         could_not_authorize: "Applikationen kan ikke autoriseres"
         login_required: "Du skal logge ind for at kunne autorisere denne applikation"
         title: "Ups! Noget gik galt :("
       scopes:
-        aud:
-          description: "Dette giver aud tilladelser til applicationen"
-          name: "aud"
+        ? "contacts:modify"
+        :
+          description: "Dette giver write-rettigheder til kontakter og relaterede data (såsom aspekter)."
+          name: "Kontakter (write)"
+        ? "contacts:read"
+        :
+          description: "Dette giver read-only-rettigheder til kontakter og relaterede data (såsom aspekter)."
+          name: "Kontakter (read-only)"
+        conversations:
+          description: "Dette giver læse- og skriverettigheder til private meddelelser."
+          name: "Samtaler"
+        email:
+          description: "Dette giver read-only-adgang til din e-mail-adresse."
+          name: "E-mail"
+        interactions:
+          description: "Dette giver adgang til at interagere med indlæg, for eksempel \"synes om\" eller indsende en kommentar."
+          name: "Interaktioner"
         name:
-          description: "Dette giver applikationen adgang til dit navn"
-          name: "navn"
+          description: "Dette giver read-only-rettigheder til dit fulde navn."
+          name: "Fuldt navn"
         nickname:
-          description: "Dette giver applikationen adgang til dit kælenavn"
-          name: "kælenavn"
+          description: "Dette giver applikationen read-only-rettigheder til dit brugernavn."
+          name: "Brugernavn"
+        notifications:
+          description: "Dette giver læse- og skriverettigheder til dine notifikationer."
+          name: "Notifikationer"
         openid:
-          description: "Dette tillader applikationen at læse fra din basis profil"
-          name: "basis profil"
+          description: "Dette tildeler applikationen read-only-rettigheder til din basisprofils informationer."
+          name: "Basisprofil information"
         picture:
-          description: "Dette giver applikationen adgang til dine billeder"
-          name: "billede"
+          description: "Dette giver applikationen read-only-rettigheder til dit profilbillede."
+          name: "Profilbillede"
+        ? "private:modify"
+        :
+          description: "Dette giver adgang til at offentliggøre private indlæg."
+          name: "Private Indlæg (write)"
+        ? "private:read"
+        :
+          description: "Dette giver  read-only-adgang til din og dine kontakters private indlæg."
+          name: "Private indlæg (read-only)"
         profile:
-          description: "Dette tillader applikationen at læse din udvidede profil"
-          name: "udvidet profil"
-        read:
-          description: "Dette tillader applikationen at læse fra din strøm, dine samtaler og hele din profil"
-          name: "læs profil, strøm og samtaler"
+          description: "Dette giver applikationen read-only-rettigheder til dine udvidede profildata."
+          name: "Udvidet profil (read-only)"
+        ? "profile:modify"
+        :
+          description: "Dette giver adgang til at opdatere dine udvidede profildata."
+          name: "Udvidet profil (write)"
+        ? "profile:read_private"
+        :
+          description: "Dette giver read-only-adgang til dine private profildata."
+          name: "Private profildata (read-only)"
+        ? "public:modify"
+        :
+          description: "Dette giver skriveadgang til offentlige indlæg og relaterede data (såsom stemmer og vedhæftede medier)."
+          name: "Offentlige Indlæg (write)"
+        ? "public:read"
+        :
+          description: "Dette giver adgang til dine offentlige indlæg, inklusiv interaktioner og relaterede data."
+          name: "Offentlige Indlæg (read-only)"
         sub:
-          description: "Dette giver underprivilegier til applikationen"
-          name: "under"
-        write:
-          description: "Dette tillader applikationen at sende indlæg, skrive meddelelser og sende reaktioner"
-          name: "send indlæg, samtaler og reaktioner"
+          description: "Dette giver read-only-privilegier til din unikke identifikator."
+          name: "Unik identifikator"
+        ? "tags:modify"
+        :
+          description: "Dette giver adgang til at ændre de tags du følger."
+          name: "Tags (write)"
+        ? "tags:read"
+        :
+          description: "Dette giver read-only-adgang til dine fulgte tags og tag-strøm."
+          name: "Tags (read-only)"
       user_applications:
         index:
           access: "%{name} har adgang til:"
@@ -258,7 +305,7 @@ da:
         tutorial_link_text: "Guider"
         tutorials_and_wiki: "%{faq}, %{tutorial} og %{wiki}: Hjælp til at komme i gang."
       introduce_yourself: "Dette er din strøm. Hop ud i den og introducer dig selv."
-      keep_pod_running: "Hjælp med at få %{pod} til at køre, og sørg for at administratoren kan få sig en kop kaffe i ny og næ med en månedlig donation."
+      keep_pod_running: "Hjælp med at få %{pod} til at køre, og sørg for at administratoren kan få sig en kop kaffe og et stykke wienerbrød i ny og næ med en månedlig donation."
       new_here:
         follow: "Følg %{link} og byd nye brugere velkommen til Diaspora!"
         learn_more: "Lær mere"
@@ -302,10 +349,14 @@ da:
     original_white: "Original hvid baggrund"
   comments:
     create:
-      error: "Du kunne ikke kommentere."
+      fail: "Oprettelse af kommentar fejlede"
+    destroy:
+      fail: "Sletning af kommentar fejlede"
+      success: "Kommentar %{id} er blevet slettet"
     new_comment:
       comment: "Kommenter"
       commenting: "Kommenterer ..."
+    not_found: "Indlæg eller kommentar blev ikke fundet"
   contacts:
     index:
       add_contact: "Tilføj kontakt"
@@ -345,6 +396,7 @@ da:
       to: "Til"
     new_conversation:
       fail: "Ugyldig meddelelse"
+    not_found: "Samtale blev ikke fundet"
     show:
       delete: "Slet samtalen"
       hide: "Skjul konversationen og gør den tavs"
@@ -413,11 +465,6 @@ da:
       what_is_an_aspect_q: "Hvad er et aspekt?"
       who_sees_post_a: "Hvis du laver et lukket indlæg, vil det kun være synligt for de personer du har lagt i dette aspekt (eller aspekter, hvis det er lavet til flere aspekter) før du lavede dit indlæg. Kontakter der ikke er i det aspekt kan ikke se indlægget. Lukkede indlæg vil aldrig kunne ses af andre end dem du har i dine aspekter."
       who_sees_post_q: "Hvis jeg skriver et indlæg til et aspekt hvem kan så se det?"
-    chat:
-      add_contact_roster_a: "Først skal du slå chat til for det af dine aspekter personen er i. For at gøre det gå til %{contacts_page}, vælg det aspekt du ønsker og klik chat-ikonnet. Herved slår du chat til for det aspekt. %{toggle_privilege} Hvis du ønsker det kan du lave et nyt aspekt kaldet \"Chat\" og så tilføje de personer du er interesseret i at chatte med. Når du har gjort det, åben chat interfacet og vælg den person du vil chatte med."
-      add_contact_roster_q: "Hvordan chatter jeg med nogen i Diaspora?"
-      contacts_page: "kontakt side"
-      title: "Chat"
     community_guidelines: "Sociale retningslinier"
     faq: "FAQ"
     foundation_website: "Diaspora-stiftelsens hjemmeside"
@@ -517,7 +564,7 @@ da:
       can_comment_q: "Hvem kan kommentere eller like mine private indlæg?"
       can_reshare_a: "Ingen. Private indlæg kan ikke videresendes. Diaspora-brugerne der kan se indlægget fordi de er i samme aspekt kan dog potentielt kopiere og indsætte det i et af deres egne indlæg. Hvad det angår er det op til dig hvem du stoler på."
       can_reshare_q: "Hvem kan videredele mine private indlæg?"
-      see_comment_a: "Kun de mennesker som indlægget blev delt med (dem der er i det aspekt som den oprindelige forfatter valgte for indlægget) kan se kommentarer og likes. "
+      see_comment_a: "Kun de mennesker som indlægget blev delt med (dem der er i det aspekt som den oprindelige forfatter valgte for indlægget) kan se kommentarer og \"synes om\". "
       see_comment_q: "Når jeg kommenterer eller synes om privat indlæg, hvem kan så se det"
       title: "Private indlæg"
       who_sees_post_a: "Kun Diaspora-brugere der er logget ind, og som du har placeret i dette aspekt inden du skrev dit begrænsede indlæg kan se det."
@@ -659,9 +706,23 @@ da:
       toggle_navigation: "Slå navigation til/fra"
   likes:
     create:
-      error: "Du kunne ikke like."
+      error: "Du kunne ikke \"synes om\"."
+      fail: "Oprettelse af \"synes om\" fejlede"
     destroy:
-      error: "Kunne ikke fjerne synes om."
+      error: "Kunne ikke fjerne \"synes om\"."
+    not_found: "Indlæg eller \"synes om\" ikke fundet"
+    people_dislike_this:
+      one: "%{count} \"kan ikke lide\""
+      other: "%{count} \"kan ikke lide\""
+      zero: "Ingen \"kan ikke lide\""
+    people_like_this:
+      one: "%{count} \"synes om\""
+      other: "%{count} \"synes om\""
+      zero: "Ingen \"synes om\""
+    people_like_this_comment:
+      one: "%{count} \"synes om\""
+      other: "%{count} \"synes om\""
+      zero: "Ingen \"synes om\""
   limited: "Begrænset"
   more: "Mere"
   no_results: "Ingen resultater fundet"
@@ -911,7 +972,7 @@ da:
 
           Diasporas email-robot!
 
-          [1]:%{url}
+          [1]: %{url}
       subject: "%{type} blev markeret som stødende"
       type:
         comment: "kommentar"
@@ -1016,7 +1077,7 @@ da:
     closed:
       another_pod: "en anden pod"
       closed_pod: "Denne pod er for tiden lukket for tilgang. Du kan dog stadig blive en del af Diaspora-netværket ved at tilmelde dig på %{wiki}. Fordi alle Diasporas pods er forbundet, vil du stadig have adgang til det samme indhold der."
-      find_pods: "Der er en liste over de pods du kan tilmelde dig på %{poduptime}."
+      find_pods: "Der er en liste over de pods du kan tilmelde dig på %{fediverse_observer}."
       other_questions: "Har du nogen spørgsmål vedrørende valg af pod, se vores %{wiki}."
     create:
       success: "Du er nu en del af Diaspora!"
@@ -1181,6 +1242,8 @@ da:
       title: "'Synes om' strøm"
     liked:
       title: "Indlæg nogen syntes om"
+    local_public:
+      title: "Lokale indlæg"
     mentioned_stream: "@Omtaler"
     mentions:
       title: "Dine omtaler"

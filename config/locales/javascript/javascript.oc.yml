@@ -96,8 +96,6 @@ oc:
     confirm_unload: "Mercé de confirmar que volètz quitar aquesta pagina — las donadas sasidas seràn pas salvadas."
     contacts:
       add_contact: "Apondre aqueste contacte"
-      aspect_chat_is_enabled: "Los contactes d'aqueste aspècte pòdon discutir amb vos."
-      aspect_chat_is_not_enabled: "Los contactes d'aqueste aspècte pòdon pas discutir amb vos."
       error_add: "Impossible d'apondre <%= name %> a aquesta facieta :("
       error_remove: "Impossible de levar <%= name %> a aquesta facieta :("
       remove_contact: "Levar aqueste contacte"

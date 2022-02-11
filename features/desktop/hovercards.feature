@@ -49,3 +49,21 @@ Feature: Hovercards
     Then I should see a hovercard
     And I should see "#first" hashtag in the hovercard
     And I should see "#second" hashtag in the hovercard
+
+  Scenario: Hovercards contain the aspect membership and the sharing status
+    Given a user with email "alice@alice.alice" is connected with "bob@bob.bob"
+    And I sign in as "alice@alice.alice"
+    And I am on "bob@bob.bob"'s page
+    When I activate the first hovercard
+    Then I should see a hovercard
+    And I should see "Besties" within ".aspect-membership-dropdown"
+    And I should see a "[title='Bob Jones is sharing with you']" within ".status-container"
+    And I should see a ".entypo-check" within ".sharing_message_container"
+
+  Scenario: Hovercards contain sharing status when not sharing
+    Given I sign in as "alice@alice.alice"
+    And I am on "bob@bob.bob"'s page
+    When I activate the first hovercard
+    Then I should see a hovercard
+    And I should see a "[title='Bob Jones is not sharing with you']" within ".status-container"
+    And I should see a ".entypo-record" within ".sharing_message_container"

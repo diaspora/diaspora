@@ -91,6 +91,7 @@ nl:
     user_entry:
       account_closed: "Account afgesloten"
       admin: "Admin"
+      current_sign_in_ip: "IP-adres bij inloggen"
       diaspora_handle: "diaspora* id"
       email: "E-mailadres"
       guid: "GUID"
@@ -169,9 +170,6 @@ nl:
         login_required: "Je moet eerst inloggen voordat je deze applicatie kunt autoriseren"
         title: "Ohhh! Er ging iets verkeerd :("
       scopes:
-        aud:
-          description: "Dit verleent aud toegang tot de applicatie"
-          name: "aud"
         name:
           description: "Dit verleent naam toegang tot de applicatie"
           name: "naam"
@@ -187,15 +185,9 @@ nl:
         profile:
           description: "Dit staat de applicatie toe je uitgebreide profiel te zien"
           name: "uitgebreid profiel"
-        read:
-          description: "Dit staat de applicatie toe om je stream, je gesprekken en je complete profiel te zien"
-          name: "lees profiel, stream en gesprekken"
         sub:
           description: "Dit verleent sub toegang tot de applicatie"
           name: "sub"
-        write:
-          description: "Dit staat de applicatie toe om nieuwe berichten te plaatsen, gesprekken te schrijven en reacties in te sturen"
-          name: "plaats berichten, gesprekken en reacties"
       user_applications:
         index:
           access: "%{name} heeft toegang tot:"
@@ -302,7 +294,10 @@ nl:
     original_white: "Originele witte achtergrond"
   comments:
     create:
-      error: "Reageren mislukt."
+      fail: "Het aanmaken van de reactie is mislukt"
+    destroy:
+      fail: "Het verwijderen van de reactie is mislukt"
+      success: "De reactie %{id} is verwijderd"
     new_comment:
       comment: "Reactie"
       commenting: "Reageren..."
@@ -408,13 +403,6 @@ nl:
       what_is_an_aspect_q: "Wat is een aspect?"
       who_sees_post_a: "Als je een 'beperkt' bericht plaatst, is het alleen zichtbaar voor de mensen die je in dat aspect (of die aspecten als je meer aspecten hebt gekozen) hebt gestopt. Contactpersonen die niet in het betreffende aspect zitten, zullen het bericht niet kunnen zien. Beperkte berichten zijn nooit zichtbaar voor mensen die niet in je aspect(en) zitten."
       who_sees_post_q: "Als ik een bericht plaats voor een aspect, wie ziet dat dan?"
-    chat:
-      add_contact_roster_a: |-
-          Eerst moet je de chatmogeljikheid inschakelen voor een van de aspecten waar die persoon in zit. Ga naar de %{contacts_page}, selecteer het aspect en klik op het chat pictogram om chat voor het aspect mogelijk te maken.
-          %{toggle_privilege} Je kunt, als je dat wilt, een speciaal aspect genaamd 'Chat' maken en daar personen met wie je wilt chatten aan toevoegen. Als je dat hebt gedaan, open dan de chat interface en selecteer de persoon met wie je wilt chatten.
-      add_contact_roster_q: "Hoe kan ik met iemand binnen diaspora* chatten?"
-      contacts_page: "contactpersonenpagina"
-      title: "Chat"
     community_guidelines: "Gemeenschapsprotocollen"
     faq: "FAQ"
     foundation_website: "diaspora* foundation website"
@@ -584,9 +572,11 @@ nl:
       byline: "De online sociale online wereld waar jij de controle hebt"
       choose_your_audience: "Kies je publiek"
       choose_your_audience_info: "diaspora*'s aspecten maken het mogelijk om uitsluitend te delen met de mensen waarmee jij dat wilt. Je kunt zo openbaar of privé zijn als je wilt. Deel een grappige foto met de hele wereld, of een groot geheim alleen met je beste vrienden. Jij bent in control."
+      diaspora_site_link: "federatieve diaspora*-netwerk"
       headline: "Welkom op %{pod_name}"
       own_your_data: "Beschik over je eigen gegevens"
       own_your_data_info: "Veel netwerken verdienen hun geld door jouw gedrag en interacties vanuit jouw gegevens te analyseren om 'op maat gesneden' advertenties te serveren. diaspora* gebruikt je data alleen om je in de gelegenheid te stellen te communiceren en te delen met anderen."
+      part_of_diaspora: "Deel van het %{diaspora_site_link}"
     podmin:
       byline: "Je staat op het punt om het internet te veranderen. Zullen we daar maar eens mee beginnen?"
       configuration_info: "Open %{database_path} en %{diaspora_path} in je voorkeurs teksteditor en bestudeer ze grondig. Ze zijn rijkelijk voorzien van commentaar."
@@ -994,6 +984,11 @@ nl:
       updated: "Profiel bijgewerkt"
   public: "Openbaar"
   registrations:
+    closed:
+      another_pod: "een andere pod"
+      closed_pod: "Deze pod is momenteel gesloten voor nieuwe inschrijvingen. Wel kun je je aansluiten bij het diaspora*-netwerk door je in te schrijven bij %{wiki}. Alle pods zijn met elkaar verbonden, dus krijg je toegang tot dezelfde content."
+      find_pods: "Een lijst van pods waar je je kunt inschrijven vind je op %{fediverse_observer}."
+      other_questions: "Heb je nog andere vragen over het kiezen van een pod, zie dan onze %{wiki}."
     create:
       success: "Je bent nu lid van diaspora*!"
     invalid_invite: "De uitnodigingslink die je gebruikt is niet langer geldig!"

@@ -14,7 +14,7 @@ art-nvi:
       unauthenticated: "Ngal kin 'ivastengyem ayoeti fu fpxäkim ayoe fte salew Diasporaru."
       unconfirmed: "Ngal kin stiveftxaw ngeyä Diasporati fte fpxäkim."
     mailer:
-      hello: "Kaltxì %{email}!"
+      hello: "Kaltxì %{username}!"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} polawm ngati txo säpung Diasporaru"
@@ -22,7 +22,7 @@ art-nvi:
         change: "Latem oeyä ftemlì'u"
         someone_requested: "Tsengeäo lu fte nga tsun livatem ngeyä ftemlì'u talun tuteo pìmawm ayoe txo tìng fì'uti ngaur."
         subject: "aysänume fte zeyko oeyä ftemlì'uti"
-      welcome: "Zola'u nìprrte, ma %{email}!"
+      welcome: "Zola'u nìprrte, ma %{username}!"
     passwords:
       edit:
         change_password: "Leykatem oeyä ftemlì'ut"

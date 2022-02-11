@@ -14,8 +14,8 @@ et:
       deselect_all: "Eemalda kõik valikust"
       select_all: "Vali kõik"
     comments:
-      hide: "peida kommentaarid"
-      show: "näita kõiki kommentaare"
+      hide: "Peida kommentaarid"
+      show: "Näita kõiki kommentaare"
     confirm_dialog: "Kas oled kindel?"
     delete: "Kustuta"
     failed_to_post_message: "Sõnumi saatmine ebaõnnestus!"
@@ -40,7 +40,7 @@ et:
     my_stream: "Voog"
     photo_uploader:
       looking_good: "OMG, sa näed vinge välja!"
-    show_more: "näita veel"
+    show_more: "Näita veel"
     stream:
       comment: "Kommenteeri"
       disable_post_notifications: "Lülita selle postituse teavitused välja"
@@ -63,7 +63,7 @@ et:
         other: "Näita veel <%= count %> kommentaari"
         zero: "Näita veel <%= count %> kommentaari"
       no_posts_yet: "Ei ole veel kuvamiseks postitusi."
-      original_post_deleted: "Postitus on autori poolt eemaldatud."
+      original_post_deleted: "Postitus on autori poolt kustutatud."
       permalink: "Püsiviide"
       public: "Avalik"
       reshare: "Jaga edasi"

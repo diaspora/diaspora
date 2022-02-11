@@ -19,8 +19,13 @@ app.views.Hovercard = app.views.Base.extend({
 
     this.showMe = false;
     this.parent = null;  // current 'hovercardable' element that caused HC to appear
-
     this.active = true;
+  },
+
+  presenter: function() {
+    return _.extend({}, this.defaultPresenter(), {
+      person: this.person
+    });
   },
 
   postRenderTemplate: function() {
@@ -102,37 +107,20 @@ app.views.Hovercard = app.views.Base.extend({
       if( !person || person.length === 0 ) {
         throw new Error("received data is not a person object");
       }
-
+      var personModel = new app.models.Person(person);
+      person.is_sharing = personModel.isSharing();
+      self.person = person;
       if (app.currentUser.authenticated()) {
-        self.aspectMembershipDropdown = new app.views.AspectMembership({person: new app.models.Person(person)});
+        self.aspectMembershipDropdown = new app.views.AspectMembership({person: personModel});
       }
-
       self.render();
 
-      self._populateHovercardWith(person);
       if( !self.showMe ) {
         // mouse has left element
         return;
       }
       self.$el.fadeIn('fast');
     });
-  },
-
-  _populateHovercardWith: function(person) {
-    this.avatarLink.attr("href", this.href());
-    this.personLink.attr("href", this.href());
-    this.personLink.text(person.name);
-    this.personID.text(person.diaspora_id);
-
-    if (person.profile) {
-      this.avatar.attr("src", person.profile.avatar);
-
-      // set hashtags
-      this.hashtags.empty();
-      this.hashtags.html($(_.map(person.profile.tags, function(tag) {
-        return $("<a/>", {href: Routes.tag(tag)}).text("#" + tag)[0];
-      })));
-    }
   },
 
   _positionHovercard: function() {

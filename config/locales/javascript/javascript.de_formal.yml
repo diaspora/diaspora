@@ -95,8 +95,6 @@ de_formal:
     confirm_unload: "Bitte bestätigen Sie, dass Sie diese Seite verlassen wollen. - Von Ihnen eingegebene Daten werden nicht gespeichert."
     contacts:
       add_contact: "Kontakt hinzufügen"
-      aspect_chat_is_enabled: "Kontakte in diesem Askekt können mit Ihnen chatten."
-      aspect_chat_is_not_enabled: "Kontakte in diesem Aspekt können nicht mit Ihnen chatten."
       error_add: "Konnte <%= name %> nicht zum Aspekt hinzufügen :("
       error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
       remove_contact: "Kontakt entfernen"
@@ -311,7 +309,7 @@ de_formal:
       seconds: "wenigen Sekunden"
       suffixAgo: ""
       suffixFromNow: "ab jetzt"
-      wordSeparator: ""
+      wordSeparator: " "
       year: "etwa einem Jahr"
       years:
         one: "1 Jahr"

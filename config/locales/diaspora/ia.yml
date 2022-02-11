@@ -8,6 +8,7 @@ ia:
   _applications: "Applicationes"
   _contacts: "Contactos"
   _help: "Adjuta"
+  _podmin_mail: "Contactar le administrator del pod"
   _services: "Servicios"
   _statistics: "Statisticas"
   _terms: "Terminos"
@@ -91,6 +92,7 @@ ia:
     user_entry:
       account_closed: "Conto claudite"
       admin: "Administrator"
+      current_sign_in_ip: "Adresse IP al initio del session actual"
       diaspora_handle: "ID de diaspora*"
       email: "E-mail"
       guid: "GUID"
@@ -162,40 +164,85 @@ ia:
           client_id_not_found: "Nulle cliente con client_id %{client_id} con URI de redirection %{redirect_uri} trovate"
           deny: "Refusar"
           no_requirement: "%{name} non require permissiones"
+          private_contacts_linkage_error: "private:lectura e private:modification require etiam contactos:lectura"
           redirection_message: "Es tu secur de voler dar accesso a %{redirect_uri}?"
+          unknown_scope: "Portata incognite: %{scope_name}"
       error_page:
         contact_developer: "Per favor, contacta le programmator del application e include tote le message de error sequente:"
         could_not_authorize: "Le application non poteva esser autorisate"
         login_required: "Tu debe aperir session ante de poter autorisar iste application"
         title: "Un problema ha occurrite."
       scopes:
-        aud:
-          description: "Isto concede permissiones \"aud\" al application"
-          name: "aud"
+        ? "contacts:modify"
+        :
+          description: "Isto concede le accesso in scriptura al contactos e al datos associate (p.ex. aspectos)."
+          name: "Contactos (scriptura)"
+        ? "contacts:read"
+        :
+          description: "Isto concede le accesso in lectura sol al contactos e al datos associate (p.ex. aspectos)."
+          name: "Contactos (lectura sol)"
+        conversations:
+          description: "Isto concede le permission de lectura e scriptura al messages private."
+          name: "Conversationes"
+        email:
+          description: "Isto concede le accesso in lectura sol a tu adresse de e-mail."
+          name: "E-mail"
+        interactions:
+          description: "Isto concede le accesso necessari pro interager con entratas, p.ex. appreciar o commentar."
+          name: "Interactiones"
         name:
-          description: "Isto concede permissiones \"name\" al application"
-          name: "nomine"
+          description: "Isto concede le accesso in lectura sol a tu nomine complete."
+          name: "Nomine complete"
         nickname:
-          description: "Isto concede permissiones \"nickname\" al application"
-          name: "pseudonymo"
+          description: "Isto concede le accesso in lectura sol a tu nomine de usator."
+          name: "Nomine de usator"
+        notifications:
+          description: "Isto concede le accesso in lectura e scriptura a tu notificationes."
+          name: "Notificationes"
         openid:
-          description: "Isto permitte que le application lege tu profilo basic"
-          name: "profilo basic"
+          description: "Isto concede le accesso in lectura sol al informationes de base de tu profilo."
+          name: "Informationes de base del profilo"
         picture:
-          description: "Isto concede permissiones \"picture\" al application"
-          name: "imagine"
+          description: "Isto concede le accesso in lectura sol al imagine de tu profilo."
+          name: "Imagine del profilo"
+        ? "private:modify"
+        :
+          description: "Isto concede le accesso necessari pro publicar entratas private."
+          name: "Entratas private (scriptura)"
+        ? "private:read"
+        :
+          description: "Isto concede le accesso in lectura sol al entratas private de te e de tu contactos."
+          name: "Entratas private (lectura sol)"
         profile:
-          description: "Isto permitte que le application lege tu profilo extendite"
-          name: "profilo extendite"
-        read:
-          description: "Isto permitte que le application lege tu fluxo, tu conversationes e tu profilo complete"
-          name: "leger profilo, fluxo e conversationes"
+          description: "Isto concede le accesso in lectura sol al informationes de tu profilo extendite."
+          name: "Profilo extendite (lectura sol)"
+        ? "profile:modify"
+        :
+          description: "Isto concede le accesso necessari pro actualisar le datos de tu profilo extendite."
+          name: "Profilo extendite (scriptura)"
+        ? "profile:read_private"
+        :
+          description: "Isto concede le accesso in lectura sol al datos de tu profilo private."
+          name: "Datos del profilo private (lectura sol)"
+        ? "public:modify"
+        :
+          description: "Isto concede le accesso in scriptura necessari pro publicar entratas public e datos associate (p.ex. votos e attachamentos multimedial)."
+          name: "Entratas public (scriptura)"
+        ? "public:read"
+        :
+          description: "Isto concede le accesso a tu entratas public, incluse interactiones e datos associate."
+          name: "Entratas public (lectura sol)"
         sub:
-          description: "Isto concede permissiones \"sub\" al application"
-          name: "sub"
-        write:
-          description: "Isto permitte que le application publica nove entratas, scribe conversationes e invia reactiones"
-          name: "inviar entratas, conversationes e reactiones"
+          description: "Isto concede le accesso in lectura sol a tu identificator unic."
+          name: "Identificator unic"
+        ? "tags:modify"
+        :
+          description: "Isto concede le accesso necessari pro modificar le etiquettas que tu seque."
+          name: "Etiquettas (scriptura)"
+        ? "tags:read"
+        :
+          description: "Isto concede le accesso in lectura sol al etiquettas e fluxos de etiquetta que tu seque."
+          name: "Etiquettas (lectura sol)"
       user_applications:
         index:
           access: "%{name} ha accesso a:"
@@ -208,7 +255,7 @@ ia:
         tos: "Vider le conditiones de servicio del application"
   are_you_sure: "Es tu secur?"
   are_you_sure_delete_account: "Es tu secur de voler clauder tu conto? Isto non pote esser disfacite!"
-  are_you_sure_ignore_user: "Tu va ignorar iste usator. Es tu secur?"
+  are_you_sure_ignore_user: "Tu es sur le puncto de ignorar iste usator. Es tu secur?"
   aspect_memberships:
     destroy:
       failure: "Le remotion del persona del aspecto ha fallite."
@@ -302,10 +349,14 @@ ia:
     original_white: "Fundo blanc original"
   comments:
     create:
-      error: "Commento fallite."
+      fail: "Le creation del commento ha fallite"
+    destroy:
+      fail: "Le deletion del commento ha fallite"
+      success: "Le commento %{id} ha essite delite"
     new_comment:
       comment: "Commentar"
       commenting: "Commenta…"
+    not_found: "Entrata o commento non trovate"
   contacts:
     index:
       add_contact: "Adder contacto"
@@ -345,6 +396,7 @@ ia:
       to: "A"
     new_conversation:
       fail: "Message non valide"
+    not_found: "Conversation non trovate"
     show:
       delete: "Deler conversation"
       hide: "Celar e silentiar le conversation"
@@ -413,11 +465,6 @@ ia:
       what_is_an_aspect_q: "Que es un aspecto?"
       who_sees_post_a: "Si tu scribe un entrata limitate, illo essera visibile solmente pro le personas que tu ha mittite in ille aspecto (o in ille aspectos, si tu lo ha inviate a plure aspectos) ante de publicar le entrata. Tu contactos que non es in le aspecto non potera vider le entrata. Entratas limitate nunquam essera visibile pro alcun persona que tu non ha mittite in un de tu aspectos."
       who_sees_post_q: "Quando io invia qualcosa a un aspecto, qui lo videra?"
-    chat:
-      add_contact_roster_a: "Primo tu debe activar le chat pro un del aspectos in le quales iste persona es presente. Pro facer isto, va al %{contacts_page}, selige le aspecto que tu vole e clicca sur le icone de chat pro activar le chat pro ille aspecto. %{toggle_privilege} Alternativemente, tu pote crear un aspecto special nominate 'Chat' e adder a ille aspecto le personas con qui tu vole chattar. Un vice que tu ha facite isto, aperi le interfacie de chat e selige le persona con qui tu vole chattar."
-      add_contact_roster_q: "Como pote io parlar in directo a qualcuno in diaspora*?"
-      contacts_page: "pagina de contactos"
-      title: "Chat"
     community_guidelines: "directivas del communitate"
     faq: "FAQ"
     foundation_website: "le sito web del fundation diaspora*"
@@ -660,8 +707,22 @@ ia:
   likes:
     create:
       error: "Appreciation fallite."
+      fail: "Le creation del appreciation ha fallite"
     destroy:
       error: "Le cancellation del appreciation ha fallite."
+    not_found: "Entrata o appreciation non trovate"
+    people_dislike_this:
+      one: "%{count} dispreciation"
+      other: "%{count} dispreciationes"
+      zero: "Nulle dispreciation"
+    people_like_this:
+      one: "1 appreciation"
+      other: "%{count} appreciationes"
+      zero: "Nulle appreciation"
+    people_like_this_comment:
+      one: "1 appreciation"
+      other: "%{count} appreciationes"
+      zero: "Nulle appreciation"
   limited: "Limitate"
   more: "Plus"
   no_results: "Nulle resultato trovate"
@@ -880,7 +941,7 @@ ia:
       body: |-
           Salute,
 
-          le %{type} con ID %{id} ha essite marcate como offensive.
+          Le %{type} con ID %{id} ha essite marcate como offensive.
 
           Motivo: "%{reason}"
 
@@ -995,7 +1056,7 @@ ia:
     closed:
       another_pod: "un altere pod"
       closed_pod: "Iste pod es actualmente claudite pro le creation de contos, ma tu pote totevia adherer al rete de diaspora* per inscriber te a %{wiki}. Post que tote le pods es interconnectite, tu potera acceder al mesme contento."
-      find_pods: "Un lista de pods ubi tu pote inscriber te se trova a %{poduptime}."
+      find_pods: "Un lista de pods ubi tu pote inscriber te se trova a %{fediverse_observer}."
       other_questions: "Si tu ha altere questiones sur le election de un pod, consulta nostre %{wiki}."
     create:
       success: "Tu ha adherite a diaspora*!"
@@ -1160,6 +1221,8 @@ ia:
       title: "Fluxo de entratas appreciate"
     liked:
       title: "Entratas appreciate"
+    local_public:
+      title: "Entratas local"
     mentioned_stream: "@Mentiones"
     mentions:
       title: "@Mentiones"
@@ -1186,7 +1249,7 @@ ia:
   two_factor_auth:
     activated:
       change_button: "Disactivar"
-      change_label: "Disactiva le authentication bifactorial per entrar tu contrasigno"
+      change_label: "Disactiva le authentication bifactorial inserente tu contrasigno"
       status: "Authentication bifactorial activate"
     confirm:
       activate_button: "Confirmar e activar"
@@ -1202,7 +1265,7 @@ ia:
       change_button: "Activar"
       change_label: "Activar authentication bifactorial"
       status: "Authentication bifactorial non activate"
-    explanation: "Le authentication bifactorial es un maniera efficace de assecurar que tu es le unic persona que pote aperir session in tu conto. Quando tu aperi session, tu entrara un codice a 6 digitos accompaniante tu contrasigno pro provar tu identitate. Ma sia caute: si tu perde tu telephono e le codices de recuperation create quando tu activa iste function, le accesso a tu conto de diaspora* essera perdite pro sempre."
+    explanation: "Le authentication bifactorial es un maniera efficace de assecurar que tu es le unic persona que pote aperir session in tu conto. Quando tu aperi session, tu entrara un codice a 6 digitos accompaniante tu contrasigno pro provar tu identitate. Ma sia caute: si tu perde tu telephono e le codices de recuperation create quando tu activa iste function, le accesso a tu conto de diaspora* essera blocate pro sempre."
     flash:
       error_token: "Le codice es incorrecte o invalide"
       success_activation: "Le activation del authentication bifactorial ha succedite"
@@ -1212,7 +1275,7 @@ ia:
       placeholder: "codice bifactorial a sex digitos"
     recovery:
       button: "Generar nove codices de recuperation"
-      explanation: "Si tu jammais perde le accesso a tu telephono, tu pote usar un del codices de recuperation sequente pro reganiar le accesso a tu conto. Mantene le codices de recuperation ben secur. Per exemplo, tu pote imprimer los e guardar los con altere documentos importante."
+      explanation: "In caso que tu perde le accesso a tu telephono, tu pote usar un del codices de recuperation sequente pro reganiar le accesso a tu conto. Mantene le codices de recuperation ben secur. Per exemplo, tu pote imprimer los e guardar los con altere documentos importante."
       explanation_short: "Le codices de recuperation te permitte reganiar le accesso a tu conto si tu perde tu telephono. Nota ben que tu pote usar cata codice de recuperation solmente un vice."
       invalidation_notice: "Si tu perde tu codices de recuperation, tu pote generar alteres hic. Le ancian codices de recuperation devenira invalide."
       reminder: "Alternativemente, tu pote usar un del codices de recuperation."

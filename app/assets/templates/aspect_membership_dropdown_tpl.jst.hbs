@@ -10,7 +10,7 @@
       {{ t "aspect_dropdown.toggle" count=aspectMembershipsLength }}
     {{/if}}
   </span>
-  <span class="caret" />
+  <span class="caret"></span>
 </button>
 
 <ul class="dropdown-menu aspect-membership pull-right" unselectable="on">
@@ -29,8 +29,8 @@
   >
     <a>
       <span class="status_indicator">
-        <i class="glyphicon glyphicon-ok" />
-        <i class="glyphicon glyphicon-refresh" />
+        <i class="glyphicon glyphicon-ok"></i>
+        <i class="glyphicon glyphicon-refresh"></i>
       </span>
       <span class="text">
         {{name}}
@@ -39,7 +39,7 @@
   </li>
 {{/each}}
 {{#if dropdownMayCreateNewAspect}}
-  <li class="divider" />
+  <li class="divider"></li>
   <li class="newItem add_aspect">
     <a data-target="#newAspectModal" data-toggle="modal" href="#">
       {{ t "aspects.create.add_a_new_aspect" }}
@@ -48,5 +48,5 @@
 {{/if}}
 </ul>
 {{#if dropdownMayCreateNewAspect}}
-  <div class="newAspectContainer"/>
+  <div class="newAspectContainer"></div>
 {{/if}}

@@ -267,11 +267,6 @@ describe User, :type => :model do
         expect(alice).not_to be_valid
       end
 
-      it 'should not contain periods' do
-        alice.username = "kittens."
-        expect(alice).not_to be_valid
-      end
-
       it "can be 32 characters long" do
         alice.username = "hexagoooooooooooooooooooooooooon"
         expect(alice).to be_valid
@@ -816,10 +811,10 @@ describe User, :type => :model do
       context "with autofollow sharing enabled" do
         it "should start sharing with autofollow account" do
           AppConfig.settings.autofollow_on_join = true
-          AppConfig.settings.autofollow_on_join_user = "one"
+          person = FactoryGirl.build(:person)
+          AppConfig.settings.autofollow_on_join_user = person.diaspora_handle
 
-          expect(Person).to receive(:find_or_fetch_by_identifier).with("one")
-
+          expect(Person).to receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
           user.seed_aspects
         end
       end

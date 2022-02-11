@@ -300,7 +300,7 @@ pt-PT:
       mini_magick_processing_error: "Não foi possível manipular com MiniMagick, talvez não seja uma imagem? Erro original:%{e}"
       rmagick_processing_error: "Não foi possível manipular com rmagick, talvez não seja uma imagem?"
   fill_me_out: "Preencha-me"
-  find_people: "Encontrar pessoas ou #etiquetas"
+  find_people: "Encontrar pessoas ou #tags"
   help:
     account_and_data_management:
       close_account_a: "Vá para o fim da sua página de configurações e clique no botão \"Fechar Conta\". Ser-lhe-á solicitado para digitar a sua palavra-passe para concluir o processo. Lembre-se, se fechar a sua conta, <strong>nunca</strong> irá poder registar o seu nome de utilizador nesse servidor."
@@ -336,10 +336,6 @@ pt-PT:
       what_is_an_aspect_q: "O que é um aspeto?"
       who_sees_post_a: "Se criar uma publicação limitada, esta só irá estar visível para as pessoas que colocou nesse aspeto (ou aspetos, se esta for para múltiplos aspetos). Os seus contactos que não estiverem no aspeto, não conseguiram ver a publicação. As publicações limitadas nunca irão estar visíveis para qualquer pessoa que não tenha sido colocada num dos seus aspetos."
       who_sees_post_q: "Quando eu publico num aspeto, quem o vê?"
-    chat:
-      add_contact_roster_q: "Como é que converso com alguém no diáspora*?"
-      contacts_page: "Página de Contactos"
-      title: "Conversação"
     community_guidelines: "linhas diretrizes da comunidade"
     faq: "Perguntas Mais Frequentes"
     foundation_website: "Site da Web da fundação diaspora*"

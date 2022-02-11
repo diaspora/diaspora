@@ -49,8 +49,6 @@ hu:
     confirm_dialog: "Biztos vagy benne?"
     contacts:
       add_contact: "Ismerős hozzáadása"
-      aspect_chat_is_enabled: "Ebben a csoportban található ismerőseid képesek csevegni veled."
-      aspect_chat_is_not_enabled: "Ebben a csoportban található ismerőseid nem képesek csevegni veled."
       remove_contact: "Ismerős eltávolítása"
       search_no_results: "Nincsenek kapcsolatok"
     conversation:

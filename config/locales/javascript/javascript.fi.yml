@@ -96,8 +96,6 @@ fi:
     confirm_unload: "Vahvista, että haluat poistua tältä sivulta. Syöttämiäsi tietoja ei tallenneta."
     contacts:
       add_contact: "Lisää kontakti"
-      aspect_chat_is_enabled: "Tämän näkymän kontaktit voivat lähettää sinulle pikaviestejä."
-      aspect_chat_is_not_enabled: "Tämän näkymän kontaktit eivät voi lähettää sinulle pikaviestejä."
       error_add: "Henkilön <%= name %> lisääminen näkymään ei onnistunut :("
       error_remove: "Käyttäjää <%= name %> ei voitu poistaa näkymästä :("
       remove_contact: "Poista kontakti"

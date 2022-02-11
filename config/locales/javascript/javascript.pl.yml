@@ -97,8 +97,6 @@ pl:
     confirm_unload: "Potwierdź, że chcesz opuścić tę stronę. Dane, które wprowadziłeś, nie zostaną zapisane."
     contacts:
       add_contact: "Dodaj kontakt"
-      aspect_chat_is_enabled: "Kontakty z tego aspektu mogą z Tobą rozmawiać."
-      aspect_chat_is_not_enabled: "Kontakty z tego aspektu nie mogą z Tobą rozmawiać."
       error_add: "Nie udało się dodać <%= name %> do aspektu :("
       error_remove: "Nie udało się usunąć <%= name %> z aspektu :("
       remove_contact: "Usuń kontakt"
@@ -135,6 +133,7 @@ pl:
       recent_notifications: "Ostatnie powiadomienia"
       search: "Szukaj"
       settings: "Ustawienia"
+      switch_to_touch_optimized_mode: "Przejdź w tryb dla urządzeń dotykowych"
       toggle_navigation: "Przełącz nawigację"
       view_all: "Wyświetl wszystko"
     hide_post: "Ukryj wpis?"

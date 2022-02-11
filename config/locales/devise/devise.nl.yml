@@ -30,7 +30,7 @@ nl:
         confirm: "Bevestig mijn account"
         subject: "Bevestigingsinstructies"
         you_can_confirm: "Je kunt je account bevestigen via onderstaande link:"
-      hello: "Hallo %{email}!"
+      hello: "Hallo %{username}!"
       inviter:
         accept_at: "op %{url}, je kunt deze accepteren via onderstaande link."
         has_invited_you: "%{name}"
@@ -48,7 +48,7 @@ nl:
         click_to_unlock: "Klik op onderstaande link om je account te ontgrendelen:"
         subject: "Ontgrendelingsinstructies"
         unlock: "Ontgrendel mijn account"
-      welcome: "Welkom %{email}!"
+      welcome: "Welkom %{username}!"
     passwords:
       edit:
         change_password: "Wijzig mijn wachtwoord"

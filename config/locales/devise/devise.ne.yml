@@ -7,12 +7,12 @@
 ne:
   devise:
     mailer:
-      hello: "नमस्ते %{email} !"
+      hello: "नमस्ते %{username} !"
       inviter:
         has_invited_you: "%{name}"
       reset_password_instructions:
         change: "पासवर्ड परिवर्तन गर्नुहोस्"
-      welcome: "स्वागतम %{email} !"
+      welcome: "स्वागतम %{username} !"
     passwords:
       edit:
         change_password: "पासवर्ड परिवर्तन गर्नुहोस्"

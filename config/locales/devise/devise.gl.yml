@@ -32,7 +32,7 @@ gl:
         confirm: "Confirmar a conta"
         subject: "Instrucións de confirmación"
         you_can_confirm: "Pode confirmar a súa conta mediante a seguinte ligazón:"
-      hello: "Ola, %{email}!"
+      hello: "Ola, %{username}!"
       inviter:
         accept_at: "en %{url}, pode aceptar seguindo a seguinte ligazón."
         has_invited_you: "%{name}"
@@ -44,13 +44,14 @@ gl:
         ignore: "Se non foi vostede quen solicitou o cambio, pode ignorar esta mensaxe."
         someone_requested: "Alguén solicitou cambiar o teu contrasinal. Se foches ti, preme na seguinte ligazón:"
         subject: "Instrucións para cambiar o contrasinal"
+        then_connect: "Após establecer o novo contrasinal terás que volver a conectarte a diaspora* utilizando o identificador \"%{username}\" e o novo contrasinal."
         wont_change: "Para cambiar de contrasinal, prema a seguinte ligazón e escolla un novo."
       unlock_instructions:
         account_locked: "A conta bloqueouse por mor do gran número de intentos errados de identificarse con ela."
         click_to_unlock: "Siga a seguinte ligazón para desbloqueala:"
         subject: "Instrucións para desbloquear a conta"
         unlock: "Desbloquear a conta"
-      welcome: "Benvido, %{email}!"
+      welcome: "Benvido, %{username}!"
     omniauth_callbacks:
       failure: "Non se puido autenticar desde %{kind} debido a \"%{reason}\"."
       success: "Autenticada correctamente desde a conta %{kind}"
