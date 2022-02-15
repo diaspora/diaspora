@@ -251,7 +251,7 @@ group :development do
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "0.93.1", require: false
   gem "rubocop-rails",  "2.9.1", require: false
-  gem "yalphabetize",   "0.6.2", require: false
+  gem "yalphabetize",   "0.6.2"
 
   # Debugging
   gem "pry"
