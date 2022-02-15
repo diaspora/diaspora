@@ -61,3 +61,5 @@ jobs:
         run: bin/rake jasmine:ci
         timeout-minutes: 2
         if: matrix.kind == 'other'
+      - name: Run Yalphabetize
+        run: bundle exec yalphabetize
