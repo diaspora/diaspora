@@ -62,4 +62,4 @@ jobs:
         timeout-minutes: 2
         if: matrix.kind == 'other'
       - name: Run Yalphabetize
-        run: bundle exec yalphabetize
+        run: bin/rake yalphabetize:run
