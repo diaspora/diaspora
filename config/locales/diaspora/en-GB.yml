@@ -1,36 +1,32 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
-
 "en-GB":
   activerecord:
-      errors:
-          models:
-              user:
-                  attributes:
-                      person:
-                          invalid: "is invalid."
-                      username:
-                          taken: "is already taken."
-                      email:
-                          taken: "is already taken."
-              person:
-                  attributes:
-                      diaspora_handle:
-                          taken: "is already taken."
-              contact:
-                  attributes:
-                      person_id:
-                          taken: "must be unique among this user's contacts."
-              request:
-                  attributes:
-                      from_id:
-                          taken: "is a duplicate of a pre-existing request."
-              poll:
-                  attributes:
-                      poll_answers:
-                          not_enough_poll_answers: "Not enough poll options provided."
-              poll_participation:
-                  attributes:
-                      poll:
-                          already_participated: "You've already participated in this poll!"
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "must be unique among this user's contacts."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "is already taken."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Not enough poll options provided."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "You've already participated in this poll!"
+        request:
+          attributes:
+            from_id:
+              taken: "is a duplicate of a pre-existing request."
+        user:
+          attributes:
+            email:
+              taken: "is already taken."
+            person:
+              invalid: "is invalid."
+            username:
+              taken: "is already taken."

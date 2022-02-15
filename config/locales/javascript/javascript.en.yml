@@ -1,341 +1,313 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
-
-
 en:
   javascripts:
-    cancel: "Cancel"
-    confirm_dialog: "Are you sure?"
-    confirm_unload: "Please confirm that you want to leave this page. Data you have entered won’t be saved."
-    create: "Create"
-    delete: "Delete"
-    ignore: "Ignore"
-    report:
-      prompt: "Please enter a reason:"
-      prompt_default: "e.g. offensive content"
-      name: "Report"
-      status:
-        created: "The report has successfully been created"
-        exists: "The report already exists"
-    ignore_user: "Ignore this user?"
-    ignore_failed: "Unable to ignore this user"
-    hide_post: "Hide this post?"
-    hide_post_failed: "Unable to hide this post"
-    remove_post: "Remove this post?"
-    unblock_failed: "Unblocking this user has failed"
-    and: "and"
-    comma: ","
-    edit: "Edit"
-    no_results: "No results found"
-    show_all: "Show all"
-
-    admins:
-      dashboard:
-        up_to_date: "Your pod is up to date!"
-        outdated: "Your pod is outdated."
-        compare_versions: "The latest diaspora* release is <%= latestVersion %>, your pod is running <%= podVersion %>."
-        error: "Unable to determine latest diaspora* version."
     admin:
       pods:
-        pod: "Pod"
-        ssl: "SSL"
-        ssl_enabled: "SSL enabled"
-        ssl_disabled: "SSL disabled"
-        added: "Added"
-        status: "Status"
-        states:
-          unchecked: "Unchecked"
-          no_errors: "OK"
-          dns_failed: "Name resolution (DNS) failed"
-          net_failed: "Connection attempt failed"
-          ssl_failed: "Secure connection (SSL) failed"
-          http_failed: "HTTP connection failed"
-          version_failed: "Unable to retrieve software version"
-          unknown_error: "An unspecified error has happened during the check"
         actions: "Actions"
-        offline_since: "offline since:"
-        last_check: "last check:"
-        more_info: "show more information"
+        added: "Added"
         check: "perform connection test"
-        recheck:
-          success: "The pod was just checked again."
-          failure: "The check was not performed."
-        follow_link: "open link in browser"
-        no_info: "No additional information available at this point"
-        server_software: "Server software:"
-        response_time: "Response time:"
-        ms:
-          one: "<%= count %>ms"
-          other: "<%= count %>ms"
-        unknown: "unknown"
-        not_available: "not available"
-        unchecked:
-          one: "There is still one pod that hasn't been checked at all."
-          other: "There are still <%= count %> pods that haven't been checked at all."
-        version_failed:
-          one: "There is one pod that has no version (old pod, no NodeInfo)."
-          other: "There are <%= count %> pods that have no version (old pods, no NodeInfo)."
         errors:
           one: "The connection test returned an error for one pod."
           other: "The connection test returned an error for <%= count %> pods."
-
+        follow_link: "open link in browser"
+        last_check: "last check:"
+        more_info: "show more information"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "No additional information available at this point"
+        not_available: "not available"
+        offline_since: "offline since:"
+        pod: "Pod"
+        recheck:
+          failure: "The check was not performed."
+          success: "The pod was just checked again."
+        response_time: "Response time:"
+        server_software: "Server software:"
+        ssl: "SSL"
+        ssl_disabled: "SSL disabled"
+        ssl_enabled: "SSL enabled"
+        states:
+          dns_failed: "Name resolution (DNS) failed"
+          http_failed: "HTTP connection failed"
+          net_failed: "Connection attempt failed"
+          no_errors: "OK"
+          ssl_failed: "Secure connection (SSL) failed"
+          unchecked: "Unchecked"
+          unknown_error: "An unspecified error has happened during the check"
+          version_failed: "Unable to retrieve software version"
+        status: "Status"
+        unchecked:
+          one: "There is still one pod that hasn't been checked at all."
+          other: "There are still <%= count %> pods that haven't been checked at all."
+        unknown: "unknown"
+        version_failed:
+          one: "There is one pod that has no version (old pod, no NodeInfo)."
+          other: "There are <%= count %> pods that have no version (old pods, no NodeInfo)."
+    admins:
+      dashboard:
+        compare_versions: "The latest diaspora* release is <%= latestVersion %>, your pod is running <%= podVersion %>."
+        error: "Unable to determine latest diaspora* version."
+        outdated: "Your pod is outdated."
+        up_to_date: "Your pod is up to date!"
+    and: "and"
+    aspect_dropdown:
+      add_to_aspect: "Add contact"
+      all_aspects: "All aspects"
+      error: "Couldn’t start sharing with <%= name %>. Are you ignoring them?"
+      error_remove: "Couldn’t remove <%= name %> from the aspect :("
+      mobile_row_checked: "<%= name %> (remove)"
+      mobile_row_unchecked: "<%= name %> (add)"
+      select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with <%= name %>!"
+      stopped_sharing_with: "You have stopped sharing with <%= name %>."
+      toggle:
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspects"
+      updating: "updating..."
+    aspect_navigation:
+      add_an_aspect: "+ Add an aspect"
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+      select_all: "Select all"
     aspects:
-      name: "Name"
       create:
         add_a_new_aspect: "Add a new aspect"
-        success: "Your new aspect <%= name %> was created"
         failure: "Aspect creation failed."
-
-    errors:
-      connection: "Unable to connect to the server."
-
-    timeago:
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: "ago"
-      suffixFromNow: "from now"
-      inPast: "any moment now"
-      seconds: "less than a minute"
-      minute: "about a minute"
-      minutes:
-        one: "1 minute"
-        other: "%d minutes"
-      hour: "about an hour"
-      hours:
-        one: "about 1 hour"
-        other: "about %d hours"
-      day: "a day"
-      days:
-        one: "1 day"
-        other: "%d days"
-      month: "about a month"
-      months:
-        one: "1 month"
-        other: "%d months"
-      year: "about a year"
-      years:
-        one: "1 year"
-        other: "%d years"
-      wordSeparator: " "
-
-    contacts:
-      add_contact: "Add contact"
-      remove_contact: "Remove contact"
-      error_add: "Couldn’t add <%= name %> to the aspect :("
-      error_remove: "Couldn’t remove <%= name %> from the aspect :("
-      search_no_results: "No contacts found"
-
-    my_activity: "My activity"
-    my_stream: "Stream"
-    my_aspects: "My aspects"
-
-    publisher:
-      near_from: "Posted from: <%= location %>"
-      option: "Answer"
-      add_option: "Add an answer"
-      question: "Question"
-      markdown_editor:
-        preview: "Preview"
-        write: "Write"
-        tooltips:
-          bold: "Bold"
-          italic: "Italic"
-          heading: "Heading"
-          insert_link: "Insert link"
-          insert_image: "Insert image"
-          insert_ordered_list: "Insert ordered list"
-          insert_unordered_list: "Insert unordered list"
-          preview: "Preview message"
-          write: "Edit message"
-          cancel: "Cancel message"
-          quote: "Insert quotation"
-          code: "Insert code"
-        texts:
-          strong: "strong text"
-          italic: "italic text"
-          heading: "heading text"
-          insert_link_description_text: "enter link description here"
-          insert_link_help_text: "Insert link here"
-          insert_image_description_text: "enter image description here"
-          insert_image_help_text: "Insert image link here"
-          insert_image_title: "enter image title here"
-          list: "list text here"
-          quote: "quotation text here"
-          code: "code here"
-      mention_success: "Successfully mentioned: <%= names %>"
-
+        success: "Your new aspect <%= name %> was created"
+      name: "Name"
     bookmarklet:
       post_something: "Post to diaspora*"
       post_submit: "Submitting post..."
       post_success: "Posted! Closing popup window..."
-    aspect_dropdown:
-      add_to_aspect: "Add contact"
-      select_aspects: "Select aspects"
-      all_aspects: "All aspects"
-      updating: "updating..."
-      mobile_row_checked: "<%= name %> (remove)"
-      mobile_row_unchecked: "<%= name %> (add)"
-      stopped_sharing_with: "You have stopped sharing with <%= name %>."
-      started_sharing_with: "You have started sharing with <%= name %>!"
-      error: "Couldn’t start sharing with <%= name %>. Are you ignoring them?"
-      error_remove: "Couldn’t remove <%= name %> from the aspect :("
-      toggle:
-        one: "In <%= count %> aspect"
-        other: "In <%= count %> aspects"
-    show_more: "Show more"
-    failed_to_post_message: "Failed to post message!"
-    failed_to_remove: "Failed to remove the entry!"
+    cancel: "Cancel"
+    comma: ","
     comments:
-      show: "Show all comments"
       hide: "Hide comments"
       no_comments: "There are no comments yet."
-    reshares:
-      successful: "The post was successfully reshared!"
-      post: "Reshare <%= name %>’s post?"
-    aspect_navigation:
-      select_all: "Select all"
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      add_an_aspect: "+ Add an aspect"
-    getting_started:
-      hey: "Hey, <%= name %>!"
-      no_tags: "Hey, you haven’t followed any tags! Continue anyway?"
-      alright_ill_wait: "All right, I’ll wait."
-      preparing_your_stream: "Preparing your personalized stream..."
-    photo_uploader:
-      upload_photos: "Upload photos"
-      looking_good: "OMG, you look awesome!"
-      completed: "<%= file %> completed"
-      error: "A problem occurred while uploading file <%= file %>"
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
-      empty: "{file} is empty, please select files again without it."
-    tags:
-      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn’t all that interesting..."
-    people:
-      not_found: "... and no one was found"
-      mention: "Mention"
-      message: "Message"
-      edit_my_profile: "Edit my profile"
-      stop_ignoring: "Stop ignoring"
-      helper:
-        is_sharing: "<%= name %> is sharing with you"
-        is_not_sharing: "<%= name %> is not sharing with you"
-    profile:
-      edit: "Edit"
-      add_some: "Add some"
-      you_have_no_tags: "You have no tags!"
-      bio: "Bio"
-      location: "Location"
-      gender: "Gender"
-      born: "Birthday"
-      photos: "Photos"
-      posts: "Posts"
-
+      show: "Show all comments"
+    confirm_dialog: "Are you sure?"
+    confirm_unload: "Please confirm that you want to leave this page. Data you have entered won’t be saved."
+    contacts:
+      add_contact: "Add contact"
+      error_add: "Couldn’t add <%= name %> to the aspect :("
+      error_remove: "Couldn’t remove <%= name %> from the aspect :("
+      remove_contact: "Remove contact"
+      search_no_results: "No contacts found"
     conversation:
       create:
         no_recipient: "Hey, you need to add a recipient first!"
       new:
         no_contacts: "You need to add some contacts before you can start a conversation."
-
+    create: "Create"
+    delete: "Delete"
+    edit: "Edit"
+    errors:
+      connection: "Unable to connect to the server."
+    failed_to_post_message: "Failed to post message!"
+    failed_to_remove: "Failed to remove the entry!"
+    getting_started:
+      alright_ill_wait: "All right, I’ll wait."
+      hey: "Hey, <%= name %>!"
+      no_tags: "Hey, you haven’t followed any tags! Continue anyway?"
+      preparing_your_stream: "Preparing your personalized stream..."
+    header:
+      admin: "Admin"
+      close: "Close"
+      contacts: "Contacts"
+      conversations: "Conversations"
+      help: "Help"
+      home: "Home"
+      log_out: "Log out"
+      mark_all_as_read: "Mark all as read"
+      moderator: "Moderator"
+      notifications: "Notifications"
+      profile: "Profile"
+      recent_notifications: "Recent notifications"
+      search: "Search"
+      settings: "Settings"
+      switch_to_touch_optimized_mode: "Switch to touch-optimized mode"
+      toggle_navigation: "Toggle navigation"
+      view_all: "View all"
+    hide_post: "Hide this post?"
+    hide_post_failed: "Unable to hide this post"
+    ignore: "Ignore"
+    ignore_failed: "Unable to ignore this user"
+    ignore_user: "Ignore this user?"
+    my_activity: "My activity"
+    my_aspects: "My aspects"
+    my_stream: "Stream"
+    no_results: "No results found"
     notifications:
       mark_read: "Mark read"
       mark_unread: "Mark unread"
       new_notifications:
         one: "You have <%= count %> unread notification"
         other: "You have <%= count %> unread notifications"
-
-    stream:
-      hide: "Hide"
-      public: "Public"
-      limited: "Limited"
-      like: "Like"
-      unlike: "Unlike"
-      reshare: "Reshare"
-      comment: "Comment"
-      original_post_deleted: "Original post deleted by author"
-      show_nsfw_post: "Show post"
-      show_nsfw_posts: "Show all"
-      hide_nsfw_posts: "Hide #nsfw posts"
-      follow: "Follow"
-      unfollow: "Unfollow"
-      enable_post_notifications: "Enable notifications for this post"
-      disable_post_notifications: "Disable notifications for this post"
-      permalink: "Permalink"
-      via: "via <%= provider %>"
-      no_posts_yet: "There are no posts to display here yet."
-
-      likes:
-        zero: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-
-      reshares:
-        zero: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-
-      comments:
-        zero: "<%= count %> comments"
-        one: "<%= count %> comment"
-        other: "<%= count %> comments"
-
-      more_comments:
-        zero: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-
-      followed_tag:
-        title: "#Followed tags"
-        add_a_tag: "Add a tag"
-        follow: "Follow"
-
-      tags:
-        follow: "Follow #<%= tag %>"
-        following: "Following #<%= tag %>"
-        stop_following: "Stop following #<%= tag %>"
-        stop_following_confirm: "Stop following #<%= tag %>?"
-        follow_error: "Couldn’t follow #<%= tag %> :("
-        stop_following_error: "Couldn’t stop following #<%= tag %> :("
-
-    header:
-      home: "Home"
-      profile: "Profile"
-      contacts: "Contacts"
-      settings: "Settings"
-      help: "Help"
-      admin: "Admin"
-      moderator: "Moderator"
-      log_out: "Log out"
-      toggle_navigation: "Toggle navigation"
-      switch_to_touch_optimized_mode: "Switch to touch-optimized mode"
-
-      notifications: "Notifications"
-      conversations: "Conversations"
-
-      search: "Search"
-
-      recent_notifications: "Recent notifications"
-      mark_all_as_read: "Mark all as read"
-      view_all: "View all"
-      close: "Close"
-
-    viewer:
-      reshared: "Reshared"
-
+    people:
+      edit_my_profile: "Edit my profile"
+      helper:
+        is_not_sharing: "<%= name %> is not sharing with you"
+        is_sharing: "<%= name %> is sharing with you"
+      mention: "Mention"
+      message: "Message"
+      not_found: "... and no one was found"
+      stop_ignoring: "Stop ignoring"
+    photo_uploader:
+      completed: "<%= file %> completed"
+      empty: "{file} is empty, please select files again without it."
+      error: "A problem occurred while uploading file <%= file %>"
+      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
+      looking_good: "OMG, you look awesome!"
+      size_error: "{file} is too large, maximum file size is {sizeLimit}."
+      upload_photos: "Upload photos"
     poll:
-      vote: "Vote"
-      go_to_original_post: "You can participate in this poll on the <%= original_post_link %>."
-      original_post: "original post"
-      result: "Result"
+      answer_count:
+        one: "1 vote"
+        other: "<%=count%> votes"
+        zero: "0 votes"
+      close_result: "Hide result"
       count:
         one: "1 vote so far"
         other: "<%=count%> votes so far"
-      answer_count:
-        zero: "0 votes"
-        one: "1 vote"
-        other: "<%=count%> votes"
+      go_to_original_post: "You can participate in this poll on the <%= original_post_link %>."
+      original_post: "original post"
+      result: "Result"
       show_result: "Show result"
-      close_result: "Hide result"
+      vote: "Vote"
       your_vote: "Your vote"
+    profile:
+      add_some: "Add some"
+      bio: "Bio"
+      born: "Birthday"
+      edit: "Edit"
+      gender: "Gender"
+      location: "Location"
+      photos: "Photos"
+      posts: "Posts"
+      you_have_no_tags: "You have no tags!"
+    publisher:
+      add_option: "Add an answer"
+      markdown_editor:
+        preview: "Preview"
+        texts:
+          code: "code here"
+          heading: "heading text"
+          insert_image_description_text: "enter image description here"
+          insert_image_help_text: "Insert image link here"
+          insert_image_title: "enter image title here"
+          insert_link_description_text: "enter link description here"
+          insert_link_help_text: "Insert link here"
+          italic: "italic text"
+          list: "list text here"
+          quote: "quotation text here"
+          strong: "strong text"
+        tooltips:
+          bold: "Bold"
+          cancel: "Cancel message"
+          code: "Insert code"
+          heading: "Heading"
+          insert_image: "Insert image"
+          insert_link: "Insert link"
+          insert_ordered_list: "Insert ordered list"
+          insert_unordered_list: "Insert unordered list"
+          italic: "Italic"
+          preview: "Preview message"
+          quote: "Insert quotation"
+          write: "Edit message"
+        write: "Write"
+      mention_success: "Successfully mentioned: <%= names %>"
+      near_from: "Posted from: <%= location %>"
+      option: "Answer"
+      question: "Question"
+    remove_post: "Remove this post?"
+    report:
+      name: "Report"
+      prompt: "Please enter a reason:"
+      prompt_default: "e.g. offensive content"
+      status:
+        created: "The report has successfully been created"
+        exists: "The report already exists"
+    reshares:
+      post: "Reshare <%= name %>’s post?"
+      successful: "The post was successfully reshared!"
+    show_all: "Show all"
+    show_more: "Show more"
+    stream:
+      comment: "Comment"
+      comments:
+        one: "<%= count %> comment"
+        other: "<%= count %> comments"
+        zero: "<%= count %> comments"
+      disable_post_notifications: "Disable notifications for this post"
+      enable_post_notifications: "Enable notifications for this post"
+      follow: "Follow"
+      followed_tag:
+        add_a_tag: "Add a tag"
+        follow: "Follow"
+        title: "#Followed tags"
+      hide: "Hide"
+      hide_nsfw_posts: "Hide #nsfw posts"
+      like: "Like"
+      likes:
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      limited: "Limited"
+      more_comments:
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      no_posts_yet: "There are no posts to display here yet."
+      original_post_deleted: "Original post deleted by author"
+      permalink: "Permalink"
+      public: "Public"
+      reshare: "Reshare"
+      reshares:
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
+      show_nsfw_post: "Show post"
+      show_nsfw_posts: "Show all"
+      tags:
+        follow: "Follow #<%= tag %>"
+        follow_error: "Couldn’t follow #<%= tag %> :("
+        following: "Following #<%= tag %>"
+        stop_following: "Stop following #<%= tag %>"
+        stop_following_confirm: "Stop following #<%= tag %>?"
+        stop_following_error: "Couldn’t stop following #<%= tag %> :("
+      unfollow: "Unfollow"
+      unlike: "Unlike"
+      via: "via <%= provider %>"
+    tags:
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn’t all that interesting..."
+    timeago:
+      day: "a day"
+      days:
+        one: "1 day"
+        other: "%d days"
+      hour: "about an hour"
+      hours:
+        one: "about 1 hour"
+        other: "about %d hours"
+      inPast: "any moment now"
+      minute: "about a minute"
+      minutes:
+        one: "1 minute"
+        other: "%d minutes"
+      month: "about a month"
+      months:
+        one: "1 month"
+        other: "%d months"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "less than a minute"
+      suffixAgo: "ago"
+      suffixFromNow: "from now"
+      wordSeparator: " "
+      year: "about a year"
+      years:
+        one: "1 year"
+        other: "%d years"
+    unblock_failed: "Unblocking this user has failed"
+    viewer:
+      reshared: "Reshared"

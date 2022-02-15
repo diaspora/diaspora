@@ -1,44 +1,38 @@
-
 all:
   i18n:
     inflections:
       gender:
-        f:          "female"
-        m:          "male"
-        n:          "neuter"
-        masculine:  :@m
-        male:       :@m
-        man:        :@m
-        boy:        :@m
-        b:          :@m
-        he:         :@m
-        sir:        :@m
-        mr:         :@m
-        mister:     :@m
-        guy:        :@m
-        dude:       :@m
-        gentleman:  :@m
-        mal:        :@m
-        female:     :@f
-        feminine:   :@f
-        girl:       :@f
-        g:          :@f
-        lady:       :@f
-        she:        :@f
-        miss:       :@f
-        missus:     :@f
-        mrs:        :@f
-        missis:     :@f
-        mistress:   :@f
-        ms:         :@f
-        neuter:     :@n
-        neutral:    :@n
-        it:         :@n
-        they:       :@n
+        b: :@m
+        boy: :@m
+        default: :n
+        dude: :@m
+        f: "female"
+        female: :@f
+        feminine: :@f
+        g: :@f
+        gentleman: :@m
+        girl: :@f
+        guy: :@m
+        he: :@m
         impersonal: :@n
-        default:    :n
-      
-    
-  
-
-
+        it: :@n
+        lady: :@f
+        m: "male"
+        mal: :@m
+        male: :@m
+        man: :@m
+        masculine: :@m
+        miss: :@f
+        missis: :@f
+        missus: :@f
+        mister: :@m
+        mistress: :@f
+        mr: :@m
+        mrs: :@f
+        ms: :@f
+        n: "neuter"
+        neuter: :@n
+        neutral: :@n
+        she: :@f
+        sir: :@m
+        they: :@n
