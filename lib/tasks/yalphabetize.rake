@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'yalphabetize'
+require "yalphabetize"
 
 namespace :yalphabetize do
   task run: :environment do
