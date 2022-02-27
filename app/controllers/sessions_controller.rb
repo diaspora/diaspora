@@ -7,8 +7,6 @@
 class SessionsController < Devise::SessionsController
   # rubocop:disable Rails/LexicallyScopedActionFilter
   before_action :authenticate_with_2fa, only: :create
-  after_action :reset_authentication_token, only: :create
-  before_action :reset_authentication_token, only: :destroy
   # rubocop:enable Rails/LexicallyScopedActionFilter
 
   def find_user
@@ -50,9 +48,5 @@ class SessionsController < Devise::SessionsController
   def prompt_for_two_factor(user)
     session[:otp_user_id] = user.id
     render :two_factor
-  end
-
-  def reset_authentication_token
-    current_user&.reset_authentication_token!
   end
 end

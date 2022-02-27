@@ -954,7 +954,6 @@ describe User, type: :model do
             hidden_shareables
             last_sign_in_ip
             invited_by_id
-            authentication_token
             auto_follow_back
             auto_follow_back_aspect_id
             unconfirmed_email
