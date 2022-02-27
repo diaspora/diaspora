@@ -29,7 +29,7 @@ RSpec::Matchers.define :be_a_clear_account do
   match do |user|
     attributes = %i[
       language reset_password_token remember_created_at sign_in_count current_sign_in_at last_sign_in_at
-      current_sign_in_ip last_sign_in_ip invited_by_id authentication_token unconfirmed_email confirm_email_token
+      current_sign_in_ip last_sign_in_ip invited_by_id unconfirmed_email confirm_email_token
       auto_follow_back auto_follow_back_aspect_id reset_password_sent_at last_seen color_theme
     ].map {|attribute| user[attribute] }
 
