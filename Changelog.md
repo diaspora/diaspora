@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Don't suggest to retry exports on failure [#8343](https://github.com/diaspora/diaspora/pull/8343)
 
 ## Features
 
