@@ -127,21 +127,34 @@ describe UsersController, :type => :controller do
       expect(response).to render_template('edit')
     end
 
-    describe 'password updates' do
+    describe "password updates" do
       let(:password_params) do
-        {:current_password => 'bluepin7',
-         :password => "foobaz",
-         :password_confirmation => "foobaz"}
+        {current_password: "bluepin7", password: "foobaz", password_confirmation: "foobaz"}
       end
 
       let(:params) do
-        {id: @user.id, user: password_params, change_password: 'Change Password'}
+        {id: @user.id, user: password_params, change_password: "Change Password"}
+      end
+
+      before do
+        allow(@controller).to receive(:current_user).and_return(@user)
+        allow(@user).to receive(:update_with_password)
+        allow(@user).to receive(:update_attributes)
       end
 
       it "uses devise's update with password" do
-        expect(@user).to receive(:update_with_password).with(hash_including(password_params))
-        allow(@controller).to receive(:current_user).and_return(@user)
         put :update, params: params
+
+        expect(@user).to have_received(:update_with_password).with(hash_including(password_params))
+        expect(@user).not_to have_received(:update_attributes).with(hash_including(password_params))
+      end
+
+      it "does not update the password without the change_password param" do
+        put :update, params: params.except(:change_password).deep_merge(user: {language: "de"})
+
+        expect(@user).not_to have_received(:update_with_password).with(hash_including(password_params))
+        expect(@user).not_to have_received(:update_attributes).with(hash_including(password_params))
+        expect(@user).to have_received(:update_attributes).with(hash_including(language: "de"))
       end
     end
 

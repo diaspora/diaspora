@@ -18,25 +18,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    password_changed = false
-    user_data = user_params
     @user = current_user
 
-    if user_data
-      # change password
-      if params[:change_password]
-        password_changed = change_password(user_data)
-      else
-        update_user(user_data)
-      end
+    if params[:change_password] && user_password_params
+      password_changed = change_password(user_password_params)
+      return redirect_to new_user_session_path if password_changed
+    elsif user_params
+      update_user(user_params)
     end
 
-    if password_changed
-      redirect_to new_user_session_path
-    else
-      set_email_preferences
-      render :edit
-    end
+    set_email_preferences
+    render :edit
   end
 
   def update_privacy_settings
@@ -137,13 +129,9 @@ class UsersController < ApplicationController
 
   private
 
-  # rubocop:disable Metrics/MethodLength
   def user_params
     params.fetch(:user).permit(
       :email,
-      :current_password,
-      :password,
-      :password_confirmation,
       :language,
       :color_theme,
       :disable_mail,
@@ -157,7 +145,14 @@ class UsersController < ApplicationController
       email_preferences: UserPreference::VALID_EMAIL_TYPES.map(&:to_sym)
     )
   end
-  # rubocop:enable Metrics/MethodLength
+
+  def user_password_params
+    params.fetch(:user).permit(
+      :current_password,
+      :password,
+      :password_confirmation
+    )
+  end
 
   def update_user(user_data)
     if user_data[:email_preferences]
@@ -177,8 +172,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def change_password(user_data)
-    if @user.update_with_password(user_data)
+  def change_password(password_params)
+    if @user.update_with_password(password_params)
       flash[:notice] = t("users.update.password_changed")
       true
     else
