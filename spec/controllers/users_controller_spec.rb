@@ -110,21 +110,20 @@ describe UsersController, :type => :controller do
     end
   end
 
-  describe '#update' do
-    before do
-      @params  = { :id => @user.id,
-                  :user => { :diaspora_handle => "notreal@stuff.com" } }
-    end
+  describe "#update" do
+    context "with random params" do
+      let(:params) { {id: @user.id, user: {diaspora_handle: "notreal@stuff.com"}} }
 
-    it "doesn't overwrite random attributes" do
-      expect {
-        put :update, params: @params
-      }.not_to change(@user, :diaspora_handle)
-    end
+      it "doesn't overwrite random attributes" do
+        expect {
+          put :update, params: params
+        }.not_to change(@user, :diaspora_handle)
+      end
 
-    it 'renders the user edit page' do
-      put :update, params: @params
-      expect(response).to render_template('edit')
+      it "renders the user edit page" do
+        put :update, params: params
+        expect(response).to render_template('edit')
+      end
     end
 
     describe "password updates" do
@@ -155,6 +154,23 @@ describe UsersController, :type => :controller do
         expect(@user).not_to have_received(:update_with_password).with(hash_including(password_params))
         expect(@user).not_to have_received(:update_attributes).with(hash_including(password_params))
         expect(@user).to have_received(:update_attributes).with(hash_including(language: "de"))
+      end
+    end
+
+    context "with otp params" do
+      let(:otp_params) { {otp_required_for_login: false, otp_secret: "mykey"} }
+      let(:params) { {id: @user.id, user: otp_params} }
+
+      before do
+        allow(@controller).to receive(:current_user).and_return(@user)
+        allow(@user).to receive(:update_attributes)
+      end
+
+      it "does not accept the params" do
+        put :update, params: params
+
+        expect(@user).not_to have_received(:update_attributes)
+          .with(hash_including(:otp_required_for_login, :otp_secret))
       end
     end
 
