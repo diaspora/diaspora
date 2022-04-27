@@ -1,3 +1,12 @@
+# 0.7.17.0
+
+## Security
+* Bump Rails to 5.2.7 to address [CVE-2022-22577](https://discuss.rubyonrails.org/t/cve-2022-22577-possible-xss-vulnerability-in-action-pack/80533) and [CVE-2022-27777](https://discuss.rubyonrails.org/t/cve-2022-27777-possible-xss-vulnerability-in-action-view-tag-helpers/80534) [#8350](https://github.com/diaspora/diaspora/pull/8350)
+* Do not allow the user to mass assign their own password and 2fa settings alongside other parameters. Reported by Breno Vitório (@brenu) - thank you! [#8351](https://github.com/diaspora/diaspora/pull/8351)
+
+## Bug fixes
+* Don't suggest to retry exports on failure [#8343](https://github.com/diaspora/diaspora/pull/8343)
+
 # 0.7.16.0
 
 ## Security
