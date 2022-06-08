@@ -91,6 +91,7 @@ fr:
     user_entry:
       account_closed: "Compte fermé"
       admin: "Administrateur"
+      current_sign_in_ip: "Adresse IP de la connexion actuelle"
       diaspora_handle: "identifiant diaspora*"
       email: "E-mail"
       guid: "GUID"
@@ -162,31 +163,85 @@ fr:
           client_id_not_found: "Pas de client avec client_id %{client_id} avec URL de redirection %{redirect_uri} trouvé"
           deny: "Refuser"
           no_requirement: "%{name} n'a pas besoin de permissions"
+          private_contacts_linkage_error: "private:read et private:modify nécessite contacts:read"
           redirection_message: "Voulez-vous vraiment donner accès à %{redirect_uri} ?"
+          unknown_scope: "Périmètre inconnu : %{scope_name}"
       error_page:
-        contact_developer: "Vous devriez contacter le développeur de l'application et inclure le message d'erreur détaillé suivant :"
+        contact_developer: "Veuillez contacter le développeur de l'application et inclure le message d'erreur détaillé suivant :"
         could_not_authorize: "L'application n'a pas pu être autorisée"
         login_required: "Vous devez d'abord vous connecter afin de pouvoir autoriser cette application"
         title: "Oups ! Quelque-chose n'a pas marché :("
       scopes:
+        ? "contacts:modify"
+        :
+          description: "Ceci donne accès en écriture aux contacts et aux données connexes (comme les aspects)."
+          name: "Contacts (Écriture)"
+        ? "contacts:read"
+        :
+          description: "Ceci donne accès en lecture seule aux contacts et aux données connexes (comme les aspects)."
+          name: "Contacts (lecture seule)"
+        conversations:
+          description: "Ceci donne des permissions de lecture et d'écriture sur les messages privés."
+          name: "Conversations"
+        email:
+          description: "Ceci donne un accès en lecture seule à votre adresse de courriel."
+          name: "Adresse de courriel"
+        interactions:
+          description: "Ceci donne la permission d'interagir avec les messages, par exemple les « j'aime » ou la soumission de commentaires."
+          name: "Interactions"
         name:
-          description: "Cela donne la permission nom à l'application"
-          name: "nom"
+          description: "Ceci donne un accès en lecture seule à votre nom complet."
+          name: "Nom complet"
         nickname:
-          description: "Cela donne les permissions liées au surnom à l'application"
-          name: "Surnom"
+          description: "Ceci donne un accès en lecture seule à votre nom d'utilisateur."
+          name: "Nom d'utilisateur"
+        notifications:
+          description: "Ceci donne accès en lecture et en écriture à vos notifications."
+          name: "Notifications"
         openid:
-          description: "Ceci permet à l'application de voir votre profil basique"
-          name: "profil basique"
+          description: "Ceci permet à l'application de voir les informations de base de votre profil."
+          name: "Informations de base du profil"
         picture:
-          description: "Cela donne les permissions liées aux images à l'application"
-          name: "image"
+          description: "Ceci donne un accès en lecture seule à votre image de profil."
+          name: "Image de profil"
+        ? "private:modify"
+        :
+          description: "Ceci donne la permission de publier des messages privés."
+          name: "Messages privés (Écriture)"
+        ? "private:read"
+        :
+          description: "Ceci donne accès en lecture seule à vos messages privés et à ceux de vos contacts."
+          name: "Messages privés (Lecture seule)"
         profile:
-          description: "Ceci autorise l'application à lire votre profil complet"
-          name: "profil complet"
+          description: "Ceci donne un accès en lecture seule aux données de votre profil étendu."
+          name: "Profil étendu (lecture seule)"
+        ? "profile:modify"
+        :
+          description: "Ceci donne la permission de mettre à jour les données de votre profil étendu."
+          name: "Profil étendu (Écriture)"
+        ? "profile:read_private"
+        :
+          description: "Ceci donne un accès en lecture seule aux données de votre profil privé."
+          name: "Données du profil privé (Lecture seule)"
+        ? "public:modify"
+        :
+          description: "Ceci donne la permission de publier des messages publics et des données connexes (comme les votes et les médias joints)."
+          name: "Messages publics (Écriture)"
+        ? "public:read"
+        :
+          description: "Ceci donne accès à vos messages publics, incluant les interactions et les données connexes."
+          name: "Messages publics (Lecture seule)"
         sub:
-          description: "Ceci octroie des sous-permissions à l'application"
-          name: "sous"
+          description: "Ceci donne un accès en lecture seule à votre identifiant unique."
+          name: "Identifiant unique"
+        ? "tags:modify"
+        :
+          description: "Ceci donne la permission de changer les tags que vous suivez."
+          name: "Tags (Écriture)"
+        ? "tags:read"
+        :
+          description: "Ceci donne accès en lecture seule aux tags et aux flux de tags que vous suivez."
+          name: "Tags (Lecture seule)"
       user_applications:
         index:
           access: "%{name} a accès à :"
@@ -292,9 +347,15 @@ fr:
     original: "Gris par défaut"
     original_white: "Fond blanc"
   comments:
+    create:
+      fail: "La création du commentaire a échoué"
+    destroy:
+      fail: "La suppression du commentaire a échoué"
+      success: "Le commentaire %{id} a été supprimé avec succès"
     new_comment:
       comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
+    not_found: "Message ou commentaire introuvable"
   contacts:
     index:
       add_contact: "Ajouter ce contact"
@@ -334,6 +395,7 @@ fr:
       to: "Pour"
     new_conversation:
       fail: "Message invalide"
+    not_found: "Conversation introuvable"
     show:
       delete: "Supprimer la conversation"
       hide: "Masquer et rendre la conversation muette"
@@ -365,7 +427,7 @@ fr:
       min_size_error: "La taille du fichier devrait être supérieure à %{min_size}"
       mini_magick_processing_error: "La manipulation par MiniMagick a échoué, peut-être n'est-ce pas une image ? Erreur initiale : %{e}"
       rmagick_processing_error: "La manipulation par rmagick a échoué, peut-être n'est-ce pas une image ?"
-  fill_me_out: "Écrire ici"
+  fill_me_out: "Remplir"
   find_people: "Rechercher des personnes ou des #tags"
   help:
     account_and_data_management:
@@ -644,8 +706,22 @@ fr:
   likes:
     create:
       error: "Impossible d'aimer."
+      fail: "La création du « j'aime » a échoué"
     destroy:
       error: "Impossible de ne plus aimer."
+    not_found: "Message ou « j'aime » non trouvé"
+    people_dislike_this:
+      one: "%{count}  réprobation"
+      other: "%{count}  réprobations"
+      zero: "Aucune réprobation"
+    people_like_this:
+      one: "%{count} « j'aime »"
+      other: "%{count} « j'aime »"
+      zero: "Aucun « j'aime »"
+    people_like_this_comment:
+      one: "%{count} « j'aime »"
+      other: "%{count} « j'aime »"
+      zero: "Aucun « j'aime »"
   limited: "Limité"
   more: "Plus"
   no_results: "Aucun résultat trouvé"
@@ -905,7 +981,7 @@ fr:
       invited_by: "Vous avez été invité(e) par"
     index:
       couldnt_find_them: "Vous ne les trouvez pas ?"
-      looking_for: "Rechercher des commentaires taggés %{tag_link}?"
+      looking_for: "Rechercher des messages tagués %{tag_link}?"
       no_one_found: "… et personne n'a été trouvé."
       no_results: "Hé ! Vous devez rechercher quelque chose."
       results_for: "Utilisateurs correspondant à %{search_term}"
@@ -983,7 +1059,7 @@ fr:
     closed:
       another_pod: "un autre pod"
       closed_pod: "Les inscriptions sont actuellement fermées sur ce pod. Néanmoins, vous pouvez toujours rejoindre le réseau diaspora* en vous inscrivant sur %{wiki}. Comme tous les pods sont interconnectés, vous accéderez au même contenu."
-      find_pods: "Une liste de pods sur lesquels vous pouvez vous inscrire est disponible sur %{poduptime}."
+      find_pods: "Une liste de pods sur lesquels vous pouvez vous inscrire est disponible sur %{fediverse_observer}."
       other_questions: "Si vous avez d'autres questions sur le choix d'un pod, consultez notre %{wiki}."
     create:
       success: "Vous avez rejoint diaspora* !"

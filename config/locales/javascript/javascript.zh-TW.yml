@@ -293,7 +293,6 @@ zh-TW:
       seconds: "少於一分鐘"
       suffixAgo: "前"
       suffixFromNow: "前"
-      wordSeparator: ""
       year: "約一年"
       years:
         other: "%d年"

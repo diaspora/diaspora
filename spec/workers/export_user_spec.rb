@@ -26,7 +26,7 @@ describe Workers::ExportUser do
   context "concurrency" do
     before do
       AppConfig.environment.single_process_mode = false
-      AppConfig.settings.export_concurrency = 1
+      AppConfig.settings.archive_jobs_concurrency = 1
     end
 
     after :all do

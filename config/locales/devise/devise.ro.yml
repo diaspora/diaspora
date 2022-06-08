@@ -29,7 +29,7 @@ ro:
         confirm: "Confirmă contul meu"
         subject: "Instrucţiuni de confirmare"
         you_can_confirm: "Puteţi confirma contul dvs. prin intermediul link-ul de mai jos:"
-      hello: "Bună %{email}!"
+      hello: "Bună %{username}!"
       inviter:
         accept_at: "la adresa %{url}, poţi accepta prin folosirea legăturii de mai jos."
         has_invited_you: "%{name}"
@@ -45,7 +45,7 @@ ro:
         click_to_unlock: "Clic pe link-ul de mai jos pentru a debloca contul dvs."
         subject: "Instrucţiuni pentru a debloca"
         unlock: "Deblochează-mi contul"
-      welcome: "Bine ai revenit %{email}!"
+      welcome: "Bine ai revenit %{username}!"
     passwords:
       edit:
         change_password: "Schimbă-mi parola"

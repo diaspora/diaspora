@@ -128,7 +128,7 @@ describe MigrationService do
             "following": true,
             "followed": false,
             "account_id": "#{contact1_diaspora_id}",
-            "contact_groups_membership": ["Family"]
+            "contact_groups_membership": []
           },
           {
             "sharing": true,
@@ -287,18 +287,16 @@ describe MigrationService do
       expect(like.author).not_to eq(user.person)
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(contact1_diaspora_id))
-      expect(contact).not_to be_nil
-      expect(contact.sharing).to be_truthy
-      expect(contact.receiving).to be_falsey
+      expect(contact).to be_nil
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(contact2_diaspora_id))
       expect(contact).not_to be_nil
-      expect(contact.sharing).to be_truthy
+      expect(contact.sharing).to be_falsey
       expect(contact.receiving).to be_truthy
 
       contact = user.contacts.find_by(person: Person.by_account_identifier(migrated_contact_new_diaspora_id))
       expect(contact).not_to be_nil
-      expect(contact.sharing).to be_truthy
+      expect(contact.sharing).to be_falsey
       expect(contact.receiving).to be_truthy
 
       aspect = user.aspects.find_by(name: "Friends")
@@ -312,6 +310,32 @@ describe MigrationService do
       comment = Comment.find_by(guid: others_comment_entity.guid)
       expect(comment.author.diaspora_handle).to eq(others_comment_entity.author)
       expect(comment.parent.author.diaspora_handle).to eq(user.diaspora_handle)
+    end
+  end
+
+  context "photo migration" do
+    it "doesn't include a new remote_photo_path" do
+      service = MigrationService.new(archive_file.path, new_username)
+      service.send(:find_or_create_user)
+      account_migration = service.send(:account_migration)
+      expect(account_migration.remote_photo_path).to be_nil
+    end
+
+    it "includes url to new pod image upload folder in remote_photo_path" do
+      service = MigrationService.new(archive_file.path, new_username, photo_migration: true)
+      service.send(:find_or_create_user)
+      account_migration = service.send(:account_migration)
+      expect(account_migration.remote_photo_path).to eq("#{AppConfig.pod_uri}uploads/images/")
+    end
+
+    it "includes url to S3 image upload folder in remote_photo_path when S3 is enabled" do
+      AppConfig.environment.s3.enable = true
+      AppConfig.environment.s3.bucket = "test-bucket"
+
+      service = MigrationService.new(archive_file.path, new_username, photo_migration: true)
+      service.send(:find_or_create_user)
+      account_migration = service.send(:account_migration)
+      expect(account_migration.remote_photo_path).to eq("https://test-bucket.s3.amazonaws.com/uploads/images/")
     end
   end
 

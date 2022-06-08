@@ -10,7 +10,7 @@
 //= require autosize
 //= require keycodes
 //= require jquery.autoSuggest.custom
-//= require fine-uploader/fine-uploader.core
+//= require fine-uploader/fine-uploader
 //= require jquery.timeago
 //= require underscore
 //= require bootstrap

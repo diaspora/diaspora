@@ -991,7 +991,7 @@ pt-BR:
     closed:
       another_pod: "outro pod"
       closed_pod: "Este pod está fechado para novos cadastros, porém você ainda pode entrar na rede diaspora* cadastrando-se em %{wiki}. Como todos os pods estão interconectados, de lá você terá acesso ao mesmo conteúdo."
-      find_pods: "Há uma lista de pods nos quais você pode se cadastrar em %{poduptime}."
+      find_pods: "Há uma lista de pods nos quais você pode se cadastrar em %{fediverse_observer}."
       other_questions: "Se você tiver alguma outra pergunta sobre a seleção de pods, confira nossa %{wiki}."
     create:
       success: "Você se juntou à diaspora*!"

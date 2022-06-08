@@ -133,6 +133,7 @@ pl:
       recent_notifications: "Ostatnie powiadomienia"
       search: "Szukaj"
       settings: "Ustawienia"
+      switch_to_touch_optimized_mode: "Przejdź w tryb dla urządzeń dotykowych"
       toggle_navigation: "Przełącz nawigację"
       view_all: "Wyświetl wszystko"
     hide_post: "Ukryj wpis?"

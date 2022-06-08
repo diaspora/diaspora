@@ -108,10 +108,8 @@ class Photo < ApplicationRecord
   end
 
   def url(name=nil)
-    # During migration in bad cases this might be happen
-    # If this happens, stream loading stops. Better dont show photos as stop loading stream
     if remote_photo_path.present? && remote_photo_name.present?
-      name = "#{name.to_s}_" if name # rubocop:disable Lint/RedundantStringCoercion
+      name = "#{name}_" if name
       image_url = remote_photo_path + name.to_s + remote_photo_name
       camo_image_url(image_url)
     elsif processed?

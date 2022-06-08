@@ -14,13 +14,13 @@ si:
     invitations:
       send_instructions: "ඔබගේ ආරාධනාව යැවුවා."
     mailer:
-      hello: "කොහොමද %{email}!"
+      hello: "කොහොමද %{username}!"
       inviter:
         has_invited_you: "%{name}"
       reset_password_instructions:
         change: "මගේ මුරපදය මාරු කරන්න"
         subject: "මුරපදය නැවත සකසන උපදෙස්"
-      welcome: "ආයුබෝවන් %{email}!"
+      welcome: "ආයුබෝවන් %{username}!"
     passwords:
       edit:
         change_password: "මගේ මුරපදය මාරු කරන්න"

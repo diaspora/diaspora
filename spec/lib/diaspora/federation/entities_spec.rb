@@ -18,6 +18,19 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::AccountMigration)
       expect(federation_entity.author).to eq(diaspora_entity.old_person.diaspora_handle)
       expect(federation_entity.profile.author).to eq(diaspora_entity.new_person.diaspora_handle)
+      expect(federation_entity.signature).to be_nil
+    end
+
+    it "builds an account migration with signature" do
+      diaspora_entity = FactoryBot.build(:account_migration,
+                                         old_person: FactoryBot.create(:user).person,
+                                         signature:  "aa")
+      federation_entity = described_class.build(diaspora_entity)
+
+      expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::AccountMigration)
+      expect(federation_entity.author).to eq(diaspora_entity.old_person.diaspora_handle)
+      expect(federation_entity.profile.author).to eq(diaspora_entity.new_person.diaspora_handle)
+      expect(federation_entity.signature).to eq(diaspora_entity.signature)
     end
 
     it "builds a comment" do

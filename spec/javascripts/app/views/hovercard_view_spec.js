@@ -16,7 +16,11 @@ describe("app.views.Hovercard", function() {
         this.view._populateHovercard();
         jasmine.Ajax.requests.mostRecent().respondWith({
           status: 200,
-          responseText: JSON.stringify({id: 1337})
+          responseText: JSON.stringify({
+            id: 1337,
+            guid: "ba64fce01b04013aa8db34c93d7886ce",
+            name: "Edward Snowden"
+          })
         });
         expect(this.view.aspectMembershipDropdown).toEqual(undefined);
       });
@@ -56,7 +60,11 @@ describe("app.views.Hovercard", function() {
         this.view._populateHovercard();
         jasmine.Ajax.requests.mostRecent().respondWith({
           status: 200,
-          responseText: JSON.stringify({id: 1337})
+          responseText: JSON.stringify({
+            id: 1337,
+            guid: "ba64fce01b04013aa8db34c93d7886ce",
+            name: "Edward Snowden"
+          })
         });
         expect(this.view.aspectMembershipDropdown).not.toEqual(undefined);
       });
@@ -65,7 +73,14 @@ describe("app.views.Hovercard", function() {
         this.view._populateHovercard();
         jasmine.Ajax.requests.mostRecent().respondWith({
           status: 200,
-          responseText: JSON.stringify({id: 1337, profile: {tags: ["first", "second"]}})
+          responseText: JSON.stringify({
+            id: 1337,
+            guid: "ba64fce01b04013aa8db34c93d7886ce",
+            name: "Edward Snowden",
+            profile: {
+              tags: ["first", "second"]
+            }
+          })
         });
 
         var first = this.view.hashtags.find("a:contains('#first')");
@@ -74,6 +89,36 @@ describe("app.views.Hovercard", function() {
         expect(second.length).toEqual(1);
         expect(first.first()[0].href).toContain(Routes.tag("first"));
         expect(second.first()[0].href).toContain(Routes.tag("second"));
+      });
+
+      it("indicates when the user is sharing with me", function() {
+        this.view._populateHovercard();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({
+            id: 1337,
+            guid: "ba64fce01b04013aa8db34c93d7886ce",
+            name: "Edward Snowden",
+            relationship: "sharing"
+          })
+        });
+        var message = this.view.$el.find("#sharing_message");
+        expect(message).toHaveClass("entypo-check");
+      });
+
+      it("indicates when the user is not sharing with me", function() {
+        this.view._populateHovercard();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({
+            id: 1337,
+            guid: "ba64fce01b04013aa8db34c93d7886ce",
+            name: "Edward Snowden",
+            relationship: "receiving"
+          })
+        });
+        var message = this.view.$el.find("#sharing_message");
+        expect(message).toHaveClass("entypo-record");
       });
     });
   });

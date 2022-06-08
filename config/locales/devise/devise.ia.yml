@@ -32,7 +32,7 @@ ia:
         confirm: "Confirmar mi conto"
         subject: "Instructiones pro confirmar"
         you_can_confirm: "Tu pote confirmar tu conto per le ligamine sequente:"
-      hello: "Salute, %{email}!"
+      hello: "Salute, %{username}!"
       inviter:
         accept_at: "a %{url}, tu pote acceptar lo per le ligamine sequente."
         has_invited_you: "%{name}"
@@ -44,13 +44,14 @@ ia:
         ignore: "Si tu non ha demandate isto, per favor ignora iste message."
         someone_requested: "Qualcuno ha demandate un ligamine pro cambiar tu contrasigno. Si tu faceva iste demanda, tu pote facer isto per le ligamine sequente."
         subject: "Instructiones pro reinitialisar contrasigno"
+        then_connect: "Post haber definite un nove contrasigno, tu potera aperir session in diaspora* de novo usante tu nomine de usator “%{username}” e tu nove contrasigno."
         wont_change: "Le contrasigno non cambiara si tu non clicca sur le ligamine precedente e specifica un nove."
       unlock_instructions:
         account_locked: "Tu conto ha essite blocate a causa de un numero excessive de tentativas fallite de accesso."
         click_to_unlock: "Clicca sur le ligamine sequente pro disblocar tu conto:"
         subject: "Instructiones pro disblocar"
         unlock: "Disblocar mi conto"
-      welcome: "Benvenite, %{email}!"
+      welcome: "Benvenite, %{username}!"
     omniauth_callbacks:
       failure: "Impossibile authenticar te a partir de %{kind} perque \"%{reason}\"."
       success: "Authentication a partir del conto %{kind} succedite."

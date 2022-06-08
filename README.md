@@ -10,7 +10,7 @@
 
 ## Installation
 
-You don't have to install diaspora\* to use the network. There are many servers connected to diaspora\*s network which are open to anyone, and you can create an account on one of these servers. Have a look at our [tips for finding a home](https://wiki.diasporafoundation.org/Choosing_a_pod), or you can just go straight to the [list of open servers](https://diaspora.podupti.me) to sign up.
+You don't have to install diaspora\* to use the network. There are many servers connected to diaspora\*s network which are open to anyone, and you can create an account on one of these servers. Have a look at our [tips for finding a home](https://wiki.diasporafoundation.org/Choosing_a_pod), or you can just go straight to the [list of open servers](https://diaspora.fediverse.observer) to sign up.
 
 Want to own your data and install diaspora\*? Whether you just want to try it out, want to install it on your server or want to contribute and need a development setup, our [installation guides](https://wiki.diasporafoundation.org/Installation) will get you started!
 
@@ -28,4 +28,4 @@ Everyone interacting in diaspora’s codebases, issue trackers, chat rooms, the 
 
 ## Security
 
-Found a security issue? Please disclose it responsibly. We have a team of developers listening to [security@diasporafoundation.org](mailto:security@diasporafoundation.org). The PGP fingerprint is [AB0D AB02 0FC5 D398 03AB 3CE1 6F70 243F 27AD 886A](https://pgp.mit.edu/pks/lookup?op=get&search=0x6F70243F27AD886A).
+See [`SECURITY.md`](/SECURITY.md) for instructions on how to responsibly report a security vulnerability.

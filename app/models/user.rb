@@ -7,7 +7,6 @@
 require "attr_encrypted"
 
 class User < ApplicationRecord
-  include AuthenticationToken
   include Connecting
   include Querying
   include SocialActions
@@ -312,9 +311,6 @@ class User < ApplicationRecord
   ######### Data export ##################
   mount_uploader :export, ExportedUser
 
-  ######### Photo export ##################
-  mount_uploader :exported_photos_file, ExportedPhotos
-
   def queue_export
     update exporting: true, export: nil, exported_at: nil
     Workers::ExportUser.perform_async(id)
@@ -329,7 +325,7 @@ class User < ApplicationRecord
       update exporting: false
     end
   rescue StandardError => e
-    logger.error "Unexpected error while exporting data for '#{username}: #{e.class}: #{e.message}\n" \
+    logger.error "Unexpected error while exporting data for '#{username}': #{e.class}: #{e.message}\n" \
                  "#{e.backtrace.first(15).join("\n")}"
     update exporting: false
   end
@@ -337,6 +333,9 @@ class User < ApplicationRecord
   def compressed_export
     ActiveSupport::Gzip.compress Diaspora::Exporter.new(self).execute
   end
+
+  ######### Photo export ##################
+  mount_uploader :exported_photos_file, ExportedPhotos
 
   def queue_export_photos
     update exporting_photos: true, exported_photos_file: nil, exported_photos_at: nil
@@ -403,7 +402,7 @@ class User < ApplicationRecord
     tag_followings.any? || profile[:image_url]
   end
 
-  ###Helpers############
+  ### Helpers ############
   def self.build(opts={})
     u = User.new(opts.except(:person, :id))
     u.setup(opts)
@@ -411,10 +410,8 @@ class User < ApplicationRecord
   end
 
   def self.find_or_build(opts={})
-    user = User.find_or_create_by(username: opts[:username], email: opts[:email])
-    user.password ||= opts[:password]
-    user.password_confirmation ||= opts[:password]
-    user.setup(opts)
+    user = User.find_by(username: opts[:username])
+    user ||= User.build(opts)
     user
   end
 
@@ -425,9 +422,6 @@ class User < ApplicationRecord
     self.language ||= I18n.locale.to_s
     self.color_theme = opts[:color_theme]
     self.color_theme ||= AppConfig.settings.default_color_theme
-    self.strip_exif = opts.fetch(:strip_exif, true)
-    self.show_community_spotlight_in_stream = opts.fetch(:show_community_spotlight_in_stream, false)
-    self.auto_follow_back ||= opts[:auto_follow_back]
     valid?
     errors = self.errors
     errors.delete :person

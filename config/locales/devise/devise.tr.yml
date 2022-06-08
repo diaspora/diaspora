@@ -28,7 +28,7 @@ tr:
         confirm: "Hesabımı doğrula"
         subject: "Doğrulama talimatları"
         you_can_confirm: "Hesabınızı aşağıdaki bağlantı ile doğrulayabilirsiniz:"
-      hello: "Merhaba %{email}!"
+      hello: "Merhaba %{username}!"
       inviter:
         accept_at: "%{url}, aşağıdaki bağlantıya tıklayarak bunu kabul edebilirsiniz."
         has_invited_you: "%{name}"
@@ -44,7 +44,7 @@ tr:
         click_to_unlock: "Hesabınızın kilidini açmak için aşağıdaki bağlantıya tıklayın:"
         subject: "Kilit Açma Yönergeleri"
         unlock: "Hesabımın kilidini aç"
-      welcome: "Hoş geldin%{email}!"
+      welcome: "Hoş geldin%{username}!"
     passwords:
       edit:
         change_password: "Parola değiştirme"

@@ -28,7 +28,7 @@ sr:
         confirm: "Потврди мој налог"
         subject: "Упутство за потврђивање"
         you_can_confirm: "Можеш потврдити свој налог путем овог линка:"
-      hello: "Здраво, %{email}!"
+      hello: "Здраво, %{username}!"
       inviter:
         accept_at: "на %{url}. Можеш прихватити на доњем линку."
         has_invited_you: "%{name} те позива"
@@ -44,7 +44,7 @@ sr:
         click_to_unlock: "Кликни доњи линк да откључаш свој налог:"
         subject: "Упутство за откључавање"
         unlock: "Откључај ми налог"
-      welcome: "Добродошли, %{email}!"
+      welcome: "Добродошли, %{username}!"
     passwords:
       edit:
         change_password: "Промени лозинку"

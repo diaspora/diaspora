@@ -521,12 +521,11 @@ el:
         two: "Σε %{count} πτυχές"
         zero: "Προσθήκη επαφής"
     invitations:
-      by_email: "Μέσω email"
+      by_email: "Προσκάλεσε φίλους μέσω email"
       invite_your_friends: "Προσκάλεσε φίλους"
       invites: "Προσκλήσεις"
       share_this: "Μοιράσου αυτόν τον σύνδεσμο με email, blog, ή σε κάποιο κοινωνικό δίκτυο!"
     public_explain:
-      atom_feed: ""
       control_your_audience: "Έλεγξε το κοινό σου"
       logged_in: "Σύνδεση στο %{service}"
       manage: "Διαχείριση συνδεμένων υπηρεσιών"

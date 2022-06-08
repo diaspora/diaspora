@@ -90,15 +90,19 @@ es-AR:
       week: "Semana"
     user_entry:
       account_closed: "Cuenta de usuario cerrada"
+      admin: "Administrador"
+      current_sign_in_ip: "Dirección IP del inicio de sesión actual"
       diaspora_handle: "Tu ID de diaspora*"
       email: "Correo electrónico"
       guid: "GUID"
       id: "Identificador ID"
       invite_token: "Identificador de invitación"
       last_seen: "Visto por última vez"
+      moderator: "Moderador"
       ? "no"
       : "No"
       nsfw: "No apto para todo público (#nsfw)"
+      spotlight: "Destacado"
       unknown: "Desconocido"
       ? "yes"
       : Si
@@ -106,14 +110,29 @@ es-AR:
       account_closing_scheduled: "La cuenta de %{name} está agendada para ser eliminada. Será procesada en unos momentos..."
       account_locking_scheduled: "El bloqueo de la cuenta de %{name} se ha añadido a la lista de tareas. Será procesada en unos minutos..."
       account_unlocking_scheduled: "El desbloqueo de la cuenta de %{name} se ha añadido a la lista de tareas. Será procesada en unos minutos..."
+      add_admin: "Se ha convertido a %{name} en administrador."
       add_invites: "Añadir invitaciones"
+      add_moderator: "Se ha convertido a %{name} en moderador."
+      add_spotlight: "Se ha añadido a %{name} a la comunidad destacada."
       are_you_sure: "¿Estás seguro de que quieres eliminar tu cuenta? ¡Esto no se puede deshacer!"
       are_you_sure_lock_account: "¿Estás seguro que quieres bloquear esta cuenta?"
       are_you_sure_unlock_account: "¿Estás seguro que quieres desbloquear esta cuenta?"
       close_account: "Cerrar cuenta"
+      delete_admin: "Se ha eliminado a %{name} de la lista de administradores."
+      delete_moderator: "Se ha eliminado a %{name} de la lista de moderadores."
+      delete_spotlight: "Se ha eliminado a %{name} de la comunidad destacada."
+      does_not_exist: "El usuario no existe!"
       email_to: "Mandar invitación por correo electrónico a"
       invite: "Invitar"
       lock_account: "Bloquear cuenta"
+      make_admin: "Convertir en administrador"
+      make_moderator: "Convertir en moderador"
+      make_spotlight: "Añadir a la comunidad destacada"
+      remove_admin: "Remover como administrador"
+      remove_moderator: "Eliminar como moderador"
+      remove_spotlight: "Eliminar de la comunidad destacada"
+      role_implemented: "¡Ya se ha dado a %{name} este rol!"
+      role_removal_implemented: "¡Ya se ha eliminado a %{name} de este rol!"
       under_13: "Mostrar usuarios menores de 13 años (COPPA)"
       unlock_account: "Desbloquear cuenta"
       users:
@@ -144,31 +163,85 @@ es-AR:
           client_id_not_found: "No se encontró ningún cliente con el ID de cliente %{client_id} o con la URI de redireccionamiento %{redirect_uri}"
           deny: "Denegar"
           no_requirement: "%{name} no necesita permisos"
+          private_contacts_linkage_error: "private:read y private:modify requieren contacts:read también"
           redirection_message: "¿Estás seguro que quieres dar acceso a %{redirect_uri}?"
+          unknown_scope: "Alcance desconocido: %{scope_name}"
       error_page:
-        contact_developer: "Deberías contactar con el desarrollador de la aplicación y enviarle el siguiente mensaje de error:"
+        contact_developer: "Por favor contacta al desarrollador de la aplicación y envíale el siguiente mensaje de error:"
         could_not_authorize: "No se pudo autorizar la aplicación"
         login_required: "Tienes que loguearte para poder autorizar a esta aplicación"
         title: "¡Oh! Algo salió mal :("
       scopes:
+        ? "contacts:modify"
+        :
+          description: "Se concede a la aplicación permiso para modificar la información de tus contactos e información relacionada (como los aspectos)."
+          name: "Contactos (escritura)"
+        ? "contacts:read"
+        :
+          description: "Se concede a la aplicación permiso de sólo lectura para acceder a tus contactos e información relacionada (como los aspectos)."
+          name: "Contactos (sólo lectura)"
+        conversations:
+          description: "Se conceden a la aplicación permisos de lectura y escritura de mensajes privados."
+          name: "Conversaciones"
+        email:
+          description: "Se concede a la aplicación acceso para leer los datos de la dirección de correo electrónico del usuario."
+          name: "E-Mail"
+        interactions:
+          description: "Se concede a la aplicación permiso de lectura, escritura y para interactuar con las publicaciones."
+          name: "Interacciones"
         name:
-          description: "Esto otorga permisos de nombre a la aplicación"
-          name: "nombre"
+          description: "Permite acceso de sólo lectura a tu nombre completo"
+          name: "Nombre completo"
         nickname:
-          description: "Esto otorga permisos de apodo a la aplicación"
-          name: "apodo"
+          description: "Permite acceso de sólo lectura a tu nombre de usuario"
+          name: "Nombre de usuario"
+        notifications:
+          description: "Se concede a la aplicación permisos de lectura y escritura para las notificaciones del usuario."
+          name: "Notificaciones"
         openid:
-          description: "Permite que la aplicación lea tu perfil básico"
-          name: "perfil básico"
+          description: "Permite acceso a tu perfil básico en modo sólo lectura"
+          name: "Información del perfil básico"
         picture:
-          description: "Esto otorga permisos de imagen a la aplicación"
-          name: "imagen"
+          description: "Permite acceso de sólo lectura a tu imagen de perfil"
+          name: "Imagen de perfil"
+        ? "private:modify"
+        :
+          description: "Se concede a la aplicación permiso para publicar posts privados."
+          name: "Posts privados (escritura)"
+        ? "private:read"
+        :
+          description: "Se concede a la aplicación permiso para acceder a tus posts privados y los posts privados de tus contactos."
+          name: "Posts privados (sólo lectura)"
         profile:
-          description: "Permite que la aplicación lea tu perfil extendido"
-          name: "perfil extendido"
+          description: "Permite acceso de sólo lectura a tu información del perfil extendido"
+          name: "Perfil extendido (sólo lectura)"
+        ? "profile:modify"
+        :
+          description: "Se concede a la aplicación permiso para actualizar los datos de tu perfil extendido."
+          name: "Perfil extendido (escritura)"
+        ? "profile:read_private"
+        :
+          description: "Se concede a la aplicación permiso de sólo lectura para acceder a los datos de tu perfil privado."
+          name: "Datos del perfil privado (sólo lectura)"
+        ? "public:modify"
+        :
+          description: "Concede a la aplicación permiso para publicar posts públicos e información relacionada (como archivos adjuntos)."
+          name: "Posts públicos (escritura)"
+        ? "public:read"
+        :
+          description: "Se concede a la aplicación permiso para acceder a tus posts públicos, incluyendo interacciones e información relacionada."
+          name: "Posts públicos (sólo lectura)"
         sub:
-          description: "Esto otorga permisos sub a la aplicación"
-          name: "sub"
+          description: "Permite acceso de sólo lectura a tu identificador único"
+          name: "Identificador único"
+        ? "tags:modify"
+        :
+          description: "Se concede a la aplicación permiso para modificar las etiquetas que sigues."
+          name: "Etiquetas (escritura)"
+        ? "tags:read"
+        :
+          description: "Se concede a la aplicación permiso de sólo lectura para acceder a las etiquetas que sigues."
+          name: "Etiquetas (sólo lectura)"
       user_applications:
         index:
           access: "%{name} tiene acceso a:"
@@ -176,11 +249,12 @@ es-AR:
           no_requirement: "%{name} no necesita permisos"
           title: "Aplicaciones autorizadas"
         no_applications: "No tienes aplicaciones autorizadas"
-        policy: "Mira las políticas de privacidad de la aplicación"
+        policy: "Ver la Política de Privacidad de la aplicación"
         revoke_autorization: "Revocar"
         tos: "Ver los Términos de Servicio de la aplicación"
   are_you_sure: "¿Estás seguro?"
   are_you_sure_delete_account: "¿Seguro que quieres eliminar tu cuenta? ¡Esto no se podrá deshacer!"
+  are_you_sure_ignore_user: "Vas a ignorar a este usuario, ¿estás seguro?"
   aspect_memberships:
     destroy:
       failure: "El contacto no se pudo eliminar del aspecto"
@@ -273,9 +347,15 @@ es-AR:
     original: "Gris original"
     original_white: "Fondo blanco original"
   comments:
+    create:
+      fail: "La creación del comentario ha fallado"
+    destroy:
+      fail: "El borrado del comentario ha fallado"
+      success: "El comentario %{id} se ha eliminado correctamente"
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
+    not_found: "Post o comentario no encontrado"
   contacts:
     index:
       add_contact: "Agregar contacto"
@@ -315,6 +395,7 @@ es-AR:
       to: "Para"
     new_conversation:
       fail: "Mensaje inválido"
+    not_found: "Conversación no encontrada"
     show:
       delete: "Eliminar y bloquear conversación"
       hide: "Ocultar y silenciar la conversación"
@@ -336,7 +417,12 @@ es-AR:
   errors:
     messages:
       carrierwave_download_error: "no se pudo descargar"
+      carrierwave_integrity_error: "no se permite este tipo de archivo"
       carrierwave_processing_error: "falló al procesar"
+      max_size_error: "El tamaño del archivo debe ser menor que %{max_size}"
+      min_size_error: "El tamaño del archivo debe ser mayor que %{min_size}"
+      mini_magick_processing_error: "Error al procesar con MiniMagick, ¿tal vez no es una imagen? Error original: %{e}"
+      rmagick_processing_error: "Error al procesar con rmagick, ¿tal vez no es una imagen?"
   fill_me_out: "Completame"
   find_people: "Encontrá gente o #etiquetas"
   help:
@@ -408,7 +494,7 @@ es-AR:
     mentions:
       how_to_mention_a: "Escribe el signo \"@\" y comience a escribir el nombre. Un menú desplegable con opciones aparecerá para seleccionarlo más fácilmente. Sólo es posible mencionar a las personas que tienes agregadas a uno o varios aspectos."
       how_to_mention_q: "¿Cómo puedo mencionar a alguien cuando hago una publicación?"
-      mention_in_comment_a: "¡Si! Desde la versión 0.7.0.0 puedes mencionar a alguien en un comentario de la misma forma que lo harías en una publicación, escribiendo \"@\" seguido de su nombre. Por favor tenga en cuenta que cuando usted comenta en una publicación que no es pública solo puede mencionar usuarios los cuales ya hayan interactuado con la publicación."
+      mention_in_comment_a: "¡Si! Desde la versión 0.7.0.0 puedes mencionar a alguien en un comentario de la misma forma que lo harías en una publicación, escribiendo \"@\" seguido de su nombre. Por favor tenga en cuenta que cuando usted comenta en una publicación que no es pública sólo puede mencionar a usuarios que ya hayan interactuado con la publicación."
       mention_in_comment_q: "¿Puedo mencionar a alguien en un comentario?"
       see_mentions_a: "Sí, haz clic en \"@Menciones\" en la columna izquierda de tu página de inicio."
       see_mentions_q: "¿Existe alguna manera de ver las publicaciones en las cuales he sido mencionado?"
@@ -447,7 +533,7 @@ es-AR:
       ignore_user_a3: "La lista de personas que has ignorado puedes verla en los ajustes de tu cuenta, en la sección Privacidad. Para dejar de ignorar a alguien, debes quitar a esa persona de la lista en esa página."
       ignore_user_q: "¿Cómo puedo impedir que las publicaciones de una persona aparezcan en mi Entrada?"
       insert_images_a: "Haz clic en el icono pequeño con forma de cámara para insertar imágenes en una publicación. Presiona el icono de imágenes nuevamente para añadir otra foto, o selecciona varias al mismo tiempo. También puedes arrastrar y soltar una o varias imágenes desde tu computadora a ese icono. Si quieres insertar una imagen desde la web en tu publicación, haz clic en el botón de imagen en la parte superior del cuadro de publicación, lo que creará el código Markdown para vos."
-      insert_images_comments_a: "Podés utilizar Markdown para ingresar una imagen desde la web a un comentario, igual que en las publicaciones. Sin embargo, no podés subir imagenes desde tu computadora directamente a los comentarios. Cargalos a un servicio de hosting para imagenes y entonces ingresarlos usando el botón de imagen encima del editor."
+      insert_images_comments_a: "Podés utilizar Markdown para ingresar una imagen desde la web a un comentario, igual que en las publicaciones. Sin embargo, no podés subir imágenes desde tu computadora directamente a los comentarios. Cargalos a un servicio de hosting para imágenes y entonces ingresalos usando el botón de imagen encima del editor."
       insert_images_comments_q: "¿Puedo insertar imágenes en los comentarios?"
       insert_images_q: "¿Cómo puedo insertar imágenes en las publicaciones?"
       post_location_a: "Pulsa el icono de localización al lado de la cámara en el publicador (el cuadro de publicación). Ello insertará tu localización desde OpenStreetMap. Puedes editar tu localización y escoger publicar sólo el nombre de la ciudad en la que estás en lugar de tu dirección exacta."
@@ -544,9 +630,11 @@ es-AR:
       byline: "La red social Libre donde tú tienes el control"
       choose_your_audience: "Elige tu público"
       choose_your_audience_info: "Los aspectos de diaspora* te permiten compartir sólamente con las personas que quieras. Puedes ser tan público o privado como prefieras. Comparte una foto divertida con el mundo entero, o un oscuro secreto con tus amigos más cercanos. Tú tienes el control."
+      diaspora_site_link: "Red federada de diaspora*"
       headline: "Bienvenido a %{pod_name}"
       own_your_data: "Sé el dueño de tus datos"
       own_your_data_info: "Muchas redes usan tus datos para hacer dinero analizando tus interacciones y usando esa información para mostrarte anuncios publicitarios. diaspora* no usa tus datos para ningún propósito más que permitirte estar en contacto con otras personas."
+      part_of_diaspora: "Parte de %{diaspora_site_link}"
     podmin:
       byline: "Estás a punto de cambiar Internet. Vamos a configurarlo, ¿dale?"
       configuration_info: "Abre %{database_path} y %{diaspora_path} en tu editor de texto favorito y revísalos cuidadosamente, están comentados al detalle."
@@ -597,6 +685,8 @@ es-AR:
       public_feed: "Canal público para %{name}"
       source_package: "Descargar el paquete con el código fuente"
       statistics_link: "Estadísticas del pod"
+      switch_to_standard_mode: "Cambiar al modo estándar"
+      switch_to_touch_optimized_mode: "Cambiar al modo optimizado para pantallas táctiles"
       whats_new: "¿Qué hay de nuevo?"
     header:
       code: "Código"
@@ -607,8 +697,10 @@ es-AR:
   likes:
     create:
       error: "¡Falló el 'Me gusta'!"
+      fail: "La creación del \"Me gusta\" falló"
     destroy:
       error: "Ocurrió un error al quitar el \"Me gusta\""
+    not_found: "Post o \"Me gusta\" no encontrado"
   limited: "Limitado"
   more: "Más"
   no_results: "No hay resultados"
@@ -712,7 +804,7 @@ es-AR:
       limited_subject: "Hay un nuevo comentario en una de tus publicaciones"
       reply: "Responder o ver la publicación de %{name} >"
     confirm_email:
-      click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, por favor seguí este enlace::"
+      click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, por favor seguí este enlace:"
       subject: "Por favor, activá tu nueva dirección de correo %{unconfirmed_email}"
     contacts_birthday:
       birthday: "%{name} está de cumpleaños hoy. ¡Deséale un 'Muy feliz cumpleaños'!"
@@ -953,7 +1045,9 @@ es-AR:
   registrations:
     closed:
       another_pod: "otro pod"
-      closed_pod: "En este momento este pod se encuentra cerrado a nuevas registros. De igual forma, todavía puedes unirte a la red de diaspora* registrandote en %{wiki}. Ya que todos los pods están interconectados, tendrás acceso al mismo contenido."
+      closed_pod: "En este momento este pod se encuentra cerrado a nuevos registros. De igual forma, todavía puedes unirte a la red de diaspora* registrándote en %{wiki}. Ya que todos los pods están interconectados, tendrás acceso al mismo contenido."
+      find_pods: "Aquí hay una lista de los pods en los que es posible registrarse: %{fediverse_observer}"
+      other_questions: "Visita nuestra %{wiki} si no sabes qué pod elegir o si tienes dudas respecto a la elección de un pod."
     create:
       success: "¡Te has unido a diaspora*!"
     invalid_invite: "¡El enlace de la invitación ya no es válido!"
@@ -1087,6 +1181,7 @@ es-AR:
     total_users: "Usuarios totales"
     version: "Versión"
   status_messages:
+    bad_aspects: "No se pueden aplicar los IDs proporcionados en los aspectos (no existen o no se poseen)"
     new:
       mentioning: "Mencionar a: %{person}"
     too_long: "Por favor haz que tu mensaje de estado tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
@@ -1140,11 +1235,41 @@ es-AR:
         one: "1 persona etiquetada con %{tag}"
         other: "%{count} personas etiquetadas con %{tag}"
         zero: "Ninguna persona etiquetada con %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Desactivar"
+      change_label: "Introduce tu contraseña para desactivar la autenticación de doble factor"
+      status: "Se ha activado la autenticación de doble factor"
+    confirm:
+      activate_button: "Confirmar y activar"
+      input_explanation: "Cuando hayas escaneado el código QR o introducido el secreto, introduce el código de seis dígitos y confirma la configuración."
+      input_title: "Confirmar con token TOTP"
+      manual_explanation: "En caso de no poder escanear el código QR automáticamente, puedes introducir manualmente el secreto en tu aplicación."
+      scan_title: "Escanear el código QR"
+      title: "Confirmar activación"
+    deactivated:
+      change_button: "Activar"
+      change_label: "Activar la autenticación de doble factor"
+      status: "La autenticación de doble factor no está activada"
+    flash:
+      error_token: "El token es incorrecto o no es válido"
+      success_activation: "La autenticación de doble factor ha sido activada correctamente"
+      success_deactivation: "La autenticación de doble factor ha sido desactivada correctamente"
+    input_token:
+      label: "Token de doble factor"
+      placeholder: "Token de seis dígitos para la autentificación de doble factor"
+    recovery:
+      button: "Generar nuevos códigos de recuperación"
+      explanation_short: "Los códigos de recuperación te permiten volver a acceder a tu cuenta en el caso de pérdida de tu teléfono móvil. Por favor, ten en cuenta que solo puedes usar cada código una sola vez."
+      invalidation_notice: "Si has perdido los códigos de recuperación, aquí puedes volver a generarlos. Los códigos de recuperación anteriores dejarán de tener validez."
+      reminder: "También puedes usar uno de los códigos de recuperación."
+      title: "Códigos de recuperación"
+    title: "Autentificación de doble factor"
   username: "Nombre de usuario"
   users:
     confirm_email:
       email_confirmed: "E-Mail %{email} activado"
-      email_not_confirmed: "El E-Mail no pudo ser activado. Link equivocado?"
+      email_not_confirmed: "El E-Mail no pudo ser activado. ¿Link equivocado?"
     destroy:
       no_password: "Por favor, introduce tu contraseña actual para cerrar y destruir tu cuenta."
       success: "Tu cuenta ha sido bloqueada. Nos puede tomar unos 20 minutos cerrar tu cuenta definitivamente. Muchas gracias por probar diaspora*."
@@ -1188,7 +1313,8 @@ es-AR:
       new_password: "Contraseña nueva"
       private_message: "...recibís un mensaje privado?"
       protocol_handler:
-        register: "Regístrate web+diaspora:// controlador en este navegador"
+        register: "Controlador de registro web+diaspora:// en este navegador"
+        title: "controlador de protocolo web+diaspora://"
       receive_email_notifications: "¿Recibir notificaciones por correo electrónico cuando..."
       request_export: "Solicitar los datos de mi perfil"
       request_export_photos: "Solicitar la descarga de mis fotos"

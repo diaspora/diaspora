@@ -28,7 +28,7 @@ nn:
         confirm: "Stadfest kontoen min"
         subject: "Stadfestingsrettleiing"
         you_can_confirm: "Du kan stadfesta kontoen din ved å nytta lenkja nedanfor:"
-      hello: "Hei %{email}."
+      hello: "Hei %{username}."
       inviter:
         accept_at: "på %{url}, du kan godta det gjennom lenkja nedanfor."
         has_invited_you: "%{name}"
@@ -44,7 +44,7 @@ nn:
         click_to_unlock: "Klikk på lenkja nedanfor for å låsa opp kontoen din:"
         subject: "Opplåsingsrettleiing"
         unlock: "Lås opp kontoen min"
-      welcome: "Velkomen %{email}."
+      welcome: "Velkomen %{username}."
     passwords:
       edit:
         change_password: "Endra passordet mitt"

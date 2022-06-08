@@ -17,7 +17,7 @@
 
       - else
         = t("services.index.not_logged_in")
-        = link_to(t("services.index.connect"), "/auth/#{provider}")
+        = link_to(t("services.index.connect"), "/auth/#{provider}", method: :post)
 
 - else
   .well

@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class MigrationService
-  attr_reader :archive_path, :new_user_name
+  attr_reader :archive_path, :new_user_name, :opts
+
   delegate :errors, :warnings, to: :archive_validator
 
-  def initialize(archive_path, new_user_name)
+  def initialize(archive_path, new_user_name, opts={})
     @archive_path = archive_path
     @new_user_name = new_user_name
+    @opts = opts
   end
 
   def validate
@@ -29,7 +31,7 @@ class MigrationService
   def self_import?
     source_diaspora_id = archive_validator.archive_author_diaspora_id
     target_diaspora_id = "#{new_user_name}#{User.diaspora_id_host}"
-    source_diaspora_id.eql?(target_diaspora_id)
+    source_diaspora_id == target_diaspora_id
   end
 
   # when old person can't be resolved we still import data but we don't create&perform AccountMigration instance
@@ -40,12 +42,11 @@ class MigrationService
   private
 
   def find_or_create_user
-    archive_importer.user = User.find_by(username: new_user_name)
-    archive_importer.create_user(username: new_user_name, password: SecureRandom.hex) if archive_importer.user.nil?
+    archive_importer.find_or_create_user(username: new_user_name, password: SecureRandom.hex)
   end
 
   def import_archive
-    archive_importer.import
+    archive_importer.import(opts)
   end
 
   def run_migration
@@ -53,16 +54,14 @@ class MigrationService
     account_migration.perform!
   end
 
-  def archive_file_exists?
-    File.exist?(archive_path)
-  end
-
   def account_migration
     @account_migration ||= AccountMigration.new(
       old_person:             old_person,
       new_person:             archive_importer.user.person,
       old_private_key:        archive_importer.serialized_private_key,
-      old_person_diaspora_id: archive_importer.archive_author_diaspora_id
+      old_person_diaspora_id: archive_importer.archive_author_diaspora_id,
+      archive_contacts:       archive_importer.contacts,
+      remote_photo_path:      remote_photo_path
     )
   end
 
@@ -83,6 +82,10 @@ class MigrationService
     return uncompressed_gz if gzip_file?
 
     File.new(archive_path, "r")
+  end
+
+  def archive_file_exists?
+    File.exist?(archive_path)
   end
 
   def zip_file?
@@ -127,6 +130,16 @@ class MigrationService
     return unless File.exist?(@intermediate_file)
 
     File.delete(@intermediate_file)
+  end
+
+  def remote_photo_path
+    return unless opts.fetch(:photo_migration, false)
+
+    if AppConfig.environment.s3.enable?
+      return "https://#{AppConfig.environment.s3.bucket.get}.s3.amazonaws.com/uploads/images/"
+    end
+
+    "#{AppConfig.pod_uri}uploads/images/"
   end
 
   class ArchiveValidationFailed < RuntimeError

@@ -987,7 +987,7 @@ nl:
     closed:
       another_pod: "een andere pod"
       closed_pod: "Deze pod is momenteel gesloten voor nieuwe inschrijvingen. Wel kun je je aansluiten bij het diaspora*-netwerk door je in te schrijven bij %{wiki}. Alle pods zijn met elkaar verbonden, dus krijg je toegang tot dezelfde content."
-      find_pods: "Een lijst van pods waar je je kunt inschrijven vind je op %{poduptime}."
+      find_pods: "Een lijst van pods waar je je kunt inschrijven vind je op %{fediverse_observer}."
       other_questions: "Heb je nog andere vragen over het kiezen van een pod, zie dan onze %{wiki}."
     create:
       success: "Je bent nu lid van diaspora*!"

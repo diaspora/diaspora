@@ -32,7 +32,7 @@ cs:
         confirm: "Potvrdit můj účet"
         subject: "Informace o potvrzení"
         you_can_confirm: "Váš účet můžete potvrdit kliknutím na tento odkaz:"
-      hello: "Zdravím %{email}!"
+      hello: "Zdravím %{username}!"
       inviter:
         accept_at: "na %{url}, přijmout pozvání můžete pomocí odkazu níže."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ cs:
         click_to_unlock: "Kliknutím na uvedený odkaz odemknete svůj účet:"
         subject: "Instrukce k odemknutí účtu."
         unlock: "Odemknout můj účet"
-      welcome: "Vítej %{email}!"
+      welcome: "Vítej %{username}!"
     omniauth_callbacks:
       failure: "Nelze vás autentikovat z %{kind}, protože \"%{reason}\""
       success: "Úspěšně jsme vás ověřili z účtu %{kind}."

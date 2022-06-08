@@ -1,7 +1,7 @@
-<%= t('devise.mailer.welcome', :email => @resource.email) %>
+<%= t('devise.mailer.welcome', username: @resource.username) %>
 
 <%= t('.you_can_confirm') %>
 
 [<%= t('.confirm') %>][1]
 
-[1]: <%= confirmation_url(@resource, :confirmation_token => @token) %>
+[1]: <%= confirmation_url(@resource, confirmation_token: @token) %>

@@ -32,7 +32,7 @@ zh-TW:
         confirm: "帳號確認"
         subject: "確認步驟"
         you_can_confirm: "你可以使用以下連結確認帳號："
-      hello: "你好，%{email}！"
+      hello: "你好，%{username}！"
       inviter:
         accept_at: "於 %{url}，你可以透過以下連結來接受。"
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ zh-TW:
         click_to_unlock: "點一下以下連結來將你的帳號解鎖："
         subject: "解鎖步驟"
         unlock: "帳號解鎖"
-      welcome: "歡迎你，%{email}！"
+      welcome: "歡迎你，%{username}！"
     omniauth_callbacks:
       failure: "跟 %{kind} 認證失敗，原因是：%{reason}。"
       success: "%{kind} 帳號認證成功。"

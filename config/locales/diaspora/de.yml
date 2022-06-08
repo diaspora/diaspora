@@ -8,6 +8,7 @@ de:
   _applications: "Anwendungen"
   _contacts: "Kontakte"
   _help: "Hilfe"
+  _podmin_mail: "Podmin kontaktieren"
   _services: "Dienste"
   _statistics: "Statistiken"
   _terms: "Bedingungen"
@@ -511,7 +512,7 @@ de:
       diaspora_app_a: "Es sind einige Android-Apps von Communitymitgliedern in Entwicklung. Manche Apps werden nicht mehr gepflegt und funktionieren deshalb nicht mehr richtig mit der aktuellen diaspora*-Version. Für iOS gibt es keine App. Am besten rufst du diaspora* auch auf deinem Smartphone im Browser auf. Wir haben eine mobile Version gestaltet, die auf allen Geräten gut funktionieren sollte."
       diaspora_app_q: "Gibt es eine diaspora* App für Android oder iOS?"
       photo_albums_a: "Nein, momentan nicht. Aber du kannst dir die hochgeladenen Bilder in der Fotosektion in der linke Leiste auf dem Profil ansehen."
-      photo_albums_q: "Gibt es Foto oder Videoalben?"
+      photo_albums_q: "Gibt es Foto- oder Videoalben?"
       subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird vielleicht nicht ganz richtig formatiert. Wenn du die Funktion dennoch benutzen willst, gehe einfach auf die Profilseite der Person und klicke auf die Feed-Schaltfläche deines Browsers oder kopiere die Profil-URL (z.B. https://podname.org/people/irgendeinenummer) und füge sie in einen Feedreader ein. Die resultierenden Feed-Adressen sehen z.B. so aus: https://podname.org/public/benutzername.atom – diaspora* benutzt Atom anstelle von RSS."
       subscribe_feed_q: "Kann ich die öffentlichen Beiträge einer Person mit einem Feedreader verfolgen?"
       title: "Diverses"
@@ -1073,7 +1074,7 @@ de:
     closed:
       another_pod: "einem anderen Pod"
       closed_pod: "Dieser Pod ist derzeit für Neuanmeldungen geschlossen. Du kannst dem diaspora*-Netzwerk trotzdem beitreten, indem du dich auf %{wiki} registrierst. Da alle Pods miteinander verbunden sind, hast du von dort aus Zugriff auf dieselben Inhalte."
-      find_pods: "Es gibt eine Liste von Pods, auf denen du dich registrieren kannst, auf %{poduptime}."
+      find_pods: "Es gibt eine Liste von Pods, auf denen du dich registrieren kannst, auf %{fediverse_observer}."
       other_questions: "Wenn du noch weitere Fragen dazu hast, wie du einen Pod auswählst, lies unser %{wiki}."
     create:
       success: "Du bist diaspora* beigetreten!"
@@ -1238,6 +1239,8 @@ de:
       title: "„Gefällt mir“-Stream"
     liked:
       title: "Beiträge, die dir gefallen"
+    local_public:
+      title: "Lokale Beiträge"
     mentioned_stream: "@Erwähnungen"
     mentions:
       title: "@Erwähnungen"

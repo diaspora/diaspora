@@ -8,6 +8,7 @@ gl:
   _applications: "Aplicacións"
   _contacts: "Contactos"
   _help: "Axuda"
+  _podmin_mail: "Contacta con Podmin"
   _services: "Servizos"
   _statistics: "Estatísticas"
   _terms: "Termos"
@@ -42,7 +43,7 @@ gl:
             person:
               invalid: "non é correcto."
             username:
-              invalid: "non é correcto. Só se permiten letras do alfabeto latino, números e guións baixos."
+              invalid: "non é correcto. Só se permiten letras do alfabeto latino, números e trazo baixo."
               taken: "xa está collido."
   admins:
     admin_bar:
@@ -91,6 +92,7 @@ gl:
     user_entry:
       account_closed: "Conta pechada"
       admin: "Admin"
+      current_sign_in_ip: "Enderezo IP para a conexión actual"
       diaspora_handle: "ID diaspora*"
       email: "Correo-e"
       guid: "GUID"
@@ -140,7 +142,9 @@ gl:
         zero: "%{count} usuarias atopadas"
       view_profile: "Ver perfil"
       you_currently:
-        other: "Ten actualmente %{user_invitation} invitacións, restan %{link}"
+        one: "Tes %{count}  convite restante %{link} "
+        other: "Tes %{count} convites restantes %{link}"
+        zero: "Non tes convites restantes %{link}"
     weekly_user_stats:
       amount_of:
         one: "Número de novas usuarias esta semana: %{count}"
@@ -160,31 +164,85 @@ gl:
           client_id_not_found: "Non se atopou un cliente con client_id %{client_id} e con redirección URI %{redirect_uri}"
           deny: "Rexeitar"
           no_requirement: "%{name} non require permisos"
+          private_contacts_linkage_error: "privado:lectura e privado:modificar tamén require contactos:lectura"
           redirection_message: "Queres darlle acceso a %{redirect_uri}?"
+          unknown_scope: "Ámbito descoñecido: %{scope_name}"
       error_page:
-        contact_developer: "Debes contactar coas desenvolvedoras da aplicación e incluír a seguinte información detallada do fallo:"
+        contact_developer: "Contacta coas desenvolvedoras da aplicación e inclúe a seguinte información detallada do fallo:"
         could_not_authorize: "Non se puido autorizar a aplicación"
         login_required: "Debes conectarte antes de poder autorizar esta aplicación"
         title: "Vaia! Algo foi mal :("
       scopes:
+        ? "contacts:modify"
+        :
+          description: "Esto outorga permiso de escritura aos contactos e datos relacionados (como os aspectos)."
+          name: "Contactos (Escribir)"
+        ? "contacts:read"
+        :
+          description: "Esto outorga acceso de só lectura aos contactos e datos relacionados (como os aspectos)."
+          name: "Contactos (Só lectura)"
+        conversations:
+          description: "Esto outorga permiso de lectura e escritura as mensaxes privadas."
+          name: "Conversas"
+        email:
+          description: "Esto outorga acceso de Só lectura ao teu enderezo de email."
+          name: "Email"
+        interactions:
+          description: "Esto outorga permiso para interactuar coas publicacións, por exemplo darlle a gústame ou enviar un comentario."
+          name: "Interaccións"
         name:
-          description: "Esto proporciona permisos de nome a aplicación"
-          name: "nome"
+          description: "Esto outorga acceso de Só lectura ao teu nome completo."
+          name: "Nome completo"
         nickname:
-          description: "Esto proporciona permisos de alcume a aplicación"
-          name: "alcume"
+          description: "Esto outorga acceso de Só lectura ao teu nome de usuaria."
+          name: "Nome de usuaria"
+        notifications:
+          description: "Esto outorga permiso de escritura e lectura ás túas notificacións."
+          name: "Notificacións"
         openid:
-          description: "Esto permite a aplicación ler o teu perfil básico"
-          name: "perfil básico"
+          description: "Esto outorga acceso de lectura á información básica do teu perfil."
+          name: "Información básica do perfil"
         picture:
-          description: "Esto da permisos de imaxe a aplicación"
-          name: "imaxe"
+          description: "Esto outorga acceso de Só lectura á túa imaxe de perfil."
+          name: "Imaxe do perfil"
+        ? "private:modify"
+        :
+          description: "Esto permite escribir publicacións privadas"
+          name: "Publicacións privadas (Escritura)"
+        ? "private:read"
+        :
+          description: "Esto outorga acceso de Só lectura ás publicacións privadas túas e dos teus contactos."
+          name: "Publicacións privadas (Só lectura)"
         profile:
-          description: "Esto permite a aplicación ler o teu perfil extendido"
-          name: "perfil extendido"
+          description: "Esto outorga acceso de Só lectura aos datos do teu perfil extendido."
+          name: "Perfil extendido (Só lectura)"
+        ? "profile:modify"
+        :
+          description: "Esto outorga acceso para actualizar os datos do teu perfil extendido."
+          name: "Perfil extendido (Escritura)"
+        ? "profile:read_private"
+        :
+          description: "Esto outorga acceso de Só lectura aos datos privados do teu perfil"
+          name: "Datos privados do perfil (Só lectura)"
+        ? "public:modify"
+        :
+          description: "Esto outorga acceso de escritura para escribir publicacións públicas e datos relacionados (como votos e multimedia engadido)."
+          name: "Publicacións públicas (Escritura)"
+        ? "public:read"
+        :
+          description: "Esto outorga acceso ás túas publicacións públicas, incluíndo interaccións e datos relativos."
+          name: "Publicacións públicas (Só lectura)"
         sub:
-          description: "Esto garante sub permisos a aplicación"
-          name: "sub"
+          description: "Esto outorga acceso de Só lectura ao teu identificador único."
+          name: "Identificador único"
+        ? "tags:modify"
+        :
+          description: "Esto outorga acceso a cambiar as etiquetas que segues."
+          name: "Etiquetas (Escritura)"
+        ? "tags:read"
+        :
+          description: "Esto outorga acceso de Só lectura ás túas etiquetas e cronoloxía de etiquetas."
+          name: "Etiquetas (Só lectura)"
       user_applications:
         index:
           access: "%{name} ten acceso a:"
@@ -196,7 +254,7 @@ gl:
         revoke_autorization: "Revogar"
         tos: "Ver os termos de servizo da aplicación"
   are_you_sure: "Está seguro?"
-  are_you_sure_delete_account: "Está seguro de que quere pechar a súa conta? Non haberá volta atrás!"
+  are_you_sure_delete_account: "Tes a certeza de querer pechar a túa conta? Non haberá volta atrás!"
   are_you_sure_ignore_user: "Vas ignorar esta usuaria, queres ignorala?"
   aspect_memberships:
     destroy:
@@ -222,7 +280,7 @@ gl:
     edit:
       aspect_list_is_not_visible: "Os contactos do aspecto non poden ver a lista dos membros."
       aspect_list_is_visible: "Os contactos do aspecto poden ver a lista dos membros."
-      confirm_remove_aspect: "Está seguro de que quere eliminar este aspecto?"
+      confirm_remove_aspect: "Tes a certeza de querer eliminar este aspecto?"
       rename: "Renomear"
       update: "Actualizar"
       updating: "Actualizando…"
@@ -290,9 +348,15 @@ gl:
     original: "Gris orixinal"
     original_white: "Fondo branco orixinal"
   comments:
+    create:
+      fail: "Fallou a creación do comentario"
+    destroy:
+      fail: "Non se borrou o comentario"
+      success: "Eliminouse o comentario con %{id}"
     new_comment:
       comment: "Deixar un comentario"
       commenting: "Comentando…"
+    not_found: "Non se atopou a publicación ou comentario"
   contacts:
     index:
       add_contact: "Engadir contacto"
@@ -332,6 +396,7 @@ gl:
       to: "Para"
     new_conversation:
       fail: "Mensaxe non válida"
+    not_found: "Non se atopou a conversa"
     show:
       delete: "Eliminar a conversa"
       hide: "Ocultar e acalar a conversa"
@@ -432,7 +497,7 @@ gl:
       title: "Atallos de teclado"
     markdown: "Markdown"
     mentions:
-      how_to_mention_a: "Escriba o signo \"@\" e comece a escribir o seu nome. Un menú desplegable aparecerá para permitirlle escollelo facilmente. Aviso: só pode mencionar a xente que vostede engadiu en algún aspecto."
+      how_to_mention_a: "Escribe o signo \"@\" e comeza a escribir o seu nome. Un menú despregable aparecerá para permitirche escollelo facilmente. Aviso: só podes mencionar a xente que engadiches nalgún aspecto."
       how_to_mention_q: "Como menciono alguén ao facer unha publicación?"
       mention_in_comment_a: "Si!, desde a versión 0.7.0.0 pode mencionar a alguén nun comentario do mesmo xeito que faría nunha publicación, escribindo \"@\" e comezando a escribir o seu nome. Cando comenta nunha publicación que non é pública, só pode mencionar usuarias que xa interactuaron coa publicación."
       mention_in_comment_q: "Podo mencionar a alguén nun comentario?"
@@ -466,7 +531,7 @@ gl:
       character_limit_q: "Cal é o límite de caracteres para publicacións?"
       embed_multimedia_a: "Como norma xeral pode simplemente pegar o URL (ex. http://www.youtube.com/watch?v=nnnnnnnnnnn ) na súa publicación e o vídeo ou audio será incrustado automáticamente. As webs soportadas inclúen: YouTube, Vimeo, SoundCloud, Flickr e algún máis. diaspora* utiliza oEmbed para esta característica. Se publica unha ligazón directa a un ficheiro de vídeo ou audio, diaspora* inscrustarao utilizando o reprodutor HTML5 estándar. Cada vez soportamos máis tipos de ficheiros. Lembre utilizar sempre URL completas – sen ligazóns acurtadas, sen operadores tras o URL base – e déalle un pouco de tempo antes de actualizar a páxina tras publicala para ver a vista previa."
       embed_multimedia_q: "Como inscrusto vídeo, audio, ou outros ficheiros de medios nunha publicación?"
-      format_text_a: "diaspora* utiliza un sistema simplificado chamado %{markdown}. O cadro de edición ten botóns para facilitarlle a tarefa. Si quere darlle formato a publicación de xeito manual pode atopar unha guía sobre o formato Markdown %{here}. A pestana de vista previa permítelle ver como será vista a mensaxe antes de compartila. Lembre que non poderá editala unha vez publicada, así que utilice a vista previa para asegurarse de que aparece tal como desexa."
+      format_text_a: "diaspora* utiliza un sistema simplificado chamado %{markdown}. O cadro de edición ten botóns para facilitarche a tarefa. Se queres darlle formato a publicación de xeito manual podes atopar unha guía sobre o formato Markdown %{here}. A pestana de vista previa permíteche ver como será vista a mensaxe antes de compartila. Lembra que non poderás editala unha vez publicada, así que usa a vista previa para asegurarte de que aparece tal como desexas."
       format_text_q: "Como lle dou formato ao texto nas miñas publicacións (resaltar, cursiva,etc.)?"
       hide_posts_a: "Se sitúa o punteiro sobre a parte superior da publicación, un X aparece a dereita. Púlseo para agochar a publicación e acale as notificións sobre ela. Podería seguir vendo a publicación se visita a páxina de perfil de quen a publicou."
       hide_posts_q: "Cómo oculto unha publicación?"
@@ -574,7 +639,7 @@ gl:
       be_who_you_want_to_be_info: "Moitas redes insisten en que utilices a túa identidade real. Non en diaspora*. Aquí podes escoller quen queres ser, e compartir moito ou pouco sobre ti mesma como desexes. Depende de ti o xeito en que interactúas con outras persoas."
       byline: "O entorno social conectado onde ti tes o control"
       choose_your_audience: "Escolle a túa audiencia"
-      choose_your_audience_info: "Os aspectos en diaspora* permítenche compartir só coa xente que desexas. Pode ser tan público ou privado como queiras. Comparte unha foto divertida con todo o mundo, ou un segredo íntimo só coas persoas máis próximas. Ti ten o control."
+      choose_your_audience_info: "Os aspectos en diaspora* permítenche compartir só coa xente que desexas. Pode ser tan público ou privado como queiras. Comparte unha foto divertida con todo o mundo, ou un segredo íntimo só coas persoas máis próximas. Ti tes o control."
       diaspora_site_link: "rede federada diaspora*"
       headline: "Benvida a %{pod_name}"
       own_your_data: "Es dona dos teus datos"
@@ -642,8 +707,22 @@ gl:
   likes:
     create:
       error: "Fallou o gústame."
+      fail: "Fallou a creación da ligazón"
     destroy:
       error: "Fallo ao retirar o gústame"
+    not_found: "Publicación ou gústame non atopados"
+    people_dislike_this:
+      one: "%{count} Non me gusta"
+      other: "%{count} Non me gusta"
+      zero: "Sen Non me gusta"
+    people_like_this:
+      one: "%{count} gústame"
+      other: "%{count} gústame"
+      zero: "Sen Gústame"
+    people_like_this_comment:
+      one: "%{count} gústame"
+      other: "%{count} gústame"
+      zero: "Sen gústame"
   limited: "Limitado"
   more: "Máis"
   no_results: "Non se atopou nada"
@@ -764,13 +843,13 @@ gl:
       body: |-
           Ola %{name},
 
-          diaspora* detectou un intento de acceso a túa sesión que podería non ter autorización. Para evitar calquera posibilidade de que os teus datos fosen comprometidos, procedemos a desconectala. Non te preocupes, podes voltar a conectar novamente de xeito seguro.
+          diaspora* detectou un intento de acceso a túa sesión que podería non ter autorización. Para evitar calquera posibilidade de que os teus datos fosen comprometidos, procedemos a desconectala. Non te preocupes, podes volver a conectar novamente de xeito seguro.
 
-          Fíxose unha solicitude utilizando un testemuño CSRF incorrecto ou omitido. Esto podería ser totalmente inofensivo, pero podería tratarse dun intento de suplantación (ataque CSRF).
+          Fíxose unha solicitude utilizando un testemuño CSRF incorrecto ou omiteuse. Esto podería ser totalmente inofensivo, pero podería tratarse dun intento de suplantación (ataque CSRF).
 
           Esto podería estar causado por:
 
-            - Un engadido do navegador manipulando a petición ou facendo peticións sen o testemuño;
+            - Un complemento do navegador manipulando a petición ou facendo peticións sen o testemuño;
             - Unha lapela que quedou aberta dunha sesión anterior;
             - Outro sitio web facendo peticións, con ou sen o teu permiso;
             - Outras ferramentas externas;
@@ -778,7 +857,7 @@ gl:
 
           Para máis información sobre CSRF mira [%{link}](%{link}).
 
-          Se esta mensaxe aparece de xeito repetido, por favor comproba a lista superior, incluíndo os engadidos para o navegador.
+          Se esta mensaxe aparece de xeito repetido, por favor comproba a lista superior, incluíndo os complementos para o navegador.
 
           Grazas,
           O robot de correo de diaspora*!
@@ -798,8 +877,8 @@ gl:
       body: |-
           Ola %{name}
 
-          Algo aconteceu mentras procesábamos os seus datos para descargar.
-          Inténteo de novo!
+          Algo aconteceu mentras procesábamos os teus datos para descargar.
+          Inténtao de novo!
 
           Lamentámolo,
 
@@ -831,20 +910,20 @@ gl:
       message: |-
           Ola,
 
-          Foi convidado por %{user} a unirse a diaspora*
+          %{user} convidoute a unirte a diaspora*
 
-          Prema nesta ligazón para comezar
+          Preme nesta ligazón para comezar
 
           [%{invite_url}][1]
 
-          Ou pode engadir a %{diaspora_id} aos seus contactos se xa ten unha conta.
+          Ou podes engadir a %{diaspora_id} aos teus contactos se xa tes unha conta.
 
 
           Chuchos.
 
           O robot de correo de diaspora*
 
-          P.S.: Por se non coñece (aínda) o que é diaspora*, [aqui][2] ten a resposta!
+          P.S.: Por se non coñeces (aínda) o que é diaspora*, [aqui][2] tes a resposta!
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
@@ -888,7 +967,7 @@ gl:
 
           [%{url}][1]
 
-          Por favor revísea o antes posible!
+          Por favor revísaa o antes posible!
 
 
           Saúdos,
@@ -969,7 +1048,7 @@ gl:
   profile: "Perfil"
   profiles:
     edit:
-      allow_search: "Permitir que o atopen ao buscar en diaspora*"
+      allow_search: "Permitir que te atopen ao buscar en diaspora*"
       basic: "O meu perfil básico"
       basic_hint: "Cada elemento no teu perfil é optativo. O perfil básico sempre será visible de xeito público."
       extended: "O meu perfil extendido"
@@ -1000,7 +1079,7 @@ gl:
     closed:
       another_pod: "outra instancia"
       closed_pod: "Actualmente esta instancia ten o rexistro pechado. Porén, podes igualmente unirte a rede diaspora* rexistrándote en %{wiki}. Como todos os nodos están conectados, terás acceso ao mesmo contido desde alí."
-      find_pods: "Existe unha lista de instancias nas que podes rexistrarse en %{poduptime}."
+      find_pods: "Existe unha lista de instancias nas que podes rexistrarse en %{fediverse_observer}."
       other_questions: "Se tes preguntas sobre a elección dunha instancia, lé a nosa %{wiki}."
     create:
       success: "Xa está en diaspora*!"
@@ -1010,7 +1089,7 @@ gl:
       enter_email: "Escriba un enderezo de correo electrónico"
       enter_password: "Escriba un contrasinal (6 caracteres min.)"
       enter_password_again: "Repita o contrasinal"
-      enter_username: "Escolla un nome de usuario (só letras, números e guións baixos)"
+      enter_username: "Escolle un nome de usuaria (só letras, números e trazos baixos)"
       password: "Contrasinal"
       password_confirmation: "Confirmación do contrasinal"
       sign_up: "Crear conta"
@@ -1041,7 +1120,7 @@ gl:
     create:
       error: "Fallo ao compartir."
     reshare:
-      deleted: "O autor da publicación orixinal eliminouna."
+      deleted: "A autora da publicación orixinal eliminouna."
       reshare_confirmation: "Repetir a publicación de %{author}?"
       reshared_via: "Repetido de"
   search: "Busca"
@@ -1166,6 +1245,8 @@ gl:
       title: "Favoritos"
     liked:
       title: "Publicacións gustadas"
+    local_public:
+      title: "Publicacións locais"
     mentioned_stream: "@Mencións"
     mentions:
       title: "@Mencións"
@@ -1231,7 +1312,7 @@ gl:
       email_not_confirmed: "Non se puido activar o enderezo de correo electrónico. Confundiuse de ligazón?"
     destroy:
       no_password: "Escriba o seu contrasinal actual para pechar a conta."
-      success: "Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a diaspora*."
+      success: "Bloqueouse a túa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a diaspora*."
       wrong_password: "O contrasinal introducido é incorrecto."
     edit:
       also_commented: "alguén comentou nunha publicación onde vostede tamén comentou."
@@ -1250,7 +1331,7 @@ gl:
         locked_out: "Pecharase a súas sesión e non poderá volver entrar coa súa conta."
         make_diaspora_better: "Estaríamos encantados de que non marchase e nos axudase a mellorar diaspora* en lugar de marchar. Se realmente desexa marchar, aquí ten o que acontece a seguir:"
         mr_wiggles: "Botarémolo de menos."
-        no_turning_back: "Non hai volta atrás! Se realmente está seguro, introduza aqui abaixo o contrasinal."
+        no_turning_back: "Non hai volta atrás! Se tes certeza sobre o que estás a facer, escribe aqui abaixo o contrasinal."
         what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios en publicacións alleas seguirán aparecendo, pero estarán asociados ao seu ID en diaspora* e non ao seu nome."
       close_account_text: "Pechar a conta"
       comment_on_post: "comentarios nas publicacións propias."
@@ -1293,7 +1374,7 @@ gl:
     getting_started:
       awesome_take_me_to_diaspora: "Xenial! Vaiamos a diaspora*"
       community_welcome: "Estamos felices de que te unises a comunidade diaspora*!"
-      hashtag_explanation: "Empregue as etiquetas para falar dos seus intereses e estar ao tanto das publicacións relacionadas. Ademais, son un xeito ideal de coñecer xente en Diaspora."
+      hashtag_explanation: "Empregua as etiquetas para falar dos teus intereses e estar ao día das publicacións relacionadas. Ademais, son un xeito ideal de coñecer xente en diaspora*."
       hashtag_suggestions: "Probe a seguir etiquetas coma #arte, #cine, #gif, etc."
       well_hello_there: "Ola!"
       what_are_you_in_to: "Que lle interesa?"

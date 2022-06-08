@@ -313,8 +313,8 @@ da:
       months:
         one: "1 måned"
         other: "%d måneder"
-      prefixAgo: ""
-      prefixFromNow: ""
+      prefixAgo: "før"
+      prefixFromNow: "om"
       seconds: "mindre end et minut"
       suffixAgo: "siden"
       suffixFromNow: "fra nu"

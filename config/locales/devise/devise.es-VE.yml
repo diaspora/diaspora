@@ -28,7 +28,7 @@ es-VE:
         confirm: "Confirmar mi cuenta"
         subject: "Instrucciones para la confirmación"
         you_can_confirm: "Puedes confirmar tu cuenta a través del siguiente enlace:"
-      hello: "¡Hola %{email}!"
+      hello: "¡Hola %{username}!"
       invitation_instructions:
         accept: "Aceptar invitación"
         arrived: "La red social que has estado esperando ha llegado. Renovada, más segura, y más divertida, %{strong_diaspora} está lista para ayudarte a compartir y explorar la web en una forma totalmente nueva."
@@ -73,7 +73,7 @@ es-VE:
         click_to_unlock: "Haz clic en el siguiente enlace para desbloquear tu cuenta:"
         subject: "Instrucciones para desbloquear tu cuenta"
         unlock: "Desbloquear mi cuenta"
-      welcome: "¡Bienvenid@ %{email}!"
+      welcome: "¡Bienvenid@ %{username}!"
     passwords:
       edit:
         change_password: "Cambiar mi contraseña"

@@ -32,7 +32,7 @@ hye-classical:
         confirm: "Հաստատել իմ հաշիւը"
         subject: "Հաստատման ցուցումներ"
         you_can_confirm: "Կարող ես հաշիւդ հաստատել հետեւեալ յղմամբ՝"
-      hello: "Ողջո՜յն, %{email}"
+      hello: "Ողջո՜յն, %{username}"
       inviter:
         accept_at: "%{url} հասցէով, որը կարող ես հաստատել ստորև բերուած յղման միջոցով։"
         have_invited_you: "%{names} հրաւիրել է քեզ՝ միանալու դիասպորա*֊ին"
@@ -49,7 +49,7 @@ hye-classical:
         click_to_unlock: "Սեղմիր ներքեւի յղումը, որպէսզի ապաարգելափակես հաշիւդ։"
         subject: "Ապաարգելափակման ցուցումներ"
         unlock: "Ապաարգելափակել հաշիւս"
-      welcome: "Բարի գալո՜ւստ, %{email}"
+      welcome: "Բարի գալո՜ւստ, %{username}"
     omniauth_callbacks:
       failure: "Չյաջողուեց նոյնականացնել քեզ %{kind}֊ից զի՝ %{reason}"
       success: "Յաջողութեամբ նոյնականացումն անցար %{kind} հաշուով։"

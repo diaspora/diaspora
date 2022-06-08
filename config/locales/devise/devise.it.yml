@@ -29,7 +29,7 @@ it:
         confirm: "Conferma il mio account"
         subject: "Istruzioni per la conferma"
         you_can_confirm: "Puoi confermare il tuo account attraverso il link sottostante:"
-      hello: "Ciao %{email}!"
+      hello: "Ciao %{username}!"
       inviter:
         accept_at: "su %{url}, puoi accettare dal link qua sotto."
         has_invited_you: "%{name} ti ha invitato ad entrare in Diaspora"
@@ -47,7 +47,7 @@ it:
         click_to_unlock: "Clicca il link sottostante per sbloccare il tuo account:"
         subject: "Istruzioni di sblocco"
         unlock: "Sblocca il mio account"
-      welcome: "Benvenuto %{email}!"
+      welcome: "Benvenuto %{username}!"
     passwords:
       edit:
         change_password: "Cambia la mia password"

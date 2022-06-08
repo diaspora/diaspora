@@ -20,7 +20,7 @@ nds:
       send_instructions: "Diene Inlodung is afschickt worn."
       updated: "Dien Passwoort is erfolgriek set worn. Du bist nu anmeld."
     mailer:
-      hello: "Hallo %{email}!"
+      hello: "Hallo %{username}!"
       inviter:
         has_invited_you: "%{name}"
       reset_password_instructions:
@@ -28,7 +28,7 @@ nds:
       unlock_instructions:
         subject: "Anwisungen ton Entsparn"
         unlock: "Mien Konto entsparn"
-      welcome: "Willkomen %{email}!"
+      welcome: "Willkomen %{username}!"
     passwords:
       edit:
         change_password: "Änner mien Passwoort"

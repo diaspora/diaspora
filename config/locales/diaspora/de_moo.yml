@@ -8,6 +8,7 @@ de_moo:
   _applications: "Anwendungen"
   _contacts: "Mitkühe"
   _help: "Hilfe"
+  _podmin_mail: "Leitkuh kontaktieren"
   _services: "Dienste"
   _statistics: "Statistiken"
   _terms: "Bedingungen"
@@ -254,7 +255,7 @@ de_moo:
         tos: "Die Nutzungsbedingungen der Anwendung ansehen"
   are_you_sure: "Bist du dir sicher?"
   are_you_sure_delete_account: "Möchtest du dein Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
-  are_you_sure_ignore_user: "Bist du sicher, dass du diese Kuh ignorieren möchtest?"
+  are_you_sure_ignore_user: "Bist du sicher, dass du dieses Rindvieh ignorieren möchtest?"
   aspect_memberships:
     destroy:
       failure: "Die Kuh konnte nicht aus der Herde entfernt werden."
@@ -329,8 +330,8 @@ de_moo:
       success: "Herde %{name} erfolgreich bearbeitet."
   blocks:
     create:
-      failure: "Ich konnte diese Kuh nicht ignorieren. #evasion"
-      success: "Alles klar, du wirst diese Kuh nicht mehr in deiner Weide sehen. #silencio!"
+      failure: "Ich konnte dieses Rindvieh nicht ignorieren. #evasion"
+      success: "Alles klar, du wirst dieses Rindvieh nicht mehr auf deiner Weide sehen. #silencio!"
     destroy:
       failure: "Ich konnte das Ignorieren dieser Kuh nicht beenden.  #evasion"
       success: "Mal sehen, was sie zu sagen haben! #sayhello"
@@ -534,9 +535,9 @@ de_moo:
       format_text_q: "Wie kann ich den Text in meinen Beiträgen formatieren (fett, kursiv, etc.)?"
       hide_posts_a: "Wenn du deinen Mauszeiger über einem Beitrag positionierst, erscheint rechts ein kleines X. Klicke darauf, um den Beitrag zu verstecken und die Benachrichtigungen zu ihm zu deaktivieren. Du kannst den Beitrag weiterhin auf der Profilweide der Kuh betrachten, die ihn gepostet hat."
       hide_posts_q: "Wie kann ich einen Beitrag verstecken?"
-      ignore_user_a1: "Wenn du derzeit mit dieser Kuh teilst, entferne sie aus deinen Herden, viele ihrer Beiträge erscheinen dann nicht mehr in deiner Weide. Eine vollständigere Methode ist, die entsprechende Kuh zu „ignorieren“. Dies verhindert, dass jegliche Beiträge der Kuh in deiner Weide erscheinen, sie deine Beiträge mit „Gefällt mir“ markieren oder kommentieren kann. Sie wird jedoch immer noch in der Lage sein, deine Beiträge weiterzusagen und diese dann zu kommentieren. Ihre Kommentare zu Beiträgen anderer Kühen, die in deiner Weide erscheinen, sind noch für dich sichtbar."
-      ignore_user_a2: "Um eine Kuh zu ignorieren, klicke auf das „Ignorieren“-Symbol (ein diagonal durchgestrichener Kreis) oben rechts auf einem Beitrag. Die Beiträge werden sofort aus deiner Weide verschwinden. Alternativ gehst du auf die Profilweide der zu ignorierenden Kuh und klickst dort auf das Ignorier-Symbol. Du kannst die Beiträge weiterhin auf der Profilweide sehen oder indem du die Einzelbeitragsansicht verwendest."
-      ignore_user_a3: "Eine Liste der von dir ignorierten Kühen findest du in deinen Kontoeinstellungen unter Privatsphäre. Um jemanden nicht mehr zu ignorieren, entferne sie aus der Liste auf dieser Seite."
+      ignore_user_a1: "Wenn du derzeit mit dieser Kuh teilst, entferne sie aus deinen Herden, viele ihrer Beiträge erscheinen dann nicht mehr in deiner Weide. Eine vollständigere Methode ist, die entsprechende Kuh zu „ignorieren“. Dies verhindert, dass jegliche Beiträge dieses Rindviehs in deiner Weide erscheinen, sie deine Beiträge mit „Gefällt mir“ markieren oder kommentieren kann. Es wird jedoch immer noch in der Lage sein, deine Beiträge weiterzusagen und diese dann zu kommentieren. Ihre Kommentare zu Beiträgen anderer Kühen, die in deiner Weide erscheinen, sind noch für dich sichtbar."
+      ignore_user_a2: "Um eine Kuh zu ignorieren, klicke auf das „Ignorieren“-Symbol (ein diagonal durchgestrichener Kreis) oben rechts auf einem Beitrag. Die Beiträge werden sofort aus deiner Weide verschwinden. Alternativ gehst du auf die Profilweide des zu ignorierenden Rindviehs und klickst dort auf das Ignorier-Symbol. Du kannst die Beiträge weiterhin auf der Profilweide sehen oder indem du die Einzelbeitragsansicht verwendest."
+      ignore_user_a3: "Eine Liste der von dir ignorierten Rindviecher findest du in deinen Kontoeinstellungen unter Privatsphäre. Um jemanden nicht mehr zu ignorieren, entferne sie aus der Liste auf dieser Seite."
       ignore_user_q: "Wie verhindere ich, dass jemandes Beiträge in meiner Weide erscheinen?"
       insert_images_a: "Wenn du ein auf deinem Computer gespeichertes Bild in deinem Beitrag verwenden willst, klicke auf das kleine Kamerasymbol am unteren Rand des Veröffentlichungsfeldes. Auch per Drag&Drop kannst du von deinem Computer Bilder auf das Symbol ziehen. Willst du ein Bild aus dem Web in deinem Beitrag einfügen, klicke auf die „Bild“-Schaltfläche an der Oberseite des Veröffentlichungsfeldes. Diese erstellt für dich den Markdown-Code."
       insert_images_comments_a: "Du kannst Markdown verwenden, um ein Bild aus dem Internet in einen Kommentar einzufügen, genau wie in Beiträgen. Du kannst allerdings keine Bilder von deinem Computer direkt in Kommentare hochladen. Lade sie auf einen Bilder-Hosting-Dienst hoch und füge sie dann mittels der Bild-Schaltfläche über dem Eingabefeld ein."
@@ -577,7 +578,7 @@ de_moo:
       who_sees_profile_a: "Dein grundlegendes Profil (Name, Profilbild und #Tags) ist öffentlich. Dein erweitertes Profil ist standardmäßig privat, aber du kannst es komplett öffentlich zugänglich machen, wenn du möchtest. Nur Kühe, mit denen du teilst (das heißt, du hast sie zu einer deiner Herden hinzugefügt), können dein erweitertes Profil sehen, wenn du es privat hältst. Andere Kühe werden nur deine öffentlichen Informationen sehen. Jede Profilinformation, die du öffentlich machst, kann von jeder Kuh im Internet gesehen und von Suchmaschinen indexiert werden"
       who_sees_profile_q: "Wer sieht mein Profil?"
     public_posts:
-      can_comment_reshare_like_a: "Alle angemeldeten diaspora*-Kühe können öffentliche Beiträge wiederkäuen, kommentieren, beziehungsweise „Gefällt mir“ drücken. Ausgenommen sind die von dir ignorierten Kühe; diese können nicht kommentieren oder „Gefällt mir“ drücken."
+      can_comment_reshare_like_a: "Alle angemeldeten diaspora*-Kühe können öffentliche Beiträge wiederkäuen, kommentieren, beziehungsweise „Gefällt mir“ drücken. Ausgenommen sind die von dir ignorierten Rindviecher; diese können nicht kommentieren oder „Gefällt mir“ drücken."
       can_comment_reshare_like_q: "Wer kann meinen öffentlichen Beitrag kommentieren, wiederkäuen oder bei ihm auf „Gefällt mir“ drücken?"
       deselect_aspect_posting_a: "Öffentliche Beiträge werden durch das Abwählen von Herden nicht beeinflusst. Sie werden weiterhin in den Weiden all deiner Mitkühe angezeigt werden. Um einen Beitrag nur für bestimmte Herden sichtbar zu machen, musst du diese mit der Schaltfläche unter dem Eingabefeld auswählen."
       deselect_aspect_posting_q: "Was passiert mit öffentlichen Beiträgen, wenn ich in der linken Spalte die Auswahl einer oder mehrerer Herden aufhebe?"
@@ -1090,7 +1091,7 @@ de_moo:
     closed:
       another_pod: "einem anderen Bauernhof"
       closed_pod: "Dieser Bauernhof ist derzeit für Neuanmeldungen geschlossen. Du kannst dem diaspora*-Netzwerk trotzdem beitreten, indem du sich auf %{wiki} registrierst. Da alle Bauernhöfe miteinander verbunden sind, hast du von dort aus Zugriff auf dieselben Inhalte."
-      find_pods: "Es gibt eine Liste von Bauernhöfen, auf denen du dich registrieren kannst, auf %{poduptime}."
+      find_pods: "Es gibt eine Liste von Bauernhöfen, auf denen du dich registrieren kannst, auf %{fediverse_observer}."
       other_questions: "Wenn du noch weitere Fragen dazu hast, wie du einen Bauernhof auswählst, lies unser %{wiki}."
     create:
       success: "Du bist diaspora* beigetreten!"
@@ -1259,6 +1260,8 @@ de_moo:
       title: "\"Gefällt mir\"-Weide"
     liked:
       title: "Beiträge, die dir gefallen"
+    local_public:
+      title: "Lokale Beiträge"
     mentioned_stream: "@Anmuuuhungen"
     mentions:
       title: "@Anmuuuhungen"
@@ -1392,7 +1395,7 @@ de_moo:
       what_are_you_in_to: "Was machst du so?"
       who_are_you: "Wer bist du?"
     privacy_settings:
-      ignored_users: "Kühe, die ignoriert werden"
+      ignored_users: "Ignorierte Rindviecher"
       no_user_ignored_message: "Du ignorierst im Moment keine andere Kuh"
       stop_ignoring: "Aufhören, zu ignorieren"
       strip_exif: "Entferne Metadaten, wie deinen Ort, Autor und Kameramodell von hochgeladenen Bildern (empfohlen)"

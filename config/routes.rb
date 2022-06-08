@@ -6,7 +6,6 @@
 
 require "sidekiq/web"
 require "sidekiq/cron/web"
-Sidekiq::Web.set :sessions, false # disable rack session cookie
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -107,7 +106,6 @@ Rails.application.routes.draw do
     get :download_profile
     post :export_photos
     get :download_photos
-    post :auth_token
   end
 
   controller :users do

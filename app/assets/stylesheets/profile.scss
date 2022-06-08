@@ -28,11 +28,6 @@
       #sharing_message {
         cursor: default;
         font-size: 20px;
-        &.circle {
-          color: $text-grey;
-          &:before { content: '\26aa'; }
-        }
-        &.entypo-check { color: darken($brand-success,20%); }
       }
       .description {
         margin-bottom: 20px;

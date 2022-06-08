@@ -28,7 +28,7 @@ pt-PT:
         confirm: "Confirmar a minha conta"
         subject: "Instruções de confirmação"
         you_can_confirm: "Pode confirmar a sua conta através da seguinte hiperligação:"
-      hello: "Olá %{email}!"
+      hello: "Olá %{username}!"
       inviter:
         accept_at: "em %{url}, pode aceitá-lo através da hiperligação abaixo."
         has_invited_you: "%{name}"
@@ -44,7 +44,7 @@ pt-PT:
         click_to_unlock: "Clique na seguinte hiperligação para desbloquear a sua conta:"
         subject: "Instruções de desbloqueio"
         unlock: "Desbloquear a minha conta"
-      welcome: "Bem-vindo(a) %{email}!"
+      welcome: "Bem-vindo(a) %{username}!"
     passwords:
       edit:
         change_password: "Alterar a minha palavra-passe"

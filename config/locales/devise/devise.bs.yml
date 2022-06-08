@@ -29,7 +29,7 @@ bs:
         confirm: "Potvrdi moj račun"
         subject: "Uputstva za potvrdu"
         you_can_confirm: "Možete potvrditi svoj račun sa vezom ispod:"
-      hello: "Zdravo %{email}!"
+      hello: "Zdravo %{username}!"
       inviter:
         accept_at: "na %{url}, možete prihvatiti vezom ispod."
         has_invited_you: "%{name}"
@@ -45,7 +45,7 @@ bs:
         click_to_unlock: "Kliknite na vezu ispod da bi otključali vaš račun."
         subject: "Otključaj Uputstva"
         unlock: "Otključaj moj račun"
-      welcome: "Dobrodošli %{email}!"
+      welcome: "Dobrodošli %{username}!"
     passwords:
       edit:
         change_password: "Promjeni moju šifru"

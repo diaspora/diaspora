@@ -8,6 +8,7 @@ sv:
   _applications: "Applikationer"
   _contacts: "Kontakter"
   _help: "Hjälp"
+  _podmin_mail: "Kontakta podadministratör"
   _services: "Tjänster"
   _statistics: "Statistik"
   _terms: "Användningsvillkor"
@@ -163,85 +164,85 @@ sv:
           client_id_not_found: "Ingen klient med client_id %{client_id} med omdirigerings-URI %{redirect_uri} funnen."
           deny: "Neka"
           no_requirement: "%{name} kräver inga tillstånd."
-          private_contacts_linkage_error: "privat:läst och privat:ändra förväntade kontakter:också läst"
+          private_contacts_linkage_error: "privat:läst och privat:ändra förväntar kontakter:läst också."
           redirection_message: "Är du säker på att du vill ge tillgång till %{redirect_uri}?"
           unknown_scope: "Okänt omfång: %{scope_name}"
       error_page:
-        contact_developer: "Du borde kontakta tillämpningsutvecklaren och bifoga följande felmeddelande:"
+        contact_developer: "Du borde kontakta applikationsutvecklaren och bifoga följande detaljerade felmeddelande:"
         could_not_authorize: "Denna tillämpning kunde inte auktoriseras."
         login_required: "Du måste logga in innan du kan auktorisera denna tillämpning."
         title: "Rackarns! Något gick åt pipan."
       scopes:
         ? "contacts:modify"
         :
-          description: "Det här ger skrivrättigheter av kontakter och besläktad data (såsom aspekter) till applikationen"
-          name: "kontakter:ändra"
+          description: "Det här ger skrivrättigheter av kontakter och besläktad data (såsom aspekter)."
+          name: "Kontakter (Ändra)"
         ? "contacts:read"
         :
-          description: "Det här ger läsrättigheter av kontakter och besläktad data (såsom aspekter) till applikationen."
-          name: "kontakter:läst"
+          description: "Det här ger läsrättigheter till kontakter och besläktad data (såsom aspekter)."
+          name: "Kontakter (Avläsning)"
         conversations:
-          description: "Det här ger skriv- och läsrättigheter av privata meddelanden till applikationen."
-          name: "konversationer"
+          description: "Det här ger skriv- och läsrättigheter av privata meddelanden."
+          name: "Konversationer"
         email:
-          description: "Det här ger läsrättigheter av användares e-postadress till applikationen."
-          name: "e-post"
+          description: "Det här ger läsrättigheter till din mejladress."
+          name: "Mejl"
         interactions:
-          description: "Det ger läs- och skrivrättigheter av interaktioner med inlägg till applikationen."
-          name: "interaktioner"
+          description: "Det ger läs- och skrivrättigheter av interaktioner med inlägg, såsom gillanden och eller göra kommentarer, till applikationen."
+          name: "Interaktioner"
         name:
-          description: "Det här beviljar läsrättigheter av namndata till applikationen."
-          name: "namn"
+          description: "Det här beviljar läsrättigheter till ditt fullständiga namn."
+          name: "Fullständigt namn"
         nickname:
-          description: "Det här beviljar läsrättigheter av smeknamnsdata till applikationen."
-          name: "smeknamn"
+          description: "Det här beviljar läsrättigheter för din användarnamn."
+          name: "Användarnamn"
         notifications:
-          description: "Det här ger läs- och skrivrättigheter av interaktioner med användaren till applikationen."
-          name: "notifikationer"
+          description: "Det här ger läs- och skrivrättigheter till dina notifikationer."
+          name: "Notifikationer"
         openid:
-          description: "Detta tillåter andra program att läsa din grundprofil."
-          name: "grundprofil"
+          description: "Detta tillåter andra program att läsa din grundprofilsinformation."
+          name: "Grundprofilsinformation"
         picture:
-          description: "Det här beviljar läsrättigheter av användarens bilddata till applikationen."
-          name: "bild"
+          description: "Det här beviljar läsrättigheter för din profilbild."
+          name: "Profilbild"
         ? "private:modify"
         :
-          description: "Det här ändringsrättigheter av privata inlägg och strömningar, inklusive privata delningar, till applikationen."
-          name: "privat:ändra"
+          description: "Det här ändringsrättigheter till att göra publika inlägg."
+          name: "Privata inlägg (Skrivning)"
         ? "private:read"
         :
-          description: "Det här ger läsrättigheter av privata inlägg och strömningar till applikationer."
-          name: "privat:läst"
+          description: "Det här ger läsrättigheter till dina och dina kontakters privata inlägg."
+          name: "Privata inlägg (Avläsning)"
         profile:
-          description: "Det här beviljar rättigheter att se din utökade profil till applikationen."
-          name: "utökad profil"
+          description: "Det här beviljar läsrättigheter för din utökade profildata."
+          name: "Utökad profil (Avläsning)"
         ? "profile:modify"
         :
-          description: "Det här ger applikationen rättigheter att ändra användarprofilen."
-          name: "profil:ändra"
+          description: "Det här ger rättigheter att ändra användarprofilen."
+          name: "Utökad profil (Skrivning)"
         ? "profile:read_private"
         :
-          description: "Det här ger läsrättigheter till din privata profildata till applikationen."
-          name: "profil:läst_privat"
+          description: "Det här ger läsrättigheter till din privata profildata."
+          name: "Privat profildata (Avläsning)"
         ? "public:modify"
         :
-          description: "Det här ger skrivrättigheter av offentliga inlägg (inklusive skriva offentliga inlägg), interaktioner och användardata till applikationen."
-          name: "offentlig:ändra"
+          description: "Det här ger skrivrättigheter av offentliga inlägg och relaterad data (såsom röster och bifogade media)."
+          name: "Publika inlägg (Skrivning)"
         ? "public:read"
         :
-          description: "Det här ger läsrättigheter av offentliga inlägg, interaktioner och användardata till applikationen."
-          name: "publik:läst"
+          description: "Det här ger läsrättigheter av offentliga inlägg, interaktioner och närliggande data."
+          name: "Publika inlägg (Avläsning)"
         sub:
-          description: "Det här skänker dig underprivilegier för denna tillämpning."
-          name: "under"
+          description: "Det här beviljar dig endast läsprivilegier för din unika identifierare."
+          name: "Unik identifierare"
         ? "tags:modify"
         :
-          description: "Det här ger rättigheter att ändra tillgång till användarens följda taggar till applikationen."
-          name: "taggar:ändra"
+          description: "Det här ger rättigheter att ändra de taggar du följer."
+          name: "Taggar (Skrivning)"
         ? "tags:read"
         :
-          description: "Det här ger läsrättigheter av användarens följda taggar och taggstörmmar till applikationen."
-          name: "tagg:läst"
+          description: "Det här ger läsrättigheter av användarens följda taggar och taggstörmmar."
+          name: "Taggar (Avläsning)"
       user_applications:
         index:
           access: "%{name} har tillgång till:"
@@ -287,7 +288,7 @@ sv:
       donate: "Donera"
       donate_liberapay: "Donera till liberapay"
       help:
-        any_problem: "Har du något problem?"
+        any_problem: "Har du stött på problem?"
         contact_podmin: "Kontakta din pods administratör."
         do_you: "Har du:"
         feature_suggestion: "... har du ett %{link}-förslag?"
@@ -348,7 +349,7 @@ sv:
     original_white: "Ursprunglig vit bakgrund"
   comments:
     create:
-      fail: "Misslyckades att skapa kommentar"
+      fail: "Kunde inte skapa kommentaren"
     destroy:
       fail: "Misslyckades att ta bort kommentar"
       success: "Kommentar %{id} har tagits bort"
@@ -945,7 +946,7 @@ sv:
       body: |-
           Hejsan.
 
-          %{type} med id:et %{id} var märkt som stötande.
+          %{type} med id:t %{id} var märkt som stötande.
 
           Orsak: "%{reason}"
 
@@ -1063,7 +1064,7 @@ sv:
     closed:
       another_pod: "annan pod"
       closed_pod: "Denna pod är för närvarande stängd för nya registreringar. Du kan ändå gå med i Diaspora* genom registrering på %{wiki}. I och med att alla poddar är anslutna till varandra, kommer du komma åt allt innehåll ändå."
-      find_pods: "En lista med poddar du kan registrera dig på finns på %{poduptime}."
+      find_pods: "En lista med poddar du kan registrera dig på finns på %{fediverse_observer}."
       other_questions: "Om du har frågor gällande att välja pod, kan du läsa vår %{wiki}."
     create:
       success: "Du har nu gått med i Diaspora*!"
@@ -1228,6 +1229,8 @@ sv:
       title: "Gilla flöde"
     liked:
       title: "Gillade inlägg"
+    local_public:
+      title: "Lokala inlägg"
     mentioned_stream: "@Omnämnanden"
     mentions:
       title: "@Omnämnanden"
@@ -1299,7 +1302,7 @@ sv:
       also_commented: "någon kommenterar ett inlägg som du redan kommenterat"
       auto_follow_aspect: "Aspekt för de användare som följts automatiskt:"
       auto_follow_back: "Följ automatiskt dem som börjar följa dig"
-      birthday: "någon har fyller år i dag"
+      birthday: "någon fyller år"
       change: "Ändra"
       change_color_theme: "Byt färgtema"
       change_email: "Ändra e-postadress"

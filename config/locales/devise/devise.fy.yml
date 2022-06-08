@@ -12,13 +12,13 @@ fy:
     mailer:
       confirmation_instructions:
         confirm: "Myn akkount befêstigje"
-      hello: "Guoi %{email}!"
+      hello: "Guoi %{username}!"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} ha dy útnoadige om jin oan te slute by Diaspora"
       reset_password_instructions:
         change: "Feroarje myn wachtwurd"
-      welcome: "Wolkom %{email}!"
+      welcome: "Wolkom %{username}!"
     passwords:
       edit:
         change_password: "Feroarje myn wachtwurd"

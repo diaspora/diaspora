@@ -98,12 +98,14 @@ pl:
       week: "Tydzień"
     user_entry:
       account_closed: "Konto zamknięte"
+      admin: "Administrator"
       diaspora_handle: "identyfikator w diasporze*"
       email: "E-mail"
       guid: "GUID"
       id: "ID"
       invite_token: "Token zaproszenia"
       last_seen: "Ostatnio widziany"
+      moderator: "Moderator"
       ? "no"
       : Nie
       nsfw: "#nsfw"
@@ -114,14 +116,21 @@ pl:
       account_closing_scheduled: "Konto należące do %{name} jest przewidziane do zamknięcia. Zostanie to wykonane w przecigu kilku chwil..."
       account_locking_scheduled: "Konto użytkownika %{name} oznaczone do zablokowania. Zostanie przetworzone za kilka chwil..."
       account_unlocking_scheduled: "Konto użytkownika %{name} oznaczone do odblokowania. Zostanie przetworzone za kilka chwil..."
+      add_admin: "%{name} zosta@{m:ł|f:ła|n:ło} mianowa@{m:ny|f:na|n:ne} administratorem."
       add_invites: "Dodaj zaproszenia"
       are_you_sure: "Czy na pewno chcesz zamknąć to konto?"
       are_you_sure_lock_account: "Na pewno zablokować to konto?"
       are_you_sure_unlock_account: "Na pewno odblokować to konto?"
       close_account: "Zamknij konto"
+      delete_admin: "%{name} został@{f:a|n:o} usunię@{m:ty|f:ta|n:te} z listy administratorów."
+      does_not_exist: "Użytkownik nie istnieje!"
       email_to: "Zaproś przez e-mail"
       invite: "Zaproś"
       lock_account: "Zablokuj konto"
+      make_admin: "Mianuj administratorem"
+      make_moderator: "Mianuj moderatorem"
+      remove_admin: "Usuń jako administrator"
+      remove_moderator: "Usuń jako moderator"
       under_13: "Wyświetl użytkowników młodszych niż 13 lat."
       unlock_account: "Odblokuj konto"
       users:
@@ -165,12 +174,22 @@ pl:
         login_required: "By autoryzować tę aplikację, musisz się najpierw zalogować"
         title: "O nie! Coś poszło nie tak :("
       scopes:
+        email:
+          name: "E-Mail"
+        nickname:
+          name: "Nazwa Użytkownika"
+        notifications:
+          name: "Powiadomienia"
         openid:
           description: "Pozwala aplikacji na czytanie profilu podstawowego"
           name: "Profil podstawowy"
+        picture:
+          name: "Zdjęcie profilowe"
         profile:
           description: "Pozwala aplikacji na czytanie profilu poszerzonego"
           name: "rozszerzony profil"
+        sub:
+          name: "Unikatowy identyfikator"
       user_applications:
         index:
           access: "%{name} ma dostęp do:"
@@ -275,9 +294,13 @@ pl:
     original: "Oryginalny szary"
     original_white: "Oryginalny z białym tłem"
   comments:
+    destroy:
+      fail: "Usunięcie komentarza nie powiodło się"
+      success: "Komentarz %{id} został usunięty"
     new_comment:
       comment: "Skomentuj"
       commenting: "Dodawanie komentarza..."
+    not_found: "Wpis bądź komentarz nieznaleziony"
   contacts:
     index:
       add_contact: "Dodaj kontakt"
@@ -1184,7 +1207,10 @@ pl:
       status: "Uwierzytelnianie dwuskładnikowe jest aktywne"
     confirm:
       activate_button: "Potwierdź i aktywuj"
+      input_title: "Potwierdź tokenem TOTP"
+      scan_title: "Zeskanuj kod QR"
       status: "Uwierzytelnianie dwuskładnikowe nie jest jeszcze w pełni aktywne, musisz je zatwierdzić tokenem TOTP"
+      title: "Potwierdź aktywację"
     deactivated:
       change_button: "Aktywuj"
       change_label: "Aktywuj uwierzytelnianie dwuskładnikowe"
@@ -1192,6 +1218,11 @@ pl:
     flash:
       success_activation: "Pomyślnie aktywowano uwierzytelnianie dwuskładnikowe"
       success_deactivation: "Pomyślnie dezaktywowano uwierzytelnianie dwuskładnikowe"
+    recovery:
+      button: "Generuj nowe kody odzyskiwania"
+      invalidation_notice: "Jeżeli straciłeś swoje kody odzyskiwania, możesz je ponownie wygenerować. Twoje stare kody odzyskiwania staną się nieważne."
+      reminder: "W razie konieczności, możesz użyć jednego z kodów odzyskiwania."
+      title: "Kody odzyskiwania"
     title: "Uwierzytelnianie dwuskładnikowe"
   username: "Nazwa użytkownika"
   users:

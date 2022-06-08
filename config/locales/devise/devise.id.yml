@@ -28,7 +28,7 @@ id:
         confirm: "Konfirmasi akun saya"
         subject: "Instruksi pengesahan / konfirmasi"
         you_can_confirm: "Anda dapat mengkonfirmasi akun anda melalui link (tautan) di bawah ini:"
-      hello: "Halo %{email}!"
+      hello: "Halo %{username}!"
       inviter:
         accept_at: "di %{url}, anda dapat menerimanya melalui link (tautan) di bawah ini."
         has_invited_you: "%{name}"
@@ -44,7 +44,7 @@ id:
         click_to_unlock: "Klik link (tautan) di bawah untuk mengaktifkan akun anda:"
         subject: "Instruksi untuk membuka kunci"
         unlock: "Aktifkan akun saya"
-      welcome: "Selamat datang %{email}!"
+      welcome: "Selamat datang %{username}!"
     passwords:
       edit:
         change_password: "Ubah kata sandi saya"

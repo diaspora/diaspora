@@ -14,9 +14,6 @@ class ExportedPhotos < SecureUploader
   end
 
   def filename
-    if original_filename.present? # rubocop:disable Style/GuardClause
-      extension = File.extname(@filename) if @filename
-      "#{model.username}_photos_#{secure_token}#{extension}"
-    end
+    "diaspora_#{model.username}_photos_#{secure_token}#{extension}"
   end
 end

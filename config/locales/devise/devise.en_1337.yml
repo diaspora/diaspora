@@ -27,7 +27,7 @@ en_1337:
         confirm: "C0NF1RM3 MY 4CC!"
         subject: "C0NF1RM471ON 1N57RUC71ONS"
         you_can_confirm: "4CC C0MF1RM471ON -> L1NK B3L0W"
-      hello: "H3Y %{email}!"
+      hello: "H3Y %{username}!"
       inviter:
         accept_at: "@ %{url}, U C4N 4CC3P7 17 -> L1NK!"
         have_invited_you: "%{names} H4V3 1NV173D Y0U 2 J01N!"
@@ -42,7 +42,7 @@ en_1337:
         click_to_unlock: "T0 J01N -> CL1CK 7H3 L1NK B3L0W!"
         subject: "UNL0CK 1N57RUC71ON5"
         unlock: "P0WN MY 4CC!"
-      welcome: "W3LC0M3 %{email}!"
+      welcome: "W3LC0M3 %{username}!"
     passwords:
       edit:
         change_password: "CH4NG3 MY *****"
