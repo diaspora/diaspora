@@ -1401,6 +1401,9 @@ en:
     confirm_email:
       email_confirmed: "Email %{email} activated"
       email_not_confirmed: "Email could not be activated. Wrong link?"
+    import:
+      import_has_been_scheduled: "Your account migration has been scheduled"
+      import_has_no_files_received: "No files for import received"
 
   two_factor_auth:
     title: "Two-factor authentication"

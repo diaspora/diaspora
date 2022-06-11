@@ -3,24 +3,27 @@
 class ImportService
   include Diaspora::Logging
 
-  def import_by_user(user, opts={})
-    import_by_files(user.export.current_path, user.exported_photos_file.current_path, user.username, opts)
+  def import_by_user(user_name, import_parameters)
+    profile_path = import_parameters["profile_path"]
+    photos_path = import_parameters["photos_path"]
+
+    import_by_files(profile_path, photos_path, user_name)
   end
 
   def import_by_files(path_to_profile, path_to_photos, username, opts={})
+    user = User.find_by(username: username)
+    raise ArgumentError, "Username #{username} should exist before uploading photos." if user.nil?
+
     if path_to_profile.present?
       logger.info "Import for profile #{username} at path #{path_to_profile} requested"
       import_user_profile(path_to_profile, username, opts.merge(photo_migration: path_to_photos.present?))
     end
 
-    user = User.find_by(username: username)
-    raise ArgumentError, "Username #{username} should exist before uploading photos." if user.nil?
-
     if path_to_photos.present?
       logger.info("Importing photos from import file for '#{username}' from #{path_to_photos}")
       import_user_photos(user, path_to_photos)
     end
-    remove_file_references(user)
+    remove_import_files(path_to_profile, path_to_photos)
   end
 
   private
@@ -101,9 +104,13 @@ class ImportService
     folder
   end
 
-  def remove_file_references(user)
-    user.remove_exported_photos_file
-    user.remove_export
-    user.save
+  # Removes import files after processing
+  # @param [*String] files
+  def remove_import_files(*files)
+    files.each do |file|
+      if file && File.exist?(file)
+        File.delete(file) rescue nil
+      end
+    end
   end
 end
