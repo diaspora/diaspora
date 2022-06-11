@@ -122,7 +122,7 @@ class UsersController < ApplicationController
     redirect_to edit_user_path
   end
 
-  def has_import_parameter?(import_parameters)
+  def import_parameter?(import_parameters)
     import_parameters[:profile_path] || import_parameters[:photos_path]
   end
 
@@ -236,7 +236,7 @@ class UsersController < ApplicationController
 
     import_parameters = copy_import_files(user_data)
 
-    if has_import_parameter?(import_parameters)
+    if import_parameter?(import_parameters)
       flash.now[:notice] = t("users.import.import_has_been_scheduled")
     else
       flash.now[:error] = t("users.import.import_has_no_files_received")
@@ -246,17 +246,18 @@ class UsersController < ApplicationController
 
   def copy_import_files(user_data)
     {
-            profile_path: copy_import_file(user_data[:export]),
-            photos_path: copy_import_file(user_data[:exported_photos_file])
+      profile_path: copy_import_file(user_data[:export]),
+      photos_path:  copy_import_file(user_data[:exported_photos_file])
     }
   end
 
   def copy_import_file(tmp_file)
-    if tmp_file.present?
-      file_path_to_save_to = Rails.root.join("public","uploads", "users", "#{current_user.username}_#{tmp_file.original_filename}")
-      FileUtils.cp tmp_file.path, file_path_to_save_to
-      file_path_to_save_to
-    end
+    return if tmp_file.empty?
+
+    file_path_to_save_to = Rails.root.join("public", "uploads", "users",
+                                           "#{current_user.username}_#{tmp_file.original_filename}")
+    FileUtils.cp tmp_file.path, file_path_to_save_to
+    file_path_to_save_to
   end
 
   def change_settings(user_data, successful="users.update.settings_updated", error="users.update.settings_not_updated")

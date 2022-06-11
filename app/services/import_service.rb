@@ -108,9 +108,7 @@ class ImportService
   # @param [*String] files
   def remove_import_files(*files)
     files.each do |file|
-      if file && File.exist?(file)
-        File.delete(file) rescue nil
-      end
+      File.delete(file) if file && File.exist?(file)
     end
   end
 end
