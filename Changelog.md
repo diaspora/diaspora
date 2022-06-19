@@ -1,6 +1,7 @@
 # 0.7.18.0
 
 ## Refactor
+* Fix order-dependent jasmine test failures and switch to random order [#8333](https://github.com/diaspora/diaspora/pull/8333)
 
 ## Bug fixes
 

@@ -179,6 +179,7 @@ describe('app.Router', function () {
       app.publisher = { jasmineTestValue: 42 };
       app.router._initializeStreamView();
       expect(app.publisher.jasmineTestValue).toEqual(42);
+      delete app.publisher; // don't leave fake publisher around
     });
 
     it("doesn't set app.publisher if there is no publisher element in page", function() {
