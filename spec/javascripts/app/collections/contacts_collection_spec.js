@@ -21,6 +21,7 @@ describe("app.collections.Contacts", function(){
     });
 
     it("should compare the username if app.aspect is not present", function() {
+      delete app.aspect;
       expect(this.collection.comparator(this.con1, this.con3)).toBeLessThan(0);
     });
 

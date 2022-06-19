@@ -19,12 +19,12 @@ Feature: Change settings
 
   Scenario: Change my email preferences
     When I uncheck "user_email_preferences_mentioned"
-    And I scroll a bit
+    And I scroll to "change_email_preferences"
     And I press "change_email_preferences"
     Then I should see "Email notifications changed"
     And the "user_email_preferences_mentioned" checkbox should not be checked
     When I uncheck "user_email_preferences_mentioned_in_comment"
-    And I scroll a bit
+    And I scroll to "change_email_preferences"
     And I press "change_email_preferences"
     Then I should see "Email notifications changed"
     And the "user_email_preferences_mentioned_in_comment" checkbox should not be checked

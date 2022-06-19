@@ -1,4 +1,8 @@
 describe("app", function() {
+  beforeAll(function() {
+    Diaspora.I18n.load(spec.defaultLocale, "en");
+  });
+
   afterAll(function() {
     Backbone.history.stop();
     app.initialize();
@@ -33,6 +37,10 @@ describe("app", function() {
   });
 
   describe("user", function() {
+    beforeEach(function() {
+      logout();
+    });
+
     it("returns false if the current_user isn't set", function() {
       app._user = undefined;
       expect(app.user()).toEqual(false);

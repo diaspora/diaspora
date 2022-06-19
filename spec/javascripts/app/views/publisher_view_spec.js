@@ -25,7 +25,8 @@ describe("app.views.Publisher", function() {
 
     describe("createStatusMessage", function(){
       it("doesn't add the status message to the stream", function() {
-        app.stream = { addNow: $.noop };
+        app.stream = new app.models.Stream();
+
         spyOn(app.stream, "addNow");
         this.view.createStatusMessage($.Event());
         jasmine.Ajax.requests.mostRecent().respondWith({ status: 200, responseText: "{\"id\": 1}" });
@@ -198,7 +199,8 @@ describe("app.views.Publisher", function() {
 
     describe("createStatusMessage", function(){
       it("adds the status message to the stream", function() {
-        app.stream = { addNow: $.noop };
+        app.stream = new app.models.Stream();
+
         spyOn(app.stream, "addNow");
         this.view.createStatusMessage($.Event());
         jasmine.Ajax.requests.mostRecent().respondWith({ status: 200, responseText: "{\"id\": 1}" });

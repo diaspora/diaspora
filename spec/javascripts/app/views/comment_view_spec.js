@@ -1,11 +1,11 @@
 describe("app.views.Comment", function(){
-  beforeEach(function(){
+  beforeEach(function() {
     this.post = factory.post({author : {diaspora_id : "xxx@xxx.xxx"}});
     this.comment = factory.comment({parent : this.post.toJSON()});
     this.view = new app.views.Comment({model : this.comment});
   });
 
-  describe("render", function(){
+  describe("render", function() {
     it("has a delete link if the author is the current user", function(){
       loginAs(this.comment.get("author"));
       expect(this.view.render().$('.delete').length).toBe(1);
@@ -47,6 +47,10 @@ describe("app.views.Comment", function(){
   });
 
   describe("canRemove", function(){
+    beforeEach(function() {
+      loginAs({name: "alice"});
+    });
+
     context("is truthy", function(){
       it("when ownComment is true", function(){
         spyOn(this.view, "ownComment").and.returnValue(true);

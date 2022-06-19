@@ -1,6 +1,10 @@
 describe("app.views.StreamShortcuts", function () {
 
   beforeEach(function() {
+    // This puts `app.page` into the proper state.
+    delete app.page;
+    new app.Router().stream();
+
     this.post1 = factory.post({author : factory.author({name : "Rebecca Black", id : 1492})});
     this.post2 = factory.post({author : factory.author({name : "John Stamos", id : 1987})});
 

@@ -24,7 +24,7 @@ And "I wait for notifications to load" do
 end
 
 And "I scroll down on the notifications dropdown" do
-  page.execute_script("$('.notifications').scrollTop(350)")
+  find(".notifications").scroll_to(0, 350)
 end
 
 Then "the notification dropdown should be visible" do
