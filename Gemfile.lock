@@ -371,11 +371,8 @@ GEM
       activesupport (>= 4.2)
       aes_key_wrap
       bindata
-    json-schema (2.8.1)
-      addressable (>= 2.4)
-    json-schema-rspec (0.0.4)
-      json-schema (~> 2.5)
-      rspec
+    json-schema (3.0.0)
+      addressable (>= 2.8)
     jsonpath (1.1.0)
       multi_json
     jwt (2.3.0)
@@ -502,7 +499,7 @@ GEM
     pry-byebug (3.8.0)
       byebug (~> 11.0)
       pry (~> 0.10)
-    public_suffix (4.0.6)
+    public_suffix (4.0.7)
     raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.3.1)
@@ -628,10 +625,6 @@ GEM
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
     rqrcode_core (1.2.0)
-    rspec (3.10.0)
-      rspec-core (~> 3.10.0)
-      rspec-expectations (~> 3.10.0)
-      rspec-mocks (~> 3.10.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -846,8 +839,7 @@ DEPENDENCIES
   js-routes (= 2.1.2)
   js_image_paths (= 0.1.1)
   json (= 2.6.2)
-  json-schema (= 2.8.1)
-  json-schema-rspec (= 0.0.4)
+  json-schema (= 3.0.0)
   leaflet-rails (= 1.7.0)
   listen (= 3.5.1)
   logging-rails (= 0.6.0)

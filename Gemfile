@@ -22,7 +22,7 @@ gem "diaspora_federation-rails", "0.2.7"
 
 gem "acts_as_api", "1.0.1"
 gem "json",        "2.6.2"
-gem "json-schema", "2.8.1"
+gem "json-schema", "3.0.0"
 
 # Authentication
 
@@ -269,7 +269,6 @@ group :test do
 
   gem "fixture_builder",   "0.5.2"
   gem "fuubar",            "2.5.1"
-  gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
 
   # Cucumber (integration tests)
