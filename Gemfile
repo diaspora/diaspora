@@ -46,7 +46,7 @@ gem "sidekiq-cron", "1.4.0"
 
 # Compression
 
-gem "terser", "1.1.7"
+gem "terser", "1.1.10"
 
 # Configuration
 
