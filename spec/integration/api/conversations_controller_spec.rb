@@ -164,7 +164,7 @@ describe Api::V1::ConversationsController do
       actual_conversation = returned_conversations.select {|c| c["guid"] == @read_conversation_guid }[0]
       confirm_conversation_format(actual_conversation, @read_conversation, [auth.user, alice])
 
-      expect(returned_conversations.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/conversations")
+      expect_to_match_json_schema(returned_conversations.to_json, "#/definitions/conversations")
     end
 
     it "returns all the user unread conversations" do
@@ -230,7 +230,7 @@ describe Api::V1::ConversationsController do
         conversation = response_body(response)
         confirm_conversation_format(conversation, @conversation, [auth.user, alice])
 
-        expect(conversation.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/conversation")
+        expect_to_match_json_schema(conversation.to_json, "#/definitions/conversation")
       end
     end
 
@@ -283,7 +283,7 @@ describe Api::V1::ConversationsController do
         conversation = response_body(response)
         confirm_conversation_format(conversation, @conversation, [auth.user, alice])
 
-        expect(conversation.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/conversation")
+        expect_to_match_json_schema(conversation.to_json, "#/definitions/conversation")
       end
 
       it "marks as unread and returns the corresponding conversation" do
@@ -297,7 +297,7 @@ describe Api::V1::ConversationsController do
         conversation = response_body(response)
         confirm_conversation_format(conversation, @conversation, [auth.user, alice], read: false)
 
-        expect(conversation.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/conversation")
+        expect_to_match_json_schema(conversation.to_json, "#/definitions/conversation")
       end
     end
 

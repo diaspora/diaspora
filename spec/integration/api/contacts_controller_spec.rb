@@ -58,7 +58,7 @@ describe Api::V1::ContactsController do
         contacts = response_body_data(response)
         expect(contacts.length).to eq(@aspect1.contacts.length)
 
-        expect(contacts.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
+        expect_to_match_json_schema(contacts.to_json, "#/definitions/users")
       end
     end
 

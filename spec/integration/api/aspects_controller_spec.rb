@@ -46,7 +46,7 @@ describe Api::V1::AspectsController do
         expect(aspect["order"]).to eq(found_aspect.order_id)
       end
 
-      expect(aspects.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/aspects")
+      expect_to_match_json_schema(aspects.to_json, "#/definitions/aspects")
     end
 
     context "without impromper credentials" do
@@ -81,7 +81,7 @@ describe Api::V1::AspectsController do
         expect(aspect["name"]).to eq(@aspect2.name)
         expect(aspect["order"]).to eq(@aspect2.order_id)
 
-        expect(aspect.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/aspect")
+        expect_to_match_json_schema(aspect.to_json, "#/definitions/aspect")
       end
     end
 

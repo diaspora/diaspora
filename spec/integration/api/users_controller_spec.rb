@@ -65,7 +65,7 @@ describe Api::V1::UsersController do
         expect(user["guid"]).to eq(auth.user.guid)
         confirm_self_data_format(user)
 
-        expect(user.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/own_user")
+        expect_to_match_json_schema(user.to_json, "#/definitions/own_user")
       end
 
       it "fails if invalid token" do
@@ -90,7 +90,7 @@ describe Api::V1::UsersController do
         expect(user["guid"]).to eq(alice.person.guid)
         confirm_public_profile_hash(user)
 
-        expect(user.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/user")
+        expect_to_match_json_schema(user.to_json, "#/definitions/user")
       end
 
       it "succeeds with in Aspect valid user" do
@@ -107,7 +107,7 @@ describe Api::V1::UsersController do
         expect(user["guid"]).to eq(alice.person.guid)
         confirm_public_profile_hash(user)
 
-        expect(user.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/user")
+        expect_to_match_json_schema(user.to_json, "#/definitions/user")
       end
 
       it "succeeds with limited data on non-public/not shared" do
@@ -134,7 +134,7 @@ describe Api::V1::UsersController do
         expect(user["guid"]).to eq(eve.person.guid)
         confirm_public_profile_hash(user)
 
-        expect(user.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/user")
+        expect_to_match_json_schema(user.to_json, "#/definitions/user")
       end
 
       it "fails if invalid token" do
@@ -327,7 +327,7 @@ describe Api::V1::UsersController do
       expect(contacts.length).to eq(1)
       confirm_person_format(contacts[0], alice)
 
-      expect(contacts.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
+      expect_to_match_json_schema(contacts.to_json, "#/definitions/users")
     end
 
     it "fails with invalid GUID" do
@@ -393,7 +393,7 @@ describe Api::V1::UsersController do
         expect(guids).not_to include(@private_photo1.guid)
         confirm_photos(photos)
 
-        expect(photos.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/photos")
+        expect_to_match_json_schema(photos.to_json, "#/definitions/photos")
       end
 
       it "returns only public photos of other user without private:read scope in token" do
@@ -469,7 +469,7 @@ describe Api::V1::UsersController do
         post = posts.select {|p| p["guid"] == @public_post1.guid }
         confirm_post_format(post[0], alice, @public_post1)
 
-        expect(posts.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/posts")
+        expect_to_match_json_schema(posts.to_json, "#/definitions/posts")
       end
 
       it "returns logged in user's posts" do

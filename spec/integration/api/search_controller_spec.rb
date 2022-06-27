@@ -69,7 +69,7 @@ describe Api::V1::SearchController do
       users = response_body_data(response)
       expect(users.length).to eq(5)
 
-      expect(users.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
+      expect_to_match_json_schema(users.to_json, "#/definitions/users")
     end
 
     it "succeeds by name" do
@@ -81,7 +81,7 @@ describe Api::V1::SearchController do
       users = response_body_data(response)
       expect(users.length).to eq(1)
 
-      expect(users.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
+      expect_to_match_json_schema(users.to_json, "#/definitions/users")
     end
 
     it "succeeds by handle" do
@@ -93,7 +93,7 @@ describe Api::V1::SearchController do
       users = response_body_data(response)
       expect(users.length).to eq(1)
 
-      expect(users.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/users")
+      expect_to_match_json_schema(users.to_json, "#/definitions/users")
     end
 
     context "with a contacts filter" do
@@ -424,7 +424,7 @@ describe Api::V1::SearchController do
       posts = response_body_data(response)
       expect(posts.length).to eq(2)
 
-      expect(posts.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/posts")
+      expect_to_match_json_schema(posts.to_json, "#/definitions/posts")
     end
 
     it "only returns public posts without private scope" do
@@ -478,7 +478,7 @@ describe Api::V1::SearchController do
       tags = response_body_data(response)
       expect(tags.size).to eq(3)
 
-      expect(tags.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/tags")
+      expect_to_match_json_schema(tags.to_json, "#/definitions/tags")
     end
 
     it "does a prefix search" do
@@ -490,7 +490,7 @@ describe Api::V1::SearchController do
       tags = response_body_data(response)
       expect(tags.size).to eq(2)
 
-      expect(tags.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/tags")
+      expect_to_match_json_schema(tags.to_json, "#/definitions/tags")
     end
 
     it "fails with missing parameters" do

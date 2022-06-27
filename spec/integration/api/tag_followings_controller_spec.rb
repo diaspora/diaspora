@@ -102,7 +102,7 @@ describe Api::V1::TagFollowingsController do
         expect(items.length).to eq(@expected_tags.length)
         @expected_tags.each {|tag| expect(items.find(tag)).to be_truthy }
 
-        expect(items.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/tags")
+        expect_to_match_json_schema(items.to_json, "#/definitions/tags")
       end
     end
 

@@ -74,7 +74,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         confirm_post_format(post, alice, @status, [bob, eve])
 
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
     end
 
@@ -101,7 +101,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         confirm_post_format(post, alice, status_message)
 
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
     end
 
@@ -126,7 +126,7 @@ describe Api::V1::PostsController do
         expect(post["own_interaction_state"]["subscribed"]).to be true
         expect(post["own_interaction_state"]["reported"]).to be true
 
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
     end
 
@@ -143,7 +143,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         confirm_reshare_format(post, @status, alice)
 
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
     end
 
@@ -238,7 +238,7 @@ describe Api::V1::PostsController do
         expect(response.status).to eq(200)
         post = response_body(response)
         confirm_post_format(post, auth.user, post_for_ref_only)
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
 
       it "or creates a private post" do
@@ -261,7 +261,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         expect(response.status).to eq(200)
         confirm_post_format(post, auth.user, post_for_ref_only)
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
 
       it "doesn't creates a private post without private:modify scope in token" do
@@ -305,7 +305,7 @@ describe Api::V1::PostsController do
         post_for_ref_only = StatusMessageCreationService.new(auth.user).create(merged_params)
 
         confirm_post_format(post, auth.user, post_for_ref_only)
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
 
       it "fails to add other's photos" do
@@ -375,7 +375,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         expect(response.status).to eq(200)
         confirm_post_format(post, auth.user, post_for_ref_only)
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
 
       it "fails poll with no answers" do
@@ -451,7 +451,7 @@ describe Api::V1::PostsController do
         post = response_body(response)
         expect(response.status).to eq(200)
         confirm_post_format(post, auth.user, post_for_ref_only)
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
 
       it "creates with mentions" do
@@ -490,7 +490,7 @@ describe Api::V1::PostsController do
         expect(response.status).to eq(200)
         post = response_body(response)
         expect(post["nsfw"]).to be_truthy
-        expect(post.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(post.to_json, "#/definitions/post")
       end
     end
 
@@ -505,7 +505,7 @@ describe Api::V1::PostsController do
           }
         )
         expect(response.status).to eq(200)
-        expect(response.body).to match_json_schema(:api_v1_schema, fragment: "#/definitions/post")
+        expect_to_match_json_schema(response.body, "#/definitions/post")
       end
 
       it "fails to add other's photos" do

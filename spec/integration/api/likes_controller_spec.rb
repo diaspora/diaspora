@@ -75,7 +75,7 @@ describe Api::V1::LikesController do
         confirm_like_format(likes, bob)
         confirm_like_format(likes, auth.user)
 
-        expect(likes.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/likes")
+        expect_to_match_json_schema(likes.to_json, "#/definitions/likes")
       end
     end
 

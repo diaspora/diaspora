@@ -132,7 +132,7 @@ describe Api::V1::MessagesController do
         messages = response_body_data(response)
         expect(messages.length).to eq(1)
 
-        expect(messages.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/messages")
+        expect_to_match_json_schema(messages.to_json, "#/definitions/messages")
 
         confirm_message_format(messages[0], "first message", auth.user)
         conversation = get_conversation(@conversation_guid)

@@ -156,7 +156,7 @@ describe Api::V1::CommentsController do
         confirm_comment_format(comments[1], auth.user, @comment_text2)
         expect(comments).to all(include("reported" => false))
 
-        expect(comments.to_json).to match_json_schema(:api_v1_schema, fragment: "#/definitions/comments")
+        expect_to_match_json_schema(comments.to_json, "#/definitions/comments")
       end
 
       it "returns reported status of a comment" do

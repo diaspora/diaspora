@@ -16,7 +16,8 @@ describe Diaspora::Exporter do
         %i[generic_user_data activity status_messages_flavours work_aspect]
       )
 
-      expect(JSON.parse(json)).to match_json_schema(:archive_schema)
+      errors = JSON::Validator.fully_validate(ArchiveValidator::SchemaValidator::JSON_SCHEMA, JSON.parse(json))
+      expect(errors).to be_empty
     end
 
     it "contains basic user data" do

@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "5.2.7.1"
+gem "rails", "5.2.8"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -10,7 +10,7 @@ gem "responders", "3.0.1"
 
 # Appserver
 
-gem "unicorn", "6.0.0", require: false
+gem "unicorn", "6.1.0", require: false
 gem "unicorn-worker-killer", "0.4.5"
 
 # Federation
@@ -21,16 +21,16 @@ gem "diaspora_federation-rails", "0.2.7"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.3.0"
-gem "json-schema", "2.8.1"
+gem "json",        "2.6.2"
+gem "json-schema", "3.0.0"
 gem "yajl-ruby",   "1.4.1"
 
 # Authentication
 
-gem "devise", "4.8.0"
+gem "devise", "4.8.1"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-two-factor", "4.0.1"
-gem "rqrcode", "2.1.0"
+gem "devise-two-factor", "4.0.2"
+gem "rqrcode", "2.1.1"
 
 # Captcha
 
@@ -38,21 +38,21 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
-gem "redis", "4.5.1"
-gem "sidekiq", "6.2.2"
+gem "redis", "4.7.0"
+gem "sidekiq", "6.4.2"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "1.2.0"
+gem "sidekiq-cron", "1.4.0"
 
 # Compression
 
-gem "terser", "1.1.7"
+gem "terser", "1.1.10"
 
 # Configuration
 
 gem "configurate", "0.5.0"
-gem "toml-rb", "2.1.0"
+gem "toml-rb", "2.1.2"
 
 # Cross-origin resource sharing
 
@@ -60,28 +60,28 @@ gem "rack-cors", "1.1.1", require: "rack/cors"
 
 # CSS
 
-gem "autoprefixer-rails",     "10.3.3.0"
+gem "autoprefixer-rails",     "10.4.7.0"
 gem "bootstrap-sass",         "3.4.1"
 gem "bootstrap-switch-rails", "3.3.3" # 3.3.4 and 3.3.5 is broken, see https://github.com/Bttstrp/bootstrap-switch/issues/691
 gem "compass-rails",          "3.1.0"
 gem "sass-rails",             "5.0.7"
-gem "sprockets-rails",        "3.2.2"
+gem "sprockets-rails",        "3.4.2"
 
 # Database
 
 group :mysql, optional: true do
-  gem "mysql2", "0.5.3"
+  gem "mysql2", "0.5.4"
 end
 group :postgresql, optional: true do
-  gem "pg",     "1.2.3"
+  gem "pg",     "1.4.1"
 end
 
-gem "activerecord-import", "1.1.0"
+gem "activerecord-import", "1.4.0"
 
 # File uploading
 
 gem "carrierwave", "2.2.2"
-gem "fog-aws",     "3.12.0"
+gem "fog-aws",     "3.14.0"
 gem "mini_magick", "4.11.0"
 
 # GUID generation
@@ -94,14 +94,14 @@ gem "entypo-rails", "3.0.0"
 # JavaScript
 
 gem "handlebars_assets", "0.23.9"
-gem "jquery-rails",      "4.4.0"
+gem "jquery-rails",      "4.5.0"
 gem "jquery-ui-rails",   "5.0.5"
-gem "js-routes",         "2.1.2"
+gem "js-routes",         "2.2.4"
 gem "js_image_paths",    "0.1.1"
 gem "sprockets-es6",     "0.9.2"
 
 source "https://gems.diasporafoundation.org" do
-  gem "rails-assets-jquery",                              "3.5.1" # Should be kept in sync with jquery-rails
+  gem "rails-assets-jquery",                              "3.6.0" # Should be kept in sync with jquery-rails
 
   gem "rails-assets-highlightjs",                         "9.12.0"
   gem "rails-assets-markdown-it",                         "8.4.2"
@@ -114,6 +114,7 @@ source "https://gems.diasporafoundation.org" do
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
 
   gem "rails-assets-backbone",                            "1.3.3"
+  gem "rails-assets-bootstrap",                           "3.4.1"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
   gem "rails-assets-corejs-typeahead",                    "1.2.1"
   gem "rails-assets-cropperjs",                           "1.4.3"
@@ -150,7 +151,7 @@ gem "leaflet-rails",       "1.7.0"
 gem "nokogiri",          "1.12.5"
 gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.5.1"
-gem "ruby-oembed",       "0.15.0"
+gem "ruby-oembed",       "0.16.1"
 gem "twitter-text",      "3.1.0"
 
 # RTL support
@@ -163,8 +164,8 @@ gem "secure_headers", "6.3.3"
 
 # Services
 
-gem "omniauth",                       "2.0.4"
-gem "omniauth-rails_csrf_protection", "1.0.0"
+gem "omniauth",                       "2.1.0"
+gem "omniauth-rails_csrf_protection", "1.0.1"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
 gem "omniauth-wordpress",             "0.2.2"
@@ -175,7 +176,7 @@ gem "openid_connect", "1.3.0"
 
 # Serializers
 
-gem "active_model_serializers", "0.9.7"
+gem "active_model_serializers", "0.9.8"
 
 # Tags
 
@@ -184,7 +185,7 @@ gem "acts-as-taggable-on", "8.1.0"
 # URIs and HTTP
 
 gem "addressable",        "2.8.0", require: "addressable/uri"
-gem "faraday",            "0.17.4"
+gem "faraday",            "0.17.5"
 gem "faraday-cookie_jar", "0.0.7"
 gem "faraday_middleware", "0.14.0"
 gem "typhoeus",           "1.4.0"
@@ -192,9 +193,9 @@ gem "typhoeus",           "1.4.0"
 # Views
 
 gem "gon",                     "6.4.0"
-gem "hamlit",                  "2.15.1"
+gem "hamlit",                  "2.16.0"
 gem "mobile-fu",               "1.4.0"
-gem "rails-timeago",           "2.19.1"
+gem "rails-timeago",           "2.20.0"
 gem "will_paginate",           "3.3.1"
 
 # Logging
@@ -210,7 +211,7 @@ gem "rubyzip", "2.3.2", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest"
+gem "minitest",  "5.15.0"
 
 gem "versionist", "2.0.1"
 
@@ -238,15 +239,15 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Third party asset hosting
 
-  gem "asset_sync", "2.15.0", require: false
+  gem "asset_sync", "2.15.2", require: false
 end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.37.1", require: false
+  gem "haml_lint",      "0.40.0", require: false
   gem "pronto",         "0.11.0", require: false
   gem "pronto-eslint",  "0.11.0", require: false
-  gem "pronto-haml",    "0.11.0", require: false
+  gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.1", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "0.93.1", require: false
@@ -261,7 +262,7 @@ group :development do
 
   gem "turbo_dev_assets", "0.0.2"
 
-  gem "listen", "3.5.1"
+  gem "listen", "3.7.1"
 end
 
 group :test do
@@ -269,7 +270,6 @@ group :test do
 
   gem "fixture_builder",   "0.5.2"
   gem "fuubar",            "2.5.1"
-  gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
 
   # Cucumber (integration tests)
@@ -284,7 +284,7 @@ group :test do
 
   gem "factory_bot_rails", "6.1.0"
   gem "shoulda-matchers",  "4.5.1"
-  gem "timecop",           "0.9.4"
+  gem "timecop",           "0.9.5"
   gem "webmock",           "3.14.0", require: false
 
   gem "diaspora_federation-test", "0.2.7"
@@ -292,10 +292,10 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "5.0.2"
+  gem "rspec-rails", "5.1.2"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "2.4.0", require: false
+  gem "cucumber-rails", "2.5.1", require: false
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"

@@ -140,10 +140,6 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 
-  config.include JSON::SchemaMatchers
-  config.json_schemas[:archive_schema] = ArchiveValidator::SchemaValidator::JSON_SCHEMA
-  config.json_schemas[:api_v1_schema] = "lib/schemas/api_v1.json"
-
   JSON::Validator.add_schema(
     JSON::Schema.new(
       DiasporaFederation::Schemas.federation_entities,
