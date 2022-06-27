@@ -844,7 +844,7 @@ DEPENDENCIES
   markdown-it-html5-embed (= 1.0.0)
   markerb (= 1.1.0)
   mini_magick (= 4.11.0)
-  minitest
+  minitest (= 5.15.0)
   mobile-fu (= 1.4.0)
   mysql2 (= 0.5.4)
   nokogiri (= 1.12.5)

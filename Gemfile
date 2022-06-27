@@ -210,7 +210,7 @@ gem "rubyzip", "2.3.2", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest"
+gem "minitest",  "5.15.0"
 
 gem "versionist", "2.0.1"
 
