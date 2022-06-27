@@ -261,7 +261,7 @@ group :development do
 
   gem "turbo_dev_assets", "0.0.2"
 
-  gem "listen", "3.5.1"
+  gem "listen", "3.7.1"
 end
 
 group :test do
