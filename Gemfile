@@ -112,6 +112,7 @@ source "https://gems.diasporafoundation.org" do
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
 
   gem "rails-assets-backbone",                            "1.3.3"
+  gem "rails-assets-bootstrap",                           "3.4.1"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
   gem "rails-assets-corejs-typeahead",                    "1.2.1"
   gem "rails-assets-fine-uploader",                       "5.13.0"
