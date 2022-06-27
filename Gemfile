@@ -171,7 +171,7 @@ gem "openid_connect", "1.3.0"
 
 # Serializers
 
-gem "active_model_serializers", "0.9.7"
+gem "active_model_serializers", "0.9.8"
 
 # XMPP chat dependencies
 gem "diaspora-prosody-config",    "0.0.7"
