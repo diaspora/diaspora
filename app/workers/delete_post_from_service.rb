@@ -10,8 +10,7 @@ module Workers
 
     def perform(service_id, opts)
       service = Service.find_by_id(service_id)
-      opts = ActiveSupport::HashWithIndifferentAccess.new(opts)
-      service.delete_from_service(opts)
+      service.delete_from_service(opts.deep_symbolize_keys)
     end
   end
 end
