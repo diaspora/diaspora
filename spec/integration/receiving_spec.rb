@@ -28,7 +28,7 @@ describe 'a user receives a post', :type => :request do
       bob.aspects.reload
       bob.add_to_streams(sm, [@bobs_aspect])
       queue.drain_all
-      bob.dispatch_post(sm, :to => @bobs_aspect)
+      bob.dispatch_post(sm)
     end
 
     expect(alice.visible_shareables(Post).count(:all)).to eq(1)

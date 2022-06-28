@@ -17,7 +17,7 @@ shared_examples "a dispatcher" do
 
       it "delivers a Retraction of a Post to specified services" do
         opts = {service_types: "Services::Twitter", tweet_id: "123"}
-        expect(Workers::DeletePostFromService).to receive(:perform_async).with(twitter.id, opts)
+        expect(Workers::DeletePostFromService).to receive(:perform_async).with(twitter.id, opts.deep_stringify_keys)
 
         retraction = Retraction.for(post)
         Diaspora::Federation::Dispatcher.build(alice, retraction, opts).dispatch
