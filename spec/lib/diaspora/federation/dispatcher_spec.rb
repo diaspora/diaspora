@@ -57,7 +57,8 @@ describe Diaspora::Federation::Dispatcher do
 
   describe ".defer_dispatch" do
     it "queues a job for dispatch" do
-      expect(Workers::DeferredDispatch).to receive(:perform_async).with(alice.id, "StatusMessage", post.id, opts)
+      expect(Workers::DeferredDispatch)
+        .to receive(:perform_async).with(alice.id, "StatusMessage", post.id, opts.deep_stringify_keys)
       described_class.defer_dispatch(alice, post, opts)
     end
   end

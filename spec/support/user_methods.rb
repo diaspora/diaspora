@@ -32,12 +32,7 @@ class User
 
       if p.save!
         self.aspects.reload
-
-        dispatch_opts = {
-          url: Rails.application.routes.url_helpers.post_url(p, host: AppConfig.pod_uri.to_s),
-          to:  opts[:to]
-        }
-        dispatch_post(p, dispatch_opts)
+        dispatch_post(p, url: Rails.application.routes.url_helpers.post_url(p, host: AppConfig.pod_uri.to_s))
       end
       unless opts[:created_at]
         p.created_at = Time.now - 1

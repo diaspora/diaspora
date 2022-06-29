@@ -21,7 +21,7 @@ module Diaspora
       end
 
       def self.defer_dispatch(sender, object, opts={})
-        Workers::DeferredDispatch.perform_async(sender.id, object.class.to_s, object.id, opts)
+        Workers::DeferredDispatch.perform_async(sender.id, object.class.to_s, object.id, opts.deep_stringify_keys)
       end
 
       def dispatch
@@ -69,7 +69,7 @@ module Diaspora
         when StatusMessage
           each_service {|service| Workers::PostToService.perform_async(service.id, object.id, opts[:url]) }
         when Retraction
-          each_service {|service| Workers::DeletePostFromService.perform_async(service.id, opts) }
+          each_service {|service| Workers::DeletePostFromService.perform_async(service.id, opts.deep_stringify_keys) }
         end
       end
 
