@@ -86,10 +86,6 @@ gem "mini_magick", "4.11.0"
 # GUID generation
 gem "uuid", "2.3.9"
 
-# Icons
-
-gem "entypo-rails", "3.0.0"
-
 # JavaScript
 
 gem "handlebars_assets", "0.23.9"
