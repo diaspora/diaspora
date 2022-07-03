@@ -15,8 +15,8 @@ gem "unicorn-worker-killer", "0.4.5"
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.7"
-gem "diaspora_federation-rails", "0.2.7"
+gem "diaspora_federation-json_schema", "0.2.8"
+gem "diaspora_federation-rails", "0.2.8"
 
 # API and JSON
 
@@ -245,7 +245,7 @@ group :test do
   gem "timecop",           "0.9.5"
   gem "webmock",           "3.14.0", require: false
 
-  gem "diaspora_federation-test", "0.2.7"
+  gem "diaspora_federation-test", "0.2.8"
 end
 
 group :development, :test do
