@@ -202,8 +202,21 @@
     .social-media-logos-twitter-24x24,
     .social-media-logos-tumblr-24x24,
     .social-media-logos-wordpress-24x24 {
+      background-repeat: no-repeat;
       height: 24px;
       width: 24px;
+    }
+
+    .social-media-logos-twitter-24x24 {
+      background-image: image-url('social-media-logos/twitter-24x24.png');
+    }
+
+    .social-media-logos-tumblr-24x24 {
+      background-image: image-url('social-media-logos/tumblr-24x24.png');
+    }
+
+    .social-media-logos-wordpress-24x24 {
+      background-image: image-url('social-media-logos/wordpress-24x24.png');
     }
 
     a {
