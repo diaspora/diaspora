@@ -27,7 +27,6 @@ Rails.application.configure do
   config.assets.precompile += %w[poltergeist_disable_transition.css]
 
   # Don't precompile all themes for tests
-  config.assets.precompile -= %w[color_themes/*/desktop.css color_themes/*/mobile.css]
   config.assets.precompile += %w[
     color_themes/original/desktop.css
     color_themes/dark_green/desktop.css
