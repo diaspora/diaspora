@@ -16,7 +16,7 @@ class BookmarkletRenderer
     end
 
     def source
-      @source ||= Rails.application.assets["bookmarklet.js"].pathname.to_s
+      @source ||= Rails.application.assets["bookmarklet.js"].filename
     end
 
     def body

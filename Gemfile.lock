@@ -680,7 +680,7 @@ GEM
     simplecov_json_formatter (0.1.4)
     sinon-rails (1.15.0)
       railties (>= 3.1)
-    sprockets (3.7.2)
+    sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.4.2)
