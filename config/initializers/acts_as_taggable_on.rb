@@ -1,4 +1,26 @@
 # frozen_string_literal: true
 
-require 'models/acts_as_taggable_on-tag'
+module ActsAsTaggableOn
+  class Tag
+    self.include_root_in_json = false
+
+    def self.tag_text_regexp
+      @tag_text_regexp ||= "[[:word:]]\u055b\u055c\u055e\u058a_-"
+    end
+
+    def self.autocomplete(name)
+      where("name LIKE ?", "#{name.downcase}%").order("name ASC")
+    end
+
+    def self.normalize(name)
+      if name =~ /^#?<3/
+        # Special case for love, because the world needs more love.
+        "<3"
+      elsif name
+        name.gsub(/[^#{tag_text_regexp}]/, "").downcase
+      end
+    end
+  end
+end
+
 ActsAsTaggableOn.force_lowercase = true

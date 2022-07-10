@@ -48,7 +48,7 @@ app.views.TagFollowingList = app.views.Base.extend({
     if(evt){ evt.preventDefault(); }
 
     var name = this.$(".tag_input").val();
-    // compare tag_text_regexp in app/models/acts_as_taggable_on-tag.rb
+    // compare tag_text_regexp in config/initializers/acts_as_taggable_on.rb
     var normalizedName = (name === "<3" ? name : name.replace(
         new RegExp("[^" + PosixBracketExpressions.alnum + "_\\-]+", "gi"), "").toLowerCase());
 
