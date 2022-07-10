@@ -81,7 +81,7 @@ describe Diaspora::MessageRenderer do
         it 'makes plain links for people not in the post aspects' do
           message = message("@{Bob; #{bob.person.diaspora_handle}}", link_all_mentions: true).html
           expect(message).to_not include 'hovercard'
-          expect(message).to include '/u/bob'
+          expect(message).to include "/people/#{bob.person.guid}"
         end
 
         it "makes no hovercards if they're disabled" do
@@ -91,7 +91,7 @@ describe Diaspora::MessageRenderer do
             disable_hovercards: true
           ).html
           expect(message).to_not include 'hovercard'
-          expect(message).to include '/u/bob'
+          expect(message).to include "/people/#{bob.person.guid}"
         end
       end
     end
