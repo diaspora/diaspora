@@ -79,5 +79,7 @@ if Sidekiq.server?
   schedule_file_path = Rails.root.join("config", "schedule.yml")
   regenerate_config(schedule_file_path) unless valid_config?(schedule_file_path)
 
-  Sidekiq::Cron::Job.load_from_hash YAML.load_file(schedule_file_path)
+  Rails.application.reloader.to_prepare do
+    Sidekiq::Cron::Job.load_from_hash YAML.load_file(schedule_file_path)
+  end
 end
