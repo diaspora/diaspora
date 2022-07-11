@@ -1,4 +1,4 @@
-@import 'utatti-perfect-scrollbar/css/perfect-scrollbar';
+@import 'perfect-scrollbar/css/perfect-scrollbar';
 
 @import 'color-variables';
 @import 'bootstrap-complete';
@@ -94,14 +94,14 @@
 
 // code
 @import 'code';
-@import 'highlightjs/github';
+@import 'highlightjs/styles/github';
 
 // statistics
 @import 'statistics';
 
 // gallery
-@import 'blueimp-gallery';
-@import 'blueimp-gallery/blueimp-gallery-indicator';
+@import 'blueimp-gallery/css/blueimp-gallery';
+@import 'blueimp-gallery/css/blueimp-gallery-indicator';
 @import 'gallery';
 
 // settings

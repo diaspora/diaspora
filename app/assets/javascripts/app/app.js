@@ -14,7 +14,7 @@
 //= require_tree ./collections
 //= require_tree ./views
 
-//= require utatti-perfect-scrollbar/dist/perfect-scrollbar
+//= require perfect-scrollbar/dist/perfect-scrollbar
 
 var app = {
   collections: {},

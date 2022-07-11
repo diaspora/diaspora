@@ -4,11 +4,11 @@
  */
 //= require js_image_paths
 //= require js-routes
-//= require underscore
-//= require backbone
-//= require autosize
+//= require underscore/underscore-umd
+//= require backbone/backbone
+//= require autosize/dist/autosize
 //= require charcount
-//= require jquery-placeholder
+//= require jquery-placeholder/jquery.placeholder
 //= require jquery.timeago
 //= require jquery-ui/core
 //= require jquery-ui/widget
@@ -16,11 +16,11 @@
 //= require jquery-ui/sortable
 //= require keycodes
 //= require jquery.autoSuggest.custom
-//= require fine-uploader/fine-uploader
+//= require fine-uploader/fine-uploader/fine-uploader
 //= require handlebars.runtime
 //= require_tree ../templates
 //= require posix-bracket-expressions
-//= require markdown-it
+//= require markdown-it/dist/markdown-it
 //= require markdown-it-diaspora-mention
 //= require markdown-it-for-inline
 //= require markdown-it-footnote
@@ -40,13 +40,13 @@
 //= require bootstrap
 //= require osmlocator
 //= require bootstrap-switch
-//= require blueimp-gallery
-//= require blueimp-gallery/blueimp-gallery-indicator
+//= require blueimp-gallery/js/blueimp-gallery
+//= require blueimp-gallery/js/blueimp-gallery-indicator
 //= require leaflet
 //= require api/authorization_page
-//= require bootstrap-markdown/bootstrap-markdown
+//= require bootstrap-markdown/js/bootstrap-markdown
 //= require helpers/markdown_editor
 //= require helpers/protocol_handler
 //= require jquery.are-you-sure
 //= require cropperjs/dist/cropper.js
-//= require pica
+//= require pica/dist/pica
