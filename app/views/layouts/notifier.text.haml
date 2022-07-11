@@ -1,4 +1,5 @@
 != yield
+
+!= "-- "
 != t("notifier.email_sent_by_diaspora", pod_name: pod_name)
-!= t("notifier.to_change_your_notification_settings")
-!= edit_user_url
+!= "#{t('notifier.to_change_your_notification_settings')}: #{edit_user_url}"

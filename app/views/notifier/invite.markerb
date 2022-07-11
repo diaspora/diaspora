@@ -1,6 +1,0 @@
-<%= t('.message',
-  invite_url: invite_code_url(@invitation_code),
-  diasporafoundation_url: 'https://diasporafoundation.org/',
-  user: @inviter.try(:full_name).empty? ? @inviter.try(:diaspora_handle) : "#{@inviter.name} (#{@inviter.diaspora_handle})",
-  diaspora_id: @inviter.try(:diaspora_handle))
-%>

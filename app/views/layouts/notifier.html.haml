@@ -1,7 +1,7 @@
 %table{cellspacing: 0, cellpadding: 0, border: 0,
        style: "font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px"}
   %tr
-    - if @notification.try(:sender)
+    - if @notification&.sender.present?
       %td{width: "60px", style: "vertical-align: top"}>
         %div{style: "background-color: #eee; height: 50px; width: 50px"}
           = image_tag @notification.sender.profile.image_url(size: :thumb_small), alt: @notification.sender.name,

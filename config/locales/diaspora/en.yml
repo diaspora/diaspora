@@ -741,7 +741,7 @@ en:
     started_sharing:
         subject: "%{name} started sharing with you on diaspora*"
         sharing: "has started sharing with you!"
-        view_profile: "View %{name}’s profile"
+        view_profile: "View %{name}’s profile >"
     comment_on_post:
         limited_subject: "There's a new comment on one of your posts"
         reply: "Reply or view %{name}’s post >"
@@ -766,7 +766,7 @@ en:
     contacts_birthday:
         subject: "%{name} has their birthday today"
         birthday: "%{name} has their birthday today. Wish them 'Happy Birthday'!"
-        view_profile: "View %{name}’s profile"
+        view_profile: "View %{name}’s profile >"
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"

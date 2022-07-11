@@ -1,0 +1,6 @@
+<%= t("devise.mailer.hello", username: @resource.username) %>
+
+<%= t(".account_locked") %>
+
+<%= t(".click_to_unlock") %>
+<%= unlock_url(@resource, unlock_token: @token) %>

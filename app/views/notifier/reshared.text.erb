@@ -1,0 +1,6 @@
+<%= "#{t(".reshared", name: @notification.sender_name)}:" %>
+
+<%= post_message(@notification.reshare_root) %>
+
+<%= t(".view_post") %>
+<%= post_url(@notification.reshare) %>
