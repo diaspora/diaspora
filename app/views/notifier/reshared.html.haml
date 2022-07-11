@@ -1,0 +1,6 @@
+%p
+  #{t('.reshared', name: @notification.sender_name)}:
+%p
+  = post_message(@notification.reshare_root, process_newlines: true)
+%p
+  = link_to t(".view_post"), post_url(@notification.reshare)
