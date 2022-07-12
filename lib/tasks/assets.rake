@@ -34,3 +34,5 @@ namespace :assets do
     Rake::Task["assets:non_digest_assets"].invoke
   end
 end
+
+Rake::Task["assets:generate_error_pages"].enhance [ "yarn:install" ]
