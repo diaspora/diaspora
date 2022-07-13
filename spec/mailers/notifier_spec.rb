@@ -548,7 +548,7 @@ describe Notifier, type: :mailer do
 
     it "has some informative text in the body" do
       email.body.parts.each do |part|
-        expect(part.decoded).to include("https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)")
+        expect(part.decoded).to include("https://owasp.org/www-community/attacks/csrf")
       end
     end
   end

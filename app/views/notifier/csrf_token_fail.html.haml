@@ -1,4 +1,4 @@
 - message = t("notifier.csrf_token_fail.body",
               name: @notification.recipient_first_name,
-              link: "https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)")
+              link: "https://owasp.org/www-community/attacks/csrf")
 != Redcarpet::Markdown.new(Diaspora::Markdownify::Email).render(message)
