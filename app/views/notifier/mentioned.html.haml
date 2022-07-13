@@ -1,6 +1,5 @@
 - if @notification.post.public?
-  %p
-    = post_message(@notification.post, process_newlines: true)
+  = post_message(@notification.post, html: true)
 - else
   %p
     = t("notifier.mentioned.limited_post")
