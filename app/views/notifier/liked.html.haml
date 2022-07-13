@@ -1,8 +1,7 @@
 - if @notification.like_target.public?
   %p
     #{t('.liked', name: @notification.sender_name)}:
-  %p
-    = post_message(@notification.like_target, process_newlines: true)
+  = post_message(@notification.like_target, html: true)
 - else
   %p
     #{t('notifier.liked.limited_post', name: @notification.sender_name)}.

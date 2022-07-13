@@ -555,9 +555,9 @@ describe Notifier, type: :mailer do
 
   describe "hashtags" do
     it "escapes hashtags" do
-      mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
-      expect(mails.length).to eq(1)
-      mail = mails.first
+      status = FactoryBot.create(:status_message, author: alice.person, text: "#Welcome to bureaucracy!", public: true)
+      like = status.likes.create!(author: bob.person)
+      mail = Notifier.send_notification("liked", alice.id, like.author.id, like.id)
       expect(mail.body.encoded).to match(
         "<p><a href=\"#{AppConfig.url_to(tag_path('welcome'))}\">#Welcome</a> to bureaucracy!</p>"
       )

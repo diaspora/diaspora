@@ -54,8 +54,9 @@ module Diaspora::Mentionable
   #
   # @param [String] message text
   # @param [Array] allowed_people ids of people that are allowed to stay
+  # @param [Boolean] absolute_links (false) render mentions with absolute links
   # @return [String] message text with filtered mentions
-  def self.filter_people(msg_text, allowed_people)
+  def self.filter_people(msg_text, allowed_people, absolute_links: false)
     mentioned_ppl = people_from_string(msg_text)
 
     msg_text.to_s.gsub(REGEX) {|match_str|
@@ -65,7 +66,7 @@ module Diaspora::Mentionable
       if person && allowed_people.include?(person.id)
         match_str
       else
-        "@#{MentionsInternal.profile_link(person, name, diaspora_id)}"
+        "@#{MentionsInternal.profile_link(person, name, diaspora_id, absolute: absolute_links)}"
       end
     }
   end
@@ -107,11 +108,14 @@ module Diaspora::Mentionable
     #
     # @param [Person] AR Person
     # @param [String] display name
+    # @param [String] diaspora_id
+    # @param [Boolean] absolute (false) render absolute link
     # @return [String] markdown person link
-    def self.profile_link(person, display_name, diaspora_id)
+    def self.profile_link(person, display_name, diaspora_id, absolute: false)
       return display_name || diaspora_id unless person.present?
 
-      "[#{display_name || person.name}](#{Rails.application.routes.url_helpers.person_path(person)})"
+      url_helper = Rails.application.routes.url_helpers
+      "[#{display_name || person.name}](#{absolute ? url_helper.person_url(person) : url_helper.person_path(person)})"
     end
   end
 end
