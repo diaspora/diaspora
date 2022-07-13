@@ -6,10 +6,14 @@
 * Fix deprecation warnings for sidekiq 7.0 [#8359](https://github.com/diaspora/diaspora/pull/8359)
 * Remove entypo-rails dependency to prepare for rails 6 [#8361](https://github.com/diaspora/diaspora/pull/8361)
 * Remove compass-rails dependency which is not supported anymore [#8362](https://github.com/diaspora/diaspora/pull/8362)
+* Remove markerb dependency which doesn't exist anymore [#8365](https://github.com/diaspora/diaspora/pull/8365)
 
 ## Bug fixes
+* Fix that no mails were sent after photo export [#8365](https://github.com/diaspora/diaspora/pull/8365)
+* Fix people with quotes in the name causing issues with mail sender [#8365](https://github.com/diaspora/diaspora/pull/8365)
 
 ## Features
+* Render posts and comments as HTML in HTML mails [#8365](https://github.com/diaspora/diaspora/pull/8365)
 
 # 0.7.17.0
 
