@@ -31,7 +31,7 @@ class UnprocessedImage < CarrierWave::Uploader::Base
 
   def needs_converting?
     extname = File.extname(@filename)
-    %w[.webp .gif].exclude?(extname)
+    %w[.webp .gif].exclude?(extname) && !model.keep_original_format
   end
 
   process :basic_process
