@@ -250,7 +250,7 @@ class User < ApplicationRecord
 
   def update_post(post, post_hash={})
     if self.owns? post
-      post.update_attributes(post_hash)
+      post.update(post_hash)
       self.dispatch_post(post)
     end
   end
@@ -375,7 +375,7 @@ class User < ApplicationRecord
   ########### Profile ######################
   def update_profile(params)
     if photo = params.delete(:photo)
-      photo.update_attributes(:pending => false) if photo.pending
+      photo.update(pending: false) if photo.pending
       params[:image_url] = photo.url(:thumb_large)
       params[:image_url_medium] = photo.url(:thumb_medium)
       params[:image_url_small] = photo.url(:thumb_small)
@@ -383,7 +383,7 @@ class User < ApplicationRecord
 
     params.stringify_keys!
     params.slice!(*(Profile.column_names+['tag_string', 'date']))
-    if self.profile.update_attributes(params)
+    if profile.update(params)
       deliver_profile_update
       true
     else
