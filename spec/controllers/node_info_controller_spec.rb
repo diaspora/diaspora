@@ -52,7 +52,7 @@ describe NodeInfoController do
           get :document, params: {version: version}, format: :json
 
           expect(response.content_type)
-            .to eq("application/json; profile=http://nodeinfo.diaspora.software/ns/schema/#{version}#")
+            .to eq("application/json; profile=http://nodeinfo.diaspora.software/ns/schema/#{version}#; charset=utf-8")
         end
       end
     end
