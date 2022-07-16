@@ -39,8 +39,9 @@ module NotificationMailers
       from_name += " (#{@sender.profile.full_name.empty? ? @sender.username : @sender.name})" if @sender.present?
 
       {
-        from: name_and_address(from_name, AppConfig.mail.sender_address),
-        to:   name_and_address(@recipient.name, @recipient.email)
+        from:          name_and_address(from_name, AppConfig.mail.sender_address),
+        to:            name_and_address(@recipient.name, @recipient.email),
+        template_name: self.class.name.demodulize.underscore
       }
     end
 
