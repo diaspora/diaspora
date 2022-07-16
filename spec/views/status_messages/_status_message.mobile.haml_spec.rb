@@ -10,7 +10,7 @@ describe "status_messages/_status_message.mobile.haml" do
     )
     post = FactoryBot.create(:status_message, public: true, open_graph_cache: open_graph_cache)
 
-    render file: "status_messages/_status_message.mobile.haml", locals: {post: post, photos: post.photos}
+    render template: "status_messages/_status_message.mobile.haml", locals: {post: post, photos: post.photos}
 
     expect(rendered).to_not include("<script>")
   end

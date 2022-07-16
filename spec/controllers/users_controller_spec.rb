@@ -142,22 +142,22 @@ describe UsersController, :type => :controller do
       before do
         allow(@controller).to receive(:current_user).and_return(@user)
         allow(@user).to receive(:update_with_password)
-        allow(@user).to receive(:update_attributes)
+        allow(@user).to receive(:update)
       end
 
       it "uses devise's update with password" do
         put :update, params: params
 
         expect(@user).to have_received(:update_with_password).with(hash_including(password_params))
-        expect(@user).not_to have_received(:update_attributes).with(hash_including(password_params))
+        expect(@user).not_to have_received(:update).with(hash_including(password_params))
       end
 
       it "does not update the password without the change_password param" do
         put :update, params: params.except(:change_password).deep_merge(user: {language: "de"})
 
         expect(@user).not_to have_received(:update_with_password).with(hash_including(password_params))
-        expect(@user).not_to have_received(:update_attributes).with(hash_including(password_params))
-        expect(@user).to have_received(:update_attributes).with(hash_including(language: "de"))
+        expect(@user).not_to have_received(:update).with(hash_including(password_params))
+        expect(@user).to have_received(:update).with(hash_including(language: "de"))
       end
     end
 
@@ -167,13 +167,13 @@ describe UsersController, :type => :controller do
 
       before do
         allow(@controller).to receive(:current_user).and_return(@user)
-        allow(@user).to receive(:update_attributes)
+        allow(@user).to receive(:update)
       end
 
       it "does not accept the params" do
         put :update, params: params
 
-        expect(@user).not_to have_received(:update_attributes)
+        expect(@user).not_to have_received(:update)
           .with(hash_including(:otp_required_for_login, :otp_secret))
       end
     end

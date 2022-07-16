@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 class IntegrationSessionsController < ActionController::Base
+  prepend_view_path(Rails.root.join("features/support"))
+
   def new
     @user_id = params[:user_id]
-    render file: 'features/support/integration_sessions_form', layout: false
+    render template: "integration_sessions_form", layout: false
   end
+
   def create
     sign_in_and_redirect User.find(params[:user_id])
   end
