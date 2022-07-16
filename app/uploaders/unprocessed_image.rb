@@ -18,20 +18,34 @@ class UnprocessedImage < CarrierWave::Uploader::Base
   end
 
   def extension_allowlist
-    %w[jpg jpeg png gif]
+    %w[jpg jpeg png gif webp]
   end
 
   def filename
-    model.random_string + File.extname(@filename) if @filename
+    model.random_string + extension if @filename
+  end
+
+  def extension
+    needs_converting? ? ".webp" : File.extname(@filename)
+  end
+
+  def needs_converting?
+    extname = File.extname(@filename)
+    %w[.webp .gif].exclude?(extname) && !model.keep_original_format
   end
 
   process :basic_process
 
   def basic_process
     manipulate! do |img|
-      img.auto_orient
-      img.strip if strip_exif
+      img.combine_options do |i|
+        i.auto_orient
+        i.strip if strip_exif
+      end
+
       img = yield(img) if block_given?
+
+      img.format("webp") if needs_converting?
       img
     end
   end

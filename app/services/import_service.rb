@@ -74,6 +74,7 @@ class ImportService
   def store_and_process_photo(photo, uploaded_file, random_string)
     File.open(uploaded_file) do |file|
       photo.random_string = random_string
+      photo.keep_original_format = true
       photo.unprocessed_image.store! file
       photo.update_remote_path
       photo.save(touch: false)

@@ -38,6 +38,7 @@ class Photo < ApplicationRecord
 
   mount_uploader :processed_image, ProcessedImage
   mount_uploader :unprocessed_image, UnprocessedImage
+  attr_accessor :keep_original_format
 
   belongs_to :status_message, foreign_key: :status_message_guid, primary_key: :guid, optional: true
   validates_associated :status_message
@@ -50,7 +51,6 @@ class Photo < ApplicationRecord
 
   after_commit on: :create do
     queue_processing_job if author.local?
-
   end
 
   scope :on_statuses, ->(post_guids) {
