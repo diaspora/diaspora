@@ -1,0 +1,9 @@
+- if @notification.post.public?
+  = post_message(@notification.post, html: true)
+- else
+  %p
+    = t("notifier.mentioned.limited_post")
+
+%p
+  = link_to t("notifier.comment_on_post.reply", name: @notification.post.author_first_name),
+      post_url(@notification.post)

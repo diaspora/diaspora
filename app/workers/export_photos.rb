@@ -4,7 +4,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 module Workers
   class ExportPhotos < Base
     sidekiq_options queue: :low
@@ -14,9 +13,9 @@ module Workers
       @user.perform_export_photos!
 
       if @user.reload.exported_photos_file.present?
-        ExportMailer.export_photos_complete_for(@user)
+        ExportMailer.export_photos_complete_for(@user).deliver_now
       else
-        ExportMailer.export_photos_failure_for(@user)
+        ExportMailer.export_photos_failure_for(@user).deliver_now
       end
     end
   end

@@ -27,10 +27,10 @@ module PeopleHelper
 
   def person_link(person, opts={})
     css_class = person_link_class(person, opts[:class])
-    remote_or_hovercard_link = Rails.application.routes.url_helpers.person_path(person).html_safe
-    "<a data-hovercard='#{remote_or_hovercard_link}' href='#{remote_or_hovercard_link}' class='#{css_class}'>"\
-      "#{html_escape_once(opts[:display_name] || person.name)}</a>"\
-      .html_safe
+    remote_or_hovercard_link = person_path(person)
+    tag.a('data-hovercard': remote_or_hovercard_link, href: remote_or_hovercard_link, class: css_class) do
+      opts[:display_name] || person.name
+    end
   end
 
   def person_image_tag(person, size = :thumb_small)
@@ -44,15 +44,12 @@ module PeopleHelper
     if opts[:to] == :photos
       link_to person_image_tag(person, opts[:size]), person_photos_path(person)
     else
-      css_class = person_link_class(person, opts[:class])
-      remote_or_hovercard_link = Rails.application.routes.url_helpers.person_path(person).html_safe
-      "<a href='#{remote_or_hovercard_link}' class='#{css_class}' #{('target=' + opts[:target]) if opts[:target]}>
-      #{person_image_tag(person, opts[:size])}
-      </a>".html_safe
+      tag.a(href: person_path(person), class: person_link_class(person, opts[:class])) do
+        person_image_tag(person, opts[:size])
+      end
     end
   end
 
-  # Rails.application.routes.url_helpers is needed since this is indirectly called from a model
   def local_or_remote_person_path(person, opts={})
     opts.merge!(:protocol => AppConfig.pod_uri.scheme, :host => AppConfig.pod_uri.authority)
     absolute = opts.delete(:absolute)
@@ -61,19 +58,11 @@ module PeopleHelper
       username = person.username
       unless username.include?('.')
         opts.merge!(:username => username)
-        if absolute
-          return Rails.application.routes.url_helpers.user_profile_url(opts)
-        else
-          return Rails.application.routes.url_helpers.user_profile_path(opts)
-        end
+        return absolute ? user_profile_url(opts) : user_profile_path(opts)
       end
     end
 
-    if absolute
-      return Rails.application.routes.url_helpers.person_url(person, opts)
-    else
-      return Rails.application.routes.url_helpers.person_path(person, opts)
-    end
+    absolute ? person_url(person, opts) : person_path(person, opts)
   end
 
   private
