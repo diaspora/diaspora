@@ -535,10 +535,10 @@ class User < ApplicationRecord
   end
 
   def no_person_with_same_username
-    diaspora_id = "#{self.username}#{User.diaspora_id_host}"
-    if self.username_changed? && Person.exists?(:diaspora_handle => diaspora_id)
-      errors[:base] << 'That username has already been taken'
-    end
+    diaspora_id = "#{username}#{User.diaspora_id_host}"
+    return unless username_changed? && Person.exists?(diaspora_handle: diaspora_id)
+
+    errors.add(:base, "That username has already been taken")
   end
 
   def close_account!

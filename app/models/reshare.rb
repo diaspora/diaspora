@@ -86,9 +86,6 @@ class Reshare < Post
   private
 
   def root_must_be_public
-    if self.root && !self.root.public
-      errors[:base] << "Only posts which are public may be reshared."
-      return false
-    end
+    errors.add(:base, "Only posts which are public may be reshared.") if root && !root.public
   end
 end
