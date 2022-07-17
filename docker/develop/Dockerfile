@@ -1,4 +1,4 @@
-FROM ruby:2.6-slim-buster
+FROM ruby:2.7-slim-buster
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
