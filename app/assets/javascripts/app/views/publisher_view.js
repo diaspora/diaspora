@@ -11,7 +11,6 @@
 //= require ./publisher/poll_creator_view
 //= require ./publisher/services_view
 //= require ./publisher/uploader_view
-//= require jquery.textchange/jquery.textchange
 
 app.views.Publisher = Backbone.View.extend({
 

@@ -90,10 +90,6 @@ jquery.are-you-sure@1.9.0:
   dependencies:
     jquery ">=1.4.2"
 
-"jquery.textchange@gist:424774":
-  version "0.0.0"
-  resolved "https://gist.github.com/424774.git#f279b03d73e22305059f590b745618fdb9158771"
-
 jquery@3.6.0, jquery@>=1.11, jquery@>=1.4.2:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
