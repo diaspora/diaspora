@@ -6,7 +6,7 @@
 
 # This file is used by Rack-based servers to start the application.
 
-require ::File.expand_path("../config/environment",  __FILE__)
+require_relative "config/environment"
 
 # Kill unicorn workers really aggressively (at 300mb)
 if defined?(Unicorn)
@@ -18,4 +18,5 @@ if defined?(Unicorn)
 end
 use Rack::Deflater
 
-run Diaspora::Application
+run Rails.application
+Rails.application.load_server

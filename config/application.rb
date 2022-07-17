@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 require_relative "bundler_helper"
 
@@ -16,15 +16,18 @@ require_relative 'asset_sync'
 module Diaspora
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
-
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.load_defaults 6.1
 
     # Use classic autoloader for now
     config.autoloader = :classic
+
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths      += %W[#{config.root}/app]
@@ -57,8 +60,6 @@ module Diaspora
       host:     AppConfig.pod_uri.authority
     }
     config.action_mailer.asset_host = AppConfig.pod_uri.to_s
-
-    config.action_view.raise_on_missing_translations = true
 
     config.middleware.use Rack::OAuth2::Server::Resource::Bearer, "OpenID Connect" do |req|
       Api::OpenidConnect::OAuthAccessToken
