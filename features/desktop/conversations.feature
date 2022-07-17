@@ -60,7 +60,7 @@ Feature: private conversations
     When I sign in as "bob@bob.bob"
     And I send a message with subject "Greetings" and text "hello, alice!" to "Alice Awesome"
     Then I should see "Greetings" within "#conversation-inbox"
-    When I click on selector ".hide_conversation"
+    When I confirm the prompt after I click on selector ".hide_conversation"
     Then I should not see "Greetings" within "#conversation-inbox"
     When I sign in as "alice@alice.alice"
     Then I should have 1 unread private message

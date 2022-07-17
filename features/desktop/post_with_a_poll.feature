@@ -87,7 +87,6 @@ Feature: posting with a poll
         | poll_question          | What kind of yogurt do you like? |
     And I fill in the following for the options:
         | normal |
-        |  |
     And I click on selector "#poll_creator_container"
     And I click on selector "#publisher button#submit"
     Then I should see an element ".poll-answer input.error"
