@@ -55,15 +55,15 @@ describe("$.fn.charCount", function() {
       expect(this.counter.text()).toEqual("99");
 
       this.input.val(this.repeat("a", 99));
-      this.input.trigger("textchange");
+      this.input.trigger("input");
       expect(this.counter.text()).toEqual("1");
 
       this.input.val(this.repeat("a", 102));
-      this.input.trigger("textchange");
+      this.input.trigger("input");
       expect(this.counter.text()).toEqual("-2");
 
       this.input.val("");
-      this.input.trigger("textchange");
+      this.input.trigger("input");
       expect(this.counter.text()).toEqual("100");
     });
 
@@ -74,27 +74,27 @@ describe("$.fn.charCount", function() {
       expect(this.counter).not.toHaveClass("text-danger");
 
       this.input.val(this.repeat("a", 90));
-      this.input.trigger("textchange");
+      this.input.trigger("input");
       expect(this.counter).not.toHaveClass("text-warning");
       expect(this.counter).not.toHaveClass("text-danger");
 
       this.input.val(this.repeat("a", 91));
-      this.input.trigger("textchange");
+      this.input.trigger("input");
       expect(this.counter).toHaveClass("text-warning");
       expect(this.counter).not.toHaveClass("text-danger");
 
       this.input.val(this.repeat("a", 100));
-      this.input.trigger("textchange");
+      this.input.trigger("input");
       expect(this.counter).toHaveClass("text-warning");
       expect(this.counter).not.toHaveClass("text-danger");
 
       this.input.val(this.repeat("a", 101));
-      this.input.trigger("textchange");
+      this.input.trigger("input");
       expect(this.counter).not.toHaveClass("text-warning");
       expect(this.counter).toHaveClass("text-danger");
 
       this.input.val("");
-      this.input.trigger("textchange");
+      this.input.trigger("input");
       expect(this.counter).not.toHaveClass("text-warning");
       expect(this.counter).not.toHaveClass("text-danger");
     });
