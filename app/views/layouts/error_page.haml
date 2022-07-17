@@ -11,5 +11,12 @@
 
     = yield(:head)
 
-  %body{class: "error-#{@code}", id: "error_#{@code}"}
+  %body{class: "error-#{local_assigns[:code]}", id: "error_#{local_assigns[:code]}"}
+    .transparent.big-number
+      = local_assigns[:code]
+
     = yield
+
+    %p
+      %a{href: "javascript:history.back()"}
+        Go Back?

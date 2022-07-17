@@ -1,8 +1,6 @@
 - content_for(:page_title) do
   We're sorry, but something went wrong (500)
 
-.transparent.big-number
-  500
 %h3
   Internal server error.
   Our bad! Sorry about that. :(
@@ -10,7 +8,3 @@
 - if AppConfig.admins.podmin_email?
   %p
     Drop us an email to <a href="mailto:#{AppConfig.admins.podmin_email}">#{AppConfig.admins.podmin_email}</a>.
-
-%p
-  %a{href: "javascript:history.back()"}
-    Go Back?
