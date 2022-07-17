@@ -15,7 +15,7 @@ module Api
         require_access_token %w[public:read]
       end
 
-      rescue_from ActionController::ParameterMissing, RuntimeError do |e|
+      rescue_from RuntimeError do |e|
         render_error 422, e.message
       end
 

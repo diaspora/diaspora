@@ -37,7 +37,7 @@ module Api
 
       rescue_from ActionController::ParameterMissing do |e|
         logger.error e.message
-        render_error 422, "Parameters missing or invalid: #{e.message}"
+        render_error 422, e.message.split("\n").first
       end
 
       def current_user
