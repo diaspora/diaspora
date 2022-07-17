@@ -749,7 +749,7 @@ GEM
     will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yajl-ruby (1.4.1)
+    yajl-ruby (1.4.3)
     yard (0.9.28)
       webrick (~> 1.7.0)
     zeitwerk (2.6.0)
@@ -869,7 +869,7 @@ DEPENDENCIES
   versionist (= 2.0.1)
   webmock (= 3.14.0)
   will_paginate (= 3.3.1)
-  yajl-ruby (= 1.4.1)
+  yajl-ruby (= 1.4.3)
 
 BUNDLED WITH
    1.17.3
