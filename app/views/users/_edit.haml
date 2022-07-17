@@ -34,7 +34,7 @@
       .col-md-12
         %h3= t(".change_password")
         = form_for @user, url: edit_user_path, html: {method: :put, class: "form-horizontal"} do |f|
-          - if (@user.errors.keys & %i(password password_confirmation current_password)).present?
+          - if (@user.errors.attribute_names & %i[password password_confirmation current_password]).present?
             = f.error_messages
           .form-group
             = f.label :current_password, t(".current_password"), class: "col-sm-6 control-label"
