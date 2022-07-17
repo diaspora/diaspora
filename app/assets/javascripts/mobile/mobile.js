@@ -4,21 +4,20 @@
  */
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-//= require jquery-textchange
 //= require charcount
 //= require js-routes
-//= require autosize
+//= require autosize/dist/autosize
 //= require keycodes
 //= require jquery.autoSuggest.custom
-//= require fine-uploader/fine-uploader
+//= require fine-uploader/fine-uploader/fine-uploader
 //= require jquery.timeago
-//= require underscore
+//= require underscore/underscore-umd
 //= require bootstrap
-//= require pica
+//= require pica/dist/pica
 //= require diaspora
 //= require helpers/i18n
 //= require helpers/tags_autocomplete
-//= require bootstrap-markdown/bootstrap-markdown
+//= require bootstrap-markdown/js/bootstrap-markdown
 //= require helpers/markdown_editor
 //= require helpers/post_photo_uploader
 //= require widgets/timeago

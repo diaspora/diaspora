@@ -95,39 +95,6 @@ gem "js-routes",         "2.2.4"
 gem "js_image_paths",    "0.1.1"
 gem "sprockets-es6",     "0.9.2"
 
-source "https://gems.diasporafoundation.org" do
-  gem "rails-assets-jquery",                              "3.6.0" # Should be kept in sync with jquery-rails
-
-  gem "rails-assets-highlightjs",                         "9.12.0"
-  gem "rails-assets-markdown-it",                         "8.4.2"
-  gem "rails-assets-markdown-it-diaspora-mention",        "1.2.0"
-  gem "rails-assets-markdown-it-footnote",                "3.0.3"
-  gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
-  gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
-  gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
-  gem "rails-assets-markdown-it-sub",                     "1.0.0"
-  gem "rails-assets-markdown-it-sup",                     "1.0.0"
-
-  gem "rails-assets-backbone",                            "1.3.3"
-  gem "rails-assets-bootstrap",                           "3.4.1"
-  gem "rails-assets-bootstrap-markdown",                  "2.10.0"
-  gem "rails-assets-corejs-typeahead",                    "1.2.1"
-  gem "rails-assets-cropperjs",                           "1.4.3"
-  gem "rails-assets-fine-uploader",                       "5.13.0"
-  gem "rails-assets-pica",                                "5.0.0"
-
-  # jQuery plugins
-
-  gem "rails-assets-autosize",                            "4.0.2"
-  gem "rails-assets-blueimp-gallery",                     "2.33.0"
-  gem "rails-assets-jquery.are-you-sure",                 "1.9.0"
-  gem "rails-assets-jquery-placeholder",                  "2.3.1"
-  gem "rails-assets-jquery-textchange",                   "0.2.3"
-  gem "rails-assets-utatti-perfect-scrollbar",            "1.4.0"
-end
-
-gem "markdown-it-html5-embed", "1.0.0"
-
 # Localization
 
 gem "http_accept_language", "2.1.1"
@@ -292,7 +259,6 @@ group :development, :test do
   gem "chrome_remote",             "0.3.0"
   gem "jasmine",                   "3.10.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"
 
   # For `assigns` in controller specs

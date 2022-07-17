@@ -19,6 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
         libxslt1-dev \
         nodejs \
         gosu \
+        yarnpkg \
     && \
     curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o ./google-chrome.deb && \
     apt install -y -qq --no-install-recommends ./google-chrome.deb && \

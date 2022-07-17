@@ -14,6 +14,14 @@ $margin: 15px;
       top: $margin;
     }
 
+    .slide-error {
+      background-image: image-url("blueimp-gallery/img/error.svg");
+    }
+
+    .slide-loading {
+      background-image: image-url("blueimp-gallery/img/loading.gif");
+    }
+
     .too-tall {
       margin-bottom: $margin * 2 + $thumbnail-size;
       max-height: none;

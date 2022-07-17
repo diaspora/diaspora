@@ -16,6 +16,10 @@ After [a discussion with our community on Discourse](https://discourse.diasporaf
 
 Although the chat was never enabled per default and was marked as experimental, some production pods did set up the integration and offered an XMPP service to their users. After this release, diaspora\* will no longer contain a chat applet, so users will no longer be able to use the webchat inside diaspora\*. The existing module that is used to enable users to authenticate to Prosody using their diaspora\* credentials will continue to work, but contact list synchronization might not work without further changes to the Prosody module, which is developed independently from this project.
 
+## Yarn for frontend dependencies
+
+We use yarn to install the frontend dependencies now, so you need to have that installed. See here for how to install it: https://yarnpkg.com/en/docs/install
+
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581)
 * Remove backporting of mention syntax [#7788](https://github.com/diaspora/diaspora/pull/7788)
@@ -24,6 +28,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Remove the JSXC/Prosody integration [#8069](https://github.com/diaspora/diaspora/pull/8069) [#8341](https://github.com/diaspora/diaspora/pull/8341)
 * Replace factory\_girl with factory\_bot [#8218](https://github.com/diaspora/diaspora/pull/8218)
 * Drop relay support [#8243](https://github.com/diaspora/diaspora/pull/8243)
+* Use yarn to manage the frontend dependencies [#8364](https://github.com/diaspora/diaspora/pull/8364)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)

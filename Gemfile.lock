@@ -1,6 +1,5 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://gems.diasporafoundation.org/
   specs:
     actioncable (5.2.8)
       actionpack (= 5.2.8)
@@ -382,7 +381,6 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
-    markdown-it-html5-embed (1.0.0)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (1.0.0)
@@ -521,40 +519,6 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.8)
       sprockets-rails (>= 2.0.0)
-    rails-assets-autosize (4.0.2)
-    rails-assets-backbone (1.3.3)
-      rails-assets-underscore (>= 1.8.3)
-    rails-assets-blueimp-gallery (2.33.0)
-    rails-assets-bootstrap (3.4.1)
-      rails-assets-jquery (>= 1.9.1, < 4)
-    rails-assets-bootstrap-markdown (2.10.0)
-      rails-assets-bootstrap (~> 3)
-    rails-assets-corejs-typeahead (1.2.1)
-      rails-assets-jquery (>= 1.11)
-    rails-assets-cropperjs (1.4.3)
-    rails-assets-fine-uploader (5.13.0)
-    rails-assets-highlightjs (9.12.0)
-    rails-assets-jasmine (3.4.0)
-    rails-assets-jasmine-ajax (4.0.0)
-      rails-assets-jasmine (~> 3)
-    rails-assets-jquery (3.6.0)
-    rails-assets-jquery-placeholder (2.3.1)
-      rails-assets-jquery (>= 1.6)
-    rails-assets-jquery-textchange (0.2.3)
-      rails-assets-jquery
-    rails-assets-jquery.are-you-sure (1.9.0)
-      rails-assets-jquery (>= 1.4.2)
-    rails-assets-markdown-it--markdown-it-for-inline (0.1.1)
-    rails-assets-markdown-it (8.4.2)
-    rails-assets-markdown-it-diaspora-mention (1.2.0)
-    rails-assets-markdown-it-footnote (3.0.3)
-    rails-assets-markdown-it-hashtag (0.4.0)
-    rails-assets-markdown-it-sanitizer (0.4.3)
-    rails-assets-markdown-it-sub (1.0.0)
-    rails-assets-markdown-it-sup (1.0.0)
-    rails-assets-pica (5.0.0)
-    rails-assets-underscore (1.9.1)
-    rails-assets-utatti-perfect-scrollbar (1.4.0)
     rails-controller-testing (1.0.5)
       actionpack (>= 5.0.1.rc1)
       actionview (>= 5.0.1.rc1)
@@ -822,7 +786,6 @@ DEPENDENCIES
   leaflet-rails (= 1.7.0)
   listen (= 3.7.1)
   logging-rails (= 0.6.0)
-  markdown-it-html5-embed (= 1.0.0)
   mini_magick (= 4.11.0)
   minitest (= 5.15.0)
   mobile-fu (= 1.4.0)
@@ -849,30 +812,6 @@ DEPENDENCIES
   rack-rewrite (= 1.5.1)
   rack-ssl (= 1.4.1)
   rails (= 5.2.8)
-  rails-assets-autosize (= 4.0.2)!
-  rails-assets-backbone (= 1.3.3)!
-  rails-assets-blueimp-gallery (= 2.33.0)!
-  rails-assets-bootstrap (= 3.4.1)!
-  rails-assets-bootstrap-markdown (= 2.10.0)!
-  rails-assets-corejs-typeahead (= 1.2.1)!
-  rails-assets-cropperjs (= 1.4.3)!
-  rails-assets-fine-uploader (= 5.13.0)!
-  rails-assets-highlightjs (= 9.12.0)!
-  rails-assets-jasmine-ajax (= 4.0.0)!
-  rails-assets-jquery (= 3.6.0)!
-  rails-assets-jquery-placeholder (= 2.3.1)!
-  rails-assets-jquery-textchange (= 0.2.3)!
-  rails-assets-jquery.are-you-sure (= 1.9.0)!
-  rails-assets-markdown-it (= 8.4.2)!
-  rails-assets-markdown-it--markdown-it-for-inline (= 0.1.1)!
-  rails-assets-markdown-it-diaspora-mention (= 1.2.0)!
-  rails-assets-markdown-it-footnote (= 3.0.3)!
-  rails-assets-markdown-it-hashtag (= 0.4.0)!
-  rails-assets-markdown-it-sanitizer (= 0.4.3)!
-  rails-assets-markdown-it-sub (= 1.0.0)!
-  rails-assets-markdown-it-sup (= 1.0.0)!
-  rails-assets-pica (= 5.0.0)!
-  rails-assets-utatti-perfect-scrollbar (= 1.4.0)!
   rails-controller-testing (= 1.0.5)
   rails-i18n (= 5.1.3)
   rails-timeago (= 2.20.0)

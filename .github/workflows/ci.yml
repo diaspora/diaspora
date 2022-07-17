@@ -44,7 +44,7 @@ jobs:
           - 5432:5432
     steps:
       - name: Install system dependencies
-        run: sudo apt update && sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev
+        run: sudo apt update && sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg
       - name: Start MySQL
         run: sudo systemctl start mysql.service
         if: matrix.db == 'mysql'
