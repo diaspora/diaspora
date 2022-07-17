@@ -171,7 +171,7 @@ gem "rails-assets-diaspora_jsxc", "0.1.5.develop.7", source: "https://gems.diasp
 
 # Tags
 
-gem "acts-as-taggable-on", "8.1.0"
+gem "acts-as-taggable-on", "9.0.1"
 
 # URIs and HTTP
 
