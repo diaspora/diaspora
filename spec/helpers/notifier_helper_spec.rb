@@ -5,16 +5,21 @@
 #   the COPYRIGHT file.
 
 describe NotifierHelper, :type => :helper do
-  describe '#post_message' do
+  describe "#post_message" do
     before do
       # post for markdown test
       @markdown_post = FactoryBot.create(:status_message,
-        text: "[link](http://diasporafoundation.org) **bold text** *other text*", public: true)
-      @striped_markdown_post = "link (http://diasporafoundation.org) bold text other text"
+                                         text:   "[link](https://diasporafoundation.org) **bold text** *other text*",
+                                         public: true)
+      @striped_markdown_post = "link (https://diasporafoundation.org) bold text other text"
     end
 
-    it 'strip markdown in the post' do
+    it "strip markdown in the post" do
       expect(post_message(@markdown_post)).to eq(@striped_markdown_post)
+    end
+
+    it "renders markdown as html" do
+      expect(post_message(@markdown_post, html: true)).to include("<a href=\"https://diasporafoundation.org\">link</a>")
     end
 
     it "falls back to the title if the post has no text" do
@@ -32,13 +37,13 @@ describe NotifierHelper, :type => :helper do
     end
   end
 
-  describe '#comment_message' do
+  describe "#comment_message" do
     before do
       # comment for markdown test
       @markdown_comment = FactoryBot.create(:comment)
       @markdown_comment.post.public = true
-      @markdown_comment.text = "[link](http://diasporafoundation.org) **bold text** *other text*"
-      @striped_markdown_comment = "link (http://diasporafoundation.org) bold text other text"
+      @markdown_comment.text = "[link](https://diasporafoundation.org) **bold text** *other text*"
+      @striped_markdown_comment = "link (https://diasporafoundation.org) bold text other text"
 
       # comment for limited post
       @limited_comment = FactoryBot.create(:comment)
@@ -46,11 +51,16 @@ describe NotifierHelper, :type => :helper do
       @limited_comment.text = "This is top secret comment. Shhhhhhhh!!!"
     end
 
-    it 'strip markdown in the comment' do
+    it "strip markdown in the comment" do
       expect(comment_message(@markdown_comment)).to eq(@striped_markdown_comment)
     end
 
-    it 'hides the private content' do
+    it "renders markdown as html" do
+      expect(comment_message(@markdown_comment, html: true))
+        .to include("<a href=\"https://diasporafoundation.org\">link</a>")
+    end
+
+    it "hides the private content" do
       expect(comment_message(@limited_comment)).not_to include("secret comment")
     end
   end

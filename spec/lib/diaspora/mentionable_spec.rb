@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 describe Diaspora::Mentionable do
-  include PeopleHelper
-
   let(:people) { [alice, bob, eve].map(&:person) }
   let(:names) { %w(Alice\ A Bob\ B "Eve>\ E) }
 
@@ -41,7 +39,9 @@ STR
   end
 
   describe ".format" do
-    context "html output" do
+    context "html output", type: :helper do
+      include PeopleHelper
+
       it "adds the links to the formatted message" do
         fmt_msg = Diaspora::Mentionable.format(test_text_with_names, people)
 
@@ -75,7 +75,7 @@ STR
         fmt_msg = Diaspora::Mentionable.format(test_txt, people)
 
         expect(fmt_msg).not_to include(name)
-        expect(fmt_msg).to include("&gt;", "&lt;", "&#39;") # ">", "<", "'"
+        expect(fmt_msg).to include("&lt;/a&gt;&lt;script&gt;alert(&#39;h&#39;)&lt;/script&gt;")
       end
     end
 
@@ -184,7 +184,7 @@ STR
         user_a.aspects.where(name: "generic").first.contacts.map(&:person_id)
       )
 
-      expect(txt).to include("@[user C](#{local_or_remote_person_path(user_c.person)}")
+      expect(txt).to include("@[user C](#{Rails.application.routes.url_helpers.person_path(user_c.person)}")
       expect(txt).not_to include("href")
       expect(txt).not_to include(mention)
     end

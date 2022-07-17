@@ -36,6 +36,7 @@ Although the chat was never enabled per default and was marked as experimental, 
 * For pods running PostgreSQL, make sure that no upper-case/mixed-case tags exist, and create a `lower(name)` index on tags to speed up ActsAsTaggableOn [#8206](https://github.com/diaspora/diaspora/pull/8206)
 * Allow podmins/moderators to see all local public posts to improve moderation [#8232](https://github.com/diaspora/diaspora/pull/8232) [#8320](https://github.com/diaspora/diaspora/pull/8320)
 * Add support for directly paste images to upload them [#8237](https://github.com/diaspora/diaspora/pull/8237)
+* Add support for webp images and convert new png/jpg to webp to save space and bandwidth [#8358](https://github.com/diaspora/diaspora/pull/8358)
 
 # 0.7.18.0
 
@@ -45,10 +46,14 @@ Although the chat was never enabled per default and was marked as experimental, 
 * Fix deprecation warnings for sidekiq 7.0 [#8359](https://github.com/diaspora/diaspora/pull/8359)
 * Remove entypo-rails dependency to prepare for rails 6 [#8361](https://github.com/diaspora/diaspora/pull/8361)
 * Remove compass-rails dependency which is not supported anymore [#8362](https://github.com/diaspora/diaspora/pull/8362)
+* Remove markerb dependency which doesn't exist anymore [#8365](https://github.com/diaspora/diaspora/pull/8365)
 
 ## Bug fixes
+* Fix that no mails were sent after photo export [#8365](https://github.com/diaspora/diaspora/pull/8365)
+* Fix people with quotes in the name causing issues with mail sender [#8365](https://github.com/diaspora/diaspora/pull/8365)
 
 ## Features
+* Render posts and comments as HTML in HTML mails [#8365](https://github.com/diaspora/diaspora/pull/8365)
 
 # 0.7.17.0
 

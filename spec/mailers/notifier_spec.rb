@@ -121,10 +121,6 @@ describe Notifier, type: :mailer do
     it "has the post text in the body" do
       expect(@mail.body.encoded).to include(@post.text)
     end
-
-    it "should not include translation fallback" do
-      expect(@mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
-    end
   end
 
   describe ".mentioned_in_comment" do
@@ -180,10 +176,6 @@ describe Notifier, type: :mailer do
     it "has the post text not in the body" do
       expect(@mail.body.encoded).not_to include(@post.text)
     end
-
-    it "should not include translation fallback" do
-      expect(@mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
-    end
   end
 
   describe ".liked" do
@@ -203,10 +195,6 @@ describe Notifier, type: :mailer do
 
     it "BODY: contains the name of person liking" do
       expect(@mail.body.encoded).to include(@like.author.name)
-    end
-
-    it "should not include translation fallback" do
-      expect(@mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
     end
 
     it "can handle a reshare" do
@@ -246,10 +234,6 @@ describe Notifier, type: :mailer do
 
     it "BODY: contains the name of person liking" do
       expect(@mail.body.encoded).to include(@reshare.author.name)
-    end
-
-    it "should not include translation fallback" do
-      expect(@mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
     end
   end
 
@@ -294,10 +278,6 @@ describe Notifier, type: :mailer do
     it "BODY: does not contain the message text" do
       expect(@mail.body.encoded).not_to include(@cnv.messages.first.text)
     end
-
-    it "should not include translation fallback" do
-      expect(@mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
-    end
   end
 
   context "comments" do
@@ -333,10 +313,6 @@ describe Notifier, type: :mailer do
 
         it "contains the original post's link with comment anchor" do
           expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
-        end
-
-        it "should not include translation fallback" do
-          expect(comment_mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
         end
       end
 
@@ -379,10 +355,6 @@ describe Notifier, type: :mailer do
 
         it "contains the original post's link with comment anchor" do
           expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
-        end
-
-        it "should not include translation fallback" do
-          expect(comment_mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
         end
       end
       [:reshare].each do |post_type|
@@ -490,10 +462,6 @@ describe Notifier, type: :mailer do
       it "BODY: contains the name of person liking" do
         expect(mail.body.encoded).to include(bob.name)
       end
-
-      it "should not include translation fallback" do
-        expect(mail.body.encoded).not_to include(I18n.translate "notifier.a_post_you_shared")
-      end
     end
   end
 
@@ -580,16 +548,16 @@ describe Notifier, type: :mailer do
 
     it "has some informative text in the body" do
       email.body.parts.each do |part|
-        expect(part.decoded).to include("https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)")
+        expect(part.decoded).to include("https://owasp.org/www-community/attacks/csrf")
       end
     end
   end
 
   describe "hashtags" do
     it "escapes hashtags" do
-      mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
-      expect(mails.length).to eq(1)
-      mail = mails.first
+      status = FactoryBot.create(:status_message, author: alice.person, text: "#Welcome to bureaucracy!", public: true)
+      like = status.likes.create!(author: bob.person)
+      mail = Notifier.send_notification("liked", alice.id, like.author.id, like.id)
       expect(mail.body.encoded).to match(
         "<p><a href=\"#{AppConfig.url_to(tag_path('welcome'))}\">#Welcome</a> to bureaucracy!</p>"
       )

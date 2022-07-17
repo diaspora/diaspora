@@ -17,12 +17,13 @@ describe Photo, :type => :model do
     @aspect = @user.aspects.first
 
     @fixture_filename  = 'button.png'
+
     @fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo  = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-    @photo2 = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-    @saved_photo = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
+    @photo = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
+    @photo2 = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
+    @saved_photo = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
     @saved_photo.save
   end
 
@@ -90,7 +91,7 @@ describe Photo, :type => :model do
       @photo.update_remote_path
 
       expect(@photo.remote_photo_path).to include("http")
-      expect(@photo.remote_photo_name).to include(".png")
+      expect(@photo.remote_photo_name).to include(".webp")
     end
   end
 
@@ -182,7 +183,15 @@ describe Photo, :type => :model do
         @photo.unprocessed_image.store! file
       }.to raise_error CarrierWave::IntegrityError
     end
+  end
 
+  describe "converting files" do
+    it "convert to webp" do
+      with_carrierwave_processing do
+        @photo.unprocessed_image.store! File.open(@fixture_name)
+      end
+      expect(@photo.remote_photo_name).to include(".webp")
+    end
   end
 
   describe "remote photos" do

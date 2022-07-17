@@ -1,1 +1,0 @@
-<%= t('.message', :invite_url => invite_code_url(@invitation_code)) %>

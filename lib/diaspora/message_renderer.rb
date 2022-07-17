@@ -56,8 +56,8 @@ module Diaspora
         @message = renderer.render(message).strip
       end
 
-      def markdownify
-        renderer = Diaspora::Markdownify::HTML.new options[:markdown_render_options]
+      def markdownify(renderer_class=Diaspora::Markdownify::HTML)
+        renderer = renderer_class.new options[:markdown_render_options]
         markdown = Redcarpet::Markdown.new renderer, options[:markdown_options]
 
         @message = markdown.render message
@@ -76,8 +76,8 @@ module Diaspora
           @message = Diaspora::Mentionable.format message, options[:mentioned_people]
         end
 
-        if options[:disable_hovercards] || options[:link_all_mentions]
-          @message = Diaspora::Mentionable.filter_people message, []
+        if options[:disable_hovercards]
+          @message = Diaspora::Mentionable.filter_people(message, [], absolute_links: true)
         else
           make_mentions_plain_text
         end
@@ -108,7 +108,6 @@ module Diaspora
     end
 
     DEFAULTS = {mentioned_people:        [],
-                link_all_mentions:       false,
                 disable_hovercards:      false,
                 truncate:                false,
                 append:                  nil,
@@ -137,12 +136,8 @@ module Diaspora
     # @param [Hash] opts Global options affecting output
     # @option opts [Array<Person>] :mentioned_people ([]) List of people
     #   allowed to mention
-    # @option opts [Boolean] :link_all_mentions (false) Whether to link
-    #   all mentions. This makes plain links to profiles for people not in
-    #   :mentioned_people
     # @option opts [Boolean] :disable_hovercards (true) Render all mentions
-    #   as profile links. This implies :link_all_mentions and ignores
-    #   :mentioned_people
+    #   as absolute profile links. This ignores :mentioned_people
     # @option opts [#to_i, Boolean] :truncate (false) Truncate message to
     #   the specified length
     # @option opts [String] :append (nil) Append text to the end of
@@ -205,7 +200,7 @@ module Diaspora
         render_tags
         squish
         append_and_truncate
-      }.html_safe
+      }.html_safe # rubocop:disable Rails/OutputSafety
     end
 
     # @param [Hash] opts Override global output options, see {#initialize}
@@ -220,7 +215,20 @@ module Diaspora
         render_tags
         squish
         append_and_truncate
-      }.html_safe
+      }.html_safe # rubocop:disable Rails/OutputSafety
+    end
+
+    def markdownified_for_mail
+      process(disable_hovercards: true) {
+        process_newlines
+        normalize
+        diaspora_links
+        camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
+        render_mentions
+        markdownify(Diaspora::Markdownify::Email)
+        squish
+        append_and_truncate
+      }.html_safe # rubocop:disable Rails/OutputSafety
     end
 
     # Get a short summary of the message

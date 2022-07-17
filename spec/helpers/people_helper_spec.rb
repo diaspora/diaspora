@@ -75,7 +75,7 @@ describe PeopleHelper, :type => :helper do
     end
 
     it 'links by id for a local user' do
-      expect(person_link(@user.person)).to include "href='#{person_path(@user.person)}'"
+      expect(person_link(@user.person)).to include "href=\"#{person_path(@user.person)}\""
     end
 
     it "recognizes the 'display_name' option" do

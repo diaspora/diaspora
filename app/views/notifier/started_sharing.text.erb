@@ -1,0 +1,4 @@
+<%= @notification.sender_name %> <%= t(".sharing") %>
+
+<%= t(".view_profile", name: @notification.sender_first_name) %>
+<%= local_or_remote_person_path(@notification.sender, absolute: true) %>

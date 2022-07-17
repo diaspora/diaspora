@@ -1,0 +1,6 @@
+%p
+  = t("notifier.hello", name: @notification.recipient_first_name)
+%p
+  = t("notifier.confirm_email.click_link", unconfirmed_email: @notification.recipient_unconfirmed_email)
+%p
+  = link_to nil, confirm_email_url(token: @notification.recipient_confirm_email_token)

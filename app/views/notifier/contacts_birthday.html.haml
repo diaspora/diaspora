@@ -1,0 +1,5 @@
+%p
+  = t(".birthday", name: @notification.person.name)
+%p
+  = link_to t(".view_profile", name: @notification.person.first_name),
+      local_or_remote_person_path(@notification.person, absolute: true)

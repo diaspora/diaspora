@@ -1,0 +1,6 @@
+%p
+  = t("devise.mailer.welcome", username: @resource.username)
+%p
+  = t(".you_can_confirm")
+%p
+  = link_to t(".confirm"), confirmation_url(@resource, confirmation_token: @token)
