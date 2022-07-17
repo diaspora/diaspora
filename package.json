@@ -1,9 +1,8 @@
 {
-  "name": "diaspora",
-  "version": "0.7.17.0",
   "repository": "git@github.com:diaspora/diaspora.git",
   "author": "diaspora* team",
   "license": "AGPL-3.0",
+  "private": true,
   "dependencies": {
     "jquery.textchange": "gist:424774",
     "autosize": "4.0.2",
