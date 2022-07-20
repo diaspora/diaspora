@@ -20,11 +20,11 @@ module NotificationsHelper
         opts.merge!(opts_for_birthday(note))
       end
     end
-    translation(target_type, opts)
+    translation(target_type, **opts)
   end
 
-  def translation(target_type, opts = {})
-    t("#{target_type}", opts).html_safe
+  def translation(target_type, **kwargs)
+    t(target_type, **kwargs).html_safe # rubocop:disable Rails/OutputSafety
   end
 
   def opts_for_post(post)

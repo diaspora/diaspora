@@ -20,8 +20,12 @@ class BasePresenter
     @current_user = curr_user
   end
 
-  def method_missing(method, *args)
-    @presentable.public_send(method, *args)
+  def respond_to_missing?(method, include_private=false)
+    @presentable.respond_to?(method) || super
+  end
+
+  def method_missing(method, *args, **kwargs) # rubocop:disable Lint/MissingSuper
+    @presentable.public_send(method, *args, **kwargs)
   end
 
   class NilPresenter
