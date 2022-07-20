@@ -18,13 +18,13 @@ end
 
 Given /^a user named "([^\"]*)" with email "([^\"]*)"$/ do |name, email|
   first, last = name.split
-  user = create_user(:email => email, :username => "#{first}_#{last}")
-  user.profile.update_attributes!(:first_name => first, :last_name => last) if first
+  user = create_user(email: email, username: "#{first}_#{last}")
+  user.profile.update!(first_name: first, last_name: last) if first
 end
 
 Given /^a nsfw user with email "([^\"]*)"$/ do |email|
-  user = create_user(:email => email)
-  user.profile.update_attributes(:nsfw => true)
+  user = create_user(email: email)
+  user.profile.update(nsfw: true)
 end
 
 Given /^a moderator with email "([^\"]*)"$/ do |email|
