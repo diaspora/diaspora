@@ -516,7 +516,7 @@ describe Notifier, type: :mailer do
     end
 
     it "has the inviter id if the name is nil" do
-      bob.person.profile.update_attributes(first_name: "", last_name: "")
+      bob.person.profile.update(first_name: "", last_name: "")
       mail = Notifier.invite(alice.email, bob, "1234", "en")
       expect(email.body.encoded).to_not include("#{bob.name} (#{bob.diaspora_handle})")
       expect(mail.body.encoded).to include(bob.person.diaspora_handle)
@@ -573,7 +573,7 @@ describe Notifier, type: :mailer do
     end
 
     it "FROM: header should be 'pod_name (username)' when there is no first and last name" do
-      bob.person.profile.update_attributes(first_name: "", last_name: "")
+      bob.person.profile.update(first_name: "", last_name: "")
       mail = Notifier.send_notification("started_sharing", alice.id, bob.person.id)
       expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.person.username})\" <#{AppConfig.mail.sender_address}>")
     end

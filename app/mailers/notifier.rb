@@ -51,14 +51,10 @@ class Notifier < ApplicationMailer
   end
 
   def send_notification(type, *args)
-    @notification = NotificationMailers.const_get(type.to_s.camelize).new(*args)
+    @notification = NotificationMailers.const_get(type.camelize).new(*args)
 
     with_recipient_locale do
-      mail(@notification.headers) do |format|
-        self.action_name = type
-        format.text
-        format.html
-      end
+      mail(@notification.headers)
     end
   end
 

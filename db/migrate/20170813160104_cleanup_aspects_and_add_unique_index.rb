@@ -17,7 +17,7 @@ class CleanupAspectsAndAddUniqueIndex < ActiveRecord::Migration[5.1]
     Aspect.where(user_id: 0).delete_all
     Aspect.joins("INNER JOIN aspects as a2 ON aspects.user_id = a2.user_id AND aspects.name = a2.name")
           .where("aspects.id > a2.id").each do |aspect|
-      aspect.update_attributes(name: "#{aspect.name}_#{UUID.generate(:compact)}")
+      aspect.update(name: "#{aspect.name}_#{UUID.generate(:compact)}")
     end
   end
 end

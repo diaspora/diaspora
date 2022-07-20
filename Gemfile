@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "5.2.8"
+gem "rails", "6.1.6.1"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -15,8 +15,8 @@ gem "unicorn-worker-killer", "0.4.5"
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.7"
-gem "diaspora_federation-rails", "0.2.7"
+gem "diaspora_federation-json_schema", "0.2.8"
+gem "diaspora_federation-rails", "0.2.8"
 
 # API and JSON
 
@@ -39,11 +39,11 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "4.7.0"
-gem "sidekiq", "6.4.2"
+gem "sidekiq", "6.5.1"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "1.4.0"
+gem "sidekiq-cron", "1.6.0"
 
 # Compression
 
@@ -91,22 +91,22 @@ gem "uuid", "2.3.9"
 gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.5.0"
 gem "jquery-ui-rails",   "5.0.5"
+gem "js_image_paths",    "0.2.0"
 gem "js-routes",         "2.2.4"
-gem "js_image_paths",    "0.1.1"
 gem "sprockets-es6",     "0.9.2"
 
 # Localization
 
 gem "http_accept_language", "2.1.1"
 gem "i18n-inflector-rails", "1.0.7"
-gem "rails-i18n",           "5.1.3"
+gem "rails-i18n",           "6.0.0"
 
 # Map
 gem "leaflet-rails",       "1.7.0"
 
 # Parsing
 
-gem "nokogiri",          "1.12.5"
+gem "nokogiri",          "1.13.7"
 gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.5.1"
 gem "ruby-oembed",       "0.16.1"
@@ -138,7 +138,7 @@ gem "active_model_serializers", "0.9.8"
 
 # Tags
 
-gem "acts-as-taggable-on", "8.1.0"
+gem "acts-as-taggable-on", "9.0.1"
 
 # URIs and HTTP
 
@@ -245,7 +245,7 @@ group :test do
   gem "timecop",           "0.9.5"
   gem "webmock",           "3.14.0", require: false
 
-  gem "diaspora_federation-test", "0.2.7"
+  gem "diaspora_federation-test", "0.2.8"
 end
 
 group :development, :test do

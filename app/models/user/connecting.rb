@@ -58,7 +58,7 @@ class User
       if destroy
         contact.destroy
       else
-        contact.update_attributes(direction => false)
+        contact.update(direction => false)
       end
     end
   end

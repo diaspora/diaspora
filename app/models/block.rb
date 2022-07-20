@@ -11,9 +11,9 @@ class Block < ApplicationRecord
   validate :not_blocking_yourself
 
   def not_blocking_yourself
-    if self.user.person.id == self.person_id
-      errors[:person_id] << "stop blocking yourself!"
-    end
+    return unless user.person.id == person_id
+
+    errors.add(:person_id, "stop blocking yourself!")
   end
 
   # @return [Array<Person>] The recipient of the block

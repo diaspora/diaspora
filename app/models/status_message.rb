@@ -130,7 +130,7 @@ class StatusMessage < Post
   private
 
   def presence_of_content
-    errors[:base] << "Cannot create a StatusMessage without content" if text_and_photos_blank?
+    errors.add(:base, "Cannot create a StatusMessage without content") if text_and_photos_blank?
   end
 end
 

@@ -6,7 +6,7 @@ module Workers
       sidekiq_options queue: :low
 
       def perform(*args)
-        Notifier.send_notification(self.class.name.gsub("Workers::Mail::", "").underscore, *args).deliver_now
+        Notifier.send_notification(self.class.name.demodulize.underscore, *args).deliver_now
       end
     end
   end

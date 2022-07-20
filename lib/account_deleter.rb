@@ -97,6 +97,6 @@ class AccountDeleter
   end
 
   def mark_account_deletion_complete
-    AccountDeletion.find_by(person: person)&.update_attributes(completed_at: Time.now.utc)
+    AccountDeletion.find_by(person: person)&.update(completed_at: Time.now.utc)
   end
 end

@@ -37,10 +37,8 @@ class Message < ApplicationRecord
   private
 
   def participant_of_parent_conversation
-    if conversation && !conversation.participants.include?(author)
-      errors[:base] << "Author is not participating in the conversation"
-    else
-      true
-    end
+    return unless conversation&.participants&.exclude?(author)
+
+    errors.add(:base, "Author is not participating in the conversation")
   end
 end

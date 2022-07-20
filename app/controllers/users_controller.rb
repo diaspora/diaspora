@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update_privacy_settings
     privacy_params = params.fetch(:user).permit(:strip_exif)
 
-    if current_user.update_attributes(strip_exif: privacy_params[:strip_exif])
+    if current_user.update(strip_exif: privacy_params[:strip_exif])
       flash[:notice] = t("users.update.settings_updated")
     else
       flash[:error] = t("users.update.settings_not_updated")
@@ -198,7 +198,7 @@ class UsersController < ApplicationController
   end
 
   def change_language(user_data)
-    if @user.update_attributes(user_data)
+    if @user.update(user_data)
       I18n.locale = @user.language
       flash.now[:notice] = t("users.update.language_changed")
     else
@@ -241,7 +241,7 @@ class UsersController < ApplicationController
   end
 
   def change_settings(user_data, successful="users.update.settings_updated", error="users.update.settings_not_updated")
-    if @user.update_attributes(user_data)
+    if @user.update(user_data)
       flash.now[:notice] = t(successful)
     else
       flash.now[:error] = t(error)

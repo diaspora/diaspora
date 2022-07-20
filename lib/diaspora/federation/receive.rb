@@ -116,7 +116,7 @@ module Diaspora
 
         if persisted_photo
           persisted_photo.tap do |photo|
-            photo.update_attributes(
+            photo.update(
               text:                entity.text,
               public:              entity.public,
               created_at:          entity.created_at,
@@ -145,7 +145,7 @@ module Diaspora
 
       def self.profile(entity, _opts)
         author_of(entity).profile.tap do |profile|
-          profile.update_attributes(
+          profile.update(
             first_name:       entity.first_name,
             last_name:        entity.last_name,
             image_url:        entity.image_url,

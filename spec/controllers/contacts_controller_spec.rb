@@ -76,7 +76,7 @@ describe ContactsController, :type => :controller do
 
           it "returns only contacts which are receiving (the user is sharing with them)" do
             contact = bob.contacts.first
-            contact.update_attributes(receiving: false)
+            contact.update(receiving: false)
 
             get :index, params: {params: {page: "1"}}, format: :json
             contact_ids = JSON.parse(response.body).map {|c| c["id"] }
@@ -88,7 +88,7 @@ describe ContactsController, :type => :controller do
         context "set: all" do
           before do
             contact = bob.contacts.first
-            contact.update_attributes(receiving: false)
+            contact.update(receiving: false)
           end
 
           it "returns all contacts (sharing and receiving)" do
