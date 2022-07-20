@@ -50,7 +50,6 @@ describe "diaspora federation callbacks" do
       expect(hcard.guid).to eq(person.guid)
       expect(hcard.nickname).to eq(person.username)
       expect(hcard.full_name).to eq("#{person.profile.first_name} #{person.profile.last_name}")
-      expect(hcard.url).to eq(AppConfig.pod_uri)
       expect(hcard.photo_large_url).to eq(person.image_url)
       expect(hcard.photo_medium_url).to eq(person.image_url(size: :thumb_medium))
       expect(hcard.photo_small_url).to eq(person.image_url(size: :thumb_small))
@@ -310,9 +309,9 @@ describe "diaspora federation callbacks" do
   describe ":queue_public_receive" do
     it "enqueues a ReceivePublic job" do
       data = "<diaspora/>"
-      expect(Workers::ReceivePublic).to receive(:perform_async).with(data, true)
+      expect(Workers::ReceivePublic).to receive(:perform_async).with(data)
 
-      DiasporaFederation.callbacks.trigger(:queue_public_receive, data, true)
+      DiasporaFederation.callbacks.trigger(:queue_public_receive, data)
     end
   end
 
@@ -325,19 +324,19 @@ describe "diaspora federation callbacks" do
     end
 
     it "enqueues a ReceivePrivate job" do
-      expect(Workers::ReceivePrivate).to receive(:perform_async).with(alice.id, data, true)
+      expect(Workers::ReceivePrivate).to receive(:perform_async).with(alice.id, data)
 
-      DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, data, true)
+      DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, data)
     end
 
     it "returns false if the no user is found" do
       person = FactoryBot.create(:person)
-      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, person.guid, data, true)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, person.guid, data)
       expect(result).to be_falsey
     end
 
     it "returns false if the no person is found" do
-      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, "2398rq3948yftn", data, true)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, "2398rq3948yftn", data)
       expect(result).to be_falsey
     end
   end

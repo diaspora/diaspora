@@ -55,10 +55,6 @@ def allow_callbacks(callbacks)
 end
 
 def create_relayable_entity(entity_name, parent, diaspora_id)
-  expect(DiasporaFederation.callbacks).to receive(:trigger).with(
-    :fetch_private_key, alice.diaspora_handle
-  ).at_least(1).times.and_return(nil) if parent == local_parent
-
   Fabricate(
     entity_name,
     parent_guid:      parent.guid,

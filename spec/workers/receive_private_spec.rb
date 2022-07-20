@@ -7,9 +7,9 @@ describe Workers::ReceivePrivate do
     rsa_key = double
 
     expect(OpenSSL::PKey::RSA).to receive(:new).with(alice.serialized_private_key).and_return(rsa_key)
-    expect(DiasporaFederation::Federation::Receiver).to receive(:receive_private).with(data, rsa_key, alice.id, true)
+    expect(DiasporaFederation::Federation::Receiver).to receive(:receive_private).with(data, rsa_key, alice.id)
 
-    Workers::ReceivePrivate.new.perform(alice.id, data, true)
+    Workers::ReceivePrivate.new.perform(alice.id, data)
   end
 
   it "filters errors that would also fail on second try" do
@@ -17,11 +17,11 @@ describe Workers::ReceivePrivate do
 
     expect(OpenSSL::PKey::RSA).to receive(:new).with(alice.serialized_private_key).and_return(rsa_key)
     expect(DiasporaFederation::Federation::Receiver).to receive(:receive_private).with(
-      data, rsa_key, alice.id, false
+      data, rsa_key, alice.id
     ).and_raise(DiasporaFederation::Salmon::InvalidSignature)
 
     expect {
-      Workers::ReceivePrivate.new.perform(alice.id, data, false)
+      Workers::ReceivePrivate.new.perform(alice.id, data)
     }.not_to raise_error
   end
 
@@ -30,11 +30,11 @@ describe Workers::ReceivePrivate do
 
     expect(OpenSSL::PKey::RSA).to receive(:new).with(alice.serialized_private_key).and_return(rsa_key)
     expect(DiasporaFederation::Federation::Receiver).to receive(:receive_private).with(
-      data, rsa_key, alice.id, false
+      data, rsa_key, alice.id
     ).and_raise(DiasporaFederation::Federation::Fetcher::NotFetchable)
 
     expect {
-      Workers::ReceivePrivate.new.perform(alice.id, data, false)
+      Workers::ReceivePrivate.new.perform(alice.id, data)
     }.to raise_error DiasporaFederation::Federation::Fetcher::NotFetchable
   end
 end
