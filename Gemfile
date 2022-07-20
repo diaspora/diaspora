@@ -240,7 +240,7 @@ group :test do
 
   # General helpers
 
-  gem "factory_bot_rails", "6.1.0"
+  gem "factory_bot_rails", "6.2.0"
   gem "shoulda-matchers",  "4.5.1"
   gem "timecop",           "0.9.5"
   gem "webmock",           "3.14.0", require: false
