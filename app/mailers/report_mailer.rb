@@ -16,7 +16,8 @@ class ReportMailer < ApplicationMailer
     person = Person.find(role.person_id)
     return unless person.local?
     user = User.find_by_id(person.owner_id)
-    return if user.user_preferences.exists?(email_type: :someone_reported)
+    return if NotificationSettingsService.new(user).email_disabled?(:someone_reported)
+
     I18n.with_locale(user.language) do
       resource[:email] = user.email
       format(resource)

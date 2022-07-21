@@ -249,10 +249,9 @@ class UsersController < ApplicationController
   end
 
   def set_email_preferences
-    @email_prefs = Hash.new(true)
-
-    @user.user_preferences.each do |pref|
-      @email_prefs[pref.email_type] = false
+    @email_prefs = @user.user_preferences.to_h do |pref|
+      [pref.email_type, pref.email_enabled]
     end
+    @email_prefs.default = true
   end
 end

@@ -17,7 +17,7 @@ module Notifications
     end
 
     def mail_job
-      if !recipient.user_preferences.exists?(email_type: "mentioned_in_comment")
+      if NotificationSettingsService.new(recipient).email_enabled?(:mentioned_in_comment)
         Workers::Mail::MentionedInComment
       elsif shareable.author.owner_id == recipient_id
         Workers::Mail::CommentOnPost

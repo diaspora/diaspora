@@ -180,20 +180,18 @@ class User < ApplicationRecord
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
-      UserPreference::VALID_EMAIL_TYPES.each{|x| self.user_preferences.find_or_create_by(email_type: x)}
+      UserPreference::VALID_EMAIL_TYPES.each do |type|
+        user_preferences.find_or_create_by(email_type: type).update(email_enabled: false)
+      end
       self.disable_mail = false
       self.save
     end
 
     pref_hash.keys.each do |key|
-      if pref_hash[key] == 'true'
-        self.user_preferences.find_or_create_by(email_type: key)
-      else
-        block = user_preferences.find_by(email_type: key)
-        if block
-          block.destroy
-        end
-      end
+      email_enabled = pref_hash[key] == "false"
+      user_preferences
+        .find_or_create_by(email_type: key)
+        .update(email_enabled: email_enabled)
     end
   end
 
@@ -354,9 +352,10 @@ class User < ApplicationRecord
   def mail(job, *args)
     return unless job.present?
     pref = job.to_s.gsub('Workers::Mail::', '').underscore
-    if(self.disable_mail == false && !self.user_preferences.exists?(:email_type => pref))
-      job.perform_async(*args)
-    end
+    email_enabled = (disable_mail == false) &&
+      NotificationSettingsService.new(self).email_enabled?(pref)
+
+    job.perform_async(*args) if email_enabled
   end
 
   def send_confirm_email
