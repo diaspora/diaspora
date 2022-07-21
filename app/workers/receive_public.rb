@@ -6,7 +6,7 @@
 
 module Workers
   class ReceivePublic < ReceiveBase
-    def perform(data)
+    def perform(data, _dummy=nil)
       filter_errors_for_retry do
         DiasporaFederation::Federation::Receiver.receive_public(data)
       end
