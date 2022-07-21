@@ -98,6 +98,10 @@ print_usage() {
       echo; echo "Show help on a command"
       print_usage_header "help COMMAND"
       ;;
+    setup-rails)
+      echo; echo "Set up development environment (install dependencies, migrate db, ...)"
+      print_usage_header "setup-rails"
+      ;;
     setup-tests)
       echo; echo "Prepare cached files and database contents for tests"
       print_usage_header "setup-tests"
@@ -150,6 +154,7 @@ print_usage_full() {
   echo "  config        Configure diaspora*"
   echo "  exec          Execute a command in the run environment (advanced)"
   echo "  help          Show help for commands"
+  echo "  setup-rails   Prepare diaspora* development environment (install dependencies, migrate db)"
   echo "  setup-tests   Prepare diaspora* test environment"
   echo
   echo "Run '$SCRIPT_NAME help COMMAND' for more information on a command."
@@ -423,12 +428,21 @@ dia_setup() {
     set -e
     dia_build $build
     dia_config $config
-    dia_bundle $bundle
-    dia_migrate $migrate
-    dia_setup_tests $setup_tests
+    dia_bundle
+    dia_setup_rails
+    dia_setup_tests
   )
   # stop db afterwards as it is not needed while dia is not running
   dia_docker_compose stop $DIASPORA_DOCKER_DB
+}
+
+dia_setup_rails() {
+  # Prepare rails, install dependencies, migrate database, ...
+  # stop db if it was not running before
+  echo "Setting up environment for tests ..."
+  if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  dia_docker_compose run --rm diaspora bin/setup
+  $stopdb
 }
 
 dia_setup_tests() {
@@ -544,6 +558,9 @@ case "$dia_command" in
     ;;
   setup)
     dia_setup "$@"
+    ;;
+  setup-rails)
+    dia_setup_rails
     ;;
   setup-tests)
     dia_setup_tests
