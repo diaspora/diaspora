@@ -15,6 +15,11 @@ Rails.application.configure do
   config.eager_load = true
   config.eager_load_paths += %W[#{config.root}/lib]
 
+  # diaspora* does not use ActiveStroage. But eager loading then loads active_storage/blob.rb,
+  # which then fails if there isn't a config/storage.yml
+  # This can be removed if we ever want to use ActiveStorage and a storage.yml exists
+  config.eager_load_namespaces.delete(ActiveStorage::Engine)
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
