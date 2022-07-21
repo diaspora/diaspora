@@ -114,7 +114,7 @@ class ConnectionTester
     raise NetFailure, e.message
   rescue Faraday::SSLError => e
     raise SSLFailure, e.message
-  rescue ArgumentError, FaradayMiddleware::RedirectLimitReached, Faraday::ClientError => e
+  rescue ArgumentError, Faraday::FollowRedirects::RedirectLimitReached, Faraday::ClientError => e
     raise HTTPFailure, e.message
   rescue StandardError => e
     unexpected_error(e)
@@ -146,7 +146,7 @@ class ConnectionTester
   def with_http_connection
     @http ||= Faraday.new(@url) do |c|
       c.use Faraday::Response::RaiseError
-      c.use FaradayMiddleware::FollowRedirects, limit: 3
+      c.use Faraday::FollowRedirects::Middleware, limit: 3
       c.adapter(Faraday.default_adapter)
       c.headers[:user_agent] = "diaspora-connection-tester"
       c.options.timeout = 12

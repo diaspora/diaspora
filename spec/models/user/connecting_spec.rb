@@ -181,7 +181,7 @@ describe User::Connecting, type: :model do
       it "delivers profile for remote persons" do
         allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
         expect(Diaspora::Federation::Dispatcher)
-          .to receive(:defer_dispatch).with(alice, alice.profile, subscriber_ids: [remote_raphael.id])
+          .to receive(:defer_dispatch).with(alice, alice.profile, {subscriber_ids: [remote_raphael.id]})
 
         alice.share_with(remote_raphael, alice.aspects.first)
       end

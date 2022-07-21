@@ -16,7 +16,6 @@ jobs:
       matrix:
         ruby:
           - 2.7
-          - 2.6
         db:
           - mysql
           - postgresql

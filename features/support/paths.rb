@@ -63,7 +63,7 @@ module NavigationHelpers
     if path.is_a?(Hash)
       visit(path[:path])
       await_elem = path[:special_elem]
-      find(await_elem.delete(:selector), await_elem)
+      find(await_elem.delete(:selector), **await_elem)
     else
       visit(path)
     end

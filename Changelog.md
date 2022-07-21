@@ -26,9 +26,10 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Enable Content-Security-Policy header by default [#7781](https://github.com/diaspora/diaspora/pull/7781)
 * Do not show getting started after account import [#8036](https://github.com/diaspora/diaspora/pull/8036)
 * Remove the JSXC/Prosody integration [#8069](https://github.com/diaspora/diaspora/pull/8069) [#8341](https://github.com/diaspora/diaspora/pull/8341)
-* Replace factory\_girl with factory\_bot [#8218](https://github.com/diaspora/diaspora/pull/8218)
+* Replace `factory_girl` with `factory_bot` [#8218](https://github.com/diaspora/diaspora/pull/8218)
 * Drop relay support [#8243](https://github.com/diaspora/diaspora/pull/8243)
 * Use yarn to manage the frontend dependencies [#8364](https://github.com/diaspora/diaspora/pull/8364)
+* Upgrade to latest `diaspora_federation`, remove support for old federation protocol [#8368](https://github.com/diaspora/diaspora/pull/8368)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)

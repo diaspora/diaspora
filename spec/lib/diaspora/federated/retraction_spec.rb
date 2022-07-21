@@ -71,7 +71,7 @@ describe Retraction do
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
         local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id],
-        "service_types" => []
+        {"service_types" => []}
       )
 
       retraction.defer_dispatch(local_luke)
@@ -87,7 +87,7 @@ describe Retraction do
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
         alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [],
-        "service_types" => ["Services::Twitter"], "tweet_id" => "123"
+        {"service_types" => ["Services::Twitter"], "tweet_id" => "123"}
       )
 
       retraction.defer_dispatch(alice)
@@ -98,7 +98,7 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [], "service_types" => []
+        alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [], {"service_types" => []}
       )
 
       retraction.defer_dispatch(alice)

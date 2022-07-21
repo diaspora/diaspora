@@ -26,7 +26,7 @@ class ReportMailer < ApplicationMailer
   private
 
   def format(resource)
-    body = I18n.t("notifier.report_email.body", resource)
+    body = I18n.t("notifier.report_email.body", **resource)
     mail(to: resource[:email], subject: I18n.t("notifier.report_email.subject", type: resource[:type])) do |format|
       format.html { render "notifier/plain_markdown_email", locals: {body: body} }
       format.text { render "notifier/plain_markdown_email", locals: {body: body} }
