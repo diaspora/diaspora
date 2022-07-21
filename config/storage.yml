@@ -1,0 +1,11 @@
+# This file is intentionally left blank.
+#
+# diaspora* does not use ActiveStroage. However, in production-mode, eager
+# loading loads app/models/active_storage/blob.rb, which sets a "load hook" on
+# its root code level (see [0]).
+#
+# That load hook checks if this file exists and raises an exception[1] if it does
+# not - even if ActiveStorage is not used.
+#
+# [0]: https://github.com/rails/rails/blob/571b4d5fb9cd254db79e93370d7b208b6d0fd1e4/activestorage/app/models/active_storage/blob.rb#L354
+# [1]: https://github.com/rails/rails/blob/571b4d5fb9cd254db79e93370d7b208b6d0fd1e4/activestorage/lib/active_storage/engine.rb#L137
