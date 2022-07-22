@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 class ConnectionTester
@@ -97,16 +96,13 @@ class ConnectionTester
   # * is the SSL certificate valid (only on HTTPS)
   # * does the server return a successful HTTP status code
   # * is there a reasonable amount of redirects (3 by default)
-  # * is there a /.well-known/host-meta (this is needed to work, this can be replaced with a mandatory NodeInfo later)
   # (can't do a HEAD request, since that's not a defined route in the app)
   #
   # @raise [NetFailure, SSLFailure, HTTPFailure] if any of the checks fail
   # @return [Integer] HTTP status code
   def request
     with_http_connection do |http|
-      capture_response_time { http.get("/") }
-      response = http.get("/.well-known/host-meta")
-      handle_http_response(response)
+      capture_response_time { handle_http_response(http.get("/")) }
     end
   rescue HTTPFailure => e
     raise e
@@ -114,8 +110,8 @@ class ConnectionTester
     raise NetFailure, e.message
   rescue Faraday::SSLError => e
     raise SSLFailure, e.message
-  rescue ArgumentError, FaradayMiddleware::RedirectLimitReached, Faraday::ClientError => e
-    raise HTTPFailure, e.message
+  rescue ArgumentError, Faraday::ClientError => e
+    raise HTTPFailure, "#{e.class}: #{e.message}"
   rescue StandardError => e
     unexpected_error(e)
   end
@@ -123,19 +119,21 @@ class ConnectionTester
   # Try to find out the version of the other servers software.
   # Assuming the server speaks nodeinfo
   #
-  # @raise [NodeInfoFailure] if the document can't be fetched
-  #   or the attempt to parse it failed
+  # @raise [HTTPFailure] if the document can't be fetched
+  # @raise [NodeInfoFailure] if the document can't be parsed or is invalid
   def nodeinfo
     with_http_connection do |http|
       ni_resp = http.get(NODEINFO_FRAGMENT)
       nd_resp = http.get(find_nodeinfo_url(ni_resp.body))
       find_software_version(nd_resp.body)
     end
+  rescue Faraday::ClientError => e
+    raise HTTPFailure, "#{e.class}: #{e.message}"
   rescue NodeInfoFailure => e
     raise e
   rescue JSON::Schema::ValidationError, JSON::Schema::SchemaError => e
     raise NodeInfoFailure, "#{e.class}: #{e.message}"
-  rescue Faraday::ResourceNotFound, JSON::JSONError => e
+  rescue JSON::JSONError => e
     raise NodeInfoFailure, e.message[0..255].encode(Encoding.default_external, undef: :replace)
   rescue StandardError => e
     unexpected_error(e)
@@ -175,14 +173,11 @@ class ConnectionTester
   def handle_http_response(response)
     @result.status_code = Integer(response.status)
 
-    if response.success?
-      raise HTTPFailure, "redirected to other hostname: #{response.env.url}" unless @uri.host == response.env.url.host
+    raise HTTPFailure, "unsuccessful response code: #{response.status}" unless response.success?
+    raise HTTPFailure, "redirected to other hostname: #{response.env.url}" unless @uri.host == response.env.url.host
 
-      @result.reachable = true
-      @result.ssl = (response.env.url.scheme == "https")
-    else
-      raise HTTPFailure, "unsuccessful response code: #{response.status}"
-    end
+    @result.reachable = true
+    @result.ssl = (response.env.url.scheme == "https")
   end
 
   # walk the JSON document, get the actual document location
