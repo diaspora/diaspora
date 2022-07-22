@@ -95,8 +95,6 @@ describe ArchiveImporter do
       before do
         stub_request(:get, %r{https*://old_pod\.nowhere/\.well-known/webfinger\?resource=acct:old_id@old_pod\.nowhere})
           .to_return(status: 404, body: "", headers: {})
-        stub_request(:get, %r{https*://old_pod\.nowhere/\.well-known/host-meta})
-          .to_return(status: 404, body: "", headers: {})
       end
 
       it "doesn't fail" do
