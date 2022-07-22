@@ -47,9 +47,8 @@ describe ConnectionTester do
   end
 
   describe "#request" do
-    it "performs a successful GET request on '/' and '/.well-known/host-meta'" do
+    it "performs a successful GET request on '/'" do
       stub_request(:get, url).to_return(status: 200, body: "Hello World!")
-      stub_request(:get, "#{url}/.well-known/host-meta").to_return(status: 200, body: "host-meta")
 
       tester.request
       expect(result.rt).to be > -1
@@ -60,27 +59,22 @@ describe ConnectionTester do
     it "receives a 'normal' 301 redirect" do
       stub_request(:get, url).to_return(status: 301, headers: {"Location" => "#{url}/redirect"})
       stub_request(:get, "#{url}/redirect").to_return(status: 200, body: "Hello World!")
-      stub_request(:get, "#{url}/.well-known/host-meta").to_return(status: 200, body: "host-meta")
 
       tester.request
     end
 
     it "updates ssl after https redirect" do
       tester = ConnectionTester.new("http://pod.example.com/", result)
-      stub_request(:get, "http://pod.example.com/").to_return(status: 200, body: "Hello World!")
-      stub_request(:get, "http://pod.example.com/.well-known/host-meta")
-        .to_return(status: 301, headers: {"Location" => "#{url}/.well-known/host-meta"})
-      stub_request(:get, "#{url}/.well-known/host-meta").to_return(status: 200, body: "host-meta")
+      stub_request(:get, "http://pod.example.com/").to_return(status: 301, headers: {"Location" => url})
+      stub_request(:get, url).to_return(status: 200, body: "Hello World!")
 
       tester.request
       expect(result.ssl).to be_truthy
     end
 
-    it "rejects other hostname after redirect redirect" do
-      stub_request(:get, url).to_return(status: 200, body: "Hello World!")
-      stub_request(:get, "#{url}/.well-known/host-meta")
-        .to_return(status: 301, headers: {"Location" => "https://example.com/.well-known/host-meta"})
-      stub_request(:get, "https://example.com/.well-known/host-meta").to_return(status: 200, body: "host-meta")
+    it "rejects other hostname after redirect" do
+      stub_request(:get, url).to_return(status: 301, headers: {"Location" => "https://example.com/"})
+      stub_request(:get, "https://example.com/").to_return(status: 200, body: "Hello World!")
 
       expect { tester.request }.to raise_error(ConnectionTester::HTTPFailure)
     end
@@ -131,10 +125,9 @@ describe ConnectionTester do
       expect(result.software_version).to eq("diaspora a.b.c.d")
     end
 
-    it "handles a missing nodeinfo document gracefully" do
-      stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
-        .to_return(status: 404, body: "Not Found")
-      expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
+    it "fails the nodeinfo document is missing" do
+      stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}").to_return(status: 404, body: "Not Found")
+      expect { tester.nodeinfo }.to raise_error(ConnectionTester::HTTPFailure)
     end
 
     it "handles a malformed document gracefully" do
