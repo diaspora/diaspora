@@ -108,10 +108,6 @@ RSpec.configure do |config|
       :get,
       "https://example.com/.well-known/webfinger?resource=acct:bob@example.com"
     )
-    stub_request(
-      :get,
-      "https://example.com/.well-known/host-meta"
-    )
     $process_queue = false
   end
 
