@@ -133,7 +133,7 @@ class ConnectionTester
     raise HTTPFailure, "#{e.class}: #{e.message}"
   rescue NodeInfoFailure => e
     raise e
-  rescue JSON::Schema::ValidationError, JSON::Schema::SchemaError => e
+  rescue JSON::Schema::ValidationError, JSON::Schema::SchemaError, Faraday::TimeoutError => e
     raise NodeInfoFailure, "#{e.class}: #{e.message}"
   rescue JSON::JSONError => e
     raise NodeInfoFailure, e.message[0..255].encode(Encoding.default_external, undef: :replace)
