@@ -250,17 +250,33 @@ describe UsersController, :type => :controller do
         context "for #{email_type}" do
           it "lets the user turn off mail" do
             par = {id: @user.id, user: {email_preferences: {email_type => "true"}}}
+
             expect {
               put :update, params: par
             }.to change(@user.user_preferences, :count).by(1)
+
+            expect(
+              @user.user_preferences.find_by(email_type: email_type)
+            ).to have_attributes(
+              email_enabled:  false,
+              in_app_enabled: true
+            )
           end
 
           it "lets the user get mail again" do
             @user.user_preferences.create(email_type: email_type)
             par = {id: @user.id, user: {email_preferences: {email_type => "false"}}}
+
             expect {
               put :update, params: par
-            }.to change(@user.user_preferences, :count).by(-1)
+            }.to change(@user.user_preferences, :count).by(0)
+
+            expect(
+              @user.user_preferences.find_by(email_type: email_type)
+            ).to have_attributes(
+              email_enabled:  true,
+              in_app_enabled: true
+            )
           end
         end
       end

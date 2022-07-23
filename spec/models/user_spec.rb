@@ -449,6 +449,37 @@ describe User, type: :model do
       @pref_count = UserPreference::VALID_EMAIL_TYPES.count
     end
 
+    it "creates records for notification preferences" do
+      expect {
+        alice.update_user_preferences(
+          "mentioned"         => "false",
+          "contacts_birthday" => "false",
+          "private_message"   => "true"
+        )
+      }.to change(alice.user_preferences, :count).by(3)
+
+      expect(
+        alice.user_preferences.find_by(email_type: "mentioned")
+      ).to have_attributes(
+        email_enabled:  true,
+        in_app_enabled: true
+      )
+
+      expect(
+        alice.user_preferences.find_by(email_type: "contacts_birthday")
+      ).to have_attributes(
+        email_enabled:  true,
+        in_app_enabled: true
+      )
+
+      expect(
+        alice.user_preferences.find_by(email_type: "private_message")
+      ).to have_attributes(
+        email_enabled:  false,
+        in_app_enabled: true
+      )
+    end
+
     it "unsets disable mail and makes the right amount of prefs" do
       alice.disable_mail = true
       expect {
@@ -459,8 +490,8 @@ describe User, type: :model do
     it "still sets new prefs to false on update" do
       alice.disable_mail = true
       expect {
-        alice.update_user_preferences({"mentioned" => false})
-      }.to change(alice.user_preferences, :count).by(@pref_count - 1)
+        alice.update_user_preferences({"mentioned" => "false"})
+      }.to change(alice.user_preferences, :count).by(@pref_count)
       expect(alice.reload.disable_mail).to be false
     end
   end
