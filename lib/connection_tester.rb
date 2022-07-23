@@ -109,7 +109,7 @@ class ConnectionTester
     raise NetFailure, e.message
   rescue Faraday::SSLError => e
     raise SSLFailure, e.message
-  rescue ArgumentError, Faraday::ClientError => e
+  rescue ArgumentError, Faraday::ClientError, Faraday::ServerError => e
     raise HTTPFailure, "#{e.class}: #{e.message}"
   rescue StandardError => e
     unexpected_error(e)
