@@ -205,6 +205,7 @@ describe NodeInfoPresenter do
           },
           "metadata"          => {
             "nodeName" => AppConfig.settings.pod_name,
+            "xmppChat" => AppConfig.chat.enabled?,
             "camo"     => {
               "markdown"   => AppConfig.privacy.camo.proxy_markdown_images?,
               "opengraph"  => AppConfig.privacy.camo.proxy_opengraph_thumbnails?,
