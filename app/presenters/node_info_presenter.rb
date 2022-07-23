@@ -29,6 +29,8 @@ class NodeInfoPresenter
 
   def add_static_data(doc)
     doc.software.name = "diaspora"
+    doc.software.repository = "https://github.com/diaspora/diaspora"
+    doc.software.homepage = "https://diasporafoundation.org/"
     doc.protocols.protocols << "diaspora"
   end
 

@@ -20,6 +20,9 @@ describe NodeInfoController do
       }, {
         "rel"  => "http://nodeinfo.diaspora.software/ns/schema/2.0",
         "href" => node_info_url("2.0")
+      }, {
+        "rel"  => "http://nodeinfo.diaspora.software/ns/schema/2.1",
+        "href" => node_info_url("2.1")
       }]
     end
   end
@@ -33,7 +36,7 @@ describe NodeInfoController do
       end
     end
 
-    %w(1.0 2.0).each do |version|
+    %w[1.0 2.0 2.1].each do |version|
       context "version #{version}" do
         it "responds to JSON" do
           get :document, params: {version: version}, format: :json
