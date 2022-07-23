@@ -106,23 +106,59 @@ describe ConnectionTester do
   end
 
   describe "#nodeinfo" do
-    let(:ni_wellknown) { {links: [{rel: ConnectionTester::NODEINFO_SCHEMA, href: "/nodeinfo"}]} }
-
-    it "reads the version from the nodeinfo document" do
-      ni_document = NodeInfo.build do |doc|
-        doc.version = "1.0"
+    def build_ni_document(version)
+      NodeInfo.build do |doc|
+        doc.version = version
         doc.open_registrations = true
         doc.protocols.protocols << "diaspora"
         doc.software.name = "diaspora"
         doc.software.version = "a.b.c.d"
       end
+    end
+
+    NodeInfo::VERSIONS.each do |version|
+      context "with version #{version}" do
+        let(:ni_wellknown) {
+          {links: [{rel: "http://nodeinfo.diaspora.software/ns/schema/#{version}", href: "/nodeinfo/#{version}"}]}
+        }
+
+        it "reads the version from the nodeinfo document" do
+          ni_document = build_ni_document(version)
+
+          stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
+            .to_return(status: 200, body: JSON.generate(ni_wellknown))
+          stub_request(:get, "#{url}/nodeinfo/#{version}")
+            .to_return(status: 200, body: JSON.generate(ni_document.as_json))
+
+          tester.nodeinfo
+          expect(result.software_version).to eq("diaspora a.b.c.d")
+        end
+      end
+    end
+
+    it "uses the latest commonly supported version" do
+      ni_wellknown = {links: [
+        {rel: "http://nodeinfo.diaspora.software/ns/schema/1.0", href: "/nodeinfo/1.0"},
+        {rel: "http://nodeinfo.diaspora.software/ns/schema/1.1", href: "/nodeinfo/1.1"},
+        {rel: "http://nodeinfo.diaspora.software/ns/schema/2.0", href: "/nodeinfo/2.0"},
+        {rel: "http://nodeinfo.diaspora.software/ns/schema/9.0", href: "/nodeinfo/9.0"}
+      ]}
+
+      ni_document = build_ni_document("2.0")
 
       stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
         .to_return(status: 200, body: JSON.generate(ni_wellknown))
-      stub_request(:get, "#{url}/nodeinfo").to_return(status: 200, body: JSON.generate(ni_document.as_json))
+      stub_request(:get, "#{url}/nodeinfo/2.0").to_return(status: 200, body: JSON.generate(ni_document.as_json))
 
       tester.nodeinfo
       expect(result.software_version).to eq("diaspora a.b.c.d")
+    end
+
+    it "handles no common version gracefully" do
+      ni_wellknown = {links: [{rel: "http://nodeinfo.diaspora.software/ns/schema/1.1", href: "/nodeinfo/1.1"}]}
+      stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
+        .to_return(status: 200, body: JSON.generate(ni_wellknown))
+      expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
     end
 
     it "fails the nodeinfo document is missing" do
@@ -137,16 +173,17 @@ describe ConnectionTester do
     end
 
     it "handles a invalid jrd document gracefully" do
-      invalid_wellknown = {links: {rel: ConnectionTester::NODEINFO_SCHEMA, href: "/nodeinfo"}}
+      invalid_wellknown = {links: {rel: "http://nodeinfo.diaspora.software/ns/schema/1.0", href: "/nodeinfo/1.0"}}
       stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
         .to_return(status: 200, body: JSON.generate(invalid_wellknown))
       expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
     end
 
     it "handles a invalid nodeinfo document gracefully" do
+      ni_wellknown = {links: [{rel: "http://nodeinfo.diaspora.software/ns/schema/1.0", href: "/nodeinfo/1.0"}]}
       stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
         .to_return(status: 200, body: JSON.generate(ni_wellknown))
-      stub_request(:get, "#{url}/nodeinfo").to_return(status: 200, body: '{"software": "invalid nodeinfo"}')
+      stub_request(:get, "#{url}/nodeinfo/1.0").to_return(status: 200, body: '{"software": "invalid nodeinfo"}')
       expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
     end
   end
