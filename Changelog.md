@@ -19,6 +19,7 @@
 
 ## Features
 * Render posts and comments as HTML in HTML mails [#8365](https://github.com/diaspora/diaspora/pull/8365)
+* Add NodeInfo 2.1 support and also read newer versions of NodeInfo [#8379](https://github.com/diaspora/diaspora/pull/8379)
 
 # 0.7.17.0
 
