@@ -39,11 +39,6 @@ module Diaspora
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 
-    # We specify CSRF protection manually in ApplicationController with
-    # protect_from_forgery - having it enabled anywhere by default breaks
-    # federation.
-    config.action_controller.default_protect_from_forgery = false
-
     # Enable the asset pipeline
     config.assets.enabled = true
 
