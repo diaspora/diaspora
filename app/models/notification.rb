@@ -53,6 +53,11 @@ class Notification < ApplicationRecord
   end
 
   private_class_method def self.suppress_notification?(recipient, actor)
-    recipient.blocks.where(person: actor).exists?
+    return true if recipient.blocks.exists?(person: actor)
+
+    pref_name = NotificationService::NOTIFICATIONS_REVERSE_JSON_TYPES[name]
+    NotificationSettingsService
+      .new(recipient)
+      .in_app_disabled?(pref_name)
   end
 end

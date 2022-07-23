@@ -13,6 +13,10 @@ class NotificationSettingsService
     notification_enabled?(notification_type, :email_enabled?)
   end
 
+  def in_app_disabled?(notfication_type)
+    !in_app_enabled?(notfication_type)
+  end
+
   def in_app_enabled?(notification_type)
     notification_enabled?(notification_type, :in_app_enabled?)
   end

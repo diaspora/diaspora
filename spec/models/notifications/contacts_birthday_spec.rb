@@ -19,5 +19,32 @@ describe Notifications::ContactsBirthday, type: :model do
 
       Notifications::ContactsBirthday.notify(contact, [])
     end
+
+    it "does not notify if the sender of the contact is ignored" do
+      alice.blocks.create(person: contact.person)
+
+      expect_any_instance_of(Notifications::ContactsBirthday).not_to receive(:email_the_user)
+
+      Notifications::ContactsBirthday.notify(contact, [])
+
+      expect(Notifications::ContactsBirthday.where(target: bob.person)).not_to exist
+    end
+
+    context "when user disabled in app notification" do
+      before do
+        alice.user_preferences.create(
+          email_type:     "contacts_birthday",
+          in_app_enabled: false
+        )
+      end
+
+      it "does not notify" do
+        expect_any_instance_of(Notifications::ContactsBirthday).not_to receive(:email_the_user)
+
+        Notifications::ContactsBirthday.notify(contact, [])
+
+        expect(Notifications::ContactsBirthday.where(target: bob.person)).not_to exist
+      end
+    end
   end
 end

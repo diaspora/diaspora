@@ -44,6 +44,23 @@ describe Notifications::MentionedInPost, type: :model do
       expect(Notifications::MentionedInPost.where(target: sm.mentions.first)).not_to exist
     end
 
+    context "when user disabled in app notification" do
+      before do
+        bob.user_preferences.create(
+          email_type:     "mentioned",
+          in_app_enabled: false
+        )
+      end
+
+      it "does not notify" do
+        expect_any_instance_of(Notifications::MentionedInPost).not_to receive(:email_the_user)
+
+        Notifications::MentionedInPost.notify(sm, [])
+
+        expect(Notifications::MentionedInPost.where(target: sm.mentions.first)).not_to exist
+      end
+    end
+
     context "with private post" do
       let(:private_sm) {
         FactoryBot.create(

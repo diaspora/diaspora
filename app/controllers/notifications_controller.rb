@@ -97,16 +97,7 @@ class NotificationsController < ApplicationController
   end
 
   def types
-    {
-      "also_commented"       => "Notifications::AlsoCommented",
-      "comment_on_post"      => "Notifications::CommentOnPost",
-      "liked"                => "Notifications::Liked",
-      "mentioned"            => "Notifications::MentionedInPost",
-      "mentioned_in_comment" => "Notifications::MentionedInComment",
-      "reshared"             => "Notifications::Reshared",
-      "started_sharing"      => "Notifications::StartedSharing",
-      "contacts_birthday"    => "Notifications::ContactsBirthday"
-    }
+    NotificationService::NOTIFICATIONS_JSON_TYPES
   end
   helper_method :types
 end
