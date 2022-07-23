@@ -6,7 +6,7 @@ require "json-schema"
 module NodeInfo
   VERSIONS = %w[1.0 2.0 2.1].freeze
   SCHEMAS = {} # rubocop:disable Style/MutableConstant
-  private_constant :VERSIONS, :SCHEMAS
+  private_constant :SCHEMAS
 
   Document = Struct.new(:version, :software, :protocols, :services, :open_registrations, :usage, :metadata) do
     # rubocop:disable Lint/ConstantDefinitionInBlock
