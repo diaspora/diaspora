@@ -179,6 +179,7 @@ class User < ApplicationRecord
   end
 
   def update_user_preferences(pref_hash)
+    # binding.pry
     if self.disable_mail
       UserPreference::VALID_EMAIL_TYPES.each do |type|
         user_preferences.find_or_create_by(email_type: type).update(email_enabled: false)
@@ -188,10 +189,11 @@ class User < ApplicationRecord
     end
 
     pref_hash.keys.each do |key|
-      email_enabled = pref_hash[key] == "false"
+      email_enabled = pref_hash[key]["mail"] == "false"
+      in_app_enabled = pref_hash[key]["in_app"] == "false"
       user_preferences
         .find_or_create_by(email_type: key)
-        .update(email_enabled: email_enabled)
+        .update(email_enabled: email_enabled, in_app_enabled: in_app_enabled)
     end
   end
 

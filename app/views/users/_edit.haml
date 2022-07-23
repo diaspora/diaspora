@@ -122,61 +122,180 @@
       .row
         .col-md-12
           %h3
-            = t(".receive_email_notifications")
+            = t(".receive_notifications")
           = form_for "user", url: edit_user_path, html: {method: :put} do |f|
             = f.fields_for :email_preferences do |type|
               #email_prefs
                 - if current_user.admin?
-                  = type.label :someone_reported, class: "checkbox-inline" do
-                    = type.check_box :someone_reported, {checked: email_prefs["someone_reported"]}, false, true
-                    = t(".someone_reported")
+                  .preference-row
+                    %i.entypo-bell.hidden-bell
 
-                .small-horizontal-spacer
+                    = type.label :someone_reported_mail, class: "icon-checkbox" do
+                      = type.check_box :someone_reported_mail,
+                          {checked: email_prefs["someone_reported"][:mail],
+                           name: "user[email_preferences][someone_reported][mail]"},
+                          false, true
+                      %i.entypo-mail
 
-                = type.label :started_sharing, class: "checkbox-inline" do
-                  = type.check_box :started_sharing, {checked: email_prefs["started_sharing"]}, false, true
-                  = t(".started_sharing")
-                .small-horizontal-spacer
+                    %span.notification-text
+                      = t(".someone_reported")
 
-                = type.label :mentioned, class: "checkbox-inline" do
-                  = type.check_box :mentioned, {checked: email_prefs["mentioned"]}, false, true
-                  = t(".mentioned")
-                .small-horizontal-spacer
+                .preference-row
+                  = type.label :started_sharing_in_app, class: "icon-checkbox" do
+                    = type.check_box :started_sharing_in_app,
+                      {checked: email_prefs["started_sharing"][:in_app],
+                       name: "user[email_preferences][started_sharing][in_app]"},
+                      false, true
+                    %i.entypo-bell
 
-                = type.label :mentioned_in_comment, class: "checkbox-inline" do
-                  = type.check_box :mentioned_in_comment, {checked: email_prefs["mentioned_in_comment"]}, false, true
-                  = t(".mentioned_in_comment")
-                .small-horizontal-spacer
+                  = type.label :started_sharing_mail, class: "icon-checkbox" do
+                    = type.check_box :started_sharing_mail,
+                      {checked: email_prefs["started_sharing"][:mail],
+                       name: "user[email_preferences][started_sharing][mail]"},
+                      false, true
+                    %i.entypo-mail
 
-                = type.label :liked, class: "checkbox-inline" do
-                  = type.check_box :liked, {checked: email_prefs["liked"]}, false, true
-                  = t(".liked")
-                .small-horizontal-spacer
+                  %span.notification-text
+                    = t(".started_sharing")
 
-                = type.label :reshared, class: "checkbox-inline" do
-                  = type.check_box :reshared, {checked: email_prefs["reshared"]}, false, true
-                  = t(".reshared")
-                .small-horizontal-spacer
+                .preference-row
+                  = type.label :mentioned_in_app, class: "icon-checkbox" do
+                    = type.check_box :mentioned_in_app,
+                      {checked: email_prefs["mentioned"][:in_app],
+                       name: "user[email_preferences][mentioned][in_app]"},
+                      false, true
+                    %i.entypo-bell
 
-                = type.label :comment_on_post, class: "checkbox-inline" do
-                  = type.check_box :comment_on_post, {checked: email_prefs["comment_on_post"]}, false, true
-                  = t(".comment_on_post")
-                .small-horizontal-spacer
+                  = type.label :mentioned_mail, class: "icon-checkbox" do
+                    = type.check_box :mentioned_mail,
+                      {checked: email_prefs["mentioned"][:mail],
+                       name: "user[email_preferences][mentioned][mail]"},
+                      false, true
+                    %i.entypo-mail
 
-                = type.label :also_commented, class: "checkbox-inline" do
-                  = type.check_box :also_commented, {checked: email_prefs["also_commented"]}, false, true
-                  = t(".also_commented")
-                .small-horizontal-spacer
+                  %span.notification-text
+                    = t(".mentioned")
 
-                = type.label :private_message, class: "checkbox-inline" do
-                  = type.check_box :private_message, {checked: email_prefs["private_message"]}, false, true
-                  = t(".private_message")
-                .small-horizontal-spacer
+                .preference-row
+                  = type.label :mentioned_in_comment_in_app, class: "icon-checkbox" do
+                    = type.check_box :mentioned_in_comment_in_app,
+                      {checked: email_prefs["mentioned_in_comment"][:in_app],
+                       name: "user[email_preferences][mentioned_in_comment][in_app]"},
+                      false, true
+                    %i.entypo-bell
 
-                = type.label :contacts_birthday, class: "checkbox-inline" do
-                  = type.check_box :contacts_birthday, {checked: email_prefs["contacts_birthday"]}, false, true
-                  = t(".birthday")
-                .small-horizontal-spacer
+                  = type.label :mentioned_in_comment_mail, class: "icon-checkbox" do
+                    = type.check_box :mentioned_in_comment_mail,
+                      {checked: email_prefs["mentioned_in_comment"][:mail],
+                        name: "user[email_preferences][mentioned_in_comment][mail]"},
+                      false, true
+                    %i.entypo-mail
+
+                  %span.notification-text
+                    = t(".mentioned_in_comment")
+
+                .preference-row
+                  = type.label :liked_in_app, class: "icon-checkbox" do
+                    = type.check_box :liked_in_app,
+                      {checked: email_prefs["liked"][:in_app],
+                       name: "user[email_preferences][liked][in_app]"},
+                      false, true
+                    %i.entypo-bell
+
+                  = type.label :liked_mail, class: "icon-checkbox" do
+                    = type.check_box :liked_mail,
+                      {checked: email_prefs["liked"][:mail],
+                       name: "user[email_preferences][liked][mail]"},
+                      false, true
+                    %i.entypo-mail
+
+                  %span.notification-text
+                    = t(".liked")
+
+                .preference-row
+                  = type.label :reshared_in_app, class: "icon-checkbox" do
+                    = type.check_box :reshared_in_app,
+                      {checked: email_prefs["reshared"][:in_app],
+                       name: "user[email_preferences][reshared][in_app]"},
+                      false, true
+                    %i.entypo-bell
+
+                  = type.label :reshared_mail, class: "icon-checkbox" do
+                    = type.check_box :reshared_mail,
+                      {checked: email_prefs["reshared"][:mail],
+                       name: "user[email_preferences][reshared][mail]"},
+                      false, true
+                    %i.entypo-mail
+
+                  %span.notification-text
+                    = t(".reshared")
+
+                .preference-row
+                  = type.label :comment_on_post_in_app, class: "icon-checkbox" do
+                    = type.check_box :comment_on_post_in_app,
+                      {checked: email_prefs["comment_on_post"][:in_app],
+                       name: "user[email_preferences][comment_on_post][in_app]"},
+                      false, true
+                    %i.entypo-bell
+
+                  = type.label :comment_on_post_mail, class: "icon-checkbox" do
+                    = type.check_box :comment_on_post_mail,
+                      {checked: email_prefs["comment_on_post"][:mail],
+                       name: "user[email_preferences][comment_on_post][mail]"},
+                      false, true
+                    %i.entypo-mail
+
+                  %span.notification-text
+                    = t(".comment_on_post")
+
+                .preference-row
+                  = type.label :also_commented_in_app, class: "icon-checkbox" do
+                    = type.check_box :also_commented_in_app,
+                      {checked: email_prefs["also_commented"][:in_app],
+                       name: "user[email_preferences][also_commented][in_app]"},
+                      false, true
+                    %i.entypo-bell
+
+                  = type.label :also_commented_mail, class: "icon-checkbox" do
+                    = type.check_box :also_commented_mail,
+                      {checked: email_prefs["also_commented"][:mail],
+                       name: "user[email_preferences][also_commented][mail]"},
+                      false, true
+                    %i.entypo-mail
+
+                  %span.notification-text
+                    = t(".also_commented")
+
+                .preference-row
+                  %i.entypo-bell.hidden-bell
+
+                  = type.label :private_message_mail, class: "icon-checkbox" do
+                    = type.check_box :private_message_mail,
+                      {checked: email_prefs["private_message"][:mail],
+                       name: "user[email_preferences][private_message][mail]"},
+                      false, true
+                    %i.entypo-mail
+
+                  %span.notification-text
+                    = t(".private_message")
+
+                .preference-row
+                  = type.label :contacts_birthday_in_app, class: "icon-checkbox" do
+                    = type.check_box :contacts_birthday_in_app,
+                      {checked: email_prefs["contacts_birthday"][:in_app],
+                       name: "user[email_preferences][contacts_birthday][in_app]"},
+                      false, true
+                    %i.entypo-bell
+
+                  = type.label :contacts_birthday_mail, class: "icon-checkbox" do
+                    = type.check_box :contacts_birthday_mail,
+                      {checked: email_prefs["contacts_birthday"][:mail],
+                       name: "user[email_preferences][contacts_birthday][mail]"},
+                      false, true
+                    %i.entypo-mail
+
+                  %span.notification-text
+                    = t(".birthday")
 
             .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right", id: "change_email_preferences"
       %hr

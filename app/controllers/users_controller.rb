@@ -137,7 +137,7 @@ class UsersController < ApplicationController
       :post_default_public,
       :exported_photos_file,
       :export,
-      email_preferences: UserPreference::VALID_EMAIL_TYPES.map(&:to_sym)
+      email_preferences: UserPreference::VALID_EMAIL_TYPES.to_h {|type| [type.to_sym, %i[mail in_app]] }
     )
   end
 
@@ -250,8 +250,16 @@ class UsersController < ApplicationController
 
   def set_email_preferences
     @email_prefs = @user.user_preferences.to_h do |pref|
-      [pref.email_type, pref.email_enabled]
+      [
+        pref.email_type, {
+          mail:   pref.email_enabled,
+          in_app: pref.in_app_enabled
+        }
+      ]
     end
-    @email_prefs.default = true
+    @email_prefs.default = {
+      mail:   true,
+      in_app: true
+    }
   end
 end

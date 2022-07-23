@@ -63,3 +63,33 @@
 .account-data h6 {
   color: $text-grey;
 }
+
+.preference-row {
+  align-items: center;
+  display: flex;
+}
+
+.icon-checkbox {
+  i {
+    color: $medium-gray;
+    cursor: pointer;
+    font-size: 32px;
+  }
+
+  [type="checkbox"] {
+    display: none;
+  }
+
+  [type="checkbox"]:checked ~ i {
+    color: $black;
+  }
+}
+
+.notification-text {
+  margin-left: 16px;
+}
+
+.hidden-bell {
+  color: transparent;
+  font-size: 32px;
+}
