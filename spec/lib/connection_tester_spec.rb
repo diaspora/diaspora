@@ -94,6 +94,11 @@ describe ConnectionTester do
       expect { tester.request }.to raise_error(ConnectionTester::HTTPFailure)
     end
 
+    it "receives a 502 bad gateway" do
+      stub_request(:get, url).to_return(status: 502, body: "Bad Gateway!")
+      expect { tester.request }.to raise_error(ConnectionTester::HTTPFailure)
+    end
+
     it "cannot connect" do
       stub_request(:get, url).to_raise(Faraday::ConnectionFailed.new("Error!"))
       expect { tester.request }.to raise_error(ConnectionTester::NetFailure)
