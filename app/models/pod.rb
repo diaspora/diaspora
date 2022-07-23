@@ -114,7 +114,7 @@ class Pod < ApplicationRecord
   def update_from_result(result)
     self.status = status_from_result(result)
     update_offline_since
-    logger.warn "OFFLINE #{result.failure_message}" if offline?
+    logger.warn "#{uri} OFFLINE: #{result.failure_message}" if offline?
 
     attributes_from_result(result)
     touch(:checked_at)
@@ -125,7 +125,7 @@ class Pod < ApplicationRecord
 
   def attributes_from_result(result)
     self.ssl ||= result.ssl
-    self.error = result.failure_message[0..254] if result.error?
+    self.error = result.error? ? result.failure_message[0..254] : nil
     self.software = result.software_version[0..254] if result.software_version.present?
     self.response_time = result.rt
   end
