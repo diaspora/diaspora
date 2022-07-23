@@ -452,9 +452,18 @@ describe User, type: :model do
     it "creates records for notification preferences" do
       expect {
         alice.update_user_preferences(
-          "mentioned"         => "false",
-          "contacts_birthday" => "false",
-          "private_message"   => "true"
+          "mentioned"         => {
+            "mail"   => "false",
+            "in_app" => "false"
+          },
+          "contacts_birthday" => {
+            "mail"   => "false",
+            "in_app" => "false"
+          },
+          "private_message"   => {
+            "mail"   => "true",
+            "in_app" => "false"
+          }
         )
       }.to change(alice.user_preferences, :count).by(3)
 
