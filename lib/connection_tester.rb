@@ -3,7 +3,6 @@
 class ConnectionTester
   include Diaspora::Logging
 
-  NODEINFO_SCHEMA   = "http://nodeinfo.diaspora.software/ns/schema/1.0"
   NODEINFO_FRAGMENT = "/.well-known/nodeinfo"
 
   class << self
@@ -124,8 +123,11 @@ class ConnectionTester
   def nodeinfo
     with_http_connection do |http|
       ni_resp = http.get(NODEINFO_FRAGMENT)
-      nd_resp = http.get(find_nodeinfo_url(ni_resp.body))
-      find_software_version(nd_resp.body)
+      ni_urls = find_nodeinfo_urls(ni_resp.body)
+      raise NodeInfoFailure, "No supported NodeInfo version found" if ni_urls.empty?
+
+      version, url = ni_urls.max
+      find_software_version(version, http.get(url).body)
     end
   rescue Faraday::ClientError => e
     raise HTTPFailure, "#{e.class}: #{e.message}"
@@ -180,20 +182,23 @@ class ConnectionTester
     @result.ssl = (response.env.url.scheme == "https")
   end
 
-  # walk the JSON document, get the actual document location
-  def find_nodeinfo_url(body)
+  # walk the JSON document, get the actual document locations
+  def find_nodeinfo_urls(body)
     jrd = JSON.parse(body)
     links = jrd.fetch("links")
     raise NodeInfoFailure, "invalid JRD: '#/links' is not an array!" unless links.is_a?(Array)
-    links.find { |entry|
-      entry.fetch("rel") == NODEINFO_SCHEMA
-    }.fetch("href")
+
+    supported_rel_map = NodeInfo::VERSIONS.index_by {|v| "http://nodeinfo.diaspora.software/ns/schema/#{v}" }
+    links.map {|entry|
+      version = supported_rel_map[entry.fetch("rel")]
+      [version, entry.fetch("href")] if version
+    }.compact.to_h
   end
 
   # walk the JSON document, find the version string
-  def find_software_version(body)
+  def find_software_version(version, body)
     info = JSON.parse(body)
-    JSON::Validator.validate!(NodeInfo.schema("1.0"), info)
+    JSON::Validator.validate!(NodeInfo.schema(version), info)
     sw = info.fetch("software")
     @result.software_version = "#{sw.fetch('name')} #{sw.fetch('version')}"
   end

@@ -171,5 +171,36 @@ describe NodeInfoPresenter do
         )
       end
     end
+
+    context "version 2.1" do
+      it "provides generic pod data in json" do
+        expect(NodeInfoPresenter.new("2.1").as_json.as_json).to eq(
+          "version"           => "2.1",
+          "software"          => {
+            "name"       => "diaspora",
+            "version"    => AppConfig.version_string,
+            "repository" => "https://github.com/diaspora/diaspora",
+            "homepage"   => "https://diasporafoundation.org/"
+          },
+          "protocols"         => ["diaspora"],
+          "services"          => {
+            "inbound"  => [],
+            "outbound" => AppConfig.configured_services.map(&:to_s)
+          },
+          "openRegistrations" => AppConfig.settings.enable_registrations?,
+          "usage"             => {
+            "users" => {}
+          },
+          "metadata"          => {
+            "nodeName" => AppConfig.settings.pod_name,
+            "camo"     => {
+              "markdown"   => AppConfig.privacy.camo.proxy_markdown_images?,
+              "opengraph"  => AppConfig.privacy.camo.proxy_opengraph_thumbnails?,
+              "remotePods" => AppConfig.privacy.camo.proxy_remote_pod_images?
+            }
+          }
+        )
+      end
+    end
   end
 end
