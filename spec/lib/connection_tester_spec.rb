@@ -172,6 +172,14 @@ describe ConnectionTester do
       expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
     end
 
+    it "handles timeout gracefully" do
+      ni_wellknown = {links: [{rel: "http://nodeinfo.diaspora.software/ns/schema/1.0", href: "/nodeinfo/1.0"}]}
+      stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
+        .to_return(status: 200, body: JSON.generate(ni_wellknown))
+      stub_request(:get, "#{url}/nodeinfo/1.0").to_raise(Faraday::TimeoutError.new)
+      expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
+    end
+
     it "handles a invalid jrd document gracefully" do
       invalid_wellknown = {links: {rel: "http://nodeinfo.diaspora.software/ns/schema/1.0", href: "/nodeinfo/1.0"}}
       stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
