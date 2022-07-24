@@ -143,31 +143,28 @@ describe Pod, type: :model do
   describe "#test_connection!" do
     before do
       @pod = FactoryBot.create(:pod)
-      @result = double("result")
       @now = Time.zone.now
 
-      allow(@result).to receive(:rt) { 123 }
-      allow(@result).to receive(:software_version) { "diaspora a.b.c.d" }
-      allow(@result).to receive(:failure_message) { "hello error!" }
+      @result = ConnectionTester::Result.new
+      @result.rt = 123
+      @result.software_version = "diaspora a.b.c.d"
+      @result.error = ConnectionTester::NetFailure.new("hello error!")
 
       expect(ConnectionTester).to receive(:check).at_least(:once).and_return(@result)
     end
 
     it "updates the connectivity values" do
-      allow(@result).to receive(:error)
-      allow(@result).to receive(:error?)
+      @result.error = nil
       @pod.test_connection!
 
       expect(@pod.status).to eq("no_errors")
-      expect(@pod.offline?).to be_falsy
+      expect(@pod.offline?).to be_falsey
       expect(@pod.response_time).to eq(123)
       expect(@pod.checked_at).to be_within(1.second).of @now
     end
 
     it "resets the scheduled_check flag" do
-      allow(@result).to receive(:error)
-      allow(@result).to receive(:error?)
-      @pod.update_column(:scheduled_check, true)
+      @pod.update(scheduled_check: true)
 
       @pod.test_connection!
 
@@ -175,17 +172,22 @@ describe Pod, type: :model do
     end
 
     it "handles a failed check" do
-      expect(@result).to receive(:error?).at_least(:once) { true }
-      expect(@result).to receive(:error).at_least(:once) { ConnectionTester::NetFailure.new }
       @pod.test_connection!
 
       expect(@pod.offline?).to be_truthy
       expect(@pod.offline_since).to be_within(1.second).of @now
     end
 
+    it "removes the error message when there was no error" do
+      @pod.update(error: "old error message")
+
+      @result.error = nil
+      @pod.test_connection!
+
+      expect(@pod.error).to be_nil
+    end
+
     it "preserves the original offline timestamp" do
-      expect(@result).to receive(:error?).at_least(:once) { true }
-      expect(@result).to receive(:error).at_least(:once) { ConnectionTester::NetFailure.new }
       @pod.test_connection!
 
       expect(@pod.offline_since).to be_within(1.second).of @now

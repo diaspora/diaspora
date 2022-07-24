@@ -94,6 +94,11 @@ describe ConnectionTester do
       expect { tester.request }.to raise_error(ConnectionTester::HTTPFailure)
     end
 
+    it "receives a 502 bad gateway" do
+      stub_request(:get, url).to_return(status: 502, body: "Bad Gateway!")
+      expect { tester.request }.to raise_error(ConnectionTester::HTTPFailure)
+    end
+
     it "cannot connect" do
       stub_request(:get, url).to_raise(Faraday::ConnectionFailed.new("Error!"))
       expect { tester.request }.to raise_error(ConnectionTester::NetFailure)
@@ -169,6 +174,14 @@ describe ConnectionTester do
     it "handles a malformed document gracefully" do
       stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
         .to_return(status: 200, body: '{"json"::::"malformed"}')
+      expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
+    end
+
+    it "handles timeout gracefully" do
+      ni_wellknown = {links: [{rel: "http://nodeinfo.diaspora.software/ns/schema/1.0", href: "/nodeinfo/1.0"}]}
+      stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
+        .to_return(status: 200, body: JSON.generate(ni_wellknown))
+      stub_request(:get, "#{url}/nodeinfo/1.0").to_raise(Faraday::TimeoutError.new)
       expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
     end
 
