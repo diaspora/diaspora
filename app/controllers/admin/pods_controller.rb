@@ -14,7 +14,8 @@ module Admin
           gon.unchecked_count = Pod.unchecked.count
           gon.version_failed_count = Pod.version_failed.count
           gon.error_count = Pod.check_failed.count
-
+          gon.active_count = Pod.active.count
+          gon.total_count = Pod.count
           render "admins/pods"
         end
         format.mobile { render "admins/pods" }
