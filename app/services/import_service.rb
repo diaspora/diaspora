@@ -3,30 +3,35 @@
 class ImportService
   include Diaspora::Logging
 
-  def import_by_user(user_name, import_parameters)
+  def import_by_user(user, import_parameters)
     profile_path = import_parameters["profile_path"]
     photos_path = import_parameters["photos_path"]
 
-    import_by_files(profile_path, photos_path, user_name)
+    import_by_files(user, profile_path, photos_path)
   end
 
-  def import_by_files(path_to_profile, path_to_photos, username, opts={})
-    user = User.find_by(username: username)
-    raise ArgumentError, "Username #{username} should exist before uploading photos." if user.nil?
+  def import_by_files(user, path_to_profile, path_to_photos, opts={})
+    import_profile_if_present(opts, path_to_photos, path_to_profile, user.username)
 
-    if path_to_profile.present?
-      logger.info "Import for profile #{username} at path #{path_to_profile} requested"
-      import_user_profile(path_to_profile, username, opts.merge(photo_migration: path_to_photos.present?))
-    end
-
-    if path_to_photos.present?
-      logger.info("Importing photos from import file for '#{username}' from #{path_to_photos}")
-      import_user_photos(user, path_to_photos)
-    end
+    import_photos_if_present(path_to_photos, user)
     remove_import_files(path_to_profile, path_to_photos)
   end
 
   private
+
+  def import_photos_if_present(path_to_photos, user)
+    if path_to_photos.present?
+      logger.info("Importing photos from import file for '#{user.username}' from #{path_to_photos}")
+      import_user_photos(user, path_to_photos)
+    end
+  end
+
+  def import_profile_if_present(opts, path_to_photos, path_to_profile, username)
+    return if path_to_profile.blank?
+
+    logger.info "Import for profile #{username} at path #{path_to_profile} requested"
+    import_user_profile(path_to_profile, username, opts.merge(photo_migration: path_to_photos.present?))
+  end
 
   def import_user_profile(path_to_profile, username, opts)
     raise ArgumentError, "Profile file not found at path: #{path_to_profile}" unless File.exist?(path_to_profile)

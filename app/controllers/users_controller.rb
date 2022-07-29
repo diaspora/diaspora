@@ -252,7 +252,7 @@ class UsersController < ApplicationController
   end
 
   def copy_import_file(tmp_file)
-    return if tmp_file.empty?
+    return if tmp_file.blank?
 
     file_path_to_save_to = Rails.root.join("public", "uploads", "users",
                                            "#{current_user.username}_#{tmp_file.original_filename}")

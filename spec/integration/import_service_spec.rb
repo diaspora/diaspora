@@ -20,7 +20,7 @@ describe ImportService do
     it "imports the photo with the same name" do
       old_random_string = photo.random_string
 
-      inlined_jobs { ImportService.new.import_by_files(nil, photo_archive.current_path, user.username) }
+      inlined_jobs { ImportService.new.import_by_files(user, nil, photo_archive.current_path) }
 
       imported_photo = photo.reload
       expect(imported_photo.random_string).to include(old_random_string)
@@ -46,7 +46,7 @@ describe ImportService do
         dispatcher
       end
 
-      inlined_jobs { ImportService.new.import_by_files(nil, photo_archive_path, user.username) }
+      inlined_jobs { ImportService.new.import_by_files(user, nil, photo_archive_path) }
 
       imported_photo = photo.reload
       new_random_string = imported_photo.random_string
