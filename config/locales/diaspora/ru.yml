@@ -1214,6 +1214,19 @@ ru:
         one: "%{count} человек с меткой %{tag}"
         other: "%{count} человек с меткой %{tag}"
         zero: "Нет ни одного человека с меткой %{tag}"
+  two_factor_auth:
+    activated:
+      change_button: "Отключить"
+      status: "Двухфакторная аутентификация установлена"
+    confirm:
+      activate_button: "Подтвердить и установить"
+      scan_title: "Сканировать QR код"
+      title: "Подтвердить установку"
+    deactivated:
+      change_button: "Включить"
+      change_label: "Установить двухфакторную аутентификацию"
+      status: "Двухфакторная аутентификация не установлена"
+    title: "Двухфакторная аутентификация"
   username: "Имя пользователя"
   users:
     confirm_email:
