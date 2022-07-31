@@ -833,7 +833,7 @@ de:
     contacts_birthday:
       birthday: "%{name} hat heute Geburtstag. Wünsche doch 'Happy Birthday'!"
       subject: "%{name} hat heute Geburtstag"
-      view_profile: "Profil von %{name} anzeigen"
+      view_profile: "Profil von %{name} anzeigen >"
     csrf_token_fail:
       body: |-
           Hallo %{name},
@@ -872,8 +872,8 @@ de:
       body: |-
           Hallo %{name},
 
-          Es trat ein Fehler beim Verarbeiten deiner Daten auf.
-          Bitte versuche es noch einmal!
+          Es trat ein Fehler beim Verarbeiten deiner Daten zum Herunterladen auf.
+          Falls das Problem weiter besteht, kontaktiere bitte deinen Podmin, um Hilfe zu erhalten.
 
           Entschuldige bitte,
 
@@ -894,7 +894,7 @@ de:
           Hallo %{name},
 
           Beim Verarbeiten deiner Fotos zum Herunterladen ist ein Problem aufgetreten.
-          Bitte versuche es noch einmal!
+          Falls das Problem weiter besteht, kontaktiere bitte deinen Podmin, um Hilfe zu erhalten.
 
           Entschuldigung,
 
@@ -983,7 +983,7 @@ de:
     started_sharing:
       sharing: "hat angefangen mit dir zu teilen!"
       subject: "%{name} hat angefangen auf diaspora* mit dir zu teilen"
-      view_profile: "Schau dir %{name}s Profil an"
+      view_profile: "Schau dir %{name}s Profil an >"
     thanks: "Danke,"
     to_change_your_notification_settings: "um deine Benachrichtigungs-Einstellungen zu ändern"
   nsfw: "NSFW (unpassend für den Arbeitsplatz)"
