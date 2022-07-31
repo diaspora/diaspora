@@ -43,6 +43,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Allow podmins/moderators to see all local public posts to improve moderation [#8232](https://github.com/diaspora/diaspora/pull/8232) [#8320](https://github.com/diaspora/diaspora/pull/8320)
 * Add support for directly paste images to upload them [#8237](https://github.com/diaspora/diaspora/pull/8237)
 * Add support for webp images and convert new png/jpg to webp to save space and bandwidth [#8358](https://github.com/diaspora/diaspora/pull/8358)
+* Show total and active pods count in the pods list for podmins [#8383](https://github.com/diaspora/diaspora/pull/8383)
 
 # 0.7.18.0
 
