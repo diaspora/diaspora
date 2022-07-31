@@ -438,8 +438,6 @@ describe MigrationService do
         expect(DiasporaFederation::Discovery::Discovery).to receive(:new).with(archive_author).and_call_original
         stub_request(:get, "https://#{old_pod_hostname}/.well-known/webfinger?resource=acct:#{archive_author}")
           .to_return(status: 404)
-        stub_request(:get, %r{https*://#{old_pod_hostname}/\.well-known/host-meta})
-          .to_return(status: 404)
 
         expect_relayable_parent_fetch(archive_author, existing_subscription_guid)
           .and_raise(DiasporaFederation::Federation::Fetcher::NotFetchable)

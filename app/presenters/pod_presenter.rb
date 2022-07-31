@@ -10,6 +10,7 @@ class PodPresenter < BasePresenter
       status:        status,
       checked_at:    checked_at,
       response_time: response_time,
+      active:        active?,
       offline:       offline?,
       offline_since: offline_since,
       created_at:    created_at,

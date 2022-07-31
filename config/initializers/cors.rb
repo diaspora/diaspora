@@ -11,7 +11,6 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins "*"
     resource "/api/*", methods: :any
-    resource "/.well-known/host-meta"
     resource "/.well-known/webfinger"
     resource "/.well-known/openid-configuration"
   end

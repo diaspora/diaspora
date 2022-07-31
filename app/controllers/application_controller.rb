@@ -7,7 +7,6 @@
 class ApplicationController < ActionController::Base
   before_action :force_tablet_html
   has_mobile_fu
-  protect_from_forgery except: :receive, with: :exception, prepend: true
 
   rescue_from ActionController::InvalidAuthenticityToken do
     if user_signed_in?

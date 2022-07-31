@@ -4,13 +4,13 @@ require "pathname"
 require "json-schema"
 
 module NodeInfo
-  VERSIONS = %w(1.0 2.0).freeze
-  SCHEMAS = {}
-  private_constant :VERSIONS, :SCHEMAS
+  VERSIONS = %w[1.0 2.0 2.1].freeze
+  SCHEMAS = {} # rubocop:disable Style/MutableConstant
+  private_constant :SCHEMAS
 
-  # rubocop:disable Metrics/BlockLength
   Document = Struct.new(:version, :software, :protocols, :services, :open_registrations, :usage, :metadata) do
-    Software = Struct.new(:name, :version) do
+    # rubocop:disable Lint/ConstantDefinitionInBlock
+    Software = Struct.new(:name, :version, :repository, :homepage) do
       def initialize(name=nil, version=nil)
         super(name, version)
       end
@@ -20,6 +20,13 @@ module NodeInfo
           "name"    => name,
           "version" => version
         }
+      end
+
+      def version_21_hash
+        version_10_hash.merge(
+          "repository" => repository,
+          "homepage"   => homepage
+        )
       end
     end
 
@@ -80,6 +87,7 @@ module NodeInfo
         }
       end
     end
+    # rubocop:enable Lint/ConstantDefinitionInBlock
 
     def self.build
       new.tap do |doc|
@@ -98,6 +106,8 @@ module NodeInfo
         version_10_hash
       when "2.0"
         version_20_hash
+      when "2.1"
+        version_21_hash
       end
     end
 
@@ -144,6 +154,18 @@ module NodeInfo
       )
     end
 
+    def version_21_hash
+      deep_compact(
+        "version"           => "2.1",
+        "software"          => software.version_21_hash,
+        "protocols"         => protocols.version_20_array,
+        "services"          => services.version_10_hash,
+        "openRegistrations" => open_registrations,
+        "usage"             => usage.version_10_hash,
+        "metadata"          => metadata
+      )
+    end
+
     def deep_compact(hash)
       hash.tap do |hash|
         hash.reject! {|_, value|
@@ -153,7 +175,6 @@ module NodeInfo
       end
     end
   end
-  # rubocop:enable Metrics/BlockLength
 
   def self.schema(version)
     SCHEMAS[version] ||= JSON.parse(

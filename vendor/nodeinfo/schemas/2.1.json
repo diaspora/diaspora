@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://nodeinfo.diaspora.software/ns/schema/2.0#",
-  "description": "NodeInfo schema version 2.0.",
+  "id": "http://nodeinfo.diaspora.software/ns/schema/2.1#",
+  "description": "NodeInfo schema version 2.1.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,9 +15,9 @@
   ],
   "properties": {
     "version": {
-      "description": "The schema version, must be 2.0.",
+      "description": "The schema version, must be 2.1.",
       "enum": [
-        "2.0"
+        "2.1"
       ]
     },
     "software": {
@@ -36,6 +36,14 @@
         },
         "version": {
           "description": "The version of this server software.",
+          "type": "string"
+        },
+        "repository": {
+          "description": "The url of the source code repository of this server software.",
+          "type": "string"
+        },
+        "homepage": {
+          "description": "The url of the homepage of this server software.",
           "type": "string"
         }
       }

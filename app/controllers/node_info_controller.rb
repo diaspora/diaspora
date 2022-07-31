@@ -20,4 +20,14 @@ class NodeInfoController < ApplicationController
       format.all { @statistics = NodeInfoPresenter.new("1.0") }
     end
   end
+
+  # TODO: this is only a dummy endpoint, because old versions of the ConnectionTester (<= 0.7.17.0)
+  #  checked for this endpoint. Remove this endpoint again once most pods are updated to >= 0.7.18.0
+  def host_meta
+    render xml: <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
+      </XRD>
+    XML
+  end
 end

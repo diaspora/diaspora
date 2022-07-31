@@ -78,8 +78,11 @@ print_usage() {
       ;;
     bundle)
       echo; echo "Install gems using bundle into $DIASPORA_ROOT"
-      print_usage_header "bundle [options]" \
-        "-d    Run in background"
+      print_usage_header "bundle"
+      ;;
+    yarn)
+      echo; echo "Install frontend dependencies using yarn into $DIASPORA_ROOT"
+      print_usage_header "yarn"
       ;;
     config)
       echo; echo "Create basic configuration files for usage with PostgreSQL (default)"
@@ -97,6 +100,10 @@ print_usage() {
     help)
       echo; echo "Show help on a command"
       print_usage_header "help COMMAND"
+      ;;
+    setup-rails)
+      echo; echo "Set up development environment (install dependencies, migrate db, ...)"
+      print_usage_header "setup-rails"
       ;;
     setup-tests)
       echo; echo "Prepare cached files and database contents for tests"
@@ -147,9 +154,11 @@ print_usage_full() {
   echo "Misc. Commands:"
   echo "  build         Build basic diaspora* environment"
   echo "  bundle        (Re-)Install gems for diaspora*"
+  echo "  yarn          (Re-)Install frontend dependencies for diaspora*"
   echo "  config        Configure diaspora*"
   echo "  exec          Execute a command in the run environment (advanced)"
   echo "  help          Show help for commands"
+  echo "  setup-rails   Prepare diaspora* development environment (install dependencies, migrate db)"
   echo "  setup-tests   Prepare diaspora* test environment"
   echo
   echo "Run '$SCRIPT_NAME help COMMAND' for more information on a command."
@@ -218,10 +227,17 @@ dia_bundle() {
   echo "Installing gems via bundler ..."
   dia_docker_compose run \
     --rm \
-    --no-deps $1 \
+    --no-deps \
     -e DIA_NODB=1 \
     diaspora \
     /bin/sh -c "gem install bundler && script/configure_bundler && bin/bundle install --full-index"
+}
+
+dia_yarn() {
+  # Run yarn in order to install all frontend dependencies into $DIASPORA_ROOT
+  # Do not start database, not required and sometimes not yet configured
+  echo "Installing frontend dependencies via yarn ..."
+  dia_docker_compose run --rm --no-deps -e DIA_NODB=1 diaspora bin/yarn
 }
 
 dia_clean() {
@@ -423,12 +439,21 @@ dia_setup() {
     set -e
     dia_build $build
     dia_config $config
-    dia_bundle $bundle
-    dia_migrate $migrate
-    dia_setup_tests $setup_tests
+    dia_bundle
+    dia_setup_rails
+    dia_setup_tests
   )
   # stop db afterwards as it is not needed while dia is not running
   dia_docker_compose stop $DIASPORA_DOCKER_DB
+}
+
+dia_setup_rails() {
+  # Prepare rails, install dependencies, migrate database, ...
+  # stop db if it was not running before
+  echo "Setting up environment for tests ..."
+  if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  dia_docker_compose run --rm diaspora bin/setup
+  $stopdb
 }
 
 dia_setup_tests() {
@@ -510,7 +535,7 @@ case "$dia_command" in
     dia_build "$@"
     ;;
   bundle)
-    dia_bundle "$1"
+    dia_bundle
     ;;
   clean)
     dia_clean "$@"
@@ -545,6 +570,9 @@ case "$dia_command" in
   setup)
     dia_setup "$@"
     ;;
+  setup-rails)
+    dia_setup_rails
+    ;;
   setup-tests)
     dia_setup_tests
     ;;
@@ -556,6 +584,9 @@ case "$dia_command" in
     ;;
   stop)
     dia_stop
+    ;;
+  yarn)
+    dia_yarn
     ;;
   *)
     print_usage

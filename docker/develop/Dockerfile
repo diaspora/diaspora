@@ -1,4 +1,4 @@
-FROM ruby:2.7-slim-buster
+FROM ruby:2.7-slim-bullseye
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
@@ -12,7 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
         libcurl4-openssl-dev \
         libidn11-dev \
         libmagickwand-dev \
-        libmariadbclient-dev \
+        libmariadb-dev-compat \
         libpq-dev \
         libssl-dev \
         libxml2-dev \
