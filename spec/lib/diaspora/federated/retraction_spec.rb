@@ -70,7 +70,8 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, "Retraction", federation_retraction.to_h, [remote_raphael.id], service_types: []
+        local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id],
+        "service_types" => []
       )
 
       retraction.defer_dispatch(local_luke)
@@ -85,7 +86,8 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        alice.id, "Retraction", federation_retraction.to_h, [], service_types: ["Services::Twitter"], tweet_id: "123"
+        alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [],
+        "service_types" => ["Services::Twitter"], "tweet_id" => "123"
       )
 
       retraction.defer_dispatch(alice)
@@ -96,7 +98,7 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        alice.id, "Retraction", federation_retraction.to_h, [], service_types: []
+        alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [], "service_types" => []
       )
 
       retraction.defer_dispatch(alice)
@@ -109,7 +111,7 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, "Retraction", federation_retraction.to_h, [remote_raphael.id], {}
+        local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id], {}
       )
 
       retraction.defer_dispatch(local_luke)
@@ -124,7 +126,7 @@ describe Retraction do
         federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
         expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-          local_luke.id, "Retraction", federation_retraction.to_h, [remote_raphael.id], {}
+          local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id], {}
         )
 
         retraction.defer_dispatch(local_luke)
@@ -135,7 +137,7 @@ describe Retraction do
         federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
         expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-          local_luke.id, "Retraction", federation_retraction.to_h, [], {}
+          local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [], {}
         )
 
         retraction.defer_dispatch(local_luke, false)

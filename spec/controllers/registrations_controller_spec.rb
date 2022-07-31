@@ -49,7 +49,7 @@ describe RegistrationsController, type: :controller do
 
     it "does redirect if there are no invites available with this code" do
       code = InvitationCode.create(user: bob)
-      code.update_attributes(count: 0)
+      code.update(count: 0)
 
       get :new, params: {invite: {token: code.token}}
       expect(response).to redirect_to registrations_closed_path
@@ -67,7 +67,7 @@ describe RegistrationsController, type: :controller do
       AppConfig.settings.enable_registrations = true
 
       code = InvitationCode.create(user: bob)
-      code.update_attributes(count: 0)
+      code.update(count: 0)
 
       get :new, params: {invite: {token: code.token}}
       expect(response).not_to be_redirect

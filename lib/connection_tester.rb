@@ -1,10 +1,8 @@
-
 # frozen_string_literal: true
 
 class ConnectionTester
   include Diaspora::Logging
 
-  NODEINFO_SCHEMA   = "http://nodeinfo.diaspora.software/ns/schema/1.0"
   NODEINFO_FRAGMENT = "/.well-known/nodeinfo"
 
   class << self
@@ -97,16 +95,13 @@ class ConnectionTester
   # * is the SSL certificate valid (only on HTTPS)
   # * does the server return a successful HTTP status code
   # * is there a reasonable amount of redirects (3 by default)
-  # * is there a /.well-known/host-meta (this is needed to work, this can be replaced with a mandatory NodeInfo later)
   # (can't do a HEAD request, since that's not a defined route in the app)
   #
   # @raise [NetFailure, SSLFailure, HTTPFailure] if any of the checks fail
   # @return [Integer] HTTP status code
   def request
     with_http_connection do |http|
-      capture_response_time { http.get("/") }
-      response = http.get("/.well-known/host-meta")
-      handle_http_response(response)
+      capture_response_time { handle_http_response(http.get("/")) }
     end
   rescue HTTPFailure => e
     raise e
@@ -114,8 +109,8 @@ class ConnectionTester
     raise NetFailure, e.message
   rescue Faraday::SSLError => e
     raise SSLFailure, e.message
-  rescue ArgumentError, FaradayMiddleware::RedirectLimitReached, Faraday::ClientError => e
-    raise HTTPFailure, e.message
+  rescue ArgumentError, Faraday::ClientError, Faraday::ServerError => e
+    raise HTTPFailure, "#{e.class}: #{e.message}"
   rescue StandardError => e
     unexpected_error(e)
   end
@@ -123,20 +118,25 @@ class ConnectionTester
   # Try to find out the version of the other servers software.
   # Assuming the server speaks nodeinfo
   #
-  # @raise [NodeInfoFailure] if the document can't be fetched
-  #   or the attempt to parse it failed
+  # @raise [HTTPFailure] if the document can't be fetched
+  # @raise [NodeInfoFailure] if the document can't be parsed or is invalid
   def nodeinfo
     with_http_connection do |http|
       ni_resp = http.get(NODEINFO_FRAGMENT)
-      nd_resp = http.get(find_nodeinfo_url(ni_resp.body))
-      find_software_version(nd_resp.body)
+      ni_urls = find_nodeinfo_urls(ni_resp.body)
+      raise NodeInfoFailure, "No supported NodeInfo version found" if ni_urls.empty?
+
+      version, url = ni_urls.max
+      find_software_version(version, http.get(url).body)
     end
   rescue NodeInfoFailure => e
     raise e
-  rescue JSON::Schema::ValidationError, JSON::Schema::SchemaError => e
+  rescue JSON::Schema::ValidationError, JSON::Schema::SchemaError, Faraday::TimeoutError => e
     raise NodeInfoFailure, "#{e.class}: #{e.message}"
-  rescue Faraday::ResourceNotFound, JSON::JSONError => e
+  rescue JSON::JSONError => e
     raise NodeInfoFailure, e.message[0..255].encode(Encoding.default_external, undef: :replace)
+  rescue Faraday::ClientError => e
+    raise HTTPFailure, "#{e.class}: #{e.message}"
   rescue StandardError => e
     unexpected_error(e)
   end
@@ -175,30 +175,30 @@ class ConnectionTester
   def handle_http_response(response)
     @result.status_code = Integer(response.status)
 
-    if response.success?
-      raise HTTPFailure, "redirected to other hostname: #{response.env.url}" unless @uri.host == response.env.url.host
+    raise HTTPFailure, "unsuccessful response code: #{response.status}" unless response.success?
+    raise HTTPFailure, "redirected to other hostname: #{response.env.url}" unless @uri.host == response.env.url.host
 
-      @result.reachable = true
-      @result.ssl = (response.env.url.scheme == "https")
-    else
-      raise HTTPFailure, "unsuccessful response code: #{response.status}"
-    end
+    @result.reachable = true
+    @result.ssl = (response.env.url.scheme == "https")
   end
 
-  # walk the JSON document, get the actual document location
-  def find_nodeinfo_url(body)
+  # walk the JSON document, get the actual document locations
+  def find_nodeinfo_urls(body)
     jrd = JSON.parse(body)
     links = jrd.fetch("links")
     raise NodeInfoFailure, "invalid JRD: '#/links' is not an array!" unless links.is_a?(Array)
-    links.find { |entry|
-      entry.fetch("rel") == NODEINFO_SCHEMA
-    }.fetch("href")
+
+    supported_rel_map = NodeInfo::VERSIONS.index_by {|v| "http://nodeinfo.diaspora.software/ns/schema/#{v}" }
+    links.map {|entry|
+      version = supported_rel_map[entry.fetch("rel")]
+      [version, entry.fetch("href")] if version
+    }.compact.to_h
   end
 
   # walk the JSON document, find the version string
-  def find_software_version(body)
+  def find_software_version(version, body)
     info = JSON.parse(body)
-    JSON::Validator.validate!(NodeInfo.schema("1.0"), info)
+    JSON::Validator.validate!(NodeInfo.schema(version), info)
     sw = info.fetch("software")
     @result.software_version = "#{sw.fetch('name')} #{sw.fetch('version')}"
   end

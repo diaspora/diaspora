@@ -1,5 +1,6 @@
 describe("app.views.SinglePostInteractions", function() {
   beforeEach(function() {
+    loginAs({name: "alice", avatar: {small: "http://avatar.com/photo.jpg"}});
     this.post = factory.post();
     this.view = new app.views.SinglePostInteractions({model: this.post});
   });

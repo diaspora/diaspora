@@ -98,8 +98,8 @@ describe AspectsController, :type => :controller do
 
   describe "update_order" do
     it "updates the aspect order" do
-      @alices_aspect_1.update_attributes(order_id: 10)
-      @alices_aspect_2.update_attributes(order_id: 20)
+      @alices_aspect_1.update(order_id: 10)
+      @alices_aspect_2.update(order_id: 20)
       ordered_aspect_ids = [@alices_aspect_2.id, @alices_aspect_1.id]
 
       put :update_order, params: {ordered_aspect_ids: ordered_aspect_ids}

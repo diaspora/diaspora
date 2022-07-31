@@ -240,7 +240,7 @@ es:
           name: "Etiquetas (Escritura)"
         ? "tags:read"
         :
-          description: "Concede permiso de solo-lectura a las etiquetas que sigues y entradas de etiquetas."
+          description: "Concede permiso de solo lectura a las etiquetas que sigues y entradas de etiquetas."
           name: "Etiquetas (Solo lectura)"
       user_applications:
         index:

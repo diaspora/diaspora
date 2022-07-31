@@ -112,4 +112,4 @@ end
 # the logging gem is no-op. See: https://github.com/TwP/logging/issues/11
 Logging::Logger.send :alias_method, :local_level, :level
 Logging::Logger.send :alias_method, :local_level=, :level=
-Logging::Logger.send :include, LoggerSilence
+Logging::Logger.include ActiveSupport::LoggerSilence

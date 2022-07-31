@@ -26,7 +26,7 @@ describe Reshare, type: :model do
       reshare1 = FactoryGirl.create(:reshare, author: alice.person)
       reshare2 = FactoryGirl.create(:reshare, author: alice.person)
 
-      reshare1.update_attributes(root_guid: nil)
+      reshare1.update(root_guid: nil)
 
       reshare2.root_guid = nil
       expect(reshare2).to be_valid

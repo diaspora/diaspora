@@ -203,7 +203,7 @@ describe Person, :type => :model do
   describe "delegating" do
     it "delegates last_name to the profile" do
       expect(@person.last_name).to eq(@person.profile.last_name)
-      @person.profile.update_attributes(:last_name => "Heathers")
+      @person.profile.update(last_name: "Heathers")
       expect(@person.reload.last_name).to eq("Heathers")
     end
   end
@@ -370,18 +370,18 @@ describe Person, :type => :model do
   end
 
   describe "#first_name" do
-    it 'returns username if first_name is not present in profile' do
-      alice.person.profile.update_attributes(:first_name => "")
+    it "returns username if first_name is not present in profile" do
+      alice.person.profile.update(first_name: "")
       expect(alice.person.first_name).to eq(alice.username)
     end
 
-    it 'returns first words in first_name if first_name is present' do
-      alice.person.profile.update_attributes(:first_name => "First Mid Last")
+    it "returns first words in first_name if first_name is present" do
+      alice.person.profile.update(first_name: "First Mid Last")
       expect(alice.person.first_name).to eq("First Mid")
     end
 
-    it 'returns first word in first_name if first_name is present' do
-      alice.person.profile.update_attributes(:first_name => "Alice")
+    it "returns first word in first_name if first_name is present" do
+      alice.person.profile.update(first_name: "Alice")
       expect(alice.person.first_name).to eq("Alice")
     end
   end
@@ -591,7 +591,7 @@ describe Person, :type => :model do
     end
 
     it "handles broken keys and returns nil" do
-      @person.update_attributes(serialized_public_key: "broken")
+      @person.update(serialized_public_key: "broken")
       expect(@person.public_key).to be_nil
     end
   end

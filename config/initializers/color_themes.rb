@@ -17,3 +17,10 @@ if color_themes_file.exist?
 else
   AVAILABLE_COLOR_THEMES = ["original"].freeze
 end
+
+unless Rails.env.test?
+  AVAILABLE_COLOR_THEMES.each do |theme_code|
+    Rails.application.config.assets.precompile +=
+      %W[color_themes/#{theme_code}/desktop.css color_themes/#{theme_code}/mobile.css]
+  end
+end

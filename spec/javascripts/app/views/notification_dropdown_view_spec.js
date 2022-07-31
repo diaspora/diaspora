@@ -5,6 +5,7 @@ describe("app.views.NotificationDropdown", function() {
     this.header = new app.views.Header();
     $("header").prepend(this.header.el);
     loginAs({guid: "foo"});
+    app.notificationsCollection = new app.collections.Notifications();
     this.header.render();
     this.collection = new app.collections.Notifications();
     this.view = new app.views.NotificationDropdown({el: "#notification-dropdown", collection: this.collection});

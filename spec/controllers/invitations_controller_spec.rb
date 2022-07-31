@@ -117,7 +117,7 @@ describe InvitationsController, type: :controller do
       end
 
       it "displays an error when no invitations are left" do
-        alice.invitation_code.update_attributes(count: 0)
+        alice.invitation_code.update(count: 0)
 
         post :create, params: invite_params
 
@@ -127,7 +127,7 @@ describe InvitationsController, type: :controller do
 
     it "does not display an error when registration is open" do
       AppConfig.settings.invitations.open = false
-      alice.invitation_code.update_attributes(count: 0)
+      alice.invitation_code.update(count: 0)
 
       post :create, params: invite_params
 

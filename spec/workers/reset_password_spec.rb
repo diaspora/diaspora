@@ -12,8 +12,8 @@ describe Workers::ResetPassword do
       Workers::ResetPassword.new.perform(alice.id)
       mail = Devise.mailer.deliveries.last
       expect(mail.to).to eq([alice.email])
-      expect(mail.body).to include("change your password")
-      expect(mail.body).to include(alice.username)
+      expect(mail.body.encoded).to include("change your password")
+      expect(mail.body.encoded).to include(alice.username)
     end
   end
 end

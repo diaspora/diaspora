@@ -53,7 +53,7 @@ describe ContactRetraction do
       federation_retraction_data = Diaspora::Federation::Entities.contact(contact).to_h
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, "ContactRetraction", federation_retraction_data, [remote_raphael.id], {}
+        local_luke.id, "ContactRetraction", federation_retraction_data.deep_stringify_keys, [remote_raphael.id], {}
       )
 
       retraction.defer_dispatch(local_luke)

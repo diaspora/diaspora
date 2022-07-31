@@ -27,9 +27,9 @@ module PublishingCukeHelpers
   end
 
   def upload_file_with_publisher(path)
-    page.execute_script(%q{$("input[name='qqfile']").css("opacity", '1');})
     with_scope("#publisher-textarea-wrapper") do
-      attach_file("qqfile", Rails.root.join(path).to_s)
+      find('input[name="qqfile"]', visible: false)
+        .attach_file(Rails.root.join(path).to_s, make_visible: true)
       # wait for the image to be ready
       page.assert_selector(".publisher_photo.loading", count: 0)
     end

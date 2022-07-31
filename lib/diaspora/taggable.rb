@@ -15,8 +15,8 @@ module Diaspora
 
         # tag's name is limited to 255 charchters according to ActsAsTaggableOn gem, so we check the length of the name for each tag
         def tag_name_max_length
-          self.tag_list.each do |tag|
-            errors[:tags] << I18n.t('tags.name_too_long', :count => 255, :current_length => tag.length) if tag.length > 255
+          tag_list.each do |tag|
+            errors.add(:tags, I18n.t("tags.name_too_long", count: 255, current_length: tag.length)) if tag.length > 255
           end
         end
         protected :tag_name_max_length

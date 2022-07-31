@@ -1,8 +1,15 @@
 describe('app.Router', function () {
+  beforeEach(function() {
+    delete app.page;
+    new app.Router().stream();
+  });
+
   describe('followed_tags', function() {
     beforeEach(function() {
+      loginAs({name: "alice"});
       factory.preloads({tagFollowings: []});
       spec.loadFixture("aspects_index");
+      app.publisher = new app.views.Publisher({standalone: true});
     });
 
     it('decodes name before passing it into TagFollowingAction', function () {
@@ -74,6 +81,8 @@ describe('app.Router', function () {
 
   describe("aspects", function() {
     it("calls _initializeStreamView", function() {
+      new app.models.Stream();
+      app.publisher = new app.views.Publisher({standalone: true});
       spyOn(app.router, "_initializeStreamView");
       app.router.aspects();
       expect(app.router._initializeStreamView).toHaveBeenCalled();
@@ -123,6 +132,7 @@ describe('app.Router', function () {
 
   describe("stream", function() {
     it("calls _initializeStreamView", function() {
+      app.publisher = new app.views.Publisher({standalone: true});
       spyOn(app.router, "_initializeStreamView");
       app.router.stream();
       expect(app.router._initializeStreamView).toHaveBeenCalled();
@@ -169,6 +179,7 @@ describe('app.Router', function () {
       app.publisher = { jasmineTestValue: 42 };
       app.router._initializeStreamView();
       expect(app.publisher.jasmineTestValue).toEqual(42);
+      delete app.publisher; // don't leave fake publisher around
     });
 
     it("doesn't set app.publisher if there is no publisher element in page", function() {

@@ -253,7 +253,7 @@ vi:
       more_comments:
         other: "Hiện thêm <%= count %> bình luận"
         zero: "Hiện thêm <%= count %> bình luận"
-      no_posts_yet: "Chưa có bài đăng nào hiển thị ở đây."
+      no_posts_yet: "Chưa có bài đăng công khai nào."
       original_post_deleted: "Bài đăng gốc đã bị xoá"
       permalink: "Liên kết cố định"
       public: "Công khai"
@@ -289,7 +289,7 @@ vi:
       month: "nửa tháng trước"
       months:
         other: "%d tháng"
-      prefixAgo: "trước"
+      prefixAgo: ""
       prefixFromNow: "kể từ lúc này"
       seconds: "vừa xong"
       suffixAgo: "trước"

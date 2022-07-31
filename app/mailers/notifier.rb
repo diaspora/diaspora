@@ -24,46 +24,37 @@ class Notifier < ApplicationMailer
       }
     end
 
-    unless subject
-      subject = I18n.t('notifier.single_admin.subject')
-    end
+    subject ||= I18n.t("notifier.single_admin.subject")
 
-    default_opts = {:to => @receiver.email,
-         :from => AppConfig.mail.sender_address,
-         :subject => subject, :host => AppConfig.pod_uri.host}
+    default_opts = {to: @receiver.email, from: AppConfig.mail.sender_address, subject: subject}
     default_opts.merge!(opts)
 
-    mail(default_opts) do |format|
-      format.text
-      format.html
-    end
+    mail(default_opts)
   end
 
   def invite(email, inviter, invitation_code, locale)
-    @inviter = inviter
-    @invitation_code = invitation_code
-
     I18n.with_locale(locale) do
       mail_opts = {to: email, from: "\"#{AppConfig.settings.pod_name}\" <#{AppConfig.mail.sender_address}>",
-                 subject: I18n.t("notifier.invited_you", name: @inviter.name),
-                 host: AppConfig.pod_uri.host}
+                 subject: I18n.t("notifier.invited_you", name: inviter.name)}
+      name = inviter.full_name.empty? ? inviter.diaspora_handle : "#{inviter.name} (#{inviter.diaspora_handle})"
+      body = I18n.t("notifier.invite.message",
+                    invite_url:             invite_code_url(invitation_code),
+                    diasporafoundation_url: "https://diasporafoundation.org/",
+                    user:                   name,
+                    diaspora_id:            inviter.diaspora_handle)
 
       mail(mail_opts) do |format|
-        format.text { render :layout => nil }
-        format.html { render :layout => nil }
+        format.text { render "notifier/plain_markdown_email", layout: nil, locals: {body: body} }
+        format.html { render "notifier/plain_markdown_email", layout: nil, locals: {body: body} }
       end
     end
   end
 
   def send_notification(type, *args)
-    @notification = NotificationMailers.const_get(type.to_s.camelize).new(*args)
+    @notification = NotificationMailers.const_get(type.camelize).new(*args)
 
     with_recipient_locale do
-      mail(@notification.headers) do |format|
-        self.action_name = type
-        format.text
-        format.html
-      end
+      mail(@notification.headers)
     end
   end
 
