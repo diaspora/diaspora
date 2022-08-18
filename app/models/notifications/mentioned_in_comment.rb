@@ -12,10 +12,6 @@ module Notifications
       "notifications.mentioned_in_comment_deleted"
     end
 
-    def self.filter_mentions(mentions, mentionable, _recipient_user_ids)
-      mentions.includes(:person).merge(Person.allowed_to_be_mentioned_in_a_comment_to(mentionable.parent))
-    end
-
     def mail_job
       if NotificationSettingsService.new(recipient).email_enabled?(:mentioned_in_comment)
         Workers::Mail::MentionedInComment

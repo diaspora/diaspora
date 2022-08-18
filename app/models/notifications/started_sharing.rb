@@ -10,11 +10,6 @@ module Notifications
       "notifications.started_sharing"
     end
 
-    def self.notify(contact, _recipient_user_ids)
-      sender = contact.person
-      create_notification(contact.user, sender, sender).try(:email_the_user, sender, sender)
-    end
-
     def contact
       recipient.contact_for(target)
     end

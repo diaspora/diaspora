@@ -2,13 +2,17 @@
 
 class NotificationService
   NOTIFICATION_TYPES = {
-    Comment       => [Notifications::MentionedInComment, Notifications::CommentOnPost, Notifications::AlsoCommented],
-    Like          => [Notifications::Liked],
-    StatusMessage => [Notifications::MentionedInPost],
-    Conversation  => [Notifications::PrivateMessage],
-    Message       => [Notifications::PrivateMessage],
-    Reshare       => [Notifications::Reshared],
-    Contact       => [Notifications::StartedSharing]
+    Comment       => [
+      Notifications::MentionedInCommentService,
+      Notifications::CommentOnPostService,
+      Notifications::AlsoCommentedService
+    ],
+    Like          => [Notifications::LikedService],
+    StatusMessage => [Notifications::MentionedInPostService],
+    Conversation  => [Notifications::PrivateMessageService],
+    Message       => [Notifications::PrivateMessageService],
+    Reshare       => [Notifications::ResharedService],
+    Contact       => [Notifications::StartedSharingService]
   }.freeze
 
   NOTIFICATIONS_JSON_TYPES = {

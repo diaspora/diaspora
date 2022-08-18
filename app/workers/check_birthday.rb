@@ -10,7 +10,7 @@ module Workers
                  .where("EXTRACT(DAY FROM birthday) = ?", Time.zone.today.day)
       profiles.each do |profile|
         profile.person.contacts.where(sharing: true, receiving: true).each do |contact|
-          Notifications::ContactsBirthday.notify(contact, [])
+          Notifications::ContactsBirthdayService.notify(contact)
         end
       end
     end
