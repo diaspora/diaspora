@@ -175,7 +175,7 @@ vi:
           description: "Yêu cầu truy cập danh bạ và những thông tin liên quan (như mối quan hệ) dưới hình thức chỉ-đọc."
           name: "Danh bạ (Chỉ-đọc)"
         conversations:
-          description: "Yêu cầu truy cập những tin nhắn riêng tư dưới hình thức đọc lẫn ghi đè."
+          description: "Yêu cầu truy cập những tin nhắn dưới hình thức đọc lẫn ghi đè."
           name: "Thảo luận"
         email:
           description: "Yêu cầu truy cập địa chỉ email của bạn dưới hình thức chỉ-đọc."
@@ -385,7 +385,7 @@ vi:
       send: "Gửi"
       sending: "Đang gửi..."
       subject: "Tiêu đề"
-      subject_default: "Không tựa đề"
+      subject_default: "Không tiêu đề"
       to: "Người nhận"
     new_conversation:
       fail: "Tin nhắn không hợp lệ"
@@ -463,14 +463,14 @@ vi:
     foundation_website: "Trang chủ Diaspora"
     getting_help:
       get_support_a_discourse: "Tìm những thảo luận có liên quan tới yêu cầu của bạn hoặc tạo một chủ đề mới trên nền tảng %{discourse} của chúng tôi"
-      get_support_a_faq: "\bĐọc trang %{faq} trên wiki"
+      get_support_a_faq: "Đọc trang %{faq} trên wiki"
       get_support_a_hashtag: "Đăng một bài đăng công khai sử dụng hashtag %{question}"
       get_support_a_irc: "Tham gia kênh chat %{irc}"
       get_support_a_tutorials: "Đọc kỹ %{tutorials}"
       get_support_a_website: "Tham khảo %{link}"
       get_support_a_wiki: "Tra cứu %{link}"
       get_support_q: "Nếu thắc mắc của tôi không có trong FAQ, tôi nên gửi yêu cầu hỗ trợ ở đâu?"
-      getting_started_a: "Bạn đọc kỹ nhé. \bTìm hiểu %{tutorial_series} trên trang chủ. Nó sẽ chỉ bạn từng bước quá trình đăng ký và dạy bạn cách sử dụng các tính năng cơ bản của Diaspora."
+      getting_started_a: "Bạn đọc kỹ nhé. Tìm hiểu %{tutorial_series} trên trang chủ. Nó sẽ chỉ bạn từng bước quá trình đăng ký và dạy bạn cách sử dụng các tính năng cơ bản của Diaspora."
       getting_started_q: "Giúp tôi với! Tôi cần hướng dẫn sử dụng cơ bản!"
       title: "Trợ giúp"
     getting_started_tutorial: "Hướng dẫn cho người mới"
@@ -681,8 +681,8 @@ vi:
   layouts:
     application:
       back_to_top: "Trở về đầu trang"
-      be_excellent: "Tuyệt với với nhau! ♥"
-      discourse: "Thảo luận và hỗ trợ dự án"
+      be_excellent: "Cùng tạo điều tuyệt vời! ♥"
+      discourse: "Hỗ trợ và thảo luận"
       powered_by: "Powered by Diaspora"
       public_feed: "Nguồn tin Diaspora công khai cho %{name}"
       source_package: "Tải về mã nguồn"
@@ -892,7 +892,7 @@ vi:
       reply: "Trả lời hoặc xem thảo luận >"
     private_message:
       reply_to_or_view: "Trả lời hoặc xem cuộc thảo luận này >"
-      subject: "Bạn có một tin nhắn riêng tư mới"
+      subject: "Bạn có một tin nhắn mới"
     remove_old_user:
       body: |-
           Xin chào,
@@ -1120,7 +1120,7 @@ vi:
       visibility_dropdown: "Dùng menu thả xuống này để thay đổi kiểu bài đăng của bạn. (Chúng tôi đề xuất bài đăng đầu tiên nên để công khai)"
     publisher:
       discard_post: "Hủy đăng bài"
-      formatWithMarkdown: "Bạn có thể sử dụng %{markdown_link} để định dạng bài đăng"
+      formatWithMarkdown: "Bạn có thể dùng %{markdown_link} để định dạng bài đăng"
       get_location: "Lấy thông tin vị trí"
       new_user_prefill:
         hello: "Chào mọi người, tôi là #%{new_user_tag}. "

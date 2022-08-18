@@ -493,7 +493,13 @@ en_pirate:
   status_messages:
     new:
       mentioning: "Mentionin': %{person}"
-    too_long: "{\"few\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"many\"=>\"Ye scallywag,make yer status messages less than %{count} characters\", \"one\"=>\"Ye scallywag, make yer status messages less than %{count} character\", \"other\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"two\"=>\"Ye scallywag, make yer status messages less than %{count} characters\", \"zero\"=>\"Ye scallywag,make yer status messages less than %{count} characters\"}"
+    too_long:
+      few: "Ye scallywag, make yer status messages less than %{count} characters"
+      many: "Ye scallywag,make yer status messages less than %{count} characters"
+      one: "Ye scallywag, make yer status messages less than %{count} character"
+      other: "Ye scallywag, make yer status messages less than %{count} characters"
+      two: "Ye scallywag, make yer status messages less than %{count} characters"
+      zero: "Ye scallywag,make yer status messages less than %{count} characters"
   streams:
     activity:
       title: "Me activity"

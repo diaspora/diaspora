@@ -516,7 +516,13 @@ en_1337:
   status_messages:
     new:
       mentioning: "M3N710N1NG: %{person}"
-    too_long: "{\"few\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"many\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"one\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R\\\"\", \"other\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"two\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\", \"zero\"=>\"PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5\"}"
+    too_long:
+      few: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      many: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      one: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R\""
+      other: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      two: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      zero: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
   streams:
     activity:
       title: "MY 4C71V17Y"
