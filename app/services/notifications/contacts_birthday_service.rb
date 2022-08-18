@@ -5,7 +5,15 @@ module Notifications
     def self.notify(contact, _=nil)
       recipient = contact.user
       actor = contact.person
-      create_notification(recipient, actor, actor).try(:email_the_user, actor, actor)
+      Notifications::ContactsBirthday
+        .create_notification(recipient, actor, actor)
+
+      recipient.mail(
+        Workers::Mail::ContactsBirthday,
+        recipient.id,
+        actor.id,
+        actor.id
+      )
     end
   end
 end

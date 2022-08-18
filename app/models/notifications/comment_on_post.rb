@@ -4,10 +4,6 @@ module Notifications
   class CommentOnPost < Notification
     include Notifications::Commented
 
-    def mail_job
-      Workers::Mail::CommentOnPost
-    end
-
     def popup_translation_key
       "notifications.comment_on_post"
     end

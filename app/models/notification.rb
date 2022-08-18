@@ -16,16 +16,8 @@ class Notification < ApplicationRecord
     where(opts.merge!(recipient_id: recipient.id)).order("updated_at DESC")
   end
 
-  def email_the_user(target, actor)
-    recipient.mail(mail_job, recipient_id, actor.id, target.id)
-  end
-
   def set_read_state( read_state )
     update_column(:unread, !read_state)
-  end
-
-  def mail_job
-    raise NotImplementedError.new("Subclass this.")
   end
 
   def linked_object

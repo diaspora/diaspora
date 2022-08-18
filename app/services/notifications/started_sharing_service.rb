@@ -4,9 +4,16 @@ module Notifications
   class StartedSharingService
     def self.notify(contact, _)
       sender = contact.person
+      recipient = contact.user
       Notifications::StartedSharing
-        .create_notification(contact.user, sender, sender)
-        .try(:email_the_user, sender, sender)
+        .create_notification(recipient, sender, sender)
+
+      recipient.mail(
+        Workers::Mail::StartedSharing,
+        recipient.id,
+        sender.id,
+        sender.id
+      )
     end
   end
 end

@@ -6,9 +6,16 @@ module Notifications
       return unless reshare.root.present? && reshare.root.author.local?
 
       actor = reshare.author
+      recipient = reshare.root.author.owner
       Notifications::Reshared
-        .concatenate_or_create(reshare.root.author.owner, reshare.root, actor)
-        .try(:email_the_user, reshare, actor)
+        .concatenate_or_create(recipient, reshare.root, actor)
+
+      recipient.mail(
+        Workers::Mail::Reshared,
+        recipient.id,
+        actor.id,
+        reshare.id
+      )
     end
   end
 end

@@ -17,7 +17,13 @@ module Notifications
         message.increase_unread(recipient)
         Notifications::PrivateMessage
           .new(recipient: recipient)
-          .email_the_user(message, message.author)
+
+        recipient.mail(
+          Workers::Mail::PrivateMessage,
+          recipient.id,
+          message.author.id,
+          message.id
+        )
       end
     end
   end

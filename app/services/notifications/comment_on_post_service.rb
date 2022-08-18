@@ -9,9 +9,16 @@ module Notifications
       return unless commentable_author.local? && actor != commentable_author
       return if mention_notification_exists?(comment, commentable_author)
 
+      recipient = commentable_author.owner
       Notifications::CommentOnPost
-        .concatenate_or_create(commentable_author.owner, comment.commentable, actor)
-        .email_the_user(comment, actor)
+        .concatenate_or_create(recipient, comment.commentable, actor)
+
+      recipient.mail(
+        Workers::Mail::CommentOnPost,
+        recipient.id,
+        actor.id,
+        comment.id
+      )
     end
   end
 end

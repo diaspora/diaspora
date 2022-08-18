@@ -2,10 +2,6 @@
 
 module Notifications
   class Liked < Notification
-    def mail_job
-      Workers::Mail::Liked
-    end
-
     def popup_translation_key
       "notifications.liked"
     end

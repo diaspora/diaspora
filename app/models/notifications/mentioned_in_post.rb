@@ -4,10 +4,6 @@ module Notifications
   class MentionedInPost < Notification
     include Notifications::Mentioned
 
-    def mail_job
-      Workers::Mail::Mentioned
-    end
-
     def popup_translation_key
       "notifications.mentioned"
     end

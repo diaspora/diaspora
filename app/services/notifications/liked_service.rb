@@ -8,9 +8,16 @@ module Notifications
 
       return unless like.target_type == "Post" && target_author.local? && actor != target_author
 
+      recipient = target_author.owner
       Notifications::Liked
-        .concatenate_or_create(target_author.owner, like.target, actor)
-        .email_the_user(like, actor)
+        .concatenate_or_create(recipient, like.target, actor)
+
+      recipient.mail(
+        Workers::Mail::Liked,
+        recipient.id,
+        actor.id,
+        like.id
+      )
     end
   end
 end
