@@ -13,7 +13,7 @@ module Notifications
         Notifications::AlsoCommented
           .concatenate_or_create(recipient, commentable, actor)
 
-        recipient.mail(
+        NotificationService.new(recipient).mail(
           Workers::Mail::AlsoCommented,
           recipient.id,
           actor.id,

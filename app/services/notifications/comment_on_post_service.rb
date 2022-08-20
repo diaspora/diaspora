@@ -13,7 +13,7 @@ module Notifications
       Notifications::CommentOnPost
         .concatenate_or_create(recipient, comment.commentable, actor)
 
-      recipient.mail(
+      NotificationService.new(recipient).mail(
         Workers::Mail::CommentOnPost,
         recipient.id,
         actor.id,

@@ -21,7 +21,7 @@ module Notifications
         model
           .create_notification(recipient, mention, actor)
 
-        recipient.mail(
+        NotificationService.new(recipient).mail(
           Workers::Mail::Mentioned,
           recipient.id,
           actor.id,

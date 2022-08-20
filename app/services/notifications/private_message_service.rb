@@ -18,7 +18,7 @@ module Notifications
         Notifications::PrivateMessage
           .new(recipient: recipient)
 
-        recipient.mail(
+        NotificationService.new(recipient).mail(
           Workers::Mail::PrivateMessage,
           recipient.id,
           message.author.id,

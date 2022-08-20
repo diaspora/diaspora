@@ -55,11 +55,23 @@ class NotificationService
     true
   end
 
+  def mail(job, *args)
+    return if job.blank?
+
+    pref = job.to_s.gsub("Workers::Mail::", "").underscore
+    email_enabled = (user.disable_mail == false) &&
+      NotificationSettingsService.new(user).email_enabled?(pref)
+
+    job.perform_async(*args) if email_enabled
+  end
+
   def notify(object, recipient_user_ids)
     notification_types(object).each {|type| type.notify(object, recipient_user_ids) }
   end
 
   private
+
+  attr_reader :user
 
   def notification_types(object)
     NOTIFICATION_TYPES.fetch(object.class, [])
