@@ -21,7 +21,14 @@ class CommentPresenter < BasePresenter
       created_at:       created_at,
       mentioned_people: build_mentioned_people_json,
       reported:         current_user.present? && reports.exists?(user: current_user),
-      interactions:     build_interactions_json
+      interactions:     build_interaction_state
+    }
+  end
+
+  def build_interaction_state
+    {
+       liked: current_user.present? && likes.where(author: current_user.person).exists?,
+       likes_count: likes_count
     }
   end
 
