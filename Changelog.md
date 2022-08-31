@@ -35,6 +35,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
 * Photo-upload file picker now correctly restricts possible file types [#8205](https://github.com/diaspora/diaspora/pull/8205)
+* Make inline code inside links show the link color [#8387](https://github.com/diaspora/diaspora/pull/8387)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
