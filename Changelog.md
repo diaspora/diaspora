@@ -30,6 +30,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Drop relay support [#8243](https://github.com/diaspora/diaspora/pull/8243)
 * Use yarn to manage the frontend dependencies [#8364](https://github.com/diaspora/diaspora/pull/8364)
 * Upgrade to latest `diaspora_federation`, remove support for old federation protocol [#8368](https://github.com/diaspora/diaspora/pull/8368)
+* Remove support for `therubyracer` [#8337](https://github.com/diaspora/diaspora/issues/8337)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)

@@ -173,13 +173,6 @@ gem "minitest",  "5.15.0"
 
 gem "versionist", "2.0.1"
 
-# Windows and OSX have an execjs compatible runtime built-in, Linux users should
-# install Node.js or use "therubyracer".
-#
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-
-# gem "therubyracer", :platform => :ruby
-
 group :production do # we don"t install these on travis to speed up test runs
   # Analytics
 
