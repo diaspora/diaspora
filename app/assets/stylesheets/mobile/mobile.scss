@@ -676,28 +676,10 @@ input#q.search {
   margin-bottom: 20px;
 }
 
-@mixin aspect-dropdown-link() {
-  $link-text-color: #333;
-
-  a {
-    cursor: pointer;
-    padding-left: 10px;
-
-    .text {
-      color: $link-text-color;
-      font-size: 128%;
-    }
-
-    &:hover {
-      background: $background-grey;
-    }
-  }
-}
-
 .aspect-dropdown {
   li {
     @include selectable-list;
-    @include aspect-dropdown-link;
+    @include aspect-dropdown-link(128%);
 
     .status-indicator {
       display: inline-block;
