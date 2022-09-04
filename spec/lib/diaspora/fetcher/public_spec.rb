@@ -208,7 +208,6 @@ describe Diaspora::Fetcher::Public do
         expect(public_fetcher).to receive(:check_existing).and_return(true)
         expect(public_fetcher).to receive(:check_author).and_return(true)
         expect(public_fetcher).to receive(:check_public).and_return(true)
-        expect(public_fetcher).to receive(:check_type).and_return(true)
 
         expect(public_fetcher.instance_eval { validate({}) }).to be true
       end
@@ -254,18 +253,6 @@ describe Diaspora::Fetcher::Public do
       it "returns true if the post is public" do
         post = {"public" => true}
         expect(public_fetcher.instance_eval { check_public post }).to be true
-      end
-    end
-
-    describe "#check_type" do
-      it "returns false if the type is anything other that 'StatusMessage'" do
-        post = {"post_type"=>"Reshare"}
-        expect(public_fetcher.instance_eval { check_type post }).to be false
-      end
-
-      it "returns true if the type is 'StatusMessage'" do
-        post = {"post_type"=>"StatusMessage"}
-        expect(public_fetcher.instance_eval { check_type post }).to be true
       end
     end
   end

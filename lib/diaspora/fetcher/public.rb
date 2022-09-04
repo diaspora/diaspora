@@ -128,9 +128,8 @@ module Diaspora; module Fetcher; class Public
     # @see check_existing
     # @see check_author
     # @see check_public
-    # @see check_type
     def validate post
-      check_existing(post) && check_author(post) && check_public(post) && check_type(post)
+      check_existing(post) && check_author(post) && check_public(post)
     end
 
     # hopefully there is no post with the same guid somewhere already...
@@ -162,14 +161,5 @@ module Diaspora; module Fetcher; class Public
       logger.warn "the post (#{post['guid']}) is not public, this is not intended..." unless ispublic
 
       ispublic
-    end
-
-    # see, if the type of the given post is something we can handle
-    def check_type post
-      type_ok = (post['post_type'] == "StatusMessage")
-
-      logger.warn "the post (#{post['guid']}) has a type, which cannot be handled (#{post['post_type']})" unless type_ok
-
-      type_ok
     end
 end; end; end
