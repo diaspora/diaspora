@@ -104,16 +104,13 @@ module Diaspora; module Fetcher; class Public
 
         logger.debug "post: #{post.to_s[0..250]}"
 
-        entry = StatusMessage.diaspora_initialize(
-          author:                @person,
-          public:                true,
-          guid:                  post["guid"],
-          text:                  post["text"],
-          provider_display_name: post["provider_display_name"],
-          created_at:            ActiveSupport::TimeZone.new("UTC").parse(post["created_at"]).to_datetime,
+        DiasporaFederation::Federation::Fetcher.fetch_public(
+          @person.diaspora_handle,
+          :post,
+          post["guid"]
         )
-        entry.save
-
+      rescue DiasporaFederation::Federation::Fetcher::NotFetchable => e
+        logger.debug e.message
       end
       set_fetch_status Public::Status_Processed
     end
