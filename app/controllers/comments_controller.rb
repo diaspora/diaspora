@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
   def index
     comments = comment_service.find_for_post(params[:post_id])
     respond_with do |format|
-      format.json { render json: CommentPresenter.as_collection(comments), status: 200 }
+      format.json { render json: CommentPresenter.as_collection(comments, :as_json, current_user), status: 200 }
       format.mobile { render layout: false, locals: {comments: comments} }
     end
   end
