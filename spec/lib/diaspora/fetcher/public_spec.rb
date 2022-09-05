@@ -4,13 +4,21 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require "integration/federation/federation_helper"
+
 # Tests fetching public posts of a person on a remote server
 describe Diaspora::Fetcher::Public do
+  let(:fixture) do
+    File.read(Rails.root.join("spec/fixtures/public_posts.json"))
+  end
+  let(:fixture_data) do
+    JSON.parse(fixture)
+  end
+
   before do
     # the fixture is taken from an actual json request.
     # it contains 10 StatusMessages and 5 Reshares, all of them public
     # the guid of the person is "7445f9a0a6c28ebb"
-    @fixture = File.read(Rails.root.join("spec/fixtures/public_posts.json"))
     @fetcher = Diaspora::Fetcher::Public.new
     @person = FactoryBot.create(:person, guid:            "7445f9a0a6c28ebb",
                                          pod:             Pod.find_or_create_by(url: "https://remote-testpod.net"),
@@ -21,7 +29,7 @@ describe Diaspora::Fetcher::Public do
               "Accept"          => "application/json",
               "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
               "User-Agent"      => "diaspora-fetcher"
-            }).to_return(body: @fixture)
+            }).to_return(body: fixture)
   end
 
   describe "#queue_for" do
@@ -62,28 +70,54 @@ describe Diaspora::Fetcher::Public do
         @data
       }
       expect(data).not_to be_nil
-      expect(data.size).to eql JSON.parse(@fixture).size
+      expect(data.size).to eq(fixture_data.size)
     end
   end
 
   describe "#process_posts" do
     before do
       person = @person
-      data = JSON.parse(@fixture)
+      data = fixture_data
 
       @fetcher.instance_eval {
         @person = person
         @data = data
       }
+
+      fixture_data.each do |post_data|
+        post = if post_data["post_type"] == "StatusMessage"
+                 FactoryBot.build(
+                   :status_message,
+                   guid:       post_data["guid"],
+                   text:       post_data["text"],
+                   created_at: post_data["created_at"],
+                   public:     true,
+                   author:     eve.person
+                 )
+               else
+                 reshare = FactoryBot.build(
+                   :reshare,
+                   guid:       post_data["guid"],
+                   created_at: post_data["created_at"],
+                   public:     true,
+                   author:     eve.person
+                 )
+                 reshare.root.save
+                 reshare
+               end
+        payload = generate_payload(Diaspora::Federation::Entities.post(post), eve)
+
+        stub_request(:get, "https://remote-testpod.net/fetch/post/#{post_data['guid']}")
+          .to_return(status: 200, body: payload)
+      end
     end
 
-    it "creates 10 new posts in the database" do
-      before_count = Post.count
-      @fetcher.instance_eval {
-        process_posts
-      }
-      after_count = Post.count
-      expect(after_count).to eql(before_count + 10)
+    it "creates 15 new posts in the database" do
+      expect {
+        @fetcher.instance_eval {
+          process_posts
+        }
+      }.to change(Post, :count).by(15)
     end
 
     it "sets the operation status on the person" do
@@ -100,7 +134,7 @@ describe Diaspora::Fetcher::Public do
       before do
         Timecop.freeze
         @now = DateTime.now.utc
-        @data = JSON.parse(@fixture).select {|item| item["post_type"] == "StatusMessage" }
+        @data = fixture_data.select {|item| item["post_type"] == "StatusMessage" }
 
         # save posts to db
         @fetcher.instance_eval {
