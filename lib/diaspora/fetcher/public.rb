@@ -110,7 +110,7 @@ module Diaspora; module Fetcher; class Public
           post["guid"]
         )
       rescue DiasporaFederation::Federation::Fetcher::NotFetchable => e
-        logger.debug e.message
+        logger.warn e.message
       end
       set_fetch_status Public::Status_Processed
     end
