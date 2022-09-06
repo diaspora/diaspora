@@ -134,7 +134,6 @@ describe Diaspora::Fetcher::Public do
       before do
         Timecop.freeze
         @now = DateTime.now.utc
-        @data = fixture_data.select {|item| item["post_type"] == "StatusMessage" }
 
         # save posts to db
         @fetcher.instance_eval {
@@ -147,26 +146,26 @@ describe Diaspora::Fetcher::Public do
       end
 
       it "applies the date from JSON to the record" do
-        @data.each do |post|
+        fixture_data.each do |post|
           date = ActiveSupport::TimeZone.new("UTC").parse(post["created_at"]).to_i
 
-          entry = StatusMessage.find_by(guid: post["guid"])
+          entry = Post.find_by(guid: post["guid"])
           expect(entry.created_at.to_i).to eql(date)
         end
       end
 
-      it "copied the text correctly" do
-        @data.each do |post|
+      it "copied the text of status messages correctly" do
+        fixture_data.select {|item| item["post_type"] == "StatusMessage" }.each do |post|
           entry = StatusMessage.find_by(guid: post["guid"])
           expect(entry.text).to eql(post["text"])
         end
       end
 
       it "applies now to interacted_at on the record" do
-        @data.each do |post|
+        fixture_data.each do |post|
           date = @now.to_i
 
-          entry = StatusMessage.find_by(guid: post["guid"])
+          entry = Post.find_by(guid: post["guid"])
           expect(entry.interacted_at.to_i).to eql(date)
         end
       end
