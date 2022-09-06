@@ -211,18 +211,3 @@ test:
       secret: 'sdoigjosdfijg'
   mail:
     enable: true
-integration1:
-  environment:
-    url: 'http://localhost:45789/'
-    single_process_mode: true
-    assets:
-      serve: true
-    require_ssl: false
-integration2:
-  environment:
-    url: 'http://localhost:34658/'
-    redis: 'redis://localhost:6380'
-    single_process_mode: true
-    assets:
-      serve: true
-    require_ssl: false
