@@ -1,3 +1,8 @@
+# 0.7.18.1
+
+## Bug fixes
+* Update binstubs to fix diaspora\* being unable to start when multiple bundler versions were available [#8392](https://github.com/diaspora/diaspora/pull/8392/commits/bfd42a1914a99ac9c71ecb16bbf6fa5bb118148a)
+
 # 0.7.18.0
 
 ## Refactor
