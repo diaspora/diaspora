@@ -16,6 +16,20 @@ After [a discussion with our community on Discourse](https://discourse.diasporaf
 
 Although the chat was never enabled per default and was marked as experimental, some production pods did set up the integration and offered an XMPP service to their users. After this release, diaspora\* will no longer contain a chat applet, so users will no longer be able to use the webchat inside diaspora\*. The existing module that is used to enable users to authenticate to Prosody using their diaspora\* credentials will continue to work, but contact list synchronization might not work without further changes to the Prosody module, which is developed independently from this project.
 
+## Changes around the appserver and related configuration
+
+With this release, we switched from `unicorn` to `puma` to run our applications. For podmins running the default setup, this should significantly reduce memory usage, with similar or even better frontend performance! However, as great as this change is, some configuration changes are required.
+
+- The `single_process_mode` and `embed_sidekiq_worker` configurations have been removed. This mode was never truly a "single-process" mode, as it just spawned the Background Workers inside the runserver. If you're using `script/server` to start your pod, this change does not impact you, but if you're running diaspora\* using other means, and you relied on this "single"-process mode, please ensure that Sidekiq workers get started.
+- The format of the `listen` configuration has changed. If you have not set that field in your configuration, you can skip this. Otherwise, make sure to adjust your configuration accordingly:
+  - Listening to Unix sockets with a relative path has changed from `unix:tmp/diaspora.sock` into `unix://tmp/diaspora.sock`.
+  - Listening to Unix sockets with an absolute path has changed from `unix:/run/diaspora/diaspora.sock` to `unix:///run/diaspora/diaspora.sock`.
+  - Listening to a local port has changed from `127.0.0.1:3000` to `tcp://127.0.0.1:3000`.
+- The `PORT` environment variable and the `-p` parameter to `script/server` have been removed. If you used that to run diaspora\* on a non-standard port, please use the `listen` configuration.
+- The `unicorn_worker` configuration has been dropped. With Puma, there should not be a need to increase the number of workers above a single worker in any pod of any size.
+- The `unicorn_timeout` configuration has been renamed to `web_timeout`.
+- **If you don't run your pod with `script/server`**, you have to update your setup. If you previously called `bin/bundle exec unicorn -c config/unicorn.rb` to run diaspora\*, you now have to run `bin/puma -C config/puma.rb`! Please update your systemd-Units or similar accordingly.
+
 ## Yarn for frontend dependencies
 
 We use yarn to install the frontend dependencies now, so you need to have that installed. See here for how to install it: https://yarnpkg.com/en/docs/install
@@ -31,6 +45,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Use yarn to manage the frontend dependencies [#8364](https://github.com/diaspora/diaspora/pull/8364)
 * Upgrade to latest `diaspora_federation`, remove support for old federation protocol [#8368](https://github.com/diaspora/diaspora/pull/8368)
 * Remove support for `therubyracer` [#8337](https://github.com/diaspora/diaspora/issues/8337)
+* Replace `unicorn` with `puma` [#8392](https://github.com/diaspora/diaspora/pull/8392)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)

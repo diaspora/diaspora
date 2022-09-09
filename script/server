@@ -22,23 +22,6 @@ on_failure()
   fi
 }
 
-# Check if already running/port blocked
-chk_service()
-{
-  port=${1:?Missing port}
-  case $os in
-  *[Bb][Ss][Dd]*|Darwin)
-      ## checks ipv[46]
-      netstat -anL | awk '{print $2}' | grep "\.$1$"
-  ;;
-  *)
-      # Is someone listening on the ports already? (ipv4 only test ?)
-      netstat -nl | grep '[^:]:'$port'[ \t]'
-  ;;
-  esac
-}
-
-
 # ensure right directory
 realpath=$( ruby -e "puts File.expand_path(\"$0\")")
 cd $(dirname $realpath)/..
@@ -106,32 +89,12 @@ fi
 
 os=$(uname -s)
 vars=$(bin/bundle exec ruby ./script/get_config.rb \
-  single_process_mode=environment.single_process_mode? \
-  embed_sidekiq_worker=server.embed_sidekiq_worker \
   workers=server.sidekiq_workers \
   redis_url=environment.redis \
   | grep -vE "is not writable|as your home directory temporarily"
 )
 on_failure "Couldn't parse $CONFIG_FILE!"
 eval "$vars"
-
-args="$@"
-for arg in $(echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
-do
-  [ "$prev_arg" = '-p' ] && PORT="$arg"
-  prev_arg="$arg"
-done
-
-if [ -n "$PORT" ]
-then
-  export PORT
-
-  services=$(chk_service $PORT)
-  if [ -n "$services" ]
-  then
-    fatal "Port $PORT is already in use.\n\t$services"
-  fi
-fi
 
 # Force AGPL
 if [ -w "public" -a ! -e  "public/source.tar.gz" ]
@@ -161,16 +124,13 @@ application, run:
 fi
 
 # Check if redis is running
-if [ "$single_process_mode" = "false" ]
+if [ -n "$redis_url" ]
 then
-  if [ -n "$redis_url" ]
-  then
-    redis_param="url: '$redis_url'"
-  fi
-  if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null | grep -vE "is not writable|as your home directory temporarily" )" != "PONG" ]
-  then
-    fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in $CONFIG_FILE."
-  fi
+  redis_param="url: '$redis_url'"
+fi
+if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null | grep -vE "is not writable|as your home directory temporarily" )" != "PONG" ]
+then
+  fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in $CONFIG_FILE."
 fi
 
 # Check for old curl versions (see https://github.com/diaspora/diaspora/issues/4202)
@@ -201,22 +161,5 @@ if [ -n "${ldconfig}" ]; then
 fi
 
 # Start Diaspora
-printf "Starting Diaspora in $RAILS_ENV mode "
-if [ -n "$PORT" ]
-then
-  printf "on port $PORT "
-fi
-if [ "$embed_sidekiq_worker" = "true" ]
-then
-  echo "with a Sidekiq worker embedded into Unicorn."
-  workers=0
-elif [ "$single_process_mode" = "true" ]
-then
-  echo "with job processing inside the request cycle."
-  workers=0
-else
-  echo "with $workers Sidekiq worker(s)."
-fi
-echo ""
-
+printf "Starting Diaspora in $RAILS_ENV mode with $workers Sidekiq worker(s)."
 exec bin/bundle exec loader_eye --stop_all -c config/eye.rb

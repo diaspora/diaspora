@@ -1,2 +1,2 @@
-web: bin/bundle exec unicorn -c config/unicorn.rb -p $PORT
+web: bin/puma -C config/puma.rb
 sidekiq: bin/bundle exec sidekiq

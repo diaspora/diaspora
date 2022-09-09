@@ -27,12 +27,17 @@ module Workers
     end
 
     def currently_running_archive_jobs
-      return 0 if AppConfig.environment.single_process_mode?
-
       Sidekiq::Workers.new.count do |process_id, thread_id, work|
         !(Process.pid.to_s == process_id.split(":")[1] && Thread.current.object_id.to_s(36) == thread_id) &&
           ArchiveBase.subclasses.map(&:to_s).include?(work["payload"]["class"])
       end
+    rescue Redis::CannotConnectError
+      # If code gets to this point and there is no Redis conenction, we're
+      # running in a Test environment and have not mocked Sidekiq::Workers, so
+      # we're not testing the concurrency-limiting behavior.
+      # There is no way a production pod will run into this code, as diaspora*
+      # refuses to start without redis.
+      0
     end
   end
 end

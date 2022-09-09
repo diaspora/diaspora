@@ -45,9 +45,3 @@ production:
 test:
   <<: *combined
   database: diaspora_test
-integration1:
-  <<: *combined
-  database: diaspora_integration1
-integration2:
-  <<: *combined
-  database: diaspora_integration2

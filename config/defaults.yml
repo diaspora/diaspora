@@ -11,7 +11,6 @@ defaults:
     certificate_authorities:
     redis:
     require_ssl: true
-    single_process_mode: false
     sidekiq:
       concurrency: 5
       retry: 10
@@ -40,14 +39,12 @@ defaults:
         sql: false
         federation: false
   server:
-    listen: '0.0.0.0:3000'
+    listen: "tcp://127.0.0.1:3000"
     rails_environment: 'development'
     pid: "tmp/pids/web.pid"
     stderr_log:
     stdout_log:
-    unicorn_worker: 2
-    unicorn_timeout: 90
-    embed_sidekiq_worker: false
+    web_timeout: 90
     sidekiq_workers: 1
   map:
     mapbox:
@@ -179,23 +176,19 @@ development:
   environment:
     assets:
       serve: true
-    single_process_mode: true
     require_ssl: false
     logging:
       debug:
         sql: true
-  server:
-    unicorn_worker: 1
   settings:
     autofollow_on_join: false
     autofollow_on_join_user: ''
 production:
   server:
-    listen: 'unix:tmp/diaspora.sock'
+    listen: 'unix://tmp/diaspora.sock'
 test:
   environment:
     url: 'http://localhost:9887/'
-    single_process_mode: true
     require_ssl: false
     assets:
       serve: true
@@ -211,18 +204,3 @@ test:
       secret: 'sdoigjosdfijg'
   mail:
     enable: true
-integration1:
-  environment:
-    url: 'http://localhost:45789/'
-    single_process_mode: true
-    assets:
-      serve: true
-    require_ssl: false
-integration2:
-  environment:
-    url: 'http://localhost:34658/'
-    redis: 'redis://localhost:6380'
-    single_process_mode: true
-    assets:
-      serve: true
-    require_ssl: false
