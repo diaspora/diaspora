@@ -1,4 +1,4 @@
-# 0.8.0.0
+# 1.0.0 (unreleased)
 
 ## New configuration file!
 
@@ -6,7 +6,7 @@ We already recommended you to move to our new TOML based configuration file. Wit
 
 ## API!
 
-With the release of diaspora\* Version 0.8.0.0, we now officially support building applications on top of the diaspora\* API! Please check out [the official API documentation](https://diaspora.github.io/api-documentation/) for instructions, and please do file bugs if you notice something that could be improved!
+With the release of diaspora\* Version 1.0, we now officially support building applications on top of the diaspora\* API! Please check out [the official API documentation](https://diaspora.github.io/api-documentation/) for instructions, and please do file bugs if you notice something that could be improved!
 
 We are looking forward to seeing many creative applications!
 
