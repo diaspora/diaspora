@@ -54,14 +54,6 @@
 ## Do not change this default unless you are sure!
 #require_ssl = true
 
-## Single-process mode (default=false).
-## If set to true, Diaspora will work with just the appserver (Unicorn by
-## default) running. However, this makes it quite slow as intensive jobs
-## must be run all the time inside the request cycle. We strongly
-## recommended you leave this disabled for production setups.
-## Set to true to enable.
-#single_process_mode = false
-
 ## Set redirect URL for an external image host (Amazon S3 or other).
 ## If hosting images for your pod on an external server (even your own),
 ## add its URL here. All requests made to images under /uploads/images
@@ -162,12 +154,12 @@
 ## Settings affecting how ./script/server behaves.
 [configuration.server]
 
-## Where the appserver should listen to (default="unix:tmp/diaspora.sock")
-#listen = "unix:tmp/diaspora.sock"
-#listen = "unix:/run/diaspora/diaspora.sock"
-#listen = "127.0.0.1:3000"
+## Where the appserver should listen to (default="unix://tmp/diaspora.sock")
+#listen = "unix://tmp/diaspora.sock"
+#listen = "unix:///run/diaspora/diaspora.sock"
+#listen = "tcp://127.0.0.1:3000"
 
-## Set the path for the PID file of the unicorn master process (default=tmp/pids/web.pid)
+## Set the path for the PID file of the web master process (default=tmp/pids/web.pid)
 #pid = "tmp/pids/web.pid"
 
 ## Rails environment (default="development").
@@ -175,23 +167,15 @@
 ## Change this to "production" if you wish to run a production environment.
 #rails_environment = "production"
 
-## Write unicorn stderr and stdout log.
-#stderr_log = "log/unicorn-stderr.log"
-#stdout_log = "log/unicorn-stdout.log"
-
-## Number of Unicorn worker processes (default=2).
-## Increase this if you have many users.
-#unicorn_worker = 2
+## Write web stderr and stdout log.
+#stderr_log = "log/web-stderr.log"
+#stdout_log = "log/web-stdout.log"
 
 ## Number of seconds before a request is aborted (default=90).
 ## Increase if you get empty responses, or if large image uploads fail.
 ## Decrease if you're under heavy load and don't care if some
 ## requests fail.
-#unicorn_timeout = 90
-
-## Embed a Sidekiq worker inside the unicorn process (default=false).
-## Useful for minimal Heroku setups.
-#embed_sidekiq_worker = false
+#web_timeout = 90
 
 ## Number of Sidekiq worker processes (default=1).
 ## In most cases it is better to

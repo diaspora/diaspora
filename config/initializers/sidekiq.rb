@@ -3,16 +3,6 @@
 require "sidekiq_middlewares"
 require "sidekiq/middleware/i18n"
 
-# Single process-mode
-if AppConfig.environment.single_process_mode? && !Rails.env.test?
-  if Rails.env.production?
-    warn "WARNING: You are running Diaspora in production without Sidekiq"
-    warn "         workers turned on.  Please set single_process_mode to false in"
-    warn "         config/diaspora.toml."
-  end
-  require "sidekiq/testing/inline"
-end
-
 Sidekiq.configure_server do |config|
   config.redis = AppConfig.get_redis_options
 
