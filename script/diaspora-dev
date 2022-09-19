@@ -44,6 +44,10 @@ print_usage() {
       print_usage_header "clean [options]" \
         "    --config    Delete configuration files as well"
       ;;
+    docker-compose)
+      echo; echo "Run docker-compose commands with the required environment variables"
+      print_usage_header "docker-compose [options]"
+      ;;
   # test & development
     cucumber)
       echo; echo "Run cucumber tests"
@@ -136,30 +140,31 @@ print_usage_full() {
   print_usage_header "$SCRIPT_NAME COMMAND"
   echo
   echo "Management Commands:"
-  echo "  setup         Prepare diaspora* to run for development"
-  echo "  start         Start diaspora*"
-  echo "  stop          Stop diaspora*"
-  echo "  restart       Restart of diaspora*"
-  echo "  logs          Follow log output of diaspora*"
-  echo "  status        Show current instance status of diaspora*"
-  echo "  clean         Reset diaspora* instance"
+  echo "  setup            Prepare diaspora* to run for development"
+  echo "  start            Start diaspora*"
+  echo "  stop             Stop diaspora*"
+  echo "  restart          Restart of diaspora*"
+  echo "  logs             Follow log output of diaspora*"
+  echo "  status           Show current instance status of diaspora*"
+  echo "  clean            Reset diaspora* instance"
+  echo "  docker-compose   Run docker-compose commands"
   echo
   echo "Test and Development Commands:"
-  echo "  cucumber      Run cucumber tests"
-  echo "  jasmine       Run jasmine tests"
-  echo "  rspec         Run rspec tests"
-  echo "  pronto        Run pronto checks"
-  echo "  migrate       Execute pending migrations"
+  echo "  cucumber         Run cucumber tests"
+  echo "  jasmine          Run jasmine tests"
+  echo "  rspec            Run rspec tests"
+  echo "  pronto           Run pronto checks"
+  echo "  migrate          Execute pending migrations"
   echo
   echo "Misc. Commands:"
-  echo "  build         Build basic diaspora* environment"
-  echo "  bundle        (Re-)Install gems for diaspora*"
-  echo "  yarn          (Re-)Install frontend dependencies for diaspora*"
-  echo "  config        Configure diaspora*"
-  echo "  exec          Execute a command in the run environment (advanced)"
-  echo "  help          Show help for commands"
-  echo "  setup-rails   Prepare diaspora* development environment (install dependencies, migrate db)"
-  echo "  setup-tests   Prepare diaspora* test environment"
+  echo "  build            Build basic diaspora* environment"
+  echo "  bundle           (Re-)Install gems for diaspora*"
+  echo "  yarn             (Re-)Install frontend dependencies for diaspora*"
+  echo "  config           Configure diaspora*"
+  echo "  exec             Execute a command in the run environment (advanced)"
+  echo "  help             Show help for commands"
+  echo "  setup-rails      Prepare diaspora* development environment (install dependencies, migrate db)"
+  echo "  setup-tests      Prepare diaspora* test environment"
   echo
   echo "Run '$SCRIPT_NAME help COMMAND' for more information on a command."
 }
@@ -555,6 +560,9 @@ case "$dia_command" in
     ;;
   cucumber)
     dia_cucumber "$@"
+    ;;
+  docker-compose)
+    dia_docker_compose "$@"
     ;;
   exec)
     dia_exec "$@"
