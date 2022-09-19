@@ -208,6 +208,11 @@ dia_is_db_running() {
   dia_docker_compose ps --services --filter status=running | grep -qx $DIASPORA_DOCKER_DB
 }
 
+dia_is_redis_running() {
+  # Check if redis container is running
+  dia_docker_compose ps --services --filter status=running | grep -qx redis
+}
+
 dia_get_db() {
   # Get currently configured or assumed db type
   grep -q '^  <<: \*mysql' "$DIASPORA_CONFIG_DB" 2>/dev/null && echo mysql || echo postgresql
@@ -324,13 +329,14 @@ dia_exec() {
     # Use a running container
     dia_docker_compose exec $detach diaspora /exec-entrypoint.sh "$@"
   else
-    if ! dia_is_db_running; then not_running=1; fi
+    # stop db/redis if it was not running before
+    if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+    if ! dia_is_redis_running; then stopredis="dia_docker_compose stop redis"; fi
     # Start a new container
     echo "No running instance found, starting new one for command execution ..."
     dia_docker_compose run --rm $detach --service-ports diaspora "$@"
-    if [ ! -z $not_running ]; then
-      dia_docker_compose stop $DIASPORA_DOCKER_DB
-    fi
+    $stopdb
+    $stopredis
   fi
 }
 
@@ -449,24 +455,28 @@ dia_setup() {
 
 dia_setup_rails() {
   # Prepare rails, install dependencies, migrate database, ...
-  # stop db if it was not running before
   echo "Setting up environment for tests ..."
+  # stop db/redis if it was not running before
   if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  if ! dia_is_redis_running; then stopredis="dia_docker_compose stop redis"; fi
   dia_docker_compose run --rm diaspora bin/setup
   $stopdb
+  $stopredis
 }
 
 dia_setup_tests() {
   # Prepare all possible tests
-  # stop db if it was not running before
   echo "Setting up environment for tests ..."
+  # stop db/redis if it was not running before
   if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  if ! dia_is_redis_running; then stopredis="dia_docker_compose stop redis"; fi
   dia_docker_compose run \
     --rm \
     -e RAILS_ENV=test \
     diaspora \
     bin/rake db:create db:migrate tests:generate_fixtures assets:generate_error_pages
   $stopdb
+  $stopredis
 }
 
 dia_start() {
