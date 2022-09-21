@@ -22,7 +22,7 @@ describe Workers::QueueUsersForRemoval do
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 732.days, sign_in_count: 5)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
-      expect(user.remove_after.to_i).to eq(removal_date.utc.to_i)
+      expect(user.remove_after.to_i).to be_within(1.day).of(removal_date.utc.to_i)
       expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
 
@@ -31,7 +31,7 @@ describe Workers::QueueUsersForRemoval do
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 735.days, sign_in_count: 0)
       Workers::QueueUsersForRemoval.new.perform
       user.reload
-      expect(user.remove_after.to_i).to eq(removal_date.utc.to_i)
+      expect(user.remove_after.to_i).to be_within(1.day).of(removal_date.utc.to_i)
       expect(ActionMailer::Base.deliveries.count).to eq(0) # no email sent
     end
 
