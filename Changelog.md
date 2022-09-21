@@ -62,6 +62,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Add support for directly paste images to upload them [#8237](https://github.com/diaspora/diaspora/pull/8237)
 * Add support for webp images and convert new png/jpg to webp to save space and bandwidth [#8358](https://github.com/diaspora/diaspora/pull/8358)
 * Show total and active pods count in the pods list for podmins [#8383](https://github.com/diaspora/diaspora/pull/8383)
+* Allow to select multiple aspects when posting on mobile [#8217](https://github.com/diaspora/diaspora/pull/8217)
 
 # 0.7.18.1
 

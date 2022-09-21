@@ -1,7 +1,7 @@
 /* Mixin file for sass.  Here is where we define our variables and
    browser compatability functions used in all scss/sass files */
 
-/* Transision defaults */
+// Transition defaults
 $speed: 0.1s;
 $easing: linear;
 
@@ -136,5 +136,23 @@ $default-border-radius: 3px;
   &.loading {
     .glyphicon-refresh { display: inline-block;}
     .glyphicon-ok { display: none;}
+  }
+}
+
+@mixin aspect-dropdown-link($anchor-size) {
+  $link-text-color: #333;
+
+  a {
+    cursor: pointer;
+    padding-left: 10px;
+
+    .text {
+      color: $link-text-color;
+      font-size: $anchor-size;
+    }
+
+    &:hover {
+      background: $background-grey;
+    }
   }
 }

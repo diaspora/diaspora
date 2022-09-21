@@ -8,6 +8,7 @@
     = status.hidden_field :provider_display_name, value: 'mobile'
     = status.text_area :text, placeholder: t('shared.publisher.whats_on_your_mind'), rows: 4, autofocus: "autofocus", class: "form-control"
 
+  = hidden_field_tag "aspect_ids[]", "all_aspects"
   .form-group
     %span#publisher-service-icons
       - if current_user.services
@@ -16,27 +17,18 @@
             title: service.provider.titleize, class: "service_icon dim",
             id: "#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"
 
-    %select{id: "aspect_ids_", class: "form-control", name: "aspect_ids[]"}
-      %option{value: 'public'}
-        = t('public')
-
-      %option{value: 'all_aspects', selected: true}
-        = t('all_aspects')
-
-      - current_user.aspects.each do |aspect|
-        %option{value: aspect.id}
-          = "· #{aspect.name}"
-
     .clear
     #publisher-textarea-wrapper
       %ul#photodropzone
     #fileInfo-publisher
-
-    #file-upload-publisher{class: "btn btn-default"}
-      %i.entypo-camera.middle
-    #publisher_mobile
-      = submit_tag t("shared.publisher.share"),
-        class: "btn btn-primary",
-        id: "submit_new_message",
-        data: {"disable-with" => t("shared.publisher.posting")}
     .clearfix
+    .btn-toolbar
+      .pull-left#file-upload-publisher
+        %i.entypo-camera.middle
+      .pull-right#publisher-mobile
+        = submit_tag t("shared.publisher.share"),
+          class: "btn btn-primary",
+          id: "submit_new_message",
+          data: {"disable-with" => t("shared.publisher.posting")}
+      .pull-right
+        = render partial: "aspects/aspect_dropdown"

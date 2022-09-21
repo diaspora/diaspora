@@ -27,16 +27,14 @@ app.views.AspectsDropdown = app.views.Base.extend({
   },
 
   // change class and text of the dropdown button
-  _updateButton: function(inAspectClass) {
-    var button = this.$('.btn.dropdown-toggle'),
+  _updateButton: function() {
+    let button = this.$(".btn.dropdown-toggle"),
       selectedAspects = this.$(".dropdown-menu > li.selected").length,
       buttonText;
 
     if (selectedAspects === 0) {
-      button.removeClass(inAspectClass).addClass('btn-default');
       buttonText = Diaspora.I18n.t("aspect_dropdown.select_aspects");
     } else {
-      button.removeClass('btn-default').addClass(inAspectClass);
       if (selectedAspects === 1) {
         buttonText = this.$(".dropdown-menu > li.selected .text").first().text();
       } else {
