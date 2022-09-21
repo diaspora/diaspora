@@ -44,6 +44,10 @@ print_usage() {
       print_usage_header "clean [options]" \
         "    --config    Delete configuration files as well"
       ;;
+    docker-compose)
+      echo; echo "Run docker-compose commands with the required environment variables"
+      print_usage_header "docker-compose [options]"
+      ;;
   # test & development
     cucumber)
       echo; echo "Run cucumber tests"
@@ -136,30 +140,31 @@ print_usage_full() {
   print_usage_header "$SCRIPT_NAME COMMAND"
   echo
   echo "Management Commands:"
-  echo "  setup         Prepare diaspora* to run for development"
-  echo "  start         Start diaspora*"
-  echo "  stop          Stop diaspora*"
-  echo "  restart       Restart of diaspora*"
-  echo "  logs          Follow log output of diaspora*"
-  echo "  status        Show current instance status of diaspora*"
-  echo "  clean         Reset diaspora* instance"
+  echo "  setup            Prepare diaspora* to run for development"
+  echo "  start            Start diaspora*"
+  echo "  stop             Stop diaspora*"
+  echo "  restart          Restart of diaspora*"
+  echo "  logs             Follow log output of diaspora*"
+  echo "  status           Show current instance status of diaspora*"
+  echo "  clean            Reset diaspora* instance"
+  echo "  docker-compose   Run docker-compose commands"
   echo
   echo "Test and Development Commands:"
-  echo "  cucumber      Run cucumber tests"
-  echo "  jasmine       Run jasmine tests"
-  echo "  rspec         Run rspec tests"
-  echo "  pronto        Run pronto checks"
-  echo "  migrate       Execute pending migrations"
+  echo "  cucumber         Run cucumber tests"
+  echo "  jasmine          Run jasmine tests"
+  echo "  rspec            Run rspec tests"
+  echo "  pronto           Run pronto checks"
+  echo "  migrate          Execute pending migrations"
   echo
   echo "Misc. Commands:"
-  echo "  build         Build basic diaspora* environment"
-  echo "  bundle        (Re-)Install gems for diaspora*"
-  echo "  yarn          (Re-)Install frontend dependencies for diaspora*"
-  echo "  config        Configure diaspora*"
-  echo "  exec          Execute a command in the run environment (advanced)"
-  echo "  help          Show help for commands"
-  echo "  setup-rails   Prepare diaspora* development environment (install dependencies, migrate db)"
-  echo "  setup-tests   Prepare diaspora* test environment"
+  echo "  build            Build basic diaspora* environment"
+  echo "  bundle           (Re-)Install gems for diaspora*"
+  echo "  yarn             (Re-)Install frontend dependencies for diaspora*"
+  echo "  config           Configure diaspora*"
+  echo "  exec             Execute a command in the run environment (advanced)"
+  echo "  help             Show help for commands"
+  echo "  setup-rails      Prepare diaspora* development environment (install dependencies, migrate db)"
+  echo "  setup-tests      Prepare diaspora* test environment"
   echo
   echo "Run '$SCRIPT_NAME help COMMAND' for more information on a command."
 }
@@ -206,6 +211,11 @@ dia_is_running() {
 dia_is_db_running() {
   # Check if db container is running
   dia_docker_compose ps --services --filter status=running | grep -qx $DIASPORA_DOCKER_DB
+}
+
+dia_is_redis_running() {
+  # Check if redis container is running
+  dia_docker_compose ps --services --filter status=running | grep -qx redis
 }
 
 dia_get_db() {
@@ -324,13 +334,14 @@ dia_exec() {
     # Use a running container
     dia_docker_compose exec $detach diaspora /exec-entrypoint.sh "$@"
   else
-    if ! dia_is_db_running; then not_running=1; fi
+    # stop db/redis if it was not running before
+    if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+    if ! dia_is_redis_running; then stopredis="dia_docker_compose stop redis"; fi
     # Start a new container
     echo "No running instance found, starting new one for command execution ..."
     dia_docker_compose run --rm $detach --service-ports diaspora "$@"
-    if [ ! -z $not_running ]; then
-      dia_docker_compose stop $DIASPORA_DOCKER_DB
-    fi
+    $stopdb
+    $stopredis
   fi
 }
 
@@ -449,24 +460,28 @@ dia_setup() {
 
 dia_setup_rails() {
   # Prepare rails, install dependencies, migrate database, ...
-  # stop db if it was not running before
   echo "Setting up environment for tests ..."
+  # stop db/redis if it was not running before
   if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  if ! dia_is_redis_running; then stopredis="dia_docker_compose stop redis"; fi
   dia_docker_compose run --rm diaspora bin/setup
   $stopdb
+  $stopredis
 }
 
 dia_setup_tests() {
   # Prepare all possible tests
-  # stop db if it was not running before
   echo "Setting up environment for tests ..."
+  # stop db/redis if it was not running before
   if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  if ! dia_is_redis_running; then stopredis="dia_docker_compose stop redis"; fi
   dia_docker_compose run \
     --rm \
     -e RAILS_ENV=test \
     diaspora \
     bin/rake db:create db:migrate tests:generate_fixtures assets:generate_error_pages
   $stopdb
+  $stopredis
 }
 
 dia_start() {
@@ -545,6 +560,9 @@ case "$dia_command" in
     ;;
   cucumber)
     dia_cucumber "$@"
+    ;;
+  docker-compose)
+    dia_docker_compose "$@"
     ;;
   exec)
     dia_exec "$@"

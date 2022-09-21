@@ -18,18 +18,11 @@ chown -R $HOST_UID:$HOST_GID /home/diaspora
 mkdir -p /diaspora/tmp/pids
 chown $HOST_UID:$HOST_GID /diaspora/tmp /diaspora/tmp/pids /diaspora/vendor/bundle
 
-# ----- Wait for DB ----
-if [ -z $DIA_NODB ] || [ ! $DIA_NODB -eq 1 ]; then
-  if grep -qFx "  <<: *postgresql" /diaspora/config/database.yml; then
-    host=postgresql
-    port=5432
-  else
-    host=mysql
-    port=3306
-  fi
+function wait_for_port() {
+  local host=$1
+  local port=$2
 
-  c=0
-
+  local c=0
   trap '{ exit 1; }' INT
   while ! (< /dev/tcp/${host}/${port}) 2>/dev/null; do
     printf "\rWaiting for $host:$port to become ready ... ${c}s"
@@ -40,6 +33,18 @@ if [ -z $DIA_NODB ] || [ ! $DIA_NODB -eq 1 ]; then
   if [ ! -z $c ]; then
     printf "\rWaiting for $host:$port to become ready ... done (${c}s)\n"
   fi
+}
+
+if [ -z $DIA_NODB ] || [ ! $DIA_NODB -eq 1 ]; then
+  # ----- Wait for DB -----
+  if grep -qFx "  <<: *postgresql" /diaspora/config/database.yml; then
+    wait_for_port postgresql 5432
+  else
+    wait_for_port mysql 3306
+  fi
+
+  # ----- Wait for Redis -----
+  wait_for_port redis 6379
 fi
 
 cd /diaspora

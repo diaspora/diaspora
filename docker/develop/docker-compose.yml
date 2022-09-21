@@ -1,6 +1,7 @@
 version: "3.4"
 
 volumes:
+  redis_data:
   postgresql_data:
   mysql_data:
   dia_data_tmp:
@@ -21,8 +22,18 @@ services:
       - dia_data_bundle:/diaspora/vendor/bundle
     ports:
       - ${DIASPORA_DOCKER_PORT:-3000}:3000
+    environment:
+      - ENVIRONMENT_REDIS=redis://redis
+      - SERVER_LISTEN=tcp://0.0.0.0:3000
     depends_on:
       - "${DIASPORA_DOCKER_DB}"
+      - redis
+
+  redis:
+    image: redis:7
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - redis_data:/data
 
   postgresql:
     image: postgres:10.3
