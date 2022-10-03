@@ -71,6 +71,10 @@ module Diaspora
         end
       end
 
+      def escape_mentions_for_markdown
+        @message = Diaspora::Mentionable.escape_for_markdown(message)
+      end
+
       def render_mentions
         unless options[:disable_hovercards] || options[:mentioned_people].empty?
           @message = Diaspora::Mentionable.format message, options[:mentioned_people]
@@ -210,6 +214,7 @@ module Diaspora
         normalize
         diaspora_links
         camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
+        escape_mentions_for_markdown
         markdownify
         render_mentions
         render_tags

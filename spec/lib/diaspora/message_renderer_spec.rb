@@ -183,6 +183,16 @@ describe Diaspora::MessageRenderer do
         ).to match(/hovercard/)
       end
 
+      it "does not parse mentions as markdown" do
+        new_person = FactoryBot.create(:person, diaspora_handle: "__underscore__@example.org")
+        expect(
+          message(
+            "Hey @{#{new_person.diaspora_handle}}!",
+            mentioned_people: [new_person]
+          ).markdownified
+        ).to match(%r{>#{new_person.name}</a>})
+      end
+
       it 'should process text with both a hashtag and a link' do
         expect(
           message("Test #tag?\nhttps://joindiaspora.com\n").markdownified
