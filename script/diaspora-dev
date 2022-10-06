@@ -10,7 +10,8 @@ print_usage() {
     setup)
       echo; echo "Set up the environment for diaspora*"
       echo; echo "This command is an alias for the execution of the commands"
-      echo "build, config, bundle, migrate and setup-tests, in that order."
+      echo "build, config, pull, bundle, setup-rails and setup-tests, in that order."
+      echo; echo "This command can also be used to update the environment again."
       print_usage_header "setup [options]" \
         "    --force    Rebuild image without using Docker's cache;" \
         "               overwrite existing configuration" \
@@ -79,6 +80,10 @@ print_usage() {
       echo; echo "(Re-)Build Docker image diaspora:dev-latest"
       print_usage_header "build [options]" \
         "    --no-cache    Rebuild image without using Docker's cache"
+      ;;
+    pull)
+      echo; echo "Pull docker images needed for the development environment"
+      print_usage_header "pull"
       ;;
     bundle)
       echo; echo "Install gems using bundle into $DIASPORA_ROOT"
@@ -158,6 +163,7 @@ print_usage_full() {
   echo
   echo "Misc. Commands:"
   echo "  build            Build basic diaspora* environment"
+  echo "  pull             Update docker images"
   echo "  bundle           (Re-)Install gems for diaspora*"
   echo "  yarn             (Re-)Install frontend dependencies for diaspora*"
   echo "  config           Configure diaspora*"
@@ -228,7 +234,11 @@ dia_get_db() {
 dia_build() {
   if [ $# -gt 0 ] && [ "$1" == "--no-cache" ]; then nocache="--no-cache"; fi
   # Build the diaspora Docker container (diaspora:dev-latest)
-  dia_docker_compose build $nocache diaspora
+  dia_docker_compose build --pull $nocache diaspora
+}
+
+dia_pull() {
+  dia_docker_compose pull redis $(dia_get_db)
 }
 
 dia_bundle() {
@@ -450,6 +460,7 @@ dia_setup() {
     set -e
     dia_build $build
     dia_config $config
+    dia_pull
     dia_bundle
     dia_setup_rails
     dia_setup_tests
@@ -578,6 +589,9 @@ case "$dia_command" in
     ;;
   pronto)
     dia_pronto
+    ;;
+  pull)
+    dia_pull
     ;;
   restart)
     dia_restart "$@"
