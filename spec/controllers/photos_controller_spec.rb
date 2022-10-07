@@ -230,6 +230,19 @@ describe PhotosController, :type => :controller do
       expect(response).to be_successful
     end
 
+    it "should redirect to the post of the photo when not on mobile" do
+      alices_post = alice.post(:status_message, text: "Post with photo", to: alice.aspects.first.id, public: false)
+      @alices_photo.update(status_message: alices_post)
+
+      get :show, params: {person_id: alice.person.guid, id: @alices_photo.id}
+      expect(response).to redirect_to(post_path(alices_post))
+    end
+
+    it "should redirect to the photo file when not on mobile and no post exists" do
+      get :show, params: {person_id: alice.person.guid, id: @alices_photo.id}
+      expect(response).to redirect_to(@alices_photo.url)
+    end
+
     it "doesn't leak private photos to the public" do
       sign_out :user
       expect {
