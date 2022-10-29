@@ -52,6 +52,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Photo-upload file picker now correctly restricts possible file types [#8205](https://github.com/diaspora/diaspora/pull/8205)
 * Make inline code inside links show the link color [#8387](https://github.com/diaspora/diaspora/pull/8387)
 * Fix fetching public posts on first account search was missing some data [#8390](https://github.com/diaspora/diaspora/pull/8390)
+* Add redirect from mobile UI photo URLs to post when not using mobile UI [#8400](https://github.com/diaspora/diaspora/pull/8400)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)

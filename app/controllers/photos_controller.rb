@@ -13,9 +13,17 @@ class PhotosController < ApplicationController
                current_user.photos_from(Person.find_by(guid: params[:person_id])).where(id: params[:id]).first
              else
                Photo.where(id: params[:id], public: true).first
-    end
+             end
 
     raise ActiveRecord::RecordNotFound unless @photo
+
+    respond_to do |format|
+      format.html {
+        post = @photo.status_message
+        redirect_to post ? post_path(post) : @photo.url
+      }
+      format.mobile { render "photos/show" }
+    end
   end
 
   def index
