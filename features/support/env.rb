@@ -26,7 +26,11 @@ Capybara.server = :webrick
 
 Capybara.register_driver :apparition do |app|
   # Pass headless: false here if you need to see the browser
-  Capybara::Apparition::Driver.new(app, headless: true)
+  Capybara::Apparition::Driver.new(
+    app,
+    headless:        true,
+    browser_options: %i[no_sandbox disable_setuid_sandbox disable_gpu]
+  )
 end
 Capybara.javascript_driver = :apparition
 
