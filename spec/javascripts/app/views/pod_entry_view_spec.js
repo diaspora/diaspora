@@ -30,7 +30,8 @@ describe("app.views.PodEntry", function() {
       this.pod.set({
         status: "no_errors",
         ssl: true,
-        host: "pod.example.com"
+        host: "pod.example.com",
+        port: -1
       });
       var actual = this.view.presenter();
       expect(actual).toEqual(jasmine.objectContaining({

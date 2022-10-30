@@ -249,6 +249,7 @@ FactoryBot.define do
 
   factory :pod do
     sequence(:host) {|n| "pod#{n}.example#{r_str}.com" }
+    port { -1 }
     ssl { true }
   end
 
