@@ -58,7 +58,7 @@ class Pod < ApplicationRecord
     def find_or_create_by(opts) # Rename this method to not override an AR method
       uri = URI.parse(opts.fetch(:url))
       port = DEFAULT_PORTS.include?(uri.port) ? DEFAULT_PORT : uri.port
-      find_or_initialize_by(host: uri.host, port: port).tap do |pod|
+      find_or_initialize_by(host: uri.host.downcase, port: port).tap do |pod|
         pod.ssl ||= (uri.scheme == "https")
         pod.save
       end
@@ -168,6 +168,6 @@ class Pod < ApplicationRecord
   def not_own_pod
     pod_uri = AppConfig.pod_uri
     pod_port = DEFAULT_PORTS.include?(pod_uri.port) ? DEFAULT_PORT : pod_uri.port
-    errors.add(:base, "own pod not allowed") if pod_uri.host == host && pod_port == port
+    errors.add(:base, "own pod not allowed") if pod_uri.host.downcase == host && pod_port == port
   end
 end

@@ -43,6 +43,11 @@ describe Pod, type: :model do
       expect(pod.port).to eq(Pod::DEFAULT_PORT)
     end
 
+    it "normalizes hostname to lowercase" do
+      pod = Pod.find_or_create_by(url: "https://eXaMpLe.oRg/")
+      expect(pod.host).to eq("example.org")
+    end
+
     context "validation" do
       it "is valid" do
         pod = Pod.find_or_create_by(url: "https://example.org/")
