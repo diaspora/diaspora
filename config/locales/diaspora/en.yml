@@ -89,6 +89,8 @@ en:
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
     need_javascript: "This website requires JavaScript to function properly. If you disabled JavaScript, please enable it and refresh this page."
     csrf_token_fail: "The CSRF token is invalid. Please sign in and try again."
+    mobile_not_available: "This page is not available on mobile view, please switch to %{desktop_link}."
+    desktop_view_link: "desktop view"
 
   admins:
     admin_bar:
@@ -192,8 +194,6 @@ en:
       tag_name: "Tag name: %{name_tag} Count: %{count_tag}"
     pods:
       pod_network: "Pod network"
-      pod_desktop_view: "This page is not available on mobile view, please switch to %{desktop_link}."
-      pod_desktop_link: "desktop view"
   aspects:
     edit:
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
