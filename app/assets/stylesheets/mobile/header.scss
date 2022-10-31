@@ -145,6 +145,9 @@ $mobile-navbar-height: 46px;
     bottom: 0;
     overflow: auto;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     li {
       font-size: 1.8rem;
@@ -194,6 +197,21 @@ $mobile-navbar-height: 46px;
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  .info-links {
+    li {
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+
+    a {
+      padding: 8px 25px;
+    }
+
+    .switch-to-touch {
+      display: none;
+    }
   }
 }
 

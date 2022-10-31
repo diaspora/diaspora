@@ -61,3 +61,6 @@
             = t("admins.admin_bar.report")
       %li= link_to t("layouts.application.switch_to_standard_mode"), toggle_mobile_path
       %li= link_to t("layouts.header.logout"), destroy_user_session_path, method: :delete
+
+    %ul.info-links
+      = render "shared/links"
