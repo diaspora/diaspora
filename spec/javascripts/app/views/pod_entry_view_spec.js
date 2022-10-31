@@ -36,6 +36,7 @@ describe("app.views.PodEntry", function() {
       var actual = this.view.presenter();
       expect(actual).toEqual(jasmine.objectContaining({
         /* jshint camelcase: false */
+        hasPort: false,
         is_unchecked: false,
         has_no_errors: true,
         has_errors: false,

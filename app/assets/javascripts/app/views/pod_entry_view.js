@@ -27,6 +27,7 @@ app.views.PodEntry = app.views.Base.extend({
   presenter: function() {
     return _.extend({}, this.defaultPresenter(), {
       /* jshint camelcase: false */
+      hasPort: (this.model.get("port") >= 0),
       is_unchecked: (this.model.get("status")==="unchecked"),
       has_no_errors: (this.model.get("status")==="no_errors"),
       has_errors: (this.model.get("status")!=="no_errors"),
