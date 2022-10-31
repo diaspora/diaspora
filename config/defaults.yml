@@ -202,5 +202,9 @@ test:
       enable: true
       key: 'fake'
       secret: 'sdoigjosdfijg'
+    tumblr:
+      enable: true
+      key: 'fake'
+      secret: 'sdoigjosdfijg'
   mail:
     enable: true
