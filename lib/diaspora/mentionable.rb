@@ -71,6 +71,16 @@ module Diaspora::Mentionable
     }
   end
 
+  # Escapes special chars in mentions to not be parsed as markdown
+  #
+  # @param [String] text containing mentions
+  # @return [String] escaped message
+  def self.escape_for_markdown(msg_text)
+    msg_text.to_s.gsub(REGEX) {|match_str|
+      match_str.gsub("_", "\\_")
+    }
+  end
+
   private_class_method def self.find_or_fetch_person_by_identifier(identifier)
     Person.find_or_fetch_by_identifier(identifier) if Validation::Rule::DiasporaId.new.valid_value?(identifier)
   rescue DiasporaFederation::Discovery::DiscoveryError
