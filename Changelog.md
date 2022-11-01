@@ -55,6 +55,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Add redirect from mobile UI photo URLs to post when not using mobile UI [#8400](https://github.com/diaspora/diaspora/pull/8400)
 * Escape mentions before markdown parsing in mobile UI [#8398](https://github.com/diaspora/diaspora/pull/8398)
 * Cleanup duplicate pods in database [#8403](https://github.com/diaspora/diaspora/pull/8403)
+* Fix scrolling issue after closing photo viewer on photos page [#8404](https://github.com/diaspora/diaspora/pull/8404)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
@@ -66,6 +67,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Add support for webp images and convert new png/jpg to webp to save space and bandwidth [#8358](https://github.com/diaspora/diaspora/pull/8358)
 * Show total and active pods count in the pods list for podmins [#8383](https://github.com/diaspora/diaspora/pull/8383)
 * Allow to select multiple aspects when posting on mobile [#8217](https://github.com/diaspora/diaspora/pull/8217)
+* Add info links to drawer in mobile UI [#8405](https://github.com/diaspora/diaspora/pull/8405)
 
 # 0.7.18.1
 
