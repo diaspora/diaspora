@@ -16,26 +16,36 @@ describe Pod, type: :model do
     it "ignores default ports" do
       pod = Pod.find_or_create_by(url: "https://example.org:443/")
       expect(pod.host).to eq("example.org")
-      expect(pod.port).to be_nil
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
     end
 
     it "sets ssl boolean" do
       pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
     end
 
     it "updates ssl boolean if upgraded to https" do
       pod = Pod.find_or_create_by(url: "http://example.org/")
       expect(pod.ssl).to be false
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
       pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
     end
 
     it "does not update ssl boolean if downgraded to http" do
       pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
       pod = Pod.find_or_create_by(url: "http://example.org/")
       expect(pod.ssl).to be true
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
+    end
+
+    it "normalizes hostname to lowercase" do
+      pod = Pod.find_or_create_by(url: "https://eXaMpLe.oRg/")
+      expect(pod.host).to eq("example.org")
     end
 
     context "validation" do
@@ -204,6 +214,11 @@ describe Pod, type: :model do
     it "appends the path to the pod-url" do
       pod = FactoryBot.create(:pod)
       expect(pod.url_to("/receive/public")).to eq("https://#{pod.host}/receive/public")
+    end
+
+    it "includes non-default port in pod url" do
+      pod = FactoryBot.create(:pod, port: 3000)
+      expect(pod.url_to("/receive/public")).to eq("https://#{pod.host}:#{pod.port}/receive/public")
     end
   end
 

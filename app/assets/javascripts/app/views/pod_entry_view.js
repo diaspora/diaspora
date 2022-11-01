@@ -27,12 +27,13 @@ app.views.PodEntry = app.views.Base.extend({
   presenter: function() {
     return _.extend({}, this.defaultPresenter(), {
       /* jshint camelcase: false */
+      hasPort: (this.model.get("port") >= 0),
       is_unchecked: (this.model.get("status")==="unchecked"),
       has_no_errors: (this.model.get("status")==="no_errors"),
       has_errors: (this.model.get("status")!=="no_errors"),
       status_text: Diaspora.I18n.t("admin.pods.states."+this.model.get("status")),
       pod_url: (this.model.get("ssl") ? "https" : "http") + "://" + this.model.get("host") +
-                 (this.model.get("port") ? ":" + this.model.get("port") : ""),
+                 (this.model.get("port") >= 0 ? ":" + this.model.get("port") : ""),
       response_time_fmt: this._fmtResponseTime()
       /* jshint camelcase: true */
     });

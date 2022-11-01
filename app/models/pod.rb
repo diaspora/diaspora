@@ -22,7 +22,7 @@ class Pod < ApplicationRecord
     ConnectionTester::SSLFailure      => :ssl_failed,
     ConnectionTester::HTTPFailure     => :http_failed,
     ConnectionTester::NodeInfoFailure => :version_failed
-  }
+  }.freeze
 
   # this are only the most common errors, the rest will be +unknown_error+
   CURL_ERROR_MAP = {
@@ -34,7 +34,13 @@ class Pod < ApplicationRecord
     redirected_to_other_hostname: :http_failed
   }.freeze
 
-  DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
+  # use -1 as port for default ports
+  # we can't use the real default port (80/443) because we need to handle them
+  # like both are the same and not both can exist at the same time.
+  # we also can't use nil, because databases don't handle NULL in unique indexes
+  # (except postgres >= 15 with "NULLS NOT DISTINCT").
+  DEFAULT_PORT = -1
+  DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT].freeze
 
   has_many :people
 
@@ -51,8 +57,8 @@ class Pod < ApplicationRecord
   class << self
     def find_or_create_by(opts) # Rename this method to not override an AR method
       uri = URI.parse(opts.fetch(:url))
-      port = DEFAULT_PORTS.include?(uri.port) ? nil : uri.port
-      find_or_initialize_by(host: uri.host, port: port).tap do |pod|
+      port = DEFAULT_PORTS.include?(uri.port) ? DEFAULT_PORT : uri.port
+      find_or_initialize_by(host: uri.host.downcase, port: port).tap do |pod|
         pod.ssl ||= (uri.scheme == "https")
         pod.save
       end
@@ -147,13 +153,21 @@ class Pod < ApplicationRecord
 
   # @return [URI]
   def uri
-    @uri ||= (ssl ? URI::HTTPS : URI::HTTP).build(host: host, port: port)
+    @uri ||= (ssl ? URI::HTTPS : URI::HTTP).build(host: host, port: real_port)
     @uri.dup
+  end
+
+  def real_port
+    if port == DEFAULT_PORT
+      ssl ? URI::HTTPS::DEFAULT_PORT : URI::HTTP::DEFAULT_PORT
+    else
+      port
+    end
   end
 
   def not_own_pod
     pod_uri = AppConfig.pod_uri
-    pod_port = DEFAULT_PORTS.include?(pod_uri.port) ? nil : pod_uri.port
-    errors.add(:base, "own pod not allowed") if pod_uri.host == host && pod_port == port
+    pod_port = DEFAULT_PORTS.include?(pod_uri.port) ? DEFAULT_PORT : pod_uri.port
+    errors.add(:base, "own pod not allowed") if pod_uri.host.downcase == host && pod_port == port
   end
 end
