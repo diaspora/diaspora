@@ -13,6 +13,14 @@ module ApplicationHelper
     AppConfig.version.number
   end
 
+  def uri_with_username
+    if user_signed_in?
+      AppConfig.pod_uri + "?username=#{current_user.username}"
+    else
+      AppConfig.pod_uri
+    end
+  end
+
   def changelog_url
     return AppConfig.settings.changelog_url.get if AppConfig.settings.changelog_url.present?
 
