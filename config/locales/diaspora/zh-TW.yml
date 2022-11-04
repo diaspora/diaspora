@@ -59,8 +59,6 @@ zh-TW:
       fetching_diaspora_version: "判斷 diaspora* 的最新版本中..."
       pod_status: "豆莢狀態"
     pods:
-      pod_desktop_link: "桌面版"
-      pod_desktop_view: "這個頁面沒有行動版，請切換到%{desktop_link}。"
       pod_network: "豆莢網路"
     stats:
       2weeks: "兩個禮拜"
@@ -343,8 +341,10 @@ zh-TW:
   email: "電子信箱"
   error_messages:
     csrf_token_fail: "CSRF 信物不正確。請重新登入後再重試一次。"
+    desktop_view_link: "桌面版"
     helper:
       correct_the_following_errors_and_try_again: "請修正以下錯誤後再試一次。"
+    mobile_not_available: "這個頁面沒有行動版，請切換到%{desktop_link}。"
     need_javascript: "這個網站需要 JavaScript 功能才能正常運作。如果你關掉了 JavaScript 的話，請打開它後重新載入網頁來使用。"
   errors:
     messages:

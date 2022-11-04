@@ -43,7 +43,7 @@ da:
             person:
               invalid: "er ugyldig."
             username:
-              invalid: "er ugyldig. Vi tillader kun bogstaver, tal og understreg."
+              invalid: "er ugyldig. Vi tillader kun bogstaver, tal og bundstreg."
               taken: "er allerede taget."
   admins:
     admin_bar:
@@ -59,8 +59,6 @@ da:
       fetching_diaspora_version: "Bestem seneste Diaspora version ..."
       pod_status: "Pod status"
     pods:
-      pod_desktop_link: "skrivebordsvisning"
-      pod_desktop_view: "Denne side er ikke tilgængelig på mobil-visning, skift til %{desktop_link}."
       pod_network: "Pod netværk"
     stats:
       2weeks: "2 uger"
@@ -412,8 +410,10 @@ da:
   email: "E-mail"
   error_messages:
     csrf_token_fail: "CSFR-token er ikke gyldigt. Log ind og prøv igen."
+    desktop_view_link: "skrivebordsvisning"
     helper:
       correct_the_following_errors_and_try_again: "Ret de følgende fejl og prøv igen."
+    mobile_not_available: "Denne side er ikke tilgængelig på mobil-visning, skift til %{desktop_link}."
     need_javascript: "Denne hjemmeside kræver javascript for at fungere ordentligt. Hvis du har slået javascript fra, slå det venligst til igen og opdater hjemmesiden."
   errors:
     messages:
@@ -429,7 +429,7 @@ da:
       mini_magick_processing_error: "Kunne ikke manipulere med MiniMagick, måske er det ikke et billede? Original fejl: %{e}"
       rmagick_processing_error: "Kunne ikke manipulere med rmagick, måske er det ikke et billede?"
   fill_me_out: "Udfyld mig"
-  find_people: "Find mennesker eller #tags"
+  find_people: "Find personer eller #tags"
   help:
     account_and_data_management:
       close_account_a: "Gå til bunden af ​​dine indstillinger og tryk på knappen \"Luk konto\". Du vil blive bedt om at indtaste dit kodeord for at fuldende processen. Husk, hvis du lukker din konto vil du <strong>aldrig</strong> kunne genregistrere dit brugernavn på denne pod."
@@ -683,7 +683,7 @@ da:
       comma_separated_plz: "Du kan indsætte flere emailadresser ved at adskille dem med komma."
       invite_someone_to_join: "Inviter en person til Diaspora!"
       language: "Sprog"
-      paste_link: "Del dette link med sine venner for at invitere dem til Diaspora, eller email dem linket direkte."
+      paste_link: "Del dette link med dine venner for at invitere dem til Diaspora, eller e-mail dem linket direkte."
       send_an_invitation: "Send en invitation"
       sending_invitation: "Sender invitation ..."
   layouts:
@@ -836,7 +836,7 @@ da:
     contacts_birthday:
       birthday: "%{name} har fødselsdag i dag. Skriv tillykke!"
       subject: "%{name} har fødselsdag i dag"
-      view_profile: "Se %{name}s profil"
+      view_profile: "Vis %{name}s profil >"
     csrf_token_fail:
       body: |-
           Goddag %{name},
@@ -858,7 +858,7 @@ da:
           Hvis du bliver ved med at se denne meddelelse, så undersøg venligst punkterne ovenfor, inklusive dine browser-add-ons.
 
           Mange tak,
-          Diaspora email-robotten!
+          Diaspora e-mail-robotten!
       subject: "Vi har modtaget en ikke-autoriseret forespørgsel fra din konto, %{name}"
     email_sent_by_diaspora: "Denne e-mail blev sendt af %{pod_name}. Hvis du gerne vil holde op med at få e-mails som denne,"
     export_email:
@@ -869,18 +869,18 @@ da:
 
           Hilsen
 
-          Diasporas email-robot!
+          Diasporas e-mail-robot!
       subject: "Dine personlige data er klar til at blive downloadet, %{name}."
     export_failure_email:
       body: |-
           Hej %{name}
 
           Der er sket en fejl mens dine personlige data blev behandlet til download.
-          Prøv venligst igen!
+          Hvis denne fejl kommer igen, kontakt venligst din podmin for hjælp.
 
-          Undskyld,
+          Undskyld ulejligheden,
 
-          Diasporas email-robot!
+          Diasporas e-mail-robot!
       subject: "Vi er kede af det, men der er et problem med dine data, %{name}."
     export_photos_email:
       body: |-
@@ -890,18 +890,18 @@ da:
 
           Hilsen
 
-          Diasporas email-robot!
+          Diasporas e-mail-robot!
       subject: "Dine billeder er klar til download, %{name}"
     export_photos_failure_email:
       body: |-
           Hej %{name}
 
           Der er sket en fejl mens vi behandlede dine billeder til download.
-          Prøv venligst igen!
+          Hvis denne fejl kommer igen, kontakt venligst din podmin for hjælp.
 
-          Unskyld,
+          Undskyld ulejligheden,
 
-          Diasporas email-robot!
+          Diasporas e-mail-robot!
       subject: "Der var et problem med dine billeder, %{name}"
     hello: "Hej %{name}!"
     invite:
@@ -919,7 +919,7 @@ da:
 
           Kærlig hilsen
 
-          Diasporas email-robot!
+          Diasporas e-mail-robot!
 
           P.S. Hvis du (endnu) ikke ved hvad Diaspora er, kan du finde svaret [her][2]!
 
@@ -953,7 +953,7 @@ da:
 
           Vi håber at se dig igen,
 
-          Venlig hilsen, Diasporas email-robot!
+          Venlig hilsen, Diasporas e-mail-robot!
       subject: "Din Diaspora-konto er blevet mærket: \"fjernes på grund af inaktivitet.\""
     report_email:
       body: |-
@@ -970,7 +970,7 @@ da:
 
           Venlig hilsen,
 
-          Diasporas email-robot!
+          Diasporas e-mail-robot!
 
           [1]: %{url}
       subject: "%{type} blev markeret som stødende"
@@ -986,10 +986,10 @@ da:
     started_sharing:
       sharing: "er begyndt at dele med dig!"
       subject: "%{name} er begyndt at dele med dig på Diaspora"
-      view_profile: "Vis %{navn}s profil"
+      view_profile: "Vis %{name}s profil >"
     thanks: "Tak,"
     to_change_your_notification_settings: "for at ændre dine indstillinger for meddelelser"
-  nsfw: "Uegnet til arbejdsvisning (NSFW)"
+  nsfw: "NSFW"
   ok: "OK"
   people:
     add_contact:
@@ -1056,7 +1056,7 @@ da:
       last_name: "Efternavn"
       limited: "Begrænset"
       nsfw_check: "Marker alt det jeg deler som NSFW"
-      nsfw_explanation: "NSFW (not safe for work) er Diasporas selvregulerede fællesstandard for hvilket indhold der ikke vil være passende at se i en arbejdssituation. Hvis du ønsker at vise den slags indhold ofte, så husk at slå denne valgmulighed til så det du deler vil være skjult fra folks strøm, med mindre de ønsker at se dem."
+      nsfw_explanation: "NSFW (not safe for work) er Diasporas selvregulerede fællesstandard for hvilket indhold der ikke vil være passende at se i en arbejdssituation - dvs. indhold der af den ene eller anden grund kan være stødende. Hvis du ønsker at vise den slags indhold ofte, så husk at slå denne valgmulighed til så det du deler vil være skjult fra folks strøm, med mindre de ønsker at se dem."
       nsfw_explanation2: "Hvis du vælger ikke at slå denne valgmulighed til, husk at tilføje et #nsfw tag hver gang du deler denne slags materiale."
       public: "Offentlig"
       settings: "Profil indstillinger"
@@ -1087,7 +1087,7 @@ da:
       enter_email: "Skriv din e-mailadresse"
       enter_password: "Indtast en adgangskode (mindst seks tegn)"
       enter_password_again: "Indtast den samme adgangskode som før"
-      enter_username: "Vælg et brugernavn (kun bogstaver, tal og understreg)"
+      enter_username: "Vælg et brugernavn (kun bogstaver, tal og bundstreg)"
       password: "Adgangskode"
       password_confirmation: "Bekræftelse af adgangskoden"
       sign_up: "Opret en profil"

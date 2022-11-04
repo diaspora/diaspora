@@ -58,8 +58,6 @@ cs:
       fetching_diaspora_version: "Určuji nejnovější verze diaspory*..."
       pod_status: "Statistiky podu"
     pods:
-      pod_desktop_link: "desktopové zobrazení"
-      pod_desktop_view: "Tuto stránku nelze zobrazit v mobilním zobrazení, prosím přejděte na %{desktop_link}."
       pod_network: "Síť podů"
     stats:
       2weeks: "Dvoutýdenní"
@@ -356,8 +354,10 @@ cs:
   email: "E-mail"
   error_messages:
     csrf_token_fail: "CSRF token je neplatný. Prosím přihlaste se a zkuste to znovu."
+    desktop_view_link: "desktopové zobrazení"
     helper:
       correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
+    mobile_not_available: "Tuto stránku nelze zobrazit v mobilním zobrazení, prosím přejděte na %{desktop_link}."
     need_javascript: "Tato stránka vyžaduje pro své plné fungování JavaScript. Pokud jste Javascript zakázali, povolte jej a obnovte stránku."
   errors:
     messages:

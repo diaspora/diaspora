@@ -59,8 +59,6 @@ sv:
       fetching_diaspora_version: "Listar ut senaste versionen av Diaspora*..."
       pod_status: "Podstatus"
     pods:
-      pod_desktop_link: "skrivbordsvy"
-      pod_desktop_view: "Denna sida är inte tillgänglig i mobilvy. Vänligen växla till %{desktop_link}."
       pod_network: "Podnätverk"
     stats:
       2weeks: "Två veckor"
@@ -412,8 +410,10 @@ sv:
   email: "E-post"
   error_messages:
     csrf_token_fail: "Ogiltigt CSRF-pollett. Vänligen logga in och försök igen."
+    desktop_view_link: "skrivbordsvy"
     helper:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
+    mobile_not_available: "Denna sida är inte tillgänglig i mobilvy. Vänligen växla till %{desktop_link}."
     need_javascript: "Denna webbplats behöver JavaScript för att fungera ordentligt. Har du inaktiverat JavaScript, får du vara så snäll att aktivera det och ladda om sidan."
   errors:
     messages:

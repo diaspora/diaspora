@@ -58,8 +58,6 @@ sc:
       fetching_diaspora_version: "Verifichende s'ùrtima versione de diaspora*..."
       pod_status: "Istadu pod"
     pods:
-      pod_desktop_link: "modalidade pro s'iscrivania"
-      pod_desktop_view: "Custa pàgina no est disponìbile in sa modalidade pro tzellulares, pro praghere cola a sa %{desktop_link}."
       pod_network: "Retza pod"
     stats:
       2weeks: "2 chidas"
@@ -411,8 +409,10 @@ sc:
   email: "P. eletr. (e-mail)"
   error_messages:
     csrf_token_fail: "Su getone CSRF no est vàlidu. Pro praghere intra in su sistema e torra a proare."
+    desktop_view_link: "modalidade pro s'iscrivania"
     helper:
       correct_the_following_errors_and_try_again: "Currege custos errore e torra a proare."
+    mobile_not_available: "Custa pàgina no est disponìbile in sa modalidade pro tzellulares, pro praghere cola a sa %{desktop_link}."
     need_javascript: "Custu situ ìnternet tenet bisòngiu de JavaScript pro funtzionare comente si tocat. Si as istudadu JavaScript torra·lu a allùghere, pro praghere, e torra a carrigare custa pàgina."
   errors:
     messages:

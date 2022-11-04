@@ -111,5 +111,5 @@ ia:
       not_found: "non trovate"
       not_locked: "non ha essite blocate"
       not_saved:
-        one: "Un error ha impedite iste %{resource} de esser salveguardate:"
-        other: "%{count} errores ha impedite iste %{resource} de esser salveguardate:"
+        one: "Un error ha impedite a iste %{resource} de esser salveguardate:"
+        other: "%{count} errores ha impedite a iste %{resource} de esser salveguardate:"

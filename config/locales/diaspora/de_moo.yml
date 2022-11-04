@@ -59,8 +59,6 @@ de_moo:
       fetching_diaspora_version: "Ermittle neueste diaspora*-Version"
       pod_status: "Bauernhofstatus"
     pods:
-      pod_desktop_link: "Desktopansicht"
-      pod_desktop_view: "Diese Weide ist in der mobilen Ansicht nicht verfügbar, bitte wechsle zur %{desktop_link}."
       pod_network: "Bauernhofnetzwerk"
     stats:
       2weeks: "2 Wochen"
@@ -412,8 +410,10 @@ de_moo:
   email: "E-Mail"
   error_messages:
     csrf_token_fail: "Das CSRF-Token ist ungültig. Bitte melde dich an und versuche es noch einmal."
+    desktop_view_link: "Desktopansicht"
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
+    mobile_not_available: "Diese Weide ist in der mobilen Ansicht nicht verfügbar, bitte wechsle zur %{desktop_link}."
     need_javascript: "Diese Webseite benötigt Javascript, um richtig zu funktionieren. Falls du Javascript deaktiviert haben solltest, bitte aktiviere es und aktualisiere diese Weide."
   errors:
     messages:

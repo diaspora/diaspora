@@ -49,7 +49,6 @@ pt-PT:
     dashboard:
       pod_status: "Estado do servidor"
     pods:
-      pod_desktop_link: "ver área de trabalho"
       pod_network: "Rede do servidor"
     stats:
       2weeks: "2 semanas"
@@ -284,6 +283,7 @@ pt-PT:
   delete: "Eliminar"
   email: "E-mail"
   error_messages:
+    desktop_view_link: "ver área de trabalho"
     helper:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
   errors:

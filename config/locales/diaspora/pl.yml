@@ -58,8 +58,6 @@ pl:
       fetching_diaspora_version: "Ustalanie najnowszej wersji diaspory*..."
       pod_status: "Stan poda"
     pods:
-      pod_desktop_link: "pełną wersję strony"
-      pod_desktop_view: "Ta strona nie jest dostępna w mobilnej wersji strony, proszę przełączyć się na %{desktop_link}."
       pod_network: "Sieć poda"
     stats:
       2weeks: "2 tygodnie"
@@ -355,8 +353,10 @@ pl:
   email: "E-mail"
   error_messages:
     csrf_token_fail: "Token CSRF jest niepoprawny. Zaloguj się i spróbuj ponownie."
+    desktop_view_link: "pełną wersję strony"
     helper:
       correct_the_following_errors_and_try_again: "Popraw poniższe błędy i spróbuj ponownie."
+    mobile_not_available: "Ta strona nie jest dostępna w mobilnej wersji strony, proszę przełączyć się na %{desktop_link}."
     need_javascript: "Strona do poprawnego działania wymaga obsługi JavaScriptu. Jeśli ją wyłączyłeś, prosimy byś ją włączył i odświeżył stronę."
   errors:
     messages:

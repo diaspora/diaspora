@@ -58,8 +58,6 @@ fi:
       fetching_diaspora_version: "Määritetään viimeisin diaspora* versio..."
       pod_status: "Podin tila"
     pods:
-      pod_desktop_link: "Työpöytänäkymä"
-      pod_desktop_view: "Tämä sivu ei ole saatavilla mobiilinäkymässä. Valitse %{desktop_link}"
       pod_network: "Podverkko"
     stats:
       2weeks: "2 viikkoa"
@@ -320,8 +318,10 @@ fi:
   email: "Sähköposti"
   error_messages:
     csrf_token_fail: "Virheellinen CSRF-merkki. Kirjaudu sisään ja yritä uudelleen."
+    desktop_view_link: "Työpöytänäkymä"
     helper:
       correct_the_following_errors_and_try_again: "Korjaa seuraavat virheet ja yritä uudelleen."
+    mobile_not_available: "Tämä sivu ei ole saatavilla mobiilinäkymässä. Valitse %{desktop_link}"
     need_javascript: "Tämä sivusto toimii JavaScriptin avulla. Jos olet poistanut JavaScriptin käytöstä, ota se käyttöön ja päivitä sivu."
   errors:
     messages:

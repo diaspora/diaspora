@@ -59,8 +59,6 @@ ia:
       fetching_diaspora_version: "Determina ultime version de diaspora*..."
       pod_status: "Stato del pod"
     pods:
-      pod_desktop_link: "vista scriptorio"
-      pod_desktop_view: "Iste pagina non es disponibile in vista mobile. Cambia al %{desktop_link}."
       pod_network: "Rete de pods"
     stats:
       2weeks: "2 septimanas"
@@ -412,8 +410,10 @@ ia:
   email: "E-mail"
   error_messages:
     csrf_token_fail: "Le indicio CSRF non es valide. Per favor, aperi session e reproba."
+    desktop_view_link: "vista scriptorio"
     helper:
       correct_the_following_errors_and_try_again: "Corrige le sequente errores e proba de novo."
+    mobile_not_available: "Iste pagina non es disponibile in vista mobile. Cambia al %{desktop_link}."
     need_javascript: "Iste sito web require JavaScript pro poter functionar. Si tu ha disactivate JavaScript, per favor reactiva lo e recarga iste pagina."
   errors:
     messages:
@@ -818,7 +818,7 @@ ia:
     contacts_birthday:
       birthday: "%{name} ha su anniversario hodie. Desira le/la un felice anniversario!"
       subject: "%{name} ha su anniversario hodie"
-      view_profile: "Vider le profilo de %{name}"
+      view_profile: "Vider le profilo de %{name} >"
     csrf_token_fail:
       body: |-
           Salute %{name},
@@ -857,10 +857,10 @@ ia:
       body: |-
           Hallo %{name},
 
-          Regrettabilemente, un problema ha occurrite durante le preparation de tu datos personal pro discargamento.
-          Per favor, essaya lo de novo!
+          Un problema ha occurrite durante le preparation de tu datos personal pro discargamento.
+          Si le problema persiste, contacta le administrator de tu pod pro obtener adjuta.
 
-          Amicalmente,
+          Con regret,
 
           Le robot messagero de diaspora*!
       subject: "Problema con datos personal de %{name}"
@@ -879,11 +879,11 @@ ia:
           Hallo %{name},
 
           Un problema ha occurrite durante le tractamento de tu photos pro discargamento.
-          Per favor, essaya lo de novo!
+          Si le problema persiste, contacta le administrator de tu pod pro obtener adjuta.
 
           Con regret,
 
-          Le robot messagero de diaspora*!       
+          Le robot messagero de diaspora*!
       subject: "Problema con photos de %{name}"
     hello: "Salute %{name}!"
     invite:
@@ -968,7 +968,7 @@ ia:
     started_sharing:
       sharing: "ha comenciate a divider con te!"
       subject: "%{name} ha comenciate a divider con te in diaspora*"
-      view_profile: "Vider le profilo de %{name}"
+      view_profile: "Vider le profilo de %{name} >"
     thanks: "Gratias,"
     to_change_your_notification_settings: "pro cambiar tu configuration de notificationes"
   nsfw: "NSFW"
@@ -990,7 +990,7 @@ ia:
     profile_sidebar:
       bio: "Bio"
       born: "Data de nascentia"
-      gender: "Sexo"
+      gender: "Genere"
       location: "Loco"
     show:
       closed_account: "Iste conto ha essite claudite."

@@ -58,8 +58,6 @@ pt-BR:
       fetching_diaspora_version: "Buscando a versão mais recente da diaspora*..."
       pod_status: "Estado do servidor"
     pods:
-      pod_desktop_link: "versão desktop"
-      pod_desktop_view: "Esta página não está disponível na versão móvel. Por favor, mude para a %{desktop_link}."
       pod_network: "Rede"
     stats:
       2weeks: "2 semanas"
@@ -353,8 +351,10 @@ pt-BR:
   email: "E-mail"
   error_messages:
     csrf_token_fail: "O código CSRF é inválido. Por favor, entre no sistema e tente de novo."
+    desktop_view_link: "versão desktop"
     helper:
       correct_the_following_errors_and_try_again: "Corrija os erros a seguir e tente novamente."
+    mobile_not_available: "Esta página não está disponível na versão móvel. Por favor, mude para a %{desktop_link}."
     need_javascript: "Este site precisa de JavaScript para funcionar corretamente. Se você desabilitou o Javascript, habilite-o e atualize esta página."
   errors:
     messages:

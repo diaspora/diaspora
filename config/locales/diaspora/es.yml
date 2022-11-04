@@ -58,8 +58,6 @@ es:
       fetching_diaspora_version: "Averiguando la última versión de diaspora*..."
       pod_status: "Estado del pod"
     pods:
-      pod_desktop_link: "vista de escritorio"
-      pod_desktop_view: "Esta página no está disponible en la vista movil, por favor cambia a %{desktop_link}"
       pod_network: "Red POD"
     stats:
       2weeks: "2 semanas"
@@ -411,8 +409,10 @@ es:
   email: "Correo Electrónico"
   error_messages:
     csrf_token_fail: "El token CSFR no es válido. Por favor, inicia la sesión e inténtalo de nuevo."
+    desktop_view_link: "vista de escritorio"
     helper:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
+    mobile_not_available: "Esta página no está disponible en la vista movil, por favor cambia a %{desktop_link}"
     need_javascript: "Esta web necesita JavaScript para funcionar correctamente. Si lo desactivaste, por favor actívalo y actualiza la página."
   errors:
     messages:

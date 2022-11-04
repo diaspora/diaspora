@@ -59,8 +59,6 @@ de_formal:
       fetching_diaspora_version: "Ermittle neueste diaspora*-Version"
       pod_status: "Pod-Status"
     pods:
-      pod_desktop_link: "Desktop-Ansicht"
-      pod_desktop_view: "Diese Seite ist in der mobilen Ansicht nicht verfügbar, bitte wechseln Sie zur %{desktop_link}."
       pod_network: "Pod-Netzwerk"
     stats:
       2weeks: "2 Wochen"
@@ -412,8 +410,10 @@ de_formal:
   email: "E-Mail-Adresse"
   error_messages:
     csrf_token_fail: "Das CSRF-Token ist ungültig. Bitte melden Sie sich an und versuchen Sie es erneut."
+    desktop_view_link: "Desktop-Ansicht"
     helper:
       correct_the_following_errors_and_try_again: "Korrigieren Sie die folgenden Fehler und versuchen Sie es erneut."
+    mobile_not_available: "Diese Seite ist in der mobilen Ansicht nicht verfügbar, bitte wechseln Sie zur %{desktop_link}."
     need_javascript: "Diese Webseite benötigt Javascript, um richtig zu funktionieren. Falls Sie Javascript deaktiviert haben, aktivieren Sie es bitte und aktualisieren Sie dann diese Seite."
   errors:
     messages:

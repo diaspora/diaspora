@@ -58,8 +58,6 @@ nl:
       fetching_diaspora_version: "Bepalen laatste versie van diaspora*..."
       pod_status: "Pod status"
     pods:
-      pod_desktop_link: "desktop overzicht"
-      pod_desktop_view: "Deze pagina is niet zichtbaar met mobiele versie, schakel over naar %{desktop_link}"
       pod_network: "Pod netwerk"
     stats:
       2weeks: "2 weken"
@@ -355,8 +353,10 @@ nl:
   email: "E-mail"
   error_messages:
     csrf_token_fail: "Het CSRF token is ongeldig. Log opnieuw in en probeer het nog eens."
+    desktop_view_link: "desktop overzicht"
     helper:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
+    mobile_not_available: "Deze pagina is niet zichtbaar met mobiele versie, schakel over naar %{desktop_link}"
     need_javascript: "Deze website vereist JavaScript om goed te kunnen werken. Als je JavaScript hebt uitgeschakeld, adviseren we om het te activeren en deze pagina te herladen."
   errors:
     messages:

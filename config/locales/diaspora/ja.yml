@@ -58,8 +58,6 @@ ja:
       fetching_diaspora_version: "最新のダイアスポラ* バージョンを判断しています..."
       pod_status: "ポッド ステータス"
     pods:
-      pod_desktop_link: "デスクトップ ビュー"
-      pod_desktop_view: "このページは、モバイル ビューには対応していません。%{desktop_link} に切り替えてください。"
       pod_network: "ポッド ネットワーク"
     stats:
       2weeks: "2 週間"
@@ -342,8 +340,10 @@ ja:
   email: "メール"
   error_messages:
     csrf_token_fail: "CSRFトークンが無効です。 サインインしてもう一度やり直してください。"
+    desktop_view_link: "デスクトップ ビュー"
     helper:
       correct_the_following_errors_and_try_again: "次の問題を解決してからやり直してください。"
+    mobile_not_available: "このページは、モバイル ビューには対応していません。%{desktop_link} に切り替えてください。"
     need_javascript: "このウェブサイトは正常に機能するためにJavaScriptが必要です。 JavaScriptを無効にした場合は、有効にしてこのページを更新してください。"
   errors:
     messages:

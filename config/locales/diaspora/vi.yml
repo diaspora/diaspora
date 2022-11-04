@@ -59,8 +59,6 @@ vi:
       fetching_diaspora_version: "Đang lấy Diaspora phiên bản mới nhất..."
       pod_status: "Trạng thái"
     pods:
-      pod_desktop_link: "chế độ máy tính bàn"
-      pod_desktop_view: "Trang này không thể xem được trên di động, hãy chuyển sang %{desktop_link}."
       pod_network: "Máy chủ liên hợp"
     stats:
       2weeks: "2 tuần"
@@ -405,8 +403,10 @@ vi:
   email: "Email"
   error_messages:
     csrf_token_fail: "CSRF token không hợp lệ. Xin đăng nhập và thử lại."
+    desktop_view_link: "chế độ máy tính bàn"
     helper:
       correct_the_following_errors_and_try_again: "Sửa những lỗi sau và thử lại."
+    mobile_not_available: "Trang này không thể xem được trên di động, hãy chuyển sang %{desktop_link}."
     need_javascript: "Trang web này yêu cầu JavaScript để chạy các tính năng. Nếu bạn đang tắt JavaScript, hãy bật lại và làm tươi trang."
   errors:
     messages:

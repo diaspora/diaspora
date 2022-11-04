@@ -58,8 +58,6 @@ ru:
       fetching_diaspora_version: "Определяем последнюю версию диаспоры*..."
       pod_status: "Статус пода"
     pods:
-      pod_desktop_link: "Смотреть в режиме рабочего стола"
-      pod_desktop_view: "Эта страница недоступна в мобильной версии, пожалуйста, переключитесь на %{desktop_link}."
       pod_network: "Сеть подов"
     stats:
       2weeks: "2 недели"
@@ -363,8 +361,10 @@ ru:
   email: "E-mail"
   error_messages:
     csrf_token_fail: "Код CSRF неверен. Пожалуйста, войдите и попробуйте ещё раз."
+    desktop_view_link: "Смотреть в режиме рабочего стола"
     helper:
       correct_the_following_errors_and_try_again: "Исправьте ошибки и попробуйте снова."
+    mobile_not_available: "Эта страница недоступна в мобильной версии, пожалуйста, переключитесь на %{desktop_link}."
     need_javascript: "Этот сайт требует JavaScript. Если у вас отключен JavaScript, пожалуйста, включите его и обновите страницу."
   errors:
     messages:

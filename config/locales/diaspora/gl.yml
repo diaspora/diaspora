@@ -59,8 +59,6 @@ gl:
       fetching_diaspora_version: "Comprobando a última versión de diaspora*..."
       pod_status: "Estado do nodo"
     pods:
-      pod_desktop_link: "vista de escritorio"
-      pod_desktop_view: "Esta páxina non está dispoñible en vista móbil, por favor cambia a %{desktop_link}"
       pod_network: "Rede do nodo"
     stats:
       2weeks: "2 semanas"
@@ -412,8 +410,10 @@ gl:
   email: "correo electrónico"
   error_messages:
     csrf_token_fail: "O testemuño CSRF non é válido. Por favor conéctate e inténteo de novo."
+    desktop_view_link: "vista de escritorio"
     helper:
       correct_the_following_errors_and_try_again: "Corrixa os seguintes erros e vólvao intentar."
+    mobile_not_available: "Esta páxina non está dispoñible en vista móbil, por favor cambia a %{desktop_link}"
     need_javascript: "O sitio web precisa JavaScript para funcionar correctamente. Se desactivaches JavaScript, por favor actívao e actualiza esta páxina."
   errors:
     messages:

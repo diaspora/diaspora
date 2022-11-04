@@ -58,8 +58,6 @@ sq:
       fetching_diaspora_version: "Po përcaktohet versioni më i ri i diaspora*-s…"
       pod_status: "Gjendje nyjeje"
     pods:
-      pod_desktop_link: "pamje desktop"
-      pod_desktop_view: "Kjo faqe s’është e passhme nën pamjen për celular, ju lutemi, kaloni te %{desktop_link}."
       pod_network: "Rrjet nyjeje"
     stats:
       2weeks: "2 javë"
@@ -411,8 +409,10 @@ sq:
   email: "Email"
   error_messages:
     csrf_token_fail: "Token-i CSRF është i pavlefshëm. Ju lutemi, bëni hyrjen dhe riprovoni."
+    desktop_view_link: "pamje desktop"
     helper:
       correct_the_following_errors_and_try_again: "Ndreqni gabimet vijuese dhe riprovoni."
+    mobile_not_available: "Kjo faqe s’është e passhme nën pamjen për celular, ju lutemi, kaloni te %{desktop_link}."
     need_javascript: "Ky sajt lyp JavaScript që të funksionojë si duhet. Nëse e keni çaktivizuar JavaScript-in, ju lutemi, aktivizojeni dhe rifreskoni këtë faqe."
   errors:
     messages:

@@ -58,8 +58,6 @@ oc:
       fetching_diaspora_version: "A determinar la darrièra version de diaspora*..."
       pod_status: "Estat del pod"
     pods:
-      pod_desktop_link: "vista complèta"
-      pod_desktop_view: "Aquesta pagina es pas disponibla en vista pel mobil, mercés de cambiar per la %{desktop_link}."
       pod_network: "Ret del pod"
     stats:
       2weeks: "2 setmanas"
@@ -349,8 +347,10 @@ oc:
   email: "Corrièl"
   error_messages:
     csrf_token_fail: "Lo geton CSRF es invalid. Mercés de vos conectar e de tornar ensajar."
+    desktop_view_link: "vista complèta"
     helper:
       correct_the_following_errors_and_try_again: "Corregissètz las errors seguentas, e tornatz ensajar."
+    mobile_not_available: "Aquesta pagina es pas disponibla en vista pel mobil, mercés de cambiar per la %{desktop_link}."
     need_javascript: "Aqueste site Internet requerís JavaScript per foncionar coma cal. S’avètz desactivat JavaScript, mercés de l'activar e d'actualizar aquesta pagina."
   errors:
     messages:

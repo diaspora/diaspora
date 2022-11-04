@@ -58,8 +58,6 @@ hye-classical:
       fetching_diaspora_version: "Որոշւում է դիասպորա*֊ի ամենաթարմ վարկածը․․․"
       pod_status: "Փոդի կարգավիճակը"
     pods:
-      pod_desktop_link: "աշխատասեղանի տեսք"
-      pod_desktop_view: "Այս էջը հասանելի չէ դիւրակիր տարբերակով, փոխուիր դէպի %{desktop_link}"
       pod_network: "Փոդի ցանց"
     stats:
       2weeks: "2 շաբաթ"
@@ -323,8 +321,10 @@ hye-classical:
   email: "Էլ․ հասցէ"
   error_messages:
     csrf_token_fail: "CSRF թոքենն անվաւեր է։ Մուտք գործիր եւ կրկին փորձիր։"
+    desktop_view_link: "աշխատասեղանի տեսք"
     helper:
       correct_the_following_errors_and_try_again: "Ուղղիր նշուած վրիպակները ու կրկին փորձիր։"
+    mobile_not_available: "Այս էջը հասանելի չէ դիւրակիր տարբերակով, փոխուիր դէպի %{desktop_link}"
     need_javascript: "Այս կայքին ՋավաՍքրիփթ է անհրաժեշտ պատշաճ գործելու համար։ Եթէ անջատել ես այն, խնդրում ենք ակտիւացնես ու թարմացնես էջը։"
   errors:
     messages:

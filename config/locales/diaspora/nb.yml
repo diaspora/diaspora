@@ -58,8 +58,6 @@ nb:
       fetching_diaspora_version: "Finner ut siste diaspora*-versjon ..."
       pod_status: "Belgens tilstand"
     pods:
-      pod_desktop_link: "skrivebordsvisning"
-      pod_desktop_view: "Denne siden er ikke tilgjengelig på mobilvisning, vennligst bytt til %{desktop_link}."
       pod_network: "Belgens nettverk"
     stats:
       2weeks: "To uker"
@@ -345,8 +343,10 @@ nb:
   email: "Epost"
   error_messages:
     csrf_token_fail: "CSFR-nøkkelen er ugyldig. Vennligst logg inn og prøv igjen."
+    desktop_view_link: "skrivebordsvisning"
     helper:
       correct_the_following_errors_and_try_again: "Rett opp de følgende feilene og prøv igjen."
+    mobile_not_available: "Denne siden er ikke tilgjengelig på mobilvisning, vennligst bytt til %{desktop_link}."
     need_javascript: "Denne nettsiden krever JavaScript for å fungere skikkelig. Dersom du har slått av JavaScript, må du vennligst slå på JavaScript og laste siden på ny."
   errors:
     messages:

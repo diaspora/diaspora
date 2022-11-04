@@ -58,8 +58,6 @@ uk:
       fetching_diaspora_version: "Визначення останньої версії Діаспори*..."
       pod_status: "Статус поду"
     pods:
-      pod_desktop_link: "стаціонарний вигляд"
-      pod_desktop_view: "Ця сторінка недоступна у мобільному вигляді, будь ласка, перемкніть на %{desktop_link}"
       pod_network: "Мережа поду"
     stats:
       2weeks: "2 тижні"
@@ -377,8 +375,10 @@ uk:
   email: "E-mail"
   error_messages:
     csrf_token_fail: "Маркер CSRF є недійсним. Будь ласка, увійдіть в систему і спробуйте ще раз."
+    desktop_view_link: "стаціонарний вигляд"
     helper:
       correct_the_following_errors_and_try_again: "Виправіть такі помилки і спробуйте знову."
+    mobile_not_available: "Ця сторінка недоступна у мобільному вигляді, будь ласка, перемкніть на %{desktop_link}"
     need_javascript: "Цей сайт вимагає JavaScript. Якщо у вас відключений JavaScript, будь ласка, увімкніть його та оновіть сторінку."
   errors:
     messages:

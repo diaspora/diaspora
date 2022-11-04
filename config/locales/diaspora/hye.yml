@@ -58,7 +58,6 @@ hye:
       fetching_diaspora_version: "Որոշվում է դիասպորա*յի ամենաթարմ վարկածը․․․"
       pod_status: "Փոդի կարգավիճակը"
     pods:
-      pod_desktop_view: "Այս էջը հասանելի չէ դյուրակիր տարբերակով, անցիր %{desktop_link}։"
       pod_network: "Փոդի ցանց"
     stats:
       2weeks: "2 շաբաթ"
@@ -325,6 +324,7 @@ hye:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Ուղղիր նշված վրիպակները ու կրկին փորձիր։"
+    mobile_not_available: "Այս էջը հասանելի չէ դյուրակիր տարբերակով, անցիր %{desktop_link}։"
     need_javascript: "Այս կայքին ՋավաՍքրիփթ է անհրաժեշտ պատշաճ գործելու համար։ Եթե անջատել ես այն, խնդրում ենք ակտիավցնես ու թարմացնես էջը։"
   errors:
     messages:
@@ -704,6 +704,8 @@ hye:
       birthday: "Այսօր %{name} օգտատիրոջ ծննդյան օրն է։ Մի լավ բան մաղթիր նրան։"
       subject: "Այսօր %{name} օգտատիրոջ ծննդյան օրն է։"
       view_profile: "Տեսնել %{name}֊ի էջը"
+    csrf_token_fail:
+      subject: "Մենք ստացել ենք ոչ նույնականացված հարցում ձեր հաշվից, %{name}"
     email_sent_by_diaspora: "Այս նամակը ուղարկվել է %{pod_name}-ի կողմից։ Եթե այլեւս չես ուզում ստանալ նմանատիպ նամակներ,"
     export_email:
       body: |-

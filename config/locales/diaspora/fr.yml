@@ -58,8 +58,6 @@ fr:
       fetching_diaspora_version: "Entrain de déterminer la dernière version de diaspora*..."
       pod_status: "État du pod"
     pods:
-      pod_desktop_link: "Voir en mode ordinateur de bureau"
-      pod_desktop_view: "Cette page n'est pas disponible pour un affichage sur appareil mobile, veuillez choisir la version %{desktop_link}."
       pod_network: "Réseau du pod"
     stats:
       2weeks: "Deux semaines"
@@ -411,8 +409,10 @@ fr:
   email: "Courriel"
   error_messages:
     csrf_token_fail: "Le jeton CSRF est invalide. Veuillez vous connecter et réessayer."
+    desktop_view_link: "Voir en mode ordinateur de bureau"
     helper:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
+    mobile_not_available: "Cette page n'est pas disponible pour un affichage sur appareil mobile, veuillez choisir la version %{desktop_link}."
     need_javascript: "Ce site web nécessite JavaScript pour fonctionner correctement. Si vous avez désactivé JavaScript, veuillez le réactiver et actualiser cette page."
   errors:
     messages:

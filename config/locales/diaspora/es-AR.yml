@@ -58,8 +58,6 @@ es-AR:
       fetching_diaspora_version: "Determinando la última versión de diaspora*..."
       pod_status: "Estado del pod"
     pods:
-      pod_desktop_link: "vista de escritorio"
-      pod_desktop_view: "Esta página no está disponible en la versión móvil, por favor cambia a %{desktop_link}."
       pod_network: "Red de pods"
     stats:
       2weeks: "2 semanas"
@@ -411,8 +409,10 @@ es-AR:
   email: "Correo electrónico"
   error_messages:
     csrf_token_fail: "El token CSRF es invalido. Por favor volvé a iniciar sesión e intentalo nuevamente."
+    desktop_view_link: "vista de escritorio"
     helper:
       correct_the_following_errors_and_try_again: "Corregí los siguientes errores e intentá de nuevo."
+    mobile_not_available: "Esta página no está disponible en la versión móvil, por favor cambia a %{desktop_link}."
     need_javascript: "Esta web necesita JavaScript para funcionar correctamente. Si lo desactivaste, por favor actívalo y actualiza la página."
   errors:
     messages:

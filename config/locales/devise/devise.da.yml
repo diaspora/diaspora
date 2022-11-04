@@ -7,11 +7,11 @@
 da:
   devise:
     confirmations:
-      confirmed: "Din e-mailadresse er blevet bekræftet."
+      confirmed: "Din e-mail-adresse er blevet bekræftet."
       new:
         resend_confirmation: "Send bekræftelse igen"
-      send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du bekræfter din e-mailadresse om et øjeblik."
-      send_paranoid_instructions: "Hvis din e-mailadresse eksisterer i vores database, vil du modtage en e-mail med instruktioner om hvordan du bekræfter din e-mailadresse om et øjeblik."
+      send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du bekræfter din e-mail-adresse om et øjeblik."
+      send_paranoid_instructions: "Hvis din e-mail-adresse eksisterer i vores database, vil du modtage en e-mail med instruktioner om hvordan du bekræfter din e-mailadresse om et øjeblik."
     failure:
       already_authenticated: "Du er allerede logget ind."
       inactive: "Din konto er ikke aktiveret endnu."
@@ -22,7 +22,7 @@ da:
       not_found_in_database: "Ugyldig %{authentication_keys} eller adgangskode."
       timeout: "Du har været inaktiv for længe. Log ind igen for at fortsætte."
       unauthenticated: "Du skal logge ind eller oprette en konto for at fortsætte."
-      unconfirmed: "Du skal bekræfte din e-mailkonto før du fortsætter."
+      unconfirmed: "Du skal bekræfte din e-mail-konto før du fortsætter."
     invitations:
       invitation_token_invalid: "Beklager! Invitationen er ikke gyldig."
       send_instructions: "Din invitation er blevet sendt."
@@ -61,13 +61,13 @@ da:
         confirm_password: "Bekræft adgangskode."
         new_password: "Nyt kodeord"
       new:
-        email: "E-mail adresse"
+        email: "E-mail-adresse"
         forgot_password: "Glemt din adgangskode?"
         reset_password: "Nulstil adgangskode"
         send_password_instructions: "Send mig instruktioner til nulstilning af adgangskode"
       no_token: "Du kan ikke tilgå denne side uden at komme fra en e-mail med nulstilling af dit kodeord. Hvis du kommer fra sådan en e-mail, undersøg venligst at du har brugt hele den URL der stod i mailen."
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et øjeblik."
-      send_paranoid_instructions: "Hvis din e-mailadresse eksisterer i vores database, vil du modtage et link med en kodeords-nulstilling i din mailboks om et øjeblik."
+      send_paranoid_instructions: "Hvis din e-mail-adresse eksisterer i vores database, vil du modtage et link med en kodeords-nulstilling i din mailboks om et øjeblik."
       updated: "Dit adgangskode er blevet ændret. Du er nu logget ind."
       updated_not_active: "Dit kodeord er nu blevet ændret."
     registrations:
@@ -75,8 +75,8 @@ da:
       signed_up: "Du har nu tilmeldt dig. En bekræftelse er blevet sendt til din e-mail, hvis den er aktiveret."
       signed_up_but_inactive: "Din registrering er godkendt, men vi kunne ikke logge dig ind da din konto endnu ikke er blevet aktiveret."
       signed_up_but_locked: "Din registrering er godkendt, men vi kunne ikke logge dig ind da din konto er låst."
-      signed_up_but_unconfirmed: "Der er blevet sendt en besked til din e-mailadresse med et bekræftelses-link. Følg venligst dette link for at aktivere din konto."
-      update_needs_confirmation: "Du har nu opdateret din konto, men vi er nødt bekræfte din nye e-mailadresse. Check din e-mail og følg linket for at bekræfte din nye e-mailadresse."
+      signed_up_but_unconfirmed: "Der er blevet sendt en besked til din e-mail-adresse med et bekræftelses-link. Følg venligst dette link for at aktivere din konto."
+      update_needs_confirmation: "Du har nu opdateret din konto, men vi er nødt bekræfte din nye e-mail-adresse. Check din e-mail og følg linket for at bekræfte din nye e-mail-adresse."
       updated: "Din konto er blevet opdateret."
     sessions:
       already_signed_out: "Du er nu logget ud."
