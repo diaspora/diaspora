@@ -191,6 +191,16 @@
     }
   }
 
+  .comments {
+    .likes {
+      line-height: 10px;
+    }
+
+    .expand-likes {
+      line-height: 20px;
+    }
+  }
+
   .status-message-location {
     color: $text-grey;
     font-size: $font-size-small;

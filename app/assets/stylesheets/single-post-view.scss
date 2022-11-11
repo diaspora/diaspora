@@ -116,9 +116,6 @@
 
   .no-comments { text-align: center; }
 
-  a {
-    color: $link-color;
-  }
   .count {
     float: left;
     i {
@@ -144,6 +141,7 @@
   .comment.new-comment-form-wrapper {
     padding: 10px;
   }
+  .comments > .comment { padding-bottom: 0; }
 
   .count,
   .interaction-avatars {
@@ -163,5 +161,16 @@
       vertical-align: text-bottom;
       width: $line-height-computed;
     }
+  }
+  .likes {
+    font-size: 12px;
+    line-height: 16px;
+
+    .bd,
+    .entypo-heart {
+      display: inline-block;
+    }
+
+    img { display: inline; }
   }
 }
