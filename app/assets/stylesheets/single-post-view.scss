@@ -166,11 +166,15 @@
     font-size: 12px;
     line-height: 16px;
 
-    .bd,
-    .entypo-heart {
-      display: inline-block;
-    }
-
+    .bd { display: inline-block; }
     img { display: inline; }
+  }
+
+  .display-avatars .entypo-heart {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 18px;
+    margin-right: 5px;
+    vertical-align: top;
   }
 }

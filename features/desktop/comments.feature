@@ -91,7 +91,7 @@ Feature: commenting
     When "alice@alice.alice" has commented "That's cool" on "Look at this dog"
     And I am on "alice@alice.alice"'s page
     And I like the comment "That's cool"
-    Then I should see a heart within comment "That's cool"
+    Then I should see a like within comment "That's cool"
 
     When I expand likes within comment "That's cool"
     Then I should see a micro avatar within comment "That's cool"

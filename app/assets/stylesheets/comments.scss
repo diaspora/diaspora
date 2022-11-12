@@ -85,6 +85,10 @@
 
   .media {
     margin: 0 0 2px;
+
+    &:not(.display-avatars) .entypo-heart {
+      display: none;
+    }
   }
 
   .expand-likes {

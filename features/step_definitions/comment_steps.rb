@@ -51,10 +51,10 @@ Then /^I like the comment "([^"]*)"$/ do |comment_text|
   find(id: comment_guid).click_link("Like")
 end
 
-Then /^I should see a heart within comment "([^"]*)"$/ do |comment_text|
+Then /^I should see a like within comment "([^"]*)"$/ do |comment_text|
   comment_guid = Comment.find_by(text: comment_text).guid
   block = find(id: comment_guid)
-  expect(block).to have_css(".entypo-heart")
+  expect(block).to have_css(".expand-likes")
 end
 
 When /^I expand likes within comment "([^"]*)"$/ do |comment_text|
