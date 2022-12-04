@@ -179,8 +179,10 @@ print_usage_full() {
 # ----- Helper functions -----
 
 dia_docker_compose() {
+  local docker_socket="${DOCKER_HOST:-"unix:///var/run/docker.sock"}"
+  docker_socket="${docker_socket#unix://}"
   # Check permissions of docker socket and use sudo if needed
-  if [ -r "/var/run/docker.sock" ] && [ -w "/var/run/docker.sock" ]; then
+  if [ -r "${docker_socket}" ] && [ -w "${docker_socket}" ]; then
     docker-compose "$@"
   else
     echo "Attention: Docker socket not writable, using sudo for the docker command. You might be asked for your password now." >&2
