@@ -19,7 +19,6 @@
             "null"
           ]
         },
-        "strip_exif": { "type": "boolean" },
         "blocks": {
           "type": "array",
           "items" : {

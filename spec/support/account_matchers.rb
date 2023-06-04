@@ -34,7 +34,6 @@ RSpec::Matchers.define :be_a_clear_account do
     ].map {|attribute| user[attribute] }
 
     user.disable_mail &&
-      user.strip_exif &&
       !user.getting_started &&
       !user.show_community_spotlight_in_stream &&
       !user.post_default_public &&

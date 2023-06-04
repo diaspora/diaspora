@@ -1331,7 +1331,6 @@ en:
 
     privacy_settings:
       title: "Privacy settings"
-      strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"
       ignored_users: "Ignored users"
       stop_ignoring: "Stop ignoring"
       no_user_ignored_message: "You are not currently ignoring any other user"

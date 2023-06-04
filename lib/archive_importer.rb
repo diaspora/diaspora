@@ -123,7 +123,7 @@ class ArchiveImporter
   end
 
   def import_settings
-    allowed_keys = %w[language show_community_spotlight_in_stream strip_exif]
+    allowed_keys = %w[language show_community_spotlight_in_stream]
     convert_keys(archive_hash["user"], allowed_keys).each do |key, value|
       user.update(key => value) unless value.nil?
     end

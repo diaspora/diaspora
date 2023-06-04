@@ -76,8 +76,6 @@ class Photo < ApplicationRecord
     photo = new(params.to_hash.stringify_keys.slice(*column_names, "author"))
     photo.random_string = SecureRandom.hex(10)
 
-    photo.unprocessed_image.strip_exif = photo.author.owner.strip_exif
-
     if params[:user_file]
       image_file = params.delete(:user_file)
       photo.unprocessed_image.store! image_file

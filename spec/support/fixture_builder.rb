@@ -2,7 +2,7 @@
 
 def create_basic_users
   # Users
-  alice = FactoryBot.create(:user_with_aspect, username: "alice", strip_exif: false)
+  alice = FactoryBot.create(:user_with_aspect, username: "alice")
   alices_aspect = alice.aspects.where(name: "generic").first
 
   eve = FactoryBot.create(:user_with_aspect, username: "eve")
