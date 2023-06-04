@@ -70,6 +70,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Allow to select multiple aspects when posting on mobile [#8217](https://github.com/diaspora/diaspora/pull/8217)
 * Add info links to drawer in mobile UI [#8405](https://github.com/diaspora/diaspora/pull/8405)
 * Tell users that there is no help in mobile version, allow to switch to desktop [#8407](https://github.com/diaspora/diaspora/pull/8407)
+* Add Smart App Banner on iOS devices [#8409](https://github.com/diaspora/diaspora/pull/8409)
 
 # 0.7.18.1
 

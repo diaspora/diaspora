@@ -6,6 +6,7 @@
 %html{lang: I18n.locale.to_s, dir: (rtl? ? "rtl" : "ltr")}
   %head{prefix: og_prefix}
     %meta{name: "viewport", content: "width=device-width, initial-scale=1"}/
+    %meta{name: "apple-itunes-app", content: "app-id=1538074832, app-argument=#{uri_with_username}"}
 
     - content_for :javascript do
       = javascript_include_tag :main
