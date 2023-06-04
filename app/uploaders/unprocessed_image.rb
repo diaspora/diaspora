@@ -7,12 +7,6 @@
 class UnprocessedImage < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  attr_accessor :strip_exif
-
-  def strip_exif
-    @strip_exif || false
-  end
-
   def store_dir
     "uploads/images"
   end
@@ -40,7 +34,7 @@ class UnprocessedImage < CarrierWave::Uploader::Base
     manipulate! do |img|
       img.combine_options do |i|
         i.auto_orient
-        i.strip if strip_exif
+        i.strip
       end
 
       img = yield(img) if block_given?

@@ -147,13 +147,7 @@ describe Photo, :type => :model do
       FileUtils.rm_r Dir.glob(File.join(public_path, "uploads/images/*"))
     end
 
-    it "should preserve EXIF data in according to user preference" do
-      image = image_from a_photo_sent_by(alice)
-
-      expect(image.exif.length).not_to eq(0)
-    end
-
-    it "should not preserve EXIF in according to user preference" do
+    it "should strip EXIF data" do
       image = image_from a_photo_sent_by(bob)
 
       expect(image.exif.length).to eq(0)

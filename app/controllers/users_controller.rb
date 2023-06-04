@@ -31,18 +31,6 @@ class UsersController < ApplicationController
     render :edit
   end
 
-  def update_privacy_settings
-    privacy_params = params.fetch(:user).permit(:strip_exif)
-
-    if current_user.update(strip_exif: privacy_params[:strip_exif])
-      flash[:notice] = t("users.update.settings_updated")
-    else
-      flash[:error] = t("users.update.settings_not_updated")
-    end
-
-    redirect_back fallback_location: privacy_settings_path
-  end
-
   def destroy
     if params[:user] && params[:user][:current_password] && current_user.valid_password?(params[:user][:current_password])
       current_user.close_account!

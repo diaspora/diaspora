@@ -116,7 +116,6 @@ describe ArchiveImporter do
             "contact_groups"                     => [{
               "name" => "Follow"
             }],
-            "strip_exif"                         => false,
             "show_community_spotlight_in_stream" => false,
             "language"                           => "ru",
             "auto_follow_back"                   => true,
@@ -130,7 +129,6 @@ describe ArchiveImporter do
           archive_importer.import
         }.not_to raise_error
 
-        expect(archive_importer.user.strip_exif).to eq(false)
         expect(archive_importer.user.show_community_spotlight_in_stream).to eq(false)
         expect(archive_importer.user.language).to eq("ru")
         expect(archive_importer.user.auto_follow_back).to eq(true)
@@ -142,7 +140,6 @@ describe ArchiveImporter do
           archive_importer.import(import_settings: false)
         }.not_to raise_error
 
-        expect(archive_importer.user.strip_exif).to eq(true)
         expect(archive_importer.user.show_community_spotlight_in_stream).to eq(true)
         expect(archive_importer.user.language).to eq("en")
         expect(archive_importer.user.auto_follow_back).to eq(false)

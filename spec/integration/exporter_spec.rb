@@ -24,7 +24,7 @@ describe Diaspora::Exporter do
       user_properties = build_property_hash(
         user,
         %i[email username language disable_mail show_community_spotlight_in_stream auto_follow_back
-           auto_follow_back_aspect strip_exif],
+           auto_follow_back_aspect],
         private_key: :serialized_private_key
       )
 
