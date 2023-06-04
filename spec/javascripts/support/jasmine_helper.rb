@@ -8,4 +8,5 @@ Jasmine.configure do |config|
   config.chrome_cli_options["disable-gpu"] = nil
   config.chrome_cli_options["disable-software-rasterizer"] = nil
   config.chrome_cli_options["disable-dev-shm-usage"] = nil
+  config.chrome_cli_options["last-parameter-to-open-blank-page-workaround"] = " about:blank"
 end
