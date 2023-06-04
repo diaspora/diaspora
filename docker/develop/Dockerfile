@@ -1,4 +1,4 @@
-FROM amd64/ruby:2.7-slim-bullseye
+FROM docker.io/amd64/ruby:2.7-slim-bullseye
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
