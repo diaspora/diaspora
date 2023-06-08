@@ -235,8 +235,15 @@ dia_get_db() {
 
 dia_build() {
   if [ $# -gt 0 ] && [ "$1" == "--no-cache" ]; then nocache="--no-cache"; fi
+
   # Build the diaspora Docker container (diaspora:dev-latest)
-  dia_docker_compose build --pull $nocache diaspora
+  if command -v podman &> /dev/null && [[ "${DOCKER_HOST}" == *"podman"* ]]; then
+    # if podman is installed and DOCKER_HOST is set to podman, use `podman build`
+    podman build --build-arg DIA_UID=${DIASPORA_ROOT_UID} --build-arg DIA_GID=${DIASPORA_ROOT_GID} \
+      --pull $nocache -t diaspora:dev-latest -f Dockerfile docker/develop
+  else
+    dia_docker_compose build --pull $nocache diaspora
+  fi
 }
 
 dia_pull() {
