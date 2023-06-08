@@ -47,6 +47,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Remove support for `therubyracer` [#8337](https://github.com/diaspora/diaspora/issues/8337)
 * Replace `unicorn` with `puma` [#8392](https://github.com/diaspora/diaspora/pull/8392)
 * Drop `strip_exif` flag and always remove exif data from uploaded images [#8417](https://github.com/diaspora/diaspora/pull/8417)
+* Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
@@ -148,7 +149,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Testing: Replaced phantomjs with headless Chrome/Chromium [#8234](https://github.com/diaspora/diaspora/pull/8234)
 
 ## Bug fixes
-* Update comment counter when weleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
+* Update comment counter when deleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
 * Link diaspora only poduptime list [#8174](https://github.com/diaspora/diaspora/pull/8174)
 * Delete a user's invitation code during account deletion [#8202](https://github.com/diaspora/diaspora/pull/8202)
 * Bump mimemagic [#8231](https://github.com/diaspora/diaspora/pull/8231)

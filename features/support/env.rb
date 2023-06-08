@@ -13,7 +13,7 @@ require "cucumber/rails"
 require "capybara/rails"
 require "capybara/cucumber"
 require "capybara/session"
-require "capybara/apparition"
+require "capybara/cuprite"
 
 require "cucumber/api_steps"
 
@@ -24,15 +24,15 @@ Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
 Capybara.server = :webrick
 
-Capybara.register_driver :apparition do |app|
+Capybara.register_driver :cuprite do |app|
   # Pass headless: false here if you need to see the browser
-  Capybara::Apparition::Driver.new(
+  Capybara::Cuprite::Driver.new(
     app,
     headless:        true,
-    browser_options: %i[no_sandbox disable_setuid_sandbox disable_gpu]
+    browser_options: {'no-sandbox': nil}
   )
 end
-Capybara.javascript_driver = :apparition
+Capybara.javascript_driver = :cuprite
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd

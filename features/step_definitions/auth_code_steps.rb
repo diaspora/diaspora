@@ -22,7 +22,6 @@ Given /^I send a post request from that client to the code flow authorization en
 end
 
 When /^I parse the auth code and create a request to the token endpoint$/ do
-  current_url = page.driver.network_traffic.last.url # We get a redirect to example.org that we can't follow
   code = current_url[/(?<=code=)[^&]+/]
   expect(code).to be_present
   post api_openid_connect_access_tokens_path, code: code,
