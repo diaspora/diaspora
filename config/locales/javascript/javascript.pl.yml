@@ -93,7 +93,7 @@ pl:
       hide: "Ukryj komentarze"
       no_comments: "Póki co nie ma jeszcze żadnych komentarzy."
       show: "Pokaż wszystkie komentarze"
-    confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
+    confirm_dialog: "Czy na pewno?"
     confirm_unload: "Potwierdź, że chcesz opuścić tę stronę. Dane, które wprowadziłeś, nie zostaną zapisane."
     contacts:
       add_contact: "Dodaj kontakt"

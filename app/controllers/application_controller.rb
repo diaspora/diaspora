@@ -21,14 +21,11 @@ class ApplicationController < ActionController::Base
   before_action :ensure_http_referer_is_set
   before_action :set_locale
   before_action :set_diaspora_header
-  before_action :set_grammatical_gender
   before_action :mobile_switch
   before_action :gon_set_current_user
   before_action :gon_set_appconfig
   before_action :gon_set_preloads
   before_action :configure_permitted_parameters, if: :devise_controller?
-
-  inflection_method grammatical_gender: :gender
 
   helper_method :all_aspects,
                 :all_contacts_count,
@@ -106,28 +103,6 @@ class ApplicationController < ActionController::Base
   def redirect_unless_moderator
     return if current_user.moderator?
     redirect_to stream_url, notice: "you need to be an admin or moderator to do that"
-  end
-
-  def set_grammatical_gender
-    if (user_signed_in? && I18n.inflector.inflected_locale?)
-      gender = current_user.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
-      unless gender.empty?
-        i_langs = I18n.inflector.inflected_locales(:gender)
-        i_langs.delete I18n.locale
-        i_langs.unshift I18n.locale
-        i_langs.each do |lang|
-          token = I18n.inflector.true_token(gender, :gender, lang)
-          unless token.nil?
-            @grammatical_gender = token
-            break
-          end
-        end
-      end
-    end
-  end
-
-  def grammatical_gender
-    @grammatical_gender || nil
   end
 
   # use :mobile view for mobile and :html for everything else
