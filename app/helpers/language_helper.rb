@@ -12,16 +12,12 @@ module LanguageHelper
   end
 
   def get_javascript_strings_for(language, section)
-    defaults = I18n.t(section, :locale => DEFAULT_LANGUAGE)
+    translations = I18n.t(section, locale: DEFAULT_LANGUAGE).dup
+    translations.deep_merge!(I18n.t(section, locale: language)) if language != DEFAULT_LANGUAGE
 
-    if language != DEFAULT_LANGUAGE
-      translations = I18n.t(section, :locale => language)
-      defaults.deep_merge!(translations)
-    end
-
-    defaults['pluralization_rule'] = I18n.t('i18n.plural.js_rule', :locale => language)
-    defaults['pod_name'] = pod_name
-    defaults
+    translations["pluralization_rule"] = I18n.t("i18n.plural.js_rule", locale: language)
+    translations["pod_name"] = pod_name
+    translations
   end
 
   def direction_for(string)
