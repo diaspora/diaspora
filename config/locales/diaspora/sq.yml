@@ -8,6 +8,7 @@ sq:
   _applications: "Zbatime"
   _contacts: "Kontakte"
   _help: "Ndihmë"
+  _podmin_mail: "Lidhuni me përgjegjësin e nyjës"
   _services: "Shërbime"
   _statistics: "Statistika"
   _terms: "Terma"
@@ -42,7 +43,7 @@ sq:
             person:
               invalid: "është i pavlefshëm."
             username:
-              invalid: "është i pavlefshëm. Lejojmë vetë shkronja, numra, dhe nënvija."
+              invalid: "është i pavlefshëm. Lejojmë vetëm shkronja, numra, dhe nënvija."
               taken: "është i zënë."
   admins:
     admin_bar:
@@ -894,8 +895,8 @@ sq:
       body: |-
           Tungjatjeta %{name}
 
-          Kemi hasur një problem teksa përpunonim të dhënat tuaja personale për shkarkim.
-          Ju lutemi, riprovoni!
+          Hasëm një problem teksa përpunonim të dhënat tuaja personale për shkarkim.
+          Nëse problemi vazhdon, ju lutemi, lidhuni me përgjegjësin e nyjës tuaj!
 
           Më ndjeni,
 
@@ -916,7 +917,7 @@ sq:
           Tungjatjeta %{name}
 
           Hasëm një problem, teksa përpunonim fotot tuaja për shkarkim.
-          Ju lutemi, riprovoni!
+          Nëse problemi vazhdon, ju lutemi, lidhuni me përgjegjësin e nyjës tuaj.
 
           Ndjesë,
 
@@ -1265,6 +1266,8 @@ sq:
       title: "Rrjedhë të pëlqyerash"
     liked:
       title: "Postime të pëlqyera"
+    local_public:
+      title: "Postime vendore"
     mentioned_stream: "@Përmendje"
     mentions:
       title: "@Përmendje"

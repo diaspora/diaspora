@@ -427,7 +427,7 @@ fr:
       min_size_error: "La taille du fichier devrait être supérieure à %{min_size}"
       mini_magick_processing_error: "La manipulation par MiniMagick a échoué, peut-être n'est-ce pas une image ? Erreur initiale : %{e}"
       rmagick_processing_error: "La manipulation par rmagick a échoué, peut-être n'est-ce pas une image ?"
-  fill_me_out: "Remplir"
+  fill_me_out: "mettez-moi au courant"
   find_people: "Rechercher des personnes ou des #tags"
   help:
     account_and_data_management:
@@ -1353,7 +1353,7 @@ fr:
     getting_started:
       awesome_take_me_to_diaspora: "Impressionnant ! Guidez-moi vers diaspora*"
       community_welcome: "La communauté diaspora* est heureuse de vous avoir à son bord !"
-      hashtag_explanation: "Les tags vous permettent de parler de vos centres d'intérêt et de suivre ce qui s'en dit. Ils sont aussi un excellent moyen de rencontrer de nouvelles personnes sur diaspora*."
+      hashtag_explanation: "Les Hashtags vous permettent de parler de vos centres d'intérêt et de suivre ce qui s'en dit. Ils sont aussi un excellent moyen de rencontrer de nouvelles personnes sur diaspora*."
       hashtag_suggestions: "Essayez de suivre des tags comme #art, #films, #french, etc."
       well_hello_there: "Bienvenue !"
       what_are_you_in_to: "Qu'aimez-vous faire ?"

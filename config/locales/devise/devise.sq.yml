@@ -44,6 +44,7 @@ sq:
         ignore: "Nëse këtë s’e kërkuat ju, ju lutemi, shpërfilleni këtë email."
         someone_requested: "Dikush kërkoi një lidhje për ndryshimin e fjalëkalimit tuaj. Nëse qetë ju, këtë mund ta bëni përmes lidhjes më poshtë."
         subject: "Udhëzime ricaktimi fjalëkalimi"
+        then_connect: "Pasi të caktoni një fjalëkalim të ri, do të jeni në gjendje të bëni hyrjen sërish në diaspora* duke përdorur emrin tuaj të përdoruesit “%{username}” dhe fjalëkalimin tuaj të ri"
         wont_change: "Fjalëkalimi juaj s’do të ndryshojë pa përdorur lidhjen më sipër dhe pa krijuar një të ri."
       unlock_instructions:
         account_locked: "Llogaria juaj është kyçur për shkak të një sasie të tepruar përpjekjesh të pasuksesshme për të hyrë në të."
