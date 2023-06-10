@@ -47,7 +47,7 @@ jobs:
       - name: Start MySQL
         run: sudo systemctl start mysql.service
         if: matrix.db == 'mysql'
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
