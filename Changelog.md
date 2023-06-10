@@ -48,6 +48,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Replace `unicorn` with `puma` [#8392](https://github.com/diaspora/diaspora/pull/8392)
 * Drop `strip_exif` flag and always remove exif data from uploaded images [#8417](https://github.com/diaspora/diaspora/pull/8417)
 * Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
+* Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
