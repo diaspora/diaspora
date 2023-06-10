@@ -262,6 +262,11 @@ describe Notifier, type: :mailer do
       expect(@mail["From"].to_s).to eq("\"#{pod_name} (#{@cnv.author.name})\" <#{AppConfig.mail.sender_address}>")
     end
 
+    it "FROM: removes emojis from sender's name" do
+      bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+      expect(@mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
+    end
+
     it "should use a generic subject" do
       expect(@mail.subject).to eq(I18n.translate("notifier.private_message.subject"))
     end
@@ -300,6 +305,12 @@ describe Notifier, type: :mailer do
 
       it "FROM: contains the sender's name" do
         expect(comment_mail["From"].to_s).to eq("\"#{pod_name} (#{eve.name})\" <#{AppConfig.mail.sender_address}>")
+      end
+
+      it "FROM: removes emojis from sender's name" do
+        eve.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+        expect(comment_mail["From"].to_s)
+          .to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
       end
 
       it "SUBJECT: has a snippet of the post contents, without markdown and without newlines" do
@@ -390,6 +401,11 @@ describe Notifier, type: :mailer do
           expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
         end
 
+        it "FROM: removes emojis from sender's name" do
+          bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+          expect(mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
+        end
+
         it "SUBJECT: does not show the limited post" do
           expect(mail.subject).not_to include("Limited headline")
         end
@@ -413,6 +429,11 @@ describe Notifier, type: :mailer do
 
         it "FROM: contains the sender's name" do
           expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
+        end
+
+        it "FROM: removes emojis from sender's name" do
+          bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+          expect(mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
         end
 
         it "SUBJECT: does not show the limited post" do
@@ -444,6 +465,11 @@ describe Notifier, type: :mailer do
 
       it "FROM: contains the sender's name" do
         expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
+      end
+
+      it "FROM: removes emojis from sender's name" do
+        bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+        expect(mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
       end
 
       it "SUBJECT: does not show the limited post" do
