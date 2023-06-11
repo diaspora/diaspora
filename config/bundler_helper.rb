@@ -19,8 +19,19 @@ module BundlerHelper
   end
 
   private_class_method def self.parse_value_from_yaml_file(file, *keys)
+    parse_yaml_file(file).dig(*keys)
+  end
+
+  private_class_method def self.parse_yaml_file(file)
     path = File.join(__dir__, file)
-    YAML.load_file(path).dig(*keys) if File.file?(path)
+
+    return {} unless File.file?(path)
+
+    if YAML.respond_to?(:unsafe_load_file)
+      YAML.unsafe_load_file(path)
+    else
+      YAML.load_file(path)
+    end
   end
 
   private_class_method def self.parse_value_from_toml_file(file, key)
