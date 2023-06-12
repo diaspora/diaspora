@@ -90,7 +90,7 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.18)
-    bindata (2.4.10)
+    bindata (2.4.15)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
@@ -389,15 +389,16 @@ GEM
       rails (>= 4.0, < 8.0)
       sprockets (>= 3.0.0)
     json (2.6.2)
-    json-jwt (1.13.0)
+    json-jwt (1.15.3)
       activesupport (>= 4.2)
       aes_key_wrap
       bindata
+      httpclient
     json-schema (3.0.0)
       addressable (>= 2.8)
     jsonpath (1.1.2)
       multi_json
-    jwt (2.4.1)
+    jwt (2.7.1)
     kostya-sigar (2.0.10)
     leaflet-rails (1.7.0)
       rails (>= 4.2.0)
