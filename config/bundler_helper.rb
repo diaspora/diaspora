@@ -27,11 +27,7 @@ module BundlerHelper
 
     return {} unless File.file?(path)
 
-    if YAML.respond_to?(:unsafe_load_file)
-      YAML.unsafe_load_file(path)
-    else
-      YAML.load_file(path)
-    end
+    YAML.safe_load_file(path, aliases: true)
   end
 
   private_class_method def self.parse_value_from_toml_file(file, key)
