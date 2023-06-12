@@ -4,6 +4,11 @@ source "https://rubygems.org"
 
 gem "rails", "6.1.6.1"
 
+# needed for actionmailer, can be removed when upgrading to rails 7
+gem "net-imap", require: false
+gem "net-pop", require: false
+gem "net-smtp", require: false
+
 # Legacy Rails features, remove me!
 # responders (class level)
 gem "responders", "3.0.1"
