@@ -34,9 +34,9 @@ With this release, we switched from `unicorn` to `puma` to run our applications.
 
 We use yarn to install the frontend dependencies now, so you need to have that installed. See here for how to install it: https://yarnpkg.com/en/docs/install
 
-## Suggested Ruby version: 3.0
+## Suggested Ruby version: 3.1
 
-We recommend setting up new pods using Ruby 3.0, and updating existing pods to this version as well.
+We recommend setting up new pods using Ruby 3.1, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
 
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581) [#8397](https://github.com/diaspora/diaspora/pull/8397)
@@ -53,7 +53,7 @@ We recommend setting up new pods using Ruby 3.0, and updating existing pods to t
 * Drop `strip_exif` flag and always remove exif data from uploaded images [#8417](https://github.com/diaspora/diaspora/pull/8417)
 * Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
 * Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
-* Add ruby 3.0 support [#8423](https://github.com/diaspora/diaspora/pull/8423)
+* Add ruby 3.0 and 3.1 support [#8423](https://github.com/diaspora/diaspora/pull/8423)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)

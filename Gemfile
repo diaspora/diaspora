@@ -4,6 +4,11 @@ source "https://rubygems.org"
 
 gem "rails", "6.1.6.1"
 
+# needed for actionmailer, can be removed when upgrading to rails 7
+gem "net-imap", require: false
+gem "net-pop", require: false
+gem "net-smtp", require: false
+
 # Legacy Rails features, remove me!
 # responders (class level)
 gem "responders", "3.0.1"
@@ -223,7 +228,7 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "capybara",         "3.35.3"
+  gem "capybara",         "3.39.2"
   gem "cuprite",          "0.14.3"
   gem "database_cleaner-active_record", "2.0.1"
 
