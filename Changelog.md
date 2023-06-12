@@ -53,7 +53,7 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Drop `strip_exif` flag and always remove exif data from uploaded images [#8417](https://github.com/diaspora/diaspora/pull/8417)
 * Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
 * Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
-* Add ruby 3.0 and 3.1 support [#8423](https://github.com/diaspora/diaspora/pull/8423)
+* Add ruby 3.0 and 3.1 support [#8423](https://github.com/diaspora/diaspora/pull/8423) [#8426](https://github.com/diaspora/diaspora/pull/8426) [#8427](https://github.com/diaspora/diaspora/pull/8427)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
