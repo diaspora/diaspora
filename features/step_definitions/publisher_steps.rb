@@ -42,7 +42,7 @@ When /^I write the status message "([^"]*)"$/ do |text|
 end
 
 When /^I insert an extremely long status message$/ do
-  write_in_publisher("I am a very interesting message " * 64)
+  write_in_publisher("long post\n" * 15)
 end
 
 When /^I append "([^"]*)" to the publisher$/ do |text|
@@ -66,7 +66,7 @@ When /^I click the publisher and post "([^"]*)"$/ do |text|
 end
 
 When /^I post an extremely long status message$/ do
-  click_and_post("I am a very interesting message " * 64)
+  click_and_post("long post\n" * 15)
 end
 
 When /^I select "([^"]*)" on the aspect dropdown$/ do |text|
