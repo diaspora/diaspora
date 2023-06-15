@@ -797,10 +797,13 @@ describe User, type: :model do
       context "with autofollow sharing enabled" do
         it "should start sharing with autofollow account" do
           AppConfig.settings.autofollow_on_join = true
-          person = FactoryBot.build(:person)
-          AppConfig.settings.autofollow_on_join_user = person.diaspora_handle
+          person_one = FactoryBot.build(:person)
+          person_two = FactoryBot.build(:person)
+          AppConfig.settings.autofollow_on_join_accounts = [person_one.diaspora_handle]
+          AppConfig.settings.autofollow_on_join_user = person_two.diaspora_handle
 
-          expect(Person).to receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
+          expect(Person).to receive(:find_or_fetch_by_identifier).with(person_one.diaspora_handle).and_return(person_one)
+          expect(Person).to receive(:find_or_fetch_by_identifier).with(person_two.diaspora_handle).and_return(person_two)
           user.seed_aspects
         end
       end
