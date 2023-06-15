@@ -453,12 +453,7 @@ class User < ApplicationRecord
         autofollow_accounts = Array.wrap(AppConfig.settings.autofollow_on_join_accounts)
         autofollow_accounts.push(autofollow_user) if autofollow_user.present?
 
-        begin
-          autofollow_accounts.uniq.each { |user_id| follow_account(user_id, aq) } if autofollow_accounts.present?
-        rescue DiasporaFederation::Discovery::DiscoveryError
-          logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
-                     fix autofollow_on_join_user in configuration."
-        end
+        autofollow_accounts.uniq.each { |user_id| follow_account(user_id, aq) }
       end
     end
   end
@@ -466,6 +461,9 @@ class User < ApplicationRecord
   def follow_account(account_id, aq)
     account = Person.find_or_fetch_by_identifier(account_id)
     share_with(account, aq)
+  rescue DiasporaFederation::Discovery::DiscoveryError
+    logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
+                     fix autofollow_on_join_user in configuration."
   end
 
   def send_welcome_message
