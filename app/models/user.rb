@@ -450,10 +450,11 @@ class User < ApplicationRecord
     acquaintances.tap do |aq|
       if AppConfig.settings.autofollow_on_join?
         autofollow_user = AppConfig.settings.autofollow_on_join_user
-        autofollow_accounts = AppConfig.settings.autofollow_on_join_accounts
+        autofollow_accounts = Array.wrap(AppConfig.settings.autofollow_on_join_accounts)
+        autofollow_accounts.push(autofollow_user) if autofollow_user.present?
+
         begin
-          follow_account(autofollow_user, aq) if autofollow_user.present?
-          autofollow_accounts.each {|user_id| follow_account(user_id, aq) } if autofollow_accounts.present?
+          autofollow_accounts.uniq.each { |user_id| follow_account(user_id, aq) } if autofollow_accounts.present?
         rescue DiasporaFederation::Discovery::DiscoveryError
           logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
                      fix autofollow_on_join_user in configuration."
