@@ -292,14 +292,6 @@
 ## the list.
 #autofollow_on_join_accounts= ["hq@pod.diaspora.software"]
 
-## Auto-follow account [To be deprecated] (default="hq@pod.diaspora.software")
-## The diaspora* HQ account keeps users up to date with news about Diaspora.
-## If you set another auto-follow account (for example your podmin account),
-## please consider resharing diaspora* HQ's posts for your pod's users!
-## This config option will be deprecated in the next major release, use
-## `autofollow_on_join_accounts` instead.
-#autofollow_on_join_user = "hq@pod.diaspora.software"
-
 ## Liberapay.com is a free platform which allow donations like patreon
 ## Set your username to include your Liberapay button
 #liberapay_username = "change_me"

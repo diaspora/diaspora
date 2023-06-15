@@ -74,7 +74,6 @@ defaults:
     enable_local_posts_stream: 'disabled'
     autofollow_on_join: true
     autofollow_on_join_accounts: ['hq@pod.diaspora.software']
-    autofollow_on_join_user: 'hq@pod.diaspora.software'
     welcome_message:
       enabled: false
       subject: 'Welcome Message'
