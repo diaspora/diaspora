@@ -804,8 +804,8 @@ describe User, type: :model do
 
           people.each do |person|
             expect(Person).to receive(:find_or_fetch_by_identifier)
-                                .with(person.diaspora_handle)
-                                .and_return(person)
+              .with(person.diaspora_handle)
+              .and_return(person)
           end
           user.seed_aspects
         end
