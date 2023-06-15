@@ -445,18 +445,28 @@ class User < ApplicationRecord
     self.aspects.create(:name => I18n.t('aspects.seed.family'))
     self.aspects.create(:name => I18n.t('aspects.seed.friends'))
     self.aspects.create(:name => I18n.t('aspects.seed.work'))
-    aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
+    acquaintances = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
 
-    if AppConfig.settings.autofollow_on_join?
-      begin
-        default_account = Person.find_or_fetch_by_identifier(AppConfig.settings.autofollow_on_join_user)
-        share_with(default_account, aq)
-      rescue DiasporaFederation::Discovery::DiscoveryError
-        logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
+    acquaintances.tap do |aq|
+      if AppConfig.settings.autofollow_on_join?
+        autofollow_user = AppConfig.settings.autofollow_on_join_user
+        autofollow_accounts = AppConfig.settings.autofollow_on_join_accounts
+        begin
+          follow_account(autofollow_user, aq) if autofollow_user.present?
+          if autofollow_accounts.present?
+            autofollow_accounts.each { |user_id| follow_account(user_id, aq) }
+          end
+        rescue DiasporaFederation::Discovery::DiscoveryError
+          logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
                      fix autofollow_on_join_user in configuration."
+        end
       end
     end
-    aq
+  end
+
+  def follow_account(account_id, aq)
+    account = Person.find_or_fetch_by_identifier(user_id)
+    share_with(account, aq)
   end
 
   def send_welcome_message
