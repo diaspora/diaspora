@@ -442,10 +442,10 @@ class User < ApplicationRecord
   end
 
   def seed_aspects
-    self.aspects.create(:name => I18n.t('aspects.seed.family'))
-    self.aspects.create(:name => I18n.t('aspects.seed.friends'))
-    self.aspects.create(:name => I18n.t('aspects.seed.work'))
-    acquaintances = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
+    aspects.create(name: I18n.t("aspects.seed.family"))
+    aspects.create(name: I18n.t("aspects.seed.friends"))
+    aspects.create(name: I18n.t("aspects.seed.work"))
+    acquaintances = aspects.create(name: I18n.t("aspects.seed.acquaintances"))
 
     acquaintances.tap do |aq|
       if AppConfig.settings.autofollow_on_join?
@@ -453,9 +453,7 @@ class User < ApplicationRecord
         autofollow_accounts = AppConfig.settings.autofollow_on_join_accounts
         begin
           follow_account(autofollow_user, aq) if autofollow_user.present?
-          if autofollow_accounts.present?
-            autofollow_accounts.each { |user_id| follow_account(user_id, aq) }
-          end
+          autofollow_accounts.each {|user_id| follow_account(user_id, aq) } if autofollow_accounts.present?
         rescue DiasporaFederation::Discovery::DiscoveryError
           logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
                      fix autofollow_on_join_user in configuration."
@@ -465,15 +463,17 @@ class User < ApplicationRecord
   end
 
   def follow_account(account_id, aq)
-    account = Person.find_or_fetch_by_identifier(user_id)
+    account = Person.find_or_fetch_by_identifier(account_id)
     share_with(account, aq)
   end
 
   def send_welcome_message
     return unless AppConfig.settings.welcome_message.enabled? && AppConfig.admins.account?
+
     sender_username = AppConfig.admins.account.get
     sender = User.find_by(username: sender_username)
     return if sender.nil?
+
     conversation = sender.build_conversation(
       participant_ids: [sender.person.id, person.id],
       subject:         AppConfig.settings.welcome_message.subject.get,
