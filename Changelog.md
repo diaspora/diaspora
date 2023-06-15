@@ -30,6 +30,21 @@ With this release, we switched from `unicorn` to `puma` to run our applications.
 - The `unicorn_timeout` configuration has been renamed to `web_timeout`.
 - **If you don't run your pod with `script/server`**, you have to update your setup. If you previously called `bin/bundle exec unicorn -c config/unicorn.rb` to run diaspora\*, you now have to run `bin/puma -C config/puma.rb`! Please update your systemd-Units or similar accordingly.
 
+## Deprecation of `autofollow_on_join_user` configuration option in favour of `autofollow_on_join_accounts`
+With this release we are deprecating `autofollow_on_join_user` in favour of `autofollow_on_join_accounts` which will let the podmins specify a **list of accounts** to auto-follow when a user joins the pod. Previously with `autofollow_on_join_user`, you could specify a single account to auto-follow. Migrating to `autofollow_on_join_accounts` is as simple as replacing the string `autofollow_on_join_user` with `autofollow_on_join_accounts` as `autofollow_on_join_accounts` will accept both a string or an array.
+
+### Example:
+- Previous:
+```toml
+autofollow_on_join_user = "hq@pod.diaspora.software"
+```
+- New:
+```toml
+autofollow_on_join_accounts = "hq@pod.diaspora.software"
+  OR
+autofollow_on_join_accounts = ["hq@pod.diaspora.software"]
+```
+
 ## Yarn for frontend dependencies
 
 We use yarn to install the frontend dependencies now, so you need to have that installed. See here for how to install it: https://yarnpkg.com/en/docs/install
@@ -54,6 +69,7 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
 * Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
 * Add ruby 3.0 and 3.1 support [#8423](https://github.com/diaspora/diaspora/pull/8423) [#8426](https://github.com/diaspora/diaspora/pull/8426) [#8427](https://github.com/diaspora/diaspora/pull/8427)
+* Drop `autofollow_on_join_user` configuration in favour of `autofollow_on_join_accounts` [#8430](https://github.com/diaspora/diaspora/pull/8430)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
