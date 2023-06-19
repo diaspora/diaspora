@@ -801,9 +801,8 @@ describe User, type: :model do
 
           AppConfig.settings.autofollow_on_join_user = person.diaspora_handle
 
-          expect(Person).to receive(:find_or_fetch_by_identifier)
-                              .with(person.diaspora_handle)
-                              .and_return(person)
+          expect(Person).to
+          receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
 
           user.seed_aspects
         end
@@ -817,9 +816,8 @@ describe User, type: :model do
           AppConfig.settings.autofollow_on_join_accounts = people.map(&:diaspora_handle)
 
           people.each do |person|
-            expect(Person).to receive(:find_or_fetch_by_identifier)
-                                .with(person.diaspora_handle)
-                                .and_return(person)
+            expect(Person).to
+            receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
           end
           user.seed_aspects
         end
@@ -834,9 +832,8 @@ describe User, type: :model do
           AppConfig.settings.autofollow_on_join_user = people.last.diaspora_handle
 
           people.each do |person|
-            expect(Person).to receive(:find_or_fetch_by_identifier)
-                                .with(person.diaspora_handle)
-                                .and_return(person)
+            expect(Person).to
+            receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
           end
           user.seed_aspects
         end
