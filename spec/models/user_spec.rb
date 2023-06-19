@@ -794,11 +794,13 @@ describe User, type: :model do
         FactoryBot.create(:user)
       }
 
-      context "with autofollow sharing enabled and configured using autofollow_on_join_user" do
-        it "should start sharing with autofollow account" do
+      context "when enabled" do
+        before do
           AppConfig.settings.autofollow_on_join = true
-          person = FactoryBot.build(:person)
+        end
 
+        it "should start sharing with autofollow on join user" do
+          person = FactoryBot.build(:person)
           AppConfig.settings.autofollow_on_join_user = person.diaspora_handle
 
           expect(Person).to
@@ -806,26 +808,20 @@ describe User, type: :model do
 
           user.seed_aspects
         end
-      end
 
-      context "with autofollow sharing enabled and configured using autofollow_on_join_accounts" do
-        it "should start sharing with autofollow accounts" do
-          AppConfig.settings.autofollow_on_join = true
+        it "should start sharing with autofollow on join accounts" do
           people = FactoryBot.build_list(:person, 2)
-
           AppConfig.settings.autofollow_on_join_accounts = people.map(&:diaspora_handle)
 
           people.each do |person|
             expect(Person).to
             receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
           end
+
           user.seed_aspects
         end
-      end
 
-      context "with autofollow sharing enabled and configured using both configuration options" do
-        it "should start sharing with autofollow accounts" do
-          AppConfig.settings.autofollow_on_join = true
+        it "should start sharing with accounts specified in both config options" do
           people = FactoryBot.build_list(:person, 3)
 
           AppConfig.settings.autofollow_on_join_accounts = people.first(2).map(&:diaspora_handle)
@@ -835,6 +831,7 @@ describe User, type: :model do
             expect(Person).to
             receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
           end
+
           user.seed_aspects
         end
       end
