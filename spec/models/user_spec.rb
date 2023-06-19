@@ -794,18 +794,49 @@ describe User, type: :model do
         FactoryBot.create(:user)
       }
 
-      context "with autofollow sharing enabled" do
+      context "with autofollow sharing enabled and configured using autofollow_on_join_user" do
         it "should start sharing with autofollow account" do
+          AppConfig.settings.autofollow_on_join = true
+          person = FactoryBot.build(:person)
+
+          AppConfig.settings.autofollow_on_join_user = person.diaspora_handle
+
+          expect(Person).to receive(:find_or_fetch_by_identifier)
+                              .with(person.diaspora_handle)
+                              .and_return(person)
+
+          user.seed_aspects
+        end
+      end
+
+      context "with autofollow sharing enabled and configured using autofollow_on_join_accounts" do
+        it "should start sharing with autofollow accounts" do
           AppConfig.settings.autofollow_on_join = true
           people = FactoryBot.build_list(:person, 2)
 
-          AppConfig.settings.autofollow_on_join_accounts = [people.first.diaspora_handle]
-          AppConfig.settings.autofollow_on_join_user = people.second.diaspora_handle
+          AppConfig.settings.autofollow_on_join_accounts = people.map(&:diaspora_handle)
 
           people.each do |person|
             expect(Person).to receive(:find_or_fetch_by_identifier)
-              .with(person.diaspora_handle)
-              .and_return(person)
+                                .with(person.diaspora_handle)
+                                .and_return(person)
+          end
+          user.seed_aspects
+        end
+      end
+
+      context "with autofollow sharing enabled and configured using both configuration options" do
+        it "should start sharing with autofollow accounts" do
+          AppConfig.settings.autofollow_on_join = true
+          people = FactoryBot.build_list(:person, 3)
+
+          AppConfig.settings.autofollow_on_join_accounts = people.first(2).map(&:diaspora_handle)
+          AppConfig.settings.autofollow_on_join_user = people.last.diaspora_handle
+
+          people.each do |person|
+            expect(Person).to receive(:find_or_fetch_by_identifier)
+                                .with(person.diaspora_handle)
+                                .and_return(person)
           end
           user.seed_aspects
         end
