@@ -63,9 +63,9 @@ AppConfig ||= Configurate::Settings.create do
   extend Configuration::Methods
 
   unless settings["autofollow_on_join_user"].nil?
-      warn "WARNING: autofollow_on_join_user will be deprecated in the next major release."
-      warn "         Please switch to the autofollow_on_join_accounts option instead."
-      warn "         For more information refer to the release changelog."
+    warn "WARNING: autofollow_on_join_user will be deprecated in the next major release."
+    warn "         Please switch to the autofollow_on_join_accounts option instead."
+    warn "         For more information refer to the release changelog."
   end
 
   if rails_env == "production"  &&
