@@ -42,12 +42,12 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
-gem "redis", "4.7.0"
-gem "sidekiq", "6.5.1"
+gem "redis-client", "0.14.1"
+gem "sidekiq", "7.1.2"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "1.6.0"
+gem "sidekiq-cron", "1.10.1"
 
 # Compression
 
