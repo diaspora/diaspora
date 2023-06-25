@@ -34,7 +34,7 @@ gem "yajl-ruby",   "1.4.3"
 gem "devise", "4.9.2"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-two-factor", "4.1.0"
-gem "rqrcode", "2.1.1"
+gem "rqrcode", "2.2.0"
 
 # Captcha
 
