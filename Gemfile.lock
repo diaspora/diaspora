@@ -393,7 +393,7 @@ GEM
       aes_key_wrap
       bindata
       httpclient
-    json-schema (3.0.0)
+    json-schema (4.0.0)
       addressable (>= 2.8)
     jsonpath (1.1.2)
       multi_json
@@ -831,7 +831,7 @@ DEPENDENCIES
   js-routes (= 2.2.4)
   js_image_paths (= 0.2.0)
   json (= 2.6.3)
-  json-schema (= 3.0.0)
+  json-schema (= 4.0.0)
   leaflet-rails (= 1.7.0)
   listen (= 3.7.1)
   logging-rails (= 0.6.0)
