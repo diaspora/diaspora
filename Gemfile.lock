@@ -532,7 +532,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     public_suffix (4.0.7)
-    puma (5.6.5)
+    puma (6.3.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.7.1)
@@ -858,7 +858,7 @@ DEPENDENCIES
   pronto-scss (= 0.11.0)
   pry
   pry-byebug
-  puma (= 5.6.5)
+  puma (= 6.3.0)
   rack-cors (= 1.1.1)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
