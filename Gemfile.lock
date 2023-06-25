@@ -387,7 +387,7 @@ GEM
     js_image_paths (0.2.0)
       rails (>= 4.0, < 8.0)
       sprockets (>= 3.0.0)
-    json (2.6.2)
+    json (2.6.3)
     json-jwt (1.15.3)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -830,7 +830,7 @@ DEPENDENCIES
   jquery-ui-rails (= 5.0.5)
   js-routes (= 2.2.4)
   js_image_paths (= 0.2.0)
-  json (= 2.6.2)
+  json (= 2.6.3)
   json-schema (= 3.0.0)
   leaflet-rails (= 1.7.0)
   listen (= 3.7.1)
