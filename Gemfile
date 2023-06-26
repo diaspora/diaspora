@@ -60,7 +60,7 @@ gem "toml-rb", "2.2.0"
 
 # Cross-origin resource sharing
 
-gem "rack-cors", "1.1.1", require: "rack/cors"
+gem "rack-cors", "2.0.1", require: "rack/cors"
 
 # CSS
 

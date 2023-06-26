@@ -537,7 +537,7 @@ GEM
     raabro (1.4.0)
     racc (1.7.1)
     rack (2.2.7)
-    rack-cors (1.1.1)
+    rack-cors (2.0.1)
       rack (>= 2.0.0)
     rack-google-analytics (1.2.0)
       actionpack
@@ -862,7 +862,7 @@ DEPENDENCIES
   pry
   pry-byebug
   puma (= 6.3.0)
-  rack-cors (= 1.1.1)
+  rack-cors (= 2.0.1)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
   rack-rewrite (= 1.5.1)
