@@ -39,7 +39,7 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_model_serializers (0.9.8)
+    active_model_serializers (0.9.9)
       activemodel (>= 3.2)
       concurrent-ruby (~> 1.0)
     activejob (6.1.7.4)
@@ -790,7 +790,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (= 0.9.8)
+  active_model_serializers (= 0.9.9)
   activerecord-import (= 1.4.1)
   acts-as-taggable-on (= 9.0.1)
   acts_as_api (= 1.0.1)

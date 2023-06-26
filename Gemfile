@@ -137,7 +137,7 @@ gem "openid_connect", "1.3.0"
 
 # Serializers
 
-gem "active_model_serializers", "0.9.8"
+gem "active_model_serializers", "0.9.9"
 
 # Tags
 
