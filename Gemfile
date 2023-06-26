@@ -105,7 +105,7 @@ gem "http_accept_language", "2.1.1"
 gem "rails-i18n",           "7.0.7"
 
 # Map
-gem "leaflet-rails",       "1.7.0"
+gem "leaflet-rails", "1.9.3"
 
 # Parsing
 

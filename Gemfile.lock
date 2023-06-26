@@ -399,7 +399,7 @@ GEM
       multi_json
     jwt (2.7.1)
     kostya-sigar (2.0.10)
-    leaflet-rails (1.7.0)
+    leaflet-rails (1.9.3)
       rails (>= 4.2.0)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -835,7 +835,7 @@ DEPENDENCIES
   js_image_paths (= 0.2.0)
   json (= 2.6.3)
   json-schema (= 4.0.0)
-  leaflet-rails (= 1.7.0)
+  leaflet-rails (= 1.9.3)
   listen (= 3.7.1)
   logging-rails (= 0.6.0)
   mini_magick (= 4.12.0)
