@@ -146,9 +146,10 @@ gem "acts-as-taggable-on", "9.0.1"
 # URIs and HTTP
 
 gem "addressable",              "2.8.4", require: "addressable/uri"
-gem "faraday",                  "1.10.0"
+gem "faraday",                  "2.7.7"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
+gem "faraday-typhoeus",         "1.0.0", require: false
 gem "typhoeus",                 "1.4.0"
 
 # Views
