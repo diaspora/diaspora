@@ -204,8 +204,8 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "0.93.1", require: false
-  gem "rubocop-rails",  "2.9.1", require: false
+  gem "rubocop",        "1.53.1", require: false
+  gem "rubocop-rails",  "2.20.2", require: false
 
   # Debugging
   gem "pry"
