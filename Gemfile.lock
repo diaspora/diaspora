@@ -601,7 +601,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redcarpet (3.5.1)
+    redcarpet (3.6.0)
     redis-client (0.14.1)
       connection_pool
     regexp_parser (2.8.1)
@@ -871,7 +871,7 @@ DEPENDENCIES
   rails-controller-testing (= 1.0.5)
   rails-i18n (= 7.0.7)
   rails-timeago (= 2.20.0)
-  redcarpet (= 3.5.1)
+  redcarpet (= 3.6.0)
   redis-client (= 0.14.1)
   responders (= 3.1.0)
   rqrcode (= 2.2.0)
