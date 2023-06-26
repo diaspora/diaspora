@@ -465,7 +465,7 @@ GEM
     octokit (4.22.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    omniauth (2.1.0)
+    omniauth (2.1.1)
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
@@ -551,7 +551,7 @@ GEM
       json-jwt (>= 1.11.0)
       rack (>= 2.1.0)
     rack-piwik (0.3.0)
-    rack-protection (2.2.0)
+    rack-protection (3.0.6)
       rack
     rack-rewrite (1.5.1)
     rack-ssl (1.4.1)
@@ -846,7 +846,7 @@ DEPENDENCIES
   net-pop
   net-smtp
   nokogiri (= 1.15.2)
-  omniauth (= 2.1.0)
+  omniauth (= 2.1.1)
   omniauth-rails_csrf_protection (= 1.0.1)
   omniauth-tumblr (= 1.2)
   omniauth-twitter (= 1.4.0)

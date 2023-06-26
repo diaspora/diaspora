@@ -125,7 +125,7 @@ gem "secure_headers", "6.5.0"
 
 # Services
 
-gem "omniauth",                       "2.1.0"
+gem "omniauth",                       "2.1.1"
 gem "omniauth-rails_csrf_protection", "1.0.1"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
