@@ -64,7 +64,7 @@ gem "rack-cors", "2.0.1", require: "rack/cors"
 
 # CSS
 
-gem "autoprefixer-rails",     "10.4.7.0"
+gem "autoprefixer-rails",     "10.4.13.0"
 gem "bootstrap-sass",         "3.4.1"
 gem "bootstrap-switch-rails", "3.3.3" # 3.3.4 and 3.3.5 is broken, see https://github.com/Bttstrp/bootstrap-switch/issues/691
 gem "sassc-rails",            "2.1.2"
