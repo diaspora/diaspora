@@ -327,14 +327,15 @@ GEM
       i18n (>= 0.7)
       multi_json
       request_store (>= 1.0)
-    haml (5.2.2)
-      temple (>= 0.8.0)
+    haml (6.1.1)
+      temple (>= 0.8.2)
+      thor
       tilt
-    haml_lint (0.40.0)
-      haml (>= 4.0, < 5.3)
+    haml_lint (0.46.0)
+      haml (>= 4.0, < 6.2)
       parallel (~> 1.10)
       rainbow
-      rubocop (>= 0.50.0)
+      rubocop (>= 1.0)
       sysexits (~> 1.1)
     hamlit (3.0.3)
       temple (>= 0.8.2)
@@ -827,7 +828,7 @@ DEPENDENCIES
   fog-aws (= 3.19.0)
   fuubar (= 2.5.1)
   gon (= 6.4.0)
-  haml_lint (= 0.40.0)
+  haml_lint (= 0.46.0)
   hamlit (= 3.0.3)
   handlebars_assets (= 0.23.9)
   http_accept_language (= 2.1.1)
