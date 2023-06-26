@@ -56,7 +56,7 @@ gem "terser", "1.1.16"
 # Configuration
 
 gem "configurate", "0.5.0"
-gem "toml-rb", "2.1.2"
+gem "toml-rb", "2.2.0"
 
 # Cross-origin resource sharing
 
