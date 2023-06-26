@@ -130,7 +130,7 @@ gem "omniauth-rails_csrf_protection", "1.0.1"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
 gem "omniauth-wordpress",             "0.2.2"
-gem "twitter",                        "7.0.0"
+gem "twitter",                        "8.0.0"
 
 # OpenID Connect
 gem "openid_connect", "1.3.0"
