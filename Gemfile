@@ -208,6 +208,8 @@ group :development do
   gem "rubocop",        "1.53.1", require: false
   gem "rubocop-rails",  "2.20.2", require: false
 
+  gem "faraday-retry", require: false # used by pronto/octokit
+
   # Debugging
   gem "pry"
   gem "pry-byebug"
