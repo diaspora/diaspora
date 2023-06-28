@@ -1,7 +1,7 @@
 require: rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
   NewCops: enable
   Exclude:
     - "bin/**/*"
@@ -39,7 +39,7 @@ Metrics/PerceivedComplexity:
 
 # Some blocks are longer.
 Metrics/BlockLength:
-  ExcludedMethods:
+  AllowedMethods:
     - "namespace"
     - "create_table"
   Exclude:
@@ -167,6 +167,11 @@ Style/Documentation:
 # This is just silly. Calling the argument `other` in all cases makes no sense.
 Naming/BinaryOperatorParameterName:
   Enabled: false
+
+# Defining constants in tests is fine, and it's good to have them close to the test where they are used.
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - "spec/**/*"
 
 # There are valid cases, for example debugging Cucumber steps,
 # also they'll fail CI anyway

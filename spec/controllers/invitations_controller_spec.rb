@@ -39,7 +39,7 @@ describe InvitationsController, type: :controller do
 
       it "creates an InviteEmail worker" do
         expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(
-          emails, alice.id, invite_params[:email_inviter]
+          emails, alice.id, invite_params[:email_inviter].stringify_keys
         )
         post :create, params: invite_params
       end
@@ -85,7 +85,7 @@ describe InvitationsController, type: :controller do
 
       it "creates an InviteEmail worker" do
         expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(
-          valid_emails, alice.id, invite_params[:email_inviter]
+          valid_emails, alice.id, invite_params[:email_inviter].stringify_keys
         )
         post :create, params: invite_params
       end

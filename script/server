@@ -128,7 +128,8 @@ if [ -n "$redis_url" ]
 then
   redis_param="url: '$redis_url'"
 fi
-if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null | grep -vE "is not writable|as your home directory temporarily" )" != "PONG" ]
+echo $redis_param
+if [ "$(bin/bundle exec ruby -e "require 'redis-client'; puts RedisClient.config($redis_param).new_client.call('PING')" 2> /dev/null | grep -vE "is not writable|as your home directory temporarily" )" != "PONG" ]
 then
   fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in $CONFIG_FILE."
 fi
