@@ -31,7 +31,7 @@ module Workers
         !(Process.pid.to_s == process_id.split(":")[1] && Thread.current.object_id.to_s(36) == thread_id) &&
           ArchiveBase.subclasses.map(&:to_s).include?(work["payload"]["class"])
       end
-    rescue RedisClient::CannotConnectError
+    rescue Redis::CannotConnectError
       # If code gets to this point and there is no Redis conenction, we're
       # running in a Test environment and have not mocked Sidekiq::Workers, so
       # we're not testing the concurrency-limiting behavior.
