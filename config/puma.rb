@@ -25,6 +25,13 @@ workers 0
 
 preload_app!
 
+# Below callbacks (before_fork and on_worker_boot) are only used when running
+# in cluster mode. Since we're not running in cluster mode by default (see
+# workers above), a warning is written on startup about them not being called
+# in single mode. So lets just silence that warnings, but still keep the
+# callbacks in place in case somebody switches on the cluster mode.
+silence_fork_callback_warning
+
 before_fork do
   # we're preloading app in production, so force-reconenct the DB
   ActiveRecord::Base.connection_pool.disconnect!
