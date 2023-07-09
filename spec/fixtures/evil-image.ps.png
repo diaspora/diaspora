@@ -1,0 +1,12 @@
+%!
+%% ohno
+
+/Times-Roman findfont
+12 scalefont
+setfont
+
+newpath
+100 200 moveto
+(ohno) show
+
+showpage

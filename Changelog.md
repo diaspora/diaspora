@@ -80,6 +80,10 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Tell users that there is no help in mobile version, allow to switch to desktop [#8407](https://github.com/diaspora/diaspora/pull/8407)
 * Add Smart App Banner on iOS devices [#8409](https://github.com/diaspora/diaspora/pull/8409)
 
+# 0.7.18.2
+
+To avoid potential security issues, diaspora\* now makes sure that ImageMagick image processing always runs with a restricted `policy.xml`, regardless of the global system settings.
+
 # 0.7.18.1
 
 ## Bug fixes
