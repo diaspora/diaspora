@@ -264,4 +264,21 @@ describe Photo, :type => :model do
       end
     end
   end
+
+  context "with a maliciously crafted image" do
+    let(:base_path) { File.dirname(__FILE__) }
+    let(:public_path) { File.join(base_path, "../../public/") }
+    let(:evil_image) { File.open(File.join(base_path, "..", "fixtures", "evil-image.ps.png")) }
+
+    it "fails to process a PostScript file camouflaged as a PNG" do
+      photo = bob.build_post(:photo, user_file: evil_image, to: @aspect.id)
+
+      expect {
+        with_carrierwave_processing do
+          photo.unprocessed_image.store! evil_image
+          photo.save
+        end
+      }.to raise_error(CarrierWave::ProcessingError)
+    end
+  end
 end

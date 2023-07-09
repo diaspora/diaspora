@@ -1,3 +1,7 @@
+# 0.7.18.2
+
+To avoid potential security issues, diaspora\* now makes sure that ImageMagick image processing always runs with a restricted `policy.xml`, regardless of the global system settings.
+
 # 0.7.18.1
 
 ## Bug fixes
