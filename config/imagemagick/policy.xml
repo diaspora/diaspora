@@ -1,0 +1,24 @@
+<policymap>
+  <policy domain="resource" name="time" value="30" />
+  <policy domain="resource" name="disk" value="256MiB"/>
+  <policy domain="resource" name="map" value="256MiB"/>
+  <policy domain="resource" name="memory" value="256MiB"/>
+
+  <policy domain="resource" name="height" value="56K"/>
+  <policy domain="resource" name="width" value="56K"/>
+
+  <policy domain="filter" rights="none" pattern="*" />
+  <policy domain="path" rights="none" pattern="@*" />
+
+  <policy domain="coder" rights="none" pattern="*" />
+  <policy domain="delegate" rights="none" pattern="*" />
+  <policy domain="module" rights="none" pattern="*" />
+
+  <!-- Image formats currently supported by diaspora*. -->
+  <policy domain="coder" rights="read | write" pattern="{GIF,JPEG,JPG,PNG,WEBP}" />
+  <policy domain="module" rights="read | write" pattern="{GIF,JPEG,JPG,PNG,WEBP}" />
+
+  <!-- Required for our captchas -->
+  <policy domain="coder" rights="read | write" pattern="LABEL" />
+  <policy domain="module" rights="read | write" pattern="LABEL" />
+</policymap>
