@@ -442,28 +442,37 @@ class User < ApplicationRecord
   end
 
   def seed_aspects
-    self.aspects.create(:name => I18n.t('aspects.seed.family'))
-    self.aspects.create(:name => I18n.t('aspects.seed.friends'))
-    self.aspects.create(:name => I18n.t('aspects.seed.work'))
-    aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
+    aspects.create(name: I18n.t("aspects.seed.family"))
+    aspects.create(name: I18n.t("aspects.seed.friends"))
+    aspects.create(name: I18n.t("aspects.seed.work"))
+    acquaintances = aspects.create(name: I18n.t("aspects.seed.acquaintances"))
 
-    if AppConfig.settings.autofollow_on_join?
-      begin
-        default_account = Person.find_or_fetch_by_identifier(AppConfig.settings.autofollow_on_join_user)
-        share_with(default_account, aq)
-      rescue DiasporaFederation::Discovery::DiscoveryError
-        logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
-                     fix autofollow_on_join_user in configuration."
+    acquaintances.tap do |aq|
+      if AppConfig.settings.autofollow_on_join?
+        autofollow_user = AppConfig.settings.autofollow_on_join_user
+        autofollow_accounts = Array.wrap(AppConfig.settings.autofollow_on_join_accounts)
+        autofollow_accounts.push(autofollow_user) if autofollow_user.present?
+
+        autofollow_accounts.uniq.each {|user_id| follow_account(user_id, aq) }
       end
     end
-    aq
+  end
+
+  def follow_account(account_id, acquaintances)
+    account = Person.find_or_fetch_by_identifier(account_id)
+    share_with(account, acquaintances)
+  rescue DiasporaFederation::Discovery::DiscoveryError
+    logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
+                     fix autofollow_on_join_user in configuration."
   end
 
   def send_welcome_message
     return unless AppConfig.settings.welcome_message.enabled? && AppConfig.admins.account?
+
     sender_username = AppConfig.admins.account.get
     sender = User.find_by(username: sender_username)
     return if sender.nil?
+
     conversation = sender.build_conversation(
       participant_ids: [sender.person.id, person.id],
       subject:         AppConfig.settings.welcome_message.subject.get,
