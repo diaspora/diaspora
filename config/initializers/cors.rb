@@ -13,5 +13,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     resource "/api/*", methods: :any
     resource "/.well-known/webfinger"
     resource "/.well-known/openid-configuration"
+    resource "/.well-known/nodeinfo"
+    resource "/nodeinfo/*"
   end
 end
