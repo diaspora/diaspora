@@ -29,5 +29,22 @@ describe Notifications::StartedSharing, type: :model do
 
       expect(Notifications::StartedSharing.where(target: bob.person)).not_to exist
     end
+
+    context "when user disabled in app notification" do
+      before do
+        alice.user_preferences.create(
+          email_type:     "started_sharing",
+          in_app_enabled: false
+        )
+      end
+
+      it "does not notify" do
+        expect_any_instance_of(Notifications::StartedSharing).not_to receive(:email_the_user)
+
+        Notifications::StartedSharing.notify(contact, [])
+
+        expect(Notifications::StartedSharing.where(target: bob.person)).not_to exist
+      end
+    end
   end
 end

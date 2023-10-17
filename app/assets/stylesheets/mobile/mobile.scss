@@ -19,6 +19,8 @@
 @import 'markdown-editor';
 @import 'mobile/markdown_editor';
 
+@import 'user_preferences';
+
 @import 'typography';
 
 a {
@@ -860,7 +862,7 @@ input#q.search {
   word-wrap: break-word;
 }
 
-#email_prefs {
+.email-prefs {
   .checkbox{
     margin: 15px 0;
   }

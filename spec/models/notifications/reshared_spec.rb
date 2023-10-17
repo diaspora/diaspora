@@ -48,5 +48,22 @@ describe Notifications::Reshared, type: :model do
 
       expect(Notifications::Reshared.where(target: sm)).not_to exist
     end
+
+    context "when user disabled in app notification" do
+      before do
+        alice.user_preferences.create(
+          email_type:     "reshared",
+          in_app_enabled: false
+        )
+      end
+
+      it "does not notify" do
+        expect_any_instance_of(Notifications::Reshared).not_to receive(:email_the_user)
+
+        Notifications::Reshared.notify(reshare, [])
+
+        expect(Notifications::Reshared.where(target: sm)).not_to exist
+      end
+    end
   end
 end

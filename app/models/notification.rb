@@ -16,16 +16,8 @@ class Notification < ApplicationRecord
     where(opts.merge!(recipient_id: recipient.id)).order("updated_at DESC")
   end
 
-  def email_the_user(target, actor)
-    recipient.mail(mail_job, recipient_id, actor.id, target.id)
-  end
-
   def set_read_state( read_state )
     update_column(:unread, !read_state)
-  end
-
-  def mail_job
-    raise NotImplementedError.new("Subclass this.")
   end
 
   def linked_object
@@ -53,6 +45,11 @@ class Notification < ApplicationRecord
   end
 
   private_class_method def self.suppress_notification?(recipient, actor)
-    recipient.blocks.where(person: actor).exists?
+    return true if recipient.blocks.exists?(person: actor)
+
+    pref_name = NotificationService::NOTIFICATIONS_REVERSE_JSON_TYPES[name]
+    NotificationSettingsService
+      .new(recipient)
+      .in_app_disabled?(pref_name)
   end
 end

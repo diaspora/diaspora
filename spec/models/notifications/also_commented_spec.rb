@@ -63,5 +63,24 @@ describe Notifications::AlsoCommented, type: :model do
 
       expect(Notifications::AlsoCommented.where(target: sm)).not_to exist
     end
+
+    context "when user disabled in app notification" do
+      before do
+        bob.user_preferences.create(
+          email_type:     "also_commented",
+          in_app_enabled: false
+        )
+      end
+
+      it "does not notify" do
+        bob.participate!(sm)
+
+        expect_any_instance_of(Notifications::AlsoCommented).not_to receive(:email_the_user)
+
+        Notifications::AlsoCommented.notify(comment, [])
+
+        expect(Notifications::AlsoCommented.where(target: sm)).not_to exist
+      end
+    end
   end
 end

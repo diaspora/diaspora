@@ -18,16 +18,16 @@ Feature: Change settings
     And my "email" should be "new_email@newplac.es"
 
   Scenario: Change my email preferences
-    When I uncheck "user_email_preferences_mentioned"
+    When I uncheck "user_email_preferences_mentioned_mail"
     And I scroll to "change_email_preferences"
     And I press "change_email_preferences"
     Then I should see "Email notifications changed"
-    And the "user_email_preferences_mentioned" checkbox should not be checked
-    When I uncheck "user_email_preferences_mentioned_in_comment"
+    And the "user_email_preferences_mentioned_mail" checkbox should not be checked
+    When I uncheck "user_email_preferences_mentioned_in_comment_mail"
     And I scroll to "change_email_preferences"
     And I press "change_email_preferences"
     Then I should see "Email notifications changed"
-    And the "user_email_preferences_mentioned_in_comment" checkbox should not be checked
+    And the "user_email_preferences_mentioned_in_comment_mail" checkbox should not be checked
 
   Scenario: Change my preferred language
     When I select "polski" from "user_language"
