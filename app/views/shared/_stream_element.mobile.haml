@@ -20,16 +20,12 @@
       = render "status_messages/status_message", post: post, photos: post.photos
 
   .bottom-bar.nsfw-hidden{class: ("inactive" unless defined?(expanded_info) && expanded_info)}
-    = render partial: "comments/post_stats", locals: {post: post}
-
-    - if defined?(expanded_info) && expanded_info
-      != show_comments_link(post, "active")
-      .comment-container
-        %ul.comments
-          = render partial: "comments/comment", collection: post.comments.for_a_stream, locals: {post: post}
-
-    - else
-      != show_comments_link(post)
+    .post-actions-container
+      != show_comments_link(post, defined?(expanded_info) && expanded_info ? "active" : "")
+      = render partial: "comments/post_stats", locals: {post: post}
+    .comment-container
+      %ul.comments
+        = render partial: "comments/comment", collection: post.comments.for_a_stream, locals: {post: post}
 
     .ajax-loader.hidden
       .loader

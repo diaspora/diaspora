@@ -516,9 +516,13 @@ h3.ltr {
   font-style: inherit;
   font-weight: inherit;
   margin: 0;
-  padding: 15px 15px;
+  padding: 12px;
   vertical-align: baseline;
   word-wrap: break-word;
+
+  p:last-child {
+    margin: 0;
+  }
 }
 
 form#new_conversation.new_conversation {
