@@ -105,9 +105,11 @@
           "interactions": {
             "type": "object",
             "properties" : {
-              "likes" : { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/likes"},
-              "likes_count" : { "type": "integer"}
-            }
+              "liked" : { "type": "boolean" },
+              "likes_count" : { "type": "integer" }
+            },
+            "required": ["liked", "likes_count"],
+            "additionalProperties": false
           }
         },
         "required": ["guid", "created_at", "author", "body", "reported", "interactions"],
