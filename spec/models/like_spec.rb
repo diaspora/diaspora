@@ -12,19 +12,33 @@ describe Like, type: :model do
   end
 
   describe "#destroy" do
-    before do
-      @like = alice.like!(status)
-    end
+    let!(:like) { alice.like!(status) }
 
     it "should delete a participation" do
-      expect { @like.destroy }.to change { Participation.count }.by(-1)
+      expect { like.destroy }.to change { Participation.count }.by(-1)
     end
 
     it "should decrease count participation" do
       alice.comment!(status, "Are you there?")
-      @like.destroy
-      participations = Participation.where(target_id: @like.target_id, author_id: @like.author_id)
+      like.destroy
+      participations = Participation.where(target_id: status.id, author_id: like.author_id)
       expect(participations.first.count).to eq(1)
+    end
+
+    context "on comment" do
+      let(:comment) { bob.comment!(status, "Are you there?") }
+      let!(:like) { alice.like_comment!(comment) }
+
+      it "should delete a participation" do
+        expect { like.destroy }.to change { Participation.count }.by(-1)
+      end
+
+      it "should decrease count participation" do
+        alice.comment!(status, "Yes, I am here!")
+        like.destroy
+        participations = Participation.where(target_id: status.id, author_id: like.author_id)
+        expect(participations.first.count).to eq(1)
+      end
     end
   end
 

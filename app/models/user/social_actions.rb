@@ -18,7 +18,9 @@ module User::SocialActions
   end
 
   def like_comment!(target, opts={})
-    Like::Generator.new(self, target).create!(opts)
+    Like::Generator.new(self, target).create!(opts).tap do
+      update_or_create_participation!(target.commentable)
+    end
   end
 
   def participate_in_poll!(target, answer, opts={})

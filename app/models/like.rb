@@ -32,7 +32,8 @@ class Like < ApplicationRecord
 
   after_destroy do
     self.parent.update_likes_counter
-    participation = author.participations.find_by(target_id: target.id)
+    participation_target_id = parent.is_a?(Comment) ? parent.commentable.id : parent.id
+    participation = author.participations.find_by(target_id: participation_target_id)
     participation.unparticipate! if participation.present?
   end
 
