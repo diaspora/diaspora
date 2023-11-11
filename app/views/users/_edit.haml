@@ -153,6 +153,11 @@
                   = t(".liked")
                 .small-horizontal-spacer
 
+                = type.label :liked_comment, class: "checkbox-inline" do
+                  = type.check_box :liked_comment, {checked: email_prefs["liked_comment"]}, false, true
+                  = t(".liked_comment")
+                .small-horizontal-spacer
+
                 = type.label :reshared, class: "checkbox-inline" do
                   = type.check_box :reshared, {checked: email_prefs["reshared"]}, false, true
                   = t(".reshared")

@@ -212,6 +212,27 @@ describe Notifier, type: :mailer do
     end
   end
 
+  describe ".liked_comment" do
+    before do
+      @post = FactoryBot.create(:status_message, author: alice.person, public: true)
+      @comment = FactoryBot.create(:comment, author: alice.person, post: @post)
+      @like = @comment.likes.create!(author: bob.person)
+      @mail = Notifier.send_notification("liked_comment", alice.id, @like.author.id, @like.id)
+    end
+
+    it "TO: goes to the right person" do
+      expect(@mail.to).to eq([alice.email])
+    end
+
+    it "BODY: contains the original comment" do
+      expect(@mail.body.encoded).to include(@comment.message.plain_text)
+    end
+
+    it "BODY: contains the name of person liking" do
+      expect(@mail.body.encoded).to include(@like.author.name)
+    end
+  end
+
   describe ".reshared" do
     before do
       @post = FactoryBot.create(:status_message, author: alice.person, public: true)
@@ -483,6 +504,42 @@ describe Notifier, type: :mailer do
 
       it "BODY: does not show the limited post" do
         expect(mail.body.encoded).not_to include("Limited headline")
+      end
+
+      it "BODY: contains the name of person liking" do
+        expect(mail.body.encoded).to include(bob.name)
+      end
+    end
+
+    describe ".liked_comment" do
+      let(:comment) { alice.comment!(limited_post, "Totally is") }
+      let(:like) { bob.like_comment!(comment) }
+      let(:mail) { Notifier.send_notification("liked_comment", alice.id, bob.person.id, like.id) }
+
+      it "TO: goes to the right person" do
+        expect(mail.to).to eq([alice.email])
+      end
+
+      it "FROM: contains the sender's name" do
+        expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
+      end
+
+      it "FROM: removes emojis from sender's name" do
+        bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+        expect(mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
+      end
+
+      it "SUBJECT: does not show the limited comment" do
+        expect(mail.subject).not_to include("Totally is")
+      end
+
+      it "IN-REPLY-TO and REFERENCES: references the liked post" do
+        expect(mail.in_reply_to).to eq("#{limited_post.guid}@#{AppConfig.pod_uri.host}")
+        expect(mail.references).to eq("#{limited_post.guid}@#{AppConfig.pod_uri.host}")
+      end
+
+      it "BODY: does not show the limited post" do
+        expect(mail.body.encoded).not_to include("Totally is")
       end
 
       it "BODY: contains the name of person liking" do

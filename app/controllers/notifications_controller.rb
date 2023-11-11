@@ -7,24 +7,9 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
-  def update
-    note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
-    if note
-      note.set_read_state(params[:set_unread] != "true" )
-
-      respond_to do |format|
-        format.json { render :json => { :guid => note.id, :unread => note.unread } }
-      end
-
-    else
-      respond_to do |format|
-        format.json { render :json => {}.to_json }
-      end
-    end
-  end
-
   def index
-    conditions = {:recipient_id => current_user.id}
+    conditions = {recipient_id: current_user.id}
+    types = NotificationService::NOTIFICATIONS_JSON_TYPES
     if params[:type] && types.has_key?(params[:type])
       conditions[:type] = types[params[:type]]
     end
@@ -33,7 +18,7 @@ class NotificationsController < ApplicationController
     per_page = params[:per_page] || 25
     @notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
       result = Notification.where(conditions)
-                           .includes(:target, :actors => :profile)
+                           .includes(:target, actors: :profile)
                            .order("updated_at desc")
                            .limit(pager.per_page)
                            .offset(pager.offset)
@@ -52,10 +37,25 @@ class NotificationsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml { render :xml => @notifications.to_xml }
+      format.xml { render xml: @notifications.to_xml }
       format.json {
         render json: render_as_json(@unread_notification_count, @grouped_unread_notification_counts, @notifications)
       }
+    end
+  end
+
+  def update
+    note = Notification.where(recipient_id: current_user.id, id: params[:id]).first
+    if note
+      note.set_read_state(params[:set_unread] != "true")
+
+      respond_to do |format|
+        format.json { render json: {guid: note.id, unread: note.unread} }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: {}.to_json }
+      end
     end
   end
 
@@ -67,7 +67,7 @@ class NotificationsController < ApplicationController
   end
 
   def read_all
-    current_type = types[params[:type]]
+    current_type = NotificationService::NOTIFICATIONS_JSON_TYPES[params[:type]]
     notifications = Notification.where(recipient_id: current_user.id, unread: true)
     notifications = notifications.where(type: current_type) if params[:type]
     notifications.update_all(unread: false)
@@ -79,8 +79,8 @@ class NotificationsController < ApplicationController
         format.html { redirect_to stream_path }
         format.mobile { redirect_to stream_path }
       end
-      format.xml { render :xml => {}.to_xml }
-      format.json { render :json => {}.to_json }
+      format.xml { render xml: {}.to_xml }
+      format.json { render json: {}.to_json }
     end
   end
 
@@ -95,18 +95,4 @@ class NotificationsController < ApplicationController
       }
     }.as_json
   end
-
-  def types
-    {
-      "also_commented"       => "Notifications::AlsoCommented",
-      "comment_on_post"      => "Notifications::CommentOnPost",
-      "liked"                => "Notifications::Liked",
-      "mentioned"            => "Notifications::MentionedInPost",
-      "mentioned_in_comment" => "Notifications::MentionedInComment",
-      "reshared"             => "Notifications::Reshared",
-      "started_sharing"      => "Notifications::StartedSharing",
-      "contacts_birthday"    => "Notifications::ContactsBirthday"
-    }
-  end
-  helper_method :types
 end

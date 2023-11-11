@@ -73,6 +73,11 @@ Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
+# This rule makes haml files less readable, as there is no 'end' there.
+Layout/CaseIndentation:
+  Exclude:
+    - "app/views/**/*"
+
 # Mixing the styles looks just silly.
 Style/HashSyntax:
  EnforcedStyle: ruby19_no_mixed_keys

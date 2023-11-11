@@ -3,7 +3,7 @@
 class NotificationService
   NOTIFICATION_TYPES = {
     Comment       => [Notifications::MentionedInComment, Notifications::CommentOnPost, Notifications::AlsoCommented],
-    Like          => [Notifications::Liked],
+    Like          => [Notifications::Liked, Notifications::LikedComment],
     StatusMessage => [Notifications::MentionedInPost],
     Conversation  => [Notifications::PrivateMessage],
     Message       => [Notifications::PrivateMessage],
@@ -15,6 +15,7 @@ class NotificationService
     "also_commented"       => "Notifications::AlsoCommented",
     "comment_on_post"      => "Notifications::CommentOnPost",
     "liked"                => "Notifications::Liked",
+    "liked_comment"        => "Notifications::LikedComment",
     "mentioned"            => "Notifications::MentionedInPost",
     "mentioned_in_comment" => "Notifications::MentionedInComment",
     "reshared"             => "Notifications::Reshared",

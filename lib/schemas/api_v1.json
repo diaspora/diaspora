@@ -201,6 +201,7 @@
             "also_commented",
             "comment_on_post",
             "liked",
+            "liked_comment",
             "mentioned",
             "mentioned_in_comment",
             "reshared",

@@ -83,6 +83,7 @@ describe NotificationsController, type: :controller do
         "comment_on_post"      => 0,
         "contacts_birthday"    => 0,
         "liked"                => 0,
+        "liked_comment"        => 0,
         "mentioned"            => 0,
         "mentioned_in_comment" => 0,
         "reshared"             => 0,
