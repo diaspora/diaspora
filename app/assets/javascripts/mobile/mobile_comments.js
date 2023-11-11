@@ -109,7 +109,7 @@
         url: toggleReactionsLink.attr("href"),
         success: function (data) {
           toggleReactionsLink.addClass("active").removeClass("loading");
-          $(data).insertAfter(bottomBar.children(".show-comments").first());
+          $(data).insertAfter(bottomBar.children(".post-actions-container").first());
           self.showCommentBox(commentActionLink);
           bottomBarContainer.getCommentsContainer().find("time.timeago").timeago();
           bottomBarContainer.activate();
