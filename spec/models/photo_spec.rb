@@ -6,9 +6,9 @@
 
 def with_carrierwave_processing(&block)
   UnprocessedImage.enable_processing = true
-  val = yield
+  yield
+ensure
   UnprocessedImage.enable_processing = false
-  val
 end
 
 describe Photo, :type => :model do
