@@ -20,3 +20,7 @@ When /^I press "(.*)" in the modal$/ do |txt|
     find_button(txt).trigger "click"
   end
 end
+
+When /^I close the modal$/ do
+  find(".modal-dialog .close").click
+end

@@ -28,7 +28,7 @@ Given /^a nsfw user with email "([^\"]*)"$/ do |email|
 end
 
 Given /^a moderator with email "([^\"]*)"$/ do |email|
-  user = create_user(email: email)
+  user = create_user(email: email, username: email.split("@")[0])
   Role.add_moderator(user)
 end
 
@@ -175,6 +175,12 @@ Then /^I should( not)? see "([^\"]*)" in the last sent email$/ do |negate, text|
   else
     expect(email_text).to have_content(text)
   end
+end
+
+Then /^"([^"]*)" should have received an email with subject "([^"]*)"$/ do |user_email, subject|
+  email = ActionMailer::Base.deliveries.last
+  expect(email.to).to have_content(user_email)
+  expect(email.subject).to have_content(subject)
 end
 
 When /^"([^\"]+)" has posted a (public )?status message with a photo$/ do |email, public_status|

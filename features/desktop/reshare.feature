@@ -19,8 +19,7 @@ Feature: public repost
     And I am on "bob@bob.bob"'s page
     And I open the show page of the "reshare this!" post
     And I confirm the alert after I click on selector "a.reshare"
-    Then I should see a flash message indicating success
-    And I should see a flash message containing "successfully"
+    Then I should see a success flash message containing "successfully"
 
   Scenario: Resharing a post from a single post page that is reshared
     Given the post with text "reshare this!" is reshared by "eve@eve.eve"
@@ -28,8 +27,7 @@ Feature: public repost
     And I am on "bob@bob.bob"'s page
     And I open the show page of the "reshare this!" post
     And I confirm the alert after I click on selector "a.reshare"
-    Then I should see a flash message indicating success
-    And I should see a flash message containing "successfully"
+    Then I should see a success flash message containing "successfully"
 
   Scenario: Delete original reshared post
     Given "alice@alice.alice" has a public post with text "Don't reshare this!"
@@ -46,8 +44,7 @@ Feature: public repost
     When I sign in as "alice@alice.alice"
     Then I should see a ".reshare" within ".feedback"
     When I confirm the alert after I follow "Reshare"
-    Then I should see a flash message indicating success
-    And I should see a flash message containing "successfully"
+    Then I should see a success flash message containing "successfully"
     And I should not see a ".reshare" within ".feedback"
 
   Scenario: Reshare a post from another user's profile
@@ -55,8 +52,7 @@ Feature: public repost
     And I am on "bob@bob.bob"'s page
     Then I should see a ".reshare" within ".feedback"
     When I confirm the alert after I follow "Reshare"
-    Then I should see a flash message indicating success
-    And I should see a flash message containing "successfully"
+    Then I should see a success flash message containing "successfully"
     And I should not see a ".reshare" within ".feedback"
 
   Scenario: Try to reshare an already reshared post from another user's profile

@@ -4,6 +4,7 @@ app.views.Base = Backbone.View.extend({
 
   initialize : function() {
     this.setupRenderEvents();
+    this.setupReport();
   },
 
   presenter : function(){
@@ -102,22 +103,25 @@ app.views.Base = Backbone.View.extend({
     this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}));
   },
 
-  report: function(evt) {
-    if(evt) { evt.preventDefault(); }
-    var msg = prompt(Diaspora.I18n.t('report.prompt'), Diaspora.I18n.t('report.prompt_default'));
-    if (msg == null) {
-      return;
+  setupReport: function() {
+    const reportForm = document.getElementById("report-content-form");
+    if (reportForm) {
+      reportForm.addEventListener("submit", this.onSubmitReport);
     }
-    var data = {
-      report: {
-        item_id: this.model.id,
-        item_type: $(evt.currentTarget).data("type"),
-        text: msg
-      }
+  },
+
+  onSubmitReport: function(ev) {
+    if (ev) { ev.preventDefault(); }
+    const form = ev.currentTarget;
+    $("#reportModal").modal("hide");
+    const textarea = document.getElementById("report-reason-field");
+    const report = {
+      item_id: form.dataset.reportId,
+      item_type: form.dataset.reportType,
+      text: textarea.value
     };
 
-    var report = new app.models.Report();
-    report.save(data, {
+    new app.models.Report().save({report: report}, {
       success: function() {
         app.flashMessages.success(Diaspora.I18n.t("report.status.created"));
       },
@@ -127,11 +131,21 @@ app.views.Base = Backbone.View.extend({
     });
   },
 
+  report: function(evt) {
+    if (evt) { evt.preventDefault(); }
+    const form = document.getElementById("report-content-form");
+    form.dataset.reportId = this.model.id;
+    form.dataset.reportType = evt.currentTarget.dataset.type;
+    document.getElementById("report-reason-field").value = "";
+    document.getElementById("report-reason-field").focus();
+    $("#reportModal").modal();
+  },
+
   destroyConfirmMsg: function() { return Diaspora.I18n.t("confirm_dialog"); },
 
   destroyModel: function(evt) {
     evt && evt.preventDefault();
-    var url = this.model.urlRoot + "/" + this.model.id;
+    const url = this.model.urlRoot + "/" + this.model.id;
 
     if( confirm(_.result(this, "destroyConfirmMsg")) ) {
       this.$el.addClass("deleting");

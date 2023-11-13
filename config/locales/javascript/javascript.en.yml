@@ -12,8 +12,6 @@ en:
     delete: "Delete"
     ignore: "Ignore"
     report:
-      prompt: "Please enter a reason:"
-      prompt_default: "e.g. offensive content"
       name: "Report"
       status:
         created: "The report has successfully been created"
