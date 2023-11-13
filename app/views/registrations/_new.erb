@@ -12,7 +12,7 @@
               <label for="user_username"><%= t("registrations.new.username") %></label>
             </p>
             <p>
-              <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>" class="form-control" pattern="[A-Za-z0-9_.\-]+" required />@<%= AppConfig.pod_uri.host %>
+              <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>" class="form-control" pattern="[A-Za-z0-9_.\-]+" required /><%= User.diaspora_id_host %>
             </p>
             <p class="advice"><%= t("registrations.new.username_advice") %></p>
           </section>
