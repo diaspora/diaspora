@@ -101,9 +101,18 @@
             "type": "array",
             "items": { "$ref": "https://diaspora.software/api/v1/schema.json#/definitions/short_profile" }
           },
-          "reported": { "type": "boolean" }
+          "reported": { "type": "boolean" },
+          "interactions": {
+            "type": "object",
+            "properties" : {
+              "liked" : { "type": "boolean" },
+              "likes_count" : { "type": "integer" }
+            },
+            "required": ["liked", "likes_count"],
+            "additionalProperties": false
+          }
         },
-        "required": ["guid", "created_at", "author", "body", "reported"],
+        "required": ["guid", "created_at", "author", "body", "reported", "interactions"],
         "additionalProperties": false
       }
     },
@@ -192,6 +201,7 @@
             "also_commented",
             "comment_on_post",
             "liked",
+            "liked_comment",
             "mentioned",
             "mentioned_in_comment",
             "reshared",

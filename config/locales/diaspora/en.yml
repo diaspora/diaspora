@@ -632,22 +632,8 @@ en:
   likes:
     create:
       error: "Failed to like."
-      fail: "Like creation has failed"
     destroy:
       error: "Failed to unlike."
-    people_like_this:
-      zero: "No likes"
-      one: "%{count} like"
-      other: "%{count} likes"
-    people_like_this_comment:
-      zero: "No likes"
-      one: "%{count} like"
-      other: "%{count} likes"
-    people_dislike_this:
-      zero: "No dislikes"
-      one: "%{count} dislike"
-      other: "%{count} dislikes"
-    not_found: "Post or like not found"
 
   notifications:
     started_sharing:
@@ -676,6 +662,10 @@ en:
       zero: "%{actors} have liked your post %{post_link}."
       one: "%{actors} has liked your post %{post_link}."
       other: "%{actors} have liked your post %{post_link}."
+    liked_comment:
+      zero: "%{actors} have liked your comment %{comment_link}."
+      one: "%{actors} has liked your comment %{comment_link}."
+      other: "%{actors} have liked your comment %{comment_link}."
     reshared:
       zero: "%{actors} have reshared your post %{post_link}."
       one: "%{actors} has reshared your post %{post_link}."
@@ -688,6 +678,10 @@ en:
       zero: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
+    liked_comment_deleted:
+      zero: "%{actors} liked your deleted comment."
+      one: "%{actors} liked your deleted comment."
+      other: "%{actors} liked your deleted comment."
     liked_post_deleted:
       zero: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
@@ -713,7 +707,8 @@ en:
       all_notifications: "All notifications"
       also_commented: "Also commented"
       comment_on_post: "Comment on post"
-      liked: "Liked"
+      liked: "Liked post"
+      liked_comment: "Liked comment"
       mentioned: "Mentioned in post"
       mentioned_in_comment: "Mentioned in comment"
       reshared: "Reshared"
@@ -760,6 +755,10 @@ en:
         liked: "%{name} liked your post"
         limited_post: "%{name} liked your limited post"
         view_post: "View post >"
+    liked_comment:
+        liked: "%{name} liked your comment"
+        limited_post: "%{name} liked your comment on a limited post"
+        view_comment: "View comment >"
     reshared:
         reshared: "%{name} reshared your post"
         view_post: "View post >"
@@ -1307,6 +1306,7 @@ en:
       mentioned: "you are mentioned in a post"
       mentioned_in_comment: "you are mentioned in a comment"
       liked: "someone likes your post"
+      liked_comment: "someone likes your comment"
       reshared: "someone reshares your post"
       comment_on_post: "someone comments on your post"
       also_commented: "someone comments on a post you’ve commented on"

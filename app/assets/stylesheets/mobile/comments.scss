@@ -1,14 +1,22 @@
 .bottom-bar {
-  border-radius: 0 0 5px 5px;
   z-index: 3;
-  display: block;
-  position: relative;
   padding: 8px 10px 10px;
   background: $background-grey;
   margin-top: 10px;
   border-top: 1px solid $border-grey;
   min-height: 22px;
   overflow: hidden;
+
+  &,
+  .comment-stats {
+    border-bottom-left-radius: $border-radius-small;
+    border-bottom-right-radius: $border-radius-small;
+  }
+
+  .post-actions-container {
+    display: flex;
+    justify-content: space-between;
+  }
 
   > a,
   .show-comments,
@@ -37,8 +45,7 @@
     }
   }
 
-  .post-stats {
-    float: right;
+  %stats {
     position: relative;
     display: flex;
 
@@ -46,9 +53,9 @@
       color: $text-color;
       font-family: $font-family-base;
       font-size: $font-size-base;
-      line-height: 22px;
+      line-height: 24px;
       margin-left: 5px;
-      vertical-align: top;
+      vertical-align: text-bottom;
       z-index: 2;
     }
 
@@ -67,15 +74,34 @@
     }
 
     .entypo-reshare.active { color: $blue; }
-
     .entypo-heart.active { color: $red; }
   }
 
-  .post-action {
+  .post-stats {
+    @extend %stats;
+  }
+
+  .comment-stats {
+    @extend %stats;
+    background: $background-grey;
+    border-top: 1px solid $border-grey;
+    flex-direction: row-reverse;
+    padding: 3px;
+  }
+
+  %action {
     display: flex;
     margin: 0 7px;
 
     .disabled { color: $medium-gray; }
+  }
+
+  .post-action {
+    @extend %action;
+  }
+
+  .comment-action {
+    @extend %action;
   }
 
   .add-comment-switcher { padding-top: 10px; }
@@ -91,16 +117,19 @@
 
 .stream-element .comments {
   margin: 0;
-  margin-top: 10px;
   padding: 0;
   width: 100%;
 
   .content { padding: 0; }
 
   .comment {
-    border-top: 1px solid $border-medium-grey;
-    padding: 10px 0 0;
+    background-color: $framed-background;
+    border: 1px solid $border-medium-grey;
+    border-radius: 5px;
+    margin-top: 10px;
 
-    &:first-child { padding-top: 20px; }
+    .media {
+      padding: 6px;
+    }
   }
 }

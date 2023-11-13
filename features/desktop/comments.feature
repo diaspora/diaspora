@@ -86,3 +86,14 @@ Feature: commenting
 
     When I click on selector ".toggle_post_comments"
     Then I should see "Comment 2"
+
+  Scenario: Like a comment in stream view
+    When "alice@alice.alice" has commented "That's cool" on "Look at this dog"
+    And I am on "alice@alice.alice"'s page
+    And I like the comment "That's cool"
+    Then I should see a like within comment "That's cool"
+
+    When I expand likes within comment "That's cool"
+    Then I should see a micro avatar within comment "That's cool"
+    When I unlike comment "That's cool"
+    Then I should not see a micro avatar within comment "That's cool"

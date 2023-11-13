@@ -81,6 +81,7 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Tell users that there is no help in mobile version, allow to switch to desktop [#8407](https://github.com/diaspora/diaspora/pull/8407)
 * Add Smart App Banner on iOS devices [#8409](https://github.com/diaspora/diaspora/pull/8409)
 * Add a more detailed modal when reporting a post or a comment [#8035](https://github.com/diaspora/diaspora/pull/8035)
+* Re-introduce likes on comments [#8203](https://github.com/diaspora/diaspora/pull/8203)
 
 # 0.7.18.2
 

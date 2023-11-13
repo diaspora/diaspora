@@ -21,3 +21,6 @@
 
     %div{class: direction_for(comment.text)}
       = comment.message.markdownified
+    .comment-stats
+      .comment-action
+        = mobile_like_comment_icon(comment)

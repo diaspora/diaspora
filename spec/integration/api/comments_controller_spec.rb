@@ -159,6 +159,23 @@ describe Api::V1::CommentsController do
         expect_to_match_json_schema(comments.to_json, "#/definitions/comments")
       end
 
+      it "retrieves own like state" do
+        like_service.create_for_comment(@comment1.id)
+
+        get(
+          api_v1_post_comments_path(post_id: @status.guid),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(200)
+        comments = response_body(response)
+        expect(comments[0]["interactions"]["liked"]).to eq(true)
+        expect(comments[0]["interactions"]["likes_count"]).to eq(1)
+        expect(comments[1]["interactions"]["liked"]).to eq(false)
+        expect(comments[1]["interactions"]["likes_count"]).to eq(0)
+
+        expect_to_match_json_schema(comments.to_json, "#/definitions/comments")
+      end
+
       it "returns reported status of a comment" do
         auth_minimum_scopes.user.reports.create!(item: @comment1, text: "Meh!")
         get(
@@ -441,6 +458,10 @@ describe Api::V1::CommentsController do
 
   def comment_service(user=auth.user)
     CommentService.new(user)
+  end
+
+  def like_service(user=auth.user)
+    LikeService.new(user)
   end
 
   def response_body(response)

@@ -52,6 +52,8 @@
 
       $.post(form.attr("action") + "?format=mobile", form.serialize(), function(data){
         Diaspora.Mobile.Comments.updateStream(form, data);
+        // Register new comments
+        $(".stream").trigger("comments.loaded");
       }, "html").fail(function(response) {
         Diaspora.Mobile.Alert.handleAjaxError(response);
         Diaspora.Mobile.Comments.resetCommentBox(form);
@@ -107,10 +109,12 @@
         url: toggleReactionsLink.attr("href"),
         success: function (data) {
           toggleReactionsLink.addClass("active").removeClass("loading");
-          $(data).insertAfter(bottomBar.children(".show-comments").first());
+          $(data).insertAfter(bottomBar.children(".post-actions-container").first());
           self.showCommentBox(commentActionLink);
           bottomBarContainer.getCommentsContainer().find("time.timeago").timeago();
           bottomBarContainer.activate();
+          // Inform the comment action for new comments
+          $(".stream").trigger("comments.loaded");
         },
         error: function(){
           bottomBarContainer.deactivate();

@@ -17,26 +17,11 @@ class CommentsController < ApplicationController
     authenticate_user!
   end
 
-  def create
-    begin
-      comment = comment_service.create(params[:post_id], params[:text])
-    rescue ActiveRecord::RecordNotFound
-      render plain: I18n.t("comments.create.error"), status: 404
-      return
-    end
-
-    if comment
-      respond_create_success(comment)
-    else
-      render plain: I18n.t("comments.create.error"), status: 422
-    end
-  end
-
-  def destroy
-    if comment_service.destroy(params[:id])
-      respond_destroy_success
-    else
-      respond_destroy_error
+  def index
+    comments = comment_service.find_for_post(params[:post_id])
+    respond_with do |format|
+      format.json { render json: CommentPresenter.as_collection(comments, :as_json, current_user), status: :ok }
+      format.mobile { render layout: false, locals: {comments: comments} }
     end
   end
 
@@ -46,11 +31,26 @@ class CommentsController < ApplicationController
     end
   end
 
-  def index
-    comments = comment_service.find_for_post(params[:post_id])
-    respond_with do |format|
-      format.json { render json: CommentPresenter.as_collection(comments), status: 200 }
-      format.mobile { render layout: false, locals: {comments: comments} }
+  def create
+    begin
+      comment = comment_service.create(params[:post_id], params[:text])
+    rescue ActiveRecord::RecordNotFound
+      render plain: I18n.t("comments.create.error"), status: :not_found
+      return
+    end
+
+    if comment
+      respond_create_success(comment)
+    else
+      render plain: I18n.t("comments.create.error"), status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if comment_service.destroy(params[:id])
+      respond_destroy_success
+    else
+      respond_destroy_error
     end
   end
 

@@ -1,5 +1,8 @@
-.notification_element{data: {guid: note.id, type: (types.key(note.type) || "")},
-  class: (note.unread ? "unread" : "read")}
+.notification_element{data:  {
+                        guid: note.id,
+                        type: (NotificationService::NOTIFICATIONS_JSON_TYPES.key(note.type) || "")
+                      },
+                      class: (note.unread ? "unread" : "read")}
   .pull-right.unread-toggle
     %i.entypo-eye{title: (note.unread ? t("notifications.index.mark_read") : t("notifications.index.mark_unread"))}
   = person_image_tag note.actors.first, :thumb_small

@@ -6,16 +6,19 @@ class UserPreference < ApplicationRecord
   validate :must_be_valid_email_type
 
   VALID_EMAIL_TYPES =
-    ["someone_reported",
-     "mentioned",
-     "mentioned_in_comment",
-     "comment_on_post",
-     "private_message",
-     "started_sharing",
-     "also_commented",
-     "liked",
-     "reshared",
-     "contacts_birthday"]
+    %w[
+      someone_reported
+      mentioned
+      mentioned_in_comment
+      comment_on_post
+      private_message
+      started_sharing
+      also_commented
+      liked
+      liked_comment
+      reshared
+      contacts_birthday
+    ].freeze
 
   def must_be_valid_email_type
     unless VALID_EMAIL_TYPES.include?(self.email_type)
