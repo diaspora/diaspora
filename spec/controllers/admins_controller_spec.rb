@@ -68,17 +68,17 @@ describe AdminsController, type: :controller do
 
       it "assigns users to an empty array if nothing is searched for" do
         get :user_search
-        expect(assigns[:users]).to eq([])
+        expect(assigns[:persons]).to eq([])
       end
 
       it "searches on username" do
         get :user_search, params: {admins_controller_user_search: {username: @user.username}}
-        expect(assigns[:users]).to eq([@user])
+        expect(assigns[:persons]).to eq([@user.person])
       end
 
       it "searches on email" do
         get :user_search, params: {admins_controller_user_search: {email: @user.email}}
-        expect(assigns[:users]).to eq([@user])
+        expect(assigns[:persons]).to eq([@user.person])
       end
 
       it "searches on age < 13 (COPPA)" do
@@ -92,8 +92,8 @@ describe AdminsController, type: :controller do
 
         get :user_search, params: {admins_controller_user_search: {under13: "1"}}
 
-        expect(assigns[:users]).to include(under13)
-        expect(assigns[:users]).not_to include(over13)
+        expect(assigns[:persons]).to include(under13.person)
+        expect(assigns[:persons]).not_to include(over13.person)
       end
     end
   end

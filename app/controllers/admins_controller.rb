@@ -12,11 +12,11 @@ class AdminsController < Admin::AdminController
       search_params = params.require(:admins_controller_user_search)
                             .permit(:username, :email, :guid, :under13)
       @search = UserSearch.new(search_params)
-      @users = @search.perform
+      @persons = @search.perform
     end
 
     @search ||= UserSearch.new
-    @users ||= []
+    @persons ||= [] # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def admin_inviter
@@ -138,15 +138,19 @@ DATA
     def perform
       return User.none unless valid?
 
-      users = User.arel_table
       people = Person.arel_table
+      users = User.arel_table
       profiles = Profile.arel_table
-      res = User.joins(person: :profile)
-      res = res.where(users[:username].matches("%#{username}%")) unless username.blank?
-      res = res.where(users[:email].matches("%#{email}%")) unless email.blank?
-      res = res.where(people[:guid].matches("%#{guid}%")) unless guid.blank?
-      res = res.where(profiles[:birthday].gt(Date.today-13.years)) if under13 == '1'
-      res
+
+      persons = Person.joins("left join profiles on profiles.person_id = people.id")
+                      .joins("left join users on people.owner_id = users.id")
+      persons = persons.where(people[:diaspora_handle].matches("%#{username}%")) if username.present?
+      persons = persons.where(users[:email].matches("%#{email}%")) if email.present?
+      persons = persons.where(people[:guid].matches("%#{guid}%")) if guid.present?
+      persons = persons.where(profiles[:birthday].gt(Time.zone.today - 13.years)) if under13 == "1"
+      persons = persons.select("people.*, users.id as user_id, profiles.full_name as full_name")
+      persons = persons.distinct
+      persons.limit(50)
     end
   end
 end

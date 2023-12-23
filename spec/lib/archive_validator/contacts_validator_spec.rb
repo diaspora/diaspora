@@ -31,7 +31,7 @@ describe ArchiveValidator::ContactsValidator do
 
   let(:incorrect_item) {
     person = FactoryBot.create(:person)
-    person.lock_access!
+    person.close_account!
     {
       "contact_groups_membership" => [],
       "person_guid"               => person.guid,

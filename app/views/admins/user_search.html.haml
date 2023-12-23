@@ -3,4 +3,4 @@
     .col-md-3
       = render partial: "admins/admin_bar"
     .col-md-9
-      = render partial: "admins/user_search", locals: {nb_users: @users.count}
+      = render partial: "admins/user_search", locals: {nb_users: @persons.count(:all)}

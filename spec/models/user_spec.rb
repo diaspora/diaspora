@@ -889,7 +889,7 @@ describe User, type: :model do
       end
 
       it "calls person#lock_access!" do
-        expect(@user.person).to receive(:lock_access!)
+        expect(@user.person).to receive(:close_account!)
         @user.close_account!
       end
     end
@@ -1124,7 +1124,7 @@ describe User, type: :model do
   describe "active" do
     before do
       closed_account = FactoryBot.create(:user)
-      closed_account.person.lock_access!
+      closed_account.person.close_account!
     end
 
     it "returns total_users excluding closed accounts & users without usernames" do

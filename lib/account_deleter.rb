@@ -84,7 +84,7 @@ class AccountDeleter
   end
 
   def tombstone_person_and_profile
-    person.lock_access!
+    person.close_account!
     person.clear_profile!
   end
 
