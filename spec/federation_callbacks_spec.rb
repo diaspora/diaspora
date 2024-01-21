@@ -465,6 +465,33 @@ describe "diaspora federation callbacks" do
         DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Post", "unknown-guid")
       ).to be_nil
     end
+
+    context "comment" do
+      it "fetches a Comment" do
+        post = FactoryBot.create(:status_message, author: alice.person, public: true)
+        comment = FactoryBot.create(:comment, author: alice.person, commentable: post)
+        entity = DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Comment", comment.guid)
+
+        expect(entity.guid).to eq(comment.guid)
+        expect(entity.author).to eq(alice.diaspora_handle)
+        expect(entity.parent.public).to be_truthy
+      end
+
+      it "does not fetch a Comment from a private post" do
+        post = FactoryBot.create(:status_message, author: alice.person, public: false)
+        comment = FactoryBot.create(:comment, author: alice.person, commentable: post)
+
+        expect(
+          DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Comment", comment.guid)
+        ).to be_nil
+      end
+
+      it "returns nil, if the comment is unknown" do
+        expect(
+          DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Comment", "unknown-guid")
+        ).to be_nil
+      end
+    end
   end
 
   describe ":fetch_person_url_to" do
