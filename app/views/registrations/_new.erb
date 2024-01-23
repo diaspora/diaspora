@@ -1,0 +1,77 @@
+<div class="modern-design">
+  <main class="small-container">
+    <header>
+      <h1><%= t("registrations.new.title") %></h1>
+      <p><%= t("registrations.new.subtitle", podname: AppConfig.settings.pod_name, tutorials_link: link_to(t('registrations.new.tutorials_link_label'), "https://diasporafoundation.org/getting_started/sign_up", target: "_blank")).html_safe %></p>
+    </header>
+    <%= form_for(resource, url: registration_path(resource_name)) do |f| %>
+      <div class="flex-container fields">
+        <div>
+          <section>
+            <p>
+              <label for="user_username"><%= t("registrations.new.username") %></label>
+            </p>
+            <p>
+              <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>" class="form-control" pattern="[A-Za-z0-9_.\-]+" required /><%= User.diaspora_id_host %>
+            </p>
+            <p class="advice"><%= t("registrations.new.username_advice") %></p>
+          </section>
+          <section>
+            <p>
+              <label for="user_email"><%= t("registrations.new.email") %></label>
+            </p>
+            <p>
+              <input type="email" id="user_email" name="user[email]" value="<%= @user.email %>" class="form-control" required />
+            </p>
+            <p class="advice"><%= t("registrations.new.email_advice") %></p>
+          </section>
+          <section>
+            <p>
+              <label for="user_password"><%= t("registrations.new.password") %></label>
+            </p>
+            <p>
+              <input type="password" id="user_password" name="user[password]" class="form-control" minlength="6" pattern=".{6,}" required />
+            </p>
+          </section>
+          <section>
+            <p>
+              <label for="user_password_confirmation"><%= t("registrations.new.password_confirmation") %></label>
+            </p>
+            <p>
+              <input type="password" id="user_password_confirmation" name="user[password_confirmation]" class="form-control" minlength="6" pattern=".{6,}" required />
+            </p>
+          </section>
+          <% if AppConfig.settings.captcha.enable? %>
+          <section>
+            <p>
+              <label for="user_captcha"><%= t("simple_captcha.label") %></label>
+            </p>
+            <div class="captcha">
+              <%= show_simple_captcha object: "user", code_type: "numeric", class: "simple-captcha-image", input_html: {class: "form-control captcha-input"} %>
+            </div>
+          </section>
+          <% end %>
+          <%= invite_hidden_tag(invite) %>
+        </div>
+        <div class="import-and-ball-container">
+          <% if false %>
+          <div class="import-instructions">
+            <%= t("registrations.new.import_indication", podname: AppConfig.settings.pod_name) %>
+          </div>
+          <% end %>
+          <div class="ball"></div>
+        </div>
+      </div>
+      <section class="text-center">
+        <% if AppConfig.settings.terms.enable? %>
+          <p>
+            <%= t('registrations.new.terms', terms_link: link_to(t('registrations.new.terms_link'), terms_path, target: "_blank")).html_safe %>
+          </p>
+        <% end %>
+        <p>
+          <input type="submit" value="<%= t('registrations.new.sign_up') %>" class="btn btn-lg btn-primary" data-disable-with="<%= t('registrations.new.submitting') %>" />
+        </p>
+      </section>
+    <% end %>
+  </main>
+</div>

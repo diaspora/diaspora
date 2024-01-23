@@ -1099,18 +1099,20 @@ en:
 
   registrations:
     new:
-      enter_email: "Enter your email address"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
-      enter_password: "Enter a password (six character minimum)"
-      enter_password_again: "Enter the same password as before"
+      title: "Join the diaspora* community!"
+      subtitle: "You're about to create an account on %{podname}. A single account is enough to reach the whole diaspora* network. You don't need to create a new account here if you already have one on another pod.<br />Need help? Check %{tutorials_link}."
+      tutorials_link_label: "the tutorials"
       sign_up: "Create account"
       email: "Email"
+      email_advice: "Your e-mail will never be shared with anyone and will only be used to enable you to recover your account and to send notifications."
       username: "Username"
+      username_advice: "Your username is unique and allows others to find you in the network. It can't be changed once set. Only letters, numbers, \".\", \"_\" and \"-\"."
       password: "Password"
       password_confirmation: "Password confirmation"
       submitting: "Submitting..."
       terms: "By creating an account you accept the %{terms_link}."
       terms_link: "terms of service"
+      import_indication: "Do you want to migrate an existing diaspora* account to %{podname}? If so, sign up first and then go to the user settings page to import your previous account."
     create:
       success: "You’ve joined diaspora*!"
     closed:
@@ -1423,7 +1425,7 @@ en:
 
   simple_captcha:
     placeholder: "Enter the image value"
-    label: "Enter the code in the box:"
+    label: "Captcha"
     message:
       default: "The secret code did not match with the image"
       user: "The secret image and code were different"
