@@ -460,6 +460,41 @@ describe Api::V1::SearchController do
       )
       expect(response.status).to eq(401)
     end
+
+    context 'when the author is blocked' do
+      before do
+        FactoryBot.create(
+          :block,
+          user: auth_public_only_read_only.user,
+          person: eve.person
+        )
+        FactoryBot.create(
+          :block,
+          user: auth.user,
+          person: eve.person
+        )
+      end
+
+      it "hides the blocked author's posts in with public only scopes" do
+        get(
+          "/api/v1/search/posts",
+          params: {tag: "tag2", access_token: access_token_public_only_read_only}
+        )
+        expect(response.status).to eq(200)
+        posts = response_body_data(response)
+        expect(posts.length).to eq(1)
+      end
+
+      it "hides the blocked author's posts in with default scopes" do
+        get(
+          "/api/v1/search/posts",
+          params: {tag: "tag2", access_token: access_token}
+        )
+        expect(response.status).to eq(200)
+        posts = response_body_data(response)
+        expect(posts.length).to eq(1)
+      end
+    end
   end
 
   describe "tag_index" do

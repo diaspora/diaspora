@@ -5,12 +5,13 @@
 #   the COPYRIGHT file.
 
 class Stream::Tag < Stream::Base
-  attr_accessor :tag_name, :people_page , :people_per_page
+  attr_accessor :tag_name, :people_page , :people_per_page, :public_only
 
   def initialize(user, tag_name, opts={})
     self.tag_name = tag_name
     self.people_page = opts[:page] || 1
     self.people_per_page = 15
+    self.public_only = opts[:public_only] || false
     super(user, opts)
   end
 
@@ -31,11 +32,12 @@ class Stream::Tag < Stream::Base
   end
 
   def posts
-    @posts ||= if user
-                 StatusMessage.user_tag_stream(user, tag.id)
-               else
-                 StatusMessage.public_tag_stream(tag.id)
-               end
+    return @posts unless @posts.nil?
+
+    if public_only || user.blank?
+      return @posts = StatusMessage.public_tag_stream(tag.id)
+    end
+    @posts = StatusMessage.user_tag_stream(user, tag.id)
   end
 
   def stream_posts
