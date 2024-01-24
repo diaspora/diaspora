@@ -17,6 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
       @user.process_invite_acceptence(invite) if invite.present?
       @user.seed_aspects
       @user.send_welcome_message
+      WelcomeMailer.send_welcome_email(@user).deliver_now
       sign_in_and_redirect(:user, @user)
       logger.info "event=registration status=successful user=#{@user.diaspora_handle}"
     else
