@@ -231,7 +231,8 @@ Rails.application.routes.draw do
     resources :photos, only: %i[show index create destroy]
     resources :posts, only: %i[show create destroy] do
       resources :comments, only: %i[create index destroy] do
-        post "report" => "comments#report"
+        resource :likes, only: %i[show create destroy]
+        post :report
       end
       resource :reshares, only: %i[show create]
       resource :likes, only: %i[show create destroy]
