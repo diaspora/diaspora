@@ -83,6 +83,7 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Add a more detailed modal when reporting a post or a comment [#8035](https://github.com/diaspora/diaspora/pull/8035)
 * Re-introduce likes on comments [#8203](https://github.com/diaspora/diaspora/pull/8203)
 * New redesigned registration page [#8285](https://github.com/diaspora/diaspora/pull/8285)
+* Allow comments to be fetched [#8441](https://github.com/diaspora/diaspora/pull/8441)
 
 # 0.7.18.2
 
