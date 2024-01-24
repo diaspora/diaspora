@@ -1,0 +1,42 @@
+%table.table
+  %tr
+    %th
+      = t("report.report_created_at")
+    %th
+      = t("report.reported_by")
+    %th
+      = t("report.reason")
+    %th
+      = t("report.type")
+    %th
+      = t("report.reported_author")
+    %th
+      = t("report.decision")
+    %th
+      = t("report.action")
+  - @reviewed_reports.each do |report|
+    %tr
+      %td
+        = I18n.l(report.created_at, format: :short)
+      %td
+        = link_to(report.user.username, user_profile_path(report.user.username))
+      %td
+        = report.text
+      %td
+        = report.item_type
+      %td
+        - if report.reported_author.nil?
+          = t("report.reported_author_unknown")
+        - else
+          = link_to(report.reported_author.diaspora_handle, "/people/#{report.reported_author_guid}")
+      %td
+        = t("report.#{report.action}") if report.action.present?
+        = t("report.decision_unknown") if report.action.nil?
+      %td
+        - unless report.item.nil?
+          = link_to_content(report)
+          = link_to(report_path(report.id, type: report.item_type),
+                    data: {confirm: t("report.confirm_deletion")},
+                    title: t("report.delete_link"),
+                    class: "delete", method: :delete) do
+            %i.entypo-trash

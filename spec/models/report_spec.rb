@@ -4,11 +4,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-describe Report, :type => :model do
+describe Report, type: :model do
   before do
-    #:report => { :item_id => @message.id, :item_type => 'post', :text => 'offensive content' }
     @user = bob
-    @bob_post = @user.post(:status_message, :text => "hello", :to => @user.aspects.first.id)
+    @bob_post = @user.post(:status_message, text: "hello", to: @user.aspects.first.id)
     @bob_comment = @user.comment!(@bob_post, "welcome")
 
     @valid_post_report = {
@@ -21,72 +20,84 @@ describe Report, :type => :model do
     }
   end
 
-  describe '#validation' do
-    it 'validates that post ID is required' do
+  describe "#validation" do
+    it "validates that post ID is required" do
       report = @valid_post_report
       report.delete(:item_id)
       expect(@user.reports.build(report)).not_to be_valid
     end
 
-    it 'validates that post type is required' do
+    it "validates that post type is required" do
       report = @valid_post_report
       report[:item_type] = nil
       expect(@user.reports.build(report)).not_to be_valid
     end
 
-    it 'validates that post does exist' do
+    it "validates that post does exist" do
       report = @valid_post_report
-      report[:item_id] = 0;
+      report[:item_id] = 0
       expect(@user.reports.build(report)).not_to be_valid
     end
 
-    it 'validates that comment does exist' do
+    it "validates that comment does exist" do
       report = @valid_comment_report
-      report[:item_id] = 0;
+      report[:item_id] = 0
       expect(@user.reports.build(report)).not_to be_valid
     end
 
-    it 'validates that entry does not exist' do
+    it "validates that entry does not exist" do
       expect(@user.reports.build(@valid_post_report)).to be_valid
     end
 
-    it 'validates that entry does exist' do
+    it "validates that entry does exist" do
       @user.reports.create(@valid_post_report)
       expect(@user.reports.build(@valid_post_report)).not_to be_valid
     end
   end
 
-  describe '#destroy_reported_item' do
+  describe "#destroy_reported_item" do
     before(:each) do
       @post_report = @user.reports.create(@valid_post_report)
       @comment_report = @user.reports.create(@valid_comment_report)
     end
 
-    describe '.post' do
-      it 'should destroy it' do
+    describe ".post" do
+      it "should destroy it" do
         expect {
           @post_report.destroy_reported_item
         }.to change { Post.count }.by(-1)
       end
 
-      it 'should be marked' do
+      it "should be marked" do
         expect {
           @post_report.destroy_reported_item
         }.to change { Report.where(@valid_post_report).first.reviewed }.to(true).from(false)
       end
+
+      it "should set an action text on destroy item" do
+        @post_report.destroy_reported_item
+        @post_report.reload
+        expect(@post_report.action).eq Report::STATUS_DELETED
+      end
     end
 
-    describe '.comment' do
-      it 'should destroy it' do
+    describe ".comment" do
+      it "should destroy it" do
         expect {
           @comment_report.destroy_reported_item
         }.to change { Comment.count }.by(-1)
       end
 
-      it 'should be marked' do
+      it "should be marked" do
         expect {
           @comment_report.destroy_reported_item
         }.to change { Report.where(@valid_comment_report).first.reviewed }.to(true).from(false)
+      end
+
+      it "should set an action text on destroy item" do
+        @post_report.destroy_reported_item
+        @post_report.reload
+        expect(@post_report.action).to eq Report::STATUS_DELETED
       end
     end
   end

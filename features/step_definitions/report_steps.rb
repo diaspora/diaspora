@@ -21,3 +21,25 @@ def test_report(type, reporter, reason, content)
   step %(I should see "#{reason}" within ".reason")
   step %(I should see "#{type}: #{content}" within ".content")
 end
+
+And(/^I mark report as reviewed$/) do
+  click_button("Mark as reviewed")
+end
+
+And(/^I mark report as deleted$/) do
+  click_button("Delete item")
+end
+
+And(/^I delete the reviewed report$/) do
+  find_link(title: "Delete item").click
+end
+
+When(/^I open the reviewed tab on the report page$/) do
+  find_link("Reviewed").click
+end
+
+Then(/^I should see the reviewed report with decision "([^"]*)"$/) do |decision|
+  within("#checked") do
+    find("tr", text: decision)
+  end
+end
