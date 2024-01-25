@@ -5,15 +5,15 @@
 #   the COPYRIGHT file.
 
 module StreamHelper
-  def next_page_path(opts ={})
+  def next_page_path(_opts={})
     if controller.instance_of?(TagsController)
-      tag_path(:name => @stream.tag_name, :max_time => time_for_scroll(@stream))
+      tag_path(name: @stream.tag_names, max_time: time_for_scroll(@stream))
     elsif controller.instance_of?(PeopleController)
-      local_or_remote_person_path(@person, :max_time => time_for_scroll(@stream))
+      local_or_remote_person_path(@person, max_time: time_for_scroll(@stream))
     elsif controller.instance_of?(StreamsController)
       next_stream_path
     else
-      raise 'in order to use pagination for this new controller, update next_page_path in stream helper'
+      raise "in order to use pagination for this new controller, update next_page_path in stream helper"
     end
   end
 
@@ -22,6 +22,7 @@ module StreamHelper
   end
 
   private
+
   # rubocop:disable Rails/HelperInstanceVariable
   def next_stream_path
     if current_page?(:stream)
@@ -50,7 +51,7 @@ module StreamHelper
 
   def time_for_scroll(stream)
     if stream.stream_posts.empty?
-      (Time.now() + 1).to_i
+      (Time.zone.now + 1).to_i
     else
       stream.stream_posts.last.send(stream.order.to_sym).to_i
     end

@@ -45,16 +45,38 @@ class StatusMessage < Post
     Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
   end
 
+  def self.any_user_tag_stream(user, tag_ids)
+    owned_or_visible_by_user(user).any_tag_stream(tag_ids)
+  end
+
   def self.user_tag_stream(user, tag_ids)
-    owned_or_visible_by_user(user).tag_stream(tag_ids)
+    owned_or_visible_by_user(user).all_tag_stream(tag_ids)
   end
 
-  def self.public_tag_stream(tag_ids)
-    all_public.select("DISTINCT #{table_name}.*").tag_stream(tag_ids)
+  def self.public_all_tag_stream(tag_ids)
+    all_public.select("DISTINCT #{table_name}.*").all_tag_stream(tag_ids)
   end
 
-  def self.tag_stream(tag_ids)
+  def self.public_any_tag_stream(tag_ids)
+    all_public.select("DISTINCT #{table_name}.*").any_tag_stream(tag_ids)
+  end
+
+  def self.any_tag_stream(tag_ids)
     joins(:taggings).where("taggings.tag_id IN (?)", tag_ids)
+  end
+
+  def self.all_tag_stream(tag_ids)
+    if tag_ids.empty?
+      # A empty list means an unknown tag in Taggings list
+      tag_ids = [-1]
+    end
+
+    joins("INNER JOIN (
+      SELECT taggable_id FROM taggings
+      WHERE taggings.tag_id IN (#{tag_ids.join(',')}) AND taggings.taggable_type = 'Post'
+      GROUP BY taggable_id
+      HAVING COUNT(*) >= #{tag_ids.length})
+      taggable ON taggable.taggable_id = posts.id")
   end
 
   def nsfw

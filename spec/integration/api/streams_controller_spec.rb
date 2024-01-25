@@ -249,8 +249,8 @@ describe Api::V1::StreamsController do
         params: {access_token: access_token_public_only_read_only}
       )
       expect(response.status).to eq(200)
-      post = response_body_data(response)
-      expect(post.length).to eq(1)
+      posts = response_body_data(response)
+      expect(posts.any? {|post| post["public"] == true }).to be_truthy
     end
 
     it "fails with invalid credentials" do

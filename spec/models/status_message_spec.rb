@@ -41,22 +41,22 @@ describe StatusMessage, type: :model do
 
       describe ".tag_steam" do
         it "returns status messages tagged with the tag" do
-          tag_stream = StatusMessage.send(:tag_stream, [@tag_id])
+          tag_stream = StatusMessage.send(:all_tag_stream, [@tag_id])
           expect(tag_stream).to include @status_message1
           expect(tag_stream).to include @status_message2
         end
       end
 
-      describe ".public_tag_stream" do
+      describe ".public_any_tag_stream" do
         it "returns public status messages tagged with the tag" do
-          expect(StatusMessage.public_tag_stream([@tag_id])).to eq([@status_message1])
+          expect(StatusMessage.public_any_tag_stream([@tag_id])).to eq([@status_message1])
         end
 
         it "returns a post with two tags only once" do
           status_message = FactoryBot.create(:status_message, text: "#hashtag #test", public: true)
           test_tag_id = ActsAsTaggableOn::Tag.where(name: "test").first.id
 
-          expect(StatusMessage.public_tag_stream([@tag_id, test_tag_id]))
+          expect(StatusMessage.public_any_tag_stream([@tag_id, test_tag_id]))
             .to match_array([@status_message1, status_message])
         end
       end
@@ -65,9 +65,9 @@ describe StatusMessage, type: :model do
         it "returns tag stream thats owned or visible by" do
           relation = double
           expect(StatusMessage).to receive(:owned_or_visible_by_user).with(bob).and_return(relation)
-          expect(relation).to receive(:tag_stream).with([@tag_id])
+          expect(relation).to receive(:any_tag_stream).with([@tag_id])
 
-          StatusMessage.user_tag_stream(bob, [@tag_id])
+          StatusMessage.any_user_tag_stream(bob, [@tag_id])
         end
       end
     end
