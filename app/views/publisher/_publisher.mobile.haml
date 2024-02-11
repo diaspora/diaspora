@@ -10,12 +10,6 @@
 
   = hidden_field_tag "aspect_ids[]", "all_aspects"
   .form-group
-    %span#publisher-service-icons
-      - if current_user.services
-        - for service in current_user.services
-          = image_tag "social-media-logos/#{service.provider}-32x32.png",
-            title: service.provider.titleize, class: "service_icon dim",
-            id: "#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"
 
     .clear
     #publisher-textarea-wrapper
@@ -32,3 +26,5 @@
           data: {"disable-with" => t("shared.publisher.posting")}
       .pull-right
         = render partial: "aspects/aspect_dropdown"
+      .pull-right#publisher-service-icons
+        = display_available_services
