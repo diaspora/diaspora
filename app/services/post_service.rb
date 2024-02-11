@@ -33,6 +33,7 @@ class PostService
     return unless user
     mark_comment_reshare_like_notifications_read(post_id)
     mark_mention_notifications_read(post_id)
+    mark_like_on_comment_notifications_read(post_id)
   end
 
   def destroy(post_id, private_allowed=true)
@@ -100,5 +101,12 @@ class PostService
     Mention
       .joins("INNER JOIN comments ON mentions_container_id = comments.id AND mentions_container_type = 'Comment'")
       .where(comments: {commentable_id: post_id, commentable_type: "Post"})
+  end
+
+  def mark_like_on_comment_notifications_read(post_id)
+    comment_ids = Comment.where(commentable_id: post_id)
+
+    Notification.where(recipient_id: user.id, target_type: "Comment", target_id: comment_ids, unread: true)
+                .update_all(unread: false) if comment_ids.any?
   end
 end
