@@ -198,8 +198,11 @@
     %hr
 
     .row
-      .col-md-6.account-data
+      .col-md-12
         %h3= t(".export_data")
+        %p= t(".export_data_subline")
+    .row
+      .col-md-6.account-data
         %h4= t("profile")
         .form-group
           - if current_user.exporting
@@ -215,6 +218,7 @@
             = link_to t(".request_export"), export_profile_user_path, method: :post,
               class: "btn btn-default"
 
+      .col-md-6
         %h4= t("javascripts.profile.photos")
         .form-group
           - if current_user.exporting_photos
@@ -229,7 +233,20 @@
             = link_to t(".request_export_photos"), export_photos_user_path, method: :post,
               class: "btn btn-default"
 
-      .col-md-6
+    .row
+      .col-md-12
+        %h3
+          = t(".import.headline", {accountname: current_user.diaspora_handle})
+        %p
+          = t(".import.body")
+          %strong
+            = t(".import.warning")
+        .form-group
+          .btn.btn-primary{id: "import_account", data: {toggle: "modal", target: "#importAccountModal"}}
+            = t(".import.account")
+          = render "import_account_modal"
+    .row
+      .col-md-12
         %h3
           = t(".close_account_text")
         .form-group

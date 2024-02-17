@@ -10,9 +10,12 @@ namespace :accounts do
     process_arguments(args)
     start_time = Time.now.getlocal
     if args[:new_user_name].present? && (args[:archive_path].present? || args[:photos_path].present?)
-      ImportService.new.import_by_files(args[:archive_path], args[:photos_path], args[:new_user_name],
-                                        args.slice(:import_settings, :import_profile))
-      puts "\n Migration completed in #{Time.now.getlocal - start_time} seconds. (Photos might still be processed in)"
+      user = User.find_by(username: args[:new_username])
+      if user.nil?
+        puts("Username #{args[:new_username]} should exist before uploading photos.")
+      else
+        import_user(user, start_time, args)
+      end
     else
       puts "Must set a user name and a archive file path or photos file path"
     end
@@ -48,5 +51,11 @@ namespace :accounts do
     return default if response == ""
 
     response[0] == "y"
+  end
+
+  def import_user(user, start_time, args)
+    ImportService.new.import_by_files(user, args[:archive_path], args[:photos_path],
+                                      args.slice(:import_settings, :import_profile))
+    puts "\n Migration completed in #{Time.now.getlocal - start_time} seconds. (Photos might still be processed in)"
   end
 end

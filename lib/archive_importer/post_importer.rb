@@ -17,6 +17,7 @@ class ArchiveImporter
 
       entity_data["photos"].each do |photo|
         photo["entity_data"]["author"] = user.diaspora_handle
+        photo["entity_data"]["remote_photo_path"] = "#{AppConfig.pod_uri}uploads\/images\/"
       end
     end
 

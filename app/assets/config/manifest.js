@@ -11,3 +11,4 @@
 //= link admin.css
 //= link error_pages.css
 //= link rtl.css
+//= link archive-uploader

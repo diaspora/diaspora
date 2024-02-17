@@ -1,0 +1,65 @@
+.modal.fade{id: "importAccountModal",
+            tabindex: "-1",
+            role: "dialog",
+            aria: {labelledby: "importAccountModalLabel", hidden: "true"}}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{type: "button", data: {dismiss: "modal"}, aria: {hidden: "true"}}
+          &times;
+        %h3.modal-title{id: "importAccountModalLabel"}
+          = t("users.import_modal.title")
+        .modal-body
+          %p
+            = simple_format(t("users.import_modal.subtext", {accountname: current_user.diaspora_handle}))
+          %ol
+            %li
+              = t("users.import_modal.list1")
+            %li
+              = t("users.import_modal.list2")
+            %li
+              = t("users.import_modal.list3")
+            %li
+              = t("users.import_modal.list4")
+          %strong
+            = t("users.import_modal.closing_text")
+          %p
+            = t("users.import_modal.closing_recommendation")
+          %p
+            = t("users.import_modal.old_pod_offline")
+
+          = form_for current_user,
+                     url: edit_user_path,
+                     html: {method: :put, multipart: true, class: "form-horizontal"} do |f|
+            .row
+              .col-md-12
+                .upload-btn-wrapper
+                  .btn.btn-primary
+                    = t("users.import_modal.select_profile_archive")
+                  = f.file_field :export, accept: "application/json, application/zip, application/gzip",
+                    id: "profile-file-btn"
+                  %span#profile-file-chosen
+                    = t("users.import_modal.no_profile_file_set")
+            .row
+              .col-md-12
+                .upload-btn-wrapper
+                  .btn.btn-primary
+                    = t("users.import_modal.select_photo_archive")
+                  = f.file_field :exported_photos_file, accept: "application/zip",
+                    id: "photos-file-btn"
+                  %span#photos-file-chosen
+                    = t("users.import_modal.no_photos_file_set")
+            %h4
+              = t("users.import_modal.import_starts")
+              %strong
+              = t("users.import_modal.original_account_will_be_deleted")
+            %p
+              .clearfix
+                .btn.btn-default{data: {dismiss: "modal"}}
+                  = t("users.import_modal.cancel")
+                = f.submit t("users.import_modal.start_import"),
+                class: "btn btn-primary.pull-right",
+                id: "upload_profile_files",
+                disabled: true
+
+= javascript_include_tag "archive-uploader"
