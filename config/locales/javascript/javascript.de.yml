@@ -9,12 +9,15 @@ de:
     admin:
       pods:
         actions: "Aktionen"
+        activePodsFilter: "Verfügbar"
         added: "Hinzugefügt"
+        allPodsFilter: "Alle"
         check: "Verbindungstest durchführen"
         errors:
           one: "Der Verbindungstest meldete für einen Pod einen Fehler."
           other: "Der Verbindungstest meldete für <%= count %> Pods einen Fehler."
         follow_link: "Link im Browser öffnen"
+        invalidPodsFilter: "Mit Fehlern"
         last_check: "letzte Überprüfung:"
         more_info: "zeige weitere Informationen"
         ms:
