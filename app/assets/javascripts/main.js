@@ -12,8 +12,8 @@
 //= require jquery.timeago
 //= require jquery-ui/core
 //= require jquery-ui/widget
-//= require jquery-ui/mouse
-//= require jquery-ui/sortable
+//= require jquery-ui/widgets/mouse
+//= require jquery-ui/widgets/sortable
 //= require keycodes
 //= require jquery.autoSuggest.custom
 //= require fine-uploader/fine-uploader/fine-uploader
