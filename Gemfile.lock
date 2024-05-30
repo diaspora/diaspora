@@ -493,7 +493,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
-    pg (1.5.3)
+    pg (1.5.6)
     phantomjs (2.1.1.0)
     pronto (0.11.1)
       gitlab (>= 4.4.0, < 5.0)
@@ -851,7 +851,7 @@ DEPENDENCIES
   omniauth-wordpress (= 0.2.2)
   open_graph_reader (= 0.7.2)
   openid_connect (= 2.2.0)
-  pg (= 1.5.3)
+  pg (= 1.5.6)
   pronto (= 0.11.1)
   pronto-eslint (= 0.11.1)
   pronto-haml (= 0.11.1)
