@@ -34,9 +34,9 @@ With this release, we switched from `unicorn` to `puma` to run our applications.
 
 We use yarn to install the frontend dependencies now, so you need to have that installed. See here for how to install it: https://yarnpkg.com/en/docs/install
 
-## Suggested Ruby version: 3.1
+## Suggested Ruby version: 3.3
 
-We recommend setting up new pods using Ruby 3.1, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
+We recommend setting up new pods using Ruby 3.3, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
 
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581) [#8397](https://github.com/diaspora/diaspora/pull/8397)
