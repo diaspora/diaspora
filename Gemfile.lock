@@ -370,7 +370,7 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    json-schema (4.0.0)
+    json-schema (4.3.0)
       addressable (>= 2.8)
     jsonpath (1.1.3)
       multi_json
@@ -521,7 +521,7 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    public_suffix (5.0.1)
+    public_suffix (5.0.5)
     puma (6.4.2)
       nio4r (~> 2.0)
     raabro (1.4.0)
@@ -831,7 +831,7 @@ DEPENDENCIES
   js-routes (= 2.2.5)
   js_image_paths (= 0.2.0)
   json (= 2.7.2)
-  json-schema (= 4.0.0)
+  json-schema (= 4.3.0)
   leaflet-rails (= 1.9.3)
   listen (= 3.8.0)
   logging-rails (= 0.6.0)

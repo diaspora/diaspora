@@ -26,7 +26,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 
 gem "acts_as_api", "1.0.1"
 gem "json",        "2.7.2"
-gem "json-schema", "4.0.0"
+gem "json-schema", "4.3.0"
 gem "yajl-ruby",   "1.4.3"
 
 # Authentication
