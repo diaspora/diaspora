@@ -260,7 +260,7 @@ GEM
     faraday-net_http (3.1.0)
       net-http
     faraday-retry (1.0.3)
-    faraday-typhoeus (1.0.0)
+    faraday-typhoeus (1.1.0)
       faraday (~> 2.0)
       typhoeus (~> 1.4)
     ferrum (0.13)
@@ -820,7 +820,7 @@ DEPENDENCIES
   faraday-cookie_jar (= 0.0.7)
   faraday-follow_redirects (= 0.3.0)
   faraday-retry
-  faraday-typhoeus (= 1.0.0)
+  faraday-typhoeus (= 1.1.0)
   fixture_builder (= 0.5.2)
   fog-aws (= 3.22.0)
   fuubar (= 2.5.1)
