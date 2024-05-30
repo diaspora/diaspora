@@ -416,7 +416,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.7)
-    minitest (5.18.1)
+    minitest (5.23.1)
     mobile-fu (1.4.0)
       rack-mobile-detect
       rails
@@ -841,7 +841,7 @@ DEPENDENCIES
   listen (= 3.8.0)
   logging-rails (= 0.6.0)
   mini_magick (= 4.12.0)
-  minitest (= 5.18.1)
+  minitest (= 5.23.1)
   mobile-fu (= 1.4.0)
   mysql2 (= 0.5.6)
   net-imap
