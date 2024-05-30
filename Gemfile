@@ -11,7 +11,7 @@ gem "net-smtp", require: false
 
 # Legacy Rails features, remove me!
 # responders (class level)
-gem "responders", "3.1.0"
+gem "responders", "3.1.1"
 
 # Appserver
 
