@@ -745,7 +745,7 @@ GEM
     twitter-text (3.1.0)
       idn-ruby
       unf (~> 0.1.0)
-    typhoeus (1.4.0)
+    typhoeus (1.4.1)
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -899,7 +899,7 @@ DEPENDENCIES
   turbo_dev_assets (= 0.0.2)
   twitter (= 8.0.0)
   twitter-text (= 3.1.0)
-  typhoeus (= 1.4.0)
+  typhoeus (= 1.4.1)
   uuid (= 2.3.9)
   versionist (= 2.0.1)
   webmock (= 3.18.1)
