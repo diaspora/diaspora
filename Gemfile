@@ -231,7 +231,7 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "capybara",         "3.39.2"
+  gem "capybara",         "3.40.0"
   gem "cuprite",          "0.14.3"
   gem "database_cleaner-active_record", "2.1.0"
 
