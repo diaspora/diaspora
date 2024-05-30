@@ -53,10 +53,10 @@ entities@~1.1.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
 
-fine-uploader@5.13.0:
-  version "5.13.0"
-  resolved "https://registry.yarnpkg.com/fine-uploader/-/fine-uploader-5.13.0.tgz#091c1fafb2ee7219283f259fd9aae828c0e45574"
-  integrity sha512-qRNMJ/7vMwVchnByflf6xd4zqkTpoHmplMRu2ZXZQ+rTM/kGh8Zz2PM9HFAn1R8T7dBnVJg8pW+aoE9XQzlbsw==
+fine-uploader@5.16.2:
+  version "5.16.2"
+  resolved "https://registry.yarnpkg.com/fine-uploader/-/fine-uploader-5.16.2.tgz#0d878da1cd2753f80683ac091df5daff9ffb8c44"
+  integrity sha512-y8giOn50k7rwMj/Y50Q/Sph8/DqZIao9YE7eOTrvwPfY7FpQwiNeqIOIsaP9CNPkXVNpUKGxZb0D1JvYSwrJZg==
 
 glur@^1.1.2:
   version "1.1.2"
