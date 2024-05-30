@@ -4,7 +4,7 @@ class SecureUploader < CarrierWave::Uploader::Base
   protected
 
   def extension
-    ".#{original_filename.split('.').drop(1).join('.')}" if original_filename.present?
+    ".#{file.filename.split('.').drop(1).join('.')}" if file.present? && file.respond_to?(:filename)
   end
 
   def secure_token(bytes=16)
