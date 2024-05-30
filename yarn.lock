@@ -188,10 +188,10 @@ object-assign@^4.1.1:
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==
 
-perfect-scrollbar@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.4.0.tgz#5d014ef9775e1f43058a1dbae9ed1daf0e7091f1"
-  integrity sha512-/2Sk/khljhdrsamjJYS5NjrH+GKEHEwh7zFSiYyxROyYKagkE4kSn2zDQDRTOMo8mpT2jikxx6yI1dG7lNP/hw==
+perfect-scrollbar@1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.5.tgz#41a211a2fb52a7191eff301432134ea47052b27f"
+  integrity sha512-dzalfutyP3e/FOpdlhVryN4AJ5XDVauVWxybSkLZmakFE2sS3y3pc4JnSprw8tGmHvkaG5Edr5T7LBTZ+WWU2g==
 
 pica@5.0.0:
   version "5.0.0"
