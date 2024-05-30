@@ -8,7 +8,7 @@
     "backbone": "1.6.0",
     "blueimp-gallery": "2.33.0",
     "bootstrap-markdown": "2.10.0",
-    "corejs-typeahead": "1.2.1",
+    "corejs-typeahead": "1.3.4",
     "cropperjs": "1.4.3",
     "fine-uploader": "5.13.0",
     "highlightjs": "9.12.0",
