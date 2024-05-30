@@ -74,7 +74,7 @@ GEM
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     aes_key_wrap (1.1.0)
-    asset_sync (2.18.0)
+    asset_sync (2.19.1)
       activemodel (>= 4.1.0)
       fog-core
       mime-types (>= 2.99)
@@ -751,7 +751,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8.2)
+    unf_ext (0.0.9.1)
     unicode-display_width (2.4.2)
     uri (0.13.0)
     uuid (2.3.9)
@@ -795,7 +795,7 @@ DEPENDENCIES
   acts-as-taggable-on (= 10.0.0)
   acts_as_api (= 1.0.1)
   addressable (= 2.8.6)
-  asset_sync (= 2.18.0)
+  asset_sync (= 2.19.1)
   autoprefixer-rails (= 10.4.16.0)
   babel-transpiler (= 0.7.0)
   bootstrap-sass (= 3.4.1)
