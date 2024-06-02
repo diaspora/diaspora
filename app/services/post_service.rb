@@ -104,9 +104,8 @@ class PostService
   end
 
   def mark_like_on_comment_notifications_read(post_id)
-    comment_ids = Comment.where(commentable_id: post_id)
-
-    Notification.where(recipient_id: user.id, target_type: "Comment", target_id: comment_ids, unread: true)
-                .update_all(unread: false) if comment_ids.any?
+    Notification.where(recipient_id: user.id, target_type: "Comment",
+                       target_id: Comment.where(commentable_id: post_id, author_id: user.person.id),
+                       unread: true).update_all(unread: false) # rubocop:disable Rails/SkipsModelValidations
   end
 end

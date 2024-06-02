@@ -168,6 +168,50 @@ describe PostService do
       expect_any_instance_of(PostService).not_to receive(:mark_mention_notifications_read).with(post.id)
       PostService.new.mark_user_notifications(post.id)
     end
+
+    context "for comments" do
+      let(:comment) { post.comments.create(author: alice.person, text: "comment") }
+
+      it "marks a corresponding notifications as read" do
+        FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+        FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+
+        expect {
+          PostService.new(alice).mark_user_notifications(post.id)
+        }.to change(Notification.where(unread: true), :count).by(-2)
+      end
+
+      it "does not change the update_at date/time for comment notifications" do
+        notification = Timecop.travel(1.minute.ago) do
+          FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+        end
+
+        expect {
+          PostService.new(alice).mark_user_notifications(post.id)
+        }.not_to(change { Notification.where(id: notification.id).pluck(:updated_at) })
+      end
+
+      it "does not change other users notifications" do
+        alice_notification = FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+        bob_notification = FactoryBot.create(:notification, recipient: bob, target: comment, unread: true)
+
+        PostService.new(alice).mark_user_notifications(post.id)
+
+        expect(Notification.find(alice_notification.id).unread).to be_falsey
+        expect(Notification.find(bob_notification.id).unread).to be_truthy
+      end
+
+      it "marks notifications for all comments on a post as read" do
+        comment2 = post.comments.create(author: alice.person, text: "comment2")
+
+        FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+        FactoryBot.create(:notification, recipient: alice, target: comment2, unread: true)
+
+        expect {
+          PostService.new(alice).mark_user_notifications(post.id)
+        }.to change(Notification.where(unread: true), :count).by(-2)
+      end
+    end
   end
 
   describe "#destroy" do
