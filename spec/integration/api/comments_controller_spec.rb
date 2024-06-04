@@ -135,7 +135,7 @@ describe Api::V1::CommentsController do
     end
   end
 
-  describe "#read" do
+  describe "#index" do
     before do
       @comment_text1 = "This is a comment"
       @comment_text2 = "This is a comment 2"

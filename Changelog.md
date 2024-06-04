@@ -81,7 +81,7 @@ We recommend setting up new pods using Ruby 3.3, and updating existing pods to t
 * Tell users that there is no help in mobile version, allow to switch to desktop [#8407](https://github.com/diaspora/diaspora/pull/8407)
 * Add Smart App Banner on iOS devices [#8409](https://github.com/diaspora/diaspora/pull/8409)
 * Add a more detailed modal when reporting a post or a comment [#8035](https://github.com/diaspora/diaspora/pull/8035)
-* Re-introduce likes on comments [#8203](https://github.com/diaspora/diaspora/pull/8203) [#8442](https://github.com/diaspora/diaspora/pull/8442)
+* Re-introduce likes on comments [#8203](https://github.com/diaspora/diaspora/pull/8203) [#8439](https://github.com/diaspora/diaspora/pull/8439) [#8442](https://github.com/diaspora/diaspora/pull/8442)
 * New redesigned registration page [#8285](https://github.com/diaspora/diaspora/pull/8285)
 * Allow comments to be fetched [#8441](https://github.com/diaspora/diaspora/pull/8441)
 
