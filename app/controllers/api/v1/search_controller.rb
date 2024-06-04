@@ -87,11 +87,9 @@ module Api
       end
 
       def posts_query
-        if private_read?
-          Stream::Tag.new(current_user, params.require(:tag)).posts
-        else
-          Stream::Tag.new(nil, params.require(:tag)).posts
-        end
+        opts = {}
+        opts[:public_only] = !private_read?
+        Stream::Tag.new(current_user, params.require(:tag), opts).stream_posts
       end
 
       def tags_query
