@@ -121,25 +121,17 @@ module Api
       end
 
       def comment_and_post_validate(post_guid, comment_guid)
-        if !comment_exists(comment_guid) || !comment_is_for_post(post_guid, comment_guid)
+        if comment_is_for_post(post_guid, comment_guid)
+          true
+        else
           render_error 404, "Comment not found for the given post"
           false
-        else
-          true
         end
-      end
-
-      def comment_exists(comment_guid)
-        comment = comment_service.find!(comment_guid)
-        comment ? true : false
-      rescue ActiveRecord::RecordNotFound
-        false
       end
 
       def comment_is_for_post(post_guid, comment_guid)
         comments = comment_service.find_for_post(post_guid)
-        comment = comments.find {|comment| comment[:guid] == comment_guid }
-        comment ? true : false
+        comments.exists?(guid: comment_guid)
       end
     end
   end
