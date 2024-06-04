@@ -5,6 +5,10 @@
 #   the COPYRIGHT file.
 
 module PublisherHelper
+  def available_services
+    current_user.services.select {|service| AppConfig.configured_services.map(&:to_s).include? service.provider }
+  end
+
   def service_button(service)
     provider_title = I18n.t("services.index.share_to", provider: service.provider.titleize)
     content_tag :div,

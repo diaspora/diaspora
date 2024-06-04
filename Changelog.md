@@ -66,6 +66,7 @@ We recommend setting up new pods using Ruby 3.3, and updating existing pods to t
 * Cleanup duplicate pods in database [#8403](https://github.com/diaspora/diaspora/pull/8403)
 * Fix scrolling issue after closing photo viewer on photos page [#8404](https://github.com/diaspora/diaspora/pull/8404)
 * Filter unicode emojis from email headers [#8421](https://github.com/diaspora/diaspora/pull/8421)
+* Do not show disabled services anymore [#8406](https://github.com/diaspora/diaspora/pull/8406)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)

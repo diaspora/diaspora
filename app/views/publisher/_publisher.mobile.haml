@@ -11,11 +11,10 @@
   = hidden_field_tag "aspect_ids[]", "all_aspects"
   .form-group
     %span#publisher-service-icons
-      - if current_user.services
-        - for service in current_user.services
-          = image_tag "social-media-logos/#{service.provider}-32x32.png",
-            title: service.provider.titleize, class: "service_icon dim",
-            id: "#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"
+      - available_services.each do |service|
+        = image_tag "social-media-logos/#{service.provider}-32x32.png",
+                    title: service.provider.titleize, class: "service_icon dim",
+                    id:    service.provider, maxchar: service.class::MAX_CHARACTERS.to_s
 
     .clear
     #publisher-textarea-wrapper

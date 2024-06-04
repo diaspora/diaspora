@@ -1,6 +1,25 @@
 # frozen_string_literal: true
 
 describe PublisherHelper, type: :helper do
+  describe "#available_services" do
+    include Devise::Test::ControllerHelpers
+
+    before do
+      @user = alice
+
+      @user.services << FactoryBot.build(:service, type: "Services::Wordpress", provider: "wordpress")
+      @user.services << FactoryBot.build(:service, type: "Services::Tumblr", provider: "tumblr")
+
+      def current_user
+        @user
+      end
+    end
+
+    it "returns only the connected and enabled services" do
+      expect(available_services.map(&:provider)).to eq(%w[tumblr])
+    end
+  end
+
   describe "#public_selected?" do
     it "returns true when the selected_aspects contains 'public'" do
       expect(helper.public_selected?(["public"])).to be_truthy
