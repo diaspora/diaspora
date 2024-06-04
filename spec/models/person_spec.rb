@@ -30,13 +30,15 @@ describe Person, type: :model do
 
     describe ".local" do
       it "returns only local people" do
-        Person.local =~ [@person]
+        expect(Person.local.map(&:id)).to include(@user.person.id)
+        expect(Person.local.map(&:id)).to_not include(@person.id)
       end
     end
 
     describe ".remote" do
-      it "returns only local people" do
-        Person.remote =~ [@user.person]
+      it "returns only remote people" do
+        expect(Person.remote.map(&:id)).to include(@person.id)
+        expect(Person.remote.map(&:id)).to_not include(@user.person.id)
       end
     end
 

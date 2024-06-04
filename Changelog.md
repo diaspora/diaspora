@@ -34,9 +34,9 @@ With this release, we switched from `unicorn` to `puma` to run our applications.
 
 We use yarn to install the frontend dependencies now, so you need to have that installed. See here for how to install it: https://yarnpkg.com/en/docs/install
 
-## Suggested Ruby version: 3.1
+## Suggested Ruby version: 3.3
 
-We recommend setting up new pods using Ruby 3.1, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
+We recommend setting up new pods using Ruby 3.3, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
 
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581) [#8397](https://github.com/diaspora/diaspora/pull/8397)
@@ -53,7 +53,7 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Drop `strip_exif` flag and always remove exif data from uploaded images [#8417](https://github.com/diaspora/diaspora/pull/8417)
 * Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
 * Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
-* Add ruby 3.0 and 3.1 support [#8423](https://github.com/diaspora/diaspora/pull/8423) [#8426](https://github.com/diaspora/diaspora/pull/8426) [#8427](https://github.com/diaspora/diaspora/pull/8427)
+* Add ruby 3 support [#8423](https://github.com/diaspora/diaspora/pull/8423) [#8426](https://github.com/diaspora/diaspora/pull/8426) [#8427](https://github.com/diaspora/diaspora/pull/8427) [#8448](https://github.com/diaspora/diaspora/pull/8448)
 * Add CORS headers to nodeinfo endpoints to allow for client-side fetching [#8436](https://github.com/diaspora/diaspora/pull/8436)
 
 ## Bug fixes
