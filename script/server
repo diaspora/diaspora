@@ -161,5 +161,5 @@ if [ -n "${ldconfig}" ]; then
 fi
 
 # Start Diaspora
-printf "Starting Diaspora in $RAILS_ENV mode with $workers Sidekiq worker(s)."
-exec bin/bundle exec loader_eye --stop_all -c config/eye.rb
+echo "Starting Diaspora in $RAILS_ENV mode with $workers Sidekiq worker(s)."
+exec bin/foreman start -c -m all=1,sidekiq=$workers

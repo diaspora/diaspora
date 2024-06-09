@@ -185,7 +185,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Process management
 
-  gem "eye", "0.10.0"
+  gem "foreman", "0.88.1", require: false
 
   # Redirects
 

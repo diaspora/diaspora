@@ -27,9 +27,8 @@ print_usage() {
       print_usage_header "stop"
       ;;
     restart)
-      echo; echo "Restart diaspora* using bin/eye (fast restart)"
-      print_usage_header "restart [options]" \
-        "    --full    Restart entire container"
+      echo; echo "Restart diaspora*"
+      print_usage_header "restart"
       ;;
     logs)
       echo; echo "Follow log output of the running diaspora* instance"
@@ -148,7 +147,7 @@ print_usage_full() {
   echo "  setup            Prepare diaspora* to run for development"
   echo "  start            Start diaspora*"
   echo "  stop             Stop diaspora*"
-  echo "  restart          Restart of diaspora*"
+  echo "  restart          Restart diaspora*"
   echo "  logs             Follow log output of diaspora*"
   echo "  status           Show current instance status of diaspora*"
   echo "  clean            Reset diaspora* instance"
@@ -412,22 +411,8 @@ dia_pronto() {
 }
 
 dia_restart() {
-  # Restart diaspora inside container if already running; start new container otherwise
-  for i in "$@"; do
-    case "$i" in
-      --full)
-        dia_restart_full=1
-        ;;
-    esac
-  done
   if dia_is_running; then
-    if [ -z $dia_restart_full ]; then
-      dia_docker_compose exec \
-        diaspora \
-        bin/eye restart diaspora
-    else
-      dia_docker_compose restart
-    fi
+    dia_docker_compose restart
   else
     dia_start
   fi

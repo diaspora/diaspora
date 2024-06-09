@@ -38,6 +38,10 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 
 We recommend setting up new pods using Ruby 3.3, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
 
+## Changes to script/server for production pods
+
+If you're currently running your production pod with `./script/server` in a tmux or something similar, please be careful. We made some internal changes that result in the script no longer automatically restarting the server if it crashes - instead, it will just shut down. We strongly recommend running your pod using your system's unit manager, for example with [this systemd unit](https://wiki.diasporafoundation.org/Automatic_startup_methods#Recommended:_systemd).
+
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581) [#8397](https://github.com/diaspora/diaspora/pull/8397)
 * Remove backporting of mention syntax [#7788](https://github.com/diaspora/diaspora/pull/7788)
@@ -55,6 +59,7 @@ We recommend setting up new pods using Ruby 3.3, and updating existing pods to t
 * Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
 * Add ruby 3 support [#8423](https://github.com/diaspora/diaspora/pull/8423) [#8426](https://github.com/diaspora/diaspora/pull/8426) [#8427](https://github.com/diaspora/diaspora/pull/8427) [#8448](https://github.com/diaspora/diaspora/pull/8448)
 * Add CORS headers to nodeinfo endpoints to allow for client-side fetching [#8436](https://github.com/diaspora/diaspora/pull/8436)
+* Replace eye with foreman [#8449](https://github.com/diaspora/diaspora/pull/8449)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
