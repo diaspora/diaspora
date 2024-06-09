@@ -116,27 +116,6 @@ GEM
       image_processing (~> 1.1)
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
-    celluloid (0.17.4)
-      celluloid-essentials
-      celluloid-extras
-      celluloid-fsm
-      celluloid-pool
-      celluloid-supervision
-      timers (>= 4.1.1)
-    celluloid-essentials (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-extras (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-fsm (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-io (0.17.3)
-      celluloid (>= 0.17.2)
-      nio4r (>= 1.1)
-      timers (>= 4.1.1)
-    celluloid-pool (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-supervision (0.20.6)
-      timers (>= 4.1.1)
     chrome_remote (0.3.0)
       websocket-driver (~> 0.6)
     chunky_png (1.4.0)
@@ -237,12 +216,6 @@ GEM
       ffi (>= 1.15.0)
     excon (0.110.0)
     execjs (2.9.1)
-    eye (0.10.0)
-      celluloid (~> 0.17.3)
-      celluloid-io (~> 0.17.0)
-      kostya-sigar (~> 2.0.0)
-      state_machines
-      thor
     fabrication (2.31.0)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
@@ -291,6 +264,7 @@ GEM
     fog-xml (0.1.4)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
+    foreman (0.88.1)
     formatador (1.1.0)
     fugit (1.11.0)
       et-orbi (~> 1, >= 1.2.11)
@@ -380,7 +354,6 @@ GEM
       multi_json
     jwt (2.8.1)
       base64
-    kostya-sigar (2.0.10)
     language_server-protocol (3.17.0.3)
     leaflet-rails (1.9.4)
       actionpack (>= 4.2.0)
@@ -710,7 +683,6 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.1.2)
-    state_machines (0.6.0)
     string-direction (1.2.2)
     strscan (3.1.0)
     swd (2.0.3)
@@ -732,7 +704,6 @@ GEM
     tilt (2.3.0)
     timecop (0.9.8)
     timeout (0.4.1)
-    timers (4.3.5)
     toml-rb (3.0.1)
       citrus (~> 3.0, > 3.0)
       racc (~> 1.7)
@@ -820,7 +791,6 @@ DEPENDENCIES
   diaspora_federation-json_schema (= 1.1.0)
   diaspora_federation-rails (= 1.1.0)
   diaspora_federation-test (= 1.1.0)
-  eye (= 0.10.0)
   factory_bot_rails (= 6.4.3)
   faraday (= 2.9.0)
   faraday-cookie_jar (= 0.0.7)
@@ -829,6 +799,7 @@ DEPENDENCIES
   faraday-typhoeus (= 1.1.0)
   fixture_builder (= 0.5.2)
   fog-aws (= 3.22.0)
+  foreman (= 0.88.1)
   fuubar (= 2.5.1)
   gon (= 6.4.0)
   haml_lint (= 0.58.0)
