@@ -42,6 +42,11 @@ We recommend setting up new pods using Ruby 3.3, and updating existing pods to t
 
 If you're currently running your production pod with `./script/server` in a tmux or something similar, please be careful. We made some internal changes that result in the script no longer automatically restarting the server if it crashes - instead, it will just shut down. We strongly recommend running your pod using your system's unit manager, for example with [this systemd unit](https://wiki.diasporafoundation.org/Automatic_startup_methods#Recommended:_systemd).
 
+## Security
+
+* Fix a potential 2FA brute force attack ([CVE-2024-0227](https://github.com/devise-two-factor/devise-two-factor/security/advisories/GHSA-chcr-x7hc-8fp8)).
+  Thanks to Christian Reitter ([Radically Open Security](https://www.radicallyopensecurity.com/)) and Chris MacNaughton ([Centauri Solutions](https://centauri.solutions)).
+
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581) [#8397](https://github.com/diaspora/diaspora/pull/8397)
 * Remove backporting of mention syntax [#7788](https://github.com/diaspora/diaspora/pull/7788)
