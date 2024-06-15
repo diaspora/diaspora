@@ -6,12 +6,12 @@
 
 kk:
   javascripts:
+    timeago:
+      prefixAgo: ''
+      suffixAgo: ''
+      suffixFromNow: ''
+      prefixFromNow: ''
     aspect_dropdown:
+      updating: жаңала...
       mobile_row_checked: "<%= name %>  (жою)"
       mobile_row_unchecked: "<%= name %>(үстеу)"
-      updating: "жаңала..."
-    timeago:
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: ""
-      suffixFromNow: ""

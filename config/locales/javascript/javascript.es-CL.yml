@@ -6,95 +6,95 @@
 
 es-CL:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Añadir contacto"
-      all_aspects: "Todos los aspectos"
-      error: "No pudiste empezas a compartir con <%= name %>. ¿Lo estás ignorando?"
-      select_aspects: "Seleccionar aspectos"
-      started_sharing_with: "¡Has empezado a compartir con <%= name%>!"
-      stopped_sharing_with: "Has dejado de compartir con <%= name %>"
-      toggle:
-        one: "En <%= count %> aspectos"
-        other: "En <%= count %> aspectos"
-        zero: "En <%= count %> aspecto"
-    aspect_navigation:
-      deselect_all: "Deseleccionar todo"
-      no_aspects: "No hay aspectos seleccionados"
-      select_all: "Seleccionar todo"
-    comments:
-      hide: "ocultar comentarios"
-      show: "mostrar todos los comentarios"
-    confirm_dialog: "¿Estás seguro/a?"
-    delete: "Eliminar"
-    failed_to_post_message: "¡Falló la publicación del mensaje!"
-    getting_started:
-      alright_ill_wait: "Está bien, esperaré."
-      hey: "¡Hola, <%= name %>!"
-      no_tags: "¡Parece que no has seguido ningún tag!  ¿Deseas continuar de todos modos?"
-      preparing_your_stream: "Preparando tu entrada personalizada..."
-    header:
-      admin: "Administración"
-      close: "Cerrar"
-      contacts: "Contactos"
-      home: "Inicio"
-      log_out: "Cerrar sesión"
-      mark_all_as_read: "Marcar todo como leído"
-      notifications: "Notificaciones"
-      profile: "Perfil"
-      recent_notifications: "Notificaciones Recientes"
-      search: "Buscar"
-      settings: "Ajustes"
-      view_all: "Ver todo"
-    ignore: "Ignorar"
-    my_activity: "Mi Actividad"
-    my_stream: "Entrada"
-    people:
-      not_found: "y nadie fue encontrado..."
-    photo_uploader:
-      looking_good: "¡Guau, te ves genial!"
-    reshares:
-      successful: "¡La publicación se compartió correctamente!"
-    show_more: "mostrar más"
-    stream:
-      comment: "Comentar"
-      follow: "Seguir"
-      hide: "Ocultar"
-      hide_nsfw_posts: "Ocultar publicaciones no aptas para todo público (#nsfw)"
-      like: "Me gusta"
-      limited: "Limitado"
-      more_comments:
-        one: "Mostrar <%= count %> comentarios más"
-        other: "Mostrar <%= count %> comentarios más"
-        zero: "Mostrar un comentario más"
-      original_post_deleted: "La publicación original fue eliminada por el autor"
-      public: "Público"
-      reshare: "Compartir"
-      show_nsfw_post: "Mostrar publicación"
-      show_nsfw_posts: "Mostrar todo"
-      unfollow: "Dejar de seguir"
-      unlike: "No me gusta"
-    tags:
-      wasnt_that_interesting: "Bueno, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
-      day: "un día"
-      days:
-        other: "%d días"
-      hour: "alrededor de una hora"
-      hours:
-        other: "cerca de %d horas"
-      minute: "alrededor de un minuto"
+      prefixAgo: ''
+      suffixAgo: hace
+      suffixFromNow: desde ahora
+      prefixFromNow: ''
+      seconds: hace menos de un minuto
+      minute: alrededor de un minuto
       minutes:
         other: "%d minutos"
-      month: "alrededor de un mes"
+      hour: alrededor de una hora
+      hours:
+        other: cerca de %d horas
+      day: un día
+      days:
+        other: "%d días"
+      month: alrededor de un mes
       months:
         other: "%d meses"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "hace menos de un minuto"
-      suffixAgo: "hace"
-      suffixFromNow: "desde ahora"
-      year: "alrededor de un año"
+      year: alrededor de un año
       years:
         other: "%d años"
+    confirm_dialog: "¿Estás seguro/a?"
+    delete: Eliminar
+    ignore: Ignorar
+    my_activity: Mi Actividad
+    my_stream: Entrada
+    aspect_dropdown:
+      add_to_aspect: Añadir contacto
+      select_aspects: Seleccionar aspectos
+      all_aspects: Todos los aspectos
+      stopped_sharing_with: Has dejado de compartir con <%= name %>
+      started_sharing_with: "¡Has empezado a compartir con <%= name%>!"
+      error: No pudiste empezas a compartir con <%= name %>. ¿Lo estás ignorando?
+      toggle:
+        zero: En <%= count %> aspecto
+        one: En <%= count %> aspectos
+        other: En <%= count %> aspectos
+    show_more: mostrar más
+    failed_to_post_message: "¡Falló la publicación del mensaje!"
+    comments:
+      show: mostrar todos los comentarios
+      hide: ocultar comentarios
+    reshares:
+      successful: "¡La publicación se compartió correctamente!"
+    aspect_navigation:
+      select_all: Seleccionar todo
+      deselect_all: Deseleccionar todo
+      no_aspects: No hay aspectos seleccionados
+    getting_started:
+      hey: "¡Hola, <%= name %>!"
+      no_tags: "¡Parece que no has seguido ningún tag!  ¿Deseas continuar de todos modos?"
+      alright_ill_wait: Está bien, esperaré.
+      preparing_your_stream: Preparando tu entrada personalizada...
+    photo_uploader:
+      looking_good: "¡Guau, te ves genial!"
+    tags:
+      wasnt_that_interesting: 'Bueno, supongo que #<%= tagName %> no era tan interesante...'
+    people:
+      not_found: y nadie fue encontrado...
+    stream:
+      hide: Ocultar
+      public: Público
+      limited: Limitado
+      like: Me gusta
+      unlike: No me gusta
+      reshare: Compartir
+      comment: Comentar
+      original_post_deleted: La publicación original fue eliminada por el autor
+      show_nsfw_post: Mostrar publicación
+      show_nsfw_posts: Mostrar todo
+      hide_nsfw_posts: Ocultar publicaciones no aptas para todo público (#nsfw)
+      follow: Seguir
+      unfollow: Dejar de seguir
+      more_comments:
+        zero: Mostrar un comentario más
+        one: Mostrar <%= count %> comentarios más
+        other: Mostrar <%= count %> comentarios más
+    header:
+      home: Inicio
+      profile: Perfil
+      contacts: Contactos
+      settings: Ajustes
+      admin: Administración
+      log_out: Cerrar sesión
+      notifications: Notificaciones
+      search: Buscar
+      recent_notifications: Notificaciones Recientes
+      mark_all_as_read: Marcar todo como leído
+      view_all: Ver todo
+      close: Cerrar
     viewer:
-      reshared: "Compartido"
+      reshared: Compartido

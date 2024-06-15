@@ -7,25 +7,25 @@
 ne:
   devise:
     mailer:
-      hello: "नमस्ते %{username} !"
+      reset_password_instructions:
+        change: पासवर्ड परिवर्तन गर्नुहोस्
+      welcome: स्वागतम %{username} !
+      hello: नमस्ते %{username} !
       inviter:
         has_invited_you: "%{name}"
-      reset_password_instructions:
-        change: "पासवर्ड परिवर्तन गर्नुहोस्"
-      welcome: "स्वागतम %{username} !"
     passwords:
       edit:
-        change_password: "पासवर्ड परिवर्तन गर्नुहोस्"
+        change_password: पासवर्ड परिवर्तन गर्नुहोस्
       new:
-        forgot_password: "पासवर्ड भुल्नुभयो ?"
+        forgot_password: पासवर्ड भुल्नुभयो ?
     sessions:
       new:
-        password: "गोप्य शब्द"
-        remember_me: "मलाई नभुल्नु"
-        username: "प्रयोगकर्ता नाम"
+        username: प्रयोगकर्ता नाम
+        password: गोप्य शब्द
+        remember_me: मलाई नभुल्नु
     shared:
       links:
-        forgot_your_password: "पासवर्ड भुल्नुभयो ?"
+        forgot_your_password: पासवर्ड भुल्नुभयो ?
   errors:
     messages:
-      not_found: "फेला परेन"
+      not_found: फेला परेन

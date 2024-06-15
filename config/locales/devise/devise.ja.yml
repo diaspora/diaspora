@@ -7,107 +7,107 @@
 ja:
   devise:
     confirmations:
-      confirmed: "アカウントの認証に成功しました。既にログイン済みです。"
+      confirmed: アカウントの認証に成功しました。既にログイン済みです。
+      send_instructions: 数分後にアカウント認証の手続きメールが届きます。
+      send_paranoid_instructions: あなたのメールアドレスが私たちのデータベースに存在する場合、数分であなたのメールアドレスを確認する方法についての手順を記載したメールが届きます。
       new:
-        resend_confirmation: "認証メールを再送する"
-      send_instructions: "数分後にアカウント認証の手続きメールが届きます。"
-      send_paranoid_instructions: "あなたのメールアドレスが私たちのデータベースに存在する場合、数分であなたのメールアドレスを確認する方法についての手順を記載したメールが届きます。"
+        resend_confirmation: 認証メールを再送する
     failure:
-      already_authenticated: "既にサインイン済みです。"
-      inactive: "アカウントはまだ有効になっていません。"
+      already_authenticated: 既にサインイン済みです。
+      inactive: アカウントはまだ有効になっていません。
       invalid: "%{authentication_keys} またはパスワードが不正です。"
-      invalid_token: "無効な認証トークンです。"
-      last_attempt: "アカウントがロックされるまでに、まだ複数回試すことができます。"
-      locked: "アカウントがロックされています。"
+      locked: アカウントがロックされています。
+      last_attempt: アカウントがロックされるまでに、まだ複数回試すことができます。
       not_found_in_database: "%{authentication_keys}またはパスワードが無効です。"
-      timeout: "セッション切れになりました。もう一度サインインして続行してください。"
-      unauthenticated: "進むにはサインインまたは新規登録する必要があります。"
-      unconfirmed: "進にはアカウントを確認する必要があります。"
-    invitations:
-      invitation_token_invalid: "ご使用の招待トークンは無効です！"
-      send_instructions: "招待メールを送信しました。"
-      updated: "パスワードの設定に成功しました。既にサインイン済みです。"
+      timeout: セッション切れになりました。もう一度サインインして続行してください。
+      unauthenticated: 進むにはサインインまたは新規登録する必要があります。
+      unconfirmed: 進にはアカウントを確認する必要があります。
+      invalid_token: 無効な認証トークンです。
     mailer:
       confirmation_instructions:
-        confirm: "アカウントを認証する"
-        subject: "認証手続き"
-        you_can_confirm: "次のリンクからアカウントが認証できます。"
+        subject: 認証手続き
+        you_can_confirm: 次のリンクからアカウントが認証できます。
+        confirm: アカウントを認証する
+      reset_password_instructions:
+        subject: パスワード再設定手続き
+        someone_requested: パスワード変更リンクの申請を預かりました。下のリンクから変更可能です。
+        change: パスワードを変更する
+        wont_change: 上のリンクをアクセスして新しいパスワードを登録するまではパスワードが変更されません。
+        ignore: 再設定を申請した覚えがない場合はこのメールを無視してください。
+      unlock_instructions:
+        subject: ロック解除説明
+        account_locked: サインイン失敗回数が多すぎたため、アカウントがロックされました。
+        click_to_unlock: アカウントのロックを解除するのに下記のリンクにクリックしてください。
+        unlock: アカウントのロックを解除する
+      password_change:
+        subject: パスワードを変更しました
+      welcome: "%{username}さん、ようこそ！"
       hello: "%{username}さん、こんにちは！"
       inviter:
-        accept_at: "%{url} で、下のリンクから受け入れることができます。"
         has_invited_you: "%{name}さん"
         have_invited_you: "%{names}さんがダイアスポラに招待しています"
-      password_change:
-        subject: "パスワードを変更しました"
-      reset_password_instructions:
-        change: "パスワードを変更する"
-        ignore: "再設定を申請した覚えがない場合はこのメールを無視してください。"
-        someone_requested: "パスワード変更リンクの申請を預かりました。下のリンクから変更可能です。"
-        subject: "パスワード再設定手続き"
-        wont_change: "上のリンクをアクセスして新しいパスワードを登録するまではパスワードが変更されません。"
-      unlock_instructions:
-        account_locked: "サインイン失敗回数が多すぎたため、アカウントがロックされました。"
-        click_to_unlock: "アカウントのロックを解除するのに下記のリンクにクリックしてください。"
-        subject: "ロック解除説明"
-        unlock: "アカウントのロックを解除する"
-      welcome: "%{username}さん、ようこそ！"
+        accept_at: "%{url} で、下のリンクから受け入れることができます。"
     omniauth_callbacks:
-      failure: "\"%{reason}\" のため、%{kind} から認証できませんでした。"
+      failure: '"%{reason}" のため、%{kind} から認証できませんでした。'
       success: "%{kind} のアカウントから正常に認証しました。"
     passwords:
+      no_token: パスワードリセットのメールからではないと、このページにアクセスすることはできません。パスワードリセットのメールから来た場合は、提供された完全なURLを使用していることを確認してください。
+      send_instructions: 数分後にパスワード再発行の手続きメールが届きます。
+      send_paranoid_instructions: あなたのメールアドレスが私たちのデータベースに存在する場合、数分であなたのメールアドレスにパスワード回復リンクを受信します。
+      updated: パスワードの変更に成功しました。既にサインイン済みです。
+      updated_not_active: パスワードが正常に変更されました。
       edit:
-        change_password: "パスワードを変更する"
-        confirm_password: "パスワード確認"
-        new_password: "新しいパスワード"
+        change_password: パスワードを変更する
+        new_password: 新しいパスワード
+        confirm_password: パスワード確認
       new:
-        email: "メールアドレス"
-        forgot_password: "パスワードを忘れましたか?"
-        reset_password: "パスワードの再設定"
-        send_password_instructions: "パスワード再発行の手続きメールを送ってください。"
-      no_token: "パスワードリセットのメールからではないと、このページにアクセスすることはできません。パスワードリセットのメールから来た場合は、提供された完全なURLを使用していることを確認してください。"
-      send_instructions: "数分後にパスワード再発行の手続きメールが届きます。"
-      send_paranoid_instructions: "あなたのメールアドレスが私たちのデータベースに存在する場合、数分であなたのメールアドレスにパスワード回復リンクを受信します。"
-      updated: "パスワードの変更に成功しました。既にサインイン済みです。"
-      updated_not_active: "パスワードが正常に変更されました。"
+        forgot_password: パスワードを忘れましたか?
+        reset_password: パスワードの再設定
+        email: メールアドレス
+        send_password_instructions: パスワード再発行の手続きメールを送ってください。
     registrations:
-      destroyed: "さようなら！アカウントの取消しに成功しました。またのご参加をお待ちしています。"
-      signed_up: "新規登録に成功しました。設定が有効な場合、確認メールも送信されました。"
-      signed_up_but_inactive: "ご登録手続きが完了しています。しかし、アカウントがまだ有効になっておりませんので、サインインが出来ませんでした。"
-      signed_up_but_locked: "ご登録手続きが完了しています。しかし、アカウントがロックされているため、サインインが出来ませんでした。"
-      signed_up_but_unconfirmed: "あなたのメールアドレスに認証リンクの記載されたメッセージが送信されています。あなたのアカウントを有効にするリンクを開いてください。"
-      update_needs_confirmation: "アカウントを正常に更新しましたが、私たちは新しいメールアドレスを確認する必要があります。メールを確認して、新しいメールアドレスを確認するために、確認のリンクをクリックしてください。"
-      updated: "アカウントの更新に成功しました。"
+      destroyed: さようなら！アカウントの取消しに成功しました。またのご参加をお待ちしています。
+      signed_up: 新規登録に成功しました。設定が有効な場合、確認メールも送信されました。
+      signed_up_but_inactive: ご登録手続きが完了しています。しかし、アカウントがまだ有効になっておりませんので、サインインが出来ませんでした。
+      signed_up_but_locked: ご登録手続きが完了しています。しかし、アカウントがロックされているため、サインインが出来ませんでした。
+      signed_up_but_unconfirmed: あなたのメールアドレスに認証リンクの記載されたメッセージが送信されています。あなたのアカウントを有効にするリンクを開いてください。
+      update_needs_confirmation: アカウントを正常に更新しましたが、私たちは新しいメールアドレスを確認する必要があります。メールを確認して、新しいメールアドレスを確認するために、確認のリンクをクリックしてください。
+      updated: アカウントの更新に成功しました。
     sessions:
-      already_signed_out: "サインアウトに成功しました。"
+      signed_in: サインインに成功しました。
+      signed_out: サインアウトに成功しました。
+      already_signed_out: サインアウトに成功しました。
       new:
-        login: "ログイン"
-        modern_browsers: "最新型のブラウザにしか対応していません。"
-        password: "パスワード"
-        remember_me: "ログインしたままにする"
-        sign_in: "サインイン"
-        username: "ユーザー名"
-      signed_in: "サインインに成功しました。"
-      signed_out: "サインアウトに成功しました。"
+        login: ログイン
+        username: ユーザー名
+        password: パスワード
+        sign_in: サインイン
+        remember_me: ログインしたままにする
+        modern_browsers: 最新型のブラウザにしか対応していません。
+    unlocks:
+      send_instructions: 数分後にアカウントロック解除の手続きメールが届きます。
+      send_paranoid_instructions: あなたのアカウントが存在する場合は、数分でロックを解除する方法についての手順を記載したメールが届きます。
+      unlocked: アカウントのロック解除に成功しました。既にサインイン済みです。
+      new:
+        resend_unlock: ロック解除手続きメールを再送する
+    invitations:
+      send_instructions: 招待メールを送信しました。
+      invitation_token_invalid: ご使用の招待トークンは無効です！
+      updated: パスワードの設定に成功しました。既にサインイン済みです。
     shared:
       links:
-        forgot_your_password: "パスワードを忘れましたか?"
-        receive_confirmation: "認証手続きメールが届きませんでしたか。"
-        receive_unlock: "ロック解除の説明が届きませんでしたか。"
-        sign_in: "サインイン"
-        sign_up: "新規登録"
-        sign_up_closed: "一般の新規登録は現在受け付けていません。"
-    unlocks:
-      new:
-        resend_unlock: "ロック解除手続きメールを再送する"
-      send_instructions: "数分後にアカウントロック解除の手続きメールが届きます。"
-      send_paranoid_instructions: "あなたのアカウントが存在する場合は、数分でロックを解除する方法についての手順を記載したメールが届きます。"
-      unlocked: "アカウントのロック解除に成功しました。既にサインイン済みです。"
+        sign_in: サインイン
+        sign_up: 新規登録
+        sign_up_closed: 一般の新規登録は現在受け付けていません。
+        forgot_your_password: パスワードを忘れましたか?
+        receive_confirmation: 認証手続きメールが届きませんでしたか。
+        receive_unlock: ロック解除の説明が届きませんでしたか。
   errors:
     messages:
-      already_confirmed: "既に認証済みです。サインインしてみてください。"
+      already_confirmed: 既に認証済みです。サインインしてみてください。
       confirmation_period_expired: "%{period} 以内に確認する必要があります。新しくリクエストしてください"
-      expired: "有効期限切れです。新しくリクエストしてください"
-      not_found: "見つかりませんでした。"
-      not_locked: "ロックされませんでした。"
+      expired: 有効期限切れです。新しくリクエストしてください
+      not_found: 見つかりませんでした。
+      not_locked: ロックされませんでした。
       not_saved:
         other: "%{count} エラーのため、この %{resource} の保存を禁止しました:"

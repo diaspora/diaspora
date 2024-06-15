@@ -6,298 +6,298 @@
 
 vi:
   javascripts:
-    admin:
-      pods:
-        actions: "Hành động"
-        added: "Đã thêm"
-        check: "kiểm tra thử kết nối"
-        errors:
-          other: "Kiểm tra kết nối phát hiện lỗi ở <%= count %> máy chủ."
-        follow_link: "mở link trong trình duyệt"
-        last_check: "lần cuối kiểm tra:"
-        more_info: "hiện thêm thông tin"
-        ms:
-          other: "<%= count %>ms"
-        no_info: "Không có thông tin nào thêm"
-        not_available: "không khả dụng"
-        offline_since: "offline từ:"
-        pod: "Máy chủ"
-        recheck:
-          failure: "Chưa kiểm tra xong."
-          success: "Máy chủ vừa kiểm tra xong."
-        response_time: "Thời gian phản hồi:"
-        server_software: "Phần mềm sử dụng:"
-        ssl: "SSL"
-        ssl_disabled: "Đã tắt SSL"
-        ssl_enabled: "Đã bật SSL"
-        states:
-          dns_failed: "Phân giải tên miền (DNS) thất bại"
-          http_failed: "Kết nối HTTP thất bại"
-          net_failed: "Kết nối thất bại tạm thời"
-          no_errors: "OK"
-          ssl_failed: "Kết nối an toàn (SSL) thất bại"
-          unchecked: "Chưa kiểm tra"
-          unknown_error: "Xảy ra lỗi chưa xác định khi kiểm tra"
-          version_failed: "Lấy phiên bản phần mềm thất bại"
-        status: "Trạng thái"
-        unchecked:
-          other: "Vẫn còn <%= count %> máy chủ chưa kiểm tra."
-          zero: "Không còn máy chủ nào để kiểm tra."
-        unknown: "không rõ"
-        version_failed:
-          other: "Có <%= count %> máy chủ hiển thị không phiên bản (do không dùng NodeInfo)."
-    admins:
-      dashboard:
-        compare_versions: "Phiên bản Diaspora mới nhất là <%= latestVersion %>, \bmáy chủ của bạn đang dùng <%= podVersion %>."
-        error: "Không thể xác định phiên bản Diaspora mới nhất."
-        outdated: "Máy chủ của bạn đang dùng phiên bản cũ."
-        up_to_date: "Máy chủ đã cập nhật phiên bản mới nhất!"
-    and: "và"
-    aspect_dropdown:
-      add_to_aspect: "Thêm liên lạc"
-      all_aspects: "Tất cả mối quan hệ"
-      error: "Không thể chia sẻ với <%= name %>. Bạn có muốn ẩn họ?"
-      error_remove: "Không thể xoá <%= name %> khỏi mối quan hệ :("
-      mobile_row_checked: "<%= name %> (xoá bỏ)"
-      mobile_row_unchecked: "<%= name %> (thêm)"
-      select_aspects: "Chọn mối quan hệ"
-      started_sharing_with: "Bạn đã bắt đầu theo dõi <%= name %>!"
-      stopped_sharing_with: "Bạn đã ngưng theo dõi <%= name %>."
-      toggle:
-        other: "Trong <%= count %> mối quan hệ"
-        zero: "Không trong mối quan hệ nào"
-      updating: "đang tải…"
-    aspect_navigation:
-      add_an_aspect: "+ Thêm một mối quan hệ"
-      deselect_all: "Bỏ chọn tất cả"
-      no_aspects: "Chưa chọn mối quan hệ nào"
-      select_all: "Chọn tất cả"
-    aspects:
-      create:
-        add_a_new_aspect: "Thêm mối quan hệ mới"
-        failure: "Không thể tạo mối quan hệ."
-        success: "Đã tạo mối quan hệ <%= name %> mới"
-      name: "Tên"
-    bookmarklet:
-      post_something: "Lưu vào Diaspora"
-      post_submit: "Đang gửi báo cáo..."
-      post_success: "Đã lưu! Đang đóng cửa sổ popup..."
-    cancel: "Huỷ bỏ"
-    comma: ","
-    comments:
-      hide: "Ẩn bình luận"
-      no_comments: "Chưa có bình luận."
-      show: "Hiện tất cả bình luận"
-    confirm_dialog: "Bạn có chắc không?"
-    confirm_unload: "Bạn sắp rời khỏi trang này. Dữ liệu bạn đã nhập sẽ mất hết."
-    contacts:
-      add_contact: "Thêm người dùng"
-      error_add: "Không thể thêm <%= name %> vào mối quan hệ :("
-      error_remove: "Không thể xoá bỏ <%= name %> khỏi mối quan hệ :("
-      remove_contact: "Xoá người dùng"
-      search_no_results: "Không tìm thấy liên hệ nào"
-    conversation:
-      create:
-        no_recipient: "Ey, bạn cần thêm người nhận trước!"
-      new:
-        no_contacts: "Bạn cần thêm vài người dùng trước khi có thể nhắn tin."
-    create: "Tạo"
-    delete: "Xoá"
-    edit: "Chỉnh sửa"
-    errors:
-      connection: "Không thể kết nối đến server."
-    failed_to_post_message: "Gửi tin thất bại!"
-    failed_to_remove: "Gỡ bỏ thất bại!"
-    getting_started:
-      alright_ill_wait: "Được rồi, tôi sẽ chờ."
-      hey: "Này, <%= name %>!"
-      no_tags: "Bạn chưa theo dõi hashtag nào cả! Tiếp tục?"
-      preparing_your_stream: "Đang tải bài đăng cho bạn..."
-    header:
-      admin: "Quản trị"
-      close: "Đóng"
-      contacts: "Danh bạ"
-      conversations: "Thảo luận"
-      help: "Trợ giúp"
-      home: "Trang chính"
-      log_out: "Đăng xuất"
-      mark_all_as_read: "Đánh dấu tất cả là đã đọc"
-      moderator: "Kiểm duyệt viên"
-      notifications: "Thông báo"
-      profile: "Trang cá nhân"
-      recent_notifications: "Thông báo gần đây"
-      search: "Tìm kiếm"
-      settings: "Thiết lập"
-      switch_to_touch_optimized_mode: "Giao diện di động"
-      toggle_navigation: "Chuyển chế độ"
-      view_all: "Xem tất cả"
-    hide_post: "Ẩn bài đăng này?"
-    hide_post_failed: "Không thể ẩn bài đăng này"
-    ignore: "Bỏ qua"
-    ignore_failed: "Không thể ẩn người này"
-    ignore_user: "Ẩn người này?"
-    my_activity: "Hoạt động của tôi"
-    my_aspects: "Mối quan hệ của tôi"
-    my_stream: "Bảng tin"
-    no_results: "Không tìm thấy gì cả"
-    notifications:
-      mark_read: "Đánh dấu đã đọc"
-      mark_unread: "Đánh dấu chưa đọc"
-      new_notifications:
-        other: "Bạn có <%= count %> thông báo chưa đọc"
-    people:
-      edit_my_profile: "Chỉnh sửa trang cá nhân"
-      helper:
-        is_not_sharing: "<%= name %> đang không theo dõi bạn"
-        is_sharing: "<%= name %> đang theo dõi bạn"
-      mention: "Nhắc đến ai đó"
-      message: "Nhắn tin"
-      not_found: "... và không tìm thấy ai"
-      stop_ignoring: "Bỏ ẩn"
-    photo_uploader:
-      completed: "Đã tải lên <%= file %>"
-      empty: "Tập tin {file} rỗng, hãy chọn lại tập tin khác."
-      error: "Có vấn đề khi tải lên <%= file %>"
-      invalid_ext: "Tập tin {file} có định dạng không hỗ trợ. Chỉ chấp nhận {extensions}."
-      looking_good: "Ôi, trông bạn thật tuyệt!"
-      size_error: "Tập tin {file} quá lớn, dung lượng tối đa là {sizeLimit}."
-      upload_photos: "Tải lên hình ảnh"
-    poll:
-      answer_count:
-        other: "<%=count%> lượt bình chọn"
-        zero: "Chưa có bình chọn"
-      close_result: "Ẩn kết quả"
-      count:
-        other: "<%=count%> lượt bình chọn"
-      go_to_original_post: "Bạn có thể tham gia bình chọn ở <%= original_post_link %>."
-      original_post: "bài đăng gốc"
-      result: "Kết quả"
-      show_result: "Xem kết quả"
-      vote: "Bình chọn"
-      your_vote: "Bình chọn của bạn"
-    profile:
-      add_some: "Thêm"
-      bio: "Tiểu sử"
-      born: "Sinh nhật"
-      edit: "Chỉnh sửa"
-      gender: "Giới tính"
-      location: "Đến từ"
-      photos: "Hình ảnh"
-      posts: "Bài đăng"
-      you_have_no_tags: "Bạn chưa có hashtag nào!"
-    publisher:
-      add_option: "Thêm câu trả lời"
-      markdown_editor:
-        preview: "Xem trước"
-        texts:
-          code: "nhập mã lập trình ở đây"
-          heading: "in to chữ"
-          insert_image_description_text: "Nhập mô tả hình ở đây"
-          insert_image_help_text: "Nhập liên kết dẫn đến trang hình"
-          insert_image_title: "nhập tựa đề hình ở đây"
-          insert_link_description_text: "nhập mô tả link"
-          insert_link_help_text: "Nhập link ở đây"
-          italic: "in nghiêng chữ"
-          list: "nhập danh sách liệt kê ở đây"
-          quote: "nhập trích dẫn ở đây"
-          strong: "in đậm chữ"
-        tooltips:
-          bold: "Đậm"
-          cancel: "Huỷ bỏ thông điệp"
-          code: "Mã lập trình"
-          heading: "Tiêu đề"
-          insert_image: "Chèn hình ảnh"
-          insert_link: "Chèn link"
-          insert_ordered_list: "Liệt kê (số)"
-          insert_unordered_list: "Liệt kê (dấu chấm)"
-          italic: "Nghiêng"
-          preview: "Xem trước thông điệp"
-          quote: "Trích dẫn"
-          write: "Chỉnh sửa thông điệp"
-        write: "Viết"
-      mention_success: "Đã nhắc đến: <%= names %>"
-      near_from: "Nơi đăng: <%= location %>"
-      option: "Câu trả lời"
-      question: "Câu hỏi"
-    remove_post: "Xoá bỏ bài đăng?"
-    report:
-      name: "Báo cáo"
-      prompt: "Cho biết lý do:"
-      prompt_default: "Vd: nội dung nhạy cảm"
-      status:
-        created: "Đã gửi báo cáo thành công"
-        exists: "Đã gửi báo cáo rồi"
-    reshares:
-      post: "Chia sẻ bài đăng của <%= name %>?"
-      successful: "Đã chia sẻ lại bài đăng!"
-    show_all: "Hiện toàn bộ"
-    show_more: "Đọc tiếp"
-    stream:
-      comment: "Bình luận"
-      comments:
-        other: "<%= count %> bình luận"
-      disable_post_notifications: "Tắt thông báo cho bài đăng này"
-      enable_post_notifications: "Bật thông báo cho bài đăng này"
-      follow: "Theo dõi"
-      followed_tag:
-        add_a_tag: "Thêm một hashtag"
-        follow: "Theo dõi"
-        title: "Hashtag #đã theo dõi"
-      hide: "Ẩn"
-      hide_nsfw_posts: "Ẩn bài đăng #nsfw"
-      like: "Thích"
-      likes:
-        other: "<%= count %> người thích"
-        zero: "không ai thích"
-      limited: "Hạn chế"
-      more_comments:
-        other: "Hiện thêm <%= count %> bình luận"
-        zero: "Hiện thêm <%= count %> bình luận"
-      no_posts_yet: "Chưa có bài đăng công khai nào."
-      original_post_deleted: "Bài đăng gốc đã bị xoá"
-      permalink: "Liên kết cố định"
-      public: "Công khai"
-      reshare: "Chia sẻ lại"
-      reshares:
-        other: "<%= count %> lượt chia sẻ"
-        zero: "Không có ai chia sẻ lại"
-      show_nsfw_post: "Hiện bài đăng"
-      show_nsfw_posts: "Hiện tất cả"
-      tags:
-        follow: "Theo dõi #<%= tag %>"
-        follow_error: "Không thể theo dõi #<%= tag %> :("
-        following: "Đang theo dõi #<%= tag %>"
-        stop_following: "Ngưng theo dõi #<%= tag %>"
-        stop_following_confirm: "Ngưng theo dõi #<%= tag %>?"
-        stop_following_error: "Không thể ngưng theo dõi #<%= tag %> :("
-      unfollow: "Bỏ theo dõi"
-      unlike: "Bỏ thích"
-      via: "qua <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Tôi cho rằng #<%= tagName %> không thú vị..."
     timeago:
-      day: "một ngày"
-      days:
-        other: "%d ngày"
-      hour: "\x1dnửa giờ trước"
-      hours:
-        other: "%d giờ"
-      inPast: "ngày nào đó"
-      minute: "vài phút trước"
+      prefixAgo: ''
+      suffixAgo: trước
+      suffixFromNow: vừa xong
+      prefixFromNow: kể từ lúc này
+      inPast: ngày nào đó
+      seconds: vừa xong
+      minute: vài phút trước
       minutes:
         other: "%d phút"
-      month: "nửa tháng trước"
+      hour: "\x1Dnửa giờ trước"
+      hours:
+        other: "%d giờ"
+      day: một ngày
+      days:
+        other: "%d ngày"
+      month: nửa tháng trước
       months:
         other: "%d tháng"
-      prefixAgo: ""
-      prefixFromNow: "kể từ lúc này"
-      seconds: "vừa xong"
-      suffixAgo: "trước"
-      suffixFromNow: "vừa xong"
-      wordSeparator: " "
-      year: "nửa năm trước"
+      year: nửa năm trước
       years:
         other: "%d năm"
-    unblock_failed: "Mở khoá người dùng thất bại"
+      wordSeparator: " "
+    cancel: Huỷ bỏ
+    confirm_dialog: Bạn có chắc không?
+    confirm_unload: Bạn sắp rời khỏi trang này. Dữ liệu bạn đã nhập sẽ mất hết.
+    create: Tạo
+    delete: Xoá
+    ignore: Bỏ qua
+    report:
+      prompt: 'Cho biết lý do:'
+      prompt_default: 'Vd: nội dung nhạy cảm'
+      name: Báo cáo
+      status:
+        created: Đã gửi báo cáo thành công
+        exists: Đã gửi báo cáo rồi
+    ignore_user: Ẩn người này?
+    ignore_failed: Không thể ẩn người này
+    hide_post: Ẩn bài đăng này?
+    hide_post_failed: Không thể ẩn bài đăng này
+    remove_post: Xoá bỏ bài đăng?
+    unblock_failed: Mở khoá người dùng thất bại
+    and: và
+    comma: ","
+    edit: Chỉnh sửa
+    no_results: Không tìm thấy gì cả
+    show_all: Hiện toàn bộ
+    admins:
+      dashboard:
+        up_to_date: Máy chủ đã cập nhật phiên bản mới nhất!
+        outdated: Máy chủ của bạn đang dùng phiên bản cũ.
+        compare_versions: "Phiên bản Diaspora mới nhất là <%= latestVersion %>, \bmáy chủ của bạn đang dùng <%= podVersion %>."
+        error: Không thể xác định phiên bản Diaspora mới nhất.
+    admin:
+      pods:
+        pod: Máy chủ
+        ssl: SSL
+        ssl_enabled: Đã bật SSL
+        ssl_disabled: Đã tắt SSL
+        added: Đã thêm
+        status: Trạng thái
+        states:
+          unchecked: Chưa kiểm tra
+          no_errors: OK
+          dns_failed: Phân giải tên miền (DNS) thất bại
+          net_failed: Kết nối thất bại tạm thời
+          ssl_failed: Kết nối an toàn (SSL) thất bại
+          http_failed: Kết nối HTTP thất bại
+          version_failed: Lấy phiên bản phần mềm thất bại
+          unknown_error: Xảy ra lỗi chưa xác định khi kiểm tra
+        actions: Hành động
+        offline_since: 'offline từ:'
+        last_check: 'lần cuối kiểm tra:'
+        more_info: hiện thêm thông tin
+        check: kiểm tra thử kết nối
+        recheck:
+          success: Máy chủ vừa kiểm tra xong.
+          failure: Chưa kiểm tra xong.
+        follow_link: mở link trong trình duyệt
+        no_info: Không có thông tin nào thêm
+        server_software: 'Phần mềm sử dụng:'
+        response_time: 'Thời gian phản hồi:'
+        ms:
+          other: "<%= count %>ms"
+        unknown: không rõ
+        not_available: không khả dụng
+        unchecked:
+          zero: Không còn máy chủ nào để kiểm tra.
+          other: Vẫn còn <%= count %> máy chủ chưa kiểm tra.
+        version_failed:
+          other: Có <%= count %> máy chủ hiển thị không phiên bản (do không dùng NodeInfo).
+        errors:
+          other: Kiểm tra kết nối phát hiện lỗi ở <%= count %> máy chủ.
+    aspects:
+      name: Tên
+      create:
+        add_a_new_aspect: Thêm mối quan hệ mới
+        success: Đã tạo mối quan hệ <%= name %> mới
+        failure: Không thể tạo mối quan hệ.
+    errors:
+      connection: Không thể kết nối đến server.
+    contacts:
+      add_contact: Thêm người dùng
+      remove_contact: Xoá người dùng
+      error_add: Không thể thêm <%= name %> vào mối quan hệ :(
+      error_remove: Không thể xoá bỏ <%= name %> khỏi mối quan hệ :(
+      search_no_results: Không tìm thấy liên hệ nào
+    my_activity: Hoạt động của tôi
+    my_stream: Bảng tin
+    my_aspects: Mối quan hệ của tôi
+    publisher:
+      near_from: 'Nơi đăng: <%= location %>'
+      option: Câu trả lời
+      add_option: Thêm câu trả lời
+      question: Câu hỏi
+      markdown_editor:
+        preview: Xem trước
+        write: Viết
+        tooltips:
+          bold: Đậm
+          italic: Nghiêng
+          heading: Tiêu đề
+          insert_link: Chèn link
+          insert_image: Chèn hình ảnh
+          insert_ordered_list: Liệt kê (số)
+          insert_unordered_list: Liệt kê (dấu chấm)
+          preview: Xem trước thông điệp
+          write: Chỉnh sửa thông điệp
+          cancel: Huỷ bỏ thông điệp
+          quote: Trích dẫn
+          code: Mã lập trình
+        texts:
+          strong: in đậm chữ
+          italic: in nghiêng chữ
+          heading: in to chữ
+          insert_link_description_text: nhập mô tả link
+          insert_link_help_text: Nhập link ở đây
+          insert_image_description_text: Nhập mô tả hình ở đây
+          insert_image_help_text: Nhập liên kết dẫn đến trang hình
+          insert_image_title: nhập tựa đề hình ở đây
+          list: nhập danh sách liệt kê ở đây
+          quote: nhập trích dẫn ở đây
+          code: nhập mã lập trình ở đây
+      mention_success: 'Đã nhắc đến: <%= names %>'
+    bookmarklet:
+      post_something: Lưu vào Diaspora
+      post_submit: Đang gửi báo cáo...
+      post_success: Đã lưu! Đang đóng cửa sổ popup...
+    aspect_dropdown:
+      add_to_aspect: Thêm liên lạc
+      select_aspects: Chọn mối quan hệ
+      all_aspects: Tất cả mối quan hệ
+      updating: đang tải…
+      mobile_row_checked: "<%= name %> (xoá bỏ)"
+      mobile_row_unchecked: "<%= name %> (thêm)"
+      stopped_sharing_with: Bạn đã ngưng theo dõi <%= name %>.
+      started_sharing_with: Bạn đã bắt đầu theo dõi <%= name %>!
+      error: Không thể chia sẻ với <%= name %>. Bạn có muốn ẩn họ?
+      error_remove: Không thể xoá <%= name %> khỏi mối quan hệ :(
+      toggle:
+        zero: Không trong mối quan hệ nào
+        other: Trong <%= count %> mối quan hệ
+    show_more: Đọc tiếp
+    failed_to_post_message: Gửi tin thất bại!
+    failed_to_remove: Gỡ bỏ thất bại!
+    comments:
+      show: Hiện tất cả bình luận
+      hide: Ẩn bình luận
+      no_comments: Chưa có bình luận.
+    reshares:
+      successful: Đã chia sẻ lại bài đăng!
+      post: Chia sẻ bài đăng của <%= name %>?
+    aspect_navigation:
+      select_all: Chọn tất cả
+      deselect_all: Bỏ chọn tất cả
+      no_aspects: Chưa chọn mối quan hệ nào
+      add_an_aspect: "+ Thêm một mối quan hệ"
+    getting_started:
+      hey: Này, <%= name %>!
+      no_tags: Bạn chưa theo dõi hashtag nào cả! Tiếp tục?
+      alright_ill_wait: Được rồi, tôi sẽ chờ.
+      preparing_your_stream: Đang tải bài đăng cho bạn...
+    photo_uploader:
+      upload_photos: Tải lên hình ảnh
+      looking_good: Ôi, trông bạn thật tuyệt!
+      completed: Đã tải lên <%= file %>
+      error: Có vấn đề khi tải lên <%= file %>
+      invalid_ext: Tập tin {file} có định dạng không hỗ trợ. Chỉ chấp nhận {extensions}.
+      size_error: Tập tin {file} quá lớn, dung lượng tối đa là {sizeLimit}.
+      empty: Tập tin {file} rỗng, hãy chọn lại tập tin khác.
+    tags:
+      wasnt_that_interesting: 'Tôi cho rằng #<%= tagName %> không thú vị...'
+    people:
+      not_found: "... và không tìm thấy ai"
+      mention: Nhắc đến ai đó
+      message: Nhắn tin
+      edit_my_profile: Chỉnh sửa trang cá nhân
+      stop_ignoring: Bỏ ẩn
+      helper:
+        is_sharing: "<%= name %> đang theo dõi bạn"
+        is_not_sharing: "<%= name %> đang không theo dõi bạn"
+    profile:
+      edit: Chỉnh sửa
+      add_some: Thêm
+      you_have_no_tags: Bạn chưa có hashtag nào!
+      bio: Tiểu sử
+      location: Đến từ
+      gender: Giới tính
+      born: Sinh nhật
+      photos: Hình ảnh
+      posts: Bài đăng
+    conversation:
+      create:
+        no_recipient: Ey, bạn cần thêm người nhận trước!
+      new:
+        no_contacts: Bạn cần thêm vài người dùng trước khi có thể nhắn tin.
+    notifications:
+      mark_read: Đánh dấu đã đọc
+      mark_unread: Đánh dấu chưa đọc
+      new_notifications:
+        other: Bạn có <%= count %> thông báo chưa đọc
+    stream:
+      hide: Ẩn
+      public: Công khai
+      limited: Hạn chế
+      like: Thích
+      unlike: Bỏ thích
+      reshare: Chia sẻ lại
+      comment: Bình luận
+      original_post_deleted: Bài đăng gốc đã bị xoá
+      show_nsfw_post: Hiện bài đăng
+      show_nsfw_posts: Hiện tất cả
+      hide_nsfw_posts: 'Ẩn bài đăng #nsfw'
+      follow: Theo dõi
+      unfollow: Bỏ theo dõi
+      enable_post_notifications: Bật thông báo cho bài đăng này
+      disable_post_notifications: Tắt thông báo cho bài đăng này
+      permalink: Liên kết cố định
+      via: qua <%= provider %>
+      no_posts_yet: Chưa có bài đăng công khai nào.
+      likes:
+        zero: không ai thích
+        other: "<%= count %> người thích"
+      reshares:
+        zero: Không có ai chia sẻ lại
+        other: "<%= count %> lượt chia sẻ"
+      comments:
+        other: "<%= count %> bình luận"
+      more_comments:
+        zero: Hiện thêm <%= count %> bình luận
+        other: Hiện thêm <%= count %> bình luận
+      followed_tag:
+        title: 'Hashtag #đã theo dõi'
+        add_a_tag: Thêm một hashtag
+        follow: Theo dõi
+      tags:
+        follow: 'Theo dõi #<%= tag %>'
+        following: 'Đang theo dõi #<%= tag %>'
+        stop_following: 'Ngưng theo dõi #<%= tag %>'
+        stop_following_confirm: 'Ngưng theo dõi #<%= tag %>?'
+        follow_error: 'Không thể theo dõi #<%= tag %> :('
+        stop_following_error: 'Không thể ngưng theo dõi #<%= tag %> :('
+    header:
+      home: Trang chính
+      profile: Trang cá nhân
+      contacts: Danh bạ
+      settings: Thiết lập
+      help: Trợ giúp
+      admin: Quản trị
+      moderator: Kiểm duyệt viên
+      log_out: Đăng xuất
+      toggle_navigation: Chuyển chế độ
+      switch_to_touch_optimized_mode: Giao diện di động
+      notifications: Thông báo
+      conversations: Thảo luận
+      search: Tìm kiếm
+      recent_notifications: Thông báo gần đây
+      mark_all_as_read: Đánh dấu tất cả là đã đọc
+      view_all: Xem tất cả
+      close: Đóng
     viewer:
-      reshared: "Đã chia sẻ lại"
+      reshared: Đã chia sẻ lại
+    poll:
+      vote: Bình chọn
+      go_to_original_post: Bạn có thể tham gia bình chọn ở <%= original_post_link %>.
+      original_post: bài đăng gốc
+      result: Kết quả
+      count:
+        other: "<%=count%> lượt bình chọn"
+      answer_count:
+        zero: Chưa có bình chọn
+        other: "<%=count%> lượt bình chọn"
+      show_result: Xem kết quả
+      close_result: Ẩn kết quả
+      your_vote: Bình chọn của bạn

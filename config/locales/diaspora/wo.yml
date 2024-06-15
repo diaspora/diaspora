@@ -5,135 +5,135 @@
 
 
 wo:
+  settings: Tànneef
+  profile: Xibaar yu la Ñeel
+  privacy: Mbóot
+  ok: Ayca
+  username: Turu Jëfandikukat
+  email: Email
+  search: Seetal
   admins:
     admin_bar:
-      pages: "Xët yi"
+      pages: Xët yi
     stats:
-      2weeks: "2i Ayubés"
-      go: "dem"
-      month: "Weer"
-      week: "Ayubés"
+      week: Ayubés
+      2weeks: 2i Ayubés
+      month: Weer
+      go: dem
   aspects:
-    index:
-      help:
-        any_problem: "Am Nga Jafejafe?"
-        do_you: "Danga"
-        find_a_bug: "... fekk %{link}?"
-        have_a_question: "... am %{link}?"
-        here_to_help: "Mbooloo mu Diaspora fii nekk!"
-        need_help: "Soxla Nga Ndimbal?"
-        tag_question: "laaj"
-      new_here:
-        follow: "Toppal ci %{link} te wax dalal-jàmm ci jëfandikukat yu bees ci Diaspora*!"
-        title: "Dalal-jàmm Jëfandikukat yu Bees"
-      welcome_to_diaspora: "Dalal-jàmm ci Diaspora, %{name}!"
     seed:
-      family: "Waakër"
-      friends: "Xarit"
-      work: "Ligéey"
-  blocks:
-    destroy:
-      success: "Ayca nu gis liñu wax! #nuyu"
+      family: Waakër
+      work: Ligéey
+      friends: Xarit
+    index:
+      welcome_to_diaspora: Dalal-jàmm ci Diaspora, %{name}!
+      new_here:
+        title: Dalal-jàmm Jëfandikukat yu Bees
+        follow: Toppal ci %{link} te wax dalal-jàmm ci jëfandikukat yu bees ci Diaspora*!
+      help:
+        need_help: Soxla Nga Ndimbal?
+        here_to_help: Mbooloo mu Diaspora fii nekk!
+        do_you: Danga
+        have_a_question: "... am %{link}?"
+        tag_question: laaj
+        find_a_bug: "... fekk %{link}?"
+        any_problem: Am Nga Jafejafe?
   bookmarklet:
-    heading: "Bookmarklet"
+    heading: Bookmarklet
   contacts:
     index:
-      no_contacts_message: "Xoolal %{community_spotlight}"
+      no_contacts_message: Xoolal %{community_spotlight}
   conversations:
     new:
-      to: "ci"
-  email: "Email"
+      to: ci
   invitations:
     new:
-      language: "Làkk"
+      language: Làkk
   layouts:
-    application:
-      whats_new: "lu bees?"
     header:
-      logout: "Génnu"
-      profile: "Xibaar yu la Ñeel"
-      settings: "Tànneef"
+      profile: Xibaar yu la Ñeel
+      settings: Tànneef
+      logout: Génnu
+    application:
+      whats_new: lu bees?
   notifications:
     index:
-      and: "ak"
+      and: ak
   notifier:
-    click_here: "cuqal fii"
-    hello: "Na nga def %{name}?"
+    click_here: cuqal fii
+    hello: Na nga def %{name}?
+    thanks: Jërëjëf,
     started_sharing:
-      view_profile: "Xoolal xibaar yu %{name} ñeel"
-    thanks: "Jërëjëf,"
-  ok: "Ayca"
+      view_profile: Xoolal xibaar yu %{name} ñeel
   people:
     person:
-      thats_you: "Yow la!"
+      thats_you: Yow la!
     profile_sidebar:
-      born: "besu judd"
-      location: "dëkk"
-  privacy: "Mbóot"
-  profile: "Xibaar yu la Ñeel"
+      location: dëkk
+      born: besu judd
   profiles:
     edit:
-      first_name: "Tur bi"
-      last_name: "Sant wi"
-      your_birthday: "Sa besu judd"
-      your_location: "Sa dëkk"
-      your_name: "Sa tur"
-      your_photo: "Sa nataal"
-      your_tags_placeholder: "ni #film #muus #tukki #jàngalekat #newyork"
+      your_name: Sa tur
+      first_name: Tur bi
+      last_name: Sant wi
+      your_birthday: Sa besu judd
+      your_tags_placeholder: 'ni #film #muus #tukki #jàngalekat #newyork'
+      your_location: Sa dëkk
+      your_photo: Sa nataal
   registrations:
     new:
-      email: "EMAIL"
-      enter_email: "Duggal email"
-      password: "BAATUJÀLL"
-      sign_up: "SOS AM SÀQ"
-      username: "TURU JËFANDIKUKAT"
-  search: "Seetal"
-  settings: "Tànneef"
+      enter_email: Duggal email
+      sign_up: SOS AM SÀQ
+      email: EMAIL
+      username: TURU JËFANDIKUKAT
+      password: BAATUJÀLL
+  blocks:
+    destroy:
+      success: 'Ayca nu gis liñu wax! #nuyu'
   shared:
-    invitations:
-      by_email: "Ci email"
-    public_explain:
-      logged_in: "Danga xammeeku ci %{service}"
-      share: "Bokkal"
     publisher:
+      whats_on_your_mind: Lu bees?
       new_user_prefill:
-        hello: "Na ngeen def? %{new_user_tag}. "
-        newhere: "BeesNaaFii"
-      whats_on_your_mind: "Lu bees?"
+        newhere: BeesNaaFii
+        hello: 'Na ngeen def? %{new_user_tag}. '
+    invitations:
+      by_email: Ci email
+    public_explain:
+      share: Bokkal
+      logged_in: Danga xammeeku ci %{service}
     stream_element:
-      via: "cib %{link}"
-  streams:
-    followed_tag:
-      follow: "Toppal"
-    like_stream:
-      title: "Seyaanu Bëggukaay yi"
-    multi:
-      title: "Seyaan"
+      via: cib %{link}
   tags:
     show:
-      follow: "Toppal #%{tag}"
-      stop_following: "Bul Topp #%{tag}"
-  username: "Turu Jëfandikukat"
+      follow: 'Toppal #%{tag}'
+      stop_following: 'Bul Topp #%{tag}'
+  streams:
+    like_stream:
+      title: Seyaanu Bëggukaay yi
+    followed_tag:
+      follow: Toppal
+    multi:
+      title: Seyaan
   users:
     edit:
-      change: "Soppil"
-      change_email: "Soppil email"
-      change_language: "Soppil làkk"
-      change_password: "Soppil baatujàll"
-      current_password: "Baatujàll bi fi nekk"
-      current_password_expl: "bi xammeeku ak..."
-      following: "Tànneefi Topp"
-      new_password: "Baatujàll bu bees"
-      stream_preferences: "Tànneefi Seyaan"
-      your_email: "Sa email"
-      your_handle: "Sa limu Diaspora"
-    getting_started:
-      awesome_take_me_to_diaspora: "Baax na! Indi ma ci Diaspora*"
-      well_hello_there: "Asalaamu aleykum! Na nga def?"
-      what_are_you_in_to: "Loo bëgg?"
-      who_are_you: "Kan nga?"
+      change: Soppil
+      your_handle: Sa limu Diaspora
+      your_email: Sa email
+      change_email: Soppil email
+      change_password: Soppil baatujàll
+      new_password: Baatujàll bu bees
+      current_password: Baatujàll bi fi nekk
+      current_password_expl: bi xammeeku ak...
+      change_language: Soppil làkk
+      stream_preferences: Tànneefi Seyaan
+      following: Tànneefi Topp
     privacy_settings:
-      title: "Tànneefi Mbóot"
+      title: Tànneefi Mbóot
+    getting_started:
+      well_hello_there: Asalaamu aleykum! Na nga def?
+      awesome_take_me_to_diaspora: Baax na! Indi ma ci Diaspora*
+      who_are_you: Kan nga?
+      what_are_you_in_to: Loo bëgg?
     update:
-      language_changed: "Làkk dafa soppi"
-      password_changed: "Baatujàll dafa soppi. Léegi danga mën xammeeku ak sa baatujàll bu bees."
+      password_changed: Baatujàll dafa soppi. Léegi danga mën xammeeku ak sa baatujàll bu bees.
+      language_changed: Làkk dafa soppi

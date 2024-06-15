@@ -6,100 +6,100 @@
 
 ka:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "კონტაქტის დამატება"
-      all_aspects: "ყველა ასპექტი"
-      error: "<%= name %>-თან გაზიარების დაწყება ვერ მოხერხდა. იგნორირება ხომ არ გაუკეთეთ მას?"
-      select_aspects: "აირჩიეთ ასპექტები"
-      started_sharing_with: "თქვნ დაიწყეთ <%= name %>-თან გაზიარება!"
-      stopped_sharing_with: "თქვენ შეწყვიტეთ <%= name %>-თან გაზიარება."
-      toggle:
-        other: "<%= count %> ასპექტში"
-        zero: "აირჩიეთ ასპექტები"
-    aspect_navigation:
-      deselect_all: "მონიშვნის მოხსნა"
-      no_aspects: "ასპექტები არ არის არჩეული"
-      select_all: "ყველას მონიშვნა"
-    comments:
-      hide: "კომენტარების დამალვა"
-      show: "ყველა კომენტარის ჩვენება"
-    confirm_dialog: "დარწმუნებული ხართ?"
-    delete: "წაშლა"
-    failed_to_post_message: "შეტყობინების გამოქვეყნება ვერ მოხერხდა!"
-    getting_started:
-      alright_ill_wait: "კარგი, მოვიცდი."
-      hey: "ჰეი, <%= name %>!"
-      no_tags: "თქვენ არ მიყვებით არცერთ ტეგს! მაინც გსურთ გაგრძელება?"
-      preparing_your_stream: "თქვენი პერსონალიზებული სესია მზადდება..."
-    header:
-      admin: "ადმინისტრატორი"
-      contacts: "კონტაქტები"
-      home: "სახლი"
-      log_out: "გამოსვლა"
-      mark_all_as_read: "ყველას წაკითხულად მონიშვნა"
-      notifications: "შეტყობინებები"
-      profile: "პროფილი"
-      recent_notifications: "ბოლო შეტყობინებები"
-      search: "მოძებნე ხალხი ან #ტაგები"
-      settings: "პარამეტრები"
-      view_all: "ყველას ჩვენება"
-    ignore: "იგნორირება"
-    my_activity: "ჩემი აქტივობა"
-    my_stream: "ნაკადი"
-    photo_uploader:
-      looking_good: "OMG, ძალიან კარგად გამოიყურები!"
-    show_more: "მეტის ჩვენება"
-    stream:
-      comment: "კომენტარი"
-      follow: "გაყოლა"
-      hide: "დამალვა"
-      hide_nsfw_posts: "#nsfw პოსტების დამალვა"
-      like: "მომწონს"
-      likes:
-        other: "<%= count %> მოწონება"
-        zero: "<%= count %> მოწონება"
-      limited: "შეზღუდული"
-      more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
-      original_post_deleted: "ავტორმა წაშალა ორიგინალი პოსტი."
-      public: "საჯარო"
-      reshare: "ხელახლა გაზიარება"
-      reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
-      show_nsfw_post: "პოსტის ჩვენება"
-      show_nsfw_posts: "ყველას ჩვენება"
-      unfollow: "გაყოლის შეწყვეტა"
-      unlike: "არ მომწონს"
-    tags:
-      wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #<%= tagName %> არც ისე საინტერესო იყო..."
     timeago:
-      day: "დღე"
-      days:
-        other: "%d დღე"
-      hour: "დაახლოებით ერთი საათი"
-      hours:
-        other: "დაახლოებით %d საათი"
-      minute: "დაახლოებით წუთი"
+      prefixAgo: ''
+      suffixAgo: ადრე
+      suffixFromNow: ამიერიდან
+      prefixFromNow: ''
+      seconds: წუთზე ნაკლები
+      minute: დაახლოებით წუთი
       minutes:
         other: "%d წუთი"
-      month: "დაახლოებით ერთი თვე"
+      hour: დაახლოებით ერთი საათი
+      hours:
+        other: დაახლოებით %d საათი
+      day: დღე
+      days:
+        other: "%d დღე"
+      month: დაახლოებით ერთი თვე
       months:
         other: "%d თვე"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "წუთზე ნაკლები"
-      suffixAgo: "ადრე"
-      suffixFromNow: "ამიერიდან"
-      year: "დაახლოებით ერთი წელი"
+      year: დაახლოებით ერთი წელი
       years:
         other: "%d წელი"
+    confirm_dialog: დარწმუნებული ხართ?
+    delete: წაშლა
+    ignore: იგნორირება
+    my_activity: ჩემი აქტივობა
+    my_stream: ნაკადი
+    aspect_dropdown:
+      add_to_aspect: კონტაქტის დამატება
+      select_aspects: აირჩიეთ ასპექტები
+      all_aspects: ყველა ასპექტი
+      stopped_sharing_with: თქვენ შეწყვიტეთ <%= name %>-თან გაზიარება.
+      started_sharing_with: თქვნ დაიწყეთ <%= name %>-თან გაზიარება!
+      error: "<%= name %>-თან გაზიარების დაწყება ვერ მოხერხდა. იგნორირება ხომ არ გაუკეთეთ მას?"
+      toggle:
+        zero: აირჩიეთ ასპექტები
+        other: "<%= count %> ასპექტში"
+    show_more: მეტის ჩვენება
+    failed_to_post_message: შეტყობინების გამოქვეყნება ვერ მოხერხდა!
+    comments:
+      show: ყველა კომენტარის ჩვენება
+      hide: კომენტარების დამალვა
+    aspect_navigation:
+      select_all: ყველას მონიშვნა
+      deselect_all: მონიშვნის მოხსნა
+      no_aspects: ასპექტები არ არის არჩეული
+    getting_started:
+      hey: ჰეი, <%= name %>!
+      no_tags: თქვენ არ მიყვებით არცერთ ტეგს! მაინც გსურთ გაგრძელება?
+      alright_ill_wait: კარგი, მოვიცდი.
+      preparing_your_stream: თქვენი პერსონალიზებული სესია მზადდება...
+    photo_uploader:
+      looking_good: OMG, ძალიან კარგად გამოიყურები!
+    tags:
+      wasnt_that_interesting: 'კარგი, მე ვფიქრობ რომ #<%= tagName %> არც ისე საინტერესო იყო...'
+    stream:
+      hide: დამალვა
+      public: საჯარო
+      limited: შეზღუდული
+      like: მომწონს
+      unlike: არ მომწონს
+      reshare: ხელახლა გაზიარება
+      comment: კომენტარი
+      original_post_deleted: ავტორმა წაშალა ორიგინალი პოსტი.
+      show_nsfw_post: პოსტის ჩვენება
+      show_nsfw_posts: ყველას ჩვენება
+      hide_nsfw_posts: "#nsfw პოსტების დამალვა"
+      follow: გაყოლა
+      unfollow: გაყოლის შეწყვეტა
+      likes:
+        zero: "<%= count %> მოწონება"
+        other: "<%= count %> მოწონება"
+      reshares:
+        zero: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        two: "<%= count %> Reshares"
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        other: "<%= count %> Reshares"
+      more_comments:
+        zero: Show <%= count %> more comments
+        one: Show <%= count %> more comment
+        two: Show <%= count %> more comments
+        few: Show <%= count %> more comments
+        many: Show <%= count %> more comments
+        other: Show <%= count %> more comments
+    header:
+      home: სახლი
+      profile: პროფილი
+      contacts: კონტაქტები
+      settings: პარამეტრები
+      admin: ადმინისტრატორი
+      log_out: გამოსვლა
+      notifications: შეტყობინებები
+      search: 'მოძებნე ხალხი ან #ტაგები'
+      recent_notifications: ბოლო შეტყობინებები
+      mark_all_as_read: ყველას წაკითხულად მონიშვნა
+      view_all: ყველას ჩვენება

@@ -5,113 +5,113 @@
 
 
 io:
-  _applications: "Utilaji"
-  _contacts: "Konocati"
-  _services: "Servi"
-  account: "Konto"
+  settings: Ajusti
+  profile: Profilo
+  account: Konto
+  privacy: Privateso
+  _services: Servi
+  _applications: Utilaji
+  ok: Bone
+  cancel: Anular
+  delete: Efacar
+  username: Uzantonomo
+  email: E-posto
+  are_you_sure: Ka vu esas certa?
+  are_you_sure_delete_account: Ka vu certe volas klozar vua konto? To ne povas esar desfacota.
+  public: Publika
+  limited: Limitizita
+  search: Serchar
+  nsfw: NSFW
+  find_people: 'Serchez personi o #"tag" -i'
+  more: Plusa
+  all_aspects: Omna Aspekti
+  no_results: Nula rezultajo trovesis
+  _contacts: Konocati
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "mustas esar unika inter la konocati di ta uzero."
+            person:
+              invalid: es nevalida.
+            username:
+              taken: es ja selektita.
+              invalid: es nevalida. Ni nur permisas literi, nombri, e sub-strek-izi.
+            email:
+              taken: es ja selektita.
         person:
           attributes:
             diaspora_handle:
-              taken: "es ja selektita."
-        user:
+              taken: es ja selektita.
+        contact:
           attributes:
-            email:
-              taken: "es ja selektita."
-            person:
-              invalid: "es nevalida."
-            username:
-              invalid: "es nevalida. Ni nur permisas literi, nombri, e sub-strek-izi."
-              taken: "es ja selektita."
+            person_id:
+              taken: mustas esar unika inter la konocati di ta uzero.
   admins:
     stats:
-      month: "Monato"
-      week: "Semano"
-  all_aspects: "Omna Aspekti"
-  are_you_sure: "Ka vu esas certa?"
-  are_you_sure_delete_account: "Ka vu certe volas klozar vua konto? To ne povas esar desfacota."
+      week: Semano
+      month: Monato
   aspects:
+    edit:
+      confirm_remove_aspect: Ka vu certe volas efacar ita aspekto?
+      rename: ri-nomizez
+      aspect_list_is_visible: Konocati en ita aspekto povas vidar l'una l'altra.
+      aspect_list_is_not_visible: Konocati en ita aspekto ne povas vidar l'una l'altra.
+      update: aktualigez
+      updating: aktualigas
+    no_contacts_message:
+      you_should_add_some_more_contacts: Vu devas adjuntar plusa konocati!
+      try_adding_some_more_contacts: Vu povas serchar od invitar plusa konocati.
     aspect_listings:
       add_an_aspect: "+ Adjuntez aspekto"
     destroy:
       success: "%{name} sucesoze efacesis."
-    edit:
-      aspect_list_is_not_visible: "Konocati en ita aspekto ne povas vidar l'una l'altra."
-      aspect_list_is_visible: "Konocati en ita aspekto povas vidar l'una l'altra."
-      confirm_remove_aspect: "Ka vu certe volas efacar ita aspekto?"
-      rename: "ri-nomizez"
-      update: "aktualigez"
-      updating: "aktualigas"
-    index:
-      donate: "Donacar"
-      help:
-        do_you: "Ka vu:"
-        here_to_help: "Yen la Diaspora komuneso!"
-        need_help: "Ka Vu Bezonas Helpo?"
-        tag_question: "questiono"
-      new_here:
-        learn_more: "Lektez pluse"
-        title: "Bonvenez Nova Uzanti"
-    no_contacts_message:
-      try_adding_some_more_contacts: "Vu povas serchar od invitar plusa konocati."
-      you_should_add_some_more_contacts: "Vu devas adjuntar plusa konocati!"
     seed:
-      acquaintances: "Konocati"
-      family: "Familio"
-      friends: "Amiki"
-      work: "Laboro"
-  cancel: "Anular"
+      family: Familio
+      work: Laboro
+      acquaintances: Konocati
+      friends: Amiki
+    index:
+      donate: Donacar
+      new_here:
+        title: Bonvenez Nova Uzanti
+        learn_more: Lektez pluse
+      help:
+        need_help: Ka Vu Bezonas Helpo?
+        here_to_help: Yen la Diaspora komuneso!
+        do_you: 'Ka vu:'
+        tag_question: questiono
   contacts:
     index:
-      start_a_conversation: "Komencez nova debato"
-  delete: "Efacar"
-  email: "E-posto"
-  find_people: "Serchez personi o #\"tag\" -i"
+      start_a_conversation: Komencez nova debato
   invitations:
     new:
-      language: "Linguo"
+      language: Linguo
   layouts:
     header:
-      profile: "Profilo"
-  limited: "Limitizita"
-  more: "Plusa"
-  no_results: "Nula rezultajo trovesis"
-  nsfw: "NSFW"
-  ok: "Bone"
+      profile: Profilo
   people:
     profile_sidebar:
-      born: "Naskodio"
-      location: "Loko"
+      location: Loko
+      born: Naskodio
   photos:
     destroy:
-      notice: "Fotografuro efacata"
-  privacy: "Privateso"
-  profile: "Profilo"
+      notice: Fotografuro efacata
   profiles:
     edit:
-      your_birthday: "Tua naskodio"
-      your_name: "Tua nomo"
-      your_photo: "Tua fotografuro"
-  public: "Publika"
+      your_name: Tua nomo
+      your_birthday: Tua naskodio
+      your_photo: Tua fotografuro
   registrations:
     new:
-      password: "PASOVORTO"
-  search: "Serchar"
-  settings: "Ajusti"
+      password: PASOVORTO
   streams:
     followed_tag:
-      follow: "Sequez"
-  username: "Uzantonomo"
+      follow: Sequez
   users:
     edit:
-      change: "Chanjar"
-      change_language: "Chanjez linguo"
-      change_password: "Chanjez pasovorto"
-      current_password: "Nuna pasovorto"
-      new_password: "Nova pasovorto"
+      change: Chanjar
+      change_password: Chanjez pasovorto
+      new_password: Nova pasovorto
+      current_password: Nuna pasovorto
+      change_language: Chanjez linguo

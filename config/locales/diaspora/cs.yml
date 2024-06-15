@@ -5,1287 +5,1285 @@
 
 
 cs:
-  _applications: "Aplikace"
-  _contacts: "Kontakty"
-  _help: "Nápověda"
-  _services: "Služby"
-  _statistics: "Statistiky"
-  _terms: "Pojmy"
-  account: "Účet"
+  settings: Nastavení
+  profile: Profil
+  account: Účet
+  privacy: Soukromí
+  _services: Služby
+  _applications: Aplikace
+  _help: Nápověda
+  ok: Budiž
+  cancel: Zrušit
+  delete: Smazat
+  username: Uživatelské jméno
+  email: E-mail
+  are_you_sure: Jste si jisti?
+  are_you_sure_delete_account: Opravdu chcete uzavřít svůj účet? Tuto operaci nelze vrátit!
+  are_you_sure_ignore_user: Tohoto uživatele budete ignorovat. Opravdu to chcete?
+  fill_me_out: Vyplňte
+  public: Veřejné
+  limited: Omezený
+  search: Hledat
+  nsfw: Citlivý obsah (erotika, násilí a podobně)
+  find_people: 'Najít lidi nebo #štítky'
+  more: Více
+  all_aspects: Všechny aspekty
+  no_results: Nebyly nalezeny žádné výsledky
+  _contacts: Kontakty
+  _terms: Pojmy
+  _statistics: Statistiky
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "musí být unikátní v rámci kontaktů tohoto uživatele."
+            person:
+              invalid: je neplatný.
+            username:
+              taken: je již obsazeno.
+              invalid: je neplatné. Povolené znaky jsou pouze písmena, číslice a podtržítko.
+            email:
+              taken: je již obsazen.
         person:
           attributes:
             diaspora_handle:
-              taken: "je již obsazen."
-        poll:
+              taken: je již obsazen.
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "Anketa nemá dostatek možností na výběr."
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "Této ankety jste se již účastnil/a!"
+            person_id:
+              taken: musí být unikátní v rámci kontaktů tohoto uživatele.
         reshare:
           attributes:
             root_guid:
-              taken: "Není to skvělé? Tento příspěvek už sdílíte!"
-        user:
+              taken: Není to skvělé? Tento příspěvek už sdílíte!
+        poll:
           attributes:
-            email:
-              taken: "je již obsazen."
-            person:
-              invalid: "je neplatný."
-            username:
-              invalid: "je neplatné. Povolené znaky jsou pouze písmena, číslice a podtržítko."
-              taken: "je již obsazeno."
+            poll_answers:
+              not_enough_poll_answers: Anketa nemá dostatek možností na výběr.
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: Této ankety jste se již účastnil/a!
+  errors:
+    messages:
+      carrierwave_processing_error: se nepodařilo zpracování
+      carrierwave_integrity_error: není povoleného typu souboru
+      carrierwave_download_error: nemohlo být staženo
+      extension_whitelist_error: 'Nemáte povolení nahrávat soubory %{extension}, povolené typy: %{allowed_types}'
+      extension_blacklist_error: 'Nemáte povolení nahrávat soubory %{extension}, zakázané typy: %{prohibited_types}'
+      content_type_whitelist_error: Nemáte povolení nahrávat soubory %{content_type}
+      content_type_blacklist_error: Nemáte povolení nahrávat soubory %{content_type}
+      rmagick_processing_error: Manipulace pomocí rmagick selhala, třeba to není obrázek?
+      mini_magick_processing_error: 'Manipulace pomocí MiniMagick selhala, třeba to není obrázek? Původní chyba: %{e}'
+      min_size_error: Velikost souboru musí být větší než %{min_size}
+      max_size_error: Velikost souboru musí být menší než %{max_size}
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Opravte následující chyby a zkuste to znovu.
+    need_javascript: Tato stránka vyžaduje pro své plné fungování JavaScript. Pokud jste Javascript zakázali, povolte jej a obnovte stránku.
+    csrf_token_fail: CSRF token je neplatný. Prosím přihlaste se a zkuste to znovu.
+    mobile_not_available: Tuto stránku nelze zobrazit v mobilním zobrazení, prosím přejděte na %{desktop_link}.
+    desktop_view_link: desktopové zobrazení
   admins:
     admin_bar:
-      dashboard: "Přehled"
-      pages: "Stránky"
-      pod_network: "Síť pod"
-      pod_stats: "Statistiky podu"
-      report: "Nahlášení"
-      sidekiq_monitor: "Monitor Sidekiq"
-      user_search: "Hledat uživatele"
-      weekly_user_stats: "Týdenní uživatelské statistiky"
+      pages: Stránky
+      dashboard: Přehled
+      user_search: Hledat uživatele
+      weekly_user_stats: Týdenní uživatelské statistiky
+      pod_stats: Statistiky podu
+      report: Nahlášení
+      sidekiq_monitor: Monitor Sidekiq
+      pod_network: Síť pod
     dashboard:
-      fetching_diaspora_version: "Určuji nejnovější verze diaspory*..."
-      pod_status: "Statistiky podu"
-    pods:
-      pod_network: "Síť podů"
-    stats:
-      2weeks: "Dvoutýdenní"
-      50_most: "50 nejoblíbenějších štítků"
-      comments:
-        few: "%{count} komentáře"
-        one: "jeden komentář"
-        other: "%{count} komentářů"
-        zero: "žádný komentář"
-      current_segment: "Současný segment má v průměru %{post_yest} příspěvků na uživatele, od %{post_day}"
-      daily: "Denní"
-      display_results: "Zobrazují se výsledky ze segmentu %{segment}"
-      go: "Přejít"
-      month: "Měsíční"
-      posts:
-        few: "%{count} příspěvky"
-        one: "jeden příspěvek"
-        other: "%{count} příspěvků"
-        zero: "žádný příspěvek"
-      shares:
-        few: "%{count} sdílení"
-        one: "jedno sdílení"
-        other: "%{count} sdílení"
-        zero: "žádné sdílení"
-      tag_name: "Štítek: %{name_tag} Počet: %{count_tag}"
-      usage_statistic: "Statistika využití"
-      users:
-        few: "%{count} uživatelé"
-        one: "jeden uživatel"
-        other: "%{count} uživatelů"
-        zero: "žádný uživatel"
-      week: "Týdenní"
-    user_entry:
-      account_closed: "Účet zrušen"
-      admin: "Administrátor"
-      diaspora_handle: "diaspora* ID"
-      email: "E-mail"
-      guid: "GUID"
-      id: "ID"
-      invite_token: "Token pozvánky"
-      last_seen: "Naposledy navštíveno"
-      moderator: "Moderátor"
-      ? "no"
-      : Ne
-      nsfw: "#nsfw"
-      spotlight: "Reflektor"
-      unknown: "Neznámé"
-      ? "yes"
-      : Ano
+      pod_status: Statistiky podu
+      fetching_diaspora_version: Určuji nejnovější verze diaspory*...
     user_search:
-      account_closing_scheduled: "Účet uživatele %{name} bude uzavřen. Prosím, vyčkejte."
-      account_locking_scheduled: "Účet uživatele %{name} bude uzamknut. Prosím, vyčkejte."
-      account_unlocking_scheduled: "Účet uživatele %{name} bude odemknut. Prosím, vyčkejte."
+      you_currently:
+        zero: Nezbývá vám žádná pozvánka %{link}
+        one: Zbývá vám jediná pozvánka %{link}
+        few: Zbývají vám %{count} pozvánky %{link}
+        other: Zbývá vám %{count} pozvánek %{link}
+      view_profile: Zobrazit profil
+      add_invites: Přidat pozvánky
+      close_account: Uzavřít účet
+      lock_account: Zamknout Účet
+      unlock_account: Odemknout účet
+      are_you_sure: Jste si jist/á, že tento účet chcete zrušit ?
+      are_you_sure_lock_account: Určitě chcete uzamknout tento účet ?
+      are_you_sure_unlock_account: Určitě chcete odemknout teto účet ?
+      account_closing_scheduled: Účet uživatele %{name} bude uzavřen. Prosím, vyčkejte.
+      account_locking_scheduled: Účet uživatele %{name} bude uzamknut. Prosím, vyčkejte.
+      account_unlocking_scheduled: Účet uživatele %{name} bude odemknut. Prosím, vyčkejte.
+      make_admin: Jmenovat administrátorem
+      remove_admin: Odstranit jako administrátora
+      make_moderator: Jmenovat moderátorem
+      remove_moderator: Odstranit jako moderátora
+      make_spotlight: Přidat do komunitního reflektoru
+      remove_spotlight: Odstranit z komunitního reflektoru
       add_admin: "%{name} byl/a jmenován/a administrátorem."
-      add_invites: "Přidat pozvánky"
-      add_moderator: "%{name} byl/a jmenován/a moderátorem."
-      add_spotlight: "%{name} byl/a přidán/a do komunitního reflektoru."
-      are_you_sure: "Jste si jist/á, že tento účet chcete zrušit ?"
-      are_you_sure_lock_account: "Určitě chcete uzamknout tento účet ?"
-      are_you_sure_unlock_account: "Určitě chcete odemknout teto účet ?"
-      close_account: "Uzavřít účet"
       delete_admin: "%{name} byl/a odstraněn/a ze seznamu administrátorů."
+      add_moderator: "%{name} byl/a jmenován/a moderátorem."
       delete_moderator: "%{name} byl/a odstraněn/a ze seznamu moderátorů."
+      add_spotlight: "%{name} byl/a přidán/a do komunitního reflektoru."
       delete_spotlight: "%{name} byl/a odstraněn/a z komunitního reflektoru."
-      does_not_exist: "Uživatel neexistuje!"
-      email_to: "E-mailová adresa pro pozvání"
-      invite: "pozvat"
-      lock_account: "Zamknout Účet"
-      make_admin: "Jmenovat administrátorem"
-      make_moderator: "Jmenovat moderátorem"
-      make_spotlight: "Přidat do komunitního reflektoru"
-      remove_admin: "Odstranit jako administrátora"
-      remove_moderator: "Odstranit jako moderátora"
-      remove_spotlight: "Odstranit z komunitního reflektoru"
+      does_not_exist: Uživatel neexistuje!
       role_implemented: "%{name} již tuto roli má!"
       role_removal_implemented: "%{name} již byl/a z této role odstraněn/a!"
-      under_13: "Zobrazit uživatele mladší 13 let (COPPA)"
-      unlock_account: "Odemknout účet"
+      email_to: E-mailová adresa pro pozvání
+      invite: pozvat
+      under_13: Zobrazit uživatele mladší 13 let (COPPA)
       users:
-        few: "Nalezeni %{count} uživatelé"
-        one: "Nalezen jeden uživatel"
-        other: "Nalezeno %{count} uživatelů"
-        zero: "Žádný uživatel nenalezen"
-      view_profile: "Zobrazit profil"
-      you_currently:
-        few: "Zbývají vám %{count} pozvánky %{link}"
-        one: "Zbývá vám jediná pozvánka %{link}"
-        other: "Zbývá vám %{count} pozvánek %{link}"
-        zero: "Nezbývá vám žádná pozvánka %{link}"
+        zero: Žádný uživatel nenalezen
+        one: Nalezen jeden uživatel
+        few: Nalezeni %{count} uživatelé
+        other: Nalezeno %{count} uživatelů
+    user_entry:
+      id: ID
+      guid: GUID
+      email: E-mail
+      diaspora_handle: diaspora* ID
+      last_seen: Naposledy navštíveno
+      account_closed: Účet zrušen
+      nsfw: "#nsfw"
+      admin: Administrátor
+      moderator: Moderátor
+      spotlight: Reflektor
+      unknown: Neznámé
+      invite_token: Token pozvánky
+      'yes': Ano
+      'no': Ne
     weekly_user_stats:
+      current_server: Aktuální datum na serveru je %{date}
       amount_of:
-        few: "Počet nových uživatelů tento týden: %{count}"
-        one: "Počet nových uživatelů tento týden: %{count}"
-        other: "Počet nových uživatelů tento týden: %{count}"
-        zero: "Žadný nový uživatel tento týden"
-      current_server: "Aktuální datum na serveru je %{date}"
-  all_aspects: "Všechny aspekty"
+        zero: Žadný nový uživatel tento týden
+        one: 'Počet nových uživatelů tento týden: %{count}'
+        few: 'Počet nových uživatelů tento týden: %{count}'
+        other: 'Počet nových uživatelů tento týden: %{count}'
+    stats:
+      week: Týdenní
+      2weeks: Dvoutýdenní
+      month: Měsíční
+      daily: Denní
+      usage_statistic: Statistika využití
+      go: Přejít
+      display_results: Zobrazují se výsledky ze segmentu %{segment}
+      posts:
+        zero: žádný příspěvek
+        one: jeden příspěvek
+        few: "%{count} příspěvky"
+        other: "%{count} příspěvků"
+      comments:
+        zero: žádný komentář
+        one: jeden komentář
+        few: "%{count} komentáře"
+        other: "%{count} komentářů"
+      shares:
+        zero: žádné sdílení
+        one: jedno sdílení
+        few: "%{count} sdílení"
+        other: "%{count} sdílení"
+      users:
+        zero: žádný uživatel
+        one: jeden uživatel
+        few: "%{count} uživatelé"
+        other: "%{count} uživatelů"
+      current_segment: Současný segment má v průměru %{post_yest} příspěvků na uživatele, od %{post_day}
+      50_most: 50 nejoblíbenějších štítků
+      tag_name: 'Štítek: %{name_tag} Počet: %{count_tag}'
+    pods:
+      pod_network: Síť podů
+  aspects:
+    edit:
+      confirm_remove_aspect: Opravdu chcete odstranit tento aspekt?
+      rename: Přejmenovat
+      aspect_list_is_visible: Seznam kontaktů je viditelný pro ostatní v aspektu
+      aspect_list_is_not_visible: Seznam kontaktů je skryt ostatním v aspektu
+      update: Aktualizovat
+      updating: Aktualizuji
+    no_contacts_message:
+      you_should_add_some_more_contacts: Přidejte si více kontaktů!
+      try_adding_some_more_contacts: Nové kontakty můžete vyhledávat nebo někoho %{invite_link}.
+      invite_link_text: Pozvánka
+      or_spotlight: Můžete jej sdílet i pomocí %{link}
+      community_spotlight: Ve středu pozornosti komunity
+    aspect_listings:
+      add_an_aspect: "+ Přidat aspekt"
+    destroy:
+      success: "%{name} byl úspěšně odebrán."
+      success_auto_follow_back: "%{name} byl úspěšně odstraněn. Tento aspekt jste používal k automatickémy zařazení uživatelů, které receipročně sledujete. Zkrontrolujte své uživatelské nastavení a vyberte pro reciproční sledování jiný aspekt."
+      failure: "%{name} nemůže být odstraněn."
+    update:
+      success: Váš aspekt %{name} byl úspěšně upraven.
+      failure: Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen.
+    add_to_aspect:
+      failure: Přidání kontaktu do aspektu selhalo.
+      success: Kontakt byl úspěšně přidán do aspektu.
+    seed:
+      family: Rodina
+      work: Práce
+      acquaintances: Známí
+      friends: Přátelé
+    index:
+      donate: Přispějte
+      keep_pod_running: Pomozte %{pod} udržet rychlý, přispějte našim serverům na jejich měsíční dávku kávy!
+      donate_liberapay: Přispěj k liberapay
+      welcome_to_diaspora: Vítejte na diaspoře*, %{name}!
+      introduce_yourself: Tohle je váš proud.  Naskočte a představte se.
+      new_here:
+        title: Přivítejte nové uživatele
+        follow: Sleduj %{link} a přivítej nové uživatele na diaspoře*!
+        learn_more: Zjistit více
+      help:
+        need_help: Potřebujete pomoct?
+        here_to_help: Komunita diaspory* je tady!
+        do_you: 'Povězte:'
+        have_a_question: "… máte nějakou %{link}?"
+        tag_question: otázku
+        find_a_bug: "… našli jste %{link}?"
+        tag_bug: chybu
+        feature_suggestion: "… vymyslel jste novou %{link}?"
+        tag_feature: vlastnost
+        tutorials_and_wiki: "%{faq}, %{tutorial} a %{wiki}: Pomoc při prvních krocích."
+        tutorial_link_text: Tutoriály
+        support_forum: Můžete se také připojit k %{support_forum}.
+        support_forum_link: fóru podpory
+        any_problem: Nějaký problém?
+        contact_podmin: Napište správci vašeho podu!
+        mail_podmin: E-mail správce podu
+      services:
+        heading: Připojit služby
+        content: 'K diaspoře* můžete připojit následující služby:'
+    aspect_stream:
+      stay_updated: Zůstaňte v kontaktu
+      stay_updated_explanation: Proud je tvořen příspěvky vašich kontaktů, příspěvků se štítky, které sledujete, a příspěvků některých aktivních členů komunity.
+      make_something: Udělejte něco
+  aspect_memberships:
+    destroy:
+      success: Osoba byla úspěšně odstraněna z aspektu
+      failure: Nepodařilo se odstranit osobu z aspektu
+      no_membership: Nelze najít vybranou osobu v tomto aspektu
+      forbidden: Nemáte povolení k této akci.
+      invalid_statement: Záznam by odmítnut, protože už existuje.
+  bookmarklet:
+    heading: Bookmarklet
+    post_something: Sdílet na diaspoře*
+    explanation: 'Pište na diasporu* odkudkoliv: vytvořte si záložku => %{link}'
+  color_themes:
+    dark: Tmavá
+    dark_green: Tmavě zelená
+    egyptian_blue: Egyptsky modrá
+    magenta: Purpurová
+    original: Originální šedá
+    original_white: Originální bílé pozadí
+  comments:
+    new_comment:
+      comment: komentář
+      commenting: Komentování...
+  contacts:
+    index:
+      start_a_conversation: Zahájit konverzaci
+      title: Kontakty
+      no_contacts: Zdá se, že si potřebujete přidat nějaké kontakty.
+      no_contacts_message: Shlédněte %{community_spotlight}
+      community_spotlight: Aktuality z komunity
+      no_contacts_in_aspect: V tomto aspektu ještě nemáte žádné kontakty. Dále najdete seznam Vašich existujících kontaktů, které můžete do tohoto aspektu přidat.
+      my_contacts: Moje kontakty
+      all_contacts: Všechny kontakty
+      only_sharing_with_me: Pouze sdílejí se mnou
+      add_contact: Přidej kontakt
+      user_search: Hledat uživatele
+    spotlight:
+      community_spotlight: Aktuality z komunity
+      suggest_member: Navrhněte člena
+      no_members: Ještě zde nejsou žádní členové.
+  conversations:
+    index:
+      conversations_inbox: Konverzace - doručené
+      new_conversation: Nová konverzace
+      no_messages: Žádné zprávy
+      inbox: Doručená pošta
+      no_contacts: Musíte si přidat pár kontaktů, než začnete konverzaci
+    show:
+      reply: Odpovědět
+      replying: Odpovídám…
+      hide: Skrýt a ztlumit konverzaci
+      delete: Smazat konverzaci
+      last_message: Poslední zpráva obdržena %{timeago}
+    new:
+      to: Komu
+      subject: Předmět
+      subject_default: Žádný předmět
+      message: Zpráva
+      send: Poslat
+      sending: Posílám...
+    create:
+      sent: Zpráva byla odeslána
+      fail: Neplatná zpráva
+    new_conversation:
+      fail: Neplatná zpráva
+    destroy:
+      delete_success: Konverzace byla úspěšně smazána
+      hide_success: Konverzace byla úspěšně skryta
+  date:
+    formats:
+      fullmonth_day: "%-d. %EB"
+      birthday: "%-d. %EB"
+      birthday_with_year: "%-d. %EB %Y"
+  help:
+    title_header: Nápověda
+    tutorials: tutoriály
+    tutorial: tutoriál
+    irc: IRC
+    wiki: wiki
+    faq: často kladenými otázkami
+    markdown: Markdown
+    here: zde
+    foundation_website: webové stránky diaspora* foundation
+    third_party_tools: Nástroje jiných firem
+    getting_started_tutorial: Tutoriály pro nováčky
+    community_guidelines: komunitní směrnice
+    getting_help:
+      title: Jak získat pomoc ?
+      getting_started_q: Pomoc! Potřebuji základní pomoc, abych mohl začít!
+      getting_started_a: Máte štěstí. Vyzkoušejte %{tutorial_series} na stránce našeho projektu. Provede vás krok po kroku registrací a naučí vás všechny základní věci, co potřebujete o diaspoře* vědět.
+      get_support_q: Co když moje otázka není zodpovězena v těchto Častých dotazech? Kde jinde můžu sehnat pomoc?
+      get_support_a_website: Navštivte naše %{link}
+      get_support_a_tutorials: Koukněte na naše %{tutorials}
+      get_support_a_wiki: Prohledejte %{link}
+      get_support_a_irc: Přidejte se k nám na %{irc} (live chat)
+      get_support_a_faq: Čtete naši stránku s %{faq} na wiki
+      get_support_a_hashtag: Zeptejte se ve veřejném příspěvku na diaspoře* použitím hashtagu %{question}
+      get_support_a_discourse: Hledejte existující diskuze související s Vašim dotazem, nebo otevřete nové vlákno na naší platformě %{discourse}
+    account_and_data_management:
+      title: Účet a správa dat
+      move_pods_q: Jak si můžu přesunout účet z jednoho podu na druhý?
+      move_pods_a: V budoucnu budete moci exportovat svůj účet z podu a importovat ho na jiném, ale toto není v současné době možné. Můžete si vždy zařídit nový účet a přidat své kontakty do aspektů na tomto novém účtu, a požádat je, ať si váš nový účet přidají do svých aspektů.
+      download_data_q: Můžu si stáhnout kopii všech dat na mém účtu?
+      download_data_a: 'Ano. V dolní části karty Účet na stránce nastavení jsou dvě tlačítka: jedna pro stažení vašich dat a druhé pro stažení vašich fotek.'
+      close_account_q: Jak vymažu svůj ůčet?
+      close_account_a: Přejděte na dolní část vaší stránky nastavení a klikněte na tlačítko „Uzavřít účet“. Pro dokončení procesu budete dotázáni na heslo. Pamatujte, že pokud svůj účet uzavřete, <strong>nikdy</strong> již nebudete moci se na tomto podu zaregistrovat pod tímto uživatelským jménem.
+      data_visible_to_podmin_q: Jaké mé informace vidí můj administrátor podu?
+      data_visible_to_podmin_a: 'Ve zkratce: všechno. Komunikace mezi pody je šifrovaná (použitím SSL a vlastního šifrování diaspory*), ale skladování dat na podech není šifrované. Pokud by chtěli, mají administrátoři databáze vašeho podu (většinou osoby provozující pod) přístup ke všem datům na vašem profilu a ke všem vašim příspěvkům (podobně jako u věťšiny stránek, které uchovávají data). Proto Vám dáváme možnost výběru, na jakém podu se registrujete, takže si můžete vybrat pod, jehož administrátoru důvěřujete. Provozování vlastního podu poskytuje větší soukromí, neboť poté jen vy řídíte přístup k databázi.'
+      data_other_podmins_q: Mohou administrátoři jiných podů vidět mé informace?
+      data_other_podmins_a: Když začnete sdílet s někým na jiném podu, všechny příspěvky, které s ní/m sdílíte a kopie dat na vašem profilu jsou uchovávány (kešovány) na jejím/jeho podu a přísupné administrátorovi tohoto podu. Když smažete příspěvek nebo data z profilu, jsou smazány z vašeho podu a z kterýchkoli dalších podů, kde byly v minulosti uchovávány. Obrázky nikdy nejsou uchovány na jiném podu, než na vašem vlastním; na jiné pody jsou k nim posílány pouze odkazy.
+    aspects:
+      title: Aspekty
+      what_is_an_aspect_q: Co je to aspekt?
+      what_is_an_aspect_a: Aspekty jsou způsob, kterým seskupujete své kontakty na diaspoře*. Aspekt je jedním z obličejů, které ukazujete světu. Může to být ten, kým jste v práci, či kým jste pro svou rodinu, či kým jste pro své kamarády v klubu, do kterého patříte.
+      who_sees_post_q: Když posílám do určitého aspektu, kdo to vidí?
+      who_sees_post_a: Pokud vytvoříte omezený příspěvek, bude viditelný jen lidem, které máte v tomto aspektu (nebo aspektech, pokud je určen několika aspektům). Vaše kontakty, které nejsou v tomto aspektu, příspěvek neuvidí, pokud jste ho neudělal(a) veřejným. Vždy jen veřejné příspěvky budou viditelné těm, které jste nezařadil(a) do vašich aspektů.
+      contacts_know_aspect_q: Vědí mé kontakty, do kterých aspektů jsem je zařadil(a)?
+      contacts_know_aspect_a: Ne. V žádném případě nemohou vidět název aspektu.
+      person_multiple_aspects_q: Mohu přidat osobu do několika aspektů?
+      person_multiple_aspects_a: Ano. Jděte do své stránky kontaktů a kliněte na "Moje kontakty". Každý z kontaktů můžete přidat (či odebrat) pomocí menu na pravé straně do tolika aspektů, kolik chcete. Nebo můžete kontakt přidat (či odebrat) z aspektu kliknutím na tlačítko na jejich profilové stránce. Nebo můžete dokonce jen najet myší na jméno kontaktu, když jej vidíte v proudu, a změnit aspekty přímo v okénku, které se objeví.
+      remove_notification_q: Pokud odeberu někoho z aspektu nebo ze všech aspektů, dozví se o tom?
+      remove_notification_a: Ne. Nedozví se ani když je přidáte do dalších aspektů, pokud s nimi již sdílíte.
+      change_aspect_of_post_q: Poté, co jsem něco odeslal, můžu změnit aspekty, které to vidí?
+      change_aspect_of_post_a: Ne, ale vždy můžete vytvořit nový příspěvek se stejným obsahem a sdílet ho s jiným aspektem.
+      post_multiple_aspects_q: Mohu odesílat obsah několika aspektům najednou?
+      post_multiple_aspects_a: Ano. Když vytváříte příspěvek, použijte tlačítko na výběr aspektů pro vybrání nebo odebrání aspektů. Váš příspěvek bude viditelný všem aspektům, které vyberete. Mohli byste také vybrat aspekty, do kterých chcete odeslat v postranní liště. Když přispíváte, aspekt(y), které jste vybral(a) z levého seznamu budou automaticky vybrány pod tlačítkem na výběr aspektů, když začnete vytvářet nový příspěvek.
+      restrict_posts_i_see_q: Mohu omezit příspěvky, které vidím, na jen ty z určitých aspektů?
+      restrict_posts_i_see_a: Ano. Klikněte na "Moje aspekty" v postranní liště a poté vyberte/odeberte jednotlivé aspekty kliknutím na ně v seznamu. Jen příspěvky lidí ve vybraných aspektech se zobrazí ve vašem proudu.
+      rename_aspect_q: Mohu přejmenovat aspekt?
+      rename_aspect_a: Klikněte na "Moje aspekty" v postranním panelu a klikněte na ikonu tužky vedle aspektu, který chcete přejmenovat, nebo jděte na svoji stránku Kontakty a vyberte relevantní aspekt. Poté klikněte na ikonu editace vedle názvu aspektu na vrchu této stránky, změňte název a klikněte na "Aktualizovat".
+      delete_aspect_q: Jak lze smazat aspekt?
+      delete_aspect_a: Klikněte na "Moje aspekty" v postranním panelu a klikněte na ikonu tužky vedle aspektu, který chcete smazat, nebo jděte na stránku Kontakty a vyberte relevantní aspekt. Poté klikněte na ikonu koše v pravé horní části stránky.
+    mentions:
+      title: Zmínky
+      what_is_a_mention_q: Co je to „zmínka”?
+      what_is_a_mention_a: Zmínka je odkaz z příspěvku na osobní profil nějakého člověka. Když je někdo zmíněn, dostane na daný příspěvek upozornění.
+      how_to_mention_q: Jak mohu někoho zmínit, když píšu příspěvek?
+      how_to_mention_a: Napište znak „@“ a začněte psát jeho/její jméno. Mělo by se zobrazit rozbalovací menu, které vám umožní je snadněji vybrat. Berte na vědomí, že je možné zmínit jen ty osoby, které máte v aspektech.
+      mention_in_comment_q: Dá se někdo zmínit v komentáři?
+      mention_in_comment_a: Ano, od verze 0.7.0.0 ! V komentáři můžete někoho zmínit úplně stejně jako v příspěvku. Napište "@" a začněte psát jméno. Nezapomeňte, že pokud komentujete příspěvek, který není veřejný, můžete zmiňovat jen uživatele, kteří již nějak s příspěvkem pracovali.
+      see_mentions_q: Je způsob, jak vidět příspěvky, v kterých jsem byl(a) zmíněn(a)?
+      see_mentions_a: Ano, klikněte na „@Zmínky“ v levém sloupci na své domovské stránce
+    pods:
+      title: Pody
+      what_is_a_pod_q: Co je to pod?
+      what_is_a_pod_a: Pod je server, na kterém běží software diaspora* a který je připojen k síti diaspory*. "Pod", což je anglicky "lusk", je metafora, která odkazuje na lusky, které obsahují semínka, podobně jako server obsahuje řadu uživatelských účtů. Je mnoho různých podů. Můžete přidávat přátele z jiných podů a komunikovat s nimi. Není třeba si vytvářet účty na různých podech! Jeden stačí - v tomto případě můžete o podu diaspory* přemýšlet jako o něčem podobnému poskytovateli e-mailu. Jsou veřejné pody, soukromé pody a s určitým úsilím můžete spustit svůj vlastní.
+      find_people_q: Právé jsem se přidal k podu, jak najdu lidi, s kterými sdílet?
+      find_people_a: 'Pozvěte své přátele pomocí odkazu pro pozvánku či odkazu pro e-mail na postranní liště. Sledujte #štítky, objevte uživatele, kteří sdílejí Vaše zájmy a ty, jejichž příspěvky Vás zajímají, si přidejte do některého aspektu. Pomocí štítku #newhere ve veřejném příspěvku dejte vědět, že jste zde nový.'
+      use_search_box_q: Jak mám použít vyhledávací pole, abych našel určité osoby?
+      use_search_box_a: Lidi můžete vyhledat zadáním jejic uživatelského jména či diaspora* jména (jméno, které se ukazuje na jejich profilu). Pokud ani jedna z těchto metod nefunguje, zadejte jejich plné diaspora* ID (uživatelskéjméno@jménopodu.cz). Pokud Vaše hledání nefunguje napoprvé, může to být kvůli pomalému připojení. Zkuste to znovu.
+    posts_and_posting:
+      title: Příspěvky a přispívání
+      stream_full_of_posts_q: Proč je můj proud plný příspěvků od lidí, které neznám a s kterými nesdílím?
+      stream_full_of_posts_a1: 'Váš proud se skládá ze 3 typů příspěvků:'
+      stream_full_of_posts_li1: 'Příspěvky zadané uživateli, se kterými sdílíte obsah, jsou dvou typů: veřejné příspěvky a omezené příspěvky sdílené s aspektem, jehož jste součástí. Tyto příspěvky odstraníte ze svého proudu jednoduše tím, že přestanete s danou osobou sdílet.'
+      stream_full_of_posts_li2: Veřejné příspěvky obsahující jeden ze štítků, které odebíráte. Pokud je chcete odstranit, přestaňte štítek odebírat.
+      stream_full_of_posts_li3: Veřejné příspěvky od uživatelů uvedených v sekci aktuality z komunity. Příspěvky mohou být odstraněny odškrtnutím políčka "Zobrazovat aktuality z komunity v proudu ?" na záložce Účet ve Vašem nastavení.
+      hide_posts_q: Jak skrýt příspěvek ?
+      hide_posts_a: Najedete-li myší na něčí příspěvek, objeví se vpravo nahoře malý křížek podobný písmenu x. Kliknutím na křížek příspěvek skryjete a zamezíte i e-mailovým upozorněním na něj. Při návštěvě profilové stránky autora tohoto příspěvku však příspěvek stále uvidíte.
+      post_notification_q: Jak dostávat upozornění o příspěvku, nebo jejich zasílání naopak zastavit ?
+      post_notification_a: Vedle znaku X v pravé horní části příspěvku najdete ikonku zvonečku. Klikněte na ní, abyste povolil nebo zakázal upozornění na tento příspěvek.
+      ignore_user_q: Jak zabránit zobrazování něčích příspěvků v mém proudu?
+      ignore_user_a1: Pokud s touto osobou aktuálně sdílíte, odstraněním z vašich aspektů se ve vašem proudu přestane objevovat spousta jejích příspěvků. Mnohem kompletnější metodou je tento účet “ignorovat”. Tímto se ve vašem proudu přestanou objevovat všechny její příspěvky a nebude moci si oblíbit či okomentovat vaše příspěvky. Může ovšem stále znovusdílet vaše příspěvky, komentovat znovusdílení vašich příspěvků, a její komentáře na příspěvcích od jiných lidí, kteří se ve vašem proudu objevují, pro vás stále budou viditelné.
+      ignore_user_a2: Chcete-li ignorovat účet, klikněte na ikonu "ignorovat" (kruh s šikmou čarou přes něj) v pravém horním rohu jednoho z jeho příspěvků. Jeho příspěvky okamžitě zmizí z vašeho proudu. Alternativně můžete jít na jeho profilovou stránku a kliknout tam na ikonu "ignorovat". Stále budete moci vidět jeho příspěvky na jeho profilové stránce či v pohledu jednoho příspěvku.
+      ignore_user_a3: Seznam lidí, které ignurujete, najdete v nastavení Vašeho účtu, v sekci Soukromí. Pokud chcete přestat někoho ignorovat, odstraňte ho ze seznamu.
+      post_report_q: Jak oznámím urážlivý příspěvek ?
+      post_report_a: Chcete-li příspěvek nahlásit podminovi, klikněte na trojúhelníkovou varovnou ikonku v pravé horní části příspěvku. Důvod oznámení popište v následujícím dialogu. Nahlašujte, prosím, pouze příspěvky, které porušují naše %{community_guidelines} nebo podmínky používání Vašeho podu, například příspěvky, které obsahují nelegální obsah, či jsou urážlivé nebo spamy.
+      character_limit_q: Jaký je limit pro počet znaků v příspěvku?
+      character_limit_a: 65 535 znaků. To je o 65 395 znaků více, než máte na Twitteru! ;)
+      char_limit_services_q: Co když sdílím svůj příspěvek s připojenou službou s nižším povoleným počtem znaků?
+      char_limit_services_a: V tom případě je Váš příspěvek omezen povoleným počtem znaků služby (140 v případě Twitteru, 1000 v případě Tumblru), a počet znaků, které Vám zbývá, se zobrazuje, když je ikonka této služby zvýrazněna. Můžete stále odesílat na tyto služby pokud je váš příspěvek delší než jejich limit, ale text bude na těchto službách zkrácený a bude obsahovat odkaz na diasporu*.
+      format_text_q: Jak mohu formátovat text ve svých příspěvcích (tučný text, kurzíva apod.)?
+      format_text_a: diaspora* používá zjednodušený jazyk %{markdown}. Nástroj pro publikaci má tlačítka pro zjednodušení formátování textu. Pokud chcete publikovat svůj příspěvek manuálně, můžete najít plný syntax Markdownu %{here}. Tlačítko pro náhled znamená, že uvidíte, jak bude Vaše zpráva vypadat předtím, než ji nasdílíte. Pamatuj, že jakmile přispějete, nemůžete příspěvek upravovat, tak se pomocí náhledu ujistěte, že je perfektní, než stisknete tlačítko Sdílet.
+      insert_images_q: Jak vkládat obrázky do příspěvků?
+      insert_images_a: Pokud chcete do příspěvku vložit obrázek, klikněte na ikonku fotoaparátu na dolní straně nástroje pro publikaci. Můžete taky k této ikonce přetáhnout z Vašeho počítače jeden či více obrázků. Pokud chcete do příspěvku vložit obrázek z webu, klikněte na ikonku obrázku na horní straně nástroje pro publikaci, která Vám vytvoří kód v Markdownu.
+      insert_images_comments_q: Můžu vkládat obrázky do komentářů?
+      insert_images_comments_a: Pomosí Markdown si můžete vložit do komentáře obrázek z webu, stejně jako v příspěvcích. Nemůžete však nahrávat obrázky z vašeho počítače přímo do komentářů. Nahrajte je na službu pro hostování obrázků a pak je vložte pomocí tlačítka obrázku nad nástrojem pro publikaci.
+      size_of_images_q: Můžu nastavit velikost obrázků v příspěvcích či komentářích?
+      size_of_images_a: Ne. Obrázkům se automaticky mění velikost, aby se do proudu vešly. Markdown nemá kód pro stanovení velikosti obrázku.
+      embed_multimedia_q: Jak vložím video, zvukovou nahrávku či jiný multimediální obsah do příspěvku ?
+      embed_multimedia_a: 'Obvykle můžete do Vašeho příspěvku vložit URL (např. http://www.youtube.com/watch?v=nnnnnnnnnnn) a video nebo zvukový záznam budou zasazeny automaticky. Mezi podporované portály patří: YouTube, Vimeo, SoundCloud, Flickr a několik dalších. diaspora* pro tuto funkcionalitu využívá oEmbed. Pokud vložíte přímý odkaz k video- či audiosouboru, diaspora* jej vloží pomosí standardního přehrávače HTML5. Stále přidáváme podporu dalších portálů. Ujistěte se, že zadáváte jednoduché, plné odkazy – žádné zkrácené odkazy a žádné odkazy s operátory za základní URL – a počkejte chvilku, než obnovíte stránku po zadání příspěvku, abyste správně viděl/a předběžný náhled.'
+      post_location_q: Jak přidat k mojemu příspěvku informaci o mé geografické pozici ?
+      post_location_a: Klikněte při publikaci na ikonu špendlíku vedle fotoaparátu. Tím přidáte Vaší geografickou pozici z OpenStreetMap. Svou pozici můžete dále upravit, např. zadat pouze město, ve kterém jste, a ne detailní adresu včetně ulice.
+      post_poll_q: Jak přidat k příspěvku hlasování ?
+      post_poll_a: Pro vytvoření hlasování klikněte na ikonku grafu. Zadejte otázku a alespoň dvě odpovědi. Nezapomeňte označit příspěvek jako veřejný, pokud chcete, aby se hlasování mohl účastnit kdokoliv.
+    private_posts:
+      title: Soukromé příspěvky
+      who_sees_post_q: Co když odešlu zprávu aspektu (tj. soukromý příspěvek), kdo ji uvidí?
+      who_sees_post_a: Jen přihlášení uživatelé diaspory*, které jste umístil/a do toho aspektu, mohou vidět Váš soukromý příspěvek.
+      can_comment_q: Kdo může okomentovat nebo si oblíbit můj soukromý příspěvek?
+      can_comment_a: Jen přihlášení uživatelé diaspory*, které máte v tom aspektu, mohou okomentovat či si oblíbit váš soukromý příspěvek.
+      can_reshare_q: Kdo může sdílet můj soukromý příspěvek?
+      can_reshare_a: Nikdo. Soukromé příspěvky nejdou dále sdílet. Přihlášení uživatelé diaspory* v tomto aspektu ho ale mohou zkopírovat. Je na vás, jestli jim důvěřujete!
+      see_comment_q: Když okomentuji nebo si oblíbím soukromý příspěvek, kdo to vidí?
+      see_comment_a: 'Jen ti, s kterými byl příspěvek sdílen (ti, co jsou v aspektech vybraných autorem příspěvku), mohou vidět komu se líbí a jeho komentáře. '
+    public_posts:
+      title: Veřejné příspěvky
+      who_sees_post_q: Pokud posílám veřejný příspěvek, kdo jej můźe vidět ?
+      who_sees_post_a: Každý uživatel internetu může teoreticky vidět příspěvek, který označíte jako veřejný. To je ideální cesta, jak oslovit veřejnost.
+      find_public_post_q: Jak mohou jiní lidé najít mé veřejné příspěvky?
+      find_public_post_a: 'Vaše veřejné příspěvky se zobrazí v proudu kohokoliv, kdo vás sleduje. Pokud jste ve vašem veřejném příspěvku zahrnul/a #štítky, kdokoliv, kdo odebírá tyto štítky, najde váš příspěvek ve svém proudu. Každý veřejný příspěvek také má určitou URL, kterou může navštívit každý, i když není přihlášen -- tudíž na příspěvky mohou vést odkazy přímo z Twitteru, blogů apod. Veřejné příspěvky mohou také být indexovány vyhledávači.'
+      can_comment_reshare_like_q: Kdo může komentovat, sdílet či lajkovat můj veřejný příspěvek ?
+      can_comment_reshare_like_a: Každý přihlášený uživatel diaspory* může komentovat, sdílet či si oblíbit Váš veřejný příspěvek.
+      see_comment_reshare_like_q: Pokud komentuji, sdílím či lajkuji veřejný příspěvek, kdo to může vidět ?
+      see_comment_reshare_like_a: Komentáře, oblíbení a sdílení veřejných příspěvků jsou také veřejné. Jakýkoliv přihlášený uživatel diaspory* a kdokoliv jiný na internetu mohou vidět Vaše interakce s veřejným příspěvkem.
+      deselect_aspect_posting_q: Co se stane, pokud odeberu jeden či více aspektů při zadávání veřejného příspěvku ?
+      deselect_aspect_posting_a: Odebrání aspektů nemá vliv na veřejné příspěvky. Veřejný příspěvek se bude tak jako tak objevovat v proudu všech Vašich kontaktů. Aby byl příspěvek viditelný jen některým aspektům, musíte tyto aspekty vybrat z nabídky pod textovým polem při zadávání příspěvku.
+    profile:
+      title: Profil
+      whats_in_profile_q: Co je na mém profilu?
+      whats_in_profile_a: 'Váš profil se skládá ze dvou částí: vašeho základního profilu a vašeho rozšířeného profilu. Váš základní profil obsahuje vaše jméno, pět štítků, kterými se chcete popsat, a vaši fotku. Váš rozšířený profil obsahuje váš životopis, umístění, pohlaví a datum narozenin. Všechny tyto informace jsou volitelné – je na vás, jestli je poskytnete, a tyto informace mohou být tak identifikovatelné nebo tak anonymní, jak si přejete. Váš rozšířený profil je zobrazen v levém sloupci vaší profilové stránky, pod profilovým obrázkem.'
+      who_sees_profile_q: Kdo může vidět můj profil?
+      who_sees_profile_a: 'Váš základní profil (jméno, profilový obrázek a #štítky) je veřejný. Váš rozšířený profil je ve výchozím stavu soukromý, ale pokud chcete, můžete ho celý zveřejnit. Pouze lidé, se kterými sdílíte (což znamená, že jste si jej přidali do jednoho z vašich aspektů), mohou vidět váš rozšířený profil, pokud jej necháte soukromým. Jiní lidé mohou vidět pouze vaše veřejné informace. Jakékoliv profilové informace, které zveřejníte, mohou být zobrazeny kýmkoliv, kdo používá web, a mohou být indexovány vyhledávači'
+      what_do_tags_do_q: Co dělají štítky na mém základním profilu?
+      what_do_tags_do_a: Pomáhají lidem Vás poznat. Vaše profilová fotka se objeví na levé straně stránek těchto konkrétních štítků, společně s fotkami dalších uživatelů, kteří mají štítky na svém veřejném profilu.
+    resharing_posts:
+      title: Další sdílení příspěvků
+      reshare_public_post_aspects_q: Mohu (znovu)sdílet veřejný příspěvek jen s některými aspekty ?
+      reshare_public_post_aspects_a: Ne, když sdílíte něčí veřejný příspěvek, tak se příspěvek stává automaticky Vašim veřejným příspěvkem. Chcete-li jej sdílet jen s některými aspekty, zkopírujte jeho obsah do nového omezeného příspěvku.
+      reshare_private_post_aspects_q: Mohu (znovu)sdílet soukromý příspěvek jen s některými aspekty ?
+      reshare_private_post_aspects_a: Ne, není možné sdílet něčí soukromý příspěvek. Tím je respektován záměr původního autora sdílet příspěvek jen konkrétní skupině lidí.
+    sharing:
+      title: Sdílení
+      add_to_aspect_q: Co se stane, když přidám někoho do jednoho z mých aspektů ? Nebo když mě někdo přidá do jednoho ze svých aspektů ?
+      add_to_aspect_a1: 'Řekněme, že Amy si přidá Bena do aspektu, ale Ben si ještě (zatím) Amy do aspektů nepřidal:'
+      add_to_aspect_li1: Benovi přijde oznámení, že Amy s ním „začala sdílet“.
+      add_to_aspect_li2: Amy začne vidět Benovy veřejné příspěvky ve svém proudu.
+      add_to_aspect_li3: Amy neuvidí Benovy soukromé příspěvky.
+      add_to_aspect_li4: Ben neuvidí veřejné ani soukromé příspěvky Amy ve svém proudu.
+      add_to_aspect_li5: Ale když Ben navštíví profilovou stránku Amy, uvidí soukromé příspěvky Amy, které odesílá aspektům, v kterých Ben je (spolu s veřejnými příspěvky, které může vidět kdokoliv).
+      add_to_aspect_li6: Ben uvidí soukromý profil Amy (životopis, polohu, pohlaví, datum narozenin).
+      add_to_aspect_li7: Amy se zobrazí pod „Pouze sdílejí se mnou“ na stránce kontaktů Bena.
+      add_to_aspect_li8: Amy bude mít možnost @označit Bena ve svém příspěvku.
+      add_to_aspect_a2: Tomuto se říká asymetrické sdílení. Pokud a až Ben také přidá Amy do aspektu, tak se z toho stane vzájemné sdílení -- veřejné příspěvky Amy a Bena a příslušné soukromé příspěvky se jim budou zobrazovat v proudu a Amy bude moci vidět Benův soukromý profil. Mohou si pak také posílat mezi sebou soukromé zprávy.
+      sharing_notification_q: Jak se dozvím, že se mnou někdo začal sdílet ?
+      sharing_notification_a: Měl(a) byste dostat notifikaci, kdykoliv s Vámi někdo začne sdílet.
+      only_sharing_q: Kdo jsou ti uvedeni pod „Pouze sdílejí se mnou“ na mé stránce kontaktů?
+      only_sharing_a: 'To jsou lidé, kteří Vás přidali do jednoho ze svých aspektů, ale (zatím) nejsou v žádném z Vašich aspektů. Jinými slovy, oni sdílejí s Vámi, ale ne Vy s nimi: můžete říci, že Vás „sledují“. Pokud je přidáte do aspektu, budou se zobrazovat pod tímto aspektem a už ne v sekci „Pouze sdílejí se mnou“.  Viz výše.'
+      list_not_sharing_q: Existuje seznam lidí, které jsem přidal do jednoho z mých aspektů, ale kteří si mě nepřidali zpět?
+      list_not_sharing_a: Ne, ale zjistit, jestli s Vámi nějaký uživatel sdílí obsah, můžete na jeho profilové stránce. Pokud sdílí, bude vedle jejich diaspora* ID zelená "fajfka". Pokud ne, bude tam šedý kruh.
+      see_old_posts_q: Když někoho přidám do aspektu, mohou vidět starší příspěvky, které jsem už odeslal do toho aspektu?
+      see_old_posts_a: Ne. Budou moci vidět jen nové příspěvky tomuto aspektu. Oni (a kdokoliv jiný) mohou vidět Vaše veřejné příspěvky na Vaší profilové stránce a možná i ve svém proudu.
+    tags:
+      title: Štítky
+      what_are_tags_for_q: K čemu jsou štítky?
+      what_are_tags_for_a: Štítky slouží ke kategorizaci příspěvků, typicky podle tématu. Vyhledáváním podle štítku dostanete všechny Vám viditelné příspěvky (jak veřejné, tak soukromé), které tento štítek mají. Takto mohou lidé, kteří mají o nějaké téma zájem, hledat veřejné příspěvky o něm.
+      tags_in_comments_q: Smím používat štítky i v komentářích nebo jen v příspěvcích ?
+      tags_in_comments_a: Štítek přidaný do komentáře bude fungovat jako link na stránku tohoto štítku. Komentář (ani jím komentovaný příspěvek) se však na stránce štítku neobjeví. Pouze příspěvky se štítkem se objevují na stránce štítku.
+      followed_tags_q: Co jsou „#Odebírané štítky“ a jak můžu odebírat štítek?
+      followed_tags_a: 'Po vyhledání štítků můžete začít "sledovat" tento štítek kliknutím na tlačítko nahoře na stránce štítku. Štítek se tím objeví ve Vašem seznamu sledovaných štítků vlevo. Kliknutím na jeden z Vašich sledovaných štítků se dostanete na stránku tohoto štítku a uvidíte seznam nedávných příspěvků, které byly tímto štítkem označeny. Klikněte na #Odebírané štítky a uvidíte seznam příspěvků, které obsahují alespoň jeden z Vámi odebíraných štítků.'
+      people_tag_page_q: Kdo jsou lidé uvedení na levé straně stránky štítku?
+      people_tag_page_a: Jsou to lidé, co použili tento štítek ve svém popisu na svém veřejném profilu.
+      filter_tags_q: Jak můžu filtrovat/vyloučit některé štítky z mého proudu?
+      filter_tags_a: Toto zatím není dostupné přes diasporu*, ale existují některé %{third_party_tools}, co toto mohou poskytnout.
+    keyboard_shortcuts:
+      title: Klávesové zkratky
+      keyboard_shortcuts_q: Jaké klávesové zkratky jsou k dispozici ?
+      keyboard_shortcuts_a1: 'V zobrazení proudu můžete používat následující klávesové zkratky:'
+      keyboard_shortcuts_li1: j - Přejít na další příspěvek
+      keyboard_shortcuts_li2: k - Přejít na předchozí příspěvek
+      keyboard_shortcuts_li3: c - Okomentovat aktuální příspěvek
+      keyboard_shortcuts_li4: l - Olajkovat aktuální příspěvek
+      keyboard_shortcuts_li5: r - Znovu sdílet současný příspěvek
+      keyboard_shortcuts_li6: m - Rozšířit současný příspěvek
+      keyboard_shortcuts_li7: o - Otevřít první odkaz v současném příspěvku
+      keyboard_shortcuts_li8: ctrl + enter - pošle zprávu, kterou píšete
+    miscellaneous:
+      title: Různé
+      back_to_top_q: Je nějaký rychlý způsob, jak se vrátit na začátek stránky poté, co odskroluji dolu?
+      back_to_top_a: Ano. Po seskrolování dolu na stránce klikněte na šedou šipku, co se objeví v pravém dolním rohu vašeho prohlížeče.
+      photo_albums_q: Jsou zde alba fotek či videí?
+      photo_albums_a: Ne, zatím ne. Můžete ale shlédnout proud jejich nahraných obrázků v sekci Fotky v postranním panelu jejich profilu.
+      subscribe_feed_q: Můžu odebírat něčí veřejné příspěvky pomocí čtečky kanálů?
+      subscribe_feed_a: 'Ano, ale toto stále není zcela vyladěná funkcionalita a formátování jejích výstupu může být poněkud nedotažené. Pokud ji přece chcete vyzkoušet, jděte na něčí profilovou stránku a klikněte na tlačítko kanálu Atom ve Vašem prohlížeči, nebo zkopírujte URL profilu (např. https://názevpodu.cz/people/nějakéčíslo) a vložte jej do své RSS čtečky. Výsledná adresa zdroje vypadá asi takto: https://názevpodu.cz/public/uživatelskéjméno.atom – diaspora* používá Atom a ne RSS.'
+      diaspora_app_q: Existuje aplikace diaspora* pro Android či iOS?
+      diaspora_app_a: Existuje několik aplikací pro Android od členů komunity. Několik z nich jsou dávno opuštěné projekty a tudíž nepracují dobře s aktuální verzí diaspory*. Zatím moc od těchto aplikací neočekávejte. Momentálně neexistuje žádná aplikace pro iOS. Nejlepším způsobem, jak používat diasporu* z mobilu, je skrz prohlížeč, protože jsme navrhli mobilní verzi stránky, která by měla fungovat na všech zařízeních, přestože ještě nemá úplnou funkčnost.
+  home:
+    default:
+      headline: Vítejte na %{pod_name}
+      byline: Online sociální svět, kde to máš v ruce
+      be_who_you_want_to_be: Buď tím, kým chceš být
+      be_who_you_want_to_be_info: Mnoho sociálních sítí trvá na tom, abys používal/a svou skutečnou identitu. diaspora* ne. Zde si můžeš vybrat, kým chceš být a sdílet o sobě, kolik chceš. Záleží jen na tobě, jak s jinými budeš interagovat.
+      choose_your_audience: Vyber si své publikum
+      choose_your_audience_info: Aspekty diaspory* ti dovolují sdílet pouze s lidmi, se kterými chceš. Tvoje data mohou být tak veřejná či tak soukromá, jak ty chceš. Sdílej vtipnou fotku s celým světem, nebo přísné tajemství s tvými nejbližšími přátely. Ty máš nad svými daty kontrolu.
+      own_your_data: Vlastni svá data
+      own_your_data_info: Mnoho sociálních sítí vydělává peníze analýzou tvých interakcí a používá je k cílené reklamě. diaspora* tvoje data nijak nevyužívá - pouze za účelem spojení s dalšími lidmi.
+    podmin:
+      headline: Vítej, příteli.
+      byline: Právě se chystáš změnit Internet. Pojďme se na to připravit. Můžeme?
+      configure_your_pod: Nakonfigurujte svůj pod
+      create_an_account: Vytvořit účet
+      make_yourself_an_admin: Udělejte ze sebe administrátora
+      update_your_pod: Aktualizujte svůj pod
+      getting_help: Získejte pomoc
+      contribute: Přispějte k projektu
+      configuration_info: Otevřete soubory %{database_path} a %{diaspora_path} ve Vašem oblíbeném textovém editoru a opatrně je přezkoumejte, jsou rozsáhle okomentovány.
+      create_an_account_info: "%{sign_up_link} pro nový účet."
+      make_yourself_an_admin_info: Na %{wiki} najdete instrukce. Toto při přidá na vaše uživatelské menu v záhlaví odkaz „%{admin_dashboard}“, když jste přihlášen/a. Dává vám věci jako vyhledávání uživatelů a statistiky Vašeho podu.
+      update_your_pod_info: "%{update_instructions} najdete na diaspora* wiki."
+      update_instructions: Instrukce k aktualizaci
+      getting_help_info: Vytvořili jsme %{faq}, včetně dodatečných tipů a triků a řešení nejčastějších problémů. Neváhejte nás také %{irc}.
+      faq_for_podmins: často kladené otázky pro správce podů na naší wiki
+      contact_irc: kontaktovat na IRC
+      contribute_info: Udělejte diasporu* ještě lepší! Pokud najdete chyby, prosím %{report_bugs}.
+      report_bugs: nahlašte je
+  invitation_codes:
+    not_valid: Tento kód pozvánky již není platný.
+    already_logged_in: "%{inviter} Vás pozval, abyste se připojil/a k tomuto podu, ale už jste přihlášen/a."
+  invitations:
+    create:
+      sent: 'Pozvánky byly poslány pro: %{emails}'
+      rejected: 'Následující e-mailové adresy měly problémy: %{emails}'
+      no_more: Nemáte žádné další pozvánky.
+      empty: Prosíme zadejte alespoň jednu emailovou adresu.
+      note_already_sent: 'Pozvánky už byly odeslány adresám: %{emails}'
+      closed: Pozvánky jsou na tomto diaspora* podu uzavřeny.
+    new:
+      language: Jazyk
+      invite_someone_to_join: Pozvěte někoho na diasporu*!
+      comma_separated_plz: Můžete zadat více e-mailových adres oddělených čárkami.
+      send_an_invitation: Odeslat pozvánku
+      sending_invitation: Posílám pozvánku...
+      paste_link: Sdílejte tento odkaz s vašimi přáteli abyste je pozvali do diaspory*, nebo jim ho přímo pošlete emailem.
+      codes_left:
+        zero: Nezbývá žádná pozvánka pro tento kód
+        one: Jedna pozvánka zbývá pro tento kód
+        few: "%{count} pozvánky zbývájí pro tento kód"
+        other: "%{count} pozvánek zbývá pro tento kód"
+  layouts:
+    header:
+      profile: Profil
+      settings: Nastavení
+      logout: Odhlásit se
+      code: Kód
+      toggle_navigation: Navigace
+    application:
+      powered_by: Běží na síti diaspora*
+      whats_new: Co je nového?
+      statistics_link: Statistiky podu
+      discourse: Diskuze projektu a podpora
+      switch_to_touch_optimized_mode: Přepnutí do režimu dotykového displeje
+      switch_to_standard_mode: Přepnutí do standardního režimu
+      public_feed: Veřejný proud diaspory* pro %{name}
+      back_to_top: Nahoru
+      source_package: Stáhnout balík se zdrojovým kódem
+      be_excellent: Buďte k sobě úžasní! ♥
+  likes:
+    create:
+      error: Oblíbení se nezdařilo.
+    destroy:
+      error: Zrušení oblíbení se nezdařilo.
+  notifications:
+    started_sharing:
+      zero: "%{actors} s vámi začali sdílet."
+      one: "%{actors} s vámi začal(a) sdílet."
+      few: "%{actors} s vámi začali sdílet."
+      other: "%{actors} s vámi začali sdílet."
+    private_message:
+      zero: "%{actors} vám poslal zprávu."
+      one: "%{actors} vám poslal(a) zprávu."
+      few: "%{actors} vám poslali zprávu."
+      other: "%{actors} vám poslali zprávu."
+    comment_on_post:
+      zero: "%{actors} okomentovali váš %{post_link}."
+      one: "%{actors} okomentoval(a) váš %{post_link}."
+      few: "%{actors} okomentovali váš %{post_link}."
+      other: "%{actors} okomentovali váš %{post_link}."
+    also_commented:
+      zero: "%{actors} také okomentovali %{post_link} od %{post_author}."
+      one: "%{actors} také okomentoval(a) %{post_link} od %{post_author}."
+      few: "%{actors} také okomentovali %{post_link} od %{post_author}."
+      other: "%{actors} také okomentovali %{post_link} od %{post_author}."
+    mentioned:
+      zero: "%{actors} vás zmínilo na %{post_link}."
+      one: "%{actors} vás zmínil(a) na %{post_link}."
+      few: "%{actors} vás zmínili na %{post_link}."
+      other: "%{actors} vás zmínili na %{post_link}."
+    mentioned_in_comment:
+      one: "%{actors} Vás zmínil v <a href='%{comment_path}'>komentáři</a> k příspěvku %{post_link}."
+      few: "%{actors} Vás zmínili v <a href='%{comment_path}'>komentáři</a> k příspěvku %{post_link}."
+      other: "%{actors} Vás zmínili v <a href='%{comment_path}'>komentáři</a> k příspěvku %{post_link}."
+    liked:
+      zero: "%{actors} se líbí váš %{post_link}."
+      one: "%{actors} se líbí váš %{post_link}."
+      few: "%{actors} se líbí váš %{post_link}."
+      other: "%{actors} se líbí váš %{post_link}."
+    reshared:
+      zero: "%{actors} sdíleli váš %{post_link}."
+      one: "%{actors} sdílel(a) váš %{post_link}."
+      few: "%{actors} sdíleli váš %{post_link}."
+      other: "%{actors} sdíleli váš %{post_link}."
+    contacts_birthday:
+      zero: "%{actors} mají %{date} narozeniny"
+      one: "%{actors} má %{date} narozeniny"
+      few: "%{actors} mají %{date} narozeniny"
+      other: "%{actors} mají %{date} narozeniny"
+    also_commented_deleted:
+      zero: "%{actors} komentovali smazaný příspěvek."
+      one: "%{actors} komentoval(a) smazaný příspěvek."
+      few: "%{actors} komentovali smazaný příspěvek."
+      other: "%{actors} komentovali smazaný příspěvek."
+    liked_post_deleted:
+      zero: "%{actors} se líbil váš smazaný příspěvek."
+      one: "%{actors} se líbil váš smazaný příspěvek."
+      few: "%{actors} se líbil váš smazaný příspěvek."
+      other: "%{actors} se líbil váš smazaný příspěvek."
+    reshared_post_deleted:
+      zero: "%{actors} sdíleli váš smazaný příspěvek."
+      one: "%{actors} sdílel(a) váš smazaný příspěvek."
+      few: "%{actors} sdíleli váš smazaný příspěvek."
+      other: "%{actors} sdíleli váš smazaný příspěvek."
+    mentioned_deleted:
+      zero: "%{actors} vás zmínili ve smazaném příspěvku."
+      one: "%{actors} vás zmínil(a) ve smazaném příspěvku."
+      few: "%{actors} vás zmínili ve smazaném příspěvku."
+      other: "%{actors} vás zmínili ve smazaném příspěvku."
+    mentioned_in_comment_deleted:
+      one: "%{actors} Vás zmínil v smazaném komentáři."
+      few: "%{actors} Vás zmínili v smazaném komentáři."
+      other: "%{actors} Vás zmínili v smazaném komentáři."
+    index:
+      notifications: Oznámení
+      mark_all_as_read: Označit vše jako přečtené
+      mark_all_shown_as_read: Vše zobrazené označit jako přečtené
+      mark_read: Označit jako přečtené
+      mark_unread: Označit jako nepřečtené
+      show_all: Zobrazit vše
+      show_unread: Zobrazit nepřečtené
+      all_notifications: Všechna oznámení
+      also_commented: Také okomentováno
+      comment_on_post: Komentář příspěvku
+      liked: Co se mi líbilo
+      mentioned: Zmíněno v příspšvku
+      mentioned_in_comment: Zmíněno v komentáři
+      reshared: Znovusdílené
+      started_sharing: Sdílení zahájeno
+      contacts_birthday: Narozeniny
+      no_notifications: Zatím nemáte žádná upozornění.
+      and_others:
+        zero: a nikdo další
+        one: a ještě jeden
+        few: a %{count} další
+        other: a %{count} dalších
+      and: a
+  notifier:
+    a_post_you_shared: příspěvek.
+    a_private_message: Máte v diaspora* novou soukromou zprávu.
+    a_limited_post_comment: Na omezeném příspěvku v diaspora* je k přečtení nový komentář.
+    email_sent_by_diaspora: Tento e-mail odeslal pod %{pod_name}. Pokud si nepřejete nadále dostávat takovéto e-maily,
+    click_here: Klikněte zde
+    hello: Vítej, %{name}!
+    thanks: Díky,
+    to_change_your_notification_settings: upravte si nastavení oznámení.
+    single_admin:
+      subject: 'Zpráva o vašem účtu na diaspoře*:'
+      admin: Váš administrátor diaspory*
+    started_sharing:
+      subject: "%{name} s vámi začal/a sdílet na diaspoře*"
+      sharing: s vámi začal(a) sdílet!
+      view_profile: Zobrazit profil %{name}
+    comment_on_post:
+      limited_subject: Na jednom z Vašich příspěvků je nový komentář
+      reply: Zobrazit příspěvek od uživatele %{name} nebo na něj odpovědět >
+    also_commented:
+      limited_subject: Na příspěvku, který jste okomentoval/a, je nový komentář.
+    mentioned:
+      subject: "%{name} vás zmínil/a na diaspoře*"
+      limited_post: Byl/a jste zmíněn/a v omezeném příspěvku.
+    mentioned_in_comment:
+      limited_post: Byl/a jste zmíněn/a v komentáři k omezenému příspěvku.
+      reply: Zobrazit konverzaci či na ni odpovědět >
+    private_message:
+      subject: Máte novou soukromu zprávu.
+      reply_to_or_view: Zobrazit konverzaci nebo na ni odpovědět »
+    liked:
+      liked: "%{name} si oblíbil(a) váš příspěvek"
+      limited_post: Uživateli %{name} se líbí Váš omezený příspěvek.
+      view_post: Zobrazit příspěvek »
+    reshared:
+      reshared: "%{name} právě sdílel(a) váš příspěvek"
+      view_post: Zobrazit příspěvek »
+    contacts_birthday:
+      subject: "%{name} má dnes narozeniny"
+      birthday: '%{name} má dnes narozeniny. Popřejte mu/jí "Všechno nejlepší"!'
+      view_profile: Zobrazit profil uživatele %{name}
+    confirm_email:
+      subject: Prosím aktivujte si svou novou e-mailovou adresu %{unconfirmed_email}
+      click_link: 'K aktivaci vaší nové e-mailové adresy %{unconfirmed_email} použijte prosím tento odkaz:'
+    csrf_token_fail:
+      subject: Obdrželi jsme neautorizovaný požadavek z Vašeho účtu, %{name}
+      body: |-
+        Dobrý den, %{name},
+
+        diaspora* detekovala pokus o přístup k Vaší relaci, který nemusel být autorizovaný. Aby nedošlo k jakémukoliv úniku dat, byl/a jste odhlášen/a. Nebojte se; můžete se již v klidu přihlásit.
+
+        Na server byl poslán požadavek pomocí chybného či chybějícího CSRF tokenu. To může být naprosto nevinný případ, mohlo by se však jednat o útok typu cross-site request forgery (CSRF).
+
+        Toto mohlo být způsobeno následujícími možnostmi:
+
+          - Softwarový doplněk mohl manipulovat požadavkem nebo odesílat požadavky bez tokenu;
+          - Panel prohlížeče otevřený z minulé relace;
+          - Jiná webová stránka mohla vytvářet požadavky s Vaším povolením či bez;
+          - Různé další externí nástroje;
+          - Škodlivý software se pokoušel získat Vaše data.
+
+        Pro více informací o CSRF jděte na [%{link}](%{link}).
+
+        Pokud tuto zprávu dostáváte opakovaně, prosím zkontrolujte uvedené body, včetně doplňků pro Váš prohlížeč.
+
+        Děkujeme,
+        E-mailový robot diaspora*.
+    report_email:
+      type:
+        post: příspěvek
+        comment: komentář
+      subject: Nový %{type} byl označen jako urážlivý
+      body: |-
+        Dobrý den,
+
+        %{type} s identifikátorem %{id} byl označen jako urážlivý.
+
+        Důvod: %{reason}
+
+        [%{url}][1]
+
+        Prosím, zkontrolujte jej co nejdříve !
+
+
+        S pozdravem,
+
+        emailový robor diaspora*!
+
+        [1]: %{url}
+    export_email:
+      subject: "%{name}, Vaše osobní data jsou připravena ke stažení"
+      body: |-
+        Dobrý den, %{name}.
+
+        Vaše data byla zpracována a jsou připravena ke stažení na [tomto odkazu](%{url}).
+
+        S pozdravem,
+
+        E-mailový robot diaspora*!
+    export_failure_email:
+      subject: Je nám líto, %{name}, ale je nějaký problém s Vašimi daty.
+      body: |-
+        Dobrý den, %{name},
+
+        Při přípravě Vašich osobních dat ke stažení jsme narazili na problémy.
+        Prosím, zkuste to znovu.
+
+        Omlouváme se,
+
+        E-mailový robot diaspora*!
+    export_photos_email:
+      subject: "%{name}, Vaše fotky jsou připraveny ke stažení."
+      body: |-
+        Dobrý den, %{name},
+
+        Vaše fotky byly zpracovány a jsou k dispozici ke stažení na následujícím [odkazu](%{url})
+
+        S pozdravem,
+
+        E-mailový robot diaspora*!
+    export_photos_failure_email:
+      subject: "%{name}, s Vašimi fotografiemi nastal nějaký problém."
+      body: |-
+        Dobrý den, %{name},
+
+        došlo k problému s přípravou Vašich fotek ke stažení.
+        Zkuste to, prosím, znovu.
+
+        Omlouvám se,
+
+        E-mailový robot diaspora*!
+    invited_you: "%{name} vás pozval/a do diaspory*"
+    invite:
+      message: |-
+        Ahoj! 
+         
+        Uživatel %{user} Vás pozval/a na diasporu*! 
+         
+        Klikněte na tento odkaz, abyste mohl/a začít 
+         
+        [%{invite_url}][1]
+
+        Nebo si přidejte do Vašich kontaktů %{diaspora_id}, pokud již účet máte.
+
+
+        S láskou, 
+         
+        E-mailový robot diaspora*!
+
+        P.S.: Jenom pokud (ještě) nevíte, co je diaspora*, [tady][2] je odpověď!
+         
+        [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
+    remove_old_user:
+      subject: Váš diaspora* účet byl navržen k odstranění, protože na něm nejste aktivní.
+      body: |-
+        Dobrý den,
+
+        zdá se, že již nechcete mít účet na %{pod_url}, protože jste jej nepoužil/a posledních %{after_days} dní. Abychom mohli zajistit maximální výkon tohoto diaspora* podu našim aktivním uživatelům, odstraňujeme nechtěné účty z naší databáze.
+
+        Budeme rádi, pokud zůstanete členem diaspora* komunity a ponecháte si Váš účet, pokud o něj stojíte.
+
+        Jediné, co pro jeho zachování musíte udělat, je přihlásit se na něj před %{remove_after}. Až se přihlásíte, doufáme že budete mít čas se po diaspora* trochu poohlédnout. Od doby Vaší poslední návštěvy se toho hodně změnilo a myslíme si, že se Vám naše vylepšení budou líbit. Začněte odebírat nějaké #štítky, tak snadno najdete obsah, který Vás zajímá.
+
+        Přihlaste se zde: %{login_url}. Pokud jste zapoměl/a své přihlašovací údaje, můžete na této stránce požádat o připomenutí.
+
+        Doufáme, že Vás na daispoře* znovu uvidíme,
+
+        E-mailový robot diaspora*!
   api:
     openid_connect:
       authorizations:
-        destroy:
-          fail: "Pokus o odejmutí autorizace s ID %{id} selhalo"
         new:
+          redirection_message: Opravdu chcete dát přístup %{redirect_uri}?
           access: "%{name} požaduje přístup do:"
-          approve: "Schválit"
-          bad_request: "Chybějící ID nebo URI"
-          client_id_not_found: "Nebyl nalezen klient s client_id rovným %{client_id} s přesměrováním na URI %{redirect_uri}"
-          deny: "zamítnout"
           no_requirement: "%{name} nevyžaduje oprávnění"
-          redirection_message: "Opravdu chcete dát přístup %{redirect_uri}?"
-      error_page:
-        contact_developer: "Můžete kontaktovat vývojáře aplikace a zahrnout následující detailní chybovou hlášku:"
-        could_not_authorize: "Aplikace nemůže být autorizována"
-        login_required: "Pro přístup k aplikaci musíte být autorizován přihlášením."
-        title: "Jejda! Něco se pokazilo :-("
-      scopes:
-        name:
-          description: "Tohle udělí aplikaci oprávnění pro jméno"
-          name: "jméno"
-        nickname:
-          description: "Tohle udělí aplikaci oprávnění pro přezdívku"
-          name: "přezdívka"
-        openid:
-          description: "To umožňuje aplikaci přečíst váš základní profil."
-          name: "základní profil"
-        picture:
-          description: "To zajišťuje omezení práv aplikace k obrázku"
-          name: "Obrázek"
-        profile:
-          description: "To umožňuje aplikaci číst váš rozšířený profil"
-          name: "Rozšířený profil"
-        sub:
-          description: "Tohle udělí aplikaci oprávnění sub"
-          name: "sub"
+          approve: Schválit
+          deny: zamítnout
+          bad_request: Chybějící ID nebo URI
+          client_id_not_found: Nebyl nalezen klient s client_id rovným %{client_id} s přesměrováním na URI %{redirect_uri}
+        destroy:
+          fail: Pokus o odejmutí autorizace s ID %{id} selhalo
       user_applications:
         index:
+          edit_applications: Aplikace
+          title: Povolené aplikace
           access: "%{name} má přístup k:"
-          edit_applications: "Aplikace"
           no_requirement: "%{name} nevyžaduje oprávnění"
-          title: "Povolené aplikace"
-        no_applications: "Nemáte žádné autorizované aplikace"
-        policy: "Viz podmínky ochrany osobních údajů této aplikace"
-        revoke_autorization: "Odebrat oprávnění"
-        tos: "Viz podmínky služby této aplikace"
-  are_you_sure: "Jste si jisti?"
-  are_you_sure_delete_account: "Opravdu chcete uzavřít svůj účet? Tuto operaci nelze vrátit!"
-  are_you_sure_ignore_user: "Tohoto uživatele budete ignorovat. Opravdu to chcete?"
-  aspect_memberships:
-    destroy:
-      failure: "Nepodařilo se odstranit osobu z aspektu"
-      forbidden: "Nemáte povolení k této akci."
-      invalid_statement: "Záznam by odmítnut, protože už existuje."
-      no_membership: "Nelze najít vybranou osobu v tomto aspektu"
-      success: "Osoba byla úspěšně odstraněna z aspektu"
-  aspects:
-    add_to_aspect:
-      failure: "Přidání kontaktu do aspektu selhalo."
-      success: "Kontakt byl úspěšně přidán do aspektu."
-    aspect_listings:
-      add_an_aspect: "+ Přidat aspekt"
-    aspect_stream:
-      make_something: "Udělejte něco"
-      stay_updated: "Zůstaňte v kontaktu"
-      stay_updated_explanation: "Proud je tvořen příspěvky vašich kontaktů, příspěvků se štítky, které sledujete, a příspěvků některých aktivních členů komunity."
-    destroy:
-      failure: "%{name} nemůže být odstraněn."
-      success: "%{name} byl úspěšně odebrán."
-      success_auto_follow_back: "%{name} byl úspěšně odstraněn. Tento aspekt jste používal k automatickémy zařazení uživatelů, které receipročně sledujete. Zkrontrolujte své uživatelské nastavení a vyberte pro reciproční sledování jiný aspekt."
-    edit:
-      aspect_list_is_not_visible: "Seznam kontaktů je skryt ostatním v aspektu"
-      aspect_list_is_visible: "Seznam kontaktů je viditelný pro ostatní v aspektu"
-      confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
-      rename: "Přejmenovat"
-      update: "Aktualizovat"
-      updating: "Aktualizuji"
-    index:
-      donate: "Přispějte"
-      donate_liberapay: "Přispěj k liberapay"
-      help:
-        any_problem: "Nějaký problém?"
-        contact_podmin: "Napište správci vašeho podu!"
-        do_you: "Povězte:"
-        feature_suggestion: "… vymyslel jste novou %{link}?"
-        find_a_bug: "… našli jste %{link}?"
-        have_a_question: "… máte nějakou %{link}?"
-        here_to_help: "Komunita diaspory* je tady!"
-        mail_podmin: "E-mail správce podu"
-        need_help: "Potřebujete pomoct?"
-        support_forum: "Můžete se také připojit k %{support_forum}."
-        support_forum_link: "fóru podpory"
-        tag_bug: "chybu"
-        tag_feature: "vlastnost"
-        tag_question: "otázku"
-        tutorial_link_text: "Tutoriály"
-        tutorials_and_wiki: "%{faq}, %{tutorial} a %{wiki}: Pomoc při prvních krocích."
-      introduce_yourself: "Tohle je váš proud.  Naskočte a představte se."
-      keep_pod_running: "Pomozte %{pod} udržet rychlý, přispějte našim serverům na jejich měsíční dávku kávy!"
-      new_here:
-        follow: "Sleduj %{link} a přivítej nové uživatele na diaspoře*!"
-        learn_more: "Zjistit více"
-        title: "Přivítejte nové uživatele"
-      services:
-        content: "K diaspoře* můžete připojit následující služby:"
-        heading: "Připojit služby"
-      welcome_to_diaspora: "Vítejte na diaspoře*, %{name}!"
-    no_contacts_message:
-      community_spotlight: "Ve středu pozornosti komunity"
-      invite_link_text: "Pozvánka"
-      or_spotlight: "Můžete jej sdílet i pomocí %{link}"
-      try_adding_some_more_contacts: "Nové kontakty můžete vyhledávat nebo někoho %{invite_link}."
-      you_should_add_some_more_contacts: "Přidejte si více kontaktů!"
-    seed:
-      acquaintances: "Známí"
-      family: "Rodina"
-      friends: "Přátelé"
-      work: "Práce"
-    update:
-      failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
-      success: "Váš aspekt %{name} byl úspěšně upraven."
-  blocks:
-    create:
-      failure: "Tohoto uživatele nedokáži ignorovat. #úhyb"
-      success: "Dobře, tohoto uživatele už ve svém proudu neuvidíte. #tichobuď!"
-    destroy:
-      failure: "Tohoto uživatele nedokáži přestat ignorovat. #úhyb"
-      success: "Tak ať tedy řekne, co má na srdci! #pozdrav"
-  bookmarklet:
-    explanation: "Pište na diasporu* odkudkoliv: vytvořte si záložku => %{link}"
-    heading: "Bookmarklet"
-    post_something: "Sdílet na diaspoře*"
-  cancel: "Zrušit"
-  color_themes:
-    dark: "Tmavá"
-    dark_green: "Tmavě zelená"
-    egyptian_blue: "Egyptsky modrá"
-    magenta: "Purpurová"
-    original: "Originální šedá"
-    original_white: "Originální bílé pozadí"
-  comments:
-    new_comment:
-      comment: "komentář"
-      commenting: "Komentování..."
-  contacts:
-    index:
-      add_contact: "Přidej kontakt"
-      all_contacts: "Všechny kontakty"
-      community_spotlight: "Aktuality z komunity"
-      my_contacts: "Moje kontakty"
-      no_contacts: "Zdá se, že si potřebujete přidat nějaké kontakty."
-      no_contacts_in_aspect: "V tomto aspektu ještě nemáte žádné kontakty. Dále najdete seznam Vašich existujících kontaktů, které můžete do tohoto aspektu přidat."
-      no_contacts_message: "Shlédněte %{community_spotlight}"
-      only_sharing_with_me: "Pouze sdílejí se mnou"
-      start_a_conversation: "Zahájit konverzaci"
-      title: "Kontakty"
-      user_search: "Hledat uživatele"
-    spotlight:
-      community_spotlight: "Aktuality z komunity"
-      no_members: "Ještě zde nejsou žádní členové."
-      suggest_member: "Navrhněte člena"
-  conversations:
-    create:
-      fail: "Neplatná zpráva"
-      sent: "Zpráva byla odeslána"
-    destroy:
-      delete_success: "Konverzace byla úspěšně smazána"
-      hide_success: "Konverzace byla úspěšně skryta"
-    index:
-      conversations_inbox: "Konverzace - doručené"
-      inbox: "Doručená pošta"
-      new_conversation: "Nová konverzace"
-      no_contacts: "Musíte si přidat pár kontaktů, než začnete konverzaci"
-      no_messages: "Žádné zprávy"
-    new:
-      message: "Zpráva"
-      send: "Poslat"
-      sending: "Posílám..."
-      subject: "Předmět"
-      subject_default: "Žádný předmět"
-      to: "Komu"
-    new_conversation:
-      fail: "Neplatná zpráva"
-    show:
-      delete: "Smazat konverzaci"
-      hide: "Skrýt a ztlumit konverzaci"
-      last_message: "Poslední zpráva obdržena %{timeago}"
-      reply: "Odpovědět"
-      replying: "Odpovídám…"
-  date:
-    formats:
-      birthday: "%-d. %EB"
-      birthday_with_year: "%-d. %EB %Y"
-      fullmonth_day: "%-d. %EB"
-  delete: "Smazat"
-  email: "E-mail"
-  error_messages:
-    csrf_token_fail: "CSRF token je neplatný. Prosím přihlaste se a zkuste to znovu."
-    desktop_view_link: "desktopové zobrazení"
-    helper:
-      correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
-    mobile_not_available: "Tuto stránku nelze zobrazit v mobilním zobrazení, prosím přejděte na %{desktop_link}."
-    need_javascript: "Tato stránka vyžaduje pro své plné fungování JavaScript. Pokud jste Javascript zakázali, povolte jej a obnovte stránku."
-  errors:
-    messages:
-      carrierwave_download_error: "nemohlo být staženo"
-      carrierwave_integrity_error: "není povoleného typu souboru"
-      carrierwave_processing_error: "se nepodařilo zpracování"
-      content_type_blacklist_error: "Nemáte povolení nahrávat soubory %{content_type}"
-      content_type_whitelist_error: "Nemáte povolení nahrávat soubory %{content_type}"
-      extension_blacklist_error: "Nemáte povolení nahrávat soubory %{extension}, zakázané typy: %{prohibited_types}"
-      extension_whitelist_error: "Nemáte povolení nahrávat soubory %{extension}, povolené typy: %{allowed_types}"
-      max_size_error: "Velikost souboru musí být menší než %{max_size}"
-      min_size_error: "Velikost souboru musí být větší než %{min_size}"
-      mini_magick_processing_error: "Manipulace pomocí MiniMagick selhala, třeba to není obrázek? Původní chyba: %{e}"
-      rmagick_processing_error: "Manipulace pomocí rmagick selhala, třeba to není obrázek?"
-  fill_me_out: "Vyplňte"
-  find_people: "Najít lidi nebo #štítky"
-  help:
-    account_and_data_management:
-      close_account_a: "Přejděte na dolní část vaší stránky nastavení a klikněte na tlačítko „Uzavřít účet“. Pro dokončení procesu budete dotázáni na heslo. Pamatujte, že pokud svůj účet uzavřete, <strong>nikdy</strong> již nebudete moci se na tomto podu zaregistrovat pod tímto uživatelským jménem."
-      close_account_q: "Jak vymažu svůj ůčet?"
-      data_other_podmins_a: "Když začnete sdílet s někým na jiném podu, všechny příspěvky, které s ní/m sdílíte a kopie dat na vašem profilu jsou uchovávány (kešovány) na jejím/jeho podu a přísupné administrátorovi tohoto podu. Když smažete příspěvek nebo data z profilu, jsou smazány z vašeho podu a z kterýchkoli dalších podů, kde byly v minulosti uchovávány. Obrázky nikdy nejsou uchovány na jiném podu, než na vašem vlastním; na jiné pody jsou k nim posílány pouze odkazy."
-      data_other_podmins_q: "Mohou administrátoři jiných podů vidět mé informace?"
-      data_visible_to_podmin_a: "Ve zkratce: všechno. Komunikace mezi pody je šifrovaná (použitím SSL a vlastního šifrování diaspory*), ale skladování dat na podech není šifrované. Pokud by chtěli, mají administrátoři databáze vašeho podu (většinou osoby provozující pod) přístup ke všem datům na vašem profilu a ke všem vašim příspěvkům (podobně jako u věťšiny stránek, které uchovávají data). Proto Vám dáváme možnost výběru, na jakém podu se registrujete, takže si můžete vybrat pod, jehož administrátoru důvěřujete. Provozování vlastního podu poskytuje větší soukromí, neboť poté jen vy řídíte přístup k databázi."
-      data_visible_to_podmin_q: "Jaké mé informace vidí můj administrátor podu?"
-      download_data_a: "Ano. V dolní části karty Účet na stránce nastavení jsou dvě tlačítka: jedna pro stažení vašich dat a druhé pro stažení vašich fotek."
-      download_data_q: "Můžu si stáhnout kopii všech dat na mém účtu?"
-      move_pods_a: "V budoucnu budete moci exportovat svůj účet z podu a importovat ho na jiném, ale toto není v současné době možné. Můžete si vždy zařídit nový účet a přidat své kontakty do aspektů na tomto novém účtu, a požádat je, ať si váš nový účet přidají do svých aspektů."
-      move_pods_q: "Jak si můžu přesunout účet z jednoho podu na druhý?"
-      title: "Účet a správa dat"
-    aspects:
-      change_aspect_of_post_a: "Ne, ale vždy můžete vytvořit nový příspěvek se stejným obsahem a sdílet ho s jiným aspektem."
-      change_aspect_of_post_q: "Poté, co jsem něco odeslal, můžu změnit aspekty, které to vidí?"
-      contacts_know_aspect_a: "Ne. V žádném případě nemohou vidět název aspektu."
-      contacts_know_aspect_q: "Vědí mé kontakty, do kterých aspektů jsem je zařadil(a)?"
-      delete_aspect_a: "Klikněte na \"Moje aspekty\" v postranním panelu a klikněte na ikonu tužky vedle aspektu, který chcete smazat, nebo jděte na stránku Kontakty a vyberte relevantní aspekt. Poté klikněte na ikonu koše v pravé horní části stránky."
-      delete_aspect_q: "Jak lze smazat aspekt?"
-      person_multiple_aspects_a: "Ano. Jděte do své stránky kontaktů a kliněte na \"Moje kontakty\". Každý z kontaktů můžete přidat (či odebrat) pomocí menu na pravé straně do tolika aspektů, kolik chcete. Nebo můžete kontakt přidat (či odebrat) z aspektu kliknutím na tlačítko na jejich profilové stránce. Nebo můžete dokonce jen najet myší na jméno kontaktu, když jej vidíte v proudu, a změnit aspekty přímo v okénku, které se objeví."
-      person_multiple_aspects_q: "Mohu přidat osobu do několika aspektů?"
-      post_multiple_aspects_a: "Ano. Když vytváříte příspěvek, použijte tlačítko na výběr aspektů pro vybrání nebo odebrání aspektů. Váš příspěvek bude viditelný všem aspektům, které vyberete. Mohli byste také vybrat aspekty, do kterých chcete odeslat v postranní liště. Když přispíváte, aspekt(y), které jste vybral(a) z levého seznamu budou automaticky vybrány pod tlačítkem na výběr aspektů, když začnete vytvářet nový příspěvek."
-      post_multiple_aspects_q: "Mohu odesílat obsah několika aspektům najednou?"
-      remove_notification_a: "Ne. Nedozví se ani když je přidáte do dalších aspektů, pokud s nimi již sdílíte."
-      remove_notification_q: "Pokud odeberu někoho z aspektu nebo ze všech aspektů, dozví se o tom?"
-      rename_aspect_a: "Klikněte na \"Moje aspekty\" v postranním panelu a klikněte na ikonu tužky vedle aspektu, který chcete přejmenovat, nebo jděte na svoji stránku Kontakty a vyberte relevantní aspekt. Poté klikněte na ikonu editace vedle názvu aspektu na vrchu této stránky, změňte název a klikněte na \"Aktualizovat\"."
-      rename_aspect_q: "Mohu přejmenovat aspekt?"
-      restrict_posts_i_see_a: "Ano. Klikněte na \"Moje aspekty\" v postranní liště a poté vyberte/odeberte jednotlivé aspekty kliknutím na ně v seznamu. Jen příspěvky lidí ve vybraných aspektech se zobrazí ve vašem proudu."
-      restrict_posts_i_see_q: "Mohu omezit příspěvky, které vidím, na jen ty z určitých aspektů?"
-      title: "Aspekty"
-      what_is_an_aspect_a: "Aspekty jsou způsob, kterým seskupujete své kontakty na diaspoře*. Aspekt je jedním z obličejů, které ukazujete světu. Může to být ten, kým jste v práci, či kým jste pro svou rodinu, či kým jste pro své kamarády v klubu, do kterého patříte."
-      what_is_an_aspect_q: "Co je to aspekt?"
-      who_sees_post_a: "Pokud vytvoříte omezený příspěvek, bude viditelný jen lidem, které máte v tomto aspektu (nebo aspektech, pokud je určen několika aspektům). Vaše kontakty, které nejsou v tomto aspektu, příspěvek neuvidí, pokud jste ho neudělal(a) veřejným. Vždy jen veřejné příspěvky budou viditelné těm, které jste nezařadil(a) do vašich aspektů."
-      who_sees_post_q: "Když posílám do určitého aspektu, kdo to vidí?"
-    community_guidelines: "komunitní směrnice"
-    faq: "často kladenými otázkami"
-    foundation_website: "webové stránky diaspora* foundation"
-    getting_help:
-      get_support_a_discourse: "Hledejte existující diskuze související s Vašim dotazem, nebo otevřete nové vlákno na naší platformě %{discourse}"
-      get_support_a_faq: "Čtete naši stránku s %{faq} na wiki"
-      get_support_a_hashtag: "Zeptejte se ve veřejném příspěvku na diaspoře* použitím hashtagu %{question}"
-      get_support_a_irc: "Přidejte se k nám na %{irc} (live chat)"
-      get_support_a_tutorials: "Koukněte na naše %{tutorials}"
-      get_support_a_website: "Navštivte naše %{link}"
-      get_support_a_wiki: "Prohledejte %{link}"
-      get_support_q: "Co když moje otázka není zodpovězena v těchto Častých dotazech? Kde jinde můžu sehnat pomoc?"
-      getting_started_a: "Máte štěstí. Vyzkoušejte %{tutorial_series} na stránce našeho projektu. Provede vás krok po kroku registrací a naučí vás všechny základní věci, co potřebujete o diaspoře* vědět."
-      getting_started_q: "Pomoc! Potřebuji základní pomoc, abych mohl začít!"
-      title: "Jak získat pomoc ?"
-    getting_started_tutorial: "Tutoriály pro nováčky"
-    here: "zde"
-    irc: "IRC"
-    keyboard_shortcuts:
-      keyboard_shortcuts_a1: "V zobrazení proudu můžete používat následující klávesové zkratky:"
-      keyboard_shortcuts_li1: "j - Přejít na další příspěvek"
-      keyboard_shortcuts_li2: "k - Přejít na předchozí příspěvek"
-      keyboard_shortcuts_li3: "c - Okomentovat aktuální příspěvek"
-      keyboard_shortcuts_li4: "l - Olajkovat aktuální příspěvek"
-      keyboard_shortcuts_li5: "r - Znovu sdílet současný příspěvek"
-      keyboard_shortcuts_li6: "m - Rozšířit současný příspěvek"
-      keyboard_shortcuts_li7: "o - Otevřít první odkaz v současném příspěvku"
-      keyboard_shortcuts_li8: "ctrl + enter - pošle zprávu, kterou píšete"
-      keyboard_shortcuts_q: "Jaké klávesové zkratky jsou k dispozici ?"
-      title: "Klávesové zkratky"
-    markdown: "Markdown"
-    mentions:
-      how_to_mention_a: "Napište znak „@“ a začněte psát jeho/její jméno. Mělo by se zobrazit rozbalovací menu, které vám umožní je snadněji vybrat. Berte na vědomí, že je možné zmínit jen ty osoby, které máte v aspektech."
-      how_to_mention_q: "Jak mohu někoho zmínit, když píšu příspěvek?"
-      mention_in_comment_a: "Ano, od verze 0.7.0.0 ! V komentáři můžete někoho zmínit úplně stejně jako v příspěvku. Napište \"@\" a začněte psát jméno. Nezapomeňte, že pokud komentujete příspěvek, který není veřejný, můžete zmiňovat jen uživatele, kteří již nějak s příspěvkem pracovali."
-      mention_in_comment_q: "Dá se někdo zmínit v komentáři?"
-      see_mentions_a: "Ano, klikněte na „@Zmínky“ v levém sloupci na své domovské stránce"
-      see_mentions_q: "Je způsob, jak vidět příspěvky, v kterých jsem byl(a) zmíněn(a)?"
-      title: "Zmínky"
-      what_is_a_mention_a: "Zmínka je odkaz z příspěvku na osobní profil nějakého člověka. Když je někdo zmíněn, dostane na daný příspěvek upozornění."
-      what_is_a_mention_q: "Co je to „zmínka”?"
-    miscellaneous:
-      back_to_top_a: "Ano. Po seskrolování dolu na stránce klikněte na šedou šipku, co se objeví v pravém dolním rohu vašeho prohlížeče."
-      back_to_top_q: "Je nějaký rychlý způsob, jak se vrátit na začátek stránky poté, co odskroluji dolu?"
-      diaspora_app_a: "Existuje několik aplikací pro Android od členů komunity. Několik z nich jsou dávno opuštěné projekty a tudíž nepracují dobře s aktuální verzí diaspory*. Zatím moc od těchto aplikací neočekávejte. Momentálně neexistuje žádná aplikace pro iOS. Nejlepším způsobem, jak používat diasporu* z mobilu, je skrz prohlížeč, protože jsme navrhli mobilní verzi stránky, která by měla fungovat na všech zařízeních, přestože ještě nemá úplnou funkčnost."
-      diaspora_app_q: "Existuje aplikace diaspora* pro Android či iOS?"
-      photo_albums_a: "Ne, zatím ne. Můžete ale shlédnout proud jejich nahraných obrázků v sekci Fotky v postranním panelu jejich profilu."
-      photo_albums_q: "Jsou zde alba fotek či videí?"
-      subscribe_feed_a: "Ano, ale toto stále není zcela vyladěná funkcionalita a formátování jejích výstupu může být poněkud nedotažené. Pokud ji přece chcete vyzkoušet, jděte na něčí profilovou stránku a klikněte na tlačítko kanálu Atom ve Vašem prohlížeči, nebo zkopírujte URL profilu (např. https://názevpodu.cz/people/nějakéčíslo) a vložte jej do své RSS čtečky. Výsledná adresa zdroje vypadá asi takto: https://názevpodu.cz/public/uživatelskéjméno.atom – diaspora* používá Atom a ne RSS."
-      subscribe_feed_q: "Můžu odebírat něčí veřejné příspěvky pomocí čtečky kanálů?"
-      title: "Různé"
-    pods:
-      find_people_a: "Pozvěte své přátele pomocí odkazu pro pozvánku či odkazu pro e-mail na postranní liště. Sledujte #štítky, objevte uživatele, kteří sdílejí Vaše zájmy a ty, jejichž příspěvky Vás zajímají, si přidejte do některého aspektu. Pomocí štítku #newhere ve veřejném příspěvku dejte vědět, že jste zde nový."
-      find_people_q: "Právé jsem se přidal k podu, jak najdu lidi, s kterými sdílet?"
-      title: "Pody"
-      use_search_box_a: "Lidi můžete vyhledat zadáním jejic uživatelského jména či diaspora* jména (jméno, které se ukazuje na jejich profilu). Pokud ani jedna z těchto metod nefunguje, zadejte jejich plné diaspora* ID (uživatelskéjméno@jménopodu.cz). Pokud Vaše hledání nefunguje napoprvé, může to být kvůli pomalému připojení. Zkuste to znovu."
-      use_search_box_q: "Jak mám použít vyhledávací pole, abych našel určité osoby?"
-      what_is_a_pod_a: "Pod je server, na kterém běží software diaspora* a který je připojen k síti diaspory*. \"Pod\", což je anglicky \"lusk\", je metafora, která odkazuje na lusky, které obsahují semínka, podobně jako server obsahuje řadu uživatelských účtů. Je mnoho různých podů. Můžete přidávat přátele z jiných podů a komunikovat s nimi. Není třeba si vytvářet účty na různých podech! Jeden stačí - v tomto případě můžete o podu diaspory* přemýšlet jako o něčem podobnému poskytovateli e-mailu. Jsou veřejné pody, soukromé pody a s určitým úsilím můžete spustit svůj vlastní."
-      what_is_a_pod_q: "Co je to pod?"
-    posts_and_posting:
-      char_limit_services_a: "V tom případě je Váš příspěvek omezen povoleným počtem znaků služby (140 v případě Twitteru, 1000 v případě Tumblru), a počet znaků, které Vám zbývá, se zobrazuje, když je ikonka této služby zvýrazněna. Můžete stále odesílat na tyto služby pokud je váš příspěvek delší než jejich limit, ale text bude na těchto službách zkrácený a bude obsahovat odkaz na diasporu*."
-      char_limit_services_q: "Co když sdílím svůj příspěvek s připojenou službou s nižším povoleným počtem znaků?"
-      character_limit_a: "65 535 znaků. To je o 65 395 znaků více, než máte na Twitteru! ;)"
-      character_limit_q: "Jaký je limit pro počet znaků v příspěvku?"
-      embed_multimedia_a: "Obvykle můžete do Vašeho příspěvku vložit URL (např. http://www.youtube.com/watch?v=nnnnnnnnnnn) a video nebo zvukový záznam budou zasazeny automaticky. Mezi podporované portály patří: YouTube, Vimeo, SoundCloud, Flickr a několik dalších. diaspora* pro tuto funkcionalitu využívá oEmbed. Pokud vložíte přímý odkaz k video- či audiosouboru, diaspora* jej vloží pomosí standardního přehrávače HTML5. Stále přidáváme podporu dalších portálů. Ujistěte se, že zadáváte jednoduché, plné odkazy – žádné zkrácené odkazy a žádné odkazy s operátory za základní URL – a počkejte chvilku, než obnovíte stránku po zadání příspěvku, abyste správně viděl/a předběžný náhled."
-      embed_multimedia_q: "Jak vložím video, zvukovou nahrávku či jiný multimediální obsah do příspěvku ?"
-      format_text_a: "diaspora* používá zjednodušený jazyk %{markdown}. Nástroj pro publikaci má tlačítka pro zjednodušení formátování textu. Pokud chcete publikovat svůj příspěvek manuálně, můžete najít plný syntax Markdownu %{here}. Tlačítko pro náhled znamená, že uvidíte, jak bude Vaše zpráva vypadat předtím, než ji nasdílíte. Pamatuj, že jakmile přispějete, nemůžete příspěvek upravovat, tak se pomocí náhledu ujistěte, že je perfektní, než stisknete tlačítko Sdílet."
-      format_text_q: "Jak mohu formátovat text ve svých příspěvcích (tučný text, kurzíva apod.)?"
-      hide_posts_a: "Najedete-li myší na něčí příspěvek, objeví se vpravo nahoře malý křížek podobný písmenu x. Kliknutím na křížek příspěvek skryjete a zamezíte i e-mailovým upozorněním na něj. Při návštěvě profilové stránky autora tohoto příspěvku však příspěvek stále uvidíte."
-      hide_posts_q: "Jak skrýt příspěvek ?"
-      ignore_user_a1: "Pokud s touto osobou aktuálně sdílíte, odstraněním z vašich aspektů se ve vašem proudu přestane objevovat spousta jejích příspěvků. Mnohem kompletnější metodou je tento účet “ignorovat”. Tímto se ve vašem proudu přestanou objevovat všechny její příspěvky a nebude moci si oblíbit či okomentovat vaše příspěvky. Může ovšem stále znovusdílet vaše příspěvky, komentovat znovusdílení vašich příspěvků, a její komentáře na příspěvcích od jiných lidí, kteří se ve vašem proudu objevují, pro vás stále budou viditelné."
-      ignore_user_a2: "Chcete-li ignorovat účet, klikněte na ikonu \"ignorovat\" (kruh s šikmou čarou přes něj) v pravém horním rohu jednoho z jeho příspěvků. Jeho příspěvky okamžitě zmizí z vašeho proudu. Alternativně můžete jít na jeho profilovou stránku a kliknout tam na ikonu \"ignorovat\". Stále budete moci vidět jeho příspěvky na jeho profilové stránce či v pohledu jednoho příspěvku."
-      ignore_user_a3: "Seznam lidí, které ignurujete, najdete v nastavení Vašeho účtu, v sekci Soukromí. Pokud chcete přestat někoho ignorovat, odstraňte ho ze seznamu."
-      ignore_user_q: "Jak zabránit zobrazování něčích příspěvků v mém proudu?"
-      insert_images_a: "Pokud chcete do příspěvku vložit obrázek, klikněte na ikonku fotoaparátu na dolní straně nástroje pro publikaci. Můžete taky k této ikonce přetáhnout z Vašeho počítače jeden či více obrázků. Pokud chcete do příspěvku vložit obrázek z webu, klikněte na ikonku obrázku na horní straně nástroje pro publikaci, která Vám vytvoří kód v Markdownu."
-      insert_images_comments_a: "Pomosí Markdown si můžete vložit do komentáře obrázek z webu, stejně jako v příspěvcích. Nemůžete však nahrávat obrázky z vašeho počítače přímo do komentářů. Nahrajte je na službu pro hostování obrázků a pak je vložte pomocí tlačítka obrázku nad nástrojem pro publikaci."
-      insert_images_comments_q: "Můžu vkládat obrázky do komentářů?"
-      insert_images_q: "Jak vkládat obrázky do příspěvků?"
-      post_location_a: "Klikněte při publikaci na ikonu špendlíku vedle fotoaparátu. Tím přidáte Vaší geografickou pozici z OpenStreetMap. Svou pozici můžete dále upravit, např. zadat pouze město, ve kterém jste, a ne detailní adresu včetně ulice."
-      post_location_q: "Jak přidat k mojemu příspěvku informaci o mé geografické pozici ?"
-      post_notification_a: "Vedle znaku X v pravé horní části příspěvku najdete ikonku zvonečku. Klikněte na ní, abyste povolil nebo zakázal upozornění na tento příspěvek."
-      post_notification_q: "Jak dostávat upozornění o příspěvku, nebo jejich zasílání naopak zastavit ?"
-      post_poll_a: "Pro vytvoření hlasování klikněte na ikonku grafu. Zadejte otázku a alespoň dvě odpovědi. Nezapomeňte označit příspěvek jako veřejný, pokud chcete, aby se hlasování mohl účastnit kdokoliv."
-      post_poll_q: "Jak přidat k příspěvku hlasování ?"
-      post_report_a: "Chcete-li příspěvek nahlásit podminovi, klikněte na trojúhelníkovou varovnou ikonku v pravé horní části příspěvku. Důvod oznámení popište v následujícím dialogu. Nahlašujte, prosím, pouze příspěvky, které porušují naše %{community_guidelines} nebo podmínky používání Vašeho podu, například příspěvky, které obsahují nelegální obsah, či jsou urážlivé nebo spamy."
-      post_report_q: "Jak oznámím urážlivý příspěvek ?"
-      size_of_images_a: "Ne. Obrázkům se automaticky mění velikost, aby se do proudu vešly. Markdown nemá kód pro stanovení velikosti obrázku."
-      size_of_images_q: "Můžu nastavit velikost obrázků v příspěvcích či komentářích?"
-      stream_full_of_posts_a1: "Váš proud se skládá ze 3 typů příspěvků:"
-      stream_full_of_posts_li1: "Příspěvky zadané uživateli, se kterými sdílíte obsah, jsou dvou typů: veřejné příspěvky a omezené příspěvky sdílené s aspektem, jehož jste součástí. Tyto příspěvky odstraníte ze svého proudu jednoduše tím, že přestanete s danou osobou sdílet."
-      stream_full_of_posts_li2: "Veřejné příspěvky obsahující jeden ze štítků, které odebíráte. Pokud je chcete odstranit, přestaňte štítek odebírat."
-      stream_full_of_posts_li3: "Veřejné příspěvky od uživatelů uvedených v sekci aktuality z komunity. Příspěvky mohou být odstraněny odškrtnutím políčka \"Zobrazovat aktuality z komunity v proudu ?\" na záložce Účet ve Vašem nastavení."
-      stream_full_of_posts_q: "Proč je můj proud plný příspěvků od lidí, které neznám a s kterými nesdílím?"
-      title: "Příspěvky a přispívání"
-    private_posts:
-      can_comment_a: "Jen přihlášení uživatelé diaspory*, které máte v tom aspektu, mohou okomentovat či si oblíbit váš soukromý příspěvek."
-      can_comment_q: "Kdo může okomentovat nebo si oblíbit můj soukromý příspěvek?"
-      can_reshare_a: "Nikdo. Soukromé příspěvky nejdou dále sdílet. Přihlášení uživatelé diaspory* v tomto aspektu ho ale mohou zkopírovat. Je na vás, jestli jim důvěřujete!"
-      can_reshare_q: "Kdo může sdílet můj soukromý příspěvek?"
-      see_comment_a: "Jen ti, s kterými byl příspěvek sdílen (ti, co jsou v aspektech vybraných autorem příspěvku), mohou vidět komu se líbí a jeho komentáře. "
-      see_comment_q: "Když okomentuji nebo si oblíbím soukromý příspěvek, kdo to vidí?"
-      title: "Soukromé příspěvky"
-      who_sees_post_a: "Jen přihlášení uživatelé diaspory*, které jste umístil/a do toho aspektu, mohou vidět Váš soukromý příspěvek."
-      who_sees_post_q: "Co když odešlu zprávu aspektu (tj. soukromý příspěvek), kdo ji uvidí?"
-    profile:
-      title: "Profil"
-      what_do_tags_do_a: "Pomáhají lidem Vás poznat. Vaše profilová fotka se objeví na levé straně stránek těchto konkrétních štítků, společně s fotkami dalších uživatelů, kteří mají štítky na svém veřejném profilu."
-      what_do_tags_do_q: "Co dělají štítky na mém základním profilu?"
-      whats_in_profile_a: "Váš profil se skládá ze dvou částí: vašeho základního profilu a vašeho rozšířeného profilu. Váš základní profil obsahuje vaše jméno, pět štítků, kterými se chcete popsat, a vaši fotku. Váš rozšířený profil obsahuje váš životopis, umístění, pohlaví a datum narozenin. Všechny tyto informace jsou volitelné – je na vás, jestli je poskytnete, a tyto informace mohou být tak identifikovatelné nebo tak anonymní, jak si přejete. Váš rozšířený profil je zobrazen v levém sloupci vaší profilové stránky, pod profilovým obrázkem."
-      whats_in_profile_q: "Co je na mém profilu?"
-      who_sees_profile_a: "Váš základní profil (jméno, profilový obrázek a #štítky) je veřejný. Váš rozšířený profil je ve výchozím stavu soukromý, ale pokud chcete, můžete ho celý zveřejnit. Pouze lidé, se kterými sdílíte (což znamená, že jste si jej přidali do jednoho z vašich aspektů), mohou vidět váš rozšířený profil, pokud jej necháte soukromým. Jiní lidé mohou vidět pouze vaše veřejné informace. Jakékoliv profilové informace, které zveřejníte, mohou být zobrazeny kýmkoliv, kdo používá web, a mohou být indexovány vyhledávači"
-      who_sees_profile_q: "Kdo může vidět můj profil?"
-    public_posts:
-      can_comment_reshare_like_a: "Každý přihlášený uživatel diaspory* může komentovat, sdílet či si oblíbit Váš veřejný příspěvek."
-      can_comment_reshare_like_q: "Kdo může komentovat, sdílet či lajkovat můj veřejný příspěvek ?"
-      deselect_aspect_posting_a: "Odebrání aspektů nemá vliv na veřejné příspěvky. Veřejný příspěvek se bude tak jako tak objevovat v proudu všech Vašich kontaktů. Aby byl příspěvek viditelný jen některým aspektům, musíte tyto aspekty vybrat z nabídky pod textovým polem při zadávání příspěvku."
-      deselect_aspect_posting_q: "Co se stane, pokud odeberu jeden či více aspektů při zadávání veřejného příspěvku ?"
-      find_public_post_a: "Vaše veřejné příspěvky se zobrazí v proudu kohokoliv, kdo vás sleduje. Pokud jste ve vašem veřejném příspěvku zahrnul/a #štítky, kdokoliv, kdo odebírá tyto štítky, najde váš příspěvek ve svém proudu. Každý veřejný příspěvek také má určitou URL, kterou může navštívit každý, i když není přihlášen -- tudíž na příspěvky mohou vést odkazy přímo z Twitteru, blogů apod. Veřejné příspěvky mohou také být indexovány vyhledávači."
-      find_public_post_q: "Jak mohou jiní lidé najít mé veřejné příspěvky?"
-      see_comment_reshare_like_a: "Komentáře, oblíbení a sdílení veřejných příspěvků jsou také veřejné. Jakýkoliv přihlášený uživatel diaspory* a kdokoliv jiný na internetu mohou vidět Vaše interakce s veřejným příspěvkem."
-      see_comment_reshare_like_q: "Pokud komentuji, sdílím či lajkuji veřejný příspěvek, kdo to může vidět ?"
-      title: "Veřejné příspěvky"
-      who_sees_post_a: "Každý uživatel internetu může teoreticky vidět příspěvek, který označíte jako veřejný. To je ideální cesta, jak oslovit veřejnost."
-      who_sees_post_q: "Pokud posílám veřejný příspěvek, kdo jej můźe vidět ?"
-    resharing_posts:
-      reshare_private_post_aspects_a: "Ne, není možné sdílet něčí soukromý příspěvek. Tím je respektován záměr původního autora sdílet příspěvek jen konkrétní skupině lidí."
-      reshare_private_post_aspects_q: "Mohu (znovu)sdílet soukromý příspěvek jen s některými aspekty ?"
-      reshare_public_post_aspects_a: "Ne, když sdílíte něčí veřejný příspěvek, tak se příspěvek stává automaticky Vašim veřejným příspěvkem. Chcete-li jej sdílet jen s některými aspekty, zkopírujte jeho obsah do nového omezeného příspěvku."
-      reshare_public_post_aspects_q: "Mohu (znovu)sdílet veřejný příspěvek jen s některými aspekty ?"
-      title: "Další sdílení příspěvků"
-    sharing:
-      add_to_aspect_a1: "Řekněme, že Amy si přidá Bena do aspektu, ale Ben si ještě (zatím) Amy do aspektů nepřidal:"
-      add_to_aspect_a2: "Tomuto se říká asymetrické sdílení. Pokud a až Ben také přidá Amy do aspektu, tak se z toho stane vzájemné sdílení -- veřejné příspěvky Amy a Bena a příslušné soukromé příspěvky se jim budou zobrazovat v proudu a Amy bude moci vidět Benův soukromý profil. Mohou si pak také posílat mezi sebou soukromé zprávy."
-      add_to_aspect_li1: "Benovi přijde oznámení, že Amy s ním „začala sdílet“."
-      add_to_aspect_li2: "Amy začne vidět Benovy veřejné příspěvky ve svém proudu."
-      add_to_aspect_li3: "Amy neuvidí Benovy soukromé příspěvky."
-      add_to_aspect_li4: "Ben neuvidí veřejné ani soukromé příspěvky Amy ve svém proudu."
-      add_to_aspect_li5: "Ale když Ben navštíví profilovou stránku Amy, uvidí soukromé příspěvky Amy, které odesílá aspektům, v kterých Ben je (spolu s veřejnými příspěvky, které může vidět kdokoliv)."
-      add_to_aspect_li6: "Ben uvidí soukromý profil Amy (životopis, polohu, pohlaví, datum narozenin)."
-      add_to_aspect_li7: "Amy se zobrazí pod „Pouze sdílejí se mnou“ na stránce kontaktů Bena."
-      add_to_aspect_li8: "Amy bude mít možnost @označit Bena ve svém příspěvku."
-      add_to_aspect_q: "Co se stane, když přidám někoho do jednoho z mých aspektů ? Nebo když mě někdo přidá do jednoho ze svých aspektů ?"
-      list_not_sharing_a: "Ne, ale zjistit, jestli s Vámi nějaký uživatel sdílí obsah, můžete na jeho profilové stránce. Pokud sdílí, bude vedle jejich diaspora* ID zelená \"fajfka\". Pokud ne, bude tam šedý kruh."
-      list_not_sharing_q: "Existuje seznam lidí, které jsem přidal do jednoho z mých aspektů, ale kteří si mě nepřidali zpět?"
-      only_sharing_a: "To jsou lidé, kteří Vás přidali do jednoho ze svých aspektů, ale (zatím) nejsou v žádném z Vašich aspektů. Jinými slovy, oni sdílejí s Vámi, ale ne Vy s nimi: můžete říci, že Vás „sledují“. Pokud je přidáte do aspektu, budou se zobrazovat pod tímto aspektem a už ne v sekci „Pouze sdílejí se mnou“.  Viz výše."
-      only_sharing_q: "Kdo jsou ti uvedeni pod „Pouze sdílejí se mnou“ na mé stránce kontaktů?"
-      see_old_posts_a: "Ne. Budou moci vidět jen nové příspěvky tomuto aspektu. Oni (a kdokoliv jiný) mohou vidět Vaše veřejné příspěvky na Vaší profilové stránce a možná i ve svém proudu."
-      see_old_posts_q: "Když někoho přidám do aspektu, mohou vidět starší příspěvky, které jsem už odeslal do toho aspektu?"
-      sharing_notification_a: "Měl(a) byste dostat notifikaci, kdykoliv s Vámi někdo začne sdílet."
-      sharing_notification_q: "Jak se dozvím, že se mnou někdo začal sdílet ?"
-      title: "Sdílení"
-    tags:
-      filter_tags_a: "Toto zatím není dostupné přes diasporu*, ale existují některé %{third_party_tools}, co toto mohou poskytnout."
-      filter_tags_q: "Jak můžu filtrovat/vyloučit některé štítky z mého proudu?"
-      followed_tags_a: "Po vyhledání štítků můžete začít \"sledovat\" tento štítek kliknutím na tlačítko nahoře na stránce štítku. Štítek se tím objeví ve Vašem seznamu sledovaných štítků vlevo. Kliknutím na jeden z Vašich sledovaných štítků se dostanete na stránku tohoto štítku a uvidíte seznam nedávných příspěvků, které byly tímto štítkem označeny. Klikněte na #Odebírané štítky a uvidíte seznam příspěvků, které obsahují alespoň jeden z Vámi odebíraných štítků."
-      followed_tags_q: "Co jsou „#Odebírané štítky“ a jak můžu odebírat štítek?"
-      people_tag_page_a: "Jsou to lidé, co použili tento štítek ve svém popisu na svém veřejném profilu."
-      people_tag_page_q: "Kdo jsou lidé uvedení na levé straně stránky štítku?"
-      tags_in_comments_a: "Štítek přidaný do komentáře bude fungovat jako link na stránku tohoto štítku. Komentář (ani jím komentovaný příspěvek) se však na stránce štítku neobjeví. Pouze příspěvky se štítkem se objevují na stránce štítku."
-      tags_in_comments_q: "Smím používat štítky i v komentářích nebo jen v příspěvcích ?"
-      title: "Štítky"
-      what_are_tags_for_a: "Štítky slouží ke kategorizaci příspěvků, typicky podle tématu. Vyhledáváním podle štítku dostanete všechny Vám viditelné příspěvky (jak veřejné, tak soukromé), které tento štítek mají. Takto mohou lidé, kteří mají o nějaké téma zájem, hledat veřejné příspěvky o něm."
-      what_are_tags_for_q: "K čemu jsou štítky?"
-    third_party_tools: "Nástroje jiných firem"
-    title_header: "Nápověda"
-    tutorial: "tutoriál"
-    tutorials: "tutoriály"
-    wiki: "wiki"
-  home:
-    default:
-      be_who_you_want_to_be: "Buď tím, kým chceš být"
-      be_who_you_want_to_be_info: "Mnoho sociálních sítí trvá na tom, abys používal/a svou skutečnou identitu. diaspora* ne. Zde si můžeš vybrat, kým chceš být a sdílet o sobě, kolik chceš. Záleží jen na tobě, jak s jinými budeš interagovat."
-      byline: "Online sociální svět, kde to máš v ruce"
-      choose_your_audience: "Vyber si své publikum"
-      choose_your_audience_info: "Aspekty diaspory* ti dovolují sdílet pouze s lidmi, se kterými chceš. Tvoje data mohou být tak veřejná či tak soukromá, jak ty chceš. Sdílej vtipnou fotku s celým světem, nebo přísné tajemství s tvými nejbližšími přátely. Ty máš nad svými daty kontrolu."
-      headline: "Vítejte na %{pod_name}"
-      own_your_data: "Vlastni svá data"
-      own_your_data_info: "Mnoho sociálních sítí vydělává peníze analýzou tvých interakcí a používá je k cílené reklamě. diaspora* tvoje data nijak nevyužívá - pouze za účelem spojení s dalšími lidmi."
-    podmin:
-      byline: "Právě se chystáš změnit Internet. Pojďme se na to připravit. Můžeme?"
-      configuration_info: "Otevřete soubory %{database_path} a %{diaspora_path} ve Vašem oblíbeném textovém editoru a opatrně je přezkoumejte, jsou rozsáhle okomentovány."
-      configure_your_pod: "Nakonfigurujte svůj pod"
-      contact_irc: "kontaktovat na IRC"
-      contribute: "Přispějte k projektu"
-      contribute_info: "Udělejte diasporu* ještě lepší! Pokud najdete chyby, prosím %{report_bugs}."
-      create_an_account: "Vytvořit účet"
-      create_an_account_info: "%{sign_up_link} pro nový účet."
-      faq_for_podmins: "často kladené otázky pro správce podů na naší wiki"
-      getting_help: "Získejte pomoc"
-      getting_help_info: "Vytvořili jsme %{faq}, včetně dodatečných tipů a triků a řešení nejčastějších problémů. Neváhejte nás také %{irc}."
-      headline: "Vítej, příteli."
-      make_yourself_an_admin: "Udělejte ze sebe administrátora"
-      make_yourself_an_admin_info: "Na %{wiki} najdete instrukce. Toto při přidá na vaše uživatelské menu v záhlaví odkaz „%{admin_dashboard}“, když jste přihlášen/a. Dává vám věci jako vyhledávání uživatelů a statistiky Vašeho podu."
-      report_bugs: "nahlašte je"
-      update_instructions: "Instrukce k aktualizaci"
-      update_your_pod: "Aktualizujte svůj pod"
-      update_your_pod_info: "%{update_instructions} najdete na diaspora* wiki."
-  invitation_codes:
-    already_logged_in: "%{inviter} Vás pozval, abyste se připojil/a k tomuto podu, ale už jste přihlášen/a."
-    not_valid: "Tento kód pozvánky již není platný."
-  invitations:
-    create:
-      closed: "Pozvánky jsou na tomto diaspora* podu uzavřeny."
-      empty: "Prosíme zadejte alespoň jednu emailovou adresu."
-      no_more: "Nemáte žádné další pozvánky."
-      note_already_sent: "Pozvánky už byly odeslány adresám: %{emails}"
-      rejected: "Následující e-mailové adresy měly problémy: %{emails}"
-      sent: "Pozvánky byly poslány pro: %{emails}"
-    new:
-      codes_left:
-        few: "%{count} pozvánky zbývájí pro tento kód"
-        one: "Jedna pozvánka zbývá pro tento kód"
-        other: "%{count} pozvánek zbývá pro tento kód"
-        zero: "Nezbývá žádná pozvánka pro tento kód"
-      comma_separated_plz: "Můžete zadat více e-mailových adres oddělených čárkami."
-      invite_someone_to_join: "Pozvěte někoho na diasporu*!"
-      language: "Jazyk"
-      paste_link: "Sdílejte tento odkaz s vašimi přáteli abyste je pozvali do diaspory*, nebo jim ho přímo pošlete emailem."
-      send_an_invitation: "Odeslat pozvánku"
-      sending_invitation: "Posílám pozvánku..."
-  layouts:
-    application:
-      back_to_top: "Nahoru"
-      be_excellent: "Buďte k sobě úžasní! ♥"
-      discourse: "Diskuze projektu a podpora"
-      powered_by: "Běží na síti diaspora*"
-      public_feed: "Veřejný proud diaspory* pro %{name}"
-      source_package: "Stáhnout balík se zdrojovým kódem"
-      statistics_link: "Statistiky podu"
-      switch_to_standard_mode: "Přepnutí do standardního režimu"
-      switch_to_touch_optimized_mode: "Přepnutí do režimu dotykového displeje"
-      whats_new: "Co je nového?"
-    header:
-      code: "Kód"
-      logout: "Odhlásit se"
-      profile: "Profil"
-      settings: "Nastavení"
-      toggle_navigation: "Navigace"
-  likes:
-    create:
-      error: "Oblíbení se nezdařilo."
-    destroy:
-      error: "Zrušení oblíbení se nezdařilo."
-  limited: "Omezený"
-  more: "Více"
-  no_results: "Nebyly nalezeny žádné výsledky"
-  notifications:
-    also_commented:
-      few: "%{actors} také okomentovali %{post_link} od %{post_author}."
-      one: "%{actors} také okomentoval(a) %{post_link} od %{post_author}."
-      other: "%{actors} také okomentovali %{post_link} od %{post_author}."
-      zero: "%{actors} také okomentovali %{post_link} od %{post_author}."
-    also_commented_deleted:
-      few: "%{actors} komentovali smazaný příspěvek."
-      one: "%{actors} komentoval(a) smazaný příspěvek."
-      other: "%{actors} komentovali smazaný příspěvek."
-      zero: "%{actors} komentovali smazaný příspěvek."
-    comment_on_post:
-      few: "%{actors} okomentovali váš %{post_link}."
-      one: "%{actors} okomentoval(a) váš %{post_link}."
-      other: "%{actors} okomentovali váš %{post_link}."
-      zero: "%{actors} okomentovali váš %{post_link}."
-    contacts_birthday:
-      few: "%{actors} mají %{date} narozeniny"
-      one: "%{actors} má %{date} narozeniny"
-      other: "%{actors} mají %{date} narozeniny"
-      zero: "%{actors} mají %{date} narozeniny"
-    index:
-      all_notifications: "Všechna oznámení"
-      also_commented: "Také okomentováno"
-      and: "a"
-      and_others:
-        few: "a %{count} další"
-        one: "a ještě jeden"
-        other: "a %{count} dalších"
-        zero: "a nikdo další"
-      comment_on_post: "Komentář příspěvku"
-      contacts_birthday: "Narozeniny"
-      liked: "Co se mi líbilo"
-      mark_all_as_read: "Označit vše jako přečtené"
-      mark_all_shown_as_read: "Vše zobrazené označit jako přečtené"
-      mark_read: "Označit jako přečtené"
-      mark_unread: "Označit jako nepřečtené"
-      mentioned: "Zmíněno v příspšvku"
-      mentioned_in_comment: "Zmíněno v komentáři"
-      no_notifications: "Zatím nemáte žádná upozornění."
-      notifications: "Oznámení"
-      reshared: "Znovusdílené"
-      show_all: "Zobrazit vše"
-      show_unread: "Zobrazit nepřečtené"
-      started_sharing: "Sdílení zahájeno"
-    liked:
-      few: "%{actors} se líbí váš %{post_link}."
-      one: "%{actors} se líbí váš %{post_link}."
-      other: "%{actors} se líbí váš %{post_link}."
-      zero: "%{actors} se líbí váš %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} se líbil váš smazaný příspěvek."
-      one: "%{actors} se líbil váš smazaný příspěvek."
-      other: "%{actors} se líbil váš smazaný příspěvek."
-      zero: "%{actors} se líbil váš smazaný příspěvek."
-    mentioned:
-      few: "%{actors} vás zmínili na %{post_link}."
-      one: "%{actors} vás zmínil(a) na %{post_link}."
-      other: "%{actors} vás zmínili na %{post_link}."
-      zero: "%{actors} vás zmínilo na %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} vás zmínili ve smazaném příspěvku."
-      one: "%{actors} vás zmínil(a) ve smazaném příspěvku."
-      other: "%{actors} vás zmínili ve smazaném příspěvku."
-      zero: "%{actors} vás zmínili ve smazaném příspěvku."
-    mentioned_in_comment:
-      few: "%{actors} Vás zmínili v <a href='%{comment_path}'>komentáři</a> k příspěvku %{post_link}."
-      one: "%{actors} Vás zmínil v <a href='%{comment_path}'>komentáři</a> k příspěvku %{post_link}."
-      other: "%{actors} Vás zmínili v <a href='%{comment_path}'>komentáři</a> k příspěvku %{post_link}."
-    mentioned_in_comment_deleted:
-      few: "%{actors} Vás zmínili v smazaném komentáři."
-      one: "%{actors} Vás zmínil v smazaném komentáři."
-      other: "%{actors} Vás zmínili v smazaném komentáři."
-    private_message:
-      few: "%{actors} vám poslali zprávu."
-      one: "%{actors} vám poslal(a) zprávu."
-      other: "%{actors} vám poslali zprávu."
-      zero: "%{actors} vám poslal zprávu."
-    reshared:
-      few: "%{actors} sdíleli váš %{post_link}."
-      one: "%{actors} sdílel(a) váš %{post_link}."
-      other: "%{actors} sdíleli váš %{post_link}."
-      zero: "%{actors} sdíleli váš %{post_link}."
-    reshared_post_deleted:
-      few: "%{actors} sdíleli váš smazaný příspěvek."
-      one: "%{actors} sdílel(a) váš smazaný příspěvek."
-      other: "%{actors} sdíleli váš smazaný příspěvek."
-      zero: "%{actors} sdíleli váš smazaný příspěvek."
-    started_sharing:
-      few: "%{actors} s vámi začali sdílet."
-      one: "%{actors} s vámi začal(a) sdílet."
-      other: "%{actors} s vámi začali sdílet."
-      zero: "%{actors} s vámi začali sdílet."
-  notifier:
-    a_limited_post_comment: "Na omezeném příspěvku v diaspora* je k přečtení nový komentář."
-    a_post_you_shared: "příspěvek."
-    a_private_message: "Máte v diaspora* novou soukromou zprávu."
-    also_commented:
-      limited_subject: "Na příspěvku, který jste okomentoval/a, je nový komentář."
-    click_here: "Klikněte zde"
-    comment_on_post:
-      limited_subject: "Na jednom z Vašich příspěvků je nový komentář"
-      reply: "Zobrazit příspěvek od uživatele %{name} nebo na něj odpovědět >"
-    confirm_email:
-      click_link: "K aktivaci vaší nové e-mailové adresy %{unconfirmed_email} použijte prosím tento odkaz:"
-      subject: "Prosím aktivujte si svou novou e-mailovou adresu %{unconfirmed_email}"
-    contacts_birthday:
-      birthday: "%{name} má dnes narozeniny. Popřejte mu/jí \"Všechno nejlepší\"!"
-      subject: "%{name} má dnes narozeniny"
-      view_profile: "Zobrazit profil uživatele %{name}"
-    csrf_token_fail:
-      body: |-
-          Dobrý den, %{name},
-
-          diaspora* detekovala pokus o přístup k Vaší relaci, který nemusel být autorizovaný. Aby nedošlo k jakémukoliv úniku dat, byl/a jste odhlášen/a. Nebojte se; můžete se již v klidu přihlásit.
-
-          Na server byl poslán požadavek pomocí chybného či chybějícího CSRF tokenu. To může být naprosto nevinný případ, mohlo by se však jednat o útok typu cross-site request forgery (CSRF).
-
-          Toto mohlo být způsobeno následujícími možnostmi:
-
-            - Softwarový doplněk mohl manipulovat požadavkem nebo odesílat požadavky bez tokenu;
-            - Panel prohlížeče otevřený z minulé relace;
-            - Jiná webová stránka mohla vytvářet požadavky s Vaším povolením či bez;
-            - Různé další externí nástroje;
-            - Škodlivý software se pokoušel získat Vaše data.
-
-          Pro více informací o CSRF jděte na [%{link}](%{link}).
-
-          Pokud tuto zprávu dostáváte opakovaně, prosím zkontrolujte uvedené body, včetně doplňků pro Váš prohlížeč.
-
-          Děkujeme,
-          E-mailový robot diaspora*.
-      subject: "Obdrželi jsme neautorizovaný požadavek z Vašeho účtu, %{name}"
-    email_sent_by_diaspora: "Tento e-mail odeslal pod %{pod_name}. Pokud si nepřejete nadále dostávat takovéto e-maily,"
-    export_email:
-      body: |-
-          Dobrý den, %{name}.
-
-          Vaše data byla zpracována a jsou připravena ke stažení na [tomto odkazu](%{url}).
-
-          S pozdravem,
-
-          E-mailový robot diaspora*!
-      subject: "%{name}, Vaše osobní data jsou připravena ke stažení"
-    export_failure_email:
-      body: |-
-          Dobrý den, %{name},
-
-          Při přípravě Vašich osobních dat ke stažení jsme narazili na problémy.
-          Prosím, zkuste to znovu.
-
-          Omlouváme se,
-
-          E-mailový robot diaspora*!
-      subject: "Je nám líto, %{name}, ale je nějaký problém s Vašimi daty."
-    export_photos_email:
-      body: |-
-          Dobrý den, %{name},
-
-          Vaše fotky byly zpracovány a jsou k dispozici ke stažení na následujícím [odkazu](%{url})
-
-          S pozdravem,
-
-          E-mailový robot diaspora*!
-      subject: "%{name}, Vaše fotky jsou připraveny ke stažení."
-    export_photos_failure_email:
-      body: |-
-          Dobrý den, %{name},
-
-          došlo k problému s přípravou Vašich fotek ke stažení.
-          Zkuste to, prosím, znovu.
-
-          Omlouvám se,
-
-          E-mailový robot diaspora*!
-      subject: "%{name}, s Vašimi fotografiemi nastal nějaký problém."
-    hello: "Vítej, %{name}!"
-    invite:
-      message: |-
-          Ahoj! 
-           
-          Uživatel %{user} Vás pozval/a na diasporu*! 
-           
-          Klikněte na tento odkaz, abyste mohl/a začít 
-           
-          [%{invite_url}][1]
-
-          Nebo si přidejte do Vašich kontaktů %{diaspora_id}, pokud již účet máte.
-
-
-          S láskou, 
-           
-          E-mailový robot diaspora*!
-
-          P.S.: Jenom pokud (ještě) nevíte, co je diaspora*, [tady][2] je odpověď!
-           
-          [1]: %{invite_url}
-          [2]: %{diasporafoundation_url}
-    invited_you: "%{name} vás pozval/a do diaspory*"
-    liked:
-      liked: "%{name} si oblíbil(a) váš příspěvek"
-      limited_post: "Uživateli %{name} se líbí Váš omezený příspěvek."
-      view_post: "Zobrazit příspěvek »"
-    mentioned:
-      limited_post: "Byl/a jste zmíněn/a v omezeném příspěvku."
-      subject: "%{name} vás zmínil/a na diaspoře*"
-    mentioned_in_comment:
-      limited_post: "Byl/a jste zmíněn/a v komentáři k omezenému příspěvku."
-      reply: "Zobrazit konverzaci či na ni odpovědět >"
-    private_message:
-      reply_to_or_view: "Zobrazit konverzaci nebo na ni odpovědět »"
-      subject: "Máte novou soukromu zprávu."
-    remove_old_user:
-      body: |-
-          Dobrý den,
-
-          zdá se, že již nechcete mít účet na %{pod_url}, protože jste jej nepoužil/a posledních %{after_days} dní. Abychom mohli zajistit maximální výkon tohoto diaspora* podu našim aktivním uživatelům, odstraňujeme nechtěné účty z naší databáze.
-
-          Budeme rádi, pokud zůstanete členem diaspora* komunity a ponecháte si Váš účet, pokud o něj stojíte.
-
-          Jediné, co pro jeho zachování musíte udělat, je přihlásit se na něj před %{remove_after}. Až se přihlásíte, doufáme že budete mít čas se po diaspora* trochu poohlédnout. Od doby Vaší poslední návštěvy se toho hodně změnilo a myslíme si, že se Vám naše vylepšení budou líbit. Začněte odebírat nějaké #štítky, tak snadno najdete obsah, který Vás zajímá.
-
-          Přihlaste se zde: %{login_url}. Pokud jste zapoměl/a své přihlašovací údaje, můžete na této stránce požádat o připomenutí.
-
-          Doufáme, že Vás na daispoře* znovu uvidíme,
-
-          E-mailový robot diaspora*!
-      subject: "Váš diaspora* účet byl navržen k odstranění, protože na něm nejste aktivní."
-    report_email:
-      body: |-
-          Dobrý den,
-
-          %{type} s identifikátorem %{id} byl označen jako urážlivý.
-
-          Důvod: %{reason}
-
-          [%{url}][1]
-
-          Prosím, zkontrolujte jej co nejdříve !
-
-
-          S pozdravem,
-
-          emailový robor diaspora*!
-
-          [1]: %{url}
-      subject: "Nový %{type} byl označen jako urážlivý"
-      type:
-        comment: "komentář"
-        post: "příspěvek"
-    reshared:
-      reshared: "%{name} právě sdílel(a) váš příspěvek"
-      view_post: "Zobrazit příspěvek »"
-    single_admin:
-      admin: "Váš administrátor diaspory*"
-      subject: "Zpráva o vašem účtu na diaspoře*:"
-    started_sharing:
-      sharing: "s vámi začal(a) sdílet!"
-      subject: "%{name} s vámi začal/a sdílet na diaspoře*"
-      view_profile: "Zobrazit profil %{name}"
-    thanks: "Díky,"
-    to_change_your_notification_settings: "upravte si nastavení oznámení."
-  nsfw: "Citlivý obsah (erotika, násilí a podobně)"
-  ok: "Budiž"
+        no_applications: Nemáte žádné autorizované aplikace
+        revoke_autorization: Odebrat oprávnění
+        tos: Viz podmínky služby této aplikace
+        policy: Viz podmínky ochrany osobních údajů této aplikace
+      scopes:
+        openid:
+          name: základní profil
+          description: To umožňuje aplikaci přečíst váš základní profil.
+        sub:
+          name: sub
+          description: Tohle udělí aplikaci oprávnění sub
+        name:
+          name: jméno
+          description: Tohle udělí aplikaci oprávnění pro jméno
+        nickname:
+          name: přezdívka
+          description: Tohle udělí aplikaci oprávnění pro přezdívku
+        picture:
+          name: Obrázek
+          description: To zajišťuje omezení práv aplikace k obrázku
+        profile:
+          name: Rozšířený profil
+          description: To umožňuje aplikaci číst váš rozšířený profil
+      error_page:
+        title: Jejda! Něco se pokazilo :-(
+        contact_developer: 'Můžete kontaktovat vývojáře aplikace a zahrnout následující detailní chybovou hlášku:'
+        login_required: Pro přístup k aplikaci musíte být autorizován přihlášením.
+        could_not_authorize: Aplikace nemůže být autorizována
   people:
-    add_contact:
-      invited_by: "Byl/a jste pozván/a uživatelem"
-    index:
-      couldnt_find_them: "Nemůžete je najít?"
-      looking_for: "Hledáte příspěvky označené %{tag_link}?"
-      no_one_found: "… a nikdo nebyl nalezen."
-      no_results: "Hej! Musíte něco hledat."
-      results_for: "Uživatelé odpovídající termínu %{search_term}"
-      search_handle: "Vaše přátelé nejlépe najdete podle jejich diaspora* ID (uzivatel@pod.cz)."
-      searching: "Vyhledávám, prosím buďte trpěliví…"
-      send_invite: "Stále nic ? Pošlete pozvánku !"
     person:
-      thats_you: "To jste vy!"
-    profile_sidebar:
-      bio: "Něco o vás"
-      born: "Datum narození"
-      gender: "Pohlaví"
-      location: "Poloha"
+      thats_you: To jste vy!
+    index:
+      results_for: Uživatelé odpovídající termínu %{search_term}
+      no_results: Hej! Musíte něco hledat.
+      couldnt_find_them: Nemůžete je najít?
+      search_handle: Vaše přátelé nejlépe najdete podle jejich diaspora* ID (uzivatel@pod.cz).
+      send_invite: Stále nic ? Pošlete pozvánku !
+      no_one_found: "… a nikdo nebyl nalezen."
+      searching: Vyhledávám, prosím buďte trpěliví…
+      looking_for: Hledáte příspěvky označené %{tag_link}?
     show:
-      closed_account: "Tento účet byl uzavřen."
-      does_not_exist: "Osoba neexistuje!"
       has_not_shared_with_you_yet: "%{name} s vámi zatím žádný příspěvek nesdílí!"
+      does_not_exist: Osoba neexistuje!
+      closed_account: Tento účet byl uzavřen.
+    profile_sidebar:
+      bio: Něco o vás
+      location: Poloha
+      gender: Pohlaví
+      born: Datum narození
+    add_contact:
+      invited_by: Byl/a jste pozván/a uživatelem
   photos:
     create:
-      integrity_error: "Nahrání fotky selhalo. Jste si jist, že to byl obrázek?"
-      runtime_error: "Nahrání fotky selhalo. Máte zapnutý bezpečností pás?"
-      type_error: "Nahrání fotky selhalo. Jste si jist, že byl obrázek přidán?"
+      runtime_error: Nahrání fotky selhalo. Máte zapnutý bezpečností pás?
+      integrity_error: Nahrání fotky selhalo. Jste si jist, že to byl obrázek?
+      type_error: Nahrání fotky selhalo. Jste si jist, že byl obrázek přidán?
     destroy:
-      notice: "Fotka smazána."
+      notice: Fotka smazána.
     new_profile_photo:
-      upload: "Nahrajte novou profilovou fotku!"
+      upload: Nahrajte novou profilovou fotku!
   polls:
     votes:
-      few: "Zatím hlasovali %{count} lidé"
-      one: "Zatím hlasoval %{count} člověk"
-      other: "Zatím hlasovalo %{count} lidí"
-      zero: "Zatím hlasovalo %{count} lidí"
+      zero: Zatím hlasovalo %{count} lidí
+      one: Zatím hlasoval %{count} člověk
+      few: Zatím hlasovali %{count} lidé
+      other: Zatím hlasovalo %{count} lidí
   posts:
     presenter:
-      title: "Příspěvek uživatele %{name}"
+      title: Příspěvek uživatele %{name}
     show:
-      forbidden: "Nemáte povolení k této akci."
-      location: "Odesláno z: %{location}"
+      location: 'Odesláno z: %{location}'
+      forbidden: Nemáte povolení k této akci.
       photos_by:
+        zero: Žádné fotky uživatele %{author}
+        one: Jedna fotka uživatele %{author}
         few: "%{count} fotky uživatele %{author}"
-        one: "Jedna fotka uživatele %{author}"
         other: "%{count} fotek uživatele %{author}"
-        zero: "Žádné fotky uživatele %{author}"
-      reshare_by: "Sdílel %{author}"
-  privacy: "Soukromí"
-  profile: "Profil"
+      reshare_by: Sdílel %{author}
+  report:
+    title: Přehled nahlášení
+    post_label: "<strong>Příspěvek</strong>: %{content}"
+    comment_label: "<strong>Komentář</strong>: %{data}"
+    reported_label: "<strong>Oznámil/а</strong> %{person}"
+    reason_label: 'Důvod:'
+    review_link: Označit jako zkontrolované
+    delete_link: Smazat položku
+    reported_user_details: Detaily reportujícího uživatele
+    confirm_deletion: Určitě chcete smazat tuto položku ?
+    not_found: Příspěvek/komentář nebyl nalezen. Zdá se, že byl svým tvůrcem smazán!
+    status:
+      destroyed: Příspěvek byl zničen
+      failed: Promiňte, někde se stala chyba.
+    unreviewed_reports:
+      zero: Nejsou žádná neprohlédnutá nahlášení.
+      one: Je tu jedno neprohlédnuté nahlášení.
+      few: Jsou tu %{count} neprohlédnutá nahlášení.
+      other: Je tu %{count} neprohlédnutých nahlášení.
   profiles:
     edit:
-      allow_search: "Umožnit, aby vás lidé mohli najít na diaspoře*"
-      basic: "Můj základní profil"
-      basic_hint: "Každá položka vašeho profilu je volitelné. Váš základní profil bude vždy viditelný veřejně."
-      extended: "Můj rozšířený profil"
-      extended_hint: "Kliknutím na přepínač nastavíte viditelnost vašeho rozšířeného profilu. Veřejný znamená, že ho může vidět celý internet, omezený znamená, že ho uvidí pouze lidé, se kterými sdílíte."
-      extended_visibility_text: "Viditelnost vašeho rozšířeného profilu"
-      first_name: "Jméno"
-      last_name: "Příjmení"
-      limited: "Omezený"
-      nsfw_check: "Označit vše, co sdílím, jako citlivý obsah"
-      nsfw_explanation: "NSFW ('citlivý obsah') je vnitřní standard diaspory* pro obsah, který nemusí být vhodný k prohlížení, když jste v práci. Pokud sdílíte takový obsah často, prosím zatrhněte tuto možnost, čímž budou všechny Vaše příspěvky skryty z uživatelských proudů, dokud se daný uživatel nerozhodne si je prohlédnout."
-      nsfw_explanation2: "Pokud se rozhodnete tuto možnost nezatrhnout, přidávejte prosím štítek #nsfw pokaždé když sdílíte takový obsah."
-      public: "Veřejné"
-      settings: "Nastavení profilu"
-      update_profile: "Aktualizovat profil"
-      your_bio: "Něco o vás"
-      your_birthday: "Vaše narozeniny"
-      your_gender: "Vaše pohlaví"
-      your_location: "Vaše poloha"
-      your_name: "Vaše jméno"
-      your_photo: "Vaše fotografie"
-      your_tags: "Popište se pěti slovy"
-      your_tags_placeholder: "např. #filmy #kotata #cestovani #ucitel #praha"
+      basic: Můj základní profil
+      extended: Můj rozšířený profil
+      settings: Nastavení profilu
+      extended_visibility_text: Viditelnost vašeho rozšířeného profilu
+      public: Veřejné
+      limited: Omezený
+      basic_hint: Každá položka vašeho profilu je volitelné. Váš základní profil bude vždy viditelný veřejně.
+      extended_hint: Kliknutím na přepínač nastavíte viditelnost vašeho rozšířeného profilu. Veřejný znamená, že ho může vidět celý internet, omezený znamená, že ho uvidí pouze lidé, se kterými sdílíte.
+      your_name: Vaše jméno
+      first_name: Jméno
+      last_name: Příjmení
+      your_gender: Vaše pohlaví
+      your_birthday: Vaše narozeniny
+      your_tags: Popište se pěti slovy
+      your_tags_placeholder: 'např. #filmy #kotata #cestovani #ucitel #praha'
+      your_bio: Něco o vás
+      your_location: Vaše poloha
+      your_photo: Vaše fotografie
+      update_profile: Aktualizovat profil
+      allow_search: Umožnit, aby vás lidé mohli najít na diaspoře*
+      nsfw_explanation: NSFW ('citlivý obsah') je vnitřní standard diaspory* pro obsah, který nemusí být vhodný k prohlížení, když jste v práci. Pokud sdílíte takový obsah často, prosím zatrhněte tuto možnost, čímž budou všechny Vaše příspěvky skryty z uživatelských proudů, dokud se daný uživatel nerozhodne si je prohlédnout.
+      nsfw_explanation2: 'Pokud se rozhodnete tuto možnost nezatrhnout, přidávejte prosím štítek #nsfw pokaždé když sdílíte takový obsah.'
+      nsfw_check: Označit vše, co sdílím, jako citlivý obsah
     update:
-      failed: "Nepodařilo se aktualizovat profil"
-      updated: "Profil aktualizován"
-  public: "Veřejné"
+      updated: Profil aktualizován
+      failed: Nepodařilo se aktualizovat profil
   registrations:
-    create:
-      success: "Připojili jste se k diaspoře*!"
-    invalid_invite: "Odkaz na pozvánku, který jste poskytli, již neplatí!"
     new:
-      email: "E-mail"
-      enter_email: "Zadejte e-mailovou adresu"
-      enter_password: "Zadejte heslo (alespoň 6 znaků)"
-      enter_password_again: "Zadejte stejné heslo jako předtím"
-      enter_username: "Vyberte si uživatelské jméno (pouze písmena, číslice a podtržítka)"
-      password: "Heslo"
-      password_confirmation: "Potvrzení hesla"
-      sign_up: "Vytvořit účet"
-      submitting: "Odesílání..."
-      terms: "Vytvořením účtu automaticky přijímáte %{terms_link}."
-      terms_link: "Podmínky použití"
-      username: "Uživatelské jméno"
-  report:
-    comment_label: "<strong>Komentář</strong>: %{data}"
-    confirm_deletion: "Určitě chcete smazat tuto položku ?"
-    delete_link: "Smazat položku"
-    not_found: "Příspěvek/komentář nebyl nalezen. Zdá se, že byl svým tvůrcem smazán!"
-    post_label: "<strong>Příspěvek</strong>: %{content}"
-    reason_label: "Důvod:"
-    reported_label: "<strong>Oznámil/а</strong> %{person}"
-    reported_user_details: "Detaily reportujícího uživatele"
-    review_link: "Označit jako zkontrolované"
-    status:
-      destroyed: "Příspěvek byl zničen"
-      failed: "Promiňte, někde se stala chyba."
-    title: "Přehled nahlášení"
-    unreviewed_reports:
-      few: "Jsou tu %{count} neprohlédnutá nahlášení."
-      one: "Je tu jedno neprohlédnuté nahlášení."
-      other: "Je tu %{count} neprohlédnutých nahlášení."
-      zero: "Nejsou žádná neprohlédnutá nahlášení."
+      enter_email: Zadejte e-mailovou adresu
+      enter_username: Vyberte si uživatelské jméno (pouze písmena, číslice a podtržítka)
+      enter_password: Zadejte heslo (alespoň 6 znaků)
+      enter_password_again: Zadejte stejné heslo jako předtím
+      sign_up: Vytvořit účet
+      email: E-mail
+      username: Uživatelské jméno
+      password: Heslo
+      password_confirmation: Potvrzení hesla
+      submitting: Odesílání...
+      terms: Vytvořením účtu automaticky přijímáte %{terms_link}.
+      terms_link: Podmínky použití
+    create:
+      success: Připojili jste se k diaspoře*!
+    invalid_invite: Odkaz na pozvánku, který jste poskytli, již neplatí!
   reshares:
-    comment_email_subject: "%{resharer} sdílel příspěvek uživatele %{author}"
     create:
-      error: "Znovusdílení selhalo."
+      error: Znovusdílení selhalo.
     reshare:
-      deleted: "Původní příspěvek byl autorem odstraněn."
-      reshare_confirmation: "Sdílet příspěvek uživatele %{author}?"
-      reshared_via: "Sdíleno pomocí"
-  search: "Hledat"
+      reshared_via: Sdíleno pomocí
+      reshare_confirmation: Sdílet příspěvek uživatele %{author}?
+      deleted: Původní příspěvek byl autorem odstraněn.
+    comment_email_subject: "%{resharer} sdílel příspěvek uživatele %{author}"
   services:
-    create:
-      already_authorized: "Uživatel s Diaspora ID %{diaspora_id} již spojení s účtem na %{service_name} autorizoval."
-      failure: "Ověření selhalo."
-      read_only_access: "Úroveň přístupu je pouze pro čtení, zkuste se prosím znovu autorizovat později"
-      success: "Ověření úspěšné."
-    destroy:
-      success: "Autorizace úspěšně odstraněna."
-    failure:
-      error: "Nastala chyba při připojení ke službě"
-    index:
-      connect: "Připojit"
-      disconnect: "Odpojit"
-      edit_services: "Upravit služby"
-      logged_in_as: "Přihlášen jako %{nickname}."
-      no_services_available: "Na tomto podu nejsou k dispozici žádné služby."
-      not_logged_in: "Momentálně nepřihlášen."
-      really_disconnect: "Odpojit %{service}?"
-      services_explanation: "Připojování se k službám vám dá možnost na nich publikovat své příspěvky hned co je napíšete na diaspoře*."
-      share_to: "Sdílet na %{provider}"
-      title: "Spravovat připojené služby"
     provider:
-      tumblr: "Tumblr"
-      twitter: "Twitter"
-      wordpress: "WordPress"
-  settings: "Nastavení"
+      tumblr: Tumblr
+      twitter: Twitter
+      wordpress: WordPress
+    index:
+      title: Spravovat připojené služby
+      connect: Připojit
+      disconnect: Odpojit
+      logged_in_as: Přihlášen jako %{nickname}.
+      no_services_available: Na tomto podu nejsou k dispozici žádné služby.
+      not_logged_in: Momentálně nepřihlášen.
+      really_disconnect: Odpojit %{service}?
+      edit_services: Upravit služby
+      services_explanation: Připojování se k službám vám dá možnost na nich publikovat své příspěvky hned co je napíšete na diaspoře*.
+      share_to: Sdílet na %{provider}
+    create:
+      success: Ověření úspěšné.
+      failure: Ověření selhalo.
+      already_authorized: Uživatel s Diaspora ID %{diaspora_id} již spojení s účtem na %{service_name} autorizoval.
+      read_only_access: Úroveň přístupu je pouze pro čtení, zkuste se prosím znovu autorizovat později
+    destroy:
+      success: Autorizace úspěšně odstraněna.
+    failure:
+      error: Nastala chyba při připojení ke službě
+  blocks:
+    create:
+      success: 'Dobře, tohoto uživatele už ve svém proudu neuvidíte. #tichobuď!'
+      failure: 'Tohoto uživatele nedokáži ignorovat. #úhyb'
+    destroy:
+      success: 'Tak ať tedy řekne, co má na srdci! #pozdrav'
+      failure: 'Tohoto uživatele nedokáži přestat ignorovat. #úhyb'
   shared:
     aspect_dropdown:
       mobile_row_checked: "%{name} (odstranit)"
       mobile_row_unchecked: "%{name} (přidat)"
       toggle:
-        few: "Ve %{count} aspektech"
-        one: "V jednom aspektu"
-        other: "V %{count} aspektech"
-    invitations:
-      by_email: "Pozvěte lidi e-mailem"
-      invite_your_friends: "Pozvěte vaše přátele"
-      invites: "Pozvánky"
-      share_this: "Sdílejte tento odkaz pomocí emailu, blogu, nebo oblíbené sociální sítě!"
-    public_explain:
-      atom_feed: "Proud Atom"
-      control_your_audience: "Určete své obecenstvo"
-      logged_in: "Přihlášen do %{service}"
-      manage: "upravit připojené služby"
-      new_user_welcome_message: "Používejte #štítky k označení svých příspěvků a hledání lídí se stejnými zájmy. Oslovujte úžasné lidi pomocí @Zmínek."
-      outside: "Veřejné příspěvky budou dostupné i pro ostatní mimo diasporu*."
-      share: "Sdílet"
-      title: "Nastavit související služby"
-      visibility_dropdown: "Použijte toto menu pro změnu viditelnosti svého příspěvku.  (Váš první příspěvek doporučujeme udělat veřejný.)"
+        one: V jednom aspektu
+        few: Ve %{count} aspektech
+        other: V %{count} aspektech
     publisher:
-      discard_post: "Zahodit příspěvek"
-      formatWithMarkdown: "K formátování Vašeho příspěvku můžete používat %{markdown_link}"
-      get_location: "Získat polohu"
+      formatWithMarkdown: K formátování Vašeho příspěvku můžete používat %{markdown_link}
+      posting: Odesílám…
+      share: Sdílet
+      get_location: Získat polohu
+      remove_location: Odstranit pozici
+      whats_on_your_mind: Co máte na mysli?
+      discard_post: Zahodit příspěvek
       new_user_prefill:
-        hello: "Ahoj všichni, jsem #%{new_user_tag}."
-        i_like: "Moje zájmy jsou %{tags}. "
-        invited_by: "Díky za pozvání, "
-        newhere: "novacek"
+        newhere: novacek
+        hello: 'Ahoj všichni, jsem #%{new_user_tag}.'
+        i_like: 'Moje zájmy jsou %{tags}. '
+        invited_by: 'Díky za pozvání, '
       poll:
-        add_a_poll: "Přidat anketu"
-      posting: "Odesílám…"
-      remove_location: "Odstranit pozici"
-      share: "Sdílet"
-      whats_on_your_mind: "Co máte na mysli?"
+        add_a_poll: Přidat anketu
+    invitations:
+      invites: Pozvánky
+      invite_your_friends: Pozvěte vaše přátele
+      by_email: Pozvěte lidi e-mailem
+      share_this: Sdílejte tento odkaz pomocí emailu, blogu, nebo oblíbené sociální sítě!
+    public_explain:
+      control_your_audience: Určete své obecenstvo
+      new_user_welcome_message: 'Používejte #štítky k označení svých příspěvků a hledání lídí se stejnými zájmy. Oslovujte úžasné lidi pomocí @Zmínek.'
+      visibility_dropdown: Použijte toto menu pro změnu viditelnosti svého příspěvku.  (Váš první příspěvek doporučujeme udělat veřejný.)
+      title: Nastavit související služby
+      share: Sdílet
+      outside: Veřejné příspěvky budou dostupné i pro ostatní mimo diasporu*.
+      logged_in: Přihlášen do %{service}
+      manage: upravit připojené služby
+      atom_feed: Proud Atom
     stream_element:
-      via: "Přes %{link}"
-      via_mobile: "Z mobilního telefonu"
-  simple_captcha:
-    label: "Zadejte kód do rámečku"
-    message:
-      default: "Tajný kód neodpovídá obrázku"
-      failed: "Nelze ověřit, zda jste člověk."
-      user: "Tajný obrázek je odlišný od kódu"
-    placeholder: "Zadejte hodnotu na obrázku"
-  statistics:
-    active_users_halfyear: "Aktivních uživatelů za půl roku"
-    active_users_monthly: "Aktivních uživatelů měsíčně"
-    closed: "Uzavřený"
-    disabled: "Nedostupný"
-    enabled: "Dostupný"
-    local_comments: "Místní komentáře"
-    local_posts: "Místní příspěvky"
-    name: "Jméno"
-    network: "Síť"
-    open: "Otevřený"
-    registrations: "Registrace"
-    services: "Služby"
-    total_users: "Celkový počet uživatelů"
-    version: "Verze"
+      via: Přes %{link}
+      via_mobile: Z mobilního telefonu
   status_messages:
-    bad_aspects: "Poskytnutá ID aspektů nelze aplikovat (neexistují nebo je nikdo nevlastní)"
     new:
-      mentioning: "Zmínka: %{person}"
-    too_long: "Prosím zkraťte svou zprávu na méně než %{count} znaků. Teď jich má %{current_length}"
+      mentioning: 'Zmínka: %{person}'
+    too_long: Prosím zkraťte svou zprávu na méně než %{count} znaků. Teď jich má %{current_length}
+    bad_aspects: Poskytnutá ID aspektů nelze aplikovat (neexistují nebo je nikdo nevlastní)
   stream_helper:
-    no_more_posts: "Dosáhl/a jste konce proudu."
-    no_posts_yet: "Zatím zde nejsou žádné příspěvky."
-  streams:
-    activity:
-      title: "Moje aktivita"
-    admin:
-      title: "Administrátor"
-    aspects:
-      all: "Všechny aspekty"
-      title: "Moje aspekty"
-    aspects_stream: "Aspekty"
-    comment_stream:
-      title: "Komentované příspěvky"
-    commented:
-      title: "Okomentované příspěvky"
-    community_spotlight_stream: "Aktuality z komunity"
-    followed_tag:
-      add_a_tag: "Přidat štítek"
-      all: "Všechny štítky"
-      follow: "Odebírat"
-      title: "#Odebírané štítky"
-    followed_tags_stream: "#Odebírané štítky"
-    like_stream:
-      title: "Proud zalíbení"
-    liked:
-      title: "Co se mi líbilo"
-    mentioned_stream: "@Zmínky"
-    mentions:
-      title: "@Zmínky"
-    multi:
-      title: "Proud"
-    public:
-      title: "Veřejná aktivita"
-    tags:
-      title: "Příspěvky označené: %{tags}"
+    no_more_posts: Dosáhl/a jste konce proudu.
+    no_posts_yet: Zatím zde nejsou žádné příspěvky.
+  tags:
+    show:
+      tagged_people:
+        zero: Nikdo není označen štítkem %{tag}
+        one: 1 osoba je označena štítkem %{tag}.
+        few: "%{count} osoby jsou označeny štítkem %{tag} "
+        other: "%{count} osob je označeno štítkem %{tag}"
+      follow: 'Odebírat #%{tag}'
+      stop_following: 'Přestat odebírat #%{tag}'
+      none: Prázdný štítek neexistuje!
+    name_too_long: Ujistěte se, že název tagu má méně než %{count} znaků. Teď jich má %{current_length}.
   tag_followings:
     manage:
-      no_tags: "Nesledujete žádné štítky"
-      title: "Správa sledovaných štítků"
-  tags:
-    name_too_long: "Ujistěte se, že název tagu má méně než %{count} znaků. Teď jich má %{current_length}."
-    show:
-      follow: "Odebírat #%{tag}"
-      none: "Prázdný štítek neexistuje!"
-      stop_following: "Přestat odebírat #%{tag}"
-      tagged_people:
-        few: "%{count} osoby jsou označeny štítkem %{tag} "
-        one: "1 osoba je označena štítkem %{tag}."
-        other: "%{count} osob je označeno štítkem %{tag}"
-        zero: "Nikdo není označen štítkem %{tag}"
-  username: "Uživatelské jméno"
-  users:
-    confirm_email:
-      email_confirmed: "E-mail %{email} aktivován"
-      email_not_confirmed: "E-mail nemohl být aktivován. Špatný odkaz?"
-    destroy:
-      no_password: "Prosím zadejte své současné heslo, aby váš účet mohl být uzavřen."
-      success: "Váš účet byl uzamčen. Uzavření vašeho účtu může trvat až 20 minut. Děkujeme za vyzkoušení diaspory*."
-      wrong_password: "Zadané heslo nesouhlasí s vaším současným heslem."
-    edit:
-      also_commented: "někdo okomentuje příspěvek, který jste komentoval/a"
-      auto_follow_aspect: "Aspekt pro automaticky sledované uživatele:"
-      auto_follow_back: "Automaticky sdílet s těmi, kdo sdílejí s Vámi"
-      birthday: "někdo má narozeniny"
-      change: "Změnit"
-      change_color_theme: "Změnit barevné schéma"
-      change_email: "Změnit e-mail"
-      change_language: "Změnit jazyk"
-      change_password: "Změnit heslo"
-      character_minimum_expl: "musí být alespoň šest znaků dlouhé"
-      close_account:
-        dont_go: "Prosíme, neodcházejte!"
-        lock_username: "Vaše uživatelské jméno bude uzamčené. Nebudete moci si vytvořit nový účet na tomto podu se stejným ID."
-        locked_out: "Budete odhlášeni a váš účet bude uzamčen, dokud nebude smazán."
-        make_diaspora_better: "Chtěli bychom, abyste nám pomohli udělat diasporu* lepší, tak nám prosím pomozte a neopouštějte nás. Pokud však opravdu chcete odejít, chceme vám sdělit, co bude následovat:"
-        mr_wiggles: "Ostatní uživatelé budou plakat."
-        no_turning_back: "Toto nelze vrátit zpět! Pokud jste si jisti, vložte níže svoje heslo."
-        what_we_delete: "Smažeme všechny vaše příspěvky a profilová data, jak rychle to bude možné. Vaše komentáře tu  zůstanou viset, nicméně zůstanou spojeny jen s vaším diaspora* ID místo jména."
-      close_account_text: "Uzavřít účet"
-      comment_on_post: "někdo okomentuje Váš příspěvek"
-      current_password: "Současné heslo"
-      current_password_expl: "to, s kterým se přihlašuješ..."
-      default_post_visibility: "Výchozý aspekty pro přispívání"
-      download_export: "Stáhnout můj profil"
-      download_export_photos: "Stáhnout moje fotky"
-      edit_account: "Upravit účet"
-      email_awaiting_confirmation: "Na adresu %{unconfirmed_email} byl zaslán aktivační odkaz. Dokud tento odkaz neotevřete a svou novou adresu neaktivujete, budeme vás kontaktovat na vaší staré adrese %{email}."
-      export_data: "Exportovat data"
-      export_in_progress: "Momentálně zpracováváme Vaše data. Dejte nám chvilku."
-      export_photos_in_progress: "Momentálně zpracováváme Vaše fotky. Zkuste to prosím za chvilku."
-      following: "Nastavení sledování"
-      last_exported_html: "(Naposledy aktualizováno před %{timeago})"
-      liked: "se někomu zalíbí Váš příspěvek"
-      mentioned: "Vás někdo zmíní v příspěvku"
-      mentioned_in_comment: "jste zmíněn v komentáři"
-      new_password: "Nové heslo"
-      private_message: "obdržíte soukromou zprávu"
-      protocol_handler:
-        browser: "Tento protokol je aktuálně v experimentálním stádiu a úspěšnost interakcí pomocí něj bude záležet na Vašem prohlížeči. Pokud chcete spravovat nebo odstranit tento handler, musíte to udělat v nastaveních Vašeho prohlížeče. Tlačítko níže bude vždy povolené a budete muset nastavit handler zvlášť na každém prohlížeči, který používáte."
-        description: "web+diaspora:// je nový webový protokol, který jsme představili. Jakýkoliv odkaz na stránku diaspora* na externí stránce, který tento protokol používá, může být otevřen v podu, na kterém je registrován Váš účet diaspora*. Kliknutím na tlačítko níže nastavíte Váš prohlížeč, aby pro rozpoznávání externích odkazů web+diaspora:// používal adresu %{pod_url}."
-        register: "Registrovat handler web+diaspora:// na tomto prohlížečí"
-        title: "Handler pro protokol web+diaspora://"
-      receive_email_notifications: "Přijímat oznámení e-mailem, když:"
-      request_export: "Vyžádat si má profilová data"
-      request_export_photos: "Vyžádat si moje fotky"
-      request_export_photos_update: "Obnovit moje fotky"
-      request_export_update: "Obnovit má profilová data"
-      reshared: "někdo sdílí váš příspěvek"
-      show_community_spotlight: "Zobrazovat „aktuality z komunity“ v proudu?"
-      show_getting_started: "Zobrazit „tutoriály pro nováčky“"
-      someone_reported: "někdo nahlásil jako urážlivé"
-      started_sharing: "s vámi někdo začne sdílet"
-      stream_preferences: "Předvolby proudu"
-      your_email: "Váš e-mail"
-      your_email_private: "Vaší emailovou adresu nikdy neuvidí jiní uživatelé."
-      your_handle: "Vaše diaspora* ID"
-    getting_started:
-      awesome_take_me_to_diaspora: "Úžasné! Vezměte mě na diasporu*"
-      community_welcome: "Komunita diaspory* je šťastná, že jste se přidal/a!"
-      hashtag_explanation: "Štítky vám dovolují odebírat to, o co se zajímáte, a diskutovat o tom. Je to také skvělý způsob, jak na Diaspoře najít nové přátele."
-      hashtag_suggestions: "Zkuste odebírat třeba štítky #umění, #filmy, #gif a podobně."
-      well_hello_there: "Jé, ahojte!"
-      what_are_you_in_to: "Co vás zajímá?"
-      who_are_you: "Kdo jste?"
-    privacy_settings:
-      ignored_users: "Ignorovaní uživatelé"
-      no_user_ignored_message: "Momentálně neignorujete žádné uživatele"
-      stop_ignoring: "Přestat ignorovat"
-      strip_exif: "Odstranit metadata typu lokace, autor a model fotoaparátu z nahrávaných obrázků (doporučeno)"
-      title: "Nastavení soukromí"
+      title: Správa sledovaných štítků
+      no_tags: Nesledujete žádné štítky
+  streams:
+    community_spotlight_stream: Aktuality z komunity
+    aspects_stream: Aspekty
+    mentioned_stream: "@Zmínky"
+    followed_tags_stream: "#Odebírané štítky"
+    mentions:
+      title: "@Zmínky"
+    comment_stream:
+      title: Komentované příspěvky
+    like_stream:
+      title: Proud zalíbení
+    followed_tag:
+      title: "#Odebírané štítky"
+      add_a_tag: Přidat štítek
+      follow: Odebírat
+      all: Všechny štítky
+    admin:
+      title: Administrátor
+    tags:
+      title: 'Příspěvky označené: %{tags}'
     public:
-      does_not_exist: "Uživatel %{username} neexistuje!"
+      title: Veřejná aktivita
+    multi:
+      title: Proud
+    aspects:
+      title: Moje aspekty
+      all: Všechny aspekty
+    activity:
+      title: Moje aktivita
+    liked:
+      title: Co se mi líbilo
+    commented:
+      title: Okomentované příspěvky
+  users:
+    edit:
+      edit_account: Upravit účet
+      change: Změnit
+      your_handle: Vaše diaspora* ID
+      your_email: Váš e-mail
+      your_email_private: Vaší emailovou adresu nikdy neuvidí jiní uživatelé.
+      change_email: Změnit e-mail
+      email_awaiting_confirmation: Na adresu %{unconfirmed_email} byl zaslán aktivační odkaz. Dokud tento odkaz neotevřete a svou novou adresu neaktivujete, budeme vás kontaktovat na vaší staré adrese %{email}.
+      change_password: Změnit heslo
+      new_password: Nové heslo
+      current_password: Současné heslo
+      current_password_expl: to, s kterým se přihlašuješ...
+      character_minimum_expl: musí být alespoň šest znaků dlouhé
+      change_language: Změnit jazyk
+      change_color_theme: Změnit barevné schéma
+      close_account_text: Uzavřít účet
+      stream_preferences: Předvolby proudu
+      show_community_spotlight: Zobrazovat „aktuality z komunity“ v proudu?
+      show_getting_started: Zobrazit „tutoriály pro nováčky“
+      following: Nastavení sledování
+      auto_follow_back: Automaticky sdílet s těmi, kdo sdílejí s Vámi
+      auto_follow_aspect: 'Aspekt pro automaticky sledované uživatele:'
+      default_post_visibility: Výchozý aspekty pro přispívání
+      receive_email_notifications: 'Přijímat oznámení e-mailem, když:'
+      started_sharing: s vámi někdo začne sdílet
+      someone_reported: někdo nahlásil jako urážlivé
+      mentioned: Vás někdo zmíní v příspěvku
+      mentioned_in_comment: jste zmíněn v komentáři
+      liked: se někomu zalíbí Váš příspěvek
+      reshared: někdo sdílí váš příspěvek
+      comment_on_post: někdo okomentuje Váš příspěvek
+      also_commented: někdo okomentuje příspěvek, který jste komentoval/a
+      private_message: obdržíte soukromou zprávu
+      birthday: někdo má narozeniny
+      download_export: Stáhnout můj profil
+      request_export: Vyžádat si má profilová data
+      request_export_update: Obnovit má profilová data
+      export_data: Exportovat data
+      export_in_progress: Momentálně zpracováváme Vaše data. Dejte nám chvilku.
+      last_exported_html: "(Naposledy aktualizováno před %{timeago})"
+      download_export_photos: Stáhnout moje fotky
+      request_export_photos: Vyžádat si moje fotky
+      request_export_photos_update: Obnovit moje fotky
+      export_photos_in_progress: Momentálně zpracováváme Vaše fotky. Zkuste to prosím za chvilku.
+      close_account:
+        dont_go: Prosíme, neodcházejte!
+        make_diaspora_better: 'Chtěli bychom, abyste nám pomohli udělat diasporu* lepší, tak nám prosím pomozte a neopouštějte nás. Pokud však opravdu chcete odejít, chceme vám sdělit, co bude následovat:'
+        mr_wiggles: Ostatní uživatelé budou plakat.
+        what_we_delete: Smažeme všechny vaše příspěvky a profilová data, jak rychle to bude možné. Vaše komentáře tu  zůstanou viset, nicméně zůstanou spojeny jen s vaším diaspora* ID místo jména.
+        locked_out: Budete odhlášeni a váš účet bude uzamčen, dokud nebude smazán.
+        lock_username: Vaše uživatelské jméno bude uzamčené. Nebudete moci si vytvořit nový účet na tomto podu se stejným ID.
+        no_turning_back: Toto nelze vrátit zpět! Pokud jste si jisti, vložte níže svoje heslo.
+      protocol_handler:
+        title: Handler pro protokol web+diaspora://
+        description: web+diaspora:// je nový webový protokol, který jsme představili. Jakýkoliv odkaz na stránku diaspora* na externí stránce, který tento protokol používá, může být otevřen v podu, na kterém je registrován Váš účet diaspora*. Kliknutím na tlačítko níže nastavíte Váš prohlížeč, aby pro rozpoznávání externích odkazů web+diaspora:// používal adresu %{pod_url}.
+        browser: Tento protokol je aktuálně v experimentálním stádiu a úspěšnost interakcí pomocí něj bude záležet na Vašem prohlížeči. Pokud chcete spravovat nebo odstranit tento handler, musíte to udělat v nastaveních Vašeho prohlížeče. Tlačítko níže bude vždy povolené a budete muset nastavit handler zvlášť na každém prohlížeči, který používáte.
+        register: Registrovat handler web+diaspora:// na tomto prohlížečí
+    privacy_settings:
+      title: Nastavení soukromí
+      strip_exif: Odstranit metadata typu lokace, autor a model fotoaparátu z nahrávaných obrázků (doporučeno)
+      ignored_users: Ignorovaní uživatelé
+      stop_ignoring: Přestat ignorovat
+      no_user_ignored_message: Momentálně neignorujete žádné uživatele
+    destroy:
+      success: Váš účet byl uzamčen. Uzavření vašeho účtu může trvat až 20 minut. Děkujeme za vyzkoušení diaspory*.
+      no_password: Prosím zadejte své současné heslo, aby váš účet mohl být uzavřen.
+      wrong_password: Zadané heslo nesouhlasí s vaším současným heslem.
+    getting_started:
+      well_hello_there: Jé, ahojte!
+      community_welcome: Komunita diaspory* je šťastná, že jste se přidal/a!
+      awesome_take_me_to_diaspora: Úžasné! Vezměte mě na diasporu*
+      who_are_you: Kdo jste?
+      what_are_you_in_to: Co vás zajímá?
+      hashtag_explanation: Štítky vám dovolují odebírat to, o co se zajímáte, a diskutovat o tom. Je to také skvělý způsob, jak na Diaspoře najít nové přátele.
+      hashtag_suggestions: 'Zkuste odebírat třeba štítky #umění, #filmy, #gif a podobně.'
     update:
-      color_theme_changed: "Barevné schéma úspěšně změněno"
-      color_theme_not_changed: "Při změně barevného schématu nastala chyba"
-      email_notifications_changed: "Oznámení e-mailem změněno"
-      follow_settings_changed: "Následující nastavení se změnila"
-      follow_settings_not_changed: "Následující nastavení se nepodařilo změnit"
-      language_changed: "Jazyk změněn"
-      language_not_changed: "Změna jazyka selhala"
-      password_changed: "Heslo bylo změněno. Nyní se můžete přihlásit s vaším novým heslem."
-      password_not_changed: "Změna hesla selhala"
-      settings_not_updated: "Aktualizace nastavení selhala"
-      settings_updated: "Nastavení uloženo"
-      unconfirmed_email_changed: "E-mail změněn. Vyžaduje aktivaci."
-      unconfirmed_email_not_changed: "Změna e-mailu selhala"
+      password_changed: Heslo bylo změněno. Nyní se můžete přihlásit s vaším novým heslem.
+      password_not_changed: Změna hesla selhala
+      language_changed: Jazyk změněn
+      language_not_changed: Změna jazyka selhala
+      settings_updated: Nastavení uloženo
+      settings_not_updated: Aktualizace nastavení selhala
+      email_notifications_changed: Oznámení e-mailem změněno
+      unconfirmed_email_changed: E-mail změněn. Vyžaduje aktivaci.
+      unconfirmed_email_not_changed: Změna e-mailu selhala
+      follow_settings_changed: Následující nastavení se změnila
+      follow_settings_not_changed: Následující nastavení se nepodařilo změnit
+      color_theme_changed: Barevné schéma úspěšně změněno
+      color_theme_not_changed: Při změně barevného schématu nastala chyba
+    public:
+      does_not_exist: Uživatel %{username} neexistuje!
+    confirm_email:
+      email_confirmed: E-mail %{email} aktivován
+      email_not_confirmed: E-mail nemohl být aktivován. Špatný odkaz?
   will_paginate:
-    next_label: "další »"
     previous_label: "« předchozí"
+    next_label: další »
+  simple_captcha:
+    placeholder: Zadejte hodnotu na obrázku
+    label: Zadejte kód do rámečku
+    message:
+      default: Tajný kód neodpovídá obrázku
+      user: Tajný obrázek je odlišný od kódu
+      failed: Nelze ověřit, zda jste člověk.
+  statistics:
+    name: Jméno
+    network: Síť
+    services: Služby
+    total_users: Celkový počet uživatelů
+    active_users_halfyear: Aktivních uživatelů za půl roku
+    active_users_monthly: Aktivních uživatelů měsíčně
+    local_posts: Místní příspěvky
+    local_comments: Místní komentáře
+    version: Verze
+    registrations: Registrace
+    enabled: Dostupný
+    disabled: Nedostupný
+    open: Otevřený
+    closed: Uzavřený

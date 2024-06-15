@@ -7,79 +7,79 @@
 en_1337:
   devise:
     confirmations:
-      confirmed: "M41L 0K"
+      confirmed: M41L 0K
       new:
-        resend_confirmation: "R353ND C0NF1RM471ON!"
+        resend_confirmation: R353ND C0NF1RM471ON!
     failure:
-      inactive: "4CC N07 4C71V3 Y37!"
-      invalid: "N1CK C0LLU510N!"
-      invalid_token: "1NV5L1D 5U7H3N71F1C4710N 70K3N"
-      locked: "G07 K1CK3D!"
-      timeout: "401 - 4U7H3N71F1C471ON R3QU1R3D"
-      unauthenticated: "G37 4 U53RN4M3!"
-      unconfirmed: "47H3N71F1C5710N R3QU1R3D!"
-    invitations:
-      invitation_token_invalid: "1NV174710N 1NV4L1D!"
-      send_instructions: "1NV173 53N7"
-      updated: "***** 537!"
+      inactive: 4CC N07 4C71V3 Y37!
+      invalid: N1CK C0LLU510N!
+      locked: G07 K1CK3D!
+      timeout: 401 - 4U7H3N71F1C471ON R3QU1R3D
+      unauthenticated: G37 4 U53RN4M3!
+      unconfirmed: 47H3N71F1C5710N R3QU1R3D!
+      invalid_token: 1NV5L1D 5U7H3N71F1C4710N 70K3N
     mailer:
       confirmation_instructions:
-        confirm: "C0NF1RM3 MY 4CC!"
-        subject: "C0NF1RM471ON 1N57RUC71ONS"
-        you_can_confirm: "4CC C0MF1RM471ON -> L1NK B3L0W"
-      hello: "H3Y %{username}!"
-      inviter:
-        accept_at: "@ %{url}, U C4N 4CC3P7 17 -> L1NK!"
-        have_invited_you: "%{names} H4V3 1NV173D Y0U 2 J01N!"
+        subject: C0NF1RM471ON 1N57RUC71ONS
+        you_can_confirm: 4CC C0MF1RM471ON -> L1NK B3L0W
+        confirm: C0NF1RM3 MY 4CC!
       reset_password_instructions:
-        change: "CH4NG3 *****!"
-        ignore: "F33L FR33 T0 1GN0R3 7H15 M41L!"
-        someone_requested: "4 N00B W4N7S 70 0WN Y0UR ***** -> L1NK B3L0W!"
-        subject: "R3537 *****!"
+        subject: R3537 *****!
+        someone_requested: 4 N00B W4N7S 70 0WN Y0UR ***** -> L1NK B3L0W!
+        change: CH4NG3 *****!
         wont_change: "***** W0N7 CH4NG3 UN71L U CL1CK 7H3 L1NK!"
+        ignore: F33L FR33 T0 1GN0R3 7H15 M41L!
       unlock_instructions:
-        account_locked: "U G07 K1CK3D -> 2 M4NY L0G1N5!"
-        click_to_unlock: "T0 J01N -> CL1CK 7H3 L1NK B3L0W!"
-        subject: "UNL0CK 1N57RUC71ON5"
-        unlock: "P0WN MY 4CC!"
-      welcome: "W3LC0M3 %{username}!"
+        subject: UNL0CK 1N57RUC71ON5
+        account_locked: U G07 K1CK3D -> 2 M4NY L0G1N5!
+        click_to_unlock: T0 J01N -> CL1CK 7H3 L1NK B3L0W!
+        unlock: P0WN MY 4CC!
+      welcome: W3LC0M3 %{username}!
+      hello: H3Y %{username}!
+      inviter:
+        have_invited_you: "%{names} H4V3 1NV173D Y0U 2 J01N!"
+        accept_at: "@ %{url}, U C4N 4CC3P7 17 -> L1NK!"
     passwords:
-      edit:
-        change_password: "CH4NG3 MY *****"
-      new:
-        forgot_password: "F0RG07 Y0UR *****?"
-        send_password_instructions: "R3537 MY *****!!"
-      send_instructions: "G0NN4 R3C113V3 R3537 1N57RUC71ON5 BY M41L!"
+      send_instructions: G0NN4 R3C113V3 R3537 1N57RUC71ON5 BY M41L!
       updated: "***** CH4NG3D"
-    registrations:
-      destroyed: "4CC D3L373D, N00B!"
-      signed_up: "51GN3D UP 5UCC35FULLY!"
-      updated: "4CC UPD473 C0NF1RM3D!"
-    sessions:
+      edit:
+        change_password: CH4NG3 MY *****
       new:
-        login: "L0G1N"
-        modern_browsers: "N0 IE < 9!"
+        forgot_password: F0RG07 Y0UR *****?
+        send_password_instructions: R3537 MY *****!!
+    registrations:
+      destroyed: 4CC D3L373D, N00B!
+      signed_up: 51GN3D UP 5UCC35FULLY!
+      updated: 4CC UPD473 C0NF1RM3D!
+    sessions:
+      signed_in: G07CH4!
+      signed_out: KTHXB41
+      new:
+        login: L0G1N
+        username: N1CK
         password: "*****"
-        remember_me: "C47CH M3 (1F U C4N!)"
-        sign_in: "51GN 1N"
-        username: "N1CK"
-      signed_in: "G07CH4!"
-      signed_out: "KTHXB41"
+        sign_in: 51GN 1N
+        remember_me: C47CH M3 (1F U C4N!)
+        modern_browsers: N0 IE < 9!
+    unlocks:
+      send_instructions: G0NN4 R3C113V3 UNL0CK 1N57RUC71ON5 BY M41L!
+      unlocked: 4CC UNL0CK3D!
+      new:
+        resend_unlock: R353ND UNL0CK 1N57RUC71ON5!
+    invitations:
+      send_instructions: 1NV173 53N7
+      invitation_token_invalid: 1NV174710N 1NV4L1D!
+      updated: "***** 537!"
     shared:
       links:
-        forgot_your_password: "F0RG07 Y0UR *****?"
-        receive_confirmation: "G07 P0WN3D BY 7H3 M41L 53RV1C3? (N0 1NV1T471ON)"
-        receive_unlock: "G07 P0WN3D BY 7H3 M41L 53RV1C3? (N0 UNL0CK)"
-        sign_in: "51GN 1N!"
-        sign_up: "51GN UP!"
-        sign_up_closed: "N0 N00BZ!"
-    unlocks:
-      new:
-        resend_unlock: "R353ND UNL0CK 1N57RUC71ON5!"
-      send_instructions: "G0NN4 R3C113V3 UNL0CK 1N57RUC71ON5 BY M41L!"
-      unlocked: "4CC UNL0CK3D!"
+        sign_in: 51GN 1N!
+        sign_up: 51GN UP!
+        sign_up_closed: N0 N00BZ!
+        forgot_your_password: F0RG07 Y0UR *****?
+        receive_confirmation: G07 P0WN3D BY 7H3 M41L 53RV1C3? (N0 1NV1T471ON)
+        receive_unlock: G07 P0WN3D BY 7H3 M41L 53RV1C3? (N0 UNL0CK)
   errors:
     messages:
-      already_confirmed: "409 - C0NFL1C71NG R3QU357"
-      not_found: "404 - N07 F0UND"
-      not_locked: "1337 - N07 L0CK3D"
+      already_confirmed: 409 - C0NFL1C71NG R3QU357
+      not_found: 404 - N07 F0UND
+      not_locked: 1337 - N07 L0CK3D

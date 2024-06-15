@@ -5,270 +5,270 @@
 
 
 scn:
-  _applications: "Applicazioni"
-  _contacts: "Cuntatti"
-  _help: "Ajutu"
-  _services: "Servizi"
-  account: "Cuntu"
+  settings: Mpustazioni
+  profile: Profilu
+  account: Cuntu
+  privacy: Privasìa
+  _services: Servizi
+  _applications: Applicazioni
+  _help: Ajutu
+  ok: Va bonu
+  cancel: Cancella
+  delete: Cancella
+  username: Nomu di l'utilizzaturi
+  email: Email
+  are_you_sure: Sì' sicuru?
+  are_you_sure_delete_account: Si' sicuru di vuliri chiùjiri lu to cuntu? Doppu non si po chiù turnari ndarreri!
+  fill_me_out: Jìnchimi
+  public: Pùbblicu
+  limited: Limitatu
+  search: Cerca
+  nsfw: Non si truvau nudda traduzioni pi sta palora
+  find_people: 'Trova persuni o #tags'
+  more: Chiossai
+  all_aspects: Tutti l'aspetti
+  no_results: Non si truvau nuddu risultatu
+  _contacts: Cuntatti
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "havi a èssiri ùnicu ntra sti cuntatti."
+            person:
+              invalid: Non è vàlidu
+            username:
+              taken: Già si lu pigghiaru.
+              invalid: Non è validu. Si ponnu usari sulu lèttiri, nùmiri e tratti vasci
+            email:
+              taken: Già si lu pigghiaru.
         person:
           attributes:
             diaspora_handle:
-              taken: "Già si lu pigghiaru."
-        user:
+              taken: Già si lu pigghiaru.
+        contact:
           attributes:
-            email:
-              taken: "Già si lu pigghiaru."
-            person:
-              invalid: "Non è vàlidu"
-            username:
-              invalid: "Non è validu. Si ponnu usari sulu lèttiri, nùmiri e tratti vasci"
-              taken: "Già si lu pigghiaru."
-  admins:
-    admin_bar:
-      pages: "Pàgini"
-    stats:
-      2weeks: "Dui simani"
-      50_most: "Li 50 tag chiù populari"
-      go: "Vai"
-      month: "Misi"
-      week: "Simana"
-    user_search:
-      add_invites: "Agghiunci inviti"
-  all_aspects: "Tutti l'aspetti"
-  are_you_sure: "Sì' sicuru?"
-  are_you_sure_delete_account: "Si' sicuru di vuliri chiùjiri lu to cuntu? Doppu non si po chiù turnari ndarreri!"
-  aspect_memberships:
-    destroy:
-      failure: "Tentativu fallutu di livari na persuna di l'aspettu."
-      success: "Livasti cu successu na persuna di l'aspettu."
-  aspects:
-    add_to_aspect:
-      failure: "Non è possìbili agghiùnciri lu cuntattu a l'aspettu."
-      success: "Lu cuntattu s'agghiuncìu cu successu a l'aspettu."
-    aspect_listings:
-      add_an_aspect: "+ Agghiunci 'n aspettu"
-    aspect_stream:
-      make_something: "Fai qualchi cosa"
-    destroy:
-      failure: "%{name} non si potti rimòviri."
-      success: "%{name} si rimuvìu cu successu."
-    edit:
-      aspect_list_is_not_visible: "Li cuntatti nni st'aspettu non si ponnu vìdiri l'unu cu l'àutru."
-      aspect_list_is_visible: "Li cuntatti nni st'aspettu si ponnu vìdiri l'unu cu l'àutru."
-      confirm_remove_aspect: "Sì' sicuru di vuliri livari st'aspettu?"
-      rename: "Nòmina arreri"
-    index:
-      donate: "Duna"
-      help:
-        do_you: "Tu:"
-        feature_suggestion: "... hai un %{link} suggerimentu?"
-        find_a_bug: "trova un %{link}"
-        have_a_question: "hai un %{link}?"
-        here_to_help: "La cumunità \"diaspora\" è cca!"
-        need_help: "Hai bisognu d'ajutu?"
-        tag_bug: "erruri"
-        tag_feature: "caratterìstica"
-        tag_question: "dumanna"
-      introduce_yourself: "Chistu è lu to stream. Trasi e prisèntati."
-      new_here:
-        learn_more: "Mpara chiossai"
-        title: "Benvinutu novu utilizzaturi"
-      services:
-        content: "Po' cunnèttiri sti servizi a diaspora*:"
-        heading: "Cunnetti servizi"
-      welcome_to_diaspora: "Benvinutu nni diaspora, %{name}"
-    no_contacts_message:
-      try_adding_some_more_contacts: "Tu po' circari o %{invite_link} a àutri cuntatti"
-      you_should_add_some_more_contacts: "Avissi a agghiùnciri àutri cuntatti!"
-    seed:
-      acquaintances: "Canuscenti"
-      family: "Famigghia"
-      friends: "Amici"
-      work: "Travagghiu"
-    update:
-      failure: "Lu to aspettu, %{name}, avìa un nomu troppu longu pi èssiri sarbatu."
-      success: "Lu to aspettu, %{name}, s'arriniscìu a editari cu successu."
-  bookmarklet:
-    post_something: "Pùbblica nni diaspora"
-  cancel: "Cancella"
-  comments:
-    new_comment:
-      comment: "Cummentu"
-      commenting: "Cummintannu..."
-  contacts:
-    index:
-      all_contacts: "Tutti li cuntatti"
-      my_contacts: "Li me' cuntatti"
-      only_sharing_with_me: "Spàrtilu sulu cu mia"
-      start_a_conversation: "Accumincia na conversazioni"
-      title: "Cuntatti"
-  conversations:
-    create:
-      fail: "Messaggiu non vàlidu"
-      sent: "Messaggiu mannatu"
-    index:
-      inbox: "Posta in arrivu"
-      no_messages: "Nuddu messaggiu"
-    new:
-      send: "Manna"
-      sending: "Mannannu..."
-      subject: "Suggettu"
-      to: "A"
-    show:
-      reply: "Arrispunni"
-      replying: "Arrispunnennu..."
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "Variàbili: %d"
-      fullmonth_day: "%B %d"
-  delete: "Cancella"
-  email: "Email"
+            person_id:
+              taken: havi a èssiri ùnicu ntra sti cuntatti.
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Currèggiri li seguenti erruri e pruvari arreri"
-  fill_me_out: "Jìnchimi"
-  find_people: "Trova persuni o #tags"
+      correct_the_following_errors_and_try_again: Currèggiri li seguenti erruri e pruvari arreri
+  admins:
+    admin_bar:
+      pages: Pàgini
+    user_search:
+      add_invites: Agghiunci inviti
+    stats:
+      week: Simana
+      2weeks: Dui simani
+      month: Misi
+      go: Vai
+      50_most: Li 50 tag chiù populari
+  aspects:
+    edit:
+      confirm_remove_aspect: Sì' sicuru di vuliri livari st'aspettu?
+      rename: Nòmina arreri
+      aspect_list_is_visible: Li cuntatti nni st'aspettu si ponnu vìdiri l'unu cu l'àutru.
+      aspect_list_is_not_visible: Li cuntatti nni st'aspettu non si ponnu vìdiri l'unu cu l'àutru.
+    no_contacts_message:
+      you_should_add_some_more_contacts: Avissi a agghiùnciri àutri cuntatti!
+      try_adding_some_more_contacts: Tu po' circari o %{invite_link} a àutri cuntatti
+    aspect_listings:
+      add_an_aspect: "+ Agghiunci 'n aspettu"
+    destroy:
+      success: "%{name} si rimuvìu cu successu."
+      failure: "%{name} non si potti rimòviri."
+    update:
+      success: Lu to aspettu, %{name}, s'arriniscìu a editari cu successu.
+      failure: Lu to aspettu, %{name}, avìa un nomu troppu longu pi èssiri sarbatu.
+    add_to_aspect:
+      failure: Non è possìbili agghiùnciri lu cuntattu a l'aspettu.
+      success: Lu cuntattu s'agghiuncìu cu successu a l'aspettu.
+    seed:
+      family: Famigghia
+      work: Travagghiu
+      acquaintances: Canuscenti
+      friends: Amici
+    index:
+      donate: Duna
+      welcome_to_diaspora: Benvinutu nni diaspora, %{name}
+      introduce_yourself: Chistu è lu to stream. Trasi e prisèntati.
+      new_here:
+        title: Benvinutu novu utilizzaturi
+        learn_more: Mpara chiossai
+      help:
+        need_help: Hai bisognu d'ajutu?
+        here_to_help: La cumunità "diaspora" è cca!
+        do_you: 'Tu:'
+        have_a_question: hai un %{link}?
+        tag_question: dumanna
+        find_a_bug: trova un %{link}
+        tag_bug: erruri
+        feature_suggestion: "... hai un %{link} suggerimentu?"
+        tag_feature: caratterìstica
+      services:
+        heading: Cunnetti servizi
+        content: 'Po'' cunnèttiri sti servizi a diaspora*:'
+    aspect_stream:
+      make_something: Fai qualchi cosa
+  aspect_memberships:
+    destroy:
+      success: Livasti cu successu na persuna di l'aspettu.
+      failure: Tentativu fallutu di livari na persuna di l'aspettu.
+  bookmarklet:
+    post_something: Pùbblica nni diaspora
+  comments:
+    new_comment:
+      comment: Cummentu
+      commenting: Cummintannu...
+  contacts:
+    index:
+      start_a_conversation: Accumincia na conversazioni
+      title: Cuntatti
+      my_contacts: Li me' cuntatti
+      all_contacts: Tutti li cuntatti
+      only_sharing_with_me: Spàrtilu sulu cu mia
+  conversations:
+    index:
+      no_messages: Nuddu messaggiu
+      inbox: Posta in arrivu
+    show:
+      reply: Arrispunni
+      replying: Arrispunnennu...
+    new:
+      to: A
+      subject: Suggettu
+      send: Manna
+      sending: Mannannu...
+    create:
+      sent: Messaggiu mannatu
+      fail: Messaggiu non vàlidu
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: 'Variàbili: %d'
   help:
+    irc: IRC
+    here: cca
     getting_help:
-      get_support_a_wiki: "Cerca lu %{link}"
-    here: "cca"
-    irc: "IRC"
+      get_support_a_wiki: Cerca lu %{link}
   invitations:
     create:
-      no_more: "Non hai àutri inviti"
-      rejected: "Sti ndirizzi e-mail hannu problemi: %{emails}"
-      sent: "Lu nvitu si mannau a: %{emails}"
+      sent: 'Lu nvitu si mannau a: %{emails}'
+      rejected: 'Sti ndirizzi e-mail hannu problemi: %{emails}'
+      no_more: Non hai àutri inviti
     new:
-      invite_someone_to_join: "Invita qualchidunu a diaspora"
-      language: "Lingua"
-      send_an_invitation: "Manna 'n invitu"
+      language: Lingua
+      invite_someone_to_join: Invita qualchidunu a diaspora
+      send_an_invitation: Manna 'n invitu
   layouts:
-    application:
-      back_to_top: "Torna 'n capu"
-      powered_by: "Putenziatu pi \"diaspora\""
-      whats_new: "Nuvitati?"
     header:
-      code: "Còdici"
-      logout: "Nesci"
-      profile: "Profilu"
-      settings: "Mpustazioni"
-  limited: "Limitatu"
-  more: "Chiossai"
-  no_results: "Non si truvau nuddu risultatu"
+      profile: Profilu
+      settings: Mpustazioni
+      logout: Nesci
+      code: Còdici
+    application:
+      powered_by: Putenziatu pi "diaspora"
+      whats_new: Nuvitati?
+      back_to_top: Torna 'n capu
   notifications:
     index:
-      and: "e"
+      and: e
   notifier:
-    a_post_you_shared: "un post"
-    click_here: "Ammacca cca"
+    a_post_you_shared: un post
+    email_sent_by_diaspora: St'email la mannau %{pod_name}. Si ti piacissi non ricìviri chiù email comu chissa,
+    click_here: Ammacca cca
+    hello: Ciau %{name}
+    thanks: Grazi
+    to_change_your_notification_settings: pi canciari li mpustazioni di nutìfica
+    single_admin:
+      subject: 'Un missaggiu circa lu to cuntu diaspora*:'
+      admin: Lu to amministraturi diaspora*
+    started_sharing:
+      view_profile: Vidi lu profilu di %{name}
     comment_on_post:
-      reply: "Arrispunni o vidi lu post di %{name}"
-    confirm_email:
-      click_link: "Pi attivari lu to novu ndirizzu email %{unconfirmed_email}, pi favuri vai a stu link:"
-      subject: "Pi favuri, attiva lu to novu ndirizzu email %{unconfirmed_email}"
-    email_sent_by_diaspora: "St'email la mannau %{pod_name}. Si ti piacissi non ricìviri chiù email comu chissa,"
-    hello: "Ciau %{name}"
-    liked:
-      liked: "A %{name} ci piacìu lu to post"
-      view_post: "Vidi lu post"
+      reply: Arrispunni o vidi lu post di %{name}
     mentioned:
       subject: "%{name} ti ammuntuau in diaspora*"
     private_message:
-      reply_to_or_view: "Arrispunni a o vidi sta conversazioni >"
+      reply_to_or_view: Arrispunni a o vidi sta conversazioni >
+    liked:
+      liked: A %{name} ci piacìu lu to post
+      view_post: Vidi lu post
     reshared:
-      view_post: "Vidi lu post"
-    single_admin:
-      admin: "Lu to amministraturi diaspora*"
-      subject: "Un missaggiu circa lu to cuntu diaspora*:"
-    started_sharing:
-      view_profile: "Vidi lu profilu di %{name}"
-    thanks: "Grazi"
-    to_change_your_notification_settings: "pi canciari li mpustazioni di nutìfica"
-  nsfw: "Non si truvau nudda traduzioni pi sta palora"
-  ok: "Va bonu"
+      view_post: Vidi lu post
+    confirm_email:
+      subject: Pi favuri, attiva lu to novu ndirizzu email %{unconfirmed_email}
+      click_link: 'Pi attivari lu to novu ndirizzu email %{unconfirmed_email}, pi favuri vai a stu link:'
   people:
-    index:
-      no_one_found: "...e non si truvau a nuddu"
-      no_results: "Attiatù! Nicèssiti ricircari qualchi cosa."
-      searching: "Sta circannu, pi favuri, 'n tanticchia di pacenzia..."
     person:
-      thats_you: "Chissu sì' tu!"
-    profile_sidebar:
-      bio: "Biografìa"
+      thats_you: Chissu sì' tu!
+    index:
+      no_results: Attiatù! Nicèssiti ricircari qualchi cosa.
+      no_one_found: "...e non si truvau a nuddu"
+      searching: Sta circannu, pi favuri, 'n tanticchia di pacenzia...
     show:
-      closed_account: "Stu cuntu si chiudìu."
-      does_not_exist: "Sta pirsuna non esisti!"
+      does_not_exist: Sta pirsuna non esisti!
+      closed_account: Stu cuntu si chiudìu.
+    profile_sidebar:
+      bio: Biografìa
   photos:
     new_profile_photo:
-      upload: "Càrrica na nova fotu pi lu pròfilu"
-  privacy: "Privasìa"
-  profile: "Profilu"
+      upload: Càrrica na nova fotu pi lu pròfilu
   profiles:
     edit:
-      first_name: "Nomu"
-      last_name: "Cugnomu"
-      your_bio: "La to biografìa"
-      your_birthday: "Lu to cumpleannu"
-      your_gender: "Lu to gèniri"
-      your_name: "Lu to nomu"
-      your_photo: "La to fotu"
-      your_tags: "Presèntati in 4 palori"
-  public: "Pùbblicu"
+      your_name: Lu to nomu
+      first_name: Nomu
+      last_name: Cugnomu
+      your_gender: Lu to gèniri
+      your_birthday: Lu to cumpleannu
+      your_tags: Presèntati in 4 palori
+      your_bio: La to biografìa
+      your_photo: La to fotu
   registrations:
     new:
-      enter_email: "Scrivi lu to ndirizzu email"
-      enter_password: "Scrivi na palora secreta (di mìnimu 6 caràtteri)"
-      enter_password_again: "Scrivi la stissa palora secreta di antura"
-  search: "Cerca"
+      enter_email: Scrivi lu to ndirizzu email
+      enter_password: Scrivi na palora secreta (di mìnimu 6 caràtteri)
+      enter_password_again: Scrivi la stissa palora secreta di antura
   services:
-    create:
-      failure: "Autenticazioni falluta."
-      success: "Autenticazioni juta a bon fini."
-    failure:
-      error: "Cci fu 'n erruri"
     index:
-      logged_in_as: "Trasisti comu %{nickname}"
-  settings: "Mpustazioni"
+      logged_in_as: Trasisti comu %{nickname}
+    create:
+      success: Autenticazioni juta a bon fini.
+      failure: Autenticazioni falluta.
+    failure:
+      error: Cci fu 'n erruri
   shared:
-    invitations:
-      invite_your_friends: "Invita li to' amici"
-      invites: "Invita"
     publisher:
       new_user_prefill:
-        invited_by: "Grazi pi l'invitu, "
+        invited_by: 'Grazi pi l''invitu, '
+    invitations:
+      invites: Invita
+      invite_your_friends: Invita li to' amici
   streams:
-    activity:
-      title: "La me attività"
-    aspects:
-      title: "Li me' aspetti"
-    aspects_stream: "Aspetti"
-    followed_tag:
-      add_a_tag: "Agghiunci un tag"
+    aspects_stream: Aspetti
     mentioned_stream: "@Menziuni"
     mentions:
       title: "@Menziuni"
-  username: "Nomu di l'utilizzaturi"
+    followed_tag:
+      add_a_tag: Agghiunci un tag
+    aspects:
+      title: Li me' aspetti
+    activity:
+      title: La me attività
   users:
     edit:
-      change_email: "Cancia email"
-      change_language: "Cancia lingua"
-      change_password: "Cancia palora secreta"
-      character_minimum_expl: "havi a aviri almenu sei caràtteri"
-      comment_on_post: "qualchidunu cummenta lu to post"
-      current_password: "Attuali palora secreta"
-      new_password: "Nova palora secreta"
-      your_email: "La to email"
+      your_email: La to email
+      change_email: Cancia email
+      change_password: Cancia palora secreta
+      new_password: Nova palora secreta
+      current_password: Attuali palora secreta
+      character_minimum_expl: havi a aviri almenu sei caràtteri
+      change_language: Cancia lingua
+      comment_on_post: qualchidunu cummenta lu to post
     getting_started:
-      who_are_you: "Cu' si'?"
+      who_are_you: Cu' si'?
     update:
-      language_changed: "Lingua canciata"
-      language_not_changed: "Canciu di lingua fallutu"
-      unconfirmed_email_not_changed: "Canciu di email fallutu"
+      language_changed: Lingua canciata
+      language_not_changed: Canciu di lingua fallutu
+      unconfirmed_email_not_changed: Canciu di email fallutu

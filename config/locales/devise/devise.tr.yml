@@ -7,81 +7,81 @@
 tr:
   devise:
     confirmations:
-      confirmed: "Hesabınız başarıyla doğrulanmıştır. Şu anda giriş yapmış bulunuyorsunuz."
+      confirmed: Hesabınız başarıyla doğrulanmıştır. Şu anda giriş yapmış bulunuyorsunuz.
+      send_instructions: Kısa bir süre içerisinde hesabınızı nasıl doğrulayacağınıza dair bir e-posta alacaksınız.
       new:
-        resend_confirmation: "Doğrulama yönergelerini tekrar gönder"
-      send_instructions: "Kısa bir süre içerisinde hesabınızı nasıl doğrulayacağınıza dair bir e-posta alacaksınız."
+        resend_confirmation: Doğrulama yönergelerini tekrar gönder
     failure:
-      inactive: "Hesabınız henüz aktive edilmemiştir."
-      invalid: "Yanlış e-posta ya da parola."
-      invalid_token: "Yanlış doğrulama kodu."
-      locked: "Hesabınız kilitlenmiştir."
-      timeout: "Zaman aşımı oldu, devam etmek için lütfen tekrar giriş yapın."
-      unauthenticated: "Devam etmeden önce bir hesap açtırmalı veya hesabınızla giriş yapmalısınız."
-      unconfirmed: "Devam etmeden önce hesabınızı doğrulamalısınız."
-    invitations:
-      invitation_token_invalid: "Özür dileriz! Bu davet kodu geçerli değildir."
-      send_instructions: "Davetiniz gönderildi."
-      updated: "Parolanız başarıyla ayarlandı. Şu anda giriş yapmış bulunuyorsunuz."
+      inactive: Hesabınız henüz aktive edilmemiştir.
+      invalid: Yanlış e-posta ya da parola.
+      locked: Hesabınız kilitlenmiştir.
+      timeout: Zaman aşımı oldu, devam etmek için lütfen tekrar giriş yapın.
+      unauthenticated: Devam etmeden önce bir hesap açtırmalı veya hesabınızla giriş yapmalısınız.
+      unconfirmed: Devam etmeden önce hesabınızı doğrulamalısınız.
+      invalid_token: Yanlış doğrulama kodu.
     mailer:
       confirmation_instructions:
-        confirm: "Hesabımı doğrula"
-        subject: "Doğrulama talimatları"
-        you_can_confirm: "Hesabınızı aşağıdaki bağlantı ile doğrulayabilirsiniz:"
-      hello: "Merhaba %{username}!"
+        subject: Doğrulama talimatları
+        you_can_confirm: 'Hesabınızı aşağıdaki bağlantı ile doğrulayabilirsiniz:'
+        confirm: Hesabımı doğrula
+      reset_password_instructions:
+        subject: Parola yenileme yönergeleri
+        someone_requested: Parola değiştirme talep edildi, parolanızı değiştirmek için aşağıdaki bağlantıya tıklayın.
+        change: Parolamı değiştir
+        wont_change: Parolanız siz yukarıdaki bağlantıya tıklayıp yeni bir parola oluşturana kadar değişmeyecektir.
+        ignore: Eğer bunu siz talep etmediyseniz, lütfen bu e-postayı yoksayın.
+      unlock_instructions:
+        subject: Kilit Açma Yönergeleri
+        account_locked: Hesabınız çok fazla yanlış giriş yaptığınız için kilitlendi.
+        click_to_unlock: 'Hesabınızın kilidini açmak için aşağıdaki bağlantıya tıklayın:'
+        unlock: Hesabımın kilidini aç
+      welcome: Hoş geldin%{username}!
+      hello: Merhaba %{username}!
       inviter:
-        accept_at: "%{url}, aşağıdaki bağlantıya tıklayarak bunu kabul edebilirsiniz."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} Diaspora'ya katılmanız için davet edildiniz"
-      reset_password_instructions:
-        change: "Parolamı değiştir"
-        ignore: "Eğer bunu siz talep etmediyseniz, lütfen bu e-postayı yoksayın."
-        someone_requested: "Parola değiştirme talep edildi, parolanızı değiştirmek için aşağıdaki bağlantıya tıklayın."
-        subject: "Parola yenileme yönergeleri"
-        wont_change: "Parolanız siz yukarıdaki bağlantıya tıklayıp yeni bir parola oluşturana kadar değişmeyecektir."
-      unlock_instructions:
-        account_locked: "Hesabınız çok fazla yanlış giriş yaptığınız için kilitlendi."
-        click_to_unlock: "Hesabınızın kilidini açmak için aşağıdaki bağlantıya tıklayın:"
-        subject: "Kilit Açma Yönergeleri"
-        unlock: "Hesabımın kilidini aç"
-      welcome: "Hoş geldin%{username}!"
+        accept_at: "%{url}, aşağıdaki bağlantıya tıklayarak bunu kabul edebilirsiniz."
     passwords:
+      send_instructions: Bir kaç dakika içerisinde parolanızı nasıl sıfırlayacağınızı açıklayan bir e-posta alacaksınız.
+      updated: Parolanız değiştirilmiştir. Şu anda giriş yapmış bulunuyorsunuz.
       edit:
-        change_password: "Parola değiştirme"
+        change_password: Parola değiştirme
       new:
-        forgot_password: "Parolanızı mı unuttunuz?"
-        send_password_instructions: "Bana parola yenileme talimatları gönder"
-      send_instructions: "Bir kaç dakika içerisinde parolanızı nasıl sıfırlayacağınızı açıklayan bir e-posta alacaksınız."
-      updated: "Parolanız değiştirilmiştir. Şu anda giriş yapmış bulunuyorsunuz."
+        forgot_password: Parolanızı mı unuttunuz?
+        send_password_instructions: Bana parola yenileme talimatları gönder
     registrations:
-      destroyed: "Hoşçakalın! Hesabınız iptal edildi. Umarız sizi yakında tekrar görürüz."
-      signed_up: "Başarıyla kayıt yaptınız. Doğrulama, e-postanıza gönderilmiştir."
-      updated: "Hesabınızı başarılı bir şekilde yenilediniz."
+      destroyed: Hoşçakalın! Hesabınız iptal edildi. Umarız sizi yakında tekrar görürüz.
+      signed_up: Başarıyla kayıt yaptınız. Doğrulama, e-postanıza gönderilmiştir.
+      updated: Hesabınızı başarılı bir şekilde yenilediniz.
     sessions:
+      signed_in: Başarıyla giriş yaptınız.
+      signed_out: Başarıyla çıkış yaptınız.
       new:
-        login: "Giriş"
-        modern_browsers: "sadece güncel tarayıcılar destekleniyor."
-        password: "Parola"
-        remember_me: "Beni hatırla"
-        sign_in: "Giriş yap"
-        username: "Kullanıcı Adı"
-      signed_in: "Başarıyla giriş yaptınız."
-      signed_out: "Başarıyla çıkış yaptınız."
+        login: Giriş
+        username: Kullanıcı Adı
+        password: Parola
+        sign_in: Giriş yap
+        remember_me: Beni hatırla
+        modern_browsers: sadece güncel tarayıcılar destekleniyor.
+    unlocks:
+      send_instructions: Bir kaç dakika içerisinde hesabınızın kilidini nasıl açabileceğinize dair bir e-posta alacaksınız.
+      unlocked: Hesabınızın kilidi açılmıştır. Şu anda giriş yapmış bulunuyorsunuz.
+      new:
+        resend_unlock: Tekrar gönder
+    invitations:
+      send_instructions: Davetiniz gönderildi.
+      invitation_token_invalid: Özür dileriz! Bu davet kodu geçerli değildir.
+      updated: Parolanız başarıyla ayarlandı. Şu anda giriş yapmış bulunuyorsunuz.
     shared:
       links:
-        forgot_your_password: "Parolanızı mı unuttunuz?"
-        receive_confirmation: "Hesap doğrulama yönergelerini almadınız mı?"
-        receive_unlock: "Kilit açma yönergelerini almadınız mı?"
-        sign_in: "Giriş yap"
-        sign_up: "Kayıt ol"
-        sign_up_closed: "Şu an için yeni kayıt alınamıyor."
-    unlocks:
-      new:
-        resend_unlock: "Tekrar gönder"
-      send_instructions: "Bir kaç dakika içerisinde hesabınızın kilidini nasıl açabileceğinize dair bir e-posta alacaksınız."
-      unlocked: "Hesabınızın kilidi açılmıştır. Şu anda giriş yapmış bulunuyorsunuz."
+        sign_in: Giriş yap
+        sign_up: Kayıt ol
+        sign_up_closed: Şu an için yeni kayıt alınamıyor.
+        forgot_your_password: Parolanızı mı unuttunuz?
+        receive_confirmation: Hesap doğrulama yönergelerini almadınız mı?
+        receive_unlock: Kilit açma yönergelerini almadınız mı?
   errors:
     messages:
-      already_confirmed: "zaten doğrulandı"
-      not_found: "bulunamadı"
-      not_locked: "kilitlenmedi"
+      already_confirmed: zaten doğrulandı
+      not_found: bulunamadı
+      not_locked: kilitlenmedi

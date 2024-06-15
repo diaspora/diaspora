@@ -5,1266 +5,1264 @@
 
 
 ja:
-  _applications: "アプリケーション"
-  _contacts: "連絡先"
-  _help: "ヘルプ"
-  _services: "サービス"
-  _statistics: "統計"
-  _terms: "規約"
-  account: "アカウント"
+  settings: 設定
+  profile: プロフィール
+  account: アカウント
+  privacy: プライバシー
+  _services: サービス
+  _applications: アプリケーション
+  _help: ヘルプ
+  ok: 了解
+  cancel: 取消
+  delete: 削除
+  username: ユーザー名
+  email: メール
+  are_you_sure: 本当にいいですか。
+  are_you_sure_delete_account: 本当にアカウントを削除しますか? この操作を取り消すことはできません！
+  are_you_sure_ignore_user: このユーザーは無視されます。本当にいいですか。
+  fill_me_out: 記入してください
+  public: 公開
+  limited: 限定公開
+  search: 検索
+  nsfw: NSFW (職場での閲覧注意)
+  find_people: '人や #タグ を探す'
+  more: 続き
+  all_aspects: 全てのアスペクト
+  no_results: 結果が見つかりません
+  _contacts: 連絡先
+  _terms: 規約
+  _statistics: 統計
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "このユーザーの他の連絡先と重複してはいけません。"
+            person:
+              invalid: 無効です。
+            username:
+              taken: 既に使われています。
+              invalid: は無効です。文字、数字、アンダースコアのみ利用できます。
+            email:
+              taken: 既に使われています。
         person:
           attributes:
             diaspora_handle:
-              taken: "既に使われています。"
-        poll:
+              taken: 既に使われています。
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "十分な投票の選択肢が提供されていません。"
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "あなたはすでにこの世論調査に回答しました！"
+            person_id:
+              taken: このユーザーの他の連絡先と重複してはいけません。
         reshare:
           attributes:
             root_guid:
-              taken: "えっ？ すでにこの投稿をシェアしています！"
-        user:
+              taken: えっ？ すでにこの投稿をシェアしています！
+        poll:
           attributes:
-            email:
-              taken: "既に使われています。"
-            person:
-              invalid: "無効です。"
-            username:
-              invalid: "は無効です。文字、数字、アンダースコアのみ利用できます。"
-              taken: "既に使われています。"
+            poll_answers:
+              not_enough_poll_answers: 十分な投票の選択肢が提供されていません。
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: あなたはすでにこの世論調査に回答しました！
+  errors:
+    messages:
+      carrierwave_processing_error: 処理に失敗しました
+      carrierwave_integrity_error: は許可されたファイルタイプではありません。
+      carrierwave_download_error: ダウンロード出来ませんでした
+      extension_whitelist_error: "%{extension}などのファイルはアップロードが許可されていません。 許可されている種類: %{allowed_types}"
+      extension_blacklist_error: "%{extension} などのファイルはアップロードが許可されていません。 禁止されている種類: %{prohibited_types}"
+      content_type_whitelist_error: あなたは%{content_type}ファイルをアップロードしてはいけません
+      content_type_blacklist_error: あなたは%{content_type}ファイルをアップロードしてはいけません
+      rmagick_processing_error: rmagickでの操作に失敗しました。画像ではないかもしれません。
+      mini_magick_processing_error: 'MiniMagickでの操作に失敗しました。画像ではないかもしれません。元のエラー: %{e}'
+      min_size_error: ファイルの最小サイズは「%%{min_size}」です。
+      max_size_error: ファイルの最大サイズは「%{max_size}」です。
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: 次の問題を解決してからやり直してください。
+    need_javascript: このウェブサイトは正常に機能するためにJavaScriptが必要です。 JavaScriptを無効にした場合は、有効にしてこのページを更新してください。
+    csrf_token_fail: CSRFトークンが無効です。 サインインしてもう一度やり直してください。
+    mobile_not_available: このページは、モバイル ビューには対応していません。%{desktop_link} に切り替えてください。
+    desktop_view_link: デスクトップ ビュー
   admins:
     admin_bar:
-      dashboard: "ダッシュボード"
-      pages: "ページ"
-      pod_network: "ポッド ネットワーク"
-      pod_stats: "ポッドの状態"
-      report: "報告"
-      sidekiq_monitor: "Sidekiq モニター"
-      user_search: "ユーザー検索"
-      weekly_user_stats: "週次のユーザー統計"
+      pages: ページ
+      dashboard: ダッシュボード
+      user_search: ユーザー検索
+      weekly_user_stats: 週次のユーザー統計
+      pod_stats: ポッドの状態
+      report: 報告
+      sidekiq_monitor: Sidekiq モニター
+      pod_network: ポッド ネットワーク
     dashboard:
-      fetching_diaspora_version: "最新のダイアスポラ* バージョンを判断しています..."
-      pod_status: "ポッド ステータス"
-    pods:
-      pod_network: "ポッド ネットワーク"
-    stats:
-      2weeks: "2 週間"
-      50_most: "最も人気のある50のタグ"
-      comments:
-        other: "%{count} コメント"
-        zero: "コメントなし"
-      current_segment: "現在のセグメントは、<b>%{post_day}</b> から、ユーザーあたり <b>%{post_yest}</b> 投稿の平均です"
-      daily: "毎日"
-      display_results: "<b>%{segment}</b> セグメントから結果を表示しています"
-      go: "実行"
-      month: "月"
-      posts:
-        other: "%{count} 投稿"
-        zero: "投稿なし"
-      shares:
-        other: "%{count} シェア"
-        zero: "%{count} シェア"
-      tag_name: "タグ名: <b>%{name_tag}</b> 件数: <b>%{count_tag}</b>"
-      usage_statistic: "利用統計"
-      users:
-        other: "%{count} ユーザー"
-        zero: "ユーザーなし"
-      week: "週"
-    user_entry:
-      account_closed: "削除されたアカウント"
-      admin: "管理者"
-      diaspora_handle: "ダイアスポラ* ハンドル"
-      email: "メール"
-      guid: "GUID"
-      id: "ID"
-      invite_token: "招待トークン"
-      last_seen: "最後に参照"
-      moderator: "モデレーター"
-      ? "no"
-      : いいえ
-      nsfw: "#nsfw"
-      spotlight: "スポットライト"
-      unknown: "不明"
-      ? "yes"
-      : はい
+      pod_status: ポッド ステータス
+      fetching_diaspora_version: 最新のダイアスポラ* バージョンを判断しています...
     user_search:
+      you_currently:
+        zero: 現在招待は残っていません %{link}
+        other: 現在 %{count} 招待が残っています %{link}
+      view_profile: プロフィールを表示
+      add_invites: 招待を追加
+      close_account: アカウントを削除する
+      lock_account: アカウントをロックする
+      unlock_account: アカウントのロックを解除する
+      are_you_sure: このアカウントを削除してもよろしいですか？
+      are_you_sure_lock_account: このアカウントをロックしてもよろしいですか？
+      are_you_sure_unlock_account: このアカウントのロックを解除してもよろしいですか？
       account_closing_scheduled: "%{name} のアカウントは削除される予定です。これはすぐに処理されます..."
       account_locking_scheduled: "%{name} のアカウントはロックされる予定です。これはすぐに処理されます..."
       account_unlocking_scheduled: "%{name} のアカウントはロック解除される予定です。これはすぐに処理されます..."
+      make_admin: このユーザーを管理者に指名する
+      remove_admin: このユーザーを管理者から外す
+      make_moderator: このユーザーをモデレーターに指名する
+      remove_moderator: このユーザーをモデレーターから外す
+      make_spotlight: コミュニティのスポットライトに追加する
+      remove_spotlight: コミュニティのスポットライトから削除する
       add_admin: "%{name} さんは管理者に指定された。"
-      add_invites: "招待を追加"
-      add_moderator: "%{name} さんはモデレータとして指名された"
-      add_spotlight: "%{name} さんがコミュニティのスポットライトに追加されました。"
-      are_you_sure: "このアカウントを削除してもよろしいですか？"
-      are_you_sure_lock_account: "このアカウントをロックしてもよろしいですか？"
-      are_you_sure_unlock_account: "このアカウントのロックを解除してもよろしいですか？"
-      close_account: "アカウントを削除する"
       delete_admin: "%{name} さんは管理者から外された。"
+      add_moderator: "%{name} さんはモデレータとして指名された"
       delete_moderator: "%{name} さんはモデレータから外された"
+      add_spotlight: "%{name} さんがコミュニティのスポットライトに追加されました。"
       delete_spotlight: "%{name} さんがコミュニティのスポットライトから削除されました。"
-      does_not_exist: "そのユーザは存在しません。"
-      email_to: "招待のメール"
-      invite: "招待"
-      lock_account: "アカウントをロックする"
-      make_admin: "このユーザーを管理者に指名する"
-      make_moderator: "このユーザーをモデレーターに指名する"
-      make_spotlight: "コミュニティのスポットライトに追加する"
-      remove_admin: "このユーザーを管理者から外す"
-      remove_moderator: "このユーザーをモデレーターから外す"
-      remove_spotlight: "コミュニティのスポットライトから削除する"
+      does_not_exist: そのユーザは存在しません。
       role_implemented: "%{name} さんはすでにこの役割が与えられています!"
       role_removal_implemented: "%{name} さんはすでにこの役割が削除されています!"
-      under_13: "13歳以下のユーザーに表示する (COPPA)"
-      unlock_account: "アカウントのロックを解除する"
+      email_to: 招待のメール
+      invite: 招待
+      under_13: 13歳以下のユーザーに表示する (COPPA)
       users:
+        zero: ユーザーが見つかりません
         other: "%{count}人のユーザーが見つかりました"
-        zero: "ユーザーが見つかりません"
-      view_profile: "プロフィールを表示"
-      you_currently:
-        other: "現在 %{count} 招待が残っています %{link}"
-        zero: "現在招待は残っていません %{link}"
+    user_entry:
+      id: ID
+      guid: GUID
+      email: メール
+      diaspora_handle: ダイアスポラ* ハンドル
+      last_seen: 最後に参照
+      account_closed: 削除されたアカウント
+      nsfw: "#nsfw"
+      admin: 管理者
+      moderator: モデレーター
+      spotlight: スポットライト
+      unknown: 不明
+      invite_token: 招待トークン
+      'yes': はい
+      'no': いいえ
     weekly_user_stats:
+      current_server: 現在のサーバー日付 %{date}
       amount_of:
-        other: "今週の新しいユーザー数: %{count}"
-        zero: "今週の新しいユーザー数: なし"
-      current_server: "現在のサーバー日付 %{date}"
-  all_aspects: "全てのアスペクト"
-  api:
-    openid_connect:
-      authorizations:
-        destroy:
-          fail: "ID %{id} の許可を取り消すことができませんでした"
-        new:
-          access: "%{name}はアクセス権が必要です:"
-          approve: "承認"
-          bad_request: "クライアント ID またはリダイレクト URI が見つかりません"
-          client_id_not_found: "client_id %{client_id} のクライアント、リダイレクト URI %{redirect_uri} が見つかりません"
-          deny: "拒否"
-          no_requirement: "%{name}は何の権限も必要ありません"
-          redirection_message: "%{redirect_uri} へのアクセス権を付与してもよろしいですか？"
-      error_page:
-        contact_developer: "アプリケーションの開発者に連絡する必要があります。以下の詳細なエラーメッセージを含めてください:"
-        could_not_authorize: "アプリケーションが許可されていません"
-        login_required: "このアプリケーションを許可するには、まずログインする必要があります"
-        title: "何か問題があります :("
-      scopes:
-        name:
-          description: "これは、アプリケーションに名前のアクセス許可を付与します"
-          name: "名前"
-        nickname:
-          description: "これは、アプリケーションにニックネームのアクセス許可を付与します"
-          name: "ニックネーム"
-        openid:
-          description: "アプリケーションがあなたの基本プロフィールを読むことができます"
-          name: "基本プロフィール"
-        picture:
-          description: "これは、アプリケーションに写真のアクセス許可を付与します"
-          name: "写真"
-        profile:
-          description: "これは、アプリケーションがあなたの拡張プロフィールを読むことができるようにします"
-          name: "拡張プロフィール"
-        sub:
-          description: "これは、アプリケーションにサブ権限を付与します"
-          name: "サブ"
-      user_applications:
-        index:
-          access: "%{name}はアクセス許可があります:"
-          edit_applications: "アプリケーション"
-          no_requirement: "%{name}は何の権限も必要ありません"
-          title: "許可されたアプリケーション"
-        no_applications: "許可されたアプリケーションはありません"
-        policy: "アプリケーションのプライバシーポリシーを参照"
-        revoke_autorization: "アクセスを取り消す"
-        tos: "アプリケーションの利用規約を参照"
-  are_you_sure: "本当にいいですか。"
-  are_you_sure_delete_account: "本当にアカウントを削除しますか? この操作を取り消すことはできません！"
-  are_you_sure_ignore_user: "このユーザーは無視されます。本当にいいですか。"
-  aspect_memberships:
-    destroy:
-      failure: "連絡先をアスペクトから除外するのに失敗しました。"
-      forbidden: "この操作は許可されていません。"
-      invalid_statement: "重複したレコードは拒否されました。"
-      no_membership: "選択した連絡先はそのアスペクト内に見つかりませんでした"
-      success: "連絡先をアスペクトから除外するのに成功しました。"
+        zero: '今週の新しいユーザー数: なし'
+        other: '今週の新しいユーザー数: %{count}'
+    stats:
+      week: 週
+      2weeks: 2 週間
+      month: 月
+      daily: 毎日
+      usage_statistic: 利用統計
+      go: 実行
+      display_results: "<b>%{segment}</b> セグメントから結果を表示しています"
+      posts:
+        zero: 投稿なし
+        other: "%{count} 投稿"
+      comments:
+        zero: コメントなし
+        other: "%{count} コメント"
+      shares:
+        zero: "%{count} シェア"
+        other: "%{count} シェア"
+      users:
+        zero: ユーザーなし
+        other: "%{count} ユーザー"
+      current_segment: 現在のセグメントは、<b>%{post_day}</b> から、ユーザーあたり <b>%{post_yest}</b> 投稿の平均です
+      50_most: 最も人気のある50のタグ
+      tag_name: 'タグ名: <b>%{name_tag}</b> 件数: <b>%{count_tag}</b>'
+    pods:
+      pod_network: ポッド ネットワーク
   aspects:
-    add_to_aspect:
-      failure: "連絡先をアスペクトに追加するのに失敗しました。"
-      success: "連絡先をアスペクトに追加するのに成功しました。"
+    edit:
+      confirm_remove_aspect: このアスペクトを本当に削除していいですか。
+      rename: 名前の変更
+      aspect_list_is_visible: このアスペクトのメンバー一覧はメンバーに公開されています
+      aspect_list_is_not_visible: このアスペクトのメンバー一覧はメンバーへ公開されていません
+      update: 更新
+      updating: 更新中
+    no_contacts_message:
+      you_should_add_some_more_contacts: もっと連絡先を追加しましょう!
+      try_adding_some_more_contacts: もっと連絡先を検索または%{invite_link}できます。
+      invite_link_text: 招待
+      or_spotlight: または%{link}にシェアすることができます
+      community_spotlight: コミュニティスポットライト
     aspect_listings:
-      add_an_aspect: "アスペクトを追加する"
-    aspect_stream:
-      make_something: "何かを作り出す"
-      stay_updated: "常に最新情報を表示する"
-      stay_updated_explanation: "メインのストリームにはあなたの連絡先、フォローしたタグやコミュニティのクリエイティブな人たちの投稿が表示されます。"
+      add_an_aspect: アスペクトを追加する
     destroy:
-      failure: "%{name}に連絡先が残っているので削除できません。"
       success: "%{name}さんを除外するのに成功しました。"
       success_auto_follow_back: "%{name} さんは正常に削除されました。あなたは、自動的にユーザーをフォローバックするために、このアスペクトを使用していました。ユーザーの設定を確認して、新しく自動フォローバックするアスペクトを選択してください。"
-    edit:
-      aspect_list_is_not_visible: "このアスペクトのメンバー一覧はメンバーへ公開されていません"
-      aspect_list_is_visible: "このアスペクトのメンバー一覧はメンバーに公開されています"
-      confirm_remove_aspect: "このアスペクトを本当に削除していいですか。"
-      rename: "名前の変更"
-      update: "更新"
-      updating: "更新中"
-    index:
-      donate: "寄付"
-      donate_liberapay: "liberapayに寄付"
-      help:
-        any_problem: "問題がありますか？"
-        contact_podmin: "あなたのポッドの管理者に連絡してください！"
-        do_you: "あなたは:"
-        feature_suggestion: "... %{link}の提案がありますか?"
-        find_a_bug: "... %{link}を見つけましたか?"
-        have_a_question: "... %{link}がありますか?"
-        here_to_help: "ここがダイアスポラ*のコミュニティです！"
-        mail_podmin: "ポッド管理者メール"
-        need_help: "ヘルプが必要ですか?"
-        support_forum: "%{support_forum} に参加することも可能です。"
-        support_forum_link: "サポート フォーラム"
-        tag_bug: "バグ"
-        tag_feature: "機能"
-        tag_question: "質問"
-        tutorial_link_text: "チュートリアル"
-        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: 最初のステップへの手助け。"
-      introduce_yourself: "これがあなたのストリームです。  飛び込んで自己紹介をしてみましょう。"
-      keep_pod_running: "毎月の寄付で、%{pod}の高速実行を維持し、サーバー、彼らのコーヒー、修正を買います！"
-      new_here:
-        follow: "%{link}をフォローしてダイアスポラ*の新しいユーザーを歓迎しましょう!"
-        learn_more: "さらに詳しく"
-        title: "新規ユーザーの皆さんようこそ"
-      services:
-        content: "次のサービスをダイアスポラに連携することができます。"
-        heading: "外部サービス連携"
-      welcome_to_diaspora: "%{name}さん、ダイアスポラへようこそ！"
-    no_contacts_message:
-      community_spotlight: "コミュニティスポットライト"
-      invite_link_text: "招待"
-      or_spotlight: "または%{link}にシェアすることができます"
-      try_adding_some_more_contacts: "もっと連絡先を検索または%{invite_link}できます。"
-      you_should_add_some_more_contacts: "もっと連絡先を追加しましょう!"
-    seed:
-      acquaintances: "知り合い"
-      family: "家族"
-      friends: "友達"
-      work: "仕事"
+      failure: "%{name}に連絡先が残っているので削除できません。"
     update:
-      failure: "アスペクト名「%{name}」は長すぎて保存できませんでした。"
-      success: "アスペクト「%{name}」の編集に成功しました。"
-  blocks:
-    create:
-      failure: "このユーザーを無視できませんでした。  #evasion"
-      success: "OK、そのユーザーは再度ストリームに表示されません。 #silencio!"
+      success: アスペクト「%{name}」の編集に成功しました。
+      failure: アスペクト名「%{name}」は長すぎて保存できませんでした。
+    add_to_aspect:
+      failure: 連絡先をアスペクトに追加するのに失敗しました。
+      success: 連絡先をアスペクトに追加するのに成功しました。
+    seed:
+      family: 家族
+      work: 仕事
+      acquaintances: 知り合い
+      friends: 友達
+    index:
+      donate: 寄付
+      keep_pod_running: 毎月の寄付で、%{pod}の高速実行を維持し、サーバー、彼らのコーヒー、修正を買います！
+      donate_liberapay: liberapayに寄付
+      welcome_to_diaspora: "%{name}さん、ダイアスポラへようこそ！"
+      introduce_yourself: これがあなたのストリームです。  飛び込んで自己紹介をしてみましょう。
+      new_here:
+        title: 新規ユーザーの皆さんようこそ
+        follow: "%{link}をフォローしてダイアスポラ*の新しいユーザーを歓迎しましょう!"
+        learn_more: さらに詳しく
+      help:
+        need_help: ヘルプが必要ですか?
+        here_to_help: ここがダイアスポラ*のコミュニティです！
+        do_you: 'あなたは:'
+        have_a_question: "... %{link}がありますか?"
+        tag_question: 質問
+        find_a_bug: "... %{link}を見つけましたか?"
+        tag_bug: バグ
+        feature_suggestion: "... %{link}の提案がありますか?"
+        tag_feature: 機能
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: 最初のステップへの手助け。"
+        tutorial_link_text: チュートリアル
+        support_forum: "%{support_forum} に参加することも可能です。"
+        support_forum_link: サポート フォーラム
+        any_problem: 問題がありますか？
+        contact_podmin: あなたのポッドの管理者に連絡してください！
+        mail_podmin: ポッド管理者メール
+      services:
+        heading: 外部サービス連携
+        content: 次のサービスをダイアスポラに連携することができます。
+    aspect_stream:
+      stay_updated: 常に最新情報を表示する
+      stay_updated_explanation: メインのストリームにはあなたの連絡先、フォローしたタグやコミュニティのクリエイティブな人たちの投稿が表示されます。
+      make_something: 何かを作り出す
+  aspect_memberships:
     destroy:
-      failure: "このユーザーの無視を解除できませんでした。  #evasion"
-      success: "彼らが何を言うか見てみましょう! #sayhello"
+      success: 連絡先をアスペクトから除外するのに成功しました。
+      failure: 連絡先をアスペクトから除外するのに失敗しました。
+      no_membership: 選択した連絡先はそのアスペクト内に見つかりませんでした
+      forbidden: この操作は許可されていません。
+      invalid_statement: 重複したレコードは拒否されました。
   bookmarklet:
-    explanation: "このリンクをお気に入りに登録すると、どこからでも%{link}できます。"
-    heading: "お気に入り"
-    post_something: "ダイアスポラに投稿"
-  cancel: "取消"
+    heading: お気に入り
+    post_something: ダイアスポラに投稿
+    explanation: このリンクをお気に入りに登録すると、どこからでも%{link}できます。
   color_themes:
-    dark: "ダーク"
-    dark_green: "ダークグリーン"
-    egyptian_blue: "エジプトブルー"
-    magenta: "マゼンタ"
-    original: "オリジナルグレー"
-    original_white: "オリジナルの白い背景"
+    dark: ダーク
+    dark_green: ダークグリーン
+    egyptian_blue: エジプトブルー
+    magenta: マゼンタ
+    original: オリジナルグレー
+    original_white: オリジナルの白い背景
   comments:
     new_comment:
-      comment: "コメント"
-      commenting: "コメント投稿中…"
+      comment: コメント
+      commenting: コメント投稿中…
   contacts:
     index:
-      add_contact: "連絡先を追加する"
-      all_contacts: "すべての連絡先"
-      community_spotlight: "コミュニティスポットライト"
-      my_contacts: "私の連絡先"
-      no_contacts: "連絡先を追加する必要があるようです！"
-      no_contacts_in_aspect: "まだこのアスペクトに連絡先はありません。以下は、このアスペクトに追加することができる、既存の連絡先のリストです。"
+      start_a_conversation: 会話を開始する
+      title: 連絡先
+      no_contacts: 連絡先を追加する必要があるようです！
       no_contacts_message: "%{community_spotlight}をチェックアウトする"
-      only_sharing_with_me: "自分だけにシェア"
-      start_a_conversation: "会話を開始する"
-      title: "連絡先"
-      user_search: "連絡先検索"
+      community_spotlight: コミュニティスポットライト
+      no_contacts_in_aspect: まだこのアスペクトに連絡先はありません。以下は、このアスペクトに追加することができる、既存の連絡先のリストです。
+      my_contacts: 私の連絡先
+      all_contacts: すべての連絡先
+      only_sharing_with_me: 自分だけにシェア
+      add_contact: 連絡先を追加する
+      user_search: 連絡先検索
     spotlight:
-      community_spotlight: "コミュニティスポットライト"
-      no_members: "まだメンバーはいません。"
-      suggest_member: "メンバーの提案"
+      community_spotlight: コミュニティスポットライト
+      suggest_member: メンバーの提案
+      no_members: まだメンバーはいません。
   conversations:
-    create:
-      fail: "無効なメッセージです。"
-      sent: "メッセージを送信しました"
-    destroy:
-      delete_success: "会話を正常に削除しました"
-      hide_success: "会話を正常に非表示にしました"
     index:
-      conversations_inbox: "会話 – 受信トレイ"
-      inbox: "受信トレイ"
-      new_conversation: "新しい会話"
-      no_contacts: "会話を開始する前に、連絡先を追加する必要があります"
-      no_messages: "メッセージがありません"
-    new:
-      message: "メッセージ"
-      send: "送信する"
-      sending: "送信中…"
-      subject: "件名"
-      subject_default: "件名なし"
-      to: "宛先"
-    new_conversation:
-      fail: "無効なメッセージ"
+      conversations_inbox: 会話 – 受信トレイ
+      new_conversation: 新しい会話
+      no_messages: メッセージがありません
+      inbox: 受信トレイ
+      no_contacts: 会話を開始する前に、連絡先を追加する必要があります
     show:
-      delete: "会話を削除して、ブロックする"
-      hide: "会話を非表示およびミュート"
-      last_message: "最後のメッセージの受信 %{timeago}"
-      reply: "返信"
-      replying: "返信中..."
+      reply: 返信
+      replying: 返信中...
+      hide: 会話を非表示およびミュート
+      delete: 会話を削除して、ブロックする
+      last_message: 最後のメッセージの受信 %{timeago}
+    new:
+      to: 宛先
+      subject: 件名
+      subject_default: 件名なし
+      message: メッセージ
+      send: 送信する
+      sending: 送信中…
+    create:
+      sent: メッセージを送信しました
+      fail: 無効なメッセージです。
+    new_conversation:
+      fail: 無効なメッセージ
+    destroy:
+      delete_success: 会話を正常に削除しました
+      hide_success: 会話を正常に非表示にしました
   date:
     formats:
+      fullmonth_day: "%m月%d日"
       birthday: "%m月%d日"
       birthday_with_year: "%Y年%m月%d日"
-      fullmonth_day: "%m月%d日"
-  delete: "削除"
-  email: "メール"
-  error_messages:
-    csrf_token_fail: "CSRFトークンが無効です。 サインインしてもう一度やり直してください。"
-    desktop_view_link: "デスクトップ ビュー"
-    helper:
-      correct_the_following_errors_and_try_again: "次の問題を解決してからやり直してください。"
-    mobile_not_available: "このページは、モバイル ビューには対応していません。%{desktop_link} に切り替えてください。"
-    need_javascript: "このウェブサイトは正常に機能するためにJavaScriptが必要です。 JavaScriptを無効にした場合は、有効にしてこのページを更新してください。"
-  errors:
-    messages:
-      carrierwave_download_error: "ダウンロード出来ませんでした"
-      carrierwave_integrity_error: "は許可されたファイルタイプではありません。"
-      carrierwave_processing_error: "処理に失敗しました"
-      content_type_blacklist_error: "あなたは%{content_type}ファイルをアップロードしてはいけません"
-      content_type_whitelist_error: "あなたは%{content_type}ファイルをアップロードしてはいけません"
-      extension_blacklist_error: "%{extension} などのファイルはアップロードが許可されていません。 禁止されている種類: %{prohibited_types}"
-      extension_whitelist_error: "%{extension}などのファイルはアップロードが許可されていません。 許可されている種類: %{allowed_types}"
-      max_size_error: "ファイルの最大サイズは「%{max_size}」です。"
-      min_size_error: "ファイルの最小サイズは「%%{min_size}」です。"
-      mini_magick_processing_error: "MiniMagickでの操作に失敗しました。画像ではないかもしれません。元のエラー: %{e}"
-      rmagick_processing_error: "rmagickでの操作に失敗しました。画像ではないかもしれません。"
-  fill_me_out: "記入してください"
-  find_people: "人や #タグ を探す"
   help:
-    account_and_data_management:
-      close_account_a: "設定ページの一番下に移動し、「アカウントを閉じる」ボタンをクリックします。手続きを完了するために、パスワードを入力するように求められます。覚えておいてください、アカウントを閉じた場合、そのポッドにあなたのユーザー名で再登録することは<strong>できません</strong>。"
-      close_account_q: "私の種子 (アカウント) を削除する方法は？"
-      data_other_podmins_a: "あなたが別のポッドの誰かとシェアされると、あなたが彼らとシェアした投稿や、あなたのプロフィールデータのコピーがそのポッドにに保存 (キャッシュ) され、そのポッドのデータベース管理者にアクセス可能になります。あなたが投稿やプロフィールデータを削除すると、それはあなたのポッドから削除され、それが以前に保存されていた他のポッドに削除要求が送信されます。あなたの画像は、あなた自身のポッドを除き、保存されることはありません。そのリンクのみが、他のポッドに送信されます。"
-      data_other_podmins_q: "他のポッドの管理者は、私の情報を見ることができますか？"
-      data_visible_to_podmin_a: "一言でいえば: すべて。ポッド間の通信は、常に (SSLとダイアスポラ*独自の転送の暗号化を使用して) 暗号化されていますが、ポッド上のストレージのデータは暗号化されていません。彼らが望めば、あなたのポッドのデータベース管理者 (通常、ポッドを実行している人) は、(ユーザーデータを格納するほとんどのウェブサイトのように) すべてのプロフィールデータとあなたが投稿したすべてにアクセスすることができます。あなたのデータを預けても十分に信頼できる管理者のポッドを選ぶことができるように、あなたがサインアップするポッドに選択肢を与えているのはこのためです。あなた独自のポッドを実行すると、データベースへのアクセスを制御することができるため、より高いプライバシーを提供します。"
-      data_visible_to_podmin_q: "私のポッド管理者はどのくらい私の情報を見ることができますか？"
-      download_data_a: "はい。設定ページのアカウントタブの下部に、2つのボタンが表示されます: 1つはあなたのデータをダウンロードするため、1つはあなたの写真をダウンロードするためです。"
-      download_data_q: "私の種子 (アカウント) に含まれているデータのすべてのコピーをダウンロードすることはできますか？"
-      move_pods_a: "将来的には、ポッドから自分の種子をエクスポートして、別のポッドでそれをインポートすることができますが、これは現在可能ではありません。いつでも、あなたは新しいアカウントを開設し、その新しい種子でアスペクトに連絡先を追加し、彼らのアスペクトにあなたの新しい種子を追加するように、彼らに依頼することができます。"
-      move_pods_q: "私の種子 (アカウント) をあるポッドから別のものに移動する方法は？"
-      title: "アカウントとデータの管理"
-    aspects:
-      change_aspect_of_post_a: "いいえ。しかし、あなたはいつでも同じ内容の新しい投稿を作成して、それを異なるアスペクトに投稿することができます。"
-      change_aspect_of_post_q: "何か投稿した後に、それを見ることができるアスペクトを変更できますか？"
-      contacts_know_aspect_a: "いいえ。どのような場合も、彼らがアスペクトの名前を見ることはできません。"
-      contacts_know_aspect_q: "私の連絡先は、私が入れているアスペクトが分かりますか？"
-      delete_aspect_a: "ストリームビューからサイドバーにある「マイ アスペクト」をクリックして、削除したいアスペクトの横にある鉛筆アイコンをクリックするか、連絡先のページに移動し、関連するアスペクトを選択します。次に、ページの右上にあるゴミ箱のアイコンをクリックします。"
-      delete_aspect_q: "アスペクトを削除する方法は？"
-      person_multiple_aspects_a: "はい。連絡先のページに移動して、「私の連絡先」をクリックしてください。それぞれの連絡先に対して、右側のメニューを使用して、希望する数のアスペクトを追加 (またはそこから削除) することができます。または、彼らのプロフィールページでアスペクトセレクターボタンをクリックして、新しいアスペクトに追加 (またはアスペクトから削除) することができます。また、ストリームで見ることができる彼らの名前の上にポインタを移動するだけで、「ホバーカード」が表示されます。すぐそこにあるアスペクトを変更することができます。"
-      person_multiple_aspects_q: "複数のアスペクトに人を追加することはできますか？"
-      post_multiple_aspects_a: "はい。投稿を作成しているときに、アスペクトセレクターボタンを使用して、アスペクトを選択または選択を解除します。 「全てのアスペクト」がデフォルトの設定です。あなたの投稿は、選択したすべてのアスペクトに表示されます。また、サイドバーで投稿したいアスペクトを選択することもできます。投稿するときに左側のリストで選択したアスペクトは、新しい投稿の作成を始めるとき、自動的にアスペクトセレクターで選択されます。"
-      post_multiple_aspects_q: "一度に複数のアスペクトに対してコンテンツを投稿することができますか？"
-      remove_notification_a: "いいえ。すでに彼らとシェアしているとき、さらに多くのアスペクトに彼らを追加する場合も通知されません。"
-      remove_notification_q: "誰かをあるアスペクトから、またはすべてのマイ アスペクトから削除した場合、これは彼らに通知されますか？"
-      rename_aspect_a: "ストリームビューからサイドバーにある「マイ アスペクト」をクリックして、名前を変更したいアスペクトの横にある鉛筆アイコンをクリックするるか、連絡先のページに移動し、関連するアスペクトを選択します。次に、このページの一番上にあるアスペクト名の横にある編集アイコンをクリックして、名前を変更して「更新」を押します。"
-      rename_aspect_q: "アスペクトの名前を変更する方法は？"
-      restrict_posts_i_see_a: "はい。サイドバーにある「マイ アスペクト」をクリックして、その後リストの個々のアスペクトをクリックして、選択または選択を解除します。選択されたアスペクトの人によって行われた投稿だけがあなたのストリームに表示されます。"
-      restrict_posts_i_see_q: "私のストリーム内の投稿を、特定のアスペクトからだけのものに制限することはできますか？"
-      title: "アスペクト"
-      what_is_an_aspect_a: "アスペクトは、ダイアスポラ*の連絡先をグループ化する方法です。アスペクトは、あなたが世界に見せる顔の一つです。それは仕事中の顔であったり、またあなたの家族に向けている顔であったり、またあなたが所属するクラブでお友達に向ける顔かもしれません。"
-      what_is_an_aspect_q: "アスペクトとは何ですか？"
-      who_sees_post_a: "限定公開の投稿を行う場合、投稿を行う前にアスペクト (複数のアスペクトに行われた場合はそれらのアスペクト) に配置した人にだけ表示されます。アスペクトにいない連絡先は投稿を見る方法がありません。限定公開の投稿は、あなたのアスペクトの一つに配置されていない人には表示されません。"
-      who_sees_post_q: "アスペクトに投稿すると、誰がそれを見ますか？"
-    community_guidelines: "コミュニティー・ガイドライン"
-    faq: "よくある質問"
-    foundation_website: "ダイアスポラ*財団のウェブサイト"
-    getting_help:
-      get_support_a_discourse: "問い合わせに関連する既存のディスカッションを検索するか、%{discourse} プラットフォームで新しいスレッドを開きます"
-      get_support_a_faq: "Wikiで%{faq}ページをお読みください"
-      get_support_a_hashtag: "ダイアスポラ*の公開投稿で %{question} ハッシュタグを使用して質問してください"
-      get_support_a_irc: "%{irc}で参加してください (ライブチャット)"
-      get_support_a_tutorials: "%{tutorials}を確認してください"
-      get_support_a_website: "%{link}をご覧ください"
-      get_support_a_wiki: "%{link}を検索してください"
-      get_support_q: "このFAQで、私の質問が答えられていない場合はどうすればいいですか？他にどこかでサポートを受けることができますか？"
-      getting_started_a: "あなたは運がいいですね。プロジェクトサイトの %{tutorial_series} を試してみてください。登録の手順を一歩ずつ説明して、ダイアスポラ*について知る必要があるすべての基本的なことを教えてくれます。"
-      getting_started_q: "助けて！始めるためにいくつかの基本的な手助けが必要です！"
-      title: "ヘルプの表示"
+    title_header: ヘルプ
+    tutorials: チュートリアル
+    tutorial: チュートリアル
+    irc: IRC
+    wiki: wiki
+    faq: よくある質問
+    markdown: マークダウン
+    here: ここ
+    foundation_website: ダイアスポラ*財団のウェブサイト
+    third_party_tools: サードパーティーのツール
     getting_started_tutorial: "「はじめに」チュートリアル シリーズ"
-    here: "ここ"
-    irc: "IRC"
-    keyboard_shortcuts:
-      keyboard_shortcuts_a1: "ストリームビューでは、次のキーボードショートカットを使用することができます:"
-      keyboard_shortcuts_li1: "j – 次の投稿へジャンプ"
-      keyboard_shortcuts_li2: "k – 前の投稿へジャンプ"
-      keyboard_shortcuts_li3: "c – 現在の投稿にコメント"
-      keyboard_shortcuts_li4: "l – 現在の投稿にいいね！"
-      keyboard_shortcuts_li5: "r – 現在の投稿をリシェア"
-      keyboard_shortcuts_li6: "m – 現在の投稿を展開"
-      keyboard_shortcuts_li7: "o – 現在の投稿内の最初のリンクを開く"
-      keyboard_shortcuts_li8: "Ctrl+Enter – 書いているメッセージを送信"
-      keyboard_shortcuts_q: "どのキーボードショートカットが利用できますか？"
-      title: "キーボードショートカット"
-    markdown: "マークダウン"
+    community_guidelines: コミュニティー・ガイドライン
+    getting_help:
+      title: ヘルプの表示
+      getting_started_q: 助けて！始めるためにいくつかの基本的な手助けが必要です！
+      getting_started_a: あなたは運がいいですね。プロジェクトサイトの %{tutorial_series} を試してみてください。登録の手順を一歩ずつ説明して、ダイアスポラ*について知る必要があるすべての基本的なことを教えてくれます。
+      get_support_q: このFAQで、私の質問が答えられていない場合はどうすればいいですか？他にどこかでサポートを受けることができますか？
+      get_support_a_website: "%{link}をご覧ください"
+      get_support_a_tutorials: "%{tutorials}を確認してください"
+      get_support_a_wiki: "%{link}を検索してください"
+      get_support_a_irc: "%{irc}で参加してください (ライブチャット)"
+      get_support_a_faq: Wikiで%{faq}ページをお読みください
+      get_support_a_hashtag: ダイアスポラ*の公開投稿で %{question} ハッシュタグを使用して質問してください
+      get_support_a_discourse: 問い合わせに関連する既存のディスカッションを検索するか、%{discourse} プラットフォームで新しいスレッドを開きます
+    account_and_data_management:
+      title: アカウントとデータの管理
+      move_pods_q: 私の種子 (アカウント) をあるポッドから別のものに移動する方法は？
+      move_pods_a: 将来的には、ポッドから自分の種子をエクスポートして、別のポッドでそれをインポートすることができますが、これは現在可能ではありません。いつでも、あなたは新しいアカウントを開設し、その新しい種子でアスペクトに連絡先を追加し、彼らのアスペクトにあなたの新しい種子を追加するように、彼らに依頼することができます。
+      download_data_q: 私の種子 (アカウント) に含まれているデータのすべてのコピーをダウンロードすることはできますか？
+      download_data_a: 'はい。設定ページのアカウントタブの下部に、2つのボタンが表示されます: 1つはあなたのデータをダウンロードするため、1つはあなたの写真をダウンロードするためです。'
+      close_account_q: 私の種子 (アカウント) を削除する方法は？
+      close_account_a: 設定ページの一番下に移動し、「アカウントを閉じる」ボタンをクリックします。手続きを完了するために、パスワードを入力するように求められます。覚えておいてください、アカウントを閉じた場合、そのポッドにあなたのユーザー名で再登録することは<strong>できません</strong>。
+      data_visible_to_podmin_q: 私のポッド管理者はどのくらい私の情報を見ることができますか？
+      data_visible_to_podmin_a: '一言でいえば: すべて。ポッド間の通信は、常に (SSLとダイアスポラ*独自の転送の暗号化を使用して) 暗号化されていますが、ポッド上のストレージのデータは暗号化されていません。彼らが望めば、あなたのポッドのデータベース管理者 (通常、ポッドを実行している人) は、(ユーザーデータを格納するほとんどのウェブサイトのように) すべてのプロフィールデータとあなたが投稿したすべてにアクセスすることができます。あなたのデータを預けても十分に信頼できる管理者のポッドを選ぶことができるように、あなたがサインアップするポッドに選択肢を与えているのはこのためです。あなた独自のポッドを実行すると、データベースへのアクセスを制御することができるため、より高いプライバシーを提供します。'
+      data_other_podmins_q: 他のポッドの管理者は、私の情報を見ることができますか？
+      data_other_podmins_a: あなたが別のポッドの誰かとシェアされると、あなたが彼らとシェアした投稿や、あなたのプロフィールデータのコピーがそのポッドにに保存 (キャッシュ) され、そのポッドのデータベース管理者にアクセス可能になります。あなたが投稿やプロフィールデータを削除すると、それはあなたのポッドから削除され、それが以前に保存されていた他のポッドに削除要求が送信されます。あなたの画像は、あなた自身のポッドを除き、保存されることはありません。そのリンクのみが、他のポッドに送信されます。
+    aspects:
+      title: アスペクト
+      what_is_an_aspect_q: アスペクトとは何ですか？
+      what_is_an_aspect_a: アスペクトは、ダイアスポラ*の連絡先をグループ化する方法です。アスペクトは、あなたが世界に見せる顔の一つです。それは仕事中の顔であったり、またあなたの家族に向けている顔であったり、またあなたが所属するクラブでお友達に向ける顔かもしれません。
+      who_sees_post_q: アスペクトに投稿すると、誰がそれを見ますか？
+      who_sees_post_a: 限定公開の投稿を行う場合、投稿を行う前にアスペクト (複数のアスペクトに行われた場合はそれらのアスペクト) に配置した人にだけ表示されます。アスペクトにいない連絡先は投稿を見る方法がありません。限定公開の投稿は、あなたのアスペクトの一つに配置されていない人には表示されません。
+      contacts_know_aspect_q: 私の連絡先は、私が入れているアスペクトが分かりますか？
+      contacts_know_aspect_a: いいえ。どのような場合も、彼らがアスペクトの名前を見ることはできません。
+      person_multiple_aspects_q: 複数のアスペクトに人を追加することはできますか？
+      person_multiple_aspects_a: はい。連絡先のページに移動して、「私の連絡先」をクリックしてください。それぞれの連絡先に対して、右側のメニューを使用して、希望する数のアスペクトを追加 (またはそこから削除) することができます。または、彼らのプロフィールページでアスペクトセレクターボタンをクリックして、新しいアスペクトに追加 (またはアスペクトから削除) することができます。また、ストリームで見ることができる彼らの名前の上にポインタを移動するだけで、「ホバーカード」が表示されます。すぐそこにあるアスペクトを変更することができます。
+      remove_notification_q: 誰かをあるアスペクトから、またはすべてのマイ アスペクトから削除した場合、これは彼らに通知されますか？
+      remove_notification_a: いいえ。すでに彼らとシェアしているとき、さらに多くのアスペクトに彼らを追加する場合も通知されません。
+      change_aspect_of_post_q: 何か投稿した後に、それを見ることができるアスペクトを変更できますか？
+      change_aspect_of_post_a: いいえ。しかし、あなたはいつでも同じ内容の新しい投稿を作成して、それを異なるアスペクトに投稿することができます。
+      post_multiple_aspects_q: 一度に複数のアスペクトに対してコンテンツを投稿することができますか？
+      post_multiple_aspects_a: はい。投稿を作成しているときに、アスペクトセレクターボタンを使用して、アスペクトを選択または選択を解除します。 「全てのアスペクト」がデフォルトの設定です。あなたの投稿は、選択したすべてのアスペクトに表示されます。また、サイドバーで投稿したいアスペクトを選択することもできます。投稿するときに左側のリストで選択したアスペクトは、新しい投稿の作成を始めるとき、自動的にアスペクトセレクターで選択されます。
+      restrict_posts_i_see_q: 私のストリーム内の投稿を、特定のアスペクトからだけのものに制限することはできますか？
+      restrict_posts_i_see_a: はい。サイドバーにある「マイ アスペクト」をクリックして、その後リストの個々のアスペクトをクリックして、選択または選択を解除します。選択されたアスペクトの人によって行われた投稿だけがあなたのストリームに表示されます。
+      rename_aspect_q: アスペクトの名前を変更する方法は？
+      rename_aspect_a: ストリームビューからサイドバーにある「マイ アスペクト」をクリックして、名前を変更したいアスペクトの横にある鉛筆アイコンをクリックするるか、連絡先のページに移動し、関連するアスペクトを選択します。次に、このページの一番上にあるアスペクト名の横にある編集アイコンをクリックして、名前を変更して「更新」を押します。
+      delete_aspect_q: アスペクトを削除する方法は？
+      delete_aspect_a: ストリームビューからサイドバーにある「マイ アスペクト」をクリックして、削除したいアスペクトの横にある鉛筆アイコンをクリックするか、連絡先のページに移動し、関連するアスペクトを選択します。次に、ページの右上にあるゴミ箱のアイコンをクリックします。
     mentions:
-      how_to_mention_a: "「@」記号を入力して、彼らの名前の入力を始めます。より簡単に選択できるように、ドロップダウンメニューが表示されます。アスペクトに追加したユーザーにのみメンションすることが可能であることに注意してください。"
-      how_to_mention_q: "投稿を作るときに、誰かにメンションする方法は？"
-      mention_in_comment_a: "バージョン 0.7.0.0 から、そう! 投稿の中でやっているのと同じように “@” と入力して名前を入力し始めると、コメントで誰かにメンションすることができます。 公開されていない投稿にコメントするときは、その投稿で既にやりとりしているユーザーのみコメントすることができることにご注意ください。"
-      mention_in_comment_q: "コメントの誰かにメンションすることはできますか？"
-      see_mentions_a: "はい、あなたのホームページの左側の列で「@メンション」をクリックします。"
-      see_mentions_q: "私がメンションされた投稿を参照する方法はありますか？"
-      title: "メンション"
-      what_is_a_mention_a: "メンションは、投稿に表示されるユーザーのプロフィールページへのリンクです。誰かがメンションされると、彼らは投稿への注意を喚起する通知を受信します。"
+      title: メンション
       what_is_a_mention_q: "「メンション」とは何ですか？"
-    miscellaneous:
-      back_to_top_a: "はい。ページを下にスクロールした後、ブラウザウィンドウの右下に表示される灰色の矢印をクリックしてください。"
-      back_to_top_q: "下にスクロールした後に、ページの先頭に戻るための簡単な方法はありますか？"
-      diaspora_app_a: "コミュニティのメンバーによって開発中のAndroidアプリがいくつかありました。一部は長期に放棄されたプロジェクトのため、ダイアスポラ*の現在のバージョンではうまく機能しません。現時点ではこれらのアプリに多くを期待しないでください。 iOS用のアプリは現在ありません。まだ完全な機能を持っていませんが、すべてのデバイスでうまく動作するはずのモバイル版のサイトをデザインしましたので、お使いの携帯端末からダイアスポラ*にアクセスする最良の方法は、ブラウザを利用してください。"
-      diaspora_app_q: "Android や iOS 用のダイアスポラ*アプリはありますか？"
-      photo_albums_a: "いいえ、現在はありません。しかし、プロフィールページの写真タブの下で、人のアップロードした写真を表示することができます。"
-      photo_albums_q: "フォトアルバムやビデオアルバムはありますか？"
-      subscribe_feed_a: "はい。しかし、これはまだ洗練された機能ではなく、結果の形式はまだかなりラフです。とにかく試してみたい場合は、誰かのプロフィールページにアクセスし、お使いのブラウザでフィードボタンをクリックするか、フィードリーダーにプロフィールの URL (例 https://podname.org/people/somenumber) をコピーして貼り付けることができます。結果のフィードアドレスは次のようになります: https://podname.org/public/username.atom - ダイアスポラ* は RSS ではなく Atom を使用しています"
-      subscribe_feed_q: "誰かの公開の投稿をフィードリーダーで購読することはできますか？"
-      title: "その他"
+      what_is_a_mention_a: メンションは、投稿に表示されるユーザーのプロフィールページへのリンクです。誰かがメンションされると、彼らは投稿への注意を喚起する通知を受信します。
+      how_to_mention_q: 投稿を作るときに、誰かにメンションする方法は？
+      how_to_mention_a: "「@」記号を入力して、彼らの名前の入力を始めます。より簡単に選択できるように、ドロップダウンメニューが表示されます。アスペクトに追加したユーザーにのみメンションすることが可能であることに注意してください。"
+      mention_in_comment_q: コメントの誰かにメンションすることはできますか？
+      mention_in_comment_a: バージョン 0.7.0.0 から、そう! 投稿の中でやっているのと同じように “@” と入力して名前を入力し始めると、コメントで誰かにメンションすることができます。 公開されていない投稿にコメントするときは、その投稿で既にやりとりしているユーザーのみコメントすることができることにご注意ください。
+      see_mentions_q: 私がメンションされた投稿を参照する方法はありますか？
+      see_mentions_a: はい、あなたのホームページの左側の列で「@メンション」をクリックします。
     pods:
-      find_people_a: "友達をダイアスポラ*に参加するように招待したい場合は、サイドバーの招待リンクまたはメールリンクを使用します。#タグ をフォローして、あなたが興味のあるものをシェアする他の人を発見して 、アスペクトにその興味があるものの投稿者を追加します。公開の投稿で #初めて と叫んでください。"
-      find_people_q: "ポッドに参加したばかりです。どのようにシェアする人を見つけることができますか？"
-      title: "ポッド"
-      use_search_box_a: "あなたが彼らの完全なダイアスポラ* ID (例 username@podname.org) を知っている場合は、それを検索して見つけることができます。あなたが同じポッド上にいる場合は、ユーザー名だけで検索することができます。別の方法としては、彼らのプロフィール名 (画面上に表示される名前) によって検索することができます。検索が最初に動作しない場合は、もう一度やり直してください。"
-      use_search_box_q: "検索ボックスを使用して特定の個人を見つける方法は？"
-      what_is_a_pod_a: "ポッドはダイアスポラ*ソフトウェアを実行しているサーバーで、ダイアスポラ*ネットワークに接続します。 「ポッド」は、種子を入れた植木鉢の比喩で、サーバーが多数のユーザアカウントを含んでいる様子です。多くの異なったポッドがあります。あなたは他のポッドから友達を追加して、通信することができます。別のポッドにアカウントを開設する必要はありません！一つで十分です - このように、ダイアスポラ*ポッドはメールプロバイダーと同様に考えることができます。公開ポッド、プライベートポッドがあり、少しの努力であなたも独自に実行することもできます。"
-      what_is_a_pod_q: "ポッドとは何ですか？"
+      title: ポッド
+      what_is_a_pod_q: ポッドとは何ですか？
+      what_is_a_pod_a: ポッドはダイアスポラ*ソフトウェアを実行しているサーバーで、ダイアスポラ*ネットワークに接続します。 「ポッド」は、種子を入れた植木鉢の比喩で、サーバーが多数のユーザアカウントを含んでいる様子です。多くの異なったポッドがあります。あなたは他のポッドから友達を追加して、通信することができます。別のポッドにアカウントを開設する必要はありません！一つで十分です - このように、ダイアスポラ*ポッドはメールプロバイダーと同様に考えることができます。公開ポッド、プライベートポッドがあり、少しの努力であなたも独自に実行することもできます。
+      find_people_q: ポッドに参加したばかりです。どのようにシェアする人を見つけることができますか？
+      find_people_a: '友達をダイアスポラ*に参加するように招待したい場合は、サイドバーの招待リンクまたはメールリンクを使用します。#タグ をフォローして、あなたが興味のあるものをシェアする他の人を発見して 、アスペクトにその興味があるものの投稿者を追加します。公開の投稿で #初めて と叫んでください。'
+      use_search_box_q: 検索ボックスを使用して特定の個人を見つける方法は？
+      use_search_box_a: あなたが彼らの完全なダイアスポラ* ID (例 username@podname.org) を知っている場合は、それを検索して見つけることができます。あなたが同じポッド上にいる場合は、ユーザー名だけで検索することができます。別の方法としては、彼らのプロフィール名 (画面上に表示される名前) によって検索することができます。検索が最初に動作しない場合は、もう一度やり直してください。
     posts_and_posting:
-      char_limit_services_a: "投稿を少ない文字数に制限する必要がある場合 (Twitter の場合は 140、Tumblr の場合は 1000)、およびそのサービスのアイコンがハイライトされているときには、使用するために残っている文字数が表示されます。投稿がその制限よりも長い場合でも、そのサービスに投稿することはできますが、それらのサービスとダイアスポラ*上の投稿へのリンクでテキストは切り捨てられます。"
-      char_limit_services_q: "少ない文字数の提携サービスで投稿をシェアしている場合は？"
-      character_limit_a: "65,535文字。Twitter よりも 65,395 文字以上多いです! ;)"
-      character_limit_q: "投稿の文字数制限はいくつですか？"
-      embed_multimedia_a: "投稿の中に、普通に URL (例. http://www.youtube.com/watch?v=nnnnnnnnnnn ) を貼り付けるだけで、ビデオやオーディオが自動的に埋め込まれます。サポートされているサイトは次のようなものがあります: YouTube、Vimeo、SoundCloud、Flickr、など。ダイアスポラ*は、この機能のためにoEmbedを使用しています。私たちは、常により多くのメディアソースをサポートしています。常に、シンプルに、完全なリンクで投稿することを忘れないでください - 短縮リンクではなく、ベースURLの後のオペレーターでもなく - プレビューを見るため、投稿後にページを更新する前に少し時間を置きます。"
-      embed_multimedia_q: "投稿にビデオ、オーディオ、または他のマルチメディアコンテンツを埋め込む方法は？"
+      title: 投稿
+      stream_full_of_posts_q: なぜ私のストリームが、知らない人やシェアしていない人からの投稿でいっぱいなのですか？
+      stream_full_of_posts_a1: 'あなたのストリームは、3 種類の投稿で構成されています:'
+      stream_full_of_posts_li1: 'あなたとシェアしている人々による投稿は 2 種類あります: 公開の投稿と、あなたが含まれるアスペクトとシェアした限定公開の投稿。これらの投稿をあなたのストリームから削除するには、単にその人とのシェアを止めます。'
+      stream_full_of_posts_li2: あなたがフォローしているタグを含む公開の投稿。これらを削除するには、そのタグのフォローを止めます。
+      stream_full_of_posts_li3: コミュニティスポットライトに記載されている人々による公開の投稿。これらは設定のアカウントタブで、オプション「ストリームにコミュニティスポットライトを表示？」のチェックをオフにすることによって除外することができます。
+      hide_posts_q: 投稿を非表示にする方法は？
+      hide_posts_a: 投稿の先頭にマウスを移動すると、X が右側に表示されます。それをクリックすると、投稿を非表示にして、それに関する通知をミュートします。それを投稿した人のプロフィールページを訪問すると、まだ投稿を見ることができます。
+      post_notification_q: 投稿に関する通知を取得する、または通知を停止する方法は？
+      post_notification_a: 投稿の右上にある X の横にベルのアイコンがあります。これをクリックして、その投稿の通知を有効または無効にします。
+      ignore_user_q: 自分のストリームに誰かの投稿が表示されるのを止める方法は?
+      ignore_user_a1: 現在その人と共有している場合は、その人をアスペクトから削除すると、投稿の多くはあなたのストリームに表示されなくなります。 より完全な方法は、そのアカウントを「無視」することです。 これにより、その人の投稿があなたのストリームに表示されなくなり、その人があなたの投稿にいいねをしたりコメントをつけることができなくなります。 ただし、その人があなたの投稿を再共有したり、あなたの投稿の再共有にコメントしたり、あなたのストリームに表示されている他の人の投稿に対するコメントは引き続き表示されます。
+      ignore_user_a2: アカウントを無視するには、彼らの投稿の右上にある「無視」アイコン (対角線が引かれた円) をクリックします。 その投稿はあなたのストリームから即座に消えます。 または、彼らのプロフィールページに移動し、そこにある無視アイコンをクリックします。 彼らのプロフィールページで彼らの投稿を表示したり、シングル投稿ビューを使用したりすることはできます。
+      ignore_user_a3: あなたが無視している人のリストは、あなたのアカウント設定のプライバシーの下にあります。 誰かを無視するのを止めるには、そのページのリストからそれを削除します。
+      post_report_q: 攻撃的な投稿を報告する方法は？
+      post_report_a: あなたのポッド管理者に報告するには、投稿の右上にある警告三角形のアイコンをクリックします。ダイアログボックスでこの投稿を報告するための理由を入力してください。
+      character_limit_q: 投稿の文字数制限はいくつですか？
+      character_limit_a: 65,535文字。Twitter よりも 65,395 文字以上多いです! ;)
+      char_limit_services_q: 少ない文字数の提携サービスで投稿をシェアしている場合は？
+      char_limit_services_a: 投稿を少ない文字数に制限する必要がある場合 (Twitter の場合は 140、Tumblr の場合は 1000)、およびそのサービスのアイコンがハイライトされているときには、使用するために残っている文字数が表示されます。投稿がその制限よりも長い場合でも、そのサービスに投稿することはできますが、それらのサービスとダイアスポラ*上の投稿へのリンクでテキストは切り捨てられます。
+      format_text_q: 自分の投稿内のテキストの書式 (太字、斜体など) を設定する方法は？
       format_text_a: "%{markdown} と呼ばれる簡略化したシステムを使用することによって。全てのマークダウン構文を %{here} で参照することができます。シェアする前に、あなたのメッセージがどのように見えるかを参照することができるので、プレビューボタンはここでは本当に役に立ちます。"
-      format_text_q: "自分の投稿内のテキストの書式 (太字、斜体など) を設定する方法は？"
-      hide_posts_a: "投稿の先頭にマウスを移動すると、X が右側に表示されます。それをクリックすると、投稿を非表示にして、それに関する通知をミュートします。それを投稿した人のプロフィールページを訪問すると、まだ投稿を見ることができます。"
-      hide_posts_q: "投稿を非表示にする方法は？"
-      ignore_user_a1: "現在その人と共有している場合は、その人をアスペクトから削除すると、投稿の多くはあなたのストリームに表示されなくなります。 より完全な方法は、そのアカウントを「無視」することです。 これにより、その人の投稿があなたのストリームに表示されなくなり、その人があなたの投稿にいいねをしたりコメントをつけることができなくなります。 ただし、その人があなたの投稿を再共有したり、あなたの投稿の再共有にコメントしたり、あなたのストリームに表示されている他の人の投稿に対するコメントは引き続き表示されます。"
-      ignore_user_a2: "アカウントを無視するには、彼らの投稿の右上にある「無視」アイコン (対角線が引かれた円) をクリックします。 その投稿はあなたのストリームから即座に消えます。 または、彼らのプロフィールページに移動し、そこにある無視アイコンをクリックします。 彼らのプロフィールページで彼らの投稿を表示したり、シングル投稿ビューを使用したりすることはできます。"
-      ignore_user_a3: "あなたが無視している人のリストは、あなたのアカウント設定のプライバシーの下にあります。 誰かを無視するのを止めるには、そのページのリストからそれを削除します。"
-      ignore_user_q: "自分のストリームに誰かの投稿が表示されるのを止める方法は?"
-      insert_images_a: "小さなカメラアイコンをクリックして、投稿に画像を挿入します。もう一度カメラアイコンを押して別の写真を追加したり、複数の写真を選択して一度にアップロードすることができます。"
-      insert_images_comments_a: "投稿と同様に、Markdown を使用して、ウェブから画像をコメントに挿入できます。 ただし、コメントにコンピュータから画像を直接アップロードすることはできません。 画像ホスティングサービスにアップロードして、その後公開者の上にある画像ボタンを使用して挿入します。"
-      insert_images_comments_q: "コメントに画像を挿入することはできますか？"
-      insert_images_q: "投稿に画像を挿入する方法は？"
-      post_location_a: "公開者のカメラの横のピンアイコンをクリックします。これにより、OpenStreetMap からあなたの場所を挿入します。あなたの場所を編集することができます - あなたがいる都市ではなく、特定の住所を含めることができます。"
-      post_location_q: "投稿に自分の場所を追加する方法は？"
-      post_notification_a: "投稿の右上にある X の横にベルのアイコンがあります。これをクリックして、その投稿の通知を有効または無効にします。"
-      post_notification_q: "投稿に関する通知を取得する、または通知を停止する方法は？"
-      post_poll_a: "グラフのアイコンをクリックして、投票を生成します。質問と、少なくとも 2 つの答えを入力します。すべての人があなたの投票に参加できるようにしたい場合は、投稿を公開にすることを忘れないでください。"
-      post_poll_q: "私の投稿に世論調査を追加する方法は？"
-      post_report_a: "あなたのポッド管理者に報告するには、投稿の右上にある警告三角形のアイコンをクリックします。ダイアログボックスでこの投稿を報告するための理由を入力してください。"
-      post_report_q: "攻撃的な投稿を報告する方法は？"
-      size_of_images_a: "いいえ。ストリームまたはシングルポストビューに合わせて画像は自動的にリサイズされます。 マークダウン記法は、画像のサイズを指定するためのコードを持っていません。"
-      size_of_images_q: "投稿やコメント内の画像のサイズをカスタマイズすることはできますか？"
-      stream_full_of_posts_a1: "あなたのストリームは、3 種類の投稿で構成されています:"
-      stream_full_of_posts_li1: "あなたとシェアしている人々による投稿は 2 種類あります: 公開の投稿と、あなたが含まれるアスペクトとシェアした限定公開の投稿。これらの投稿をあなたのストリームから削除するには、単にその人とのシェアを止めます。"
-      stream_full_of_posts_li2: "あなたがフォローしているタグを含む公開の投稿。これらを削除するには、そのタグのフォローを止めます。"
-      stream_full_of_posts_li3: "コミュニティスポットライトに記載されている人々による公開の投稿。これらは設定のアカウントタブで、オプション「ストリームにコミュニティスポットライトを表示？」のチェックをオフにすることによって除外することができます。"
-      stream_full_of_posts_q: "なぜ私のストリームが、知らない人やシェアしていない人からの投稿でいっぱいなのですか？"
-      title: "投稿"
+      insert_images_q: 投稿に画像を挿入する方法は？
+      insert_images_a: 小さなカメラアイコンをクリックして、投稿に画像を挿入します。もう一度カメラアイコンを押して別の写真を追加したり、複数の写真を選択して一度にアップロードすることができます。
+      insert_images_comments_q: コメントに画像を挿入することはできますか？
+      insert_images_comments_a: 投稿と同様に、Markdown を使用して、ウェブから画像をコメントに挿入できます。 ただし、コメントにコンピュータから画像を直接アップロードすることはできません。 画像ホスティングサービスにアップロードして、その後公開者の上にある画像ボタンを使用して挿入します。
+      size_of_images_q: 投稿やコメント内の画像のサイズをカスタマイズすることはできますか？
+      size_of_images_a: いいえ。ストリームまたはシングルポストビューに合わせて画像は自動的にリサイズされます。 マークダウン記法は、画像のサイズを指定するためのコードを持っていません。
+      embed_multimedia_q: 投稿にビデオ、オーディオ、または他のマルチメディアコンテンツを埋め込む方法は？
+      embed_multimedia_a: '投稿の中に、普通に URL (例. http://www.youtube.com/watch?v=nnnnnnnnnnn ) を貼り付けるだけで、ビデオやオーディオが自動的に埋め込まれます。サポートされているサイトは次のようなものがあります: YouTube、Vimeo、SoundCloud、Flickr、など。ダイアスポラ*は、この機能のためにoEmbedを使用しています。私たちは、常により多くのメディアソースをサポートしています。常に、シンプルに、完全なリンクで投稿することを忘れないでください - 短縮リンクではなく、ベースURLの後のオペレーターでもなく - プレビューを見るため、投稿後にページを更新する前に少し時間を置きます。'
+      post_location_q: 投稿に自分の場所を追加する方法は？
+      post_location_a: 公開者のカメラの横のピンアイコンをクリックします。これにより、OpenStreetMap からあなたの場所を挿入します。あなたの場所を編集することができます - あなたがいる都市ではなく、特定の住所を含めることができます。
+      post_poll_q: 私の投稿に世論調査を追加する方法は？
+      post_poll_a: グラフのアイコンをクリックして、投票を生成します。質問と、少なくとも 2 つの答えを入力します。すべての人があなたの投票に参加できるようにしたい場合は、投稿を公開にすることを忘れないでください。
     private_posts:
-      can_comment_a: "非公開の投稿を行う前にそのアスペクトに配置されていた、ログインしているダイアスポラ*ユーザーのみがそれにコメントまたはいいね！することができます。"
-      can_comment_q: "非公開の投稿に、誰がコメントまたはいいね！することができますか？"
-      can_reshare_a: "誰もいません。非公開の投稿はリシェアできません。しかし、そのアスペクト内のログインしているダイアスポラ*ユーザーは、潜在的にコピーおよび貼り付けることができます。それらの人々を信頼するかどうかはあなた次第です！"
-      can_reshare_q: "誰が私の非公開の投稿をリシェアすることができますか？"
-      see_comment_a: "投稿をシェアされた人 (元の投稿者によって選択されたアスペクトにいる人) のみ、そのコメントやいいね！を見ることができます。 "
-      see_comment_q: "私が非公開の投稿にコメントまたはいいね！したとき、誰がそれを見ることができますか？"
-      title: "非公開の投稿"
-      who_sees_post_a: "非公開の投稿を行う前にそのアスペクトに配置されていた、ログインしているダイアスポラ*ユーザーのみがそれを見ることができます。"
-      who_sees_post_q: "アスペクトにメッセージを投稿すると (例 非公開の投稿)、誰がそれを見ることができますか？"
-    profile:
-      title: "プロフィール"
-      what_do_tags_do_a: "タグは人々があなたを知るのに役立ちます。 あなたのプロフィール画像は、それらのタグのストリームページの左側に、基本プロフィールにそのタグを持つ他のユーザーとともに表示されます。"
-      what_do_tags_do_q: "基本プロフィールのタグは何をしますか？"
-      whats_in_profile_a: "プロフィールは、基本プロファイルと拡張プロファイルの2つの部分に分かれています。 基本プロフィールには名前、あなた自身を説明するために選択した5つのタグ、あなたの写真が含まれています。 拡張プロフィールには、バイオグラフィー、場所、性別、誕生日が表示されます。 この情報はすべて任意です。提供するかどうかはあなた次第です。このプロフィール情報は、あなたが好きなように個人または匿名で作ることができます。 拡張プロフィールは、プロフィールページの左側の列、プロフィール写真の下に表示されます。"
-      whats_in_profile_q: "私のプロフィールには何がありますか?"
-      who_sees_profile_a: "基本プロフィール (名前、プロフィール画像、#タグ) は公開されます。 拡張プロフィールはデフォルトでは非公開ですが、必要に応じてすべて公開アクセスにできます。 あなたが拡張プロフィールを非公開にした場合、共有している相手 (つまり、あなたのアスペクトの1つに追加したことの意味) のみが見ることができます。 他の人には公開情報のみが表示されます。 公開したプロフィール情報は、ウェブを使用している誰でも閲覧でき、検索エンジンでインデックスに登録されることができます"
-      who_sees_profile_q: "誰が私の公開プロフィールを見ますか？"
+      title: 非公開の投稿
+      who_sees_post_q: アスペクトにメッセージを投稿すると (例 非公開の投稿)、誰がそれを見ることができますか？
+      who_sees_post_a: 非公開の投稿を行う前にそのアスペクトに配置されていた、ログインしているダイアスポラ*ユーザーのみがそれを見ることができます。
+      can_comment_q: 非公開の投稿に、誰がコメントまたはいいね！することができますか？
+      can_comment_a: 非公開の投稿を行う前にそのアスペクトに配置されていた、ログインしているダイアスポラ*ユーザーのみがそれにコメントまたはいいね！することができます。
+      can_reshare_q: 誰が私の非公開の投稿をリシェアすることができますか？
+      can_reshare_a: 誰もいません。非公開の投稿はリシェアできません。しかし、そのアスペクト内のログインしているダイアスポラ*ユーザーは、潜在的にコピーおよび貼り付けることができます。それらの人々を信頼するかどうかはあなた次第です！
+      see_comment_q: 私が非公開の投稿にコメントまたはいいね！したとき、誰がそれを見ることができますか？
+      see_comment_a: '投稿をシェアされた人 (元の投稿者によって選択されたアスペクトにいる人) のみ、そのコメントやいいね！を見ることができます。 '
     public_posts:
-      can_comment_reshare_like_a: "すべてのログインしているダイアスポラ*ユーザーがコメントしたり、リシェアしたり、いいね！をすることができます。"
-      can_comment_reshare_like_q: "誰が、私の公開の投稿をコメントしたり、リシェア、いいね！することができますか？"
-      deselect_aspect_posting_a: "アスペクトの選択を解除しても、公開の投稿には影響を与えません。公開されて、あなたの連絡先のすべてのストリームに表示されます。特定のアスペクトにのみ投稿が見えるようにするには、公開者の下のアスペクトセレクターからそのアスペクトを選択する必要があります。"
-      deselect_aspect_posting_q: "公開の投稿を行うときに、1 つまたは複数のアスペクトの選択を解除した場合はどうなりますか？"
-      find_public_post_a: "あなたの公開の投稿は、あなたをフォローしている誰かのストリームに表示されます。あなたが公開の投稿に #タグ を含めた場合、そのタグをフォローしているすべての人が自分のストリームであなたの投稿を見つけます。すべての公開の投稿は、ログインしていない場合でも、誰でも閲覧することができる特定の URL も持っています - そのため、公開の投稿は Twitter、ブログ、などから直接リンクすることができます。公開の投稿は、検索エンジンにインデックスされることもできます。"
-      find_public_post_q: "私の公開の投稿を他の人はどのように見つけますか？"
-      see_comment_reshare_like_a: "公開の投稿のコメント、いいね！、およびリシェアもまた、公開されます。すべてのログインしているダイアスポラ*ユーザーと、インターネット上の誰でも公開の投稿とあなたのやり取りを見ることができます。"
-      see_comment_reshare_like_q: "私が公開の投稿にコメントしたり、リシェア、いいね！したとき、誰がそれを見ることができますか？"
-      title: "公開の投稿"
-      who_sees_post_a: "インターネットを使っている誰もがあなたが公開としてマークした投稿を参照する可能性があるので、あなたの投稿を本当に公開にしたいかを確認してください。世界に手を差し伸べる素晴らしい方法です。"
-      who_sees_post_q: "公開で何かを投稿すると、誰がそれを見ることができますか？"
+      title: 公開の投稿
+      who_sees_post_q: 公開で何かを投稿すると、誰がそれを見ることができますか？
+      who_sees_post_a: インターネットを使っている誰もがあなたが公開としてマークした投稿を参照する可能性があるので、あなたの投稿を本当に公開にしたいかを確認してください。世界に手を差し伸べる素晴らしい方法です。
+      find_public_post_q: 私の公開の投稿を他の人はどのように見つけますか？
+      find_public_post_a: 'あなたの公開の投稿は、あなたをフォローしている誰かのストリームに表示されます。あなたが公開の投稿に #タグ を含めた場合、そのタグをフォローしているすべての人が自分のストリームであなたの投稿を見つけます。すべての公開の投稿は、ログインしていない場合でも、誰でも閲覧することができる特定の URL も持っています - そのため、公開の投稿は Twitter、ブログ、などから直接リンクすることができます。公開の投稿は、検索エンジンにインデックスされることもできます。'
+      can_comment_reshare_like_q: 誰が、私の公開の投稿をコメントしたり、リシェア、いいね！することができますか？
+      can_comment_reshare_like_a: すべてのログインしているダイアスポラ*ユーザーがコメントしたり、リシェアしたり、いいね！をすることができます。
+      see_comment_reshare_like_q: 私が公開の投稿にコメントしたり、リシェア、いいね！したとき、誰がそれを見ることができますか？
+      see_comment_reshare_like_a: 公開の投稿のコメント、いいね！、およびリシェアもまた、公開されます。すべてのログインしているダイアスポラ*ユーザーと、インターネット上の誰でも公開の投稿とあなたのやり取りを見ることができます。
+      deselect_aspect_posting_q: 公開の投稿を行うときに、1 つまたは複数のアスペクトの選択を解除した場合はどうなりますか？
+      deselect_aspect_posting_a: アスペクトの選択を解除しても、公開の投稿には影響を与えません。公開されて、あなたの連絡先のすべてのストリームに表示されます。特定のアスペクトにのみ投稿が見えるようにするには、公開者の下のアスペクトセレクターからそのアスペクトを選択する必要があります。
+    profile:
+      title: プロフィール
+      whats_in_profile_q: 私のプロフィールには何がありますか?
+      whats_in_profile_a: プロフィールは、基本プロファイルと拡張プロファイルの2つの部分に分かれています。 基本プロフィールには名前、あなた自身を説明するために選択した5つのタグ、あなたの写真が含まれています。 拡張プロフィールには、バイオグラフィー、場所、性別、誕生日が表示されます。 この情報はすべて任意です。提供するかどうかはあなた次第です。このプロフィール情報は、あなたが好きなように個人または匿名で作ることができます。 拡張プロフィールは、プロフィールページの左側の列、プロフィール写真の下に表示されます。
+      who_sees_profile_q: 誰が私の公開プロフィールを見ますか？
+      who_sees_profile_a: 基本プロフィール (名前、プロフィール画像、#タグ) は公開されます。 拡張プロフィールはデフォルトでは非公開ですが、必要に応じてすべて公開アクセスにできます。 あなたが拡張プロフィールを非公開にした場合、共有している相手 (つまり、あなたのアスペクトの1つに追加したことの意味) のみが見ることができます。 他の人には公開情報のみが表示されます。 公開したプロフィール情報は、ウェブを使用している誰でも閲覧でき、検索エンジンでインデックスに登録されることができます
+      what_do_tags_do_q: 基本プロフィールのタグは何をしますか？
+      what_do_tags_do_a: タグは人々があなたを知るのに役立ちます。 あなたのプロフィール画像は、それらのタグのストリームページの左側に、基本プロフィールにそのタグを持つ他のユーザーとともに表示されます。
     resharing_posts:
-      reshare_private_post_aspects_a: "いいえ。非公開の投稿をリシェアすることはできません。これが、特定のグループの人々とのみそれをシェアした、元の投稿者の意向を尊重することです。"
-      reshare_private_post_aspects_q: "非公開の投稿を、選択したアスペクトにリシェアすることはできますか？"
-      reshare_public_post_aspects_a: "いいえ。公開の投稿をリシェアすると、それは自動的にあなたの公開の投稿の一つになります。 それを特定のアスペクトとシェアするには、新しい限定公開の投稿に投稿の内容をコピーおよび貼り付けします。"
-      reshare_public_post_aspects_q: "公開の投稿を、選択したアスペクトにリシェアすることはできますか？"
-      title: "投稿のリシェア"
+      title: 投稿のリシェア
+      reshare_public_post_aspects_q: 公開の投稿を、選択したアスペクトにリシェアすることはできますか？
+      reshare_public_post_aspects_a: いいえ。公開の投稿をリシェアすると、それは自動的にあなたの公開の投稿の一つになります。 それを特定のアスペクトとシェアするには、新しい限定公開の投稿に投稿の内容をコピーおよび貼り付けします。
+      reshare_private_post_aspects_q: 非公開の投稿を、選択したアスペクトにリシェアすることはできますか？
+      reshare_private_post_aspects_a: いいえ。非公開の投稿をリシェアすることはできません。これが、特定のグループの人々とのみそれをシェアした、元の投稿者の意向を尊重することです。
     sharing:
-      add_to_aspect_a1: "エイミーがベンをアスペクトに追加し、ベンは (まだ) エイミーをアスペクトに追加していないとしましょう:"
-      add_to_aspect_a2: "これは非対称のシェアとして知られています。もし、ベンもまた、アスペクトにエイミーを追加すると、お互いのストリームにエイミーとベンの両方公開の投稿や関連する非公開の投稿が表示され、相互シェアになるでしょう。そして、エイミーはベンの非公開プロフィールを表示することができるでしょう。そして、彼らはお互いに非公開メッセージを送信することができるでしょう。"
-      add_to_aspect_li1: "ベンは、エイミーがベンと「シェアを開始した」という通知を受け取ります。"
-      add_to_aspect_li2: "エイミーは彼女のストリームに、ベンの公開の投稿の表示が始まります。"
-      add_to_aspect_li3: "エイミーは、ベンの非公開の投稿は表示されません。"
-      add_to_aspect_li4: "ベンは、彼のストリームにエイミーの公開または非公開の投稿は表示されません。"
-      add_to_aspect_li5: "ベンがエイミーのプロフィールページに移動した場合、彼には、エイミーが彼を配置しているアスペクトに行った非公開の投稿 (と同様に、誰でも見ることができる彼女の公開の投稿) が表示されます。"
-      add_to_aspect_li6: "ベンはエイミーの非公開プロフィール (略歴、所在地、性別、誕生日) を見ることができます。"
-      add_to_aspect_li7: "エイミーは、ベンの連絡先ページの「自分だけにシェア」の下に表示されます。"
-      add_to_aspect_li8: "エイミーもベンを@メンションすることができるようになります。"
-      add_to_aspect_q: "私のアスペクトの一つに誰かを追加すると、または誰かが彼らのアスペクトの一つに私を追加すると、どうなりますか？"
-      list_not_sharing_a: "いいえ。しかし、彼らのプロフィールページを訪問して、その人があなたとシェアしているかどうかを確認することができます。その場合、彼らが配置したアスペクトを示すボタンが緑色になり、ない場合は、それが灰色になるでしょう。"
-      list_not_sharing_q: "私のアスペクトの一つに追加した人で、その人のアスペクトに私を追加していない人のリストはありますか？"
-      only_sharing_a: "これらは、自分のアスペクトの一つにあなたを追加した人ですが、あなたのアスペクトのいずれにも (まだ) いない人です。言い換えれば、彼らはあなたとシェアしていますが、あなたは彼らとシェアしていません: 彼らを、あなたを「フォローしている」人と考えることができます。あなたがアスペクトに彼らを追加した場合、その後、「自分だけにシェア」ではなくアスペクトの下に表示されます。上記を参照してください。"
-      only_sharing_q: "私の連絡先ページの「自分だけにシェア」の下にリストされている人は誰ですか？"
-      see_old_posts_a: "いいえ。彼らは、そのアスペクトへの新しい投稿のみを見ることができます。彼ら (および他の誰でも) あなたのプロフィールページであなたの古い公開の投稿を見ることができ、また、彼らのストリームでもそれらを見ることができます。"
-      see_old_posts_q: "私が誰かをアスペクトに追加すると、彼らは私がすでにそのアスペクトに投稿している古い投稿を見ることができますか？"
-      sharing_notification_a: "誰かがあなたとシェアを始めるたびに、あなたは通知を受信するはずです。"
-      sharing_notification_q: "誰かが私とシェアを始めたとき、どのように私がそれを知りますか？"
-      title: "シェア"
+      title: シェア
+      add_to_aspect_q: 私のアスペクトの一つに誰かを追加すると、または誰かが彼らのアスペクトの一つに私を追加すると、どうなりますか？
+      add_to_aspect_a1: 'エイミーがベンをアスペクトに追加し、ベンは (まだ) エイミーをアスペクトに追加していないとしましょう:'
+      add_to_aspect_li1: ベンは、エイミーがベンと「シェアを開始した」という通知を受け取ります。
+      add_to_aspect_li2: エイミーは彼女のストリームに、ベンの公開の投稿の表示が始まります。
+      add_to_aspect_li3: エイミーは、ベンの非公開の投稿は表示されません。
+      add_to_aspect_li4: ベンは、彼のストリームにエイミーの公開または非公開の投稿は表示されません。
+      add_to_aspect_li5: ベンがエイミーのプロフィールページに移動した場合、彼には、エイミーが彼を配置しているアスペクトに行った非公開の投稿 (と同様に、誰でも見ることができる彼女の公開の投稿) が表示されます。
+      add_to_aspect_li6: ベンはエイミーの非公開プロフィール (略歴、所在地、性別、誕生日) を見ることができます。
+      add_to_aspect_li7: エイミーは、ベンの連絡先ページの「自分だけにシェア」の下に表示されます。
+      add_to_aspect_li8: エイミーもベンを@メンションすることができるようになります。
+      add_to_aspect_a2: これは非対称のシェアとして知られています。もし、ベンもまた、アスペクトにエイミーを追加すると、お互いのストリームにエイミーとベンの両方公開の投稿や関連する非公開の投稿が表示され、相互シェアになるでしょう。そして、エイミーはベンの非公開プロフィールを表示することができるでしょう。そして、彼らはお互いに非公開メッセージを送信することができるでしょう。
+      sharing_notification_q: 誰かが私とシェアを始めたとき、どのように私がそれを知りますか？
+      sharing_notification_a: 誰かがあなたとシェアを始めるたびに、あなたは通知を受信するはずです。
+      only_sharing_q: 私の連絡先ページの「自分だけにシェア」の下にリストされている人は誰ですか？
+      only_sharing_a: 'これらは、自分のアスペクトの一つにあなたを追加した人ですが、あなたのアスペクトのいずれにも (まだ) いない人です。言い換えれば、彼らはあなたとシェアしていますが、あなたは彼らとシェアしていません: 彼らを、あなたを「フォローしている」人と考えることができます。あなたがアスペクトに彼らを追加した場合、その後、「自分だけにシェア」ではなくアスペクトの下に表示されます。上記を参照してください。'
+      list_not_sharing_q: 私のアスペクトの一つに追加した人で、その人のアスペクトに私を追加していない人のリストはありますか？
+      list_not_sharing_a: いいえ。しかし、彼らのプロフィールページを訪問して、その人があなたとシェアしているかどうかを確認することができます。その場合、彼らが配置したアスペクトを示すボタンが緑色になり、ない場合は、それが灰色になるでしょう。
+      see_old_posts_q: 私が誰かをアスペクトに追加すると、彼らは私がすでにそのアスペクトに投稿している古い投稿を見ることができますか？
+      see_old_posts_a: いいえ。彼らは、そのアスペクトへの新しい投稿のみを見ることができます。彼ら (および他の誰でも) あなたのプロフィールページであなたの古い公開の投稿を見ることができ、また、彼らのストリームでもそれらを見ることができます。
     tags:
-      filter_tags_a: "これは、まだ直接ダイアスポラ*を通して利用できませんが、いくつかの %{third_party_tools} がこれを提供するために作成されています。"
-      filter_tags_q: "私のストリームからいくつかのタグをフィルター/除外することはできますか？"
-      followed_tags_a: "タグを検索した後に、タグのページの上部にあるボタンをクリックして、そのタグを「フォロー」することができます。その後、左側のメニューでフォローしたタグのリストに表示されます。フォローしたタグのいずれかをクリックすると、そのタグのページに移動して、そのタグを含む最近の投稿を見ることができるようになります。#フォローしたタグをクリックすると、あなたがフォローしたタグのいずれかを含む投稿のストリームを見ることができます。"
+      title: タグ
+      what_are_tags_for_q: タグは何のためですか？
+      what_are_tags_for_a: タグは、通常トピックごとに、投稿を分類する方法です。タグを検索すると、表示する権限を持っているタグの、公開と非公開の両方のすべての投稿を表示します。これは、特定のトピックに興味を持っている人々に、それに関する公開の投稿を見つけることができるようにします。
+      tags_in_comments_q: コメント、または投稿の中にタグを入れることはできますか？
+      tags_in_comments_a: コメントに追加されたタグは、タグのページへのリンクとして表示されますが、その投稿 (またはコメント) が、そのタグのページに表示されことはありません。これは投稿の中のタグに対してのみ機能します。
       followed_tags_q: "「#フォローしたタグ」とは何ですか、タグをフォローする方法は？"
-      people_tag_page_a: "公開プロフィールで自分自身を説明するために、そのタグを記載している人です。"
-      people_tag_page_q: "タグページの左側に記載されている人は誰ですか？"
-      tags_in_comments_a: "コメントに追加されたタグは、タグのページへのリンクとして表示されますが、その投稿 (またはコメント) が、そのタグのページに表示されことはありません。これは投稿の中のタグに対してのみ機能します。"
-      tags_in_comments_q: "コメント、または投稿の中にタグを入れることはできますか？"
-      title: "タグ"
-      what_are_tags_for_a: "タグは、通常トピックごとに、投稿を分類する方法です。タグを検索すると、表示する権限を持っているタグの、公開と非公開の両方のすべての投稿を表示します。これは、特定のトピックに興味を持っている人々に、それに関する公開の投稿を見つけることができるようにします。"
-      what_are_tags_for_q: "タグは何のためですか？"
-    third_party_tools: "サードパーティーのツール"
-    title_header: "ヘルプ"
-    tutorial: "チュートリアル"
-    tutorials: "チュートリアル"
-    wiki: "wiki"
+      followed_tags_a: タグを検索した後に、タグのページの上部にあるボタンをクリックして、そのタグを「フォロー」することができます。その後、左側のメニューでフォローしたタグのリストに表示されます。フォローしたタグのいずれかをクリックすると、そのタグのページに移動して、そのタグを含む最近の投稿を見ることができるようになります。#フォローしたタグをクリックすると、あなたがフォローしたタグのいずれかを含む投稿のストリームを見ることができます。
+      people_tag_page_q: タグページの左側に記載されている人は誰ですか？
+      people_tag_page_a: 公開プロフィールで自分自身を説明するために、そのタグを記載している人です。
+      filter_tags_q: 私のストリームからいくつかのタグをフィルター/除外することはできますか？
+      filter_tags_a: これは、まだ直接ダイアスポラ*を通して利用できませんが、いくつかの %{third_party_tools} がこれを提供するために作成されています。
+    keyboard_shortcuts:
+      title: キーボードショートカット
+      keyboard_shortcuts_q: どのキーボードショートカットが利用できますか？
+      keyboard_shortcuts_a1: 'ストリームビューでは、次のキーボードショートカットを使用することができます:'
+      keyboard_shortcuts_li1: j – 次の投稿へジャンプ
+      keyboard_shortcuts_li2: k – 前の投稿へジャンプ
+      keyboard_shortcuts_li3: c – 現在の投稿にコメント
+      keyboard_shortcuts_li4: l – 現在の投稿にいいね！
+      keyboard_shortcuts_li5: r – 現在の投稿をリシェア
+      keyboard_shortcuts_li6: m – 現在の投稿を展開
+      keyboard_shortcuts_li7: o – 現在の投稿内の最初のリンクを開く
+      keyboard_shortcuts_li8: Ctrl+Enter – 書いているメッセージを送信
+    miscellaneous:
+      title: その他
+      back_to_top_q: 下にスクロールした後に、ページの先頭に戻るための簡単な方法はありますか？
+      back_to_top_a: はい。ページを下にスクロールした後、ブラウザウィンドウの右下に表示される灰色の矢印をクリックしてください。
+      photo_albums_q: フォトアルバムやビデオアルバムはありますか？
+      photo_albums_a: いいえ、現在はありません。しかし、プロフィールページの写真タブの下で、人のアップロードした写真を表示することができます。
+      subscribe_feed_q: 誰かの公開の投稿をフィードリーダーで購読することはできますか？
+      subscribe_feed_a: 'はい。しかし、これはまだ洗練された機能ではなく、結果の形式はまだかなりラフです。とにかく試してみたい場合は、誰かのプロフィールページにアクセスし、お使いのブラウザでフィードボタンをクリックするか、フィードリーダーにプロフィールの URL (例 https://podname.org/people/somenumber) をコピーして貼り付けることができます。結果のフィードアドレスは次のようになります: https://podname.org/public/username.atom - ダイアスポラ* は RSS ではなく Atom を使用しています'
+      diaspora_app_q: Android や iOS 用のダイアスポラ*アプリはありますか？
+      diaspora_app_a: コミュニティのメンバーによって開発中のAndroidアプリがいくつかありました。一部は長期に放棄されたプロジェクトのため、ダイアスポラ*の現在のバージョンではうまく機能しません。現時点ではこれらのアプリに多くを期待しないでください。 iOS用のアプリは現在ありません。まだ完全な機能を持っていませんが、すべてのデバイスでうまく動作するはずのモバイル版のサイトをデザインしましたので、お使いの携帯端末からダイアスポラ*にアクセスする最良の方法は、ブラウザを利用してください。
   home:
     default:
-      be_who_you_want_to_be: "あなたがなりたい人になる"
-      be_who_you_want_to_be_info: "多くのネットワークは、あなたが実名を使用することを主張しています。ダイアスポラ*はそうではありません。ここでは、あなたがなりたい人を選んで、自分自身についてたくさん、あるいは少しだけ、あなたが望むようにシェアすることができます。あなたが他の人と対話する方法は、本当にあなた次第です。"
-      byline: "あなたがコントロールしているオンラインソーシャルの世界"
-      choose_your_audience: "観客を選択"
-      choose_your_audience_info: "ダイアスポラ*のアスペクトは、あなたが希望する人たちとだけシェアすることができます。あなたが好きなように公開にも非公開にもすることができます。世界中と面白い写真を、または親しい友人とだけ深い秘密をシェアします。あなたがコントロールします。"
       headline: "%{pod_name}にようこそ"
-      own_your_data: "あなた自身のデータを所有する"
-      own_your_data_info: "多くのネットワークはあなたのデータを使用して、あなたのやり取りを分析することでお金を稼ぎます。そして、この情報を使用して、物を宣伝します。ダイアスポラ*は、あなたが他のユーザーと接続して、シェアすることを可能にする以外の目的のために、あなたのデータを使用しません。"
+      byline: あなたがコントロールしているオンラインソーシャルの世界
+      be_who_you_want_to_be: あなたがなりたい人になる
+      be_who_you_want_to_be_info: 多くのネットワークは、あなたが実名を使用することを主張しています。ダイアスポラ*はそうではありません。ここでは、あなたがなりたい人を選んで、自分自身についてたくさん、あるいは少しだけ、あなたが望むようにシェアすることができます。あなたが他の人と対話する方法は、本当にあなた次第です。
+      choose_your_audience: 観客を選択
+      choose_your_audience_info: ダイアスポラ*のアスペクトは、あなたが希望する人たちとだけシェアすることができます。あなたが好きなように公開にも非公開にもすることができます。世界中と面白い写真を、または親しい友人とだけ深い秘密をシェアします。あなたがコントロールします。
+      own_your_data: あなた自身のデータを所有する
+      own_your_data_info: 多くのネットワークはあなたのデータを使用して、あなたのやり取りを分析することでお金を稼ぎます。そして、この情報を使用して、物を宣伝します。ダイアスポラ*は、あなたが他のユーザーと接続して、シェアすることを可能にする以外の目的のために、あなたのデータを使用しません。
     podmin:
-      byline: "インターネットを変更しようとしています。セットアップを始めますか？"
-      configuration_info: "お好みのテキストエディタで %{database_path} と %{diaspora_path} を開いて、慎重にレビューしてください。広範囲にコメントしています。"
-      configure_your_pod: "あなたのポッドを設定"
-      contact_irc: "IRCで私たちに連絡"
-      contribute: "貢献する"
-      contribute_info: "ダイアスポラ*をさらに良くするため！何かバグを見つけた場合は、%{report_bugs}してください。"
-      create_an_account: "アカウントの作成"
-      create_an_account_info: "新しいアカウントの %{sign_up_link}。"
-      faq_for_podmins: "私たちのwikiにポッドメンテナンス者向けのFAQ"
-      getting_help: "ヘルプの表示"
-      getting_help_info: "いくつかの追加のヒントや、コツ、最も一般的な問題の解決策など、%{faq}を記載しています。また、お気軽に%{irc}してください。"
-      headline: "ようこそ、友達。"
-      make_yourself_an_admin: "あなた自身を管理者にする"
+      headline: ようこそ、友達。
+      byline: インターネットを変更しようとしています。セットアップを始めますか？
+      configure_your_pod: あなたのポッドを設定
+      create_an_account: アカウントの作成
+      make_yourself_an_admin: あなた自身を管理者にする
+      update_your_pod: ポッドを更新
+      getting_help: ヘルプの表示
+      contribute: 貢献する
+      configuration_info: お好みのテキストエディタで %{database_path} と %{diaspora_path} を開いて、慎重にレビューしてください。広範囲にコメントしています。
+      create_an_account_info: 新しいアカウントの %{sign_up_link}。
       make_yourself_an_admin_info: "%{wiki}で手順を見つけることができます。ログインしている場合は、ヘッダーのユーザーメニューに「管理者」のリンクが追加されるはずです。あなたのポッドのユーザー検索や統計のようなものができます。あなたのポッドの運用面での詳細については、%{admin_panel}にアクセスしてください。"
-      report_bugs: "それを報告"
-      update_instructions: "ダイアスポラ* wikiの更新手順"
-      update_your_pod: "ポッドを更新"
       update_your_pod_info: "%{update_instructions}を見つけることができます。"
+      update_instructions: ダイアスポラ* wikiの更新手順
+      getting_help_info: いくつかの追加のヒントや、コツ、最も一般的な問題の解決策など、%{faq}を記載しています。また、お気軽に%{irc}してください。
+      faq_for_podmins: 私たちのwikiにポッドメンテナンス者向けのFAQ
+      contact_irc: IRCで私たちに連絡
+      contribute_info: ダイアスポラ*をさらに良くするため！何かバグを見つけた場合は、%{report_bugs}してください。
+      report_bugs: それを報告
   invitation_codes:
-    already_logged_in: "あなたは%{inviter}によってこのポッドに参加するように招待されましたが、すでにログインしています。"
-    not_valid: "その招待コードは、もはや有効ではありません"
+    not_valid: その招待コードは、もはや有効ではありません
+    already_logged_in: あなたは%{inviter}によってこのポッドに参加するように招待されましたが、すでにログインしています。
   invitations:
     create:
-      closed: "このダイアスポラ* ポッドへの招待を締め切らせて頂いています。"
-      empty: "少なくとも１つのEメールアドレスを入力してください。"
-      no_more: "招待権がもう残っていません。"
-      note_already_sent: "招待状はすでにに送信しました: %{emails}"
-      rejected: "次のメールアドレスに問題が発生しました："
-      sent: "次の人々に招待を送信しました："
+      sent: 次の人々に招待を送信しました：
+      rejected: 次のメールアドレスに問題が発生しました：
+      no_more: 招待権がもう残っていません。
+      empty: 少なくとも１つのEメールアドレスを入力してください。
+      note_already_sent: '招待状はすでにに送信しました: %{emails}'
+      closed: このダイアスポラ* ポッドへの招待を締め切らせて頂いています。
     new:
+      language: 言語
+      invite_someone_to_join: 知り合いをダイアスポラ＊に招待しましょう！
+      comma_separated_plz: コンマ区切りで複数のメールアドレスを入力できます。
+      send_an_invitation: 招待を送信する
+      sending_invitation: 招待を送信中...
+      paste_link: 友達とこのリンクをシェアしてダイアスポラ*に招待するか、直接リンクをメールで送ります。
       codes_left:
-        other: "このコードで招待は残り %{count}"
-        zero: "このコードで招待は残っていません"
-      comma_separated_plz: "コンマ区切りで複数のメールアドレスを入力できます。"
-      invite_someone_to_join: "知り合いをダイアスポラ＊に招待しましょう！"
-      language: "言語"
-      paste_link: "友達とこのリンクをシェアしてダイアスポラ*に招待するか、直接リンクをメールで送ります。"
-      send_an_invitation: "招待を送信する"
-      sending_invitation: "招待を送信中..."
+        zero: このコードで招待は残っていません
+        other: このコードで招待は残り %{count}
   layouts:
-    application:
-      back_to_top: "トップに戻る"
-      be_excellent: "お互いに素晴らしい関係でありましょう！ ♥"
-      discourse: "プロジェクトのディスカッションとサポート"
-      powered_by: "POWERED BY DIASPORA*"
-      public_feed: "%{name}さんの公開ダイアスポラフィード"
-      source_package: "ソースコードのパッケージをダウンロードする"
-      statistics_link: "ポッドの統計"
-      switch_to_standard_mode: "標準モードに切り替え"
-      switch_to_touch_optimized_mode: "タッチ操作モードに切り替え"
-      whats_new: "更新履歴"
     header:
-      code: "ソース"
-      logout: "ログアウト"
-      profile: "プロフィール"
-      settings: "設定"
-      toggle_navigation: "ナビゲーションの切り替え"
+      profile: プロフィール
+      settings: 設定
+      logout: ログアウト
+      code: ソース
+      toggle_navigation: ナビゲーションの切り替え
+    application:
+      powered_by: POWERED BY DIASPORA*
+      whats_new: 更新履歴
+      statistics_link: ポッドの統計
+      discourse: プロジェクトのディスカッションとサポート
+      switch_to_touch_optimized_mode: タッチ操作モードに切り替え
+      switch_to_standard_mode: 標準モードに切り替え
+      public_feed: "%{name}さんの公開ダイアスポラフィード"
+      back_to_top: トップに戻る
+      source_package: ソースコードのパッケージをダウンロードする
+      be_excellent: お互いに素晴らしい関係でありましょう！ ♥
   likes:
     create:
-      error: "いいね！に失敗しました。"
+      error: いいね！に失敗しました。
     destroy:
-      error: "いいね！の取消に失敗しました。"
-  limited: "限定公開"
-  more: "続き"
-  no_results: "結果が見つかりません"
+      error: いいね！の取消に失敗しました。
   notifications:
-    also_commented:
-      other: "%{actors}さんも%{post_author}さんの投稿%{post_link}にコメントしました。"
-      zero: "%{actors}さんは%{post_author}さんの投稿%{post_link}もコメントしました。"
-    also_commented_deleted:
-      other: "%{actors}さんが削除された投稿にコメントしました。"
-      zero: "%{actors}さんが削除された投稿にコメントしました。"
+    started_sharing:
+      zero: "%{actors}さんが、あなたとシェアを始めました。"
+      other: "%{actors}さんが、あなたとシェアを始めました。"
+    private_message:
+      zero: "%{actors}さんが、あなたにメッセージを送信しました。"
+      other: "%{actors}さんが、あなたにメッセージを送信しました。"
     comment_on_post:
-      other: "%{actors}さんが投稿%{post_link}にコメントしました。"
       zero: "%{actors}さんが投稿%{post_link}にコメントしました。"
-    contacts_birthday:
-      other: "%{date}に%{actors}さんの誕生日です。"
-    index:
-      all_notifications: "すべての通知"
-      also_commented: "コメントも"
-      and: "および"
-      and_others:
-        other: "そして他に %{count} 人"
-        zero: "そして他にはいません"
-      comment_on_post: "投稿にコメント"
-      contacts_birthday: "誕生日"
-      liked: "いいね！しました"
-      mark_all_as_read: "すべて既読にする"
-      mark_all_shown_as_read: "表示をすべて既読としてマーク"
-      mark_read: "既読にする"
-      mark_unread: "未読にする"
-      mentioned: "メンションされました"
-      mentioned_in_comment: "コメントでメンションしました"
-      no_notifications: "まだ通知は何もありません"
-      notifications: "通知"
-      reshared: "リシェアしました"
-      show_all: "すべて表示"
-      show_unread: "未開封メッセージを表示"
-      started_sharing: "シェアを開始しました"
-    liked:
-      other: "%{actors}さんが投稿%{post_link}にいいね！しました。"
-      zero: "%{actors}さんが投稿%{post_link}にいいね！しました。"
-    liked_post_deleted:
-      other: "%{actors}さんが削除された投稿にいいね！しました。"
-      zero: "%{actors}さんが削除された投稿にいいね！しました。"
+      other: "%{actors}さんが投稿%{post_link}にコメントしました。"
+    also_commented:
+      zero: "%{actors}さんは%{post_author}さんの投稿%{post_link}もコメントしました。"
+      other: "%{actors}さんも%{post_author}さんの投稿%{post_link}にコメントしました。"
     mentioned:
-      other: "%{actors}さんが%{post_link}であなたにメンションしました。"
       zero: "%{actors}さんが%{post_link}であなたにメンションしました。"
-    mentioned_deleted:
-      other: "%{actors}さんが削除された投稿であなたにメンションしました。"
-      zero: "%{actors}さんが削除された投稿であなたにメンションしました。"
+      other: "%{actors}さんが%{post_link}であなたにメンションしました。"
     mentioned_in_comment:
       other: "%{actors} が、投稿 %{post_link} に <a href='%{comment_path}'>コメント</a> でメンションしました。"
+    liked:
+      zero: "%{actors}さんが投稿%{post_link}にいいね！しました。"
+      other: "%{actors}さんが投稿%{post_link}にいいね！しました。"
+    reshared:
+      zero: "%{actors}さんが投稿%{post_link}をリシェアしました。"
+      other: "%{actors}さんが投稿%{post_link}をリシェアしました。"
+    contacts_birthday:
+      other: "%{date}に%{actors}さんの誕生日です。"
+    also_commented_deleted:
+      zero: "%{actors}さんが削除された投稿にコメントしました。"
+      other: "%{actors}さんが削除された投稿にコメントしました。"
+    liked_post_deleted:
+      zero: "%{actors}さんが削除された投稿にいいね！しました。"
+      other: "%{actors}さんが削除された投稿にいいね！しました。"
+    reshared_post_deleted:
+      zero: "%{actors}さんが削除された投稿をリシェアしました。"
+      other: "%{actors}さんが削除された投稿をリシェアしました。"
+    mentioned_deleted:
+      zero: "%{actors}さんが削除された投稿であなたにメンションしました。"
+      other: "%{actors}さんが削除された投稿であなたにメンションしました。"
     mentioned_in_comment_deleted:
       other: "%{actors} が、削除したコメントでメンションしました。"
-    private_message:
-      other: "%{actors}さんが、あなたにメッセージを送信しました。"
-      zero: "%{actors}さんが、あなたにメッセージを送信しました。"
-    reshared:
-      other: "%{actors}さんが投稿%{post_link}をリシェアしました。"
-      zero: "%{actors}さんが投稿%{post_link}をリシェアしました。"
-    reshared_post_deleted:
-      other: "%{actors}さんが削除された投稿をリシェアしました。"
-      zero: "%{actors}さんが削除された投稿をリシェアしました。"
-    started_sharing:
-      other: "%{actors}さんが、あなたとシェアを始めました。"
-      zero: "%{actors}さんが、あなたとシェアを始めました。"
+    index:
+      notifications: 通知
+      mark_all_as_read: すべて既読にする
+      mark_all_shown_as_read: 表示をすべて既読としてマーク
+      mark_read: 既読にする
+      mark_unread: 未読にする
+      show_all: すべて表示
+      show_unread: 未開封メッセージを表示
+      all_notifications: すべての通知
+      also_commented: コメントも
+      comment_on_post: 投稿にコメント
+      liked: いいね！しました
+      mentioned: メンションされました
+      mentioned_in_comment: コメントでメンションしました
+      reshared: リシェアしました
+      started_sharing: シェアを開始しました
+      contacts_birthday: 誕生日
+      no_notifications: まだ通知は何もありません
+      and_others:
+        zero: そして他にはいません
+        other: そして他に %{count} 人
+      and: および
   notifier:
-    a_limited_post_comment: "あなたが確認する、ダイアスポラ*の制限公開の投稿に新しいコメントがあります。"
-    a_post_you_shared: "投稿"
-    a_private_message: "あなたが確認する、ダイアスポラ*の新しい非公開メッセージがあります。"
-    also_commented:
-      limited_subject: "あなたがコメントした投稿に新しいコメントがあります"
-    click_here: "ここをクリック"
-    comment_on_post:
-      limited_subject: "あなたの投稿の一つに新しいコメントがあります"
-      reply: "返信または%{name}さんの投稿を見る >"
-    confirm_email:
-      click_link: "新しいメールアドレス %{unconfirmed_email} を有効にするために、このリンクをクリックしてください:"
-      subject: "新しいメールアドレス %{unconfirmed_email} を有効にしてください"
-    contacts_birthday:
-      birthday: "今日は%{name}さんの誕生日です。誕生日のメッセージを送信してみませんか？"
-      subject: "今日は%{name}さんの誕生日"
-      view_profile: "%{name}さんのプロフィールを見る"
-    csrf_token_fail:
-      body: |-
-          %{name} さん、こんにちは
-
-          ダイアスポラ* が、あなたのセッションへのアクセスを検知しましたが、これは不正な可能性があります。 これは完全に無実かもしれませんが、クロスサイトリクエストフォージェリ (CSRF) の可能性があります。 データが侵害される可能性を避けるために、あなたはログアウトしています。
-
-          不適切または欠落しているCSRFトークンを使用して行われたリクエストは、以下のような原因が考えられます:
-
-            - リクエストを操作するか、トークンなしでリクエストを行うアドオン。
-            - 過去のセッションで開いたタブ。
-            - あなたの許可の有無にかかわらず、リクエストを行う別のウェブサイト。
-            - さまざまな他の外部ツール。
-            - あなたのデータにアクセスしようとしている悪質なコード。
-
-          CSRFの詳細については、 [%{link}](%{link}) を参照してください。
-
-          心配しないでください。 今すぐもう一度安全にサインインすることができます。
-
-          このメッセージが繰り返し表示される場合は、ブラウザのアドオンを含め、上記の点を確認してください。
-
-          ありがとうございました、
-          ダイアスポラ* メールロボット!
-      subject: "あなたのアカウント %{name} から、不正なリクエストを受け取りました。"
-    email_sent_by_diaspora: "このEメールは%{pod_name}から送信されました。もしこのようなEメールの受信を拒否したい場合は、"
-    export_email:
-      body: |-
-          %{name} さん、こんにちは。
-
-          データを処理し、ダウンロードする準備ができました [このリンク](%{url})。
-
-          敬具
-
-          ダイアスポラ* メールロボット！
-      subject: "%{name}さん、個人データのダウンロードの準備ができました。"
-    export_failure_email:
-      body: |-
-          %{name}さん、こんにちは
-
-          個人データのダウンロードの処理中に問題が発生しました。
-          もう一度やり直してください！
-
-          申し訳ありません。
-
-          ダイアスポラ* メールロボット！
-      subject: "%{name} さん、申し訳ありません。データに問題がありました"
-    export_photos_email:
-      body: |-
-          %{name} さん、こんにちは
-
-          写真が処理され、ダウンロードする準備ができました [このリンク](%{url})。
-
-          敬具
-
-          ダイアスポラ* メールロボット！
-      subject: "%{name} さん、写真をダウンロードする準備ができました"
-    export_photos_failure_email:
-      body: |-
-          %{name} さん、こんにちは
-
-          ダウンロードのために写真を処理している間に、問題が発生しました。
-          もう一度やり直してください！
-
-          申し訳ありません
-
-          ダイアスポラ* メールロボット！
-      subject: "%{name} さん、写真に問題がありました"
+    a_post_you_shared: 投稿
+    a_private_message: あなたが確認する、ダイアスポラ*の新しい非公開メッセージがあります。
+    a_limited_post_comment: あなたが確認する、ダイアスポラ*の制限公開の投稿に新しいコメントがあります。
+    email_sent_by_diaspora: このEメールは%{pod_name}から送信されました。もしこのようなEメールの受信を拒否したい場合は、
+    click_here: ここをクリック
     hello: "%{name}さん、こんにちは！"
-    invite:
-      message: |-
-          こんにちは！
-          %{diaspora_id}さんによって、ダイアスポラ*に招待されました！
-
-          このリンクをクリックしてはじめましょう
-
-          [%{invite_url}][1]
-
-          すでにアカウントをお持ちの場合は、連絡先に%{diaspora_id}を追加することができます。
-
-          親愛なる
-
-          ダイアスポラ* メールロボット！
-
-          追伸: 念のために、(まだ) ダイアスポラ* をご存じないとしたら、[ここ][2] がその答えです！
-
-          [1]: %{invite_url}
-          [2]: %{diasporafoundation_url}
-    invited_you: "%{name}さんがダイアスポラ*に招待しています。"
+    thanks: ありがとうございます。
+    to_change_your_notification_settings: 通知設定を変更します
+    single_admin:
+      subject: ダイアスポラ＊アカウントの重要なお知らせ：
+      admin: ダイアスポラ＊管理者
+    started_sharing:
+      subject: "%{name}さんがダイアスポラ*であなたとシェアを始めました"
+      sharing: あなたへのシェアを開始しています!
+      view_profile: "%{name}さんのプロフィールを見る"
+    comment_on_post:
+      limited_subject: あなたの投稿の一つに新しいコメントがあります
+      reply: 返信または%{name}さんの投稿を見る >
+    also_commented:
+      limited_subject: あなたがコメントした投稿に新しいコメントがあります
+    mentioned:
+      subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
+      limited_post: あなたは限定公開の投稿でメンションされました。
+    mentioned_in_comment:
+      limited_post: 限定公開の投稿にコメントでメンションされました。
+      reply: この会話に返信、または表示 >
+    private_message:
+      subject: あなたに新しい非公開メッセージがあります
+      reply_to_or_view: この会話に返信、または表示 >
     liked:
       liked: "%{name}さんが、あなとの投稿にいいね！しました"
       limited_post: "%{name} さんが、あなたの限定公開の投稿にいいね！しました"
-      view_post: "投稿を見る >"
-    mentioned:
-      limited_post: "あなたは限定公開の投稿でメンションされました。"
-      subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
-    mentioned_in_comment:
-      limited_post: "限定公開の投稿にコメントでメンションされました。"
-      reply: "この会話に返信、または表示 >"
-    private_message:
-      reply_to_or_view: "この会話に返信、または表示 >"
-      subject: "あなたに新しい非公開メッセージがあります"
-    remove_old_user:
-      body: |-
-          こんにちは、
-
-          あなたは %{after_days} 日間アカウントを使用されていないようです。もはや、%{pod_url} をご希望されていないように思われます。アクティブなユーザーがこのダイアスポラ*ポッドから最高のパフォーマンスを得られるようにするため、私たちのデータベースから不要なアカウントを削除してもよろしいでしょうか。
-
-          あなたがダイアスポラ*コミュニティの一部に留まりたいとご希望の場合、私たちはアカウントを維持することを歓迎します。
-
-          あなたがアカウントを維持したい場合、必要なことは、%{remove_after} 前に、あなたのアカウントにサインインすることだけです。サインインしたら、少し時間をとってダイアスポラ*をながめてみてください。あなたが最後にご覧になってから、たくさん変更されています。そしてあなたは私たちが行った改善を気に入っていただけることと思います。いくつかの #タグ をフォローして、お好きなコンテンツを見つけてください。
-
-          ここでサインインしてください: %{login_url}。サインイン情報を忘れてしまった場合は、そのページのリマインダーで尋ねることができます。
-
-          再びお会いすることを望んで、
-
-          ダイアスポラ* メールロボット！
-      subject: "非アクティブのため、あなたのダイアスポラ*のアカウントは除外のフラグが付けられています"
-    report_email:
-      body: |-
-          こんにちは。
-
-          ID %{id} の %{type} は攻撃的としてマークされました。
-
-          理由: %{reason}
-
-          [%{url}][1]
-
-          可能な限り早く確認してください!
-
-
-          敬具
-
-          ダイアスポラ* メールロボット!
-
-          [1]: %{url}
-      subject: "%{type}が新しく攻撃的だとマークされました"
-      type:
-        comment: "コメント"
-        post: "投稿"
+      view_post: 投稿を見る >
     reshared:
       reshared: "%{name}さんがあなたの投稿をリシェアしました"
-      view_post: "投稿を見る >"
-    single_admin:
-      admin: "ダイアスポラ＊管理者"
-      subject: "ダイアスポラ＊アカウントの重要なお知らせ："
-    started_sharing:
-      sharing: "あなたへのシェアを開始しています!"
-      subject: "%{name}さんがダイアスポラ*であなたとシェアを始めました"
+      view_post: 投稿を見る >
+    contacts_birthday:
+      subject: 今日は%{name}さんの誕生日
+      birthday: 今日は%{name}さんの誕生日です。誕生日のメッセージを送信してみませんか？
       view_profile: "%{name}さんのプロフィールを見る"
-    thanks: "ありがとうございます。"
-    to_change_your_notification_settings: "通知設定を変更します"
-  nsfw: "NSFW (職場での閲覧注意)"
-  ok: "了解"
+    confirm_email:
+      subject: 新しいメールアドレス %{unconfirmed_email} を有効にしてください
+      click_link: '新しいメールアドレス %{unconfirmed_email} を有効にするために、このリンクをクリックしてください:'
+    csrf_token_fail:
+      subject: あなたのアカウント %{name} から、不正なリクエストを受け取りました。
+      body: |-
+        %{name} さん、こんにちは
+
+        ダイアスポラ* が、あなたのセッションへのアクセスを検知しましたが、これは不正な可能性があります。 これは完全に無実かもしれませんが、クロスサイトリクエストフォージェリ (CSRF) の可能性があります。 データが侵害される可能性を避けるために、あなたはログアウトしています。
+
+        不適切または欠落しているCSRFトークンを使用して行われたリクエストは、以下のような原因が考えられます:
+
+          - リクエストを操作するか、トークンなしでリクエストを行うアドオン。
+          - 過去のセッションで開いたタブ。
+          - あなたの許可の有無にかかわらず、リクエストを行う別のウェブサイト。
+          - さまざまな他の外部ツール。
+          - あなたのデータにアクセスしようとしている悪質なコード。
+
+        CSRFの詳細については、 [%{link}](%{link}) を参照してください。
+
+        心配しないでください。 今すぐもう一度安全にサインインすることができます。
+
+        このメッセージが繰り返し表示される場合は、ブラウザのアドオンを含め、上記の点を確認してください。
+
+        ありがとうございました、
+        ダイアスポラ* メールロボット!
+    report_email:
+      type:
+        post: 投稿
+        comment: コメント
+      subject: "%{type}が新しく攻撃的だとマークされました"
+      body: |-
+        こんにちは。
+
+        ID %{id} の %{type} は攻撃的としてマークされました。
+
+        理由: %{reason}
+
+        [%{url}][1]
+
+        可能な限り早く確認してください!
+
+
+        敬具
+
+        ダイアスポラ* メールロボット!
+
+        [1]: %{url}
+    export_email:
+      subject: "%{name}さん、個人データのダウンロードの準備ができました。"
+      body: |-
+        %{name} さん、こんにちは。
+
+        データを処理し、ダウンロードする準備ができました [このリンク](%{url})。
+
+        敬具
+
+        ダイアスポラ* メールロボット！
+    export_failure_email:
+      subject: "%{name} さん、申し訳ありません。データに問題がありました"
+      body: |-
+        %{name}さん、こんにちは
+
+        個人データのダウンロードの処理中に問題が発生しました。
+        もう一度やり直してください！
+
+        申し訳ありません。
+
+        ダイアスポラ* メールロボット！
+    export_photos_email:
+      subject: "%{name} さん、写真をダウンロードする準備ができました"
+      body: |-
+        %{name} さん、こんにちは
+
+        写真が処理され、ダウンロードする準備ができました [このリンク](%{url})。
+
+        敬具
+
+        ダイアスポラ* メールロボット！
+    export_photos_failure_email:
+      subject: "%{name} さん、写真に問題がありました"
+      body: |-
+        %{name} さん、こんにちは
+
+        ダウンロードのために写真を処理している間に、問題が発生しました。
+        もう一度やり直してください！
+
+        申し訳ありません
+
+        ダイアスポラ* メールロボット！
+    invited_you: "%{name}さんがダイアスポラ*に招待しています。"
+    invite:
+      message: |-
+        こんにちは！
+        %{diaspora_id}さんによって、ダイアスポラ*に招待されました！
+
+        このリンクをクリックしてはじめましょう
+
+        [%{invite_url}][1]
+
+        すでにアカウントをお持ちの場合は、連絡先に%{diaspora_id}を追加することができます。
+
+        親愛なる
+
+        ダイアスポラ* メールロボット！
+
+        追伸: 念のために、(まだ) ダイアスポラ* をご存じないとしたら、[ここ][2] がその答えです！
+
+        [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
+    remove_old_user:
+      subject: 非アクティブのため、あなたのダイアスポラ*のアカウントは除外のフラグが付けられています
+      body: |-
+        こんにちは、
+
+        あなたは %{after_days} 日間アカウントを使用されていないようです。もはや、%{pod_url} をご希望されていないように思われます。アクティブなユーザーがこのダイアスポラ*ポッドから最高のパフォーマンスを得られるようにするため、私たちのデータベースから不要なアカウントを削除してもよろしいでしょうか。
+
+        あなたがダイアスポラ*コミュニティの一部に留まりたいとご希望の場合、私たちはアカウントを維持することを歓迎します。
+
+        あなたがアカウントを維持したい場合、必要なことは、%{remove_after} 前に、あなたのアカウントにサインインすることだけです。サインインしたら、少し時間をとってダイアスポラ*をながめてみてください。あなたが最後にご覧になってから、たくさん変更されています。そしてあなたは私たちが行った改善を気に入っていただけることと思います。いくつかの #タグ をフォローして、お好きなコンテンツを見つけてください。
+
+        ここでサインインしてください: %{login_url}。サインイン情報を忘れてしまった場合は、そのページのリマインダーで尋ねることができます。
+
+        再びお会いすることを望んで、
+
+        ダイアスポラ* メールロボット！
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          redirection_message: "%{redirect_uri} へのアクセス権を付与してもよろしいですか？"
+          access: "%{name}はアクセス権が必要です:"
+          no_requirement: "%{name}は何の権限も必要ありません"
+          approve: 承認
+          deny: 拒否
+          bad_request: クライアント ID またはリダイレクト URI が見つかりません
+          client_id_not_found: client_id %{client_id} のクライアント、リダイレクト URI %{redirect_uri} が見つかりません
+        destroy:
+          fail: ID %{id} の許可を取り消すことができませんでした
+      user_applications:
+        index:
+          edit_applications: アプリケーション
+          title: 許可されたアプリケーション
+          access: "%{name}はアクセス許可があります:"
+          no_requirement: "%{name}は何の権限も必要ありません"
+        no_applications: 許可されたアプリケーションはありません
+        revoke_autorization: アクセスを取り消す
+        tos: アプリケーションの利用規約を参照
+        policy: アプリケーションのプライバシーポリシーを参照
+      scopes:
+        openid:
+          name: 基本プロフィール
+          description: アプリケーションがあなたの基本プロフィールを読むことができます
+        sub:
+          name: サブ
+          description: これは、アプリケーションにサブ権限を付与します
+        name:
+          name: 名前
+          description: これは、アプリケーションに名前のアクセス許可を付与します
+        nickname:
+          name: ニックネーム
+          description: これは、アプリケーションにニックネームのアクセス許可を付与します
+        picture:
+          name: 写真
+          description: これは、アプリケーションに写真のアクセス許可を付与します
+        profile:
+          name: 拡張プロフィール
+          description: これは、アプリケーションがあなたの拡張プロフィールを読むことができるようにします
+      error_page:
+        title: 何か問題があります :(
+        contact_developer: 'アプリケーションの開発者に連絡する必要があります。以下の詳細なエラーメッセージを含めてください:'
+        login_required: このアプリケーションを許可するには、まずログインする必要があります
+        could_not_authorize: アプリケーションが許可されていません
   people:
-    add_contact:
-      invited_by: "あなたの招待者は"
-    index:
-      couldnt_find_them: "見つかりませんでしたか？"
-      looking_for: "タグ%{tag_link}の付いた投稿をお探しですか?"
-      no_one_found: "…1人も見つかりませんでした。"
-      no_results: "何かを検索しないといけません。"
-      results_for: "%{search_term} に一致するユーザー"
-      search_handle: "友達を見つけるために彼らのダイアスポラ* ID (username@pod.tld) を使用していることを確認してください。"
-      searching: "検索中です。もうしばらくお待ちください..."
-      send_invite: "まだ見つかりませんか？招待を送信しましょう！"
     person:
-      thats_you: "あなた自身です！"
-    profile_sidebar:
-      bio: "略歴"
-      born: "誕生日"
-      gender: "性別"
-      location: "所在地"
+      thats_you: あなた自身です！
+    index:
+      results_for: "%{search_term} に一致するユーザー"
+      no_results: 何かを検索しないといけません。
+      couldnt_find_them: 見つかりませんでしたか？
+      search_handle: 友達を見つけるために彼らのダイアスポラ* ID (username@pod.tld) を使用していることを確認してください。
+      send_invite: まだ見つかりませんか？招待を送信しましょう！
+      no_one_found: "…1人も見つかりませんでした。"
+      searching: 検索中です。もうしばらくお待ちください...
+      looking_for: タグ%{tag_link}の付いた投稿をお探しですか?
     show:
-      closed_account: "このアカウントは削除されています"
-      does_not_exist: "存在しない連絡先です！"
       has_not_shared_with_you_yet: "%{name}さんはまだあなたにどの投稿もシェアしていません！"
+      does_not_exist: 存在しない連絡先です！
+      closed_account: このアカウントは削除されています
+    profile_sidebar:
+      bio: 略歴
+      location: 所在地
+      gender: 性別
+      born: 誕生日
+    add_contact:
+      invited_by: あなたの招待者は
   photos:
     create:
-      integrity_error: "写真のアップロードに失敗しました。確かに画像ファイルだったのでしょうか。"
-      runtime_error: "写真のアップロードに失敗しました。シートベルトはしっかりとお締めでしょうか。"
-      type_error: "写真のアップロードに失敗しました。確かに画像ファイルを添付しましたか。"
+      runtime_error: 写真のアップロードに失敗しました。シートベルトはしっかりとお締めでしょうか。
+      integrity_error: 写真のアップロードに失敗しました。確かに画像ファイルだったのでしょうか。
+      type_error: 写真のアップロードに失敗しました。確かに画像ファイルを添付しましたか。
     destroy:
-      notice: "写真を削除しました。"
+      notice: 写真を削除しました。
     new_profile_photo:
-      upload: "新しいプロフィール写真をアップロードしてください！"
+      upload: 新しいプロフィール写真をアップロードしてください！
   polls:
     votes:
-      other: "これまで %{count} の投票"
-      zero: "これまで %{count} の投票"
+      zero: これまで %{count} の投票
+      other: これまで %{count} の投票
   posts:
     presenter:
       title: "%{name}さんからの投稿"
     show:
-      forbidden: "この操作は許可されていません"
       location: "%{location} から投稿"
+      forbidden: この操作は許可されていません
       photos_by:
-        other: "%{author}さんの写真%{count}枚"
         zero: "%{author}さんの写真はありません"
+        other: "%{author}さんの写真%{count}枚"
       reshare_by: "%{author}さんがリシェア"
-  privacy: "プライバシー"
-  profile: "プロフィール"
+  report:
+    title: 報告の概要
+    post_label: "<b>投稿</b>: %{title}"
+    comment_label: "<b>コメント</b>:<br>%{data}"
+    reported_label: "<b>報告者</b> %{person}"
+    reason_label: '理由:'
+    review_link: レビュー済としてマーク
+    delete_link: 項目を削除
+    reported_user_details: 報告ユーザーの詳細
+    confirm_deletion: 項目を削除してもよろしいですか？
+    not_found: 投稿/コメントは見つかりませんでした。ユーザーによって削除されたようです！
+    status:
+      destroyed: 投稿が破壊されました
+      failed: 何か問題があります
+    unreviewed_reports:
+      zero: 未確認の報告はありません。
+      other: "%{count} 件の未確認の報告があります。"
   profiles:
     edit:
-      allow_search: "ダイアスポラ*内の検索を許可する"
-      basic: "自分の基本プロフィール"
-      basic_hint: "あなたのプロフィール内のすべての項目は省略可能です。あなたの基本的なプロフィールは、常に公開されます。"
-      extended: "自分の拡張プロフィール"
-      extended_hint: "スイッチをクリックして、あなたの拡張プロフィールデータの表示を設定します。公開は、インターネットに表示されることを意味します。限定公開は、あなたとシェアする人だけにこの情報が表示されることを意味します。"
-      extended_visibility_text: "拡張プロフィールを表示:"
-      first_name: "名"
-      last_name: "姓"
-      limited: "限定公開"
-      nsfw_check: "私がシェアするすべてのものを NSFW としてマーク"
-      nsfw_explanation: "NSFW (「閲覧注意」) は、仕事中に見るのに適しない可能性があるコンテンツの、ダイアスポラ*自主管理コミュニティ標準です。頻繁にこのような素材をシェアする場合、それらを表示することを選択しない限り、あなたがシェアするすべてのものが人々のストリームから表示されないように、このオプションをチェックしてください。"
-      nsfw_explanation2: "このオプションを選択しない場合、このような素材をシェアするたびに #nsfw タグを追加してください。"
-      public: "公開"
-      settings: "プロフィール設定"
-      update_profile: "プロフィール更新"
-      your_bio: "略歴"
-      your_birthday: "誕生日"
-      your_gender: "性別"
-      your_location: "所在地"
-      your_name: "姓名"
-      your_photo: "写真"
-      your_tags: "自分を表す５つの#タグ"
-      your_tags_placeholder: "例：#diaspora #kaji #nyanko #ongaku"
+      basic: 自分の基本プロフィール
+      extended: 自分の拡張プロフィール
+      settings: プロフィール設定
+      extended_visibility_text: '拡張プロフィールを表示:'
+      public: 公開
+      limited: 限定公開
+      basic_hint: あなたのプロフィール内のすべての項目は省略可能です。あなたの基本的なプロフィールは、常に公開されます。
+      extended_hint: スイッチをクリックして、あなたの拡張プロフィールデータの表示を設定します。公開は、インターネットに表示されることを意味します。限定公開は、あなたとシェアする人だけにこの情報が表示されることを意味します。
+      your_name: 姓名
+      first_name: 名
+      last_name: 姓
+      your_gender: 性別
+      your_birthday: 誕生日
+      your_tags: 自分を表す５つの#タグ
+      your_tags_placeholder: '例：#diaspora #kaji #nyanko #ongaku'
+      your_bio: 略歴
+      your_location: 所在地
+      your_photo: 写真
+      update_profile: プロフィール更新
+      allow_search: ダイアスポラ*内の検索を許可する
+      nsfw_explanation: NSFW (「閲覧注意」) は、仕事中に見るのに適しない可能性があるコンテンツの、ダイアスポラ*自主管理コミュニティ標準です。頻繁にこのような素材をシェアする場合、それらを表示することを選択しない限り、あなたがシェアするすべてのものが人々のストリームから表示されないように、このオプションをチェックしてください。
+      nsfw_explanation2: 'このオプションを選択しない場合、このような素材をシェアするたびに #nsfw タグを追加してください。'
+      nsfw_check: 私がシェアするすべてのものを NSFW としてマーク
     update:
-      failed: "プロフィール更新に失敗しました"
-      updated: "プロフィールを更新しました"
-  public: "公開"
+      updated: プロフィールを更新しました
+      failed: プロフィール更新に失敗しました
   registrations:
-    create:
-      success: "ダイアスポラの新規登録が完了しました！"
-    invalid_invite: "提供された招待リンクは、もはや有効ではありません！"
     new:
-      email: "メール"
-      enter_email: "メールアドレスを入力してください。"
-      enter_password: "パスワードを入力してください。"
-      enter_password_again: "もう一度同じパスワードを入力してください。"
-      enter_username: "ユーザー名を選択してください。 (半角英数字とアンダーバーのみ)"
-      password: "パスワード"
-      password_confirmation: "パスワードの確認"
-      sign_up: "登録"
-      submitting: "送信中..."
-      terms: "アカウントを作成することによって、あなたは%{terms_link}に同意します。"
-      terms_link: "利用規約"
-      username: "ユーザー名"
-  report:
-    comment_label: "<b>コメント</b>:<br>%{data}"
-    confirm_deletion: "項目を削除してもよろしいですか？"
-    delete_link: "項目を削除"
-    not_found: "投稿/コメントは見つかりませんでした。ユーザーによって削除されたようです！"
-    post_label: "<b>投稿</b>: %{title}"
-    reason_label: "理由:"
-    reported_label: "<b>報告者</b> %{person}"
-    reported_user_details: "報告ユーザーの詳細"
-    review_link: "レビュー済としてマーク"
-    status:
-      destroyed: "投稿が破壊されました"
-      failed: "何か問題があります"
-    title: "報告の概要"
-    unreviewed_reports:
-      other: "%{count} 件の未確認の報告があります。"
-      zero: "未確認の報告はありません。"
+      enter_email: メールアドレスを入力してください。
+      enter_username: ユーザー名を選択してください。 (半角英数字とアンダーバーのみ)
+      enter_password: パスワードを入力してください。
+      enter_password_again: もう一度同じパスワードを入力してください。
+      sign_up: 登録
+      email: メール
+      username: ユーザー名
+      password: パスワード
+      password_confirmation: パスワードの確認
+      submitting: 送信中...
+      terms: アカウントを作成することによって、あなたは%{terms_link}に同意します。
+      terms_link: 利用規約
+    create:
+      success: ダイアスポラの新規登録が完了しました！
+    invalid_invite: 提供された招待リンクは、もはや有効ではありません！
   reshares:
-    comment_email_subject: "%{author}の投稿の%{resharer}のリシェア"
     create:
-      error: "リシェアに失敗しました。"
+      error: リシェアに失敗しました。
     reshare:
-      deleted: "元の投稿は作者によって削除されました。"
+      reshared_via: リシェア...
       reshare_confirmation: "%{author}さんの投稿をリシェアしますか?"
-      reshared_via: "リシェア..."
-  search: "検索"
+      deleted: 元の投稿は作者によって削除されました。
+    comment_email_subject: "%{author}の投稿の%{resharer}のリシェア"
   services:
-    create:
-      already_authorized: "ダイアスポラ id %{diaspora_id} のユーザーは %{service_name} アカウントですでに認証されています。"
-      failure: "認証に失敗しました。"
-      read_only_access: "アクセスレベルは読み取り専用です。後で再認証してみてください"
-      success: "認証に成功しました。"
-    destroy:
-      success: "認証を削除するのに成功しました。"
-    failure:
-      error: "サービスへ接続中にエラーが発生しました。"
-    index:
-      connect: "接続"
-      disconnect: "切断"
-      edit_services: "サービスを編集する"
-      logged_in_as: "%{nickname}としてログインしています。"
-      no_services_available: "このポッドで利用可能なサービスはありません。"
-      not_logged_in: "現在ログインしていません。"
-      really_disconnect: "%{service}から切断しますか?"
-      services_explanation: "サードパーティのシェアサービスに接続すると、ダイアスポラ*に書きながらそれらに投稿を公開することができます。"
-      share_to: "%{provider}にシェア"
-      title: "提携サービスを管理する"
     provider:
-      tumblr: "Tumblr"
-      twitter: "Twitter"
-      wordpress: "WordPress"
-  settings: "設定"
+      tumblr: Tumblr
+      twitter: Twitter
+      wordpress: WordPress
+    index:
+      title: 提携サービスを管理する
+      connect: 接続
+      disconnect: 切断
+      logged_in_as: "%{nickname}としてログインしています。"
+      no_services_available: このポッドで利用可能なサービスはありません。
+      not_logged_in: 現在ログインしていません。
+      really_disconnect: "%{service}から切断しますか?"
+      edit_services: サービスを編集する
+      services_explanation: サードパーティのシェアサービスに接続すると、ダイアスポラ*に書きながらそれらに投稿を公開することができます。
+      share_to: "%{provider}にシェア"
+    create:
+      success: 認証に成功しました。
+      failure: 認証に失敗しました。
+      already_authorized: ダイアスポラ id %{diaspora_id} のユーザーは %{service_name} アカウントですでに認証されています。
+      read_only_access: アクセスレベルは読み取り専用です。後で再認証してみてください
+    destroy:
+      success: 認証を削除するのに成功しました。
+    failure:
+      error: サービスへ接続中にエラーが発生しました。
+  blocks:
+    create:
+      success: 'OK、そのユーザーは再度ストリームに表示されません。 #silencio!'
+      failure: 'このユーザーを無視できませんでした。  #evasion'
+    destroy:
+      success: '彼らが何を言うか見てみましょう! #sayhello'
+      failure: 'このユーザーの無視を解除できませんでした。  #evasion'
   shared:
     aspect_dropdown:
       mobile_row_checked: "%{name} (削除)"
       mobile_row_unchecked: "%{name} (追加)"
       toggle:
-        other: "%{count} のアスペクトで"
         zero: "%{count} のアスペクトで"
-    invitations:
-      by_email: "メールで"
-      invite_your_friends: "友達を招待する"
-      invites: "招待"
-      share_this: "このリンクをメールやブログ、お気に入りのSNSでシェアしましょう!"
-    public_explain:
-      atom_feed: "Atom フィード"
-      control_your_audience: "観客をコントロール"
-      logged_in: "%{service}へログインしました。"
-      manage: "提携サービスを管理する"
-      new_user_welcome_message: "あなたの投稿を分類し、あなたが興味があるものをシェアする人を見つけるために、#ハッシュタグ を使用します。  @メンション で素晴らしい人々に呼びかけます"
-      outside: "公開投稿はダイアスポラ外の人にも表示されます。"
-      share: "シェア"
-      title: "提携サービスを設定する"
-      visibility_dropdown: "このドロップダウンを使用して、投稿の表示を変更します。  (この最初の1つを公開することをご提案します。)"
+        other: "%{count} のアスペクトで"
     publisher:
-      discard_post: "投稿を破棄する"
       formatWithMarkdown: "%{markdown_link} を使用して、投稿の書式を整えることができます"
-      get_location: "位置情報を取得する"
+      posting: 投稿中
+      share: シェア
+      get_location: 位置情報を取得する
+      remove_location: 所在地を削除
+      whats_on_your_mind: いま何を考えている？
+      discard_post: 投稿を破棄する
       new_user_prefill:
-        hello: "こんにちはみなさん。私は%{new_user_tag}です。 "
+        newhere: 初心者
+        hello: 'こんにちはみなさん。私は%{new_user_tag}です。 '
         i_like: "%{tags} に興味があります。 "
-        invited_by: "ご招待ありがとう、 "
-        newhere: "初心者"
+        invited_by: 'ご招待ありがとう、 '
       poll:
-        add_a_poll: "世論調査を追加"
-      posting: "投稿中"
-      remove_location: "所在地を削除"
-      share: "シェア"
-      whats_on_your_mind: "いま何を考えている？"
+        add_a_poll: 世論調査を追加
+    invitations:
+      invites: 招待
+      invite_your_friends: 友達を招待する
+      by_email: メールで
+      share_this: このリンクをメールやブログ、お気に入りのSNSでシェアしましょう!
+    public_explain:
+      control_your_audience: 観客をコントロール
+      new_user_welcome_message: あなたの投稿を分類し、あなたが興味があるものをシェアする人を見つけるために、#ハッシュタグ を使用します。  @メンション で素晴らしい人々に呼びかけます
+      visibility_dropdown: このドロップダウンを使用して、投稿の表示を変更します。  (この最初の1つを公開することをご提案します。)
+      title: 提携サービスを設定する
+      share: シェア
+      outside: 公開投稿はダイアスポラ外の人にも表示されます。
+      logged_in: "%{service}へログインしました。"
+      manage: 提携サービスを管理する
+      atom_feed: Atom フィード
     stream_element:
       via: "%{link} で"
-      via_mobile: "モバイルで"
-  simple_captcha:
-    label: "ボックスにコードを入力してください:"
-    message:
-      default: "秘密のコードが画像と一致しませんでした"
-      failed: "人間の検証に失敗しました"
-      user: "秘密の画像とコードが異なっていました"
-    placeholder: "画像の値を入力してください"
-  statistics:
-    active_users_halfyear: "アクティブユーザー数 半年"
-    active_users_monthly: "アクティブユーザー数 月"
-    closed: "クローズ済"
-    disabled: "使用不可"
-    enabled: "利用可能"
-    local_comments: "ローカルコメント"
-    local_posts: "ローカル投稿"
-    name: "名前"
-    network: "ネットワーク"
-    open: "オープン"
-    registrations: "登録"
-    services: "サービス"
-    total_users: "合計ユーザー数"
-    version: "バージョン"
+      via_mobile: モバイルで
   status_messages:
-    bad_aspects: "提供されたアスペクトIDは適用されません (存在しないか所持していない)"
     new:
       mentioning: "%{person}さんのメンション"
     too_long: |-
-        %{count} 文字未満でステータスメッセージを作成してください。
-        今 %{current_length} 文字です
+      %{count} 文字未満でステータスメッセージを作成してください。
+      今 %{current_length} 文字です
+    bad_aspects: 提供されたアスペクトIDは適用されません (存在しないか所持していない)
   stream_helper:
-    no_more_posts: "ストリームの終わりに達しました。"
-    no_posts_yet: "まだ投稿はありません。"
-  streams:
-    activity:
-      title: "マイ アクティビティ"
-    admin:
-      title: "管理"
-    aspects:
-      all: "すべてのアスペクト"
-      title: "マイ アスペクト"
-    aspects_stream: "アスペクト"
-    comment_stream:
-      title: "コメントした投稿"
-    commented:
-      title: "コメントした投稿"
-    community_spotlight_stream: "コミュニティスポットライト"
-    followed_tag:
-      add_a_tag: "タグを追加する"
-      all: "すべてのタグ"
-      follow: "フォロー"
-      title: "フォローしたタグ"
-    followed_tags_stream: "フォローしたタグ"
-    like_stream:
-      title: "ストリーム、いいね！"
-    liked:
-      title: "いいね！した投稿"
-    mentioned_stream: "@メンション"
-    mentions:
-      title: "@メンション"
-    multi:
-      title: "ストリーム"
-    public:
-      title: "公開アクティビティ"
-    tags:
-      title: "タグ%{tags}の付いた投稿"
+    no_more_posts: ストリームの終わりに達しました。
+    no_posts_yet: まだ投稿はありません。
+  tags:
+    show:
+      tagged_people:
+        zero: 誰も %{tag} でタグ付けしていません
+        other: "%{count} 人が %{tag} でタグ付けしています"
+      follow: "#%{tag}をフォローする"
+      stop_following: "#%{tag}のフォローを中止する"
+      none: 空のタグは存在しません！
+    name_too_long: "%{count} 文字未満でタグ名を作成してください。 今 %{current_length} 文字です"
   tag_followings:
     manage:
-      no_tags: "あなたは何のタグもフォローしていません。"
-      title: "フォローしたタグの管理"
-  tags:
-    name_too_long: "%{count} 文字未満でタグ名を作成してください。 今 %{current_length} 文字です"
-    show:
-      follow: "#%{tag}をフォローする"
-      none: "空のタグは存在しません！"
-      stop_following: "#%{tag}のフォローを中止する"
-      tagged_people:
-        other: "%{count} 人が %{tag} でタグ付けしています"
-        zero: "誰も %{tag} でタグ付けしていません"
-  two_factor_auth:
-    activated:
-      change_button: "無効にする"
-      change_label: "パスワードを入力して２要素認証を無効にします"
-      status: "２要素認証を有効にしました"
-    confirm:
-      activate_button: "確認して有効にする"
-      input_explanation: "スキャンまたはシークレットを入力したら、表示された6桁のコードを入力して設定を確認します。"
-      input_title: "TOTPトークンで確認"
-      manual_explanation: "自動的にQRコードをスキャンできない場合は、手動でアプリにシークレットを入力できます。"
-      manual_explanation_cont: "6桁のトークンを使用した、時間ベースのワンタイムパスワード (TOTP) を使用しています。 アプリが、時間間隔とアルゴリズムを入力するように要求した場合は、それぞれ30秒とsha1を入力してください。 <br />スペースは読みやすくするためのものです。スペースを入れずにコードを入力してください。"
-      scan_explanation: "andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS) などのTOTP対応アプリでQRコードをスキャンしてください。"
-      scan_title: "QRコードをスキャン"
-      status: "２要素認証はまだ完全に有効になっていません。TOTPトークンで有効化を確認する必要があります"
-      title: "有効化の確認"
-    deactivated:
-      change_button: "有効にする"
-      change_label: "２要素認証を有効にする"
-      status: "２要素認証は有効になっていません"
-    explanation: "２要素認証は、自分のアカウントにサインインできる唯一の人であることを確認するための強力な方法です。 サインインするときに、あなたのIDを証明するためにパスワードと共に6桁のコードを入力します。 ただし、ご注意ください。携帯電話を紛失したときや、この機能を有効にしたときに作成された回復コードをなくした場合は、ダイアスポラ* アカウントのアクセスは永久にブロックされます。"
-    flash:
-      error_token: "トークンが間違っているか無効です"
-      success_activation: "２要素認証を有効にしました"
-      success_deactivation: "２要素認証を無効にしました"
-    input_token:
-      label: "２要素トークン"
-      placeholder: "6桁の２要素トークン"
-    recovery:
-      button: "新しい回復コードを生成する"
-      explanation: "お使いの携帯電話にアクセスできなくなった場合、アカウントにアクセスできるようにするために下記の回復コードを一つ使うことができます。 回復コードを安全に保管してください。 例えば、それらを印刷して他の重要な書類と共に保存することができます。"
-      explanation_short: "回復コードを使用すると、お使いの携帯電話を紛失した場合でもアカウントへのアクセスを取り戻すことができます。 それぞれの回復コードは1回しか使用できません。"
-      invalidation_notice: "回復コードを紛失した場合は、ここで再生成できます。 古い回復コードは無効になります。"
-      reminder: "あるいは、回復コードを1つ使用することができます。"
-      title: "回復コード"
-    title: "2 要素認証"
-  username: "ユーザー名"
-  users:
-    confirm_email:
-      email_confirmed: "メール %{email} を有効にしました"
-      email_not_confirmed: "メールを有効にできません。リンクが間違っていませんか？"
-    destroy:
-      no_password: "アカウントの使用を停止するためにパスワードを入力してください。"
-      success: "アカウントはロックされました。  アカウントを削除するには20分程度かかります。  ダイアスポラをお試しいただきありがとうございます。"
-      wrong_password: "パスワードが一致しません。"
-    edit:
-      also_commented: "他の人も連絡先の投稿にコメントしたとき"
-      auto_follow_aspect: "あなたが自動的にシェアするユーザーのアスペクト:"
-      auto_follow_back: "あなたとシェアを始めたユーザーと、自動的にシェア"
-      birthday: "誰かの誕生日"
-      change: "変更"
-      change_color_theme: "色のテーマを変更"
-      change_email: "メールを変更"
-      change_language: "言語変更"
-      change_password: "パスワード変更"
-      character_minimum_expl: "6字以上にする必要があります。"
-      close_account:
-        dont_go: "行かないでください！"
-        lock_username: "ユーザー名はロックされます。このポッド上で、同じIDのアカウントを作ることはできません。"
-        locked_out: "あなたはサインアウトし、あなたのアカウントは削除されるまでロックアウトされます。"
-        make_diaspora_better: "ここから離れないで、ダイアスポラ*をさらに良くする手助けをしてください。本当に離れたい場合は、しかし、次に起こることは:"
-        mr_wiggles: "ウィグル氏は、あなたが行くのを見て悲しむでしょう"
-        no_turning_back: "後戻りはできません！確信している場合は、以下にパスワードを入力してください。"
-        what_we_delete: "できるだけ早くあなたの投稿やプロフィールデータをすべて削除します。他の人の投稿へのコメントは、まだ表示されますが、それらはあなたの名前ではなくダイアスポラ*番号に関連付けられます。"
-      close_account_text: "アカウントを削除する"
-      comment_on_post: "自分の投稿にコメントがあったとき"
-      current_password: "現在のパスワード"
-      current_password_expl: "サインインしているもの..."
-      default_post_visibility: "投稿のために選択されるデフォルトのアスペクト"
-      download_export: "マイ プロフィールをダウンロード"
-      download_export_photos: "写真をダウンロードする"
-      edit_account: "アカウント編集"
-      email_awaiting_confirmation: "有効化のリンクを %{unconfirmed_email} に送信しました。 このリンクに従って、新しいアドレスを有効にするまで、元のアドレス %{email} を使い続けます。"
-      export_data: "データ出力"
-      export_in_progress: "現在、データを処理しています。しばらくしてから、戻って確認してください。"
-      export_photos_in_progress: "現在、写真を処理しています。しばらくしてから、戻って確認してください。"
-      following: "フォロー設定"
-      last_exported_html: "(%{timeago}に更新されました)"
-      liked: "あなたの投稿をいいね！したとき"
-      mentioned: "投稿に自分がメンションされたとき"
-      mentioned_in_comment: "コメントでメンションされました"
-      new_password: "新しいパスワード"
-      private_message: "非公開メッセージが届いたとき"
-      protocol_handler:
-        browser: "このプロトコルは現在実験段階で、それを使ったインタラクションが成功するかどうかはご利用のブラウザに依存します。 この処理を管理または削除したい場合は、ブラウザの設定でこれを行ってください。 下のボタンは常に有効になっているので、使用するブラウザごとに個別に処理を設定する必要があります。"
-        description: "このボタンをクリックするとホームポッドの web+diaspora:// URLを開くことができるハンドラをインストールするようにブラウザに要求されます。これは現在実験中で対応はブラウザによって異なります。"
-        register: "登録"
-        title: "web+diaspora:// プロトコルハンドラ"
-      receive_email_notifications: "通知メールの送信設定"
-      request_export: "マイ プロフィールのデータをリクエスト"
-      request_export_photos: "写真をリクエスト"
-      request_export_photos_update: "写真を更新"
-      request_export_update: "マイ プロフィールのデータを更新"
-      reshared: "あなたの投稿をリシェアしたとき"
-      show_community_spotlight: "ストリームに「コミュニティスポットライト」を表示"
-      show_getting_started: "「はじめに」のヒントを表示"
-      someone_reported: "誰かが報告を送信"
-      started_sharing: "あなたとシェアを始めたとき"
-      stream_preferences: "ストリーム設定"
-      your_email: "メールアドレス"
-      your_email_private: "あなたのメールアドレスは、他のユーザーが見ることはありません"
-      your_handle: "ダイアスポラ* ID"
-    getting_started:
-      awesome_take_me_to_diaspora: "素晴らしい！私をダイアスポラ*に連れてって"
-      community_welcome: "あなたに加わっていただいて、ダイアスポラ*のコミュニティは幸せです！"
-      hashtag_explanation: "ハッシュタグはあなたが話し合うこと、あなたの興味があることにフォローすることができます。ダイアスポラ*で新しい人を見つけるための素晴らしい方法でもあります。"
-      hashtag_suggestions: "#art, #movies, #gif などのようなタグをフォローしてみましょう。"
-      well_hello_there: "やあ、こんにちは！"
-      what_are_you_in_to: "何に興味がありますか?"
-      who_are_you: "あなたは誰ですか？"
-    privacy_settings:
-      ignored_users: "無視したユーザー"
-      no_user_ignored_message: "現在、他のユーザーを無視していません"
-      stop_ignoring: "無視を解除する"
-      strip_exif: "アップロードした画像から場所、作成者、カメラモデルなどのメタデータを除去する (推奨)"
-      title: "プライバシー設定"
+      title: フォローしたタグの管理
+      no_tags: あなたは何のタグもフォローしていません。
+  streams:
+    community_spotlight_stream: コミュニティスポットライト
+    aspects_stream: アスペクト
+    mentioned_stream: "@メンション"
+    followed_tags_stream: フォローしたタグ
+    mentions:
+      title: "@メンション"
+    comment_stream:
+      title: コメントした投稿
+    like_stream:
+      title: ストリーム、いいね！
+    followed_tag:
+      title: フォローしたタグ
+      add_a_tag: タグを追加する
+      follow: フォロー
+      all: すべてのタグ
+    admin:
+      title: 管理
+    tags:
+      title: タグ%{tags}の付いた投稿
     public:
-      does_not_exist: "ユーザー %{username} は存在しません！"
+      title: 公開アクティビティ
+    multi:
+      title: ストリーム
+    aspects:
+      title: マイ アスペクト
+      all: すべてのアスペクト
+    activity:
+      title: マイ アクティビティ
+    liked:
+      title: いいね！した投稿
+    commented:
+      title: コメントした投稿
+  users:
+    edit:
+      edit_account: アカウント編集
+      change: 変更
+      your_handle: ダイアスポラ* ID
+      your_email: メールアドレス
+      your_email_private: あなたのメールアドレスは、他のユーザーが見ることはありません
+      change_email: メールを変更
+      email_awaiting_confirmation: 有効化のリンクを %{unconfirmed_email} に送信しました。 このリンクに従って、新しいアドレスを有効にするまで、元のアドレス %{email} を使い続けます。
+      change_password: パスワード変更
+      new_password: 新しいパスワード
+      current_password: 現在のパスワード
+      current_password_expl: サインインしているもの...
+      character_minimum_expl: 6字以上にする必要があります。
+      change_language: 言語変更
+      change_color_theme: 色のテーマを変更
+      close_account_text: アカウントを削除する
+      stream_preferences: ストリーム設定
+      show_community_spotlight: ストリームに「コミュニティスポットライト」を表示
+      show_getting_started: "「はじめに」のヒントを表示"
+      following: フォロー設定
+      auto_follow_back: あなたとシェアを始めたユーザーと、自動的にシェア
+      auto_follow_aspect: 'あなたが自動的にシェアするユーザーのアスペクト:'
+      default_post_visibility: 投稿のために選択されるデフォルトのアスペクト
+      receive_email_notifications: 通知メールの送信設定
+      started_sharing: あなたとシェアを始めたとき
+      someone_reported: 誰かが報告を送信
+      mentioned: 投稿に自分がメンションされたとき
+      mentioned_in_comment: コメントでメンションされました
+      liked: あなたの投稿をいいね！したとき
+      reshared: あなたの投稿をリシェアしたとき
+      comment_on_post: 自分の投稿にコメントがあったとき
+      also_commented: 他の人も連絡先の投稿にコメントしたとき
+      private_message: 非公開メッセージが届いたとき
+      birthday: 誰かの誕生日
+      download_export: マイ プロフィールをダウンロード
+      request_export: マイ プロフィールのデータをリクエスト
+      request_export_update: マイ プロフィールのデータを更新
+      export_data: データ出力
+      export_in_progress: 現在、データを処理しています。しばらくしてから、戻って確認してください。
+      last_exported_html: "(%{timeago}に更新されました)"
+      download_export_photos: 写真をダウンロードする
+      request_export_photos: 写真をリクエスト
+      request_export_photos_update: 写真を更新
+      export_photos_in_progress: 現在、写真を処理しています。しばらくしてから、戻って確認してください。
+      close_account:
+        dont_go: 行かないでください！
+        make_diaspora_better: 'ここから離れないで、ダイアスポラ*をさらに良くする手助けをしてください。本当に離れたい場合は、しかし、次に起こることは:'
+        mr_wiggles: ウィグル氏は、あなたが行くのを見て悲しむでしょう
+        what_we_delete: できるだけ早くあなたの投稿やプロフィールデータをすべて削除します。他の人の投稿へのコメントは、まだ表示されますが、それらはあなたの名前ではなくダイアスポラ*番号に関連付けられます。
+        locked_out: あなたはサインアウトし、あなたのアカウントは削除されるまでロックアウトされます。
+        lock_username: ユーザー名はロックされます。このポッド上で、同じIDのアカウントを作ることはできません。
+        no_turning_back: 後戻りはできません！確信している場合は、以下にパスワードを入力してください。
+      protocol_handler:
+        title: web+diaspora:// プロトコルハンドラ
+        description: このボタンをクリックするとホームポッドの web+diaspora:// URLを開くことができるハンドラをインストールするようにブラウザに要求されます。これは現在実験中で対応はブラウザによって異なります。
+        browser: このプロトコルは現在実験段階で、それを使ったインタラクションが成功するかどうかはご利用のブラウザに依存します。 この処理を管理または削除したい場合は、ブラウザの設定でこれを行ってください。 下のボタンは常に有効になっているので、使用するブラウザごとに個別に処理を設定する必要があります。
+        register: 登録
+    privacy_settings:
+      title: プライバシー設定
+      strip_exif: アップロードした画像から場所、作成者、カメラモデルなどのメタデータを除去する (推奨)
+      ignored_users: 無視したユーザー
+      stop_ignoring: 無視を解除する
+      no_user_ignored_message: 現在、他のユーザーを無視していません
+    destroy:
+      success: アカウントはロックされました。  アカウントを削除するには20分程度かかります。  ダイアスポラをお試しいただきありがとうございます。
+      no_password: アカウントの使用を停止するためにパスワードを入力してください。
+      wrong_password: パスワードが一致しません。
+    getting_started:
+      well_hello_there: やあ、こんにちは！
+      community_welcome: あなたに加わっていただいて、ダイアスポラ*のコミュニティは幸せです！
+      awesome_take_me_to_diaspora: 素晴らしい！私をダイアスポラ*に連れてって
+      who_are_you: あなたは誰ですか？
+      what_are_you_in_to: 何に興味がありますか?
+      hashtag_explanation: ハッシュタグはあなたが話し合うこと、あなたの興味があることにフォローすることができます。ダイアスポラ*で新しい人を見つけるための素晴らしい方法でもあります。
+      hashtag_suggestions: "#art, #movies, #gif などのようなタグをフォローしてみましょう。"
     update:
-      color_theme_changed: "色のテーマを正常に変更しました。"
-      color_theme_not_changed: "色のテーマを変更中にエラーが発生しました。"
-      email_notifications_changed: "メール通知の設定を変更しました。"
-      follow_settings_changed: "フォローの設定を変更しました。"
-      follow_settings_not_changed: "フォローの設定の変更に失敗しました。"
-      language_changed: "言語の設定を変更しました"
-      language_not_changed: "言語の選択に失敗しました"
-      password_changed: "パスワードを変更しました"
-      password_not_changed: "パスワードの変更に失敗しました"
-      settings_not_updated: "設定の更新に失敗しました。"
-      settings_updated: "設定が更新されました。"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      password_changed: パスワードを変更しました
+      password_not_changed: パスワードの変更に失敗しました
+      language_changed: 言語の設定を変更しました
+      language_not_changed: 言語の選択に失敗しました
+      settings_updated: 設定が更新されました。
+      settings_not_updated: 設定の更新に失敗しました。
+      email_notifications_changed: メール通知の設定を変更しました。
+      unconfirmed_email_changed: E-Mail Changed. Needs activation.
+      unconfirmed_email_not_changed: E-Mail Change Failed
+      follow_settings_changed: フォローの設定を変更しました。
+      follow_settings_not_changed: フォローの設定の変更に失敗しました。
+      color_theme_changed: 色のテーマを正常に変更しました。
+      color_theme_not_changed: 色のテーマを変更中にエラーが発生しました。
+    public:
+      does_not_exist: ユーザー %{username} は存在しません！
+    confirm_email:
+      email_confirmed: メール %{email} を有効にしました
+      email_not_confirmed: メールを有効にできません。リンクが間違っていませんか？
+  two_factor_auth:
+    title: 2 要素認証
+    explanation: ２要素認証は、自分のアカウントにサインインできる唯一の人であることを確認するための強力な方法です。 サインインするときに、あなたのIDを証明するためにパスワードと共に6桁のコードを入力します。 ただし、ご注意ください。携帯電話を紛失したときや、この機能を有効にしたときに作成された回復コードをなくした場合は、ダイアスポラ* アカウントのアクセスは永久にブロックされます。
+    activated:
+      status: ２要素認証を有効にしました
+      change_label: パスワードを入力して２要素認証を無効にします
+      change_button: 無効にする
+    deactivated:
+      status: ２要素認証は有効になっていません
+      change_label: ２要素認証を有効にする
+      change_button: 有効にする
+    confirm:
+      title: 有効化の確認
+      status: ２要素認証はまだ完全に有効になっていません。TOTPトークンで有効化を確認する必要があります
+      scan_title: QRコードをスキャン
+      scan_explanation: andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS) などのTOTP対応アプリでQRコードをスキャンしてください。
+      manual_explanation: 自動的にQRコードをスキャンできない場合は、手動でアプリにシークレットを入力できます。
+      manual_explanation_cont: 6桁のトークンを使用した、時間ベースのワンタイムパスワード (TOTP) を使用しています。 アプリが、時間間隔とアルゴリズムを入力するように要求した場合は、それぞれ30秒とsha1を入力してください。 <br />スペースは読みやすくするためのものです。スペースを入れずにコードを入力してください。
+      input_title: TOTPトークンで確認
+      input_explanation: スキャンまたはシークレットを入力したら、表示された6桁のコードを入力して設定を確認します。
+      activate_button: 確認して有効にする
+    input_token:
+      label: ２要素トークン
+      placeholder: 6桁の２要素トークン
+    recovery:
+      title: 回復コード
+      reminder: あるいは、回復コードを1つ使用することができます。
+      explanation: お使いの携帯電話にアクセスできなくなった場合、アカウントにアクセスできるようにするために下記の回復コードを一つ使うことができます。 回復コードを安全に保管してください。 例えば、それらを印刷して他の重要な書類と共に保存することができます。
+      explanation_short: 回復コードを使用すると、お使いの携帯電話を紛失した場合でもアカウントへのアクセスを取り戻すことができます。 それぞれの回復コードは1回しか使用できません。
+      invalidation_notice: 回復コードを紛失した場合は、ここで再生成できます。 古い回復コードは無効になります。
+      button: 新しい回復コードを生成する
+    flash:
+      success_activation: ２要素認証を有効にしました
+      success_deactivation: ２要素認証を無効にしました
+      error_token: トークンが間違っているか無効です
   will_paginate:
-    next_label: "次へ &raquo;"
     previous_label: "&laquo; 前へ"
+    next_label: 次へ &raquo;
+  simple_captcha:
+    placeholder: 画像の値を入力してください
+    label: 'ボックスにコードを入力してください:'
+    message:
+      default: 秘密のコードが画像と一致しませんでした
+      user: 秘密の画像とコードが異なっていました
+      failed: 人間の検証に失敗しました
+  statistics:
+    name: 名前
+    network: ネットワーク
+    services: サービス
+    total_users: 合計ユーザー数
+    active_users_halfyear: アクティブユーザー数 半年
+    active_users_monthly: アクティブユーザー数 月
+    local_posts: ローカル投稿
+    local_comments: ローカルコメント
+    version: バージョン
+    registrations: 登録
+    enabled: 利用可能
+    disabled: 使用不可
+    open: オープン
+    closed: クローズ済

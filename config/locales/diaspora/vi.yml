@@ -5,1346 +5,1318 @@
 
 
 vi:
-  _applications: "Ứng dụng"
-  _contacts: "Danh bạ"
-  _help: "Trợ giúp"
-  _podmin_mail: "Liên hệ quản trị viên"
-  _services: "Dịch vụ"
-  _statistics: "Thống kê"
-  _terms: "Điều khoản dịch vụ"
-  account: "Tài khoản"
+  settings: Thiết lập
+  profile: Cá nhân
+  account: Tài khoản
+  privacy: Bảo mật
+  _services: Dịch vụ
+  _applications: Ứng dụng
+  _help: Trợ giúp
+  ok: OK
+  cancel: Hủy bỏ
+  delete: Xóa
+  username: Tên người dùng
+  email: Email
+  are_you_sure: Bạn có chắc không?
+  are_you_sure_delete_account: Bạn có chắc muốn vô hiệu hoá tài khoản này không? Mọi dữ liệu sẽ không thể phục hồi!
+  are_you_sure_ignore_user: Bạn có chắc muốn ẩn người dùng này?
+  fill_me_out: Điền đầy đủ
+  public: Công khai
+  limited: Hạn chế
+  search: Tìm kiếm
+  nsfw: NSFW
+  find_people: 'Tìm người hoặc #hashtag'
+  more: Xem thêm
+  all_aspects: Tất cả mối quan hệ
+  no_results: Không tìm thấy gì
+  _contacts: Danh bạ
+  _terms: Điều khoản dịch vụ
+  _podmin_mail: Liên hệ quản trị viên
+  _statistics: Thống kê
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "phải là duy nhất trong danh bạ của người dùng này."
+            person:
+              invalid: không hợp lệ.
+            username:
+              taken: đã có người đăng ký.
+              invalid: không hợp lệ. Chỉ cho phép chữ cái, số, và dấu gạch dưới.
+            email:
+              taken: đã có người đăng ký.
         person:
           attributes:
             diaspora_handle:
-              taken: "đã có người đăng ký."
-        poll:
+              taken: đã có người đăng ký.
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "Không đủ lựa chọn để tạo bình chọn."
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "Bạn đã bình chọn rồi!"
+            person_id:
+              taken: phải là duy nhất trong danh bạ của người dùng này.
         reshare:
           attributes:
             root_guid:
-              taken: "Hay quá! Bạn đã chia sẻ bài đăng đó!"
-        user:
+              taken: Hay quá! Bạn đã chia sẻ bài đăng đó!
+        poll:
           attributes:
-            email:
-              taken: "đã có người đăng ký."
-            person:
-              invalid: "không hợp lệ."
-            username:
-              invalid: "không hợp lệ. Chỉ cho phép chữ cái, số, và dấu gạch dưới."
-              taken: "đã có người đăng ký."
-  admins:
-    admin_bar:
-      dashboard: "Trang chính"
-      pages: "Trang"
-      pod_network: "Liên hợp"
-      pod_stats: "Thống kê"
-      report: "Lượt báo cáo"
-      sidekiq_monitor: "Thiết lập Sidekiq"
-      user_search: "Tìm người dùng"
-      weekly_user_stats: "Thống kê người dùng hàng tuần"
-    dashboard:
-      fetching_diaspora_version: "Đang lấy Diaspora phiên bản mới nhất..."
-      pod_status: "Trạng thái"
-    pods:
-      pod_network: "Máy chủ liên hợp"
-    stats:
-      2weeks: "2 tuần"
-      50_most: "50 hashtag phổ biến nhất"
-      comments:
-        other: "%{count} bình luận"
-        zero: "Chưa có bình luận"
-      current_segment: "Trung bình %{post_yest} bài đăng trên mỗi người dùng, kể từ %{post_day}"
-      daily: "Hàng ngày"
-      display_results: "Hiển thị các kết quả từ %{segment}"
-      go: "Đi"
-      month: "Tháng"
-      posts:
-        other: "%{count} bài đăng"
-        zero: "Chưa có bài đăng"
-      shares:
-        other: "%{count} lượt chia sẻ"
-        zero: "Chưa có lượt chia sẻ"
-      tag_name: "Hashtag: %{name_tag} Lần dùng: %{count_tag}"
-      usage_statistic: "Thống kê"
-      users:
-        other: "%{count} người dùng"
-        zero: "Chưa có người dùng"
-      week: "Tuần"
-    user_entry:
-      account_closed: "Tài khoản đã vô hiệu hoá"
-      admin: "Quản trị viên"
-      current_sign_in_ip: "IP đăng nhập gần đây"
-      diaspora_handle: "Diaspora ID"
-      email: "Email"
-      guid: "GUID"
-      id: "ID"
-      invite_token: "Token thư mời"
-      last_seen: "Hoạt động lần cuối"
-      moderator: "Kiểm duyệt viên"
-      ? "no"
-      : "Huỷ bỏ"
-      nsfw: "#nsfw"
-      spotlight: "Người dùng nổi bật"
-      unknown: "Chưa rõ"
-      ? "yes"
-      : "Đồng ý"
-    user_search:
-      account_closing_scheduled: "Tài khoản của %{name} đã được lên lịch vô hiệu hoá. Quá trình xử lí sẽ bắt đầu sớm..."
-      account_locking_scheduled: "Tài khoản %{name} đã được lên lịch khoá. Đang xử lí..."
-      account_unlocking_scheduled: "Tài khoản %{name} đã được lên lịch mở khoá. Đang xử lí..."
-      add_admin: "%{name} được chọn làm quản trị viên."
-      add_invites: "Tạo lời mời"
-      add_moderator: "%{name} được chọn làm kiểm duyệt viên."
-      add_spotlight: "%{name} được thêm làm người dùng nổi bật."
-      are_you_sure: "Bạn có chắc muốn vô hiệu hoá tài khoản này?"
-      are_you_sure_lock_account: "Bạn có chắc muốn khoá tài khoản này?"
-      are_you_sure_unlock_account: "Bạn có chắc muốn mở khoá tài khoản này?"
-      close_account: "Vô hiệu hoá tài khoản"
-      delete_admin: "%{name} bị gỡ bỏ chức vụ quản trị viên."
-      delete_moderator: "%{name} bị gỡ bỏ chức vụ kiểm duyệt viên."
-      delete_spotlight: "%{name} không còn là người dùng nổi bật."
-      does_not_exist: "Không tồn tại người dùng!"
-      email_to: "Email được mời"
-      invite: "Thư mời"
-      lock_account: "Khoá tài khoản"
-      make_admin: "Chọn quản trị viên"
-      make_moderator: "Chọn kiểm duyệt viên"
-      make_spotlight: "Thêm vào người dùng nổi bật"
-      remove_admin: "Gỡ bỏ quản trị viên"
-      remove_moderator: "Gỡ bỏ kiểm duyệt viên"
-      remove_spotlight: "Gỡ khỏi người dùng nổi bật"
-      role_implemented: "%{name} vừa được chọn chức vụ này rồi!"
-      role_removal_implemented: "%{name} vừa bị gỡ bỏ chức vụ này rồi!"
-      under_13: "Hiện những người dùng dưới 13 tuổi (COPPA)"
-      unlock_account: "Mở khoá tài khoản"
-      users:
-        other: "Tìm thấy %{count} người dùng"
-        zero: "Không tìm thấy ai"
-      view_profile: "Xem trang cá nhân"
-      you_currently:
-        other: "Bạn có %{count} lời mời còn lại %{link}"
-        zero: "Bạn không có lời mời nào %{link}"
-    weekly_user_stats:
-      amount_of:
-        other: "Số người dùng mới tuần này: %{count}"
-        zero: "Tuần này không có người dùng mới"
-      current_server: "Ngày hiện tại của máy chủ là %{date}"
-  all_aspects: "Tất cả mối quan hệ"
-  api:
-    openid_connect:
-      authorizations:
-        destroy:
-          fail: "Yêu cầu gỡ bỏ quyền truy cập với ID %{id} thất bại"
-        new:
-          access: "%{name} yêu cầu quyền truy cập vào:"
-          approve: "Chấp nhận"
-          bad_request: "Sai Client ID hoặc liên kết chuyển tiếp"
-          client_id_not_found: "Không tìm thấy client_id %{client_id} với liên kết chuyển tiếp %{redirect_uri}"
-          deny: "Từ chối"
-          no_requirement: "%{name} không yêu cầu bất kỳ quyền nào"
-          private_contacts_linkage_error: "private:read và private:modify đồng thời yêu cầu contacts:read"
-          redirection_message: "Bạn có chắc muốn cho phép truy cập %{redirect_uri}?"
-          unknown_scope: "Phạm vi chưa rõ: %{scope_name}"
-      error_page:
-        contact_developer: "Hãy liên hệ nhà phát triển ứng dụng với mã lỗi sau:"
-        could_not_authorize: "Không thể cấp quyền truy cập cho ứng dụng"
-        login_required: "Bạn phải đăng nhập trước khi cấp quyền truy cập cho ứng dụng này"
-        title: "Oh! Có gì đó bất thường xảy ra :("
-      scopes:
-        ? "contacts:modify"
-        :
-          description: "Yêu cầu truy cập danh bạ và những thông tin liên quan (như mối quan hệ) dưới hình thức ghi đè."
-          name: "Danh bạ (Ghi đè)"
-        ? "contacts:read"
-        :
-          description: "Yêu cầu truy cập danh bạ và những thông tin liên quan (như mối quan hệ) dưới hình thức chỉ-đọc."
-          name: "Danh bạ (Chỉ-đọc)"
-        conversations:
-          description: "Yêu cầu truy cập những tin nhắn dưới hình thức đọc lẫn ghi đè."
-          name: "Thảo luận"
-        email:
-          description: "Yêu cầu truy cập địa chỉ email của bạn dưới hình thức chỉ-đọc."
-          name: "Email"
-        interactions:
-          description: "Yêu cầu truy cập những tương tác với bài đăng, như thích hoặc đăng bình luận."
-          name: "Tương tác"
-        name:
-          description: "Điều này cho phép truy cập chế độ chỉ-đọc vào tên đầy đủ của bạn."
-          name: "Tên đầy đủ"
-        nickname:
-          description: "Điều này cho phép truy cập chế độ chỉ-đọc vào tên người dùng của bạn."
-          name: "Tên người dùng"
-        notifications:
-          description: "Yêu cầu truy cập thông báo dưới hình thức đọc và ghi đè."
-          name: "Thông báo"
-        openid:
-          description: "Chỉ yêu cầu truy cập dạng chỉ-đọc với thông tin cá nhân cơ bản của bạn."
-          name: "Thông tin cá nhân cơ bản"
-        picture:
-          description: "Điều này cho phép truy cập chế độ chỉ-đọc vào ảnh đại diện của bạn."
-          name: "Ảnh đại diện"
-        ? "private:modify"
-        :
-          description: "Yêu cầu truy cập và đăng những bài đăng công khai."
-          name: "Bài đăng riêng tư (Ghi đè)"
-        ? "private:read"
-        :
-          description: "Yêu cầu truy cập những bài đăng riêng tư của bạn và những người trong danh bạ dưới hình thức chỉ-đọc."
-          name: "Bài đăng riêng tư (Chỉ-đọc)"
-        profile:
-          description: "Điều này cho phép truy cập chế độ chỉ-đọc vào thông tin nâng cao của bạn."
-          name: "Thông tin nâng cao (Chỉ-đọc)"
-        ? "profile:modify"
-        :
-          description: "Yêu cầu truy cập và cập nhật thông tin nâng cao của bạn."
-          name: "Thông tin nâng cao (Ghi đè)"
-        ? "profile:read_private"
-        :
-          description: "Yêu cầu truy cập dữ liệu hồ sơ riêng tư của bạn dưới hình thức chỉ-đọc."
-          name: "Dữ liệu hồ sơ riêng tư (Chỉ-đọc)"
-        ? "public:modify"
-        :
-          description: "Yêu cầu truy cập và đăng những bài đăng công khai và thông tin liên quan (như bình chọn và đính kèm tập tin)."
-          name: "Bài đăng công khai (Ghi đè)"
-        ? "public:read"
-        :
-          description: "Yêu cầu truy cập bài đăng công khai, tương tác và những thông tin liên quan."
-          name: "Bài đăng (Chỉ-đọc)"
-        sub:
-          description: "Điều này cho phép truy cập chế độ chỉ-đọc vào mã số định danh của bạn."
-          name: "Mã số định danh"
-        ? "tags:modify"
-        :
-          description: "Yêu cầu truy cập và thay đổi những hashtag theo dõi."
-          name: "Hashtag (Ghi đè)"
-        ? "tags:read"
-        :
-          description: "Yêu cầu truy cập những hashtag theo dõi của bạn dưới hình thức chỉ đọc."
-          name: "Hashtag (Chỉ-đọc)"
-      user_applications:
-        index:
-          access: "%{name} cần truy cập:"
-          edit_applications: "Ứng dụng"
-          no_requirement: "%{name} không yêu cầu bất kỳ quyền nào"
-          title: "Các ứng dụng đang cho phép"
-        no_applications: "Bạn chưa sử dụng ứng dụng nào"
-        policy: "Đọc chính sách riêng tư của ứng dụng"
-        revoke_autorization: "Gỡ"
-        tos: "Đọc điều khoản dịch vụ của ứng dụng"
-  are_you_sure: "Bạn có chắc không?"
-  are_you_sure_delete_account: "Bạn có chắc muốn vô hiệu hoá tài khoản này không? Mọi dữ liệu sẽ không thể phục hồi!"
-  are_you_sure_ignore_user: "Bạn có chắc muốn ẩn người dùng này?"
-  aspect_memberships:
-    destroy:
-      failure: "Không thể xoá bỏ người này khỏi mối quan hệ."
-      forbidden: "Bạn không được phép làm vậy."
-      invalid_statement: "Từ chối nhân đôi giá trị."
-      no_membership: "Không tìm thấy người đã chọn trong \bmối quan hệ."
-      success: "Đã xoá bỏ người này khỏi mối quan hệ."
-  aspects:
-    add_to_aspect:
-      failure: "Không thể thêm người vào mối quan hệ."
-      success: "Đã thêm người vào mối quan hệ thành công."
-    aspect_listings:
-      add_an_aspect: "+ Thêm mối quan hệ"
-    aspect_stream:
-      make_something: "Tạo gì đó đi nào"
-      stay_updated: "Đang tải"
-      stay_updated_explanation: "Bảng tin chính của bạn là bài đăng từ những người và hashtag mà bạn theo dõi, cũng như bài đăng từ một vài thành viên nổi bật trong cộng đồng."
-    destroy:
-      failure: "Không thể xoá bỏ %{name}."
-      success: "Đã xoá bỏ %{name}."
-      success_auto_follow_back: "Đã xoá bỏ %{name}. Bạn từng dùng mối quan hệ này để tự động theo dõi lại người khác. Kiểm tra thiết lập cá nhân để chọn một mối quan hệ tự động theo dõi lại người khác."
-    edit:
-      aspect_list_is_not_visible: "Những người trong mối quan hệ này không thể nhìn thấy nhau."
-      aspect_list_is_visible: "Những người trong \bmối quan hệ này có thể nhìn thấy nhau."
-      confirm_remove_aspect: "Bạn có chắc là muốn xoá mối quan hệ này?"
-      rename: "Đổi tên"
-      update: "Cập nhật"
-      updating: "Đang cập nhật"
-    index:
-      donate: "Ủng hộ"
-      donate_liberapay: "Ủng hộ liberapay"
-      help:
-        any_problem: "Có vấn đề?"
-        contact_podmin: "Liên hệ quản trị viên!"
-        do_you: "Bạn muốn:"
-        feature_suggestion: "... đề xuất %{link}?"
-        find_a_bug: "... gửi %{link}?"
-        have_a_question: "... gửi %{link}?"
-        here_to_help: "Cộng đồng Diaspora!"
-        mail_podmin: "Email quản trị viên"
-        need_help: "Trợ giúp"
-        support_forum: "Bạn nên tham gia %{support_forum}."
-        support_forum_link: "diễn đàn hỗ trợ"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
-        tutorial_link_text: "Hướng dẫn"
-        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: hướng dẫn sử dụng."
-      introduce_yourself: "Đây là bảng tin của bạn. Hãy tự giới thiệu mình ở đây."
-      keep_pod_running: "Ủng hộ để giúp %{pod} \btrang trải chi phí duy trì hàng tháng!"
-      new_here:
-        follow: "Theo dõi %{link} và chào đón người dùng mới đến với Diaspora!"
-        learn_more: "Tìm hiểu thêm"
-        title: "Chào đón người dùng mới"
-      services:
-        content: "Bạn có thể kết nối những dịch vụ sau với Diaspora:"
-        heading: "Kết nối dịch vụ"
-      welcome_to_diaspora: "Chào mừng đến với Diaspora, %{name}!"
-    no_contacts_message:
-      community_spotlight: "Nổi bật từ cộng đồng"
-      invite_link_text: "mời"
-      or_spotlight: "Hoặc bạn có thể chia sẻ với %{link}"
-      try_adding_some_more_contacts: "Bạn có thể tìm hoặc %{invite_link} thêm bạn bè."
-      you_should_add_some_more_contacts: "Bạn nên thêm một vài người trong danh bạ!"
-    seed:
-      acquaintances: "Người quen"
-      family: "Gia đình"
-      friends: "Bạn bè"
-      work: "Đồng nghiệp"
-    update:
-      failure: "Tên mối quan hệ %{name} quá dài, không thể lưu."
-      success: "Đã chỉnh sửa mối quan hệ %{name} thành công."
-  blocks:
-    create:
-      failure: "Không thể ẩn người dùng đó!"
-      success: "Bạn sẽ không thấy người dùng đó trong bảng tin nữa!"
-    destroy:
-      failure: "K\x1dhông thể bỏ ẩn người dùng đó!"
-      success: "Hãy xem họ nói gì!"
-  bookmarklet:
-    explanation: "Đăng lên Diaspora từ bất kì đâu bằng %{link}."
-    heading: "Đã lưu"
-    post_something: "Đăng lên Diaspora"
-  cancel: "Hủy bỏ"
-  color_themes:
-    dark: "Tối"
-    dark_green: "Xanh tối"
-    egyptian_blue: "Xanh lam"
-    magenta: "Đỏ"
-    original: "Xám"
-    original_white: "Sáng"
-  comments:
-    create:
-      fail: "Bình luận chưa được"
-    destroy:
-      fail: "Chưa thể xoá bình luận bài đăng"
-      success: "Đã xoá bình luận %{id}"
-    new_comment:
-      comment: "Bình luận"
-      commenting: "Đang gửi bình luận..."
-    not_found: "Không tìm thấy bài đăng hoặc bình luận"
-  contacts:
-    index:
-      add_contact: "Thêm người dùng"
-      all_contacts: "Danh bạ"
-      community_spotlight: "Bài đăng nổi bật"
-      my_contacts: "Danh bạ của tôi"
-      no_contacts: "Có vẻ như bạn cần thêm vài người bạn!"
-      no_contacts_in_aspect: "Bạn chưa có người nào trong mối quan hệ này. Bên dưới là những người trong danh bạ để bạn thêm vào."
-      no_contacts_message: "Xem thử %{community_spotlight}"
-      only_sharing_with_me: "Chỉ chia sẻ với tôi"
-      start_a_conversation: "Bắt đầu viết gì đó"
-      title: "Danh bạ"
-      user_search: "Tìm người dùng"
-    spotlight:
-      community_spotlight: "Bài đăng nổi bật"
-      no_members: "Chưa có người dùng nào."
-      suggest_member: "Gợi ý một thành viên"
-  conversations:
-    create:
-      fail: "Tin nhắn không hợp lệ"
-      sent: "Đã gửi tin nhắn"
-    destroy:
-      delete_success: "Đã xoá thảo luận thành công"
-      hide_success: "Đã ẩn thảo luận thành công"
-    index:
-      conversations_inbox: "Tin nhắn – Hộp thư đến"
-      inbox: "Hộp thư đến"
-      new_conversation: "Tin nhắn mới"
-      no_contacts: "Bạn cần thêm vài người dùng trước khi bắt đầu đối thoại"
-      no_messages: "Không có tin nhắn"
-    new:
-      message: "Nhắn tin"
-      send: "Gửi"
-      sending: "Đang gửi..."
-      subject: "Tiêu đề"
-      subject_default: "Không tiêu đề"
-      to: "Người nhận"
-    new_conversation:
-      fail: "Tin nhắn không hợp lệ"
-    not_found: "Không tìm thấy thảo luận"
-    show:
-      delete: "Xoá thảo luận"
-      hide: "Ẩn thảo luận"
-      last_message: "Tin nhắn cuối %{timeago}"
-      reply: "Trả lời"
-      replying: "Đang trả lời..."
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Xóa"
-  email: "Email"
-  error_messages:
-    csrf_token_fail: "CSRF token không hợp lệ. Xin đăng nhập và thử lại."
-    desktop_view_link: "chế độ máy tính bàn"
-    helper:
-      correct_the_following_errors_and_try_again: "Sửa những lỗi sau và thử lại."
-    mobile_not_available: "Trang này không thể xem được trên di động, hãy chuyển sang %{desktop_link}."
-    need_javascript: "Trang web này yêu cầu JavaScript để chạy các tính năng. Nếu bạn đang tắt JavaScript, hãy bật lại và làm tươi trang."
+            poll_answers:
+              not_enough_poll_answers: Không đủ lựa chọn để tạo bình chọn.
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: Bạn đã bình chọn rồi!
   errors:
     messages:
-      carrierwave_download_error: "không thể tải về"
-      carrierwave_integrity_error: "sai định dạng tập tin"
-      carrierwave_processing_error: "xử lý thất bại"
-      content_type_blacklist_error: "Bạn không được phép tải lên tập tin định dạng %{content_type}"
-      content_type_whitelist_error: "Bạn không được phép tải lên tập tin định dạng %{content_type}"
-      extension_blacklist_error: "Bạn không được phép tải lên tập tin định dạng %{extension}, những định dạng bị cấm: %{prohibited_types}"
-      extension_whitelist_error: "Bạn không được phép tải lên tập tin định dạng %{extension}, những định dạng cho phép: %{allowed_types}"
-      max_size_error: "Dung lượng phải nhỏ hơn %{max_size}"
-      min_size_error: "Dung lượng phải cao hơn %{min_size}"
-      mini_magick_processing_error: "Đây không phải là hình ảnh. Lỗi: %{e}"
-      rmagick_processing_error: "Đây không phải là hình ảnh"
-  fill_me_out: "Điền đầy đủ"
-  find_people: "Tìm người hoặc #hashtag"
-  help:
-    account_and_data_management:
-      close_account_a: "Đến cuối trang thiết lập và nhấn vào nút “Vô hiệu hoá tài khoản”. Bạn sẽ được yêu cầu nhập mật khẩu để tiếp tục. Hãy nhớ kỹ, nếu bạn vô hiệu hoá tài khoản, tên người dùng của bạn ở máy chủ đó sẽ <strong>không bao giờ</strong> có thể đăng ký lại."
-      close_account_q: "Làm sao xoá tài khoản?"
-      data_other_podmins_a: "Một khi bạn theo dõi ai đó trên máy chủ khác, mọi bài đăng của bạn và một bản sao hồ sơ của bạn sẽ được lưu cached trên máy chủ đó. Khi bạn xoá bài đăng hoặc vô hiệu hoá tài khoản, một yêu cầu xoá đồng thời sẽ được gửi đến máy chủ đó. Hình ảnh của bạn không bao giờ lưu trữ trên máy chủ khác."
-      data_other_podmins_q: "Quản trị viên máy chủ khác có thể xem dữ liệu của tôi không?"
-      data_visible_to_podmin_a: "Ngắn gọn: mọi thứ. Giao tiếp giữa các máy chủ luôn được mã hoá (sử dụng SSL và mã hoá riêng của Diaspora), nhưng dữ liệu lưu trữ trên máy chủ sẽ không được mã hoá. Nếu quản trị viên máy chủ của bạn muốn, họ có thể truy cập mọi dữ liệu hồ sơ và mọi thứ bạn mà đăng (tương tự như cách hầu hết trang web lưu trữ dữ liệu người dùng hiện nay). Đây là lý do bạn nên chọn kỹ máy chủ đăng ký, nơi có quản trị viên mà bạn tin tưởng. Tự vận hành máy chủ sẽ bảo mật hơn vì bạn có toàn quyền truy cập cơ sở dữ liệu."
-      data_visible_to_podmin_q: "Quản trị viên máy chủ có thể xem dữ liệu gì của tôi?"
-      download_data_a: "Được. Dưới mục “Tài khoản” trong thiết lập có hai nút: một nút để tải về dữ liệu và một nút tải về hình ảnh."
-      download_data_q: "Tôi có thể tải về một bản sao tất cả dữ liệu trong tài khoản của tôi?"
-      move_pods_a: "Diaspora phiên bản 0.7.0.0 cho phép chuyển tài khoản: bạn có thể xuất dữ liệu từ mục “Tài khoản” trong thiết lập. Giữ dữ liệu an toàn! Trong phiên bản tiếp theo, bạn sẽ có thể chuyển toàn bộ, bao gồm bài đăng và danh bạ sang một máy chủ khác."
-      move_pods_q: "Làm sao để chuyển tài khoản sang một máy chủ khác?"
-      title: "Quản lý dữ liệu tài khoản"
-    aspects:
-      change_aspect_of_post_a: "Không, nhưng bạn luôn luôn có thể tạo một bài đăng mới với cùng nội dung và đăng nó với một mối quan hệ khác."
-      change_aspect_of_post_q: "Nếu tôi đã đăng một bài đăng, tôi có thể đổi mối quan hệ của bài đăng đó được không?"
-      contacts_know_aspect_a: "Không. Họ không thể thấy."
-      contacts_know_aspect_q: "Những người trong danh bạ của tôi có biết họ thuộc mối quan hệ nào không?"
-      delete_aspect_a: "Nhấn “Mối quan hệ của tôi” ở thanh bên và chọn biểu tượng bút chì kế bên mối quan hệ mà bạn muốn xoá. Hoặc mở trang Danh bạ chọn mối quan hệ muốn xoá, sau đó chọn tiếp biểu tượng thùng rác trên góc phải của trang."
-      delete_aspect_q: "Làm sao để xoá một mối quan hệ?"
-      person_multiple_aspects_a: "Được. Mở trang Danh bạ, kế bên mỗi người dùng có nút để bạn chọn (hoặc xoá bỏ) người đó vào những mối quan hệ mà bạn muốn. Trên trang cá nhân của họ cũng có nút chức năng giống vậy. Hoặc khi bạn rê chuột lên tên họ trên bảng tin, một popup sẽ xuất hiện để bạn chọn tương tự."
-      person_multiple_aspects_q: "Tôi có thể thêm một người vào nhiều mối quan hệ không?"
-      post_multiple_aspects_a: "Được. Khi tạo bài đăng mới, bạn có thể chọn hoặc bỏ chọn những mối quan hệ. Mặc định sẽ đăng với mọi mối quan hệ. Bạn cũng có thể chọn trước những mối quan hệ muốn đăng trong thanh bên. Khi bạn đăng, những mối quan hệ đã chọn ở thanh bên sẽ được tự động chọn trong bài đăng."
-      post_multiple_aspects_q: "Tôi có thể đăng một bài đăng với nhiều mối quan hệ cùng lúc?"
-      remove_notification_a: "Không. Họ cũng không nhận được thông báo nếu bạn thêm họ vào nhiều mối quan hệ."
-      remove_notification_q: "Nếu tôi xoá bỏ ai đó khỏi một mối quan hệ, họ có nhận thông báo về điều này không?"
-      rename_aspect_a: "Nhấn “Mối quan hệ của tôi” ở thanh bên và chọn biểu tượng bút chì kế bên mối quan hệ mà bạn muốn đổi tên. Hoặc bạn cũng có thể mở trang Danh bạ và chọn mối quan hệ. Sau đó nhấn vào biểu tượng chỉnh sửa kế bên tên mối quan hệ, đổi tên và chọn “Cập nhật”."
-      rename_aspect_q: "Làm sao đổi tên một mối quan hệ?"
-      restrict_posts_i_see_a: "Được. Nhấn chọn “Mối quan hệ của tôi” ở thanh bên và click chọn vào những mối quan hệ bạn muốn xem. Chỉ những bài đăng từ người trong mối quan hệ đã chọn đó mới xuất hiện trên bảng tin của bạn."
-      restrict_posts_i_see_q: "Làm sao để bảng tin của tôi chỉ hiện bài đăng từ một mối quan hệ nhất định?"
-      title: "Mối quan hệ"
-      what_is_an_aspect_a: "Mối quan hệ là cách bạn sắp xếp danh bạ của mình trên Diaspora. Mỗi mối quan hệ là một tập hợp những người có cùng vị trí xã hội đối với bạn. Chẳng hạn như đồng nghiệp, gia đình, bạn bè."
-      what_is_an_aspect_q: "Mối quan hệ là gì?"
-      who_sees_post_a: "Nếu bạn tạo một bài đăng hạn chế, chỉ những người có trong mối quan hệ bạn đã chọn mới có thể thấy (bạn có thể chọn nhiều mối quan hệ). Những bài đăng hạn chế sẽ bị ẩn khi xem trang của bạn công khai."
-      who_sees_post_q: "Khi tôi đăng trong một mối quan hệ, ai sẽ thấy?"
-    community_guidelines: "hướng dẫn cộng đồng"
-    faq: "FAQ"
-    foundation_website: "Trang chủ Diaspora"
-    getting_help:
-      get_support_a_discourse: "Tìm những thảo luận có liên quan tới yêu cầu của bạn hoặc tạo một chủ đề mới trên nền tảng %{discourse} của chúng tôi"
-      get_support_a_faq: "Đọc trang %{faq} trên wiki"
-      get_support_a_hashtag: "Đăng một bài đăng công khai sử dụng hashtag %{question}"
-      get_support_a_irc: "Tham gia kênh chat %{irc}"
-      get_support_a_tutorials: "Đọc kỹ %{tutorials}"
-      get_support_a_website: "Tham khảo %{link}"
-      get_support_a_wiki: "Tra cứu %{link}"
-      get_support_q: "Nếu thắc mắc của tôi không có trong FAQ, tôi nên gửi yêu cầu hỗ trợ ở đâu?"
-      getting_started_a: "Bạn đọc kỹ nhé. Tìm hiểu %{tutorial_series} trên trang chủ. Nó sẽ chỉ bạn từng bước quá trình đăng ký và dạy bạn cách sử dụng các tính năng cơ bản của Diaspora."
-      getting_started_q: "Giúp tôi với! Tôi cần hướng dẫn sử dụng cơ bản!"
-      title: "Trợ giúp"
-    getting_started_tutorial: "Hướng dẫn cho người mới"
-    here: "tại đây"
-    irc: "IRC"
-    keyboard_shortcuts:
-      keyboard_shortcuts_a1: "Trong bảng tin, bạn có thể sử dụng các phím tắt sau:"
-      keyboard_shortcuts_li1: "J – Chuyển tới bài đăng tiếp theo"
-      keyboard_shortcuts_li2: "K – Quay về bài đăng trước"
-      keyboard_shortcuts_li3: "C – Bình luận trên bài đăng hiện tại"
-      keyboard_shortcuts_li4: "L – Thích bài đăng hiện tại"
-      keyboard_shortcuts_li5: "R – Chia sẻ bài đăng hiện tại"
-      keyboard_shortcuts_li6: "M – Đọc tiếp bài đăng hiện tại"
-      keyboard_shortcuts_li7: "O – Mở liên kết đầu tiên trong bài đăng hiện tại"
-      keyboard_shortcuts_li8: "Ctrl+Enter – Gửi tin nhắn bạn đang soạn"
-      keyboard_shortcuts_q: "Làm sao sử dụng phím tắt?"
-      title: "Phím tắt"
-    markdown: "Markdown"
-    mentions:
-      how_to_mention_a: "Gõ ký tự “@” và tên người dùng. Một menu sẽ hiện ra giúp bạn dễ dàng chọn. Bạn chỉ có thể nhắc đến những ai có trong mối quan hệ của bạn."
-      how_to_mention_q: "Làm sao nhắc đến ai đó trong một bài đăng?"
-      mention_in_comment_a: "Được. Bạn có thể nhắc đến ai đó trong bình luận giống như cách dùng trong bài đăng. Lưu ý rằng, khi bạn bình luận một bài đăng hạn chế, bạn chỉ có thể nhắc đến người đã tương tác với bài đăng."
-      mention_in_comment_q: "Tôi có thể nhắc đến ai đó trong bình luận không?"
-      see_mentions_a: "Nhấn “Lượt nhắc” ở cột bên trái trang chính."
-      see_mentions_q: "Làm sao xem lại những bài đăng mà tôi được nhắc đến?"
-      title: "Lượt nhắc đến"
-      what_is_a_mention_a: "Lượt nhắc đến nghĩa là khi ai đó nhắc đến bạn trong một bài đăng. Khi bạn được nhắc đến, sẽ có thông báo để bạn biết."
-      what_is_a_mention_q: "Lượt nhắc đến là gì?"
-    miscellaneous:
-      back_to_top_a: "Được. Nhấn vào mũi tên màu xám xuất hiện ở cuối góc phải trên cửa sổ trình duyệt của bạn."
-      back_to_top_q: "Cách nào nhanh nhất để quay về đầu trang?"
-      diaspora_app_a: "Có nhiều ứng dụng Android đã và đang được phát triển. Một vài trong số đó đã lỗi thời và có thể hoạt động không trơn tru với phiên bản Diaspora mới nhất. Hiện chưa có ứng dụng cho iOS. Cách tốt nhất là truy cập Diaspora thông qua trình duyệt web điện thoại."
-      diaspora_app_q: "Diaspora có ứng dụng trên Android hay iOS không?"
-      photo_albums_a: "Hiện tại thì không. Bạn có thể xem toàn bộ hình của một người đã tải lên ở tab Hình ảnh trên trang cá nhân của họ."
-      photo_albums_q: "Xếp photo hoặc video thành album được không?"
-      subscribe_feed_a: "Được, nhưng định dạng đọc có thể khó nhìn. Nếu bạn vẫn muốn, hãy đến trang cá nhân của người đó, sao chép URL (vd: https://podname.org/people/somenumber) và dán nó nó vào trình đọc tin của bạn. Kết quả địa chỉ nguồn tin hiện ra giống như sau: https://podname.org/public/username.atom – Diaspora đề xuất sử dụng Atom thay vì RSS."
-      subscribe_feed_q: "Tôi có thể đăng ký đọc bài đăng của một người thông qua nguồn cấp tin được không?"
-      title: "Khác"
+      carrierwave_processing_error: xử lý thất bại
+      carrierwave_integrity_error: sai định dạng tập tin
+      carrierwave_download_error: không thể tải về
+      extension_whitelist_error: 'Bạn không được phép tải lên tập tin định dạng %{extension}, những định dạng cho phép: %{allowed_types}'
+      extension_blacklist_error: 'Bạn không được phép tải lên tập tin định dạng %{extension}, những định dạng bị cấm: %{prohibited_types}'
+      content_type_whitelist_error: Bạn không được phép tải lên tập tin định dạng %{content_type}
+      content_type_blacklist_error: Bạn không được phép tải lên tập tin định dạng %{content_type}
+      rmagick_processing_error: Đây không phải là hình ảnh
+      mini_magick_processing_error: 'Đây không phải là hình ảnh. Lỗi: %{e}'
+      min_size_error: Dung lượng phải cao hơn %{min_size}
+      max_size_error: Dung lượng phải nhỏ hơn %{max_size}
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Sửa những lỗi sau và thử lại.
+    need_javascript: Trang web này yêu cầu JavaScript để chạy các tính năng. Nếu bạn đang tắt JavaScript, hãy bật lại và làm tươi trang.
+    csrf_token_fail: CSRF token không hợp lệ. Xin đăng nhập và thử lại.
+    mobile_not_available: Trang này không thể xem được trên di động, hãy chuyển sang %{desktop_link}.
+    desktop_view_link: chế độ máy tính bàn
+  admins:
+    admin_bar:
+      pages: Trang
+      dashboard: Trang chính
+      user_search: Tìm người dùng
+      weekly_user_stats: Thống kê người dùng hàng tuần
+      pod_stats: Thống kê
+      report: Lượt báo cáo
+      sidekiq_monitor: Thiết lập Sidekiq
+      pod_network: Liên hợp
+    dashboard:
+      pod_status: Trạng thái
+      fetching_diaspora_version: Đang lấy Diaspora phiên bản mới nhất...
+    user_search:
+      you_currently:
+        zero: Bạn không có lời mời nào %{link}
+        other: Bạn có %{count} lời mời còn lại %{link}
+      view_profile: Xem trang cá nhân
+      add_invites: Tạo lời mời
+      close_account: Vô hiệu hoá tài khoản
+      lock_account: Khoá tài khoản
+      unlock_account: Mở khoá tài khoản
+      are_you_sure: Bạn có chắc muốn vô hiệu hoá tài khoản này?
+      are_you_sure_lock_account: Bạn có chắc muốn khoá tài khoản này?
+      are_you_sure_unlock_account: Bạn có chắc muốn mở khoá tài khoản này?
+      account_closing_scheduled: Tài khoản của %{name} đã được lên lịch vô hiệu hoá. Quá trình xử lí sẽ bắt đầu sớm...
+      account_locking_scheduled: Tài khoản %{name} đã được lên lịch khoá. Đang xử lí...
+      account_unlocking_scheduled: Tài khoản %{name} đã được lên lịch mở khoá. Đang xử lí...
+      make_admin: Chọn quản trị viên
+      remove_admin: Gỡ bỏ quản trị viên
+      make_moderator: Chọn kiểm duyệt viên
+      remove_moderator: Gỡ bỏ kiểm duyệt viên
+      make_spotlight: Thêm vào người dùng nổi bật
+      remove_spotlight: Gỡ khỏi người dùng nổi bật
+      add_admin: "%{name} được chọn làm quản trị viên."
+      delete_admin: "%{name} bị gỡ bỏ chức vụ quản trị viên."
+      add_moderator: "%{name} được chọn làm kiểm duyệt viên."
+      delete_moderator: "%{name} bị gỡ bỏ chức vụ kiểm duyệt viên."
+      add_spotlight: "%{name} được thêm làm người dùng nổi bật."
+      delete_spotlight: "%{name} không còn là người dùng nổi bật."
+      does_not_exist: Không tồn tại người dùng!
+      role_implemented: "%{name} vừa được chọn chức vụ này rồi!"
+      role_removal_implemented: "%{name} vừa bị gỡ bỏ chức vụ này rồi!"
+      email_to: Email được mời
+      invite: Thư mời
+      under_13: Hiện những người dùng dưới 13 tuổi (COPPA)
+      users:
+        zero: Không tìm thấy ai
+        other: Tìm thấy %{count} người dùng
+    user_entry:
+      id: ID
+      guid: GUID
+      email: Email
+      diaspora_handle: Diaspora ID
+      last_seen: Hoạt động lần cuối
+      current_sign_in_ip: IP đăng nhập gần đây
+      account_closed: Tài khoản đã vô hiệu hoá
+      nsfw: "#nsfw"
+      admin: Quản trị viên
+      moderator: Kiểm duyệt viên
+      spotlight: Người dùng nổi bật
+      unknown: Chưa rõ
+      invite_token: Token thư mời
+      'yes': Đồng ý
+      'no': Huỷ bỏ
+    weekly_user_stats:
+      current_server: Ngày hiện tại của máy chủ là %{date}
+      amount_of:
+        zero: Tuần này không có người dùng mới
+        other: 'Số người dùng mới tuần này: %{count}'
+    stats:
+      week: Tuần
+      2weeks: 2 tuần
+      month: Tháng
+      daily: Hàng ngày
+      usage_statistic: Thống kê
+      go: Đi
+      display_results: Hiển thị các kết quả từ %{segment}
+      posts:
+        zero: Chưa có bài đăng
+        other: "%{count} bài đăng"
+      comments:
+        zero: Chưa có bình luận
+        other: "%{count} bình luận"
+      shares:
+        zero: Chưa có lượt chia sẻ
+        other: "%{count} lượt chia sẻ"
+      users:
+        zero: Chưa có người dùng
+        other: "%{count} người dùng"
+      current_segment: Trung bình %{post_yest} bài đăng trên mỗi người dùng, kể từ %{post_day}
+      50_most: 50 hashtag phổ biến nhất
+      tag_name: 'Hashtag: %{name_tag} Lần dùng: %{count_tag}'
     pods:
-      find_people_a: "Hãy mời bạn bè của bạn tham gia Diaspora bằng cách sử dụng liên kết hoặc thư mời trên thanh bên. Theo dõi #hashtag để khám phá những người dùng cùng chung sở thích. Tạo bài đăng cho biết bạn vừa tham gia #newhere."
-      find_people_q: "Tôi đã tham gia một máy chủ, làm sao tìm người dùng để theo dõi?"
-      title: "Máy chủ"
-      use_search_box_a: "Bạn có thể nhập tên người dùng của họ hoặc tên hiển thị (tên trên trang cá nhân của họ). Hoặc nhập đầy đủ Diaspora ID (tên tài khoản@máy chủ). Nếu vẫn không thấy, có thể do độ trễ của mạng. Hãy thử lại."
-      use_search_box_q: "Làm sao tìm kiếm người dùng?"
-      what_is_a_pod_a: "Máy chủ là nơi vận hành phần mềm Diaspora và kết nối với mạng lưới Diaspora. Đó là nơi bạn đăng ký và lưu trữ tài khoản của bạn. Có rất nhiều máy chủ. Bạn có thể thêm bạn từ máy chủ khác và giao tiếp với họ mà không cần tạo tài khoản ở máy chủ khác! Nó giống như dịch vụ email."
-      what_is_a_pod_q: "Máy chủ là gì?"
+      pod_network: Máy chủ liên hợp
+  aspects:
+    edit:
+      confirm_remove_aspect: Bạn có chắc là muốn xoá mối quan hệ này?
+      rename: Đổi tên
+      aspect_list_is_visible: "Những người trong \bmối quan hệ này có thể nhìn thấy nhau."
+      aspect_list_is_not_visible: Những người trong mối quan hệ này không thể nhìn thấy nhau.
+      update: Cập nhật
+      updating: Đang cập nhật
+    no_contacts_message:
+      you_should_add_some_more_contacts: Bạn nên thêm một vài người trong danh bạ!
+      try_adding_some_more_contacts: Bạn có thể tìm hoặc %{invite_link} thêm bạn bè.
+      invite_link_text: mời
+      or_spotlight: Hoặc bạn có thể chia sẻ với %{link}
+      community_spotlight: Nổi bật từ cộng đồng
+    aspect_listings:
+      add_an_aspect: "+ Thêm mối quan hệ"
+    destroy:
+      success: Đã xoá bỏ %{name}.
+      success_auto_follow_back: Đã xoá bỏ %{name}. Bạn từng dùng mối quan hệ này để tự động theo dõi lại người khác. Kiểm tra thiết lập cá nhân để chọn một mối quan hệ tự động theo dõi lại người khác.
+      failure: Không thể xoá bỏ %{name}.
+    update:
+      success: Đã chỉnh sửa mối quan hệ %{name} thành công.
+      failure: Tên mối quan hệ %{name} quá dài, không thể lưu.
+    add_to_aspect:
+      failure: Không thể thêm người vào mối quan hệ.
+      success: Đã thêm người vào mối quan hệ thành công.
+    seed:
+      family: Gia đình
+      work: Đồng nghiệp
+      acquaintances: Người quen
+      friends: Bạn bè
+    index:
+      donate: Ủng hộ
+      keep_pod_running: "Ủng hộ để giúp %{pod} \btrang trải chi phí duy trì hàng tháng!"
+      donate_liberapay: Ủng hộ liberapay
+      welcome_to_diaspora: Chào mừng đến với Diaspora, %{name}!
+      introduce_yourself: Đây là bảng tin của bạn. Hãy tự giới thiệu mình ở đây.
+      new_here:
+        title: Chào đón người dùng mới
+        follow: Theo dõi %{link} và chào đón người dùng mới đến với Diaspora!
+        learn_more: Tìm hiểu thêm
+      help:
+        need_help: Trợ giúp
+        here_to_help: Cộng đồng Diaspora!
+        do_you: 'Bạn muốn:'
+        have_a_question: "... gửi %{link}?"
+        tag_question: "#question"
+        find_a_bug: "... gửi %{link}?"
+        tag_bug: "#bug"
+        feature_suggestion: "... đề xuất %{link}?"
+        tag_feature: "#feature"
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: hướng dẫn sử dụng."
+        tutorial_link_text: Hướng dẫn
+        support_forum: Bạn nên tham gia %{support_forum}.
+        support_forum_link: diễn đàn hỗ trợ
+        any_problem: Có vấn đề?
+        contact_podmin: Liên hệ quản trị viên!
+        mail_podmin: Email quản trị viên
+      services:
+        heading: Kết nối dịch vụ
+        content: 'Bạn có thể kết nối những dịch vụ sau với Diaspora:'
+    aspect_stream:
+      stay_updated: Đang tải
+      stay_updated_explanation: Bảng tin chính của bạn là bài đăng từ những người và hashtag mà bạn theo dõi, cũng như bài đăng từ một vài thành viên nổi bật trong cộng đồng.
+      make_something: Tạo gì đó đi nào
+  aspect_memberships:
+    destroy:
+      success: Đã xoá bỏ người này khỏi mối quan hệ.
+      failure: Không thể xoá bỏ người này khỏi mối quan hệ.
+      no_membership: "Không tìm thấy người đã chọn trong \bmối quan hệ."
+      forbidden: Bạn không được phép làm vậy.
+      invalid_statement: Từ chối nhân đôi giá trị.
+  bookmarklet:
+    heading: Đã lưu
+    post_something: Đăng lên Diaspora
+    explanation: Đăng lên Diaspora từ bất kì đâu bằng %{link}.
+  color_themes:
+    dark: Tối
+    dark_green: Xanh tối
+    egyptian_blue: Xanh lam
+    magenta: Đỏ
+    original: Xám
+    original_white: Sáng
+  comments:
+    create:
+      fail: Bình luận chưa được
+    new_comment:
+      comment: Bình luận
+      commenting: Đang gửi bình luận...
+    destroy:
+      success: Đã xoá bình luận %{id}
+      fail: Chưa thể xoá bình luận bài đăng
+    not_found: Không tìm thấy bài đăng hoặc bình luận
+  contacts:
+    index:
+      start_a_conversation: Bắt đầu viết gì đó
+      title: Danh bạ
+      no_contacts: Có vẻ như bạn cần thêm vài người bạn!
+      no_contacts_message: Xem thử %{community_spotlight}
+      community_spotlight: Bài đăng nổi bật
+      no_contacts_in_aspect: Bạn chưa có người nào trong mối quan hệ này. Bên dưới là những người trong danh bạ để bạn thêm vào.
+      my_contacts: Danh bạ của tôi
+      all_contacts: Danh bạ
+      only_sharing_with_me: Chỉ chia sẻ với tôi
+      add_contact: Thêm người dùng
+      user_search: Tìm người dùng
+    spotlight:
+      community_spotlight: Bài đăng nổi bật
+      suggest_member: Gợi ý một thành viên
+      no_members: Chưa có người dùng nào.
+  conversations:
+    index:
+      conversations_inbox: Tin nhắn – Hộp thư đến
+      new_conversation: Tin nhắn mới
+      no_messages: Không có tin nhắn
+      inbox: Hộp thư đến
+      no_contacts: Bạn cần thêm vài người dùng trước khi bắt đầu đối thoại
+    show:
+      reply: Trả lời
+      replying: Đang trả lời...
+      hide: Ẩn thảo luận
+      delete: Xoá thảo luận
+      last_message: Tin nhắn cuối %{timeago}
+    new:
+      to: Người nhận
+      subject: Tiêu đề
+      subject_default: Không tiêu đề
+      message: Nhắn tin
+      send: Gửi
+      sending: Đang gửi...
+    create:
+      sent: Đã gửi tin nhắn
+      fail: Tin nhắn không hợp lệ
+    new_conversation:
+      fail: Tin nhắn không hợp lệ
+    destroy:
+      delete_success: Đã xoá thảo luận thành công
+      hide_success: Đã ẩn thảo luận thành công
+    not_found: Không tìm thấy thảo luận
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+  help:
+    title_header: Trợ giúp
+    tutorials: hướng dẫn
+    tutorial: hướng dẫn
+    irc: IRC
+    wiki: wiki
+    faq: FAQ
+    markdown: Markdown
+    here: tại đây
+    foundation_website: Trang chủ Diaspora
+    third_party_tools: Công cụ bên thứ ba
+    getting_started_tutorial: Hướng dẫn cho người mới
+    community_guidelines: hướng dẫn cộng đồng
+    getting_help:
+      title: Trợ giúp
+      getting_started_q: Giúp tôi với! Tôi cần hướng dẫn sử dụng cơ bản!
+      getting_started_a: Bạn đọc kỹ nhé. Tìm hiểu %{tutorial_series} trên trang chủ. Nó sẽ chỉ bạn từng bước quá trình đăng ký và dạy bạn cách sử dụng các tính năng cơ bản của Diaspora.
+      get_support_q: Nếu thắc mắc của tôi không có trong FAQ, tôi nên gửi yêu cầu hỗ trợ ở đâu?
+      get_support_a_website: Tham khảo %{link}
+      get_support_a_tutorials: Đọc kỹ %{tutorials}
+      get_support_a_wiki: Tra cứu %{link}
+      get_support_a_irc: Tham gia kênh chat %{irc}
+      get_support_a_faq: Đọc trang %{faq} trên wiki
+      get_support_a_hashtag: Đăng một bài đăng công khai sử dụng hashtag %{question}
+      get_support_a_discourse: Tìm những thảo luận có liên quan tới yêu cầu của bạn hoặc tạo một chủ đề mới trên nền tảng %{discourse} của chúng tôi
+    account_and_data_management:
+      title: Quản lý dữ liệu tài khoản
+      move_pods_q: Làm sao để chuyển tài khoản sang một máy chủ khác?
+      move_pods_a: 'Diaspora phiên bản 0.7.0.0 cho phép chuyển tài khoản: bạn có thể xuất dữ liệu từ mục “Tài khoản” trong thiết lập. Giữ dữ liệu an toàn! Trong phiên bản tiếp theo, bạn sẽ có thể chuyển toàn bộ, bao gồm bài đăng và danh bạ sang một máy chủ khác.'
+      download_data_q: Tôi có thể tải về một bản sao tất cả dữ liệu trong tài khoản của tôi?
+      download_data_a: 'Được. Dưới mục “Tài khoản” trong thiết lập có hai nút: một nút để tải về dữ liệu và một nút tải về hình ảnh.'
+      close_account_q: Làm sao xoá tài khoản?
+      close_account_a: Đến cuối trang thiết lập và nhấn vào nút “Vô hiệu hoá tài khoản”. Bạn sẽ được yêu cầu nhập mật khẩu để tiếp tục. Hãy nhớ kỹ, nếu bạn vô hiệu hoá tài khoản, tên người dùng của bạn ở máy chủ đó sẽ <strong>không bao giờ</strong> có thể đăng ký lại.
+      data_visible_to_podmin_q: Quản trị viên máy chủ có thể xem dữ liệu gì của tôi?
+      data_visible_to_podmin_a: 'Ngắn gọn: mọi thứ. Giao tiếp giữa các máy chủ luôn được mã hoá (sử dụng SSL và mã hoá riêng của Diaspora), nhưng dữ liệu lưu trữ trên máy chủ sẽ không được mã hoá. Nếu quản trị viên máy chủ của bạn muốn, họ có thể truy cập mọi dữ liệu hồ sơ và mọi thứ bạn mà đăng (tương tự như cách hầu hết trang web lưu trữ dữ liệu người dùng hiện nay). Đây là lý do bạn nên chọn kỹ máy chủ đăng ký, nơi có quản trị viên mà bạn tin tưởng. Tự vận hành máy chủ sẽ bảo mật hơn vì bạn có toàn quyền truy cập cơ sở dữ liệu.'
+      data_other_podmins_q: Quản trị viên máy chủ khác có thể xem dữ liệu của tôi không?
+      data_other_podmins_a: Một khi bạn theo dõi ai đó trên máy chủ khác, mọi bài đăng của bạn và một bản sao hồ sơ của bạn sẽ được lưu cached trên máy chủ đó. Khi bạn xoá bài đăng hoặc vô hiệu hoá tài khoản, một yêu cầu xoá đồng thời sẽ được gửi đến máy chủ đó. Hình ảnh của bạn không bao giờ lưu trữ trên máy chủ khác.
+    aspects:
+      title: Mối quan hệ
+      what_is_an_aspect_q: Mối quan hệ là gì?
+      what_is_an_aspect_a: Mối quan hệ là cách bạn sắp xếp danh bạ của mình trên Diaspora. Mỗi mối quan hệ là một tập hợp những người có cùng vị trí xã hội đối với bạn. Chẳng hạn như đồng nghiệp, gia đình, bạn bè.
+      who_sees_post_q: Khi tôi đăng trong một mối quan hệ, ai sẽ thấy?
+      who_sees_post_a: Nếu bạn tạo một bài đăng hạn chế, chỉ những người có trong mối quan hệ bạn đã chọn mới có thể thấy (bạn có thể chọn nhiều mối quan hệ). Những bài đăng hạn chế sẽ bị ẩn khi xem trang của bạn công khai.
+      contacts_know_aspect_q: Những người trong danh bạ của tôi có biết họ thuộc mối quan hệ nào không?
+      contacts_know_aspect_a: Không. Họ không thể thấy.
+      person_multiple_aspects_q: Tôi có thể thêm một người vào nhiều mối quan hệ không?
+      person_multiple_aspects_a: Được. Mở trang Danh bạ, kế bên mỗi người dùng có nút để bạn chọn (hoặc xoá bỏ) người đó vào những mối quan hệ mà bạn muốn. Trên trang cá nhân của họ cũng có nút chức năng giống vậy. Hoặc khi bạn rê chuột lên tên họ trên bảng tin, một popup sẽ xuất hiện để bạn chọn tương tự.
+      remove_notification_q: Nếu tôi xoá bỏ ai đó khỏi một mối quan hệ, họ có nhận thông báo về điều này không?
+      remove_notification_a: Không. Họ cũng không nhận được thông báo nếu bạn thêm họ vào nhiều mối quan hệ.
+      change_aspect_of_post_q: Nếu tôi đã đăng một bài đăng, tôi có thể đổi mối quan hệ của bài đăng đó được không?
+      change_aspect_of_post_a: Không, nhưng bạn luôn luôn có thể tạo một bài đăng mới với cùng nội dung và đăng nó với một mối quan hệ khác.
+      post_multiple_aspects_q: Tôi có thể đăng một bài đăng với nhiều mối quan hệ cùng lúc?
+      post_multiple_aspects_a: Được. Khi tạo bài đăng mới, bạn có thể chọn hoặc bỏ chọn những mối quan hệ. Mặc định sẽ đăng với mọi mối quan hệ. Bạn cũng có thể chọn trước những mối quan hệ muốn đăng trong thanh bên. Khi bạn đăng, những mối quan hệ đã chọn ở thanh bên sẽ được tự động chọn trong bài đăng.
+      restrict_posts_i_see_q: Làm sao để bảng tin của tôi chỉ hiện bài đăng từ một mối quan hệ nhất định?
+      restrict_posts_i_see_a: Được. Nhấn chọn “Mối quan hệ của tôi” ở thanh bên và click chọn vào những mối quan hệ bạn muốn xem. Chỉ những bài đăng từ người trong mối quan hệ đã chọn đó mới xuất hiện trên bảng tin của bạn.
+      rename_aspect_q: Làm sao đổi tên một mối quan hệ?
+      rename_aspect_a: Nhấn “Mối quan hệ của tôi” ở thanh bên và chọn biểu tượng bút chì kế bên mối quan hệ mà bạn muốn đổi tên. Hoặc bạn cũng có thể mở trang Danh bạ và chọn mối quan hệ. Sau đó nhấn vào biểu tượng chỉnh sửa kế bên tên mối quan hệ, đổi tên và chọn “Cập nhật”.
+      delete_aspect_q: Làm sao để xoá một mối quan hệ?
+      delete_aspect_a: Nhấn “Mối quan hệ của tôi” ở thanh bên và chọn biểu tượng bút chì kế bên mối quan hệ mà bạn muốn xoá. Hoặc mở trang Danh bạ chọn mối quan hệ muốn xoá, sau đó chọn tiếp biểu tượng thùng rác trên góc phải của trang.
+    mentions:
+      title: Lượt nhắc đến
+      what_is_a_mention_q: Lượt nhắc đến là gì?
+      what_is_a_mention_a: Lượt nhắc đến nghĩa là khi ai đó nhắc đến bạn trong một bài đăng. Khi bạn được nhắc đến, sẽ có thông báo để bạn biết.
+      how_to_mention_q: Làm sao nhắc đến ai đó trong một bài đăng?
+      how_to_mention_a: Gõ ký tự “@” và tên người dùng. Một menu sẽ hiện ra giúp bạn dễ dàng chọn. Bạn chỉ có thể nhắc đến những ai có trong mối quan hệ của bạn.
+      mention_in_comment_q: Tôi có thể nhắc đến ai đó trong bình luận không?
+      mention_in_comment_a: Được. Bạn có thể nhắc đến ai đó trong bình luận giống như cách dùng trong bài đăng. Lưu ý rằng, khi bạn bình luận một bài đăng hạn chế, bạn chỉ có thể nhắc đến người đã tương tác với bài đăng.
+      see_mentions_q: Làm sao xem lại những bài đăng mà tôi được nhắc đến?
+      see_mentions_a: Nhấn “Lượt nhắc” ở cột bên trái trang chính.
+    pods:
+      title: Máy chủ
+      what_is_a_pod_q: Máy chủ là gì?
+      what_is_a_pod_a: Máy chủ là nơi vận hành phần mềm Diaspora và kết nối với mạng lưới Diaspora. Đó là nơi bạn đăng ký và lưu trữ tài khoản của bạn. Có rất nhiều máy chủ. Bạn có thể thêm bạn từ máy chủ khác và giao tiếp với họ mà không cần tạo tài khoản ở máy chủ khác! Nó giống như dịch vụ email.
+      find_people_q: Tôi đã tham gia một máy chủ, làm sao tìm người dùng để theo dõi?
+      find_people_a: 'Hãy mời bạn bè của bạn tham gia Diaspora bằng cách sử dụng liên kết hoặc thư mời trên thanh bên. Theo dõi #hashtag để khám phá những người dùng cùng chung sở thích. Tạo bài đăng cho biết bạn vừa tham gia #newhere.'
+      use_search_box_q: Làm sao tìm kiếm người dùng?
+      use_search_box_a: Bạn có thể nhập tên người dùng của họ hoặc tên hiển thị (tên trên trang cá nhân của họ). Hoặc nhập đầy đủ Diaspora ID (tên tài khoản@máy chủ). Nếu vẫn không thấy, có thể do độ trễ của mạng. Hãy thử lại.
     posts_and_posting:
-      char_limit_services_a: "Bạn cần giới hạn bài đăng trong khoảng ký tự cho phép (280 với Twitter, không giới hạn với Tumblr), và số ký tự cho phép còn lại sẽ hiển thị khi biểu tượng của dịch vụ sáng lên. Bạn vẫn có thể đăng nếu vượt quá số ký tự cho phép, nhưng bài đăng trên dịch vụ đó sẽ biến thành một liên kết dẫn về bài đăng của bạn trên Diaspora."
-      char_limit_services_q: "Nếu bài đăng của tôi vượt quá ký tự cho phép của dịch vụ đã kết nối thì sao?"
-      character_limit_a: "65,535 ký tự. Nhiều hơn 65,395 ký tự so với Twitter! ;)"
-      character_limit_q: "Một bài đăng tối đa bao nhiêu ký tự?"
+      title: Bài đăng
+      stream_full_of_posts_q: Vì sao bảng tin của tôi toàn là bài đăng từ những người tôi không biết và không theo dõi?
+      stream_full_of_posts_a1: 'Bảng tin của bạn gồm ba loại bài đăng:'
+      stream_full_of_posts_li1: Bài đăng từ những người bạn đã theo dõi (gồm công khai và hạn chế với mối quan hệ có bạn trong đó). Để không hiện dạng bài đăng này, hãy ngưng theo dõi người đó.
+      stream_full_of_posts_li2: Bài đăng công khai chứa một trong những hashtag mà bạn theo dõi. Để không hiện dạng bài đăng này, ngừng theo dõi hashtag đó.
+      stream_full_of_posts_li3: Bài đăng công khai bởi những người dùng nổi bật. Bạn có ẩn bằng cách bỏ chọn “Hiện bài đăng nổi bật trong bảng tin?”
+      hide_posts_q: Làm sao ẩn một bài đăng?
+      hide_posts_a: Rê chuột lên đầu một bài đăng, một dấu X sẽ xuất hiện bên phải. Nhấn chọn để ẩn bài đăng và những thông báo liên quan bài đăng đó. Bạn vẫn có thể thấy bài đăng nếu bạn ghé thăm trang cá nhân của người đăng nó.
+      post_notification_q: Làm sao để nhận thông báo hoặc tắt thông báo về một bài đăng?
+      post_notification_a: Góc trên bên phải của bài đăng có một biểu tượng cái chuông. Nhấn vào để bật hoặc tắt thông báo về bài đăng đó.
+      ignore_user_q: Làm sao để ẩn ai đó khỏi bảng tin của tôi?
+      ignore_user_a1: Nếu bạn đang theo dõi người đó, xoá bỏ họ khỏi mối quan hệ sẽ giúp bài đăng của họ biến mất khỏi bảng tin của bạn. Một phương pháp khác là “ẩn” người dùng đó. Họ sẽ đồng thời không thể thích hay bình luận trên bài đăng của bạn. Tuy nhiên, họ vẫn có thể chia sẻ bài đăng của bạn, bình luận trên những lượt chia sẻ bài đăng của bạn và xuất hiện trong những bài đăng của người khác.
+      ignore_user_a2: Để ẩn ai đó, nhấn vào biểu tượng “ẩn” trên góc trên bên phải một bài đăng bất kỳ của họ. Những bài đăng của họ sẽ biến mất khỏi bảng tin của bạn. Bên cạnh đó, bạn cũng có thể đến trang cá nhân của họ và nhấn vào biểu tượng “ẩn” ở đó.
+      ignore_user_a3: Bạn có thể xem lại danh sách những người mà bạn đã ẩn ở phần thiết lập tài khoản, mục Riêng tư. Để hiện lại ai đó, xoá bỏ họ khỏi danh sách này.
+      post_report_q: Làm sao để báo cáo bài đăng vi phạm?
+      post_report_a: Nhấn vào biểu tượng cảnh báo hình tam giác ở góc trên bên phải bài đăng. Bổ sung lý do báo cáo trong hộp thoại vừa mở ra. Xin hãy chỉ báo cáo những bài đăng vi phạm %{community_guidelines}, ví dụ như nội dung bất hợp pháp, xúc phạm hoặc spam.
+      character_limit_q: Một bài đăng tối đa bao nhiêu ký tự?
+      character_limit_a: 65,535 ký tự. Nhiều hơn 65,395 ký tự so với Twitter! ;)
+      char_limit_services_q: Nếu bài đăng của tôi vượt quá ký tự cho phép của dịch vụ đã kết nối thì sao?
+      char_limit_services_a: Bạn cần giới hạn bài đăng trong khoảng ký tự cho phép (280 với Twitter, không giới hạn với Tumblr), và số ký tự cho phép còn lại sẽ hiển thị khi biểu tượng của dịch vụ sáng lên. Bạn vẫn có thể đăng nếu vượt quá số ký tự cho phép, nhưng bài đăng trên dịch vụ đó sẽ biến thành một liên kết dẫn về bài đăng của bạn trên Diaspora.
+      format_text_q: Làm sao định dạng bài đăng (in đậm, in nghiêng, etc.)?
+      format_text_a: Diaspora hỗ trợ %{markdown}. Trên trình soạn thảo có các nút giúp bạn định dạng nhanh hơn. Tham khảo đầy đủ cú pháp ở %{here}. Bạn không thể chỉnh sửa sau khi đăng, vì vậy hãy cẩn thận xem trước!
+      insert_images_q: Làm sao chèn hình?
+      insert_images_a: Để tải hình từ máy tính lên, nhấn vào biểu tượng máy chụp hình trên trình soạn thảo. Bạn có thể kéo thả một, hoặc nhiều hình từ máy tính của bạn. Còn nếu muốn chèn hình từ web, nhấn vào biểu tượng hình ảnh trên trình soạn thảo sẽ tạo mã Markdown cho bạn.
+      insert_images_comments_q: Làm sao chèn hình vào bình luận?
+      insert_images_comments_a: Bạn có thể sử dụng Markdown để nhập một hình ảnh từ web khi bình luận. Tuy nhiên, bạn không thể tải lên hình ảnh trực tiếp từ máy tính. Hãy tải chúng lên một dịch vụ lưu trữ hình ảnh và nhập chúng thông qua nút hình ảnh trên thanh công cụ soạn thảo.
+      size_of_images_q: Làm sao thay đổi kích cỡ hình trên bài đăng hoặc bình luận?
+      size_of_images_a: Không. Hình ảnh sẽ tự động co lại vừa với bảng tin hoặc bài đăng chi tiết.
+      embed_multimedia_q: Làm sao chèn mã video, âm thanh hoặc nội dung đa phương tiện vào bài đăng?
       embed_multimedia_a: "Bạn hãy dán URL (vd: http://www.youtube.com/watch?v=nnnnnnnnnnn ) vào bài đăng rồi rồi video hoặc âm thanh sẽ tự động hiển thị. Những nguồn hỗ trợ gồm: YouTube, Vimeo, SoundCloud, Flickr và một vài trang khác. \bDiaspora sử dụng oEmbed cho tính năng này. Nếu bạn đăng link trực tiếp của một tập tin video hoặc âm thanh, Diaspora cũng sẽ chuyển tự động với trình phát HTML5. Hãy nhớ là dùng liên kết đầy đủ – không dùng rút gọn link. Nhấn xem trước và chờ một chút, trình phát sẽ hiện ra."
-      embed_multimedia_q: "Làm sao chèn mã video, âm thanh hoặc nội dung đa phương tiện vào bài đăng?"
-      format_text_a: "Diaspora hỗ trợ %{markdown}. Trên trình soạn thảo có các nút giúp bạn định dạng nhanh hơn. Tham khảo đầy đủ cú pháp ở %{here}. Bạn không thể chỉnh sửa sau khi đăng, vì vậy hãy cẩn thận xem trước!"
-      format_text_q: "Làm sao định dạng bài đăng (in đậm, in nghiêng, etc.)?"
-      hide_posts_a: "Rê chuột lên đầu một bài đăng, một dấu X sẽ xuất hiện bên phải. Nhấn chọn để ẩn bài đăng và những thông báo liên quan bài đăng đó. Bạn vẫn có thể thấy bài đăng nếu bạn ghé thăm trang cá nhân của người đăng nó."
-      hide_posts_q: "Làm sao ẩn một bài đăng?"
-      ignore_user_a1: "Nếu bạn đang theo dõi người đó, xoá bỏ họ khỏi mối quan hệ sẽ giúp bài đăng của họ biến mất khỏi bảng tin của bạn. Một phương pháp khác là “ẩn” người dùng đó. Họ sẽ đồng thời không thể thích hay bình luận trên bài đăng của bạn. Tuy nhiên, họ vẫn có thể chia sẻ bài đăng của bạn, bình luận trên những lượt chia sẻ bài đăng của bạn và xuất hiện trong những bài đăng của người khác."
-      ignore_user_a2: "Để ẩn ai đó, nhấn vào biểu tượng “ẩn” trên góc trên bên phải một bài đăng bất kỳ của họ. Những bài đăng của họ sẽ biến mất khỏi bảng tin của bạn. Bên cạnh đó, bạn cũng có thể đến trang cá nhân của họ và nhấn vào biểu tượng “ẩn” ở đó."
-      ignore_user_a3: "Bạn có thể xem lại danh sách những người mà bạn đã ẩn ở phần thiết lập tài khoản, mục Riêng tư. Để hiện lại ai đó, xoá bỏ họ khỏi danh sách này."
-      ignore_user_q: "Làm sao để ẩn ai đó khỏi bảng tin của tôi?"
-      insert_images_a: "Để tải hình từ máy tính lên, nhấn vào biểu tượng máy chụp hình trên trình soạn thảo. Bạn có thể kéo thả một, hoặc nhiều hình từ máy tính của bạn. Còn nếu muốn chèn hình từ web, nhấn vào biểu tượng hình ảnh trên trình soạn thảo sẽ tạo mã Markdown cho bạn."
-      insert_images_comments_a: "Bạn có thể sử dụng Markdown để nhập một hình ảnh từ web khi bình luận. Tuy nhiên, bạn không thể tải lên hình ảnh trực tiếp từ máy tính. Hãy tải chúng lên một dịch vụ lưu trữ hình ảnh và nhập chúng thông qua nút hình ảnh trên thanh công cụ soạn thảo."
-      insert_images_comments_q: "Làm sao chèn hình vào bình luận?"
-      insert_images_q: "Làm sao chèn hình?"
-      post_location_a: "Nhấn vào biểu tượng cây ghim kế bên máy chụp ảnh ở trình soạn thảo. Nó sẽ tự động nhập vào địa chỉ hiện tại của bạn từ OpenStreetMap. Bạn có thể chỉnh sửa – ví dụ như chỉ chọn thành phố thay vì cả địa chỉ cụ thể."
-      post_location_q: "Làm sao thêm nơi đăng vào một bài đăng?"
-      post_notification_a: "Góc trên bên phải của bài đăng có một biểu tượng cái chuông. Nhấn vào để bật hoặc tắt thông báo về bài đăng đó."
-      post_notification_q: "Làm sao để nhận thông báo hoặc tắt thông báo về một bài đăng?"
-      post_poll_a: "Nhấn vào biểu tượng đồ thị để tạo bình chọn. Nhập một câu hỏi và ít nhất hai lựa chọn trả lời. Đừng quên đăng công khai nếu bạn muốn mọi người đều có thể tham gia bình chọn."
-      post_poll_q: "Làm sao tạo bình chọn trong bài đăng?"
-      post_report_a: "Nhấn vào biểu tượng cảnh báo hình tam giác ở góc trên bên phải bài đăng. Bổ sung lý do báo cáo trong hộp thoại vừa mở ra. Xin hãy chỉ báo cáo những bài đăng vi phạm %{community_guidelines}, ví dụ như nội dung bất hợp pháp, xúc phạm hoặc spam."
-      post_report_q: "Làm sao để báo cáo bài đăng vi phạm?"
-      size_of_images_a: "Không. Hình ảnh sẽ tự động co lại vừa với bảng tin hoặc bài đăng chi tiết."
-      size_of_images_q: "Làm sao thay đổi kích cỡ hình trên bài đăng hoặc bình luận?"
-      stream_full_of_posts_a1: "Bảng tin của bạn gồm ba loại bài đăng:"
-      stream_full_of_posts_li1: "Bài đăng từ những người bạn đã theo dõi (gồm công khai và hạn chế với mối quan hệ có bạn trong đó). Để không hiện dạng bài đăng này, hãy ngưng theo dõi người đó."
-      stream_full_of_posts_li2: "Bài đăng công khai chứa một trong những hashtag mà bạn theo dõi. Để không hiện dạng bài đăng này, ngừng theo dõi hashtag đó."
-      stream_full_of_posts_li3: "Bài đăng công khai bởi những người dùng nổi bật. Bạn có ẩn bằng cách bỏ chọn “Hiện bài đăng nổi bật trong bảng tin?”"
-      stream_full_of_posts_q: "Vì sao bảng tin của tôi toàn là bài đăng từ những người tôi không biết và không theo dõi?"
-      title: "Bài đăng"
+      post_location_q: Làm sao thêm nơi đăng vào một bài đăng?
+      post_location_a: Nhấn vào biểu tượng cây ghim kế bên máy chụp ảnh ở trình soạn thảo. Nó sẽ tự động nhập vào địa chỉ hiện tại của bạn từ OpenStreetMap. Bạn có thể chỉnh sửa – ví dụ như chỉ chọn thành phố thay vì cả địa chỉ cụ thể.
+      post_poll_q: Làm sao tạo bình chọn trong bài đăng?
+      post_poll_a: Nhấn vào biểu tượng đồ thị để tạo bình chọn. Nhập một câu hỏi và ít nhất hai lựa chọn trả lời. Đừng quên đăng công khai nếu bạn muốn mọi người đều có thể tham gia bình chọn.
     private_posts:
-      can_comment_a: "Chỉ có những người dùng Diaspora đã đăng nhập và có trong mối quan hệ mà bạn đã chọn mới có thể bình luận hoặc thích."
-      can_comment_q: "Ai có thể bình luận hoặc thích bài đăng riêng tư của tôi?"
-      can_reshare_a: "Không ai có thể. Bài đăng riêng tư không thể chia sẻ. Tuy nhiên, những người dùng Diaspora đã đăng nhập và có trong mối quan hệ mà bạn đã chọn vẫn có thể copy và paste bài đăng riêng tư hoặc chụp hình lại. Bạn phải tin tưởng những người mà bạn chia sẻ!"
-      can_reshare_q: "Ai có thể chia sẻ bài đăng riêng tư của tôi?"
-      see_comment_a: "Chỉ có những người trong bài đăng đó (những người trong mối quan hệ của người đăng chọn) mới có thể bình luận và thích. "
-      see_comment_q: "Ai có thể thấy khi tôi bình luận hoặc thích một bài đăng riêng tư?"
-      title: "Bài đăng riêng tư"
-      who_sees_post_a: "Chỉ có những người dùng Diaspora đã đăng nhập và có trong mối quan hệ mà bạn đã chọn mới có thể thấy."
-      who_sees_post_q: "Khi tôi đăng bài trong một mối quan hệ, ai có thể xem nó?"
-    profile:
-      title: "Trang cá nhân"
-      what_do_tags_do_a: "Chúng giúp mọi người có thể tìm thấy bạn. Ảnh đại diện của bạn sẽ hiển thị ở thanh bên trái bảng tin, cùng với bất cứ ai có sử dụng hashtag đó trong thông tin cơ bản."
-      what_do_tags_do_q: "Hashtag trong thông tin cơ bản dùng làm gì?"
-      whats_in_profile_a: "Trang cá nhân của bạn gồm: thông tin cơ bản và thông tin nâng cao. Thông tin cơ bản gồm tên, 5 hashtag mô tả về bạn và hình ảnh của bạn. Thông tin nâng cao gồm tiểu sử, nơi ở, giới tính và sinh nhật. Mọi thông tin do bạn tuỳ ý chọn điền vào hay không. Thông tin nâng cao của bạn hiển thị ở cột bên trái của trang cá nhân, dưới ảnh đại diện."
-      whats_in_profile_q: "Trang cá nhân của tôi gồm có gì?"
-      who_sees_profile_a: "Thông tin cơ bản (tên, ảnh đại diện và hashtag) là công khai. Thông tin nâng cao là riêng tư theo mặc định, nhưng bạn có thể chọn công khai nếu thích. Chỉ có những người mà bạn đang theo dõi (nghĩa là bạn đã thêm họ vào mối quan hệ) mới có thể xem thông tin nâng cao. Những người khác sẽ chỉ thấy thông tin công khai của bạn. Mọi thông tin mà bạn chọn công khai sẽ có thể xem bởi bất kỳ ai trên web, và có thể được lập chỉ mục bởi cỗ máy tìm kiếm."
-      who_sees_profile_q: "Ai có thể thấy trang cá nhân của tôi?"
+      title: Bài đăng riêng tư
+      who_sees_post_q: Khi tôi đăng bài trong một mối quan hệ, ai có thể xem nó?
+      who_sees_post_a: Chỉ có những người dùng Diaspora đã đăng nhập và có trong mối quan hệ mà bạn đã chọn mới có thể thấy.
+      can_comment_q: Ai có thể bình luận hoặc thích bài đăng riêng tư của tôi?
+      can_comment_a: Chỉ có những người dùng Diaspora đã đăng nhập và có trong mối quan hệ mà bạn đã chọn mới có thể bình luận hoặc thích.
+      can_reshare_q: Ai có thể chia sẻ bài đăng riêng tư của tôi?
+      can_reshare_a: Không ai có thể. Bài đăng riêng tư không thể chia sẻ. Tuy nhiên, những người dùng Diaspora đã đăng nhập và có trong mối quan hệ mà bạn đã chọn vẫn có thể copy và paste bài đăng riêng tư hoặc chụp hình lại. Bạn phải tin tưởng những người mà bạn chia sẻ!
+      see_comment_q: Ai có thể thấy khi tôi bình luận hoặc thích một bài đăng riêng tư?
+      see_comment_a: 'Chỉ có những người trong bài đăng đó (những người trong mối quan hệ của người đăng chọn) mới có thể bình luận và thích. '
     public_posts:
-      can_comment_reshare_like_a: "Chỉ có những người dùng Diaspora đã đăng nhập mới có thể bình luận, chia sẻ hoặc thích. Với những người mà bạn đã ẩn, họ không thể thích hay bình luận trên bài đăng của bạn."
-      can_comment_reshare_like_q: "Ai có thể bình luận, chia sẻ hoặc thích bài đăng công khai của tôi?"
-      deselect_aspect_posting_a: "Bỏ chọn mối quan hệ không ảnh hưởng tới bài đăng công khai. Bài đăng vẫn sẽ công khai và xuất hiện trong bảng tin của mọi người có trong danh bạ. Để tạo m\x1dột bài đăng chỉ dành cho những mối quan hệ nhất định, bạn cần chọn những mối quan hệ đó trong trình soạn thảo."
-      deselect_aspect_posting_q: "Nếu tôi bỏ chọn những mối quan hệ ở thanh bên khi tạo một bài đăng mới thì sao?"
-      find_public_post_a: "Bài đăng công khai của bạn sẽ xuất hiện trên bảng tin của bất cứ ai theo dõi bạn. Nếu bạn thêm #hashtag trong bài đăng, những ai theo dõi hashtag đó cũng sẽ thấy bài đăng của bạn trong bảng tin của họ. Mọi bài đăng công khai đều có một URL để những người không dùng Diaspora cũng có thể xem. Những bộ máy tìm kiếm như Google có thể lập chỉ mục bài đăng công khai của bạn."
-      find_public_post_q: "Làm sao mọi người tìm thấy bài đăng công khai của tôi?"
-      see_comment_reshare_like_a: "Bình luận, chia sẻ, lượt thích của bài đăng công khai cũng sẽ công khai. Bất cứ ai, kể cả những người không dùng Diaspora cũng có thể thấy tương tác của bạn trên một bài đăng công khai."
-      see_comment_reshare_like_q: "Ai có thể thấy tôi bình luận, chia sẻ hoặc thích một bài đăng công khai?"
-      title: "Bài đăng công khai"
-      who_sees_post_a: "Tất cả mọi người, kể cả những người không dùng Diaspora có thể xem."
-      who_sees_post_q: "Ai có thể thấy bài đăng công khai của tôi?"
+      title: Bài đăng công khai
+      who_sees_post_q: Ai có thể thấy bài đăng công khai của tôi?
+      who_sees_post_a: Tất cả mọi người, kể cả những người không dùng Diaspora có thể xem.
+      find_public_post_q: Làm sao mọi người tìm thấy bài đăng công khai của tôi?
+      find_public_post_a: 'Bài đăng công khai của bạn sẽ xuất hiện trên bảng tin của bất cứ ai theo dõi bạn. Nếu bạn thêm #hashtag trong bài đăng, những ai theo dõi hashtag đó cũng sẽ thấy bài đăng của bạn trong bảng tin của họ. Mọi bài đăng công khai đều có một URL để những người không dùng Diaspora cũng có thể xem. Những bộ máy tìm kiếm như Google có thể lập chỉ mục bài đăng công khai của bạn.'
+      can_comment_reshare_like_q: Ai có thể bình luận, chia sẻ hoặc thích bài đăng công khai của tôi?
+      can_comment_reshare_like_a: Chỉ có những người dùng Diaspora đã đăng nhập mới có thể bình luận, chia sẻ hoặc thích. Với những người mà bạn đã ẩn, họ không thể thích hay bình luận trên bài đăng của bạn.
+      see_comment_reshare_like_q: Ai có thể thấy tôi bình luận, chia sẻ hoặc thích một bài đăng công khai?
+      see_comment_reshare_like_a: Bình luận, chia sẻ, lượt thích của bài đăng công khai cũng sẽ công khai. Bất cứ ai, kể cả những người không dùng Diaspora cũng có thể thấy tương tác của bạn trên một bài đăng công khai.
+      deselect_aspect_posting_q: Nếu tôi bỏ chọn những mối quan hệ ở thanh bên khi tạo một bài đăng mới thì sao?
+      deselect_aspect_posting_a: "Bỏ chọn mối quan hệ không ảnh hưởng tới bài đăng công khai. Bài đăng vẫn sẽ công khai và xuất hiện trong bảng tin của mọi người có trong danh bạ. Để tạo m\x1Dột bài đăng chỉ dành cho những mối quan hệ nhất định, bạn cần chọn những mối quan hệ đó trong trình soạn thảo."
+    profile:
+      title: Trang cá nhân
+      whats_in_profile_q: Trang cá nhân của tôi gồm có gì?
+      whats_in_profile_a: 'Trang cá nhân của bạn gồm: thông tin cơ bản và thông tin nâng cao. Thông tin cơ bản gồm tên, 5 hashtag mô tả về bạn và hình ảnh của bạn. Thông tin nâng cao gồm tiểu sử, nơi ở, giới tính và sinh nhật. Mọi thông tin do bạn tuỳ ý chọn điền vào hay không. Thông tin nâng cao của bạn hiển thị ở cột bên trái của trang cá nhân, dưới ảnh đại diện.'
+      who_sees_profile_q: Ai có thể thấy trang cá nhân của tôi?
+      who_sees_profile_a: Thông tin cơ bản (tên, ảnh đại diện và hashtag) là công khai. Thông tin nâng cao là riêng tư theo mặc định, nhưng bạn có thể chọn công khai nếu thích. Chỉ có những người mà bạn đang theo dõi (nghĩa là bạn đã thêm họ vào mối quan hệ) mới có thể xem thông tin nâng cao. Những người khác sẽ chỉ thấy thông tin công khai của bạn. Mọi thông tin mà bạn chọn công khai sẽ có thể xem bởi bất kỳ ai trên web, và có thể được lập chỉ mục bởi cỗ máy tìm kiếm.
+      what_do_tags_do_q: Hashtag trong thông tin cơ bản dùng làm gì?
+      what_do_tags_do_a: Chúng giúp mọi người có thể tìm thấy bạn. Ảnh đại diện của bạn sẽ hiển thị ở thanh bên trái bảng tin, cùng với bất cứ ai có sử dụng hashtag đó trong thông tin cơ bản.
     resharing_posts:
-      reshare_private_post_aspects_a: "Không. Bạn không thể chia sẻ bất cứ bài đăng riêng tư nào."
-      reshare_private_post_aspects_q: "Tôi có thể chia sẻ một bài đăng riêng tư với những mối quan hệ?"
-      reshare_public_post_aspects_a: "Không. Khi bạn chia sẻ những bài đăng công khai, nó tự động trở thành một bài đăng công khai của bạn. Để chia sẻ với một mối quan hệ nhất định, hãy sao chép và dán nội dung để tạo một bài đăng hạn chế mới."
-      reshare_public_post_aspects_q: "Tôi có thể chia sẻ một bài đăng công khai với những mối quan hệ?"
-      title: "Chia sẻ bài đăng"
+      title: Chia sẻ bài đăng
+      reshare_public_post_aspects_q: Tôi có thể chia sẻ một bài đăng công khai với những mối quan hệ?
+      reshare_public_post_aspects_a: Không. Khi bạn chia sẻ những bài đăng công khai, nó tự động trở thành một bài đăng công khai của bạn. Để chia sẻ với một mối quan hệ nhất định, hãy sao chép và dán nội dung để tạo một bài đăng hạn chế mới.
+      reshare_private_post_aspects_q: Tôi có thể chia sẻ một bài đăng riêng tư với những mối quan hệ?
+      reshare_private_post_aspects_a: Không. Bạn không thể chia sẻ bất cứ bài đăng riêng tư nào.
     sharing:
-      add_to_aspect_a1: "Amy đã thêm Ben vào một mối quan hệ, nhưng Ben chưa thêm Amy vào mối quan hệ:"
-      add_to_aspect_a2: "Nếu Ben cũng thêm Amy vào một mối quan hệ, cả hai sẽ đều thấy những bài đăng công khai và riêng tư của nhau trên bảng tin. Và Amy có thể xem thông tin nâng cao của Ben. Cả hai cũng có thể nhắn tin cho nhau."
-      add_to_aspect_li1: "Ben sẽ nhận thông báo rằng Amy bắt đầu chia sẻ với Ben."
-      add_to_aspect_li2: "Amy sẽ bắt đầu thấy bài đăng công khai của Ben."
-      add_to_aspect_li3: "Amy sẽ không thấy những bài đăng riêng tư của Ben."
-      add_to_aspect_li4: "Ben sẽ không thấy bài đăng công khai lẫn riêng tư của Amy."
-      add_to_aspect_li5: "Nhưng nếu Ben vào trang cá nhân của Amy, anh ấy vẫn thấy những bài đăng riêng tư mà Amy tạo cho những mối quan hệ có Ben trong đó."
-      add_to_aspect_li6: "Ben cũng có thể thấy thông tin nâng cao của Amy (tiểu sử, nơi ở, giới tính, sinh nhật)."
-      add_to_aspect_li7: "Amy sẽ xuất hiện trong mục “Người chia sẻ với tôi” trong Danh bạ của Ben."
-      add_to_aspect_li8: "Amy sẽ có thể @nhắc đến Ben trong một bài đăng."
-      add_to_aspect_q: "Chuyện gì xảy ra khi tôi thêm ai đó vào mối quan hệ của tôi hoặc ngược lại?"
-      list_not_sharing_a: "Không. Nhưng bạn có thể kiểm tra nếu ai đó có chia sẻ với bạn hay không bằng cách vào trang cá nhân của họ. Nếu họ có, sẽ có dấu tick xanh kế bên Diaspora ID của họ. Nếu không, đó là một vòng tròn xám."
-      list_not_sharing_q: "Có danh sách những người tôi đã thêm vào mối quan hệ nhưng họ chưa thêm tôi vào mối quan hệ của họ không?"
-      only_sharing_a: "Họ là những người thêm bạn vào mối quan hệ của họ, nhưng bạn không thêm họ vào mối quan hệ của bạn. Nói cách khác, họ chia sẻ với bạn nhưng bạn không chia sẻ với họ."
+      title: Chia sẻ
+      add_to_aspect_q: Chuyện gì xảy ra khi tôi thêm ai đó vào mối quan hệ của tôi hoặc ngược lại?
+      add_to_aspect_a1: 'Amy đã thêm Ben vào một mối quan hệ, nhưng Ben chưa thêm Amy vào mối quan hệ:'
+      add_to_aspect_li1: Ben sẽ nhận thông báo rằng Amy bắt đầu chia sẻ với Ben.
+      add_to_aspect_li2: Amy sẽ bắt đầu thấy bài đăng công khai của Ben.
+      add_to_aspect_li3: Amy sẽ không thấy những bài đăng riêng tư của Ben.
+      add_to_aspect_li4: Ben sẽ không thấy bài đăng công khai lẫn riêng tư của Amy.
+      add_to_aspect_li5: Nhưng nếu Ben vào trang cá nhân của Amy, anh ấy vẫn thấy những bài đăng riêng tư mà Amy tạo cho những mối quan hệ có Ben trong đó.
+      add_to_aspect_li6: Ben cũng có thể thấy thông tin nâng cao của Amy (tiểu sử, nơi ở, giới tính, sinh nhật).
+      add_to_aspect_li7: Amy sẽ xuất hiện trong mục “Người chia sẻ với tôi” trong Danh bạ của Ben.
+      add_to_aspect_li8: Amy sẽ có thể @nhắc đến Ben trong một bài đăng.
+      add_to_aspect_a2: Nếu Ben cũng thêm Amy vào một mối quan hệ, cả hai sẽ đều thấy những bài đăng công khai và riêng tư của nhau trên bảng tin. Và Amy có thể xem thông tin nâng cao của Ben. Cả hai cũng có thể nhắn tin cho nhau.
+      sharing_notification_q: Làm sao biết khi ai đó bắt đầu theo dõi tôi?
+      sharing_notification_a: Bạn sẽ nhận thông báo mỗi khi ai đó bắt đầu theo dõi bạn.
       only_sharing_q: "“Những người chỉ theo dõi tôi” là ai?"
-      see_old_posts_a: "Không. Họ chỉ có thể thấy những bài đăng mới hơn."
-      see_old_posts_q: "Nếu tôi thêm ai đó vào một mối quan hệ, họ có thể xem những bài đăng cũ mà tôi từng chia sẻ với mối quan hệ đó không?"
-      sharing_notification_a: "Bạn sẽ nhận thông báo mỗi khi ai đó bắt đầu theo dõi bạn."
-      sharing_notification_q: "Làm sao biết khi ai đó bắt đầu theo dõi tôi?"
-      title: "Chia sẻ"
+      only_sharing_a: Họ là những người thêm bạn vào mối quan hệ của họ, nhưng bạn không thêm họ vào mối quan hệ của bạn. Nói cách khác, họ chia sẻ với bạn nhưng bạn không chia sẻ với họ.
+      list_not_sharing_q: Có danh sách những người tôi đã thêm vào mối quan hệ nhưng họ chưa thêm tôi vào mối quan hệ của họ không?
+      list_not_sharing_a: Không. Nhưng bạn có thể kiểm tra nếu ai đó có chia sẻ với bạn hay không bằng cách vào trang cá nhân của họ. Nếu họ có, sẽ có dấu tick xanh kế bên Diaspora ID của họ. Nếu không, đó là một vòng tròn xám.
+      see_old_posts_q: Nếu tôi thêm ai đó vào một mối quan hệ, họ có thể xem những bài đăng cũ mà tôi từng chia sẻ với mối quan hệ đó không?
+      see_old_posts_a: Không. Họ chỉ có thể thấy những bài đăng mới hơn.
     tags:
-      filter_tags_a: "Diaspora chưa có tính năng này, nhưng vài %{third_party_tools} có thể sử dụng được."
-      filter_tags_q: "Làm sao lọc/loại bỏ vài hashtag ra khỏi bảng tin của tôi?"
-      followed_tags_a: "Sau khi tìm kiếm một tag, bạn có thể nhấn nút ở trên cùng trang hashtag để “\btheo dõi” hashtag đó. Những hashtag đã yêu thích sẽ xuất hiện trong danh sách ở thanh bên. Nhấn vào “Tag theo dõi” để xem những bài đăng gần đây có chứa hashtag đó. Những bài đăng có chứa hashtag đó cũng sẽ xuất hiện trong bảng tin chính của bạn."
+      title: Hashtag
+      what_are_tags_for_q: Hashtag dùng để làm gì?
+      what_are_tags_for_a: Hashtag là một cách dùng để phân loại bài đăng theo chủ đề. Mở một trang hashtag sẽ hiện toàn bộ bài đăng có chứa tag đó. Điều này giúp những người có chung mối quan tâm dễ dàng tìm thấy thứ họ muốn.
+      tags_in_comments_q: Tôi có thể dùng hashtag trong bình luận không?
+      tags_in_comments_a: Hashtag trong bình luận sẽ chỉ giúp dẫn về trang của tag. Bài đăng có chứa bình luận có hashtag sẽ không xuất hiện trong trang hashtag.
       followed_tags_q: "“Hashtag \btheo dõi” là gì và làm sao theo dõi một hashtag?"
-      people_tag_page_a: "Họ là những người sử dụng hashtag đó trong phần mô tả công khai của họ."
-      people_tag_page_q: "Những người có trên thanh bên của một trang hashtag là ai?"
-      tags_in_comments_a: "Hashtag trong bình luận sẽ chỉ giúp dẫn về trang của tag. Bài đăng có chứa bình luận có hashtag sẽ không xuất hiện trong trang hashtag."
-      tags_in_comments_q: "Tôi có thể dùng hashtag trong bình luận không?"
-      title: "Hashtag"
-      what_are_tags_for_a: "Hashtag là một cách dùng để phân loại bài đăng theo chủ đề. Mở một trang hashtag sẽ hiện toàn bộ bài đăng có chứa tag đó. Điều này giúp những người có chung mối quan tâm dễ dàng tìm thấy thứ họ muốn."
-      what_are_tags_for_q: "Hashtag dùng để làm gì?"
-    third_party_tools: "Công cụ bên thứ ba"
-    title_header: "Trợ giúp"
-    tutorial: "hướng dẫn"
-    tutorials: "hướng dẫn"
-    wiki: "wiki"
+      followed_tags_a: "Sau khi tìm kiếm một tag, bạn có thể nhấn nút ở trên cùng trang hashtag để “\btheo dõi” hashtag đó. Những hashtag đã yêu thích sẽ xuất hiện trong danh sách ở thanh bên. Nhấn vào “Tag theo dõi” để xem những bài đăng gần đây có chứa hashtag đó. Những bài đăng có chứa hashtag đó cũng sẽ xuất hiện trong bảng tin chính của bạn."
+      people_tag_page_q: Những người có trên thanh bên của một trang hashtag là ai?
+      people_tag_page_a: Họ là những người sử dụng hashtag đó trong phần mô tả công khai của họ.
+      filter_tags_q: Làm sao lọc/loại bỏ vài hashtag ra khỏi bảng tin của tôi?
+      filter_tags_a: Diaspora chưa có tính năng này, nhưng vài %{third_party_tools} có thể sử dụng được.
+    keyboard_shortcuts:
+      title: Phím tắt
+      keyboard_shortcuts_q: Làm sao sử dụng phím tắt?
+      keyboard_shortcuts_a1: 'Trong bảng tin, bạn có thể sử dụng các phím tắt sau:'
+      keyboard_shortcuts_li1: J – Chuyển tới bài đăng tiếp theo
+      keyboard_shortcuts_li2: K – Quay về bài đăng trước
+      keyboard_shortcuts_li3: C – Bình luận trên bài đăng hiện tại
+      keyboard_shortcuts_li4: L – Thích bài đăng hiện tại
+      keyboard_shortcuts_li5: R – Chia sẻ bài đăng hiện tại
+      keyboard_shortcuts_li6: M – Đọc tiếp bài đăng hiện tại
+      keyboard_shortcuts_li7: O – Mở liên kết đầu tiên trong bài đăng hiện tại
+      keyboard_shortcuts_li8: Ctrl+Enter – Gửi tin nhắn bạn đang soạn
+    miscellaneous:
+      title: Khác
+      back_to_top_q: Cách nào nhanh nhất để quay về đầu trang?
+      back_to_top_a: Được. Nhấn vào mũi tên màu xám xuất hiện ở cuối góc phải trên cửa sổ trình duyệt của bạn.
+      photo_albums_q: Xếp photo hoặc video thành album được không?
+      photo_albums_a: Hiện tại thì không. Bạn có thể xem toàn bộ hình của một người đã tải lên ở tab Hình ảnh trên trang cá nhân của họ.
+      subscribe_feed_q: Tôi có thể đăng ký đọc bài đăng của một người thông qua nguồn cấp tin được không?
+      subscribe_feed_a: 'Được, nhưng định dạng đọc có thể khó nhìn. Nếu bạn vẫn muốn, hãy đến trang cá nhân của người đó, sao chép URL (vd: https://podname.org/people/somenumber) và dán nó nó vào trình đọc tin của bạn. Kết quả địa chỉ nguồn tin hiện ra giống như sau: https://podname.org/public/username.atom – Diaspora đề xuất sử dụng Atom thay vì RSS.'
+      diaspora_app_q: Diaspora có ứng dụng trên Android hay iOS không?
+      diaspora_app_a: Có nhiều ứng dụng Android đã và đang được phát triển. Một vài trong số đó đã lỗi thời và có thể hoạt động không trơn tru với phiên bản Diaspora mới nhất. Hiện chưa có ứng dụng cho iOS. Cách tốt nhất là truy cập Diaspora thông qua trình duyệt web điện thoại.
   home:
     default:
-      be_who_you_want_to_be: "Trở thành người mà bạn muốn"
-      be_who_you_want_to_be_info: "Facebook ép buộc bạn dùng danh tính thật, Diaspora thì không. Ở đây, bạn có thể trở thành người mà bạn muốn, tuỳ ý chia sẻ hay không chia sẻ về bản thân. Bạn có toàn quyền quyết định khi giao tiếp với người khác."
-      byline: "Mạng xã hội trực tuyến nơi bạn có toàn quyền kiểm soát"
-      choose_your_audience: "Chọn đối tượng xem"
-      choose_your_audience_info: "Mối quan hệ của Diaspora cho phép bạn chia sẻ với những người bạn muốn. Bạn có thể đăng công khai hay hạn chế tuỳ thích. Chia sẻ một hình ảnh vui nhộn với cả thế giới, hoặc một bí mật với những người bạn thân. Tuỳ thuộc vào bạn."
-      diaspora_site_link: "Mạng xã hội liên hợp Diaspora"
-      headline: "Chào mừng đến với %{pod_name}"
-      own_your_data: "Quản lý dữ liệu cá nhân"
-      own_your_data_info: "Nhiều mạng xã hội sử dụng dữ liệu cá nhân của bạn để kiếm tiền bằng cách chẩn đoán những tương tác của bạn và sử dụng dữ liệu này để quảng cáo đủ thứ cho bạn. Diaspora không sử dụng dữ liệu của vào bất cứ việc gì khác."
-      part_of_diaspora: "Một phần của %{diaspora_site_link}"
+      headline: Chào mừng đến với %{pod_name}
+      part_of_diaspora: Một phần của %{diaspora_site_link}
+      diaspora_site_link: Mạng xã hội liên hợp Diaspora
+      byline: Mạng xã hội trực tuyến nơi bạn có toàn quyền kiểm soát
+      be_who_you_want_to_be: Trở thành người mà bạn muốn
+      be_who_you_want_to_be_info: Facebook ép buộc bạn dùng danh tính thật, Diaspora thì không. Ở đây, bạn có thể trở thành người mà bạn muốn, tuỳ ý chia sẻ hay không chia sẻ về bản thân. Bạn có toàn quyền quyết định khi giao tiếp với người khác.
+      choose_your_audience: Chọn đối tượng xem
+      choose_your_audience_info: Mối quan hệ của Diaspora cho phép bạn chia sẻ với những người bạn muốn. Bạn có thể đăng công khai hay hạn chế tuỳ thích. Chia sẻ một hình ảnh vui nhộn với cả thế giới, hoặc một bí mật với những người bạn thân. Tuỳ thuộc vào bạn.
+      own_your_data: Quản lý dữ liệu cá nhân
+      own_your_data_info: Nhiều mạng xã hội sử dụng dữ liệu cá nhân của bạn để kiếm tiền bằng cách chẩn đoán những tương tác của bạn và sử dụng dữ liệu này để quảng cáo đủ thứ cho bạn. Diaspora không sử dụng dữ liệu của vào bất cứ việc gì khác.
     podmin:
-      byline: "Bạn sắp thay đổi internet. Bắt đầu nhé?"
+      headline: Chào mừng, anh bạn.
+      byline: Bạn sắp thay đổi internet. Bắt đầu nhé?
+      configure_your_pod: Cấu hình máy chủ
+      create_an_account: Tạo một tài khoản
+      make_yourself_an_admin: Chọn bạn làm quản trị viên
+      update_your_pod: Cập nhật máy chủ của bạn
+      getting_help: Trợ giúp
+      contribute: Đóng góp
       configuration_info: "\bMở %{database_path} và %{diaspora_path} trong trình chỉnh sửa văn bản bất kỳ và xem trước cẩn thận, trong đó có ghi chú."
-      configure_your_pod: "Cấu hình máy chủ"
-      contact_irc: "liên hệ chúng tôi qua IRC"
-      contribute: "Đóng góp"
-      contribute_info: "Giúp Diaspora tốt hơn! Nếu bạn tìm thấy lỗi, xin hãy %{report_bugs}."
-      create_an_account: "Tạo một tài khoản"
       create_an_account_info: "%{sign_up_link} cho tài khoản mới."
-      faq_for_podmins: "FAQ cho quản trị viên có trong wiki"
-      getting_help: "Trợ giúp"
-      getting_help_info: "Chúng tôi đã liệt kê vài %{faq} bao gồm những mẹo và thủ thuật, lẫn cách giải quyết những vấn đề thường gặp. Hoặc tham gia %{irc}."
-      headline: "Chào mừng, anh bạn."
-      make_yourself_an_admin: "Chọn bạn làm quản trị viên"
-      make_yourself_an_admin_info: "Bạn có thể đọc hướng dẫn trong %{wiki}. Điều này sẽ thêm liên kết “%{admin_dashboard}” trong menu người dùng của bạn khi bạn đã đăng nhập. Nó cho phép bạn sử dụng tính năng tìm kiếm người dùng và xem thống kê máy chủ."
-      report_bugs: "báo cáo chúng"
-      update_instructions: "cập nhật hướng dẫn trong Diaspora wiki"
-      update_your_pod: "Cập nhật máy chủ của bạn"
-      update_your_pod_info: "Bạn có thể đọc %{update_instructions}."
+      make_yourself_an_admin_info: Bạn có thể đọc hướng dẫn trong %{wiki}. Điều này sẽ thêm liên kết “%{admin_dashboard}” trong menu người dùng của bạn khi bạn đã đăng nhập. Nó cho phép bạn sử dụng tính năng tìm kiếm người dùng và xem thống kê máy chủ.
+      update_your_pod_info: Bạn có thể đọc %{update_instructions}.
+      update_instructions: cập nhật hướng dẫn trong Diaspora wiki
+      getting_help_info: Chúng tôi đã liệt kê vài %{faq} bao gồm những mẹo và thủ thuật, lẫn cách giải quyết những vấn đề thường gặp. Hoặc tham gia %{irc}.
+      faq_for_podmins: FAQ cho quản trị viên có trong wiki
+      contact_irc: liên hệ chúng tôi qua IRC
+      contribute_info: Giúp Diaspora tốt hơn! Nếu bạn tìm thấy lỗi, xin hãy %{report_bugs}.
+      report_bugs: báo cáo chúng
   invitation_codes:
-    already_logged_in: "Bạn vừa được %{inviter} mời tham gia máy chủ này mặc dù bạn đã đăng ký rồi."
-    not_valid: "Lời mời không còn sử dụng được"
+    not_valid: Lời mời không còn sử dụng được
+    already_logged_in: Bạn vừa được %{inviter} mời tham gia máy chủ này mặc dù bạn đã đăng ký rồi.
   invitations:
     create:
-      closed: "Máy chủ này không cho phép gửi thư mời."
-      empty: "Nhập ít nhất một email."
-      no_more: "Bạn đã hết lượt mời."
-      note_already_sent: "Đã gửi thư mời đến %{emails}"
-      rejected: "Địa chỉ email có vấn đề: %{emails}"
-      sent: "Thư mời đã được gửi đến: %{emails}"
+      sent: 'Thư mời đã được gửi đến: %{emails}'
+      rejected: 'Địa chỉ email có vấn đề: %{emails}'
+      no_more: Bạn đã hết lượt mời.
+      empty: Nhập ít nhất một email.
+      note_already_sent: Đã gửi thư mời đến %{emails}
+      closed: Máy chủ này không cho phép gửi thư mời.
     new:
+      language: Ngôn ngữ
+      invite_someone_to_join: Mời bạn bè tham gia Diaspora!
+      comma_separated_plz: Bạn có thể nhập nhiều email và ngăn cách chúng bằng dấu phẩy.
+      send_an_invitation: Gửi thư mời
+      sending_invitation: Đang gửi thư mời...
+      paste_link: Chia sẻ liên kết này hoặc gửi email cho bạn bè để mời họ tham gia Diaspora.
       codes_left:
-        other: "Còn lại %{count} lượt mời cho liên kết này"
-        zero: "Liên kết này không còn hiệu lực"
-      comma_separated_plz: "Bạn có thể nhập nhiều email và ngăn cách chúng bằng dấu phẩy."
-      invite_someone_to_join: "Mời bạn bè tham gia Diaspora!"
-      language: "Ngôn ngữ"
-      paste_link: "Chia sẻ liên kết này hoặc gửi email cho bạn bè để mời họ tham gia Diaspora."
-      send_an_invitation: "Gửi thư mời"
-      sending_invitation: "Đang gửi thư mời..."
+        zero: Liên kết này không còn hiệu lực
+        other: Còn lại %{count} lượt mời cho liên kết này
   layouts:
-    application:
-      back_to_top: "Trở về đầu trang"
-      be_excellent: "Cùng tạo điều tuyệt vời! ♥"
-      discourse: "Hỗ trợ và thảo luận"
-      powered_by: "Powered by Diaspora"
-      public_feed: "Nguồn tin Diaspora công khai cho %{name}"
-      source_package: "Tải về mã nguồn"
-      statistics_link: "Thống kê"
-      switch_to_standard_mode: "Giao diện máy tính để bàn"
-      switch_to_touch_optimized_mode: "Giao diện di động"
-      whats_new: "Cập nhật mới"
     header:
-      code: "Phiên bản"
-      logout: "Đăng xuất"
-      profile: "Cá nhân"
-      settings: "Thiết lập"
-      toggle_navigation: "Chuyển chế độ"
+      profile: Cá nhân
+      settings: Thiết lập
+      logout: Đăng xuất
+      code: Phiên bản
+      toggle_navigation: Chuyển chế độ
+    application:
+      powered_by: Powered by Diaspora
+      whats_new: Cập nhật mới
+      statistics_link: Thống kê
+      discourse: Hỗ trợ và thảo luận
+      switch_to_touch_optimized_mode: Giao diện di động
+      switch_to_standard_mode: Giao diện máy tính để bàn
+      public_feed: Nguồn tin Diaspora công khai cho %{name}
+      back_to_top: Trở về đầu trang
+      source_package: Tải về mã nguồn
+      be_excellent: Cùng tạo điều tuyệt vời! ♥
   likes:
     create:
-      error: "Chưa thích được."
-      fail: "Chưa thể thích bài đăng"
+      error: Chưa thích được.
+      fail: Chưa thể thích bài đăng
     destroy:
-      error: "Không thể bỏ thích."
-    not_found: "Không tìm thấy bài đăng hoặc lượt thích"
-    people_dislike_this:
-      other: "%{count} lượt không thích"
-      zero: "Chưa có lượt không thích"
+      error: Không thể bỏ thích.
     people_like_this:
+      zero: Chưa có lượt thích
       other: "%{count} lượt thích"
-      zero: "Chưa có lượt thích"
     people_like_this_comment:
+      zero: Chưa có lượt thích
       other: "%{count} lượt thích"
-      zero: "Chưa có lượt thích"
-  limited: "Hạn chế"
-  more: "Xem thêm"
-  no_results: "Không tìm thấy gì"
+    people_dislike_this:
+      zero: Chưa có lượt không thích
+      other: "%{count} lượt không thích"
+    not_found: Không tìm thấy bài đăng hoặc lượt thích
   notifications:
-    also_commented:
-      other: "%{actors} cũng bình luận bài đăng %{post_link} của %{post_author}."
-      zero: "Không có ai bình luận bài đăng %{post_link} của %{post_author}."
-    also_commented_deleted:
-      other: "%{actors} bình luận một bài đăng đã bị xoá."
-      zero: "Không có ai bình luận một bài đăng đã bị xóa."
-    comment_on_post:
-      few: "%{actors} đã bình luận tin %{post_link} của bạn."
-      many: "%{actors} đã bình luận tin %{post_link} của bạn."
-      one: "%{actors} đã bình luận tin %{post_link} của bạn."
-      other: "%{actors} đã bình luận bài đăng %{post_link} của bạn."
-      two: "%{actors} đã bình luận tin %{post_link} của bạn."
-      zero: "%{actors} đã bình luận bài đăng %{post_link} của bạn."
-    contacts_birthday:
-      other: "%{actors} có sinh nhật vào %{date}."
-      zero: "%{actors} có sinh nhật vào %{date}."
-    index:
-      all_notifications: "Toàn bộ thông báo"
-      also_commented: "Bao gồm bình luận"
-      and: "và"
-      and_others:
-        other: "và %{count} người khác"
-        zero: "và không còn ai khác"
-      comment_on_post: "Bình luận trên bài đăng"
-      contacts_birthday: "Sinh nhật"
-      liked: "Lượt thích"
-      mark_all_as_read: "Đánh dấu tất cả là đã đọc"
-      mark_all_shown_as_read: "Đánh dấu tất cả là đã đọc"
-      mark_read: "Đánh dấu đã đọc"
-      mark_unread: "Đánh dấu là chưa đọc"
-      mentioned: "Lượt nhắc đến"
-      mentioned_in_comment: "Lượt nhắc trong bình luận"
-      no_notifications: "Bạn chưa có thông báo nào."
-      notifications: "Thông báo"
-      reshared: "Lượt chia sẻ"
-      show_all: "Hiện toàn bộ"
-      show_unread: "Hiện chưa đọc"
-      started_sharing: "Bắt đầu chia sẻ"
-    liked:
-      other: "%{actors} vừa thích bài đăng %{post_link} của bạn."
-      zero: "Không ai thích bài đăng %{post_link} của bạn."
-    liked_post_deleted:
-      other: "%{actors} người thích bài đăng đã xóa của bạn."
-      zero: "Không có ai thích bài đăng đã xoá của bạn."
-    mentioned:
-      other: "%{actors} đã nhắc đến bạn trong bài đăng %{post_link}."
-      zero: "Không có ai nhắc đến bạn trong bài đăng %{post_link}."
-    mentioned_deleted:
-      other: "%{actors} nhắc đến bạn trong một bài đăng đã xóa."
-      zero: "Không ai nhắc đến bạn trong một bài đăng đã xóa."
-    mentioned_in_comment:
-      other: "%{actors} nhắc đến bạn trong một <a href='%{comment_path}'>bình luận</a> của bài đăng %{post_link}."
-    mentioned_in_comment_deleted:
-      other: "%{actors} nhắc đến bạn trong một bình luận đã xoá."
-    private_message:
-      other: "%{actors} đã gửi cho bạn một tin nhắn."
-      zero: "Không có ai gửi tin nhắn cho bạn."
-    reshared:
-      other: "%{actors} vừa chia sẻ bài đăng %{post_link} của bạn."
-      zero: "Không có ai chia sẻ lại bài đăng %{post_link} của bạn."
-    reshared_post_deleted:
-      other: "%{actors} chia sẻ bài đăng đã xóa của bạn."
-      zero: "Không có ai chia sẻ bài đăng đã xóa của bạn."
     started_sharing:
+      zero: "%{actors} đã bắt đầu theo dõi bạn."
+      one: "%{actors} đã bắt đầu chia sẻ với bạn."
+      two: "%{actors} đã bắt đầu chia sẻ với bạn."
       few: "%{actors} đã bắt đầu chia sẻ với bạn."
       many: "%{actors} đã bắt đầu chia sẻ với bạn."
-      one: "%{actors} đã bắt đầu chia sẻ với bạn."
       other: "%{actors} đã bắt đầu theo dõi bạn."
-      two: "%{actors} đã bắt đầu chia sẻ với bạn."
-      zero: "%{actors} đã bắt đầu theo dõi bạn."
-  notifier:
-    a_limited_post_comment: "Có bình luận mới trong một bài đăng hạn chế."
-    a_post_you_shared: "một bài đăng."
-    a_private_message: "Có tin nhắn mới trong Diaspora."
-    also_commented:
-      limited_subject: "Có bình luận mới trên bài đăng mà bạn đã bình luận"
-    click_here: "Nhấn vào đây"
+    private_message:
+      zero: Không có ai gửi tin nhắn cho bạn.
+      other: "%{actors} đã gửi cho bạn một tin nhắn."
     comment_on_post:
-      limited_subject: "Có bình luận mới trên bài đăng của bạn"
-      reply: "Trả lời hoặc xem bài đăng của %{name}"
-    confirm_email:
-      click_link: "Để kích hoạt địa chỉ email mới %{unconfirmed_email} của bạn, hãy vào liên kết này:"
-      subject: "Vui lòng kích hoạt địa chỉ email %{unconfirmed_email} của bạn"
+      zero: "%{actors} đã bình luận bài đăng %{post_link} của bạn."
+      one: "%{actors} đã bình luận tin %{post_link} của bạn."
+      two: "%{actors} đã bình luận tin %{post_link} của bạn."
+      few: "%{actors} đã bình luận tin %{post_link} của bạn."
+      many: "%{actors} đã bình luận tin %{post_link} của bạn."
+      other: "%{actors} đã bình luận bài đăng %{post_link} của bạn."
+    also_commented:
+      zero: Không có ai bình luận bài đăng %{post_link} của %{post_author}.
+      other: "%{actors} cũng bình luận bài đăng %{post_link} của %{post_author}."
+    mentioned:
+      zero: Không có ai nhắc đến bạn trong bài đăng %{post_link}.
+      other: "%{actors} đã nhắc đến bạn trong bài đăng %{post_link}."
+    mentioned_in_comment:
+      other: "%{actors} nhắc đến bạn trong một <a href='%{comment_path}'>bình luận</a> của bài đăng %{post_link}."
+    liked:
+      zero: Không ai thích bài đăng %{post_link} của bạn.
+      other: "%{actors} vừa thích bài đăng %{post_link} của bạn."
+    reshared:
+      zero: Không có ai chia sẻ lại bài đăng %{post_link} của bạn.
+      other: "%{actors} vừa chia sẻ bài đăng %{post_link} của bạn."
     contacts_birthday:
-      birthday: "Sinh nhật của %{name} là hôm nay. Hãy chúc họ 'Happy Birthday'!"
-      subject: "Sinh nhật của %{name} là hôm nay"
-      view_profile: "Xem trang cá nhân %{name}"
-    csrf_token_fail:
-      body: "Xin chào %{name},\n\n\
-          Diaspora đã phát hiện một lượt truy cập tài khoản của bạn bất thường. Để tránh mất mát dữ liệu, bạn đã bị tự động đăng xuất. Đừng lo; hiện bạn đã có thể đăng nhập lại an toàn.\n\n\
-          Yêu cầu đó sử dụng sai CSRF token. Đây có thể là lỗi vô tình, nhưng cũng có thể là tấn công CSRF.\n\n\
-          Một số nguyên nhân:\n\n\
-          \x20 - Một add-on gây lỗi truy vấn hoặc tạo truy vấn mà không token;\n\
-          \x20 - Bạn chưa tắt một tab vẫn còn đăng nhập;\n\
-          \x20 - Một trang web tự tạo truy vấn dưới yêu cầu của bạn;\n\
-          \x20 - Nhiều công cụ mở rộng khác;\n\
-          \x20 - Mã độc cố truy cập dữ liệu của bạn.\n\n\
-          Tìm hiểu thêm về CSRF, xem [%{link}](%{link}).\n\n\
-          Nếu bạn thấy tin nhắn này lần nữa, xin hãy kiểm tra những nguyên nhân như trên, bao gồm những add-on trình duyệt mà bạn sử dụng.\n\n\
-          Cảm ơn,\n\
-          \bRobot email Diaspora!"
-      subject: "Chúng tôi đã nhận một yêu cầu chưa cho phép từ tài khoản của bạn, %{name}"
-    email_sent_by_diaspora: "Thư này được gửi bởi %{pod_name}. Nếu bạn không muốn nhận những thư như thế này,"
-    export_email:
-      body: |-
-          Xin chào %{name},
-
-          Dữ liệu của bạn đã được xử lý và hiện sẵn sàng cho tải về bằng [liên kết này](%{url}).
-
-          Trân trọng,
-
-          Robot email Diaspora!
-      subject: "Tải về dữ liệu cá nhân của bạn, %{name}"
-    export_failure_email:
-      body: |-
-          Xin chào %{name}
-
-          Chúng tôi đã gặp vấn đề khi xử lý dữ liệu cá nhân của bạn.
-          Xin hãy thử lại!
-
-          Xin lỗi nha,
-
-          Robot email Diaspora!
-      subject: "Có vấn đề với dữ liệu của bạn, %{name}"
-    export_photos_email:
-      body: |-
-          Xin chào %{name},
-
-          Hình ảnh của bạn đã được xử lí và sẵn sàng cho tải về tại [liên kết này](%{url}).
-
-          Trân trọng,
-
-          Robot email Diaspora!
-      subject: "Hình ảnh của bạn đã sẵn sàng để tải về, %{name}"
-    export_photos_failure_email:
-      body: "Xin chào %{name}\n\n\
-          Chúng tôi đã gặp vấn đề khi xử lí hình ảnh của bạn.\n\
-          Xin hãy thử lại!\n\n\
-          Rất tiếc,\n\n\
-          \bRobot email Diaspora!"
-      subject: "Có vấn đề với hình ảnh của bạn, %{name}"
-    hello: "Xin chào %{name}!"
-    invite:
-      message: |-
-          Xin chào!
-
-          Bạn được %{user} mời tham gia Diaspora!
-
-          Nhấn vào đây để bắt đầu
-
-          [%{invite_url}][1]
-
-          Nếu bạn đã có tài khoản, hãy thêm %{diaspora_id} vào mối quan hệ.
-
-
-          Thương mến,
-
-          Robot gửi email của Diaspora!
-
-          P/S: Nếu bạn chưa biết Diaspora là gì, [đây][2] là câu trả lời!
-
-          [1]: %{invite_url}
-          [2]: %{diasporafoundation_url}
-    invited_you: "%{name} mời bạn tham gia Diaspora"
+      zero: "%{actors} có sinh nhật vào %{date}."
+      other: "%{actors} có sinh nhật vào %{date}."
+    also_commented_deleted:
+      zero: Không có ai bình luận một bài đăng đã bị xóa.
+      other: "%{actors} bình luận một bài đăng đã bị xoá."
+    liked_post_deleted:
+      zero: Không có ai thích bài đăng đã xoá của bạn.
+      other: "%{actors} người thích bài đăng đã xóa của bạn."
+    reshared_post_deleted:
+      zero: Không có ai chia sẻ bài đăng đã xóa của bạn.
+      other: "%{actors} chia sẻ bài đăng đã xóa của bạn."
+    mentioned_deleted:
+      zero: Không ai nhắc đến bạn trong một bài đăng đã xóa.
+      other: "%{actors} nhắc đến bạn trong một bài đăng đã xóa."
+    mentioned_in_comment_deleted:
+      other: "%{actors} nhắc đến bạn trong một bình luận đã xoá."
+    index:
+      notifications: Thông báo
+      mark_all_as_read: Đánh dấu tất cả là đã đọc
+      mark_all_shown_as_read: Đánh dấu tất cả là đã đọc
+      mark_read: Đánh dấu đã đọc
+      mark_unread: Đánh dấu là chưa đọc
+      show_all: Hiện toàn bộ
+      show_unread: Hiện chưa đọc
+      all_notifications: Toàn bộ thông báo
+      also_commented: Bao gồm bình luận
+      comment_on_post: Bình luận trên bài đăng
+      liked: Lượt thích
+      mentioned: Lượt nhắc đến
+      mentioned_in_comment: Lượt nhắc trong bình luận
+      reshared: Lượt chia sẻ
+      started_sharing: Bắt đầu chia sẻ
+      contacts_birthday: Sinh nhật
+      no_notifications: Bạn chưa có thông báo nào.
+      and_others:
+        zero: và không còn ai khác
+        other: và %{count} người khác
+      and: và
+  notifier:
+    a_post_you_shared: một bài đăng.
+    a_private_message: Có tin nhắn mới trong Diaspora.
+    a_limited_post_comment: Có bình luận mới trong một bài đăng hạn chế.
+    email_sent_by_diaspora: Thư này được gửi bởi %{pod_name}. Nếu bạn không muốn nhận những thư như thế này,
+    click_here: Nhấn vào đây
+    hello: Xin chào %{name}!
+    thanks: Cám ơn,
+    to_change_your_notification_settings: để đổi thiết lập thông báo
+    single_admin:
+      subject: 'Một tin nhắn về tài khoản Diaspora của bạn:'
+      admin: Quản trị tài khoản Diaspora của bạn
+    started_sharing:
+      subject: "%{name} bắt đầu theo dõi bạn trên Diaspora"
+      sharing: đã theo dõi bạn!
+      view_profile: Xem trang cá nhân %{name}
+    comment_on_post:
+      limited_subject: Có bình luận mới trên bài đăng của bạn
+      reply: Trả lời hoặc xem bài đăng của %{name}
+    also_commented:
+      limited_subject: Có bình luận mới trên bài đăng mà bạn đã bình luận
+    mentioned:
+      subject: "%{name} nhắc đến bạn trên Diaspora"
+      limited_post: Bạn được nhắc đến trong một bài đăng hạn chế.
+    mentioned_in_comment:
+      limited_post: Bạn được nhắc đến trong một bình luận ở bài đăng hạn chế.
+      reply: Trả lời hoặc xem thảo luận >
+    private_message:
+      subject: Bạn có một tin nhắn mới
+      reply_to_or_view: Trả lời hoặc xem cuộc thảo luận này >
     liked:
       liked: "%{name} vừa thích bài đăng của bạn"
       limited_post: "%{name} thích bài đăng hạn chế của bạn"
-      view_post: "Xem bài đăng >"
-    mentioned:
-      limited_post: "Bạn được nhắc đến trong một bài đăng hạn chế."
-      subject: "%{name} nhắc đến bạn trên Diaspora"
-    mentioned_in_comment:
-      limited_post: "Bạn được nhắc đến trong một bình luận ở bài đăng hạn chế."
-      reply: "Trả lời hoặc xem thảo luận >"
-    private_message:
-      reply_to_or_view: "Trả lời hoặc xem cuộc thảo luận này >"
-      subject: "Bạn có một tin nhắn mới"
-    remove_old_user:
-      body: |-
-          Xin chào,
-
-          Bạn nhận thư này từ %{pod_url} vì bạn đã không đăng nhập trong %{after_days} ngày. Để máy chủ vận hành tốt nhất, chúng tôi sẽ xoá bỏ những tài khoản không hoạt động quá lâu ra khỏi cơ sở dữ liệu của chúng tôi.
-
-          Chúng tôi trân trọng bạn là một phần của cộng đồng Diaspora, và bạn có thể tiếp tục sử dụng tài khoản của bạn nếu bạn muốn.
-
-          Nếu bạn muốn tiếp tục sử dụng tài khoản của bạn, hãy đăng nhập vào tài khoản của bạn trước ngày %{remove_after}. Khi bạn đăng nhập, hãy lướt một vòng xem lại Diaspora. Nó đã thay đổi rất nhiều kể từ lần cuối bạn đăng nhập, và chúng tôi tin bạn sẽ thích những gì mà chúng tôi đã cải thiện. Yêu thích vài #tag để theo dõi nội dung bạn thích.
-
-          Đăng nhập ngay: %{login_url}. Nếu bạn quên mật khẩu, hãy yêu cầu reset mật khẩu trên trang đó.
-
-          Hẹn gặp lại bạn sớm,
-
-          Robot email của Diaspora!
-      subject: "Tài khoản Diaspora sẽ bị xoá do không hoạt động trong thời gian dài"
-    report_email:
-      body: |-
-          Xin chào,
-
-          %{type} với ID %{id} đã được đánh dấu là nhạy cảm.
-
-          Lý do: %{reason}
-
-          [%{url}][1]
-
-          Hãy xem lại càng sớm càng tốt!
-
-
-          Trân trọng,
-
-          Robot gửi email của Diaspora!
-
-          [1]: %{url}
-      subject: "%{type} đã được đánh dấu là nhạy cảm"
-      type:
-        comment: "bình luận"
-        post: "bài đăng"
+      view_post: Xem bài đăng >
     reshared:
       reshared: "%{name} vừa mới chia sẻ bài đăng của bạn"
-      view_post: "Xem bài đăng >"
-    single_admin:
-      admin: "Quản trị tài khoản Diaspora của bạn"
-      subject: "Một tin nhắn về tài khoản Diaspora của bạn:"
-    started_sharing:
-      sharing: "đã theo dõi bạn!"
-      subject: "%{name} bắt đầu theo dõi bạn trên Diaspora"
-      view_profile: "Xem trang cá nhân %{name}"
-    thanks: "Cám ơn,"
-    to_change_your_notification_settings: "để đổi thiết lập thông báo"
-  nsfw: "NSFW"
-  ok: "OK"
+      view_post: Xem bài đăng >
+    contacts_birthday:
+      subject: Sinh nhật của %{name} là hôm nay
+      birthday: Sinh nhật của %{name} là hôm nay. Hãy chúc họ 'Happy Birthday'!
+      view_profile: Xem trang cá nhân %{name}
+    confirm_email:
+      subject: Vui lòng kích hoạt địa chỉ email %{unconfirmed_email} của bạn
+      click_link: 'Để kích hoạt địa chỉ email mới %{unconfirmed_email} của bạn, hãy vào liên kết này:'
+    csrf_token_fail:
+      subject: Chúng tôi đã nhận một yêu cầu chưa cho phép từ tài khoản của bạn, %{name}
+      body: "Xin chào %{name},\n\nDiaspora đã phát hiện một lượt truy cập tài khoản của bạn bất thường. Để tránh mất mát dữ liệu, bạn đã bị tự động đăng xuất. Đừng lo; hiện bạn đã có thể đăng nhập lại an toàn.\n\nYêu cầu đó sử dụng sai CSRF token. Đây có thể là lỗi vô tình, nhưng cũng có thể là tấn công CSRF.\n\nMột số nguyên nhân:\n\n  - Một add-on gây lỗi truy vấn hoặc tạo truy vấn mà không token;\n  - Bạn chưa tắt một tab vẫn còn đăng nhập;\n  - Một trang web tự tạo truy vấn dưới yêu cầu của bạn;\n  - Nhiều công cụ mở rộng khác;\n  - Mã độc cố truy cập dữ liệu của bạn.\n\nTìm hiểu thêm về CSRF, xem [%{link}](%{link}).\n\nNếu bạn thấy tin nhắn này lần nữa, xin hãy kiểm tra những nguyên nhân như trên, bao gồm những add-on trình duyệt mà bạn sử dụng.\n\nCảm ơn,\n\bRobot email Diaspora!"
+    report_email:
+      type:
+        post: bài đăng
+        comment: bình luận
+      subject: "%{type} đã được đánh dấu là nhạy cảm"
+      body: |-
+        Xin chào,
+
+        %{type} với ID %{id} đã được đánh dấu là nhạy cảm.
+
+        Lý do: %{reason}
+
+        [%{url}][1]
+
+        Hãy xem lại càng sớm càng tốt!
+
+
+        Trân trọng,
+
+        Robot gửi email của Diaspora!
+
+        [1]: %{url}
+    export_email:
+      subject: Tải về dữ liệu cá nhân của bạn, %{name}
+      body: |-
+        Xin chào %{name},
+
+        Dữ liệu của bạn đã được xử lý và hiện sẵn sàng cho tải về bằng [liên kết này](%{url}).
+
+        Trân trọng,
+
+        Robot email Diaspora!
+    export_failure_email:
+      subject: Có vấn đề với dữ liệu của bạn, %{name}
+      body: |-
+        Xin chào %{name}
+
+        Chúng tôi đã gặp vấn đề khi xử lý dữ liệu cá nhân của bạn.
+        Xin hãy thử lại!
+
+        Xin lỗi nha,
+
+        Robot email Diaspora!
+    export_photos_email:
+      subject: Hình ảnh của bạn đã sẵn sàng để tải về, %{name}
+      body: |-
+        Xin chào %{name},
+
+        Hình ảnh của bạn đã được xử lí và sẵn sàng cho tải về tại [liên kết này](%{url}).
+
+        Trân trọng,
+
+        Robot email Diaspora!
+    export_photos_failure_email:
+      subject: Có vấn đề với hình ảnh của bạn, %{name}
+      body: "Xin chào %{name}\n\nChúng tôi đã gặp vấn đề khi xử lí hình ảnh của bạn.\nXin hãy thử lại!\n\nRất tiếc,\n\n\bRobot email Diaspora!"
+    invited_you: "%{name} mời bạn tham gia Diaspora"
+    invite:
+      message: |-
+        Xin chào!
+
+        Bạn được %{user} mời tham gia Diaspora!
+
+        Nhấn vào đây để bắt đầu
+
+        [%{invite_url}][1]
+
+        Nếu bạn đã có tài khoản, hãy thêm %{diaspora_id} vào mối quan hệ.
+
+
+        Thương mến,
+
+        Robot gửi email của Diaspora!
+
+        P/S: Nếu bạn chưa biết Diaspora là gì, [đây][2] là câu trả lời!
+
+        [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
+    remove_old_user:
+      subject: Tài khoản Diaspora sẽ bị xoá do không hoạt động trong thời gian dài
+      body: |-
+        Xin chào,
+
+        Bạn nhận thư này từ %{pod_url} vì bạn đã không đăng nhập trong %{after_days} ngày. Để máy chủ vận hành tốt nhất, chúng tôi sẽ xoá bỏ những tài khoản không hoạt động quá lâu ra khỏi cơ sở dữ liệu của chúng tôi.
+
+        Chúng tôi trân trọng bạn là một phần của cộng đồng Diaspora, và bạn có thể tiếp tục sử dụng tài khoản của bạn nếu bạn muốn.
+
+        Nếu bạn muốn tiếp tục sử dụng tài khoản của bạn, hãy đăng nhập vào tài khoản của bạn trước ngày %{remove_after}. Khi bạn đăng nhập, hãy lướt một vòng xem lại Diaspora. Nó đã thay đổi rất nhiều kể từ lần cuối bạn đăng nhập, và chúng tôi tin bạn sẽ thích những gì mà chúng tôi đã cải thiện. Yêu thích vài #tag để theo dõi nội dung bạn thích.
+
+        Đăng nhập ngay: %{login_url}. Nếu bạn quên mật khẩu, hãy yêu cầu reset mật khẩu trên trang đó.
+
+        Hẹn gặp lại bạn sớm,
+
+        Robot email của Diaspora!
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          redirection_message: Bạn có chắc muốn cho phép truy cập %{redirect_uri}?
+          access: "%{name} yêu cầu quyền truy cập vào:"
+          no_requirement: "%{name} không yêu cầu bất kỳ quyền nào"
+          approve: Chấp nhận
+          deny: Từ chối
+          bad_request: Sai Client ID hoặc liên kết chuyển tiếp
+          client_id_not_found: Không tìm thấy client_id %{client_id} với liên kết chuyển tiếp %{redirect_uri}
+          private_contacts_linkage_error: private:read và private:modify đồng thời yêu cầu contacts:read
+          unknown_scope: 'Phạm vi chưa rõ: %{scope_name}'
+        destroy:
+          fail: Yêu cầu gỡ bỏ quyền truy cập với ID %{id} thất bại
+      user_applications:
+        index:
+          edit_applications: Ứng dụng
+          title: Các ứng dụng đang cho phép
+          access: "%{name} cần truy cập:"
+          no_requirement: "%{name} không yêu cầu bất kỳ quyền nào"
+        no_applications: Bạn chưa sử dụng ứng dụng nào
+        revoke_autorization: Gỡ
+        tos: Đọc điều khoản dịch vụ của ứng dụng
+        policy: Đọc chính sách riêng tư của ứng dụng
+      scopes:
+        openid:
+          name: Thông tin cá nhân cơ bản
+          description: Chỉ yêu cầu truy cập dạng chỉ-đọc với thông tin cá nhân cơ bản của bạn.
+        sub:
+          name: Mã số định danh
+          description: Điều này cho phép truy cập chế độ chỉ-đọc vào mã số định danh của bạn.
+        name:
+          name: Tên đầy đủ
+          description: Điều này cho phép truy cập chế độ chỉ-đọc vào tên đầy đủ của bạn.
+        nickname:
+          name: Tên người dùng
+          description: Điều này cho phép truy cập chế độ chỉ-đọc vào tên người dùng của bạn.
+        picture:
+          name: Ảnh đại diện
+          description: Điều này cho phép truy cập chế độ chỉ-đọc vào ảnh đại diện của bạn.
+        contacts:read:
+          name: Danh bạ (Chỉ-đọc)
+          description: Yêu cầu truy cập danh bạ và những thông tin liên quan (như mối quan hệ) dưới hình thức chỉ-đọc.
+        contacts:modify:
+          name: Danh bạ (Ghi đè)
+          description: Yêu cầu truy cập danh bạ và những thông tin liên quan (như mối quan hệ) dưới hình thức ghi đè.
+        conversations:
+          name: Thảo luận
+          description: Yêu cầu truy cập những tin nhắn dưới hình thức đọc lẫn ghi đè.
+        email:
+          name: Email
+          description: Yêu cầu truy cập địa chỉ email của bạn dưới hình thức chỉ-đọc.
+        interactions:
+          name: Tương tác
+          description: Yêu cầu truy cập những tương tác với bài đăng, như thích hoặc đăng bình luận.
+        notifications:
+          name: Thông báo
+          description: Yêu cầu truy cập thông báo dưới hình thức đọc và ghi đè.
+        private:read:
+          name: Bài đăng riêng tư (Chỉ-đọc)
+          description: Yêu cầu truy cập những bài đăng riêng tư của bạn và những người trong danh bạ dưới hình thức chỉ-đọc.
+        private:modify:
+          name: Bài đăng riêng tư (Ghi đè)
+          description: Yêu cầu truy cập và đăng những bài đăng công khai.
+        public:read:
+          name: Bài đăng (Chỉ-đọc)
+          description: Yêu cầu truy cập bài đăng công khai, tương tác và những thông tin liên quan.
+        public:modify:
+          name: Bài đăng công khai (Ghi đè)
+          description: Yêu cầu truy cập và đăng những bài đăng công khai và thông tin liên quan (như bình chọn và đính kèm tập tin).
+        profile:
+          name: Thông tin nâng cao (Chỉ-đọc)
+          description: Điều này cho phép truy cập chế độ chỉ-đọc vào thông tin nâng cao của bạn.
+        profile:modify:
+          name: Thông tin nâng cao (Ghi đè)
+          description: Yêu cầu truy cập và cập nhật thông tin nâng cao của bạn.
+        profile:read_private:
+          name: Dữ liệu hồ sơ riêng tư (Chỉ-đọc)
+          description: Yêu cầu truy cập dữ liệu hồ sơ riêng tư của bạn dưới hình thức chỉ-đọc.
+        tags:read:
+          name: Hashtag (Chỉ-đọc)
+          description: Yêu cầu truy cập những hashtag theo dõi của bạn dưới hình thức chỉ đọc.
+        tags:modify:
+          name: Hashtag (Ghi đè)
+          description: Yêu cầu truy cập và thay đổi những hashtag theo dõi.
+      error_page:
+        title: Oh! Có gì đó bất thường xảy ra :(
+        contact_developer: 'Hãy liên hệ nhà phát triển ứng dụng với mã lỗi sau:'
+        login_required: Bạn phải đăng nhập trước khi cấp quyền truy cập cho ứng dụng này
+        could_not_authorize: Không thể cấp quyền truy cập cho ứng dụng
   people:
-    add_contact:
-      invited_by: "Bạn được mời bởi"
-    index:
-      couldnt_find_them: "Không tìm thấy họ?"
-      looking_for: "Tìm các bài đăng có hashtag %{tag_link}?"
-      no_one_found: "...và không tìm thấy ai."
-      no_results: "Hey! Bạn cần tìm gì đó."
-      results_for: "Kết quả tìm kiếm %{search_term}"
-      search_handle: "Sử dụng Diaspora ID (tên người dùng@máy chủ) để tìm một người cụ thể."
-      searching: "Đang tìm, vui lòng chờ..."
-      send_invite: "Vẫn không thấy? Hãy gửi thư mời!"
     person:
-      thats_you: "Đó là bạn!"
-    profile_sidebar:
-      bio: "Tiểu sử"
-      born: "Sinh nhật"
-      gender: "Giới tính"
-      location: "Nơi ở"
+      thats_you: Đó là bạn!
+    index:
+      results_for: Kết quả tìm kiếm %{search_term}
+      no_results: Hey! Bạn cần tìm gì đó.
+      couldnt_find_them: Không tìm thấy họ?
+      search_handle: Sử dụng Diaspora ID (tên người dùng@máy chủ) để tìm một người cụ thể.
+      send_invite: Vẫn không thấy? Hãy gửi thư mời!
+      no_one_found: "...và không tìm thấy ai."
+      searching: Đang tìm, vui lòng chờ...
+      looking_for: Tìm các bài đăng có hashtag %{tag_link}?
     show:
-      closed_account: "Tài khoản này đã bị vô hiệu hoá."
-      does_not_exist: "Không tồn tại người dùng này!"
       has_not_shared_with_you_yet: "%{name} chưa chia sẻ bài đăng nào với bạn!"
+      does_not_exist: Không tồn tại người dùng này!
+      closed_account: Tài khoản này đã bị vô hiệu hoá.
+    profile_sidebar:
+      bio: Tiểu sử
+      location: Nơi ở
+      gender: Giới tính
+      born: Sinh nhật
+    add_contact:
+      invited_by: Bạn được mời bởi
   photos:
     create:
-      integrity_error: "Tải ảnh lên thất bại. Bạn có chắc đó là một tấm ảnh?"
-      runtime_error: "Tải ảnh lên thất bại. Bạn có muốn tải lên lại không?"
-      type_error: "Tải ảnh lên thất bại. Bạn có chắc ảnh đúng định dạng được hỗ trợ?"
+      runtime_error: Tải ảnh lên thất bại. Bạn có muốn tải lên lại không?
+      integrity_error: Tải ảnh lên thất bại. Bạn có chắc đó là một tấm ảnh?
+      type_error: Tải ảnh lên thất bại. Bạn có chắc ảnh đúng định dạng được hỗ trợ?
     destroy:
-      notice: "Đã xóa ảnh."
+      notice: Đã xóa ảnh.
     new_profile_photo:
-      upload: "Tải lên ảnh mới"
+      upload: Tải lên ảnh mới
   polls:
     votes:
+      zero: Chưa có ai bình chọn
       other: "%{count} lượt bình chọn"
-      zero: "Chưa có ai bình chọn"
   posts:
     presenter:
-      title: "Một bài đăng từ %{name}"
+      title: Một bài đăng từ %{name}
     show:
-      forbidden: "Bạn không được phép làm vậy"
-      location: "Nơi đăng: %{location}"
+      location: 'Nơi đăng: %{location}'
+      forbidden: Bạn không được phép làm vậy
       photos_by:
+        zero: Không có ảnh của %{author}
         other: "%{count} ảnh của %{author}"
-        zero: "Không có ảnh của %{author}"
-      reshare_by: "Chia sẻ từ %{author}"
-  privacy: "Bảo mật"
-  profile: "Cá nhân"
+      reshare_by: Chia sẻ từ %{author}
+  report:
+    title: Tóm tắt báo cáo
+    post_label: "<strong>\bBài đăng</strong>: %{content}"
+    comment_label: "<strong>Bình luận</strong>: %{data}"
+    reported_label: "<strong>Báo cáo bởi</strong> %{person}"
+    reason_label: 'Lý do:'
+    review_link: Đánh dấu là đã xem
+    delete_link: Xoá nội dung
+    reported_user_details: Chi tiết về tài khoản bị báo cáo
+    confirm_deletion: Bạn có chắc muốn xoá nội dung này?
+    not_found: Không tìm thấy bài đăng/bình luận. Có lẽ nó đã bị người đăng xoá!
+    status:
+      destroyed: Đã xoá bài đăng
+      failed: Có điều gì đó không đúng
+    unreviewed_reports:
+      zero: Không có báo cáo nào.
+      other: Có %{count} báo cáo chờ xử lý.
   profiles:
     edit:
-      allow_search: "Cho phép mọi người xem trang Diaspora của tôi không cần đăng nhập"
-      basic: "Thông tin cá nhân cơ bản"
-      basic_hint: "Bạn có thể tuỳ chọn điền hoặc không điền. Thông tin cơ bản sẽ luôn xuất hiện trên trang cá nhân."
-      extended: "Thông tin cá nhân nâng cao"
-      extended_hint: "Nhấn vào công tắc để thay đổi khả năng xem thông tin nâng cao của bạn. Công khai có nghĩa là ai cũng có thể xem, giới hạn có nghĩa là chỉ những ai mà bạn đã theo dõi mới có thể xem."
-      extended_visibility_text: "Cho phép xem thông tin cá nhân nâng cao"
-      first_name: "Tên"
-      last_name: "Họ"
-      limited: "Giới hạn"
-      nsfw_check: "Đánh dấu nội dung của tôi là nhạy cảm"
-      nsfw_explanation: "Nhạy cảm (“NSFW”) là một tiêu chuẩn cộng đồng của Diaspora áp dụng cho những nội dung nhạy cảm. Nếu bạn thường xuyên đăng những nội dung như vậy, xin hãy đánh dấu tuỳ chọn này để nội dung của bạn tự động ẩn đối với những người không muốn xem."
-      nsfw_explanation2: "Nếu bạn không đánh dấu tuỳ chọn này, xin thêm hashtag #nsfw mỗi khi bạn đăng những nội dung nhạy cảm."
-      public: "Công khai"
-      settings: "Thiết lập trang cá nhân"
-      update_profile: "Cập nhật trang cá nhân"
-      your_bio: "Tiểu sử"
-      your_birthday: "Ngày sinh"
-      your_gender: "Giới tính"
-      your_location: "Nơi ở"
-      your_name: "Họ và tên"
-      your_photo: "Ảnh đại diện"
-      your_tags: "5 hashtag thường dùng"
-      your_tags_placeholder: "Ví dụ #movies #kittens #travel #teacher #newyork"
+      basic: Thông tin cá nhân cơ bản
+      extended: Thông tin cá nhân nâng cao
+      settings: Thiết lập trang cá nhân
+      extended_visibility_text: Cho phép xem thông tin cá nhân nâng cao
+      public: Công khai
+      limited: Giới hạn
+      basic_hint: Bạn có thể tuỳ chọn điền hoặc không điền. Thông tin cơ bản sẽ luôn xuất hiện trên trang cá nhân.
+      extended_hint: Nhấn vào công tắc để thay đổi khả năng xem thông tin nâng cao của bạn. Công khai có nghĩa là ai cũng có thể xem, giới hạn có nghĩa là chỉ những ai mà bạn đã theo dõi mới có thể xem.
+      your_name: Họ và tên
+      first_name: Tên
+      last_name: Họ
+      your_gender: Giới tính
+      your_birthday: Ngày sinh
+      your_tags: 5 hashtag thường dùng
+      your_tags_placeholder: 'Ví dụ #movies #kittens #travel #teacher #newyork'
+      your_bio: Tiểu sử
+      your_location: Nơi ở
+      your_photo: Ảnh đại diện
+      update_profile: Cập nhật trang cá nhân
+      allow_search: Cho phép mọi người xem trang Diaspora của tôi không cần đăng nhập
+      nsfw_explanation: Nhạy cảm (“NSFW”) là một tiêu chuẩn cộng đồng của Diaspora áp dụng cho những nội dung nhạy cảm. Nếu bạn thường xuyên đăng những nội dung như vậy, xin hãy đánh dấu tuỳ chọn này để nội dung của bạn tự động ẩn đối với những người không muốn xem.
+      nsfw_explanation2: 'Nếu bạn không đánh dấu tuỳ chọn này, xin thêm hashtag #nsfw mỗi khi bạn đăng những nội dung nhạy cảm.'
+      nsfw_check: Đánh dấu nội dung của tôi là nhạy cảm
     update:
-      failed: "Cập nhật trang cá nhân thất bại"
-      updated: "Đã cập nhật trang cá nhân"
-  public: "Công khai"
+      updated: Đã cập nhật trang cá nhân
+      failed: Cập nhật trang cá nhân thất bại
   registrations:
-    closed:
-      another_pod: "máy chủ khác"
-      closed_pod: "Máy chủ này hiện không còn cho đăng ký. Tuy nhiên, bạn vẫn có thể tham gia mạng xã hội Diaspora bằng cách đăng ký trên %{wiki}. Mọi máy chủ đều giao tiếp được với nhau nên bạn có thể truy cập cùng nội dung ở đây."
-      find_pods: "Bạn có thể tham khảo các máy chủ khác tại %{fediverse_observer}."
-      other_questions: "Nếu bạn đang băn khoăn về việc chọn một máy chủ, hãy đọc qua %{wiki}."
-    create:
-      success: "Bạn đã đăng ký Diaspora thành công!"
-    invalid_invite: "Thư mời của bạn không còn sử dụng được!"
     new:
-      email: "Email"
-      enter_email: "Nhập email"
-      enter_password: "Nhập mật khẩu (tối thiểu sáu kí tự)"
-      enter_password_again: "Nhập lại mật khẩu"
-      enter_username: "Tên người dùng (chỉ dùng chữ, số và dấu gạch dưới)"
-      password: "Mật khẩu"
-      password_confirmation: "Nhập lại mật khẩu"
-      sign_up: "Đăng ký"
-      submitting: "Đang đăng ký..."
+      enter_email: Nhập email
+      enter_username: Tên người dùng (chỉ dùng chữ, số và dấu gạch dưới)
+      enter_password: Nhập mật khẩu (tối thiểu sáu kí tự)
+      enter_password_again: Nhập lại mật khẩu
+      sign_up: Đăng ký
+      email: Email
+      username: Tên người dùng
+      password: Mật khẩu
+      password_confirmation: Nhập lại mật khẩu
+      submitting: Đang đăng ký...
       terms: "\bNhấn đồng ý nghĩa là bạn đã chấp nhận %{terms_link}."
-      terms_link: "điều khoản dịch vụ"
-      username: "Tên người dùng"
-  report:
-    comment_label: "<strong>Bình luận</strong>: %{data}"
-    confirm_deletion: "Bạn có chắc muốn xoá nội dung này?"
-    delete_link: "Xoá nội dung"
-    not_found: "Không tìm thấy bài đăng/bình luận. Có lẽ nó đã bị người đăng xoá!"
-    post_label: "<strong>\bBài đăng</strong>: %{content}"
-    reason_label: "Lý do:"
-    reported_label: "<strong>Báo cáo bởi</strong> %{person}"
-    reported_user_details: "Chi tiết về tài khoản bị báo cáo"
-    review_link: "Đánh dấu là đã xem"
-    status:
-      destroyed: "Đã xoá bài đăng"
-      failed: "Có điều gì đó không đúng"
-    title: "Tóm tắt báo cáo"
-    unreviewed_reports:
-      other: "Có %{count} báo cáo chờ xử lý."
-      zero: "Không có báo cáo nào."
+      terms_link: điều khoản dịch vụ
+    create:
+      success: Bạn đã đăng ký Diaspora thành công!
+    closed:
+      closed_pod: Máy chủ này hiện không còn cho đăng ký. Tuy nhiên, bạn vẫn có thể tham gia mạng xã hội Diaspora bằng cách đăng ký trên %{wiki}. Mọi máy chủ đều giao tiếp được với nhau nên bạn có thể truy cập cùng nội dung ở đây.
+      another_pod: máy chủ khác
+      find_pods: Bạn có thể tham khảo các máy chủ khác tại %{fediverse_observer}.
+      other_questions: Nếu bạn đang băn khoăn về việc chọn một máy chủ, hãy đọc qua %{wiki}.
+    invalid_invite: Thư mời của bạn không còn sử dụng được!
   reshares:
-    comment_email_subject: "%{resharer} đã chia sẻ từ %{author}"
     create:
-      error: "Chia sẻ thất bại."
+      error: Chia sẻ thất bại.
     reshare:
-      deleted: "Bài đăng gốc đã bị người đăng xoá"
-      reshare_confirmation: "Chia sẻ bài đăng của %{author}?"
-      reshared_via: "Chia sẻ bởi"
-  search: "Tìm kiếm"
+      reshared_via: Chia sẻ bởi
+      reshare_confirmation: Chia sẻ bài đăng của %{author}?
+      deleted: Bài đăng gốc đã bị người đăng xoá
+    comment_email_subject: "%{resharer} đã chia sẻ từ %{author}"
   services:
-    create:
-      already_authorized: "Một người dùng với Diaspora ID %{diaspora_id} đã xác thực tài khoản %{service_name}."
-      failure: "Xác thực thất bại."
-      read_only_access: "Dịch vụ chỉ cho phép đọc, xin thử lại sau"
-      success: "Xác thực thành công."
-    destroy:
-      success: "Đã gỡ bỏ xác thực."
-    failure:
-      error: "Xảy ra lỗi khi kết nối đến dịch vụ này"
-    index:
-      connect: "Kết nối"
-      disconnect: "Ngưng kết nối"
-      edit_services: "Chỉnh sửa dịch vụ"
-      logged_in_as: "Đã đăng nhập %{nickname}."
-      no_services_available: "Máy chủ này không cho phép kết nối dịch vụ."
-      not_logged_in: "Chưa đăng nhập."
-      really_disconnect: "Ngưng kết nối với %{service}?"
-      services_explanation: "Kết nối các dịch vụ để có thể đăng bài đăng song song cùng với Diaspora."
-      share_to: "Chia sẻ với %{provider}"
-      title: "Quản lí các dịch vụ đã kết nối"
     provider:
-      tumblr: "Tumblr"
-      twitter: "Twitter"
-      wordpress: "WordPress"
-  settings: "Thiết lập"
+      tumblr: Tumblr
+      twitter: Twitter
+      wordpress: WordPress
+    index:
+      title: Quản lí các dịch vụ đã kết nối
+      connect: Kết nối
+      disconnect: Ngưng kết nối
+      logged_in_as: Đã đăng nhập %{nickname}.
+      no_services_available: Máy chủ này không cho phép kết nối dịch vụ.
+      not_logged_in: Chưa đăng nhập.
+      really_disconnect: Ngưng kết nối với %{service}?
+      edit_services: Chỉnh sửa dịch vụ
+      services_explanation: Kết nối các dịch vụ để có thể đăng bài đăng song song cùng với Diaspora.
+      share_to: Chia sẻ với %{provider}
+    create:
+      success: Xác thực thành công.
+      failure: Xác thực thất bại.
+      already_authorized: Một người dùng với Diaspora ID %{diaspora_id} đã xác thực tài khoản %{service_name}.
+      read_only_access: Dịch vụ chỉ cho phép đọc, xin thử lại sau
+    destroy:
+      success: Đã gỡ bỏ xác thực.
+    failure:
+      error: Xảy ra lỗi khi kết nối đến dịch vụ này
+  blocks:
+    create:
+      success: Bạn sẽ không thấy người dùng đó trong bảng tin nữa!
+      failure: Không thể ẩn người dùng đó!
+    destroy:
+      success: Hãy xem họ nói gì!
+      failure: "K\x1Dhông thể bỏ ẩn người dùng đó!"
   shared:
     aspect_dropdown:
       mobile_row_checked: "%{name} (xoá)"
       mobile_row_unchecked: "%{name} (thêm)"
       toggle:
-        other: "Trong %{count} mối quan hệ"
-        zero: "Không trong mối quan hệ nào"
-    invitations:
-      by_email: "Mời bằng email"
-      invite_your_friends: "Mời bạn bè"
-      invites: "Mời"
-      share_this: "Chia sẻ liên kết này qua email, blog, hoặc mạng xã hội!"
-    public_explain:
-      atom_feed: "Nguồn tin"
-      control_your_audience: "Thay đổi quyền riêng tư"
-      logged_in: "Đã đăng nhập vào %{service}"
-      manage: "Quản lí các dịch vụ đã kết nối"
-      new_user_welcome_message: "Sử dụng #hashtag để phân loại bài đăng và tìm người dùng có chung mối quan tâm với bạn. Nhắc tới ai đó bằng @Tên"
-      outside: "Mọi người ở ngoài Diaspora đều có thể xem những bài đăng công khai."
-      share: "Chia sẻ"
-      title: "Cài đặt các dịch vụ đã kết nối"
-      visibility_dropdown: "Dùng menu thả xuống này để thay đổi kiểu bài đăng của bạn. (Chúng tôi đề xuất bài đăng đầu tiên nên để công khai)"
+        zero: Không trong mối quan hệ nào
+        other: Trong %{count} mối quan hệ
     publisher:
-      discard_post: "Hủy đăng bài"
-      formatWithMarkdown: "Bạn có thể dùng %{markdown_link} để định dạng bài đăng"
-      get_location: "Lấy thông tin vị trí"
+      formatWithMarkdown: Bạn có thể dùng %{markdown_link} để định dạng bài đăng
+      posting: Đang đăng...
+      share: Chia sẻ
+      get_location: Lấy thông tin vị trí
+      remove_location: Xoá bỏ nơi đăng
+      whats_on_your_mind: Bạn đang nghĩ gì?
+      discard_post: Hủy đăng bài
       new_user_prefill:
-        hello: "Chào mọi người, tôi là #%{new_user_tag}. "
-        i_like: "Tôi quan tâm %{tags}. "
-        invited_by: "Cám ơn vì lời mời, "
-        newhere: "newhere"
+        newhere: newhere
+        hello: 'Chào mọi người, tôi là #%{new_user_tag}. '
+        i_like: 'Tôi quan tâm %{tags}. '
+        invited_by: 'Cám ơn vì lời mời, '
       poll:
-        add_a_poll: "Tạo bình chọn"
-      posting: "Đang đăng..."
-      remove_location: "Xoá bỏ nơi đăng"
-      share: "Chia sẻ"
-      whats_on_your_mind: "Bạn đang nghĩ gì?"
+        add_a_poll: Tạo bình chọn
+    invitations:
+      invites: Mời
+      invite_your_friends: Mời bạn bè
+      by_email: Mời bằng email
+      share_this: Chia sẻ liên kết này qua email, blog, hoặc mạng xã hội!
+    public_explain:
+      control_your_audience: Thay đổi quyền riêng tư
+      new_user_welcome_message: 'Sử dụng #hashtag để phân loại bài đăng và tìm người dùng có chung mối quan tâm với bạn. Nhắc tới ai đó bằng @Tên'
+      visibility_dropdown: Dùng menu thả xuống này để thay đổi kiểu bài đăng của bạn. (Chúng tôi đề xuất bài đăng đầu tiên nên để công khai)
+      title: Cài đặt các dịch vụ đã kết nối
+      share: Chia sẻ
+      outside: Mọi người ở ngoài Diaspora đều có thể xem những bài đăng công khai.
+      logged_in: Đã đăng nhập vào %{service}
+      manage: Quản lí các dịch vụ đã kết nối
+      atom_feed: Nguồn tin
     stream_element:
-      via: "Thông qua %{link}"
-      via_mobile: "qua di động"
-  simple_captcha:
-    label: "Nhập mã trong khung:"
-    message:
-      default: "Mã đã nhập không khớp với hình ảnh"
-      failed: "Xác minh thất bại"
-      user: "Hình ảnh và mã khác nhau"
-    placeholder: "Nhập ký tự trong hình"
-  statistics:
-    active_users_halfyear: "Người dùng hoạt động 6 tháng gần đây"
-    active_users_monthly: "Người dùng hoạt động hàng tháng"
-    closed: "Đóng"
-    disabled: "Đã tắt"
-    enabled: "Đã bật"
-    local_comments: "Bình luận từ máy chủ"
-    local_posts: "Bài đăng từ máy chủ"
-    name: "Tên"
-    network: "Mạng lưới"
-    open: "Mở"
-    registrations: "Đăng ký"
-    services: "Dịch vụ"
-    total_users: "Người dùng"
-    version: "Phiên bản"
+      via: Thông qua %{link}
+      via_mobile: qua di động
   status_messages:
-    bad_aspects: "Không chấp nhận cung cấp ID của những mối quan hệ (không tồn tại hoặc không sở hữu)"
     new:
-      mentioning: "Đang nhắc đến: %{person}"
+      mentioning: 'Đang nhắc đến: %{person}'
     too_long: "Bài đăng của bạn tối đa %{count} \bký tự. Hiện tại đang là %{current_length}  ký tự"
+    bad_aspects: Không chấp nhận cung cấp ID của những mối quan hệ (không tồn tại hoặc không sở hữu)
   stream_helper:
-    no_more_posts: "Bạn đã đọc hết."
-    no_posts_yet: "Chưa có bài đăng nào."
-  streams:
-    activity:
-      title: "Hoạt động của tôi"
-    admin:
-      title: "Quản trị viên"
-    aspects:
-      all: "Tất cả mối quan hệ"
-      title: "Mối quan hệ của tôi"
-    aspects_stream: "Quan hệ"
-    comment_stream:
-      title: "Bài đăng đã bình luận"
-    commented:
-      title: "Lượt bình luận"
-    community_spotlight_stream: "Bài đăng nổi bật"
-    followed_tag:
-      add_a_tag: "Thêm hashtag"
-      all: "Tất cả hashtag"
-      follow: "Theo dõi"
-      title: "Hashtag theo dõi"
-    followed_tags_stream: "Hashtag theo dõi"
-    like_stream:
-      title: "Bài đăng đã thích"
-    liked:
-      title: "Lượt thích"
-    local_public:
-      title: "Bài đăng từ máy chủ"
-    mentioned_stream: "Lượt nhắc đến"
-    mentions:
-      title: "Lượt nhắc"
-    multi:
-      title: "Bảng tin"
-    public:
-      title: "Bảng tin công khai"
-    tags:
-      title: "Những bài đăng có hashtag %{tags}"
+    no_more_posts: Bạn đã đọc hết.
+    no_posts_yet: Chưa có bài đăng nào.
+  tags:
+    show:
+      tagged_people:
+        zero: Chưa ai sử dụng hashtag %{tag}
+        other: "%{count} người sử dụng hashtag %{tag}"
+      follow: 'Theo dõi #%{tag}'
+      stop_following: 'Ngưng theo dõi #%{tag}'
+      none: Không tồn tại hashtag này!
+    name_too_long: Một hashtag chứa tối đa %{count} ký tự. Hiện tại là %{current_length} ký tự
   tag_followings:
     manage:
-      no_tags: "Bạn chưa theo dõi bất kỳ hashtag nào."
-      title: "Quản lý hashtag theo dõi"
-  tags:
-    name_too_long: "Một hashtag chứa tối đa %{count} ký tự. Hiện tại là %{current_length} ký tự"
-    show:
-      follow: "Theo dõi #%{tag}"
-      none: "Không tồn tại hashtag này!"
-      stop_following: "Ngưng theo dõi #%{tag}"
-      tagged_people:
-        other: "%{count} người sử dụng hashtag %{tag}"
-        zero: "Chưa ai sử dụng hashtag %{tag}"
-  two_factor_auth:
-    activated:
-      change_button: "Tắt xác thực hai bước"
-      change_label: "Nhập mật khẩu để tắt xác thực hai bước"
-      status: "Đã bật xác thực hai bước"
-    confirm:
-      activate_button: "Xác nhận và bật"
-      input_explanation: "Sau khi quét hoặc nhập mã, hãy nhập sáu ký tự bạn thấy và xác nhận thiết lập."
-      input_title: "Xác nhận TOTP token"
-      manual_explanation: "Trong trường hợp không thể quét mã QR tự động, hãy nhập mã bằng cách thủ công trong ứng dụng của bạn."
-      manual_explanation_cont: "Chúng tôi sử dụng mật khẩu sử dụng một lần (TOTP) với token gồm sáu ký tự. <br /> Xin đừng nhập dấu cách (khoảng trắng)."
-      scan_explanation: "Xin hãy quét mã QR bằng một ứng dụng hỗ trợ TOTP, ví dụ andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
-      scan_title: "Quét mã QR"
-      status: "Chưa thể bật xác thực hai bước, bạn cần xác nhận với một TOTP token"
-      title: "Xác nhận bật"
-    deactivated:
-      change_button: "Bật"
-      change_label: "Bật xác thực hai bước"
-      status: "Chưa bật xác thực hai bước"
-    explanation: "Xác thực hai bước là một cách mạnh mẽ để chắc rằng chỉ có bạn mới có thể đăng nhập vào tài khoản của bạn. Khi đăng nhập, bạn phải nhập một mã số gồm 6 chữ song song với mật khẩu. Hãy cẩn thận, nếu bạn bị mất điện thoại và đã tạo mã khôi phục bằng tính năng này, có thể tài khoản Diaspora của bạn bị khoá vĩnh viễn."
-    flash:
-      error_token: "Token sai hoặc không còn sử dụng được"
-      success_activation: "Bật xác thực hai bước thành công"
-      success_deactivation: "Tắt xác thực hai bước thành công"
-    input_token:
-      label: "Token"
-      placeholder: "sáu ký tự token"
-    recovery:
-      button: "Tạo mã khôi phục mới"
-      explanation: "Nếu bạn mất điện thoại, hãy dùng một trong những mã khôi phục bên dưới để lấy lại quyền truy cập tài khoản. Lưu mã khôi phục ở nơi an toàn. Ví dụ, bạn có thể in ra và giấu trong ngăn kéo."
-      explanation_short: "Mã khôi phục cho phép bạn lấy lại quyền truy cập tài khoản nếu bạn bị mất điện thoại. Xin lưu ý rằng bạn chỉ có thể sử dụng mỗi lần một mã khôi phục."
-      invalidation_notice: "Nếu bạn bị mất mã khôi phục, hãy tạo lại ở đây. Mã khôi phục cũ sẽ không còn sử dụng được nữa."
-      reminder: "Bên cạnh đó, bạn có thể sử dụng một trong những mã khôi phục."
-      title: "Mã khôi phục"
-    title: "Xác thực hai bước"
-  username: "Tên người dùng"
-  users:
-    confirm_email:
-      email_confirmed: "Địa chỉ %{email} đã được kích hoạt"
-      email_not_confirmed: "Không thể kích hoạt địa chỉ email. Sai link?"
-    destroy:
-      no_password: "Nhập mật khẩu hiện tại để vô hiệu hoá tài khoản."
-      success: "Tài khoản của bạn đã bị khoá. Có thể mất 20 phút để vô hiệu hoá tài khoản của bạn. Cám ơn vì đã dùng Diaspora."
-      wrong_password: "Mật khẩu đã nhập không khớp với mật khẩu hiện tại."
-    edit:
-      also_commented: "Ai đó bình luận bài đăng tôi từng bình luận"
-      auto_follow_aspect: "Xếp người đó vào mối quan hệ:"
-      auto_follow_back: "Tự động theo dõi lại người theo dõi tôi"
-      birthday: "ai đó có sinh nhật"
-      change: "Thay đổi"
-      change_color_theme: "Đổi theme"
-      change_email: "Đổi email"
-      change_language: "Đổi ngôn ngữ"
-      change_password: "Đổi mật khẩu"
-      character_minimum_expl: "ít nhất sáu kí tự"
-      close_account:
-        dont_go: "Chờ đã bạn ơi!"
-        lock_username: "Bạn sẽ không thể tạo lại tài khoản mới sử dụng tên người dùng này."
-        locked_out: "Bạn sẽ bị đăng xuất và khoá tài khoản."
-        make_diaspora_better: "Chúng tôi rất muốn bạn ở lại và giúp phát triển Diaspora tốt hơn. Nếu bạn vẫn muốn xoá tài khoản, đây là những gì xảy ra tiếp theo:"
-        mr_wiggles: "Mr. Wiggles sẽ buồn khi thấy bạn rời đi"
-        no_turning_back: "Đã xoá là không thể phục hồi! Nếu bạn đã chắc, nhập mật khẩu bên dưới."
-        what_we_delete: "Chúng tôi sẽ xoá toàn bộ bài đăng và dữ liệu tài khoản của bạn sớm nhất có thể. Những bình luận của bạn trên bài đăng của người khác vẫn tồn tại, nhưng tên người dùng của bạn sẽ hiển thị dưới dạng Diaspora ID."
-      close_account_text: "Vô hiệu hoá tài khoản"
-      comment_on_post: "Ai đó bình luận bài đăng của tôi"
-      current_password: "Mật khẩu hiện tại"
-      current_password_expl: "bạn dùng để đăng nhập..."
-      default_post_visibility: "Mối quan hệ mặc định"
-      download_export: "Xuất dữ liệu"
-      download_export_photos: "Tải về hình ảnh của tôi"
-      edit_account: "Chỉnh sửa tài khoản"
-      email_awaiting_confirmation: "Chúng tôi đã gửi email kích hoạt đến %{unconfirmed_email}. Chúng tôi vẫn dùng email cũ %{email} của bạn cho đến khi bạn xác nhận email mới."
-      export_data: "Xuất dữ liệu"
-      export_in_progress: "Chúng tôi đang xử lý dữ liệu của bạn. Hãy kiểm tra lại sau ít phút."
-      export_photos_in_progress: "Chúng tôi đang xử lí hình ảnh của bạn. Hãy thử lại sau vài phút nữa."
-      following: "Thiết lập theo dõi"
-      last_exported_html: "(Cập nhật vào %{timeago})"
-      liked: "Ai đó thích bài đăng của tôi"
-      mentioned: "Ai đó nhắc đến tôi"
-      mentioned_in_comment: "bạn được nhắc đến trong một bình luận"
-      new_password: "Mật khẩu mới"
-      private_message: "\bAi đó nhắn tin cho tôi"
-      protocol_handler:
-        browser: "Giao thức này gần đây vẫn trong quá trình phát triển và phụ thuộc nhiều vào trình duyệt của bạn đang sử dụng. Nếu bạn muốn quản lý hay xoá bỏ giao thức này, hãy vào phần thiết lập trong trình duyệt của bạn. Nút bên dưới sẽ luôn bật, và bạn cần bật giao thức này ở từng trình duyệt (nếu bạn dùng nhiều trình duyệt)."
-        description: "web+diaspora:// là một giao thức truyền thông mới. Bất cứ liên kết nào dẫn tới một trang Diaspora* ở một trang web bên ngoài đều có thể mở trong máy chủ Diaspora mà bạn đăng ký. Nhấn vào nút bên dưới để cho phép trình duyệt sử dụng %{pod_url} để nhận đoán những liên kết từ web+diaspora://."
-        register: "Đăng ký web+diaspora:// trên trình duyệt này"
-        title: "Giao thức web+diaspora://"
-      receive_email_notifications: "Nhận email thông báo khi:"
-      request_export: "Yêu cầu xuất dữ liệu"
-      request_export_photos: "Yêu cầu tải về"
-      request_export_photos_update: "Làm tươi hình ảnh của tôi"
-      request_export_update: "Làm tươi dữ liệu của tôi"
-      reshared: "Ai đó chia sẻ bài đăng của tôi"
-      show_community_spotlight: "Hiện “Bài đăng nổi bật”"
-      show_getting_started: "Hiện “Hướng dẫn cho người dùng mới”"
-      someone_reported: "Ai đó gửi một báo cáo"
-      started_sharing: "Ai đó theo dõi tôi"
-      stream_preferences: "Tuỳ chọn bảng tin"
-      your_email: "Email của bạn"
-      your_email_private: "Email của bạn không bao giờ công khai với người dùng khác"
-      your_handle: "Diaspora ID của bạn"
-    getting_started:
-      awesome_take_me_to_diaspora: "Tuyệt vời! Đưa tôi đến Diaspora*"
-      community_welcome: "Cộng đồng Diaspora hân hoan chào đón bạn!"
-      hashtag_explanation: "Hashtag cho phép bạn nói về và theo dõi những gì bạn quan tâm. Chúng cũng giúp bạn tìm bạn bè mới trên Diaspora."
-      hashtag_suggestions: "Thử theo dõi các hashtag như #art, #movies, #gif, etc."
-      well_hello_there: "Chào bạn!"
-      what_are_you_in_to: "Bạn đang ở đâu?"
-      who_are_you: "Bạn là ai?"
-    privacy_settings:
-      ignored_users: "Người dùng đã ẩn"
-      no_user_ignored_message: "Bạn chưa ẩn người dùng nào"
-      stop_ignoring: "Bỏ ẩn"
-      strip_exif: "Những siêu dữ liệu như nơi đăng, tác giả, và thiết bị chụp ảnh từ những hình ảnh đã tải lên (đề xuất)"
-      title: "Thiết lập riêng tư"
+      title: Quản lý hashtag theo dõi
+      no_tags: Bạn chưa theo dõi bất kỳ hashtag nào.
+  streams:
+    community_spotlight_stream: Bài đăng nổi bật
+    aspects_stream: Quan hệ
+    mentioned_stream: Lượt nhắc đến
+    followed_tags_stream: Hashtag theo dõi
+    mentions:
+      title: Lượt nhắc
+    comment_stream:
+      title: Bài đăng đã bình luận
+    like_stream:
+      title: Bài đăng đã thích
+    followed_tag:
+      title: Hashtag theo dõi
+      add_a_tag: Thêm hashtag
+      follow: Theo dõi
+      all: Tất cả hashtag
+    admin:
+      title: Quản trị viên
+    tags:
+      title: Những bài đăng có hashtag %{tags}
     public:
-      does_not_exist: "Người dùng %{username} không tồn tại!"
+      title: Bảng tin công khai
+    local_public:
+      title: Bài đăng từ máy chủ
+    multi:
+      title: Bảng tin
+    aspects:
+      title: Mối quan hệ của tôi
+      all: Tất cả mối quan hệ
+    activity:
+      title: Hoạt động của tôi
+    liked:
+      title: Lượt thích
+    commented:
+      title: Lượt bình luận
+  users:
+    edit:
+      edit_account: Chỉnh sửa tài khoản
+      change: Thay đổi
+      your_handle: Diaspora ID của bạn
+      your_email: Email của bạn
+      your_email_private: Email của bạn không bao giờ công khai với người dùng khác
+      change_email: Đổi email
+      email_awaiting_confirmation: Chúng tôi đã gửi email kích hoạt đến %{unconfirmed_email}. Chúng tôi vẫn dùng email cũ %{email} của bạn cho đến khi bạn xác nhận email mới.
+      change_password: Đổi mật khẩu
+      new_password: Mật khẩu mới
+      current_password: Mật khẩu hiện tại
+      current_password_expl: bạn dùng để đăng nhập...
+      character_minimum_expl: ít nhất sáu kí tự
+      change_language: Đổi ngôn ngữ
+      change_color_theme: Đổi theme
+      close_account_text: Vô hiệu hoá tài khoản
+      stream_preferences: Tuỳ chọn bảng tin
+      show_community_spotlight: Hiện “Bài đăng nổi bật”
+      show_getting_started: Hiện “Hướng dẫn cho người dùng mới”
+      following: Thiết lập theo dõi
+      auto_follow_back: Tự động theo dõi lại người theo dõi tôi
+      auto_follow_aspect: 'Xếp người đó vào mối quan hệ:'
+      default_post_visibility: Mối quan hệ mặc định
+      receive_email_notifications: 'Nhận email thông báo khi:'
+      started_sharing: Ai đó theo dõi tôi
+      someone_reported: Ai đó gửi một báo cáo
+      mentioned: Ai đó nhắc đến tôi
+      mentioned_in_comment: bạn được nhắc đến trong một bình luận
+      liked: Ai đó thích bài đăng của tôi
+      reshared: Ai đó chia sẻ bài đăng của tôi
+      comment_on_post: Ai đó bình luận bài đăng của tôi
+      also_commented: Ai đó bình luận bài đăng tôi từng bình luận
+      private_message: "\bAi đó nhắn tin cho tôi"
+      birthday: ai đó có sinh nhật
+      download_export: Xuất dữ liệu
+      request_export: Yêu cầu xuất dữ liệu
+      request_export_update: Làm tươi dữ liệu của tôi
+      export_data: Xuất dữ liệu
+      export_in_progress: Chúng tôi đang xử lý dữ liệu của bạn. Hãy kiểm tra lại sau ít phút.
+      last_exported_html: "(Cập nhật vào %{timeago})"
+      download_export_photos: Tải về hình ảnh của tôi
+      request_export_photos: Yêu cầu tải về
+      request_export_photos_update: Làm tươi hình ảnh của tôi
+      export_photos_in_progress: Chúng tôi đang xử lí hình ảnh của bạn. Hãy thử lại sau vài phút nữa.
+      close_account:
+        dont_go: Chờ đã bạn ơi!
+        make_diaspora_better: 'Chúng tôi rất muốn bạn ở lại và giúp phát triển Diaspora tốt hơn. Nếu bạn vẫn muốn xoá tài khoản, đây là những gì xảy ra tiếp theo:'
+        mr_wiggles: Mr. Wiggles sẽ buồn khi thấy bạn rời đi
+        what_we_delete: Chúng tôi sẽ xoá toàn bộ bài đăng và dữ liệu tài khoản của bạn sớm nhất có thể. Những bình luận của bạn trên bài đăng của người khác vẫn tồn tại, nhưng tên người dùng của bạn sẽ hiển thị dưới dạng Diaspora ID.
+        locked_out: Bạn sẽ bị đăng xuất và khoá tài khoản.
+        lock_username: Bạn sẽ không thể tạo lại tài khoản mới sử dụng tên người dùng này.
+        no_turning_back: Đã xoá là không thể phục hồi! Nếu bạn đã chắc, nhập mật khẩu bên dưới.
+      protocol_handler:
+        title: Giao thức web+diaspora://
+        description: web+diaspora:// là một giao thức truyền thông mới. Bất cứ liên kết nào dẫn tới một trang Diaspora* ở một trang web bên ngoài đều có thể mở trong máy chủ Diaspora mà bạn đăng ký. Nhấn vào nút bên dưới để cho phép trình duyệt sử dụng %{pod_url} để nhận đoán những liên kết từ web+diaspora://.
+        browser: Giao thức này gần đây vẫn trong quá trình phát triển và phụ thuộc nhiều vào trình duyệt của bạn đang sử dụng. Nếu bạn muốn quản lý hay xoá bỏ giao thức này, hãy vào phần thiết lập trong trình duyệt của bạn. Nút bên dưới sẽ luôn bật, và bạn cần bật giao thức này ở từng trình duyệt (nếu bạn dùng nhiều trình duyệt).
+        register: Đăng ký web+diaspora:// trên trình duyệt này
+    privacy_settings:
+      title: Thiết lập riêng tư
+      strip_exif: Những siêu dữ liệu như nơi đăng, tác giả, và thiết bị chụp ảnh từ những hình ảnh đã tải lên (đề xuất)
+      ignored_users: Người dùng đã ẩn
+      stop_ignoring: Bỏ ẩn
+      no_user_ignored_message: Bạn chưa ẩn người dùng nào
+    destroy:
+      success: Tài khoản của bạn đã bị khoá. Có thể mất 20 phút để vô hiệu hoá tài khoản của bạn. Cám ơn vì đã dùng Diaspora.
+      no_password: Nhập mật khẩu hiện tại để vô hiệu hoá tài khoản.
+      wrong_password: Mật khẩu đã nhập không khớp với mật khẩu hiện tại.
+    getting_started:
+      well_hello_there: Chào bạn!
+      community_welcome: Cộng đồng Diaspora hân hoan chào đón bạn!
+      awesome_take_me_to_diaspora: Tuyệt vời! Đưa tôi đến Diaspora*
+      who_are_you: Bạn là ai?
+      what_are_you_in_to: Bạn đang ở đâu?
+      hashtag_explanation: Hashtag cho phép bạn nói về và theo dõi những gì bạn quan tâm. Chúng cũng giúp bạn tìm bạn bè mới trên Diaspora.
+      hashtag_suggestions: 'Thử theo dõi các hashtag như #art, #movies, #gif, etc.'
     update:
-      color_theme_changed: "Đã đổi theme thành công."
-      color_theme_not_changed: "Có lỗi xảy ra khi đổi theme."
-      email_notifications_changed: "Đã đổi thông báo qua email"
-      follow_settings_changed: "Đã đổi thiết lập theo dõi"
-      follow_settings_not_changed: "Đổi thiết lập theo dõi thất bại."
-      language_changed: "Đã đổi ngôn ngữ"
-      language_not_changed: "Đổi ngôn ngữ thất bại"
-      password_changed: "Đã đổi mật khẩu. Bây giờ bạn có thể đăng nhập với mật khẩu mới."
-      password_not_changed: "Đổi mật khẩu thất bại"
-      settings_not_updated: "Cập nhật thiết lập thất bại"
-      settings_updated: "Đã cập nhật thiết lập"
-      unconfirmed_email_changed: "Đã đổi email. Yêu cầu kích hoạt ngay."
-      unconfirmed_email_not_changed: "Đổi email thất bại"
+      password_changed: Đã đổi mật khẩu. Bây giờ bạn có thể đăng nhập với mật khẩu mới.
+      password_not_changed: Đổi mật khẩu thất bại
+      language_changed: Đã đổi ngôn ngữ
+      language_not_changed: Đổi ngôn ngữ thất bại
+      settings_updated: Đã cập nhật thiết lập
+      settings_not_updated: Cập nhật thiết lập thất bại
+      email_notifications_changed: Đã đổi thông báo qua email
+      unconfirmed_email_changed: Đã đổi email. Yêu cầu kích hoạt ngay.
+      unconfirmed_email_not_changed: Đổi email thất bại
+      follow_settings_changed: Đã đổi thiết lập theo dõi
+      follow_settings_not_changed: Đổi thiết lập theo dõi thất bại.
+      color_theme_changed: Đã đổi theme thành công.
+      color_theme_not_changed: Có lỗi xảy ra khi đổi theme.
+    public:
+      does_not_exist: Người dùng %{username} không tồn tại!
+    confirm_email:
+      email_confirmed: Địa chỉ %{email} đã được kích hoạt
+      email_not_confirmed: Không thể kích hoạt địa chỉ email. Sai link?
+  two_factor_auth:
+    title: Xác thực hai bước
+    explanation: Xác thực hai bước là một cách mạnh mẽ để chắc rằng chỉ có bạn mới có thể đăng nhập vào tài khoản của bạn. Khi đăng nhập, bạn phải nhập một mã số gồm 6 chữ song song với mật khẩu. Hãy cẩn thận, nếu bạn bị mất điện thoại và đã tạo mã khôi phục bằng tính năng này, có thể tài khoản Diaspora của bạn bị khoá vĩnh viễn.
+    activated:
+      status: Đã bật xác thực hai bước
+      change_label: Nhập mật khẩu để tắt xác thực hai bước
+      change_button: Tắt xác thực hai bước
+    deactivated:
+      status: Chưa bật xác thực hai bước
+      change_label: Bật xác thực hai bước
+      change_button: Bật
+    confirm:
+      title: Xác nhận bật
+      status: Chưa thể bật xác thực hai bước, bạn cần xác nhận với một TOTP token
+      scan_title: Quét mã QR
+      scan_explanation: Xin hãy quét mã QR bằng một ứng dụng hỗ trợ TOTP, ví dụ andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS).
+      manual_explanation: Trong trường hợp không thể quét mã QR tự động, hãy nhập mã bằng cách thủ công trong ứng dụng của bạn.
+      manual_explanation_cont: Chúng tôi sử dụng mật khẩu sử dụng một lần (TOTP) với token gồm sáu ký tự. <br /> Xin đừng nhập dấu cách (khoảng trắng).
+      input_title: Xác nhận TOTP token
+      input_explanation: Sau khi quét hoặc nhập mã, hãy nhập sáu ký tự bạn thấy và xác nhận thiết lập.
+      activate_button: Xác nhận và bật
+    input_token:
+      label: Token
+      placeholder: sáu ký tự token
+    recovery:
+      title: Mã khôi phục
+      reminder: Bên cạnh đó, bạn có thể sử dụng một trong những mã khôi phục.
+      explanation: Nếu bạn mất điện thoại, hãy dùng một trong những mã khôi phục bên dưới để lấy lại quyền truy cập tài khoản. Lưu mã khôi phục ở nơi an toàn. Ví dụ, bạn có thể in ra và giấu trong ngăn kéo.
+      explanation_short: Mã khôi phục cho phép bạn lấy lại quyền truy cập tài khoản nếu bạn bị mất điện thoại. Xin lưu ý rằng bạn chỉ có thể sử dụng mỗi lần một mã khôi phục.
+      invalidation_notice: Nếu bạn bị mất mã khôi phục, hãy tạo lại ở đây. Mã khôi phục cũ sẽ không còn sử dụng được nữa.
+      button: Tạo mã khôi phục mới
+    flash:
+      success_activation: Bật xác thực hai bước thành công
+      success_deactivation: Tắt xác thực hai bước thành công
+      error_token: Token sai hoặc không còn sử dụng được
   will_paginate:
-    next_label: "sau &raquo;"
     previous_label: "&laquo; trước"
+    next_label: sau &raquo;
+  simple_captcha:
+    placeholder: Nhập ký tự trong hình
+    label: 'Nhập mã trong khung:'
+    message:
+      default: Mã đã nhập không khớp với hình ảnh
+      user: Hình ảnh và mã khác nhau
+      failed: Xác minh thất bại
+  statistics:
+    name: Tên
+    network: Mạng lưới
+    services: Dịch vụ
+    total_users: Người dùng
+    active_users_halfyear: Người dùng hoạt động 6 tháng gần đây
+    active_users_monthly: Người dùng hoạt động hàng tháng
+    local_posts: Bài đăng từ máy chủ
+    local_comments: Bình luận từ máy chủ
+    version: Phiên bản
+    registrations: Đăng ký
+    enabled: Đã bật
+    disabled: Đã tắt
+    open: Mở
+    closed: Đóng

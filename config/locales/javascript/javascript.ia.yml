@@ -6,302 +6,302 @@
 
 ia:
   javascripts:
+    timeago:
+      prefixAgo: ''
+      suffixAgo: retro
+      suffixFromNow: ab ora
+      prefixFromNow: ''
+      inPast: a qualcunque momento
+      seconds: minus de un minuta
+      minute: circa un minuta
+      minutes:
+        one: 1 minuta
+        other: "%d minutas"
+      hour: circa un hora
+      hours:
+        one: circa 1 hora
+        other: circa %d horas
+      day: un die
+      days:
+        one: 1 die
+        other: "%d dies"
+      month: circa un mense
+      months:
+        one: 1 mense
+        other: "%d menses"
+      year: circa un anno
+      years:
+        one: 1 anno
+        other: "%d annos"
+      wordSeparator: " "
+    cancel: Cancellar
+    confirm_dialog: Es tu secur?
+    confirm_unload: Per favor, confirma que tu vole quitar iste pagina. Le datos que tu ha inserite non essera salveguardate.
+    create: Crear
+    delete: Deler
+    ignore: Ignorar
+    report:
+      prompt: 'Specifica un motivo:'
+      prompt_default: p.ex. contento offensive
+      name: Reportar
+      status:
+        created: Le creation del reporto ha succedite
+        exists: Le reporto jam existe
+    ignore_user: Ignorar iste usator?
+    ignore_failed: Impossibile ignorar iste usator
+    hide_post: Celar iste entrata?
+    hide_post_failed: Impossibile celar ite entrata
+    remove_post: Remover iste entrata?
+    unblock_failed: Le action de disblocar iste usator ha fallite
+    and: e
+    comma: ","
+    edit: Modificar
+    no_results: Nulle resultato trovate
+    show_all: Monstrar totes
+    admins:
+      dashboard:
+        up_to_date: Tu pod es actual!
+        outdated: Tu pod non es actual.
+        compare_versions: Le ultime version de diaspora* es <%= latestVersion %>; iste pod executa <%= podVersion %>.
+        error: Impossibile determinar le ultime version de diaspora*.
     admin:
       pods:
-        actions: "Actiones"
-        added: "Addite"
-        check: "exequer test de connexion"
-        errors:
-          one: "Le test de connexion ha producite un error pro un pod."
-          other: "Le test de connexion ha producite un error pro <%= count %> pods."
-        follow_link: "aperir ligamine in navigator"
-        last_check: "ultime verification:"
-        more_info: "monstrar plus information"
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL active
+        ssl_disabled: SSL non active
+        added: Addite
+        status: Stato
+        states:
+          unchecked: Non verificate
+          no_errors: OK
+          dns_failed: Le resolution de nomines (DNS) ha fallite
+          net_failed: Le tentativa de connexion ha fallite
+          ssl_failed: Le connexion secur (SSL) ha fallite
+          http_failed: Le connexion HTTP ha fallite
+          version_failed: Impossibile obtener le version del software
+          unknown_error: Un error non specificate ha occurrite durante le verification
+        actions: Actiones
+        offline_since: 'foras de linea depost:'
+        last_check: 'ultime verification:'
+        more_info: monstrar plus information
+        check: exequer test de connexion
+        recheck:
+          success: Le pod ha justo ora essite verificate de novo.
+          failure: Le verification non ha essite exequite.
+        follow_link: aperir ligamine in navigator
+        no_info: Nulle information additional es disponibile in iste momento
+        server_software: 'Software de servitor:'
+        response_time: 'Duration de responsa:'
         ms:
           one: "<%= count %>ms"
           other: "<%= count %>ms"
-        no_info: "Nulle information additional es disponibile in iste momento"
-        not_available: "indisponibile"
-        offline_since: "foras de linea depost:"
-        pod: "Pod"
-        recheck:
-          failure: "Le verification non ha essite exequite."
-          success: "Le pod ha justo ora essite verificate de novo."
-        response_time: "Duration de responsa:"
-        server_software: "Software de servitor:"
-        ssl: "SSL"
-        ssl_disabled: "SSL non active"
-        ssl_enabled: "SSL active"
-        states:
-          dns_failed: "Le resolution de nomines (DNS) ha fallite"
-          http_failed: "Le connexion HTTP ha fallite"
-          net_failed: "Le tentativa de connexion ha fallite"
-          no_errors: "OK"
-          ssl_failed: "Le connexion secur (SSL) ha fallite"
-          unchecked: "Non verificate"
-          unknown_error: "Un error non specificate ha occurrite durante le verification"
-          version_failed: "Impossibile obtener le version del software"
-        status: "Stato"
+        unknown: incognite
+        not_available: indisponibile
         unchecked:
-          one: "Il ha ancora un pod non verificate."
-          other: "Il ha ancora <%= count %> pods non verificate."
-        unknown: "incognite"
+          one: Il ha ancora un pod non verificate.
+          other: Il ha ancora <%= count %> pods non verificate.
         version_failed:
-          one: "Il ha un pod que non ha version (pod ancian sin NodeInfo)."
-          other: "Il ha <%= count %> pods que non ha version (pods ancian sin NodeInfo)."
-    admins:
-      dashboard:
-        compare_versions: "Le ultime version de diaspora* es <%= latestVersion %>; iste pod executa <%= podVersion %>."
-        error: "Impossibile determinar le ultime version de diaspora*."
-        outdated: "Tu pod non es actual."
-        up_to_date: "Tu pod es actual!"
-    and: "e"
+          one: Il ha un pod que non ha version (pod ancian sin NodeInfo).
+          other: Il ha <%= count %> pods que non ha version (pods ancian sin NodeInfo).
+        errors:
+          one: Le test de connexion ha producite un error pro un pod.
+          other: Le test de connexion ha producite un error pro <%= count %> pods.
+    aspects:
+      name: Nomine
+      create:
+        add_a_new_aspect: Adder un nove aspecto
+        success: Tu nove aspecto <%= name %> ha essite create
+        failure: Le creation del aspecto ha fallite.
+    errors:
+      connection: Impossibile connecter al servitor.
+    contacts:
+      add_contact: Adder contacto
+      remove_contact: Remover contacto
+      error_add: Non poteva adder <%= name %> al aspecto.
+      error_remove: Non poteva remover <%= name %> del aspecto.
+      search_no_results: Nulle contacto trovate
+    my_activity: Mi activitate
+    my_stream: Fluxo
+    my_aspects: Mi aspectos
+    publisher:
+      near_from: 'Inviate de: <%= location %>'
+      option: Responsa
+      add_option: Adder un responsa
+      question: Question
+      markdown_editor:
+        preview: Previsualisar
+        write: Scriber
+        tooltips:
+          bold: Grasse
+          italic: Italic
+          heading: Titulo
+          insert_link: Inserer ligamine
+          insert_image: Inserer imagine
+          insert_ordered_list: Inserer lista ordinate
+          insert_unordered_list: Inserer lista non ordinate
+          preview: Previsualisar message
+          write: Modificar message
+          cancel: Cancellar message
+          quote: Inserer citation
+          code: Inserer codice
+        texts:
+          strong: texto forte
+          italic: texto italic
+          heading: texto de titulo
+          insert_link_description_text: describe hic le ligamine
+          insert_link_help_text: Inserer ligamine hic
+          insert_image_description_text: describe hic le imagine
+          insert_image_help_text: Inserer hic un ligamine a un imagine
+          insert_image_title: scribe hic le titulo del imagine
+          list: scribe hic le texto del lista
+          quote: scribe hic le texto del citation
+          code: scribe hic le codice
+      mention_success: 'Ha essite mentionate: <%= names %>'
+    bookmarklet:
+      post_something: Inviar a diaspora*
+      post_submit: Submitte entrata…
+      post_success: Inviate! Le fenestra se claude ora…
     aspect_dropdown:
-      add_to_aspect: "Adder contacto"
-      all_aspects: "Tote le aspectos"
-      error: "Impossibile comenciar a divider con <%= name %>. Esque tu ignora iste persona?"
-      error_remove: "Non poteva remover <%= name %> del aspecto."
+      add_to_aspect: Adder contacto
+      select_aspects: Seliger aspectos
+      all_aspects: Tote le aspectos
+      updating: actualisa…
       mobile_row_checked: "<%= name %> (remover)"
       mobile_row_unchecked: "<%= name %> (adder)"
-      select_aspects: "Seliger aspectos"
-      started_sharing_with: "Tu ha comenciate a divider con <%= name %>!"
-      stopped_sharing_with: "Tu ha cessate de divider con <%= name %>."
+      stopped_sharing_with: Tu ha cessate de divider con <%= name %>.
+      started_sharing_with: Tu ha comenciate a divider con <%= name %>!
+      error: Impossibile comenciar a divider con <%= name %>. Esque tu ignora iste persona?
+      error_remove: Non poteva remover <%= name %> del aspecto.
       toggle:
-        one: "In <%= count %> aspecto"
-        other: "In <%= count %> aspectos"
-      updating: "actualisa…"
-    aspect_navigation:
-      add_an_aspect: "+ Adder un aspecto"
-      deselect_all: "Dismarcar totes"
-      no_aspects: "Nulle aspecto seligite"
-      select_all: "Seliger totes"
-    aspects:
-      create:
-        add_a_new_aspect: "Adder un nove aspecto"
-        failure: "Le creation del aspecto ha fallite."
-        success: "Tu nove aspecto <%= name %> ha essite create"
-      name: "Nomine"
-    bookmarklet:
-      post_something: "Inviar a diaspora*"
-      post_submit: "Submitte entrata…"
-      post_success: "Inviate! Le fenestra se claude ora…"
-    cancel: "Cancellar"
-    comma: ","
+        one: In <%= count %> aspecto
+        other: In <%= count %> aspectos
+    show_more: Monstrar plus
+    failed_to_post_message: Publication del entrata fallite!
+    failed_to_remove: Le remotion del entrata ha fallite.
     comments:
-      hide: "Celar commentos"
-      no_comments: "Il non ha ancora commentos."
-      show: "Monstrar tote le commentos"
-    confirm_dialog: "Es tu secur?"
-    confirm_unload: "Per favor, confirma que tu vole quitar iste pagina. Le datos que tu ha inserite non essera salveguardate."
-    contacts:
-      add_contact: "Adder contacto"
-      error_add: "Non poteva adder <%= name %> al aspecto."
-      error_remove: "Non poteva remover <%= name %> del aspecto."
-      remove_contact: "Remover contacto"
-      search_no_results: "Nulle contacto trovate"
+      show: Monstrar tote le commentos
+      hide: Celar commentos
+      no_comments: Il non ha ancora commentos.
+    reshares:
+      successful: Le entrata ha essite repetite con successo.
+      post: Repeter le entrata de <%= name %>?
+    aspect_navigation:
+      select_all: Seliger totes
+      deselect_all: Dismarcar totes
+      no_aspects: Nulle aspecto seligite
+      add_an_aspect: "+ Adder un aspecto"
+    getting_started:
+      hey: Hallo, <%= name %>!
+      no_tags: Tu non ha sequite alcun etiquetta! Continuar in omne caso?
+      alright_ill_wait: Ben, io attendera.
+      preparing_your_stream: Fluxo personalisate in preparation...
+    photo_uploader:
+      upload_photos: Incargar photos
+      looking_good: Oh, tu pare splendide!
+      completed: "<%= file %> complete"
+      error: Un problema ha occurrite durante le incargamento del file <%= file %>
+      invalid_ext: "{file} ha un extension inadmissibile. Solmente {extensions} es permittite."
+      size_error: "{file} es troppo grande. Le dimension maxime es {sizeLimit}."
+      empty: "{file} es vacue. Per favor re-selige le files sin iste."
+    tags:
+      wasnt_that_interesting: 'OK, io suppone que #<%= tagName %> non es si interessante...'
+    people:
+      not_found: "... e nemo ha essite trovate"
+      mention: Mention
+      message: Message
+      edit_my_profile: Modificar mi profilo
+      stop_ignoring: Cessar de ignorar
+      helper:
+        is_sharing: "<%= name %> divide cosas con te"
+        is_not_sharing: "<%= name %> non divide cosas con te"
+    profile:
+      edit: Modificar
+      add_some: Adder alcunes
+      you_have_no_tags: Tu non ha etiquettas.
+      bio: Bio
+      location: Loco
+      gender: Genere
+      born: Data de nascentia
+      photos: Photos
+      posts: Entratas
     conversation:
       create:
-        no_recipient: "Es necessari adder un destinatario primo."
+        no_recipient: Es necessari adder un destinatario primo.
       new:
-        no_contacts: "Es necessari adder alcun contactos ante de poter initiar un conversation."
-    create: "Crear"
-    delete: "Deler"
-    edit: "Modificar"
-    errors:
-      connection: "Impossibile connecter al servitor."
-    failed_to_post_message: "Publication del entrata fallite!"
-    failed_to_remove: "Le remotion del entrata ha fallite."
-    getting_started:
-      alright_ill_wait: "Ben, io attendera."
-      hey: "Hallo, <%= name %>!"
-      no_tags: "Tu non ha sequite alcun etiquetta! Continuar in omne caso?"
-      preparing_your_stream: "Fluxo personalisate in preparation..."
-    header:
-      admin: "Administration"
-      close: "Clauder"
-      contacts: "Contactos"
-      conversations: "Conversationes"
-      help: "Adjuta"
-      home: "Initio"
-      log_out: "Clauder session"
-      mark_all_as_read: "Marcar totes como legite"
-      moderator: "Moderator"
-      notifications: "Notificationes"
-      profile: "Profilo"
-      recent_notifications: "Notificationes recente"
-      search: "Cercar"
-      settings: "Configuration"
-      switch_to_touch_optimized_mode: "Cambiar al modo tactile"
-      toggle_navigation: "Alternar navigation"
-      view_all: "Vider totes"
-    hide_post: "Celar iste entrata?"
-    hide_post_failed: "Impossibile celar ite entrata"
-    ignore: "Ignorar"
-    ignore_failed: "Impossibile ignorar iste usator"
-    ignore_user: "Ignorar iste usator?"
-    my_activity: "Mi activitate"
-    my_aspects: "Mi aspectos"
-    my_stream: "Fluxo"
-    no_results: "Nulle resultato trovate"
+        no_contacts: Es necessari adder alcun contactos ante de poter initiar un conversation.
     notifications:
-      mark_read: "Marcar como legite"
-      mark_unread: "Marcar como non legite"
+      mark_read: Marcar como legite
+      mark_unread: Marcar como non legite
       new_notifications:
-        one: "Tu ha <%= count %> notification non legite"
-        other: "Tu ha <%= count %> notificationes non legite"
-    people:
-      edit_my_profile: "Modificar mi profilo"
-      helper:
-        is_not_sharing: "<%= name %> non divide cosas con te"
-        is_sharing: "<%= name %> divide cosas con te"
-      mention: "Mention"
-      message: "Message"
-      not_found: "... e nemo ha essite trovate"
-      stop_ignoring: "Cessar de ignorar"
-    photo_uploader:
-      completed: "<%= file %> complete"
-      empty: "{file} es vacue. Per favor re-selige le files sin iste."
-      error: "Un problema ha occurrite durante le incargamento del file <%= file %>"
-      invalid_ext: "{file} ha un extension inadmissibile. Solmente {extensions} es permittite."
-      looking_good: "Oh, tu pare splendide!"
-      size_error: "{file} es troppo grande. Le dimension maxime es {sizeLimit}."
-      upload_photos: "Incargar photos"
-    poll:
-      answer_count:
-        one: "1 voto"
-        other: "<%=count%> votos"
-        zero: "0 votos"
-      close_result: "Celar resultato"
-      count:
-        one: "1 voto usque ora"
-        other: "<%=count%> votos usque ora"
-      go_to_original_post: "Tu pote participar a iste sondage in le <%= original_post_link %>."
-      original_post: "entrata original"
-      result: "Resultato"
-      show_result: "Monstrar resultato"
-      vote: "Votar"
-      your_vote: "Tu voto"
-    profile:
-      add_some: "Adder alcunes"
-      bio: "Bio"
-      born: "Data de nascentia"
-      edit: "Modificar"
-      gender: "Genere"
-      location: "Loco"
-      photos: "Photos"
-      posts: "Entratas"
-      you_have_no_tags: "Tu non ha etiquettas."
-    publisher:
-      add_option: "Adder un responsa"
-      markdown_editor:
-        preview: "Previsualisar"
-        texts:
-          code: "scribe hic le codice"
-          heading: "texto de titulo"
-          insert_image_description_text: "describe hic le imagine"
-          insert_image_help_text: "Inserer hic un ligamine a un imagine"
-          insert_image_title: "scribe hic le titulo del imagine"
-          insert_link_description_text: "describe hic le ligamine"
-          insert_link_help_text: "Inserer ligamine hic"
-          italic: "texto italic"
-          list: "scribe hic le texto del lista"
-          quote: "scribe hic le texto del citation"
-          strong: "texto forte"
-        tooltips:
-          bold: "Grasse"
-          cancel: "Cancellar message"
-          code: "Inserer codice"
-          heading: "Titulo"
-          insert_image: "Inserer imagine"
-          insert_link: "Inserer ligamine"
-          insert_ordered_list: "Inserer lista ordinate"
-          insert_unordered_list: "Inserer lista non ordinate"
-          italic: "Italic"
-          preview: "Previsualisar message"
-          quote: "Inserer citation"
-          write: "Modificar message"
-        write: "Scriber"
-      mention_success: "Ha essite mentionate: <%= names %>"
-      near_from: "Inviate de: <%= location %>"
-      option: "Responsa"
-      question: "Question"
-    remove_post: "Remover iste entrata?"
-    report:
-      name: "Reportar"
-      prompt: "Specifica un motivo:"
-      prompt_default: "p.ex. contento offensive"
-      status:
-        created: "Le creation del reporto ha succedite"
-        exists: "Le reporto jam existe"
-    reshares:
-      post: "Repeter le entrata de <%= name %>?"
-      successful: "Le entrata ha essite repetite con successo."
-    show_all: "Monstrar totes"
-    show_more: "Monstrar plus"
+        one: Tu ha <%= count %> notification non legite
+        other: Tu ha <%= count %> notificationes non legite
     stream:
-      comment: "Commentar"
+      hide: Celar
+      public: Public
+      limited: Limitate
+      like: Appreciar
+      unlike: Non plus appreciar
+      reshare: Repeter
+      comment: Commentar
+      original_post_deleted: Entrata original delite per autor
+      show_nsfw_post: Monstrar entrata
+      show_nsfw_posts: Monstrar totes
+      hide_nsfw_posts: 'Celar entratas #nsfw (improprie pro le travalio)'
+      follow: Sequer
+      unfollow: Non plus sequer
+      enable_post_notifications: Activar le notificationes pro iste entrata
+      disable_post_notifications: Disactivar le notificationes pro iste entrata
+      permalink: Permaligamine
+      via: via <%= provider %>
+      no_posts_yet: Il non ha ancora entratas a monstrar hic.
       comments:
+        zero: "<%= count %> commentos"
         one: "<%= count %> commento"
         other: "<%= count %> commentos"
-        zero: "<%= count %> commentos"
-      disable_post_notifications: "Disactivar le notificationes pro iste entrata"
-      enable_post_notifications: "Activar le notificationes pro iste entrata"
-      follow: "Sequer"
       followed_tag:
-        add_a_tag: "Adder un etiquetta"
-        follow: "Sequer"
         title: "#Etiquettas sequite"
-      hide: "Celar"
-      hide_nsfw_posts: "Celar entratas #nsfw (improprie pro le travalio)"
-      like: "Appreciar"
-      limited: "Limitate"
-      no_posts_yet: "Il non ha ancora entratas a monstrar hic."
-      original_post_deleted: "Entrata original delite per autor"
-      permalink: "Permaligamine"
-      public: "Public"
-      reshare: "Repeter"
-      show_nsfw_post: "Monstrar entrata"
-      show_nsfw_posts: "Monstrar totes"
+        add_a_tag: Adder un etiquetta
+        follow: Sequer
       tags:
-        follow: "Sequer #<%= tag %>"
-        follow_error: "Error in sequer <%= tag %>."
-        following: "Tu seque #<%= tag %>"
-        stop_following: "Cessar de sequer #<%= tag %>"
-        stop_following_confirm: "Cessar de sequer #<%= tag %>?"
-        stop_following_error: "Error in cessar de sequer <%= tag %>."
-      unfollow: "Non plus sequer"
-      unlike: "Non plus appreciar"
-      via: "via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "OK, io suppone que #<%= tagName %> non es si interessante..."
-    timeago:
-      day: "un die"
-      days:
-        one: "1 die"
-        other: "%d dies"
-      hour: "circa un hora"
-      hours:
-        one: "circa 1 hora"
-        other: "circa %d horas"
-      inPast: "a qualcunque momento"
-      minute: "circa un minuta"
-      minutes:
-        one: "1 minuta"
-        other: "%d minutas"
-      month: "circa un mense"
-      months:
-        one: "1 mense"
-        other: "%d menses"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "minus de un minuta"
-      suffixAgo: "retro"
-      suffixFromNow: "ab ora"
-      wordSeparator: " "
-      year: "circa un anno"
-      years:
-        one: "1 anno"
-        other: "%d annos"
-    unblock_failed: "Le action de disblocar iste usator ha fallite"
+        follow: 'Sequer #<%= tag %>'
+        following: 'Tu seque #<%= tag %>'
+        stop_following: 'Cessar de sequer #<%= tag %>'
+        stop_following_confirm: 'Cessar de sequer #<%= tag %>?'
+        follow_error: Error in sequer <%= tag %>.
+        stop_following_error: Error in cessar de sequer <%= tag %>.
+    header:
+      home: Initio
+      profile: Profilo
+      contacts: Contactos
+      settings: Configuration
+      help: Adjuta
+      admin: Administration
+      moderator: Moderator
+      log_out: Clauder session
+      toggle_navigation: Alternar navigation
+      switch_to_touch_optimized_mode: Cambiar al modo tactile
+      notifications: Notificationes
+      conversations: Conversationes
+      search: Cercar
+      recent_notifications: Notificationes recente
+      mark_all_as_read: Marcar totes como legite
+      view_all: Vider totes
+      close: Clauder
     viewer:
-      reshared: "Repetite"
+      reshared: Repetite
+    poll:
+      vote: Votar
+      go_to_original_post: Tu pote participar a iste sondage in le <%= original_post_link %>.
+      original_post: entrata original
+      result: Resultato
+      count:
+        one: 1 voto usque ora
+        other: "<%=count%> votos usque ora"
+      answer_count:
+        zero: 0 votos
+        one: 1 voto
+        other: "<%=count%> votos"
+      show_result: Monstrar resultato
+      close_result: Celar resultato
+      your_vote: Tu voto

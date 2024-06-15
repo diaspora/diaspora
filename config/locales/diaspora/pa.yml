@@ -5,233 +5,233 @@
 
 
 pa:
-  _contacts: "ਸੰਪਰਕ"
-  _services: "ਸਰਵਿਸਾਂ"
-  account: "ਅਕਾਊਂਟ"
+  account: ਅਕਾਊਂਟ
+  _services: ਸਰਵਿਸਾਂ
+  ok: ਠੀਕ ਹੈ
+  cancel: ਰੱਦ ਕਰੋ
+  delete: ਹਟਾਓ
+  username: ਯੂਜ਼ਰ ਨਾਂ
+  email: ਈਮੇਲ
+  are_you_sure: ਕੀ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ?
+  search: ਖੋਜ
+  find_people: Find people
+  more: ਹੋਰ
+  all_aspects: All aspects
+  _contacts: ਸੰਪਰਕ
   activerecord:
     errors:
       models:
-        reshare:
-          attributes:
-            root_guid:
-              taken: "You've already reshared that post!"
         user:
           attributes:
             username:
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
-  all_aspects: "All aspects"
-  are_you_sure: "ਕੀ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ?"
+              invalid: is invalid. We only allow letters, numbers, and underscores
+        reshare:
+          attributes:
+            root_guid:
+              taken: You've already reshared that post!
   aspects:
     edit:
-      rename: "ਨਾਂ-ਬਦਲੋ"
+      rename: ਨਾਂ-ਬਦਲੋ
+    no_contacts_message:
+      try_adding_some_more_contacts: You can search (top) or invite (right) more contacts.
+    seed:
+      family: ਪਰਿਵਾਰ
+      work: ਕੰਮ
     index:
       help:
-        here_to_help: "Diaspora community is here to help!"
+        here_to_help: Diaspora community is here to help!
+        tag_question: "#question"
         tag_bug: "#bug"
         tag_feature: "#feature"
-        tag_question: "#question"
-    no_contacts_message:
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-    seed:
-      family: "ਪਰਿਵਾਰ"
-      work: "ਕੰਮ"
   bookmarklet:
+    heading: Diaspora Bookmarklet
     explanation: "%{link} from anywhere by bookmarking this link."
-    heading: "Diaspora Bookmarklet"
-  cancel: "ਰੱਦ ਕਰੋ"
   comments:
     new_comment:
-      comment: "ਟਿੱਪਣੀ"
-      commenting: "ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
+      comment: ਟਿੱਪਣੀ
+      commenting: ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...
   contacts:
     index:
-      no_contacts: "No contacts."
-  delete: "ਹਟਾਓ"
-  email: "ਈਮੇਲ"
-  find_people: "Find people"
+      no_contacts: No contacts.
   layouts:
-    application:
-      whats_new: "ਨਵਾਂ ਕੀ ਹੈ?"
     header:
-      code: "ਕੋਡ"
-      logout: "ਲਾਗਆਉਟ"
-      profile: "profile"
-      settings: "settings"
-  more: "ਹੋਰ"
+      profile: profile
+      settings: settings
+      logout: ਲਾਗਆਉਟ
+      code: ਕੋਡ
+    application:
+      whats_new: ਨਵਾਂ ਕੀ ਹੈ?
   notifications:
-    also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-    also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
-    comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
-    index:
-      and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
-    liked:
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
-    mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
-    reshared:
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
-    reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
     started_sharing:
+      zero: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
-      two: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
+    private_message:
+      zero: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+    comment_on_post:
+      zero: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+    also_commented:
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+    mentioned:
+      zero: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} has mentioned you in a %{post_link}."
+      many: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} has mentioned you in a %{post_link}."
+    liked:
+      zero: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
+      few: "%{actors} has just liked your %{post_link}."
+      many: "%{actors} has just liked your %{post_link}."
+      other: "%{actors} has just liked your %{post_link}."
+    reshared:
+      zero: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+    also_commented_deleted:
+      zero: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+    liked_post_deleted:
+      zero: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+    reshared_post_deleted:
+      zero: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+    mentioned_deleted:
+      zero: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+    index:
+      and_others:
+        zero: and nobody else
+        one: and one more
+        two: and %{count} others
+        few: and %{count} others
+        many: and %{count} others
+        other: and %{count} others
   notifier:
-    confirm_email:
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    hello: "ਹੈਲੋ %{name}!"
+    hello: ਹੈਲੋ %{name}!
+    started_sharing:
+      subject: "%{name} has started sharing with you on Diaspora*"
     liked:
       liked: "%{name} has just liked your post: "
     reshared:
       reshared: "%{name} just reshared your post"
-    started_sharing:
-      subject: "%{name} has started sharing with you on Diaspora*"
-  ok: "ਠੀਕ ਹੈ"
+    confirm_email:
+      subject: Please activate your new e-mail address %{unconfirmed_email}
+      click_link: 'To activate your new e-mail address %{unconfirmed_email}, please click this link:'
   people:
     person:
-      thats_you: "thats you!"
+      thats_you: thats you!
   posts:
     show:
       photos_by:
+        zero: No photos by %{author}
+        one: One photo by %{author}
+        two: Two photos by %{author}
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
   profiles:
     edit:
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_tags: 'You: in 5 #tags'
+      your_tags_placeholder: 'i.e. #diaspora #ironing #kittens #music'
   registrations:
     new:
-      enter_email: "ਈਮੇਲ ਦਿਓ"
-      enter_password: "ਪਾਸਵਰਡ ਦਿਓ"
-      enter_password_again: "ਪਹਿਲਾਂ ਵਾਲਾ ਪਾਸਵਰਡ ਦਿਓ"
-      enter_username: "ਯੂਜ਼ਰ ਨਾਂ ਚੁਣੋ (ਕੇਵਲ ਅੱਖਰ, ਅੰਕ ਅਤੇ ਹੇਠਾਂ ਲਾਈਨ)"
+      enter_email: ਈਮੇਲ ਦਿਓ
+      enter_username: ਯੂਜ਼ਰ ਨਾਂ ਚੁਣੋ (ਕੇਵਲ ਅੱਖਰ, ਅੰਕ ਅਤੇ ਹੇਠਾਂ ਲਾਈਨ)
+      enter_password: ਪਾਸਵਰਡ ਦਿਓ
+      enter_password_again: ਪਹਿਲਾਂ ਵਾਲਾ ਪਾਸਵਰਡ ਦਿਓ
   reshares:
     reshare:
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-  search: "ਖੋਜ"
+      reshare_confirmation: Reshare %{author} - %{text}?
   services:
     index:
-      disconnect: "ਕੁਨੈਕਸ਼ਨ ਖਤਮ ਕਰੋ"
-      edit_services: "ਸਰਵਿਸ ਸੋਧ"
-      logged_in_as: "ਇੰਝ ਲਾਗ ਕਰੋ"
+      disconnect: ਕੁਨੈਕਸ਼ਨ ਖਤਮ ਕਰੋ
+      logged_in_as: ਇੰਝ ਲਾਗ ਕਰੋ
+      edit_services: ਸਰਵਿਸ ਸੋਧ
   shared:
     aspect_dropdown:
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add to aspect"
-    invitations:
-      by_email: "by Email"
-    public_explain:
-      title: "You are about to post a public message!"
+        zero: Add to aspect
+        one: In %{count} aspect
+        two: In %{count} aspects
+        few: In %{count} aspects
+        many: In %{count} aspects
+        other: In %{count} aspects
     publisher:
+      posting: ਪੋਸਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...
+      whats_on_your_mind: ਤੁਹਾਡੇ ਦਿਮਾਗ 'ਚ ਕੀ ਹੈ?
       new_user_prefill:
-        i_like: "I'm interested in %{tags}."
-      posting: "ਪੋਸਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
-      whats_on_your_mind: "ਤੁਹਾਡੇ ਦਿਮਾਗ 'ਚ ਕੀ ਹੈ?"
+        i_like: I'm interested in %{tags}.
+    invitations:
+      by_email: by Email
+    public_explain:
+      title: You are about to post a public message!
   status_messages:
-    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
+    too_long: '{"few"=>"please make your status messages less than %{count} characters", "many"=>"please make your status messages less than %{count} characters", "one"=>"please make your status messages less than %{count} character", "other"=>"please make your status messages less than %{count} characters", "two"=>"please make your status messages less than %{count} characters", "zero"=>"please make your status messages less than %{count} characters"}'
   streams:
-    aspects:
-      title: "Your Aspects"
     mentions:
-      title: "Your Mentions"
-  username: "ਯੂਜ਼ਰ ਨਾਂ"
+      title: Your Mentions
+    aspects:
+      title: Your Aspects
   users:
-    confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
-      auto_follow_back: "Automatically follow back if a someone follows you"
-      change_email: "Change E-Mail"
-      change_language: "Change Language"
-      change_password: "Change Password"
+      your_handle: Your diaspora handle
+      change_email: Change E-Mail
+      email_awaiting_confirmation: We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}.
+      change_password: Change Password
+      new_password: New Password
+      change_language: Change Language
+      auto_follow_back: Automatically follow back if a someone follows you
+      receive_email_notifications: Receive email notificaions?
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
-      new_password: "New Password"
-      receive_email_notifications: "Receive email notificaions?"
-      your_handle: "Your diaspora handle"
+        what_we_delete: We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle.
     update:
-      language_changed: "ਭਾਸ਼ਾ ਬਦਲੀ ਗਈ"
-      language_not_changed: "Language Change Failed"
-      password_changed: "ਪਾਸਵਰਡ ਬਦਲਿਆ ਗਿਆ"
-      password_not_changed: "Password Change Failed"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      password_changed: ਪਾਸਵਰਡ ਬਦਲਿਆ ਗਿਆ
+      password_not_changed: Password Change Failed
+      language_changed: ਭਾਸ਼ਾ ਬਦਲੀ ਗਈ
+      language_not_changed: Language Change Failed
+      unconfirmed_email_changed: E-Mail Changed. Needs activation.
+      unconfirmed_email_not_changed: E-Mail Change Failed
+    confirm_email:
+      email_confirmed: E-Mail %{email} activated
+      email_not_confirmed: E-Mail could not be activated. Wrong link?

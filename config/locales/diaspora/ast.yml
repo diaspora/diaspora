@@ -5,119 +5,119 @@
 
 
 ast:
-  _applications: "Aplicaciones"
-  _contacts: "Contactos"
-  _services: "Servicios"
-  account: "Cuenta"
+  settings: Preferencies
+  profile: Perfil
+  account: Cuenta
+  privacy: Intimidá
+  _services: Servicios
+  _applications: Aplicaciones
+  ok: Aceutar
+  cancel: Encaboxar
+  delete: Desaniciar
+  username: Nome d'usuariu
+  email: Corréu electrónicu
+  are_you_sure: "¿Tas seguru?"
+  are_you_sure_delete_account: "¿Tas seguru de que quies zarrar la cuenta? ¡Esto nun pue desfacese!"
+  fill_me_out: Escribir equí
+  public: Públicu
+  limited: Llendáu
+  search: Guetar
+  nsfw: Inseguro nel trabayu (NSFW)
+  find_people: 'Alcontrar persones o #etiquetes'
+  more: Más
+  all_aspects: Tolos aspeutos
+  no_results: Nun s'alcontraron resultaos
+  _contacts: Contactos
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "tien de ser únicu ente los contautos d'esti usuariu."
+            person:
+              invalid: ye inválidu.
+            username:
+              taken: yá ta ocupáu.
+              invalid: ye inválidu. Sólo se permiten lletres, númberos y guiones baxos.
+            email:
+              taken: yá ta ocupáu.
         person:
           attributes:
             diaspora_handle:
-              taken: "yá ta ocupáu."
+              taken: yá ta ocupáu.
+        contact:
+          attributes:
+            person_id:
+              taken: tien de ser únicu ente los contautos d'esti usuariu.
         reshare:
           attributes:
             root_guid:
-              taken: "Ye tán bonu, ¿eh? ¡Yá re-compartisti esa publicación!"
-        user:
-          attributes:
-            email:
-              taken: "yá ta ocupáu."
-            person:
-              invalid: "ye inválidu."
-            username:
-              invalid: "ye inválidu. Sólo se permiten lletres, númberos y guiones baxos."
-              taken: "yá ta ocupáu."
-  all_aspects: "Tolos aspeutos"
-  are_you_sure: "¿Tas seguru?"
-  are_you_sure_delete_account: "¿Tas seguru de que quies zarrar la cuenta? ¡Esto nun pue desfacese!"
-  aspect_memberships:
-    destroy:
-      failure: "Nun pudo desaniciase la persona del aspeutu"
-      no_membership: "Nun pudo alcontrase la persona seleicionada nesi aspeutu"
-      success: "Desaniciose correutamente la persona del aspeutu"
-  aspects:
-    add_to_aspect:
-      failure: "Nun pudo amestase'l contautu al aspeutu."
-      success: "Amestóse'l contautu al aspeutu correutamente."
-    aspect_listings:
-      add_an_aspect: "+ Amestar un aspeutu"
-    aspect_stream:
-      stay_updated: "Sigui al día"
-      stay_updated_explanation: "Na to canal principal apaecen los tos contautos, etiquetes que sigues, y publicaciones d'algunos miembros creativos de la comunidá."
-    destroy:
-      failure: "%{name} nun ta baleru nun pudo desaniciase."
-      success: "%{name} desanicióse correutamente."
-    edit:
-      aspect_list_is_not_visible: "Los contactos d'esti aspeutu nun puen vese unos a otros."
-      aspect_list_is_visible: "Los contactos d'esti aspeutu puen vese unos a otros."
-      confirm_remove_aspect: "¿Tas seguru de que quies desaniciar esti aspeutu?"
-      rename: "renomar"
-      update: "anovar"
-      updating: "anovando"
-    index:
-      donate: "Donar"
-      help:
-        do_you: "¿Seique:"
-        feature_suggestion: "... tienes %{link} que suxerir?"
-        find_a_bug: "... alcuentres %{link}?"
-        have_a_question: "... tienes %{link}?"
-        here_to_help: "¡La comunidá de diaspora* ta equí p'ayudate!"
-        need_help: "¿Necesites ayuda?"
-        tag_bug: "un fallu"
-        tag_feature: "una carauterística"
-        tag_question: "una entruga"
-      introduce_yourself: "Esta ye la to canal.  Entra y preséntati."
-      new_here:
-        follow: "¡Sigui %{link} y da la bienvenida a diaspora* a los usuarios nuevos!"
-        learn_more: "Más información"
-        title: "Da la bienvenida a los usuarios nuevos"
-      services:
-        content: "Pues coneutar los servicios siguientes a diaspora*:"
-        heading: "Coneutar servicios"
-      welcome_to_diaspora: "¡Afáyati en diaspora*, %{name}!"
-    no_contacts_message:
-      community_spotlight: "destacao de la comunidá"
-      or_spotlight: "O pues compartir con %{link}"
-      try_adding_some_more_contacts: "Pues guetar o convidar a más contautos."
-      you_should_add_some_more_contacts: "¡Tendríes d'amestar más contautos!"
-    seed:
-      acquaintances: "Conocíos"
-      family: "Familia"
-      friends: "Amigos"
-      work: "Trabayu"
-    update:
-      failure: "El to aspeutu, %{name}, tenía un nome llargu enforma pa poder guardalu."
-      success: "Editóse correutamente'l to aspeutu, %{name}."
-  bookmarklet:
-    explanation: "Publicar en diaspora* dende uquiera poniendo esti enllaz nos marcadores => %{link}."
-    heading: "Bookmarklet"
-    post_something: "Publicar en diaspora*"
-  cancel: "Encaboxar"
-  comments:
-    new_comment:
-      comment: "Comentariu"
-      commenting: "Comentando..."
-  delete: "Desaniciar"
-  email: "Corréu electrónicu"
+              taken: Ye tán bonu, ¿eh? ¡Yá re-compartisti esa publicación!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Corrixi los errores siguientes y vuelvi a intentalo."
-  fill_me_out: "Escribir equí"
-  find_people: "Alcontrar persones o #etiquetes"
-  limited: "Llendáu"
-  more: "Más"
-  no_results: "Nun s'alcontraron resultaos"
-  nsfw: "Inseguro nel trabayu (NSFW)"
-  ok: "Aceutar"
-  privacy: "Intimidá"
-  profile: "Perfil"
-  public: "Públicu"
-  search: "Guetar"
-  settings: "Preferencies"
-  username: "Nome d'usuariu"
+      correct_the_following_errors_and_try_again: Corrixi los errores siguientes y vuelvi a intentalo.
+  aspects:
+    edit:
+      confirm_remove_aspect: "¿Tas seguru de que quies desaniciar esti aspeutu?"
+      rename: renomar
+      aspect_list_is_visible: Los contactos d'esti aspeutu puen vese unos a otros.
+      aspect_list_is_not_visible: Los contactos d'esti aspeutu nun puen vese unos a otros.
+      update: anovar
+      updating: anovando
+    no_contacts_message:
+      you_should_add_some_more_contacts: "¡Tendríes d'amestar más contautos!"
+      try_adding_some_more_contacts: Pues guetar o convidar a más contautos.
+      or_spotlight: O pues compartir con %{link}
+      community_spotlight: destacao de la comunidá
+    aspect_listings:
+      add_an_aspect: "+ Amestar un aspeutu"
+    destroy:
+      success: "%{name} desanicióse correutamente."
+      failure: "%{name} nun ta baleru nun pudo desaniciase."
+    update:
+      success: Editóse correutamente'l to aspeutu, %{name}.
+      failure: El to aspeutu, %{name}, tenía un nome llargu enforma pa poder guardalu.
+    add_to_aspect:
+      failure: Nun pudo amestase'l contautu al aspeutu.
+      success: Amestóse'l contautu al aspeutu correutamente.
+    seed:
+      family: Familia
+      work: Trabayu
+      acquaintances: Conocíos
+      friends: Amigos
+    index:
+      donate: Donar
+      welcome_to_diaspora: "¡Afáyati en diaspora*, %{name}!"
+      introduce_yourself: Esta ye la to canal.  Entra y preséntati.
+      new_here:
+        title: Da la bienvenida a los usuarios nuevos
+        follow: "¡Sigui %{link} y da la bienvenida a diaspora* a los usuarios nuevos!"
+        learn_more: Más información
+      help:
+        need_help: "¿Necesites ayuda?"
+        here_to_help: "¡La comunidá de diaspora* ta equí p'ayudate!"
+        do_you: "¿Seique:"
+        have_a_question: "... tienes %{link}?"
+        tag_question: una entruga
+        find_a_bug: "... alcuentres %{link}?"
+        tag_bug: un fallu
+        feature_suggestion: "... tienes %{link} que suxerir?"
+        tag_feature: una carauterística
+      services:
+        heading: Coneutar servicios
+        content: 'Pues coneutar los servicios siguientes a diaspora*:'
+    aspect_stream:
+      stay_updated: Sigui al día
+      stay_updated_explanation: Na to canal principal apaecen los tos contautos, etiquetes que sigues, y publicaciones d'algunos miembros creativos de la comunidá.
+  aspect_memberships:
+    destroy:
+      success: Desaniciose correutamente la persona del aspeutu
+      failure: Nun pudo desaniciase la persona del aspeutu
+      no_membership: Nun pudo alcontrase la persona seleicionada nesi aspeutu
+  bookmarklet:
+    heading: Bookmarklet
+    post_something: Publicar en diaspora*
+    explanation: Publicar en diaspora* dende uquiera poniendo esti enllaz nos marcadores => %{link}.
+  comments:
+    new_comment:
+      comment: Comentariu
+      commenting: Comentando...

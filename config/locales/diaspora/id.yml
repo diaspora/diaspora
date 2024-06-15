@@ -5,392 +5,392 @@
 
 
 id:
-  _applications: "Aplikasi"
-  _contacts: "Kontak"
-  _services: "Layanan"
-  account: "Akun"
+  settings: Pengaturan
+  profile: Profil
+  account: Akun
+  privacy: Privasi
+  _services: Layanan
+  _applications: Aplikasi
+  ok: Oke
+  cancel: Batal
+  delete: Hapus
+  username: Username
+  email: E-mail
+  are_you_sure: Anda yakin?
+  are_you_sure_delete_account: Anda yakin akan menghapus akun anda? ini tidak dapat di batalkan!
+  fill_me_out: Isi di sini
+  public: Umum
+  limited: Terbatas
+  search: Cari
+  nsfw: Konten Dewasa
+  find_people: Temukan orang
+  more: lainnya
+  all_aspects: Semua Hal
+  no_results: Tidak ada hasil yang ditemukan.
+  _contacts: Kontak
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "harus unik dari kontak lain"
+            person:
+              invalid: Tidak Valid
+            username:
+              taken: sudah dipakai
+              invalid: tidak valid. Hanya boleh huruf, angka dan garis bawah.
+            email:
+              taken: sudah dipakai
         person:
           attributes:
             diaspora_handle:
-              taken: "sudah dipakai"
+              taken: sudah dipakai
+        contact:
+          attributes:
+            person_id:
+              taken: harus unik dari kontak lain
         reshare:
           attributes:
             root_guid:
-              taken: "You've already reshared that post!"
-        user:
-          attributes:
-            email:
-              taken: "sudah dipakai"
-            person:
-              invalid: "Tidak Valid"
-            username:
-              invalid: "tidak valid. Hanya boleh huruf, angka dan garis bawah."
-              taken: "sudah dipakai"
-  all_aspects: "Semua Hal"
-  are_you_sure: "Anda yakin?"
-  are_you_sure_delete_account: "Anda yakin akan menghapus akun anda? ini tidak dapat di batalkan!"
-  aspect_memberships:
-    destroy:
-      failure: "Gagal menghapus pribadi dari Aspek"
-      forbidden: "Kamu tidak boleh melakukannya."
-      invalid_statement: "Catatan duplikat ditolak."
-      no_membership: "Tidak dapat menemukan orang dicari pada aspek tersebut"
-      success: "Berhasil menghapus pribadi dari Aspek"
-  aspects:
-    add_to_aspect:
-      failure: "Failed to add friend to aspect."
-      success: "Successfully added friend to aspect."
-    aspect_listings:
-      add_an_aspect: "+ Tambah satu aspek"
-    aspect_stream:
-      stay_updated: "Selalu Terbarui"
-      stay_updated_explanation: "Aliran utamamu dipenuhi oleh semua kontakmu, tandai yang kamu ikuti, dan kirimkan beberapa anggota komunitas."
-    destroy:
-      failure: "%{name} tidak terisi dan tidak dapat dihapus."
-      success: "%{name} berhasil dihapus."
-    edit:
-      aspect_list_is_not_visible: "Kontak di dalam aspek ini tidak dapat saling melihat"
-      aspect_list_is_visible: "Kontak di dalam aspek ini dapat saling melihat."
-      confirm_remove_aspect: "Anda yakin ingin menghapus aspek ini?"
-      rename: "Ganti nama"
-      update: "Perbarui"
-      updating: "Memperbarui"
-    index:
-      donate: "Donasi"
-      help:
-        do_you: "Apakah kamu:"
-        feature_suggestion: "... punya %{link} anjuran?"
-        find_a_bug: ".... menemukan %{link}"
-        have_a_question: "... punya %{link}"
-        here_to_help: "Diaspora community is here to help!"
-        need_help: "Butuh bantuan?"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
-      introduce_yourself: "Ini merupakan aliran anda.  Ikutan dan kenalkan diri anda"
-      new_here:
-        follow: "Ikuti %{link} dan selamat datang di diaspora*!"
-        learn_more: "Pelajari"
-        title: "Selamat Datang Pengguna Baru"
-      services:
-        content: "Anda dapat menyambungkan layanan berikut ke diaspora*:"
-        heading: "Sambungkan Layanan"
-      welcome_to_diaspora: "Selamat datang di diaspora*, %{name}"
-    no_contacts_message:
-      community_spotlight: "Sorotan komunitas"
-      or_spotlight: "Atau anda dapat berbagi dengan %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "Anda perlu menambahkan beberapa kontak baru!"
-    seed:
-      acquaintances: "Kenalan"
-      family: "Keluarga"
-      friends: "Teman"
-      work: "Kerja"
-    update:
-      failure: "Nama aspek anda, %{name}, terlalu panjang untuk disimpan."
-      success: "Aspek anda, %{name}, telah berhasil diubah."
-  bookmarklet:
-    explanation: "%{link} from anywhere by bookmarking this link."
-    heading: "Diaspora Bookmarklet"
-    post_something: "Kirimkan ke diaspora*"
-  cancel: "Batal"
-  comments:
-    new_comment:
-      comment: "Komentar"
-      commenting: "Mengomentari"
-  contacts:
-    index:
-      all_contacts: "Semua Kontak"
-      community_spotlight: "Sorotan komunitas"
-      my_contacts: "Kontakku"
-      no_contacts: "No contacts."
-      no_contacts_message: "Lihat juga %{community_spotlight}"
-      only_sharing_with_me: "Hanya berbagi dengan saya"
-      start_a_conversation: "Mulai pembicaraan"
-      title: "Kontak"
-    spotlight:
-      community_spotlight: "Sorotan Komunitas"
-  conversations:
-    create:
-      fail: "Pesan tak valid"
-      sent: "Pesan terkirim"
-    index:
-      inbox: "Kotak Masuk"
-      no_messages: "tak ada pesan"
-    new:
-      send: "Kirim"
-      sending: "Mengirim..."
-      subject: "subjek"
-      to: "ke"
-    show:
-      delete: "hapus dan blok pembicaraan"
-      reply: "balas"
-      replying: "Membalas..."
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Hapus"
-  email: "E-mail"
+              taken: You've already reshared that post!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Perbaiki kesalahan berikut dan coba lagi."
-  fill_me_out: "Isi di sini"
-  find_people: "Temukan orang"
+      correct_the_following_errors_and_try_again: Perbaiki kesalahan berikut dan coba lagi.
+  aspects:
+    edit:
+      confirm_remove_aspect: Anda yakin ingin menghapus aspek ini?
+      rename: Ganti nama
+      aspect_list_is_visible: Kontak di dalam aspek ini dapat saling melihat.
+      aspect_list_is_not_visible: Kontak di dalam aspek ini tidak dapat saling melihat
+      update: Perbarui
+      updating: Memperbarui
+    no_contacts_message:
+      you_should_add_some_more_contacts: Anda perlu menambahkan beberapa kontak baru!
+      try_adding_some_more_contacts: You can search (top) or invite (right) more contacts.
+      or_spotlight: Atau anda dapat berbagi dengan %{link}
+      community_spotlight: Sorotan komunitas
+    aspect_listings:
+      add_an_aspect: "+ Tambah satu aspek"
+    destroy:
+      success: "%{name} berhasil dihapus."
+      failure: "%{name} tidak terisi dan tidak dapat dihapus."
+    update:
+      success: Aspek anda, %{name}, telah berhasil diubah.
+      failure: Nama aspek anda, %{name}, terlalu panjang untuk disimpan.
+    add_to_aspect:
+      failure: Failed to add friend to aspect.
+      success: Successfully added friend to aspect.
+    seed:
+      family: Keluarga
+      work: Kerja
+      acquaintances: Kenalan
+      friends: Teman
+    index:
+      donate: Donasi
+      welcome_to_diaspora: Selamat datang di diaspora*, %{name}
+      introduce_yourself: Ini merupakan aliran anda.  Ikutan dan kenalkan diri anda
+      new_here:
+        title: Selamat Datang Pengguna Baru
+        follow: Ikuti %{link} dan selamat datang di diaspora*!
+        learn_more: Pelajari
+      help:
+        need_help: Butuh bantuan?
+        here_to_help: Diaspora community is here to help!
+        do_you: 'Apakah kamu:'
+        have_a_question: "... punya %{link}"
+        tag_question: "#question"
+        find_a_bug: ".... menemukan %{link}"
+        tag_bug: "#bug"
+        feature_suggestion: "... punya %{link} anjuran?"
+        tag_feature: "#feature"
+      services:
+        heading: Sambungkan Layanan
+        content: 'Anda dapat menyambungkan layanan berikut ke diaspora*:'
+    aspect_stream:
+      stay_updated: Selalu Terbarui
+      stay_updated_explanation: Aliran utamamu dipenuhi oleh semua kontakmu, tandai yang kamu ikuti, dan kirimkan beberapa anggota komunitas.
+  aspect_memberships:
+    destroy:
+      success: Berhasil menghapus pribadi dari Aspek
+      failure: Gagal menghapus pribadi dari Aspek
+      no_membership: Tidak dapat menemukan orang dicari pada aspek tersebut
+      forbidden: Kamu tidak boleh melakukannya.
+      invalid_statement: Catatan duplikat ditolak.
+  bookmarklet:
+    heading: Diaspora Bookmarklet
+    post_something: Kirimkan ke diaspora*
+    explanation: "%{link} from anywhere by bookmarking this link."
+  comments:
+    new_comment:
+      comment: Komentar
+      commenting: Mengomentari
+  contacts:
+    index:
+      start_a_conversation: Mulai pembicaraan
+      title: Kontak
+      no_contacts: No contacts.
+      no_contacts_message: Lihat juga %{community_spotlight}
+      community_spotlight: Sorotan komunitas
+      my_contacts: Kontakku
+      all_contacts: Semua Kontak
+      only_sharing_with_me: Hanya berbagi dengan saya
+    spotlight:
+      community_spotlight: Sorotan Komunitas
+  conversations:
+    index:
+      no_messages: tak ada pesan
+      inbox: Kotak Masuk
+    show:
+      reply: balas
+      replying: Membalas...
+      delete: hapus dan blok pembicaraan
+    new:
+      to: ke
+      subject: subjek
+      send: Kirim
+      sending: Mengirim...
+    create:
+      sent: Pesan terkirim
+      fail: Pesan tak valid
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
   invitation_codes:
-    not_valid: "Kode undangan sudah tidak valid."
+    not_valid: Kode undangan sudah tidak valid.
   invitations:
     create:
-      no_more: "Anda tidak dapat memberikan undangan lagi."
-      rejected: "Alamat email berikut bermasalah dengan: "
-      sent: "Undangan telah dikirimkan ke:"
+      sent: 'Undangan telah dikirimkan ke:'
+      rejected: 'Alamat email berikut bermasalah dengan: '
+      no_more: Anda tidak dapat memberikan undangan lagi.
     new:
-      invite_someone_to_join: "Undang seseorang untuk bergabung di Diaspora!"
-      language: "Bahasa"
-      send_an_invitation: "Kirim sebuah undangan"
+      language: Bahasa
+      invite_someone_to_join: Undang seseorang untuk bergabung di Diaspora!
+      send_an_invitation: Kirim sebuah undangan
   layouts:
-    application:
-      back_to_top: "Kembali ke atas"
-      powered_by: "DIDUKUNG OLEH diaspora*"
-      whats_new: "apa yang baru?"
     header:
-      code: "Kode"
-      logout: "logout"
-      profile: "profile"
-      settings: "settings"
-  limited: "Terbatas"
-  more: "lainnya"
-  no_results: "Tidak ada hasil yang ditemukan."
+      profile: profile
+      settings: settings
+      logout: logout
+      code: Kode
+    application:
+      powered_by: DIDUKUNG OLEH diaspora*
+      whats_new: apa yang baru?
+      back_to_top: Kembali ke atas
   notifications:
-    also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-    also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
-    comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
-    index:
-      and: "dan"
-      and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
-      mark_all_as_read: "Tandai semua sudah dibaca"
-      notifications: "Pemberitahuan"
-    liked:
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
-    mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
-    reshared:
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
-    reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
     started_sharing:
+      zero: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
-      two: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
-  notifier:
-    a_post_you_shared: "sebuah kiriman"
-    click_here: "klik disini"
+    private_message:
+      zero: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
     comment_on_post:
-      reply: "Balas atau lihat kiriman %{name}"
-    confirm_email:
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "Email ini dikirim oleh %{pod_name}. Jika kamu ingin berhenti mendapatkan email seperti ini,"
-    hello: "Halo %{name}!"
+      zero: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+    also_commented:
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+    mentioned:
+      zero: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} has mentioned you in a %{post_link}."
+      many: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} has mentioned you in a %{post_link}."
     liked:
-      liked: "%{name} has just liked your post: "
-      view_post: "Lihat kiriman >"
+      zero: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
+      few: "%{actors} has just liked your %{post_link}."
+      many: "%{actors} has just liked your %{post_link}."
+      other: "%{actors} has just liked your %{post_link}."
+    reshared:
+      zero: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+    also_commented_deleted:
+      zero: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+    liked_post_deleted:
+      zero: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+    reshared_post_deleted:
+      zero: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+    mentioned_deleted:
+      zero: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+    index:
+      notifications: Pemberitahuan
+      mark_all_as_read: Tandai semua sudah dibaca
+      and_others:
+        zero: and nobody else
+        one: and one more
+        two: and %{count} others
+        few: and %{count} others
+        many: and %{count} others
+        other: and %{count} others
+      and: dan
+  notifier:
+    a_post_you_shared: sebuah kiriman
+    email_sent_by_diaspora: Email ini dikirim oleh %{pod_name}. Jika kamu ingin berhenti mendapatkan email seperti ini,
+    click_here: klik disini
+    hello: Halo %{name}!
+    thanks: Terimakasih,
+    to_change_your_notification_settings: untuk mengganti pengaturan pemberitahuan
+    single_admin:
+      subject: 'A message from your Diaspora administrator:'
+      admin: Administrator diaspora* mu
+    started_sharing:
+      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: mulai berbagi denganmu!
+      view_profile: Lihat profil %{name}
+    comment_on_post:
+      reply: Balas atau lihat kiriman %{name}
     mentioned:
       subject: "%{name} menyebutmu di diaspora*"
     private_message:
-      reply_to_or_view: "Balas atau lihat pembicaraan ini >"
+      reply_to_or_view: Balas atau lihat pembicaraan ini >
+    liked:
+      liked: "%{name} has just liked your post: "
+      view_post: Lihat kiriman >
     reshared:
       reshared: "%{name} just reshared your post"
-      view_post: "Lihat kiriman >"
-    single_admin:
-      admin: "Administrator diaspora* mu"
-      subject: "A message from your Diaspora administrator:"
-    started_sharing:
-      sharing: "mulai berbagi denganmu!"
-      subject: "%{name} has started sharing with you on Diaspora*"
-      view_profile: "Lihat profil %{name}"
-    thanks: "Terimakasih,"
-    to_change_your_notification_settings: "untuk mengganti pengaturan pemberitahuan"
-  nsfw: "Konten Dewasa"
-  ok: "Oke"
+      view_post: Lihat kiriman >
+    confirm_email:
+      subject: Please activate your new e-mail address %{unconfirmed_email}
+      click_link: 'To activate your new e-mail address %{unconfirmed_email}, please click this link:'
   people:
-    index:
-      looking_for: "Mencari kiriman dengan tag %{tag_link}"
-      no_one_found: "...dan tak menemukan siapapun."
-      no_results: "Hei! Kamu harus cari sesuatu."
-      results_for: "hasil pencarian untuk"
     person:
-      thats_you: "Itu anda!"
-    profile_sidebar:
-      bio: "Biografi"
-      born: "born"
-      gender: "Gender"
-      location: "Lokasi"
+      thats_you: Itu anda!
+    index:
+      results_for: hasil pencarian untuk
+      no_results: Hei! Kamu harus cari sesuatu.
+      no_one_found: "...dan tak menemukan siapapun."
+      looking_for: Mencari kiriman dengan tag %{tag_link}
     show:
-      closed_account: "Akun ini telah ditutup."
-      does_not_exist: "Orang tidak ada!"
       has_not_shared_with_you_yet: "%{name} belum berbagi apapun dengan kamu!"
+      does_not_exist: Orang tidak ada!
+      closed_account: Akun ini telah ditutup.
+    profile_sidebar:
+      bio: Biografi
+      location: Lokasi
+      gender: Gender
+      born: born
   photos:
     create:
-      integrity_error: "Pengunggahan foto gagal.  Itu tadi beneran gambar?"
-      runtime_error: "Pengunggahan foto gagal.  Apakah kamu yakin sudah pakai sarung?"
-      type_error: "Pengunggahan foto gagal.  Kamu yakin sudah menambahkan gambar?"
+      runtime_error: Pengunggahan foto gagal.  Apakah kamu yakin sudah pakai sarung?
+      integrity_error: Pengunggahan foto gagal.  Itu tadi beneran gambar?
+      type_error: Pengunggahan foto gagal.  Kamu yakin sudah menambahkan gambar?
     destroy:
-      notice: "Foto dihapus."
+      notice: Foto dihapus.
   posts:
     show:
-      forbidden: "Kamu tidak boleh melakukannya"
+      forbidden: Kamu tidak boleh melakukannya
       photos_by:
+        zero: No photos by %{author}
+        one: One photo by %{author}
+        two: Two photos by %{author}
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
-  privacy: "Privasi"
-  profile: "Profil"
   profiles:
     edit:
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-  public: "Umum"
+      your_tags: 'You: in 5 #tags'
+      your_tags_placeholder: 'i.e. #diaspora #ironing #kittens #music'
   registrations:
-    create:
-      success: "Anda telah bergabung dengan Diaspora!"
     new:
-      enter_email: "Enter an e-mail"
+      enter_email: Enter an e-mail
+    create:
+      success: Anda telah bergabung dengan Diaspora!
   reshares:
     reshare:
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-  search: "Cari"
+      reshare_confirmation: Reshare %{author} - %{text}?
   services:
-    destroy:
-      success: "Successfully destroyed authentication."
     index:
-      logged_in_as: "telah masuk sebagai"
-  settings: "Pengaturan"
+      logged_in_as: telah masuk sebagai
+    destroy:
+      success: Successfully destroyed authentication.
   shared:
     aspect_dropdown:
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add to aspect"
-    invitations:
-      by_email: "by Email"
-    public_explain:
-      title: "You are about to post a public message!"
+        zero: Add to aspect
+        one: In %{count} aspect
+        two: In %{count} aspects
+        few: In %{count} aspects
+        many: In %{count} aspects
+        other: In %{count} aspects
     publisher:
+      share: Bagikan
+      whats_on_your_mind: what's on your mind?
       new_user_prefill:
-        i_like: "I'm interested in %{tags}."
-      share: "Bagikan"
-      whats_on_your_mind: "what's on your mind?"
+        i_like: I'm interested in %{tags}.
+    invitations:
+      by_email: by Email
+    public_explain:
+      title: You are about to post a public message!
   status_messages:
-    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
+    too_long: '{"few"=>"please make your status messages less than %{count} characters", "many"=>"please make your status messages less than %{count} characters", "one"=>"please make your status messages less than %{count} character", "other"=>"please make your status messages less than %{count} characters", "two"=>"please make your status messages less than %{count} characters", "zero"=>"please make your status messages less than %{count} characters"}'
   streams:
-    aspects:
-      title: "Your Aspects"
     mentions:
-      title: "Your Mentions"
-  username: "Username"
+      title: Your Mentions
+    aspects:
+      title: Your Aspects
   users:
-    confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
-      auto_follow_back: "Automatically follow back if a someone follows you"
-      change_email: "Change E-Mail"
-      change_language: "Change Language"
-      change_password: "Change Password"
+      your_handle: Your diaspora handle
+      change_email: Change E-Mail
+      email_awaiting_confirmation: We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}.
+      change_password: Change Password
+      new_password: New Password
+      change_language: Change Language
+      auto_follow_back: Automatically follow back if a someone follows you
+      receive_email_notifications: Receive email notificaions?
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
-      new_password: "New Password"
-      receive_email_notifications: "Receive email notificaions?"
-      your_handle: "Your diaspora handle"
+        what_we_delete: We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle.
     update:
-      email_notifications_changed: "Language Change Failed"
-      language_changed: "Language Changed"
-      language_not_changed: "Language Change Failed"
-      password_changed: "Password Changed"
-      password_not_changed: "Password Change Failed"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      password_changed: Password Changed
+      password_not_changed: Password Change Failed
+      language_changed: Language Changed
+      language_not_changed: Language Change Failed
+      email_notifications_changed: Language Change Failed
+      unconfirmed_email_changed: E-Mail Changed. Needs activation.
+      unconfirmed_email_not_changed: E-Mail Change Failed
+    confirm_email:
+      email_confirmed: E-Mail %{email} activated
+      email_not_confirmed: E-Mail could not be activated. Wrong link?

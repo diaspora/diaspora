@@ -6,341 +6,341 @@
 
 pl:
   javascripts:
-    admin:
-      pods:
-        actions: "Akcje"
-        added: "Dodane"
-        check: "wykonaj test połączenia"
-        errors:
-          few: "Test połączenia zakończył się błędem dla <%= count %> podów"
-          many: "Test połączenia zakończył się błędem dla <%= count %> podów"
-          one: "Test połączenia zakończył się błędem dla jednego poda."
-          other: "Test połączenia zakończył się błędem dla <%= count %> podów"
-        follow_link: "otwórz łącze w przeglądarce"
-        last_check: "ostatnio sprawdzone:"
-        more_info: "pokaż więcej informacji"
-        ms:
-          few: "<%= count %>ms"
-          many: "<%= count %>ms"
-          one: "<%= count %>ms"
-          other: "<%= count %>ms"
-        no_info: "Jak dotąd nie ma dodatkowych informacji"
-        not_available: "niedostępne"
-        offline_since: "offline od:"
-        pod: "Pod"
-        recheck:
-          failure: "Nie udało się sprawdzić."
-          success: "Pod został właśnie ponownie sprawdzony."
-        response_time: "Czas odpowiedzi:"
-        server_software: "Oprogramowanie serwera:"
-        ssl: "SSL"
-        ssl_disabled: "SSL wyłączone"
-        ssl_enabled: "SSL włączone"
-        states:
-          dns_failed: "Rozwiązanie nazwy domenowej (DNS) nie powiodło się"
-          http_failed: "Nie udało się nawiązać połączenia HTTP"
-          net_failed: "Nie udało się połączyć"
-          no_errors: "OK"
-          ssl_failed: "Nie udało się połączyć poprzez SSL"
-          unchecked: "Odznaczone"
-          unknown_error: "Podczas sprawdzania wystąpił nieoczekiwany błąd"
-          version_failed: "Nie udało się pobrać wersji oprogramowania"
-        status: "Status"
-        unknown: "nieznane"
-    admins:
-      dashboard:
-        compare_versions: "Najnowsza wersja diaspory* to <%= latestVersion %>, a Twój pod używa <%= podVersion %>."
-        error: "Nie udało się sprawdzić jaka jest najnowsza wersja diaspory*."
-        outdated: "Twój pod wymaga aktualizacji."
-        up_to_date: "Twój pod nie wymaga aktualizacji!"
-    and: "i"
-    aspect_dropdown:
-      add_to_aspect: "Dodaj kontakt"
-      all_aspects: "Wszystkie aspekty"
-      error: "Nie możesz zacząć dzielić się z <%= name %>. Może go ignorujesz?"
-      error_remove: "Nie udało się usunąć <%= name %> z aspektu :("
-      mobile_row_checked: "<%= name %> (usuń)"
-      mobile_row_unchecked: "<%= name %> (dodaj)"
-      select_aspects: "Wybierz aspekty"
-      started_sharing_with: "Od teraz dzielisz się z <%= name %>!"
-      stopped_sharing_with: "Nie dzielisz się już z <%= name %>."
-      toggle:
-        few: "W <%= count %> aspektach"
-        many: "W <%= count %> aspektach"
-        one: "W <%= count %> aspekcie"
-        other: "W <%= count %> aspektach"
-        two: "W <%= count %> aspektach"
-        zero: "Wybierz aspekty"
-      updating: "pobieram..."
-    aspect_navigation:
-      add_an_aspect: "+ Dodaj aspekt"
-      deselect_all: "Odznacz wszystkie"
-      no_aspects: "Nie wybrano aspektów"
-      select_all: "Zaznacz wszystkie"
-    aspects:
-      create:
-        add_a_new_aspect: "Dodaj aspekt"
-        failure: "Nie udało się utworzyć aspektu."
-        success: "Nowy aspekt o nazwie <%= name %> został utworzony"
-      name: "Nazwa"
-    bookmarklet:
-      post_something: "Udostępnij na diasporze*"
-      post_submit: "Wysyłanie wpisu..."
-      post_success: "Wysłano! Zamykam okno..."
-    cancel: "Anuluj"
-    comma: ","
-    comments:
-      hide: "Ukryj komentarze"
-      no_comments: "Póki co nie ma jeszcze żadnych komentarzy."
-      show: "Pokaż wszystkie komentarze"
-    confirm_dialog: "Czy na pewno?"
-    confirm_unload: "Potwierdź, że chcesz opuścić tę stronę. Dane, które wprowadziłeś, nie zostaną zapisane."
-    contacts:
-      add_contact: "Dodaj kontakt"
-      error_add: "Nie udało się dodać <%= name %> do aspektu :("
-      error_remove: "Nie udało się usunąć <%= name %> z aspektu :("
-      remove_contact: "Usuń kontakt"
-      search_no_results: "Nie znaleziono użytkowników"
-    conversation:
-      create:
-        no_recipient: "Hej, najpierw musisz dodać odbiorcę!"
-      new:
-        no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kontakty."
-    create: "Utwórz"
-    delete: "Usuń"
-    edit: "Edycja"
-    errors:
-      connection: "Nie udało się połączyć z serwerem."
-    failed_to_post_message: "Nie można wysłać wiadomości!"
-    failed_to_remove: "Nie udało się usunąć wartości!"
-    getting_started:
-      alright_ill_wait: "Dobrze, poczekam."
-      hey: "Hej, <%= name %>!"
-      no_tags: "Hej, nie obserwujesz żadnych tagów! Kontynuować mimo to?"
-      preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
-    header:
-      admin: "Administrator"
-      close: "Zamknij"
-      contacts: "Kontakty"
-      conversations: "Rozmowy"
-      help: "Pomoc"
-      home: "Strona główna"
-      log_out: "Wyloguj"
-      mark_all_as_read: "Oznacz wszystkie jako przeczytane"
-      moderator: "Moderator"
-      notifications: "Powiadomienia"
-      profile: "Profil"
-      recent_notifications: "Ostatnie powiadomienia"
-      search: "Szukaj"
-      settings: "Ustawienia"
-      switch_to_touch_optimized_mode: "Przejdź w tryb dla urządzeń dotykowych"
-      toggle_navigation: "Przełącz nawigację"
-      view_all: "Wyświetl wszystko"
-    hide_post: "Ukryj wpis?"
-    hide_post_failed: "Nie można ukryć tego wpisu"
-    ignore: "Ignoruj"
-    ignore_failed: "Nie można zignorować tego użytkownika"
-    ignore_user: "Zignorować tego użytkownika?"
-    my_activity: "Moja aktywność"
-    my_aspects: "Moje aspekty"
-    my_stream: "Strumień"
-    no_results: "Brak wyników"
-    notifications:
-      mark_read: "Oznacz jako przeczytane"
-      mark_unread: "Oznacz jako nieprzeczytane"
-      new_notifications:
-        few: "Masz <%= count %> nieprzeczytane powiadomienia"
-        many: "Masz <%= count %> nieprzeczytanych powiadomień"
-        one: "Masz <%= count %> nieprzeczytane powiadomienie"
-        other: "Liczba nieprzeczytanych powiadomień: <%= count %>"
-    people:
-      edit_my_profile: "Edytuj profil"
-      helper:
-        is_not_sharing: "<%= name %> Ci nie udostępnia."
-        is_sharing: "<%= name %> Ci udostępnia."
-      mention: "Wzmianka"
-      message: "Wiadomość"
-      not_found: "… i nikogo nie odnaleziono"
-      stop_ignoring: "Przestań ignorować"
-    photo_uploader:
-      completed: "<%= file %> ukończono"
-      empty: "{file} jest pusty. Proszę dokonać nowego wyboru bez tego pliku."
-      error: "Wystąpił problem w trakcie przesyłania pliku <%= file %>"
-      invalid_ext: "{file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia to: {extensions}."
-      looking_good: "O rety! Świetnie wyglądasz!"
-      size_error: "{file} jest za duży. Maksymalny rozmiar pliku to {sizeLimit}."
-      upload_photos: "Prześlij zdjęcia"
-    poll:
-      answer_count:
-        few: "<%=count%> głosy"
-        many: "<%=count%> głosów"
-        one: "1 głos"
-        other: "<%=count%> głosy"
-        zero: "0 głosów"
-      close_result: "Ukryj wynik"
-      count:
-        few: "<%=count%> głosy jak do tej pory"
-        many: "<%=count%> głosów jak do tej pory"
-        one: "<%=count%> głos jak do tej pory"
-        other: "<%=count%> głosów"
-        zero: "Żaden głos nie został na razie oddany"
-      go_to_original_post: "Możesz oddać głos w tej sondzie pod tym adresem: <%= original_post_link %>"
-      original_post: "oryginalny wpis"
-      result: "Wynik"
-      show_result: "Pokaż wynik"
-      vote: "Zagłosuj"
-      your_vote: "Twój głos"
-    profile:
-      add_some: "Dodaj kilka"
-      bio: "Opis"
-      born: "Urodziny"
-      edit: "Zmień"
-      gender: "Płeć"
-      location: "Miejsce"
-      photos: "Zdjęcia"
-      posts: "Wpisy"
-      you_have_no_tags: "Nie masz tagów!"
-    publisher:
-      add_option: "Dodaj odpowiedź"
-      markdown_editor:
-        preview: "Podgląd"
-        texts:
-          code: "tutaj wpisz kod"
-          heading: "tekst nagłówka"
-          insert_image_description_text: "podaj opis obrazu"
-          insert_image_help_text: "Podaj odnośnik obrazu"
-          insert_image_title: "podaj tytuł obrazu"
-          insert_link_description_text: "podaj opis odnośnika"
-          insert_link_help_text: "Podaj odnośnik"
-          italic: "pochyły tekst"
-          list: "podaj treść elementu listy"
-          quote: "podaj treść cytatu"
-          strong: "pogrubiony tekst"
-        tooltips:
-          bold: "Pogrubienie"
-          cancel: "Anuluj tworzenie wiadomości"
-          code: "Wstaw kod"
-          heading: "Nagłówek"
-          insert_image: "Wstaw obraz"
-          insert_link: "Wstaw odnośnik"
-          insert_ordered_list: "Wstaw listę uporządkowaną"
-          insert_unordered_list: "Wstaw listę nieuporządkowaną"
-          italic: "Kursywa"
-          preview: "Zobacz jak wpis będzie wyglądać"
-          quote: "Wstaw cytat"
-          write: "Edytuj wpis"
-        write: "Edycja"
-      mention_success: "Pomyślnie wspomniano o: <%= names %>"
-      near_from: "Blisko <%= location %>"
-      option: "Odpowiedź"
-      question: "Pytanie"
-    remove_post: "Usunąć ten wpis?"
-    report:
-      name: "Zgłoś"
-      prompt: "Proszę podaj powód:"
-      prompt_default: "np. obraźliwa zawartość"
-      status:
-        created: "Zgłoszenie zostało pomyślnie utworzone"
-        exists: "Zgłoszenie już istnieje"
-    reshares:
-      post: "Przekazać dalej wpis użytkownika <%= name %>?"
-      successful: "Wpis został pomyślnie przesłany dalej!"
-    show_all: "Pokaż wszystkie"
-    show_more: "Pokaż więcej"
-    stream:
-      comment: "Skomentuj"
-      comments:
-        few: "<%= count %> komentarze"
-        many: "<%= count %> komentarzy"
-        one: "<%= count %> komentarz"
-        other: "komentarzy: <%= count %>"
-        zero: "<%= count %> komentarzy"
-      disable_post_notifications: "Wyłącz powiadomienia do tego wpisu"
-      enable_post_notifications: "Włącz powiadomienia do tego wpisu"
-      follow: "Obserwuj"
-      followed_tag:
-        add_a_tag: "Dodaj tag"
-        follow: "Obserwuj"
-        title: "#Obserwowane tagi"
-      hide: "Ukryj"
-      hide_nsfw_posts: "Ukryj wpisy #nsfw"
-      like: "Lubię to!"
-      likes:
-        few: "<%= count %> polubienia"
-        many: "<%= count %> polubień"
-        one: "<%= count %> polubienie"
-        other: "<%= count %> polubień"
-        zero: "<%= count %> polubień"
-      limited: "Ograniczone"
-      more_comments:
-        few: "Wyświetl <%= count %> komentarze więcej"
-        many: "Wyświetl <%= count %> komentarzy więcej"
-        one: "Wyświetl <%= count %> komentarz więcej"
-        other: "Wyświetl <%= count %> komentarzy więcej"
-        zero: "Wyświetl <%= count %> komentarzy więcej"
-      no_posts_yet: "Nie ma jeszcze wpisów które można by tu wyświetlić."
-      original_post_deleted: "Oryginalny wpis został usunięty przez autora"
-      permalink: "Łącze bezpośrednie"
-      public: "Publiczny"
-      reshare: "Przekaż dalej"
-      reshares:
-        few: "<%= count %> razy przekazano dalej"
-        many: "<%= count %> razy przekazano dalej"
-        one: "<%= count %> raz przekazano dalej"
-        other: "<%= count %> razy przekazano dalej"
-        zero: "<%= count %> razy przekazano dalej"
-      show_nsfw_post: "Wyświetl wpis"
-      show_nsfw_posts: "Wyświetl wszystko"
-      tags:
-        follow: "Obserwuj #<%= tag %>"
-        follow_error: "Obserwacja #<%= tag %> nie powiodła się :("
-        following: "Obserwowanie #<%= tag %>"
-        stop_following: "Przestań obserwować #<%= tag %>"
-        stop_following_confirm: "Przestań obserwować #<%= tag %>"
-        stop_following_error: "Nie udało się przestać obserwować #<%= tag %> :("
-      unfollow: "Nie obserwuj"
-      unlike: "Nie lubię"
-      via: "przez <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Dobrze, przypuszczam, że #<%= tagName %> nie był aż tak interesujący…"
     timeago:
-      day: "dzień"
-      days:
-        few: "%d dni temu"
-        many: "%d dni temu"
-        one: "1 dzień temu"
-        other: "%d dni temu"
-      hour: "około godziny"
-      hours:
-        few: "około %d godziny"
-        many: "około %d godzin"
-        one: "około godzinę"
-        other: "około %d godziny"
-      inPast: "w każdej chwili"
-      minute: "około minuty"
+      prefixAgo: ''
+      suffixAgo: temu
+      suffixFromNow: od teraz
+      prefixFromNow: ''
+      inPast: w każdej chwili
+      seconds: mniej niż minutę
+      minute: około minuty
       minutes:
+        one: "%d minuta"
         few: "%d minuty"
         many: "%d minut"
-        one: "%d minuta"
         other: "%d minut"
-      month: "około miesiąca"
+      hour: około godziny
+      hours:
+        one: około godzinę
+        few: około %d godziny
+        many: około %d godzin
+        other: około %d godziny
+      day: dzień
+      days:
+        one: 1 dzień temu
+        few: "%d dni temu"
+        many: "%d dni temu"
+        other: "%d dni temu"
+      month: około miesiąca
       months:
+        one: miesiąc
         few: "%d miesiące"
         many: "%d miesięcy"
-        one: "miesiąc"
         other: "%d miesięcy"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "mniej niż minutę"
-      suffixAgo: "temu"
-      suffixFromNow: "od teraz"
-      wordSeparator: " "
-      year: "około roku"
+      year: około roku
       years:
+        one: "%d rok"
         few: "%d lata"
         many: "%d lat"
-        one: "%d rok"
         other: "%d lat"
-    unblock_failed: "Nie udało się odblokować tego użytkownika"
+      wordSeparator: " "
+    cancel: Anuluj
+    confirm_dialog: Czy na pewno?
+    confirm_unload: Potwierdź, że chcesz opuścić tę stronę. Dane, które wprowadziłeś, nie zostaną zapisane.
+    create: Utwórz
+    delete: Usuń
+    ignore: Ignoruj
+    report:
+      prompt: 'Proszę podaj powód:'
+      prompt_default: np. obraźliwa zawartość
+      name: Zgłoś
+      status:
+        created: Zgłoszenie zostało pomyślnie utworzone
+        exists: Zgłoszenie już istnieje
+    ignore_user: Zignorować tego użytkownika?
+    ignore_failed: Nie można zignorować tego użytkownika
+    hide_post: Ukryj wpis?
+    hide_post_failed: Nie można ukryć tego wpisu
+    remove_post: Usunąć ten wpis?
+    unblock_failed: Nie udało się odblokować tego użytkownika
+    and: i
+    comma: ","
+    edit: Edycja
+    no_results: Brak wyników
+    show_all: Pokaż wszystkie
+    admins:
+      dashboard:
+        up_to_date: Twój pod nie wymaga aktualizacji!
+        outdated: Twój pod wymaga aktualizacji.
+        compare_versions: Najnowsza wersja diaspory* to <%= latestVersion %>, a Twój pod używa <%= podVersion %>.
+        error: Nie udało się sprawdzić jaka jest najnowsza wersja diaspory*.
+    admin:
+      pods:
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL włączone
+        ssl_disabled: SSL wyłączone
+        added: Dodane
+        status: Status
+        states:
+          unchecked: Odznaczone
+          no_errors: OK
+          dns_failed: Rozwiązanie nazwy domenowej (DNS) nie powiodło się
+          net_failed: Nie udało się połączyć
+          ssl_failed: Nie udało się połączyć poprzez SSL
+          http_failed: Nie udało się nawiązać połączenia HTTP
+          version_failed: Nie udało się pobrać wersji oprogramowania
+          unknown_error: Podczas sprawdzania wystąpił nieoczekiwany błąd
+        actions: Akcje
+        offline_since: 'offline od:'
+        last_check: 'ostatnio sprawdzone:'
+        more_info: pokaż więcej informacji
+        check: wykonaj test połączenia
+        recheck:
+          success: Pod został właśnie ponownie sprawdzony.
+          failure: Nie udało się sprawdzić.
+        follow_link: otwórz łącze w przeglądarce
+        no_info: Jak dotąd nie ma dodatkowych informacji
+        server_software: 'Oprogramowanie serwera:'
+        response_time: 'Czas odpowiedzi:'
+        ms:
+          one: "<%= count %>ms"
+          few: "<%= count %>ms"
+          many: "<%= count %>ms"
+          other: "<%= count %>ms"
+        unknown: nieznane
+        not_available: niedostępne
+        errors:
+          one: Test połączenia zakończył się błędem dla jednego poda.
+          few: Test połączenia zakończył się błędem dla <%= count %> podów
+          many: Test połączenia zakończył się błędem dla <%= count %> podów
+          other: Test połączenia zakończył się błędem dla <%= count %> podów
+    aspects:
+      name: Nazwa
+      create:
+        add_a_new_aspect: Dodaj aspekt
+        success: Nowy aspekt o nazwie <%= name %> został utworzony
+        failure: Nie udało się utworzyć aspektu.
+    errors:
+      connection: Nie udało się połączyć z serwerem.
+    contacts:
+      add_contact: Dodaj kontakt
+      remove_contact: Usuń kontakt
+      error_add: Nie udało się dodać <%= name %> do aspektu :(
+      error_remove: Nie udało się usunąć <%= name %> z aspektu :(
+      search_no_results: Nie znaleziono użytkowników
+    my_activity: Moja aktywność
+    my_stream: Strumień
+    my_aspects: Moje aspekty
+    publisher:
+      near_from: Blisko <%= location %>
+      option: Odpowiedź
+      add_option: Dodaj odpowiedź
+      question: Pytanie
+      markdown_editor:
+        preview: Podgląd
+        write: Edycja
+        tooltips:
+          bold: Pogrubienie
+          italic: Kursywa
+          heading: Nagłówek
+          insert_link: Wstaw odnośnik
+          insert_image: Wstaw obraz
+          insert_ordered_list: Wstaw listę uporządkowaną
+          insert_unordered_list: Wstaw listę nieuporządkowaną
+          preview: Zobacz jak wpis będzie wyglądać
+          write: Edytuj wpis
+          cancel: Anuluj tworzenie wiadomości
+          quote: Wstaw cytat
+          code: Wstaw kod
+        texts:
+          strong: pogrubiony tekst
+          italic: pochyły tekst
+          heading: tekst nagłówka
+          insert_link_description_text: podaj opis odnośnika
+          insert_link_help_text: Podaj odnośnik
+          insert_image_description_text: podaj opis obrazu
+          insert_image_help_text: Podaj odnośnik obrazu
+          insert_image_title: podaj tytuł obrazu
+          list: podaj treść elementu listy
+          quote: podaj treść cytatu
+          code: tutaj wpisz kod
+      mention_success: 'Pomyślnie wspomniano o: <%= names %>'
+    bookmarklet:
+      post_something: Udostępnij na diasporze*
+      post_submit: Wysyłanie wpisu...
+      post_success: Wysłano! Zamykam okno...
+    aspect_dropdown:
+      add_to_aspect: Dodaj kontakt
+      select_aspects: Wybierz aspekty
+      all_aspects: Wszystkie aspekty
+      updating: pobieram...
+      mobile_row_checked: "<%= name %> (usuń)"
+      mobile_row_unchecked: "<%= name %> (dodaj)"
+      stopped_sharing_with: Nie dzielisz się już z <%= name %>.
+      started_sharing_with: Od teraz dzielisz się z <%= name %>!
+      error: Nie możesz zacząć dzielić się z <%= name %>. Może go ignorujesz?
+      error_remove: Nie udało się usunąć <%= name %> z aspektu :(
+      toggle:
+        zero: Wybierz aspekty
+        one: W <%= count %> aspekcie
+        two: W <%= count %> aspektach
+        few: W <%= count %> aspektach
+        many: W <%= count %> aspektach
+        other: W <%= count %> aspektach
+    show_more: Pokaż więcej
+    failed_to_post_message: Nie można wysłać wiadomości!
+    failed_to_remove: Nie udało się usunąć wartości!
+    comments:
+      show: Pokaż wszystkie komentarze
+      hide: Ukryj komentarze
+      no_comments: Póki co nie ma jeszcze żadnych komentarzy.
+    reshares:
+      successful: Wpis został pomyślnie przesłany dalej!
+      post: Przekazać dalej wpis użytkownika <%= name %>?
+    aspect_navigation:
+      select_all: Zaznacz wszystkie
+      deselect_all: Odznacz wszystkie
+      no_aspects: Nie wybrano aspektów
+      add_an_aspect: "+ Dodaj aspekt"
+    getting_started:
+      hey: Hej, <%= name %>!
+      no_tags: Hej, nie obserwujesz żadnych tagów! Kontynuować mimo to?
+      alright_ill_wait: Dobrze, poczekam.
+      preparing_your_stream: Przygotowanie spersonalizowanego strumienia...
+    photo_uploader:
+      upload_photos: Prześlij zdjęcia
+      looking_good: O rety! Świetnie wyglądasz!
+      completed: "<%= file %> ukończono"
+      error: Wystąpił problem w trakcie przesyłania pliku <%= file %>
+      invalid_ext: "{file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia to: {extensions}."
+      size_error: "{file} jest za duży. Maksymalny rozmiar pliku to {sizeLimit}."
+      empty: "{file} jest pusty. Proszę dokonać nowego wyboru bez tego pliku."
+    tags:
+      wasnt_that_interesting: 'Dobrze, przypuszczam, że #<%= tagName %> nie był aż tak interesujący…'
+    people:
+      not_found: "… i nikogo nie odnaleziono"
+      mention: Wzmianka
+      message: Wiadomość
+      edit_my_profile: Edytuj profil
+      stop_ignoring: Przestań ignorować
+      helper:
+        is_sharing: "<%= name %> Ci udostępnia."
+        is_not_sharing: "<%= name %> Ci nie udostępnia."
+    profile:
+      edit: Zmień
+      add_some: Dodaj kilka
+      you_have_no_tags: Nie masz tagów!
+      bio: Opis
+      location: Miejsce
+      gender: Płeć
+      born: Urodziny
+      photos: Zdjęcia
+      posts: Wpisy
+    conversation:
+      create:
+        no_recipient: Hej, najpierw musisz dodać odbiorcę!
+      new:
+        no_contacts: Przed rozpoczęciem rozmowy musisz dodać kontakty.
+    notifications:
+      mark_read: Oznacz jako przeczytane
+      mark_unread: Oznacz jako nieprzeczytane
+      new_notifications:
+        one: Masz <%= count %> nieprzeczytane powiadomienie
+        few: Masz <%= count %> nieprzeczytane powiadomienia
+        many: Masz <%= count %> nieprzeczytanych powiadomień
+        other: 'Liczba nieprzeczytanych powiadomień: <%= count %>'
+    stream:
+      hide: Ukryj
+      public: Publiczny
+      limited: Ograniczone
+      like: Lubię to!
+      unlike: Nie lubię
+      reshare: Przekaż dalej
+      comment: Skomentuj
+      original_post_deleted: Oryginalny wpis został usunięty przez autora
+      show_nsfw_post: Wyświetl wpis
+      show_nsfw_posts: Wyświetl wszystko
+      hide_nsfw_posts: 'Ukryj wpisy #nsfw'
+      follow: Obserwuj
+      unfollow: Nie obserwuj
+      enable_post_notifications: Włącz powiadomienia do tego wpisu
+      disable_post_notifications: Wyłącz powiadomienia do tego wpisu
+      permalink: Łącze bezpośrednie
+      via: przez <%= provider %>
+      no_posts_yet: Nie ma jeszcze wpisów które można by tu wyświetlić.
+      likes:
+        zero: "<%= count %> polubień"
+        one: "<%= count %> polubienie"
+        few: "<%= count %> polubienia"
+        many: "<%= count %> polubień"
+        other: "<%= count %> polubień"
+      reshares:
+        zero: "<%= count %> razy przekazano dalej"
+        one: "<%= count %> raz przekazano dalej"
+        few: "<%= count %> razy przekazano dalej"
+        many: "<%= count %> razy przekazano dalej"
+        other: "<%= count %> razy przekazano dalej"
+      comments:
+        zero: "<%= count %> komentarzy"
+        one: "<%= count %> komentarz"
+        few: "<%= count %> komentarze"
+        many: "<%= count %> komentarzy"
+        other: 'komentarzy: <%= count %>'
+      more_comments:
+        zero: Wyświetl <%= count %> komentarzy więcej
+        one: Wyświetl <%= count %> komentarz więcej
+        few: Wyświetl <%= count %> komentarze więcej
+        many: Wyświetl <%= count %> komentarzy więcej
+        other: Wyświetl <%= count %> komentarzy więcej
+      followed_tag:
+        title: "#Obserwowane tagi"
+        add_a_tag: Dodaj tag
+        follow: Obserwuj
+      tags:
+        follow: 'Obserwuj #<%= tag %>'
+        following: 'Obserwowanie #<%= tag %>'
+        stop_following: 'Przestań obserwować #<%= tag %>'
+        stop_following_confirm: 'Przestań obserwować #<%= tag %>'
+        follow_error: 'Obserwacja #<%= tag %> nie powiodła się :('
+        stop_following_error: 'Nie udało się przestać obserwować #<%= tag %> :('
+    header:
+      home: Strona główna
+      profile: Profil
+      contacts: Kontakty
+      settings: Ustawienia
+      help: Pomoc
+      admin: Administrator
+      moderator: Moderator
+      log_out: Wyloguj
+      toggle_navigation: Przełącz nawigację
+      switch_to_touch_optimized_mode: Przejdź w tryb dla urządzeń dotykowych
+      notifications: Powiadomienia
+      conversations: Rozmowy
+      search: Szukaj
+      recent_notifications: Ostatnie powiadomienia
+      mark_all_as_read: Oznacz wszystkie jako przeczytane
+      view_all: Wyświetl wszystko
+      close: Zamknij
     viewer:
-      reshared: "Przekazano dalej"
+      reshared: Przekazano dalej
+    poll:
+      vote: Zagłosuj
+      go_to_original_post: 'Możesz oddać głos w tej sondzie pod tym adresem: <%= original_post_link %>'
+      original_post: oryginalny wpis
+      result: Wynik
+      count:
+        zero: Żaden głos nie został na razie oddany
+        one: "<%=count%> głos jak do tej pory"
+        few: "<%=count%> głosy jak do tej pory"
+        many: "<%=count%> głosów jak do tej pory"
+        other: "<%=count%> głosów"
+      answer_count:
+        zero: 0 głosów
+        one: 1 głos
+        few: "<%=count%> głosy"
+        many: "<%=count%> głosów"
+        other: "<%=count%> głosy"
+      show_result: Pokaż wynik
+      close_result: Ukryj wynik
+      your_vote: Twój głos

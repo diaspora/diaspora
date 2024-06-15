@@ -5,1381 +5,1369 @@
 
 
 fr:
-  _applications: "Applications"
-  _contacts: "Contacts"
-  _help: "Aide"
-  _services: "Services"
-  _statistics: "Statistiques"
-  _terms: "Conditions d'utilisation"
-  account: "Compte"
+  settings: Paramètres
+  profile: Profil
+  account: Compte
+  privacy: Vie privée
+  _services: Services
+  _applications: Applications
+  _help: Aide
+  ok: OK
+  cancel: Annuler
+  delete: Supprimer
+  username: Nom d'utilisateur
+  email: Courriel
+  are_you_sure: Êtes-vous certain ?
+  are_you_sure_delete_account: Souhaitez-vous vraiment supprimer votre compte ? Cette action est définitive !
+  are_you_sure_ignore_user: Vous êtes sur le point d'ignorer cet utilisateur. Êtes-vous sûr ?
+  fill_me_out: mettez-moi au courant
+  public: Public
+  limited: Limité
+  search: Rechercher
+  nsfw: NSFW
+  find_people: 'Rechercher des personnes ou des #tags'
+  more: Plus
+  all_aspects: Tous les aspects
+  no_results: Aucun résultat trouvé
+  _contacts: Contacts
+  _terms: Conditions d'utilisation
+  _statistics: Statistiques
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "doit être unique parmi les contacts de cet utilisateur."
+            person:
+              invalid: est invalide.
+            username:
+              taken: est déjà pris.
+              invalid: n'est pas valide. Nous n'autorisons que les lettres, chiffres et caractères de soulignement.
+            email:
+              taken: est déjà utilisé.
         person:
           attributes:
             diaspora_handle:
-              taken: "est déjà pris."
-        poll:
+              taken: est déjà pris.
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "Il n'y a pas assez de choix possible"
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "Vous avez déjà participé à ce sondage !"
+            person_id:
+              taken: doit être unique parmi les contacts de cet utilisateur.
         reshare:
           attributes:
             root_guid:
-              taken: "Pas mal, non ? Mais vous avez déjà repartagé ce message !"
-        user:
+              taken: Pas mal, non ? Mais vous avez déjà repartagé ce message !
+        poll:
           attributes:
-            email:
-              taken: "est déjà utilisé."
-            person:
-              invalid: "est invalide."
-            username:
-              invalid: "n'est pas valide. Nous n'autorisons que les lettres, chiffres et caractères de soulignement."
-              taken: "est déjà pris."
-  admins:
-    admin_bar:
-      dashboard: "Tableau de bord"
-      pages: "Pages"
-      pod_network: "Réseau du pod"
-      pod_stats: "Statistiques du pod"
-      report: "Signalements"
-      sidekiq_monitor: "Moniteur Sidekiq"
-      user_search: "Chercher un utilisateur"
-      weekly_user_stats: "Statistiques utilisateur hebdomadaires"
-    dashboard:
-      fetching_diaspora_version: "Entrain de déterminer la dernière version de diaspora*..."
-      pod_status: "État du pod"
-    pods:
-      pod_network: "Réseau du pod"
-    stats:
-      2weeks: "Deux semaines"
-      50_most: "50 tags les plus populaires"
-      comments:
-        one: "%{count} commentaire"
-        other: "%{count} commentaires"
-        zero: "Aucun commentaire"
-      current_segment: "La période courante a une moyenne de %{post_yest} messages par utilisateur, depuis %{post_day}"
-      daily: "Quotidienne"
-      display_results: "Affichage des résultats pour la période %{segment}"
-      go: "Exécuter"
-      month: "Mois"
-      posts:
-        one: "%{count} message"
-        other: "%{count} messages"
-        zero: "Aucun message"
-      shares:
-        one: "%{count} repartage"
-        other: "%{count} repartages"
-        zero: "Aucun repartage"
-      tag_name: "Nom du tag : %{name_tag} Nombre : %{count_tag}"
-      usage_statistic: "Statistiques d'utilisation"
-      users:
-        one: "%{count} utilisateur"
-        other: "%{count} utilisateurs"
-        zero: "Aucun utilisateur"
-      week: "Hebdomadaire"
-    user_entry:
-      account_closed: "Compte fermé"
-      admin: "Administrateur"
-      current_sign_in_ip: "Adresse IP de la connexion actuelle"
-      diaspora_handle: "identifiant diaspora*"
-      email: "E-mail"
-      guid: "GUID"
-      id: "ID"
-      invite_token: "Jeton d'invitation"
-      last_seen: "Dernière connexion"
-      moderator: "Modérateur"
-      ? "no"
-      : Non
-      nsfw: "#nsfw"
-      spotlight: "Guide communautaire"
-      unknown: "Inconnu"
-      ? "yes"
-      : Oui
-    user_search:
-      account_closing_scheduled: "La fermeture du compte %{name} est planifiée. Elle sera effectuée sous peu."
-      account_locking_scheduled: "Le compte de %{name} va être verrouillé dans quelques instants."
-      account_unlocking_scheduled: "Le compte de %{name} va être déverrouillé dans quelques instants."
-      add_admin: "%{name} est maintenant administrateur."
-      add_invites: "Ajouter des invitations"
-      add_moderator: "%{name} est maintenant modérateur."
-      add_spotlight: "%{name} est ajouté à la liste des guides communautaires."
-      are_you_sure: "Êtes-vous sûr de vouloir fermer ce compte ?"
-      are_you_sure_lock_account: "Êtes-vous sûr de vouloir verrouiller ce compte ?"
-      are_you_sure_unlock_account: "Êtes-vous sûr de vouloir déverrouiller ce compte ?"
-      close_account: "Fermer ce compte"
-      delete_admin: "%{name} est retiré de la liste des administrateurs."
-      delete_moderator: "%{name} est retiré de la liste des modérateurs."
-      delete_spotlight: "%{name} est retiré de la liste des guides communautaires."
-      does_not_exist: "Cet utilisateur n'existe pas !"
-      email_to: "Adresse électronique de la personne à inviter"
-      invite: "Inviter"
-      lock_account: "Verrouiller le compte"
-      make_admin: "Donner le statut d'administrateur"
-      make_moderator: "Donner le statut de modérateur"
-      make_spotlight: "Donner le statut de guide communautaire"
-      remove_admin: "Retirer le statut d'administrateur"
-      remove_moderator: "Retirer le statut de modérateur"
-      remove_spotlight: "Retirer le statut de guide communautaire"
-      role_implemented: "%{name} a déjà reçu ce rôle !"
-      role_removal_implemented: "%{name} s'est déjà vu retirer ce rôle !"
-      under_13: "Afficher les utilisateurs de moins de 13 ans"
-      unlock_account: "Déverrouiller le compte"
-      users:
-        one: "%{count} utilisateur trouvé"
-        other: "%{count} utilisateurs trouvés"
-        zero: "aucun utilisateur trouvé"
-      view_profile: "Afficher le profil"
-      you_currently:
-        one: "Il vous reste actuellement une invitation %{link}"
-        other: "Il vous reste actuellement %{count} invitations %{link}"
-        zero: "Il ne vous reste pas d'invitations actuellement %{link}"
-    weekly_user_stats:
-      amount_of:
-        one: "%{count} nouvel utilisateur cette semaine."
-        other: "%{count} nouveaux utilisateurs cette semaine."
-        zero: "Aucun nouvel utilisateur cette semaine."
-      current_server: "La date actuelle du serveur est %{date}"
-  all_aspects: "Tous les aspects"
-  api:
-    openid_connect:
-      authorizations:
-        destroy:
-          fail: "La tentative de révoquer l'autorisation avec ID %{id} a échoué"
-        new:
-          access: "%{name} a besoin d'accéder à :"
-          approve: "Autoriser"
-          bad_request: "ID client manquant ou URL de redirection"
-          client_id_not_found: "Pas de client avec client_id %{client_id} avec URL de redirection %{redirect_uri} trouvé"
-          deny: "Refuser"
-          no_requirement: "%{name} n'a pas besoin de permissions"
-          private_contacts_linkage_error: "private:read et private:modify nécessite contacts:read"
-          redirection_message: "Voulez-vous vraiment donner accès à %{redirect_uri} ?"
-          unknown_scope: "Périmètre inconnu : %{scope_name}"
-      error_page:
-        contact_developer: "Veuillez contacter le développeur de l'application et inclure le message d'erreur détaillé suivant :"
-        could_not_authorize: "L'application n'a pas pu être autorisée"
-        login_required: "Vous devez d'abord vous connecter afin de pouvoir autoriser cette application"
-        title: "Oups ! Quelque-chose n'a pas marché :("
-      scopes:
-        ? "contacts:modify"
-        :
-          description: "Ceci donne accès en écriture aux contacts et aux données connexes (comme les aspects)."
-          name: "Contacts (Écriture)"
-        ? "contacts:read"
-        :
-          description: "Ceci donne accès en lecture seule aux contacts et aux données connexes (comme les aspects)."
-          name: "Contacts (lecture seule)"
-        conversations:
-          description: "Ceci donne des permissions de lecture et d'écriture sur les messages privés."
-          name: "Conversations"
-        email:
-          description: "Ceci donne un accès en lecture seule à votre adresse de courriel."
-          name: "Adresse de courriel"
-        interactions:
-          description: "Ceci donne la permission d'interagir avec les messages, par exemple les « j'aime » ou la soumission de commentaires."
-          name: "Interactions"
-        name:
-          description: "Ceci donne un accès en lecture seule à votre nom complet."
-          name: "Nom complet"
-        nickname:
-          description: "Ceci donne un accès en lecture seule à votre nom d'utilisateur."
-          name: "Nom d'utilisateur"
-        notifications:
-          description: "Ceci donne accès en lecture et en écriture à vos notifications."
-          name: "Notifications"
-        openid:
-          description: "Ceci permet à l'application de voir les informations de base de votre profil."
-          name: "Informations de base du profil"
-        picture:
-          description: "Ceci donne un accès en lecture seule à votre image de profil."
-          name: "Image de profil"
-        ? "private:modify"
-        :
-          description: "Ceci donne la permission de publier des messages privés."
-          name: "Messages privés (Écriture)"
-        ? "private:read"
-        :
-          description: "Ceci donne accès en lecture seule à vos messages privés et à ceux de vos contacts."
-          name: "Messages privés (Lecture seule)"
-        profile:
-          description: "Ceci donne un accès en lecture seule aux données de votre profil étendu."
-          name: "Profil étendu (lecture seule)"
-        ? "profile:modify"
-        :
-          description: "Ceci donne la permission de mettre à jour les données de votre profil étendu."
-          name: "Profil étendu (Écriture)"
-        ? "profile:read_private"
-        :
-          description: "Ceci donne un accès en lecture seule aux données de votre profil privé."
-          name: "Données du profil privé (Lecture seule)"
-        ? "public:modify"
-        :
-          description: "Ceci donne la permission de publier des messages publics et des données connexes (comme les votes et les médias joints)."
-          name: "Messages publics (Écriture)"
-        ? "public:read"
-        :
-          description: "Ceci donne accès à vos messages publics, incluant les interactions et les données connexes."
-          name: "Messages publics (Lecture seule)"
-        sub:
-          description: "Ceci donne un accès en lecture seule à votre identifiant unique."
-          name: "Identifiant unique"
-        ? "tags:modify"
-        :
-          description: "Ceci donne la permission de changer les tags que vous suivez."
-          name: "Tags (Écriture)"
-        ? "tags:read"
-        :
-          description: "Ceci donne accès en lecture seule aux tags et aux flux de tags que vous suivez."
-          name: "Tags (Lecture seule)"
-      user_applications:
-        index:
-          access: "%{name} a accès à :"
-          edit_applications: "Applications"
-          no_requirement: "%{name} n'a pas besoin d'autorisations."
-          title: "Applications autorisées"
-        no_applications: "Vous n'avez pas d'applications autorisées"
-        policy: "Voir la politique de confidentialité de l'application"
-        revoke_autorization: "Révoquer"
-        tos: "Voir les conditions d'utilisation de l'application"
-  are_you_sure: "Êtes-vous certain ?"
-  are_you_sure_delete_account: "Souhaitez-vous vraiment supprimer votre compte ? Cette action est définitive !"
-  are_you_sure_ignore_user: "Vous êtes sur le point d'ignorer cet utilisateur. Êtes-vous sûr ?"
-  aspect_memberships:
-    destroy:
-      failure: "La personne n'a pas pu être supprimée de l'aspect."
-      forbidden: "Vous n’êtes pas autorisé à faire cela."
-      invalid_statement: "Impossible de dupliquer l'enregistrement."
-      no_membership: "Impossible de trouver la personne sélectionnée dans cet aspect."
-      success: "La personne a été retirée de l'aspect avec succès."
-  aspects:
-    add_to_aspect:
-      failure: "L’ajout du contact à l'aspect a échoué."
-      success: "Le contact a été ajouté à l'aspect avec succès."
-    aspect_listings:
-      add_an_aspect: "+ Ajouter un aspect"
-    aspect_stream:
-      make_something: "Faites quelque chose"
-      stay_updated: "Restez informé(e)"
-      stay_updated_explanation: "Votre flux principal est complété par vos contacts, vos tags suivis, et les messages de certains membres de la communauté."
-    destroy:
-      failure: "%{name} n'a pas pu être supprimé."
-      success: "%{name} a été supprimé avec succès."
-      success_auto_follow_back: "%{name} a été supprimé avec succès. Vous utilisiez cet aspect pour suivre automatiquement les utilisateurs qui vous suivent. Vérifiez vos paramètres utilisateurs pour sélectionner un nouvel aspect pour le suivi automatique."
-    edit:
-      aspect_list_is_not_visible: "Les contacts dans cet aspect ne peuvent pas se voir entre eux."
-      aspect_list_is_visible: "Les contacts dans cet aspect peuvent se voir entre eux."
-      confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
-      rename: "Renommer"
-      update: "Mettre à jour"
-      updating: "En cours de mise à jour"
-    index:
-      donate: "Faire un don"
-      donate_liberapay: "Faire un don avec liberapay"
-      help:
-        any_problem: "Un problème ?"
-        contact_podmin: "Contacter l'administrateur de votre pod !"
-        do_you: "Avez-vous :"
-        feature_suggestion: "... une %{link} ?"
-        find_a_bug: "... trouvé un %{link} ?"
-        have_a_question: "... une %{link} ?"
-        here_to_help: "La communauté diaspora* est là !"
-        mail_podmin: "E-mail du podmin"
-        need_help: "Besoin d'aide ?"
-        support_forum: "Vous pouvez également parcourir le %{support_forum}."
-        support_forum_link: "Forum d'assistance"
-        tag_bug: "bug"
-        tag_feature: "suggestion"
-        tag_question: "question"
-        tutorial_link_text: "Tutoriels"
-        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki} : Aide pour les débutants."
-      introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."
-      keep_pod_running: "Permettez à %{pod} de fonctionner rapidement et offrez une dose de café mensuelle à nos serveurs !"
-      new_here:
-        follow: "Suivez %{link} et <a href=\"/tags/nouvelleici\">#nouvelleIci</a> et souhaitez la bienvenue aux nouveaux utilisateurs de diaspora* !"
-        learn_more: "En savoir plus"
-        title: "Accueillir les nouveaux"
-      services:
-        content: "Vous pouvez connecter les services suivants à diaspora* :"
-        heading: "Connecter des services"
-      welcome_to_diaspora: "Bienvenue sur diaspora*, %{name} !"
-    no_contacts_message:
-      community_spotlight: "Actualités de la communauté"
-      invite_link_text: "inviter"
-      or_spotlight: "Ou vous pouvez partager avec %{link}"
-      try_adding_some_more_contacts: "Vous pouvez rechercher ou %{invite_link} plus de contacts."
-      you_should_add_some_more_contacts: "Vous devez ajouter un peu plus de contacts !"
-    seed:
-      acquaintances: "Connaissances"
-      family: "Famille"
-      friends: "Amis"
-      work: "Travail"
-    update:
-      failure: "Votre aspect %{name} a un nom trop long pour être enregistré."
-      success: "Votre aspect %{name} a été modifié avec succès."
-  blocks:
-    create:
-      failure: "Je n'ai pas pu ignorer cet utilisateur. #évasion"
-      success: "Très bien, cet utilisateur n'apparaîtra plus dans votre flux. #silence !"
-    destroy:
-      failure: "Je n'ai pas pu cesser d'ignorer cet utilisateur. #évasion"
-      success: "Voyons ce qu'ils ont à dire ! #ditesbonjour"
-  bookmarklet:
-    explanation: "Publiez sur diaspora* depuis n'importe où en ajoutant %{link} à vos marque-pages."
-    heading: "Bookmarklet"
-    post_something: "Publiez sur diaspora*"
-  cancel: "Annuler"
-  color_themes:
-    dark: "Sombre"
-    dark_green: "Vert sombre"
-    egyptian_blue: "Bleu égyptien"
-    magenta: "Magenta"
-    original: "Gris par défaut"
-    original_white: "Fond blanc"
-  comments:
-    create:
-      fail: "La création du commentaire a échoué"
-    destroy:
-      fail: "La suppression du commentaire a échoué"
-      success: "Le commentaire %{id} a été supprimé avec succès"
-    new_comment:
-      comment: "Commenter"
-      commenting: "Commentaire en cours d'envoi..."
-    not_found: "Message ou commentaire introuvable"
-  contacts:
-    index:
-      add_contact: "Ajouter ce contact"
-      all_contacts: "Tous les contacts"
-      community_spotlight: "Actualités de la communauté"
-      my_contacts: "Mes contacts"
-      no_contacts: "On dirait que vous avez besoin d'ajouter quelques contacts !"
-      no_contacts_in_aspect: "Vous n'avez pas encore de contacts dans cet aspect. Voici une liste des contacts existants que vous pouvez ajouter à cet aspect."
-      no_contacts_message: "Consultez %{community_spotlight}"
-      only_sharing_with_me: "Partage uniquement avec moi"
-      start_a_conversation: "Démarrer une conversation"
-      title: "Contacts"
-      user_search: "Chercher un contact"
-    spotlight:
-      community_spotlight: "Actualités de la communauté"
-      no_members: "Il n'y a encore aucun membre."
-      suggest_member: "Suggérer un membre"
-  conversations:
-    create:
-      fail: "Message invalide"
-      sent: "Message envoyé"
-    destroy:
-      delete_success: "Conversation effacée avec succès"
-      hide_success: "Conversation masquée avec succès"
-    index:
-      conversations_inbox: "Discussions - Boîte de réception"
-      inbox: "Boîte de réception"
-      new_conversation: "Nouvelle discussion"
-      no_contacts: "Vous devez ajouter des contacts avant de pouvoir démarrer une conversation."
-      no_messages: "Aucun message"
-    new:
-      message: "Message"
-      send: "Envoyer"
-      sending: "Envoi…"
-      subject: "Sujet"
-      subject_default: "Pas d'objet"
-      to: "Pour"
-    new_conversation:
-      fail: "Message invalide"
-    not_found: "Conversation introuvable"
-    show:
-      delete: "Supprimer la conversation"
-      hide: "Masquer et rendre la conversation muette"
-      last_message: "Dernier message reçu %{timeago}"
-      reply: "Répondre"
-      replying: "Réponse en cours d'envoi..."
-  date:
-    formats:
-      birthday: "%d %B"
-      birthday_with_year: "%d %B %Y"
-      fullmonth_day: "%d %B"
-  delete: "Supprimer"
-  email: "Courriel"
-  error_messages:
-    csrf_token_fail: "Le jeton CSRF est invalide. Veuillez vous connecter et réessayer."
-    desktop_view_link: "Voir en mode ordinateur de bureau"
-    helper:
-      correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
-    mobile_not_available: "Cette page n'est pas disponible pour un affichage sur appareil mobile, veuillez choisir la version %{desktop_link}."
-    need_javascript: "Ce site web nécessite JavaScript pour fonctionner correctement. Si vous avez désactivé JavaScript, veuillez le réactiver et actualiser cette page."
+            poll_answers:
+              not_enough_poll_answers: Il n'y a pas assez de choix possible
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: Vous avez déjà participé à ce sondage !
   errors:
     messages:
-      carrierwave_download_error: "n'a pas pu être téléchargé"
-      carrierwave_integrity_error: "n'est pas un type de fichier autorisé"
-      carrierwave_processing_error: "le traitement a échoué"
-      content_type_blacklist_error: "Vous n'êtes pas autorisé à envoyer des fichiers %{content_type}"
-      content_type_whitelist_error: "Vous n'êtes pas autorisé à envoyer des fichiers %{content_type}"
-      extension_blacklist_error: "Vous n'êtes pas autorisé à envoyer des fichiers %{extension}, les types interdits sont : %{prohibited_types}"
-      extension_whitelist_error: "Vous n'êtes pas autorisé à envoyer des fichiers %{extension}, les types autorisés sont : %{allowed_types}"
-      max_size_error: "La taille du fichier devrait être inférieure à %{max_size}"
-      min_size_error: "La taille du fichier devrait être supérieure à %{min_size}"
-      mini_magick_processing_error: "La manipulation par MiniMagick a échoué, peut-être n'est-ce pas une image ? Erreur initiale : %{e}"
-      rmagick_processing_error: "La manipulation par rmagick a échoué, peut-être n'est-ce pas une image ?"
-  fill_me_out: "mettez-moi au courant"
-  find_people: "Rechercher des personnes ou des #tags"
-  help:
-    account_and_data_management:
-      close_account_a: "Rendez-vous en bas de la page de vos paramètres et cliquez sur le bouton « Clôturer le compte ». Votre mot de passe vous sera demandé pour achever le processus. Nous vous rappelons que si vous fermez votre compte, vous ne pourrez plus en recréer sur ce pod avec ce nom d'utilisateur."
-      close_account_q: "Comment puis-je supprimer mon compte ?"
-      data_other_podmins_a: "Une fois que vous avez partagé avec des personnes d'un autre pod, chacun des messages que vous partagez avec eux ainsi qu'une copie des informations de votre profil sont stockées (mises en cache) sur leur pod, et accessibles à l'administrateur de la base de données de ce pod. Quand vous supprimez un message ou des informations de votre profil, ces données sont supprimées de votre pod et une demande de suppression est envoyée à tous les autres pods sur lesquels elles étaient stockées. Vos images ne sont jamais stockées sur un autre pod que le vôtre, seuls les liens y menant leur sont transmis."
-      data_other_podmins_q: "Est-ce que les administrateurs des autres pods peuvent voir mes informations ?"
-      data_visible_to_podmin_a: "En bref : tout. La communication entre les pods est toujours chiffrée (en utilisant SSL et le propre chiffrage d'échange de diaspora*), mais le stockage des données sur les pods n'est pas chiffré. S'il le veut, l'administrateur de la base de données de votre pod (généralement la personne qui gère le pod) peut accéder à toutes les données de votre profil et à tout ce que vous avez publié (comme c'est le cas pour la plupart des sites web qui stockent des données d'utilisateurs). C'est pourquoi nous vous permettons de choisir le pod sur lequel vous vous inscrivez. Vous pouvez ainsi choisir un pod dont l'administrateur vous inspire confiance vis-à-vis de vos données. Utiliser votre propre pod garantit plus de confidentialité parce que vous avez le contrôle de l'accès à la base de données."
-      data_visible_to_podmin_q: "Quelle quantité de mes informations l'administrateur du pod peut-il voir ?"
-      download_data_a: "Oui. En bas de l'onglet 'Compte' de votre page de paramètres, il y a deux boutons : l'un pour télécharger vos données, l'autre pour télécharger vos photos."
-      download_data_q: "Puis-je télécharger une copie de toutes les données contenues dans mon compte ?"
-      move_pods_a: "La version 0.7.0.0 de diaspora* apporte la première étape de migration de compte : vous pouvez exporter toutes vos données depuis la section \"compte\" de vos paramètres utilisateur. Gardez vos données en sécurité ! Dans une prochaine version vous pourrez migrer l'ensemble de votre compte (y compris vos messages et contacts) vers un autre pod."
-      move_pods_q: "Comment déplacer mon compte d'un pod à un autre ?"
-      title: "Gestion du compte et des données"
-    aspects:
-      change_aspect_of_post_a: "Non, mais vous pouvez toujours créer un nouveau message avec le même contenu et le publier dans un aspect différent."
-      change_aspect_of_post_q: "Une fois que j'ai publié quelque chose, puis-je changer les aspects qui peuvent le voir ?"
-      contacts_know_aspect_a: "Non, ils ne peuvent en aucun cas voir le nom des aspects où vous les avez placés."
-      contacts_know_aspect_q: "Est-ce que mes contacts savent dans quels aspects je les ai mis ?"
-      delete_aspect_a: "Dans la liste des aspects sur le côté gauche de la page principale, pointez votre souris sur l aspect que vous désirez supprimer. Cliquez sur le petit crayon d'édition qui apparaît sur la droite. Cliquez sur le bouton de suppression dans la boîte qui apparaît."
-      delete_aspect_q: "Comment puis-je supprimer un aspect ?"
-      person_multiple_aspects_a: "Oui. Allez sur votre page de contacts et cliquez sur ”Mes contacts”. Pour chaque contact, vous pouvez utiliser le menu sur la droite pour l'ajouter (ou le retirer) d'autant d’aspects que vous le souhaitez. Ou bien, vous pouvez l'ajouter à un nouvel aspect (ou le retirer d'un aspect) en cliquant sur le bouton de sélection des aspects sur sa page de profil. Ou encore, vous pouvez même juste passer le pointeur de votre souris sur son nom là où vous le voyez dans le flux et une « carte de visite » va apparaître. Vous pouvez changer les aspects auxquels ils appartiennent directement dedans."
-      person_multiple_aspects_q: "Puis-je ajouter une personne à plusieurs aspects ?"
-      post_multiple_aspects_a: "Oui. Quand vous écrivez un message, utilisez le bouton de sélection des aspects pour sélectionner ou désélectionner des aspects (\"Tous les aspects\" est le réglage par défaut). Votre message sera visible par tous les aspects que vous sélectionnez. Vous pouvez aussi sélectionner les aspects avec lesquels vous voulez partager dans le panneau latéral. Lorsque vous postez, le(s) aspect(s) que vous avez sélectionné(s) dans la liste sur la gauche seront automatiquement sélectionnés dans le sélectionneur d'aspects quand vous écrivez un nouveau message."
-      post_multiple_aspects_q: "Puis-je envoyer un message à plusieurs aspects à la fois ?"
-      remove_notification_a: "Non. Ils ne sont pas notifiés si vous les ajoutez à d'autres aspects, dès lors que vous partagez déjà avec eux."
-      remove_notification_q: "Si je supprime quelqu'un de l'un de mes aspects, ou toutes les personnes d'un aspect, sont-elles prévenues ?"
-      rename_aspect_a: "Cliquez \"Mes aspects\" sur le côté gauche de la page de flux et cliquez sur le petit crayon \"éditer\" sur la droite de l'aspect à renommer. Vous pouvez aussi aller sur la page \"Contacts\" et sélectionner l'aspect concerné. Cliquez alors sur l'icône \"éditer\" à côté du nom en haut de la page, changez le nom et cliquez \"Mettre à jour\"."
-      rename_aspect_q: "Comment puis-je renommer un aspect ?"
-      restrict_posts_i_see_a: "Oui. Cliquez sur « Mes aspects » dans la barre latérale puis cliquez sur l'un ou l'autre aspects dans la liste pour les sélectionner ou les retirer. Seuls les messages des personnes appartenant aux aspects sélectionnés apparaîtront dans votre flux."
-      restrict_posts_i_see_q: "Puis-je afficher uniquement les messages de certains aspects ?"
-      title: "Aspects"
-      what_is_an_aspect_a: "Les aspects sont le moyen de grouper vos contacts sur diaspora*. Un aspect est l'une des faces que vous montrez au monde. Cela pourrait être qui vous êtes au travail, ou qui vous êtes pour votre famille, ou qui vous êtes pour les amis de votre club ou association."
-      what_is_an_aspect_q: "Qu'est-ce qu'un aspect ?"
-      who_sees_post_a: "Si vous créez un message privé, il sera uniquement visible par les gens que vous avez placés dans cet aspect (ou ces aspects, si vous le publiez à plusieurs aspects). Les contacts que vous avez et qui ne sont pas dans ces aspects n'ont aucun moyen de voir le message, sauf si vous l'avez rendu public. Les messages limités ne seront jamais visibles aux personnes que vous n'avez pas placé dans vos aspects."
-      who_sees_post_q: "Lorsque je publie un message dans un aspect, qui peut le voir ?"
-    community_guidelines: "Lignes directrices pour la communauté"
-    faq: "FAQ"
-    foundation_website: "site Internet de la fondation diaspora*"
-    getting_help:
-      get_support_a_discourse: "Cherchez des discussions en rapport avec votre demande ou ouvrez un nouveau fil de discussion sur notre plate-forme %{discourse}."
-      get_support_a_faq: "Lire la page %{faq} de notre wiki"
-      get_support_a_hashtag: "Posez une question dans un message public sur diaspora* en utilisant le hashtag %{question}"
-      get_support_a_irc: "Rejoignez-nous sur %{irc} (Tchat instantané)"
-      get_support_a_tutorials: "Référez-vous à nos %{tutorials}"
-      get_support_a_website: "Visitez notre %{link}"
-      get_support_a_wiki: "Recherchez dans le %{link}"
-      get_support_q: "Que faire si ma question n'a pas de réponse dans la FAQ ? À quels autres endroits puis-je obtenir de la documentation ?"
-      getting_started_a: "Vous avez de la chance. Essayez la %{tutorial_series} sur le site web du projet. Elle vous guidera pas à pas dans les étapes d'inscription et vous apprendra toutes les bases concernant l'utilisation de diaspora*."
-      getting_started_q: "Aidez-moi ! J'ai besoin d'un peu d'aide pour débuter !"
-      title: "Obtenir de l'aide"
-    getting_started_tutorial: "Série de tutoriels « Mes premiers pas »"
-    here: "ici"
-    irc: "IRC"
-    keyboard_shortcuts:
-      keyboard_shortcuts_a1: "Dans le flux, vous pouvez utiliser les raccourcis clavier suivants :"
-      keyboard_shortcuts_li1: "j - Aller au message suivant"
-      keyboard_shortcuts_li2: "k - Aller au message précédent"
-      keyboard_shortcuts_li3: "c - Commenter le message actuellement sélectionné"
-      keyboard_shortcuts_li4: "l - Aimer le message actuellement sélectionné"
-      keyboard_shortcuts_li5: "r - Repartager ce message"
-      keyboard_shortcuts_li6: "m - Afficher l'ensemble du message"
-      keyboard_shortcuts_li7: "o - Ouvrir le premier lien de ce message"
-      keyboard_shortcuts_li8: "ctrl + entrée - Envoyer le message en cours de rédaction"
-      keyboard_shortcuts_q: "Quels sont les raccourcis clavier existants ?"
-      title: "Raccourcis clavier"
-    markdown: "Markdown"
-    mentions:
-      how_to_mention_a: "Tapez le symbole \"@\" et commencez à taper leur nom. Un menu déroulant devrait apparaître pour vous permettre de les choisir plus facilement. Notez qu'il n'est possible de mentionner que des gens que vous avez ajoutés à un aspect."
-      how_to_mention_q: "Comment puis-je mentionner quelqu'un lorsque je rédige un message ?"
-      mention_in_comment_a: "Depuis la version 0.7.0.0, yes! Vous pouvez mentionner quelqu'un dans un commentaire, de la même manière que vous pouviez le faire dans une publication, en tapant \"@\" puis en commençant à écrire son nom. Merci de noter que lorsque vous commentez une publication qui n'est pas publique, vous ne pouvez mentionner que les personnes qui ont déjà interagi avec la publication."
-      mention_in_comment_q: "Puis-je mentionner quelqu'un dans un commentaire ?"
-      see_mentions_a: "Oui, cliquez sur \"@Mentions\" dans la colonne de gauche de votre page d'accueil."
-      see_mentions_q: "Y a-t-il un moyen de voir les messages dans lesquels j'ai été mentionné ?"
-      title: "Mentions"
-      what_is_a_mention_a: "Une mention est un lien pointant vers la page de profil d'une personne apparaissant dans un message. Lorsque quelqu'un est mentionné il reçoit une notification pour attirer son attention sur le message."
-      what_is_a_mention_q: "Qu'est-ce qu'une « mention » ?"
-    miscellaneous:
-      back_to_top_a: "Oui. Après avoir atteint le bas de page, cliquez sur la flèche grise qui apparaît dans le coin en bas à droite de votre fenêtre de navigation."
-      back_to_top_q: "Il y a t-il un moyen de rapidement revenir en haut d'une page après avoir atteint le bas de celle-ci ?"
-      diaspora_app_a: "Il y a quelques applications Android encore dans les toutes premières phases de développement. Plusieurs sont des projets abandonnés depuis un peu de temps et ne marchent donc pas bien avec la version actuelle de diaspora*. N'en attendez pas trop pour le moment. Actuellement, la meilleure façon pour accéder à diaspora* à partir d'un téléphone portable est à travers un navigateur web car nous avons créé une version mobile du site qui devrait fonctionner correctement sur tous les appareils. Il n'y a pour l'instant aucune application pour iOS. Encore une fois, diaspora* devrait marcher correctement via votre navigateur web."
-      diaspora_app_q: "Existe t-il une application diaspora* pour Android ou iOS ?"
-      photo_albums_a: "Non, pas actuellement. Cependant vous pouvez voir l’ensemble des images d’un utilisateur via l’onglet « Photos » de son profil."
-      photo_albums_q: "Il y a t-il des albums photos ou vidéos ?"
-      subscribe_feed_a: "Oui, mais cette fonctionnalité est encore imparfaite et le formatage des résultats reste assez rustique. Si vous voulez tout de même l'essayer, allez sur la page de profil de quelqu'un et cliquez sur le bouton de flux RSS de votre navigateur. Ou alors, vous pouvez copier l'adresse du profil (p. ex. https://nom-du-pod.com/people/un-nombre) et la coller dans un lecteur de flux RSS. L'adresse de flux qui en résultera ressemblera à https://nom-du-pod.com/public/nom-d-utilisateur.atom : en effet, diaspora* utilise le format Atom plutôt que RSS."
-      subscribe_feed_q: "Puis-je m’abonner, via un lecteur de flux, aux messages publics d’une personne ?"
-      title: "Divers"
+      carrierwave_processing_error: le traitement a échoué
+      carrierwave_integrity_error: n'est pas un type de fichier autorisé
+      carrierwave_download_error: n'a pas pu être téléchargé
+      extension_whitelist_error: 'Vous n''êtes pas autorisé à envoyer des fichiers %{extension}, les types autorisés sont : %{allowed_types}'
+      extension_blacklist_error: 'Vous n''êtes pas autorisé à envoyer des fichiers %{extension}, les types interdits sont : %{prohibited_types}'
+      content_type_whitelist_error: Vous n'êtes pas autorisé à envoyer des fichiers %{content_type}
+      content_type_blacklist_error: Vous n'êtes pas autorisé à envoyer des fichiers %{content_type}
+      rmagick_processing_error: La manipulation par rmagick a échoué, peut-être n'est-ce pas une image ?
+      mini_magick_processing_error: 'La manipulation par MiniMagick a échoué, peut-être n''est-ce pas une image ? Erreur initiale : %{e}'
+      min_size_error: La taille du fichier devrait être supérieure à %{min_size}
+      max_size_error: La taille du fichier devrait être inférieure à %{max_size}
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Corrigez les erreurs suivantes, puis réessayez.
+    need_javascript: Ce site web nécessite JavaScript pour fonctionner correctement. Si vous avez désactivé JavaScript, veuillez le réactiver et actualiser cette page.
+    csrf_token_fail: Le jeton CSRF est invalide. Veuillez vous connecter et réessayer.
+    mobile_not_available: Cette page n'est pas disponible pour un affichage sur appareil mobile, veuillez choisir la version %{desktop_link}.
+    desktop_view_link: Voir en mode ordinateur de bureau
+  admins:
+    admin_bar:
+      pages: Pages
+      dashboard: Tableau de bord
+      user_search: Chercher un utilisateur
+      weekly_user_stats: Statistiques utilisateur hebdomadaires
+      pod_stats: Statistiques du pod
+      report: Signalements
+      sidekiq_monitor: Moniteur Sidekiq
+      pod_network: Réseau du pod
+    dashboard:
+      pod_status: État du pod
+      fetching_diaspora_version: Entrain de déterminer la dernière version de diaspora*...
+    user_search:
+      you_currently:
+        zero: Il ne vous reste pas d'invitations actuellement %{link}
+        one: Il vous reste actuellement une invitation %{link}
+        other: Il vous reste actuellement %{count} invitations %{link}
+      view_profile: Afficher le profil
+      add_invites: Ajouter des invitations
+      close_account: Fermer ce compte
+      lock_account: Verrouiller le compte
+      unlock_account: Déverrouiller le compte
+      are_you_sure: Êtes-vous sûr de vouloir fermer ce compte ?
+      are_you_sure_lock_account: Êtes-vous sûr de vouloir verrouiller ce compte ?
+      are_you_sure_unlock_account: Êtes-vous sûr de vouloir déverrouiller ce compte ?
+      account_closing_scheduled: La fermeture du compte %{name} est planifiée. Elle sera effectuée sous peu.
+      account_locking_scheduled: Le compte de %{name} va être verrouillé dans quelques instants.
+      account_unlocking_scheduled: Le compte de %{name} va être déverrouillé dans quelques instants.
+      make_admin: Donner le statut d'administrateur
+      remove_admin: Retirer le statut d'administrateur
+      make_moderator: Donner le statut de modérateur
+      remove_moderator: Retirer le statut de modérateur
+      make_spotlight: Donner le statut de guide communautaire
+      remove_spotlight: Retirer le statut de guide communautaire
+      add_admin: "%{name} est maintenant administrateur."
+      delete_admin: "%{name} est retiré de la liste des administrateurs."
+      add_moderator: "%{name} est maintenant modérateur."
+      delete_moderator: "%{name} est retiré de la liste des modérateurs."
+      add_spotlight: "%{name} est ajouté à la liste des guides communautaires."
+      delete_spotlight: "%{name} est retiré de la liste des guides communautaires."
+      does_not_exist: Cet utilisateur n'existe pas !
+      role_implemented: "%{name} a déjà reçu ce rôle !"
+      role_removal_implemented: "%{name} s'est déjà vu retirer ce rôle !"
+      email_to: Adresse électronique de la personne à inviter
+      invite: Inviter
+      under_13: Afficher les utilisateurs de moins de 13 ans
+      users:
+        zero: aucun utilisateur trouvé
+        one: "%{count} utilisateur trouvé"
+        other: "%{count} utilisateurs trouvés"
+    user_entry:
+      id: ID
+      guid: GUID
+      email: E-mail
+      diaspora_handle: identifiant diaspora*
+      last_seen: Dernière connexion
+      current_sign_in_ip: Adresse IP de la connexion actuelle
+      account_closed: Compte fermé
+      nsfw: "#nsfw"
+      admin: Administrateur
+      moderator: Modérateur
+      spotlight: Guide communautaire
+      unknown: Inconnu
+      invite_token: Jeton d'invitation
+      'yes': Oui
+      'no': Non
+    weekly_user_stats:
+      current_server: La date actuelle du serveur est %{date}
+      amount_of:
+        zero: Aucun nouvel utilisateur cette semaine.
+        one: "%{count} nouvel utilisateur cette semaine."
+        other: "%{count} nouveaux utilisateurs cette semaine."
+    stats:
+      week: Hebdomadaire
+      2weeks: Deux semaines
+      month: Mois
+      daily: Quotidienne
+      usage_statistic: Statistiques d'utilisation
+      go: Exécuter
+      display_results: Affichage des résultats pour la période %{segment}
+      posts:
+        zero: Aucun message
+        one: "%{count} message"
+        other: "%{count} messages"
+      comments:
+        zero: Aucun commentaire
+        one: "%{count} commentaire"
+        other: "%{count} commentaires"
+      shares:
+        zero: Aucun repartage
+        one: "%{count} repartage"
+        other: "%{count} repartages"
+      users:
+        zero: Aucun utilisateur
+        one: "%{count} utilisateur"
+        other: "%{count} utilisateurs"
+      current_segment: La période courante a une moyenne de %{post_yest} messages par utilisateur, depuis %{post_day}
+      50_most: 50 tags les plus populaires
+      tag_name: 'Nom du tag : %{name_tag} Nombre : %{count_tag}'
     pods:
-      find_people_a: "Pour inviter vos amis à rejoindre diaspora*, utilisez le lien d'invitation ou le lien par courriel dans la barre latérale. Suivez des #tags pour découvrir des personnes qui partagent vos centres d'intérêt, et ajoutez celles qui publient du contenu qui vous intéresse dans un aspect. Annoncez que vous êtes #nouveauici par un message public."
-      find_people_q: "Je viens de rejoindre un pod, comment puis-je trouver des personnes pour partager avec elles ?"
-      title: "Pods"
-      use_search_box_a: "Vous pouvez chercher des personnes en saisissant leur nom d'utilisateur ou leur identifiant diaspora* (qui apparaît sur leur profil). Si aucune de ces méthodes ne fonctionne, entrez leur identifiant diaspora* complet (p. ex. : nomdutilisateur@nomdupod.org). Si la recherche ne donne rien la première fois, cela peut-être dû à une latence réseau. Réessayez un peu plus tard."
-      use_search_box_q: "Comment dois-je utiliser le champ de recherche pour trouver quelqu'un en particulier ?"
-      what_is_a_pod_a: "Un pod est un serveur faisant tourner le logiciel diaspora*, il est connecté au réseau diaspora*. \"Pod\" désigne en anglais les cosses de certaines plantes, chaque compte utilisateur étant métaphoriquement une graine dans la cosse. Il y a beaucoup de pods différents. Vous pouvez communiquer avec vos amis de la même manière, peu importe le pod où ils sont. Une seule installation est suffisante. Vous pouvez comparer un pod diaspora* à un fournisseur d'adresses courriel : il y a les pods publics, les pods privés, et avec quelques efforts vous pouvez même installer le vôtre."
-      what_is_a_pod_q: "Qu'est-ce qu'un pod ?"
+      pod_network: Réseau du pod
+  aspects:
+    edit:
+      confirm_remove_aspect: Voulez-vous vraiment supprimer cet aspect ?
+      rename: Renommer
+      aspect_list_is_visible: Les contacts dans cet aspect peuvent se voir entre eux.
+      aspect_list_is_not_visible: Les contacts dans cet aspect ne peuvent pas se voir entre eux.
+      update: Mettre à jour
+      updating: En cours de mise à jour
+    no_contacts_message:
+      you_should_add_some_more_contacts: Vous devez ajouter un peu plus de contacts !
+      try_adding_some_more_contacts: Vous pouvez rechercher ou %{invite_link} plus de contacts.
+      invite_link_text: inviter
+      or_spotlight: Ou vous pouvez partager avec %{link}
+      community_spotlight: Actualités de la communauté
+    aspect_listings:
+      add_an_aspect: "+ Ajouter un aspect"
+    destroy:
+      success: "%{name} a été supprimé avec succès."
+      success_auto_follow_back: "%{name} a été supprimé avec succès. Vous utilisiez cet aspect pour suivre automatiquement les utilisateurs qui vous suivent. Vérifiez vos paramètres utilisateurs pour sélectionner un nouvel aspect pour le suivi automatique."
+      failure: "%{name} n'a pas pu être supprimé."
+    update:
+      success: Votre aspect %{name} a été modifié avec succès.
+      failure: Votre aspect %{name} a un nom trop long pour être enregistré.
+    add_to_aspect:
+      failure: L’ajout du contact à l'aspect a échoué.
+      success: Le contact a été ajouté à l'aspect avec succès.
+    seed:
+      family: Famille
+      work: Travail
+      acquaintances: Connaissances
+      friends: Amis
+    index:
+      donate: Faire un don
+      keep_pod_running: Permettez à %{pod} de fonctionner rapidement et offrez une dose de café mensuelle à nos serveurs !
+      donate_liberapay: Faire un don avec liberapay
+      welcome_to_diaspora: Bienvenue sur diaspora*, %{name} !
+      introduce_yourself: Ceci est votre flux. Rejoignez-nous et présentez-vous.
+      new_here:
+        title: Accueillir les nouveaux
+        follow: Suivez %{link} et <a href="/tags/nouvelleici">#nouvelleIci</a> et souhaitez la bienvenue aux nouveaux utilisateurs de diaspora* !
+        learn_more: En savoir plus
+      help:
+        need_help: Besoin d'aide ?
+        here_to_help: La communauté diaspora* est là !
+        do_you: 'Avez-vous :'
+        have_a_question: "... une %{link} ?"
+        tag_question: question
+        find_a_bug: "... trouvé un %{link} ?"
+        tag_bug: bug
+        feature_suggestion: "... une %{link} ?"
+        tag_feature: suggestion
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki} : Aide pour les débutants."
+        tutorial_link_text: Tutoriels
+        support_forum: Vous pouvez également parcourir le %{support_forum}.
+        support_forum_link: Forum d'assistance
+        any_problem: Un problème ?
+        contact_podmin: Contacter l'administrateur de votre pod !
+        mail_podmin: E-mail du podmin
+      services:
+        heading: Connecter des services
+        content: 'Vous pouvez connecter les services suivants à diaspora* :'
+    aspect_stream:
+      stay_updated: Restez informé(e)
+      stay_updated_explanation: Votre flux principal est complété par vos contacts, vos tags suivis, et les messages de certains membres de la communauté.
+      make_something: Faites quelque chose
+  aspect_memberships:
+    destroy:
+      success: La personne a été retirée de l'aspect avec succès.
+      failure: La personne n'a pas pu être supprimée de l'aspect.
+      no_membership: Impossible de trouver la personne sélectionnée dans cet aspect.
+      forbidden: Vous n’êtes pas autorisé à faire cela.
+      invalid_statement: Impossible de dupliquer l'enregistrement.
+  bookmarklet:
+    heading: Bookmarklet
+    post_something: Publiez sur diaspora*
+    explanation: Publiez sur diaspora* depuis n'importe où en ajoutant %{link} à vos marque-pages.
+  color_themes:
+    dark: Sombre
+    dark_green: Vert sombre
+    egyptian_blue: Bleu égyptien
+    magenta: Magenta
+    original: Gris par défaut
+    original_white: Fond blanc
+  comments:
+    create:
+      fail: La création du commentaire a échoué
+    new_comment:
+      comment: Commenter
+      commenting: Commentaire en cours d'envoi...
+    destroy:
+      success: Le commentaire %{id} a été supprimé avec succès
+      fail: La suppression du commentaire a échoué
+    not_found: Message ou commentaire introuvable
+  contacts:
+    index:
+      start_a_conversation: Démarrer une conversation
+      title: Contacts
+      no_contacts: On dirait que vous avez besoin d'ajouter quelques contacts !
+      no_contacts_message: Consultez %{community_spotlight}
+      community_spotlight: Actualités de la communauté
+      no_contacts_in_aspect: Vous n'avez pas encore de contacts dans cet aspect. Voici une liste des contacts existants que vous pouvez ajouter à cet aspect.
+      my_contacts: Mes contacts
+      all_contacts: Tous les contacts
+      only_sharing_with_me: Partage uniquement avec moi
+      add_contact: Ajouter ce contact
+      user_search: Chercher un contact
+    spotlight:
+      community_spotlight: Actualités de la communauté
+      suggest_member: Suggérer un membre
+      no_members: Il n'y a encore aucun membre.
+  conversations:
+    index:
+      conversations_inbox: Discussions - Boîte de réception
+      new_conversation: Nouvelle discussion
+      no_messages: Aucun message
+      inbox: Boîte de réception
+      no_contacts: Vous devez ajouter des contacts avant de pouvoir démarrer une conversation.
+    show:
+      reply: Répondre
+      replying: Réponse en cours d'envoi...
+      hide: Masquer et rendre la conversation muette
+      delete: Supprimer la conversation
+      last_message: Dernier message reçu %{timeago}
+    new:
+      to: Pour
+      subject: Sujet
+      subject_default: Pas d'objet
+      message: Message
+      send: Envoyer
+      sending: Envoi…
+    create:
+      sent: Message envoyé
+      fail: Message invalide
+    new_conversation:
+      fail: Message invalide
+    destroy:
+      delete_success: Conversation effacée avec succès
+      hide_success: Conversation masquée avec succès
+    not_found: Conversation introuvable
+  date:
+    formats:
+      fullmonth_day: "%d %B"
+      birthday: "%d %B"
+      birthday_with_year: "%d %B %Y"
+  help:
+    title_header: Aide
+    tutorials: tutoriels
+    tutorial: tutoriel
+    irc: IRC
+    wiki: wiki
+    faq: FAQ
+    markdown: Markdown
+    here: ici
+    foundation_website: site Internet de la fondation diaspora*
+    third_party_tools: Outils tiers
+    getting_started_tutorial: Série de tutoriels « Mes premiers pas »
+    community_guidelines: Lignes directrices pour la communauté
+    getting_help:
+      title: Obtenir de l'aide
+      getting_started_q: Aidez-moi ! J'ai besoin d'un peu d'aide pour débuter !
+      getting_started_a: Vous avez de la chance. Essayez la %{tutorial_series} sur le site web du projet. Elle vous guidera pas à pas dans les étapes d'inscription et vous apprendra toutes les bases concernant l'utilisation de diaspora*.
+      get_support_q: Que faire si ma question n'a pas de réponse dans la FAQ ? À quels autres endroits puis-je obtenir de la documentation ?
+      get_support_a_website: Visitez notre %{link}
+      get_support_a_tutorials: Référez-vous à nos %{tutorials}
+      get_support_a_wiki: Recherchez dans le %{link}
+      get_support_a_irc: Rejoignez-nous sur %{irc} (Tchat instantané)
+      get_support_a_faq: Lire la page %{faq} de notre wiki
+      get_support_a_hashtag: Posez une question dans un message public sur diaspora* en utilisant le hashtag %{question}
+      get_support_a_discourse: Cherchez des discussions en rapport avec votre demande ou ouvrez un nouveau fil de discussion sur notre plate-forme %{discourse}.
+    account_and_data_management:
+      title: Gestion du compte et des données
+      move_pods_q: Comment déplacer mon compte d'un pod à un autre ?
+      move_pods_a: 'La version 0.7.0.0 de diaspora* apporte la première étape de migration de compte : vous pouvez exporter toutes vos données depuis la section "compte" de vos paramètres utilisateur. Gardez vos données en sécurité ! Dans une prochaine version vous pourrez migrer l''ensemble de votre compte (y compris vos messages et contacts) vers un autre pod.'
+      download_data_q: Puis-je télécharger une copie de toutes les données contenues dans mon compte ?
+      download_data_a: 'Oui. En bas de l''onglet ''Compte'' de votre page de paramètres, il y a deux boutons : l''un pour télécharger vos données, l''autre pour télécharger vos photos.'
+      close_account_q: Comment puis-je supprimer mon compte ?
+      close_account_a: Rendez-vous en bas de la page de vos paramètres et cliquez sur le bouton « Clôturer le compte ». Votre mot de passe vous sera demandé pour achever le processus. Nous vous rappelons que si vous fermez votre compte, vous ne pourrez plus en recréer sur ce pod avec ce nom d'utilisateur.
+      data_visible_to_podmin_q: Quelle quantité de mes informations l'administrateur du pod peut-il voir ?
+      data_visible_to_podmin_a: 'En bref : tout. La communication entre les pods est toujours chiffrée (en utilisant SSL et le propre chiffrage d''échange de diaspora*), mais le stockage des données sur les pods n''est pas chiffré. S''il le veut, l''administrateur de la base de données de votre pod (généralement la personne qui gère le pod) peut accéder à toutes les données de votre profil et à tout ce que vous avez publié (comme c''est le cas pour la plupart des sites web qui stockent des données d''utilisateurs). C''est pourquoi nous vous permettons de choisir le pod sur lequel vous vous inscrivez. Vous pouvez ainsi choisir un pod dont l''administrateur vous inspire confiance vis-à-vis de vos données. Utiliser votre propre pod garantit plus de confidentialité parce que vous avez le contrôle de l''accès à la base de données.'
+      data_other_podmins_q: Est-ce que les administrateurs des autres pods peuvent voir mes informations ?
+      data_other_podmins_a: Une fois que vous avez partagé avec des personnes d'un autre pod, chacun des messages que vous partagez avec eux ainsi qu'une copie des informations de votre profil sont stockées (mises en cache) sur leur pod, et accessibles à l'administrateur de la base de données de ce pod. Quand vous supprimez un message ou des informations de votre profil, ces données sont supprimées de votre pod et une demande de suppression est envoyée à tous les autres pods sur lesquels elles étaient stockées. Vos images ne sont jamais stockées sur un autre pod que le vôtre, seuls les liens y menant leur sont transmis.
+    aspects:
+      title: Aspects
+      what_is_an_aspect_q: Qu'est-ce qu'un aspect ?
+      what_is_an_aspect_a: Les aspects sont le moyen de grouper vos contacts sur diaspora*. Un aspect est l'une des faces que vous montrez au monde. Cela pourrait être qui vous êtes au travail, ou qui vous êtes pour votre famille, ou qui vous êtes pour les amis de votre club ou association.
+      who_sees_post_q: Lorsque je publie un message dans un aspect, qui peut le voir ?
+      who_sees_post_a: Si vous créez un message privé, il sera uniquement visible par les gens que vous avez placés dans cet aspect (ou ces aspects, si vous le publiez à plusieurs aspects). Les contacts que vous avez et qui ne sont pas dans ces aspects n'ont aucun moyen de voir le message, sauf si vous l'avez rendu public. Les messages limités ne seront jamais visibles aux personnes que vous n'avez pas placé dans vos aspects.
+      contacts_know_aspect_q: Est-ce que mes contacts savent dans quels aspects je les ai mis ?
+      contacts_know_aspect_a: Non, ils ne peuvent en aucun cas voir le nom des aspects où vous les avez placés.
+      person_multiple_aspects_q: Puis-je ajouter une personne à plusieurs aspects ?
+      person_multiple_aspects_a: Oui. Allez sur votre page de contacts et cliquez sur ”Mes contacts”. Pour chaque contact, vous pouvez utiliser le menu sur la droite pour l'ajouter (ou le retirer) d'autant d’aspects que vous le souhaitez. Ou bien, vous pouvez l'ajouter à un nouvel aspect (ou le retirer d'un aspect) en cliquant sur le bouton de sélection des aspects sur sa page de profil. Ou encore, vous pouvez même juste passer le pointeur de votre souris sur son nom là où vous le voyez dans le flux et une « carte de visite » va apparaître. Vous pouvez changer les aspects auxquels ils appartiennent directement dedans.
+      remove_notification_q: Si je supprime quelqu'un de l'un de mes aspects, ou toutes les personnes d'un aspect, sont-elles prévenues ?
+      remove_notification_a: Non. Ils ne sont pas notifiés si vous les ajoutez à d'autres aspects, dès lors que vous partagez déjà avec eux.
+      change_aspect_of_post_q: Une fois que j'ai publié quelque chose, puis-je changer les aspects qui peuvent le voir ?
+      change_aspect_of_post_a: Non, mais vous pouvez toujours créer un nouveau message avec le même contenu et le publier dans un aspect différent.
+      post_multiple_aspects_q: Puis-je envoyer un message à plusieurs aspects à la fois ?
+      post_multiple_aspects_a: Oui. Quand vous écrivez un message, utilisez le bouton de sélection des aspects pour sélectionner ou désélectionner des aspects ("Tous les aspects" est le réglage par défaut). Votre message sera visible par tous les aspects que vous sélectionnez. Vous pouvez aussi sélectionner les aspects avec lesquels vous voulez partager dans le panneau latéral. Lorsque vous postez, le(s) aspect(s) que vous avez sélectionné(s) dans la liste sur la gauche seront automatiquement sélectionnés dans le sélectionneur d'aspects quand vous écrivez un nouveau message.
+      restrict_posts_i_see_q: Puis-je afficher uniquement les messages de certains aspects ?
+      restrict_posts_i_see_a: Oui. Cliquez sur « Mes aspects » dans la barre latérale puis cliquez sur l'un ou l'autre aspects dans la liste pour les sélectionner ou les retirer. Seuls les messages des personnes appartenant aux aspects sélectionnés apparaîtront dans votre flux.
+      rename_aspect_q: Comment puis-je renommer un aspect ?
+      rename_aspect_a: Cliquez "Mes aspects" sur le côté gauche de la page de flux et cliquez sur le petit crayon "éditer" sur la droite de l'aspect à renommer. Vous pouvez aussi aller sur la page "Contacts" et sélectionner l'aspect concerné. Cliquez alors sur l'icône "éditer" à côté du nom en haut de la page, changez le nom et cliquez "Mettre à jour".
+      delete_aspect_q: Comment puis-je supprimer un aspect ?
+      delete_aspect_a: Dans la liste des aspects sur le côté gauche de la page principale, pointez votre souris sur l aspect que vous désirez supprimer. Cliquez sur le petit crayon d'édition qui apparaît sur la droite. Cliquez sur le bouton de suppression dans la boîte qui apparaît.
+    mentions:
+      title: Mentions
+      what_is_a_mention_q: Qu'est-ce qu'une « mention » ?
+      what_is_a_mention_a: Une mention est un lien pointant vers la page de profil d'une personne apparaissant dans un message. Lorsque quelqu'un est mentionné il reçoit une notification pour attirer son attention sur le message.
+      how_to_mention_q: Comment puis-je mentionner quelqu'un lorsque je rédige un message ?
+      how_to_mention_a: Tapez le symbole "@" et commencez à taper leur nom. Un menu déroulant devrait apparaître pour vous permettre de les choisir plus facilement. Notez qu'il n'est possible de mentionner que des gens que vous avez ajoutés à un aspect.
+      mention_in_comment_q: Puis-je mentionner quelqu'un dans un commentaire ?
+      mention_in_comment_a: Depuis la version 0.7.0.0, yes! Vous pouvez mentionner quelqu'un dans un commentaire, de la même manière que vous pouviez le faire dans une publication, en tapant "@" puis en commençant à écrire son nom. Merci de noter que lorsque vous commentez une publication qui n'est pas publique, vous ne pouvez mentionner que les personnes qui ont déjà interagi avec la publication.
+      see_mentions_q: Y a-t-il un moyen de voir les messages dans lesquels j'ai été mentionné ?
+      see_mentions_a: Oui, cliquez sur "@Mentions" dans la colonne de gauche de votre page d'accueil.
+    pods:
+      title: Pods
+      what_is_a_pod_q: Qu'est-ce qu'un pod ?
+      what_is_a_pod_a: 'Un pod est un serveur faisant tourner le logiciel diaspora*, il est connecté au réseau diaspora*. "Pod" désigne en anglais les cosses de certaines plantes, chaque compte utilisateur étant métaphoriquement une graine dans la cosse. Il y a beaucoup de pods différents. Vous pouvez communiquer avec vos amis de la même manière, peu importe le pod où ils sont. Une seule installation est suffisante. Vous pouvez comparer un pod diaspora* à un fournisseur d''adresses courriel : il y a les pods publics, les pods privés, et avec quelques efforts vous pouvez même installer le vôtre.'
+      find_people_q: Je viens de rejoindre un pod, comment puis-je trouver des personnes pour partager avec elles ?
+      find_people_a: 'Pour inviter vos amis à rejoindre diaspora*, utilisez le lien d''invitation ou le lien par courriel dans la barre latérale. Suivez des #tags pour découvrir des personnes qui partagent vos centres d''intérêt, et ajoutez celles qui publient du contenu qui vous intéresse dans un aspect. Annoncez que vous êtes #nouveauici par un message public.'
+      use_search_box_q: Comment dois-je utiliser le champ de recherche pour trouver quelqu'un en particulier ?
+      use_search_box_a: 'Vous pouvez chercher des personnes en saisissant leur nom d''utilisateur ou leur identifiant diaspora* (qui apparaît sur leur profil). Si aucune de ces méthodes ne fonctionne, entrez leur identifiant diaspora* complet (p. ex. : nomdutilisateur@nomdupod.org). Si la recherche ne donne rien la première fois, cela peut-être dû à une latence réseau. Réessayez un peu plus tard.'
     posts_and_posting:
-      char_limit_services_a: "Dans ce cas votre publication est limitée au nombre minimum de caractères (140 pour Twitter; 1000 pour Tumblr), et le nombre de caractères restant est affiché lorsque l'icône de ce service est sélectionnée. Vous pouvez toujours poster sur ces services si votre publication est plus longue que la limite, mais le texte sera tronqué sur ces services avec un lien vers diaspora*."
-      char_limit_services_q: "Que se passe-t-il si je partage mon message avec un service connecté qui ne permet qu’un nombre de caractères plus restreint ?"
-      character_limit_a: "65,535 caractères. C'est 65,395 caractères de plus que Twitter ! ;)"
-      character_limit_q: "Quelle est la limite de caractères pour un message ?"
-      embed_multimedia_a: "En général, il suffit de coller l'URL (p. ex. : http://www.youtube.com/watch?v=nnnnnnnnnnn) au sein de votre message pour que la vidéo ou le contenu audio soit intégré automatiquement. Les sites supportés sont, entre autres : Youtube, Vimeo, SoundCloud et Flickr. Diaspora* utilise oEmbed pour cette fonctionnalité. Si vous incluez un lien direct vers un fichier audio ou vidéo, diaspora* l'intégrera via un lecteur standard HTML5. De nouvelles sources de média sont régulièrement prises en charge. Publiez toujours des liens complets et simples : pas de lien raccourci, pas d'opérateur après l'URL de base, et attendez un peu avant de rafraîchir la page pour voir l'aperçu."
-      embed_multimedia_q: "Comment puis-je intégrer une vidéo, de l'audio, ou tout autre contenu multimédia dans un message ?"
-      format_text_a: "Diaspora* utilise un système simplifié appelé %{markdown}. Utilisez les boutons pour faciliter la mise en forme de votre texte. Si vous souhaitez saisir la mise en forme manuellement, vous pouvez trouver la syntaxe complète de Markdown %{here}. Le bouton d'aperçu vous permet de voir à quoi votre message va ressembler avant de le publier. Veuillez noter que vous ne pourrez plus éditer votre message après sa publication, par conséquent utilisez l'aperçu pour vous assurer que tout est parfait avant de cliquer sur « partager» !"
-      format_text_q: "Comment puis-je formater le texte de mes messages (gras, italique, etc.) ?"
-      hide_posts_a: "Si vous pointez votre souris en haut d'un message, une croix apparaît sur la droite. Cliquez dessus pour masquer le message et empêcher toute notification le concernant. Vous pourrez toujours voir le message si vous visitez la page de profil de la personne qui l'a rédigé."
-      hide_posts_q: "Comment puis-je masquer un message ?"
-      ignore_user_a1: "Si vous partagez actuellement avec cette personne, la retirer de vos aspects devrait suffire à ce que la plupart de ses messages n’apparaissent pas dans votre flux. Une méthode plus radicale consiste à « ignorer » ce compte. Ainsi, aucun de ses messages n’apparaîtra dans votre flux, et la personne ne pourra plus aimer ou commenter vos messages. Elle pourra néanmoins toujours repartager vos messages et commenter des repartages de vos messages. Si elle commente des messages publiés par d’autres personnes qui apparaissent dans votre flux, ces commentaires vous seront toujours visibles."
-      ignore_user_a2: "Pour ignorer une personne, cliquez l’icône « ignorer » (un cercle barré en diagonale) situé dans le coin supérieur droit d’un de ses messages. Ses messages disparaitront immédiatement de votre flux. Sinon, allez sur la page de son profil et cliquez sur l’icône « ignorer » qui y figure. Vous pourrez toujours voir ses messages sur son profil, ou en consultant la page dédié à l’un de ses messages."
-      ignore_user_a3: "La liste des personnes que vous ignorez est accessible dans les paramètres de votre compte, dans la section « Vie privée ». Pour cesser d’ignorer une personne, cliquez sur le bouton « arrêter d’ignorer » situé à côté de son nom dans la liste «  Utilisateurs ignorés » qui figure sur cette page."
-      ignore_user_q: "Comment puis-je empêcher les messages d’une personne donnée d’apparaître dans mon flux ?"
-      insert_images_a: "Si vous souhaitez inclure dans votre message une image stockée sur votre machine, cliquez sur la petite icône représentant un appareil photo située sous la boîte de rédaction. Vous pouvez aussi glisser-déposer une ou plusieurs images depuis votre explorateur vers cette icône. Si vous souhaitez insérer une image depuis le web, cliquez le bouton « insérer une image » situé au-dessus de la boîte de rédaction, celui-ci écrira pour vous le code Markdown correspondant."
-      insert_images_comments_a: "Comme dans le cas des messages, vous pouvez utiliser la syntaxe Markdown pour insérer une image à partir du web dans un commentaire. Par contre, il n'est pas possible de téléverser une image stockée sur votre ordinateur. Dans ce cas, commencez par téléverser l'image sur un site d'hébergement d'images, puis insérez-la via l'icône d'insertion d'image de la barre d'outils dans la partie supérieure de la boîte de rédaction."
-      insert_images_comments_q: "Puis-je insérer des images dans un commentaire ?"
-      insert_images_q: "Comment puis-je insérer des images dans un message ?"
-      post_location_a: "Dans l'éditeur, cliquez sur l'icône en forme d'épingle à côté de l'appareil photo. Ceci va insérer votre emplacement à partir d'OpenStreetMap. Vous pourrez modifier votre position - pour inclure uniquement la ville plutôt que la rue par exemple."
-      post_location_q: "Comment puis-je ajouter ma position à un message ?"
-      post_notification_a: "Vous trouverez une icône en forme de cloche à côté du X en haut à droite d'un message. Cliquez sur cette option pour activer ou désactiver les notifications pour ce message."
-      post_notification_q: "Comment puis-je activer ou désactiver les notifications pour un message ?"
-      post_poll_a: "Cliquez sur l'icône en forme de graphique pour générer un sondage. Saisissez une question et au moins deux réponses. N'oubliez pas de rendre votre message public si vous souhaitez que tout le monde puisse participer à votre sondage."
-      post_poll_q: "Comment puis-je ajouter un sondage à mon message ?"
-      post_report_a: "Cliquez sur l’icône en forme de panneau attention en haut à droite du message que vous souhaitez signaler à votre podmin. Saisissez ensuite une raison dans la boîte de dialogue. Merci de ne signaler que des messages qui ne respectent pas nos %{community_guidelines} ou les conditions d’utilisation de vos pod, par exemple du contenu illégal, injurieux ou de la publicité non sollicitée."
-      post_report_q: "Comment puis-je signaler un message offensant ?"
-      size_of_images_a: "Non. Les images sont automatiquement redimensionnées pour s'adapter au flux. Markdown n'a pas de code pour spécifier la taille d'une image."
-      size_of_images_q: "Puis-je améliorer la taille des images dans les messages ou les commentaires ?"
-      stream_full_of_posts_a1: "Votre flux est constitué de trois types de messages:"
-      stream_full_of_posts_li1: "Les publications des personnes avec qui vous êtes en train de partager vont apparaître sous deux formes : les messages publics et les messages limités à l'aspect avec lequel vous partagez. Pour retirer ces publications de votre flux, cessez simplement de partager avec la personne."
-      stream_full_of_posts_li2: "Les messages publics qui contiennent l'un des tags que vous suivez. Pour ne plus les voir, cessez de suivre ce tag."
-      stream_full_of_posts_li3: "Les messages publics des personnes qui figurent dans la liste des guides de la communauté. Ils peuvent être supprimés en décochant l'option \"Afficher les actualités de la communauté\" dans l'onglet Compte de vos paramètres."
-      stream_full_of_posts_q: "Pourquoi mon flux est-il plein de messages provenant de personnes que je ne connais pas et avec lesquelles je ne partage pas ?"
-      title: "Messages et publications"
+      title: Messages et publications
+      stream_full_of_posts_q: Pourquoi mon flux est-il plein de messages provenant de personnes que je ne connais pas et avec lesquelles je ne partage pas ?
+      stream_full_of_posts_a1: 'Votre flux est constitué de trois types de messages:'
+      stream_full_of_posts_li1: 'Les publications des personnes avec qui vous êtes en train de partager vont apparaître sous deux formes : les messages publics et les messages limités à l''aspect avec lequel vous partagez. Pour retirer ces publications de votre flux, cessez simplement de partager avec la personne.'
+      stream_full_of_posts_li2: Les messages publics qui contiennent l'un des tags que vous suivez. Pour ne plus les voir, cessez de suivre ce tag.
+      stream_full_of_posts_li3: Les messages publics des personnes qui figurent dans la liste des guides de la communauté. Ils peuvent être supprimés en décochant l'option "Afficher les actualités de la communauté" dans l'onglet Compte de vos paramètres.
+      hide_posts_q: Comment puis-je masquer un message ?
+      hide_posts_a: Si vous pointez votre souris en haut d'un message, une croix apparaît sur la droite. Cliquez dessus pour masquer le message et empêcher toute notification le concernant. Vous pourrez toujours voir le message si vous visitez la page de profil de la personne qui l'a rédigé.
+      post_notification_q: Comment puis-je activer ou désactiver les notifications pour un message ?
+      post_notification_a: Vous trouverez une icône en forme de cloche à côté du X en haut à droite d'un message. Cliquez sur cette option pour activer ou désactiver les notifications pour ce message.
+      ignore_user_q: Comment puis-je empêcher les messages d’une personne donnée d’apparaître dans mon flux ?
+      ignore_user_a1: Si vous partagez actuellement avec cette personne, la retirer de vos aspects devrait suffire à ce que la plupart de ses messages n’apparaissent pas dans votre flux. Une méthode plus radicale consiste à « ignorer » ce compte. Ainsi, aucun de ses messages n’apparaîtra dans votre flux, et la personne ne pourra plus aimer ou commenter vos messages. Elle pourra néanmoins toujours repartager vos messages et commenter des repartages de vos messages. Si elle commente des messages publiés par d’autres personnes qui apparaissent dans votre flux, ces commentaires vous seront toujours visibles.
+      ignore_user_a2: Pour ignorer une personne, cliquez l’icône « ignorer » (un cercle barré en diagonale) situé dans le coin supérieur droit d’un de ses messages. Ses messages disparaitront immédiatement de votre flux. Sinon, allez sur la page de son profil et cliquez sur l’icône « ignorer » qui y figure. Vous pourrez toujours voir ses messages sur son profil, ou en consultant la page dédié à l’un de ses messages.
+      ignore_user_a3: La liste des personnes que vous ignorez est accessible dans les paramètres de votre compte, dans la section « Vie privée ». Pour cesser d’ignorer une personne, cliquez sur le bouton « arrêter d’ignorer » situé à côté de son nom dans la liste «  Utilisateurs ignorés » qui figure sur cette page.
+      post_report_q: Comment puis-je signaler un message offensant ?
+      post_report_a: Cliquez sur l’icône en forme de panneau attention en haut à droite du message que vous souhaitez signaler à votre podmin. Saisissez ensuite une raison dans la boîte de dialogue. Merci de ne signaler que des messages qui ne respectent pas nos %{community_guidelines} ou les conditions d’utilisation de vos pod, par exemple du contenu illégal, injurieux ou de la publicité non sollicitée.
+      character_limit_q: Quelle est la limite de caractères pour un message ?
+      character_limit_a: 65,535 caractères. C'est 65,395 caractères de plus que Twitter ! ;)
+      char_limit_services_q: Que se passe-t-il si je partage mon message avec un service connecté qui ne permet qu’un nombre de caractères plus restreint ?
+      char_limit_services_a: Dans ce cas votre publication est limitée au nombre minimum de caractères (140 pour Twitter; 1000 pour Tumblr), et le nombre de caractères restant est affiché lorsque l'icône de ce service est sélectionnée. Vous pouvez toujours poster sur ces services si votre publication est plus longue que la limite, mais le texte sera tronqué sur ces services avec un lien vers diaspora*.
+      format_text_q: Comment puis-je formater le texte de mes messages (gras, italique, etc.) ?
+      format_text_a: Diaspora* utilise un système simplifié appelé %{markdown}. Utilisez les boutons pour faciliter la mise en forme de votre texte. Si vous souhaitez saisir la mise en forme manuellement, vous pouvez trouver la syntaxe complète de Markdown %{here}. Le bouton d'aperçu vous permet de voir à quoi votre message va ressembler avant de le publier. Veuillez noter que vous ne pourrez plus éditer votre message après sa publication, par conséquent utilisez l'aperçu pour vous assurer que tout est parfait avant de cliquer sur « partager» !
+      insert_images_q: Comment puis-je insérer des images dans un message ?
+      insert_images_a: Si vous souhaitez inclure dans votre message une image stockée sur votre machine, cliquez sur la petite icône représentant un appareil photo située sous la boîte de rédaction. Vous pouvez aussi glisser-déposer une ou plusieurs images depuis votre explorateur vers cette icône. Si vous souhaitez insérer une image depuis le web, cliquez le bouton « insérer une image » situé au-dessus de la boîte de rédaction, celui-ci écrira pour vous le code Markdown correspondant.
+      insert_images_comments_q: Puis-je insérer des images dans un commentaire ?
+      insert_images_comments_a: Comme dans le cas des messages, vous pouvez utiliser la syntaxe Markdown pour insérer une image à partir du web dans un commentaire. Par contre, il n'est pas possible de téléverser une image stockée sur votre ordinateur. Dans ce cas, commencez par téléverser l'image sur un site d'hébergement d'images, puis insérez-la via l'icône d'insertion d'image de la barre d'outils dans la partie supérieure de la boîte de rédaction.
+      size_of_images_q: Puis-je améliorer la taille des images dans les messages ou les commentaires ?
+      size_of_images_a: Non. Les images sont automatiquement redimensionnées pour s'adapter au flux. Markdown n'a pas de code pour spécifier la taille d'une image.
+      embed_multimedia_q: Comment puis-je intégrer une vidéo, de l'audio, ou tout autre contenu multimédia dans un message ?
+      embed_multimedia_a: 'En général, il suffit de coller l''URL (p. ex. : http://www.youtube.com/watch?v=nnnnnnnnnnn) au sein de votre message pour que la vidéo ou le contenu audio soit intégré automatiquement. Les sites supportés sont, entre autres : Youtube, Vimeo, SoundCloud et Flickr. Diaspora* utilise oEmbed pour cette fonctionnalité. Si vous incluez un lien direct vers un fichier audio ou vidéo, diaspora* l''intégrera via un lecteur standard HTML5. De nouvelles sources de média sont régulièrement prises en charge. Publiez toujours des liens complets et simples : pas de lien raccourci, pas d''opérateur après l''URL de base, et attendez un peu avant de rafraîchir la page pour voir l''aperçu.'
+      post_location_q: Comment puis-je ajouter ma position à un message ?
+      post_location_a: Dans l'éditeur, cliquez sur l'icône en forme d'épingle à côté de l'appareil photo. Ceci va insérer votre emplacement à partir d'OpenStreetMap. Vous pourrez modifier votre position - pour inclure uniquement la ville plutôt que la rue par exemple.
+      post_poll_q: Comment puis-je ajouter un sondage à mon message ?
+      post_poll_a: Cliquez sur l'icône en forme de graphique pour générer un sondage. Saisissez une question et au moins deux réponses. N'oubliez pas de rendre votre message public si vous souhaitez que tout le monde puisse participer à votre sondage.
     private_posts:
-      can_comment_a: "Seuls les utilisateurs connectés à diaspora* et déjà ajoutés à cet aspect au moment de la publication peuvent commenter ou aimer votre message privé."
-      can_comment_q: "Qui peut commenter ou aimer mon message privé ?"
-      can_reshare_a: "Personne. Il n'est pas permis de repartager un message privé. Cependant, les utilisateurs appartenant à cet aspect sont susceptibles de le copier et le coller."
-      can_reshare_q: "Qui peut repartager mes messages privés ?"
-      see_comment_a: "Seuls les gens avec qui le message a été partagé (les gens qui sont dans les aspects sélectionnés par le rédacteur original) peuvent voir ses commentaires et les \"j'aime\". "
-      see_comment_q: "Lorsque je commente ou que j'aime un message privé, qui peut le voir ?"
-      title: "Messages privés"
-      who_sees_post_a: "Seuls les utilisateurs connectés à diaspora* et déjà ajoutés à cet aspect au moment de la publication peuvent voir votre message privé."
-      who_sees_post_q: "Lorsque j'envoie un message à un aspect (c'est-à-dire un message privé), qui peut le voir ?"
-    profile:
-      title: "Profil"
-      what_do_tags_do_a: "Ces tags permettent aux gens de mieux vous connaître. Ils seront visibles, ainsi que votre image de profil, dans la partie gauche des pages de flux associées à ces tags ; le profil de base de toute autre personne dont le profil contient un tag identique à un des vôtres apparaîtra également dans la partie gauche."
-      what_do_tags_do_q: "Pourquoi fournir des tags dans mon profil ?"
-      whats_in_profile_a: "Votre profil est subdivisé en deux parties : un profil élémentaire (basique) et un profil complet. Votre profil basique comprend vos nom et prénom, les cinq tags que vous avez choisis pour vous décrire et votre photo. Votre profil complet comprend des informations d'ordre biographique, de localisation, de genre et de date d'anniversaire. Aucune de ces données n'est obligatoire ; vous êtes libre de les fournir ou pas, qu'elles soient authentiques ou imaginaires. Votre profil complet apparaît dans la colonne de gauche de votre page de profil, sous votre photo."
-      whats_in_profile_q: "Que trouve-t-on dans mon profil ?"
-      who_sees_profile_a: "Votre profil basique (nom, image du profil et #tags) est public. Par défaut, votre profil complet est privé, mais rien ne vous empêche de le rendre public. Un profil complet privé est uniquement visible par les personnes avec qui vous partagez (les personnes que vous avez ajoutées à un de vos aspects) ; les autres ne peuvent voir que vos données publiques ; celles-ci sont visibles par tout internaute et peuvent être indexées par des moteurs de recherche."
-      who_sees_profile_q: "Qui peut voir mon profil ?"
+      title: Messages privés
+      who_sees_post_q: Lorsque j'envoie un message à un aspect (c'est-à-dire un message privé), qui peut le voir ?
+      who_sees_post_a: Seuls les utilisateurs connectés à diaspora* et déjà ajoutés à cet aspect au moment de la publication peuvent voir votre message privé.
+      can_comment_q: Qui peut commenter ou aimer mon message privé ?
+      can_comment_a: Seuls les utilisateurs connectés à diaspora* et déjà ajoutés à cet aspect au moment de la publication peuvent commenter ou aimer votre message privé.
+      can_reshare_q: Qui peut repartager mes messages privés ?
+      can_reshare_a: Personne. Il n'est pas permis de repartager un message privé. Cependant, les utilisateurs appartenant à cet aspect sont susceptibles de le copier et le coller.
+      see_comment_q: Lorsque je commente ou que j'aime un message privé, qui peut le voir ?
+      see_comment_a: 'Seuls les gens avec qui le message a été partagé (les gens qui sont dans les aspects sélectionnés par le rédacteur original) peuvent voir ses commentaires et les "j''aime". '
     public_posts:
-      can_comment_reshare_like_a: "N’importe quel utilisateur connecté à diaspora* peut commenter, repartager, ou aimer votre message public. La seule exception concerne les personnes que vous avez ignorées : celles-ci ne peuvent pas aimer ou commenter vos messages."
-      can_comment_reshare_like_q: "Qui peut commenter, repartager, ou aimer mon message public ?"
-      deselect_aspect_posting_a: "Décocher des aspects n’affectera pas les messages publics : ils apparaîtront toujours dans le flux de tous vos contacts. Pour qu’un message ne soit visible qu’à certains aspects, vous devez sélectionner ces aspects via le bouton qui se trouve sous la boite de rédaction."
-      deselect_aspect_posting_q: "Que se passe-t-il lorsque je décoche un ou plusieurs aspects dans la colonne de gauche au moment où je rédige un message public ?"
-      find_public_post_a: "Les messages publics apparaîtront dans le flux de tous ceux qui vous suivent. Si vous incluez des #tags dans votre message public, tous ceux qui suivent ces tags trouveront votre message dans leurs flux. Tout message public a aussi une URL spécifique que n'importe qui peut voir, même sans être identifié - ces messages publics peuvent êtres échangés directement sur Twitter, les blogs, etc. Les messages publics peuvent aussi être indexés par les moteurs de recherche."
-      find_public_post_q: "Comment les autres personnes peuvent-elles trouver mes messages publics ?"
-      see_comment_reshare_like_a: "Les commentaires, « j’aime », et repartages des messages publics sont aussi publics. N’importe quel utilisateur connecté à diaspora* et n’importe qui d’autre sur Internet peut voir vos interactions sur un message public."
-      see_comment_reshare_like_q: "Lorsque je commente, repartage, ou aime un message public, qui peut le voir ?"
-      title: "Messages publics"
-      who_sees_post_a: "N'importe qui sur internet peut potentiellement voir un message que vous marquez comme public, donc soyez sûrs de vouloir rendre ce message public. C'est un super moyen pour transmettre un message à tout le monde."
-      who_sees_post_q: "Lorsque je publie quelque chose publiquement, qui peut le voir ?"
+      title: Messages publics
+      who_sees_post_q: Lorsque je publie quelque chose publiquement, qui peut le voir ?
+      who_sees_post_a: N'importe qui sur internet peut potentiellement voir un message que vous marquez comme public, donc soyez sûrs de vouloir rendre ce message public. C'est un super moyen pour transmettre un message à tout le monde.
+      find_public_post_q: Comment les autres personnes peuvent-elles trouver mes messages publics ?
+      find_public_post_a: 'Les messages publics apparaîtront dans le flux de tous ceux qui vous suivent. Si vous incluez des #tags dans votre message public, tous ceux qui suivent ces tags trouveront votre message dans leurs flux. Tout message public a aussi une URL spécifique que n''importe qui peut voir, même sans être identifié - ces messages publics peuvent êtres échangés directement sur Twitter, les blogs, etc. Les messages publics peuvent aussi être indexés par les moteurs de recherche.'
+      can_comment_reshare_like_q: Qui peut commenter, repartager, ou aimer mon message public ?
+      can_comment_reshare_like_a: 'N’importe quel utilisateur connecté à diaspora* peut commenter, repartager, ou aimer votre message public. La seule exception concerne les personnes que vous avez ignorées : celles-ci ne peuvent pas aimer ou commenter vos messages.'
+      see_comment_reshare_like_q: Lorsque je commente, repartage, ou aime un message public, qui peut le voir ?
+      see_comment_reshare_like_a: Les commentaires, « j’aime », et repartages des messages publics sont aussi publics. N’importe quel utilisateur connecté à diaspora* et n’importe qui d’autre sur Internet peut voir vos interactions sur un message public.
+      deselect_aspect_posting_q: Que se passe-t-il lorsque je décoche un ou plusieurs aspects dans la colonne de gauche au moment où je rédige un message public ?
+      deselect_aspect_posting_a: 'Décocher des aspects n’affectera pas les messages publics : ils apparaîtront toujours dans le flux de tous vos contacts. Pour qu’un message ne soit visible qu’à certains aspects, vous devez sélectionner ces aspects via le bouton qui se trouve sous la boite de rédaction.'
+    profile:
+      title: Profil
+      whats_in_profile_q: Que trouve-t-on dans mon profil ?
+      whats_in_profile_a: 'Votre profil est subdivisé en deux parties : un profil élémentaire (basique) et un profil complet. Votre profil basique comprend vos nom et prénom, les cinq tags que vous avez choisis pour vous décrire et votre photo. Votre profil complet comprend des informations d''ordre biographique, de localisation, de genre et de date d''anniversaire. Aucune de ces données n''est obligatoire ; vous êtes libre de les fournir ou pas, qu''elles soient authentiques ou imaginaires. Votre profil complet apparaît dans la colonne de gauche de votre page de profil, sous votre photo.'
+      who_sees_profile_q: Qui peut voir mon profil ?
+      who_sees_profile_a: 'Votre profil basique (nom, image du profil et #tags) est public. Par défaut, votre profil complet est privé, mais rien ne vous empêche de le rendre public. Un profil complet privé est uniquement visible par les personnes avec qui vous partagez (les personnes que vous avez ajoutées à un de vos aspects) ; les autres ne peuvent voir que vos données publiques ; celles-ci sont visibles par tout internaute et peuvent être indexées par des moteurs de recherche.'
+      what_do_tags_do_q: Pourquoi fournir des tags dans mon profil ?
+      what_do_tags_do_a: Ces tags permettent aux gens de mieux vous connaître. Ils seront visibles, ainsi que votre image de profil, dans la partie gauche des pages de flux associées à ces tags ; le profil de base de toute autre personne dont le profil contient un tag identique à un des vôtres apparaîtra également dans la partie gauche.
     resharing_posts:
-      reshare_private_post_aspects_a: "Non, il n'est pas possible de repartager un message privé. Ceci dans le but de respecter les intentions du rédacteur initial qui souhaite uniquement partager avec un groupe particulier de personnes."
-      reshare_private_post_aspects_q: "Puis-je repartager un message privé avec certains aspects ?"
-      reshare_public_post_aspects_a: "Non, lorsque vous repartagez un message public, il devient automatiquement l’un de vos messages publics. Pour le partager avec certains aspects, copiez et collez le contenu dans un nouveau message limité."
-      reshare_public_post_aspects_q: "Puis-je repartager un message public uniquement avec certains aspects ?"
-      title: "Repartager les messages."
+      title: Repartager les messages.
+      reshare_public_post_aspects_q: Puis-je repartager un message public uniquement avec certains aspects ?
+      reshare_public_post_aspects_a: Non, lorsque vous repartagez un message public, il devient automatiquement l’un de vos messages publics. Pour le partager avec certains aspects, copiez et collez le contenu dans un nouveau message limité.
+      reshare_private_post_aspects_q: Puis-je repartager un message privé avec certains aspects ?
+      reshare_private_post_aspects_a: Non, il n'est pas possible de repartager un message privé. Ceci dans le but de respecter les intentions du rédacteur initial qui souhaite uniquement partager avec un groupe particulier de personnes.
     sharing:
-      add_to_aspect_a1: "Imaginons qu'Amy ajoute Ben dans un aspect, mais Ben n'a pas (encore) ajouté Amy dans un aspect :"
-      add_to_aspect_a2: "On dit que c’est un partage asymétrique. Si Ben ajoute aussi Amy dans un aspect alors cela deviendra un partage mutuel, et les messages publics et privés d’Amy et Ben apparaitront dans leurs flux respectifs, et Amy pourra voir le profil privé de Ben. Ils seront alors aussi capables de s'envoyer des messages privés."
-      add_to_aspect_li1: "Ben recevra une notification indiquant que Amy « a commencé à partager » avec Ben."
-      add_to_aspect_li2: "Amy commencera à voir les messages publics de Ben dans son flux."
-      add_to_aspect_li3: "Amy ne verra aucun des messages privés de Ben."
-      add_to_aspect_li4: "Ben ne verra pas les messages publics ou privés d'Amy dans son flux."
-      add_to_aspect_li5: "Mais si Ben se rend sur la page de profil d’Amy, alors il verra les messages privés d’Amy qu’elle a rédigés pour l’aspect dans lequel elle l'a placé (de la même façon que ses messages publics qui peuvent être vu par tout le monde)."
-      add_to_aspect_li6: "Ben sera autorisé à voir le profil privé d'Amy (biographie, localisation, genre, anniversaire)."
-      add_to_aspect_li7: "Amy apparaîtra dans la liste « Partage uniquement avec moi » de la page des contacts de Ben."
-      add_to_aspect_li8: "Amy sera également capable de @mentionner Ben dans un message."
-      add_to_aspect_q: "Que se passe-t-il lorsque j'ajoute quelqu'un dans l'un de mes aspects ? Ou lorsque quelqu'un m'ajoute dans l'un de ses aspects ?"
-      list_not_sharing_a: "Non, mais vous pouvez voir si quelqu’un partage avec vous en visitant sa page de profil. Si c’est le cas il y aura une coche verte à côté de leur identifiant. Si non, il y aura un rond gris."
-      list_not_sharing_q: "Existe-t-il une liste des personnes que j'ai ajoutées à un de mes aspects mais qui ne m'ont pas ajouté à l'une des leurs ?"
-      only_sharing_a: "Il y a des personnes qui vous ont ajouté dans l’un de leurs aspects, mais qui ne font pas (encore) partie de l’un des vôtres. En d’autres termes, ils partagent avec vous, mais vous ne partagez pas avec eux : en quelque sorte ce sont vos abonnés, ceux qui vous suivent. Si vous les ajoutez dans un aspect, ils apparaîtront dans cet aspect et pas dans « partage uniquement avec vous ». Voir ci-dessus."
-      only_sharing_q: "Qui sont les personnes listées dans la rubrique « Partage uniquement avec moi » de ma page de contacts ?"
-      see_old_posts_a: "Non. Ceux que vous venez d'ajouter seront seulement autorisés à voir vos nouveaux messages pour cet aspect. Ils (et n'importe qui d'autre) peuvent voir vos anciens messages publics sur votre page de profil, et ils les verront aussi dans leur flux."
-      see_old_posts_q: "Lorsque j'ajoute quelqu'un dans un aspect, peut-il voir les anciens messages que j'ai déjà publiés dans cet aspect ?"
-      sharing_notification_a: "Vous devriez recevoir une notification à chaque fois que quelqu'un commence à partager avec vous."
-      sharing_notification_q: "Comment puis-je savoir quand quelqu'un commence à partager avec moi ?"
-      title: "Partage"
+      title: Partage
+      add_to_aspect_q: Que se passe-t-il lorsque j'ajoute quelqu'un dans l'un de mes aspects ? Ou lorsque quelqu'un m'ajoute dans l'un de ses aspects ?
+      add_to_aspect_a1: 'Imaginons qu''Amy ajoute Ben dans un aspect, mais Ben n''a pas (encore) ajouté Amy dans un aspect :'
+      add_to_aspect_li1: Ben recevra une notification indiquant que Amy « a commencé à partager » avec Ben.
+      add_to_aspect_li2: Amy commencera à voir les messages publics de Ben dans son flux.
+      add_to_aspect_li3: Amy ne verra aucun des messages privés de Ben.
+      add_to_aspect_li4: Ben ne verra pas les messages publics ou privés d'Amy dans son flux.
+      add_to_aspect_li5: Mais si Ben se rend sur la page de profil d’Amy, alors il verra les messages privés d’Amy qu’elle a rédigés pour l’aspect dans lequel elle l'a placé (de la même façon que ses messages publics qui peuvent être vu par tout le monde).
+      add_to_aspect_li6: Ben sera autorisé à voir le profil privé d'Amy (biographie, localisation, genre, anniversaire).
+      add_to_aspect_li7: Amy apparaîtra dans la liste « Partage uniquement avec moi » de la page des contacts de Ben.
+      add_to_aspect_li8: Amy sera également capable de @mentionner Ben dans un message.
+      add_to_aspect_a2: On dit que c’est un partage asymétrique. Si Ben ajoute aussi Amy dans un aspect alors cela deviendra un partage mutuel, et les messages publics et privés d’Amy et Ben apparaitront dans leurs flux respectifs, et Amy pourra voir le profil privé de Ben. Ils seront alors aussi capables de s'envoyer des messages privés.
+      sharing_notification_q: Comment puis-je savoir quand quelqu'un commence à partager avec moi ?
+      sharing_notification_a: Vous devriez recevoir une notification à chaque fois que quelqu'un commence à partager avec vous.
+      only_sharing_q: Qui sont les personnes listées dans la rubrique « Partage uniquement avec moi » de ma page de contacts ?
+      only_sharing_a: 'Il y a des personnes qui vous ont ajouté dans l’un de leurs aspects, mais qui ne font pas (encore) partie de l’un des vôtres. En d’autres termes, ils partagent avec vous, mais vous ne partagez pas avec eux : en quelque sorte ce sont vos abonnés, ceux qui vous suivent. Si vous les ajoutez dans un aspect, ils apparaîtront dans cet aspect et pas dans « partage uniquement avec vous ». Voir ci-dessus.'
+      list_not_sharing_q: Existe-t-il une liste des personnes que j'ai ajoutées à un de mes aspects mais qui ne m'ont pas ajouté à l'une des leurs ?
+      list_not_sharing_a: Non, mais vous pouvez voir si quelqu’un partage avec vous en visitant sa page de profil. Si c’est le cas il y aura une coche verte à côté de leur identifiant. Si non, il y aura un rond gris.
+      see_old_posts_q: Lorsque j'ajoute quelqu'un dans un aspect, peut-il voir les anciens messages que j'ai déjà publiés dans cet aspect ?
+      see_old_posts_a: Non. Ceux que vous venez d'ajouter seront seulement autorisés à voir vos nouveaux messages pour cet aspect. Ils (et n'importe qui d'autre) peuvent voir vos anciens messages publics sur votre page de profil, et ils les verront aussi dans leur flux.
     tags:
-      filter_tags_a: "Ce n'est pas encore possible directement via diaspora*, mais certains %{third_party_tools} permettant cela ont été écrits."
-      filter_tags_q: "Comment puis-je filtrer/exclure certains tags de mon flux ?"
-      followed_tags_a: "Après avoir recherché un tag vous pouvez cliquer sur le bouton en haut de la page de tags pour \"suivre\" ce tag. Il apparaîtra dans votre liste de tags suivis, accessible depuis le menu à gauche. Cliquer sur l'un des tags que vous suivez vous emmène sur la page du tag pour vous permettre de voir les messages récents contenant le tag. Cliquez sur \"#Tags suivis\" pour voir un flux de messages incluant l'un des tags que vous suivez. Les messages qui contiennent ce tag seront aussi inclus dans votre flux principal."
-      followed_tags_q: "Que sont les « #Tags Suivis » et comment puis-je suivre un tag ?"
-      people_tag_page_a: "Il y a des personnes qui ont listé ce tag pour se décrire elles-même dans leur profil public."
-      people_tag_page_q: "Qui sont les personnes listées sur la partie gauche d'une page de tag ?"
-      tags_in_comments_a: "Un tag ajouté dans un commentaire apparaîtra toujours sous forme de lien pointant sur la page de ce tag, mais cela ne fera pas apparaître ce message (ou ce commentaire) sur la page du tag. Seuls les tags dans les messages peuvent être recherchés."
-      tags_in_comments_q: "Puis-je insérer des tags dans un commentaire ou juste dans des messages ?"
-      title: "Tags"
-      what_are_tags_for_a: "Les tags sont une manière de catégoriser un message, généralement par sujets. Rechercher un tag montre tous les messages avec ce tag que vous pouvez voir, à la fois dans les messages publics et privés. Cela permet aux personnes qui sont intéressées par un sujet précis de trouver les messages publics à ce propos."
-      what_are_tags_for_q: "À quoi servent les tags ?"
-    third_party_tools: "Outils tiers"
-    title_header: "Aide"
-    tutorial: "tutoriel"
-    tutorials: "tutoriels"
-    wiki: "wiki"
+      title: Tags
+      what_are_tags_for_q: À quoi servent les tags ?
+      what_are_tags_for_a: Les tags sont une manière de catégoriser un message, généralement par sujets. Rechercher un tag montre tous les messages avec ce tag que vous pouvez voir, à la fois dans les messages publics et privés. Cela permet aux personnes qui sont intéressées par un sujet précis de trouver les messages publics à ce propos.
+      tags_in_comments_q: Puis-je insérer des tags dans un commentaire ou juste dans des messages ?
+      tags_in_comments_a: Un tag ajouté dans un commentaire apparaîtra toujours sous forme de lien pointant sur la page de ce tag, mais cela ne fera pas apparaître ce message (ou ce commentaire) sur la page du tag. Seuls les tags dans les messages peuvent être recherchés.
+      followed_tags_q: Que sont les « #Tags Suivis » et comment puis-je suivre un tag ?
+      followed_tags_a: Après avoir recherché un tag vous pouvez cliquer sur le bouton en haut de la page de tags pour "suivre" ce tag. Il apparaîtra dans votre liste de tags suivis, accessible depuis le menu à gauche. Cliquer sur l'un des tags que vous suivez vous emmène sur la page du tag pour vous permettre de voir les messages récents contenant le tag. Cliquez sur "#Tags suivis" pour voir un flux de messages incluant l'un des tags que vous suivez. Les messages qui contiennent ce tag seront aussi inclus dans votre flux principal.
+      people_tag_page_q: Qui sont les personnes listées sur la partie gauche d'une page de tag ?
+      people_tag_page_a: Il y a des personnes qui ont listé ce tag pour se décrire elles-même dans leur profil public.
+      filter_tags_q: Comment puis-je filtrer/exclure certains tags de mon flux ?
+      filter_tags_a: Ce n'est pas encore possible directement via diaspora*, mais certains %{third_party_tools} permettant cela ont été écrits.
+    keyboard_shortcuts:
+      title: Raccourcis clavier
+      keyboard_shortcuts_q: Quels sont les raccourcis clavier existants ?
+      keyboard_shortcuts_a1: 'Dans le flux, vous pouvez utiliser les raccourcis clavier suivants :'
+      keyboard_shortcuts_li1: j - Aller au message suivant
+      keyboard_shortcuts_li2: k - Aller au message précédent
+      keyboard_shortcuts_li3: c - Commenter le message actuellement sélectionné
+      keyboard_shortcuts_li4: l - Aimer le message actuellement sélectionné
+      keyboard_shortcuts_li5: r - Repartager ce message
+      keyboard_shortcuts_li6: m - Afficher l'ensemble du message
+      keyboard_shortcuts_li7: o - Ouvrir le premier lien de ce message
+      keyboard_shortcuts_li8: ctrl + entrée - Envoyer le message en cours de rédaction
+    miscellaneous:
+      title: Divers
+      back_to_top_q: Il y a t-il un moyen de rapidement revenir en haut d'une page après avoir atteint le bas de celle-ci ?
+      back_to_top_a: Oui. Après avoir atteint le bas de page, cliquez sur la flèche grise qui apparaît dans le coin en bas à droite de votre fenêtre de navigation.
+      photo_albums_q: Il y a t-il des albums photos ou vidéos ?
+      photo_albums_a: Non, pas actuellement. Cependant vous pouvez voir l’ensemble des images d’un utilisateur via l’onglet « Photos » de son profil.
+      subscribe_feed_q: Puis-je m’abonner, via un lecteur de flux, aux messages publics d’une personne ?
+      subscribe_feed_a: 'Oui, mais cette fonctionnalité est encore imparfaite et le formatage des résultats reste assez rustique. Si vous voulez tout de même l''essayer, allez sur la page de profil de quelqu''un et cliquez sur le bouton de flux RSS de votre navigateur. Ou alors, vous pouvez copier l''adresse du profil (p. ex. https://nom-du-pod.com/people/un-nombre) et la coller dans un lecteur de flux RSS. L''adresse de flux qui en résultera ressemblera à https://nom-du-pod.com/public/nom-d-utilisateur.atom : en effet, diaspora* utilise le format Atom plutôt que RSS.'
+      diaspora_app_q: Existe t-il une application diaspora* pour Android ou iOS ?
+      diaspora_app_a: Il y a quelques applications Android encore dans les toutes premières phases de développement. Plusieurs sont des projets abandonnés depuis un peu de temps et ne marchent donc pas bien avec la version actuelle de diaspora*. N'en attendez pas trop pour le moment. Actuellement, la meilleure façon pour accéder à diaspora* à partir d'un téléphone portable est à travers un navigateur web car nous avons créé une version mobile du site qui devrait fonctionner correctement sur tous les appareils. Il n'y a pour l'instant aucune application pour iOS. Encore une fois, diaspora* devrait marcher correctement via votre navigateur web.
   home:
     default:
-      be_who_you_want_to_be: "Soyez celui que vous voulez"
-      be_who_you_want_to_be_info: "De nombreux réseaux vous incitent à utiliser votre véritable identité. Pas diaspora*. Ici, vous pouvez choisir qui vous voulez être et partager autant ou aussi peu que vous le souhaitez. C'est vraiment vous qui décidez de la façon dont vous interagissez avec les autres."
-      byline: "Le réseau social où vous gardez le contrôle."
-      choose_your_audience: "Choisissez votre public"
-      choose_your_audience_info: "Les aspects de diaspora* vous permettent de partager seulement avec les personnes que vous choisissez. Vous demeurez aussi ouvert ou aussi restreint que vous le souhaitez. Partagez des photos amusantes avec le monde entier, ou un grand secret avec vos amis les plus proches. C'est vous qui avez le contrôle."
-      diaspora_site_link: "réseau fédéré diaspora*"
-      headline: "Bienvenue sur %{pod_name}"
-      own_your_data: "Soyez propriétaire de vos données"
-      own_your_data_info: "De nombreux réseaux utilisent vos données pour gagner de l'argent en analysant vos interactions et en utilisant ces informations pour vous proposer des publicités ciblées. Vos données sur diaspora* ne servent qu'à vous mettre en relation et à partager avec d'autres personnes."
-      part_of_diaspora: "Nœud du %{diaspora_site_link}"
+      headline: Bienvenue sur %{pod_name}
+      part_of_diaspora: Nœud du %{diaspora_site_link}
+      diaspora_site_link: réseau fédéré diaspora*
+      byline: Le réseau social où vous gardez le contrôle.
+      be_who_you_want_to_be: Soyez celui que vous voulez
+      be_who_you_want_to_be_info: De nombreux réseaux vous incitent à utiliser votre véritable identité. Pas diaspora*. Ici, vous pouvez choisir qui vous voulez être et partager autant ou aussi peu que vous le souhaitez. C'est vraiment vous qui décidez de la façon dont vous interagissez avec les autres.
+      choose_your_audience: Choisissez votre public
+      choose_your_audience_info: Les aspects de diaspora* vous permettent de partager seulement avec les personnes que vous choisissez. Vous demeurez aussi ouvert ou aussi restreint que vous le souhaitez. Partagez des photos amusantes avec le monde entier, ou un grand secret avec vos amis les plus proches. C'est vous qui avez le contrôle.
+      own_your_data: Soyez propriétaire de vos données
+      own_your_data_info: De nombreux réseaux utilisent vos données pour gagner de l'argent en analysant vos interactions et en utilisant ces informations pour vous proposer des publicités ciblées. Vos données sur diaspora* ne servent qu'à vous mettre en relation et à partager avec d'autres personnes.
     podmin:
-      byline: "Vous êtes sur le point de changer la face d'Internet. Prêt à vous lancer ?"
-      configuration_info: "Ouvrez %{database_path} et %{diaspora_path} dans votre éditeur de texte favori et relisez-les soigneusement, ils sont abondamment commentés."
-      configure_your_pod: "Configurez votre pod"
-      contact_irc: "nous contacter sur IRC"
-      contribute: "Contribuez"
-      contribute_info: "Rendez diaspora* encore meilleur ! Si vous rencontrez des bugs, %{report_bugs} s'il vous plaît."
-      create_an_account: "Créez un compte"
+      headline: Bienvenue, l'ami.
+      byline: Vous êtes sur le point de changer la face d'Internet. Prêt à vous lancer ?
+      configure_your_pod: Configurez votre pod
+      create_an_account: Créez un compte
+      make_yourself_an_admin: Devenez administrateur
+      update_your_pod: Maintenez votre pod à jour
+      getting_help: Obtenez de l'aide
+      contribute: Contribuez
+      configuration_info: Ouvrez %{database_path} et %{diaspora_path} dans votre éditeur de texte favori et relisez-les soigneusement, ils sont abondamment commentés.
       create_an_account_info: "%{sign_up_link} pour un nouveau compte."
-      faq_for_podmins: "FAQ pour les podmins sur notre wiki"
-      getting_help: "Obtenez de l'aide"
-      getting_help_info: "Nous avons listé quelques %{faq} incluant des trucs et astuces supplémentaires ainsi que des solutions aux problèmes les plus communs. N'hésitez pas à %{irc}."
-      headline: "Bienvenue, l'ami."
-      make_yourself_an_admin: "Devenez administrateur"
-      make_yourself_an_admin_info: "Vous trouverez des renseignements sur le %{wiki}. Cela devrait ajouter un lien « %{admin_dashboard} » à votre menu utilisateur dans l'entête lorsque vous êtes connecté. Cela vous donne accès à des rubriques telles que la recherche d'utilisateur ou les statistiques de votre pod."
-      report_bugs: "signalez les"
-      update_instructions: "des instructions de mise à jour sur le wiki de diaspora*"
-      update_your_pod: "Maintenez votre pod à jour"
-      update_your_pod_info: "Vous trouverez %{update_instructions}."
+      make_yourself_an_admin_info: Vous trouverez des renseignements sur le %{wiki}. Cela devrait ajouter un lien « %{admin_dashboard} » à votre menu utilisateur dans l'entête lorsque vous êtes connecté. Cela vous donne accès à des rubriques telles que la recherche d'utilisateur ou les statistiques de votre pod.
+      update_your_pod_info: Vous trouverez %{update_instructions}.
+      update_instructions: des instructions de mise à jour sur le wiki de diaspora*
+      getting_help_info: Nous avons listé quelques %{faq} incluant des trucs et astuces supplémentaires ainsi que des solutions aux problèmes les plus communs. N'hésitez pas à %{irc}.
+      faq_for_podmins: FAQ pour les podmins sur notre wiki
+      contact_irc: nous contacter sur IRC
+      contribute_info: Rendez diaspora* encore meilleur ! Si vous rencontrez des bugs, %{report_bugs} s'il vous plaît.
+      report_bugs: signalez les
   invitation_codes:
-    already_logged_in: "Vous avez été invité par %{inviter} pour rejoindre ce pod mais vous êtes déjà connecté."
-    not_valid: "Ce code d'invitation n'est plus valide."
+    not_valid: Ce code d'invitation n'est plus valide.
+    already_logged_in: Vous avez été invité par %{inviter} pour rejoindre ce pod mais vous êtes déjà connecté.
   invitations:
     create:
-      closed: "Les invitations sont fermées sur ce pod diaspora*."
-      empty: "Veuillez fournir au moins une adresse de courrier électronique."
-      no_more: "Vous n’avez plus d’invitation."
-      note_already_sent: "Une invitation a déjà été envoyée aux e-mails %{emails}"
-      rejected: "Les adresses de courrier électronique suivantes ont rencontré des problèmes : %{emails}"
-      sent: "Les invitations ont été envoyées à : %{emails}"
+      sent: 'Les invitations ont été envoyées à : %{emails}'
+      rejected: 'Les adresses de courrier électronique suivantes ont rencontré des problèmes : %{emails}'
+      no_more: Vous n’avez plus d’invitation.
+      empty: Veuillez fournir au moins une adresse de courrier électronique.
+      note_already_sent: Une invitation a déjà été envoyée aux e-mails %{emails}
+      closed: Les invitations sont fermées sur ce pod diaspora*.
     new:
+      language: Langue
+      invite_someone_to_join: Invitez quelqu'un à rejoindre diaspora* !
+      comma_separated_plz: Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules.
+      send_an_invitation: Envoyer une invitation
+      sending_invitation: Invitation en cours ...
+      paste_link: Partagez ce lien auprès de vos amis pour les inviter sur diaspora*, ou bien envoyez-leur directement le lien par courriel.
       codes_left:
-        one: "Plus qu'une invitation disponible avec ce code."
-        other: "Encore %{count} invitations disponibles avec ce code."
-        zero: "Plus d'invitation disponible avec ce code."
-      comma_separated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
-      invite_someone_to_join: "Invitez quelqu'un à rejoindre diaspora* !"
-      language: "Langue"
-      paste_link: "Partagez ce lien auprès de vos amis pour les inviter sur diaspora*, ou bien envoyez-leur directement le lien par courriel."
-      send_an_invitation: "Envoyer une invitation"
-      sending_invitation: "Invitation en cours ..."
+        zero: Plus d'invitation disponible avec ce code.
+        one: Plus qu'une invitation disponible avec ce code.
+        other: Encore %{count} invitations disponibles avec ce code.
   layouts:
-    application:
-      back_to_top: "Retour en haut"
-      be_excellent: "Soyez bienveillant envers chacun ! ♥"
-      discourse: "Discussions sur le projet et assistance"
-      powered_by: "Propulsé par diaspora*"
-      public_feed: "Flux diaspora* public de %{name}"
-      source_package: "Téléchargez le code source"
-      statistics_link: "Statistiques du pod"
-      switch_to_standard_mode: "Utiliser la version classique"
-      switch_to_touch_optimized_mode: "Utiliser la version tactile"
-      whats_new: "Quoi de neuf ?"
     header:
-      code: "Code"
-      logout: "Déconnexion"
-      profile: "Profil"
-      settings: "Paramètres"
-      toggle_navigation: "Afficher/cacher le menu"
+      profile: Profil
+      settings: Paramètres
+      logout: Déconnexion
+      code: Code
+      toggle_navigation: Afficher/cacher le menu
+    application:
+      powered_by: Propulsé par diaspora*
+      whats_new: Quoi de neuf ?
+      statistics_link: Statistiques du pod
+      discourse: Discussions sur le projet et assistance
+      switch_to_touch_optimized_mode: Utiliser la version tactile
+      switch_to_standard_mode: Utiliser la version classique
+      public_feed: Flux diaspora* public de %{name}
+      back_to_top: Retour en haut
+      source_package: Téléchargez le code source
+      be_excellent: Soyez bienveillant envers chacun ! ♥
   likes:
     create:
-      error: "Impossible d'aimer."
-      fail: "La création du « j'aime » a échoué"
+      error: Impossible d'aimer.
+      fail: La création du « j'aime » a échoué
     destroy:
-      error: "Impossible de ne plus aimer."
-    not_found: "Message ou « j'aime » non trouvé"
-    people_dislike_this:
-      one: "%{count}  réprobation"
-      other: "%{count}  réprobations"
-      zero: "Aucune réprobation"
+      error: Impossible de ne plus aimer.
     people_like_this:
+      zero: Aucun « j'aime »
       one: "%{count} « j'aime »"
       other: "%{count} « j'aime »"
-      zero: "Aucun « j'aime »"
     people_like_this_comment:
+      zero: Aucun « j'aime »
       one: "%{count} « j'aime »"
       other: "%{count} « j'aime »"
-      zero: "Aucun « j'aime »"
-  limited: "Limité"
-  more: "Plus"
-  no_results: "Aucun résultat trouvé"
+    people_dislike_this:
+      zero: Aucune réprobation
+      one: "%{count}  réprobation"
+      other: "%{count}  réprobations"
+    not_found: Message ou « j'aime » non trouvé
   notifications:
-    also_commented:
-      one: "%{actors} a également commenté sur le message %{post_link} de %{post_author}."
-      other: "%{actors} ont également commenté sur le message %{post_link} de %{post_author}."
-      zero: "%{actors} a également commenté sur le message %{post_link} de %{post_author}."
-    also_commented_deleted:
-      one: "%{actors} a commenté un message supprimé."
-      other: "%{actors} ont commenté un message supprimé."
-      zero: "%{actors} a commenté un message supprimé."
+    started_sharing:
+      zero: "%{actors} a commencé à partager avec vous."
+      one: "%{actors} a commencé à partager avec vous."
+      other: "%{actors} ont commencé à partager avec vous."
+    private_message:
+      zero: "%{actors} vous a envoyé un message."
+      one: "%{actors} vous a envoyé un message."
+      other: "%{actors} vous ont envoyé un message."
     comment_on_post:
+      zero: "%{actors} n'a commenté sur votre message %{post_link}."
       one: "%{actors} a commenté votre message %{post_link}."
       other: "%{actors} ont commenté votre message %{post_link}."
-      zero: "%{actors} n'a commenté sur votre message %{post_link}."
-    contacts_birthday:
-      one: "%{actors} fête son anniversaire le %{date}."
-      other: "%{actors} fêtent leur anniversaire le %{date}."
-      zero: "%{actors} fêtent leur anniversaire le %{date}."
-    index:
-      all_notifications: "Toutes les notifications"
-      also_commented: "Aussi commenté"
-      and: "et"
-      and_others:
-        few: "et %{count} autres"
-        many: "et %{count} autres"
-        one: "et un autre"
-        other: "et %{count} autres"
-        two: "et %{count} autres"
-        zero: "et personne d'autre"
-      comment_on_post: "Commentaire sur un de vos messages"
-      contacts_birthday: "Anniversaire"
-      liked: "Aimé"
-      mark_all_as_read: "Tout marquer comme lu"
-      mark_all_shown_as_read: "Tout marquer comme lu"
-      mark_read: "Marquer comme lu"
-      mark_unread: "Marquer comme non lu"
-      mentioned: "Messages qui vous mentionnent"
-      mentioned_in_comment: "Vous mentionnant dans un commentaire"
-      no_notifications: "Vous n'avez pas encore de notifications."
-      notifications: "Notifications"
-      reshared: "Repartagé"
-      show_all: "Tout afficher"
-      show_unread: "Afficher les non-lus"
-      started_sharing: "A commencé à partager"
-    liked:
-      one: "%{actors} a aimé votre message %{post_link}."
-      other: "%{actors} ont aimé votre message %{post_link}."
-      zero: "%{actors} a aimé votre message %{post_link}."
-    liked_post_deleted:
-      one: "%{actors} a aimé votre message supprimé."
-      other: "%{actors} ont aimé votre message supprimé."
-      zero: "%{actors} a aimé votre message supprimé."
+    also_commented:
+      zero: "%{actors} a également commenté sur le message %{post_link} de %{post_author}."
+      one: "%{actors} a également commenté sur le message %{post_link} de %{post_author}."
+      other: "%{actors} ont également commenté sur le message %{post_link} de %{post_author}."
     mentioned:
       one: "%{actors} vous a mentionné(e) dans le message %{post_link}."
       other: "%{actors} vous ont mentionné(e) dans le message %{post_link}."
-    mentioned_deleted:
-      one: "%{actors} vous a mentionné dans un message supprimé."
-      other: "%{actors} vous ont mentionné dans un message supprimé."
     mentioned_in_comment:
       one: "%{actors} vous a mentionné dans un <a href=%{comment_path}>commentaire</a> sur le message %{post_link}."
       other: "%{actors} vous ont mentionné dans un <a href=%{comment_path}>commentaire</a> sur le message %{post_link}."
+    liked:
+      zero: "%{actors} a aimé votre message %{post_link}."
+      one: "%{actors} a aimé votre message %{post_link}."
+      other: "%{actors} ont aimé votre message %{post_link}."
+    reshared:
+      zero: " %{actors} n'a repartagé votre message %{post_link}."
+      one: "%{actors} a repartagé votre message %{post_link}."
+      other: "%{actors} ont repartagé votre message %{post_link}."
+    contacts_birthday:
+      zero: "%{actors} fêtent leur anniversaire le %{date}."
+      one: "%{actors} fête son anniversaire le %{date}."
+      other: "%{actors} fêtent leur anniversaire le %{date}."
+    also_commented_deleted:
+      zero: "%{actors} a commenté un message supprimé."
+      one: "%{actors} a commenté un message supprimé."
+      other: "%{actors} ont commenté un message supprimé."
+    liked_post_deleted:
+      zero: "%{actors} a aimé votre message supprimé."
+      one: "%{actors} a aimé votre message supprimé."
+      other: "%{actors} ont aimé votre message supprimé."
+    reshared_post_deleted:
+      zero: "%{actors} n'a repartagé le message que vous avez supprimé."
+      one: "%{actors} a repartagé le message que vous avez supprimé."
+      other: "%{actors} ont repartagé le message que vous avez supprimé."
+    mentioned_deleted:
+      one: "%{actors} vous a mentionné dans un message supprimé."
+      other: "%{actors} vous ont mentionné dans un message supprimé."
     mentioned_in_comment_deleted:
       one: "%{actors} vous a mentionné sur un commentaire supprimé."
       other: "%{actors} vous ont mentionné sur un commentaire supprimé."
-    private_message:
-      one: "%{actors} vous a envoyé un message."
-      other: "%{actors} vous ont envoyé un message."
-      zero: "%{actors} vous a envoyé un message."
-    reshared:
-      one: "%{actors} a repartagé votre message %{post_link}."
-      other: "%{actors} ont repartagé votre message %{post_link}."
-      zero: " %{actors} n'a repartagé votre message %{post_link}."
-    reshared_post_deleted:
-      one: "%{actors} a repartagé le message que vous avez supprimé."
-      other: "%{actors} ont repartagé le message que vous avez supprimé."
-      zero: "%{actors} n'a repartagé le message que vous avez supprimé."
-    started_sharing:
-      one: "%{actors} a commencé à partager avec vous."
-      other: "%{actors} ont commencé à partager avec vous."
-      zero: "%{actors} a commencé à partager avec vous."
+    index:
+      notifications: Notifications
+      mark_all_as_read: Tout marquer comme lu
+      mark_all_shown_as_read: Tout marquer comme lu
+      mark_read: Marquer comme lu
+      mark_unread: Marquer comme non lu
+      show_all: Tout afficher
+      show_unread: Afficher les non-lus
+      all_notifications: Toutes les notifications
+      also_commented: Aussi commenté
+      comment_on_post: Commentaire sur un de vos messages
+      liked: Aimé
+      mentioned: Messages qui vous mentionnent
+      mentioned_in_comment: Vous mentionnant dans un commentaire
+      reshared: Repartagé
+      started_sharing: A commencé à partager
+      contacts_birthday: Anniversaire
+      no_notifications: Vous n'avez pas encore de notifications.
+      and_others:
+        zero: et personne d'autre
+        one: et un autre
+        two: et %{count} autres
+        few: et %{count} autres
+        many: et %{count} autres
+        other: et %{count} autres
+      and: et
   notifier:
-    a_limited_post_comment: "Vous avez un nouveau commentaire sur un message à visibilité limitée."
-    a_post_you_shared: "un message."
-    a_private_message: "Vous avez un nouveau message privé à consulter sur diaspora*."
-    also_commented:
-      limited_subject: "Il y a un nouveau commentaire sur un message que vous avez commenté"
-    click_here: "Cliquez ici"
+    a_post_you_shared: un message.
+    a_private_message: Vous avez un nouveau message privé à consulter sur diaspora*.
+    a_limited_post_comment: Vous avez un nouveau commentaire sur un message à visibilité limitée.
+    email_sent_by_diaspora: Ce courriel a été envoyé par %{pod_name}. Si vous ne souhaitez plus recevoir des courriels de ce genre,
+    click_here: Cliquez ici
+    hello: Bonjour %{name} !
+    thanks: Merci,
+    to_change_your_notification_settings: pour changer vos paramètres de notification
+    single_admin:
+      subject: 'Un message concernant votre compte diaspora* :'
+      admin: Votre administrateur diaspora*
+    started_sharing:
+      subject: "%{name} a commencé à partager avec vous sur diaspora*"
+      sharing: a commencé à partager avec vous !
+      view_profile: Voir le profil de %{name}
     comment_on_post:
-      limited_subject: "Il y a un nouveau commentaire sur un de vos messages"
-      reply: "Répondre ou voir le message de %{name} >"
-    confirm_email:
-      click_link: "Pour activer votre nouvelle adresse électronique %{unconfirmed_email}, merci de suivre ce lien :"
-      subject: "Merci d'activer votre nouvelle adresse électronique %{unconfirmed_email}"
-    contacts_birthday:
-      birthday: "C'est l'anniversaire de %{name} aujourd'hui. Souhaitez-lui un joyeux anniversaire !"
-      subject: "C'est l'anniversaire de %{name} aujourd'hui"
-      view_profile: "Voir le profil de %{name}"
-    csrf_token_fail:
-      body: |-
-          Bonjour %{name},
-
-          diaspora* a détecté une tentative d’accès à votre session qui pourrait ne pas être autorisée. Pour éviter tout risque que vos données soient compromises, vous avez été déconnecté(e). Pas de panique : vous pouvez vous connecter à nouveau et en toute sécurité.
-
-          Nous avons détecté une requête avec un jeton CSRF incorrect ou manquant. C’est probablement tout à fait anodin, mais il pourrait s’agir d’une attaque CSRF (Cross-Site Request Forgery).
-
-          Ceci peut être dû à :
-
-          – une extension manipulant la requête ou créant des requêtes sans le jeton
-          – un ancien onglet resté ouvert
-          – un autre site web faisant des requêtes avec ou sans votre permission
-          – divers autres outils externes
-          – du code malveillant essayant d’accéder à vos données.
-
-          Pour plus d’information sur le CSRF, voir [%{link}](%{link}).
-
-          Si vous voyez ce message à plusieurs reprises, merci de vérifier les points ci-dessus, y compris les extensions du navigateur.
-
-          Merci.
-          Le messager automatique de diaspora* !
-      subject: "Nous avons reçu une demande non autorisée de votre compte, %{name}"
-    email_sent_by_diaspora: "Ce courriel a été envoyé par %{pod_name}. Si vous ne souhaitez plus recevoir des courriels de ce genre,"
-    export_email:
-      body: |-
-          Bonjour %{name},
-
-          Vos données personnelles ont été traitées et vous pouvez à présent les télécharger en cliquant sur [ce lien](%{url}).
-
-          Cordialement,
-
-          Le messager automatique de diaspora*
-      subject: "Vos données personnelles sont prêtes à être téléchargées, %{name}"
-    export_failure_email:
-      body: |-
-          Bonjour %{name},
-
-          Il y a eu un problème lors du traitement de vos données personnelles en vue d'un téléchargement.
-          Merci de bien vouloir réessayer.
-
-          Avec toutes nos excuses,
-
-          Le messager automatique de diaspora*
-      subject: "Il y a eu un problème avec vos données, %{name}"
-    export_photos_email:
-      body: |-
-          Bonjour %{name},
-
-          Vos photos ont été préparées et sont prêtes à être téléchargées en suivant [ce lien](%{url}).
-
-          Cordialement,
-
-          Le messager automatique de diaspora*
-      subject: "%{name}, vos photos sont prêtes à être téléchargées."
-    export_photos_failure_email:
-      body: |-
-          Bonjour %{name},
-
-          Il y a eu un problème lors du traitement de vos photos en vue d'un téléchargement.
-          Merci de bien vouloir réessayer.
-
-          Avec toutes nos excuses,
-
-          Le messager automatique de diaspora*
-      subject: "Il y a eu un problème avec vos photos, %{name}"
-    hello: "Bonjour %{name} !"
-    invite:
-      message: |-
-          Bonjour !
-
-          Vous avez été invité·e par %{user} à rejoindre diaspora* !
-
-          Cliquez sur ce lien pour vous lancer dans l'aventure :
-
-          [%{invite_url}][1]
-
-          Ou si vous avez déjà un compte, vous pouvez ajouter %{diaspora_id} à vos contacts.
-
-
-          Amicalement,
-
-          Le messager automatique de diaspora*
-
-          PS : Au cas où vous ne sauriez pas (encore) ce qu'est diaspora*, la réponse est [ici][2] !
-
-          [1] : %{invite_url}
-          [2] : %{diasporafoundation_url}
-    invited_you: "%{name} vous a invité(e) sur diaspora*"
+      limited_subject: Il y a un nouveau commentaire sur un de vos messages
+      reply: Répondre ou voir le message de %{name} >
+    also_commented:
+      limited_subject: Il y a un nouveau commentaire sur un message que vous avez commenté
+    mentioned:
+      subject: "%{name} vous a mentionné(e) sur diaspora*"
+      limited_post: Vous avez été mentionné dans une publication restreinte.
+    mentioned_in_comment:
+      limited_post: Vous avez été mentionné dans un commentaire sur une publication restreinte.
+      reply: Répondre ou voir cette conversation >
+    private_message:
+      subject: Vous avez un nouveau message privé
+      reply_to_or_view: Répondre ou voir cette conversation >
     liked:
       liked: "%{name} a aimé votre message"
       limited_post: "%{name} a aimé votre publication restreinte"
-      view_post: "Voir le message >"
-    mentioned:
-      limited_post: "Vous avez été mentionné dans une publication restreinte."
-      subject: "%{name} vous a mentionné(e) sur diaspora*"
-    mentioned_in_comment:
-      limited_post: "Vous avez été mentionné dans un commentaire sur une publication restreinte."
-      reply: "Répondre ou voir cette conversation >"
-    private_message:
-      reply_to_or_view: "Répondre ou voir cette conversation >"
-      subject: "Vous avez un nouveau message privé"
-    remove_old_user:
-      body: |-
-          Bonjour,
-
-          En raison de l'inactivité de votre compte diaspora* %{pod_url}, nous sommes au regret de vous informer que le système l'a identifié comme devant être supprimé automatiquement. Cette procédure se déclenche après une période d'inactivité supérieure à %{after_days} jours.
-
-          Vous pouvez éviter la perte de votre compte en vous connectant à celui-ci avant %{remove_after}, dans ce cas la procédure de suppression sera automatiquement annulée.
-
-          Cette maintenance est effectuée pour assurer aux utilisateurs actifs le meilleur fonctionnement possible de cette instance de diaspora*. Nous vous remercions de votre compréhension.
-
-          Si vous souhaitez conserver votre compte, veuillez vous identifier ici :
-          %{login_url}
-
-          Nous espérons vous revoir bientôt !
-
-          Le messager automatique de diaspora*
-      subject: "Votre compte diaspora* a été signalé comme devant être supprimé en raison de son inactivité"
-    report_email:
-      body: |-
-          Bonjour,
-
-          le %{type} avec l'identifiant %{id} a été marqué comme offensant.
-
-          La raison : %{reason}
-
-          [%{url}][1]
-
-          Merci de le vérifier dès que possible !
-
-
-          Cordialement,
-
-          Le messager automatique de diaspora*
-
-          [1]: %{url}
-      subject: "Un nouveau %{type} a été marqué comme offensant"
-      type:
-        comment: "commentaire"
-        post: "message"
+      view_post: Voir le message >
     reshared:
       reshared: "%{name} a repartagé votre message"
-      view_post: "Voir le message >"
-    single_admin:
-      admin: "Votre administrateur diaspora*"
-      subject: "Un message concernant votre compte diaspora* :"
-    started_sharing:
-      sharing: "a commencé à partager avec vous !"
-      subject: "%{name} a commencé à partager avec vous sur diaspora*"
-      view_profile: "Voir le profil de %{name}"
-    thanks: "Merci,"
-    to_change_your_notification_settings: "pour changer vos paramètres de notification"
-  nsfw: "NSFW"
-  ok: "OK"
+      view_post: Voir le message >
+    contacts_birthday:
+      subject: C'est l'anniversaire de %{name} aujourd'hui
+      birthday: C'est l'anniversaire de %{name} aujourd'hui. Souhaitez-lui un joyeux anniversaire !
+      view_profile: Voir le profil de %{name}
+    confirm_email:
+      subject: Merci d'activer votre nouvelle adresse électronique %{unconfirmed_email}
+      click_link: 'Pour activer votre nouvelle adresse électronique %{unconfirmed_email}, merci de suivre ce lien :'
+    csrf_token_fail:
+      subject: Nous avons reçu une demande non autorisée de votre compte, %{name}
+      body: |-
+        Bonjour %{name},
+
+        diaspora* a détecté une tentative d’accès à votre session qui pourrait ne pas être autorisée. Pour éviter tout risque que vos données soient compromises, vous avez été déconnecté(e). Pas de panique : vous pouvez vous connecter à nouveau et en toute sécurité.
+
+        Nous avons détecté une requête avec un jeton CSRF incorrect ou manquant. C’est probablement tout à fait anodin, mais il pourrait s’agir d’une attaque CSRF (Cross-Site Request Forgery).
+
+        Ceci peut être dû à :
+
+        – une extension manipulant la requête ou créant des requêtes sans le jeton
+        – un ancien onglet resté ouvert
+        – un autre site web faisant des requêtes avec ou sans votre permission
+        – divers autres outils externes
+        – du code malveillant essayant d’accéder à vos données.
+
+        Pour plus d’information sur le CSRF, voir [%{link}](%{link}).
+
+        Si vous voyez ce message à plusieurs reprises, merci de vérifier les points ci-dessus, y compris les extensions du navigateur.
+
+        Merci.
+        Le messager automatique de diaspora* !
+    report_email:
+      type:
+        post: message
+        comment: commentaire
+      subject: Un nouveau %{type} a été marqué comme offensant
+      body: |-
+        Bonjour,
+
+        le %{type} avec l'identifiant %{id} a été marqué comme offensant.
+
+        La raison : %{reason}
+
+        [%{url}][1]
+
+        Merci de le vérifier dès que possible !
+
+
+        Cordialement,
+
+        Le messager automatique de diaspora*
+
+        [1]: %{url}
+    export_email:
+      subject: Vos données personnelles sont prêtes à être téléchargées, %{name}
+      body: |-
+        Bonjour %{name},
+
+        Vos données personnelles ont été traitées et vous pouvez à présent les télécharger en cliquant sur [ce lien](%{url}).
+
+        Cordialement,
+
+        Le messager automatique de diaspora*
+    export_failure_email:
+      subject: Il y a eu un problème avec vos données, %{name}
+      body: |-
+        Bonjour %{name},
+
+        Il y a eu un problème lors du traitement de vos données personnelles en vue d'un téléchargement.
+        Merci de bien vouloir réessayer.
+
+        Avec toutes nos excuses,
+
+        Le messager automatique de diaspora*
+    export_photos_email:
+      subject: "%{name}, vos photos sont prêtes à être téléchargées."
+      body: |-
+        Bonjour %{name},
+
+        Vos photos ont été préparées et sont prêtes à être téléchargées en suivant [ce lien](%{url}).
+
+        Cordialement,
+
+        Le messager automatique de diaspora*
+    export_photos_failure_email:
+      subject: Il y a eu un problème avec vos photos, %{name}
+      body: |-
+        Bonjour %{name},
+
+        Il y a eu un problème lors du traitement de vos photos en vue d'un téléchargement.
+        Merci de bien vouloir réessayer.
+
+        Avec toutes nos excuses,
+
+        Le messager automatique de diaspora*
+    invited_you: "%{name} vous a invité(e) sur diaspora*"
+    invite:
+      message: |-
+        Bonjour !
+
+        Vous avez été invité·e par %{user} à rejoindre diaspora* !
+
+        Cliquez sur ce lien pour vous lancer dans l'aventure :
+
+        [%{invite_url}][1]
+
+        Ou si vous avez déjà un compte, vous pouvez ajouter %{diaspora_id} à vos contacts.
+
+
+        Amicalement,
+
+        Le messager automatique de diaspora*
+
+        PS : Au cas où vous ne sauriez pas (encore) ce qu'est diaspora*, la réponse est [ici][2] !
+
+        [1] : %{invite_url}
+        [2] : %{diasporafoundation_url}
+    remove_old_user:
+      subject: Votre compte diaspora* a été signalé comme devant être supprimé en raison de son inactivité
+      body: |-
+        Bonjour,
+
+        En raison de l'inactivité de votre compte diaspora* %{pod_url}, nous sommes au regret de vous informer que le système l'a identifié comme devant être supprimé automatiquement. Cette procédure se déclenche après une période d'inactivité supérieure à %{after_days} jours.
+
+        Vous pouvez éviter la perte de votre compte en vous connectant à celui-ci avant %{remove_after}, dans ce cas la procédure de suppression sera automatiquement annulée.
+
+        Cette maintenance est effectuée pour assurer aux utilisateurs actifs le meilleur fonctionnement possible de cette instance de diaspora*. Nous vous remercions de votre compréhension.
+
+        Si vous souhaitez conserver votre compte, veuillez vous identifier ici :
+        %{login_url}
+
+        Nous espérons vous revoir bientôt !
+
+        Le messager automatique de diaspora*
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          redirection_message: Voulez-vous vraiment donner accès à %{redirect_uri} ?
+          access: "%{name} a besoin d'accéder à :"
+          no_requirement: "%{name} n'a pas besoin de permissions"
+          approve: Autoriser
+          deny: Refuser
+          bad_request: ID client manquant ou URL de redirection
+          client_id_not_found: Pas de client avec client_id %{client_id} avec URL de redirection %{redirect_uri} trouvé
+          private_contacts_linkage_error: private:read et private:modify nécessite contacts:read
+          unknown_scope: 'Périmètre inconnu : %{scope_name}'
+        destroy:
+          fail: La tentative de révoquer l'autorisation avec ID %{id} a échoué
+      user_applications:
+        index:
+          edit_applications: Applications
+          title: Applications autorisées
+          access: "%{name} a accès à :"
+          no_requirement: "%{name} n'a pas besoin d'autorisations."
+        no_applications: Vous n'avez pas d'applications autorisées
+        revoke_autorization: Révoquer
+        tos: Voir les conditions d'utilisation de l'application
+        policy: Voir la politique de confidentialité de l'application
+      scopes:
+        openid:
+          name: Informations de base du profil
+          description: Ceci permet à l'application de voir les informations de base de votre profil.
+        sub:
+          name: Identifiant unique
+          description: Ceci donne un accès en lecture seule à votre identifiant unique.
+        name:
+          name: Nom complet
+          description: Ceci donne un accès en lecture seule à votre nom complet.
+        nickname:
+          name: Nom d'utilisateur
+          description: Ceci donne un accès en lecture seule à votre nom d'utilisateur.
+        picture:
+          name: Image de profil
+          description: Ceci donne un accès en lecture seule à votre image de profil.
+        contacts:read:
+          name: Contacts (lecture seule)
+          description: Ceci donne accès en lecture seule aux contacts et aux données connexes (comme les aspects).
+        contacts:modify:
+          name: Contacts (Écriture)
+          description: Ceci donne accès en écriture aux contacts et aux données connexes (comme les aspects).
+        conversations:
+          name: Conversations
+          description: Ceci donne des permissions de lecture et d'écriture sur les messages privés.
+        email:
+          name: Adresse de courriel
+          description: Ceci donne un accès en lecture seule à votre adresse de courriel.
+        interactions:
+          name: Interactions
+          description: Ceci donne la permission d'interagir avec les messages, par exemple les « j'aime » ou la soumission de commentaires.
+        notifications:
+          name: Notifications
+          description: Ceci donne accès en lecture et en écriture à vos notifications.
+        private:read:
+          name: Messages privés (Lecture seule)
+          description: Ceci donne accès en lecture seule à vos messages privés et à ceux de vos contacts.
+        private:modify:
+          name: Messages privés (Écriture)
+          description: Ceci donne la permission de publier des messages privés.
+        public:read:
+          name: Messages publics (Lecture seule)
+          description: Ceci donne accès à vos messages publics, incluant les interactions et les données connexes.
+        public:modify:
+          name: Messages publics (Écriture)
+          description: Ceci donne la permission de publier des messages publics et des données connexes (comme les votes et les médias joints).
+        profile:
+          name: Profil étendu (lecture seule)
+          description: Ceci donne un accès en lecture seule aux données de votre profil étendu.
+        profile:modify:
+          name: Profil étendu (Écriture)
+          description: Ceci donne la permission de mettre à jour les données de votre profil étendu.
+        profile:read_private:
+          name: Données du profil privé (Lecture seule)
+          description: Ceci donne un accès en lecture seule aux données de votre profil privé.
+        tags:read:
+          name: Tags (Lecture seule)
+          description: Ceci donne accès en lecture seule aux tags et aux flux de tags que vous suivez.
+        tags:modify:
+          name: Tags (Écriture)
+          description: Ceci donne la permission de changer les tags que vous suivez.
+      error_page:
+        title: Oups ! Quelque-chose n'a pas marché :(
+        contact_developer: 'Veuillez contacter le développeur de l''application et inclure le message d''erreur détaillé suivant :'
+        login_required: Vous devez d'abord vous connecter afin de pouvoir autoriser cette application
+        could_not_authorize: L'application n'a pas pu être autorisée
   people:
-    add_contact:
-      invited_by: "Vous avez été invité(e) par"
-    index:
-      couldnt_find_them: "Vous ne les trouvez pas ?"
-      looking_for: "Rechercher des messages tagués %{tag_link}?"
-      no_one_found: "… et personne n'a été trouvé."
-      no_results: "Hé ! Vous devez rechercher quelque chose."
-      results_for: "Utilisateurs correspondant à %{search_term}"
-      search_handle: "Utilisez leur identifiant diaspora* (nomutilisateur@urldupod) pour être sûr de trouver vos amis."
-      searching: "Recherche en cours, veuillez patienter…"
-      send_invite: "Toujours rien ? Envoyez leur une invitation !"
     person:
-      thats_you: "C'est vous !"
-    profile_sidebar:
-      bio: "Bio"
-      born: "Anniversaire"
-      gender: "Genre"
-      location: "Localisation"
+      thats_you: C'est vous !
+    index:
+      results_for: Utilisateurs correspondant à %{search_term}
+      no_results: Hé ! Vous devez rechercher quelque chose.
+      couldnt_find_them: Vous ne les trouvez pas ?
+      search_handle: Utilisez leur identifiant diaspora* (nomutilisateur@urldupod) pour être sûr de trouver vos amis.
+      send_invite: Toujours rien ? Envoyez leur une invitation !
+      no_one_found: "… et personne n'a été trouvé."
+      searching: Recherche en cours, veuillez patienter…
+      looking_for: Rechercher des messages tagués %{tag_link}?
     show:
-      closed_account: "Ce compte a été fermé."
-      does_not_exist: "Cette personne n'existe pas !"
       has_not_shared_with_you_yet: "%{name} n'a pas encore partagé de messages avec vous !"
+      does_not_exist: Cette personne n'existe pas !
+      closed_account: Ce compte a été fermé.
+    profile_sidebar:
+      bio: Bio
+      location: Localisation
+      gender: Genre
+      born: Anniversaire
+    add_contact:
+      invited_by: Vous avez été invité(e) par
   photos:
     create:
-      integrity_error: "L'envoi de la photo a échoué. Êtes-vous certain(e) que ce fichier contient une image ?"
-      runtime_error: "L'envoi de la photo a échoué. Avez-vous attaché votre ceinture ?"
-      type_error: "L'envoi de la photo a échoué. Êtes-vous certain(e) que ce fichier contient une image ?"
+      runtime_error: L'envoi de la photo a échoué. Avez-vous attaché votre ceinture ?
+      integrity_error: L'envoi de la photo a échoué. Êtes-vous certain(e) que ce fichier contient une image ?
+      type_error: L'envoi de la photo a échoué. Êtes-vous certain(e) que ce fichier contient une image ?
     destroy:
-      notice: "La photo a été supprimée."
+      notice: La photo a été supprimée.
     new_profile_photo:
-      upload: "Mettre une nouvelle photo de profil !"
+      upload: Mettre une nouvelle photo de profil !
   polls:
     votes:
+      zero: "%{count} votes pour l'instant"
       one: "%{count} vote pour l'instant"
       other: "%{count} votes pour l'instant"
-      zero: "%{count} votes pour l'instant"
   posts:
     presenter:
-      title: "Un message de %{name}"
+      title: Un message de %{name}
     show:
-      forbidden: "Vous n'êtes pas autorisé à faire cela"
-      location: "Publié depuis : %{location}"
+      location: 'Publié depuis : %{location}'
+      forbidden: Vous n'êtes pas autorisé à faire cela
       photos_by:
-        one: "Une photo par %{author}"
+        zero: Pas de photo par %{author}
+        one: Une photo par %{author}
         other: "%{count} photos par %{author}"
-        zero: "Pas de photo par %{author}"
-      reshare_by: "Repartagé par %{author}"
-  privacy: "Vie privée"
-  profile: "Profil"
+      reshare_by: Repartagé par %{author}
+  report:
+    title: Vue d'ensemble des signalements
+    post_label: "<strong>Message</strong>: %{content}"
+    comment_label: "<strong>Commentaire</strong>: %{data}"
+    reported_label: "<strong>Signalé par</strong> %{person}"
+    reason_label: 'Raison :'
+    review_link: Marqué comme revu.
+    delete_link: Supprimer l’élément
+    reported_user_details: Détails sur l'utilisateur signalé
+    confirm_deletion: Etes vous vraiment sur de vouloir supprimer cet élément ?
+    not_found: Le message/commentaire n'a pas été trouvé. On dirait qu'il a été supprimé par l'utilisateur !
+    status:
+      destroyed: Le message a été détruit
+      failed: Il y a eu un problème.
+    unreviewed_reports:
+      zero: Il n'y a aucun signalement non vérifié.
+      one: Il y a %{count} signalement non vérifié.
+      other: Il y a %{count} signalements non vérifiés.
   profiles:
     edit:
-      allow_search: "Permettre à tous de vous rechercher dans diaspora*"
-      basic: "Mon profil basique"
-      basic_hint: "Tous les éléments de votre profil sont optionnels. Votre profil basique sera toujours visible publiquement."
-      extended: "Mon profil complet"
-      extended_hint: "Cliquez sur l'interrupteur pour choisir la visibilité de votre profil complet. « Public » signifie qu'il sera visible sur tout Internet, « limité » signifie qu'uniquement les personnes avec qui vous partagez pourront voir cette information."
-      extended_visibility_text: "Visibilité de votre profil complet :"
-      first_name: "Prénom"
-      last_name: "Nom de famille"
-      limited: "Limité"
-      nsfw_check: "Marquer tout ce que je poste comme #NSFW"
-      nsfw_explanation: "NSFW (\"Not Safe For Work\") est une convention établie par la communauté diaspora* afin d'étiqueter le contenu qui n'est pas adapté pour une consultation sur le lieu de travail. Si vous prévoyez de partager ce genre de contenu fréquemment, vous pouvez cocher cette option pour que tous vos messages soient masqués aux autres utilisateurs jusqu'à ce qu'ils décident de les afficher."
-      nsfw_explanation2: "Si vous choisissez de ne pas cocher cette option, veuillez ajouter le tag #nsfw à chaque fois que vous postez du contenu choquant."
-      public: "Public"
-      settings: "Paramètres du profil"
-      update_profile: "Mettre à jour le profil"
-      your_bio: "Votre biographie"
-      your_birthday: "Votre anniversaire"
-      your_gender: "Votre genre"
-      your_location: "Votre localisation"
-      your_name: "Votre nom"
-      your_photo: "Votre photo"
-      your_tags: "Décrivez-vous en 5 mots"
-      your_tags_placeholder: "comme #films #repassage #voyage #professeur #paris"
+      basic: Mon profil basique
+      extended: Mon profil complet
+      settings: Paramètres du profil
+      extended_visibility_text: 'Visibilité de votre profil complet :'
+      public: Public
+      limited: Limité
+      basic_hint: Tous les éléments de votre profil sont optionnels. Votre profil basique sera toujours visible publiquement.
+      extended_hint: Cliquez sur l'interrupteur pour choisir la visibilité de votre profil complet. « Public » signifie qu'il sera visible sur tout Internet, « limité » signifie qu'uniquement les personnes avec qui vous partagez pourront voir cette information.
+      your_name: Votre nom
+      first_name: Prénom
+      last_name: Nom de famille
+      your_gender: Votre genre
+      your_birthday: Votre anniversaire
+      your_tags: Décrivez-vous en 5 mots
+      your_tags_placeholder: 'comme #films #repassage #voyage #professeur #paris'
+      your_bio: Votre biographie
+      your_location: Votre localisation
+      your_photo: Votre photo
+      update_profile: Mettre à jour le profil
+      allow_search: Permettre à tous de vous rechercher dans diaspora*
+      nsfw_explanation: NSFW ("Not Safe For Work") est une convention établie par la communauté diaspora* afin d'étiqueter le contenu qui n'est pas adapté pour une consultation sur le lieu de travail. Si vous prévoyez de partager ce genre de contenu fréquemment, vous pouvez cocher cette option pour que tous vos messages soient masqués aux autres utilisateurs jusqu'à ce qu'ils décident de les afficher.
+      nsfw_explanation2: 'Si vous choisissez de ne pas cocher cette option, veuillez ajouter le tag #nsfw à chaque fois que vous postez du contenu choquant.'
+      nsfw_check: 'Marquer tout ce que je poste comme #NSFW'
     update:
-      failed: "Impossible de mettre à jour le profil"
-      updated: "Profil mis à jour"
-  public: "Public"
+      updated: Profil mis à jour
+      failed: Impossible de mettre à jour le profil
   registrations:
-    closed:
-      another_pod: "un autre pod"
-      closed_pod: "Les inscriptions sont actuellement fermées sur ce pod. Néanmoins, vous pouvez toujours rejoindre le réseau diaspora* en vous inscrivant sur %{wiki}. Comme tous les pods sont interconnectés, vous accéderez au même contenu."
-      find_pods: "Une liste de pods sur lesquels vous pouvez vous inscrire est disponible sur %{fediverse_observer}."
-      other_questions: "Si vous avez d'autres questions sur le choix d'un pod, consultez notre %{wiki}."
-    create:
-      success: "Vous avez rejoint diaspora* !"
-    invalid_invite: "Le lien d'invitation que vous avez fourni n'est plus valide !"
     new:
-      email: "Adresse électronique"
-      enter_email: "Saisissez une adresse de courrier électronique"
-      enter_password: "Saisissez un mot de passe (d'au moins six caractères)"
-      enter_password_again: "Saisissez à nouveau le même mot de passe"
-      enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
-      password: "Mot de passe"
-      password_confirmation: "Confirmation du mot de passe"
-      sign_up: "Créer un compte"
-      submitting: "Envoi en cours…"
-      terms: "En créant un compte, vous acceptez les %{terms_link}"
-      terms_link: "conditions d'utilisation"
-      username: "Nom d’utilisateur"
-  report:
-    comment_label: "<strong>Commentaire</strong>: %{data}"
-    confirm_deletion: "Etes vous vraiment sur de vouloir supprimer cet élément ?"
-    delete_link: "Supprimer l’élément"
-    not_found: "Le message/commentaire n'a pas été trouvé. On dirait qu'il a été supprimé par l'utilisateur !"
-    post_label: "<strong>Message</strong>: %{content}"
-    reason_label: "Raison :"
-    reported_label: "<strong>Signalé par</strong> %{person}"
-    reported_user_details: "Détails sur l'utilisateur signalé"
-    review_link: "Marqué comme revu."
-    status:
-      destroyed: "Le message a été détruit"
-      failed: "Il y a eu un problème."
-    title: "Vue d'ensemble des signalements"
-    unreviewed_reports:
-      one: "Il y a %{count} signalement non vérifié."
-      other: "Il y a %{count} signalements non vérifiés."
-      zero: "Il n'y a aucun signalement non vérifié."
+      enter_email: Saisissez une adresse de courrier électronique
+      enter_username: Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)
+      enter_password: Saisissez un mot de passe (d'au moins six caractères)
+      enter_password_again: Saisissez à nouveau le même mot de passe
+      sign_up: Créer un compte
+      email: Adresse électronique
+      username: Nom d’utilisateur
+      password: Mot de passe
+      password_confirmation: Confirmation du mot de passe
+      submitting: Envoi en cours…
+      terms: En créant un compte, vous acceptez les %{terms_link}
+      terms_link: conditions d'utilisation
+    create:
+      success: Vous avez rejoint diaspora* !
+    closed:
+      closed_pod: Les inscriptions sont actuellement fermées sur ce pod. Néanmoins, vous pouvez toujours rejoindre le réseau diaspora* en vous inscrivant sur %{wiki}. Comme tous les pods sont interconnectés, vous accéderez au même contenu.
+      another_pod: un autre pod
+      find_pods: Une liste de pods sur lesquels vous pouvez vous inscrire est disponible sur %{fediverse_observer}.
+      other_questions: Si vous avez d'autres questions sur le choix d'un pod, consultez notre %{wiki}.
+    invalid_invite: Le lien d'invitation que vous avez fourni n'est plus valide !
   reshares:
-    comment_email_subject: "Partage par %{resharer} d'un message de %{author}"
     create:
-      error: "Le repartage a échoué."
+      error: Le repartage a échoué.
     reshare:
-      deleted: "Le message original a été supprimé par l'auteur."
-      reshare_confirmation: "Repartager le message de %{author} ?"
-      reshared_via: "Repartagé par"
-  search: "Rechercher"
+      reshared_via: Repartagé par
+      reshare_confirmation: Repartager le message de %{author} ?
+      deleted: Le message original a été supprimé par l'auteur.
+    comment_email_subject: Partage par %{resharer} d'un message de %{author}
   services:
-    create:
-      already_authorized: "Un utilisateur dont l'identifiant diaspora* est %{diaspora_id} a déjà autorisé ce compte %{service_name}."
-      failure: "L'authentification a échoué."
-      read_only_access: "Accès en lecture seule, veuillez réessayer d'autoriser plus tard"
-      success: "Authentification réussie."
-    destroy:
-      success: "Authentification supprimée."
-    failure:
-      error: "Une erreur s'est produite lors de la connexion avec ce service"
-    index:
-      connect: "Se connecter"
-      disconnect: "Déconnecter"
-      edit_services: "Modifier les services"
-      logged_in_as: "Connecté(e) en tant que %{nickname}."
-      no_services_available: "Il n'y a aucun service disponible sur ce pod."
-      not_logged_in: "Vous n'êtes pas connecté actuellement."
-      really_disconnect: "Déconnecter %{service} ?"
-      services_explanation: "Se connecter à des services tiers vous donne la possibilité d'y publier vos messages depuis diaspora*."
-      share_to: "Partager avec %{provider}"
-      title: "Gérer les services connectés"
     provider:
-      tumblr: "Tumblr"
-      twitter: "Twitter"
-      wordpress: "Wordpress"
-  settings: "Paramètres"
+      tumblr: Tumblr
+      twitter: Twitter
+      wordpress: Wordpress
+    index:
+      title: Gérer les services connectés
+      connect: Se connecter
+      disconnect: Déconnecter
+      logged_in_as: Connecté(e) en tant que %{nickname}.
+      no_services_available: Il n'y a aucun service disponible sur ce pod.
+      not_logged_in: Vous n'êtes pas connecté actuellement.
+      really_disconnect: Déconnecter %{service} ?
+      edit_services: Modifier les services
+      services_explanation: Se connecter à des services tiers vous donne la possibilité d'y publier vos messages depuis diaspora*.
+      share_to: Partager avec %{provider}
+    create:
+      success: Authentification réussie.
+      failure: L'authentification a échoué.
+      already_authorized: Un utilisateur dont l'identifiant diaspora* est %{diaspora_id} a déjà autorisé ce compte %{service_name}.
+      read_only_access: Accès en lecture seule, veuillez réessayer d'autoriser plus tard
+    destroy:
+      success: Authentification supprimée.
+    failure:
+      error: Une erreur s'est produite lors de la connexion avec ce service
+  blocks:
+    create:
+      success: 'Très bien, cet utilisateur n''apparaîtra plus dans votre flux. #silence !'
+      failure: 'Je n''ai pas pu ignorer cet utilisateur. #évasion'
+    destroy:
+      success: 'Voyons ce qu''ils ont à dire ! #ditesbonjour'
+      failure: 'Je n''ai pas pu cesser d''ignorer cet utilisateur. #évasion'
   shared:
     aspect_dropdown:
       mobile_row_checked: "%{name} (retirer)"
       mobile_row_unchecked: "%{name} (ajouter)"
       toggle:
-        one: "Dans %{count} aspect"
-        other: "Dans %{count} aspects"
-    invitations:
-      by_email: "Inviter des personnes par courrier électronique"
-      invite_your_friends: "Invitez vos amis"
-      invites: "Invitations"
-      share_this: "Partagez ce lien par courriel, sur un blog ou via les réseaux sociaux !"
-    public_explain:
-      atom_feed: "Flux Atom"
-      control_your_audience: "Contrôlez votre audience"
-      logged_in: "Connecté(e) à %{service}"
-      manage: "Gérer les services connectés"
-      new_user_welcome_message: "Utilisez les #tags pour classer vos messages et trouver des personnes qui partagent vos intérêts. Interpellez des personnes géniales avec les @Mentions"
-      outside: "Les messages publics pourront être vus par tous, même en dehors de diaspora*."
-      share: "Partagez"
-      title: "Mettre en place des services connectés"
-      visibility_dropdown: "Utilisez ce menu déroulant pour modifier la visibilité de votre message. (Nous vous conseillons de rendre public ce premier message.)"
+        one: Dans %{count} aspect
+        other: Dans %{count} aspects
     publisher:
-      discard_post: "Supprimer la publication"
-      formatWithMarkdown: "Utilisez la syntaxe %{markdown_link} pour mettre en forme votre message"
-      get_location: "Ajouter votre emplacement"
+      formatWithMarkdown: Utilisez la syntaxe %{markdown_link} pour mettre en forme votre message
+      posting: Publication…
+      share: Partager
+      get_location: Ajouter votre emplacement
+      remove_location: Supprimer l'emplacement
+      whats_on_your_mind: Exprimez-vous...
+      discard_post: Supprimer la publication
       new_user_prefill:
-        hello: "Bonjour tout le monde, je suis #%{new_user_tag}. "
-        i_like: "Mes centres d'intérêt sont %{tags}. "
-        invited_by: "Merci pour l'invitation, "
-        newhere: "nouveauici"
+        newhere: nouveauici
+        hello: 'Bonjour tout le monde, je suis #%{new_user_tag}. '
+        i_like: 'Mes centres d''intérêt sont %{tags}. '
+        invited_by: 'Merci pour l''invitation, '
       poll:
-        add_a_poll: "Ajouter un sondage"
-      posting: "Publication…"
-      remove_location: "Supprimer l'emplacement"
-      share: "Partager"
-      whats_on_your_mind: "Exprimez-vous..."
+        add_a_poll: Ajouter un sondage
+    invitations:
+      invites: Invitations
+      invite_your_friends: Invitez vos amis
+      by_email: Inviter des personnes par courrier électronique
+      share_this: Partagez ce lien par courriel, sur un blog ou via les réseaux sociaux !
+    public_explain:
+      control_your_audience: Contrôlez votre audience
+      new_user_welcome_message: 'Utilisez les #tags pour classer vos messages et trouver des personnes qui partagent vos intérêts. Interpellez des personnes géniales avec les @Mentions'
+      visibility_dropdown: Utilisez ce menu déroulant pour modifier la visibilité de votre message. (Nous vous conseillons de rendre public ce premier message.)
+      title: Mettre en place des services connectés
+      share: Partagez
+      outside: Les messages publics pourront être vus par tous, même en dehors de diaspora*.
+      logged_in: Connecté(e) à %{service}
+      manage: Gérer les services connectés
+      atom_feed: Flux Atom
     stream_element:
-      via: "Via %{link}"
-      via_mobile: "Envoyé depuis un mobile"
-  simple_captcha:
-    label: "Entrez le code dans le champ"
-    message:
-      default: "Le code fourni ne correspond pas à l'image"
-      failed: "La vérification anti-robot a échoué"
-      user: "L'image et le code sont différents"
-    placeholder: "Saisissez le contenu de l'image"
-  statistics:
-    active_users_halfyear: "Utilisateurs actifs ce semestre"
-    active_users_monthly: "Utilisateurs actifs par mois"
-    closed: "Fermé"
-    disabled: "Indisponible"
-    enabled: "Disponible"
-    local_comments: "Commentaires locaux"
-    local_posts: "Messages locaux"
-    name: "Nom"
-    network: "Réseau"
-    open: "Ouvert"
-    registrations: "Inscriptions"
-    services: "Services"
-    total_users: "Total d'utilisateurs"
-    version: "Version"
+      via: Via %{link}
+      via_mobile: Envoyé depuis un mobile
   status_messages:
-    bad_aspects: "Les identifiants d'aspects fournis ne sont pas valides (inexistants ou pas à vous)"
     new:
-      mentioning: "Mentionne : %{person}"
-    too_long: "Veillez à écrire un message de statut de %{count} caractères maximum. Il compte actuellement %{current_length} caractères."
+      mentioning: 'Mentionne : %{person}'
+    too_long: Veillez à écrire un message de statut de %{count} caractères maximum. Il compte actuellement %{current_length} caractères.
+    bad_aspects: Les identifiants d'aspects fournis ne sont pas valides (inexistants ou pas à vous)
   stream_helper:
-    no_more_posts: "Vous avez atteint la fin de ce flux."
-    no_posts_yet: "Il n'y a pas encore de message ici."
-  streams:
-    activity:
-      title: "Mon activité"
-    admin:
-      title: "Admin"
-    aspects:
-      all: "Tous les aspects"
-      title: "Mes aspects"
-    aspects_stream: "Aspects"
-    comment_stream:
-      title: "Messages commentés"
-    commented:
-      title: "Messages commentés"
-    community_spotlight_stream: "Actualités de la communauté"
-    followed_tag:
-      add_a_tag: "Ajouter un tag"
-      all: "Tous les tags"
-      follow: "Suivre"
-      title: "#Tags suivis"
-    followed_tags_stream: "#Tags suivis"
-    like_stream:
-      title: "Flux des éléments aimés"
-    liked:
-      title: "Messages aimés"
-    mentioned_stream: "@Mentions"
-    mentions:
-      title: "@Mentions"
-    multi:
-      title: "Flux"
-    public:
-      title: "Activité publique"
-    tags:
-      title: "Messages tagués : %{tags}"
+    no_more_posts: Vous avez atteint la fin de ce flux.
+    no_posts_yet: Il n'y a pas encore de message ici.
+  tags:
+    show:
+      tagged_people:
+        zero: Personne n'est marqué avec %{tag}
+        one: 1 personne marquée avec %{tag}
+        other: "%{count} personnes marquées avec %{tag}"
+      follow: 'Suivre #%{tag}'
+      stop_following: 'Arrêter de suivre #%{tag}'
+      none: Le tag vide n'existe pas !
+    name_too_long: Votre tag doit faire moins de %{count} caractères (actuellement, %{current_length})
   tag_followings:
     manage:
-      no_tags: "Vous ne suivez aucun tag."
-      title: "Gérer les tags suivis."
-  tags:
-    name_too_long: "Votre tag doit faire moins de %{count} caractères (actuellement, %{current_length})"
-    show:
-      follow: "Suivre #%{tag}"
-      none: "Le tag vide n'existe pas !"
-      stop_following: "Arrêter de suivre #%{tag}"
-      tagged_people:
-        one: "1 personne marquée avec %{tag}"
-        other: "%{count} personnes marquées avec %{tag}"
-        zero: "Personne n'est marqué avec %{tag}"
-  two_factor_auth:
-    activated:
-      change_button: "Désactiver"
-      change_label: "Désactivez la double authentification en saisissant votre mot de passe"
-      status: "La double authentification est activée"
-    confirm:
-      activate_button: "Confirmer et activer"
-      input_explanation: "Après avoir scanné ou saisi le secret, entrez le code à 6 chiffres affiché par l'application pour confirmer la mise en place de la double authentification."
-      input_title: "Confirmer avec un jeton TOTP"
-      manual_explanation: "Si vous ne pouvez pas scanner le code QR, vous pouvez saisir le secret manuellement dans votre application."
-      manual_explanation_cont: |-
-          Nous utilisons des codes à usage unique TOTP de 6 chiffres. Si votre application vous demande un intervalle de temps et un algorithme, choisissez 30 secondes et sha1 respectivement.<br />
-          Les espaces sont juste ajoutés par souci de lisibilité, merci de les ignorer à la saisie.
-      scan_explanation: "Merci de scanner le code QR avec une application TOTP, telle que andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
-      scan_title: "Scannez le code QR"
-      status: "La double authentification n'est pas encore complétement activée, vous devez confirmer l'activation avec un jeton TOTP"
-      title: "Confirmer l'activation"
-    deactivated:
-      change_button: "Activer"
-      change_label: "Activer la double authentification"
-      status: "Double authentification inactive"
-    explanation: "La double authentification est un moyen efficace de garantir que vous serez le seul à pouvoir vous identifier avec votre compte. À la connexion, vous saisirez un code à 6 chiffres en plus de votre mot de passe afin de prouver votre identité. Soyez prudent néanmoins : si vous égarez votre téléphone et vos codes de récupération créés à l'activation de cette fonctionnalité, vous perdrez définitivement l'accès à votre compte diaspora*."
-    flash:
-      error_token: "Le jeton est incorrect ou invalide"
-      success_activation: "Double authentification activée avec succès"
-      success_deactivation: "Double authentification désactivée avec succès"
-    input_token:
-      label: "Jeton de double authentification"
-      placeholder: "jeton de double authentification à 6 chiffres"
-    recovery:
-      button: "Générer des nouveaux codes de récupération"
-      explanation: "Si vous perdez l'accès à votre téléphone, vous pouvez utiliser l'un de ces codes de récupération pour récupérer l'accès à votre compte diaspora*. Gardez ces codes dans un lieu sûr. Par exemple, vous pouvez les imprimer et les ranger avec vos autres documents importants."
-      explanation_short: "Les codes de récupération vous permettent de récupérer l'accès à votre compte si vous perdez votre téléphone. Notez que chaque code de récupération ne peut être utilisé qu'une seule fois."
-      invalidation_notice: "Si vous avez perdu vos codes de récupération, vous pouvez les générer à nouveau ici. Vos précédents codes seront invalidés."
-      reminder: "Sinon, vous pouvez utiliser l'un de ces codes de récupération."
-      title: "Codes de récupération"
-    title: "Double authentification"
-  username: "Nom d'utilisateur"
+      title: Gérer les tags suivis.
+      no_tags: Vous ne suivez aucun tag.
+  streams:
+    community_spotlight_stream: Actualités de la communauté
+    aspects_stream: Aspects
+    mentioned_stream: "@Mentions"
+    followed_tags_stream: "#Tags suivis"
+    mentions:
+      title: "@Mentions"
+    comment_stream:
+      title: Messages commentés
+    like_stream:
+      title: Flux des éléments aimés
+    followed_tag:
+      title: "#Tags suivis"
+      add_a_tag: Ajouter un tag
+      follow: Suivre
+      all: Tous les tags
+    admin:
+      title: Admin
+    tags:
+      title: 'Messages tagués : %{tags}'
+    public:
+      title: Activité publique
+    multi:
+      title: Flux
+    aspects:
+      title: Mes aspects
+      all: Tous les aspects
+    activity:
+      title: Mon activité
+    liked:
+      title: Messages aimés
+    commented:
+      title: Messages commentés
   users:
-    confirm_email:
-      email_confirmed: "Adresse électronique %{email} activée"
-      email_not_confirmed: "L'adresse électronique n'a pas pu être activée. Lien erroné ?"
-    destroy:
-      no_password: "Veuillez introduire votre mot de passe actuel pour fermer votre compte."
-      success: "Votre compte est verrouillé. Cela peut nous prendre jusqu'à vingt minutes pour finaliser sa fermeture. Merci d'avoir essayé diaspora*."
-      wrong_password: "Le mot de passe saisi ne correspond pas à votre mot de passe actuel."
     edit:
-      also_commented: "…quelqu'un commente un message que vous avez déjà commenté."
-      auto_follow_aspect: "Aspect pour les utilisateurs que vous suivez automatiquement :"
-      auto_follow_back: "Suivre automatiquement en retour ceux qui vous suivent"
-      birthday: "c'est l'anniversaire de quelqu'un"
-      change: "Modifier"
-      change_color_theme: "Changer le thème de couleur"
-      change_email: "Changer d'adresse électronique"
-      change_language: "Changer la langue"
-      change_password: "Changer le mot de passe"
-      character_minimum_expl: "doit comporter au moins six caractères"
-      close_account:
-        dont_go: "Hé, s'il vous plaît, ne partez pas !"
-        lock_username: "Votre nom d'utilisateur sera bloqué. Vous ne pourrez pas créer un nouveau compte sur ce pod avec le même nom."
-        locked_out: "Vous serez déconnecté et votre compte sera inaccessible jusqu'à sa suppression."
-        make_diaspora_better: "Nous aimerions beaucoup que vous restiez pour nous aider à améliorer diaspora* plutôt que de nous quitter. Toutefois, si c'est vraiment ce que vous souhaitez, voilà ce qui va se passer :"
-        mr_wiggles: "Mr Wiggles sera triste de vous voir partir."
-        no_turning_back: "Il n'est pas possible de revenir en arrière ! Si vous êtes sûr de vous, saisissez votre mot de passe ci-dessous."
-        what_we_delete: "Nous supprimerons toutes vos publications et toutes les données de votre profil dès que possible. Vos commentaires sur les messages d'autres gens resteront visibles, mais seront associés à votre identifiant diaspora* plutôt qu'à votre nom."
-      close_account_text: "Fermer le compte"
-      comment_on_post: "…quelqu'un commente un de vos messages."
-      current_password: "Mot de passe actuel"
-      current_password_expl: "Celui avec lequel vous vous connectez ..."
-      default_post_visibility: "Aspects sélectionnés par défaut pour la publication"
-      download_export: "Télécharger mon profil"
-      download_export_photos: "Télécharger mes photos"
-      edit_account: "Modifier le compte"
-      email_awaiting_confirmation: "Nous vous avons envoyé un lien d'activation à %{unconfirmed_email}. Jusqu'à ce que vous suiviez ce lien et activiez la nouvelle adresse, nous allons continuer à utiliser votre adresse originale %{email}."
-      export_data: "Exporter des données"
-      export_in_progress: "Nous sommes en train de traiter vos données. Veuillez vérifier à nouveau l'avancement dans un moment."
-      export_photos_in_progress: "Nous sommes en train de traiter vos photos. Merci de revenir ici dans quelques instants."
-      following: "Paramètres de partage"
-      last_exported_html: "(Dernière mise à jour %{timeago})"
-      liked: "…quelqu'un a aimé votre message."
+      edit_account: Modifier le compte
+      change: Modifier
+      your_handle: Votre identifiant diaspora*
+      your_email: Votre adresse électronique
+      your_email_private: Votre email ne sera jamais vu par d'autres utilisateurs
+      change_email: Changer d'adresse électronique
+      email_awaiting_confirmation: Nous vous avons envoyé un lien d'activation à %{unconfirmed_email}. Jusqu'à ce que vous suiviez ce lien et activiez la nouvelle adresse, nous allons continuer à utiliser votre adresse originale %{email}.
+      change_password: Changer le mot de passe
+      new_password: Nouveau mot de passe
+      current_password: Mot de passe actuel
+      current_password_expl: Celui avec lequel vous vous connectez ...
+      character_minimum_expl: doit comporter au moins six caractères
+      change_language: Changer la langue
+      change_color_theme: Changer le thème de couleur
+      close_account_text: Fermer le compte
+      stream_preferences: Préférences du flux
+      show_community_spotlight: Afficher les actualités de la communauté dans votre flux
+      show_getting_started: Montrer les astuces de découverte
+      following: Paramètres de partage
+      auto_follow_back: Suivre automatiquement en retour ceux qui vous suivent
+      auto_follow_aspect: 'Aspect pour les utilisateurs que vous suivez automatiquement :'
+      default_post_visibility: Aspects sélectionnés par défaut pour la publication
+      receive_email_notifications: Recevoir des notifications par courrier électronique lorsque…
+      started_sharing: "…quelqu'un commence à partager avec vous."
+      someone_reported: "…quelqu'un a signalé un message"
       mentioned: "…l'on vous mentionne dans un message."
       mentioned_in_comment: "…vous êtes mentionné dans un commentaire"
-      new_password: "Nouveau mot de passe"
-      private_message: "…vous recevez un message privé."
-      protocol_handler:
-        browser: "Ce protocole est actuellement dans une phase expérimentale et la réussite des interactions via son utilisation peut dépendre de votre navigateur. Si vous souhaiter activer ou retirer la gestion de ce protocole, vous devez le faire via les paramètres de votre navigateur. Le bouton ci-dessous sera toujours activé, et vous devrez activer le gestionnaire dans chacun des navigateurs que vous utilisez."
-        description: "web+diaspora:// est un nouveau protocole web que nous avons créé. Tout lien vers une page diaspora* depuis un site externe qui utilise ce protocole pourra s'ouvrir via le pod sur lequel vous avez créé votre compte diaspora*. Cliquez sur le bouton ci-dessous pour configurer votre navigateur afin qu'il utilise %{pod_url} pour afficher les liens web+diaspora:// externes."
-        register: "Enregistrer le gestionnaire de protocole web+diaspora:// sur ce navigateur"
-        title: "Gestionnaire de protocole web+diaspora://"
-      receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
-      request_export: "Demander mes données de profil"
-      request_export_photos: "Demander mes photos"
-      request_export_photos_update: "Rafraichir mes photos."
-      request_export_update: "Rafraîchir mes données de profil"
+      liked: "…quelqu'un a aimé votre message."
       reshared: "…quelqu'un a repartagé votre message."
-      show_community_spotlight: "Afficher les actualités de la communauté dans votre flux"
-      show_getting_started: "Montrer les astuces de découverte"
-      someone_reported: "…quelqu'un a signalé un message"
-      started_sharing: "…quelqu'un commence à partager avec vous."
-      stream_preferences: "Préférences du flux"
-      your_email: "Votre adresse électronique"
-      your_email_private: "Votre email ne sera jamais vu par d'autres utilisateurs"
-      your_handle: "Votre identifiant diaspora*"
-    getting_started:
-      awesome_take_me_to_diaspora: "Impressionnant ! Guidez-moi vers diaspora*"
-      community_welcome: "La communauté diaspora* est heureuse de vous avoir à son bord !"
-      hashtag_explanation: "Les Hashtags vous permettent de parler de vos centres d'intérêt et de suivre ce qui s'en dit. Ils sont aussi un excellent moyen de rencontrer de nouvelles personnes sur diaspora*."
-      hashtag_suggestions: "Essayez de suivre des tags comme #art, #films, #french, etc."
-      well_hello_there: "Bienvenue !"
-      what_are_you_in_to: "Qu'aimez-vous faire ?"
-      who_are_you: "Qui êtes-vous ?"
+      comment_on_post: "…quelqu'un commente un de vos messages."
+      also_commented: "…quelqu'un commente un message que vous avez déjà commenté."
+      private_message: "…vous recevez un message privé."
+      birthday: c'est l'anniversaire de quelqu'un
+      download_export: Télécharger mon profil
+      request_export: Demander mes données de profil
+      request_export_update: Rafraîchir mes données de profil
+      export_data: Exporter des données
+      export_in_progress: Nous sommes en train de traiter vos données. Veuillez vérifier à nouveau l'avancement dans un moment.
+      last_exported_html: "(Dernière mise à jour %{timeago})"
+      download_export_photos: Télécharger mes photos
+      request_export_photos: Demander mes photos
+      request_export_photos_update: Rafraichir mes photos.
+      export_photos_in_progress: Nous sommes en train de traiter vos photos. Merci de revenir ici dans quelques instants.
+      close_account:
+        dont_go: Hé, s'il vous plaît, ne partez pas !
+        make_diaspora_better: 'Nous aimerions beaucoup que vous restiez pour nous aider à améliorer diaspora* plutôt que de nous quitter. Toutefois, si c''est vraiment ce que vous souhaitez, voilà ce qui va se passer :'
+        mr_wiggles: Mr Wiggles sera triste de vous voir partir.
+        what_we_delete: Nous supprimerons toutes vos publications et toutes les données de votre profil dès que possible. Vos commentaires sur les messages d'autres gens resteront visibles, mais seront associés à votre identifiant diaspora* plutôt qu'à votre nom.
+        locked_out: Vous serez déconnecté et votre compte sera inaccessible jusqu'à sa suppression.
+        lock_username: Votre nom d'utilisateur sera bloqué. Vous ne pourrez pas créer un nouveau compte sur ce pod avec le même nom.
+        no_turning_back: Il n'est pas possible de revenir en arrière ! Si vous êtes sûr de vous, saisissez votre mot de passe ci-dessous.
+      protocol_handler:
+        title: Gestionnaire de protocole web+diaspora://
+        description: web+diaspora:// est un nouveau protocole web que nous avons créé. Tout lien vers une page diaspora* depuis un site externe qui utilise ce protocole pourra s'ouvrir via le pod sur lequel vous avez créé votre compte diaspora*. Cliquez sur le bouton ci-dessous pour configurer votre navigateur afin qu'il utilise %{pod_url} pour afficher les liens web+diaspora:// externes.
+        browser: Ce protocole est actuellement dans une phase expérimentale et la réussite des interactions via son utilisation peut dépendre de votre navigateur. Si vous souhaiter activer ou retirer la gestion de ce protocole, vous devez le faire via les paramètres de votre navigateur. Le bouton ci-dessous sera toujours activé, et vous devrez activer le gestionnaire dans chacun des navigateurs que vous utilisez.
+        register: Enregistrer le gestionnaire de protocole web+diaspora:// sur ce navigateur
     privacy_settings:
-      ignored_users: "Utilisateurs ignorés"
-      no_user_ignored_message: "Vous n'ignorez actuellement aucun autre utilisateur"
-      stop_ignoring: "Arrêter d'ignorer"
-      strip_exif: "Retirer des images téléversées les métadonnées telles que lieu de prise, auteur et modèle d'appareil photo (recommandé)"
-      title: "Paramètres de confidentialité"
-    public:
-      does_not_exist: "L'utilisateur %{username} n'existe pas !"
+      title: Paramètres de confidentialité
+      strip_exif: Retirer des images téléversées les métadonnées telles que lieu de prise, auteur et modèle d'appareil photo (recommandé)
+      ignored_users: Utilisateurs ignorés
+      stop_ignoring: Arrêter d'ignorer
+      no_user_ignored_message: Vous n'ignorez actuellement aucun autre utilisateur
+    destroy:
+      success: Votre compte est verrouillé. Cela peut nous prendre jusqu'à vingt minutes pour finaliser sa fermeture. Merci d'avoir essayé diaspora*.
+      no_password: Veuillez introduire votre mot de passe actuel pour fermer votre compte.
+      wrong_password: Le mot de passe saisi ne correspond pas à votre mot de passe actuel.
+    getting_started:
+      well_hello_there: Bienvenue !
+      community_welcome: La communauté diaspora* est heureuse de vous avoir à son bord !
+      awesome_take_me_to_diaspora: Impressionnant ! Guidez-moi vers diaspora*
+      who_are_you: Qui êtes-vous ?
+      what_are_you_in_to: Qu'aimez-vous faire ?
+      hashtag_explanation: Les Hashtags vous permettent de parler de vos centres d'intérêt et de suivre ce qui s'en dit. Ils sont aussi un excellent moyen de rencontrer de nouvelles personnes sur diaspora*.
+      hashtag_suggestions: 'Essayez de suivre des tags comme #art, #films, #french, etc.'
     update:
-      color_theme_changed: "Thème de couleur changé."
-      color_theme_not_changed: "Une erreur s'est produite pendant le changement de thème de couleur."
-      email_notifications_changed: "Notifications par courriel modifiées"
-      follow_settings_changed: "Les paramètres de suivi ont été modifiés"
-      follow_settings_not_changed: "Échec de la modification des paramètres de suivi."
-      language_changed: "Langue mise à jour"
-      language_not_changed: "Échec lors de la mise à jour de la langue"
-      password_changed: "Mot de passe mis à jour. Vous pouvez maintenant vous identifier avec votre nouveau mot de passe."
-      password_not_changed: "Échec de la mise à jour du mot de passe"
-      settings_not_updated: "La mise à jour des paramètres a échoué"
-      settings_updated: "Mise à jour des paramètres"
-      unconfirmed_email_changed: "Adresse électronique changée. Activation nécessaire."
-      unconfirmed_email_not_changed: "Le changement d'adresse électronique a échoué"
+      password_changed: Mot de passe mis à jour. Vous pouvez maintenant vous identifier avec votre nouveau mot de passe.
+      password_not_changed: Échec de la mise à jour du mot de passe
+      language_changed: Langue mise à jour
+      language_not_changed: Échec lors de la mise à jour de la langue
+      settings_updated: Mise à jour des paramètres
+      settings_not_updated: La mise à jour des paramètres a échoué
+      email_notifications_changed: Notifications par courriel modifiées
+      unconfirmed_email_changed: Adresse électronique changée. Activation nécessaire.
+      unconfirmed_email_not_changed: Le changement d'adresse électronique a échoué
+      follow_settings_changed: Les paramètres de suivi ont été modifiés
+      follow_settings_not_changed: Échec de la modification des paramètres de suivi.
+      color_theme_changed: Thème de couleur changé.
+      color_theme_not_changed: Une erreur s'est produite pendant le changement de thème de couleur.
+    public:
+      does_not_exist: L'utilisateur %{username} n'existe pas !
+    confirm_email:
+      email_confirmed: Adresse électronique %{email} activée
+      email_not_confirmed: L'adresse électronique n'a pas pu être activée. Lien erroné ?
+  two_factor_auth:
+    title: Double authentification
+    explanation: 'La double authentification est un moyen efficace de garantir que vous serez le seul à pouvoir vous identifier avec votre compte. À la connexion, vous saisirez un code à 6 chiffres en plus de votre mot de passe afin de prouver votre identité. Soyez prudent néanmoins : si vous égarez votre téléphone et vos codes de récupération créés à l''activation de cette fonctionnalité, vous perdrez définitivement l''accès à votre compte diaspora*.'
+    activated:
+      status: La double authentification est activée
+      change_label: Désactivez la double authentification en saisissant votre mot de passe
+      change_button: Désactiver
+    deactivated:
+      status: Double authentification inactive
+      change_label: Activer la double authentification
+      change_button: Activer
+    confirm:
+      title: Confirmer l'activation
+      status: La double authentification n'est pas encore complétement activée, vous devez confirmer l'activation avec un jeton TOTP
+      scan_title: Scannez le code QR
+      scan_explanation: Merci de scanner le code QR avec une application TOTP, telle que andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS).
+      manual_explanation: Si vous ne pouvez pas scanner le code QR, vous pouvez saisir le secret manuellement dans votre application.
+      manual_explanation_cont: |-
+        Nous utilisons des codes à usage unique TOTP de 6 chiffres. Si votre application vous demande un intervalle de temps et un algorithme, choisissez 30 secondes et sha1 respectivement.<br />
+        Les espaces sont juste ajoutés par souci de lisibilité, merci de les ignorer à la saisie.
+      input_title: Confirmer avec un jeton TOTP
+      input_explanation: Après avoir scanné ou saisi le secret, entrez le code à 6 chiffres affiché par l'application pour confirmer la mise en place de la double authentification.
+      activate_button: Confirmer et activer
+    input_token:
+      label: Jeton de double authentification
+      placeholder: jeton de double authentification à 6 chiffres
+    recovery:
+      title: Codes de récupération
+      reminder: Sinon, vous pouvez utiliser l'un de ces codes de récupération.
+      explanation: Si vous perdez l'accès à votre téléphone, vous pouvez utiliser l'un de ces codes de récupération pour récupérer l'accès à votre compte diaspora*. Gardez ces codes dans un lieu sûr. Par exemple, vous pouvez les imprimer et les ranger avec vos autres documents importants.
+      explanation_short: Les codes de récupération vous permettent de récupérer l'accès à votre compte si vous perdez votre téléphone. Notez que chaque code de récupération ne peut être utilisé qu'une seule fois.
+      invalidation_notice: Si vous avez perdu vos codes de récupération, vous pouvez les générer à nouveau ici. Vos précédents codes seront invalidés.
+      button: Générer des nouveaux codes de récupération
+    flash:
+      success_activation: Double authentification activée avec succès
+      success_deactivation: Double authentification désactivée avec succès
+      error_token: Le jeton est incorrect ou invalide
   will_paginate:
-    next_label: "suivant &raquo;"
     previous_label: "&laquo; précédent"
+    next_label: suivant &raquo;
+  simple_captcha:
+    placeholder: Saisissez le contenu de l'image
+    label: Entrez le code dans le champ
+    message:
+      default: Le code fourni ne correspond pas à l'image
+      user: L'image et le code sont différents
+      failed: La vérification anti-robot a échoué
+  statistics:
+    name: Nom
+    network: Réseau
+    services: Services
+    total_users: Total d'utilisateurs
+    active_users_halfyear: Utilisateurs actifs ce semestre
+    active_users_monthly: Utilisateurs actifs par mois
+    local_posts: Messages locaux
+    local_comments: Commentaires locaux
+    version: Version
+    registrations: Inscriptions
+    enabled: Disponible
+    disabled: Indisponible
+    open: Ouvert
+    closed: Fermé

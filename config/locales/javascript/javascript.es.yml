@@ -6,310 +6,310 @@
 
 es:
   javascripts:
+    timeago:
+      prefixAgo: Hace
+      suffixAgo: hace
+      suffixFromNow: a partir de ahora
+      prefixFromNow: dentro de
+      inPast: Próximamente
+      seconds: menos de 1 minuto
+      minute: 1 minuto aproximadamente
+      minutes:
+        other: "%d minutos"
+      hour: 1 hora aproximadamente
+      hours:
+        other: "%d horas aproximadamente"
+      day: 1 día
+      days:
+        other: "%d días"
+      month: 1 mes aproximadamente
+      months:
+        other: "%d meses"
+      year: un año aproximadamente
+      years:
+        other: "%d años"
+      wordSeparator: " "
+    cancel: Cancelar
+    confirm_dialog: "¿Estás seguro?"
+    confirm_unload: Por favor, confirma que quieres abandonar esta página. Los datos que no hayas introducido, no serán guardados.
+    create: Crear
+    delete: Eliminar
+    ignore: Ignorar
+    report:
+      prompt: 'Por favor introduce un motivo:'
+      prompt_default: contenido ofensivo
+      name: Informar
+      status:
+        created: El informe fue creado correctamente
+        exists: El informe ya existe
+    ignore_user: "¿Ignorar a este usuario?"
+    ignore_failed: Imposible ignorar a este usuario
+    hide_post: Ocultar esta publicación?
+    hide_post_failed: Imposible ocultar esta publicación
+    remove_post: Borrar esta publicación?
+    unblock_failed: Falló el desbloqueo del usuario
+    and: "y"
+    comma: ","
+    edit: Editar
+    no_results: No se ha encontrado nada
+    show_all: Mostrar todo
+    admins:
+      dashboard:
+        up_to_date: "¡Tu pod está actualizado!"
+        outdated: Tu pod está obsoleto.
+        compare_versions: La última versión de diaspora* es <%= latestVersion %>, tu pod está ejecutando <%= podVersion %>.
+        error: Imposible determinar la última versión de diaspora*.
     admin:
       pods:
-        actions: "Acciones"
-        added: "Añadido"
-        check: "ejectutar test de conexión"
-        errors:
-          one: "El test de conexión ha devuelto un error en un pod."
-          other: "El test de conexión ha devuelto un error de <%= count %> pods."
-        follow_link: "abre enlace en el navegador"
-        last_check: "último chequeo:"
-        more_info: "muestra más información"
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL activado
+        ssl_disabled: SSL desactivado
+        added: Añadido
+        status: Estado
+        states:
+          unchecked: Desmarcado
+          no_errors: OK
+          dns_failed: Falló la resolución de nombres (DNS)
+          net_failed: Falló el intento de conexión
+          ssl_failed: Falló la conexión segura (SSL)
+          http_failed: Falló la conexión HTTP
+          version_failed: Imposible determinar la versión del software
+          unknown_error: Un error no identificado ha ocurrido durante el chequeo.
+        actions: Acciones
+        offline_since: 'Desconectado desde:'
+        last_check: 'último chequeo:'
+        more_info: muestra más información
+        check: ejectutar test de conexión
+        recheck:
+          success: El pod se acaba de chequear.
+          failure: No se ejecutó el chequeo.
+        follow_link: abre enlace en el navegador
+        no_info: No hay información adicional en este momento
+        server_software: 'Software del servidor:'
+        response_time: 'Tiempo de respuesta:'
         ms:
           one: "<%= count %> ms"
           other: "<%= count %> ms"
-        no_info: "No hay información adicional en este momento"
-        not_available: "no disponible"
-        offline_since: "Desconectado desde:"
-        pod: "Pod"
-        recheck:
-          failure: "No se ejecutó el chequeo."
-          success: "El pod se acaba de chequear."
-        response_time: "Tiempo de respuesta:"
-        server_software: "Software del servidor:"
-        ssl: "SSL"
-        ssl_disabled: "SSL desactivado"
-        ssl_enabled: "SSL activado"
-        states:
-          dns_failed: "Falló la resolución de nombres (DNS)"
-          http_failed: "Falló la conexión HTTP"
-          net_failed: "Falló el intento de conexión"
-          no_errors: "OK"
-          ssl_failed: "Falló la conexión segura (SSL)"
-          unchecked: "Desmarcado"
-          unknown_error: "Un error no identificado ha ocurrido durante el chequeo."
-          version_failed: "Imposible determinar la versión del software"
-        status: "Estado"
+        unknown: desconocido
+        not_available: no disponible
         unchecked:
-          one: "Todavía hay un pod que no ha sido chequeado del todo."
-          other: "Todavía hay <%= count %> pods que no han sido chequeados del todo."
-        unknown: "desconocido"
+          one: Todavía hay un pod que no ha sido chequeado del todo.
+          other: Todavía hay <%= count %> pods que no han sido chequeados del todo.
         version_failed:
-          one: "Hay un pod que no tiene versión (pod viejo, sin NodeInfo)."
-          other: "Hay <%= count %> pods que no tienen versión (pods viejos, sin NodeInfo)."
-    admins:
-      dashboard:
-        compare_versions: "La última versión de diaspora* es <%= latestVersion %>, tu pod está ejecutando <%= podVersion %>."
-        error: "Imposible determinar la última versión de diaspora*."
-        outdated: "Tu pod está obsoleto."
-        up_to_date: "¡Tu pod está actualizado!"
-    and: "y"
+          one: Hay un pod que no tiene versión (pod viejo, sin NodeInfo).
+          other: Hay <%= count %> pods que no tienen versión (pods viejos, sin NodeInfo).
+        errors:
+          one: El test de conexión ha devuelto un error en un pod.
+          other: El test de conexión ha devuelto un error de <%= count %> pods.
+    aspects:
+      name: Nombre
+      create:
+        add_a_new_aspect: Añade un nuevo aspecto
+        success: Se creó tu nuevo aspecto <%= name %>
+        failure: Error al crear el aspecto.
+    errors:
+      connection: No se ha podido establecer la conexión con el servidor.
+    contacts:
+      add_contact: Añadir contacto
+      remove_contact: Eliminar contacto
+      error_add: No se pudo añadir a <%= name %> al aspecto :(
+      error_remove: No se pudo eliminar <%= name %> del aspecto :(
+      search_no_results: No se encontraron contactos
+    my_activity: Mi Actividad
+    my_stream: Portada
+    my_aspects: Mis aspectos
+    publisher:
+      near_from: 'Cerca de: <%= location %>'
+      option: Respuesta
+      add_option: Añadir una respuesta
+      question: Pregunta
+      markdown_editor:
+        preview: Previsualización
+        write: Escribir
+        tooltips:
+          bold: Negritas
+          italic: Cursiva
+          heading: Encabezando
+          insert_link: Insertar enlace
+          insert_image: Insertar imagen
+          insert_ordered_list: Insertar lista ordenada
+          insert_unordered_list: Insertar lista sin ordenar
+          preview: Previsualizar mensaje
+          write: Editar mensaje
+          cancel: Cancelar mensaje
+          quote: Insertar comillas
+          code: Insertar código
+        texts:
+          strong: texto en negrita
+          italic: texto en cursiva
+          heading: texto de encabezado
+          insert_link_description_text: introduce la descripción del enlace aquí
+          insert_link_help_text: Insertar enlace aquí
+          insert_image_description_text: introduce la descripción de la imagen aquí
+          insert_image_help_text: Inserta el enlace de la imagen aquí
+          insert_image_title: introduce el título de la imagen aquí
+          list: lista el texto aquí
+          quote: texto entrecomillado aquí
+          code: código aquí
+      mention_success: Mencionaste correctamente <%= names %>
+    bookmarklet:
+      post_something: Publicar en Diaspora*
+      post_submit: Enviando mensaje...
+      post_success: Publicado! Cerrando ventana emergente...
     aspect_dropdown:
-      add_to_aspect: "Añadir contacto"
-      all_aspects: "Todos los aspectos"
-      error: "No podrás compartir con <%= name %>. ¿Estás ignorándole?"
-      error_remove: "No se pudo eliminar a <%= name %> del aspecto :("
+      add_to_aspect: Añadir contacto
+      select_aspects: Elige los aspectos
+      all_aspects: Todos los aspectos
+      updating: actualizando...
       mobile_row_checked: "<%= name %> (eliminar)"
       mobile_row_unchecked: "<%= name %> (añadir)"
-      select_aspects: "Elige los aspectos"
+      stopped_sharing_with: Ya no compartes más con <%= name %>.
       started_sharing_with: "¡Has empezado a compartir con <%= name %>!"
-      stopped_sharing_with: "Ya no compartes más con <%= name %>."
+      error: No podrás compartir con <%= name %>. ¿Estás ignorándole?
+      error_remove: No se pudo eliminar a <%= name %> del aspecto :(
       toggle:
-        one: "En <%= count %> aspecto"
-        other: "En <%= count %> aspectos"
-        zero: "Elige los aspectos"
-      updating: "actualizando..."
-    aspect_navigation:
-      add_an_aspect: "+ Añadir un aspecto"
-      deselect_all: "Desmarcar todos"
-      no_aspects: "No hay aspectos seleccionados"
-      select_all: "Marcar todos"
-    aspects:
-      create:
-        add_a_new_aspect: "Añade un nuevo aspecto"
-        failure: "Error al crear el aspecto."
-        success: "Se creó tu nuevo aspecto <%= name %>"
-      name: "Nombre"
-    bookmarklet:
-      post_something: "Publicar en Diaspora*"
-      post_submit: "Enviando mensaje..."
-      post_success: "Publicado! Cerrando ventana emergente..."
-    cancel: "Cancelar"
-    comma: ","
+        zero: Elige los aspectos
+        one: En <%= count %> aspecto
+        other: En <%= count %> aspectos
+    show_more: mostrar más
+    failed_to_post_message: "¡Error al publicar el mensaje!"
+    failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
     comments:
-      hide: "ocultar comentarios"
-      no_comments: "Aún no hay comentarios."
-      show: "mostrar todos los comentarios"
-    confirm_dialog: "¿Estás seguro?"
-    confirm_unload: "Por favor, confirma que quieres abandonar esta página. Los datos que no hayas introducido, no serán guardados."
-    contacts:
-      add_contact: "Añadir contacto"
-      error_add: "No se pudo añadir a <%= name %> al aspecto :("
-      error_remove: "No se pudo eliminar <%= name %> del aspecto :("
-      remove_contact: "Eliminar contacto"
-      search_no_results: "No se encontraron contactos"
+      show: mostrar todos los comentarios
+      hide: ocultar comentarios
+      no_comments: Aún no hay comentarios.
+    reshares:
+      successful: "¡Publicación compartida con éxito!"
+      post: "¿Compartir la publicación de <%= name %>?"
+    aspect_navigation:
+      select_all: Marcar todos
+      deselect_all: Desmarcar todos
+      no_aspects: No hay aspectos seleccionados
+      add_an_aspect: "+ Añadir un aspecto"
+    getting_started:
+      hey: "¡Hola, <%= name %>!"
+      no_tags: "¡Eh, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
+      alright_ill_wait: Está bien, esperaré.
+      preparing_your_stream: Preparando tus novedades personalizadas...
+    photo_uploader:
+      upload_photos: Subir fotos
+      looking_good: "¡Guau, estás increíble!"
+      completed: "<%= file %> completado"
+      error: Un problema a ocurrido mientras se cargaba el archivo <%= file %>
+      invalid_ext: "{file} tiene una extensión inválida. Solo se permiten {extensions}."
+      size_error: "{file} es demasiado grande, el tamaño máximo es de {sizeLimit}."
+      empty: "{file} está vacío, por favor selecciona otros archivos."
+    tags:
+      wasnt_that_interesting: 'Muy bien, supongo que #<%= tagName %> no era tan interesante...'
+    people:
+      not_found: "...y no se encontró a nadie."
+      mention: Mención
+      message: Mensaje
+      edit_my_profile: Editar mi perfil
+      stop_ignoring: Dejar de ignorar
+      helper:
+        is_sharing: "<%= name %> está compartiendo contigo"
+        is_not_sharing: "<%= name %> no está compartiendo contigo"
+    profile:
+      edit: editar
+      add_some: añadir algo
+      you_have_no_tags: "¡no tienes etiquetas!"
+      bio: Biografía
+      location: Ubicación
+      gender: Sexo
+      born: Cumpleaños
+      photos: Fotos
+      posts: Mensajes
     conversation:
       create:
         no_recipient: "¡Añade primero un destinatario!"
       new:
-        no_contacts: "Necesitas añadir algún contacto antes de empezar una conversación."
-    create: "Crear"
-    delete: "Eliminar"
-    edit: "Editar"
-    errors:
-      connection: "No se ha podido establecer la conexión con el servidor."
-    failed_to_post_message: "¡Error al publicar el mensaje!"
-    failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
-    getting_started:
-      alright_ill_wait: "Está bien, esperaré."
-      hey: "¡Hola, <%= name %>!"
-      no_tags: "¡Eh, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
-      preparing_your_stream: "Preparando tus novedades personalizadas..."
-    header:
-      admin: "Administrar"
-      close: "cerrar"
-      contacts: "Contactos"
-      conversations: "Conversaciones"
-      help: "Ayuda"
-      home: "Inicio"
-      log_out: "Salir"
-      mark_all_as_read: "Marcar todo como leído"
-      moderator: "Moderador"
-      notifications: "Notificaciones"
-      profile: "Perfil"
-      recent_notifications: "Notificaciones recientes"
-      search: "Buscar"
-      settings: "Ajustes"
-      switch_to_touch_optimized_mode: "Cambiar al modo optimizado para pantallas táctiles"
-      toggle_navigation: "Cambiar navegación"
-      view_all: "Ver todo"
-    hide_post: "Ocultar esta publicación?"
-    hide_post_failed: "Imposible ocultar esta publicación"
-    ignore: "Ignorar"
-    ignore_failed: "Imposible ignorar a este usuario"
-    ignore_user: "¿Ignorar a este usuario?"
-    my_activity: "Mi Actividad"
-    my_aspects: "Mis aspectos"
-    my_stream: "Portada"
-    no_results: "No se ha encontrado nada"
+        no_contacts: Necesitas añadir algún contacto antes de empezar una conversación.
     notifications:
-      mark_read: "Marcar como leído"
-      mark_unread: "Marcar como no leído"
+      mark_read: Marcar como leído
+      mark_unread: Marcar como no leído
       new_notifications:
-        one: "Tienes <%= count %> notificación sin leer."
-        other: "Tienes <%= count %> notificaciones sin leer."
-    people:
-      edit_my_profile: "Editar mi perfil"
-      helper:
-        is_not_sharing: "<%= name %> no está compartiendo contigo"
-        is_sharing: "<%= name %> está compartiendo contigo"
-      mention: "Mención"
-      message: "Mensaje"
-      not_found: "...y no se encontró a nadie."
-      stop_ignoring: "Dejar de ignorar"
-    photo_uploader:
-      completed: "<%= file %> completado"
-      empty: "{file} está vacío, por favor selecciona otros archivos."
-      error: "Un problema a ocurrido mientras se cargaba el archivo <%= file %>"
-      invalid_ext: "{file} tiene una extensión inválida. Solo se permiten {extensions}."
-      looking_good: "¡Guau, estás increíble!"
-      size_error: "{file} es demasiado grande, el tamaño máximo es de {sizeLimit}."
-      upload_photos: "Subir fotos"
+        one: Tienes <%= count %> notificación sin leer.
+        other: Tienes <%= count %> notificaciones sin leer.
+    stream:
+      hide: Ocultar publicación
+      public: Público
+      limited: Restringido
+      like: Me gusta
+      unlike: No me gusta
+      reshare: Compartir
+      comment: Comentar
+      original_post_deleted: Publicación original borrada por el autor.
+      show_nsfw_post: Mostrar publicación
+      show_nsfw_posts: Mostrar todas las publicaciones
+      hide_nsfw_posts: Ocultar publicaciones no aptas para todos los públicos
+      follow: Seguir
+      unfollow: Dejar de seguir
+      enable_post_notifications: Activa los avisos para esta publicación
+      disable_post_notifications: Desactiva los avisos para esta publicación
+      permalink: Enlace permanente
+      via: via <%= provider %>
+      no_posts_yet: Todavía no hay post para mostrar aquí.
+      likes:
+        zero: Esto gusta a <%= count %> personas
+        one: A <%= count %> persona le gusta
+        other: A <%= count %> personas les gusta
+      reshares:
+        zero: Compartido <%= count %> veces
+        one: Compartido <%= count %> vez
+        other: Compartido <%= count %> veces
+      comments:
+        zero: "<%= count %> comentarios"
+        one: "<%= count %> comentario"
+        other: "<%= count %> comentarios"
+      more_comments:
+        zero: Mostrar <%= count %> comentarios más
+        one: Mostrar <%= count %> comentario más
+        other: Mostrar <%= count %> comentarios más
+      followed_tag:
+        title: "#Etiquetas seguidas"
+        add_a_tag: Añadir una etiqueta
+        follow: Seguir
+      tags:
+        follow: 'Seguir #<%= tag %>'
+        following: 'Siguiendo #<%= tag %>'
+        stop_following: 'Dejar de seguir #<%= tag %>'
+        stop_following_confirm: "¿Dejar de seguir #<%= tag %>?"
+        follow_error: 'No se pudo seguir #<%= tag %> :('
+        stop_following_error: 'No se pudo dejar de seguir #<%= tag %> :('
+    header:
+      home: Inicio
+      profile: Perfil
+      contacts: Contactos
+      settings: Ajustes
+      help: Ayuda
+      admin: Administrar
+      moderator: Moderador
+      log_out: Salir
+      toggle_navigation: Cambiar navegación
+      switch_to_touch_optimized_mode: Cambiar al modo optimizado para pantallas táctiles
+      notifications: Notificaciones
+      conversations: Conversaciones
+      search: Buscar
+      recent_notifications: Notificaciones recientes
+      mark_all_as_read: Marcar todo como leído
+      view_all: Ver todo
+      close: cerrar
+    viewer:
+      reshared: Compartido
     poll:
-      answer_count:
-        one: "1 voto"
-        other: "<%=count%> votos"
-        zero: "Sin votos"
-      close_result: "Ocultar resultados"
+      vote: Votar
+      go_to_original_post: Puedes participar en esta encuesta en <%= original_post_link %>.
+      original_post: publicación original
+      result: Resultados
       count:
         one: "<%=count%> voto por ahora"
         other: "<%=count%> votos por ahora"
-      go_to_original_post: "Puedes participar en esta encuesta en <%= original_post_link %>."
-      original_post: "publicación original"
-      result: "Resultados"
-      show_result: "Mostrar resultados"
-      vote: "Votar"
-      your_vote: "Tu voto"
-    profile:
-      add_some: "añadir algo"
-      bio: "Biografía"
-      born: "Cumpleaños"
-      edit: "editar"
-      gender: "Sexo"
-      location: "Ubicación"
-      photos: "Fotos"
-      posts: "Mensajes"
-      you_have_no_tags: "¡no tienes etiquetas!"
-    publisher:
-      add_option: "Añadir una respuesta"
-      markdown_editor:
-        preview: "Previsualización"
-        texts:
-          code: "código aquí"
-          heading: "texto de encabezado"
-          insert_image_description_text: "introduce la descripción de la imagen aquí"
-          insert_image_help_text: "Inserta el enlace de la imagen aquí"
-          insert_image_title: "introduce el título de la imagen aquí"
-          insert_link_description_text: "introduce la descripción del enlace aquí"
-          insert_link_help_text: "Insertar enlace aquí"
-          italic: "texto en cursiva"
-          list: "lista el texto aquí"
-          quote: "texto entrecomillado aquí"
-          strong: "texto en negrita"
-        tooltips:
-          bold: "Negritas"
-          cancel: "Cancelar mensaje"
-          code: "Insertar código"
-          heading: "Encabezando"
-          insert_image: "Insertar imagen"
-          insert_link: "Insertar enlace"
-          insert_ordered_list: "Insertar lista ordenada"
-          insert_unordered_list: "Insertar lista sin ordenar"
-          italic: "Cursiva"
-          preview: "Previsualizar mensaje"
-          quote: "Insertar comillas"
-          write: "Editar mensaje"
-        write: "Escribir"
-      mention_success: "Mencionaste correctamente <%= names %>"
-      near_from: "Cerca de: <%= location %>"
-      option: "Respuesta"
-      question: "Pregunta"
-    remove_post: "Borrar esta publicación?"
-    report:
-      name: "Informar"
-      prompt: "Por favor introduce un motivo:"
-      prompt_default: "contenido ofensivo"
-      status:
-        created: "El informe fue creado correctamente"
-        exists: "El informe ya existe"
-    reshares:
-      post: "¿Compartir la publicación de <%= name %>?"
-      successful: "¡Publicación compartida con éxito!"
-    show_all: "Mostrar todo"
-    show_more: "mostrar más"
-    stream:
-      comment: "Comentar"
-      comments:
-        one: "<%= count %> comentario"
-        other: "<%= count %> comentarios"
-        zero: "<%= count %> comentarios"
-      disable_post_notifications: "Desactiva los avisos para esta publicación"
-      enable_post_notifications: "Activa los avisos para esta publicación"
-      follow: "Seguir"
-      followed_tag:
-        add_a_tag: "Añadir una etiqueta"
-        follow: "Seguir"
-        title: "#Etiquetas seguidas"
-      hide: "Ocultar publicación"
-      hide_nsfw_posts: "Ocultar publicaciones no aptas para todos los públicos"
-      like: "Me gusta"
-      likes:
-        one: "A <%= count %> persona le gusta"
-        other: "A <%= count %> personas les gusta"
-        zero: "Esto gusta a <%= count %> personas"
-      limited: "Restringido"
-      more_comments:
-        one: "Mostrar <%= count %> comentario más"
-        other: "Mostrar <%= count %> comentarios más"
-        zero: "Mostrar <%= count %> comentarios más"
-      no_posts_yet: "Todavía no hay post para mostrar aquí."
-      original_post_deleted: "Publicación original borrada por el autor."
-      permalink: "Enlace permanente"
-      public: "Público"
-      reshare: "Compartir"
-      reshares:
-        one: "Compartido <%= count %> vez"
-        other: "Compartido <%= count %> veces"
-        zero: "Compartido <%= count %> veces"
-      show_nsfw_post: "Mostrar publicación"
-      show_nsfw_posts: "Mostrar todas las publicaciones"
-      tags:
-        follow: "Seguir #<%= tag %>"
-        follow_error: "No se pudo seguir #<%= tag %> :("
-        following: "Siguiendo #<%= tag %>"
-        stop_following: "Dejar de seguir #<%= tag %>"
-        stop_following_confirm: "¿Dejar de seguir #<%= tag %>?"
-        stop_following_error: "No se pudo dejar de seguir #<%= tag %> :("
-      unfollow: "Dejar de seguir"
-      unlike: "No me gusta"
-      via: "via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante..."
-    timeago:
-      day: "1 día"
-      days:
-        other: "%d días"
-      hour: "1 hora aproximadamente"
-      hours:
-        other: "%d horas aproximadamente"
-      inPast: "Próximamente"
-      minute: "1 minuto aproximadamente"
-      minutes:
-        other: "%d minutos"
-      month: "1 mes aproximadamente"
-      months:
-        other: "%d meses"
-      prefixAgo: "Hace"
-      prefixFromNow: "dentro de"
-      seconds: "menos de 1 minuto"
-      suffixAgo: "hace"
-      suffixFromNow: "a partir de ahora"
-      wordSeparator: " "
-      year: "un año aproximadamente"
-      years:
-        other: "%d años"
-    unblock_failed: "Falló el desbloqueo del usuario"
-    viewer:
-      reshared: "Compartido"
+      answer_count:
+        zero: Sin votos
+        one: 1 voto
+        other: "<%=count%> votos"
+      show_result: Mostrar resultados
+      close_result: Ocultar resultados
+      your_vote: Tu voto

@@ -6,306 +6,306 @@
 
 hye:
   javascripts:
+    timeago:
+      prefixAgo: ''
+      suffixAgo: առաջ
+      suffixFromNow: հիմիկվանից սկսած
+      prefixFromNow: ''
+      seconds: վայրկյաններ
+      minute: մոտ մեկ րոպե
+      minutes:
+        one: 1 րոպե
+        other: "%d րոպե"
+      hour: մոտ մեկ ժամ
+      hours:
+        one: մոտ 1 ժամ
+        other: մոտ %d ժամ
+      day: մեկ օր
+      days:
+        one: 1 օր
+        other: "%d օր"
+      month: մոտ մեկ ամիս
+      months:
+        one: 1 ամիս
+        other: "%d ամիս"
+      year: մոտ մեկ տարի
+      years:
+        one: 1 տարի
+        other: "%d տարի"
+      wordSeparator: " "
+    cancel: Չեղարկել
+    confirm_dialog: Համոզվա՞ծ ես
+    confirm_unload: Հաստատիր, որ ուզում ես լքել այս էջը․ քո մուտքագրած տվյալները չեն պահպանվի։
+    create: Ստեղծել
+    delete: Ջնջել
+    ignore: Արհամարհել
+    report:
+      prompt: Խնդրում ենք մուտքագրիր պատճառը`
+      prompt_default: օրինակ՝ վիրավորական բովանդակություն
+      name: Բողոքել
+      status:
+        created: Բողոքը հաջողությամբ ստեղծվեց
+        exists: Բողոքը արդեն ստեղծված է
+    ignore_user: Արհամարհե՞լ այս օգտատիրոջը։
+    ignore_failed: Հնարավոր չեղավ արհամարհել այս մարդուն
+    hide_post: Թաքցնե՞լ այս գրառումը։
+    hide_post_failed: Չստացվեց թաքցնել այս գրառումը։
+    remove_post: Ջնջե՞լ այս գրառումը։
+    unblock_failed: Չստացվեց ապաարգելափակել այս օգտատիրոջը։
+    and: և
+    comma: ","
+    edit: Փոփոխել
+    no_results: Արդյունքներ չգտնվեցին։
+    admins:
+      dashboard:
+        up_to_date: Քո փոդն ուժի մեջ է։
+        outdated: Քո փոդի ժամկետն անց է։
+        compare_versions: դիասպորա*յի ամենաթարմ թողարկումը <%= latestVersion %>-ն է, քո փոդն աշխատում է <%= podVersion %>-ով։
+        error: Չստացվեց որոշել դիասպորա*յի ամենաթարմ վարկածը։
     admin:
       pods:
-        actions: "Գործողություններ"
-        added: "Ավելացված"
-        check: "կատարել կապի փորձարկում"
-        errors:
-          one: "Կապի փորձարկումը սխալանք տվեց մեկ փոդի համար։"
-          other: "Կապի փորձարկումը սխալանք տվեց <%= count %> փոդի համար։"
-        follow_link: "բացել հղումը զննիչում"
-        last_check: "վերջին ստուգումը՝"
+        pod: Փոդ
+        ssl: ԷսԷսԷլ
+        ssl_enabled: ԷսԷսԷլ-ն միացված է
+        ssl_disabled: ԷսԷսԷլ-ն անջատված է
+        added: Ավելացված
+        status: Վիճակ
+        states:
+          unchecked: Չստուգված
+          no_errors: Կարգին
+          ssl_failed: Անվտանգ կապը (ԷսԷսԷլ) ձախողվեց
+          http_failed: ԷյչԹիԹիՓի կապը ձախողվեց
+          version_failed: Անհնար է առբերել ծա-յի վարկածը
+        actions: Գործողություններ
+        offline_since: անցանց է սկսած՝
+        last_check: վերջին ստուգումը՝
+        check: կատարել կապի փորձարկում
+        recheck:
+          success: Փոդը հենց նոր նորից ստուգվեց։
+          failure: Ստուգումը չկատարվեց։
+        follow_link: բացել հղումը զննիչում
+        no_info: Այս պահին լրացուցիչ տեղեկատվություն հասանելի չէ
+        server_software: Սերվերի ծրագրակազմը՝
+        response_time: Արձագանքման ժամանակը՝
         ms:
           one: "<%= count %>մվ"
           other: "<%= count %>մվ"
-        no_info: "Այս պահին լրացուցիչ տեղեկատվություն հասանելի չէ"
-        not_available: "հասանելի չէ"
-        offline_since: "անցանց է սկսած՝"
-        pod: "Փոդ"
-        recheck:
-          failure: "Ստուգումը չկատարվեց։"
-          success: "Փոդը հենց նոր նորից ստուգվեց։"
-        response_time: "Արձագանքման ժամանակը՝"
-        server_software: "Սերվերի ծրագրակազմը՝"
-        ssl: "ԷսԷսԷլ"
-        ssl_disabled: "ԷսԷսԷլ-ն անջատված է"
-        ssl_enabled: "ԷսԷսԷլ-ն միացված է"
-        states:
-          http_failed: "ԷյչԹիԹիՓի կապը ձախողվեց"
-          no_errors: "Կարգին"
-          ssl_failed: "Անվտանգ կապը (ԷսԷսԷլ) ձախողվեց"
-          unchecked: "Չստուգված"
-          version_failed: "Անհնար է առբերել ծա-յի վարկածը"
-        status: "Վիճակ"
+        unknown: հայտնի չէ
+        not_available: հասանելի չէ
         unchecked:
-          one: "Դեռ եւս մեկ փոդ կա, որ ընդհանրապես չի ստուգվել։"
-          other: "Դեռ եւս <%= count %> փոդ կա, որ ընդհանրապես չեն ստուգվել։"
-        unknown: "հայտնի չէ"
+          one: Դեռ եւս մեկ փոդ կա, որ ընդհանրապես չի ստուգվել։
+          other: Դեռ եւս <%= count %> փոդ կա, որ ընդհանրապես չեն ստուգվել։
         version_failed:
-          one: "Էստեղ մեկ փոդ կա, որ չունի վարկած (հին փոդ է, ՆոուդԻնֆո չունի)։"
-          other: "Էստեղ <%= count %> փոդ կա, որ չունեն վարկած (հին փոդեր են, ՆոուդԻնֆո չունեն)։"
-    admins:
-      dashboard:
-        compare_versions: "դիասպորա*յի ամենաթարմ թողարկումը <%= latestVersion %>-ն է, քո փոդն աշխատում է <%= podVersion %>-ով։"
-        error: "Չստացվեց որոշել դիասպորա*յի ամենաթարմ վարկածը։"
-        outdated: "Քո փոդի ժամկետն անց է։"
-        up_to_date: "Քո փոդն ուժի մեջ է։"
-    and: "և"
+          one: Էստեղ մեկ փոդ կա, որ չունի վարկած (հին փոդ է, ՆոուդԻնֆո չունի)։
+          other: Էստեղ <%= count %> փոդ կա, որ չունեն վարկած (հին փոդեր են, ՆոուդԻնֆո չունեն)։
+        errors:
+          one: Կապի փորձարկումը սխալանք տվեց մեկ փոդի համար։
+          other: Կապի փորձարկումը սխալանք տվեց <%= count %> փոդի համար։
+    aspects:
+      name: Անուն
+      create:
+        add_a_new_aspect: Նոր խումբ ավելացնել
+        success: Քո նոր` <%= name %> խումբը ստեղծված է
+        failure: Չհաջողվեց խումբ ստեղծել։
+    errors:
+      connection: Չստացվեց կապ հաստատել սպասարկչի հետ։
+    contacts:
+      add_contact: Ավելացնել
+      remove_contact: Հեռացնել
+      error_add: Չստացվեց <%= name %>ին ավելացնել խմբում։ Ափսո՜ս։
+      error_remove: Չստացվեց հեռացնել <%= name %>-ին խմբից ։Չ
+      search_no_results: Ոչ ոք չգտնվեց
+    my_activity: Իմ գործունեությունը
+    my_stream: Լրահոս
+    my_aspects: Իմ խմբերը
+    publisher:
+      near_from: Գրառված է <%= location %>ից
+      option: Պատասխան
+      add_option: Պատասխան ավելացնել
+      question: Հարց
+      markdown_editor:
+        preview: Նախադիտել
+        write: Շարադրել
+        tooltips:
+          bold: Թավ
+          italic: Շեղ
+          heading: Վերնագիր
+          insert_link: Հղում տեղադրել
+          insert_image: Նկար տեղադրել
+          insert_ordered_list: Կանոնավոր ցուցակ ներմուծել
+          insert_unordered_list: Անկանոն ցուցակ ներմուծել
+          preview: Նախադիտել գրառումը
+          write: Խմբագրել գրառումը
+          cancel: Չեղարկել
+          quote: Մեջբերում անել
+          code: Կոդ ներմուծել
+        texts:
+          strong: թավատառ տեքստ
+          italic: շեղատառ տեքստ
+          heading: վերնագրի տեքստը
+          insert_link_description_text: հղման նկարագրությունն այստեղ
+          insert_link_help_text: Տեղադրիր հղումն այստեղ՝
+          insert_image_description_text: նկարի նկարագրությունն այստեղ
+          insert_image_help_text: Տեղադրիր նկարի հղումն այստեղ՝
+          insert_image_title: նկարի անունն այստեղ
+          list: լցրու ցուցակն այստեղ
+          quote: մեջբերիր այստեղ
+          code: կոդն այստեղ
+    bookmarklet:
+      post_something: Գրառել դիասպորա*յում
+      post_submit: Գրառվում է...
+      post_success: Գրառվե՜ց։ Փակում եմ պատուհանը։
     aspect_dropdown:
-      add_to_aspect: "Ավելացնել"
-      all_aspects: "Բոլոր խմբերը"
-      error: "Չի ստացվում կիսվել <%= name %>-ի հետ։ Գուցե արհամարհու՞մ ես նրան։"
-      error_remove: "Չստացվեց հեռացնել <%= name %>-ին խմբից ։Չ"
+      add_to_aspect: Ավելացնել
+      select_aspects: Ընտրել խմբերը
+      all_aspects: Բոլոր խմբերը
+      updating: թարմացվում է․․․
       mobile_row_checked: "<%= name %> (ջնջել)"
       mobile_row_unchecked: "<%= name %> (ավելացնել)"
-      select_aspects: "Ընտրել խմբերը"
-      started_sharing_with: "Սկսեցիր կիսվել <%= name %>-ի հետ։"
-      stopped_sharing_with: "Դու այլևս չես կիսվում <%= name %>-ի հետ։"
+      stopped_sharing_with: Դու այլևս չես կիսվում <%= name %>-ի հետ։
+      started_sharing_with: Սկսեցիր կիսվել <%= name %>-ի հետ։
+      error: Չի ստացվում կիսվել <%= name %>-ի հետ։ Գուցե արհամարհու՞մ ես նրան։
+      error_remove: Չստացվեց հեռացնել <%= name %>-ին խմբից ։Չ
       toggle:
+        zero: Ընտրել խմբերը
         one: "<%= count %> խմբում"
         other: "<%= count %> խմբում"
-        zero: "Ընտրել խմբերը"
-      updating: "թարմացվում է․․․"
-    aspect_navigation:
-      add_an_aspect: "+ Խումբ ավելացնել"
-      deselect_all: "Ապանշել ամբողջը"
-      no_aspects: "Ոչ մի խումբ ընտրված չէ"
-      select_all: "Նշել ամբողջը"
-    aspects:
-      create:
-        add_a_new_aspect: "Նոր խումբ ավելացնել"
-        failure: "Չհաջողվեց խումբ ստեղծել։"
-        success: "Քո նոր` <%= name %> խումբը ստեղծված է"
-      name: "Անուն"
-    bookmarklet:
-      post_something: "Գրառել դիասպորա*յում"
-      post_submit: "Գրառվում է..."
-      post_success: "Գրառվե՜ց։ Փակում եմ պատուհանը։"
-    cancel: "Չեղարկել"
-    comma: ","
+    show_more: Ցույց տալ ավելին
+    failed_to_post_message: Չհաջողվեց գրառում կատարել։
+    failed_to_remove: Չստացվեց ջնջել մուտքագրածը։
     comments:
-      hide: "Թաքցնել մեկնաբանությունները"
-      no_comments: "Մեկնաբանություններ դեռ չկան։"
-      show: "Ցույց տալ բոլոր մեկնաբանությունները"
-    confirm_dialog: "Համոզվա՞ծ ես"
-    confirm_unload: "Հաստատիր, որ ուզում ես լքել այս էջը․ քո մուտքագրած տվյալները չեն պահպանվի։"
-    contacts:
-      add_contact: "Ավելացնել"
-      error_add: "Չստացվեց <%= name %>ին ավելացնել խմբում։ Ափսո՜ս։"
-      error_remove: "Չստացվեց հեռացնել <%= name %>-ին խմբից ։Չ"
-      remove_contact: "Հեռացնել"
-      search_no_results: "Ոչ ոք չգտնվեց"
+      show: Ցույց տալ բոլոր մեկնաբանությունները
+      hide: Թաքցնել մեկնաբանությունները
+      no_comments: Մեկնաբանություններ դեռ չկան։
+    reshares:
+      successful: Գրառումը հաջողությամբ տարածվեց։
+      post: Տարածե՞լ <%= name %>-ի գրառումը։
+    aspect_navigation:
+      select_all: Նշել ամբողջը
+      deselect_all: Ապանշել ամբողջը
+      no_aspects: Ոչ մի խումբ ընտրված չէ
+      add_an_aspect: "+ Խումբ ավելացնել"
+    getting_started:
+      hey: Հե՜յ, <%= name %>։
+      no_tags: Հե՜յ, ոչ մի պիտակ չնշեցիր։ Շարունակե՞նք ամեն դեպքում։
+      alright_ill_wait: Դե լավ, ես կսպասեմ։
+      preparing_your_stream: Նախապատրաստում ենք քո անհատական լրահոսը...
+    photo_uploader:
+      upload_photos: Վերբեռնել նկարները
+      looking_good: Օ՜, աստվածներ, հիանալի տեսք ունես։
+      completed: "<%= file %> պատրաստ է"
+      error: Խնդիրներ առաջացան <%= file %> նիշքը վերբեռնելու ժամանակ
+      invalid_ext: "{file}-ը անհամապատասխան ընդլայնման է։ Միայն {extensions} են թույլատրվում։"
+      size_error: "{file}-ը չափից դուրս մեծ է, առավելագույն չափն է՝ {sizeLimit}։"
+      empty: "{file}-ը դատարկ է, կրկին ընտրիր ֆայլերը առանց դրա։"
+    tags:
+      wasnt_that_interesting: 'Լավ, ենթադրում եմ, որ #<%= tagName %> պիտակը էդքան էլ հետքրքիր չէր...'
+    people:
+      not_found: "... և ոչ ոք չգտնվեց"
+      mention: Նշել
+      message: Նամակել
+      edit_my_profile: Խմբագրել իմ էջը
+      stop_ignoring: Դադարել արհամարհել
+      helper:
+        is_sharing: "<%= name %> կիսվում է քո հետ"
+        is_not_sharing: "<%= name %> չի կիսվում քո հետ"
+    profile:
+      edit: Փոփոխել
+      add_some: Ավելացնե՞լ
+      you_have_no_tags: Որևէ պիտակով չես նշել քեզ։
+      bio: Մասին
+      location: Տեղակայություն
+      gender: Սեռ
+      born: Ծննդյան ամսաթիվ
+      photos: Նկարներ
+      posts: Գրառումներ
     conversation:
       create:
-        no_recipient: "Հեյ, բա հասցեատե՞րը։"
+        no_recipient: Հեյ, բա հասցեատե՞րը։
       new:
-        no_contacts: "Նախքան զրույց սկսելը պետք է գոնե մեկին ավելացնես։"
-    create: "Ստեղծել"
-    delete: "Ջնջել"
-    edit: "Փոփոխել"
-    errors:
-      connection: "Չստացվեց կապ հաստատել սպասարկչի հետ։"
-    failed_to_post_message: "Չհաջողվեց գրառում կատարել։"
-    failed_to_remove: "Չստացվեց ջնջել մուտքագրածը։"
-    getting_started:
-      alright_ill_wait: "Դե լավ, ես կսպասեմ։"
-      hey: "Հե՜յ, <%= name %>։"
-      no_tags: "Հե՜յ, ոչ մի պիտակ չնշեցիր։ Շարունակե՞նք ամեն դեպքում։"
-      preparing_your_stream: "Նախապատրաստում ենք քո անհատական լրահոսը..."
-    header:
-      admin: "Ադմին"
-      close: "Փակել"
-      contacts: "Կապեր"
-      conversations: "Զրույցներ"
-      help: "Օգնություն"
-      home: "Գլխավոր էջ"
-      log_out: "Ելք"
-      mark_all_as_read: "Նշել ամբողջը որպես ընթերցված"
-      moderator: "Մոդերատոր"
-      notifications: "Ծանուցումներ"
-      profile: "Անձնական էջ"
-      recent_notifications: "Վերջին ծանուցումները"
-      search: "Որոնում"
-      settings: "Կարգավորումներ"
-      view_all: "Ցուցադրել ամբողջը"
-    hide_post: "Թաքցնե՞լ այս գրառումը։"
-    hide_post_failed: "Չստացվեց թաքցնել այս գրառումը։"
-    ignore: "Արհամարհել"
-    ignore_failed: "Հնարավոր չեղավ արհամարհել այս մարդուն"
-    ignore_user: "Արհամարհե՞լ այս օգտատիրոջը։"
-    my_activity: "Իմ գործունեությունը"
-    my_aspects: "Իմ խմբերը"
-    my_stream: "Լրահոս"
-    no_results: "Արդյունքներ չգտնվեցին։"
+        no_contacts: Նախքան զրույց սկսելը պետք է գոնե մեկին ավելացնես։
     notifications:
-      mark_read: "Նշել որպես նայած"
-      mark_unread: "Նշել որպես չընթերցված"
+      mark_read: Նշել որպես նայած
+      mark_unread: Նշել որպես չընթերցված
       new_notifications:
         one: "<%= count %> չկարդացած ծանուցում ունես"
         other: "<%= count %> չկարդացած ծանուցում ունես"
-    people:
-      edit_my_profile: "Խմբագրել իմ էջը"
-      helper:
-        is_not_sharing: "<%= name %> չի կիսվում քո հետ"
-        is_sharing: "<%= name %> կիսվում է քո հետ"
-      mention: "Նշել"
-      message: "Նամակել"
-      not_found: "... և ոչ ոք չգտնվեց"
-      stop_ignoring: "Դադարել արհամարհել"
-    photo_uploader:
-      completed: "<%= file %> պատրաստ է"
-      empty: "{file}-ը դատարկ է, կրկին ընտրիր ֆայլերը առանց դրա։"
-      error: "Խնդիրներ առաջացան <%= file %> նիշքը վերբեռնելու ժամանակ"
-      invalid_ext: "{file}-ը անհամապատասխան ընդլայնման է։ Միայն {extensions} են թույլատրվում։"
-      looking_good: "Օ՜, աստվածներ, հիանալի տեսք ունես։"
-      size_error: "{file}-ը չափից դուրս մեծ է, առավելագույն չափն է՝ {sizeLimit}։"
-      upload_photos: "Վերբեռնել նկարները"
-    poll:
-      answer_count:
-        one: "1 ձայն"
-        other: "<%=count%> ձայն"
-        zero: "քվեարկող չի եղել"
-      close_result: "Թաքցնել արդյունքը"
-      count:
-        one: "առայժմ 1 ձայն"
-        other: "առայժմ <%=count%> ձայն"
-      go_to_original_post: "Կարող ես մասնակցել այս հարցմանը <%= original_post_link %>։"
-      original_post: "բնօրինակ գրառումում"
-      result: "Արդյունքները"
-      show_result: "Ցուցադրել արդյունքը"
-      vote: "Քվեարկել"
-      your_vote: "Քո քվեարկությունը"
-    profile:
-      add_some: "Ավելացնե՞լ"
-      bio: "Մասին"
-      born: "Ծննդյան ամսաթիվ"
-      edit: "Փոփոխել"
-      gender: "Սեռ"
-      location: "Տեղակայություն"
-      photos: "Նկարներ"
-      posts: "Գրառումներ"
-      you_have_no_tags: "Որևէ պիտակով չես նշել քեզ։"
-    publisher:
-      add_option: "Պատասխան ավելացնել"
-      markdown_editor:
-        preview: "Նախադիտել"
-        texts:
-          code: "կոդն այստեղ"
-          heading: "վերնագրի տեքստը"
-          insert_image_description_text: "նկարի նկարագրությունն այստեղ"
-          insert_image_help_text: "Տեղադրիր նկարի հղումն այստեղ՝"
-          insert_image_title: "նկարի անունն այստեղ"
-          insert_link_description_text: "հղման նկարագրությունն այստեղ"
-          insert_link_help_text: "Տեղադրիր հղումն այստեղ՝"
-          italic: "շեղատառ տեքստ"
-          list: "լցրու ցուցակն այստեղ"
-          quote: "մեջբերիր այստեղ"
-          strong: "թավատառ տեքստ"
-        tooltips:
-          bold: "Թավ"
-          cancel: "Չեղարկել"
-          code: "Կոդ ներմուծել"
-          heading: "Վերնագիր"
-          insert_image: "Նկար տեղադրել"
-          insert_link: "Հղում տեղադրել"
-          insert_ordered_list: "Կանոնավոր ցուցակ ներմուծել"
-          insert_unordered_list: "Անկանոն ցուցակ ներմուծել"
-          italic: "Շեղ"
-          preview: "Նախադիտել գրառումը"
-          quote: "Մեջբերում անել"
-          write: "Խմբագրել գրառումը"
-        write: "Շարադրել"
-      near_from: "Գրառված է <%= location %>ից"
-      option: "Պատասխան"
-      question: "Հարց"
-    remove_post: "Ջնջե՞լ այս գրառումը։"
-    report:
-      name: "Բողոքել"
-      prompt: "Խնդրում ենք մուտքագրիր պատճառը`"
-      prompt_default: "օրինակ՝ վիրավորական բովանդակություն"
-      status:
-        created: "Բողոքը հաջողությամբ ստեղծվեց"
-        exists: "Բողոքը արդեն ստեղծված է"
-    reshares:
-      post: "Տարածե՞լ <%= name %>-ի գրառումը։"
-      successful: "Գրառումը հաջողությամբ տարածվեց։"
-    show_more: "Ցույց տալ ավելին"
     stream:
-      comment: "Մեկնաբանել"
-      comments:
-        one: "<%= count %> մեկնաբանություն"
-        other: "<%= count %> մեկնաբանություն"
-        zero: "<%= count %> մեկնաբանություն"
-      disable_post_notifications: "Դադարեցնել ծանուցումները այս գրառումից"
-      enable_post_notifications: "Ծանուցումներ ստանալ այս գրառումից"
-      follow: "Հետևել"
-      followed_tag:
-        add_a_tag: "Պիտակ ավելացնել"
-        follow: "Հետևել"
-        title: "#Հետևվող_պիտակներ"
-      hide: "Թաքցնել"
-      hide_nsfw_posts: "Թաքցնել #քըխ գրառումները"
-      like: "Հավանել"
+      hide: Թաքցնել
+      public: Հրապարակային
+      limited: Փակ
+      like: Հավանել
+      unlike: Ապահավանել
+      reshare: Տարածել
+      comment: Մեկնաբանել
+      original_post_deleted: Հեղինակը ջնջել է բնօրինակը
+      show_nsfw_post: Ցույց տալ գրառումը
+      show_nsfw_posts: Ցույց տալ բոլորը
+      hide_nsfw_posts: 'Թաքցնել #քըխ գրառումները'
+      follow: Հետևել
+      unfollow: Չհետևել
+      enable_post_notifications: Ծանուցումներ ստանալ այս գրառումից
+      disable_post_notifications: Դադարեցնել ծանուցումները այս գրառումից
+      permalink: Սկզբնաղբյուր
+      via: "<%= provider %>-ի միջոցով"
+      no_posts_yet: Ցուցադրելու գրառումներ դեռ չկան։
       likes:
+        zero: Ոչ ոք չի հավանել
         one: "<%= count %> հոգի հավանել է"
         other: "<%= count %> հոգի հավանել են"
-        zero: "Ոչ ոք չի հավանել"
-      limited: "Փակ"
-      more_comments:
-        one: "Ցույց տալ ևս <%= count %> մեկնաբանություն"
-        other: "Ցույց տալ ևս <%= count %> մեկնաբանություն"
-        zero: "Ցույց տալ ևս <%= count %> մեկնաբանություն"
-      no_posts_yet: "Ցուցադրելու գրառումներ դեռ չկան։"
-      original_post_deleted: "Հեղինակը ջնջել է բնօրինակը"
-      permalink: "Սկզբնաղբյուր"
-      public: "Հրապարակային"
-      reshare: "Տարածել"
       reshares:
+        zero: Ոչ ոք չի տարածել
         one: "<%= count %> հոգի տարածել է"
         other: "<%= count %> հոգի տարածել են"
-        zero: "Ոչ ոք չի տարածել"
-      show_nsfw_post: "Ցույց տալ գրառումը"
-      show_nsfw_posts: "Ցույց տալ բոլորը"
+      comments:
+        zero: "<%= count %> մեկնաբանություն"
+        one: "<%= count %> մեկնաբանություն"
+        other: "<%= count %> մեկնաբանություն"
+      more_comments:
+        zero: Ցույց տալ ևս <%= count %> մեկնաբանություն
+        one: Ցույց տալ ևս <%= count %> մեկնաբանություն
+        other: Ցույց տալ ևս <%= count %> մեկնաբանություն
+      followed_tag:
+        title: "#Հետևվող_պիտակներ"
+        add_a_tag: Պիտակ ավելացնել
+        follow: Հետևել
       tags:
-        follow: "Հետևել #<%= tag %>"
-        follow_error: "Չստացվեց հետևել #<%= tag %>"
-        following: "Հետևում ես #<%= tag %>"
-        stop_following: "Դադարել հետևել #<%= tag %>"
-        stop_following_confirm: "Դադարեցնե՞լ հետևել #<%= tag %>։"
-        stop_following_error: "Չստացվեց դադարեցնել հետևել #<%= tag %>"
-      unfollow: "Չհետևել"
-      unlike: "Ապահավանել"
-      via: "<%= provider %>-ի միջոցով"
-    tags:
-      wasnt_that_interesting: "Լավ, ենթադրում եմ, որ #<%= tagName %> պիտակը էդքան էլ հետքրքիր չէր..."
-    timeago:
-      day: "մեկ օր"
-      days:
-        one: "1 օր"
-        other: "%d օր"
-      hour: "մոտ մեկ ժամ"
-      hours:
-        one: "մոտ 1 ժամ"
-        other: "մոտ %d ժամ"
-      minute: "մոտ մեկ րոպե"
-      minutes:
-        one: "1 րոպե"
-        other: "%d րոպե"
-      month: "մոտ մեկ ամիս"
-      months:
-        one: "1 ամիս"
-        other: "%d ամիս"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "վայրկյաններ"
-      suffixAgo: "առաջ"
-      suffixFromNow: "հիմիկվանից սկսած"
-      wordSeparator: " "
-      year: "մոտ մեկ տարի"
-      years:
-        one: "1 տարի"
-        other: "%d տարի"
-    unblock_failed: "Չստացվեց ապաարգելափակել այս օգտատիրոջը։"
+        follow: 'Հետևել #<%= tag %>'
+        following: 'Հետևում ես #<%= tag %>'
+        stop_following: 'Դադարել հետևել #<%= tag %>'
+        stop_following_confirm: 'Դադարեցնե՞լ հետևել #<%= tag %>։'
+        follow_error: 'Չստացվեց հետևել #<%= tag %>'
+        stop_following_error: 'Չստացվեց դադարեցնել հետևել #<%= tag %>'
+    header:
+      home: Գլխավոր էջ
+      profile: Անձնական էջ
+      contacts: Կապեր
+      settings: Կարգավորումներ
+      help: Օգնություն
+      admin: Ադմին
+      moderator: Մոդերատոր
+      log_out: Ելք
+      notifications: Ծանուցումներ
+      conversations: Զրույցներ
+      search: Որոնում
+      recent_notifications: Վերջին ծանուցումները
+      mark_all_as_read: Նշել ամբողջը որպես ընթերցված
+      view_all: Ցուցադրել ամբողջը
+      close: Փակել
     viewer:
-      reshared: "Տարածվել է"
+      reshared: Տարածվել է
+    poll:
+      vote: Քվեարկել
+      go_to_original_post: Կարող ես մասնակցել այս հարցմանը <%= original_post_link %>։
+      original_post: բնօրինակ գրառումում
+      result: Արդյունքները
+      count:
+        one: առայժմ 1 ձայն
+        other: առայժմ <%=count%> ձայն
+      answer_count:
+        zero: քվեարկող չի եղել
+        one: 1 ձայն
+        other: "<%=count%> ձայն"
+      show_result: Ցուցադրել արդյունքը
+      close_result: Թաքցնել արդյունքը
+      your_vote: Քո քվեարկությունը

@@ -6,224 +6,224 @@
 
 en_valspeak:
   javascripts:
-    admins:
-      dashboard:
-        outdated: "ur pod is old bruh.. :/"
-    and: "n"
-    aspect_dropdown:
-      add_to_aspect: "Add BFF"
-      all_aspects: "All aspectz"
-      error: "So like, couldnt start sharin wit <%= name %>.  R u like, blockin them?"
-      error_remove: "so like, i couldnt remove <%= name %> from the aspect :( sry bout that :("
-      select_aspects: "Pick aspectz"
-      started_sharing_with: "U have started sharin wit <%= name %>! :DD"
-      stopped_sharing_with: "U stopped sharin wit <%= name %>."
-      toggle:
-        one: "In <%= count %> aspect <3"
-        other: "In like, <%= count %> aspectz"
-        zero: "Pick aspectz"
-      updating: "updatin..."
-    aspect_navigation:
-      add_an_aspect: "+ Add an aspect!!!"
-      deselect_all: "Unhighlight all"
-      no_aspects: "No aspectz picked"
-      select_all: "Highlight all"
-    aspects:
-      create:
-        add_a_new_aspect: "Add a new aspectttttt"
-      name: "Nameee"
-    bookmarklet:
-      post_something: "Make a postie to d*!!"
-      post_submit: "Submitting postie... hold up..."
-      post_success: "Posted!!! Closin popup windowww... <3"
-    cancel: "Cancleee"
-    comma: ","
-    comments:
-      hide: "hide commentz"
-      no_comments: "Theres no commentz yet. :("
-      show: "show all commentz"
-    confirm_dialog: "R u like... fer sure?"
-    contacts:
-      add_contact: "Add BFF"
-      error_add: "Couldnt like... add <%= name %> 2 the aspect :(("
-      error_remove: "Couldnt like... trash <%= name %> from the aspect :(("
-      remove_contact: "Remove BFF"
-    conversation:
-      new:
-        no_contacts: "So like, u got to add some ppl before u can start a convo..."
-    delete: "Trash"
-    edit: "Edit!"
-    failed_to_post_message: "so like, i couldnt post txt... sry bout tht... :\\"
-    failed_to_remove: "So like, there was an issue when removin the entry... sry bout that :\\"
-    getting_started:
-      alright_ill_wait: "Aight, ill hold up."
-      hey: "Ohai, <%= name %>!"
-      no_tags: "Ohai! u havent like, followed ne tags!  Continue neway? :)"
-      preparing_your_stream: "Preparin ur Wall thingy..."
-    header:
-      admin: "The man"
-      close: "byez"
-      contacts: "Besties!"
-      conversations: "Convoz!"
-      help: "Halp"
-      home: "Homee"
-      log_out: "Bounce"
-      mark_all_as_read: "Read them all"
-      moderator: "MODS MODS"
-      notifications: "Noties"
-      profile: "Profilee"
-      recent_notifications: "Recent Noties"
-      search: "Look for"
-      settings: "Settins"
-      view_all: "Look at all"
-    hide_post: "hide the postie?"
-    hide_post_failed: "Cant hide this postie :/"
-    ignore: "Block"
-    ignore_failed: "Cant block this h8ter :\\"
-    ignore_user: "Ignore this h8ter?"
-    my_activity: "My Happenins"
-    my_aspects: "My Aspectz"
-    my_stream: "Wall"
-    no_results: "So like, no resultz were found... sry bout tht :\\"
-    notifications:
-      mark_read: "Seen it"
-      mark_unread: "Havent seen it"
-    people:
-      edit_my_profile: "Edit mah profile!!"
-      helper:
-        is_not_sharing: "<%= name %> is not like... sharin wit u :( lame.."
-        is_sharing: "Like, OMG! <%= name %> is sharin wit u!!! :DD"
-      mention: "Mentionnn <3"
-      message: "Txt"
-      not_found: "nothing was found... not even my shoes :("
-      stop_ignoring: "Stop ignorin"
-    photo_uploader:
-      completed: "<%= file %> completed!!! YAY!"
-      empty: "{file} is like, empty... plz pick the file again witout it. Kay?"
-      error: "So like, there was an issue when like, uploadin file <%= file %>... sry bout tht... :\\"
-      invalid_ext: "{file} like, has an extension that is like... not valid. Only like, {extensions} r allowed, kay?"
-      looking_good: "OMG, u look totally awesome! :D <3"
-      size_error: "{file} is like... 2 big, the biggest size i can take is {sizeLimit}. Kay?(;"
-    poll:
-      close_result: "Stop peekin at result...O_O"
-      count:
-        one: "1 vote so far!!(:"
-        other: "OMG! u have like... <%=count%> votes so far!!! :DDD"
-      result: "Like... the results"
-      show_result: "Peek at result...shh"
-      vote: "Make a differenceeee"
-    profile:
-      add_some: "add summ<3"
-      bio: "All about meeee <333"
-      born: "Bday"
-      edit: "edit!"
-      gender: "So Im like..."
-      location: "My crib"
-      photos: "Pics and selfies <3"
-      posts: "Posties!!"
-      you_have_no_tags: "u like... have no tagz!"
-    publisher:
-      add_option: "Like, add an ansah!"
-      markdown_editor:
-        preview: "show!!"
-        texts:
-          code: "code here"
-          heading: "headin text"
-          insert_image_description_text: "put the pic description here!!"
-          insert_image_help_text: "Put pic linky here!!"
-          insert_image_title: "put pic title here!!"
-          insert_link_description_text: "enter the linky's description here!!"
-          insert_link_help_text: "add linky here"
-          italic: "slanty text"
-          list: "list txt here!!"
-          quote: "quote txt here!!"
-          strong: "buff text"
-        tooltips:
-          bold: "Bowled"
-          code: "Add some code bruh"
-          heading: "Headingg!!"
-          insert_image: "Add a pic!!"
-          insert_link: "Add a linky!"
-          insert_ordered_list: "Add an ordered listy!"
-          insert_unordered_list: "Add an unordered listy!!"
-          italic: "Slanted"
-          quote: "Add a quote or two!![:"
-        write: "Type!!"
-      near_from: "Postie from: <%= location %>"
-      option: "Mah ansah<3"
-      question: "Question!!!"
-    remove_post: "Remove the postie?"
-    report:
-      name: "Tattle on"
-      prompt: "Plz say y:"
-      prompt_default: "groody content"
-      status:
-        created: "The report was like, created. Yay."
-        exists: "The report like, already existz..."
-    reshares:
-      post: "do u wanna like, reshare <%= name %>'s postie?"
-      successful: "The postie was reshared!!! :D"
-    show_more: "show moar"
-    stream:
-      comment: "Comment!!"
-      follow: "Stalk"
-      followed_tag:
-        add_a_tag: "Add a tag!!"
-        follow: "Folloe!!"
-        title: "#Followed Tagz"
-      hide: "Hyde"
-      hide_nsfw_posts: "Hide #groody posties. Gag me with a spoon!"
-      like: "<3"
-      likes:
-        one: "<%= count %> like!!(:"
-        other: "OMG! dis got like... <%= count %> likez!!! :DDD"
-        zero: "<%= count %> likes :("
-      limited: "Limitedd"
-      more_comments:
-        one: "Show like, <%= count %> more comment"
-        other: "Show liek, <%= count %> more commentz"
-        zero: "Show <%= count %> more commentz"
-      original_post_deleted: "so like, the original postie was trashed by the maker of it :\\"
-      public: "Internetz"
-      reshare: "Reshar"
-      reshares:
-        one: "<%= count %> Reshare!!!(:"
-        other: "OMG!! <%= count %> reshares!!! :DDD"
-        zero: "<%= count%> Reshares :("
-      show_nsfw_post: "Show postie"
-      show_nsfw_posts: "Show allll"
-      tags:
-        follow: "Follow #<%= tag %>!!"
-        following: "Followin #<%= tag %>"
-        stop_following: "Stop followin #<%= tag %>"
-        stop_following_confirm: "quit followin #<%= tag %>?  :o"
-      unfollow: "Stop stalkin"
-      unlike: "</3"
-      via: "like, via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "K, I guess #<%= tagName %> wasnt all that gr8. Whatev."
     timeago:
-      day: "like... a day"
-      days:
-        other: "like... %d dayz"
-      hour: "bout an hr"
-      hours:
-        other: "bout %d hrs"
-      minute: "bout a min"
+      prefixAgo: ''
+      suffixAgo: like... ago
+      suffixFromNow: from nao
+      prefixFromNow: ''
+      seconds: less than a min
+      minute: bout a min
       minutes:
         other: "%d mins"
-      month: "bout like... a month"
+      hour: bout an hr
+      hours:
+        other: bout %d hrs
+      day: like... a day
+      days:
+        other: like... %d dayz
+      month: bout like... a month
       months:
-        other: "like %d months"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "less than a min"
-      suffixAgo: "like... ago"
-      suffixFromNow: "from nao"
-      wordSeparator: " "
-      year: "bout like... a yr"
+        other: like %d months
+      year: bout like... a yr
       years:
-        other: "like %d yrs"
-    unblock_failed: "Unblockin this h8ter didnt work :("
+        other: like %d yrs
+      wordSeparator: " "
+    cancel: Cancleee
+    confirm_dialog: R u like... fer sure?
+    delete: Trash
+    ignore: Block
+    report:
+      prompt: 'Plz say y:'
+      prompt_default: groody content
+      name: Tattle on
+      status:
+        created: The report was like, created. Yay.
+        exists: The report like, already existz...
+    ignore_user: Ignore this h8ter?
+    ignore_failed: Cant block this h8ter :\
+    hide_post: hide the postie?
+    hide_post_failed: Cant hide this postie :/
+    remove_post: Remove the postie?
+    unblock_failed: Unblockin this h8ter didnt work :(
+    and: "n"
+    comma: ","
+    edit: Edit!
+    no_results: So like, no resultz were found... sry bout tht :\
+    admins:
+      dashboard:
+        outdated: ur pod is old bruh.. :/
+    aspects:
+      name: Nameee
+      create:
+        add_a_new_aspect: Add a new aspectttttt
+    contacts:
+      add_contact: Add BFF
+      remove_contact: Remove BFF
+      error_add: Couldnt like... add <%= name %> 2 the aspect :((
+      error_remove: Couldnt like... trash <%= name %> from the aspect :((
+    my_activity: My Happenins
+    my_stream: Wall
+    my_aspects: My Aspectz
+    publisher:
+      near_from: 'Postie from: <%= location %>'
+      option: Mah ansah<3
+      add_option: Like, add an ansah!
+      question: Question!!!
+      markdown_editor:
+        preview: show!!
+        write: Type!!
+        tooltips:
+          bold: Bowled
+          italic: Slanted
+          heading: Headingg!!
+          insert_link: Add a linky!
+          insert_image: Add a pic!!
+          insert_ordered_list: Add an ordered listy!
+          insert_unordered_list: Add an unordered listy!!
+          quote: 'Add a quote or two!![:'
+          code: Add some code bruh
+        texts:
+          strong: buff text
+          italic: slanty text
+          heading: headin text
+          insert_link_description_text: enter the linky's description here!!
+          insert_link_help_text: add linky here
+          insert_image_description_text: put the pic description here!!
+          insert_image_help_text: Put pic linky here!!
+          insert_image_title: put pic title here!!
+          list: list txt here!!
+          quote: quote txt here!!
+          code: code here
+    bookmarklet:
+      post_something: Make a postie to d*!!
+      post_submit: Submitting postie... hold up...
+      post_success: Posted!!! Closin popup windowww... <3
+    aspect_dropdown:
+      add_to_aspect: Add BFF
+      select_aspects: Pick aspectz
+      all_aspects: All aspectz
+      updating: updatin...
+      stopped_sharing_with: U stopped sharin wit <%= name %>.
+      started_sharing_with: U have started sharin wit <%= name %>! :DD
+      error: So like, couldnt start sharin wit <%= name %>.  R u like, blockin them?
+      error_remove: so like, i couldnt remove <%= name %> from the aspect :( sry bout that :(
+      toggle:
+        zero: Pick aspectz
+        one: In <%= count %> aspect <3
+        other: In like, <%= count %> aspectz
+    show_more: show moar
+    failed_to_post_message: so like, i couldnt post txt... sry bout tht... :\
+    failed_to_remove: So like, there was an issue when removin the entry... sry bout that :\
+    comments:
+      show: show all commentz
+      hide: hide commentz
+      no_comments: Theres no commentz yet. :(
+    reshares:
+      successful: The postie was reshared!!! :D
+      post: do u wanna like, reshare <%= name %>'s postie?
+    aspect_navigation:
+      select_all: Highlight all
+      deselect_all: Unhighlight all
+      no_aspects: No aspectz picked
+      add_an_aspect: "+ Add an aspect!!!"
+    getting_started:
+      hey: Ohai, <%= name %>!
+      no_tags: Ohai! u havent like, followed ne tags!  Continue neway? :)
+      alright_ill_wait: Aight, ill hold up.
+      preparing_your_stream: Preparin ur Wall thingy...
+    photo_uploader:
+      looking_good: OMG, u look totally awesome! :D <3
+      completed: "<%= file %> completed!!! YAY!"
+      error: So like, there was an issue when like, uploadin file <%= file %>... sry bout tht... :\
+      invalid_ext: "{file} like, has an extension that is like... not valid. Only like, {extensions} r allowed, kay?"
+      size_error: "{file} is like... 2 big, the biggest size i can take is {sizeLimit}. Kay?(;"
+      empty: "{file} is like, empty... plz pick the file again witout it. Kay?"
+    tags:
+      wasnt_that_interesting: 'K, I guess #<%= tagName %> wasnt all that gr8. Whatev.'
+    people:
+      not_found: nothing was found... not even my shoes :(
+      mention: Mentionnn <3
+      message: Txt
+      edit_my_profile: Edit mah profile!!
+      stop_ignoring: Stop ignorin
+      helper:
+        is_sharing: Like, OMG! <%= name %> is sharin wit u!!! :DD
+        is_not_sharing: "<%= name %> is not like... sharin wit u :( lame.."
+    profile:
+      edit: edit!
+      add_some: add summ<3
+      you_have_no_tags: u like... have no tagz!
+      bio: All about meeee <333
+      location: My crib
+      gender: So Im like...
+      born: Bday
+      photos: Pics and selfies <3
+      posts: Posties!!
+    conversation:
+      new:
+        no_contacts: So like, u got to add some ppl before u can start a convo...
+    notifications:
+      mark_read: Seen it
+      mark_unread: Havent seen it
+    stream:
+      hide: Hyde
+      public: Internetz
+      limited: Limitedd
+      like: "<3"
+      unlike: "</3"
+      reshare: Reshar
+      comment: Comment!!
+      original_post_deleted: so like, the original postie was trashed by the maker of it :\
+      show_nsfw_post: Show postie
+      show_nsfw_posts: Show allll
+      hide_nsfw_posts: 'Hide #groody posties. Gag me with a spoon!'
+      follow: Stalk
+      unfollow: Stop stalkin
+      via: like, via <%= provider %>
+      likes:
+        zero: "<%= count %> likes :("
+        one: "<%= count %> like!!(:"
+        other: OMG! dis got like... <%= count %> likez!!! :DDD
+      reshares:
+        zero: "<%= count%> Reshares :("
+        one: "<%= count %> Reshare!!!(:"
+        other: OMG!! <%= count %> reshares!!! :DDD
+      more_comments:
+        zero: Show <%= count %> more commentz
+        one: Show like, <%= count %> more comment
+        other: Show liek, <%= count %> more commentz
+      followed_tag:
+        title: "#Followed Tagz"
+        add_a_tag: Add a tag!!
+        follow: Folloe!!
+      tags:
+        follow: 'Follow #<%= tag %>!!'
+        following: 'Followin #<%= tag %>'
+        stop_following: 'Stop followin #<%= tag %>'
+        stop_following_confirm: 'quit followin #<%= tag %>?  :o'
+    header:
+      home: Homee
+      profile: Profilee
+      contacts: Besties!
+      settings: Settins
+      help: Halp
+      admin: The man
+      moderator: MODS MODS
+      log_out: Bounce
+      notifications: Noties
+      conversations: Convoz!
+      search: Look for
+      recent_notifications: Recent Noties
+      mark_all_as_read: Read them all
+      view_all: Look at all
+      close: byez
     viewer:
-      reshared: "Reshared<33"
+      reshared: Reshared<33
+    poll:
+      vote: Make a differenceeee
+      result: Like... the results
+      count:
+        one: '1 vote so far!!(:'
+        other: OMG! u have like... <%=count%> votes so far!!! :DDD
+      show_result: Peek at result...shh
+      close_result: Stop peekin at result...O_O

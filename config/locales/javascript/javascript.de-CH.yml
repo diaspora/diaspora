@@ -6,179 +6,179 @@
 
 de-CH:
   javascripts:
-    and: "und"
-    aspect_dropdown:
-      add_to_aspect: "Kontakt hinzuefüege"
-      all_aspects: "Ali Aspekt"
-      error: "Teile mit <%= name %> isch fehlgschlage. Ignoriersch du das Individuum?"
-      error_remove: "<%= name %> us dim Aspekt entferne het nöd klappet :("
-      select_aspects: "Aspekt uswählä"
-      started_sharing_with: "Du hesch aagfange mit <%= name %> z'teile!"
-      stopped_sharing_with: "Du hesch mit <%= name %> ufghöhrt z'teile."
-      toggle:
-        one: "I eim Aspekt"
-        other: "I <%= count %> Aspekt"
-    aspect_navigation:
-      add_an_aspect: "+ Aspekt hinzuefüege"
-      deselect_all: "Ali abwähle"
-      no_aspects: "Kei Aspekt usgwählt"
-      select_all: "Ali aawähle"
-    bookmarklet:
-      post_something: "Erstell en Biitrag i diaspora*"
-      post_submit: "Biitrag wird übermittlet..."
-      post_success: "Teilt! Popup-Fenster wird etz zuegmacht..."
+    timeago:
+      prefixAgo: vor
+      suffixAgo: ''
+      suffixFromNow: ab jetzt
+      prefixFromNow: i
+      inPast: jede Moment
+      seconds: weniger als einere Minute
+      minute: öpe ere Minute
+      minutes:
+        one: einere Minute
+        other: "%d Minute"
+      hour: öpe einere Stund
+      hours:
+        one: öpe enere Stund
+        other: öpe %d Stunde
+      day: eim Tag
+      days:
+        one: eim Tag
+        other: "%d Täg"
+      month: öpe eim Monet
+      months:
+        one: eim Monet
+        other: "%d Mönet"
+      year: öpe eim Johr
+      years:
+        one: eim Johr
+        other: "%d Johr"
+      wordSeparator: " "
+    confirm_dialog: Bisch sicher?
+    delete: Lösche
+    ignore: Ignoriere
+    report:
+      prompt: 'Bitte en Grund aageh:'
+      prompt_default: zB. astössige Inhalt.
+      name: Melde
+      status:
+        created: D'Meldig isch erfolgriich erstellt worde.
+        exists: Die Meldig existiert scho
+    ignore_user: De Benutzer ignoriere?
+    ignore_failed: Benutzer ignoriere isch fehlgschlage
+    and: und
     comma: ","
-    comments:
-      hide: "Kommentär verstecke"
-      no_comments: "Kei Kommentär bis etz."
-      show: "Ali Kommentär aazeige"
-    confirm_dialog: "Bisch sicher?"
+    edit: bearbeite
+    no_results: Kei Ergebnis gfunde.
     contacts:
-      add_contact: "Kontakt hinzuefüege"
+      add_contact: Kontakt hinzuefüege
+      remove_contact: Kontakt entferne
       error_add: "<%= name %> het nöd chöne zum Aspekt hinzuegfüegt werde."
       error_remove: "<%= name %> het nöd chöne vom Aspekt entfernt werde."
-      remove_contact: "Kontakt entferne"
-    delete: "Lösche"
-    edit: "bearbeite"
-    failed_to_post_message: "Biitrag absende isch fehlgschlage!"
-    failed_to_remove: "Enferne vom Biitrag isch fehlgschlage!"
+    my_activity: Mini Aktivitätä
+    my_stream: Stream
+    my_aspects: Mini Aspekt
+    publisher:
+      near_from: Gschickt i de Nöchi vo <%= location %>
+      option: Antwort
+      add_option: Antwort hinzuefüege
+      question: Frog
+      mention_success: Erflogrich <%= names %> erwähnt
+    bookmarklet:
+      post_something: Erstell en Biitrag i diaspora*
+      post_submit: Biitrag wird übermittlet...
+      post_success: Teilt! Popup-Fenster wird etz zuegmacht...
+    aspect_dropdown:
+      add_to_aspect: Kontakt hinzuefüege
+      select_aspects: Aspekt uswählä
+      all_aspects: Ali Aspekt
+      stopped_sharing_with: Du hesch mit <%= name %> ufghöhrt z'teile.
+      started_sharing_with: Du hesch aagfange mit <%= name %> z'teile!
+      error: Teile mit <%= name %> isch fehlgschlage. Ignoriersch du das Individuum?
+      error_remove: "<%= name %> us dim Aspekt entferne het nöd klappet :("
+      toggle:
+        one: I eim Aspekt
+        other: I <%= count %> Aspekt
+    show_more: Meh aazeige
+    failed_to_post_message: Biitrag absende isch fehlgschlage!
+    failed_to_remove: Enferne vom Biitrag isch fehlgschlage!
+    comments:
+      show: Ali Kommentär aazeige
+      hide: Kommentär verstecke
+      no_comments: Kei Kommentär bis etz.
+    reshares:
+      successful: De Biitrag isch erfolgriich wiitergseit worde.
+      post: De Biitrag vo <%= name %> wiitersägä?
+    aspect_navigation:
+      select_all: Ali aawähle
+      deselect_all: Ali abwähle
+      no_aspects: Kei Aspekt usgwählt
+      add_an_aspect: "+ Aspekt hinzuefüege"
     getting_started:
-      alright_ill_wait: "Ok, ich warte."
-      hey: "Hey, <%= name %>!"
-      no_tags: "Hey, du folgsch no kei Tags! Trotzdem wiitermache?"
-      preparing_your_stream: "Din persönliche Stream wird vorbereitet..."
-    header:
-      admin: "Admin"
-      close: "Schlüsse"
-      contacts: "Kontäkt"
-      conversations: "Nochrichte"
-      help: "Hilf"
-      home: "Home"
-      log_out: "Abmelde"
-      mark_all_as_read: "Ali als glese markiere"
-      notifications: "Benochrichtigunge"
-      profile: "Profil"
-      recent_notifications: "Chürzlichi Benochrichtigunge"
-      search: "Sueche"
-      settings: "Iistellige"
-      view_all: "Alli aazeige"
-    ignore: "Ignoriere"
-    ignore_failed: "Benutzer ignoriere isch fehlgschlage"
-    ignore_user: "De Benutzer ignoriere?"
-    my_activity: "Mini Aktivitätä"
-    my_aspects: "Mini Aspekt"
-    my_stream: "Stream"
-    no_results: "Kei Ergebnis gfunde."
-    notifications:
-      mark_read: "Als glese markiere"
-      mark_unread: "Als unglese markiere"
+      hey: Hey, <%= name %>!
+      no_tags: Hey, du folgsch no kei Tags! Trotzdem wiitermache?
+      alright_ill_wait: Ok, ich warte.
+      preparing_your_stream: Din persönliche Stream wird vorbereitet...
+    photo_uploader:
+      upload_photos: Fotis ufelade
+      looking_good: OMG, du gsesch super us!
+      completed: "<%= file %> ueglade"
+      error: En Fehler isch bim ufelade vo <%= file %> passiert
+      invalid_ext: "{file} het e ungültigi Dateiendig. Erlaubt sind nur: {extensions}"
+      size_error: "{file} isch z'gross, di maximali Grössi isch {sizeLimit}."
+      empty: "{file} isch läär bitte wähl d'Datei nomol uus."
+    tags:
+      wasnt_that_interesting: Ok gseht us als wär <%= tagName %> doch ned so interessant...
     people:
       not_found: "...niemer isch gfunde worde."
-    photo_uploader:
-      completed: "<%= file %> ueglade"
-      empty: "{file} isch läär bitte wähl d'Datei nomol uus."
-      error: "En Fehler isch bim ufelade vo <%= file %> passiert"
-      invalid_ext: "{file} het e ungültigi Dateiendig. Erlaubt sind nur: {extensions}"
-      looking_good: "OMG, du gsesch super us!"
-      size_error: "{file} isch z'gross, di maximali Grössi isch {sizeLimit}."
-      upload_photos: "Fotis ufelade"
-    poll:
-      close_result: "Ergebnis usblende"
-      count:
-        one: "Ei Stimm bis etz"
-        other: "<%=count%> Stimme bis etz"
-      result: "Ergebnis"
-      show_result: "Ergebnis aazeige"
-      vote: "Abstimme"
     profile:
-      bio: "Beschriibig"
-      born: "Geburi"
-      gender: "Gschlächt"
-      location: "Ort"
-      photos: "Fotis"
-      posts: "Biiträg"
-    publisher:
-      add_option: "Antwort hinzuefüege"
-      mention_success: "Erflogrich <%= names %> erwähnt"
-      near_from: "Gschickt i de Nöchi vo <%= location %>"
-      option: "Antwort"
-      question: "Frog"
-    report:
-      name: "Melde"
-      prompt: "Bitte en Grund aageh:"
-      prompt_default: "zB. astössige Inhalt."
-      status:
-        created: "D'Meldig isch erfolgriich erstellt worde."
-        exists: "Die Meldig existiert scho"
-    reshares:
-      post: "De Biitrag vo <%= name %> wiitersägä?"
-      successful: "De Biitrag isch erfolgriich wiitergseit worde."
-    show_more: "Meh aazeige"
+      bio: Beschriibig
+      location: Ort
+      gender: Gschlächt
+      born: Geburi
+      photos: Fotis
+      posts: Biiträg
+    notifications:
+      mark_read: Als glese markiere
+      mark_unread: Als unglese markiere
     stream:
-      comment: "Kommentiere"
-      comments:
-        one: "ein Kommentar"
-        other: "<%= count %> Kommentär"
-      follow: "Folge"
-      followed_tag:
-        add_a_tag: "Täg hinzuefüge"
-        follow: "Folge"
-        title: "#tags dene du folgsch"
-      hide: "Verstecke"
-      hide_nsfw_posts: "Versteck #nsfw Biiträg"
-      like: "Gfallt mer"
+      hide: Verstecke
+      public: Öffentlich
+      limited: Begrenzt
+      like: Gfallt mer
+      unlike: Gfallt mer nüme
+      reshare: Wiitersägä
+      comment: Kommentiere
+      original_post_deleted: Original-Biitrag vom Verfasser glöscht.
+      show_nsfw_post: Biitrag aazeige
+      show_nsfw_posts: Alli aazeige
+      hide_nsfw_posts: 'Versteck #nsfw Biiträg'
+      follow: Folge
+      unfollow: Nüm folge
+      via: via <%= provider %>
       likes:
-        one: "Öpperem gfällt da"
+        zero: Niemertem gfällt da
+        one: Öpperem gfällt da
         other: "<%= count %> Lüüt gfällt da"
-        zero: "Niemertem gfällt da"
-      limited: "Begrenzt"
-      more_comments:
-        one: "Ein zuesätzliche Kommentar aazeige"
-        other: "<%= count %> zuesätzlichi Kommentär aazeige"
-      original_post_deleted: "Original-Biitrag vom Verfasser glöscht."
-      public: "Öffentlich"
-      reshare: "Wiitersägä"
       reshares:
-        one: "Ein Reshare"
+        one: Ein Reshare
         other: "<%= count %> Reshares"
-      show_nsfw_post: "Biitrag aazeige"
-      show_nsfw_posts: "Alli aazeige"
+      comments:
+        one: ein Kommentar
+        other: "<%= count %> Kommentär"
+      more_comments:
+        one: Ein zuesätzliche Kommentar aazeige
+        other: "<%= count %> zuesätzlichi Kommentär aazeige"
+      followed_tag:
+        title: "#tags dene du folgsch"
+        add_a_tag: Täg hinzuefüge
+        follow: Folge
       tags:
-        follow: "Folg #<%= tag %>"
-        following: "Du folgsch #<%= tag %>"
-        stop_following: "Hör uf #<%= tag %> z'folge"
-      unfollow: "Nüm folge"
-      unlike: "Gfallt mer nüme"
-      via: "via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Ok gseht us als wär <%= tagName %> doch ned so interessant..."
-    timeago:
-      day: "eim Tag"
-      days:
-        one: "eim Tag"
-        other: "%d Täg"
-      hour: "öpe einere Stund"
-      hours:
-        one: "öpe enere Stund"
-        other: "öpe %d Stunde"
-      inPast: "jede Moment"
-      minute: "öpe ere Minute"
-      minutes:
-        one: "einere Minute"
-        other: "%d Minute"
-      month: "öpe eim Monet"
-      months:
-        one: "eim Monet"
-        other: "%d Mönet"
-      prefixAgo: "vor"
-      prefixFromNow: "i"
-      seconds: "weniger als einere Minute"
-      suffixAgo: ""
-      suffixFromNow: "ab jetzt"
-      wordSeparator: " "
-      year: "öpe eim Johr"
-      years:
-        one: "eim Johr"
-        other: "%d Johr"
+        follow: 'Folg #<%= tag %>'
+        following: 'Du folgsch #<%= tag %>'
+        stop_following: 'Hör uf #<%= tag %> z''folge'
+    header:
+      home: Home
+      profile: Profil
+      contacts: Kontäkt
+      settings: Iistellige
+      help: Hilf
+      admin: Admin
+      log_out: Abmelde
+      notifications: Benochrichtigunge
+      conversations: Nochrichte
+      search: Sueche
+      recent_notifications: Chürzlichi Benochrichtigunge
+      mark_all_as_read: Ali als glese markiere
+      view_all: Alli aazeige
+      close: Schlüsse
     viewer:
-      reshared: "Wiitergseit"
+      reshared: Wiitergseit
+    poll:
+      vote: Abstimme
+      result: Ergebnis
+      count:
+        one: Ei Stimm bis etz
+        other: "<%=count%> Stimme bis etz"
+      show_result: Ergebnis aazeige
+      close_result: Ergebnis usblende

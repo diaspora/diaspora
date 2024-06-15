@@ -7,81 +7,81 @@
 lt:
   devise:
     confirmations:
-      confirmed: "Paskyra patvirtinta. Prisijungta."
+      confirmed: Paskyra patvirtinta. Prisijungta.
+      send_instructions: Netrukus bus išsiųstas el. laiškas su nurodymais, kaip patvirtinti paskyrą.
       new:
-        resend_confirmation: "Siųsti patvirtinimo nurodymus iš naujo"
-      send_instructions: "Netrukus bus išsiųstas el. laiškas su nurodymais, kaip patvirtinti paskyrą."
+        resend_confirmation: Siųsti patvirtinimo nurodymus iš naujo
     failure:
-      inactive: "Paskyra dar neaktyvuota."
-      invalid: "Neteisingas el. pašto adresas arba slaptažodis."
-      invalid_token: "Neteisingas prisijungimo raktas."
-      locked: "Paskyra užrakinta."
-      timeout: "Sesija baigėsi. Norint tęsti, reikia prisijungti iš naujo."
-      unauthenticated: "Norint tęsti, reikia prisijungti arba susikurti paskyrą."
-      unconfirmed: "Norint prisijungti, reikia patvirtinti savo paskyrą."
-    invitations:
-      invitation_token_invalid: "Atsiprašome, bet jūsų įvestas pakvietimo raktas - neteisingas!"
-      send_instructions: "Pakvietimas išsiųstas."
-      updated: "Slaptažodis sėkmingai pakeistas. Prisijungta."
+      inactive: Paskyra dar neaktyvuota.
+      invalid: Neteisingas el. pašto adresas arba slaptažodis.
+      locked: Paskyra užrakinta.
+      timeout: Sesija baigėsi. Norint tęsti, reikia prisijungti iš naujo.
+      unauthenticated: Norint tęsti, reikia prisijungti arba susikurti paskyrą.
+      unconfirmed: Norint prisijungti, reikia patvirtinti savo paskyrą.
+      invalid_token: Neteisingas prisijungimo raktas.
     mailer:
       confirmation_instructions:
-        confirm: "Patvirtinti paskyrą"
-        subject: "Nurodymai, kaip patvirtinti paskyrą"
-        you_can_confirm: "Paskyrą galite patvirtinti paspaudę nuorodą pateiktą žemiau:"
-      hello: "Labas, %{username}!"
-      inviter:
-        accept_at: "priimti kvietimą galite paspaudę nuorodą žemiau %{url}"
-        has_invited_you: ""
-        have_invited_you: "%{names} pakvietė Jus prisijungti prie Diaspora tinklapio"
+        subject: Nurodymai, kaip patvirtinti paskyrą
+        you_can_confirm: 'Paskyrą galite patvirtinti paspaudę nuorodą pateiktą žemiau:'
+        confirm: Patvirtinti paskyrą
       reset_password_instructions:
-        change: "Keisti slaptažodį"
-        ignore: "Jei tu to neprašei, nekreipk dėmesio į šį laišką."
-        someone_requested: "Kažkas paprašė pakeisti tavo slaptažodį. Tai galima padaryti naudojatis žemiau pateikta nuoroda."
-        subject: "Nurodymai, kaip atstatyti slaptažodį"
-        wont_change: "Slaptažodis liks nepakeistas, kol nebus pasinaudota aukščiau esančia nuoroda ir sukurtas naujas slaptažodis."
+        subject: Nurodymai, kaip atstatyti slaptažodį
+        someone_requested: Kažkas paprašė pakeisti tavo slaptažodį. Tai galima padaryti naudojatis žemiau pateikta nuoroda.
+        change: Keisti slaptažodį
+        wont_change: Slaptažodis liks nepakeistas, kol nebus pasinaudota aukščiau esančia nuoroda ir sukurtas naujas slaptažodis.
+        ignore: Jei tu to neprašei, nekreipk dėmesio į šį laišką.
       unlock_instructions:
-        account_locked: "Paskyra užrakinta dėl per daug bandymų prisijungti."
-        click_to_unlock: "Spustelk šią nuorodą ir paskyra bus atrakinta:"
-        subject: "Nurodymai, kaip atrakinti"
-        unlock: "Atrakinti mano paskyrą"
-      welcome: "Labas, %{username}!"
+        subject: Nurodymai, kaip atrakinti
+        account_locked: Paskyra užrakinta dėl per daug bandymų prisijungti.
+        click_to_unlock: 'Spustelk šią nuorodą ir paskyra bus atrakinta:'
+        unlock: Atrakinti mano paskyrą
+      welcome: Labas, %{username}!
+      hello: Labas, %{username}!
+      inviter:
+        has_invited_you: ''
+        have_invited_you: "%{names} pakvietė Jus prisijungti prie Diaspora tinklapio"
+        accept_at: priimti kvietimą galite paspaudę nuorodą žemiau %{url}
     passwords:
+      send_instructions: Netrukus gausite el. laišką su nurodymais, kaip atstatyti slaptažodį.
+      updated: Slaptažodis sėkmingai pakeistas. Prisijungta.
       edit:
-        change_password: "Keisti mano slaptažodį"
+        change_password: Keisti mano slaptažodį
       new:
-        forgot_password: "Pamiršai slaptažodį?"
-        send_password_instructions: "Siųsti nurodymus, kaip atstatyti slaptažodį"
-      send_instructions: "Netrukus gausite el. laišką su nurodymais, kaip atstatyti slaptažodį."
-      updated: "Slaptažodis sėkmingai pakeistas. Prisijungta."
+        forgot_password: Pamiršai slaptažodį?
+        send_password_instructions: Siųsti nurodymus, kaip atstatyti slaptažodį
     registrations:
-      destroyed: "Paskyra sėkmingai atšaukta. Iki pasimatymo!"
-      signed_up: "Prisijungta sėkmingai. Jei nustatyta, patvirtinimas nusiųstas į el. paštą."
-      updated: "Paskyra atnaujinta sėkmingai."
+      destroyed: Paskyra sėkmingai atšaukta. Iki pasimatymo!
+      signed_up: Prisijungta sėkmingai. Jei nustatyta, patvirtinimas nusiųstas į el. paštą.
+      updated: Paskyra atnaujinta sėkmingai.
     sessions:
+      signed_in: Sėkmingai prisijungta.
+      signed_out: Sėkmingai atsijungta.
       new:
-        login: "Prisijungti"
-        modern_browsers: "palaiko tik modernias naršykles."
-        password: "Slaptažodis"
-        remember_me: "Prisiminti mane šiame kompiuteryje"
-        sign_in: "Prisijungti"
-        username: "Vartotojo vardas"
-      signed_in: "Sėkmingai prisijungta."
-      signed_out: "Sėkmingai atsijungta."
+        login: Prisijungti
+        username: Vartotojo vardas
+        password: Slaptažodis
+        sign_in: Prisijungti
+        remember_me: Prisiminti mane šiame kompiuteryje
+        modern_browsers: palaiko tik modernias naršykles.
+    unlocks:
+      send_instructions: Netrukus bus išsiųstas el. laiškas su nurodymais, kaip atrakinti paskyrą.
+      unlocked: Paskyra sėkmingai atrakinta. Prisijungta.
+      new:
+        resend_unlock: Dar kartą išsiųsti nurodymus, kaip atrakinti paskyrą.
+    invitations:
+      send_instructions: Pakvietimas išsiųstas.
+      invitation_token_invalid: Atsiprašome, bet jūsų įvestas pakvietimo raktas - neteisingas!
+      updated: Slaptažodis sėkmingai pakeistas. Prisijungta.
     shared:
       links:
-        forgot_your_password: "Pamiršote savo slaptažodį?"
-        receive_confirmation: "Negavote nurodymų, kaip patvirtinti paskyrą?"
-        receive_unlock: "Negavote nurodymų, kaip atrakinti paskyrą?"
-        sign_in: "Prisijungti"
-        sign_up: "Registruotis"
-        sign_up_closed: "Prisijungimai be kvietimų šiuo metu neleidžiami."
-    unlocks:
-      new:
-        resend_unlock: "Dar kartą išsiųsti nurodymus, kaip atrakinti paskyrą."
-      send_instructions: "Netrukus bus išsiųstas el. laiškas su nurodymais, kaip atrakinti paskyrą."
-      unlocked: "Paskyra sėkmingai atrakinta. Prisijungta."
+        sign_in: Prisijungti
+        sign_up: Registruotis
+        sign_up_closed: Prisijungimai be kvietimų šiuo metu neleidžiami.
+        forgot_your_password: Pamiršote savo slaptažodį?
+        receive_confirmation: Negavote nurodymų, kaip patvirtinti paskyrą?
+        receive_unlock: Negavote nurodymų, kaip atrakinti paskyrą?
   errors:
     messages:
-      already_confirmed: "jau patvirtinta"
-      not_found: "nerasta"
-      not_locked: "nebuvo užrakinta"
+      already_confirmed: jau patvirtinta
+      not_found: nerasta
+      not_locked: nebuvo užrakinta

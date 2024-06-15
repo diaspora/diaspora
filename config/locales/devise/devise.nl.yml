@@ -7,93 +7,93 @@
 nl:
   devise:
     confirmations:
-      confirmed: "Je account is geactiveerd. Je bent nu ingelogd."
+      confirmed: Je account is geactiveerd. Je bent nu ingelogd.
+      send_instructions: Je ontvangt binnen enkele minuten een e-mail met instructies om je account te activeren.
       new:
-        resend_confirmation: "Stuur bevestigingsinstructies nogmaals"
-      send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je account te activeren."
+        resend_confirmation: Stuur bevestigingsinstructies nogmaals
     failure:
-      already_authenticated: "Je bent al ingelogd."
-      inactive: "Je account is nog niet geactiveerd."
-      invalid: "Gebruikersnaam of wachtwoord ongeldig."
-      invalid_token: "Ongeldig authenticatietoken."
-      locked: "Je account is geblokkeerd."
-      not_found_in_database: "Ongeldig e-mailadres of wachtwoord."
-      timeout: "Je sessie is verlopen. Log opnieuw in om verder te gaan."
-      unauthenticated: "Log in of registreer om verder te gaan."
-      unconfirmed: "Activeer je account om verder te gaan."
-    invitations:
-      invitation_token_invalid: "Onze excuses! Die uitnodigingstoken is ongeldig."
-      send_instructions: "Je uitnodiging is verzonden."
-      updated: "Wachtwoord succesvol veranderd. Je bent nu ingelogd."
+      already_authenticated: Je bent al ingelogd.
+      inactive: Je account is nog niet geactiveerd.
+      invalid: Gebruikersnaam of wachtwoord ongeldig.
+      locked: Je account is geblokkeerd.
+      not_found_in_database: Ongeldig e-mailadres of wachtwoord.
+      timeout: Je sessie is verlopen. Log opnieuw in om verder te gaan.
+      unauthenticated: Log in of registreer om verder te gaan.
+      unconfirmed: Activeer je account om verder te gaan.
+      invalid_token: Ongeldig authenticatietoken.
     mailer:
       confirmation_instructions:
-        confirm: "Bevestig mijn account"
-        subject: "Bevestigingsinstructies"
-        you_can_confirm: "Je kunt je account bevestigen via onderstaande link:"
-      hello: "Hallo %{username}!"
+        subject: Bevestigingsinstructies
+        you_can_confirm: 'Je kunt je account bevestigen via onderstaande link:'
+        confirm: Bevestig mijn account
+      reset_password_instructions:
+        subject: Wachtwoord reset instructies
+        someone_requested: Iemand heeft een aanvraag gedaan om je wachtwoord te wijzigen. Je kunt dit doen via onderstaande link.
+        change: Wijzig mijn wachtwoord
+        wont_change: Je wachtwoord zal niet worden gewijzigd totdat je via bovenstaande link een nieuwe hebt gekozen.
+        ignore: Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren.
+      unlock_instructions:
+        subject: Ontgrendelingsinstructies
+        account_locked: Je account is vergrendeld vanwege te veel mislukte aanmeldpogingen.
+        click_to_unlock: 'Klik op onderstaande link om je account te ontgrendelen:'
+        unlock: Ontgrendel mijn account
+      password_change:
+        subject: Wachtwoord gewijzigd
+      welcome: Welkom %{username}!
+      hello: Hallo %{username}!
       inviter:
-        accept_at: "op %{url}, je kunt deze accepteren via onderstaande link."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} heeft je uitgenodigd om lid te worden van diaspora*"
-      password_change:
-        subject: "Wachtwoord gewijzigd"
-      reset_password_instructions:
-        change: "Wijzig mijn wachtwoord"
-        ignore: "Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren."
-        someone_requested: "Iemand heeft een aanvraag gedaan om je wachtwoord te wijzigen. Je kunt dit doen via onderstaande link."
-        subject: "Wachtwoord reset instructies"
-        wont_change: "Je wachtwoord zal niet worden gewijzigd totdat je via bovenstaande link een nieuwe hebt gekozen."
-      unlock_instructions:
-        account_locked: "Je account is vergrendeld vanwege te veel mislukte aanmeldpogingen."
-        click_to_unlock: "Klik op onderstaande link om je account te ontgrendelen:"
-        subject: "Ontgrendelingsinstructies"
-        unlock: "Ontgrendel mijn account"
-      welcome: "Welkom %{username}!"
+        accept_at: op %{url}, je kunt deze accepteren via onderstaande link.
     passwords:
+      send_instructions: Je ontvangt binnen enkele minuten een e-mail met instructies om je wachtwoord opnieuw in te stellen.
+      updated: Je wachtwoord is veranderd. Je bent nu ingelogd.
+      updated_not_active: Je wachtwoord is succesvol gewijzigd.
       edit:
-        change_password: "Wijzig mijn wachtwoord"
-        confirm_password: "Bevestig wachtwoord"
-        new_password: "Nieuw wachtwoord"
+        change_password: Wijzig mijn wachtwoord
+        new_password: Nieuw wachtwoord
+        confirm_password: Bevestig wachtwoord
       new:
-        email: "E-mailadres"
-        forgot_password: "Wachtwoord vergeten?"
-        reset_password: "Herstel wachtwoord"
-        send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
-      send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je wachtwoord opnieuw in te stellen."
-      updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
-      updated_not_active: "Je wachtwoord is succesvol gewijzigd."
+        forgot_password: Wachtwoord vergeten?
+        reset_password: Herstel wachtwoord
+        email: E-mailadres
+        send_password_instructions: Stuur mij instructies om mijn wachtwoord te resetten
     registrations:
-      destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
-      signed_up: "Je bent succesvol geregistreerd. Indien aangevinkt is er een bevestiging naar je e-mail gestuurd."
-      updated: "Je account is succesvol geüpdate."
+      destroyed: Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien.
+      signed_up: Je bent succesvol geregistreerd. Indien aangevinkt is er een bevestiging naar je e-mail gestuurd.
+      updated: Je account is succesvol geüpdate.
     sessions:
-      already_signed_out: "Succesvol uitgelogd."
+      signed_in: Je bent succesvol ingelogd.
+      signed_out: Je bent succesvol uitgelogd.
+      already_signed_out: Succesvol uitgelogd.
       new:
-        login: "Inloggen"
-        modern_browsers: "ondersteunt alleen moderne browsers."
-        password: "Wachtwoord"
-        remember_me: "Onthoud mij"
-        sign_in: "Log in"
-        username: "Gebruikersnaam"
-      signed_in: "Je bent succesvol ingelogd."
-      signed_out: "Je bent succesvol uitgelogd."
+        login: Inloggen
+        username: Gebruikersnaam
+        password: Wachtwoord
+        sign_in: Log in
+        remember_me: Onthoud mij
+        modern_browsers: ondersteunt alleen moderne browsers.
+    unlocks:
+      send_instructions: Je ontvangt binnen enkele minuten een e-mail met instructies om je account te deblokkeren.
+      send_paranoid_instructions: Als je account bestaat, dan ontvang je een email met instructies hoe de blokkering op te heffen, binnen een paar minuten.
+      unlocked: Je account is succesvol gedeblokkeerd. Je bent nu ingelogd.
+      new:
+        resend_unlock: Stuur ontgrendelinstructies nogmaals
+    invitations:
+      send_instructions: Je uitnodiging is verzonden.
+      invitation_token_invalid: Onze excuses! Die uitnodigingstoken is ongeldig.
+      updated: Wachtwoord succesvol veranderd. Je bent nu ingelogd.
     shared:
       links:
-        forgot_your_password: "Wachtwoord vergeten?"
-        receive_confirmation: "Geen bevestigingsinstructies ontvangen?"
-        receive_unlock: "Geen ontgrendelinstructies ontvangen?"
-        sign_in: "Inloggen"
-        sign_up: "Creëer een account"
-        sign_up_closed: "Vrij registreren is momenteel niet mogelijk."
-    unlocks:
-      new:
-        resend_unlock: "Stuur ontgrendelinstructies nogmaals"
-      send_instructions: "Je ontvangt binnen enkele minuten een e-mail met instructies om je account te deblokkeren."
-      send_paranoid_instructions: "Als je account bestaat, dan ontvang je een email met instructies hoe de blokkering op te heffen, binnen een paar minuten."
-      unlocked: "Je account is succesvol gedeblokkeerd. Je bent nu ingelogd."
+        sign_in: Inloggen
+        sign_up: Creëer een account
+        sign_up_closed: Vrij registreren is momenteel niet mogelijk.
+        forgot_your_password: Wachtwoord vergeten?
+        receive_confirmation: Geen bevestigingsinstructies ontvangen?
+        receive_unlock: Geen ontgrendelinstructies ontvangen?
   errors:
     messages:
-      already_confirmed: "is al geactiveerd"
-      expired: "is vervallen, vraag een nieuwe aan"
-      not_found: "niet gevonden"
-      not_locked: "is niet geblokkeerd"
+      already_confirmed: is al geactiveerd
+      expired: is vervallen, vraag een nieuwe aan
+      not_found: niet gevonden
+      not_locked: is niet geblokkeerd

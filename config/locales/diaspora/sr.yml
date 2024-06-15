@@ -5,279 +5,279 @@
 
 
 sr:
-  _applications: "Апликације"
-  _contacts: "Контакти"
-  _services: "Услуге"
-  account: "Налог"
+  settings: Подешавања
+  profile: Профил
+  account: Налог
+  privacy: Приватност
+  _services: Услуге
+  _applications: Апликације
+  ok: У реду
+  cancel: Откажи
+  delete: Уклони
+  username: Корисничко име
+  email: Имејл
+  are_you_sure: Јесте ли сигурни?
+  are_you_sure_delete_account: Јесте ли сигурни да желите да затворите налог? Ово се не може повратити!
+  fill_me_out: Испуни ме
+  public: Јавно
+  limited: Ограничено
+  search: Претрага
+  nsfw: Није пригодно за посао
+  find_people: 'Тражи људе или #тагове'
+  more: Још
+  all_aspects: Сви погледи
+  no_results: Нема резултата
+  _contacts: Контакти
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "мора бити јединствено за све корисникове контакте."
+            person:
+              invalid: је неисправно.
+            username:
+              taken: је већ заузето.
+              invalid: је неисправно. Дозвољени су само слова, бројеви и доње црте.
+            email:
+              taken: је већ заузето.
         person:
           attributes:
             diaspora_handle:
-              taken: "је већ заузето."
+              taken: је већ заузето.
+        contact:
+          attributes:
+            person_id:
+              taken: мора бити јединствено за све корисникове контакте.
         reshare:
           attributes:
             root_guid:
-              taken: "Добро је, а?  Већ сте поделили ту објаву!"
-        user:
-          attributes:
-            email:
-              taken: "је већ заузето."
-            person:
-              invalid: "је неисправно."
-            username:
-              invalid: "је неисправно. Дозвољени су само слова, бројеви и доње црте."
-              taken: "је већ заузето."
-  all_aspects: "Сви погледи"
-  are_you_sure: "Јесте ли сигурни?"
-  are_you_sure_delete_account: "Јесте ли сигурни да желите да затворите налог? Ово се не може повратити!"
-  aspect_memberships:
-    destroy:
-      failure: "Неуспех приликом уклањања особе из аспекта"
-      no_membership: "Немогуће пронаћи изабрану особу у том аспекту"
-      success: "Особа успешно уклоњена из аспекта"
-  aspects:
-    add_to_aspect:
-      failure: "Неуспешно додавање особе у поглед."
-      success: "Особа успешно додата у поглед."
-    aspect_listings:
-      add_an_aspect: "+ Додај поглед"
-    aspect_stream:
-      stay_updated: "Буди у току"
-    destroy:
-      failure: "%{name} није празан и не може се уклонити."
-      success: "Поглед %{name} је успешно уклоњен."
-    edit:
-      aspect_list_is_not_visible: "списак погледа је невидљив осталима у погледу"
-      aspect_list_is_visible: "списак погледа је видљив осталима у погледу"
-      confirm_remove_aspect: "Јесте ли сигурни да желите да обришете овај поглед?"
-      rename: "Преименуј"
-      update: "Ажурирај"
-      updating: "ажурирање"
-    index:
-      donate: "Донирај"
-      help:
-        do_you: "Да ли:"
-        feature_suggestion: "...имаш %{link}?"
-        find_a_bug: "...сте нашли %{link}?"
-        have_a_question: "...имаш %{link}?"
-        here_to_help: "Заједница Дијаспоре је овде!"
-        need_help: "Треба ти помоћ?"
-        tag_bug: "грешку"
-        tag_feature: "предлог"
-        tag_question: "питање"
-      introduce_yourself: "Ово је твој ток.  Упадај и представи се."
-      new_here:
-        follow: "Прати %{link} и поздрављај нове кориснике Дијаспоре*!"
-        learn_more: "Научи више"
-        title: "Поздрави нове кориснике"
-      services:
-        content: "Можеш повезати следеће сајтове са Дијаспором:"
-        heading: "Повежи сајтове"
-      welcome_to_diaspora: "Добродошли на Дијаспору, %{name}!"
-    no_contacts_message:
-      community_spotlight: "заједницом"
-      or_spotlight: "Или можеш поделити са %{link}"
-      try_adding_some_more_contacts: "Можеш тражити или позвати још контаката."
-      you_should_add_some_more_contacts: "Требало би да додаш контакте!"
-    seed:
-      acquaintances: "Познаници"
-      family: "Породица"
-      friends: "Пријатељи"
-      work: "Посао"
-    update:
-      failure: "Твој поглед, %{name}, има предугачак назив да би се сачувао."
-      success: "Твој поглед, %{name}, је успешно измењен."
-  bookmarklet:
-    post_something: "Објави на Дијаспори"
-  cancel: "Откажи"
-  comments:
-    new_comment:
-      comment: "Коментариши"
-      commenting: "Коментарише се..."
-  contacts:
-    index:
-      all_contacts: "Сви контакти"
-      community_spotlight: "Погледи заједнице"
-      my_contacts: "Моји контакти"
-      no_contacts: "Изгледа да треба да додаш неке контакте!"
-      only_sharing_with_me: "Деле само са вама:"
-      start_a_conversation: "Започни разговор"
-      title: "Контакти"
-    spotlight:
-      community_spotlight: "Погледи заједнице"
-  conversations:
-    create:
-      fail: "Неисправна порука"
-      sent: "Порука послата"
-    index:
-      inbox: "Сандуче"
-      no_messages: "Нема порука"
-    new:
-      send: "Пошаљи"
-      sending: "Шаљем..."
-      subject: "наслов"
-      to: "за"
-    show:
-      delete: "Обриши разговор"
-      reply: "одговор"
-      replying: "Одговарам..."
-  delete: "Уклони"
-  email: "Имејл"
+              taken: Добро је, а?  Већ сте поделили ту објаву!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Исправи следеће грешке и покушај поново."
-  fill_me_out: "Испуни ме"
-  find_people: "Тражи људе или #тагове"
+      correct_the_following_errors_and_try_again: Исправи следеће грешке и покушај поново.
+  aspects:
+    edit:
+      confirm_remove_aspect: Јесте ли сигурни да желите да обришете овај поглед?
+      rename: Преименуј
+      aspect_list_is_visible: списак погледа је видљив осталима у погледу
+      aspect_list_is_not_visible: списак погледа је невидљив осталима у погледу
+      update: Ажурирај
+      updating: ажурирање
+    no_contacts_message:
+      you_should_add_some_more_contacts: Требало би да додаш контакте!
+      try_adding_some_more_contacts: Можеш тражити или позвати још контаката.
+      or_spotlight: Или можеш поделити са %{link}
+      community_spotlight: заједницом
+    aspect_listings:
+      add_an_aspect: "+ Додај поглед"
+    destroy:
+      success: Поглед %{name} је успешно уклоњен.
+      failure: "%{name} није празан и не може се уклонити."
+    update:
+      success: Твој поглед, %{name}, је успешно измењен.
+      failure: Твој поглед, %{name}, има предугачак назив да би се сачувао.
+    add_to_aspect:
+      failure: Неуспешно додавање особе у поглед.
+      success: Особа успешно додата у поглед.
+    seed:
+      family: Породица
+      work: Посао
+      acquaintances: Познаници
+      friends: Пријатељи
+    index:
+      donate: Донирај
+      welcome_to_diaspora: Добродошли на Дијаспору, %{name}!
+      introduce_yourself: Ово је твој ток.  Упадај и представи се.
+      new_here:
+        title: Поздрави нове кориснике
+        follow: Прати %{link} и поздрављај нове кориснике Дијаспоре*!
+        learn_more: Научи више
+      help:
+        need_help: Треба ти помоћ?
+        here_to_help: Заједница Дијаспоре је овде!
+        do_you: 'Да ли:'
+        have_a_question: "...имаш %{link}?"
+        tag_question: питање
+        find_a_bug: "...сте нашли %{link}?"
+        tag_bug: грешку
+        feature_suggestion: "...имаш %{link}?"
+        tag_feature: предлог
+      services:
+        heading: Повежи сајтове
+        content: 'Можеш повезати следеће сајтове са Дијаспором:'
+    aspect_stream:
+      stay_updated: Буди у току
+  aspect_memberships:
+    destroy:
+      success: Особа успешно уклоњена из аспекта
+      failure: Неуспех приликом уклањања особе из аспекта
+      no_membership: Немогуће пронаћи изабрану особу у том аспекту
+  bookmarklet:
+    post_something: Објави на Дијаспори
+  comments:
+    new_comment:
+      comment: Коментариши
+      commenting: Коментарише се...
+  contacts:
+    index:
+      start_a_conversation: Започни разговор
+      title: Контакти
+      no_contacts: Изгледа да треба да додаш неке контакте!
+      community_spotlight: Погледи заједнице
+      my_contacts: Моји контакти
+      all_contacts: Сви контакти
+      only_sharing_with_me: 'Деле само са вама:'
+    spotlight:
+      community_spotlight: Погледи заједнице
+  conversations:
+    index:
+      no_messages: Нема порука
+      inbox: Сандуче
+    show:
+      reply: одговор
+      replying: Одговарам...
+      delete: Обриши разговор
+    new:
+      to: за
+      subject: наслов
+      send: Пошаљи
+      sending: Шаљем...
+    create:
+      sent: Порука послата
+      fail: Неисправна порука
   invitations:
     create:
-      no_more: "Немате више позивница."
-      rejected: "Ове email адресе имају проблеме: "
+      rejected: 'Ове email адресе имају проблеме: '
+      no_more: Немате више позивница.
     new:
-      invite_someone_to_join: "Позовите некога да се придружи diaspora*!"
-      language: "Језик"
-      send_an_invitation: "Пошаљи позивницу"
+      language: Језик
+      invite_someone_to_join: Позовите некога да се придружи diaspora*!
+      send_an_invitation: Пошаљи позивницу
   layouts:
-    application:
-      back_to_top: "Назад на врх"
-      powered_by: "Покреће diaspora*"
-      whats_new: "Ново"
     header:
-      code: "Код"
-      logout: "Одјава"
-      profile: "Профил"
-      settings: "Подешавања"
-  limited: "Ограничено"
-  more: "Још"
-  no_results: "Нема резултата"
+      profile: Профил
+      settings: Подешавања
+      logout: Одјава
+      code: Код
+    application:
+      powered_by: Покреће diaspora*
+      whats_new: Ново
+      back_to_top: Назад на врх
   notifications:
     index:
-      and: "и"
-      mark_all_as_read: "Означи све као прочитано"
-      notifications: "Обавештења"
+      notifications: Обавештења
+      mark_all_as_read: Означи све као прочитано
+      and: и
   notifier:
-    a_post_you_shared: "објава"
-    click_here: "Кликните овде"
-    liked:
-      view_post: "Погледајте објаву"
-    private_message:
-      reply_to_or_view: "Одговорите или погледајте овај разговор:"
-    reshared:
-      view_post: "Погледајте објаву"
+    a_post_you_shared: објава
+    click_here: Кликните овде
+    thanks: Хвала,
+    to_change_your_notification_settings: да бисте променили подешавање обавештења
     single_admin:
-      admin: "Ваш diaspora* администратор"
-      subject: "Порука о вашем diaspora* налогу:"
+      subject: 'Порука о вашем diaspora* налогу:'
+      admin: Ваш diaspora* администратор
     started_sharing:
-      sharing: "дели са вама!"
-    thanks: "Хвала,"
-    to_change_your_notification_settings: "да бисте променили подешавање обавештења"
-  nsfw: "Није пригодно за посао"
-  ok: "У реду"
+      sharing: дели са вама!
+    private_message:
+      reply_to_or_view: 'Одговорите или погледајте овај разговор:'
+    liked:
+      view_post: Погледајте објаву
+    reshared:
+      view_post: Погледајте објаву
   people:
-    index:
-      no_one_found: "...и нико није пронађен."
-      no_results: "Хеј! Требате нешто потражити."
     person:
-      thats_you: "То сте ви!"
-    profile_sidebar:
-      bio: "Биографија"
-      born: "Дат.рођења"
-      gender: "Пол"
-      location: "Локација"
+      thats_you: То сте ви!
+    index:
+      no_results: Хеј! Требате нешто потражити.
+      no_one_found: "...и нико није пронађен."
     show:
-      closed_account: "Овај налог је затворен."
-      does_not_exist: "Особа не постоји!"
+      does_not_exist: Особа не постоји!
+      closed_account: Овај налог је затворен.
+    profile_sidebar:
+      bio: Биографија
+      location: Локација
+      gender: Пол
+      born: Дат.рођења
   photos:
     create:
-      integrity_error: "Ажурирање слике није успело. Јесте ли сигурни да је то слика?"
-      runtime_error: "Ажурирање слике није успело. Јесте ли сигурни да је сигурносни каиш притегнут?"
-      type_error: "Ажурирање слике није успело. Јесте ли сигурни да сте слику додали?"
+      runtime_error: Ажурирање слике није успело. Јесте ли сигурни да је сигурносни каиш притегнут?
+      integrity_error: Ажурирање слике није успело. Јесте ли сигурни да је то слика?
+      type_error: Ажурирање слике није успело. Јесте ли сигурни да сте слику додали?
     destroy:
-      notice: "Слика обрисана"
+      notice: Слика обрисана
     new_profile_photo:
-      upload: "Додајте нову профилну слику!"
-  privacy: "Приватност"
-  profile: "Профил"
+      upload: Додајте нову профилну слику!
   profiles:
     edit:
-      allow_search: "Дозволите особама да вас траже унутар diaspora*"
-      first_name: "Име"
-      last_name: "Презиме"
-      update_profile: "Ажурирај профил"
-      your_bio: "Ваша биографија"
-      your_birthday: "Дат.рођења"
-      your_gender: "Пол"
-      your_location: "Ваша локација"
-      your_name: "Ваше име"
-      your_photo: "Ваша слика"
-      your_tags: "Опишите себе у 5 ријечи"
+      your_name: Ваше име
+      first_name: Име
+      last_name: Презиме
+      your_gender: Пол
+      your_birthday: Дат.рођења
+      your_tags: Опишите себе у 5 ријечи
+      your_bio: Ваша биографија
+      your_location: Ваша локација
+      your_photo: Ваша слика
+      update_profile: Ажурирај профил
+      allow_search: Дозволите особама да вас траже унутар diaspora*
     update:
-      failed: "Неуспело ажурирање профила"
-      updated: "Ажурирај профил"
-  public: "Јавно"
+      updated: Ажурирај профил
+      failed: Неуспело ажурирање профила
   registrations:
-    create:
-      success: "Придружили сте се diaspora*"
     new:
-      enter_email: "Унесите email"
-      enter_password: "Унесите лозинку (шест знакова минимално)"
-      enter_password_again: "Поновите лозинку"
-      enter_username: "Изаберите корисничко име (само слова, бројеви и доње линије)"
+      enter_email: Унесите email
+      enter_username: Изаберите корисничко име (само слова, бројеви и доње линије)
+      enter_password: Унесите лозинку (шест знакова минимално)
+      enter_password_again: Поновите лозинку
+    create:
+      success: Придружили сте се diaspora*
   reshares:
     reshare:
-      deleted: "Изворна објава обрисана од стране аутора"
-      reshared_via: "Дељено путем"
-  search: "Претрага"
+      reshared_via: Дељено путем
+      deleted: Изворна објава обрисана од стране аутора
   services:
-    failure:
-      error: "Грешка у току повезивања сервиса"
     index:
-      disconnect: "Прекини везу"
-      edit_services: "Уреди сервисе"
-      logged_in_as: "Пријављен као"
-  settings: "Подешавања"
+      disconnect: Прекини везу
+      logged_in_as: Пријављен као
+      edit_services: Уреди сервисе
+    failure:
+      error: Грешка у току повезивања сервиса
   shared:
-    invitations:
-      by_email: "Помоћу email"
-      invite_your_friends: "Позовите пријатеље"
-      invites: "Захтеви"
-    public_explain:
-      outside: "Јавне поруке биће видљиве ван diaspora*."
-      share: "Подели"
-      title: "Уреди повезане сервисе"
-      visibility_dropdown: "Користите овај падајући мени како бисте променили видљивост вашег поста.  (Предлажемо да први буде јаван.)"
     publisher:
-      discard_post: "Одбаци објаву"
+      posting: Објављујем...
+      share: Дели
+      whats_on_your_mind: Шта вам је на уму?
+      discard_post: Одбаци објаву
       new_user_prefill:
-        invited_by: "Хвала на позиву, "
-      posting: "Објављујем..."
-      share: "Дели"
-      whats_on_your_mind: "Шта вам је на уму?"
-  streams:
-    comment_stream:
-      title: "Коментарисане објаве"
-    followed_tag:
-      add_a_tag: "Додајте ознаку"
-      follow: "Пратите"
-    public:
-      title: "Јавна активност"
+        invited_by: 'Хвала на позиву, '
+    invitations:
+      invites: Захтеви
+      invite_your_friends: Позовите пријатеље
+      by_email: Помоћу email
+    public_explain:
+      visibility_dropdown: Користите овај падајући мени како бисте променили видљивост вашег поста.  (Предлажемо да први буде јаван.)
+      title: Уреди повезане сервисе
+      share: Подели
+      outside: Јавне поруке биће видљиве ван diaspora*.
   tags:
     show:
-      none: "Празна ознака не постоји!"
-  username: "Корисничко име"
+      none: Празна ознака не постоји!
+  streams:
+    comment_stream:
+      title: Коментарисане објаве
+    followed_tag:
+      add_a_tag: Додајте ознаку
+      follow: Пратите
+    public:
+      title: Јавна активност
   users:
     edit:
-      change_email: "Промени email"
-      change_language: "Промени језик"
-      change_password: "Промени лозинку"
-      close_account_text: "Затвори налог"
-      current_password: "Тренутна лозинка"
-      edit_account: "Уреди налог"
-      new_password: "Нова лозинка"
-      your_email: "Ваш email"
-      your_handle: "Ваш diaspora* ID"
+      edit_account: Уреди налог
+      your_handle: Ваш diaspora* ID
+      your_email: Ваш email
+      change_email: Промени email
+      change_password: Промени лозинку
+      new_password: Нова лозинка
+      current_password: Тренутна лозинка
+      change_language: Промени језик
+      close_account_text: Затвори налог

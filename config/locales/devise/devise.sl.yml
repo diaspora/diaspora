@@ -7,81 +7,81 @@
 sl:
   devise:
     confirmations:
-      confirmed: "Vaš uporabniški račun je uspešno potrjen. Zdaj ste prijavljeni."
+      confirmed: Vaš uporabniški račun je uspešno potrjen. Zdaj ste prijavljeni.
+      send_instructions: V naslednjih nekaj minutah boste prejeli e-pošto z navodili, kako potrditi vaš uporabniški račun.
       new:
-        resend_confirmation: "Ponovno pošlji navodila za potrditev uporabniškega računa"
-      send_instructions: "V naslednjih nekaj minutah boste prejeli e-pošto z navodili, kako potrditi vaš uporabniški račun."
+        resend_confirmation: Ponovno pošlji navodila za potrditev uporabniškega računa
     failure:
-      inactive: "Vaš račun še ni dejaven."
-      invalid: "Napačno uporabniško ime ali geslo."
-      invalid_token: "Preverjanje pristnosti ni mogoče."
-      locked: "Vaš račun je zaklenjen."
-      timeout: "Vaša seja je potekla. Za nadaljevanje se ponovno prijavite."
-      unauthenticated: "Za nadaljevanje se prijavite ali vpišite."
-      unconfirmed: "Za nadaljevanje potrdite vaš račun."
-    invitations:
-      invitation_token_invalid: "Oprostite! Povabilo ni veljavno."
-      send_instructions: "Vaše povabilo je poslano."
-      updated: "Vaše geslo je uspešno spremenjeno. Zdaj ste prijavljeni."
+      inactive: Vaš račun še ni dejaven.
+      invalid: Napačno uporabniško ime ali geslo.
+      locked: Vaš račun je zaklenjen.
+      timeout: Vaša seja je potekla. Za nadaljevanje se ponovno prijavite.
+      unauthenticated: Za nadaljevanje se prijavite ali vpišite.
+      unconfirmed: Za nadaljevanje potrdite vaš račun.
+      invalid_token: Preverjanje pristnosti ni mogoče.
     mailer:
       confirmation_instructions:
-        confirm: "Potrdi uporabniški račun"
-        subject: "Navodila za potrditev uporabniškega računa"
-        you_can_confirm: "Vaš uporabniški račun lahko potrdite s pomočjo spodnje povezave:"
-      hello: "Pozdravljeni %{username}!"
+        subject: Navodila za potrditev uporabniškega računa
+        you_can_confirm: 'Vaš uporabniški račun lahko potrdite s pomočjo spodnje povezave:'
+        confirm: Potrdi uporabniški račun
+      reset_password_instructions:
+        subject: Navodila za ponastavitev gesla
+        someone_requested: Nekdo je zahteval povezavo za spremembo vašega gesla, kar lahko storite s pomočjo spodnje povezave.
+        change: Spremeni geslo
+        wont_change: Vaše geslo lahko spremenite s pomočjo zgornje povezave ter z vpisom novega gesla.
+        ignore: V kolikor tega niste zahtevali, ne upoštevajte tega sporočila.
+      unlock_instructions:
+        subject: Navodila za odklepanje uporabniškega računa
+        account_locked: Zaradi večkratne neuspešne prijave je vaš uporabniški račun zaklenjen.
+        click_to_unlock: 'Odklenite svoj uporabniški račun s klikom na spodnjo povezavo:'
+        unlock: Odkleni uporabniški račun
+      welcome: Dobrodošli %{username}!
+      hello: Pozdravljeni %{username}!
       inviter:
-        accept_at: "na %{url}, sprejmete lahko preko spodnje povezave."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} so vas povabili v omrežje Diaspora"
-      reset_password_instructions:
-        change: "Spremeni geslo"
-        ignore: "V kolikor tega niste zahtevali, ne upoštevajte tega sporočila."
-        someone_requested: "Nekdo je zahteval povezavo za spremembo vašega gesla, kar lahko storite s pomočjo spodnje povezave."
-        subject: "Navodila za ponastavitev gesla"
-        wont_change: "Vaše geslo lahko spremenite s pomočjo zgornje povezave ter z vpisom novega gesla."
-      unlock_instructions:
-        account_locked: "Zaradi večkratne neuspešne prijave je vaš uporabniški račun zaklenjen."
-        click_to_unlock: "Odklenite svoj uporabniški račun s klikom na spodnjo povezavo:"
-        subject: "Navodila za odklepanje uporabniškega računa"
-        unlock: "Odkleni uporabniški račun"
-      welcome: "Dobrodošli %{username}!"
+        accept_at: na %{url}, sprejmete lahko preko spodnje povezave.
     passwords:
+      send_instructions: V nekaj minutah boste prejeli e-pošto z navodili za ponastavitev vašega gesla.
+      updated: Vaše geslo je bilo uspešno spremenjeno. Zdaj ste prijavljeni.
       edit:
-        change_password: "Spremeni geslo"
+        change_password: Spremeni geslo
       new:
-        forgot_password: "Ste pozabili geslo?"
-        send_password_instructions: "Pošlji navodila za ponastavitev gesla"
-      send_instructions: "V nekaj minutah boste prejeli e-pošto z navodili za ponastavitev vašega gesla."
-      updated: "Vaše geslo je bilo uspešno spremenjeno. Zdaj ste prijavljeni."
+        forgot_password: Ste pozabili geslo?
+        send_password_instructions: Pošlji navodila za ponastavitev gesla
     registrations:
-      destroyed: "Nasvidenje! Vaš uporabniški račun je uspešno preklican. Vljudno vas vabimo, da nas ponovno obiščete."
-      signed_up: "Vaša registracija je uspešna. V kolikor je dovoljeno, je bilo poslano sporočilo za potrditev računa na vaš e-poštni naslov."
-      updated: "Vaš uporabniški račun je uspešno posodobljen."
+      destroyed: Nasvidenje! Vaš uporabniški račun je uspešno preklican. Vljudno vas vabimo, da nas ponovno obiščete.
+      signed_up: Vaša registracija je uspešna. V kolikor je dovoljeno, je bilo poslano sporočilo za potrditev računa na vaš e-poštni naslov.
+      updated: Vaš uporabniški račun je uspešno posodobljen.
     sessions:
+      signed_in: Vaša prijava je uspešna.
+      signed_out: Vaša odjava je uspešna.
       new:
-        login: "Prijava"
-        modern_browsers: "podpira le novejše spletne brskalnike."
-        password: "Geslo"
-        remember_me: "Zapomni si me"
-        sign_in: "Prijava"
-        username: "Uporabniško ime"
-      signed_in: "Vaša prijava je uspešna."
-      signed_out: "Vaša odjava je uspešna."
+        login: Prijava
+        username: Uporabniško ime
+        password: Geslo
+        sign_in: Prijava
+        remember_me: Zapomni si me
+        modern_browsers: podpira le novejše spletne brskalnike.
+    unlocks:
+      send_instructions: V nekaj minutah boste prejeli e-pošto z navodili za odklepanje vašega uporabniškega računa.
+      unlocked: Vaš uporabniški račun je bil uspešno odklenjen. Zdaj ste prijavljeni.
+      new:
+        resend_unlock: Ponovno pošlji navodila za odklepanje uporabniškega računa
+    invitations:
+      send_instructions: Vaše povabilo je poslano.
+      invitation_token_invalid: Oprostite! Povabilo ni veljavno.
+      updated: Vaše geslo je uspešno spremenjeno. Zdaj ste prijavljeni.
     shared:
       links:
-        forgot_your_password: "Ste pozabili geslo?"
-        receive_confirmation: "Ste prejeli navodila za potrditev uporabniškega računa?"
-        receive_unlock: "Ste prejeli navodila za odklepanje uporabniškega računa?"
-        sign_in: "Prijava"
-        sign_up: "Vpis"
-        sign_up_closed: "Vpis trenutno ni omogočen."
-    unlocks:
-      new:
-        resend_unlock: "Ponovno pošlji navodila za odklepanje uporabniškega računa"
-      send_instructions: "V nekaj minutah boste prejeli e-pošto z navodili za odklepanje vašega uporabniškega računa."
-      unlocked: "Vaš uporabniški račun je bil uspešno odklenjen. Zdaj ste prijavljeni."
+        sign_in: Prijava
+        sign_up: Vpis
+        sign_up_closed: Vpis trenutno ni omogočen.
+        forgot_your_password: Ste pozabili geslo?
+        receive_confirmation: Ste prejeli navodila za potrditev uporabniškega računa?
+        receive_unlock: Ste prejeli navodila za odklepanje uporabniškega računa?
   errors:
     messages:
-      already_confirmed: "je že bilo potrjeno"
-      not_found: "ni bilo mogoče najti"
-      not_locked: "ni bilo zaklenjeno"
+      already_confirmed: je že bilo potrjeno
+      not_found: ni bilo mogoče najti
+      not_locked: ni bilo zaklenjeno

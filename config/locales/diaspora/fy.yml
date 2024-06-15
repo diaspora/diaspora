@@ -5,86 +5,86 @@
 
 
 fy:
-  _applications: "Tapassingen"
-  _contacts: "Kontakten"
-  account: "Akkount"
-  are_you_sure: "Bisto wis?"
+  settings: Ynstellingen
+  profile: Profyl
+  account: Akkount
+  privacy: Privacy
+  _applications: Tapassingen
+  ok: Okee
+  cancel: Annulearje
+  delete: Fuortsmite
+  username: Brûkersnamme
+  email: E-mail
+  are_you_sure: Bisto wis?
+  public: Iepenbier
+  search: Sykje
+  nsfw: Net Feilich Foar Wurk
+  find_people: 'Minsken of #labels Sykje'
+  more: Mear
+  no_results: Gjin Risseltaten Fûn
+  _contacts: Kontakten
   aspects:
     edit:
-      update: "fernij"
-      updating: "fernije"
-    index:
-      help:
-        find_a_bug: "... in %{link} fine?"
-        have_a_question: "... in %{link} hawwe?"
-        tag_question: "fraach"
-      new_here:
-        learn_more: "Lês mear"
-        title: "Wolkom Nije Brûkers"
-      welcome_to_diaspora: "Wolkom by Diaspora, %{name}!"
+      update: fernij
+      updating: fernije
     seed:
-      acquaintances: "Bekenden"
-      family: "Famylje"
-      friends: "Freonen"
-      work: "Wurk"
-  cancel: "Annulearje"
+      family: Famylje
+      work: Wurk
+      acquaintances: Bekenden
+      friends: Freonen
+    index:
+      welcome_to_diaspora: Wolkom by Diaspora, %{name}!
+      new_here:
+        title: Wolkom Nije Brûkers
+        learn_more: Lês mear
+      help:
+        have_a_question: "... in %{link} hawwe?"
+        tag_question: fraach
+        find_a_bug: "... in %{link} fine?"
   comments:
     new_comment:
-      comment: "Reaksje"
-      commenting: "Reagearje..."
+      comment: Reaksje
+      commenting: Reagearje...
   contacts:
     index:
-      all_contacts: "Alle Kontakten"
-      title: "Kontakten"
+      title: Kontakten
+      all_contacts: Alle Kontakten
   conversations:
-    create:
-      sent: "Berjocht ferstjoerd"
     index:
-      inbox: "Ynbox"
-      no_messages: "gjin berjochten"
-    new:
-      send: "Ferstjoere"
-      sending: "Ferstjoere..."
-      subject: "ûnderwerp"
-      to: "oan"
+      no_messages: gjin berjochten
+      inbox: Ynbox
     show:
-      reply: "reagearje"
-      replying: "Reagearje..."
+      reply: reagearje
+      replying: Reagearje...
+    new:
+      to: oan
+      subject: ûnderwerp
+      send: Ferstjoere
+      sending: Ferstjoere...
+    create:
+      sent: Berjocht ferstjoerd
   date:
     formats:
+      fullmonth_day: "%d %B"
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
-      fullmonth_day: "%d %B"
-  delete: "Fuortsmite"
-  email: "E-mail"
-  find_people: "Minsken of #labels Sykje"
   invitations:
     new:
-      invite_someone_to_join: "Immen útnoadigje foar Diaspora!"
-      language: "Taal"
-      send_an_invitation: "In útnoeging ferstjoere"
+      language: Taal
+      invite_someone_to_join: Immen útnoadigje foar Diaspora!
+      send_an_invitation: In útnoeging ferstjoere
   layouts:
-    application:
-      powered_by: "MEA MOOGLIK MAKKE TROCH DIASPORA*"
     header:
-      code: "koade"
-      logout: "Útlogge"
-      profile: "Profyl"
-      settings: "Ynstellingen"
-  more: "Mear"
-  no_results: "Gjin Risseltaten Fûn"
+      profile: Profyl
+      settings: Ynstellingen
+      logout: Útlogge
+      code: koade
+    application:
+      powered_by: MEA MOOGLIK MAKKE TROCH DIASPORA*
   notifier:
-    a_post_you_shared: "in berjocht."
-    click_here: "klik hjirre"
-    hello: "Guoi %{name}"
+    a_post_you_shared: in berjocht.
+    click_here: klik hjirre
+    hello: Guoi %{name}
+    thanks: Tige Tank,
     reshared:
-      view_post: "Toan berjocht >"
-    thanks: "Tige Tank,"
-  nsfw: "Net Feilich Foar Wurk"
-  ok: "Okee"
-  privacy: "Privacy"
-  profile: "Profyl"
-  public: "Iepenbier"
-  search: "Sykje"
-  settings: "Ynstellingen"
-  username: "Brûkersnamme"
+      view_post: Toan berjocht >

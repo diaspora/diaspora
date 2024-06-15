@@ -7,81 +7,81 @@
 id:
   devise:
     confirmations:
-      confirmed: "Akun Anda telah berhasil dikonfirmasi. Anda sekarang telah masuk."
+      confirmed: Akun Anda telah berhasil dikonfirmasi. Anda sekarang telah masuk.
+      send_instructions: Anda akan menerima email berisi instruksi bagaimana mengkonfirmasi akun Anda dalam beberapa menit.
       new:
-        resend_confirmation: "Kirim ulang instruksi untuk konfirmasi"
-      send_instructions: "Anda akan menerima email berisi instruksi bagaimana mengkonfirmasi akun Anda dalam beberapa menit."
+        resend_confirmation: Kirim ulang instruksi untuk konfirmasi
     failure:
-      inactive: "Akun anda belum diaktifkan."
-      invalid: "E-mail atau kata sandi tidak valid."
-      invalid_token: "Token otentikasi tidak valid."
-      locked: "Akun anda terkunci / di blok."
-      timeout: "Sesi anda telah berakhir, silahkan masuk lagi untuk melanjutkan."
-      unauthenticated: "Anda harus masuk atau mendaftar sebelum melanjutkan."
-      unconfirmed: "Anda harus mengkonfirmasi akun Anda sebelum melanjutkan."
-    invitations:
-      invitation_token_invalid: "Bukti undangan yang diberikan tidak valid!"
-      send_instructions: "Undangan anda telah dikirimkan."
-      updated: "Kata sandi anda berhasil dibuat. Sekarang anda sudah terdaftar."
+      inactive: Akun anda belum diaktifkan.
+      invalid: E-mail atau kata sandi tidak valid.
+      locked: Akun anda terkunci / di blok.
+      timeout: Sesi anda telah berakhir, silahkan masuk lagi untuk melanjutkan.
+      unauthenticated: Anda harus masuk atau mendaftar sebelum melanjutkan.
+      unconfirmed: Anda harus mengkonfirmasi akun Anda sebelum melanjutkan.
+      invalid_token: Token otentikasi tidak valid.
     mailer:
       confirmation_instructions:
-        confirm: "Konfirmasi akun saya"
-        subject: "Instruksi pengesahan / konfirmasi"
-        you_can_confirm: "Anda dapat mengkonfirmasi akun anda melalui link (tautan) di bawah ini:"
-      hello: "Halo %{username}!"
+        subject: Instruksi pengesahan / konfirmasi
+        you_can_confirm: 'Anda dapat mengkonfirmasi akun anda melalui link (tautan) di bawah ini:'
+        confirm: Konfirmasi akun saya
+      reset_password_instructions:
+        subject: Instruksi untuk membuat ulang kata sandi
+        someone_requested: Seseorang telah meminta link (tautan) untuk mengubah kata sandi anda, anda dapat melakukannya melalui link (tautan) di bawah ini.
+        change: Ubah kata sandi saya
+        wont_change: Kata sandi anda tidak akan berubah sampai anda mengakses link (tautan) di atas dan membuat yang baru.
+        ignore: Tolong abaikan e-mail ini jika anda tidak memintanya.
+      unlock_instructions:
+        subject: Instruksi untuk membuka kunci
+        account_locked: Akun anda sekarang terkunci / di blok karena berkali-kali gagal saat mencoba masuk.
+        click_to_unlock: 'Klik link (tautan) di bawah untuk mengaktifkan akun anda:'
+        unlock: Aktifkan akun saya
+      welcome: Selamat datang %{username}!
+      hello: Halo %{username}!
       inviter:
-        accept_at: "di %{url}, anda dapat menerimanya melalui link (tautan) di bawah ini."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} telah mengundang anda untuk bergabung di Diaspora"
-      reset_password_instructions:
-        change: "Ubah kata sandi saya"
-        ignore: "Tolong abaikan e-mail ini jika anda tidak memintanya."
-        someone_requested: "Seseorang telah meminta link (tautan) untuk mengubah kata sandi anda, anda dapat melakukannya melalui link (tautan) di bawah ini."
-        subject: "Instruksi untuk membuat ulang kata sandi"
-        wont_change: "Kata sandi anda tidak akan berubah sampai anda mengakses link (tautan) di atas dan membuat yang baru."
-      unlock_instructions:
-        account_locked: "Akun anda sekarang terkunci / di blok karena berkali-kali gagal saat mencoba masuk."
-        click_to_unlock: "Klik link (tautan) di bawah untuk mengaktifkan akun anda:"
-        subject: "Instruksi untuk membuka kunci"
-        unlock: "Aktifkan akun saya"
-      welcome: "Selamat datang %{username}!"
+        accept_at: di %{url}, anda dapat menerimanya melalui link (tautan) di bawah ini.
     passwords:
+      send_instructions: Anda akan menerima email berisi petunjuk cara membuat ulang kata sandi Anda dalam beberapa menit.
+      updated: Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk.
       edit:
-        change_password: "Ubah kata sandi saya"
+        change_password: Ubah kata sandi saya
       new:
-        forgot_password: "Lupa kata sandi anda?"
-        send_password_instructions: "Kirimkan saya instruksi untuk membuat ulang kata sandi"
-      send_instructions: "Anda akan menerima email berisi petunjuk cara membuat ulang kata sandi Anda dalam beberapa menit."
-      updated: "Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk."
+        forgot_password: Lupa kata sandi anda?
+        send_password_instructions: Kirimkan saya instruksi untuk membuat ulang kata sandi
     registrations:
-      destroyed: "Selamat tinggal! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi."
-      signed_up: "Anda telah berhasil mendaftar. Jika diaktifkan, konfirmasi dikirim ke e-mail Anda."
-      updated: "Anda berhasil memperbarui akun anda."
+      destroyed: Selamat tinggal! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi.
+      signed_up: Anda telah berhasil mendaftar. Jika diaktifkan, konfirmasi dikirim ke e-mail Anda.
+      updated: Anda berhasil memperbarui akun anda.
     sessions:
+      signed_in: Berhasil masuk.
+      signed_out: Berhasil keluar.
       new:
-        login: "Masuk"
-        modern_browsers: "hanya mendukung penjelajah-penjelajah (browser) internet modern."
-        password: "Kata sandi"
-        remember_me: "Ingat saya"
-        sign_in: "Masuk"
-        username: "Nama pengguna"
-      signed_in: "Berhasil masuk."
-      signed_out: "Berhasil keluar."
+        login: Masuk
+        username: Nama pengguna
+        password: Kata sandi
+        sign_in: Masuk
+        remember_me: Ingat saya
+        modern_browsers: hanya mendukung penjelajah-penjelajah (browser) internet modern.
+    unlocks:
+      send_instructions: Anda akan menerima email berisi instruksi bagaimana membuka akun Anda dalam beberapa menit.
+      unlocked: Akun Anda telah berhasil dibuka. Anda sekarang sudah masuk.
+      new:
+        resend_unlock: Kirim ulang instruksi untuk membuka
+    invitations:
+      send_instructions: Undangan anda telah dikirimkan.
+      invitation_token_invalid: Bukti undangan yang diberikan tidak valid!
+      updated: Kata sandi anda berhasil dibuat. Sekarang anda sudah terdaftar.
     shared:
       links:
-        forgot_your_password: "Lupa kata sandi anda?"
-        receive_confirmation: "Tidak menerima instruksi pengesahan?"
-        receive_unlock: "Tidak menerima instruksi untuk membuka?"
-        sign_in: "Masuk"
-        sign_up: "Mendaftar"
-        sign_up_closed: "Pendaftaran terbuka sedang ditutup saat ini."
-    unlocks:
-      new:
-        resend_unlock: "Kirim ulang instruksi untuk membuka"
-      send_instructions: "Anda akan menerima email berisi instruksi bagaimana membuka akun Anda dalam beberapa menit."
-      unlocked: "Akun Anda telah berhasil dibuka. Anda sekarang sudah masuk."
+        sign_in: Masuk
+        sign_up: Mendaftar
+        sign_up_closed: Pendaftaran terbuka sedang ditutup saat ini.
+        forgot_your_password: Lupa kata sandi anda?
+        receive_confirmation: Tidak menerima instruksi pengesahan?
+        receive_unlock: Tidak menerima instruksi untuk membuka?
   errors:
     messages:
-      already_confirmed: "sudah dikonfirmasi"
-      not_found: "tidak ditemukan"
-      not_locked: "tidak terkunci"
+      already_confirmed: sudah dikonfirmasi
+      not_found: tidak ditemukan
+      not_locked: tidak terkunci

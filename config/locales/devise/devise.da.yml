@@ -7,109 +7,109 @@
 da:
   devise:
     confirmations:
-      confirmed: "Din e-mail-adresse er blevet bekræftet."
+      confirmed: Din e-mail-adresse er blevet bekræftet.
+      send_instructions: Du vil modtage en e-mail med instruktioner om hvordan du bekræfter din e-mail-adresse om et øjeblik.
+      send_paranoid_instructions: Hvis din e-mail-adresse eksisterer i vores database, vil du modtage en e-mail med instruktioner om hvordan du bekræfter din e-mailadresse om et øjeblik.
       new:
-        resend_confirmation: "Send bekræftelse igen"
-      send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du bekræfter din e-mail-adresse om et øjeblik."
-      send_paranoid_instructions: "Hvis din e-mail-adresse eksisterer i vores database, vil du modtage en e-mail med instruktioner om hvordan du bekræfter din e-mailadresse om et øjeblik."
+        resend_confirmation: Send bekræftelse igen
     failure:
-      already_authenticated: "Du er allerede logget ind."
-      inactive: "Din konto er ikke aktiveret endnu."
-      invalid: "Forkert %{authentication_keys} eller adgangskode."
-      invalid_token: "Ugyldig autentifikation."
-      last_attempt: "Du har et forsøg mere inden din konto bliver låst."
-      locked: "Din konto er låst."
-      not_found_in_database: "Ugyldig %{authentication_keys} eller adgangskode."
-      timeout: "Du har været inaktiv for længe. Log ind igen for at fortsætte."
-      unauthenticated: "Du skal logge ind eller oprette en konto for at fortsætte."
-      unconfirmed: "Du skal bekræfte din e-mail-konto før du fortsætter."
-    invitations:
-      invitation_token_invalid: "Beklager! Invitationen er ikke gyldig."
-      send_instructions: "Din invitation er blevet sendt."
-      updated: "Din adgangskode blev sat korrekt. Du er nu logget ind."
+      already_authenticated: Du er allerede logget ind.
+      inactive: Din konto er ikke aktiveret endnu.
+      invalid: Forkert %{authentication_keys} eller adgangskode.
+      locked: Din konto er låst.
+      last_attempt: Du har et forsøg mere inden din konto bliver låst.
+      not_found_in_database: Ugyldig %{authentication_keys} eller adgangskode.
+      timeout: Du har været inaktiv for længe. Log ind igen for at fortsætte.
+      unauthenticated: Du skal logge ind eller oprette en konto for at fortsætte.
+      unconfirmed: Du skal bekræfte din e-mail-konto før du fortsætter.
+      invalid_token: Ugyldig autentifikation.
     mailer:
       confirmation_instructions:
-        confirm: "Bekræft min konto"
-        subject: "Bekræftelsesinstruktioner"
-        you_can_confirm: "Du kan bekræfte din konto via nedenstående link:"
-      hello: "Hej %{username}!"
+        subject: Bekræftelsesinstruktioner
+        you_can_confirm: 'Du kan bekræfte din konto via nedenstående link:'
+        confirm: Bekræft min konto
+      reset_password_instructions:
+        subject: Instruktioner til nulstilling af adgangskode
+        someone_requested: Nogen har anmodet om et link til at ændre din adgangskode. Hvis det var dig, kan du gøre dette via linket nedenfor.
+        change: Skift min adgangskode
+        then_connect: Når du har lavet en ny adgangskode, vil du være i stand til at logge ind på Diaspora* igen ved hjælp af dit brugernavn "%{username}" og din nye adgangskode
+        wont_change: Din adgangskode vil ikke blive ændret før du klikker på linket ovenfor og opretter en ny.
+        ignore: Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail.
+      unlock_instructions:
+        subject: Aktiver instruktioner
+        account_locked: Din konto er blevet låst på grund af en stor mængde mislykkede log ind forsøg.
+        click_to_unlock: 'Klik på linket nedenfor for at aktivere din konto:'
+        unlock: Aktiver min konto
+      password_change:
+        subject: Kodeord er blevet ændret
+      welcome: Velkommen %{username}!
+      hello: Hej %{username}!
       inviter:
-        accept_at: "på %{url}, du kan acceptere ved at følge linket nedenunder."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} har inviteret dig til at deltage i Diaspora."
-      password_change:
-        subject: "Kodeord er blevet ændret"
-      reset_password_instructions:
-        change: "Skift min adgangskode"
-        ignore: "Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail."
-        someone_requested: "Nogen har anmodet om et link til at ændre din adgangskode. Hvis det var dig, kan du gøre dette via linket nedenfor."
-        subject: "Instruktioner til nulstilling af adgangskode"
-        then_connect: "Når du har lavet en ny adgangskode, vil du være i stand til at logge ind på Diaspora* igen ved hjælp af dit brugernavn \"%{username}\" og din nye adgangskode"
-        wont_change: "Din adgangskode vil ikke blive ændret før du klikker på linket ovenfor og opretter en ny."
-      unlock_instructions:
-        account_locked: "Din konto er blevet låst på grund af en stor mængde mislykkede log ind forsøg."
-        click_to_unlock: "Klik på linket nedenfor for at aktivere din konto:"
-        subject: "Aktiver instruktioner"
-        unlock: "Aktiver min konto"
-      welcome: "Velkommen %{username}!"
+        accept_at: på %{url}, du kan acceptere ved at følge linket nedenunder.
     omniauth_callbacks:
-      failure: "Kunne ikke godkende dig fra %{kind} fordi \"%{reason}\"."
-      success: "Godkendelse modtaget fra %{kind} kontoen."
+      failure: Kunne ikke godkende dig fra %{kind} fordi "%{reason}".
+      success: Godkendelse modtaget fra %{kind} kontoen.
     passwords:
+      no_token: Du kan ikke tilgå denne side uden at komme fra en e-mail med nulstilling af dit kodeord. Hvis du kommer fra sådan en e-mail, undersøg venligst at du har brugt hele den URL der stod i mailen.
+      send_instructions: Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et øjeblik.
+      send_paranoid_instructions: Hvis din e-mail-adresse eksisterer i vores database, vil du modtage et link med en kodeords-nulstilling i din mailboks om et øjeblik.
+      updated: Dit adgangskode er blevet ændret. Du er nu logget ind.
+      updated_not_active: Dit kodeord er nu blevet ændret.
       edit:
-        change_password: "skift adgangskode"
-        confirm_password: "Bekræft adgangskode."
-        new_password: "Nyt kodeord"
+        change_password: skift adgangskode
+        new_password: Nyt kodeord
+        confirm_password: Bekræft adgangskode.
       new:
-        email: "E-mail-adresse"
-        forgot_password: "Glemt din adgangskode?"
-        reset_password: "Nulstil adgangskode"
-        send_password_instructions: "Send mig instruktioner til nulstilning af adgangskode"
-      no_token: "Du kan ikke tilgå denne side uden at komme fra en e-mail med nulstilling af dit kodeord. Hvis du kommer fra sådan en e-mail, undersøg venligst at du har brugt hele den URL der stod i mailen."
-      send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et øjeblik."
-      send_paranoid_instructions: "Hvis din e-mail-adresse eksisterer i vores database, vil du modtage et link med en kodeords-nulstilling i din mailboks om et øjeblik."
-      updated: "Dit adgangskode er blevet ændret. Du er nu logget ind."
-      updated_not_active: "Dit kodeord er nu blevet ændret."
+        forgot_password: Glemt din adgangskode?
+        reset_password: Nulstil adgangskode
+        email: E-mail-adresse
+        send_password_instructions: Send mig instruktioner til nulstilning af adgangskode
     registrations:
-      destroyed: "Farvel! Din konto er nu lukket. Vi håber at se dig igen snart."
-      signed_up: "Du har nu tilmeldt dig. En bekræftelse er blevet sendt til din e-mail, hvis den er aktiveret."
-      signed_up_but_inactive: "Din registrering er godkendt, men vi kunne ikke logge dig ind da din konto endnu ikke er blevet aktiveret."
-      signed_up_but_locked: "Din registrering er godkendt, men vi kunne ikke logge dig ind da din konto er låst."
-      signed_up_but_unconfirmed: "Der er blevet sendt en besked til din e-mail-adresse med et bekræftelses-link. Følg venligst dette link for at aktivere din konto."
-      update_needs_confirmation: "Du har nu opdateret din konto, men vi er nødt bekræfte din nye e-mail-adresse. Check din e-mail og følg linket for at bekræfte din nye e-mail-adresse."
-      updated: "Din konto er blevet opdateret."
+      destroyed: Farvel! Din konto er nu lukket. Vi håber at se dig igen snart.
+      signed_up: Du har nu tilmeldt dig. En bekræftelse er blevet sendt til din e-mail, hvis den er aktiveret.
+      signed_up_but_inactive: Din registrering er godkendt, men vi kunne ikke logge dig ind da din konto endnu ikke er blevet aktiveret.
+      signed_up_but_locked: Din registrering er godkendt, men vi kunne ikke logge dig ind da din konto er låst.
+      signed_up_but_unconfirmed: Der er blevet sendt en besked til din e-mail-adresse med et bekræftelses-link. Følg venligst dette link for at aktivere din konto.
+      update_needs_confirmation: Du har nu opdateret din konto, men vi er nødt bekræfte din nye e-mail-adresse. Check din e-mail og følg linket for at bekræfte din nye e-mail-adresse.
+      updated: Din konto er blevet opdateret.
     sessions:
-      already_signed_out: "Du er nu logget ud."
+      signed_in: Du er nu logget ind.
+      signed_out: Du er nu logget ud.
+      already_signed_out: Du er nu logget ud.
       new:
-        login: "Log ind"
-        modern_browsers: "understøtter kun nyere browsere."
-        password: "Adgangskode"
-        remember_me: "Husk mig"
-        sign_in: "Log ind"
-        username: "Brugernavn"
-      signed_in: "Du er nu logget ind."
-      signed_out: "Du er nu logget ud."
+        login: Log ind
+        username: Brugernavn
+        password: Adgangskode
+        sign_in: Log ind
+        remember_me: Husk mig
+        modern_browsers: understøtter kun nyere browsere.
+    unlocks:
+      send_instructions: Du vil modtage en e-mail om et øjeblik med instruktioner om hvordan du kan låse din konto op.
+      send_paranoid_instructions: Hvis din konto eksisterer, vil du modtage en e-mail med instruktioner om hvordan du læser den op om et øjeblik.
+      unlocked: Din konto er blevet låst op. Log ind for at fortsætte.
+      new:
+        resend_unlock: Send vejledningen til aktivering af konto igen
+    invitations:
+      send_instructions: Din invitation er blevet sendt.
+      invitation_token_invalid: Beklager! Invitationen er ikke gyldig.
+      updated: Din adgangskode blev sat korrekt. Du er nu logget ind.
     shared:
       links:
-        forgot_your_password: "Glemt din adgangskode?"
-        receive_confirmation: "Modtog du ikke bekræftelsen? "
-        receive_unlock: "Modtog du ikke aktiveringsvejledningen?"
-        sign_in: "Log ind"
-        sign_up: "Opret en profil"
-        sign_up_closed: "Der er på nuværende tidspunkt lukket for fri tilmelding."
-    unlocks:
-      new:
-        resend_unlock: "Send vejledningen til aktivering af konto igen"
-      send_instructions: "Du vil modtage en e-mail om et øjeblik med instruktioner om hvordan du kan låse din konto op."
-      send_paranoid_instructions: "Hvis din konto eksisterer, vil du modtage en e-mail med instruktioner om hvordan du læser den op om et øjeblik."
-      unlocked: "Din konto er blevet låst op. Log ind for at fortsætte."
+        sign_in: Log ind
+        sign_up: Opret en profil
+        sign_up_closed: Der er på nuværende tidspunkt lukket for fri tilmelding.
+        forgot_your_password: Glemt din adgangskode?
+        receive_confirmation: 'Modtog du ikke bekræftelsen? '
+        receive_unlock: Modtog du ikke aktiveringsvejledningen?
   errors:
     messages:
-      already_confirmed: "var allerede bekræftet - prøv at logge ind"
-      confirmation_period_expired: "skal bekræftes indenfor %{period}, bed venligst om en ny"
-      expired: "er udløbet, bed venligst om en ny"
-      not_found: "ikke fundet"
-      not_locked: "blev ikke låst"
+      already_confirmed: var allerede bekræftet - prøv at logge ind
+      confirmation_period_expired: skal bekræftes indenfor %{period}, bed venligst om en ny
+      expired: er udløbet, bed venligst om en ny
+      not_found: ikke fundet
+      not_locked: blev ikke låst
       not_saved:
-        one: "En fejl forhindrede denne %{resource} i at blive gemt:"
+        one: 'En fejl forhindrede denne %{resource} i at blive gemt:'
         other: "%{count} fejl forhindrede denne %{resource} i at blive gemt:"

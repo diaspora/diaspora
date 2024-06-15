@@ -6,155 +6,155 @@
 
 br:
   javascripts:
-    and: "ha(g)"
-    aspect_dropdown:
-      add_to_aspect: "Ouzhpennañ an darempred"
-      all_aspects: "An holl strolladoù"
-      error: "N'eus ket bet gallet kregiñ da rannañ keleier gant <%= name %>.  Hag ober van anezho a rit ?"
-      error_remove: "N'eus ket bet gallet lemel kuit <%= name %> diouzh ar strollad :("
-      select_aspects: "Diuzañ strolladoù"
-      started_sharing_with: "Krog oc'h da rannañ keleier gant <%= name %>!"
-      stopped_sharing_with: "Paouezet oc'h da rannañ keleier gant <%= name %>."
-      toggle:
-        one: "En <%= count %> strollad"
-        other: "E <%= count %> strollad"
-        zero: "E <%= count %> strollad"
-    aspect_navigation:
-      add_an_aspect: "+ Ouzhpennañ ur strollad"
-      deselect_all: "Diziuzañ pep tra"
-      no_aspects: "N'hoc'h eus diuzet strollad ebet"
-      select_all: "Diuzañ pep tra"
+    timeago:
+      prefixAgo: ''
+      suffixAgo: zo
+      suffixFromNow: diwar-vremañ
+      prefixFromNow: ''
+      seconds: dindan ur vunutenn
+      minute: war-dro ur vunutenn
+      minutes:
+        other: "%d a vunutennoù"
+      hour: war-dro un eurvezh
+      hours:
+        other: war-dro %d eurvezh
+      day: un devezh
+      days:
+        other: "%d a zevezhioù"
+      month: war-dro miz
+      months:
+        other: "%d miz"
+      year: war-dro bloaz
+      years:
+        other: "%d bloaz"
+    confirm_dialog: Ha sur oc'h ?
+    delete: Diverkañ
+    ignore: Na ober van
+    ignore_user: Na ober van ouzh an implijer-mañ ?
+    and: ha(g)
     comma: ","
+    edit: Kemmañ
+    my_activity: Ma obererezh
+    my_stream: Red darvoudoù
+    my_aspects: Ma strolladoù
+    publisher:
+      option: Dibarzh <%= nr %>
+      add_option: Ouzhpennañ un dibarzh
+      question: Goulenn
+    aspect_dropdown:
+      add_to_aspect: Ouzhpennañ an darempred
+      select_aspects: Diuzañ strolladoù
+      all_aspects: An holl strolladoù
+      stopped_sharing_with: Paouezet oc'h da rannañ keleier gant <%= name %>.
+      started_sharing_with: Krog oc'h da rannañ keleier gant <%= name %>!
+      error: N'eus ket bet gallet kregiñ da rannañ keleier gant <%= name %>.  Hag ober van anezho a rit ?
+      error_remove: N'eus ket bet gallet lemel kuit <%= name %> diouzh ar strollad :(
+      toggle:
+        zero: E <%= count %> strollad
+        one: En <%= count %> strollad
+        other: E <%= count %> strollad
+    show_more: Gwelet muioc'h
+    failed_to_post_message: N'eus ket bet gallet embann ar gemennadenn !
+    failed_to_remove: N'eus ket bet gallet lemel en enmont kuit !
     comments:
-      hide: "Kuzhat an evezhiadennoù"
-      no_comments: "Evezhiadenn ebet evit ar mare"
-      show: "Diskwel an holl evezhiadennoù"
-    confirm_dialog: "Ha sur oc'h ?"
-    delete: "Diverkañ"
-    edit: "Kemmañ"
-    failed_to_post_message: "N'eus ket bet gallet embann ar gemennadenn !"
-    failed_to_remove: "N'eus ket bet gallet lemel en enmont kuit !"
+      show: Diskwel an holl evezhiadennoù
+      hide: Kuzhat an evezhiadennoù
+      no_comments: Evezhiadenn ebet evit ar mare
+    reshares:
+      successful: Rannet pelloc'h eo bet an embannadenn ervat !
+      post: Rannañ pelloc'h embannadenn <%= name %> ?
+    aspect_navigation:
+      select_all: Diuzañ pep tra
+      deselect_all: Diziuzañ pep tra
+      no_aspects: N'hoc'h eus diuzet strollad ebet
+      add_an_aspect: "+ Ouzhpennañ ur strollad"
     getting_started:
-      alright_ill_wait: "Ma, gortoz a rin ur pennadig."
-      hey: "Salud, <%= name %>!"
-      no_tags: "Salud, n'hoc'h heuliet tikedenn ebet !... Kenderc'hel memes tra ?"
-      preparing_your_stream: "O prientiñ ho red darvoudoù personelaet..."
-    header:
-      admin: "Merañ"
-      close: "serriñ"
-      contacts: "Darempredoù"
-      conversations: "Kaozeadennoù"
-      help: "Skoazell"
-      home: "Degemer"
-      log_out: "Digevreañ"
-      mark_all_as_read: "Merkit pep tra evel lennet"
-      notifications: "Kemennoù"
-      profile: "Aelad"
-      recent_notifications: "Kemennoù nevez"
-      search: "Kavout tud pe #tikedennoù"
-      settings: "Arventennoù"
-      view_all: "Gwelet pep tra"
-    ignore: "Na ober van"
-    ignore_user: "Na ober van ouzh an implijer-mañ ?"
-    my_activity: "Ma obererezh"
-    my_aspects: "Ma strolladoù"
-    my_stream: "Red darvoudoù"
-    notifications:
-      mark_read: "Merkañ evel lennet"
-      mark_unread: "Merkañ evel da lenn"
-    people:
-      edit_my_profile: "Embann ma aelad"
-      not_found: "ha n'eus ket bet kavet hini ebet..."
+      hey: Salud, <%= name %>!
+      no_tags: Salud, n'hoc'h heuliet tikedenn ebet !... Kenderc'hel memes tra ?
+      alright_ill_wait: Ma, gortoz a rin ur pennadig.
+      preparing_your_stream: O prientiñ ho red darvoudoù personelaet...
     photo_uploader:
+      looking_good: Biskoazh ! Un den farv zo ac'hanoc'h !
       completed: "<%= file %> kaset da benn"
-      empty: "goullo eo {file}, diuzit restroù ur wech all hepti."
-      error: "Ur gudenn zo bet e-ser enporzhiañ ar restr <%= file %>"
-      invalid_ext: "direizh eo astenn {file}. N'eus nemet {extensions} zo aotreet."
-      looking_good: "Biskoazh ! Un den farv zo ac'hanoc'h !"
-      size_error: "re vras eo {file}, {sizeLimit} eo ment vrasañ ar restroù."
+      error: Ur gudenn zo bet e-ser enporzhiañ ar restr <%= file %>
+      invalid_ext: direizh eo astenn {file}. N'eus nemet {extensions} zo aotreet.
+      size_error: re vras eo {file}, {sizeLimit} eo ment vrasañ ar restroù.
+      empty: goullo eo {file}, diuzit restroù ur wech all hepti.
+    tags:
+      wasnt_that_interesting: 'Mat eo, moarvat ne oa ket gwall zedennus #<%= tagName %>...'
+    people:
+      not_found: ha n'eus ket bet kavet hini ebet...
+      edit_my_profile: Embann ma aelad
+    profile:
+      edit: Embann
+      add_some: Ouzhpennañ
+      you_have_no_tags: N'ho peus tiked ebet !
+      bio: Buhez
+      location: Lec'hiadur
+      gender: Jener
+      born: Deiziad ganedigezh
+      photos: Skeudennoù
+      posts: Postoù
+    notifications:
+      mark_read: Merkañ evel lennet
+      mark_unread: Merkañ evel da lenn
+    stream:
+      hide: Kuzhat
+      public: Foran
+      limited: Bevennet
+      like: Plijus
+      unlike: Displijus
+      reshare: Rannañ pelloc'h
+      comment: Ober un evezhiadenn
+      original_post_deleted: Dilamet eo bet ar gemennadenn orin gant hec'h aozer.
+      show_nsfw_post: Diskouez ar gemennadenn
+      show_nsfw_posts: Diskouez pep tra
+      hide_nsfw_posts: 'Kuzhat ar c''hemennadennoù #nsfw'
+      follow: Heuliañ
+      unfollow: Paouez da heuliañ
+      via: dre <%= provider %>
+      likes:
+        zero: "<%= count %> Plijus"
+        one: "<%= count %> Plijus"
+        other: "<%= count %> Plijus"
+      reshares:
+        zero: "<%= count %> Rannadenn all"
+        one: "<%= count %> Rannadenn all"
+        other: "<%= count %> Rannadenn all"
+      more_comments:
+        zero: Diskouez <%= count %> evezhiadenn ouzhpenn
+        one: Diskouez <%= count %> evezhiadenn ouzhpenn
+        other: Diskouez <%= count %> evezhiadenn ouzhpenn
+      followed_tag:
+        title: "#Tikedennoù heuliet"
+        add_a_tag: Ouzhpennañ un dikedenn
+        follow: Heuliañ
+      tags:
+        follow: 'Heuliañ #<%= tag %>'
+        following: 'Oc''h heuliañ #<%= tag %>'
+        stop_following: 'Paouez da heuliañ #<%= tag %>'
+    header:
+      home: Degemer
+      profile: Aelad
+      contacts: Darempredoù
+      settings: Arventennoù
+      help: Skoazell
+      admin: Merañ
+      log_out: Digevreañ
+      notifications: Kemennoù
+      conversations: Kaozeadennoù
+      search: 'Kavout tud pe #tikedennoù'
+      recent_notifications: Kemennoù nevez
+      mark_all_as_read: Merkit pep tra evel lennet
+      view_all: Gwelet pep tra
+      close: serriñ
+    viewer:
+      reshared: Rannet pelloc'h
     poll:
-      close_result: "Kuzhat an disoc'h"
+      vote: Vot
+      result: Disoc'h
       count:
         one: " <%=count%> vot betek-hen"
         other: " <%=count%> vot betek-hen"
-      result: "Disoc'h"
-      show_result: "Diskouez an disoc'h"
-      vote: "Vot"
-    profile:
-      add_some: "Ouzhpennañ"
-      bio: "Buhez"
-      born: "Deiziad ganedigezh"
-      edit: "Embann"
-      gender: "Jener"
-      location: "Lec'hiadur"
-      photos: "Skeudennoù"
-      posts: "Postoù"
-      you_have_no_tags: "N'ho peus tiked ebet !"
-    publisher:
-      add_option: "Ouzhpennañ un dibarzh"
-      option: "Dibarzh <%= nr %>"
-      question: "Goulenn"
-    reshares:
-      post: "Rannañ pelloc'h embannadenn <%= name %> ?"
-      successful: "Rannet pelloc'h eo bet an embannadenn ervat !"
-    show_more: "Gwelet muioc'h"
-    stream:
-      comment: "Ober un evezhiadenn"
-      follow: "Heuliañ"
-      followed_tag:
-        add_a_tag: "Ouzhpennañ un dikedenn"
-        follow: "Heuliañ"
-        title: "#Tikedennoù heuliet"
-      hide: "Kuzhat"
-      hide_nsfw_posts: "Kuzhat ar c'hemennadennoù #nsfw"
-      like: "Plijus"
-      likes:
-        one: "<%= count %> Plijus"
-        other: "<%= count %> Plijus"
-        zero: "<%= count %> Plijus"
-      limited: "Bevennet"
-      more_comments:
-        one: "Diskouez <%= count %> evezhiadenn ouzhpenn"
-        other: "Diskouez <%= count %> evezhiadenn ouzhpenn"
-        zero: "Diskouez <%= count %> evezhiadenn ouzhpenn"
-      original_post_deleted: "Dilamet eo bet ar gemennadenn orin gant hec'h aozer."
-      public: "Foran"
-      reshare: "Rannañ pelloc'h"
-      reshares:
-        one: "<%= count %> Rannadenn all"
-        other: "<%= count %> Rannadenn all"
-        zero: "<%= count %> Rannadenn all"
-      show_nsfw_post: "Diskouez ar gemennadenn"
-      show_nsfw_posts: "Diskouez pep tra"
-      tags:
-        follow: "Heuliañ #<%= tag %>"
-        following: "Oc'h heuliañ #<%= tag %>"
-        stop_following: "Paouez da heuliañ #<%= tag %>"
-      unfollow: "Paouez da heuliañ"
-      unlike: "Displijus"
-      via: "dre <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Mat eo, moarvat ne oa ket gwall zedennus #<%= tagName %>..."
-    timeago:
-      day: "un devezh"
-      days:
-        other: "%d a zevezhioù"
-      hour: "war-dro un eurvezh"
-      hours:
-        other: "war-dro %d eurvezh"
-      minute: "war-dro ur vunutenn"
-      minutes:
-        other: "%d a vunutennoù"
-      month: "war-dro miz"
-      months:
-        other: "%d miz"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "dindan ur vunutenn"
-      suffixAgo: "zo"
-      suffixFromNow: "diwar-vremañ"
-      year: "war-dro bloaz"
-      years:
-        other: "%d bloaz"
-    viewer:
-      reshared: "Rannet pelloc'h"
+      show_result: Diskouez an disoc'h
+      close_result: Kuzhat an disoc'h

@@ -6,100 +6,100 @@
 
 et:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Lisa kontakt"
-      all_aspects: "Kõik aspektid."
-      select_aspects: "Vali aspektid."
-    aspect_navigation:
-      deselect_all: "Eemalda kõik valikust"
-      select_all: "Vali kõik"
-    comments:
-      hide: "Peida kommentaarid"
-      show: "Näita kõiki kommentaare"
-    confirm_dialog: "Kas oled kindel?"
-    delete: "Kustuta"
-    failed_to_post_message: "Sõnumi saatmine ebaõnnestus!"
-    getting_started:
-      alright_ill_wait: "Olgu, ma ootan."
-      hey: "Hõissa, <%= name %>!"
-      preparing_your_stream: "Valimistame ette sinu personaalse voo..."
-    header:
-      admin: "Admin"
-      contacts: "Kontaktid"
-      home: "Avaleht"
-      log_out: "Logi välja"
-      mark_all_as_read: "Märgi kõik loetuks"
-      notifications: "Teatised"
-      profile: "Profiil"
-      recent_notifications: "Äsjased teatised"
-      search: "Otsi"
-      settings: "Seaded"
-      view_all: "Näita kõiki"
-    ignore: "Eira"
-    my_activity: "Minu tegevused"
-    my_stream: "Voog"
-    photo_uploader:
-      looking_good: "OMG, sa näed vinge välja!"
-    show_more: "Näita veel"
-    stream:
-      comment: "Kommenteeri"
-      disable_post_notifications: "Lülita selle postituse teavitused välja"
-      enable_post_notifications: "Lülita selle postituse teavitused sisse"
-      follow: "Jälgi"
-      followed_tag:
-        add_a_tag: "Lisa silt"
-        follow: "Jälgi"
-        title: "#Jälgitavad sildid"
-      hide: "Peida"
-      hide_nsfw_posts: "Peida #nsfw postitused"
-      like: "Meeldib"
-      likes:
-        one: "<%= count %> meeldimine"
-        other: "<%= count %> meeldimist"
-        zero: "<%= count %> meeldimist"
-      limited: "Piiratud"
-      more_comments:
-        one: "Näita veel <%= count %> kommentaari"
-        other: "Näita veel <%= count %> kommentaari"
-        zero: "Näita veel <%= count %> kommentaari"
-      no_posts_yet: "Ei ole veel kuvamiseks postitusi."
-      original_post_deleted: "Postitus on autori poolt kustutatud."
-      permalink: "Püsiviide"
-      public: "Avalik"
-      reshare: "Jaga edasi"
-      reshares:
-        one: "<%= count %> edasijagamine"
-        other: "<%= count %> edasijagamist"
-        zero: "<%= count %> edasijagamist"
-      show_nsfw_post: "Näita postitust"
-      show_nsfw_posts: "Näita kõiki"
-      tags:
-        follow: "Jälgi #<%= tag %>"
-        following: "Jälgin #<%= tag %>"
-        stop_following: "Lõpeta #<%= tag %> jälgimine"
-        stop_following_confirm: "Lõpeta sildi #<%= tag %> jälgimine?"
-      unfollow: "Lõpeta jälgimine"
-      unlike: "Ei meeldi"
-    tags:
-      wasnt_that_interesting: "Oki, ma arvan, et <%= tagName %> polnud siiski nii huvitav..."
     timeago:
-      day: "üks päev"
-      days:
-        other: "%d päeva"
-      hour: "umbes üks tund"
-      hours:
-        other: "umbes %d tundi"
-      minute: "umbes üks minut"
+      prefixAgo: ''
+      suffixAgo: tagasi
+      suffixFromNow: hiljem
+      prefixFromNow: ''
+      seconds: vähem kui üks minut
+      minute: umbes üks minut
       minutes:
         other: "%d minutit"
-      month: "umbes üks kuu"
+      hour: umbes üks tund
+      hours:
+        other: umbes %d tundi
+      day: üks päev
+      days:
+        other: "%d päeva"
+      month: umbes üks kuu
       months:
         other: "%d kuud"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "vähem kui üks minut"
-      suffixAgo: "tagasi"
-      suffixFromNow: "hiljem"
-      year: "umbes üks aasta"
+      year: umbes üks aasta
       years:
         other: "%d aastat"
+    confirm_dialog: Kas oled kindel?
+    delete: Kustuta
+    ignore: Eira
+    my_activity: Minu tegevused
+    my_stream: Voog
+    aspect_dropdown:
+      add_to_aspect: Lisa kontakt
+      select_aspects: Vali aspektid.
+      all_aspects: Kõik aspektid.
+    show_more: Näita veel
+    failed_to_post_message: Sõnumi saatmine ebaõnnestus!
+    comments:
+      show: Näita kõiki kommentaare
+      hide: Peida kommentaarid
+    aspect_navigation:
+      select_all: Vali kõik
+      deselect_all: Eemalda kõik valikust
+    getting_started:
+      hey: Hõissa, <%= name %>!
+      alright_ill_wait: Olgu, ma ootan.
+      preparing_your_stream: Valimistame ette sinu personaalse voo...
+    photo_uploader:
+      looking_good: OMG, sa näed vinge välja!
+    tags:
+      wasnt_that_interesting: Oki, ma arvan, et <%= tagName %> polnud siiski nii huvitav...
+    stream:
+      hide: Peida
+      public: Avalik
+      limited: Piiratud
+      like: Meeldib
+      unlike: Ei meeldi
+      reshare: Jaga edasi
+      comment: Kommenteeri
+      original_post_deleted: Postitus on autori poolt kustutatud.
+      show_nsfw_post: Näita postitust
+      show_nsfw_posts: Näita kõiki
+      hide_nsfw_posts: 'Peida #nsfw postitused'
+      follow: Jälgi
+      unfollow: Lõpeta jälgimine
+      enable_post_notifications: Lülita selle postituse teavitused sisse
+      disable_post_notifications: Lülita selle postituse teavitused välja
+      permalink: Püsiviide
+      no_posts_yet: Ei ole veel kuvamiseks postitusi.
+      likes:
+        zero: "<%= count %> meeldimist"
+        one: "<%= count %> meeldimine"
+        other: "<%= count %> meeldimist"
+      reshares:
+        zero: "<%= count %> edasijagamist"
+        one: "<%= count %> edasijagamine"
+        other: "<%= count %> edasijagamist"
+      more_comments:
+        zero: Näita veel <%= count %> kommentaari
+        one: Näita veel <%= count %> kommentaari
+        other: Näita veel <%= count %> kommentaari
+      followed_tag:
+        title: "#Jälgitavad sildid"
+        add_a_tag: Lisa silt
+        follow: Jälgi
+      tags:
+        follow: 'Jälgi #<%= tag %>'
+        following: 'Jälgin #<%= tag %>'
+        stop_following: 'Lõpeta #<%= tag %> jälgimine'
+        stop_following_confirm: 'Lõpeta sildi #<%= tag %> jälgimine?'
+    header:
+      home: Avaleht
+      profile: Profiil
+      contacts: Kontaktid
+      settings: Seaded
+      admin: Admin
+      log_out: Logi välja
+      notifications: Teatised
+      search: Otsi
+      recent_notifications: Äsjased teatised
+      mark_all_as_read: Märgi kõik loetuks
+      view_all: Näita kõiki

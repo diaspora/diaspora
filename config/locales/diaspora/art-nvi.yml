@@ -5,149 +5,149 @@
 
 
 art-nvi:
-  _applications: "Lapo aydiaspora"
-  _contacts: "Eylan"
-  _services: "Hìte'e"
-  account: "Ngeyä Diaspora"
+  settings: Sìfkeytok
+  profile: Txin
+  account: Ngeyä Diaspora
+  privacy: Le'aw 'awpoä Sìfkeytok
+  _services: Hìte'e
+  _applications: Lapo aydiaspora
+  ok: Tam
+  cancel: Ftang
+  delete: "'aku"
+  username: Tstxo
+  email: Ikran lì'u
+  are_you_sure: Nga lu law srak?
+  are_you_sure_delete_account: Nga lu law tsnì new tspivang ngeyä Diasporati srak? fìkem ke laytem mawkrr!
+  fill_me_out: Pamrel si mì oe
+  public: Frapo tsun tsive'a fì'u
+  search: Fwew
+  find_people: 'Run suteti fu #säsulìnit'
+  more: nì'ul
+  all_aspects: Nìwotx Aypongu
+  no_results: Ke rìmun.
+  _contacts: Eylan
   activerecord:
     errors:
       models:
         user:
           attributes:
             person:
-              invalid: "lu kxeyey"
+              invalid: lu kxeyey
   admins:
     stats:
-      go: "salew"
-  all_aspects: "Nìwotx Aypongu"
-  are_you_sure: "Nga lu law srak?"
-  are_you_sure_delete_account: "Nga lu law tsnì new tspivang ngeyä Diasporati srak? fìkem ke laytem mawkrr!"
+      go: salew
   aspects:
     destroy:
       success: "%{name}l 'ìlmaku fìtsengeta."
-    index:
-      donate: "Tìng"
-      help:
-        feature_suggestion: "... %{link} tìmok srak?"
-        find_a_bug: "... tìng oeti %{link}ur"
-        have_a_question: "... %{link} srak?"
-        need_help: "fngo' srungit srak?"
-        tag_bug: "tìngäzìk"
-        tag_feature: "'u amip"
-        tag_question: "tìpawn"
-      introduce_yourself: "Fì'u lu ngeyä payfya. Nga mäpuwìntxu."
-      new_here:
-        follow: "Sutx %{link}it ulte zola'u nìprrte' sute amip ne Diaspora*!"
-        learn_more: "nume nì'ul"
-        title: "Zola'u nìprrte' ma sute amip"
-      welcome_to_diaspora: "Zola'u nìprrte' ne Diaspora ma %{name}!"
     seed:
-      family: "Soaia"
-      friends: "Eylan"
-      work: "Tìkangkem"
-  cancel: "Ftang"
+      family: Soaia
+      work: Tìkangkem
+      friends: Eylan
+    index:
+      donate: Tìng
+      welcome_to_diaspora: Zola'u nìprrte' ne Diaspora ma %{name}!
+      introduce_yourself: Fì'u lu ngeyä payfya. Nga mäpuwìntxu.
+      new_here:
+        title: Zola'u nìprrte' ma sute amip
+        follow: Sutx %{link}it ulte zola'u nìprrte' sute amip ne Diaspora*!
+        learn_more: nume nì'ul
+      help:
+        need_help: fngo' srungit srak?
+        have_a_question: "... %{link} srak?"
+        tag_question: tìpawn
+        find_a_bug: "... tìng oeti %{link}ur"
+        tag_bug: tìngäzìk
+        feature_suggestion: "... %{link} tìmok srak?"
+        tag_feature: "'u amip"
   contacts:
     index:
-      all_contacts: "Nìwotx Eylan"
-      my_contacts: "Oeyä Eylan"
-      start_a_conversation: "Ngal sngä'i tìpängkxoti"
-      title: "Eylan"
+      start_a_conversation: Ngal sngä'i tìpängkxoti
+      title: Eylan
+      my_contacts: Oeyä Eylan
+      all_contacts: Nìwotx Eylan
   conversations:
-    create:
-      fail: "kxeyey 'upxare"
-      sent: "'Upxare fpìme'"
     index:
+      no_messages: Kea upxare
       inbox: "'Upxare tsenge"
-      no_messages: "Kea upxare"
-    new:
-      send: "fpe'"
-      sending: "fpere'"
     show:
       reply: "'eyng"
       replying: "'ereyng..."
-  delete: "'aku"
-  email: "Ikran lì'u"
-  fill_me_out: "Pamrel si mì oe"
-  find_people: "Run suteti fu #säsulìnit"
+    new:
+      send: fpe'
+      sending: fpere'
+    create:
+      sent: "'Upxare fpìme'"
+      fail: kxeyey 'upxare
   invitations:
     new:
-      language: "Lì'fya"
+      language: Lì'fya
   layouts:
     header:
-      logout: "Hum"
-      profile: "Txin"
-      settings: "Sìfkeytok"
-  more: "nì'ul"
-  no_results: "Ke rìmun."
+      profile: Txin
+      settings: Sìfkeytok
+      logout: Hum
   notifications:
     index:
-      and: "ulte"
+      and: ulte
   notifier:
     single_admin:
       subject: "'Upxare teri ngeyä Diaspora:"
-  ok: "Tam"
   people:
     person:
-      thats_you: "Fì'u nga lu!"
+      thats_you: Fì'u nga lu!
     profile_sidebar:
-      bio: "teri oe"
-      born: "ftxozä"
-      gender: "fnepe tokx"
-      location: "Kelku"
+      bio: teri oe
+      location: Kelku
+      gender: fnepe tokx
+      born: ftxozä
   photos:
     destroy:
-      notice: "Relìl 'aìmku"
-  privacy: "Le'aw 'awpoä Sìfkeytok"
-  profile: "Txin"
+      notice: Relìl 'aìmku
   profiles:
     edit:
-      first_name: "tstxo nì'awve"
-      last_name: "tstxo asyen"
-      your_birthday: "Ngeyä sngä'itrr"
-      your_location: "ngeyä tsenge"
-      your_name: "ngeyä tstxo"
-      your_photo: "ngeyä rel"
-  public: "Frapo tsun tsive'a fì'u"
-  search: "Fwew"
-  settings: "Sìfkeytok"
+      your_name: ngeyä tstxo
+      first_name: tstxo nì'awve
+      last_name: tstxo asyen
+      your_birthday: Ngeyä sngä'itrr
+      your_location: ngeyä tsenge
+      your_photo: ngeyä rel
   shared:
     invitations:
-      by_email: "ìlä email"
-      invite_your_friends: "pawm ngeyä eylanti fìtseng"
+      invite_your_friends: pawm ngeyä eylanti fìtseng
+      by_email: ìlä email
     stream_element:
-      via: "ìlä %{link}"
+      via: ìlä %{link}
   streams:
-    activity:
-      title: "Oeyä Tìn"
-    aspects:
-      title: "Oeyä Aypongu"
-    aspects_stream: "Aypengu"
-    followed_tag:
-      follow: "Sutx"
-    followed_tags_stream: "#samutx sìn"
+    aspects_stream: Aypengu
     mentioned_stream: "@plltxole"
+    followed_tags_stream: "#samutx sìn"
     mentions:
       title: "@plltxole"
+    followed_tag:
+      follow: Sutx
     multi:
-      title: "Payfya"
-  username: "Tstxo"
+      title: Payfya
+    aspects:
+      title: Oeyä Aypongu
+    activity:
+      title: Oeyä Tìn
   users:
     edit:
-      change: "Latem"
-      change_email: "latem ngeyä Ikran lì'u"
-      change_language: "latem lì'fyati"
-      change_password: "Latem ngeyä ftemlì'u"
-      character_minimum_expl: "zene livu to pukap ngim"
+      edit_account: Latem ngeyä Diaspora
+      change: Latem
+      your_email: Ngeyä Ikran lì'u
+      change_email: latem ngeyä Ikran lì'u
+      change_password: Latem ngeyä ftemlì'u
+      new_password: Ftemlì'u amip
+      current_password: Lefkrr ftemlì'u
+      current_password_expl: nga fpxäkìm fìftemlì'uhu...
+      character_minimum_expl: zene livu to pukap ngim
+      change_language: latem lì'fyati
       close_account_text: "'aku diasporati"
-      current_password: "Lefkrr ftemlì'u"
-      current_password_expl: "nga fpxäkìm fìftemlì'uhu..."
-      edit_account: "Latem ngeyä Diaspora"
-      new_password: "Ftemlì'u amip"
-      your_email: "Ngeyä Ikran lì'u"
-    getting_started:
-      well_hello_there: "Tse, kaltxì tsatseng!"
-      who_are_you: "Pesu nga lu"
     privacy_settings:
-      title: "Le'aw 'awpoä Sìfkeytok"
+      title: Le'aw 'awpoä Sìfkeytok
+    getting_started:
+      well_hello_there: Tse, kaltxì tsatseng!
+      who_are_you: Pesu nga lu
     update:
-      language_changed: "lì'fyal lìmatem"
+      language_changed: lì'fyal lìmatem

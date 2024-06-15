@@ -7,109 +7,109 @@
 ia:
   devise:
     confirmations:
-      confirmed: "Le adresse de e-mail ha essite confirmate con successo."
+      confirmed: Le adresse de e-mail ha essite confirmate con successo.
+      send_instructions: Tu recipera in pauc minutas un message de e-mail con instructiones pro confirmar tu adresse de e-mail.
+      send_paranoid_instructions: Si tu adresse de e-mail existe in nostre base de datos, tu recipera in pauc minutas un e-mail con instructiones pro confirmar tu adresse de e-mail.
       new:
-        resend_confirmation: "Reinviar instructiones pro confirmar"
-      send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro confirmar tu adresse de e-mail."
-      send_paranoid_instructions: "Si tu adresse de e-mail existe in nostre base de datos, tu recipera in pauc minutas un e-mail con instructiones pro confirmar tu adresse de e-mail."
+        resend_confirmation: Reinviar instructiones pro confirmar
     failure:
-      already_authenticated: "Tu ha jam aperite session."
-      inactive: "Tu conto non ha ancora essite activate."
+      already_authenticated: Tu ha jam aperite session.
+      inactive: Tu conto non ha ancora essite activate.
       invalid: "%{authentication_keys} o contrasigno invalide."
-      invalid_token: "Indicio de authentication invalide."
-      last_attempt: "Tu pote tentar solmente un altere vice ante que le conto es blocate."
-      locked: "Tu conto es blocate."
+      locked: Tu conto es blocate.
+      last_attempt: Tu pote tentar solmente un altere vice ante que le conto es blocate.
       not_found_in_database: "%{authentication_keys} o contrasigno invalide."
-      timeout: "Le session ha expirate. Per favor aperi session de novo pro continuar."
-      unauthenticated: "Tu debe aperir session o crear un conto ante de continuar."
-      unconfirmed: "Tu debe confirmar tu adresse de e-mail ante de continuar."
-    invitations:
-      invitation_token_invalid: "Excusa nos! Iste indicio de invitation non es valide."
-      send_instructions: "Le invitation ha essite inviate."
-      updated: "Contrasigno definite con successo. Tu ha aperite session."
+      timeout: Le session ha expirate. Per favor aperi session de novo pro continuar.
+      unauthenticated: Tu debe aperir session o crear un conto ante de continuar.
+      unconfirmed: Tu debe confirmar tu adresse de e-mail ante de continuar.
+      invalid_token: Indicio de authentication invalide.
     mailer:
       confirmation_instructions:
-        confirm: "Confirmar mi conto"
-        subject: "Instructiones pro confirmar"
-        you_can_confirm: "Tu pote confirmar tu conto per le ligamine sequente:"
-      hello: "Salute, %{username}!"
+        subject: Instructiones pro confirmar
+        you_can_confirm: 'Tu pote confirmar tu conto per le ligamine sequente:'
+        confirm: Confirmar mi conto
+      reset_password_instructions:
+        subject: Instructiones pro reinitialisar contrasigno
+        someone_requested: Qualcuno ha demandate un ligamine pro cambiar tu contrasigno. Si tu faceva iste demanda, tu pote facer isto per le ligamine sequente.
+        change: Cambiar mi contrasigno
+        then_connect: Post haber definite un nove contrasigno, tu potera aperir session in diaspora* de novo usante tu nomine de usator “%{username}” e tu nove contrasigno.
+        wont_change: Le contrasigno non cambiara si tu non clicca sur le ligamine precedente e specifica un nove.
+        ignore: Si tu non ha demandate isto, per favor ignora iste message.
+      unlock_instructions:
+        subject: Instructiones pro disblocar
+        account_locked: Tu conto ha essite blocate a causa de un numero excessive de tentativas fallite de accesso.
+        click_to_unlock: 'Clicca sur le ligamine sequente pro disblocar tu conto:'
+        unlock: Disblocar mi conto
+      password_change:
+        subject: Contrasigno cambiate
+      welcome: Benvenite, %{username}!
+      hello: Salute, %{username}!
       inviter:
-        accept_at: "a %{url}, tu pote acceptar lo per le ligamine sequente."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} te ha invitate a unir te a diaspora*"
-      password_change:
-        subject: "Contrasigno cambiate"
-      reset_password_instructions:
-        change: "Cambiar mi contrasigno"
-        ignore: "Si tu non ha demandate isto, per favor ignora iste message."
-        someone_requested: "Qualcuno ha demandate un ligamine pro cambiar tu contrasigno. Si tu faceva iste demanda, tu pote facer isto per le ligamine sequente."
-        subject: "Instructiones pro reinitialisar contrasigno"
-        then_connect: "Post haber definite un nove contrasigno, tu potera aperir session in diaspora* de novo usante tu nomine de usator “%{username}” e tu nove contrasigno."
-        wont_change: "Le contrasigno non cambiara si tu non clicca sur le ligamine precedente e specifica un nove."
-      unlock_instructions:
-        account_locked: "Tu conto ha essite blocate a causa de un numero excessive de tentativas fallite de accesso."
-        click_to_unlock: "Clicca sur le ligamine sequente pro disblocar tu conto:"
-        subject: "Instructiones pro disblocar"
-        unlock: "Disblocar mi conto"
-      welcome: "Benvenite, %{username}!"
+        accept_at: a %{url}, tu pote acceptar lo per le ligamine sequente.
     omniauth_callbacks:
-      failure: "Impossibile authenticar te a partir de %{kind} perque \"%{reason}\"."
-      success: "Authentication a partir del conto %{kind} succedite."
+      failure: Impossibile authenticar te a partir de %{kind} perque "%{reason}".
+      success: Authentication a partir del conto %{kind} succedite.
     passwords:
+      no_token: Tu non pote acceder a iste pagina sin venir ab un e-mail pro reinitialisar contrasigno. Si tu de facto veni ab un e-mail pro reinitialisar contrasigno, per favor assecura te de usar le totalitate del URL fornite.
+      send_instructions: Tu recipera in pauc minutas un message de e-mail con instructiones pro reinitialisar le contrasigno.
+      send_paranoid_instructions: Si tu adresse de e-mail existe in nostre base de datos, tu recipera in pauc minutas un e-mail con un ligamine pro recuperar le contrasigno.
+      updated: Le contrasigno ha essite cambiate con successo. Tu ha aperite session.
+      updated_not_active: Tu contrasigno ha essite cambiate.
       edit:
-        change_password: "Cambiar mi contrasigno"
-        confirm_password: "Confirmar contrasigno"
-        new_password: "Nove contrasigno"
+        change_password: Cambiar mi contrasigno
+        new_password: Nove contrasigno
+        confirm_password: Confirmar contrasigno
       new:
-        email: "Adresse de e-mail"
-        forgot_password: "Contrasigno oblidate?"
-        reset_password: "Reinitialisar contrasigno"
-        send_password_instructions: "Inviar instructiones pro reinitialisar contrasigno"
-      no_token: "Tu non pote acceder a iste pagina sin venir ab un e-mail pro reinitialisar contrasigno. Si tu de facto veni ab un e-mail pro reinitialisar contrasigno, per favor assecura te de usar le totalitate del URL fornite."
-      send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro reinitialisar le contrasigno."
-      send_paranoid_instructions: "Si tu adresse de e-mail existe in nostre base de datos, tu recipera in pauc minutas un e-mail con un ligamine pro recuperar le contrasigno."
-      updated: "Le contrasigno ha essite cambiate con successo. Tu ha aperite session."
-      updated_not_active: "Tu contrasigno ha essite cambiate."
+        forgot_password: Contrasigno oblidate?
+        reset_password: Reinitialisar contrasigno
+        email: Adresse de e-mail
+        send_password_instructions: Inviar instructiones pro reinitialisar contrasigno
     registrations:
-      destroyed: "Adeo! Le deletion de tu conto ha succedite. Nos spera revider te bentosto."
-      signed_up: "Conto create con successo. Si applicabile, un confirmation ha essite inviate a tu adresse de e-mail."
-      signed_up_but_inactive: "Le creation de tu conto ha succedite. Totevia, nos non ha potite aperir tu session perque tu conto non es ancora activate."
-      signed_up_but_locked: "Le creation de tu conto ha succedite. Totevia, nos non ha potite aperir tu session perque tu conto es blocate."
-      signed_up_but_unconfirmed: "Un message con un ligamine de confirmation ha essite inviate a tu adresse de e-mail. Per favor, seque le ligamine pro activar tu conto."
-      update_needs_confirmation: "Tu ha actualisate tu conto, ma nos debe verificar tu nove adresse de e-mail. Per favor, lege tu e-mail e seque le ligamine de confirmation pro confirmar tu nove adresse de e-mail."
-      updated: "Le conto ha essite actualisate con successo."
+      destroyed: Adeo! Le deletion de tu conto ha succedite. Nos spera revider te bentosto.
+      signed_up: Conto create con successo. Si applicabile, un confirmation ha essite inviate a tu adresse de e-mail.
+      signed_up_but_inactive: Le creation de tu conto ha succedite. Totevia, nos non ha potite aperir tu session perque tu conto non es ancora activate.
+      signed_up_but_locked: Le creation de tu conto ha succedite. Totevia, nos non ha potite aperir tu session perque tu conto es blocate.
+      signed_up_but_unconfirmed: Un message con un ligamine de confirmation ha essite inviate a tu adresse de e-mail. Per favor, seque le ligamine pro activar tu conto.
+      update_needs_confirmation: Tu ha actualisate tu conto, ma nos debe verificar tu nove adresse de e-mail. Per favor, lege tu e-mail e seque le ligamine de confirmation pro confirmar tu nove adresse de e-mail.
+      updated: Le conto ha essite actualisate con successo.
     sessions:
-      already_signed_out: "Le session ha essite claudite."
+      signed_in: Session aperite con successo.
+      signed_out: Session claudite con successo.
+      already_signed_out: Le session ha essite claudite.
       new:
-        login: "Aperir session"
-        modern_browsers: "supporta solmente le navigatores moderne."
-        password: "Contrasigno"
-        remember_me: "Memorar me"
-        sign_in: "Aperir session"
-        username: "Nomine de usator"
-      signed_in: "Session aperite con successo."
-      signed_out: "Session claudite con successo."
+        login: Aperir session
+        username: Nomine de usator
+        password: Contrasigno
+        sign_in: Aperir session
+        remember_me: Memorar me
+        modern_browsers: supporta solmente le navigatores moderne.
+    unlocks:
+      send_instructions: Tu recipera in pauc minutas un message de e-mail con instructiones pro disblocar tu conto.
+      send_paranoid_instructions: Si tu conto existe, tu recipera in pauc minutas un e-mail con instructiones pro disblocar lo.
+      unlocked: Le conto ha essite disblocate con successo. Per favor, aperi session pro continuar.
+      new:
+        resend_unlock: Reinviar instructiones pro disblocar
+    invitations:
+      send_instructions: Le invitation ha essite inviate.
+      invitation_token_invalid: Excusa nos! Iste indicio de invitation non es valide.
+      updated: Contrasigno definite con successo. Tu ha aperite session.
     shared:
       links:
-        forgot_your_password: "Contrasigno oblidate?"
-        receive_confirmation: "Instructiones pro confirmar non recipite?"
-        receive_unlock: "Instructiones pro disblocar non recipite?"
-        sign_in: "Aperir session"
-        sign_up: "Crear conto"
-        sign_up_closed: "Le creation de contos es claudite al publico in iste momento."
-    unlocks:
-      new:
-        resend_unlock: "Reinviar instructiones pro disblocar"
-      send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro disblocar tu conto."
-      send_paranoid_instructions: "Si tu conto existe, tu recipera in pauc minutas un e-mail con instructiones pro disblocar lo."
-      unlocked: "Le conto ha essite disblocate con successo. Per favor, aperi session pro continuar."
+        sign_in: Aperir session
+        sign_up: Crear conto
+        sign_up_closed: Le creation de contos es claudite al publico in iste momento.
+        forgot_your_password: Contrasigno oblidate?
+        receive_confirmation: Instructiones pro confirmar non recipite?
+        receive_unlock: Instructiones pro disblocar non recipite?
   errors:
     messages:
-      already_confirmed: "ha jam essite confirmate; essaya aperir session"
-      confirmation_period_expired: "debe esser confirmate intra %{period}, per favor requesta un altere"
-      expired: "ha expirate, per favor requesta un altere"
-      not_found: "non trovate"
-      not_locked: "non ha essite blocate"
+      already_confirmed: ha jam essite confirmate; essaya aperir session
+      confirmation_period_expired: debe esser confirmate intra %{period}, per favor requesta un altere
+      expired: ha expirate, per favor requesta un altere
+      not_found: non trovate
+      not_locked: non ha essite blocate
       not_saved:
-        one: "Un error ha impedite a iste %{resource} de esser salveguardate:"
+        one: 'Un error ha impedite a iste %{resource} de esser salveguardate:'
         other: "%{count} errores ha impedite a iste %{resource} de esser salveguardate:"

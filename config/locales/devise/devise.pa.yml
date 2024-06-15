@@ -8,55 +8,55 @@ pa:
   devise:
     confirmations:
       new:
-        resend_confirmation: "ਪੁਸ਼ਟੀ ਨਿਰਦੇਸ਼ ਦੁਬਾਰਾ ਭੇਜੋ"
+        resend_confirmation: ਪੁਸ਼ਟੀ ਨਿਰਦੇਸ਼ ਦੁਬਾਰਾ ਭੇਜੋ
     failure:
-      inactive: "ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਹਾਲੇ ਐਕਟੀਵੇਟ ਨਹੀਂ ਹੋਇਆ ਹੈ।"
-      invalid: "ਗਲਤ ਈਮੇਲ ਜਾਂ ਪਾਸਵਰਡ ਹੈ।"
-      locked: "ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਲਾਕ ਹੈ।"
-      timeout: "ਤੁਹਾਡੇ ਸ਼ੈਸ਼ਨ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ, ਜਾਰੀ ਰੱਖਣ ਲਈ ਫੇਰ ਲਾਗਇਨ ਕਰੋ ਜੀ।"
-      unauthenticated: "ਤੁਹਾਨੂੰ ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਲਾਗਇਨ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਸਾਇਨ ਅੱਪ"
-      unconfirmed: "ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਆਪਣੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨੀ ਪੈਣੀ ਹੈ।"
-    invitations:
-      invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "ਤੁਹਾਡਾ ਸੱਦਾ ਭੇਜ ਦਿੱਤਾ ਗਿਆ ਹੈ "
+      inactive: ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਹਾਲੇ ਐਕਟੀਵੇਟ ਨਹੀਂ ਹੋਇਆ ਹੈ।
+      invalid: ਗਲਤ ਈਮੇਲ ਜਾਂ ਪਾਸਵਰਡ ਹੈ।
+      locked: ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਲਾਕ ਹੈ।
+      timeout: ਤੁਹਾਡੇ ਸ਼ੈਸ਼ਨ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ, ਜਾਰੀ ਰੱਖਣ ਲਈ ਫੇਰ ਲਾਗਇਨ ਕਰੋ ਜੀ।
+      unauthenticated: ਤੁਹਾਨੂੰ ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਲਾਗਇਨ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਸਾਇਨ ਅੱਪ
+      unconfirmed: ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਆਪਣੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨੀ ਪੈਣੀ ਹੈ।
     mailer:
       confirmation_instructions:
-        confirm: "ਮੇਰੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
-        subject: "ਪੁਸ਼ਟੀ ਹਦਾਇਤਾਂ"
-      hello: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ %{username}!"
+        subject: ਪੁਸ਼ਟੀ ਹਦਾਇਤਾਂ
+        confirm: ਮੇਰੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ
+      reset_password_instructions:
+        change: ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ
+      unlock_instructions:
+        subject: ਅਣ-ਲਾਕ ਹਦਾਇਤਾਂ
+        account_locked: ਬਹੁਤ ਸਾਰੇ ਨਾਕਾਮਯਾਬ ਲਾਗਇਨ ਕਰਨ ਕਾਰਣ ਤੁਹਾਡਾ ਅਕਾਉਂਟ ਲਾਕ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ
+        click_to_unlock: 'ਆਪਣਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰਨ ਲਈ ਹੇਠਲੇ ਲਿੰਕ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ:'
+        unlock: ਮੇਰਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰੋ
+      welcome: "%{username} ਜੀ ਆਇਆਂ ਨੂੰ!"
+      hello: ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ %{username}!
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} ਨੇ ਤੁਹਾਨੂੰ ਡਿਆਸਪਰਾ ਨਾਲ ਜੁੜਨ ਲਈ ਸੱਦਿਆ ਹੈ"
-      reset_password_instructions:
-        change: "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ"
-      unlock_instructions:
-        account_locked: "ਬਹੁਤ ਸਾਰੇ ਨਾਕਾਮਯਾਬ ਲਾਗਇਨ ਕਰਨ ਕਾਰਣ ਤੁਹਾਡਾ ਅਕਾਉਂਟ ਲਾਕ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ"
-        click_to_unlock: "ਆਪਣਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰਨ ਲਈ ਹੇਠਲੇ ਲਿੰਕ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ:"
-        subject: "ਅਣ-ਲਾਕ ਹਦਾਇਤਾਂ"
-        unlock: "ਮੇਰਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰੋ"
-      welcome: "%{username} ਜੀ ਆਇਆਂ ਨੂੰ!"
     passwords:
+      updated: ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਠੀਕ ਤਹ੍ਹਾਂ ਬਦਲਿਆ ਗਿਆ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ।
       edit:
-        change_password: "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ"
+        change_password: ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ
       new:
-        forgot_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ ਹੋ?"
-      updated: "ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਠੀਕ ਤਹ੍ਹਾਂ ਬਦਲਿਆ ਗਿਆ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ।"
+        forgot_password: ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ ਹੋ?
     sessions:
       new:
-        login: "ਲਾਗਇਨ"
-        password: "ਪਾਸਵਰਡ"
-        sign_in: "ਸਾਇਨ ਇਨ"
-        username: "ਯੂਜ਼ਰ ਨਾਂ"
-    shared:
-      links:
-        forgot_your_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?"
-        sign_in: "ਸਾਇਨ ਇਨ"
-        sign_up: "ਸਾਇਨ ਅੱਪ"
+        login: ਲਾਗਇਨ
+        username: ਯੂਜ਼ਰ ਨਾਂ
+        password: ਪਾਸਵਰਡ
+        sign_in: ਸਾਇਨ ਇਨ
     unlocks:
       new:
-        resend_unlock: "ਅਨਲਾਕ ਨਿਰਦੇਸ਼ ਦੁਬਾਰਾ ਭੇਜੋ"
+        resend_unlock: ਅਨਲਾਕ ਨਿਰਦੇਸ਼ ਦੁਬਾਰਾ ਭੇਜੋ
+    invitations:
+      send_instructions: 'ਤੁਹਾਡਾ ਸੱਦਾ ਭੇਜ ਦਿੱਤਾ ਗਿਆ ਹੈ '
+      invitation_token_invalid: The invitation token provided is not valid!
+    shared:
+      links:
+        sign_in: ਸਾਇਨ ਇਨ
+        sign_up: ਸਾਇਨ ਅੱਪ
+        forgot_your_password: ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?
   errors:
     messages:
-      already_confirmed: "ਪਹਿਲਾਂ ਹੀ ਪੁਸ਼ਟੀ ਹੋ ਚੁੱਕੀ ਸੀ"
-      not_found: "ਨਹੀਂ ਲੱਭਿਆ"
-      not_locked: "ਲਾਕ ਨਹੀਂ ਹੈ"
+      already_confirmed: ਪਹਿਲਾਂ ਹੀ ਪੁਸ਼ਟੀ ਹੋ ਚੁੱਕੀ ਸੀ
+      not_found: ਨਹੀਂ ਲੱਭਿਆ
+      not_locked: ਲਾਕ ਨਹੀਂ ਹੈ

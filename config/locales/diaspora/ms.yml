@@ -5,296 +5,296 @@
 
 
 ms:
-  _applications: "Aplikasi"
-  _contacts: "Kenalan-kenalan"
-  _services: "Perkhidmatan"
-  account: "Akaun"
+  settings: Tetapan
+  profile: Profil
+  account: Akaun
+  privacy: Privasi
+  _services: Perkhidmatan
+  _applications: Aplikasi
+  ok: Baiklah
+  cancel: Batal
+  delete: Padam
+  username: Nama Pengguna
+  email: Emel
+  are_you_sure: Anda yakin?
+  are_you_sure_delete_account: Adakah anda ingin menutup akaun anda? Ini tidak boleh dibuat asal!
+  fill_me_out: Isi
+  public: Awam
+  limited: Terhad
+  search: Cari
+  nsfw: NSFW
+  find_people: 'Cari orang atau #tag'
+  more: lebih banyak
+  all_aspects: Semua aspek
+  no_results: Tiada hasil dijumpai
+  _contacts: Kenalan-kenalan
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "mestilah unik di kalangan kenalan pengguna ini."
+            person:
+              invalid: adalah tidak sah.
+            username:
+              taken: sudah diambil.
+              invalid: adalah tidak sah. Kami hanya membenarkan huruf, nombor, dan garis bawah.
+            email:
+              taken: sudah diambil.
         person:
           attributes:
             diaspora_handle:
-              taken: "sudah diambil."
+              taken: sudah diambil.
+        contact:
+          attributes:
+            person_id:
+              taken: mestilah unik di kalangan kenalan pengguna ini.
         reshare:
           attributes:
             root_guid:
-              taken: "Baik, kan? Anda telah berkongsi semula hantaran tersebut!"
-        user:
-          attributes:
-            email:
-              taken: "sudah diambil."
-            person:
-              invalid: "adalah tidak sah."
-            username:
-              invalid: "adalah tidak sah. Kami hanya membenarkan huruf, nombor, dan garis bawah."
-              taken: "sudah diambil."
-  all_aspects: "Semua aspek"
-  are_you_sure: "Anda yakin?"
-  are_you_sure_delete_account: "Adakah anda ingin menutup akaun anda? Ini tidak boleh dibuat asal!"
-  aspect_memberships:
-    destroy:
-      failure: "Individu tersebut telah gagal dikeluarkan daripada aspek."
-      no_membership: "Individu yang dipilih tidak dijumpai dalam aspek tersebut."
-      success: "Individu tersebut telah berjaya dikeluarkan daripada aspek."
-  aspects:
-    add_to_aspect:
-      failure: "Gagal menambah kenalan kepada aspek."
-      success: "Berjaya menambah kenalan kepada aspek."
-    aspect_listings:
-      add_an_aspect: "+ Tambah aspek"
-    aspect_stream:
-      stay_updated: "Kekal dengan perkembangan semasa"
-      stay_updated_explanation: "Aliran utama anda dipenuhi dengan semua kenalan anda, tag anda ikuti, dan pos daripada beberapa ahli kreatif komuniti."
-    destroy:
-      failure: "%{name} tidak boleh dibuang."
-      success: "%{name} telah berjaya dikeluarkan."
-    edit:
-      aspect_list_is_not_visible: "Kenalan dalam aspek ini tidak dapat melihat satu sama lain."
-      aspect_list_is_visible: "Kenalan dalam aspek ini dapat melihat satu sama lain."
-      confirm_remove_aspect: "Adakah anda pasti anda mahu memadam aspek ini?"
-      rename: "Namakan semula"
-      update: "Kemas kini"
-      updating: "Mengemas kini"
-    index:
-      donate: "Derma"
-      help:
-        do_you: "Adakah anda:"
-        feature_suggestion: "... mempunyai %{link} cadangan?"
-        find_a_bug: "... mencari %{link}?"
-        have_a_question: "... mempunyai %{link}?"
-        here_to_help: "Komuniti diaspora* di sini!"
-        need_help: "Perlukan bantuan?"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
-      introduce_yourself: "Ini aliran anda. Sertai dan perkenalkan diri anda."
-      new_here:
-        follow: "Ikuti %{link} dan selamat datang pengguna baru ke diaspora *!"
-        learn_more: "Ketahui lebih lanjut"
-        title: "Mengalu-alukan para pengguna baharu"
-      services:
-        content: "Anda boleh menyambung perkhidmatan berikut kepada diaspora*:"
-        heading: "Kaitkan perkhidmatan"
-      welcome_to_diaspora: "Selamat datang ke diaspora*, %{name}!"
-    no_contacts_message:
-      community_spotlight: "Komuniti tumpuan"
-      or_spotlight: "Atau anda boleh berkongsi dengan %{link}"
-      try_adding_some_more_contacts: "Anda boleh mencari atau %{invite_link} lebih ramai kenalan."
-      you_should_add_some_more_contacts: "Anda perlu menambah beberapa lagi kenalan!"
-    seed:
-      acquaintances: "kenalan"
-      family: "Famili"
-      friends: "Rakan"
-      work: "Kerja"
-    update:
-      failure: "Nama aspek anda, %{name}, terlalu panjang untuk disimpan."
-      success: "Aspek anda, %{name}, telah berjaya diedit."
-  bookmarklet:
-    explanation: "Pos ke diaspora* dari mana-mana sahaja dengan menanda buku pautan ini => %{link}."
-    heading: "Aplet Tanda Buku"
-    post_something: "Pos ke diaspora*"
-  cancel: "Batal"
-  comments:
-    new_comment:
-      comment: "Komen"
-      commenting: "Mengulas..."
-  contacts:
-    index:
-      all_contacts: "Semua Kenalan"
-      my_contacts: "Kenalan saya"
-      no_contacts: "Nampaknya anda perlu menambah beberapa kenalan!"
-      only_sharing_with_me: "Hanya berkongsi dengan saya"
-      start_a_conversation: "Mulakan perbualan"
-      title: "Kenalan"
-  conversations:
-    index:
-      inbox: "Peti masuk"
-      no_messages: "tiada mesej"
-    new:
-      send: "Hantar"
-      sending: "Menghantar..."
-      subject: "subjek"
-      to: "kepada"
-    show:
-      delete: "memadam dan menyekat perbualan"
-      reply: "balas"
-      replying: "Membalas..."
-  delete: "Padam"
-  email: "Emel"
-  error_messages:
-    helper:
-      correct_the_following_errors_and_try_again: "Betulkan kesilapan berikut dan cuba lagi."
+              taken: Baik, kan? Anda telah berkongsi semula hantaran tersebut!
   errors:
     messages:
-      carrierwave_download_error: "tidak boleh dimuat turun"
-      carrierwave_integrity_error: "bukan jenis fail yang dibenarkan"
-      carrierwave_processing_error: "gagal diproses"
-      content_type_blacklist_error: "Anda tidak dibenarkan memuat naik fail jenis %{content_type}"
-      content_type_whitelist_error: "Anda tidak dibenarkan memuat naik fail jenis %{content_type}"
-      extension_blacklist_error: "Anda tidak dibenarkan memuat naik fail %{extension}, jenis yang dilarang: %{prohibited_types}"
-      extension_whitelist_error: "Anda tidak dibenarkan memuat naik fail %{extension}, jenis yang dibenarkan: %{allowed_types}"
-      max_size_error: "Saiz fail mestilah lebih kecil daripada %{max_size}"
-      min_size_error: "Saiz fail mestilah lebih besar daripada %{min_size}"
-      mini_magick_processing_error: "Gagal memanipulasikan menggunakan MiniMagick, mungkin ia bukannya imej? Ralat asal: %{e}"
-      rmagick_processing_error: "Gagal memanipulasikan menggunakan rmagick, mungkin ia bukannya imej?"
-  fill_me_out: "Isi"
-  find_people: "Cari orang atau #tag"
+      carrierwave_processing_error: gagal diproses
+      carrierwave_integrity_error: bukan jenis fail yang dibenarkan
+      carrierwave_download_error: tidak boleh dimuat turun
+      extension_whitelist_error: 'Anda tidak dibenarkan memuat naik fail %{extension}, jenis yang dibenarkan: %{allowed_types}'
+      extension_blacklist_error: 'Anda tidak dibenarkan memuat naik fail %{extension}, jenis yang dilarang: %{prohibited_types}'
+      content_type_whitelist_error: Anda tidak dibenarkan memuat naik fail jenis %{content_type}
+      content_type_blacklist_error: Anda tidak dibenarkan memuat naik fail jenis %{content_type}
+      rmagick_processing_error: Gagal memanipulasikan menggunakan rmagick, mungkin ia bukannya imej?
+      mini_magick_processing_error: 'Gagal memanipulasikan menggunakan MiniMagick, mungkin ia bukannya imej? Ralat asal: %{e}'
+      min_size_error: Saiz fail mestilah lebih besar daripada %{min_size}
+      max_size_error: Saiz fail mestilah lebih kecil daripada %{max_size}
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Betulkan kesilapan berikut dan cuba lagi.
+  aspects:
+    edit:
+      confirm_remove_aspect: Adakah anda pasti anda mahu memadam aspek ini?
+      rename: Namakan semula
+      aspect_list_is_visible: Kenalan dalam aspek ini dapat melihat satu sama lain.
+      aspect_list_is_not_visible: Kenalan dalam aspek ini tidak dapat melihat satu sama lain.
+      update: Kemas kini
+      updating: Mengemas kini
+    no_contacts_message:
+      you_should_add_some_more_contacts: Anda perlu menambah beberapa lagi kenalan!
+      try_adding_some_more_contacts: Anda boleh mencari atau %{invite_link} lebih ramai kenalan.
+      or_spotlight: Atau anda boleh berkongsi dengan %{link}
+      community_spotlight: Komuniti tumpuan
+    aspect_listings:
+      add_an_aspect: "+ Tambah aspek"
+    destroy:
+      success: "%{name} telah berjaya dikeluarkan."
+      failure: "%{name} tidak boleh dibuang."
+    update:
+      success: Aspek anda, %{name}, telah berjaya diedit.
+      failure: Nama aspek anda, %{name}, terlalu panjang untuk disimpan.
+    add_to_aspect:
+      failure: Gagal menambah kenalan kepada aspek.
+      success: Berjaya menambah kenalan kepada aspek.
+    seed:
+      family: Famili
+      work: Kerja
+      acquaintances: kenalan
+      friends: Rakan
+    index:
+      donate: Derma
+      welcome_to_diaspora: Selamat datang ke diaspora*, %{name}!
+      introduce_yourself: Ini aliran anda. Sertai dan perkenalkan diri anda.
+      new_here:
+        title: Mengalu-alukan para pengguna baharu
+        follow: Ikuti %{link} dan selamat datang pengguna baru ke diaspora *!
+        learn_more: Ketahui lebih lanjut
+      help:
+        need_help: Perlukan bantuan?
+        here_to_help: Komuniti diaspora* di sini!
+        do_you: 'Adakah anda:'
+        have_a_question: "... mempunyai %{link}?"
+        tag_question: "#question"
+        find_a_bug: "... mencari %{link}?"
+        tag_bug: "#bug"
+        feature_suggestion: "... mempunyai %{link} cadangan?"
+        tag_feature: "#feature"
+      services:
+        heading: Kaitkan perkhidmatan
+        content: 'Anda boleh menyambung perkhidmatan berikut kepada diaspora*:'
+    aspect_stream:
+      stay_updated: Kekal dengan perkembangan semasa
+      stay_updated_explanation: Aliran utama anda dipenuhi dengan semua kenalan anda, tag anda ikuti, dan pos daripada beberapa ahli kreatif komuniti.
+  aspect_memberships:
+    destroy:
+      success: Individu tersebut telah berjaya dikeluarkan daripada aspek.
+      failure: Individu tersebut telah gagal dikeluarkan daripada aspek.
+      no_membership: Individu yang dipilih tidak dijumpai dalam aspek tersebut.
+  bookmarklet:
+    heading: Aplet Tanda Buku
+    post_something: Pos ke diaspora*
+    explanation: Pos ke diaspora* dari mana-mana sahaja dengan menanda buku pautan ini => %{link}.
+  comments:
+    new_comment:
+      comment: Komen
+      commenting: Mengulas...
+  contacts:
+    index:
+      start_a_conversation: Mulakan perbualan
+      title: Kenalan
+      no_contacts: Nampaknya anda perlu menambah beberapa kenalan!
+      my_contacts: Kenalan saya
+      all_contacts: Semua Kenalan
+      only_sharing_with_me: Hanya berkongsi dengan saya
+  conversations:
+    index:
+      no_messages: tiada mesej
+      inbox: Peti masuk
+    show:
+      reply: balas
+      replying: Membalas...
+      delete: memadam dan menyekat perbualan
+    new:
+      to: kepada
+      subject: subjek
+      send: Hantar
+      sending: Menghantar...
   invitations:
     create:
-      no_more: "Anda tidak mempunyai lebih banyak jemputan."
-      rejected: "Alamat e-mel berikut menghadapi masalah:"
-      sent: "Jemputan telah dihantar kepada:"
+      sent: 'Jemputan telah dihantar kepada:'
+      rejected: 'Alamat e-mel berikut menghadapi masalah:'
+      no_more: Anda tidak mempunyai lebih banyak jemputan.
     new:
-      invite_someone_to_join: "Menjemput seseorang untuk menyertai Diaspora!"
-      language: "Bahasa"
-      send_an_invitation: "Menghantar jemputan"
+      language: Bahasa
+      invite_someone_to_join: Menjemput seseorang untuk menyertai Diaspora!
+      send_an_invitation: Menghantar jemputan
   layouts:
     application:
-      powered_by: "DI KUASA OLEH DIASPORA*"
-  limited: "Terhad"
-  more: "lebih banyak"
-  no_results: "Tiada hasil dijumpai"
+      powered_by: DI KUASA OLEH DIASPORA*
   notifications:
-    also_commented:
-      few: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
-      many: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
-      one: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
-      other: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
-      two: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-    also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
-    comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
-    index:
-      and: "dan"
-      and_others:
-        few: "dan %{count} lain-lain"
-        many: "dan %{count} lain-lain"
-        one: "dan satu lagi"
-        other: "dan %{count} lain-lain"
-        two: "dan %{count} lain-lain"
-        zero: "dan tiada siapa lagi"
-      mark_all_as_read: "Tandakan Semua sebagai Sudah Baca"
-      notifications: "Pemberitahuan"
-    liked:
-      few: "%{actors} menyukai anda %{post_link}."
-      many: "%{actors} telah menyukai anda %{post_link}."
-      one: "%{actors} telah menyukai anda %{post_link}."
-      other: "%{actors} telah menyukai anda %{post_link}."
-      two: "%{actors} telah menyukai anda %{post_link}."
-      zero: "%{actors} telah menyukai anda %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} suka pos yang dihapuskan anda."
-      many: "%{actors} suka pos yang dihapuskan anda."
-      one: "%{actors} suka pos yang dihapuskan anda."
-      other: "%{actors} suka pos yang dihapuskan anda."
-      two: "%{actors} suka pos yang dihapuskan anda."
-      zero: "%{actors} liked your deleted post."
-    mentioned:
-      few: "%{actors} have mentioned you in a %{post_link}."
-      many: "%{actors} have mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} have mentioned you in a %{post_link}."
-      two: "%{actors} have mentioned you in a %{post_link}."
-      zero: "%{actors} have mentioned you in a %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
-    reshared:
-      few: "%{actors} telah berkongsi semula dengan anda %{post_link}."
-      many: "%{actors} have reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} telah berkongsi semula %{post_link} anda."
-      two: "%{actors} telah berkongsi semula %{post_link} anda."
-      zero: "%{actors} telah berkongsi semula %{post_link} anda."
-    reshared_post_deleted:
-      few: "%{actors} berkongsi semula pos yang dihapuskan anda."
-      many: "%{actors} berkongsi semula pos yang dihapuskan anda."
-      one: "%{actors} berkongsi semula pos yang dihapuskan anda."
-      other: "%{actors} berkongsi semula pos yang dihapuskan anda."
-      two: "%{actors} berkongsi semula pos yang dihapuskan anda."
-      zero: "%{actors} berkongsi semula pos yang dihapuskan anda."
     started_sharing:
+      zero: "%{actors} mula berkongsi dengan anda."
+      one: "%{actors} mula berkongsi dengan anda."
+      two: "%{actors} mula berkongsi dengan anda."
       few: "%{actors} mula berkongsi dengan anda."
       many: "%{actors} mula berkongsi dengan anda."
-      one: "%{actors} mula berkongsi dengan anda."
       other: "%{actors} mula berkongsi dengan anda."
-      two: "%{actors} mula berkongsi dengan anda."
-      zero: "%{actors} mula berkongsi dengan anda."
+    private_message:
+      zero: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+    comment_on_post:
+      zero: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+    also_commented:
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      two: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      few: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      many: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      other: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+    mentioned:
+      zero: "%{actors} have mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} have mentioned you in a %{post_link}."
+      few: "%{actors} have mentioned you in a %{post_link}."
+      many: "%{actors} have mentioned you in a %{post_link}."
+      other: "%{actors} have mentioned you in a %{post_link}."
+    liked:
+      zero: "%{actors} telah menyukai anda %{post_link}."
+      one: "%{actors} telah menyukai anda %{post_link}."
+      two: "%{actors} telah menyukai anda %{post_link}."
+      few: "%{actors} menyukai anda %{post_link}."
+      many: "%{actors} telah menyukai anda %{post_link}."
+      other: "%{actors} telah menyukai anda %{post_link}."
+    reshared:
+      zero: "%{actors} telah berkongsi semula %{post_link} anda."
+      one: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} telah berkongsi semula %{post_link} anda."
+      few: "%{actors} telah berkongsi semula dengan anda %{post_link}."
+      many: "%{actors} have reshared your %{post_link}."
+      other: "%{actors} telah berkongsi semula %{post_link} anda."
+    also_commented_deleted:
+      zero: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+    liked_post_deleted:
+      zero: "%{actors} liked your deleted post."
+      one: "%{actors} suka pos yang dihapuskan anda."
+      two: "%{actors} suka pos yang dihapuskan anda."
+      few: "%{actors} suka pos yang dihapuskan anda."
+      many: "%{actors} suka pos yang dihapuskan anda."
+      other: "%{actors} suka pos yang dihapuskan anda."
+    reshared_post_deleted:
+      zero: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      one: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      two: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      few: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      many: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      other: "%{actors} berkongsi semula pos yang dihapuskan anda."
+    mentioned_deleted:
+      zero: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+    index:
+      notifications: Pemberitahuan
+      mark_all_as_read: Tandakan Semua sebagai Sudah Baca
+      and_others:
+        zero: dan tiada siapa lagi
+        one: dan satu lagi
+        two: dan %{count} lain-lain
+        few: dan %{count} lain-lain
+        many: dan %{count} lain-lain
+        other: dan %{count} lain-lain
+      and: dan
   notifier:
-    a_post_you_shared: "pos."
-    click_here: "klik di sini"
-    to_change_your_notification_settings: "untuk menukar tetapan pemberitahuan anda"
-  nsfw: "NSFW"
-  ok: "Baiklah"
+    a_post_you_shared: pos.
+    click_here: klik di sini
+    to_change_your_notification_settings: untuk menukar tetapan pemberitahuan anda
   people:
     index:
+      results_for: hasil carian untuk
+      no_results: Hey! Anda perlu mencari sesuatu.
       no_one_found: "...dan tiada orang yang dijumpai."
-      no_results: "Hey! Anda perlu mencari sesuatu."
-      results_for: "hasil carian untuk"
   photos:
     create:
-      integrity_error: "\"Upload\" foto gagal. Adakah anda pasti itu adalah imej?"
-      runtime_error: "\"Upload\" foto gagal. Adakah anda pasti bahawa tali pinggang keledar anda telah diikat?"
+      runtime_error: '"Upload" foto gagal. Adakah anda pasti bahawa tali pinggang keledar anda telah diikat?'
+      integrity_error: '"Upload" foto gagal. Adakah anda pasti itu adalah imej?'
   posts:
     show:
       photos_by:
+        zero: No photos by %{author}
+        one: One photo by %{author}
+        two: Two photos by %{author}
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
-  privacy: "Privasi"
-  profile: "Profil"
-  public: "Awam"
-  search: "Cari"
-  settings: "Tetapan"
   shared:
     aspect_dropdown:
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add contact"
+        zero: Add contact
+        one: In %{count} aspect
+        two: In %{count} aspects
+        few: In %{count} aspects
+        many: In %{count} aspects
+        other: In %{count} aspects
   status_messages:
-    bad_aspects: "ID aspek yang diberikan tidak berkaitan (tidak wujud atau tidak bertuan)"
-    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
+    too_long: '{"few"=>"please make your status messages less than %{count} characters", "many"=>"please make your status messages less than %{count} characters", "one"=>"please make your status messages less than %{count} character", "other"=>"please make your status messages less than %{count} characters", "two"=>"please make your status messages less than %{count} characters", "zero"=>"please make your status messages less than %{count} characters"}'
+    bad_aspects: ID aspek yang diberikan tidak berkaitan (tidak wujud atau tidak bertuan)
   streams:
     aspects:
-      title: "Your Aspects"
-  username: "Nama Pengguna"
+      title: Your Aspects
   users:
     edit:
+      your_handle: Your diaspora id
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      your_handle: "Your diaspora id"
+        what_we_delete: We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle.

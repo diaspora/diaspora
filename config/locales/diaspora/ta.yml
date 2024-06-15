@@ -5,92 +5,92 @@
 
 
 ta:
-  _applications: "பயன்பாடுகள்"
-  _contacts: "தொடர்புகள்"
-  _services: "சேவைகள்"
-  account: "கணக்கு"
+  settings: அமைப்புகள்
+  profile: தன்விவரம்
+  account: கணக்கு
+  privacy: தனியுரிமை
+  _services: சேவைகள்
+  _applications: பயன்பாடுகள்
+  ok: சரி
+  cancel: ரத்துசெய்
+  delete: நீக்கு
+  username: பயனர்பெயர்
+  email: மின்னஞ்சல்
+  are_you_sure: நீங்கள் உறுதியாக இருக்கிறீர்களா?
+  are_you_sure_delete_account: நீங்கள் உங்கள் கணக்கை மூட வேண்டுமா? இதை தவிர்க்க முடியாது!
+  fill_me_out: என்னை நிரப்பு
+  public: பொது
+  limited: வரம்புக்குட்பட்ட
+  search: தேடல்
+  nsfw: nsfw
+  find_people: நபர்களை/குறிச்சொற்களை கண்டுபிடி
+  more: மேலும்
+  all_aspects: அனைத்து அம்சங்களிலும்
+  no_results: முடிவுகள் எதுவும் கண்டறியப்படவில்லை
+  _contacts: தொடர்புகள்
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "இந்த பயனர் தொடர்புகள் மத்தியில் தனிப்பட இருக்க வேண்டும்."
+            person:
+              invalid: தவறானது
+            username:
+              taken: ஏற்கனவே எடுக்கப்பட்டுவிட்டது
+              invalid: தவறானது. எங்களால் எழுத்துக்கள், எண்கள், மற்றும் அடிக்கோடு மட்டுமே அனுமதிக்கப்படும்.
+            email:
+              taken: ஏற்கனவே எடுக்கப்பட்டுவிட்டது.
         person:
           attributes:
             diaspora_handle:
-              taken: "ஏற்கனவே எடுக்கப்பட்டுவிட்டது"
+              taken: ஏற்கனவே எடுக்கப்பட்டுவிட்டது
+        contact:
+          attributes:
+            person_id:
+              taken: இந்த பயனர் தொடர்புகள் மத்தியில் தனிப்பட இருக்க வேண்டும்.
         reshare:
           attributes:
             root_guid:
-              taken: "இது நன்றாக இருக்கிறதா? நீங்கள் ஏற்கனவே இந்த பதிவை பகிர்ந்துள்ளிர்கள்!"
-        user:
-          attributes:
-            email:
-              taken: "ஏற்கனவே எடுக்கப்பட்டுவிட்டது."
-            person:
-              invalid: "தவறானது"
-            username:
-              invalid: "தவறானது. எங்களால் எழுத்துக்கள், எண்கள், மற்றும் அடிக்கோடு மட்டுமே அனுமதிக்கப்படும்."
-              taken: "ஏற்கனவே எடுக்கப்பட்டுவிட்டது"
-  all_aspects: "அனைத்து அம்சங்களிலும்"
-  are_you_sure: "நீங்கள் உறுதியாக இருக்கிறீர்களா?"
-  are_you_sure_delete_account: "நீங்கள் உங்கள் கணக்கை மூட வேண்டுமா? இதை தவிர்க்க முடியாது!"
-  aspects:
-    add_to_aspect:
-      failure: "நபரை குழுவில் சேக்க இயலவில்லை"
-      success: "நபர் குழுவில் சேர்க்கப்பட்டார்"
-    aspect_listings:
-      add_an_aspect: "புது குழு"
-    destroy:
-      failure: "%{name} காலியாக இல்லை ஆகையால் நீக்க முடியவில்லை"
-      success: "%{name} வெற்றிகரமாக நீக்கப்பட்டது"
-    edit:
-      aspect_list_is_not_visible: "அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களுக்கு மறைக்கப்பட்டது"
-      aspect_list_is_visible: "அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களால் பார்க்க இயலும்"
-      confirm_remove_aspect: "நீங்கள் இந்த அம்சத்தை நீக்க வேண்டுமா?"
-      rename: "மறுபெயர்"
-      update: "புதுப்பிக்க"
-      updating: "புதுப்பித்தல் நடக்கிறது"
-    index:
-      donate: "நன்கொடை"
-      help:
-        need_help: "உதவி தேவையா?"
-        tag_bug: "பிழை"
-        tag_feature: "சிறப்பம்சம்"
-        tag_question: "கேள்வி"
-      new_here:
-        follow: "புதிய நபரை வரவேற்பதற்கு %{link}-கை தொடரவும்"
-        learn_more: "மேலும் கற்க"
-        title: "வரவேற்கிறோம் புதிய பயனர்கள்"
-      welcome_to_diaspora: "டயஸ்போராவிற்கு வருக வருக, %{name}"
-    no_contacts_message:
-      community_spotlight: "சமூகத்தின் கவனத்தில்"
-      you_should_add_some_more_contacts: "நீங்கள் கண்டிப்பாக மேலும் சில தொடர்புகளை சேர்க்க வேண்டும்!"
-    seed:
-      acquaintances: "அறிமுகமானவர்கள்"
-      family: "குடும்பம்"
-      friends: "நண்பர்கள்"
-      work: "வேலை"
-    update:
-      failure: "குழு %{name}, பெயர் மிக நீளம்"
-      success: "குழு %{name}, மாற்றப்பட்டுள்ளது."
-  cancel: "ரத்துசெய்"
-  delete: "நீக்கு"
-  email: "மின்னஞ்சல்"
+              taken: இது நன்றாக இருக்கிறதா? நீங்கள் ஏற்கனவே இந்த பதிவை பகிர்ந்துள்ளிர்கள்!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "கொடுக்கப்பட்டுள்ள பிழைகளை சரிசெய்து மீண்டும் முயற்சிக்கவும்."
-  fill_me_out: "என்னை நிரப்பு"
-  find_people: "நபர்களை/குறிச்சொற்களை கண்டுபிடி"
-  limited: "வரம்புக்குட்பட்ட"
-  more: "மேலும்"
-  no_results: "முடிவுகள் எதுவும் கண்டறியப்படவில்லை"
-  nsfw: "nsfw"
-  ok: "சரி"
-  privacy: "தனியுரிமை"
-  profile: "தன்விவரம்"
-  public: "பொது"
-  search: "தேடல்"
-  settings: "அமைப்புகள்"
-  username: "பயனர்பெயர்"
+      correct_the_following_errors_and_try_again: கொடுக்கப்பட்டுள்ள பிழைகளை சரிசெய்து மீண்டும் முயற்சிக்கவும்.
+  aspects:
+    edit:
+      confirm_remove_aspect: நீங்கள் இந்த அம்சத்தை நீக்க வேண்டுமா?
+      rename: மறுபெயர்
+      aspect_list_is_visible: அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களால் பார்க்க இயலும்
+      aspect_list_is_not_visible: அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களுக்கு மறைக்கப்பட்டது
+      update: புதுப்பிக்க
+      updating: புதுப்பித்தல் நடக்கிறது
+    no_contacts_message:
+      you_should_add_some_more_contacts: நீங்கள் கண்டிப்பாக மேலும் சில தொடர்புகளை சேர்க்க வேண்டும்!
+      community_spotlight: சமூகத்தின் கவனத்தில்
+    aspect_listings:
+      add_an_aspect: புது குழு
+    destroy:
+      success: "%{name} வெற்றிகரமாக நீக்கப்பட்டது"
+      failure: "%{name} காலியாக இல்லை ஆகையால் நீக்க முடியவில்லை"
+    update:
+      success: குழு %{name}, மாற்றப்பட்டுள்ளது.
+      failure: குழு %{name}, பெயர் மிக நீளம்
+    add_to_aspect:
+      failure: நபரை குழுவில் சேக்க இயலவில்லை
+      success: நபர் குழுவில் சேர்க்கப்பட்டார்
+    seed:
+      family: குடும்பம்
+      work: வேலை
+      acquaintances: அறிமுகமானவர்கள்
+      friends: நண்பர்கள்
+    index:
+      donate: நன்கொடை
+      welcome_to_diaspora: டயஸ்போராவிற்கு வருக வருக, %{name}
+      new_here:
+        title: வரவேற்கிறோம் புதிய பயனர்கள்
+        follow: புதிய நபரை வரவேற்பதற்கு %{link}-கை தொடரவும்
+        learn_more: மேலும் கற்க
+      help:
+        need_help: உதவி தேவையா?
+        tag_question: கேள்வி
+        tag_bug: பிழை
+        tag_feature: சிறப்பம்சம்

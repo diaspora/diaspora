@@ -6,127 +6,127 @@
 
 ml:
   javascripts:
-    and: "കൂടാതെ"
-    aspect_dropdown:
-      add_to_aspect: "സമ്പര്‍ക്കം ചേര്‍ക്കുക"
-      all_aspects: "എല്ലാ ഭാവങ്ങളും"
-      error: "<%= name %>ഉമായുള്ള പങ്കിടൽ തുടങ്ങാൻ സാധിച്ചില്ല. താങ്കൾ അവരെ അവഗണിക്കുക ആണോ?"
-      error_remove: "ഭാവത്തിൽ നിന്നും <%= name %> നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല :("
-      select_aspects: "തിരഞ്ഞെടുത്ത ഭാവങ്ങൾ"
-      started_sharing_with: "താങ്കൾ <%= name %>ഉമായുള്ള പങ്കിടൽ തുടങ്ങിയിരിക്കുന്നു."
-      stopped_sharing_with: "താങ്കൾ <%= name %>ഉമായുള്ള പങ്കിടൽ നിർത്തിയിരിക്കുന്നു."
-      toggle:
-        one: "<%= count %> പരിചയങ്ങളില്‍"
-        other: "<%= count %> പരിചയങ്ങളില്‍"
-        zero: "<%= count %> പരിചയത്തില്‍"
-    aspect_navigation:
-      add_an_aspect: "+ഒരു ഭാവം ചേർക്കുക"
-      deselect_all: "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
-      no_aspects: "ഒരു ഭാവവും തിരഞ്ഞെടുത്തിട്ടില്ല"
-      select_all: "എല്ലാം തെരഞ്ഞെടുക്കുക"
+    timeago:
+      prefixAgo: ''
+      suffixAgo: മുന്‍പ്
+      suffixFromNow: വരെ
+      prefixFromNow: ഇപ്പോള്‍ മുതല്‍
+      seconds: ഏതാനും നിമിഷങ്ങള്‍
+      minute: ഉദ്ദേശം ഒരു മിനിട്ട്
+      minutes:
+        other: "%d മിനിട്ടുകള്‍"
+      hour: ഉദ്ദേശം ഒരു മണീക്കൂര്‍
+      hours:
+        other: ഉദ്ദേശം %d മണിക്കൂറുകള്‍
+      day: ഒരു ദിവസം
+      days:
+        other: "%d ദിവസങ്ങള്‍"
+      month: ഉദ്ദേശം ഒരു മാസം
+      months:
+        other: "%d മാസങ്ങള്‍"
+      year: ഉദ്ദേശം ഒരു വര്‍ഷം
+      years:
+        other: "%d വര്‍ഷങ്ങള്‍ക്ക്"
+    confirm_dialog: താങ്കള്‍ക്ക് ഉറപ്പാണോ?
+    delete: മായ്ക്കുക
+    ignore: അവഗണിക്കുക
+    ignore_user: ഈ ഉപയോക്താവിനെ അവഗണിക്കണോ?
+    and: കൂടാതെ
     comma: ","
-    comments:
-      hide: "അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക"
-      no_comments: "ഇതുവരെ അഭിപ്രായങ്ങളൊന്നും കിട്ടിയിട്ടില്ല"
-      show: "എല്ലാ അഭിപ്രായങ്ങളും കാണിക്കുക"
-    confirm_dialog: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
-    delete: "മായ്ക്കുക"
-    edit: "തിരുത്തുക"
-    failed_to_post_message: "സന്ദേശം ഇടാൻ സാധിച്ചില്ല"
-    getting_started:
-      alright_ill_wait: "ശരി, ഞാൻ കാത്തിരിക്കാം"
-      hey: "നമസ്കാരം, <%= name %>!"
-      no_tags: "താങ്കൾ ഒരു ടാഗും പിന്തുടരുന്നില്ല. എങ്ങനെയെങ്കിലും തുടരുക?"
-      preparing_your_stream: "താങ്കളുടെ സ്വകാര്യമായ സ്ട്രീം തയ്യാറാക്കുന്നു"
-    header:
-      admin: "കാര്യനിർവാഹകൻ"
-      close: "അടയ്ക്കുക"
-      contacts: "സമ്പര്‍ക്കം"
-      help: "സഹായം"
-      home: "പൂമുഖം"
-      log_out: "പുറത്ത് കടക്കു"
-      mark_all_as_read: "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
-      notifications: "അറിയിപ്പുകള്‍"
-      profile: "പ്രൊഫൈല്‍"
-      recent_notifications: "അടുത്തിടെയുള്ള അറിയിപ്പുകള്‍"
-      search: "തിരയുക"
-      settings: "സജ്ജീകരണങ്ങള്‍"
-      view_all: "എല്ലാം കാണുക"
-    ignore: "അവഗണിക്കുക"
-    ignore_user: "ഈ ഉപയോക്താവിനെ അവഗണിക്കണോ?"
-    my_activity: "എന്റെ പ്രവൃത്തി"
-    my_aspects: "എന്റെ ഭാവങ്ങൾ"
-    my_stream: "സ്ട്രീം"
-    people:
-      not_found: "...പക്ഷേ, ഒരാളെയും കണ്ടുപിടിച്ചില്ല."
-    photo_uploader:
-      completed: "<%= file %> പൂർത്തിയായി"
-      empty: "{file} ശൂന്യമാണ്, അതല്ലാത്ത ഫയലുകള്‍ ദയവായി വീണ്ടും തെരഞ്ഞെടുക്കുക."
-      invalid_ext: "{file}ന് അസാധുവായ കൂട്ടിച്ചേർക്കൽ ഉണ്ട്. {extensions} മാത്രമാണ് അനുവദനീയം."
-      looking_good: "താങ്കളെ കാണാൻ വളരെ നന്നായിട്ടുണ്ട്!"
-      size_error: "{file} വളരെ വലുതാണ്, കൂടിയ ഫയല്‍ വലിപ്പം {sizeLimit} ആകുന്നു."
+    edit: തിരുത്തുക
+    my_activity: എന്റെ പ്രവൃത്തി
+    my_stream: സ്ട്രീം
+    my_aspects: എന്റെ ഭാവങ്ങൾ
     publisher:
       near_from: "<%= location %>ല്‍ നിന്നും അയച്ചത്"
+    aspect_dropdown:
+      add_to_aspect: സമ്പര്‍ക്കം ചേര്‍ക്കുക
+      select_aspects: തിരഞ്ഞെടുത്ത ഭാവങ്ങൾ
+      all_aspects: എല്ലാ ഭാവങ്ങളും
+      stopped_sharing_with: താങ്കൾ <%= name %>ഉമായുള്ള പങ്കിടൽ നിർത്തിയിരിക്കുന്നു.
+      started_sharing_with: താങ്കൾ <%= name %>ഉമായുള്ള പങ്കിടൽ തുടങ്ങിയിരിക്കുന്നു.
+      error: "<%= name %>ഉമായുള്ള പങ്കിടൽ തുടങ്ങാൻ സാധിച്ചില്ല. താങ്കൾ അവരെ അവഗണിക്കുക ആണോ?"
+      error_remove: ഭാവത്തിൽ നിന്നും <%= name %> നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല :(
+      toggle:
+        zero: "<%= count %> പരിചയത്തില്‍"
+        one: "<%= count %> പരിചയങ്ങളില്‍"
+        other: "<%= count %> പരിചയങ്ങളില്‍"
+    show_more: കൂടുതല്‍ കാണിക്കുക
+    failed_to_post_message: സന്ദേശം ഇടാൻ സാധിച്ചില്ല
+    comments:
+      show: എല്ലാ അഭിപ്രായങ്ങളും കാണിക്കുക
+      hide: അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക
+      no_comments: ഇതുവരെ അഭിപ്രായങ്ങളൊന്നും കിട്ടിയിട്ടില്ല
     reshares:
+      successful: ഈ കുറിപ്പ് വിജയകരമായി വീണ്ടും പങ്കുവെയ്ക്കപ്പെട്ടു!
       post: "<%= name %>ന്റെ കുറിപ്പ് വീണ്ടും പങ്കിടണോ?"
-      successful: "ഈ കുറിപ്പ് വിജയകരമായി വീണ്ടും പങ്കുവെയ്ക്കപ്പെട്ടു!"
-    show_more: "കൂടുതല്‍ കാണിക്കുക"
+    aspect_navigation:
+      select_all: എല്ലാം തെരഞ്ഞെടുക്കുക
+      deselect_all: ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക
+      no_aspects: ഒരു ഭാവവും തിരഞ്ഞെടുത്തിട്ടില്ല
+      add_an_aspect: "+ഒരു ഭാവം ചേർക്കുക"
+    getting_started:
+      hey: നമസ്കാരം, <%= name %>!
+      no_tags: താങ്കൾ ഒരു ടാഗും പിന്തുടരുന്നില്ല. എങ്ങനെയെങ്കിലും തുടരുക?
+      alright_ill_wait: ശരി, ഞാൻ കാത്തിരിക്കാം
+      preparing_your_stream: താങ്കളുടെ സ്വകാര്യമായ സ്ട്രീം തയ്യാറാക്കുന്നു
+    photo_uploader:
+      looking_good: താങ്കളെ കാണാൻ വളരെ നന്നായിട്ടുണ്ട്!
+      completed: "<%= file %> പൂർത്തിയായി"
+      invalid_ext: "{file}ന് അസാധുവായ കൂട്ടിച്ചേർക്കൽ ഉണ്ട്. {extensions} മാത്രമാണ് അനുവദനീയം."
+      size_error: "{file} വളരെ വലുതാണ്, കൂടിയ ഫയല്‍ വലിപ്പം {sizeLimit} ആകുന്നു."
+      empty: "{file} ശൂന്യമാണ്, അതല്ലാത്ത ഫയലുകള്‍ ദയവായി വീണ്ടും തെരഞ്ഞെടുക്കുക."
+    tags:
+      wasnt_that_interesting: 'ശരി, ഞാൻ കരുതുന്നു #<%= tagName %> അത്ര രസമുള്ളതായിരുന്നില്ലെന്ന്.'
+    people:
+      not_found: "...പക്ഷേ, ഒരാളെയും കണ്ടുപിടിച്ചില്ല."
     stream:
-      comment: "അഭിപ്രായം"
-      follow: "പിന്തുടരുക"
-      followed_tag:
-        add_a_tag: "ഒരു ടാഗ് ചേർക്കുക"
-        follow: "പിന്തുടരുക"
-        title: "#പിന്തുടരുന്ന ടാഗുകൾ"
-      hide: "മറയ്ക്കു"
+      hide: മറയ്ക്കു
+      public: പൊതുവായ
+      limited: പരിമിതം
+      like: ഇഷ്ടപ്പെടുക
+      unlike: നീരസപ്പെടുക
+      reshare: വീണ്ടും പങ്കിടുക
+      comment: അഭിപ്രായം
+      original_post_deleted: ശരിക്കുള്ള കുറിപ്പ് രചയിതാവ് മായ്ച്ചിരിക്കുന്നു
+      show_nsfw_post: കുറിപ്പ് കാണിക്കുക
+      show_nsfw_posts: എല്ലാം കാണിക്കുക
       hide_nsfw_posts: "#nsfw കുറിപ്പുകൾ അദൃശ്യമാക്കുക"
-      like: "ഇഷ്ടപ്പെടുക"
+      follow: പിന്തുടരുക
+      unfollow: പിന്തുടരൽ അവസാനിപ്പിക്കുക
       likes:
+        zero: "<%= count %> ഇഷ്ട്ടം"
         one: "<%= count %> ഇഷ്ട്ടം"
         other: "<%= count %>  ഇഷ്ട്ടങ്ങള്‍"
-        zero: "<%= count %> ഇഷ്ട്ടം"
-      limited: "പരിമിതം"
-      more_comments:
-        one: "<%= count %> അഭിപ്രായം കൂടി കാണിക്കുക"
-        other: "<%= count %> അഭിപ്രായങ്ങള്‍ കൂടി കാണിക്കുക"
-        zero: "<%= count %> അഭിപ്രായങ്ങള്‍ കൂടി കാണിക്കുക"
-      original_post_deleted: "ശരിക്കുള്ള കുറിപ്പ് രചയിതാവ് മായ്ച്ചിരിക്കുന്നു"
-      public: "പൊതുവായ"
-      reshare: "വീണ്ടും പങ്കിടുക"
       reshares:
+        zero: "<%= count %> പങ്കിടലുകള്‍"
         one: "<%= count %> പങ്കിടല്‍"
         other: "<%= count %>  പങ്കിടലുകള്‍"
-        zero: "<%= count %> പങ്കിടലുകള്‍"
-      show_nsfw_post: "കുറിപ്പ് കാണിക്കുക"
-      show_nsfw_posts: "എല്ലാം കാണിക്കുക"
+      more_comments:
+        zero: "<%= count %> അഭിപ്രായങ്ങള്‍ കൂടി കാണിക്കുക"
+        one: "<%= count %> അഭിപ്രായം കൂടി കാണിക്കുക"
+        other: "<%= count %> അഭിപ്രായങ്ങള്‍ കൂടി കാണിക്കുക"
+      followed_tag:
+        title: "#പിന്തുടരുന്ന ടാഗുകൾ"
+        add_a_tag: ഒരു ടാഗ് ചേർക്കുക
+        follow: പിന്തുടരുക
       tags:
         follow: "#<%= tag %> പിന്തുടരുക"
         following: "#<%= tag %> പിന്തുടരുന്നു"
         stop_following: "#<%= tag %> പിന്തുടരുന്നത് നിർത്തുക"
-      unfollow: "പിന്തുടരൽ അവസാനിപ്പിക്കുക"
-      unlike: "നീരസപ്പെടുക"
-    tags:
-      wasnt_that_interesting: "ശരി, ഞാൻ കരുതുന്നു #<%= tagName %> അത്ര രസമുള്ളതായിരുന്നില്ലെന്ന്."
-    timeago:
-      day: "ഒരു ദിവസം"
-      days:
-        other: "%d ദിവസങ്ങള്‍"
-      hour: "ഉദ്ദേശം ഒരു മണീക്കൂര്‍"
-      hours:
-        other: "ഉദ്ദേശം %d മണിക്കൂറുകള്‍"
-      minute: "ഉദ്ദേശം ഒരു മിനിട്ട്"
-      minutes:
-        other: "%d മിനിട്ടുകള്‍"
-      month: "ഉദ്ദേശം ഒരു മാസം"
-      months:
-        other: "%d മാസങ്ങള്‍"
-      prefixAgo: ""
-      prefixFromNow: "ഇപ്പോള്‍ മുതല്‍"
-      seconds: "ഏതാനും നിമിഷങ്ങള്‍"
-      suffixAgo: "മുന്‍പ്"
-      suffixFromNow: "വരെ"
-      year: "ഉദ്ദേശം ഒരു വര്‍ഷം"
-      years:
-        other: "%d വര്‍ഷങ്ങള്‍ക്ക്"
+    header:
+      home: പൂമുഖം
+      profile: പ്രൊഫൈല്‍
+      contacts: സമ്പര്‍ക്കം
+      settings: സജ്ജീകരണങ്ങള്‍
+      help: സഹായം
+      admin: കാര്യനിർവാഹകൻ
+      log_out: പുറത്ത് കടക്കു
+      notifications: അറിയിപ്പുകള്‍
+      search: തിരയുക
+      recent_notifications: അടുത്തിടെയുള്ള അറിയിപ്പുകള്‍
+      mark_all_as_read: എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക
+      view_all: എല്ലാം കാണുക
+      close: അടയ്ക്കുക
     viewer:
-      reshared: "വീണ്ടും പങ്കുവെയ്ക്കപ്പെട്ടത്"
+      reshared: വീണ്ടും പങ്കുവെയ്ക്കപ്പെട്ടത്

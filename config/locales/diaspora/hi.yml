@@ -5,24 +5,24 @@
 
 
 hi:
-  _applications: "ऍप्लिकेशन"
-  _services: "सेवाएं"
-  account: "खाता"
-  are_you_sure: "क्या आपको यकीन है?"
-  are_you_sure_delete_account: "क्या आप वाकई अपना खाता बंद करना चाहते हैं? इसे पूर्ववत नहीं किया जा सकता!"
+  settings: सेटिंग्स
+  profile: प्रोफ़ाइल
+  account: खाता
+  privacy: गोपनीयता
+  _services: सेवाएं
+  _applications: ऍप्लिकेशन
+  ok: ठीक
+  cancel: रद्द करें
+  delete: मिटाओ
+  username: उपयोगकर्ता नाम
+  email: ईमेल
+  are_you_sure: क्या आपको यकीन है?
+  are_you_sure_delete_account: क्या आप वाकई अपना खाता बंद करना चाहते हैं? इसे पूर्ववत नहीं किया जा सकता!
+  fill_me_out: मुझे भरें
+  public: सार्वजनिक
+  limited: सीमित
+  search: खोज
   aspects:
     index:
       help:
-        tag_question: "प्रश्न"
-  cancel: "रद्द करें"
-  delete: "मिटाओ"
-  email: "ईमेल"
-  fill_me_out: "मुझे भरें"
-  limited: "सीमित"
-  ok: "ठीक"
-  privacy: "गोपनीयता"
-  profile: "प्रोफ़ाइल"
-  public: "सार्वजनिक"
-  search: "खोज"
-  settings: "सेटिंग्स"
-  username: "उपयोगकर्ता नाम"
+        tag_question: प्रश्न

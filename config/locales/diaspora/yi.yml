@@ -5,65 +5,65 @@
 
 
 yi:
-  _help: "העלף"
+  _help: העלף
+  ok: גוט
+  cancel: אַנוליר
+  email: בליצפּאָסט
+  search: זוך
+  more: מער
   activerecord:
     errors:
       models:
         person:
           attributes:
             diaspora_handle:
-              taken: "איז פֿאַרנעמט"
+              taken: איז פֿאַרנעמט
   admins:
     admin_bar:
-      pages: "בלאַטן"
+      pages: בלאַטן
     stats:
-      2weeks: "2 וואָכן"
-      daily: "טעגלעך"
-      month: "חודש"
-      week: "וואָך"
+      week: וואָך
+      2weeks: 2 וואָכן
+      month: חודש
+      daily: טעגלעך
   aspects:
-    aspect_stream:
-      make_something: "מאַך עפּעס"
+    seed:
+      family: משפּחה
+      work: אַרבעט
+      friends: חבֿרים
     index:
       help:
-        do_you: "טוסטו:"
-        tag_question: "פֿראַגע"
-    seed:
-      family: "משפּחה"
-      friends: "חבֿרים"
-      work: "אַרבעט"
-  cancel: "אַנוליר"
+        do_you: 'טוסטו:'
+        tag_question: פֿראַגע
+    aspect_stream:
+      make_something: מאַך עפּעס
   conversations:
     new:
-      send: "שיק"
-      to: "צו"
-  email: "בליצפּאָסט"
+      to: צו
+      send: שיק
   help:
+    wiki: וויקי
+    here: דאָ
     aspects:
-      remove_notification_a: "ניין."
-    here: "דאָ"
+      remove_notification_a: ניין.
     pods:
-      title: "שויטן"
-      what_is_a_pod_q: "וואָס איז אַ שויט?"
-    wiki: "וויקי"
+      title: שויטן
+      what_is_a_pod_q: וואָס איז אַ שויט?
   invitations:
     new:
-      language: "לשון"
-  more: "מער"
+      language: לשון
   notifier:
-    hello: "שלומ עליכם %{name}!"
-    thanks: "אַ דאַנק,"
-  ok: "גוט"
+    hello: שלומ עליכם %{name}!
+    thanks: אַ דאַנק,
   profiles:
     edit:
-      your_name: "דײַן נאָמען"
+      your_name: דײַן נאָמען
   registrations:
     new:
-      email: "בליצפּאָסט"
-  search: "זוך"
+      email: בליצפּאָסט
   shared:
     invitations:
-      by_email: "מיט בליצפּאָסט"
+      by_email: מיט בליצפּאָסט
   users:
     getting_started:
-      who_are_you: "וווּ ביסטו?"
+      who_are_you: וווּ ביסטו?

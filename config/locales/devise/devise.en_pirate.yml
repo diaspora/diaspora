@@ -7,4 +7,4 @@
 en_pirate:
   devise:
     invitations:
-      invitation_token_invalid: "The invitation token provided is not valid!"
+      invitation_token_invalid: The invitation token provided is not valid!

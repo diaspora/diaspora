@@ -6,315 +6,315 @@
 
 ar:
   javascripts:
-    admin:
-      pods:
-        actions: "الإجراءات"
-        added: "مضاف"
-        check: "تحقق من جودة الاتصال"
-        follow_link: "افتح الرابط في متصفح"
-        last_check: "آخر تحقق"
-        more_info: "اعرض مزيدا من المعلومات"
-        not_available: "غير متوفر"
-        offline_since: "غير متصل منذ:"
-        recheck:
-          failure: "لم يُتَم التحقق"
-        response_time: "وقت الاستجابة"
-        server_software: "الخادم:"
-        ssl_disabled: "SSL معطل"
-        ssl_enabled: "SSL مفعل"
-        states:
-          http_failed: "فشل اتصال HTTP"
-          net_failed: "فشلت محاولة الاتصال"
-          no_errors: "موافق"
-          ssl_failed: "فشل الاتصال الآمن (SSL)"
-          unchecked: "لم يتحقق"
-          unknown_error: "حدث خطأ غير معروف أثناء التحقق"
-          version_failed: "تعذر جلب رقم الاصدار"
-        status: "الحالة"
-        unknown: "مجهول"
-    admins:
-      dashboard:
-        outdated: "اصدار خادمك قديم."
-        up_to_date: "خادمك محدث لآخر اصدار!"
-    and: "و"
-    aspect_dropdown:
-      add_to_aspect: "أضف مراسلا"
-      all_aspects: "جميع الفئات"
-      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
-      error_remove: "تعذر حذف ‎<%= name %>‎ من الفئة"
-      mobile_row_checked: "‎<%= name %>‎ (أزل)"
-      mobile_row_unchecked: "‎<%= name %>‎ (أضف)"
-      select_aspects: "إختر فئات"
-      started_sharing_with: "لقد بدأت المشاركة مع <%= name %> !"
-      stopped_sharing_with: "لقد توقفت عن المشاركة مع <%= name %>"
-      toggle:
-        few: "في <%= count %> فئات"
-        many: "في <%= count %> فئات"
-        one: "في <%= count %> فئة"
-        other: "في <%= count %> فئات"
-        two: "في <%= count %> فئات"
-        zero: "حدّد الفئات"
-      updating: "يحدّث..."
-    aspect_navigation:
-      add_an_aspect: "أضف فئة"
-      deselect_all: "إلغاء اختيار الكل"
-      no_aspects: "لم يتم اختيار فئات"
-      select_all: "اختر الكل"
-    aspects:
-      create:
-        add_a_new_aspect: "أضف فئة جديدة"
-        failure: "فشل إنشاء الفئة."
-        success: "أُنشئة الفئة الجديدة ‎<%= name %>‎"
-      name: "الاسم"
-    bookmarklet:
-      post_something: "أنشر على دياسبورا"
-      post_submit: "يرسل المشاركة…"
-      post_success: "نُشر! يغلق النافذة المنبثقة…"
-    cancel: "ألغِ"
-    comma: "،"
-    comments:
-      hide: "إخفاء التعليقات"
-      no_comments: "بدون تعليقات."
-      show: "إعرض جميع التعليقات"
-    confirm_dialog: "أمتأكّد؟"
-    confirm_unload: "لن تحفظ البيانات التي أدخلتها. أكد أنك مازلت تريد الخروج."
-    contacts:
-      add_contact: "أضف جهة اتصال"
-      error_add: "تعذرت إضافة ‎<%= name %>‎ الى الفئة"
-      error_remove: "تعذر حذف ‎<%= name %>‎ من الفئة"
-      remove_contact: "أزل جهة الاتصال"
-      search_no_results: "لم يُعثر على متراسلين"
-    conversation:
-      create:
-        no_recipient: "أضف المراسل أولا"
-      new:
-        no_contacts: "أضف متراسلا لبدأ محادثة"
-    create: "أنشئ"
-    delete: "احذف"
-    edit: "حرر"
-    errors:
-      connection: "تعذر الاتصال بالخادم"
-    failed_to_post_message: "فشل في نشر رسالة!"
-    failed_to_remove: "فشلت إزالة المدخل!"
-    getting_started:
-      alright_ill_wait: "حسناً ، سأنتظر."
-      hey: "انتبه <%= name %>"
-      no_tags: "انتبه. لم تتابع أي وسم!  أُتابع على أي حال؟"
-      preparing_your_stream: "جارى إعداد تدفقاتك الشخصية"
-    header:
-      admin: "مدير"
-      close: "أغلق"
-      contacts: "جهات الاتصال"
-      conversations: "المحادثات"
-      help: "المساعدة"
-      home: "الرئيسية"
-      log_out: "خروج"
-      mark_all_as_read: "وضع الجميع كمقروء"
-      moderator: "المشرف"
-      notifications: "تنبيهات"
-      profile: "الملف الشخصى"
-      recent_notifications: "آخر التنبيهات"
-      search: "ابحث"
-      settings: "إعدادات"
-      switch_to_touch_optimized_mode: "انتقل الى وضع شاشة اللمس"
-      toggle_navigation: "بدل التصفح"
-      view_all: "عرض الكل"
-    hide_post: "أأخفِ هذه التدوينة؟"
-    hide_post_failed: "تعذّر إخفاء هذه التدوينة"
-    ignore: "تجاهل"
-    ignore_failed: "فشل تجاهل هذا المستخدم"
-    ignore_user: "تجاهل هذا المستخدم؟"
-    my_activity: "نشاطى"
-    my_aspects: "فئاتي"
-    my_stream: "ساحة المشاركات"
-    no_results: "بدون نتائج"
-    notifications:
-      mark_read: "علِّمه كمقروء"
-      mark_unread: "علِّمه كغير مقروء"
-      new_notifications:
-        few: "لديك ‎<%= count %>‎ تنبيهات"
-        many: "لديك ‎<%= count %>‎ تنبيها"
-        one: "لديك تنبيه"
-        other: "لديك ‎<%= count %>‎ تنبيه"
-        two: "لديك تنبيهان"
-        zero: "ليس لديك تنبيهات"
-    people:
-      edit_my_profile: "حرر ملفي الشخصي"
-      helper:
-        is_not_sharing: "‎<%= name %>‎ لا يشارك معك"
-        is_sharing: "‎<%= name %>‎ يشارك معك"
-      mention: "أشر"
-      message: "راسل"
-      not_found: "لم يُعثر على أحد"
-      stop_ignoring: "اوقف التجاهل"
-    photo_uploader:
-      completed: "اكتمل ‎<%= file %>‎"
-      empty: "{file} فارغ، رجاءًا أَعِد تحديد الملفات باستثنائه."
-      error: "حدث خطأ أثناء رفع ‎<%= file %>‎"
-      invalid_ext: "إمتداد ‎{file}‎ غير صالح، الإمتدادات المسموحة ‎{extensions}‎."
-      looking_good: "يا إلهى , تبدو رائعاً !"
-      size_error: "{file} ذو حجم كبير جدا, {sizeLimit} هو الحجم الأقصى المسموح به."
-      upload_photos: "ارفع صور"
-    poll:
-      answer_count:
-        few: "‎<%=count%>‎ أصوات"
-        one: "صوت واحد"
-        other: "‎<%=count%>‎ صوت"
-        two: "صوتان"
-        zero: "بدون أصوات"
-      close_result: "إخف النتيجة"
-      count:
-        few: "‎<%=count%>‎ أصوات"
-        many: "‎<%=count%>‎ صوتا"
-        one: "صوت واحد"
-        other: "‎<%=count%>‎ صوت"
-        two: "صوتان"
-        zero: "بدون تصويت"
-      go_to_original_post: "يمكنك الاشتراك في هذا الاستطلاع عبر ‎<%= original_post_link %>‎."
-      original_post: "المشاركة الأصلية"
-      result: "النتيجة"
-      show_result: "اعرض النتيجة"
-      vote: "صوِّت"
-      your_vote: "صوتك"
-    profile:
-      add_some: "أضف البعض"
-      bio: "السيرة"
-      born: "تاريخ الميلاد"
-      edit: "حرر"
-      gender: "الجنس"
-      location: "الموقع"
-      photos: "الصور"
-      posts: "المشاركات"
-      you_have_no_tags: "لا وسوم لديك"
-    publisher:
-      add_option: "أضف جوابا"
-      markdown_editor:
-        preview: "عاين"
-        texts:
-          code: "نص مائل"
-          heading: "خط العنوان"
-          insert_image_description_text: "أدخل وصف الصورة"
-          insert_image_help_text: "أدرج رابط صورة هنا"
-          insert_image_title: "أدخل عنوان الصورة"
-          insert_link_description_text: "أدخل وصف الرابط"
-          insert_link_help_text: "أدرج الرابط"
-          italic: "نص مائل"
-          list: "قائمة"
-          quote: "اقتباس"
-          strong: "نص عريض"
-        tooltips:
-          bold: "عريض"
-          cancel: "ألغ الرسالة"
-          code: "أدرج شفرة"
-          heading: "خط العنوان"
-          insert_image: "أدرج صورة"
-          insert_link: "أدرج رابط"
-          insert_ordered_list: "أدرج قائمة مرتبة"
-          insert_unordered_list: "أدرج قائمة غير مرتبة"
-          italic: "مائل"
-          preview: "عاين الرسالة"
-          quote: "إقتبس"
-          write: "حرر الرسالة"
-        write: "اكتب"
-      mention_success: "أشرتَ بنجاح لـ: ‎<%= names %>‎"
-      near_from: "نُشر من ‎<%= location %>‎"
-      option: "جواب"
-      question: "السؤال"
-    remove_post: "أأزيل هذه التدوينة؟"
-    report:
-      name: "أبلغ"
-      prompt: "أعطِ السبب"
-      prompt_default: "مثلا: المحتوى جارح"
-      status:
-        created: "أُنشئ الإبلاغ بنحاح"
-        exists: "بلّغتَ عنه بالفعل"
-    reshares:
-      post: "إعادة نشر مشاركة ‎<%= name %>‎؟"
-      successful: "أُعيد نشر المشاركة بنجاح!"
-    show_all: "اعرض الكل"
-    show_more: "المزيد"
-    stream:
-      comment: "تعليق"
-      comments:
-        few: "‎<%= count %>‎ تعليقات"
-        many: "‎<%= count %>‎ تعليقا"
-        one: "تعليق واحد"
-        other: "‎<%= count %>‎ تعليق"
-        two: "تعليقان"
-        zero: "بدون تعليقات"
-      disable_post_notifications: "عطل التنبيهات لهذا المنشور"
-      enable_post_notifications: "مكن التنبيهات لهذا المنشور"
-      follow: "تابِع"
-      followed_tag:
-        add_a_tag: "أضف وسم"
-        follow: "تابع"
-        title: "الوسوم المتبعة"
-      hide: "إخف"
-      hide_nsfw_posts: "إخف nsfw# المشاركات"
-      like: "أعجبني"
-      likes:
-        few: "عدد <%= count %> المعجبين"
-        many: "عدد <%= count %> المعجبين"
-        one: "عدد <%= count %> المعجبين"
-        other: "عدد <%= count %> المعجبين"
-        two: "عدد <%= count %> معجب"
-        zero: "عدد <%= count %> المعجبين"
-      limited: "محدود"
-      more_comments:
-        few: "إعرض <%= count %>  تعليقات أكثر "
-        many: "إعرض <%= count %> تعليقات أكثر "
-        one: "إعرض <%= count %>  تعليقات أكثر "
-        other: "إعرض <%= count %>  تعليقات أكثر "
-        two: "إعرض <%= count %> تعليق أكثر "
-        zero: "إعرض <%= count %> تعليقات أكثر "
-      no_posts_yet: "بدون مشاركات حتى الآن"
-      original_post_deleted: "لقد حذف المؤلف مشاركته الأصلية."
-      permalink: "رابط دائم"
-      public: "عام"
-      reshare: "إعادة المشاركة"
-      reshares:
-        few: "<%= count %> اعادة  المشاركات"
-        many: "<%= count %>  اعادة  المشاركات"
-        one: "<%= count %>  اعادة  المشاركات"
-        other: "<%= count %>  اعادة  المشاركات"
-        two: "<%= count %>  اعادة  المشاركة"
-        zero: "<%= count %> اعادة  المشاركات"
-      show_nsfw_post: "أظهِر المشاركة"
-      show_nsfw_posts: "أظهِر الكل"
-      tags:
-        follow: "تابع #‎<%= tag %>‎"
-        follow_error: "تعذرت متابعة #‎<%= tag %>‎"
-        following: "يتابع #‎<%= tag %>‎"
-        stop_following: "ألغ متابعة #‎<%= tag %>‎"
-        stop_following_confirm: "ألغِ متابعة #‎<%= tag %>‎"
-        stop_following_error: "تعذر إلغاء متابعة #‎<%= tag %>‎"
-      unfollow: "ألغِ المتابعة"
-      unlike: "إلغاء إعجابى"
-      via: "عبر ‎<%= provider %>‎"
-    tags:
-      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
-      day: "يوم"
-      days:
-        other: "%d أيام"
-      hour: "ساعة تقريباً"
-      hours:
-        other: "منذ %d ساعات"
-      inPast: "في أي لحظة"
-      minute: "دقيقة تقريباً"
+      prefixAgo: قبل
+      suffixAgo: مضت
+      suffixFromNow: من اﻵن
+      prefixFromNow: من الآن
+      inPast: في أي لحظة
+      seconds: أقل من دقيقة
+      minute: دقيقة تقريباً
       minutes:
         other: "%d دقائق"
-      month: "شهر تقريباً"
+      hour: ساعة تقريباً
+      hours:
+        other: منذ %d ساعات
+      day: يوم
+      days:
+        other: "%d أيام"
+      month: شهر تقريباً
       months:
         other: "%d شهور"
-      prefixAgo: "قبل"
-      prefixFromNow: "من الآن"
-      seconds: "أقل من دقيقة"
-      suffixAgo: "مضت"
-      suffixFromNow: "من اﻵن"
-      year: "عام تقريباً"
+      year: عام تقريباً
       years:
         other: "%d أعوام"
-    unblock_failed: "فشل إلغاء حظر هذا المستخدم"
+    cancel: ألغِ
+    confirm_dialog: أمتأكّد؟
+    confirm_unload: لن تحفظ البيانات التي أدخلتها. أكد أنك مازلت تريد الخروج.
+    create: أنشئ
+    delete: احذف
+    ignore: تجاهل
+    report:
+      prompt: أعطِ السبب
+      prompt_default: 'مثلا: المحتوى جارح'
+      name: أبلغ
+      status:
+        created: أُنشئ الإبلاغ بنحاح
+        exists: بلّغتَ عنه بالفعل
+    ignore_user: تجاهل هذا المستخدم؟
+    ignore_failed: فشل تجاهل هذا المستخدم
+    hide_post: أأخفِ هذه التدوينة؟
+    hide_post_failed: تعذّر إخفاء هذه التدوينة
+    remove_post: أأزيل هذه التدوينة؟
+    unblock_failed: فشل إلغاء حظر هذا المستخدم
+    and: و
+    comma: "،"
+    edit: حرر
+    no_results: بدون نتائج
+    show_all: اعرض الكل
+    admins:
+      dashboard:
+        up_to_date: خادمك محدث لآخر اصدار!
+        outdated: اصدار خادمك قديم.
+    admin:
+      pods:
+        ssl_enabled: SSL مفعل
+        ssl_disabled: SSL معطل
+        added: مضاف
+        status: الحالة
+        states:
+          unchecked: لم يتحقق
+          no_errors: موافق
+          net_failed: فشلت محاولة الاتصال
+          ssl_failed: فشل الاتصال الآمن (SSL)
+          http_failed: فشل اتصال HTTP
+          version_failed: تعذر جلب رقم الاصدار
+          unknown_error: حدث خطأ غير معروف أثناء التحقق
+        actions: الإجراءات
+        offline_since: 'غير متصل منذ:'
+        last_check: آخر تحقق
+        more_info: اعرض مزيدا من المعلومات
+        check: تحقق من جودة الاتصال
+        recheck:
+          failure: لم يُتَم التحقق
+        follow_link: افتح الرابط في متصفح
+        server_software: 'الخادم:'
+        response_time: وقت الاستجابة
+        unknown: مجهول
+        not_available: غير متوفر
+    aspects:
+      name: الاسم
+      create:
+        add_a_new_aspect: أضف فئة جديدة
+        success: أُنشئة الفئة الجديدة ‎<%= name %>‎
+        failure: فشل إنشاء الفئة.
+    errors:
+      connection: تعذر الاتصال بالخادم
+    contacts:
+      add_contact: أضف جهة اتصال
+      remove_contact: أزل جهة الاتصال
+      error_add: تعذرت إضافة ‎<%= name %>‎ الى الفئة
+      error_remove: تعذر حذف ‎<%= name %>‎ من الفئة
+      search_no_results: لم يُعثر على متراسلين
+    my_activity: نشاطى
+    my_stream: ساحة المشاركات
+    my_aspects: فئاتي
+    publisher:
+      near_from: نُشر من ‎<%= location %>‎
+      option: جواب
+      add_option: أضف جوابا
+      question: السؤال
+      markdown_editor:
+        preview: عاين
+        write: اكتب
+        tooltips:
+          bold: عريض
+          italic: مائل
+          heading: خط العنوان
+          insert_link: أدرج رابط
+          insert_image: أدرج صورة
+          insert_ordered_list: أدرج قائمة مرتبة
+          insert_unordered_list: أدرج قائمة غير مرتبة
+          preview: عاين الرسالة
+          write: حرر الرسالة
+          cancel: ألغ الرسالة
+          quote: إقتبس
+          code: أدرج شفرة
+        texts:
+          strong: نص عريض
+          italic: نص مائل
+          heading: خط العنوان
+          insert_link_description_text: أدخل وصف الرابط
+          insert_link_help_text: أدرج الرابط
+          insert_image_description_text: أدخل وصف الصورة
+          insert_image_help_text: أدرج رابط صورة هنا
+          insert_image_title: أدخل عنوان الصورة
+          list: قائمة
+          quote: اقتباس
+          code: نص مائل
+      mention_success: 'أشرتَ بنجاح لـ: ‎<%= names %>‎'
+    bookmarklet:
+      post_something: أنشر على دياسبورا
+      post_submit: يرسل المشاركة…
+      post_success: نُشر! يغلق النافذة المنبثقة…
+    aspect_dropdown:
+      add_to_aspect: أضف مراسلا
+      select_aspects: إختر فئات
+      all_aspects: جميع الفئات
+      updating: يحدّث...
+      mobile_row_checked: "‎<%= name %>‎ (أزل)"
+      mobile_row_unchecked: "‎<%= name %>‎ (أضف)"
+      stopped_sharing_with: لقد توقفت عن المشاركة مع <%= name %>
+      started_sharing_with: لقد بدأت المشاركة مع <%= name %> !
+      error: Couldn't start sharing with <%= name %>.  Are you ignoring them?
+      error_remove: تعذر حذف ‎<%= name %>‎ من الفئة
+      toggle:
+        zero: حدّد الفئات
+        one: في <%= count %> فئة
+        two: في <%= count %> فئات
+        few: في <%= count %> فئات
+        many: في <%= count %> فئات
+        other: في <%= count %> فئات
+    show_more: المزيد
+    failed_to_post_message: فشل في نشر رسالة!
+    failed_to_remove: فشلت إزالة المدخل!
+    comments:
+      show: إعرض جميع التعليقات
+      hide: إخفاء التعليقات
+      no_comments: بدون تعليقات.
+    reshares:
+      successful: أُعيد نشر المشاركة بنجاح!
+      post: إعادة نشر مشاركة ‎<%= name %>‎؟
+    aspect_navigation:
+      select_all: اختر الكل
+      deselect_all: إلغاء اختيار الكل
+      no_aspects: لم يتم اختيار فئات
+      add_an_aspect: أضف فئة
+    getting_started:
+      hey: انتبه <%= name %>
+      no_tags: انتبه. لم تتابع أي وسم!  أُتابع على أي حال؟
+      alright_ill_wait: حسناً ، سأنتظر.
+      preparing_your_stream: جارى إعداد تدفقاتك الشخصية
+    photo_uploader:
+      upload_photos: ارفع صور
+      looking_good: يا إلهى , تبدو رائعاً !
+      completed: اكتمل ‎<%= file %>‎
+      error: حدث خطأ أثناء رفع ‎<%= file %>‎
+      invalid_ext: إمتداد ‎{file}‎ غير صالح، الإمتدادات المسموحة ‎{extensions}‎.
+      size_error: "{file} ذو حجم كبير جدا, {sizeLimit} هو الحجم الأقصى المسموح به."
+      empty: "{file} فارغ، رجاءًا أَعِد تحديد الملفات باستثنائه."
+    tags:
+      wasnt_that_interesting: 'OK, I suppose #<%= tagName %> wasn''t all that interesting...'
+    people:
+      not_found: لم يُعثر على أحد
+      mention: أشر
+      message: راسل
+      edit_my_profile: حرر ملفي الشخصي
+      stop_ignoring: اوقف التجاهل
+      helper:
+        is_sharing: "‎<%= name %>‎ يشارك معك"
+        is_not_sharing: "‎<%= name %>‎ لا يشارك معك"
+    profile:
+      edit: حرر
+      add_some: أضف البعض
+      you_have_no_tags: لا وسوم لديك
+      bio: السيرة
+      location: الموقع
+      gender: الجنس
+      born: تاريخ الميلاد
+      photos: الصور
+      posts: المشاركات
+    conversation:
+      create:
+        no_recipient: أضف المراسل أولا
+      new:
+        no_contacts: أضف متراسلا لبدأ محادثة
+    notifications:
+      mark_read: علِّمه كمقروء
+      mark_unread: علِّمه كغير مقروء
+      new_notifications:
+        zero: ليس لديك تنبيهات
+        one: لديك تنبيه
+        two: لديك تنبيهان
+        few: لديك ‎<%= count %>‎ تنبيهات
+        many: لديك ‎<%= count %>‎ تنبيها
+        other: لديك ‎<%= count %>‎ تنبيه
+    stream:
+      hide: إخف
+      public: عام
+      limited: محدود
+      like: أعجبني
+      unlike: إلغاء إعجابى
+      reshare: إعادة المشاركة
+      comment: تعليق
+      original_post_deleted: لقد حذف المؤلف مشاركته الأصلية.
+      show_nsfw_post: أظهِر المشاركة
+      show_nsfw_posts: أظهِر الكل
+      hide_nsfw_posts: إخف nsfw# المشاركات
+      follow: تابِع
+      unfollow: ألغِ المتابعة
+      enable_post_notifications: مكن التنبيهات لهذا المنشور
+      disable_post_notifications: عطل التنبيهات لهذا المنشور
+      permalink: رابط دائم
+      via: عبر ‎<%= provider %>‎
+      no_posts_yet: بدون مشاركات حتى الآن
+      likes:
+        zero: عدد <%= count %> المعجبين
+        one: عدد <%= count %> المعجبين
+        two: عدد <%= count %> معجب
+        few: عدد <%= count %> المعجبين
+        many: عدد <%= count %> المعجبين
+        other: عدد <%= count %> المعجبين
+      reshares:
+        zero: "<%= count %> اعادة  المشاركات"
+        one: "<%= count %>  اعادة  المشاركات"
+        two: "<%= count %>  اعادة  المشاركة"
+        few: "<%= count %> اعادة  المشاركات"
+        many: "<%= count %>  اعادة  المشاركات"
+        other: "<%= count %>  اعادة  المشاركات"
+      comments:
+        zero: بدون تعليقات
+        one: تعليق واحد
+        two: تعليقان
+        few: "‎<%= count %>‎ تعليقات"
+        many: "‎<%= count %>‎ تعليقا"
+        other: "‎<%= count %>‎ تعليق"
+      more_comments:
+        zero: 'إعرض <%= count %> تعليقات أكثر '
+        one: 'إعرض <%= count %>  تعليقات أكثر '
+        two: 'إعرض <%= count %> تعليق أكثر '
+        few: 'إعرض <%= count %>  تعليقات أكثر '
+        many: 'إعرض <%= count %> تعليقات أكثر '
+        other: 'إعرض <%= count %>  تعليقات أكثر '
+      followed_tag:
+        title: الوسوم المتبعة
+        add_a_tag: أضف وسم
+        follow: تابع
+      tags:
+        follow: 'تابع #‎<%= tag %>‎'
+        following: 'يتابع #‎<%= tag %>‎'
+        stop_following: 'ألغ متابعة #‎<%= tag %>‎'
+        stop_following_confirm: 'ألغِ متابعة #‎<%= tag %>‎'
+        follow_error: 'تعذرت متابعة #‎<%= tag %>‎'
+        stop_following_error: 'تعذر إلغاء متابعة #‎<%= tag %>‎'
+    header:
+      home: الرئيسية
+      profile: الملف الشخصى
+      contacts: جهات الاتصال
+      settings: إعدادات
+      help: المساعدة
+      admin: مدير
+      moderator: المشرف
+      log_out: خروج
+      toggle_navigation: بدل التصفح
+      switch_to_touch_optimized_mode: انتقل الى وضع شاشة اللمس
+      notifications: تنبيهات
+      conversations: المحادثات
+      search: ابحث
+      recent_notifications: آخر التنبيهات
+      mark_all_as_read: وضع الجميع كمقروء
+      view_all: عرض الكل
+      close: أغلق
     viewer:
-      reshared: "أُعيد النشر"
+      reshared: أُعيد النشر
+    poll:
+      vote: صوِّت
+      go_to_original_post: يمكنك الاشتراك في هذا الاستطلاع عبر ‎<%= original_post_link %>‎.
+      original_post: المشاركة الأصلية
+      result: النتيجة
+      count:
+        zero: بدون تصويت
+        one: صوت واحد
+        two: صوتان
+        few: "‎<%=count%>‎ أصوات"
+        many: "‎<%=count%>‎ صوتا"
+        other: "‎<%=count%>‎ صوت"
+      answer_count:
+        zero: بدون أصوات
+        one: صوت واحد
+        two: صوتان
+        few: "‎<%=count%>‎ أصوات"
+        other: "‎<%=count%>‎ صوت"
+      show_result: اعرض النتيجة
+      close_result: إخف النتيجة
+      your_vote: صوتك

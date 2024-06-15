@@ -6,296 +6,298 @@
 
 ja:
   javascripts:
-    admin:
-      pods:
-        actions: "操作"
-        added: "追加"
-        check: "接続テストを実行"
-        errors:
-          other: "<%= count %> のポッドで、接続テストのエラーが返されました"
-        follow_link: "ブラウザーでリンクを開く"
-        last_check: "前回の確認:"
-        more_info: "さらに情報を表示"
-        ms:
-          other: "<%= count %>ms"
-        no_info: "この時点で入手可能な追加情報はありません"
-        not_available: "使用不可"
-        offline_since: "オフライン開始:"
-        pod: "ポッド"
-        recheck:
-          failure: "チェックは実行されませんでした。"
-          success: "ポッドをもう一度確認しました。"
-        response_time: "レスポンスタイム:"
-        server_software: "サーバーソフトウェア:"
-        ssl: "SSL"
-        ssl_disabled: "SSL が無効です"
-        ssl_enabled: "SSL が有効です"
-        states:
-          dns_failed: "名前解決 (DNS) に失敗しました"
-          http_failed: "HTTP 接続に失敗しました"
-          net_failed: "接続に失敗しました"
-          no_errors: "OK"
-          ssl_failed: "安全な接続 (SSL) に失敗しました"
-          unchecked: "選択解除"
-          unknown_error: "確認中に不明なエラーが発生しました"
-          version_failed: "ソフトウェアバージョンを取得できません"
-        status: "ステータス"
-        unchecked:
-          other: "まだ確認していないポッドが <%= count %> あります。"
-        unknown: "不明"
-        version_failed:
-          other: "<%= count %> ポッドでバージョンがありません (古いポッド、ノード情報なし)"
+    timeago:
+      prefixAgo: ''
+      suffixAgo: 前
+      suffixFromNow: 後
+      prefixFromNow: 今から
+      inPast: 今さっき
+      seconds: 1分未満
+      minute: 約1分
+      minutes:
+        other: "%d分"
+      hour: 約1時間
+      hours:
+        other: 約%d時間
+      day: 1日
+      days:
+        other: "%d日"
+      month: 約1ヶ月
+      months:
+        other: "%dヶ月"
+      year: 約1年
+      years:
+        other: "%d年"
+      wordSeparator: " "
+    cancel: 取消
+    confirm_dialog: よろしいですか?
+    confirm_unload: このページを離れることを確認してください。入力したデータは保存されません。
+    create: 作成
+    delete: 削除
+    ignore: 無視
+    report:
+      prompt: '理由を入力してください:'
+      prompt_default: 攻撃的なコンテンツ
+      name: 報告
+      status:
+        created: 報告を正常に作成しました
+        exists: 報告はすでに存在します
+    ignore_user: このユーザーを無視しますか?
+    ignore_failed: このユーザーを無視できません
+    hide_post: この投稿を非表示にしますか？
+    hide_post_failed: この投稿を非表示にできません
+    remove_post: この投稿を削除しますか？
+    unblock_failed: このユーザーのブロック解除に失敗しました
+    and: および
+    comma: ","
+    edit: 編集
+    no_results: 結果が見つかりません
+    show_all: すべて表示
     admins:
       dashboard:
-        compare_versions: "最新のダイアスポラ* リリースは <%= latestVersion %> です、お使いのポッドは <%= podVersion %> を実行中です。"
-        error: "最新のダイアスポラ* バージョンを確認できません。"
-        outdated: "ポッドが古くなっています。"
-        up_to_date: "ポッドは最新です！"
-    and: "および"
+        up_to_date: ポッドは最新です！
+        outdated: ポッドが古くなっています。
+        compare_versions: 最新のダイアスポラ* リリースは <%= latestVersion %> です、お使いのポッドは <%= podVersion %> を実行中です。
+        error: 最新のダイアスポラ* バージョンを確認できません。
+    admin:
+      pods:
+        pod: ポッド
+        ssl: SSL
+        ssl_enabled: SSL が有効です
+        ssl_disabled: SSL が無効です
+        added: 追加
+        status: ステータス
+        states:
+          unchecked: 選択解除
+          no_errors: OK
+          dns_failed: 名前解決 (DNS) に失敗しました
+          net_failed: 接続に失敗しました
+          ssl_failed: 安全な接続 (SSL) に失敗しました
+          http_failed: HTTP 接続に失敗しました
+          version_failed: ソフトウェアバージョンを取得できません
+          unknown_error: 確認中に不明なエラーが発生しました
+        actions: 操作
+        offline_since: 'オフライン開始:'
+        last_check: '前回の確認:'
+        more_info: さらに情報を表示
+        check: 接続テストを実行
+        recheck:
+          success: ポッドをもう一度確認しました。
+          failure: チェックは実行されませんでした。
+        follow_link: ブラウザーでリンクを開く
+        no_info: この時点で入手可能な追加情報はありません
+        server_software: 'サーバーソフトウェア:'
+        response_time: 'レスポンスタイム:'
+        ms:
+          other: "<%= count %>ms"
+        unknown: 不明
+        not_available: 使用不可
+        unchecked:
+          other: まだ確認していないポッドが <%= count %> あります。
+        version_failed:
+          other: "<%= count %> ポッドでバージョンがありません (古いポッド、ノード情報なし)"
+        errors:
+          other: "<%= count %> のポッドで、接続テストのエラーが返されました"
+    aspects:
+      name: 名前
+      create:
+        add_a_new_aspect: 新しいアスペクトを追加する
+        success: 新しいアスペクト<%= name %>を作成しました
+        failure: アスペクトの作成に失敗しました。
+    errors:
+      connection: サーバーに接続できません。
+    contacts:
+      add_contact: 連絡先を追加
+      remove_contact: 連絡先を削除
+      error_add: 'アスペクトに<%= name %>さんを追加できませんでした :(
+
+        '
+      error_remove: アスペクトから<%= name %>さんを削除できませんでした :(
+      search_no_results: 連絡先が見つかりません
+    my_activity: マイ アクティビティ
+    my_stream: ストリーム
+    my_aspects: 私のアスペクト
+    publisher:
+      near_from: "<%= location %>からの投稿"
+      option: 回答
+      add_option: 回答を追加
+      question: 質問
+      markdown_editor:
+        preview: プレビュー
+        write: 書く
+        tooltips:
+          bold: 太字
+          italic: 斜体
+          heading: 見出し
+          insert_link: リンクの挿入
+          insert_image: 画像の挿入
+          insert_ordered_list: 番号付きリストの挿入
+          insert_unordered_list: 箇条書きリストの挿入
+          preview: メッセージのプレビュー
+          write: メッセージを編集
+          cancel: メッセージの取消
+          quote: 引用の挿入
+          code: コードの挿入
+        texts:
+          strong: 強調テキスト
+          italic: 斜体テキスト
+          heading: 見出しテキスト
+          insert_link_description_text: ここにリンクの説明を入力
+          insert_link_help_text: ここにリンクを挿入
+          insert_image_description_text: ここに画像の説明を入力
+          insert_image_help_text: ここに画像のリンクを挿入
+          insert_image_title: ここに画像のタイトルを入力
+          list: ここにリストテキスト
+          quote: ここに引用テキスト
+          code: ここにコード
+      mention_success: 'メンションしました: <%= names %>'
+    bookmarklet:
+      post_something: ダイアスポラに投稿
+      post_submit: 投稿の送信中...
+      post_success: 投稿しました! ウインドウを閉じています...
     aspect_dropdown:
-      add_to_aspect: "アスペクトに追加"
-      all_aspects: "全てのアスペクト"
-      error: "<%= name %>さんとシェアを始めることができません。  無視しますか?"
-      error_remove: "アスペクトから<%= name %>さんを削除できませんでした :("
+      add_to_aspect: アスペクトに追加
+      select_aspects: アスペクトを選択する
+      all_aspects: 全てのアスペクト
+      updating: 更新中...
       mobile_row_checked: "<%= name %> (削除)"
       mobile_row_unchecked: "<%= name %> (追加)"
-      select_aspects: "アスペクトを選択する"
-      started_sharing_with: "<%= name %>さんとシェアを始めました!"
       stopped_sharing_with: "<%= name %>さんとシェアをやめました。"
+      started_sharing_with: "<%= name %>さんとシェアを始めました!"
+      error: "<%= name %>さんとシェアを始めることができません。  無視しますか?"
+      error_remove: アスペクトから<%= name %>さんを削除できませんでした :(
       toggle:
-        other: "<%= count %> アスペクトに"
         zero: "<%= count %> アスペクトに"
-      updating: "更新中..."
-    aspect_navigation:
-      add_an_aspect: "+ アスペクトを追加する"
-      deselect_all: "全て選択解除"
-      no_aspects: "どのアスペクトも選択されていません"
-      select_all: "全て選択"
-    aspects:
-      create:
-        add_a_new_aspect: "新しいアスペクトを追加する"
-        failure: "アスペクトの作成に失敗しました。"
-        success: "新しいアスペクト<%= name %>を作成しました"
-      name: "名前"
-    bookmarklet:
-      post_something: "ダイアスポラに投稿"
-      post_submit: "投稿の送信中..."
-      post_success: "投稿しました! ウインドウを閉じています..."
-    cancel: "取消"
-    comma: ","
+        other: "<%= count %> アスペクトに"
+    show_more: さらに表示する
+    failed_to_post_message: メッセージの投稿に失敗しました!
+    failed_to_remove: エントリーの削除に失敗しました！
     comments:
-      hide: "コメントを隠す"
-      no_comments: "まだコメントはありません。"
-      show: "全てのコメントを表示する"
-    confirm_dialog: "よろしいですか?"
-    confirm_unload: "このページを離れることを確認してください。入力したデータは保存されません。"
-    contacts:
-      add_contact: "連絡先を追加"
-      error_add: "アスペクトに<%= name %>さんを追加できませんでした :(\n"
-      error_remove: "アスペクトから<%= name %>さんを削除できませんでした :("
-      remove_contact: "連絡先を削除"
-      search_no_results: "連絡先が見つかりません"
+      show: 全てのコメントを表示する
+      hide: コメントを隠す
+      no_comments: まだコメントはありません。
+    reshares:
+      successful: 投稿は正常にリシェアされました!
+      post: "<%= name %>さんの投稿をリシェアしますか?"
+    aspect_navigation:
+      select_all: 全て選択
+      deselect_all: 全て選択解除
+      no_aspects: どのアスペクトも選択されていません
+      add_an_aspect: "+ アスペクトを追加する"
+    getting_started:
+      hey: こんにちは。 <%= name %> さん!
+      no_tags: タグを何もフォローしていません！続行しますか？
+      alright_ill_wait: OK、私は待ちます。
+      preparing_your_stream: パーソナライズ ストリームを準備しています...
+    photo_uploader:
+      upload_photos: 写真をアップロード
+      looking_good: なんてこったー！あなたは素晴らしいですね！
+      completed: "<%= file %> 完了"
+      error: ファイル <%= file %> のアップロード中に問題が発生しました
+      invalid_ext: "{file}の拡張子は正しくありません。{extensions}以外の拡張子は使えません。"
+      size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
+      empty: "{file}は空のファイルです。他のファイルを選択してください。"
+    tags:
+      wasnt_that_interesting: OK、#<%= tagName %> は興味がありませんでした...
+    people:
+      not_found: "…1人も見つかりませんでした"
+      mention: メンション
+      message: メッセージ
+      edit_my_profile: マイ プロフィールを編集する
+      stop_ignoring: 無視を解除する
+      helper:
+        is_sharing: "<%= name %>さんはあなたとシェアしています"
+        is_not_sharing: "<%= name %>さんはあなたとシェアしていません"
+    profile:
+      edit: 編集
+      add_some: 何かを追加
+      you_have_no_tags: タグがありません！
+      bio: 略歴
+      location: 所在地
+      gender: 性別
+      born: 誕生日
+      photos: 写真
+      posts: 投稿
     conversation:
       create:
-        no_recipient: "最初に受信者を追加する必要があります!"
+        no_recipient: 最初に受信者を追加する必要があります!
       new:
-        no_contacts: "会話を開始する前に、連絡先を追加する必要があります。"
-    create: "作成"
-    delete: "削除"
-    edit: "編集"
-    errors:
-      connection: "サーバーに接続できません。"
-    failed_to_post_message: "メッセージの投稿に失敗しました!"
-    failed_to_remove: "エントリーの削除に失敗しました！"
-    getting_started:
-      alright_ill_wait: "OK、私は待ちます。"
-      hey: "こんにちは。 <%= name %> さん!"
-      no_tags: "タグを何もフォローしていません！続行しますか？"
-      preparing_your_stream: "パーソナライズ ストリームを準備しています..."
-    header:
-      admin: "管理"
-      close: "閉じる"
-      contacts: "連絡先"
-      conversations: "会話"
-      help: "ヘルプ"
-      home: "ホーム"
-      log_out: "ログアウト"
-      mark_all_as_read: "全て既読にする"
-      moderator: "モデレーター"
-      notifications: "通知"
-      profile: "プロフィール"
-      recent_notifications: "最近の通知"
-      search: "検索"
-      settings: "設定"
-      switch_to_touch_optimized_mode: "タッチ操作モードに切り替え"
-      toggle_navigation: "ナビゲーションの切り替え"
-      view_all: "全て見る"
-    hide_post: "この投稿を非表示にしますか？"
-    hide_post_failed: "この投稿を非表示にできません"
-    ignore: "無視"
-    ignore_failed: "このユーザーを無視できません"
-    ignore_user: "このユーザーを無視しますか?"
-    my_activity: "マイ アクティビティ"
-    my_aspects: "私のアスペクト"
-    my_stream: "ストリーム"
-    no_results: "結果が見つかりません"
+        no_contacts: 会話を開始する前に、連絡先を追加する必要があります。
     notifications:
-      mark_read: "既読にする"
-      mark_unread: "未読にする"
+      mark_read: 既読にする
+      mark_unread: 未読にする
       new_notifications:
         other: "<%= count %> 件、未読の通知があります"
-    people:
-      edit_my_profile: "マイ プロフィールを編集する"
-      helper:
-        is_not_sharing: "<%= name %>さんはあなたとシェアしていません"
-        is_sharing: "<%= name %>さんはあなたとシェアしています"
-      mention: "メンション"
-      message: "メッセージ"
-      not_found: "…1人も見つかりませんでした"
-      stop_ignoring: "無視を解除する"
-    photo_uploader:
-      completed: "<%= file %> 完了"
-      empty: "{file}は空のファイルです。他のファイルを選択してください。"
-      error: "ファイル <%= file %> のアップロード中に問題が発生しました"
-      invalid_ext: "{file}の拡張子は正しくありません。{extensions}以外の拡張子は使えません。"
-      looking_good: "なんてこったー！あなたは素晴らしいですね！"
-      size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
-      upload_photos: "写真をアップロード"
-    poll:
-      answer_count:
-        other: "<%=count%> 投票"
-      close_result: "結果を非表示にする"
-      count:
-        other: "これまで <%=count%> 投票"
-      go_to_original_post: "<%= original_post_link %> から、この投票に参加することができます。"
-      original_post: "元の投稿"
-      result: "結果"
-      show_result: "結果を表示する"
-      vote: "投票"
-      your_vote: "あなたの投票"
-    profile:
-      add_some: "何かを追加"
-      bio: "略歴"
-      born: "誕生日"
-      edit: "編集"
-      gender: "性別"
-      location: "所在地"
-      photos: "写真"
-      posts: "投稿"
-      you_have_no_tags: "タグがありません！"
-    publisher:
-      add_option: "回答を追加"
-      markdown_editor:
-        preview: "プレビュー"
-        texts:
-          code: "ここにコード"
-          heading: "見出しテキスト"
-          insert_image_description_text: "ここに画像の説明を入力"
-          insert_image_help_text: "ここに画像のリンクを挿入"
-          insert_image_title: "ここに画像のタイトルを入力"
-          insert_link_description_text: "ここにリンクの説明を入力"
-          insert_link_help_text: "ここにリンクを挿入"
-          italic: "斜体テキスト"
-          list: "ここにリストテキスト"
-          quote: "ここに引用テキスト"
-          strong: "強調テキスト"
-        tooltips:
-          bold: "太字"
-          cancel: "メッセージの取消"
-          code: "コードの挿入"
-          heading: "見出し"
-          insert_image: "画像の挿入"
-          insert_link: "リンクの挿入"
-          insert_ordered_list: "番号付きリストの挿入"
-          insert_unordered_list: "箇条書きリストの挿入"
-          italic: "斜体"
-          preview: "メッセージのプレビュー"
-          quote: "引用の挿入"
-          write: "メッセージを編集"
-        write: "書く"
-      mention_success: "メンションしました: <%= names %>"
-      near_from: "<%= location %>からの投稿"
-      option: "回答"
-      question: "質問"
-    remove_post: "この投稿を削除しますか？"
-    report:
-      name: "報告"
-      prompt: "理由を入力してください:"
-      prompt_default: "攻撃的なコンテンツ"
-      status:
-        created: "報告を正常に作成しました"
-        exists: "報告はすでに存在します"
-    reshares:
-      post: "<%= name %>さんの投稿をリシェアしますか?"
-      successful: "投稿は正常にリシェアされました!"
-    show_all: "すべて表示"
-    show_more: "さらに表示する"
     stream:
-      comment: "コメント"
+      hide: 隠す
+      public: 公開
+      limited: 限定公開
+      like: いいね！
+      unlike: いいね！を取消
+      reshare: リシェア
+      comment: コメント
+      original_post_deleted: 元の投稿は作者によって削除されました
+      show_nsfw_post: 投稿を表示する
+      show_nsfw_posts: 全て表示
+      hide_nsfw_posts: "#nsfwの投稿を隠す"
+      follow: フォロー
+      unfollow: フォロー解除
+      enable_post_notifications: この投稿に対する通知を有効にする
+      disable_post_notifications: この投稿に対する通知を無効にする
+      permalink: パーマリンク
+      via: "<%= provider %> で"
+      no_posts_yet: まだここに表示する投稿はありません。
+      likes:
+        zero: "<%= count %> いいね！"
+        other: "<%= count %> いいね！"
+      reshares:
+        zero: "<%= count %> リシェア"
+        other: "<%= count %> リシェア"
       comments:
         other: "<%= count %> コメント"
-      disable_post_notifications: "この投稿に対する通知を無効にする"
-      enable_post_notifications: "この投稿に対する通知を有効にする"
-      follow: "フォロー"
-      followed_tag:
-        add_a_tag: "タグを追加する"
-        follow: "フォロー"
-        title: "#フォロー したタグ"
-      hide: "隠す"
-      hide_nsfw_posts: "#nsfwの投稿を隠す"
-      like: "いいね！"
-      likes:
-        other: "<%= count %> いいね！"
-        zero: "<%= count %> いいね！"
-      limited: "限定公開"
       more_comments:
-        other: "さらに <%= count %> のコメントを表示"
-        zero: "さらに <%= count %> のコメントを表示"
-      no_posts_yet: "まだここに表示する投稿はありません。"
-      original_post_deleted: "元の投稿は作者によって削除されました"
-      permalink: "パーマリンク"
-      public: "公開"
-      reshare: "リシェア"
-      reshares:
-        other: "<%= count %> リシェア"
-        zero: "<%= count %> リシェア"
-      show_nsfw_post: "投稿を表示する"
-      show_nsfw_posts: "全て表示"
+        zero: さらに <%= count %> のコメントを表示
+        other: さらに <%= count %> のコメントを表示
+      followed_tag:
+        title: "#フォロー したタグ"
+        add_a_tag: タグを追加する
+        follow: フォロー
       tags:
         follow: "#<%= tag %>をフォローする"
-        follow_error: "#<%= tag %> をフォローできませんでした :("
         following: "#<%= tag %>をフォロー中"
         stop_following: "#<%= tag %>のフォローを中止する"
         stop_following_confirm: "#<%= tag %>のフォローを中止する"
+        follow_error: "#<%= tag %> をフォローできませんでした :("
         stop_following_error: "#<%= tag %> のフォローを停止できませんでした :("
-      unfollow: "フォロー解除"
-      unlike: "いいね！を取消"
-      via: "<%= provider %> で"
-    tags:
-      wasnt_that_interesting: "OK、#<%= tagName %> は興味がありませんでした..."
-    timeago:
-      day: "1日"
-      days:
-        other: "%d日"
-      hour: "約1時間"
-      hours:
-        other: "約%d時間"
-      inPast: "今さっき"
-      minute: "約1分"
-      minutes:
-        other: "%d分"
-      month: "約1ヶ月"
-      months:
-        other: "%dヶ月"
-      prefixAgo: ""
-      prefixFromNow: "今から"
-      seconds: "1分未満"
-      suffixAgo: "前"
-      suffixFromNow: "後"
-      wordSeparator: " "
-      year: "約1年"
-      years:
-        other: "%d年"
-    unblock_failed: "このユーザーのブロック解除に失敗しました"
+    header:
+      home: ホーム
+      profile: プロフィール
+      contacts: 連絡先
+      settings: 設定
+      help: ヘルプ
+      admin: 管理
+      moderator: モデレーター
+      log_out: ログアウト
+      toggle_navigation: ナビゲーションの切り替え
+      switch_to_touch_optimized_mode: タッチ操作モードに切り替え
+      notifications: 通知
+      conversations: 会話
+      search: 検索
+      recent_notifications: 最近の通知
+      mark_all_as_read: 全て既読にする
+      view_all: 全て見る
+      close: 閉じる
     viewer:
-      reshared: "リシェアしました"
+      reshared: リシェアしました
+    poll:
+      vote: 投票
+      go_to_original_post: "<%= original_post_link %> から、この投票に参加することができます。"
+      original_post: 元の投稿
+      result: 結果
+      count:
+        other: これまで <%=count%> 投票
+      answer_count:
+        other: "<%=count%> 投票"
+      show_result: 結果を表示する
+      close_result: 結果を非表示にする
+      your_vote: あなたの投票

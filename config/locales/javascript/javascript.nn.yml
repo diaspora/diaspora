@@ -6,157 +6,157 @@
 
 nn:
   javascripts:
-    and: "og"
-    aspect_dropdown:
-      add_to_aspect: "Legg til kontakt"
-      all_aspects: "Alle aspekta"
-      error: "Klarte ikkje å byrja å dela med <%= name %>.  Ignorerer du dei?"
-      error_remove: "Kunne ikkje fjerne <%= name %> frå aspektet :("
-      select_aspects: "Vel aspekt"
-      started_sharing_with: "Du har byrja å dela med <%= name %>"
-      stopped_sharing_with: "Du deler ikkje lenger med <%= name %>."
-      toggle:
-        one: "I <%= count %> aspekt"
-        other: "I <%= count %> aspekt"
-        zero: "Vel aspekt"
-    aspect_navigation:
-      add_an_aspect: "+ Legg til eit aspekt"
-      deselect_all: "Vel vekk alle"
-      no_aspects: "Ingen aspekt er valde"
-      select_all: "Vel alle"
-    comma: ","
-    comments:
-      hide: "gøym merknader"
-      show: "syn alle merknadene"
-    confirm_dialog: "Er du sikker?"
-    conversation:
-      create:
-        no_recipient: "Heisann, du treng ein mottakar først!"
-    delete: "Slett"
-    edit: "Endra"
-    errors:
-      connection: "Kunne ikkje kople til serveren."
-    failed_to_post_message: "Klarte ikkje å senda meldinga."
-    getting_started:
-      alright_ill_wait: "Greitt, eg ventar."
-      hey: "Hei, <%= name %>!"
-      no_tags: "Du har ikkje følgt nokon etikett. Vil du likevel halda fram?"
-      preparing_your_stream: "Lagar den tilpassa straumen din …"
-    header:
-      admin: "Admin"
-      close: "lukk"
-      contacts: "Kontaktar"
-      home: "Heim"
-      log_out: "Logg ut"
-      mark_all_as_read: "Merk alle som lesne"
-      notifications: "Varsel"
-      profile: "Profil"
-      recent_notifications: "Nylege varsel"
-      search: "Find people or #tags"
-      settings: "Innstillingar"
-      view_all: "Syn alle"
-    ignore: "Oversjå"
-    ignore_user: "Oversjå denne brukaren?"
-    my_activity: "Min aktivitet"
-    my_aspects: "Aspekta mine"
-    my_stream: "Straum"
-    notifications:
-      new_notifications:
-        one: "Du har eit varsel du ikkje har sjekka"
-        other: "Du har <%= count %> ulesne varsel"
-    people:
-      not_found: "orsak, me kunne ikkje finne nokon."
-    photo_uploader:
-      completed: "<%= file %> ferdig"
-      looking_good: "Du verda, du ser flott ut!"
-    publisher:
-      markdown_editor:
-        preview: "Førehandsvis"
-        texts:
-          code: "kode her"
-          heading: "overskrift"
-          italic: "kursiv"
-          list: "liste her"
-          quote: "sitat her"
-          strong: "feit"
-        tooltips:
-          bold: "Feit"
-          cancel: "Ikkje send melding"
-          code: "Set inn kode"
-          insert_image: "Set inn bilete"
-          insert_link: "Set inn lenke"
-          insert_ordered_list: "Set inn nummerert liste"
-          insert_unordered_list: "Set inn unummerert liste"
-          italic: "Kursiv"
-          preview: "Førehandsvis melding"
-          quote: "Set inn sitat"
-          write: "Endre melding"
-        write: "Skriv"
-    reshares:
-      post: "Vil du dele <%= name %> sin post?"
-      successful: "Hurra, posten vart delt!"
-    show_more: "syn meir"
-    stream:
-      comment: "Kommenter"
-      comments:
-        one: "ein kommentar"
-        other: "<%= count %> kommentarar"
-        zero: "ingen kommentarar"
-      follow: "Følg"
-      followed_tag:
-        add_a_tag: "Legg til ein tag"
-        follow: "Følg"
-        title: "#Følgde tags"
-      hide: "Gøym"
-      hide_nsfw_posts: "Gøym innlegg merka med #nsfw"
-      like: "Lik"
-      likes:
-        one: "<%= count %> likar dette"
-        other: "<%= count %> likar dette"
-        zero: "<%= count %> likar dette"
-      limited: "Avgrensa"
-      more_comments:
-        one: "Syn <%= count %> kommentar meir"
-        other: "Syn <%= count %> fleire kommentarar"
-        zero: "Syn <%= count %> fleire kommentarar"
-      no_posts_yet: "Det er ikkje nokon innlegg å vise her enno."
-      original_post_deleted: "Det opprinnelege innlegget er sletta av forfattaren."
-      public: "Offentleg"
-      reshare: "Del"
-      reshares:
-        one: "<%= count %> deling"
-        other: "<%= count %> delingar"
-        zero: "<%= count %> delingar"
-      show_nsfw_post: "Syn innlegg"
-      show_nsfw_posts: "Syn alt"
-      tags:
-        follow: "Følg #<%= tag %>"
-        following: "Følgjer #<%= tag %>"
-        stop_following: "Slutt å følgja #<%= tag %>"
-      unfollow: "Ikkje følg"
-      unlike: "Lik ikkje lenger"
-    tags:
-      wasnt_that_interesting: "Greitt, #<%= tagName %> var vel kanskje ikkje så interessant …"
     timeago:
-      day: "i går"
-      days:
-        other: "%d dagar"
-      hour: "om lag ein time"
-      hours:
-        other: "om lag %d timar"
-      minute: "om lag eit minutt"
+      prefixAgo: ''
+      suffixAgo: sidan
+      suffixFromNow: frå no
+      prefixFromNow: ''
+      seconds: mindre enn eit minutt
+      minute: om lag eit minutt
       minutes:
         other: "%d minutt"
-      month: "om lag ein månad"
+      hour: om lag ein time
+      hours:
+        other: om lag %d timar
+      day: i går
+      days:
+        other: "%d dagar"
+      month: om lag ein månad
       months:
         other: "%d månader"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "mindre enn eit minutt"
-      suffixAgo: "sidan"
-      suffixFromNow: "frå no"
-      year: "om lag eit år"
+      year: om lag eit år
       years:
         other: "%d år"
+    confirm_dialog: Er du sikker?
+    delete: Slett
+    ignore: Oversjå
+    ignore_user: Oversjå denne brukaren?
+    and: og
+    comma: ","
+    edit: Endra
+    errors:
+      connection: Kunne ikkje kople til serveren.
+    my_activity: Min aktivitet
+    my_stream: Straum
+    my_aspects: Aspekta mine
+    publisher:
+      markdown_editor:
+        preview: Førehandsvis
+        write: Skriv
+        tooltips:
+          bold: Feit
+          italic: Kursiv
+          insert_link: Set inn lenke
+          insert_image: Set inn bilete
+          insert_ordered_list: Set inn nummerert liste
+          insert_unordered_list: Set inn unummerert liste
+          preview: Førehandsvis melding
+          write: Endre melding
+          cancel: Ikkje send melding
+          quote: Set inn sitat
+          code: Set inn kode
+        texts:
+          strong: feit
+          italic: kursiv
+          heading: overskrift
+          list: liste her
+          quote: sitat her
+          code: kode her
+    aspect_dropdown:
+      add_to_aspect: Legg til kontakt
+      select_aspects: Vel aspekt
+      all_aspects: Alle aspekta
+      stopped_sharing_with: Du deler ikkje lenger med <%= name %>.
+      started_sharing_with: Du har byrja å dela med <%= name %>
+      error: Klarte ikkje å byrja å dela med <%= name %>.  Ignorerer du dei?
+      error_remove: Kunne ikkje fjerne <%= name %> frå aspektet :(
+      toggle:
+        zero: Vel aspekt
+        one: I <%= count %> aspekt
+        other: I <%= count %> aspekt
+    show_more: syn meir
+    failed_to_post_message: Klarte ikkje å senda meldinga.
+    comments:
+      show: syn alle merknadene
+      hide: gøym merknader
+    reshares:
+      successful: Hurra, posten vart delt!
+      post: Vil du dele <%= name %> sin post?
+    aspect_navigation:
+      select_all: Vel alle
+      deselect_all: Vel vekk alle
+      no_aspects: Ingen aspekt er valde
+      add_an_aspect: "+ Legg til eit aspekt"
+    getting_started:
+      hey: Hei, <%= name %>!
+      no_tags: Du har ikkje følgt nokon etikett. Vil du likevel halda fram?
+      alright_ill_wait: Greitt, eg ventar.
+      preparing_your_stream: Lagar den tilpassa straumen din …
+    photo_uploader:
+      looking_good: Du verda, du ser flott ut!
+      completed: "<%= file %> ferdig"
+    tags:
+      wasnt_that_interesting: 'Greitt, #<%= tagName %> var vel kanskje ikkje så interessant …'
+    people:
+      not_found: orsak, me kunne ikkje finne nokon.
+    conversation:
+      create:
+        no_recipient: Heisann, du treng ein mottakar først!
+    notifications:
+      new_notifications:
+        one: Du har eit varsel du ikkje har sjekka
+        other: Du har <%= count %> ulesne varsel
+    stream:
+      hide: Gøym
+      public: Offentleg
+      limited: Avgrensa
+      like: Lik
+      unlike: Lik ikkje lenger
+      reshare: Del
+      comment: Kommenter
+      original_post_deleted: Det opprinnelege innlegget er sletta av forfattaren.
+      show_nsfw_post: Syn innlegg
+      show_nsfw_posts: Syn alt
+      hide_nsfw_posts: 'Gøym innlegg merka med #nsfw'
+      follow: Følg
+      unfollow: Ikkje følg
+      no_posts_yet: Det er ikkje nokon innlegg å vise her enno.
+      likes:
+        zero: "<%= count %> likar dette"
+        one: "<%= count %> likar dette"
+        other: "<%= count %> likar dette"
+      reshares:
+        zero: "<%= count %> delingar"
+        one: "<%= count %> deling"
+        other: "<%= count %> delingar"
+      comments:
+        zero: ingen kommentarar
+        one: ein kommentar
+        other: "<%= count %> kommentarar"
+      more_comments:
+        zero: Syn <%= count %> fleire kommentarar
+        one: Syn <%= count %> kommentar meir
+        other: Syn <%= count %> fleire kommentarar
+      followed_tag:
+        title: "#Følgde tags"
+        add_a_tag: Legg til ein tag
+        follow: Følg
+      tags:
+        follow: 'Følg #<%= tag %>'
+        following: 'Følgjer #<%= tag %>'
+        stop_following: 'Slutt å følgja #<%= tag %>'
+    header:
+      home: Heim
+      profile: Profil
+      contacts: Kontaktar
+      settings: Innstillingar
+      admin: Admin
+      log_out: Logg ut
+      notifications: Varsel
+      search: 'Find people or #tags'
+      recent_notifications: Nylege varsel
+      mark_all_as_read: Merk alle som lesne
+      view_all: Syn alle
+      close: lukk
     viewer:
-      reshared: "Delt"
+      reshared: Delt

@@ -7,87 +7,87 @@
 pt-PT:
   devise:
     confirmations:
-      confirmed: "O seu endereço de e-mail foi confirmado com sucesso."
+      confirmed: O seu endereço de e-mail foi confirmado com sucesso.
+      send_instructions: Dentro de alguns minutos irá receber uma mensagem com as instruções sobre como confirmar o seu endereço de e-mail.
       new:
-        resend_confirmation: "Reenviar instruções de confirmação"
-      send_instructions: "Dentro de alguns minutos irá receber uma mensagem com as instruções sobre como confirmar o seu endereço de e-mail."
+        resend_confirmation: Reenviar instruções de confirmação
     failure:
-      inactive: "A sua conta ainda não está ativada."
+      inactive: A sua conta ainda não está ativada.
       invalid: "%{authentication_keys} ou palavra-passe inválida."
-      invalid_token: "Código de autentificação inválido."
-      locked: "A sua conta foi bloqueada."
-      timeout: "A sua sessão expirou. Por favor, inicie novamente a sessão para continuar."
-      unauthenticated: "É necessário iniciar sessão ou registar-se antes de continuar."
-      unconfirmed: "Tem de confirmar o seu endereço de e-mail antes de continuar."
-    invitations:
-      invitation_token_invalid: "As nossas desculpas! Esse código de convite não é válido!"
-      send_instructions: "O seu convite foi enviado."
-      updated: "A sua palavra-passe foi definida com sucesso. A sessão foi iniciada."
+      locked: A sua conta foi bloqueada.
+      timeout: A sua sessão expirou. Por favor, inicie novamente a sessão para continuar.
+      unauthenticated: É necessário iniciar sessão ou registar-se antes de continuar.
+      unconfirmed: Tem de confirmar o seu endereço de e-mail antes de continuar.
+      invalid_token: Código de autentificação inválido.
     mailer:
       confirmation_instructions:
-        confirm: "Confirmar a minha conta"
-        subject: "Instruções de confirmação"
-        you_can_confirm: "Pode confirmar a sua conta através da seguinte hiperligação:"
-      hello: "Olá %{username}!"
+        subject: Instruções de confirmação
+        you_can_confirm: 'Pode confirmar a sua conta através da seguinte hiperligação:'
+        confirm: Confirmar a minha conta
+      reset_password_instructions:
+        subject: Instruções para redefinir palavra-passe
+        someone_requested: Alguém solicitou uma hiperligação para alterar a sua senha. Se foi você mesmo, pode efetuar isto através da hiperligação abaixo.
+        change: Alterar a minha palavra-passe
+        wont_change: A sua palavra-passe não será alterada até que aceda à hiperligação em cima e crie uma nova palavra-passe.
+        ignore: Se não fez este pedido, por favor ignore este email.
+      unlock_instructions:
+        subject: Instruções de desbloqueio
+        account_locked: A sua conta foi bloqueada devido a um número excessivo de tentativas falhadas para iniciar a sessão.
+        click_to_unlock: 'Clique na seguinte hiperligação para desbloquear a sua conta:'
+        unlock: Desbloquear a minha conta
+      welcome: Bem-vindo(a) %{username}!
+      hello: Olá %{username}!
       inviter:
-        accept_at: "em %{url}, pode aceitá-lo através da hiperligação abaixo."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} convidaram-no para se juntar ao diaspora*"
-      reset_password_instructions:
-        change: "Alterar a minha palavra-passe"
-        ignore: "Se não fez este pedido, por favor ignore este email."
-        someone_requested: "Alguém solicitou uma hiperligação para alterar a sua senha. Se foi você mesmo, pode efetuar isto através da hiperligação abaixo."
-        subject: "Instruções para redefinir palavra-passe"
-        wont_change: "A sua palavra-passe não será alterada até que aceda à hiperligação em cima e crie uma nova palavra-passe."
-      unlock_instructions:
-        account_locked: "A sua conta foi bloqueada devido a um número excessivo de tentativas falhadas para iniciar a sessão."
-        click_to_unlock: "Clique na seguinte hiperligação para desbloquear a sua conta:"
-        subject: "Instruções de desbloqueio"
-        unlock: "Desbloquear a minha conta"
-      welcome: "Bem-vindo(a) %{username}!"
+        accept_at: em %{url}, pode aceitá-lo através da hiperligação abaixo.
     passwords:
+      send_instructions: Dentro de alguns minutos irá receber uma mensagem com as instruções sobre como redefinir a sua palavra-passe.
+      updated: A sua palavra-passe foi alterada com sucesso. A sessão foi iniciada.
+      updated_not_active: A sua palavra-passe foi alterada com sucesso.
       edit:
-        change_password: "Alterar a minha palavra-passe"
-        confirm_password: "Confirmar palavra-passe"
-        new_password: "Nova palavra-passe"
+        change_password: Alterar a minha palavra-passe
+        new_password: Nova palavra-passe
+        confirm_password: Confirmar palavra-passe
       new:
-        email: "Endereço de e-mail"
-        forgot_password: "Esqueceu a sua palavra-passe?"
-        reset_password: "Redefinir palavra-passe"
-        send_password_instructions: "Enviem-me instruções para redefinir a minha palavra-passe"
-      send_instructions: "Dentro de alguns minutos irá receber uma mensagem com as instruções sobre como redefinir a sua palavra-passe."
-      updated: "A sua palavra-passe foi alterada com sucesso. A sessão foi iniciada."
-      updated_not_active: "A sua palavra-passe foi alterada com sucesso."
+        forgot_password: Esqueceu a sua palavra-passe?
+        reset_password: Redefinir palavra-passe
+        email: Endereço de e-mail
+        send_password_instructions: Enviem-me instruções para redefinir a minha palavra-passe
     registrations:
-      destroyed: "Adeus! A sua conta foi cancelada com sucesso. Nós esperamos vê-lo de novo em breve."
-      signed_up: "Registou-se com sucesso. Caso tenha selecionado essa opção, uma confirmação foi enviada para o seu endereço de email."
-      update_needs_confirmation: "Atualizou a sua conta com sucesso, mas nós precisamos de verificar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail."
-      updated: "A sua conta foi atualizada com sucesso."
+      destroyed: Adeus! A sua conta foi cancelada com sucesso. Nós esperamos vê-lo de novo em breve.
+      signed_up: Registou-se com sucesso. Caso tenha selecionado essa opção, uma confirmação foi enviada para o seu endereço de email.
+      update_needs_confirmation: Atualizou a sua conta com sucesso, mas nós precisamos de verificar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail.
+      updated: A sua conta foi atualizada com sucesso.
     sessions:
+      signed_in: A sessão foi iniciada com sucesso.
+      signed_out: A sessão foi terminada com sucesso.
       new:
-        login: "Iniciar sessão"
-        modern_browsers: "apenas suporta navegadores modernos."
-        password: "Palavra-passe"
-        remember_me: "Memorizar"
-        sign_in: "Iniciar sessão"
-        username: "Nome de Utilizador"
-      signed_in: "A sessão foi iniciada com sucesso."
-      signed_out: "A sessão foi terminada com sucesso."
+        login: Iniciar sessão
+        username: Nome de Utilizador
+        password: Palavra-passe
+        sign_in: Iniciar sessão
+        remember_me: Memorizar
+        modern_browsers: apenas suporta navegadores modernos.
+    unlocks:
+      send_instructions: Dentro de alguns minutos irá receber uma mensagem sobre como desbloquear a sua conta.
+      unlocked: A sua conta foi desbloqueada com sucesso. Por favor, inicie a sessão para continuar.
+      new:
+        resend_unlock: Reenviar instruções de desbloqueio
+    invitations:
+      send_instructions: O seu convite foi enviado.
+      invitation_token_invalid: As nossas desculpas! Esse código de convite não é válido!
+      updated: A sua palavra-passe foi definida com sucesso. A sessão foi iniciada.
     shared:
       links:
-        forgot_your_password: "Esqueceu a palavra-passe?"
-        receive_confirmation: "Não recebeu as instruções de confirmação?"
-        receive_unlock: "Não recebeu as instruções de desbloqueio?"
-        sign_in: "Iniciar sessão"
-        sign_up: "Criar conta"
-        sign_up_closed: "Os registos abertos não estão disponíveis por agora."
-    unlocks:
-      new:
-        resend_unlock: "Reenviar instruções de desbloqueio"
-      send_instructions: "Dentro de alguns minutos irá receber uma mensagem sobre como desbloquear a sua conta."
-      unlocked: "A sua conta foi desbloqueada com sucesso. Por favor, inicie a sessão para continuar."
+        sign_in: Iniciar sessão
+        sign_up: Criar conta
+        sign_up_closed: Os registos abertos não estão disponíveis por agora.
+        forgot_your_password: Esqueceu a palavra-passe?
+        receive_confirmation: Não recebeu as instruções de confirmação?
+        receive_unlock: Não recebeu as instruções de desbloqueio?
   errors:
     messages:
-      already_confirmed: "já foi confirmado, por favor, tente iniciar novamente a sessão"
-      not_found: "não foi encontrado"
-      not_locked: "não foi bloqueado"
+      already_confirmed: já foi confirmado, por favor, tente iniciar novamente a sessão
+      not_found: não foi encontrado
+      not_locked: não foi bloqueado

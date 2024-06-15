@@ -7,44 +7,44 @@
 art-nvi:
   devise:
     confirmations:
-      confirmed: "Ngeyä Diaspora lìlmatem. Nga fpxìlmäkim."
-      send_instructions: "Nga tayel sänumeti ikä Ikran lì'u teri nga leratem ngeyä Diaspora."
+      confirmed: Ngeyä Diaspora lìlmatem. Nga fpxìlmäkim.
+      send_instructions: Nga tayel sänumeti ikä Ikran lì'u teri nga leratem ngeyä Diaspora.
     failure:
-      invalid: "Ke lu kangay tstxo fu ftemlì'u"
-      unauthenticated: "Ngal kin 'ivastengyem ayoeti fu fpxäkim ayoe fte salew Diasporaru."
-      unconfirmed: "Ngal kin stiveftxaw ngeyä Diasporati fte fpxäkim."
+      invalid: Ke lu kangay tstxo fu ftemlì'u
+      unauthenticated: Ngal kin 'ivastengyem ayoeti fu fpxäkim ayoe fte salew Diasporaru.
+      unconfirmed: Ngal kin stiveftxaw ngeyä Diasporati fte fpxäkim.
     mailer:
-      hello: "Kaltxì %{username}!"
+      reset_password_instructions:
+        subject: aysänume fte zeyko oeyä ftemlì'uti
+        someone_requested: Tsengeäo lu fte nga tsun livatem ngeyä ftemlì'u talun tuteo pìmawm ayoe txo tìng fì'uti ngaur.
+        change: Latem oeyä ftemlì'u
+      welcome: Zola'u nìprrte, ma %{username}!
+      hello: Kaltxì %{username}!
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} polawm ngati txo säpung Diasporaru"
-      reset_password_instructions:
-        change: "Latem oeyä ftemlì'u"
-        someone_requested: "Tsengeäo lu fte nga tsun livatem ngeyä ftemlì'u talun tuteo pìmawm ayoe txo tìng fì'uti ngaur."
-        subject: "aysänume fte zeyko oeyä ftemlì'uti"
-      welcome: "Zola'u nìprrte, ma %{username}!"
     passwords:
+      send_instructions: Ngal tayel Imeylit a wìntxu ngaru fya'ot a ngal leykatem ngeyä ftemlì'ut.
+      updated: Ngeyä ftemlì'u lìmatem. Nga tung fìtsengmì set.
       edit:
-        change_password: "Leykatem oeyä ftemlì'ut"
+        change_password: Leykatem oeyä ftemlì'ut
       new:
-        forgot_password: "Ngal tswama' ngeyä ftemlì'uti srak?"
-        send_password_instructions: "Fpe' oeru aysänumet fte oe tsivun leykivatem oeyä ftemlì'ut"
-      send_instructions: "Ngal tayel Imeylit a wìntxu ngaru fya'ot a ngal leykatem ngeyä ftemlì'ut."
-      updated: "Ngeyä ftemlì'u lìmatem. Nga tung fìtsengmì set."
+        forgot_password: Ngal tswama' ngeyä ftemlì'uti srak?
+        send_password_instructions: Fpe' oeru aysänumet fte oe tsivun leykivatem oeyä ftemlì'ut
     sessions:
+      signed_in: Ngati tìmung fìtsengmì set.
+      signed_out: Nga hìmum set.
       new:
-        login: "Fpxäkim"
-        modern_browsers: "Diasporal nì'aw tung eltuti lefpom nariti asop"
-        password: "Ftemlì'u"
-        remember_me: "Zerok oeti"
-        sign_in: "Fpxäkim"
-        username: "Saryutstxo"
-      signed_in: "Ngati tìmung fìtsengmì set."
-      signed_out: "Nga hìmum set."
+        login: Fpxäkim
+        username: Saryutstxo
+        password: Ftemlì'u
+        sign_in: Fpxäkim
+        remember_me: Zerok oeti
+        modern_browsers: Diasporal nì'aw tung eltuti lefpom nariti asop
     shared:
       links:
-        forgot_your_password: "Nga tswama' ngeyä ftemlì'u srak?"
+        forgot_your_password: Nga tswama' ngeyä ftemlì'u srak?
   errors:
     messages:
-      already_confirmed: "li stameftxaw"
-      not_found: "ke rìmun"
+      already_confirmed: li stameftxaw
+      not_found: ke rìmun

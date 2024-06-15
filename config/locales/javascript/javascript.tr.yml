@@ -6,131 +6,131 @@
 
 tr:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Yönüne ekle"
-      all_aspects: "Tüm yönler"
-      error: "<%= name %> ile paylaşım başlatılamadı. Onu yasaklamış olmayasınız?"
-      select_aspects: "Yönleri seç"
-      started_sharing_with: "<%= name %> sizinle paylaşıma başladı!"
-      stopped_sharing_with: "<%= name %> sizinle paylaşımı durdurdu."
-      toggle:
-        other: "<%= count %> yön"
-        zero: "Yön seç"
-    aspect_navigation:
-      deselect_all: "Tümünü kaldır"
-      no_aspects: "Hiç yön seçilmedi"
-      select_all: "Tümünü seç"
-    comments:
-      hide: "yorumları gizle"
-      show: "tüm yorumları görüntüle"
-    confirm_dialog: "Emin misiniz?"
-    delete: "Sil"
-    failed_to_post_message: "Gönderi başarısız oldu!"
-    getting_started:
-      alright_ill_wait: "Tamam, ben bekleyeceğim."
-      hey: "Merhaba, <%= name %>!"
-      no_tags: "Hey, hiç etiket takip etmiyorsunuz! Gerçekten devam etmek istiyor musun?"
-      preparing_your_stream: "Kişiselleştirilmiş akışınız hazırlanıyor..."
-    header:
-      admin: "Yönetici"
-      close: "kapat"
-      contacts: "Kişiler"
-      home: "Ana Sayfa"
-      log_out: "Çık"
-      mark_all_as_read: "Tümünü okundu olarak işaretle"
-      notifications: "Bildirimler"
-      profile: "Profil"
-      recent_notifications: "Son Bildirimler"
-      search: "Find people or #tags"
-      settings: "Ayarlar"
-      view_all: "Tümünü gör"
-    ignore: "Yoksay"
-    ignore_failed: "Bu kullanıcı ihmal edilemiyor"
-    my_activity: "Etkinliklerim"
-    my_stream: "Akış"
-    people:
-      not_found: "...ve hiç kimse bulunamadı."
-    photo_uploader:
-      looking_good: "OMG, harika görünüyorsun!"
-    publisher:
-      markdown_editor:
-        preview: "Önizle"
-        texts:
-          code: "kod buraya"
-          heading: "başlığı metni"
-          insert_image_description_text: "buraya imaj açıklama girin"
-          insert_image_help_text: "buraya imaj bağlantısını sokun"
-          insert_image_title: "buraya imaj başlığı girin"
-          insert_link_description_text: "Burada link açıklama girin"
-          insert_link_help_text: "buraya linki sokun"
-          italic: "eğik metin"
-          list: "buraya listesinde metni"
-          quote: "buraya alıntı metni"
-          strong: "gçlü metin"
-        tooltips:
-          bold: "Kalın"
-          cancel: "iletiyi iptal"
-          code: "kesici uç kodu"
-          heading: "başlığı"
-          insert_image: "Resim ekle"
-          insert_link: "Bağlantı ekle"
-          insert_ordered_list: "Ekle sıralı listesi"
-          insert_unordered_list: "Sırasız liste ekleme"
-          italic: "Eğik"
-          preview: "Önizleme mesajı"
-          quote: "Ekle tırnak"
-          write: "düzenle mesajı"
-        write: "yazma"
-    reshares:
-      post: "<%= name %> kişisinin gönderisini yeniden paylaşamak istiyor musun?"
-      successful: "Gönderi başarıyla yeniden paylaşıldı!"
-    show_more: "daha fazlasını göster"
-    stream:
-      comment: "Yorum"
-      follow: "İzle"
-      hide: "Gizle"
-      hide_nsfw_posts: "#nsfw gönderilerin gizle"
-      like: "Beğen"
-      likes:
-        other: "<%= count %> Beğeni"
-        zero: "<%= count %> Beğeni"
-      limited: "Sınırlı"
-      more_comments:
-        other: "Diğer <%= count %> yorumu gör"
-        zero: "Diğer <%= count %> yorumu gör"
-      no_posts_yet: "burada henüz görüntülemek hiç mesaj yok."
-      original_post_deleted: "İleti yazarı tarafından silindi."
-      public: "Genel"
-      reshare: "Yeniden paylaş"
-      reshares:
-        other: "<%= count %> Yeniden paylaşma"
-        zero: "<%= count %> Yeniden paylaşma"
-      show_nsfw_post: "İletiyi görüntüle"
-      show_nsfw_posts: "Tümünü göster"
-      unfollow: "İzlemeyi durdur"
-      unlike: "Beğenme"
-    tags:
-      wasnt_that_interesting: "Tamam, benim #<%= tagName %> o kadar da ilginç değil..."
     timeago:
-      day: "1 gün"
-      days:
-        other: "%d gün"
-      hour: "yaklaşık 1 saat"
-      hours:
-        other: "yaklaşık %d saat"
-      minute: "yaklaşık 1 dakika"
+      prefixAgo: önce
+      suffixAgo: önce
+      suffixFromNow: şimdi
+      prefixFromNow: önce
+      seconds: 1 dakikadan az
+      minute: yaklaşık 1 dakika
       minutes:
         other: "%d dakika"
-      month: "yaklaşık 1 ay"
+      hour: yaklaşık 1 saat
+      hours:
+        other: yaklaşık %d saat
+      day: 1 gün
+      days:
+        other: "%d gün"
+      month: yaklaşık 1 ay
       months:
         other: "%d ay"
-      prefixAgo: "önce"
-      prefixFromNow: "önce"
-      seconds: "1 dakikadan az"
-      suffixAgo: "önce"
-      suffixFromNow: "şimdi"
-      year: "yaklaşık 1 yıl"
+      year: yaklaşık 1 yıl
       years:
         other: "%d yıl"
+    confirm_dialog: Emin misiniz?
+    delete: Sil
+    ignore: Yoksay
+    ignore_failed: Bu kullanıcı ihmal edilemiyor
+    my_activity: Etkinliklerim
+    my_stream: Akış
+    publisher:
+      markdown_editor:
+        preview: Önizle
+        write: yazma
+        tooltips:
+          bold: Kalın
+          italic: Eğik
+          heading: başlığı
+          insert_link: Bağlantı ekle
+          insert_image: Resim ekle
+          insert_ordered_list: Ekle sıralı listesi
+          insert_unordered_list: Sırasız liste ekleme
+          preview: Önizleme mesajı
+          write: düzenle mesajı
+          cancel: iletiyi iptal
+          quote: Ekle tırnak
+          code: kesici uç kodu
+        texts:
+          strong: gçlü metin
+          italic: eğik metin
+          heading: başlığı metni
+          insert_link_description_text: Burada link açıklama girin
+          insert_link_help_text: buraya linki sokun
+          insert_image_description_text: buraya imaj açıklama girin
+          insert_image_help_text: buraya imaj bağlantısını sokun
+          insert_image_title: buraya imaj başlığı girin
+          list: buraya listesinde metni
+          quote: buraya alıntı metni
+          code: kod buraya
+    aspect_dropdown:
+      add_to_aspect: Yönüne ekle
+      select_aspects: Yönleri seç
+      all_aspects: Tüm yönler
+      stopped_sharing_with: "<%= name %> sizinle paylaşımı durdurdu."
+      started_sharing_with: "<%= name %> sizinle paylaşıma başladı!"
+      error: "<%= name %> ile paylaşım başlatılamadı. Onu yasaklamış olmayasınız?"
+      toggle:
+        zero: Yön seç
+        other: "<%= count %> yön"
+    show_more: daha fazlasını göster
+    failed_to_post_message: Gönderi başarısız oldu!
+    comments:
+      show: tüm yorumları görüntüle
+      hide: yorumları gizle
+    reshares:
+      successful: Gönderi başarıyla yeniden paylaşıldı!
+      post: "<%= name %> kişisinin gönderisini yeniden paylaşamak istiyor musun?"
+    aspect_navigation:
+      select_all: Tümünü seç
+      deselect_all: Tümünü kaldır
+      no_aspects: Hiç yön seçilmedi
+    getting_started:
+      hey: Merhaba, <%= name %>!
+      no_tags: Hey, hiç etiket takip etmiyorsunuz! Gerçekten devam etmek istiyor musun?
+      alright_ill_wait: Tamam, ben bekleyeceğim.
+      preparing_your_stream: Kişiselleştirilmiş akışınız hazırlanıyor...
+    photo_uploader:
+      looking_good: OMG, harika görünüyorsun!
+    tags:
+      wasnt_that_interesting: 'Tamam, benim #<%= tagName %> o kadar da ilginç değil...'
+    people:
+      not_found: "...ve hiç kimse bulunamadı."
+    stream:
+      hide: Gizle
+      public: Genel
+      limited: Sınırlı
+      like: Beğen
+      unlike: Beğenme
+      reshare: Yeniden paylaş
+      comment: Yorum
+      original_post_deleted: İleti yazarı tarafından silindi.
+      show_nsfw_post: İletiyi görüntüle
+      show_nsfw_posts: Tümünü göster
+      hide_nsfw_posts: "#nsfw gönderilerin gizle"
+      follow: İzle
+      unfollow: İzlemeyi durdur
+      no_posts_yet: burada henüz görüntülemek hiç mesaj yok.
+      likes:
+        zero: "<%= count %> Beğeni"
+        other: "<%= count %> Beğeni"
+      reshares:
+        zero: "<%= count %> Yeniden paylaşma"
+        other: "<%= count %> Yeniden paylaşma"
+      more_comments:
+        zero: Diğer <%= count %> yorumu gör
+        other: Diğer <%= count %> yorumu gör
+    header:
+      home: Ana Sayfa
+      profile: Profil
+      contacts: Kişiler
+      settings: Ayarlar
+      admin: Yönetici
+      log_out: Çık
+      notifications: Bildirimler
+      search: 'Find people or #tags'
+      recent_notifications: Son Bildirimler
+      mark_all_as_read: Tümünü okundu olarak işaretle
+      view_all: Tümünü gör
+      close: kapat
     viewer:
-      reshared: "Yeniden paylaştı"
+      reshared: Yeniden paylaştı

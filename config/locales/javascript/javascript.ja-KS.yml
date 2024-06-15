@@ -6,33 +6,33 @@
 
 ja-KS:
   javascripts:
+    timeago:
+      prefixAgo: ''
+      suffixAgo: ''
+      suffixFromNow: ''
+      prefixFromNow: ''
+    cancel: やめとく
+    confirm_dialog: ほんまにええの？
+    delete: ほかす
     bookmarklet:
-      post_something: "ダイアスポラにつぶやく"
-    cancel: "やめとく"
-    confirm_dialog: "ほんまにええの？"
-    delete: "ほかす"
-    people:
-      not_found: "…1人も見つからへんかった"
+      post_something: ダイアスポラにつぶやく
     reshares:
       post: "<%= name %>さんの投稿をわけわけしたろか?"
+    people:
+      not_found: "…1人も見つからへんかった"
     stream:
-      comment: "つっこむ"
-      comments:
-        other: "つっこみ <%= count %>件"
-        zero: "つっこみなし"
-      like: "ええやん！"
+      like: ええやん！
+      unlike: ええやん！を取消
+      reshare: わけわけ
+      comment: つっこむ
       likes:
-        other: "ええやん！ <%= count %>件"
-        zero: "ええやん！なし"
-      reshare: "わけわけ"
+        zero: ええやん！なし
+        other: ええやん！ <%= count %>件
       reshares:
-        other: "沸け分け <%= count %>件"
-        zero: "わけわけなし"
-      unlike: "ええやん！を取消"
-    timeago:
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: ""
-      suffixFromNow: ""
+        zero: わけわけなし
+        other: 沸け分け <%= count %>件
+      comments:
+        zero: つっこみなし
+        other: つっこみ <%= count %>件
     viewer:
-      reshared: "わけわけした"
+      reshared: わけわけした

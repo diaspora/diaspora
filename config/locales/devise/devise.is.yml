@@ -7,86 +7,86 @@
 is:
   devise:
     confirmations:
-      confirmed: "Aðgangurinn þinn hefur nú verið staðfestur. Þú ert innskráð(ur)."
+      confirmed: Aðgangurinn þinn hefur nú verið staðfestur. Þú ert innskráð(ur).
+      send_instructions: Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú staðfestir aðganginn þinn.
       new:
-        resend_confirmation: "Endursenda leiðbeiningar um staðfestingu"
-      send_instructions: "Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú staðfestir aðganginn þinn."
+        resend_confirmation: Endursenda leiðbeiningar um staðfestingu
     failure:
-      inactive: "Aðgangurinn þinn hefur enn ekki verið gerður virkur."
-      invalid: "Ógilt netfang eða lykilorð."
-      invalid_token: "Ógildur staðfestingarlykill."
-      locked: "Aðgangurinn þinn er læstur."
-      not_found_in_database: "Email eða lykilorð eru ekki rétt."
-      timeout: "Innskráningin þín hefur runnið út á tíma. Vinsamlegast skráðu þig aftur inn til að geta haldið áfram."
-      unauthenticated: "Þú þarft að skrá þig inn eða stofna nýjan aðgang áður en þú getur haldið áfram."
-      unconfirmed: "Þú þarft að staðfesta aðganginn þinn áður en þú getur haldið áfram."
-    invitations:
-      invitation_token_invalid: "Okkur þykir það leitt, en þetta er ekki gildur boðslykill."
-      send_instructions: "Boðið þitt hefur verið sent."
-      updated: "Nú er búið að stilla lykilorðið þitt og þú ert hér með innskráð(ur)."
+      inactive: Aðgangurinn þinn hefur enn ekki verið gerður virkur.
+      invalid: Ógilt netfang eða lykilorð.
+      locked: Aðgangurinn þinn er læstur.
+      not_found_in_database: Email eða lykilorð eru ekki rétt.
+      timeout: Innskráningin þín hefur runnið út á tíma. Vinsamlegast skráðu þig aftur inn til að geta haldið áfram.
+      unauthenticated: Þú þarft að skrá þig inn eða stofna nýjan aðgang áður en þú getur haldið áfram.
+      unconfirmed: Þú þarft að staðfesta aðganginn þinn áður en þú getur haldið áfram.
+      invalid_token: Ógildur staðfestingarlykill.
     mailer:
       confirmation_instructions:
-        confirm: "Staðfesta aðganginn minn"
-        subject: "Leiðbeiningar um staðfestingu"
-        you_can_confirm: "Þú getur staðfest aðganginn þinn með því að elta hlekkinn hér fyrir neðan:"
-      hello: "Halló %{username}!"
+        subject: Leiðbeiningar um staðfestingu
+        you_can_confirm: 'Þú getur staðfest aðganginn þinn með því að elta hlekkinn hér fyrir neðan:'
+        confirm: Staðfesta aðganginn minn
+      reset_password_instructions:
+        subject: Leiðbeiningar um endurstillingu lykilorðs
+        someone_requested: Einhver hefur beðið um hlekk til að breyta lykilorðinu þínu og þú getur gert það með því að elta hlekkinn hér fyrir neðan.
+        change: Breyta lykilorðinu mínu
+        wont_change: Lykilorð þitt mun ekki breytast fyrr en þú eltir hlekkinn hér fyrir ofan og býrð til nýtt.
+        ignore: Ef þú baðst ekki um þetta, vinsamlegast gefðu þessum tölvupósti þá engan gaum.
+      unlock_instructions:
+        subject: Leiðbeiningar fyrir aflæsingu
+        account_locked: Aðgangi þínum hefur verið læst vegna þess að of oft hefur verið að reynt að opna hann án árangurs.
+        click_to_unlock: Eltu hlekkinn hér fyrir neðan til að taka aðgang þinn úr lás.
+        unlock: Taka aðgang minn úr lás
+      welcome: Velkomin/n %{username}!
+      hello: Halló %{username}!
       inviter:
-        accept_at: "á %{url}. Þú getur þegið boðið með því að fylgja hlekknum hér fyrir neðan."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} hafa boðið þér að vera með í Diaspora*"
-      reset_password_instructions:
-        change: "Breyta lykilorðinu mínu"
-        ignore: "Ef þú baðst ekki um þetta, vinsamlegast gefðu þessum tölvupósti þá engan gaum."
-        someone_requested: "Einhver hefur beðið um hlekk til að breyta lykilorðinu þínu og þú getur gert það með því að elta hlekkinn hér fyrir neðan."
-        subject: "Leiðbeiningar um endurstillingu lykilorðs"
-        wont_change: "Lykilorð þitt mun ekki breytast fyrr en þú eltir hlekkinn hér fyrir ofan og býrð til nýtt."
-      unlock_instructions:
-        account_locked: "Aðgangi þínum hefur verið læst vegna þess að of oft hefur verið að reynt að opna hann án árangurs."
-        click_to_unlock: "Eltu hlekkinn hér fyrir neðan til að taka aðgang þinn úr lás."
-        subject: "Leiðbeiningar fyrir aflæsingu"
-        unlock: "Taka aðgang minn úr lás"
-      welcome: "Velkomin/n %{username}!"
+        accept_at: á %{url}. Þú getur þegið boðið með því að fylgja hlekknum hér fyrir neðan.
     passwords:
+      send_instructions: Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur endurstillt lykilorð þitt.
+      updated: Lykilorði þínu hefur hér með verið breytt. Þú ert nú skráð/ur inn.
       edit:
-        change_password: "Breyta lykilorði"
-        confirm_password: "Staðfestu lykilorð"
-        new_password: "Nýtt lykilorð"
+        change_password: Breyta lykilorði
+        new_password: Nýtt lykilorð
+        confirm_password: Staðfestu lykilorð
       new:
-        email: "Netfang"
-        forgot_password: "Gleymdirðu lykilorðinu þínu?"
-        reset_password: "Endurstilla lykilorð"
-        send_password_instructions: "Senda mér leiðbeiningar um hvernig ég get endurstillt lykilorðið mitt"
-      send_instructions: "Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur endurstillt lykilorð þitt."
-      updated: "Lykilorði þínu hefur hér með verið breytt. Þú ert nú skráð/ur inn."
+        forgot_password: Gleymdirðu lykilorðinu þínu?
+        reset_password: Endurstilla lykilorð
+        email: Netfang
+        send_password_instructions: Senda mér leiðbeiningar um hvernig ég get endurstillt lykilorðið mitt
     registrations:
-      destroyed: "Bæ! Aðgangi þínum hefur verið eytt. Við vonumst samt til þess að sjá þig bráðum aftur."
-      signed_up: "Þú hefur hér með stofnað aðgang. Staðfesting var send á tölvupóstfang þitt, ef kveikt er á þeim möguleika."
-      updated: "Þú hefur nú uppfært aðgang þinn."
+      destroyed: Bæ! Aðgangi þínum hefur verið eytt. Við vonumst samt til þess að sjá þig bráðum aftur.
+      signed_up: Þú hefur hér með stofnað aðgang. Staðfesting var send á tölvupóstfang þitt, ef kveikt er á þeim möguleika.
+      updated: Þú hefur nú uppfært aðgang þinn.
     sessions:
+      signed_in: Þú ert nú skráð/ur inn.
+      signed_out: Þú hefur verið skráð/ur út.
       new:
-        login: "Skrá inn"
-        modern_browsers: "styður einungis nýlega vafra."
-        password: "Lykilorð"
-        remember_me: "Muna eftir mér"
-        sign_in: "Innskrá"
-        username: "Notandanafn"
-      signed_in: "Þú ert nú skráð/ur inn."
-      signed_out: "Þú hefur verið skráð/ur út."
+        login: Skrá inn
+        username: Notandanafn
+        password: Lykilorð
+        sign_in: Innskrá
+        remember_me: Muna eftir mér
+        modern_browsers: styður einungis nýlega vafra.
+    unlocks:
+      send_instructions: Þú færð tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur tekið aðgang þinn úr lás.
+      unlocked: Aðgangur þinn hefur hér með verið opnaður. Þú ert nú skráð/ur inn.
+      new:
+        resend_unlock: Endursenda leiðbeiningar um hvernig ég get tekið úr lás
+    invitations:
+      send_instructions: Boðið þitt hefur verið sent.
+      invitation_token_invalid: Okkur þykir það leitt, en þetta er ekki gildur boðslykill.
+      updated: Nú er búið að stilla lykilorðið þitt og þú ert hér með innskráð(ur).
     shared:
       links:
-        forgot_your_password: "Gleymdirðu lykilorðinu þínu?"
-        receive_confirmation: "Fékkstu ekki staðfestingarleiðbeiningarnar?"
-        receive_unlock: "Fékkstu ekki leiðbeiningarnar um hvernig þú getur tekið úr lás?"
-        sign_in: "Innskrá"
-        sign_up: "Stofna aðgang"
-        sign_up_closed: "Ekki er hægt að stofna aðgang án boðslykils eins og er."
-    unlocks:
-      new:
-        resend_unlock: "Endursenda leiðbeiningar um hvernig ég get tekið úr lás"
-      send_instructions: "Þú færð tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur tekið aðgang þinn úr lás."
-      unlocked: "Aðgangur þinn hefur hér með verið opnaður. Þú ert nú skráð/ur inn."
+        sign_in: Innskrá
+        sign_up: Stofna aðgang
+        sign_up_closed: Ekki er hægt að stofna aðgang án boðslykils eins og er.
+        forgot_your_password: Gleymdirðu lykilorðinu þínu?
+        receive_confirmation: Fékkstu ekki staðfestingarleiðbeiningarnar?
+        receive_unlock: Fékkstu ekki leiðbeiningarnar um hvernig þú getur tekið úr lás?
   errors:
     messages:
-      already_confirmed: "var nú þegar staðfestur"
-      not_found: "fannst ekki"
-      not_locked: "ólæstur"
+      already_confirmed: var nú þegar staðfestur
+      not_found: fannst ekki
+      not_locked: ólæstur

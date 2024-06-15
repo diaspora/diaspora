@@ -6,158 +6,158 @@
 
 es-VE:
   javascripts:
+    timeago:
+      prefixAgo: Hace
+      suffixAgo: ''
+      suffixFromNow: a partir de ahora
+      prefixFromNow: dentro de
+      day: 1 día
+      days: "%d días"
+      hour: 1 hora aproximadamente
+      hours: "%d horas aproximadamente"
+      minute: 1 minuto aproximadamente
+      minutes: "%d minutos"
+      month: 1 mes aproximadamente
+      months: "%d meses"
+      seconds: menos de 1 minuto
+      year: un año aproximadamente
+      years: "%d años"
     and: "y"
     aspect_dropdown:
-      add_to_aspect: "Añadir contacto"
-      all_aspects: "Todos los aspectos"
-      error: "No podrás compartir con <%= name %>. ¿Lo estás ignorando?"
-      select_aspects: "Selecciona aspectos"
+      add_to_aspect: Añadir contacto
+      all_aspects: Todos los aspectos
+      error: No podrás compartir con <%= name %>. ¿Lo estás ignorando?
+      select_aspects: Selecciona aspectos
       started_sharing_with: "¡Has empezado a compartir con <%= name %>!"
-      stopped_sharing_with: "Ya no compartes más con <%= name %>."
+      stopped_sharing_with: Ya no compartes más con <%= name %>.
       toggle:
-        few: "En <%= count %> aspectos"
-        many: "En <%= count %> aspectos"
-        one: "En <%= count %> aspecto"
-        other: "En <%= count %> aspectos"
-        two: "En <%= count %> aspectos"
-        zero: "Seleccionar aspectos"
+        few: En <%= count %> aspectos
+        many: En <%= count %> aspectos
+        one: En <%= count %> aspecto
+        other: En <%= count %> aspectos
+        two: En <%= count %> aspectos
+        zero: Seleccionar aspectos
     aspect_navigation:
       add_an_aspect: "+ Añade un aspecto"
-      deselect_all: "Desmarcar todos"
-      no_aspects: "No hay aspectos seleccionados"
-      select_all: "Marcar todos"
+      deselect_all: Desmarcar todos
+      no_aspects: No hay aspectos seleccionados
+      select_all: Marcar todos
     comments:
-      hide: "ocultar comentarios"
-      show: "mostrar todos los comentarios"
+      hide: ocultar comentarios
+      show: mostrar todos los comentarios
     confirm_dialog: "¿Estás seguro?"
-    delete: "Borrar"
+    delete: Borrar
     failed_to_like: "¡No pudo marcarse como 'Me gusta'!"
     failed_to_post_message: "¡No se pudo publicar el mensaje!"
     getting_started:
-      alright_ill_wait: "Bien,vot a esperar."
+      alright_ill_wait: Bien,vot a esperar.
       hey: "¡Hola, <%= name %>!"
       no_tags: "¡Hey, no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
-      preparing_your_stream: "Preparando tus novedades personalizadas..."
+      preparing_your_stream: Preparando tus novedades personalizadas...
     header:
-      admin: "Administración"
-      close: "cerrar"
-      contacts: "Contactos"
-      help: "Ayuda"
-      home: "Inicio"
-      log_out: "Salir"
-      mark_all_as_read: "Marcar todo como leido"
-      messages: "Mensajes"
-      notifications: "Notificaciones"
-      profile: "Perfil"
-      recent_notifications: "Notificaciones recientes"
-      search: "Buscar"
-      settings: "Configuración"
-      view_all: "Ver todo"
-    ignore: "Ignorar"
+      admin: Administración
+      close: cerrar
+      contacts: Contactos
+      help: Ayuda
+      home: Inicio
+      log_out: Salir
+      mark_all_as_read: Marcar todo como leido
+      messages: Mensajes
+      notifications: Notificaciones
+      profile: Perfil
+      recent_notifications: Notificaciones recientes
+      search: Buscar
+      settings: Configuración
+      view_all: Ver todo
+    ignore: Ignorar
     infinite_scroll:
-      no_more: "No hay más publicaciones."
-    my_activity: "Mi Actividad"
-    my_stream: "Entrada"
+      no_more: No hay más publicaciones.
+    my_activity: Mi Actividad
+    my_stream: Entrada
     people:
-      edit_my_profile: "Editar mi perfil"
+      edit_my_profile: Editar mi perfil
       not_found: "...no se encontró a nadie."
     photo_uploader:
       looking_good: "¡Genial, estás increíble!"
     poll:
-      close_result: "Ocultar resultado"
+      close_result: Ocultar resultado
       count:
         one: "<%=count%> por ahora"
         other: "<%=count%> votos por ahora"
-      go_to_original_post: "Puedes participar en esta encuesta en <%= original_post_link %>."
-      original_post: "Publicación original"
-      result: "Resultado"
-      show_result: "Mostrar resultado"
-      vote: "Votar"
+      go_to_original_post: Puedes participar en esta encuesta en <%= original_post_link %>.
+      original_post: Publicación original
+      result: Resultado
+      show_result: Mostrar resultado
+      vote: Votar
     profile:
-      add_some: "Añade algo"
-      bio: "Biografía"
-      born: "Cumpleaños"
-      contacts: "Contactos"
-      edit: "Editar"
-      gender: "Sexo"
-      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
-      location: "Ubicación"
-      photos: "Fotos"
-      posts: "Mensajes"
+      add_some: Añade algo
+      bio: Biografía
+      born: Cumpleaños
+      contacts: Contactos
+      edit: Editar
+      gender: Sexo
+      ignoring: Estás ignorando todas las publicaciones de <%= name %>.
+      location: Ubicación
+      photos: Fotos
+      posts: Mensajes
       you_have_no_tags: "¡no tienes etiquetas!"
     publisher:
-      add_option: "Añade una respuesta"
-      at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
-      limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
-      option: "Respuesta"
-      public: "Público - tu publicación es visible para todos, los buscadores podrán encontrarla."
-      question: "Pregunta"
+      add_option: Añade una respuesta
+      at_least_one_aspect: Debes publicarlo al menos en un aspecto
+      limited: Limitado - tu publicación solo es visible para gente con quien compartes
+      option: Respuesta
+      public: Público - tu publicación es visible para todos, los buscadores podrán encontrarla.
+      question: Pregunta
     reshares:
-      duplicate: "Que bueno, ¿eh? ¡Ya has compartido esa publicación!"
+      duplicate: Que bueno, ¿eh? ¡Ya has compartido esa publicación!
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡Publicación compartida con éxito!"
-    search_for: "Buscar a <%= name %>"
-    show_more: "mostrar más"
+    search_for: Buscar a <%= name %>
+    show_more: mostrar más
     stream:
-      comment: "Comentar"
-      follow: "Seguir"
-      hide: "Ocultar"
-      hide_nsfw_posts: "Ocultar publicaciones no aptas para todo publico (#nsfw)"
-      like: "Me gusta"
+      comment: Comentar
+      follow: Seguir
+      hide: Ocultar
+      hide_nsfw_posts: Ocultar publicaciones no aptas para todo publico (#nsfw)
+      like: Me gusta
       likes:
         one: "<%= count %> me gusta"
         other: "<%= count %> me gusta"
         zero: "<%= count %> me gusta"
-      limited: "Limitado"
+      limited: Limitado
       more_comments:
-        one: "Mostrar <%= count %> comentario más"
-        other: "Mostrar <%= count %> comentarios más"
-        zero: "Mostrar <%= count %> comentarios más"
-      original_post_deleted: "Publicación original eliminada por el autor."
-      public: "Público"
-      reshare: "Compartir"
+        one: Mostrar <%= count %> comentario más
+        other: Mostrar <%= count %> comentarios más
+        zero: Mostrar <%= count %> comentarios más
+      original_post_deleted: Publicación original eliminada por el autor.
+      public: Público
+      reshare: Compartir
       reshares:
-        one: "Compartido <%= count %> vez"
-        other: "Compartido <%= count %> veces"
-        zero: "Compartido <%= count %> veces"
-      show_nsfw_post: "Mostrar publicación"
-      show_nsfw_posts: "Mostrar todo"
+        one: Compartido <%= count %> vez
+        other: Compartido <%= count %> veces
+        zero: Compartido <%= count %> veces
+      show_nsfw_post: Mostrar publicación
+      show_nsfw_posts: Mostrar todo
       tags:
-        follow: "Seguir #<%= tag %>"
-        follow_error: "No se pudo seguir #<%= tag %> :("
-        following: "Siguiendo #<%= tag %>"
-        stop_following: "Dejar de seguir #<%= tag %>"
-        stop_following_confirm: "Dejar de seguir #<%= tag %>?"
-        stop_following_error: "No se pudo dejar de seguir #<%= tag %> :("
-      unfollow: "Dejar de seguir"
-      unlike: "No me gusta"
+        follow: 'Seguir #<%= tag %>'
+        follow_error: 'No se pudo seguir #<%= tag %> :('
+        following: 'Siguiendo #<%= tag %>'
+        stop_following: 'Dejar de seguir #<%= tag %>'
+        stop_following_confirm: 'Dejar de seguir #<%= tag %>?'
+        stop_following_error: 'No se pudo dejar de seguir #<%= tag %> :('
+      unfollow: Dejar de seguir
+      unlike: No me gusta
     tags:
-      wasnt_that_interesting: "Bueno, supongo que #<%= tagName %> no era tan interesante..."
-    timeago:
-      day: "1 día"
-      days: "%d días"
-      hour: "1 hora aproximadamente"
-      hours: "%d horas aproximadamente"
-      minute: "1 minuto aproximadamente"
-      minutes: "%d minutos"
-      month: "1 mes aproximadamente"
-      months: "%d meses"
-      prefixAgo: "Hace"
-      prefixFromNow: "dentro de"
-      seconds: "menos de 1 minuto"
-      suffixAgo: ""
-      suffixFromNow: "a partir de ahora"
-      year: "un año aproximadamente"
-      years: "%d años"
+      wasnt_that_interesting: 'Bueno, supongo que #<%= tagName %> no era tan interesante...'
     videos:
-      unknown: "Tipo de vídeo desconocido"
-      watch: "Ver este video en <%= provider %>"
+      unknown: Tipo de vídeo desconocido
+      watch: Ver este video en <%= provider %>
     viewer:
-      comment: "Comentar"
-      follow_post: "Seguir"
-      home: "INICIO"
-      like: "Me gusta"
-      reshare: "Compartir"
-      reshared: "Compartido"
-      stop_following_post: "Dejar de seguir"
-      unlike: "No me gusta"
+      comment: Comentar
+      follow_post: Seguir
+      home: INICIO
+      like: Me gusta
+      reshare: Compartir
+      reshared: Compartido
+      stop_following_post: Dejar de seguir
+      unlike: No me gusta

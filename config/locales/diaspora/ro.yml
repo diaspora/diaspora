@@ -5,717 +5,717 @@
 
 
 ro:
-  _applications: "Aplicații"
-  _contacts: "Contacte"
-  _help: "Ajutor"
-  _services: "Servicii"
-  account: "Cont"
+  settings: Setări
+  profile: Profil
+  account: Cont
+  privacy: Confidențialitate
+  _services: Servicii
+  _applications: Aplicații
+  _help: Ajutor
+  ok: OK
+  cancel: Anulează
+  delete: Șterge
+  username: Nume de utilizator
+  email: E-mail
+  are_you_sure: Ești sigur?
+  are_you_sure_delete_account: Ești sigur(ă) că vrei sa închizi contul? Acest lucru nu poate fi refăcut!
+  fill_me_out: Completează-mă
+  public: Public
+  limited: Limitat
+  search: Caută
+  nsfw: NSFW
+  find_people: 'Găsește persoane sau #etichete'
+  more: Mai multe
+  all_aspects: Toate aspectele
+  no_results: Nu am găsit nimic
+  _contacts: Contacte
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "trebuie sa fie unul singur in contactele acestui utilizator."
+            person:
+              invalid: nu e valid.
+            username:
+              taken: este deja folosit de cineva.
+              invalid: nu este valabil. Se permit doar litere, cifre și semne underscore.
+            email:
+              taken: este deja folosit.
         person:
           attributes:
             diaspora_handle:
-              taken: "e folosit deja."
-        poll_participation:
+              taken: e folosit deja.
+        contact:
           attributes:
-            poll:
-              already_participated: "Deja ai răspuns la acest chestionar!"
+            person_id:
+              taken: trebuie sa fie unul singur in contactele acestui utilizator.
         reshare:
           attributes:
             root_guid:
-              taken: "Atat de bun, ei? Ai distribuit deja acea postare!"
-        user:
+              taken: Atat de bun, ei? Ai distribuit deja acea postare!
+        poll_participation:
           attributes:
-            email:
-              taken: "este deja folosit."
-            person:
-              invalid: "nu e valid."
-            username:
-              invalid: "nu este valabil. Se permit doar litere, cifre și semne underscore."
-              taken: "este deja folosit de cineva."
+            poll:
+              already_participated: Deja ai răspuns la acest chestionar!
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Corectează următoarele erori și încearcă din nou.
+    need_javascript: Pentru funcţionare proprie, acest sit necesită JavaScript. Dacă ai dezactivat JavaScript, activează-l şi reîncarcă pagina.
   admins:
     admin_bar:
-      pages: "Pagini"
-      pod_network: "Rețeaua de servere"
-      pod_stats: "Statisticile serverului"
-      user_search: "Căutare utilizatori"
-      weekly_user_stats: "Statistici saptamanale ale utilizatorului"
-    pods:
-      pod_network: "Rețeaua de servere"
-    stats:
-      2weeks: "2 săptămâni"
-      50_most: "50 de e etichete cele mai urmărite"
-      comments:
-        few: "%{count} comentarii"
-        one: "%{count} comentariu"
-        other: "%{count} comentarii"
-        zero: "%{count} comentarii"
-      current_segment: "Media postarilor de la data de %{post_day}  a segmentului curent este de %{post_yest}"
-      daily: "Zilnic"
-      display_results: "Afisare rezultate pentru segmentul %{segment}"
-      go: "Înainte"
-      month: "Lună"
-      posts:
-        few: "%{count} postari"
-        one: "%{count} postare"
-        other: "%{count} postari"
-        zero: "postari"
-      shares:
-        few: "%{count} distribuiri"
-        one: "O singura distribuire"
-        other: "%{count} distribuiri"
-        zero: "distribuiri"
-      tag_name: "Numele etichetei: %{name_tag} Numarul: %{count_tag}"
-      usage_statistic: "Statistici ale utilizării"
-      users:
-        few: "%{count} utilizatori"
-        one: "%{count} utilizator"
-        other: "%{count} utilizatori"
-        zero: "%{count} utilizatori"
-      week: "Săptămână"
+      pages: Pagini
+      user_search: Căutare utilizatori
+      weekly_user_stats: Statistici saptamanale ale utilizatorului
+      pod_stats: Statisticile serverului
+      pod_network: Rețeaua de servere
     user_search:
-      add_invites: "Adaugă invitații"
-      email_to: "Trimite email pentru a invita"
-      invite: "Invită"
-      under_13: "Afiseaja utilizatorilor sub 13 ani (COPPA)"
-      users:
-        few: "am găsit %{count} utilizatori"
-        one: "am găsit %{count} utilizator"
-        other: "am găsit %{count} utilizatori"
-        zero: "am găsit %{count} utilizatori"
       you_currently:
-        few: "Momentan aveti %{count} invitatii ramase %{link}"
-        one: "Momentan mai aveti o singura invitatie ramasa %{link} "
-        other: "Momentan aveti %{count} invitatii ramase %{link}"
-        zero: "Momentan nu v-a mai ramas nici o invitatie %{link}"
+        zero: Momentan nu v-a mai ramas nici o invitatie %{link}
+        one: 'Momentan mai aveti o singura invitatie ramasa %{link} '
+        few: Momentan aveti %{count} invitatii ramase %{link}
+        other: Momentan aveti %{count} invitatii ramase %{link}
+      add_invites: Adaugă invitații
+      email_to: Trimite email pentru a invita
+      invite: Invită
+      under_13: Afiseaja utilizatorilor sub 13 ani (COPPA)
+      users:
+        zero: am găsit %{count} utilizatori
+        one: am găsit %{count} utilizator
+        few: am găsit %{count} utilizatori
+        other: am găsit %{count} utilizatori
     weekly_user_stats:
+      current_server: Data curenta a serverului este %{date}
       amount_of:
-        few: "Numarul de utilizatori nou in aceasta saptamana este: %{count}"
-        one: "Numarul de utilizatori nou in aceasta saptamana este: %{count}"
-        other: "Numarul de utilizatori nou in aceasta saptamana este: %{count}"
-        zero: "Numarul de utilizatori nou in aceasta saptamana este: nici unul"
-      current_server: "Data curenta a serverului este %{date}"
-  all_aspects: "Toate aspectele"
+        zero: 'Numarul de utilizatori nou in aceasta saptamana este: nici unul'
+        one: 'Numarul de utilizatori nou in aceasta saptamana este: %{count}'
+        few: 'Numarul de utilizatori nou in aceasta saptamana este: %{count}'
+        other: 'Numarul de utilizatori nou in aceasta saptamana este: %{count}'
+    stats:
+      week: Săptămână
+      2weeks: 2 săptămâni
+      month: Lună
+      daily: Zilnic
+      usage_statistic: Statistici ale utilizării
+      go: Înainte
+      display_results: Afisare rezultate pentru segmentul %{segment}
+      posts:
+        zero: postari
+        one: "%{count} postare"
+        few: "%{count} postari"
+        other: "%{count} postari"
+      comments:
+        zero: "%{count} comentarii"
+        one: "%{count} comentariu"
+        few: "%{count} comentarii"
+        other: "%{count} comentarii"
+      shares:
+        zero: distribuiri
+        one: O singura distribuire
+        few: "%{count} distribuiri"
+        other: "%{count} distribuiri"
+      users:
+        zero: "%{count} utilizatori"
+        one: "%{count} utilizator"
+        few: "%{count} utilizatori"
+        other: "%{count} utilizatori"
+      current_segment: Media postarilor de la data de %{post_day}  a segmentului curent este de %{post_yest}
+      50_most: 50 de e etichete cele mai urmărite
+      tag_name: 'Numele etichetei: %{name_tag} Numarul: %{count_tag}'
+    pods:
+      pod_network: Rețeaua de servere
+  aspects:
+    edit:
+      confirm_remove_aspect: Ești sigur că dorești să ștergi acest aspect?
+      rename: Redenumește
+      aspect_list_is_visible: lista de aspecte este vizibila persoanelor adaugate
+      aspect_list_is_not_visible: lista de aspecte nu este vizibila persoanelor adaugate
+      update: Actualizează
+      updating: Actualizare
+    no_contacts_message:
+      you_should_add_some_more_contacts: Ar trebui să mai adaugi noi persoane de contact!
+      try_adding_some_more_contacts: You can search (top) or invite (right) more contacts.
+      or_spotlight: Sau poți partaja cu %{link}
+      community_spotlight: Reflectorul comunității
+    aspect_listings:
+      add_an_aspect: "+ Adaugă un aspect"
+    destroy:
+      success: "%{name} a fost eliminat cu succes."
+      failure: nu am putut șterge %{name}.
+    update:
+      success: Aspectul, %{name}, a fost editat cu succes.
+      failure: Apectul tău, %{name}, are numele prea lung ca să fie salvat
+    add_to_aspect:
+      failure: Nu pot adăuga contactul la aspect.
+      success: Contactul a fost adăugat cu succes la aspect.
+    seed:
+      family: Familie
+      work: Lucru
+      acquaintances: Cunoscuții
+      friends: Prieteni
+    index:
+      donate: Donează
+      keep_pod_running: Tineti %{pod} functional cumparand serverelor "cafeaua" lor necesara cu o donatie lunara!
+      welcome_to_diaspora: "%{name}, bine ai venit în comunitatea Diaspora!"
+      introduce_yourself: Acesta este fluxul tău. Fă-ți prezentarea.
+      new_here:
+        title: Întâmpină utilizatorii noi
+        follow: Urmează legătura %{link} si urează-le bun venit noilor utilizatori în comunitatea Diaspora
+        learn_more: Află mai multe
+      help:
+        need_help: Ai nevoie de ajutor?
+        here_to_help: Diaspora community is here to help!
+        do_you: 'Tu:'
+        have_a_question: "... ai о %{link}?"
+        tag_question: întrebare
+        find_a_bug: "... ai găsit un %{link}?"
+        tag_bug: bug
+        feature_suggestion: "... ai o sugestie de %{link}?"
+        tag_feature: funcție
+        tutorials_and_wiki: "%{faq}, %{tutorial}  si %{wiki}: ajutor pentru primii tai pasi."
+        tutorial_link_text: Îndrumări
+        any_problem: Ai vre-o problemă?
+        contact_podmin: Contactează administratorul serverului tău!
+        mail_podmin: Email-ul podminului
+      services:
+        heading: Conectează servciii
+        content: Te poți conecta la următoarele servicii pe Diaspora
+    aspect_stream:
+      stay_updated: Rămâi la curent
+      stay_updated_explanation: Fluxul tău de date este populat cu toate contactele tale, toate etichetele pe care le urmărești și articolele publicate de unii membri creativi ai comunității.
+      make_something: Fa ceva
+  aspect_memberships:
+    destroy:
+      success: Persoana a fost îndepărtată cu succes din ipostază.
+      failure: Nu s-a reusit mutarea persoanei din acel aspect
+      no_membership: Nu s-a gasit pesoana in aspectul cautat
+  bookmarklet:
+    post_something: Publică ceva pe diaspora*
+    explanation: "%{link} from anywhere by bookmarking this link."
+  comments:
+    new_comment:
+      comment: Comentariu
+      commenting: Comentând...
+  contacts:
+    index:
+      start_a_conversation: Începe o conversație.
+      title: Contacte
+      no_contacts: Se pare că trebuie să adaugi câteva contacte!
+      no_contacts_message: Verifică %{community_spotlight}
+      community_spotlight: reflectorul comunității
+      my_contacts: Contactele mele
+      all_contacts: Toate contactele
+      only_sharing_with_me: Partajat doar cu mine
+    spotlight:
+      community_spotlight: reflectorul comunității
+      suggest_member: Propune un membru
+  conversations:
+    index:
+      no_messages: niciun mesaj
+      inbox: Casuta postala
+    show:
+      reply: raspunde
+      replying: Răspund...
+      delete: sterge si blocheaza conversatia
+    new:
+      to: Către
+      subject: Subiect
+      send: Trimite
+      sending: Trimitere...
+    create:
+      sent: Mesaj trimis
+      fail: Mesajul nu este valid
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+  help:
+    tutorials: îndrumări
+    tutorial: tutorial
+    irc: IRC
+    wiki: Wiki
+    here: aici
+    foundation_website: pagina web a fundatiei diaspora*
+    third_party_tools: Instrumente de la parteneri terti
+    getting_started_tutorial: Seria de instrucțiuni "Noțiuni de bază"
+    getting_help:
+      title: Primind ajutor
+      getting_started_q: Ajutor! Am nevoie ajutor de baza pentru a porni!
+      getting_started_a: Ai noroc. Încercați %{tutorial_series} pe site-ul nostru. Acesta va va duce pas cu pas prin procesul de înregistrare si va va învata toate lucrurile de baza pe care trebuie sa le cunoașteti despre utilizarea diasporei *.
+      get_support_q: Ce se intampla daca nu primesc raspuns la intrebarea mea in FAQ? Unde altundeva pot primi ajutor?
+      get_support_a_website: Vizitati-ne aici %{link}
+      get_support_a_tutorials: Vezi %{tutorials}le noastre
+      get_support_a_wiki: Cauta pe %{link}
+      get_support_a_irc: Alaturate nou pe %{irc} (live chat)
+      get_support_a_hashtag: Întrebați într-un post public pe diaspora * folosind hashtag-ul %{question}
+    account_and_data_management:
+      title: Contul si gestionarea datelor
+      move_pods_q: Cum pot să transfer contul meu de pe un server pe altul?
+      move_pods_a: 'Versiunea 0.7.0.0 a diaspora * oferă prima etapă de migrare a contului: acum puteți să exportați toate datele din secțiunea "Cont" din setările utilizatorului. Păstrează-ți datele în siguranță! Într-o versiune viitoare veți putea să mutați întregul cont, inclusiv postările și persoanele de contact, într-un alt pod.'
+      download_data_q: Pot descarca o copie a tuturor datelor mele continute in semintele mele (cont)?
+      download_data_a: 'Da. În partea de jos a filei Cont din pagina de setari veti gasi două butoane: unul pentru descarcarea datelor ai unul pentru descarcarea fotografiilor.'
+      close_account_q: Cum ii pot sterege sementele (contul)?
+      close_account_a: Accesați partea de jos a paginii dumneavoastra de setări și faceți clic pe butonul "Închidere cont". Vi se va cere să introduceți parola pentru a finaliza procesul. Rețineți că, dacă vă închideți contul, nu veți putea reinregistra <strong> niciodată </strong>  numele de utilizator pe acest cont.
+      data_visible_to_podmin_q: Cât de mult din informațiile mele poate vedea administratorul?
+      data_other_podmins_q: Pot oare administratorii altor servere să vadă informațiile mele?
+    posts_and_posting:
+      post_notification_q: Cum pot primi notificări sau opri obtinerea notificări, despre un post?
+      post_notification_a: Veți găsi o pictogramă clopoțel, lângă X in dreapta sus a unui post. Faceți clic pentru a activa sau dezactiva notificările pentru acest post.
+      post_report_q: Cum pot raporta un mesaj ofensator?
+      post_report_a: Faceți clic pe pictograma de alertă , triunghi, in dreapta sus a postului să o raporteze admin-ului. Introduceți un motiv pentru raportarea acestui post în caseta de dialog.
+      post_location_q: Cum adaug locația mea la un post?
+      post_location_a: În editor faceți clic pe pictograma PIN de lângă cameră. Acest lucru va introduce locația de OpenStreetMap. Puteți edita locația dvs. - dacă doriți puteți să introduceți doar orașul în loc de adresa specifică.
+      post_poll_q: Cum adaug un sondaj la mesaj?
+      post_poll_a: Faceți clic pe pictograma grafic pentru a genera un sondaj. Tastați o întrebare și cel puțin două răspunsuri. Nu uitați să faceți postările dumneavoastră publice dacă vreți ca toată lumea să fie în măsură să participe la sondajul postat.
+    private_posts:
+      can_comment_q: Cine poate comenta sau aprecia postările mele private?
+      can_reshare_q: Cine poate redistribui postările mele private?
+    public_posts:
+      title: Postări publice
+      who_sees_post_q: Când postez ceva public, cine poate vedea?
+      find_public_post_q: Cum pot găsi alți utilizatori postările mele publice?
+      can_comment_reshare_like_q: Cine poate comenta, redistribui sau aprecia postările mele publice?
+    tags:
+      title: Etichete
+      what_are_tags_for_q: Pentru ce sunt etichetele?
+      tags_in_comments_q: Pot să pun etichete în comentarii sau doar în postări?
+      followed_tags_q: 'Ce sunt „Etichetele #urmărite” și cum pot să urmăresc o etichetă?'
+  home:
+    default:
+      be_who_you_want_to_be: Fii cine vrei să fii
+      own_your_data: Fii tu însăşi proprietarul datelor tale
+    podmin:
+      headline: Bine ai venit, prietene.
+      create_an_account: Crează-ţi contul.
+      make_yourself_an_admin: Devino administrator
+      contribute: Contribuie
+      contact_irc: contactează-ne pe IRC
+  invitations:
+    create:
+      sent: 'Invitațiile a fost expediate către: %{emails}'
+      rejected: 'Urmatoarele adrese de email au prezentat probleme:'
+      no_more: Nu mai dispui de invitații.
+      empty: Va rugam sa introduceti cel putin o adresa de eail.
+      note_already_sent: 'Invitaii au fost deja triise catre: %{emails}'
+    new:
+      language: Limbă
+      invite_someone_to_join: Invită pe cineva pe Diaspora!
+      comma_separated_plz: Poți introduce mai multe adrese de email separate de virgulă.
+      send_an_invitation: Trimite o invitație
+      sending_invitation: Se trimite invitatia...
+      paste_link: Impartaseste acest link cu prietenii tai pentru ai invita in diaspora* sau trimitele un email direct.
+      codes_left:
+        zero: Nu a mai ramasa nici o invitatie pe acest cod
+        one: O singura invitatie a mai ramas pe acest cod
+        few: "%{count} invitatii au mai ramas pe acest cod"
+        other: "%{count} invitatii au mai ramas pe acest cod"
+  layouts:
+    header:
+      profile: Profil
+      settings: Setări
+      logout: Ieșire
+      code: Codul
+    application:
+      powered_by: Rulează pe diaspora*
+      whats_new: Ce mai e nou?
+      public_feed: Flux public diaspora* pentru %{name}
+      back_to_top: Înapoi la începutul paginii
+      source_package: Descarca pachetul care contine codul sursa
+  notifications:
+    started_sharing:
+      zero: "%{actors} au inceput sa impartaseasca cu tine."
+      one: "%{actors} a inceput sa impartaseasca cu tine."
+      few: "%{actors} au inceput sa impartaseasca cu tine."
+      other: "%{actors} a inceput sa impartaseasca cu tine."
+    private_message:
+      zero: "%{actors} ti-au trimis un mesaj."
+      one: "%{actors} ti-a trimis un mesaj."
+      few: "%{actors} ti-au trimis un mesaj."
+      other: "%{actors} ti-au trimis un mesaj."
+    comment_on_post:
+      zero: "%{actors} au comentat la %{post_link}."
+      one: "%{actors} a comentat la %{post_link}."
+      few: "%{actors} au comentat la %{post_link}."
+      other: "%{actors} au comentat la %{post_link}."
+    also_commented:
+      zero: "%{actors} deasemenea au comentat la %{post_link} lui %{post_author} ."
+      one: "%{actors} deasemenea a comentat la %{post_link} lui %{post_author}."
+      few: "%{actors} deasemenea au comentat la %{post_link} lui %{post_author}."
+      other: "%{actors} deasemenea au comentat la %{post_link} lui %{post_author}."
+    mentioned:
+      zero: "%{actors} te-au mentionat in %{post_link}."
+      one: "%{actors} te-a mentionat in %{post_link}."
+      few: "%{actors} te-au mentionat in %{post_link}."
+      other: "%{actors} te-au mentionat in %{post_link}."
+    liked:
+      zero: "%{actors} ti-au apreciat %{post_link}."
+      one: "%{actors} ti-a apreciat %{post_link}."
+      few: "%{actors} ti-au apreciat %{post_link}."
+      other: "%{actors} ti-au apreciat %{post_link}."
+    reshared:
+      zero: "%{actors} ti-au redistribuit postarea %{post_link}."
+      one: "%{actors} ti-a redistribuit postarea %{post_link}."
+      few: "%{actors} ti-au redistribuit postarea %{post_link}."
+      other: "%{actors} ti-au redistribuit postarea %{post_link}."
+    also_commented_deleted:
+      zero: "%{actors} au comentat la o postare stearsa."
+      one: "%{actors} a comentat la o postare stearsa."
+      few: "%{actors} au comentat la o postare stearsa."
+      other: "%{actors} au comentat la o postare stearsa."
+    liked_post_deleted:
+      zero: "%{actors} au apreciat postarea stearsa de tine."
+      one: "%{actors} a apreciat postarea stearsa de tine."
+      few: "%{actors} au apreciat postarea stearsa de tine."
+      other: "%{actors} au apreciat postarea stearsa de tine."
+    reshared_post_deleted:
+      zero: "%{actors} au redistribuit postarea ta stearsa."
+      one: "%{actors} a redistribuit postarea ta stearsa."
+      few: "%{actors} au redistribuit postarea ta stearsa."
+      other: "%{actors} au redistribuit postarea ta stearsa."
+    mentioned_deleted:
+      zero: "%{actors} te-au mentionat intr-o postare stearsa."
+      one: "%{actors} te-a mentionat intr-o postare stearsa."
+      few: "%{actors} te-au mentionat intr-o postare stearsa."
+      other: "%{actors} te-au mentionat intr-o postare stearsa."
+    index:
+      notifications: Notificări
+      mark_all_as_read: Marchează-le pe toate ca citite
+      mark_unread: Marchează ca necitit
+      show_all: Arată toate
+      show_unread: Arată necitite
+      all_notifications: Toate notificările
+      contacts_birthday: Zi de naştere
+      no_notifications: Deocamdată nu ai notificări.
+      and_others:
+        zero: și nimeni altul
+        one: 'și încă unul '
+        few: și alte %{count} persoane
+        other: și celelalte %{count} persoane
+      and: și
+  notifier:
+    a_post_you_shared: o publicatie.
+    email_sent_by_diaspora: Acest email a fost expediat de către %{pod_name}. Dacă nu dorești să mai primești asemenea emailuri,
+    click_here: Clic aici
+    hello: Bună, %{name}!
+    thanks: Mulțumim,
+    to_change_your_notification_settings: pentru a schimba setăriile notificărilor
+    single_admin:
+      subject: 'Un mesaj despre contul tău de diaspora*:'
+      admin: Administratorul tau diaspora*
+    started_sharing:
+      subject: "%{name} a inceput sa distribuie cu tine pe Diaspora*"
+      sharing: a inceput sa comunice cu tine!
+      view_profile: Vezi profilul lui %{name}
+    comment_on_post:
+      limited_subject: Există un nou comentariu la un post pe care dumneavoastra l-ati comentat anterior!
+      reply: Răspunde sau uita-te la publicația lui %{name} >
+    mentioned:
+      subject: "%{name} te-a menționat pe diaspora*"
+      limited_post: Ai fost menționat într-o postare limitata
+    private_message:
+      reply_to_or_view: Răspunde sau citește această conversație >
+    liked:
+      liked: lui %{name} i-a plăcut publicația ta
+      view_post: Vezi publicația >
+    reshared:
+      reshared: "%{name} a partajat postarea ta"
+      view_post: Vezi articolul >
+    contacts_birthday:
+      view_profile: Vezi profilul lui %{name}
+    confirm_email:
+      subject: Va rugam sa va activati noua adresa de email %{unconfirmed_email}
+      click_link: 'Pentru a activa adresa nouă de email %{unconfirmed_email}, urmează această legătură:'
+    export_email:
+      body: |-
+        Salut, %{name}!
+
+        Datele tale au fost procesare și sunt disponibile pentru descărcare la [această legătură](%{url}).
+
+        Cu respect,
+
+        Robotul poștal al *diasporei!
+    invited_you: "%{name} te-a invitat pe diaspora*"
+    invite:
+      message: |-
+        Salut!
+
+        Ai fost invitat în diaspora de %{user}
+
+        Click pe acest link pentru a începe
+
+        %{invite_url}
+
+        Sau poți adăuga %{diaspora_id} în contacte dacă ai deja un cont.
+
+
+        Cu drag,
+
+        Roboțelul de emailuri diaspora*!
+
+        P.S. Dacă nu știai (încă) ce e diaspora*, aici e răspunsul!
+
+        [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
   api:
     openid_connect:
       scopes:
         name:
-          name: "nume"
+          name: nume
         picture:
-          name: "imagine"
-  are_you_sure: "Ești sigur?"
-  are_you_sure_delete_account: "Ești sigur(ă) că vrei sa închizi contul? Acest lucru nu poate fi refăcut!"
-  aspect_memberships:
-    destroy:
-      failure: "Nu s-a reusit mutarea persoanei din acel aspect"
-      no_membership: "Nu s-a gasit pesoana in aspectul cautat"
-      success: "Persoana a fost îndepărtată cu succes din ipostază."
-  aspects:
-    add_to_aspect:
-      failure: "Nu pot adăuga contactul la aspect."
-      success: "Contactul a fost adăugat cu succes la aspect."
-    aspect_listings:
-      add_an_aspect: "+ Adaugă un aspect"
-    aspect_stream:
-      make_something: "Fa ceva"
-      stay_updated: "Rămâi la curent"
-      stay_updated_explanation: "Fluxul tău de date este populat cu toate contactele tale, toate etichetele pe care le urmărești și articolele publicate de unii membri creativi ai comunității."
-    destroy:
-      failure: "nu am putut șterge %{name}."
-      success: "%{name} a fost eliminat cu succes."
-    edit:
-      aspect_list_is_not_visible: "lista de aspecte nu este vizibila persoanelor adaugate"
-      aspect_list_is_visible: "lista de aspecte este vizibila persoanelor adaugate"
-      confirm_remove_aspect: "Ești sigur că dorești să ștergi acest aspect?"
-      rename: "Redenumește"
-      update: "Actualizează"
-      updating: "Actualizare"
-    index:
-      donate: "Donează"
-      help:
-        any_problem: "Ai vre-o problemă?"
-        contact_podmin: "Contactează administratorul serverului tău!"
-        do_you: "Tu:"
-        feature_suggestion: "... ai o sugestie de %{link}?"
-        find_a_bug: "... ai găsit un %{link}?"
-        have_a_question: "... ai о %{link}?"
-        here_to_help: "Diaspora community is here to help!"
-        mail_podmin: "Email-ul podminului"
-        need_help: "Ai nevoie de ajutor?"
-        tag_bug: "bug"
-        tag_feature: "funcție"
-        tag_question: "întrebare"
-        tutorial_link_text: "Îndrumări"
-        tutorials_and_wiki: "%{faq}, %{tutorial}  si %{wiki}: ajutor pentru primii tai pasi."
-      introduce_yourself: "Acesta este fluxul tău. Fă-ți prezentarea."
-      keep_pod_running: "Tineti %{pod} functional cumparand serverelor \"cafeaua\" lor necesara cu o donatie lunara!"
-      new_here:
-        follow: "Urmează legătura %{link} si urează-le bun venit noilor utilizatori în comunitatea Diaspora"
-        learn_more: "Află mai multe"
-        title: "Întâmpină utilizatorii noi"
-      services:
-        content: "Te poți conecta la următoarele servicii pe Diaspora"
-        heading: "Conectează servciii"
-      welcome_to_diaspora: "%{name}, bine ai venit în comunitatea Diaspora!"
-    no_contacts_message:
-      community_spotlight: "Reflectorul comunității"
-      or_spotlight: "Sau poți partaja cu %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "Ar trebui să mai adaugi noi persoane de contact!"
-    seed:
-      acquaintances: "Cunoscuții"
-      family: "Familie"
-      friends: "Prieteni"
-      work: "Lucru"
-    update:
-      failure: "Apectul tău, %{name}, are numele prea lung ca să fie salvat"
-      success: "Aspectul, %{name}, a fost editat cu succes."
-  blocks:
-    create:
-      failure: "Nu am putut sa ignor acel utilizator. #evasion"
-      success: "Bine, nu vei mai vedea acel utilizator in fluxul tau din nou. #silencio!"
-    destroy:
-      failure: "Nu am putut ignora acel user. #evasion"
-      success: "Sa vedem ce au de spus! #sayhello"
-  bookmarklet:
-    explanation: "%{link} from anywhere by bookmarking this link."
-    post_something: "Publică ceva pe diaspora*"
-  cancel: "Anulează"
-  comments:
-    new_comment:
-      comment: "Comentariu"
-      commenting: "Comentând..."
-  contacts:
-    index:
-      all_contacts: "Toate contactele"
-      community_spotlight: "reflectorul comunității"
-      my_contacts: "Contactele mele"
-      no_contacts: "Se pare că trebuie să adaugi câteva contacte!"
-      no_contacts_message: "Verifică %{community_spotlight}"
-      only_sharing_with_me: "Partajat doar cu mine"
-      start_a_conversation: "Începe o conversație."
-      title: "Contacte"
-    spotlight:
-      community_spotlight: "reflectorul comunității"
-      suggest_member: "Propune un membru"
-  conversations:
-    create:
-      fail: "Mesajul nu este valid"
-      sent: "Mesaj trimis"
-    index:
-      inbox: "Casuta postala"
-      no_messages: "niciun mesaj"
-    new:
-      send: "Trimite"
-      sending: "Trimitere..."
-      subject: "Subiect"
-      to: "Către"
-    show:
-      delete: "sterge si blocheaza conversatia"
-      reply: "raspunde"
-      replying: "Răspund..."
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Șterge"
-  email: "E-mail"
-  error_messages:
-    helper:
-      correct_the_following_errors_and_try_again: "Corectează următoarele erori și încearcă din nou."
-    need_javascript: "Pentru funcţionare proprie, acest sit necesită JavaScript. Dacă ai dezactivat JavaScript, activează-l şi reîncarcă pagina."
-  fill_me_out: "Completează-mă"
-  find_people: "Găsește persoane sau #etichete"
-  help:
-    account_and_data_management:
-      close_account_a: "Accesați partea de jos a paginii dumneavoastra de setări și faceți clic pe butonul \"Închidere cont\". Vi se va cere să introduceți parola pentru a finaliza procesul. Rețineți că, dacă vă închideți contul, nu veți putea reinregistra <strong> niciodată </strong>  numele de utilizator pe acest cont."
-      close_account_q: "Cum ii pot sterege sementele (contul)?"
-      data_other_podmins_q: "Pot oare administratorii altor servere să vadă informațiile mele?"
-      data_visible_to_podmin_q: "Cât de mult din informațiile mele poate vedea administratorul?"
-      download_data_a: "Da. În partea de jos a filei Cont din pagina de setari veti gasi două butoane: unul pentru descarcarea datelor ai unul pentru descarcarea fotografiilor."
-      download_data_q: "Pot descarca o copie a tuturor datelor mele continute in semintele mele (cont)?"
-      move_pods_a: "Versiunea 0.7.0.0 a diaspora * oferă prima etapă de migrare a contului: acum puteți să exportați toate datele din secțiunea \"Cont\" din setările utilizatorului. Păstrează-ți datele în siguranță! Într-o versiune viitoare veți putea să mutați întregul cont, inclusiv postările și persoanele de contact, într-un alt pod."
-      move_pods_q: "Cum pot să transfer contul meu de pe un server pe altul?"
-      title: "Contul si gestionarea datelor"
-    foundation_website: "pagina web a fundatiei diaspora*"
-    getting_help:
-      get_support_a_hashtag: "Întrebați într-un post public pe diaspora * folosind hashtag-ul %{question}"
-      get_support_a_irc: "Alaturate nou pe %{irc} (live chat)"
-      get_support_a_tutorials: "Vezi %{tutorials}le noastre"
-      get_support_a_website: "Vizitati-ne aici %{link}"
-      get_support_a_wiki: "Cauta pe %{link}"
-      get_support_q: "Ce se intampla daca nu primesc raspuns la intrebarea mea in FAQ? Unde altundeva pot primi ajutor?"
-      getting_started_a: "Ai noroc. Încercați %{tutorial_series} pe site-ul nostru. Acesta va va duce pas cu pas prin procesul de înregistrare si va va învata toate lucrurile de baza pe care trebuie sa le cunoașteti despre utilizarea diasporei *."
-      getting_started_q: "Ajutor! Am nevoie ajutor de baza pentru a porni!"
-      title: "Primind ajutor"
-    getting_started_tutorial: "Seria de instrucțiuni \"Noțiuni de bază\""
-    here: "aici"
-    irc: "IRC"
-    posts_and_posting:
-      post_location_a: "În editor faceți clic pe pictograma PIN de lângă cameră. Acest lucru va introduce locația de OpenStreetMap. Puteți edita locația dvs. - dacă doriți puteți să introduceți doar orașul în loc de adresa specifică."
-      post_location_q: "Cum adaug locația mea la un post?"
-      post_notification_a: "Veți găsi o pictogramă clopoțel, lângă X in dreapta sus a unui post. Faceți clic pentru a activa sau dezactiva notificările pentru acest post."
-      post_notification_q: "Cum pot primi notificări sau opri obtinerea notificări, despre un post?"
-      post_poll_a: "Faceți clic pe pictograma grafic pentru a genera un sondaj. Tastați o întrebare și cel puțin două răspunsuri. Nu uitați să faceți postările dumneavoastră publice dacă vreți ca toată lumea să fie în măsură să participe la sondajul postat."
-      post_poll_q: "Cum adaug un sondaj la mesaj?"
-      post_report_a: "Faceți clic pe pictograma de alertă , triunghi, in dreapta sus a postului să o raporteze admin-ului. Introduceți un motiv pentru raportarea acestui post în caseta de dialog."
-      post_report_q: "Cum pot raporta un mesaj ofensator?"
-    private_posts:
-      can_comment_q: "Cine poate comenta sau aprecia postările mele private?"
-      can_reshare_q: "Cine poate redistribui postările mele private?"
-    public_posts:
-      can_comment_reshare_like_q: "Cine poate comenta, redistribui sau aprecia postările mele publice?"
-      find_public_post_q: "Cum pot găsi alți utilizatori postările mele publice?"
-      title: "Postări publice"
-      who_sees_post_q: "Când postez ceva public, cine poate vedea?"
-    tags:
-      followed_tags_q: "Ce sunt „Etichetele #urmărite” și cum pot să urmăresc o etichetă?"
-      tags_in_comments_q: "Pot să pun etichete în comentarii sau doar în postări?"
-      title: "Etichete"
-      what_are_tags_for_q: "Pentru ce sunt etichetele?"
-    third_party_tools: "Instrumente de la parteneri terti"
-    tutorial: "tutorial"
-    tutorials: "îndrumări"
-    wiki: "Wiki"
-  home:
-    default:
-      be_who_you_want_to_be: "Fii cine vrei să fii"
-      own_your_data: "Fii tu însăşi proprietarul datelor tale"
-    podmin:
-      contact_irc: "contactează-ne pe IRC"
-      contribute: "Contribuie"
-      create_an_account: "Crează-ţi contul."
-      headline: "Bine ai venit, prietene."
-      make_yourself_an_admin: "Devino administrator"
-  invitations:
-    create:
-      empty: "Va rugam sa introduceti cel putin o adresa de eail."
-      no_more: "Nu mai dispui de invitații."
-      note_already_sent: "Invitaii au fost deja triise catre: %{emails}"
-      rejected: "Urmatoarele adrese de email au prezentat probleme:"
-      sent: "Invitațiile a fost expediate către: %{emails}"
-    new:
-      codes_left:
-        few: "%{count} invitatii au mai ramas pe acest cod"
-        one: "O singura invitatie a mai ramas pe acest cod"
-        other: "%{count} invitatii au mai ramas pe acest cod"
-        zero: "Nu a mai ramasa nici o invitatie pe acest cod"
-      comma_separated_plz: "Poți introduce mai multe adrese de email separate de virgulă."
-      invite_someone_to_join: "Invită pe cineva pe Diaspora!"
-      language: "Limbă"
-      paste_link: "Impartaseste acest link cu prietenii tai pentru ai invita in diaspora* sau trimitele un email direct."
-      send_an_invitation: "Trimite o invitație"
-      sending_invitation: "Se trimite invitatia..."
-  layouts:
-    application:
-      back_to_top: "Înapoi la începutul paginii"
-      powered_by: "Rulează pe diaspora*"
-      public_feed: "Flux public diaspora* pentru %{name}"
-      source_package: "Descarca pachetul care contine codul sursa"
-      whats_new: "Ce mai e nou?"
-    header:
-      code: "Codul"
-      logout: "Ieșire"
-      profile: "Profil"
-      settings: "Setări"
-  limited: "Limitat"
-  more: "Mai multe"
-  no_results: "Nu am găsit nimic"
-  notifications:
-    also_commented:
-      few: "%{actors} deasemenea au comentat la %{post_link} lui %{post_author}."
-      one: "%{actors} deasemenea a comentat la %{post_link} lui %{post_author}."
-      other: "%{actors} deasemenea au comentat la %{post_link} lui %{post_author}."
-      zero: "%{actors} deasemenea au comentat la %{post_link} lui %{post_author} ."
-    also_commented_deleted:
-      few: "%{actors} au comentat la o postare stearsa."
-      one: "%{actors} a comentat la o postare stearsa."
-      other: "%{actors} au comentat la o postare stearsa."
-      zero: "%{actors} au comentat la o postare stearsa."
-    comment_on_post:
-      few: "%{actors} au comentat la %{post_link}."
-      one: "%{actors} a comentat la %{post_link}."
-      other: "%{actors} au comentat la %{post_link}."
-      zero: "%{actors} au comentat la %{post_link}."
-    index:
-      all_notifications: "Toate notificările"
-      and: "și"
-      and_others:
-        few: "și alte %{count} persoane"
-        one: "și încă unul "
-        other: "și celelalte %{count} persoane"
-        zero: "și nimeni altul"
-      contacts_birthday: "Zi de naştere"
-      mark_all_as_read: "Marchează-le pe toate ca citite"
-      mark_unread: "Marchează ca necitit"
-      no_notifications: "Deocamdată nu ai notificări."
-      notifications: "Notificări"
-      show_all: "Arată toate"
-      show_unread: "Arată necitite"
-    liked:
-      few: "%{actors} ti-au apreciat %{post_link}."
-      one: "%{actors} ti-a apreciat %{post_link}."
-      other: "%{actors} ti-au apreciat %{post_link}."
-      zero: "%{actors} ti-au apreciat %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} au apreciat postarea stearsa de tine."
-      one: "%{actors} a apreciat postarea stearsa de tine."
-      other: "%{actors} au apreciat postarea stearsa de tine."
-      zero: "%{actors} au apreciat postarea stearsa de tine."
-    mentioned:
-      few: "%{actors} te-au mentionat in %{post_link}."
-      one: "%{actors} te-a mentionat in %{post_link}."
-      other: "%{actors} te-au mentionat in %{post_link}."
-      zero: "%{actors} te-au mentionat in %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} te-au mentionat intr-o postare stearsa."
-      one: "%{actors} te-a mentionat intr-o postare stearsa."
-      other: "%{actors} te-au mentionat intr-o postare stearsa."
-      zero: "%{actors} te-au mentionat intr-o postare stearsa."
-    private_message:
-      few: "%{actors} ti-au trimis un mesaj."
-      one: "%{actors} ti-a trimis un mesaj."
-      other: "%{actors} ti-au trimis un mesaj."
-      zero: "%{actors} ti-au trimis un mesaj."
-    reshared:
-      few: "%{actors} ti-au redistribuit postarea %{post_link}."
-      one: "%{actors} ti-a redistribuit postarea %{post_link}."
-      other: "%{actors} ti-au redistribuit postarea %{post_link}."
-      zero: "%{actors} ti-au redistribuit postarea %{post_link}."
-    reshared_post_deleted:
-      few: "%{actors} au redistribuit postarea ta stearsa."
-      one: "%{actors} a redistribuit postarea ta stearsa."
-      other: "%{actors} au redistribuit postarea ta stearsa."
-      zero: "%{actors} au redistribuit postarea ta stearsa."
-    started_sharing:
-      few: "%{actors} au inceput sa impartaseasca cu tine."
-      one: "%{actors} a inceput sa impartaseasca cu tine."
-      other: "%{actors} a inceput sa impartaseasca cu tine."
-      zero: "%{actors} au inceput sa impartaseasca cu tine."
-  notifier:
-    a_post_you_shared: "o publicatie."
-    click_here: "Clic aici"
-    comment_on_post:
-      limited_subject: "Există un nou comentariu la un post pe care dumneavoastra l-ati comentat anterior!"
-      reply: "Răspunde sau uita-te la publicația lui %{name} >"
-    confirm_email:
-      click_link: "Pentru a activa adresa nouă de email %{unconfirmed_email}, urmează această legătură:"
-      subject: "Va rugam sa va activati noua adresa de email %{unconfirmed_email}"
-    contacts_birthday:
-      view_profile: "Vezi profilul lui %{name}"
-    email_sent_by_diaspora: "Acest email a fost expediat de către %{pod_name}. Dacă nu dorești să mai primești asemenea emailuri,"
-    export_email:
-      body: |-
-          Salut, %{name}!
-
-          Datele tale au fost procesare și sunt disponibile pentru descărcare la [această legătură](%{url}).
-
-          Cu respect,
-
-          Robotul poștal al *diasporei!
-    hello: "Bună, %{name}!"
-    invite:
-      message: |-
-          Salut!
-
-          Ai fost invitat în diaspora de %{user}
-
-          Click pe acest link pentru a începe
-
-          %{invite_url}
-
-          Sau poți adăuga %{diaspora_id} în contacte dacă ai deja un cont.
-
-
-          Cu drag,
-
-          Roboțelul de emailuri diaspora*!
-
-          P.S. Dacă nu știai (încă) ce e diaspora*, aici e răspunsul!
-
-          [1]: %{invite_url}
-          [2]: %{diasporafoundation_url}
-    invited_you: "%{name} te-a invitat pe diaspora*"
-    liked:
-      liked: "lui %{name} i-a plăcut publicația ta"
-      view_post: "Vezi publicația >"
-    mentioned:
-      limited_post: "Ai fost menționat într-o postare limitata"
-      subject: "%{name} te-a menționat pe diaspora*"
-    private_message:
-      reply_to_or_view: "Răspunde sau citește această conversație >"
-    reshared:
-      reshared: "%{name} a partajat postarea ta"
-      view_post: "Vezi articolul >"
-    single_admin:
-      admin: "Administratorul tau diaspora*"
-      subject: "Un mesaj despre contul tău de diaspora*:"
-    started_sharing:
-      sharing: "a inceput sa comunice cu tine!"
-      subject: "%{name} a inceput sa distribuie cu tine pe Diaspora*"
-      view_profile: "Vezi profilul lui %{name}"
-    thanks: "Mulțumim,"
-    to_change_your_notification_settings: "pentru a schimba setăriile notificărilor"
-  nsfw: "NSFW"
-  ok: "OK"
+          name: imagine
   people:
-    add_contact:
-      invited_by: "ai fost invitat(ă) de către"
-    index:
-      looking_for: "Cauți publicații marcate cu %{tag_link}?"
-      no_one_found: "... dar nimeni nu a fost găsit."
-      no_results: "Hey! Trebuie să cauți ceva."
-      results_for: "Utilizatorii care se potrivesc termenului %{search_term}"
-      searching: "Caut acum, așteaptă un pic..."
     person:
-      thats_you: "Ești tu!"
-    profile_sidebar:
-      bio: "Biografie"
-      born: "Zi de naștere"
-      gender: "Gen"
-      location: "Locație"
+      thats_you: Ești tu!
+    index:
+      results_for: Utilizatorii care se potrivesc termenului %{search_term}
+      no_results: Hey! Trebuie să cauți ceva.
+      no_one_found: "... dar nimeni nu a fost găsit."
+      searching: Caut acum, așteaptă un pic...
+      looking_for: Cauți publicații marcate cu %{tag_link}?
     show:
-      closed_account: "Acest cont a fost închis."
-      does_not_exist: "Persoana nu există!"
       has_not_shared_with_you_yet: "%{name} nu a publicat încă nimic!"
+      does_not_exist: Persoana nu există!
+      closed_account: Acest cont a fost închis.
+    profile_sidebar:
+      bio: Biografie
+      location: Locație
+      gender: Gen
+      born: Zi de naștere
+    add_contact:
+      invited_by: ai fost invitat(ă) de către
   photos:
     create:
-      integrity_error: "Încărcarea fotografiei a eșuat. Ești sigur că a fost o imagine?"
-      runtime_error: "Încărcarea fotografiei a eșuat. Ești sigur că ai centura de siguranță pusă?"
-      type_error: "Imaginea nu s-a incarcat cu succes. Sunteti sigur ca era o imagine?"
+      runtime_error: Încărcarea fotografiei a eșuat. Ești sigur că ai centura de siguranță pusă?
+      integrity_error: Încărcarea fotografiei a eșuat. Ești sigur că a fost o imagine?
+      type_error: Imaginea nu s-a incarcat cu succes. Sunteti sigur ca era o imagine?
     destroy:
-      notice: "Fotografie eliminată."
+      notice: Fotografie eliminată.
     new_profile_photo:
-      upload: "Încarcă o fotografie de profil nouă!"
+      upload: Încarcă o fotografie de profil nouă!
   posts:
     presenter:
-      title: "Un articol de la %{name}"
+      title: Un articol de la %{name}
     show:
       photos_by:
-        few: "%{count} fotografii de %{author}"
-        one: "O singura fotografie de %{author}"
-        other: "%{count} fotografii de %{author}"
         zero: "%{author} nu are fotografii"
-      reshare_by: "Partajat de către %{author}"
-  privacy: "Confidențialitate"
-  profile: "Profil"
+        one: O singura fotografie de %{author}
+        few: "%{count} fotografii de %{author}"
+        other: "%{count} fotografii de %{author}"
+      reshare_by: Partajat de către %{author}
+  report:
+    reason_label: 'Motiv:'
   profiles:
     edit:
-      allow_search: "Permiteti sa fiti gasit prin cautarea pe Diaspora"
-      first_name: "Prenumele"
-      last_name: "Numele de familie"
-      update_profile: "Actualizează Profil"
-      your_bio: "Despre tine"
-      your_birthday: "Ziua ta de naștere"
-      your_gender: "Sexul tău"
-      your_location: "Locația ta"
-      your_name: "Numele tău"
-      your_photo: "Poza ta"
-      your_tags: "Descrie-te în 5 cuvinte"
-      your_tags_placeholder: "De exemplu #filme #pisici #călătorie #profesor #bucurești"
+      your_name: Numele tău
+      first_name: Prenumele
+      last_name: Numele de familie
+      your_gender: Sexul tău
+      your_birthday: Ziua ta de naștere
+      your_tags: Descrie-te în 5 cuvinte
+      your_tags_placeholder: 'De exemplu #filme #pisici #călătorie #profesor #bucurești'
+      your_bio: Despre tine
+      your_location: Locația ta
+      your_photo: Poza ta
+      update_profile: Actualizează Profil
+      allow_search: Permiteti sa fiti gasit prin cautarea pe Diaspora
     update:
-      failed: "Actualizarea profilului a eșuat"
-      updated: "Profil actualizat"
-  public: "Public"
+      updated: Profil actualizat
+      failed: Actualizarea profilului a eșuat
   registrations:
-    create:
-      success: "Bun venit pe Diaspora!"
-    invalid_invite: "Linkul de invitație pe care l-ați furnizat nu mai este valabil!"
     new:
-      email: "Adresa email"
-      enter_email: "Introduce un e-mail"
-      enter_password: "Introdu o parolă (de minim șase caractere)"
-      enter_password_again: "Introduce aceeași parolă ca și înainte"
-      enter_username: "Selectează un nume de utilizator (doar litere, numere si caractere underscore)"
-      password: "Parola"
-      password_confirmation: "Confirmarea parolei"
-      sign_up: "Crează cont"
-      username: "Nume utilizator"
-  report:
-    reason_label: "Motiv:"
-  reshares:
-    comment_email_subject: "%{resharer} redistribuirea postarii creata de %{author}"
-    reshare:
-      deleted: "Publicația originală a fost ștearsă de autorul ei."
-      reshare_confirmation: "Redistribuie postarea creata de %{author}?"
-      reshared_via: "Distribuit prin"
-  search: "Caută"
-  services:
+      enter_email: Introduce un e-mail
+      enter_username: Selectează un nume de utilizator (doar litere, numere si caractere underscore)
+      enter_password: Introdu o parolă (de minim șase caractere)
+      enter_password_again: Introduce aceeași parolă ca și înainte
+      sign_up: Crează cont
+      email: Adresa email
+      username: Nume utilizator
+      password: Parola
+      password_confirmation: Confirmarea parolei
     create:
-      already_authorized: "Un utilizator cu id-ul %{diaspora_id} de diaspora a autorizat deja contul %{service_name}"
-      failure: "Autentificarea a eșuat."
-      success: "Autentificare cu succes."
-    destroy:
-      success: "Autentificare stearsa cu succes."
-    failure:
-      error: "Eroare la conectarea serviciului respectiv"
+      success: Bun venit pe Diaspora!
+    invalid_invite: Linkul de invitație pe care l-ați furnizat nu mai este valabil!
+  reshares:
+    reshare:
+      reshared_via: Distribuit prin
+      reshare_confirmation: Redistribuie postarea creata de %{author}?
+      deleted: Publicația originală a fost ștearsă de autorul ei.
+    comment_email_subject: "%{resharer} redistribuirea postarii creata de %{author}"
+  services:
     index:
-      disconnect: "desconectează"
-      edit_services: "Editează servicii"
-      logged_in_as: "Autentificat ca %{nickname}."
-      really_disconnect: "Să deconectez %{service}?"
-      services_explanation: "Conectarea la serviciile de partajare terta vă oferă posibilitatea de a vă publica postarile în timp ce le scrieți în diaspora *."
-  settings: "Setări"
+      disconnect: desconectează
+      logged_in_as: Autentificat ca %{nickname}.
+      really_disconnect: Să deconectez %{service}?
+      edit_services: Editează servicii
+      services_explanation: Conectarea la serviciile de partajare terta vă oferă posibilitatea de a vă publica postarile în timp ce le scrieți în diaspora *.
+    create:
+      success: Autentificare cu succes.
+      failure: Autentificarea a eșuat.
+      already_authorized: Un utilizator cu id-ul %{diaspora_id} de diaspora a autorizat deja contul %{service_name}
+    destroy:
+      success: Autentificare stearsa cu succes.
+    failure:
+      error: Eroare la conectarea serviciului respectiv
+  blocks:
+    create:
+      success: 'Bine, nu vei mai vedea acel utilizator in fluxul tau din nou. #silencio!'
+      failure: 'Nu am putut sa ignor acel utilizator. #evasion'
+    destroy:
+      success: 'Sa vedem ce au de spus! #sayhello'
+      failure: 'Nu am putut ignora acel user. #evasion'
   shared:
     aspect_dropdown:
       toggle:
-        few: "In %{count} aspecte"
         one: "%{count} aspect"
-        other: "In %{count} aspecte"
-    invitations:
-      by_email: "Invită pe cineva prin e-mail"
-      invite_your_friends: "Invită-ți prietenii"
-      invites: "Invitații"
-      share_this: "Distribuie acest link prin email, blog sau reatea sociala!"
-    public_explain:
-      atom_feed: "Afișare feed RSS și Atom"
-      control_your_audience: "Controlează-ți publicul"
-      logged_in: "Autentificat pe %{service}"
-      manage: "gestionează serviciile la care ești conectat"
-      new_user_welcome_message: "Foloseste #hashtags ca sa iti clasifici postarile si ca sa gasesti persoane care impartasesc aceleasi interese. Cheama persoane minunate cu @Mentions"
-      outside: "Mesajele publice vor fi disponibile pentru cei ce nu fac parte din Diaspora."
-      share: "Distribuie"
-      title: "Ești pe cale de a publica un mesaj public!"
-      visibility_dropdown: "Foloseste acest buton derulant pentru a schimba vizibilitatea postarii tale. (Noi va sugeram sa o faceti publica pe aceasta.)"
+        few: In %{count} aspecte
+        other: In %{count} aspecte
     publisher:
-      discard_post: "Anulează publicația"
-      get_location: "Obtineti locatia dumneavoastra"
+      posting: Public...
+      share: Distribuie
+      get_location: Obtineti locatia dumneavoastra
+      whats_on_your_mind: La ce te gandesti?
+      discard_post: Anulează publicația
       new_user_prefill:
-        hello: "Salutare tuturor, sunt #%{new_user_tag}. "
-        i_like: "Sunt interesat(ă) de %{tags}. "
-        invited_by: "Mulțumesc pentru invitație, "
-        newhere: "nouvenit"
+        newhere: nouvenit
+        hello: 'Salutare tuturor, sunt #%{new_user_tag}. '
+        i_like: 'Sunt interesat(ă) de %{tags}. '
+        invited_by: 'Mulțumesc pentru invitație, '
       poll:
-        add_a_poll: "Adaugă un chestionar"
-      posting: "Public..."
-      share: "Distribuie"
-      whats_on_your_mind: "La ce te gandesti?"
+        add_a_poll: Adaugă un chestionar
+    invitations:
+      invites: Invitații
+      invite_your_friends: Invită-ți prietenii
+      by_email: Invită pe cineva prin e-mail
+      share_this: Distribuie acest link prin email, blog sau reatea sociala!
+    public_explain:
+      control_your_audience: Controlează-ți publicul
+      new_user_welcome_message: 'Foloseste #hashtags ca sa iti clasifici postarile si ca sa gasesti persoane care impartasesc aceleasi interese. Cheama persoane minunate cu @Mentions'
+      visibility_dropdown: Foloseste acest buton derulant pentru a schimba vizibilitatea postarii tale. (Noi va sugeram sa o faceti publica pe aceasta.)
+      title: Ești pe cale de a publica un mesaj public!
+      share: Distribuie
+      outside: Mesajele publice vor fi disponibile pentru cei ce nu fac parte din Diaspora.
+      logged_in: Autentificat pe %{service}
+      manage: gestionează serviciile la care ești conectat
+      atom_feed: Afișare feed RSS și Atom
     stream_element:
-      via: "Prin %{link}"
-      via_mobile: "Prin mobil"
+      via: Prin %{link}
+      via_mobile: Prin mobil
   status_messages:
     new:
-      mentioning: "Menționare: %{person}"
-    too_long: "Mesajul tău de statut să nu trebuie să depășească %{count} simboluri. Acum are %{current_length} simboluri."
-  streams:
-    activity:
-      title: "Activitatea proprie"
-    aspects:
-      title: "Aspectele mele"
-    aspects_stream: "Aspecte"
-    comment_stream:
-      title: "Articole comentate"
-    community_spotlight_stream: "Reflectorul comunității"
-    followed_tag:
-      add_a_tag: "Adaugă o etichetă"
-      all: "Toate etichetele"
-      follow: "Urmărește"
-      title: "Etichetele #urmărite"
-    followed_tags_stream: "Etichetele #urmărite"
-    like_stream:
-      title: "Flux de aprecieri"
-    mentioned_stream: "@Menționări"
-    mentions:
-      title: "@Menționări"
-    multi:
-      title: "Flux"
-    public:
-      title: "Activitate publică"
-    tags:
-      title: "Publicații etichetate: %{tags}"
-  tag_followings:
-    manage:
-      no_tags: "Nu urmăreşti nici o etichetă"
-      title: "Gestionează etichetele urmărite"
+      mentioning: 'Menționare: %{person}'
+    too_long: Mesajul tău de statut să nu trebuie să depășească %{count} simboluri. Acum are %{current_length} simboluri.
   tags:
     show:
-      follow: "Urmărește #%{tag}"
-      none: "Eticheta vidă nu există!"
-      stop_following: "Nu mai urmări #%{tag}"
       tagged_people:
+        zero: Nimeni etichetat cu %{tag}
+        one: O persoană etichetată cu %{tag}
         few: "%{count} persoane etichetate cu %{tag}"
-        one: "O persoană etichetată cu %{tag}"
         other: "%{count} persoane etichetate cu %{tag}"
-        zero: "Nimeni etichetat cu %{tag}"
-  username: "Nume de utilizator"
-  users:
-    confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy:
-      no_password: "Introdu parola curentă pentru închiderea contului."
-      success: "Contul tau a fost blocat. Avem nevoie de aproximativ 20 de minute pe a finaliza inchidera contului tau.Va multumim pentru ca ati incercat diaspora*."
-      wrong_password: "Parola introdusă nu coincide cu parola ta actuală."
-    edit:
-      also_commented: "...cineva comenteaza de asemenea pe publicatia unei persoane din contacte?"
-      auto_follow_aspect: "Alege un aspect pentru utilizatorii cu care impartasesti automat:"
-      auto_follow_back: "Distribuie automat cu utilizatorii care distribuie cu tine"
-      birthday: "e ziua de nastere a cuiva"
-      change: "Modifică"
-      change_email: "Modifică adresa email"
-      change_language: "Modifică limba"
-      change_password: "Modifică parola"
-      character_minimum_expl: "trebuie să conțină cel puțin șase simboluri"
-      close_account:
-        dont_go: "Te rog, nu pleca!"
-        lock_username: "Numele tău de utilizator va fi blocat. Nu vei putea să creezi alt cont pe acest server cu același ID."
-        locked_out: "Vei fi delogat si blocat in afara contului pana cant iti va fi sters contul."
-        make_diaspora_better: "Ne-am bucura foarte mult daca ai ramane si ne-ai ajuta sa facem diaspora* mai eficienta in loc sa o parasesti. Daca vrei cu adevarat sa pleci, in orice caz, uite ce se va intampla in continuare:"
-        mr_wiggles: "Mr Wiggles va fi trist vazandu-te plecand"
-        no_turning_back: "Nu exista cale de intoarcere! Daca esti cu adevarat sigur, introdu parola ta dedesubt."
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      close_account_text: "Închide cont"
-      comment_on_post: "...cineva comenteaza pe o publicatie proprie?"
-      current_password: "Parola curentă"
-      current_password_expl: "cea cu care te autentifici..."
-      edit_account: "Editează contul"
-      email_awaiting_confirmation: "Ți-am trimis legătura de activare la %{unconfirmed_email}. Până nu deschizi legătura și nu activezi adreasa nouă, vom continua să folosim adresa ta originală %{email}."
-      export_data: "Exportare de date"
-      following: "Setări redistribuire"
-      liked: "...cuiva ii place ce ai publicat?"
-      mentioned: "...sunteti mentionat intr-un post ?"
-      new_password: "Parolă nouă"
-      private_message: "...primesti un mesaj privat?"
-      receive_email_notifications: "Primeste notificari prin email atunci cand:"
-      reshared: "cineva redistribuie postarea ta"
-      show_community_spotlight: "Afișează „reflectorul comunității” în flux"
-      show_getting_started: "Arata ponturi despre \"cum sa incepi\""
-      started_sharing: "cineva incepe sa impartaseasca cu tine"
-      stream_preferences: "Preferințe flux"
-      your_email: "E-mailul tău"
-      your_handle: "Identificatorul tău pe Diaspora"
-    getting_started:
-      awesome_take_me_to_diaspora: "Super! Du-mă la diaspora*"
-      community_welcome: "Comunitatea diaspora* este bucuroasa sa te aiba alaturi!"
-      hashtag_explanation: "Hastag-urile iti dau voie sa vorbesti despre interesele tale si sa le urmaresti. Ele te ajuta deasemenea sa gasesti peroane noi pe diaspora*"
-      hashtag_suggestions: "Încearcă să urmărești așa etichete ca #arta, #filme, #gif etc."
-      well_hello_there: "Bun venit"
-      what_are_you_in_to: "Ce interese ai?"
-      who_are_you: "Cine ești?"
-    privacy_settings:
-      ignored_users: "Utilizatori ignorați"
-      stop_ignoring: "Nu mai ignora"
-      title: "Setări confidențialitate"
+      follow: 'Urmărește #%{tag}'
+      stop_following: 'Nu mai urmări #%{tag}'
+      none: Eticheta vidă nu există!
+  tag_followings:
+    manage:
+      title: Gestionează etichetele urmărite
+      no_tags: Nu urmăreşti nici o etichetă
+  streams:
+    community_spotlight_stream: Reflectorul comunității
+    aspects_stream: Aspecte
+    mentioned_stream: "@Menționări"
+    followed_tags_stream: 'Etichetele #urmărite'
+    mentions:
+      title: "@Menționări"
+    comment_stream:
+      title: Articole comentate
+    like_stream:
+      title: Flux de aprecieri
+    followed_tag:
+      title: 'Etichetele #urmărite'
+      add_a_tag: Adaugă o etichetă
+      follow: Urmărește
+      all: Toate etichetele
+    tags:
+      title: 'Publicații etichetate: %{tags}'
     public:
-      does_not_exist: "Utilizatorul %{username} nu există!"
+      title: Activitate publică
+    multi:
+      title: Flux
+    aspects:
+      title: Aspectele mele
+    activity:
+      title: Activitatea proprie
+  users:
+    edit:
+      edit_account: Editează contul
+      change: Modifică
+      your_handle: Identificatorul tău pe Diaspora
+      your_email: E-mailul tău
+      change_email: Modifică adresa email
+      email_awaiting_confirmation: Ți-am trimis legătura de activare la %{unconfirmed_email}. Până nu deschizi legătura și nu activezi adreasa nouă, vom continua să folosim adresa ta originală %{email}.
+      change_password: Modifică parola
+      new_password: Parolă nouă
+      current_password: Parola curentă
+      current_password_expl: cea cu care te autentifici...
+      character_minimum_expl: trebuie să conțină cel puțin șase simboluri
+      change_language: Modifică limba
+      close_account_text: Închide cont
+      stream_preferences: Preferințe flux
+      show_community_spotlight: Afișează „reflectorul comunității” în flux
+      show_getting_started: Arata ponturi despre "cum sa incepi"
+      following: Setări redistribuire
+      auto_follow_back: Distribuie automat cu utilizatorii care distribuie cu tine
+      auto_follow_aspect: 'Alege un aspect pentru utilizatorii cu care impartasesti automat:'
+      receive_email_notifications: 'Primeste notificari prin email atunci cand:'
+      started_sharing: cineva incepe sa impartaseasca cu tine
+      mentioned: "...sunteti mentionat intr-un post ?"
+      liked: "...cuiva ii place ce ai publicat?"
+      reshared: cineva redistribuie postarea ta
+      comment_on_post: "...cineva comenteaza pe o publicatie proprie?"
+      also_commented: "...cineva comenteaza de asemenea pe publicatia unei persoane din contacte?"
+      private_message: "...primesti un mesaj privat?"
+      birthday: e ziua de nastere a cuiva
+      export_data: Exportare de date
+      close_account:
+        dont_go: Te rog, nu pleca!
+        make_diaspora_better: 'Ne-am bucura foarte mult daca ai ramane si ne-ai ajuta sa facem diaspora* mai eficienta in loc sa o parasesti. Daca vrei cu adevarat sa pleci, in orice caz, uite ce se va intampla in continuare:'
+        mr_wiggles: Mr Wiggles va fi trist vazandu-te plecand
+        what_we_delete: We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle.
+        locked_out: Vei fi delogat si blocat in afara contului pana cant iti va fi sters contul.
+        lock_username: Numele tău de utilizator va fi blocat. Nu vei putea să creezi alt cont pe acest server cu același ID.
+        no_turning_back: Nu exista cale de intoarcere! Daca esti cu adevarat sigur, introdu parola ta dedesubt.
+    privacy_settings:
+      title: Setări confidențialitate
+      ignored_users: Utilizatori ignorați
+      stop_ignoring: Nu mai ignora
+    destroy:
+      success: Contul tau a fost blocat. Avem nevoie de aproximativ 20 de minute pe a finaliza inchidera contului tau.Va multumim pentru ca ati incercat diaspora*.
+      no_password: Introdu parola curentă pentru închiderea contului.
+      wrong_password: Parola introdusă nu coincide cu parola ta actuală.
+    getting_started:
+      well_hello_there: Bun venit
+      community_welcome: Comunitatea diaspora* este bucuroasa sa te aiba alaturi!
+      awesome_take_me_to_diaspora: Super! Du-mă la diaspora*
+      who_are_you: Cine ești?
+      what_are_you_in_to: Ce interese ai?
+      hashtag_explanation: Hastag-urile iti dau voie sa vorbesti despre interesele tale si sa le urmaresti. Ele te ajuta deasemenea sa gasesti peroane noi pe diaspora*
+      hashtag_suggestions: 'Încearcă să urmărești așa etichete ca #arta, #filme, #gif etc.'
     update:
-      email_notifications_changed: "Language Change Failed"
-      follow_settings_changed: "Setările de urmărire au fost modificate"
-      follow_settings_not_changed: "Modificarea setărilor de urmărire a eșuat."
-      language_changed: "Limba schimbată"
-      language_not_changed: "Nu s-a putut modifica limba"
-      password_changed: "S-a modificat parola"
-      password_not_changed: "Nu s-a putut schimba parola"
-      settings_not_updated: "Actualizarea setărilor a eșuat"
-      settings_updated: "Setările au fost actualizate"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      password_changed: S-a modificat parola
+      password_not_changed: Nu s-a putut schimba parola
+      language_changed: Limba schimbată
+      language_not_changed: Nu s-a putut modifica limba
+      settings_updated: Setările au fost actualizate
+      settings_not_updated: Actualizarea setărilor a eșuat
+      email_notifications_changed: Language Change Failed
+      unconfirmed_email_changed: E-Mail Changed. Needs activation.
+      unconfirmed_email_not_changed: E-Mail Change Failed
+      follow_settings_changed: Setările de urmărire au fost modificate
+      follow_settings_not_changed: Modificarea setărilor de urmărire a eșuat.
+    public:
+      does_not_exist: Utilizatorul %{username} nu există!
+    confirm_email:
+      email_confirmed: E-Mail %{email} activated
+      email_not_confirmed: E-Mail could not be activated. Wrong link?
   will_paginate:
-    next_label: "Pagina Următore &raquo;"
     previous_label: "&laquo; Pagina Precedentă"
+    next_label: Pagina Următore &raquo;

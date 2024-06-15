@@ -6,318 +6,318 @@
 
 fi:
   javascripts:
+    timeago:
+      prefixAgo: ''
+      suffixAgo: sitten
+      suffixFromNow: tästä alkaen
+      prefixFromNow: tästä alkaen
+      inPast: milloin tahansa
+      seconds: alle minuutti
+      minute: noin minuutti
+      minutes:
+        other: "%d minuuttia"
+      hour: noin tunti
+      hours:
+        other: noin %d tuntia
+      day: päivä
+      days:
+        other: "%d päivää"
+      month: noin kuukausi
+      months:
+        other: "%d kuukautta"
+      year: noin vuosi
+      years:
+        other: "%d vuotta"
+      wordSeparator: " "
+    cancel: Peru
+    confirm_dialog: Oletko varma?
+    confirm_unload: Vahvista, että haluat poistua tältä sivulta. Syöttämiäsi tietoja ei tallenneta.
+    create: Luo
+    delete: Poista
+    ignore: Sivuuta
+    report:
+      prompt: 'Ole hyvä, kirjoita syy:'
+      prompt_default: loukkaavaa sisältöä
+      name: Tee ilmoitus
+      status:
+        created: Ilmoitus luotiin onnistuneesti
+        exists: Ilmoitus on jo olemassa
+    ignore_user: Sivuuta tämä käyttäjä?
+    ignore_failed: Tämän käyttäjän sivuuttaminen ei onnistu
+    hide_post: Piilota tämä julkaisu?
+    hide_post_failed: Tätä julkaisua ei voitu piilottaa
+    remove_post: Poista tämä julkaisu?
+    unblock_failed: Tämän käyttäjän torjumisen peruminen on epäonnistunut
+    and: ja
+    comma: ","
+    edit: Muokkaa
+    no_results: Ei tuloksia
+    show_all: Näytä kaikki
+    admins:
+      dashboard:
+        up_to_date: Podisi on ajan tasalla!
+        outdated: Podisi on vanhentunut.
+        compare_versions: Viimeisin diaspora* julkaisu on <%= latestVersion %>, sinun podisi käyttää <%= podVersion %>
+        error: Diasporan* viimeisintä versiota ei voitu määrittää.
     admin:
       pods:
-        actions: "Toiminnot"
-        added: "Lisätty"
-        check: "suorita yhteyskokeilu"
-        follow_link: "avaa linkki selaimessa"
-        last_check: "Edellinen tarkistus:"
-        more_info: "näytä lisätietoja"
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL-yhteys aktivoitu
+        ssl_disabled: SSL-yhteys pois päältä
+        added: Lisätty
+        status: Tila
+        states:
+          unchecked: Ei tarkistettu
+          no_errors: OK
+          dns_failed: Nimenselvitys (DNS) epäonnistui
+          net_failed: Yhteysyritys epäonnistui
+          ssl_failed: Suojattu yhteys (SSL) epäonnistui
+          http_failed: HTTP -yhteys epäonnistui
+          version_failed: Ohjelmistoversiota ei voitu määrittää.
+          unknown_error: Tarkistuksen aikana tapahtui määrittelemätön virhe
+        actions: Toiminnot
+        offline_since: 'viimeisin yhteys:'
+        last_check: 'Edellinen tarkistus:'
+        more_info: näytä lisätietoja
+        check: suorita yhteyskokeilu
+        recheck:
+          success: Podi on juuri tarkistettu uudelleen.
+          failure: Tarkistusta ei suoritettu.
+        follow_link: avaa linkki selaimessa
+        no_info: Lisätietoja ei ole saatavilla tällä hetkellä
+        server_software: 'Palvelinohjelmisto:'
+        response_time: 'Vasteaika:'
         ms:
           one: "<%= count %> millisekunti"
           other: "<%= count %> millisekuntia"
-        no_info: "Lisätietoja ei ole saatavilla tällä hetkellä"
-        not_available: "ei saatavilla"
-        offline_since: "viimeisin yhteys:"
-        pod: "Pod"
-        recheck:
-          failure: "Tarkistusta ei suoritettu."
-          success: "Podi on juuri tarkistettu uudelleen."
-        response_time: "Vasteaika:"
-        server_software: "Palvelinohjelmisto:"
-        ssl: "SSL"
-        ssl_disabled: "SSL-yhteys pois päältä"
-        ssl_enabled: "SSL-yhteys aktivoitu"
-        states:
-          dns_failed: "Nimenselvitys (DNS) epäonnistui"
-          http_failed: "HTTP -yhteys epäonnistui"
-          net_failed: "Yhteysyritys epäonnistui"
-          no_errors: "OK"
-          ssl_failed: "Suojattu yhteys (SSL) epäonnistui"
-          unchecked: "Ei tarkistettu"
-          unknown_error: "Tarkistuksen aikana tapahtui määrittelemätön virhe"
-          version_failed: "Ohjelmistoversiota ei voitu määrittää."
-        status: "Tila"
+        unknown: tuntematon
+        not_available: ei saatavilla
         unchecked:
-          one: "On vielä 1 podi jota ei ole tarkistettu lainkaan."
-          other: "On vielä <%= count %> podia joita ei ole tarkistettu lainkaan."
-        unknown: "tuntematon"
+          one: On vielä 1 podi jota ei ole tarkistettu lainkaan.
+          other: On vielä <%= count %> podia joita ei ole tarkistettu lainkaan.
         version_failed:
-          one: "On 1 podi jolla ei ole versiota (vanha podi, NodeInfo puuttuu)."
-          other: "On <%= count %> podia joilla ei ole versioita (vanhat podit, NodeInfot puuttuvat)."
-    admins:
-      dashboard:
-        compare_versions: "Viimeisin diaspora* julkaisu on <%= latestVersion %>, sinun podisi käyttää <%= podVersion %>"
-        error: "Diasporan* viimeisintä versiota ei voitu määrittää."
-        outdated: "Podisi on vanhentunut."
-        up_to_date: "Podisi on ajan tasalla!"
-    and: "ja"
+          one: On 1 podi jolla ei ole versiota (vanha podi, NodeInfo puuttuu).
+          other: On <%= count %> podia joilla ei ole versioita (vanhat podit, NodeInfot puuttuvat).
+    aspects:
+      name: Nimi
+      create:
+        add_a_new_aspect: Lisää näkymä
+        success: Uusi näkymäsi <%= name %> on luotu
+        failure: Näkymän luominen epäonnistui.
+    errors:
+      connection: Palvelimeen ei saada yhteyttä.
+    contacts:
+      add_contact: Lisää kontakti
+      remove_contact: Poista kontakti
+      error_add: Henkilön <%= name %> lisääminen näkymään ei onnistunut :(
+      error_remove: Käyttäjää <%= name %> ei voitu poistaa näkymästä :(
+      search_no_results: Kontakteja ei löytynyt
+    my_activity: Oma toimintani
+    my_stream: Virta
+    my_aspects: Omat näkymäni
+    publisher:
+      near_from: 'Lähetetty sijainnista: <%= location %>'
+      option: Vastaus
+      add_option: Lisää vastaus
+      question: Kysymys
+      markdown_editor:
+        preview: Esikatselu
+        write: Kirjoita
+        tooltips:
+          bold: Lihavoi
+          italic: Kursivoi
+          heading: Otsikko
+          insert_link: Lisää linkki
+          insert_image: Lisää kuva
+          insert_ordered_list: Lisää järjestetty lista
+          insert_unordered_list: Lisää järjestämätön lista
+          preview: Viestin esikatselu
+          write: Muokkaa viestiä
+          cancel: Kumoa viesti
+          quote: Lisää lainaus
+          code: Lisää koodi
+        texts:
+          strong: korostettu teksti
+          italic: kursiiviteksti
+          heading: otsikkoteksti
+          insert_link_description_text: kirjoita linkin kuvaus tähän
+          insert_link_help_text: Lisää linkki tähän
+          insert_image_description_text: lisää kuvan kuvaus tähän
+          insert_image_help_text: Lisää kuvan linkki tähän
+          insert_image_title: syötä kuvan nimi tänne
+          list: listan teksti tähän
+          quote: Lainausteksti tässä
+          code: koodi tähän
+      mention_success: 'Onnistuneesti mainittu: <%= names %>'
+    bookmarklet:
+      post_something: Lähetä julkaisu Diasporaan
+      post_submit: Lähettää julkaisua...
+      post_success: Julkaistu! Suljetaan ponnahdusikkuna
     aspect_dropdown:
-      add_to_aspect: "Lisää kontakti"
-      all_aspects: "Kaikki näkymät"
-      error: "Ei voitu aloittaa jakamaan käyttäjän <%= name %> kanssa. Oletko sivuuttanut hänet?"
-      error_remove: "Käyttäjää <%= name %> ei voitu poistaa näkymästä :("
+      add_to_aspect: Lisää kontakti
+      select_aspects: Valitse näkymät
+      all_aspects: Kaikki näkymät
+      updating: päivittää...
       mobile_row_checked: "<%= name %> (poista)"
       mobile_row_unchecked: "<%= name %> (lisää)"
-      select_aspects: "Valitse näkymät"
-      started_sharing_with: "Olet alkanut jakaa käyttäjän <%= name %> kanssa!"
-      stopped_sharing_with: "Olet lopettanut jakamisen käyttäjän <%= name %> kanssa."
+      stopped_sharing_with: Olet lopettanut jakamisen käyttäjän <%= name %> kanssa.
+      started_sharing_with: Olet alkanut jakaa käyttäjän <%= name %> kanssa!
+      error: Ei voitu aloittaa jakamaan käyttäjän <%= name %> kanssa. Oletko sivuuttanut hänet?
+      error_remove: Käyttäjää <%= name %> ei voitu poistaa näkymästä :(
       toggle:
+        zero: Valitse näkymät
+        one: "<%= count %> näkymässä"
+        two: "<%= count %> näkymässä"
         few: "<%= count %> näkymässä"
         many: "<%= count %> näkymässä"
-        one: "<%= count %> näkymässä"
         other: "<%= count %> näkymässä"
-        two: "<%= count %> näkymässä"
-        zero: "Valitse näkymät"
-      updating: "päivittää..."
-    aspect_navigation:
-      add_an_aspect: "+ Lisää näkymä"
-      deselect_all: "Poista valinnat"
-      no_aspects: "Näkymiä ei ole valittu"
-      select_all: "Valitse kaikki"
-    aspects:
-      create:
-        add_a_new_aspect: "Lisää näkymä"
-        failure: "Näkymän luominen epäonnistui."
-        success: "Uusi näkymäsi <%= name %> on luotu"
-      name: "Nimi"
-    bookmarklet:
-      post_something: "Lähetä julkaisu Diasporaan"
-      post_submit: "Lähettää julkaisua..."
-      post_success: "Julkaistu! Suljetaan ponnahdusikkuna"
-    cancel: "Peru"
-    comma: ","
+    show_more: Näytä lisää
+    failed_to_post_message: Viestin lähetys epäonnistui!
+    failed_to_remove: Lisäyksen poistaminen epäonnistui!
     comments:
-      hide: "Piilota kommentit"
-      no_comments: "Kommentteja ei vielä ole."
-      show: "Näytä kaikki kommentit"
-    confirm_dialog: "Oletko varma?"
-    confirm_unload: "Vahvista, että haluat poistua tältä sivulta. Syöttämiäsi tietoja ei tallenneta."
-    contacts:
-      add_contact: "Lisää kontakti"
-      error_add: "Henkilön <%= name %> lisääminen näkymään ei onnistunut :("
-      error_remove: "Käyttäjää <%= name %> ei voitu poistaa näkymästä :("
-      remove_contact: "Poista kontakti"
-      search_no_results: "Kontakteja ei löytynyt"
+      show: Näytä kaikki kommentit
+      hide: Piilota kommentit
+      no_comments: Kommentteja ei vielä ole.
+    reshares:
+      successful: Julkaisu jaettiin onnistuneesti!
+      post: Jaa käyttäjän <%= name %> julkaisu?
+    aspect_navigation:
+      select_all: Valitse kaikki
+      deselect_all: Poista valinnat
+      no_aspects: Näkymiä ei ole valittu
+      add_an_aspect: "+ Lisää näkymä"
+    getting_started:
+      hey: Hei <%= name %>!
+      no_tags: Hei, et seuraa yhtäkään tagia!  Jatketaanko silti?
+      alright_ill_wait: Okei, minä odotan.
+      preparing_your_stream: Yksilöllistä virtaasi valmistellaan...
+    photo_uploader:
+      upload_photos: Lataa kuvia
+      looking_good: OMG, näytät upealta!
+      completed: "<%= file %> suoritettu"
+      error: On tapahtunut virhe lähetettäessä tiedostoa <%= file %>
+      invalid_ext: Tiedostolla {file} on epäkelpo tiedostopääte. Vain päätteet {extensions} ovat sallittuja.
+      size_error: Tiedosto {file} on liian iso, suurin sallittu tiedostokoko on {sizeLimit}
+      empty: Tiedosto {file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa.
+    tags:
+      wasnt_that_interesting: 'OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe...'
+    people:
+      not_found: "...ketään ei löytynyt."
+      mention: Mainitse
+      message: Viesti
+      edit_my_profile: Muokkaa profiiliani
+      stop_ignoring: Lopeta sivuuttaminen
+      helper:
+        is_sharing: "<%= name %> jakaa kanssasi"
+        is_not_sharing: "<%= name %> ei jaa kanssasi"
+    profile:
+      edit: Muokkaa
+      add_some: Lisää niitä
+      you_have_no_tags: Sinulla ei ole tageja!
+      bio: Elämäkerta
+      location: Sijainti
+      gender: Sukupuoli
+      born: Syntymäpäivä
+      photos: Kuvat
+      posts: Julkaisut
     conversation:
       create:
-        no_recipient: "Vastaanottaja puuttuu"
+        no_recipient: Vastaanottaja puuttuu
       new:
-        no_contacts: "Sinun pitää lisätä muutamia kontakteja ennen kuin voit aloittaa keskustelun."
-    create: "Luo"
-    delete: "Poista"
-    edit: "Muokkaa"
-    errors:
-      connection: "Palvelimeen ei saada yhteyttä."
-    failed_to_post_message: "Viestin lähetys epäonnistui!"
-    failed_to_remove: "Lisäyksen poistaminen epäonnistui!"
-    getting_started:
-      alright_ill_wait: "Okei, minä odotan."
-      hey: "Hei <%= name %>!"
-      no_tags: "Hei, et seuraa yhtäkään tagia!  Jatketaanko silti?"
-      preparing_your_stream: "Yksilöllistä virtaasi valmistellaan..."
-    header:
-      admin: "Ylläpitäjä"
-      close: "sulje"
-      contacts: "Kontaktit"
-      conversations: "Keskustelut"
-      help: "Apua"
-      home: "Koti"
-      log_out: "Kirjaudu ulos"
-      mark_all_as_read: "Merkitse kaikki luetuiksi"
-      moderator: "Ylläpitäjä"
-      notifications: "Ilmoitukset"
-      profile: "Profiili"
-      recent_notifications: "Tuoreet ilmoitukset"
-      search: "Etsi"
-      settings: "Asetukset"
-      toggle_navigation: "Navigaatio päälle/pois"
-      view_all: "Näytä kaikki"
-    hide_post: "Piilota tämä julkaisu?"
-    hide_post_failed: "Tätä julkaisua ei voitu piilottaa"
-    ignore: "Sivuuta"
-    ignore_failed: "Tämän käyttäjän sivuuttaminen ei onnistu"
-    ignore_user: "Sivuuta tämä käyttäjä?"
-    my_activity: "Oma toimintani"
-    my_aspects: "Omat näkymäni"
-    my_stream: "Virta"
-    no_results: "Ei tuloksia"
+        no_contacts: Sinun pitää lisätä muutamia kontakteja ennen kuin voit aloittaa keskustelun.
     notifications:
-      mark_read: "Merkitse luetuksi"
-      mark_unread: "Merkitse lukemattomaksi"
+      mark_read: Merkitse luetuksi
+      mark_unread: Merkitse lukemattomaksi
       new_notifications:
-        one: "Sinulla on <%= count %> lukematon ilmoitus"
-        other: "Sinulla on <%= count %> lukemattomia ilmoituksia"
-    people:
-      edit_my_profile: "Muokkaa profiiliani"
-      helper:
-        is_not_sharing: "<%= name %> ei jaa kanssasi"
-        is_sharing: "<%= name %> jakaa kanssasi"
-      mention: "Mainitse"
-      message: "Viesti"
-      not_found: "...ketään ei löytynyt."
-      stop_ignoring: "Lopeta sivuuttaminen"
-    photo_uploader:
-      completed: "<%= file %> suoritettu"
-      empty: "Tiedosto {file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa."
-      error: "On tapahtunut virhe lähetettäessä tiedostoa <%= file %>"
-      invalid_ext: "Tiedostolla {file} on epäkelpo tiedostopääte. Vain päätteet {extensions} ovat sallittuja."
-      looking_good: "OMG, näytät upealta!"
-      size_error: "Tiedosto {file} on liian iso, suurin sallittu tiedostokoko on {sizeLimit}"
-      upload_photos: "Lataa kuvia"
+        one: Sinulla on <%= count %> lukematon ilmoitus
+        other: Sinulla on <%= count %> lukemattomia ilmoituksia
+    stream:
+      hide: Piilota
+      public: Julkinen
+      limited: Rajoitettu
+      like: Tykkää
+      unlike: Peru tykkäys
+      reshare: Jaa uudelleen
+      comment: Kommentoi
+      original_post_deleted: Lähettäjä on poistanut alkuperäisen julkaisun.
+      show_nsfw_post: Näytä julkaisu
+      show_nsfw_posts: Näytä kaikki
+      hide_nsfw_posts: 'Piilota #nsfw-julkaisut'
+      follow: Seuraa
+      unfollow: Lopeta seuraaminen
+      enable_post_notifications: Ota ilmoitukset käyttöön tälle julkaisulle
+      disable_post_notifications: Poista ilmoitukset käytöstä tästä julkaisusta
+      permalink: Pysyvä linkki
+      via: "<%= provider %> kautta"
+      no_posts_yet: Ei näytettäviä julkaisuja.
+      likes:
+        zero: "<%= count %> tykkäystä"
+        one: "<%= count %> tykkäys"
+        two: "<%= count %> tykkäystä"
+        few: "<%= count %> tykkäystä"
+        many: "<%= count %> tykkäystä"
+        other: "<%= count %> tykkäystä"
+      reshares:
+        zero: "<%= count %> uudelleenjakoa"
+        one: "<%= count %> uudelleenjako"
+        two: "<%= count %> uudelleenjakoa"
+        few: "<%= count %> uudelleenjakoa"
+        many: "<%= count %> uudelleenjakoa"
+        other: "<%= count %> uudelleenjakoa"
+      comments:
+        zero: "<%= count %> kommentteja"
+        one: "<%= count %> kommentti"
+        other: "<%= count %> kommentteja"
+      more_comments:
+        zero: Näytä <%= count %> muuta kommenttia
+        one: Näytä <%= count %> muu kommentti
+        two: Näytä <%= count %> muuta kommenttia
+        few: Näytä <%= count %> muuta kommenttia
+        many: Näytä <%= count %> muuta kommenttia
+        other: Näytä <%= count %> muuta kommenttia
+      followed_tag:
+        title: "#Seuratut Tagit"
+        add_a_tag: Lisää tagi
+        follow: Seuraa
+      tags:
+        follow: 'Seuraa #<%= tag %>'
+        following: 'Seurataan tagia #<%= tag %>'
+        stop_following: 'Lopeta tagin #<%= tag %> seuraaminen'
+        stop_following_confirm: 'Lopetetaanko tagin #<%= tag %> seuraaminen?'
+        follow_error: Tagin <%= tag %> seuraaminen epäonnistui :(
+        stop_following_error: Tagin <%= tag %> seuraamisen lopettaminen epäonnistui :(
+    header:
+      home: Koti
+      profile: Profiili
+      contacts: Kontaktit
+      settings: Asetukset
+      help: Apua
+      admin: Ylläpitäjä
+      moderator: Ylläpitäjä
+      log_out: Kirjaudu ulos
+      toggle_navigation: Navigaatio päälle/pois
+      notifications: Ilmoitukset
+      conversations: Keskustelut
+      search: Etsi
+      recent_notifications: Tuoreet ilmoitukset
+      mark_all_as_read: Merkitse kaikki luetuiksi
+      view_all: Näytä kaikki
+      close: sulje
+    viewer:
+      reshared: Jaettu uudelleen
     poll:
-      answer_count:
-        one: "1 ääni"
-        other: "<%=count%> ääntä"
-        zero: "Ei ääniä"
-      close_result: "Piilota tulokset"
+      vote: Äänestä
+      go_to_original_post: Voit osallistua tähän kyselyyn sivulla <%= original_post_link %>
+      original_post: alkuperäinen julkaisu
+      result: Tulos
       count:
         one: "<%=count%> ääni tähän mennessä"
         other: "<%=count%> ääntä tähän mennessä"
-      go_to_original_post: "Voit osallistua tähän kyselyyn sivulla <%= original_post_link %>"
-      original_post: "alkuperäinen julkaisu"
-      result: "Tulos"
-      show_result: "Näytä tulokset"
-      vote: "Äänestä"
-      your_vote: "Äänesi"
-    profile:
-      add_some: "Lisää niitä"
-      bio: "Elämäkerta"
-      born: "Syntymäpäivä"
-      edit: "Muokkaa"
-      gender: "Sukupuoli"
-      location: "Sijainti"
-      photos: "Kuvat"
-      posts: "Julkaisut"
-      you_have_no_tags: "Sinulla ei ole tageja!"
-    publisher:
-      add_option: "Lisää vastaus"
-      markdown_editor:
-        preview: "Esikatselu"
-        texts:
-          code: "koodi tähän"
-          heading: "otsikkoteksti"
-          insert_image_description_text: "lisää kuvan kuvaus tähän"
-          insert_image_help_text: "Lisää kuvan linkki tähän"
-          insert_image_title: "syötä kuvan nimi tänne"
-          insert_link_description_text: "kirjoita linkin kuvaus tähän"
-          insert_link_help_text: "Lisää linkki tähän"
-          italic: "kursiiviteksti"
-          list: "listan teksti tähän"
-          quote: "Lainausteksti tässä"
-          strong: "korostettu teksti"
-        tooltips:
-          bold: "Lihavoi"
-          cancel: "Kumoa viesti"
-          code: "Lisää koodi"
-          heading: "Otsikko"
-          insert_image: "Lisää kuva"
-          insert_link: "Lisää linkki"
-          insert_ordered_list: "Lisää järjestetty lista"
-          insert_unordered_list: "Lisää järjestämätön lista"
-          italic: "Kursivoi"
-          preview: "Viestin esikatselu"
-          quote: "Lisää lainaus"
-          write: "Muokkaa viestiä"
-        write: "Kirjoita"
-      mention_success: "Onnistuneesti mainittu: <%= names %>"
-      near_from: "Lähetetty sijainnista: <%= location %>"
-      option: "Vastaus"
-      question: "Kysymys"
-    remove_post: "Poista tämä julkaisu?"
-    report:
-      name: "Tee ilmoitus"
-      prompt: "Ole hyvä, kirjoita syy:"
-      prompt_default: "loukkaavaa sisältöä"
-      status:
-        created: "Ilmoitus luotiin onnistuneesti"
-        exists: "Ilmoitus on jo olemassa"
-    reshares:
-      post: "Jaa käyttäjän <%= name %> julkaisu?"
-      successful: "Julkaisu jaettiin onnistuneesti!"
-    show_all: "Näytä kaikki"
-    show_more: "Näytä lisää"
-    stream:
-      comment: "Kommentoi"
-      comments:
-        one: "<%= count %> kommentti"
-        other: "<%= count %> kommentteja"
-        zero: "<%= count %> kommentteja"
-      disable_post_notifications: "Poista ilmoitukset käytöstä tästä julkaisusta"
-      enable_post_notifications: "Ota ilmoitukset käyttöön tälle julkaisulle"
-      follow: "Seuraa"
-      followed_tag:
-        add_a_tag: "Lisää tagi"
-        follow: "Seuraa"
-        title: "#Seuratut Tagit"
-      hide: "Piilota"
-      hide_nsfw_posts: "Piilota #nsfw-julkaisut"
-      like: "Tykkää"
-      likes:
-        few: "<%= count %> tykkäystä"
-        many: "<%= count %> tykkäystä"
-        one: "<%= count %> tykkäys"
-        other: "<%= count %> tykkäystä"
-        two: "<%= count %> tykkäystä"
-        zero: "<%= count %> tykkäystä"
-      limited: "Rajoitettu"
-      more_comments:
-        few: "Näytä <%= count %> muuta kommenttia"
-        many: "Näytä <%= count %> muuta kommenttia"
-        one: "Näytä <%= count %> muu kommentti"
-        other: "Näytä <%= count %> muuta kommenttia"
-        two: "Näytä <%= count %> muuta kommenttia"
-        zero: "Näytä <%= count %> muuta kommenttia"
-      no_posts_yet: "Ei näytettäviä julkaisuja."
-      original_post_deleted: "Lähettäjä on poistanut alkuperäisen julkaisun."
-      permalink: "Pysyvä linkki"
-      public: "Julkinen"
-      reshare: "Jaa uudelleen"
-      reshares:
-        few: "<%= count %> uudelleenjakoa"
-        many: "<%= count %> uudelleenjakoa"
-        one: "<%= count %> uudelleenjako"
-        other: "<%= count %> uudelleenjakoa"
-        two: "<%= count %> uudelleenjakoa"
-        zero: "<%= count %> uudelleenjakoa"
-      show_nsfw_post: "Näytä julkaisu"
-      show_nsfw_posts: "Näytä kaikki"
-      tags:
-        follow: "Seuraa #<%= tag %>"
-        follow_error: "Tagin <%= tag %> seuraaminen epäonnistui :("
-        following: "Seurataan tagia #<%= tag %>"
-        stop_following: "Lopeta tagin #<%= tag %> seuraaminen"
-        stop_following_confirm: "Lopetetaanko tagin #<%= tag %> seuraaminen?"
-        stop_following_error: "Tagin <%= tag %> seuraamisen lopettaminen epäonnistui :("
-      unfollow: "Lopeta seuraaminen"
-      unlike: "Peru tykkäys"
-      via: "<%= provider %> kautta"
-    tags:
-      wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
-    timeago:
-      day: "päivä"
-      days:
-        other: "%d päivää"
-      hour: "noin tunti"
-      hours:
-        other: "noin %d tuntia"
-      inPast: "milloin tahansa"
-      minute: "noin minuutti"
-      minutes:
-        other: "%d minuuttia"
-      month: "noin kuukausi"
-      months:
-        other: "%d kuukautta"
-      prefixAgo: ""
-      prefixFromNow: "tästä alkaen"
-      seconds: "alle minuutti"
-      suffixAgo: "sitten"
-      suffixFromNow: "tästä alkaen"
-      wordSeparator: " "
-      year: "noin vuosi"
-      years:
-        other: "%d vuotta"
-    unblock_failed: "Tämän käyttäjän torjumisen peruminen on epäonnistunut"
-    viewer:
-      reshared: "Jaettu uudelleen"
+      answer_count:
+        zero: Ei ääniä
+        one: 1 ääni
+        other: "<%=count%> ääntä"
+      show_result: Näytä tulokset
+      close_result: Piilota tulokset
+      your_vote: Äänesi

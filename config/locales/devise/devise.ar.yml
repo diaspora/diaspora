@@ -7,112 +7,112 @@
 ar:
   devise:
     confirmations:
-      confirmed: "أُكّد بريدك الالكتروني بنجاح."
+      confirmed: أُكّد بريدك الالكتروني بنجاح.
+      send_instructions: سيصلك بريد إلكترونيّ قريبًا فيه إرشادات تأكيد الحساب.
+      send_paranoid_instructions: ستصلك رسالة لتأكيد في بريدك الإلكتوني إن كان بريدك متواجدا في قاعدة البيانات
       new:
-        resend_confirmation: "أعد إرسال إرشادات التّأكيد"
-      send_instructions: "سيصلك بريد إلكترونيّ قريبًا فيه إرشادات تأكيد الحساب."
-      send_paranoid_instructions: "ستصلك رسالة لتأكيد في بريدك الإلكتوني إن كان بريدك متواجدا في قاعدة البيانات"
+        resend_confirmation: أعد إرسال إرشادات التّأكيد
     failure:
-      already_authenticated: "ولجت بالفعل"
-      inactive: "لم يُفعّل حسابك بعد."
+      already_authenticated: ولجت بالفعل
+      inactive: لم يُفعّل حسابك بعد.
       invalid: "‎%{authentication_keys}‎ أو كلمة مروره غير صالحة."
-      invalid_token: "رمز الاستيثاق غير صالح."
-      last_attempt: "آخر محاولة قبل إقفال حسابك."
-      locked: "حسابك مقفول."
+      locked: حسابك مقفول.
+      last_attempt: آخر محاولة قبل إقفال حسابك.
       not_found_in_database: "‎%{authentication_keys}‎ أو كلمة المرور غير صالحة."
-      timeout: "انتهت جلستك، فضلًا لِج مجدّدًا للمتابعة."
-      unauthenticated: "عليك الولوج أو التسجيل للمتابعة."
-      unconfirmed: "عليك تأكيد بريدك الالكتروني للمتابعة."
-    invitations:
-      invitation_token_invalid: "نأسف! رمز الدّعوة غير صالح."
-      send_instructions: "أُرسلت الدّعوة."
-      updated: "ضُبطت كلمة المرور بنجاح. لقد ولجت."
+      timeout: انتهت جلستك، فضلًا لِج مجدّدًا للمتابعة.
+      unauthenticated: عليك الولوج أو التسجيل للمتابعة.
+      unconfirmed: عليك تأكيد بريدك الالكتروني للمتابعة.
+      invalid_token: رمز الاستيثاق غير صالح.
     mailer:
       confirmation_instructions:
-        confirm: "أكّد حسابي"
-        subject: "إرشادات التّأكيد"
-        you_can_confirm: "يمكنك تأكيد حسابك عبر الوصلة الآتية:"
-      hello: "أهلًا %{username}!"
-      inviter:
-        accept_at: ", %{url}, يمكنك قبولها عبر الرابط التالي"
-        has_invited_you: "%{name} يدعوك للإنضمام إلى دياسبرا"
-        have_invited_you: "دعاك %{names} للانضمام إلى دياسبرا*"
-      password_change:
-        subject: "غُيِّرت كلمة المرور"
+        subject: إرشادات التّأكيد
+        you_can_confirm: 'يمكنك تأكيد حسابك عبر الوصلة الآتية:'
+        confirm: أكّد حسابي
       reset_password_instructions:
-        change: "غيّر كلمة المرور"
-        ignore: "إن لم تكن أنت فتجاهل هذا البريد رجاءً."
-        someone_requested: "طلب أحدهم وصلة لتغيير كلمة المرور. إن كنت أنت ذاك فيمكنك اتّباع الوصلة أدناه."
-        subject: "إرشادات تصفير كلمة المرور"
-        wont_change: "لن تتغيّر كلمة المرور حتّى تدخل الوصلة أعلاه وتنشئ غيرها."
+        subject: إرشادات تصفير كلمة المرور
+        someone_requested: طلب أحدهم وصلة لتغيير كلمة المرور. إن كنت أنت ذاك فيمكنك اتّباع الوصلة أدناه.
+        change: غيّر كلمة المرور
+        wont_change: لن تتغيّر كلمة المرور حتّى تدخل الوصلة أعلاه وتنشئ غيرها.
+        ignore: إن لم تكن أنت فتجاهل هذا البريد رجاءً.
       unlock_instructions:
-        account_locked: "لقد قُفل حسابك بسبب عدد محاولات الولوج غير النّاجح."
-        click_to_unlock: "انقر الوصلة أدناه لفكّ الحساب:"
-        subject: "إرشادات فكّ القفل"
-        unlock: "فكّ حسابي"
-      welcome: "مرحبًا %{username}!"
+        subject: إرشادات فكّ القفل
+        account_locked: لقد قُفل حسابك بسبب عدد محاولات الولوج غير النّاجح.
+        click_to_unlock: 'انقر الوصلة أدناه لفكّ الحساب:'
+        unlock: فكّ حسابي
+      password_change:
+        subject: غُيِّرت كلمة المرور
+      welcome: مرحبًا %{username}!
+      hello: أهلًا %{username}!
+      inviter:
+        has_invited_you: "%{name} يدعوك للإنضمام إلى دياسبرا"
+        have_invited_you: دعاك %{names} للانضمام إلى دياسبرا*
+        accept_at: ", %{url}, يمكنك قبولها عبر الرابط التالي"
     omniauth_callbacks:
-      failure: "لا يمكنك الاستيثاق من ‎%{kind}‎ بسبب \"‎%{reason}‎\"."
-      success: "استثقت من حساب ‎%{kind}‎ بنجاح"
+      failure: لا يمكنك الاستيثاق من ‎%{kind}‎ بسبب "‎%{reason}‎".
+      success: استثقت من حساب ‎%{kind}‎ بنجاح
     passwords:
+      no_token: لا يمكن الوصول لهذه الصفحة إلا باستخدام رابط استعادة لكمة السر. إذا كنت تريد استعادة كلمة السر، تأكد من استخدامك للرابط كاملا.
+      send_instructions: سيصلك بريد إلكترونيّ قريبًا فيه إرشادات تصفير كلمة المرور.
+      send_paranoid_instructions: اذا كان بريدك الالكتروني موجودا في قاعدة البيانات ستصلك رسالة في بضع دقائق تحوي رابط استعادة كلمة السر.
+      updated: تغيّرت كلمة المرور بنجاح. لقد ولجت.
+      updated_not_active: غُيرت كلمة المرور بنجاح.
       edit:
-        change_password: "غيّر كلمة المرور"
-        confirm_password: "أكّد كلمة المرور"
-        new_password: "كلمة المرور الجديدة"
+        change_password: غيّر كلمة المرور
+        new_password: كلمة المرور الجديدة
+        confirm_password: أكّد كلمة المرور
       new:
-        email: "البريد الإلكترونيّ"
-        forgot_password: "أنسيت كلمة المرور؟"
-        reset_password: "صفّر كلمة المرور"
-        send_password_instructions: "أرسل لي إرشادات تصفير كلمة المرور"
-      no_token: "لا يمكن الوصول لهذه الصفحة إلا باستخدام رابط استعادة لكمة السر. إذا كنت تريد استعادة كلمة السر، تأكد من استخدامك للرابط كاملا."
-      send_instructions: "سيصلك بريد إلكترونيّ قريبًا فيه إرشادات تصفير كلمة المرور."
-      send_paranoid_instructions: "اذا كان بريدك الالكتروني موجودا في قاعدة البيانات ستصلك رسالة في بضع دقائق تحوي رابط استعادة كلمة السر."
-      updated: "تغيّرت كلمة المرور بنجاح. لقد ولجت."
-      updated_not_active: "غُيرت كلمة المرور بنجاح."
+        forgot_password: أنسيت كلمة المرور؟
+        reset_password: صفّر كلمة المرور
+        email: البريد الإلكترونيّ
+        send_password_instructions: أرسل لي إرشادات تصفير كلمة المرور
     registrations:
-      destroyed: "الوداع! حُذف حسابك بنجاح. نأمل أن نراك قريبًا."
-      signed_up: "لقد سجّلت بنجاح. إن طلبت تأكيدًا فقد أُرسل إلى بريدك."
-      signed_up_but_inactive: "سُجلت بنجاح. لكن لا يمكنك الولوج حتى ينشط حسابك."
-      signed_up_but_locked: "سُجلت بنجاح. لكن لا يمكنك الولوج لأن حسابك مقفل."
-      signed_up_but_unconfirmed: "استخدم الرابط الذي أُرسل لبريدك الإلكتروني من أجل تفعيل حسابك."
-      update_needs_confirmation: "حُدث حسابك بنجاح. استخدم الرابط الذي أرسل اليك من أجل تأكيد بريدك الإلكتروني الجديد."
-      updated: "حُدّثت حسابك بنجاح."
+      destroyed: الوداع! حُذف حسابك بنجاح. نأمل أن نراك قريبًا.
+      signed_up: لقد سجّلت بنجاح. إن طلبت تأكيدًا فقد أُرسل إلى بريدك.
+      signed_up_but_inactive: سُجلت بنجاح. لكن لا يمكنك الولوج حتى ينشط حسابك.
+      signed_up_but_locked: سُجلت بنجاح. لكن لا يمكنك الولوج لأن حسابك مقفل.
+      signed_up_but_unconfirmed: استخدم الرابط الذي أُرسل لبريدك الإلكتروني من أجل تفعيل حسابك.
+      update_needs_confirmation: حُدث حسابك بنجاح. استخدم الرابط الذي أرسل اليك من أجل تأكيد بريدك الإلكتروني الجديد.
+      updated: حُدّثت حسابك بنجاح.
     sessions:
-      already_signed_out: "خرجت بنجاح."
+      signed_in: ولجت بنجاح.
+      signed_out: خرجت بنجاح.
+      already_signed_out: خرجت بنجاح.
       new:
-        login: "لِج"
-        modern_browsers: "تدعم المتصفحات الحديثة فقط."
-        password: "كلمة المرور"
-        remember_me: "تذكّرني"
-        sign_in: "لِج"
-        username: "اسم المستخدم"
-      signed_in: "ولجت بنجاح."
-      signed_out: "خرجت بنجاح."
+        login: لِج
+        username: اسم المستخدم
+        password: كلمة المرور
+        sign_in: لِج
+        remember_me: تذكّرني
+        modern_browsers: تدعم المتصفحات الحديثة فقط.
+    unlocks:
+      send_instructions: سيصلك بريد إلكترونيّ قريبًا فيه إرشادات لفكّ قفل الحساب.
+      send_paranoid_instructions: اذا كان حسابك موجودا، سيصلك بريد في بضع دقائق يحتوي ارشادات فك قفل حسابك.
+      unlocked: فُكّ قفل الحساب بنجاح. لج للمتابعة.
+      new:
+        resend_unlock: أعد إرسال إرشادات فكّ القفل
+    invitations:
+      send_instructions: أُرسلت الدّعوة.
+      invitation_token_invalid: نأسف! رمز الدّعوة غير صالح.
+      updated: ضُبطت كلمة المرور بنجاح. لقد ولجت.
     shared:
       links:
-        forgot_your_password: "أنسيت كلمة المرور؟"
-        receive_confirmation: "ألم تصلك إرشادات التّأكيد؟"
-        receive_unlock: "ألم تصلك إرشادات فكّ القفل؟"
-        sign_in: "لِج"
-        sign_up: "أنشئ حسابًا"
-        sign_up_closed: "تسجيل الحسابات مقفول حاليًّا."
-    unlocks:
-      new:
-        resend_unlock: "أعد إرسال إرشادات فكّ القفل"
-      send_instructions: "سيصلك بريد إلكترونيّ قريبًا فيه إرشادات لفكّ قفل الحساب."
-      send_paranoid_instructions: "اذا كان حسابك موجودا، سيصلك بريد في بضع دقائق يحتوي ارشادات فك قفل حسابك."
-      unlocked: "فُكّ قفل الحساب بنجاح. لج للمتابعة."
+        sign_in: لِج
+        sign_up: أنشئ حسابًا
+        sign_up_closed: تسجيل الحسابات مقفول حاليًّا.
+        forgot_your_password: أنسيت كلمة المرور؟
+        receive_confirmation: ألم تصلك إرشادات التّأكيد؟
+        receive_unlock: ألم تصلك إرشادات فكّ القفل؟
   errors:
     messages:
-      already_confirmed: "تم التأكيد مسبقا"
-      confirmation_period_expired: "يجب أن يُأكد ضمن ‎%{period}‎. أطلب واحد جديد"
-      expired: "انتهت صلاحيته. اطلب واحد جديد"
-      not_found: "غير موجود"
-      not_locked: "ليس مُقفلا"
+      already_confirmed: تم التأكيد مسبقا
+      confirmation_period_expired: يجب أن يُأكد ضمن ‎%{period}‎. أطلب واحد جديد
+      expired: انتهت صلاحيته. اطلب واحد جديد
+      not_found: غير موجود
+      not_locked: ليس مُقفلا
       not_saved:
+        zero: 'بدون أخطاء:'
+        one: 'خطأ منع حفظ ‎%{resource}‎:'
+        two: 'خطآن منعا حفظ ‎%{resource}‎:'
         few: "‎%{count}‎ أخطاء منعوا حفظ ‎%{resource}‎:"
         many: "‎%{count}‎ خطأ منعوا حفظ ‎%{resource}‎:"
-        one: "خطأ منع حفظ ‎%{resource}‎:"
         other: "‎%{count}‎ خطأ منع حفظ ‎%{resource}‎:"
-        two: "خطآن منعا حفظ ‎%{resource}‎:"
-        zero: "بدون أخطاء:"

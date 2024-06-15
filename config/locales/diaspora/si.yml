@@ -5,182 +5,182 @@
 
 
 si:
-  _services: "සේවාවන්"
-  account: "ගිණුම"
+  settings: සැකසුම්
+  account: ගිණුම
+  privacy: පෞද්ගලිකත්වය
+  _services: සේවාවන්
+  ok: හරි
+  delete: මකන්න
+  username: පරිශ්‍රීලක නම
+  email: විද්‍යුත් තැපෑල
+  are_you_sure: ඔබට විශ්වාසද ?
+  public: පොදු
+  limited: සීමිතයි
+  search: සෙවීම
+  nsfw: NSFW
+  find_people: 'පුද්ගයින් සෙවීම හෝ #tags'
+  more: තවත්...
+  no_results: කිසිදු ප්‍රතිඵලයක් හමු නොවුණි.
   activerecord:
     errors:
       models:
         user:
           attributes:
-            email:
-              taken: "දැනටමත් ලබාගෙන ඇත."
             person:
-              invalid: "වලංගු නැත"
+              invalid: වලංගු නැත
             username:
-              invalid: "වලංගු නැත. අපි ඉඩදෙන්නේ අකුරු, ඉලක්කම් සහ යටි ඉර \"_\" වලට පමණි."
-              taken: "දැනටමත් ලබාගෙන ඇත."
+              taken: දැනටමත් ලබාගෙන ඇත.
+              invalid: වලංගු නැත. අපි ඉඩදෙන්නේ අකුරු, ඉලක්කම් සහ යටි ඉර "_" වලට පමණි.
+            email:
+              taken: දැනටමත් ලබාගෙන ඇත.
   admins:
     admin_bar:
-      pages: "පිටු"
+      pages: පිටු
     stats:
-      2weeks: "සති 2 ක්"
-      daily: "දවස් පතා"
-      go: "යන්න"
-      month: "මාසය"
-      week: "සතිය"
-  are_you_sure: "ඔබට විශ්වාසද ?"
+      week: සතිය
+      2weeks: සති 2 ක්
+      month: මාසය
+      daily: දවස් පතා
+      go: යන්න
   aspects:
+    edit:
+      rename: නැවත නම් කරන්න
+      update: යාවත්කාල කරන්න
+      updating: යාවත්කාල වෙමින් පවතී
     aspect_listings:
       add_an_aspect: "+ අංගයන් එක් කරන්න"
     destroy:
-      failure: "%{name} හිස්ව නොපවතී සහ ඉවත් කිරීමට නොහැක."
       success: "%{name} සාර්ථකව ඉවත් කරන ලදී."
-    edit:
-      rename: "නැවත නම් කරන්න"
-      update: "යාවත්කාල කරන්න"
-      updating: "යාවත්කාල වෙමින් පවතී"
-    index:
-      donate: "පරිත්‍යාග කරන්න"
-      help:
-        here_to_help: "ඩයස්පෝරා ප්‍රජාව මෙතැනයි !"
-        need_help: "උදවුවක් ඕනෙද?"
-        tag_bug: "දෝෂය"
-        tag_feature: "විශේෂාංගය"
-        tag_question: "ප්‍රශ්නය"
-      new_here:
-        learn_more: "තව දැනගන්න"
-        title: "නව පරිශීලකයන්ට ආයුබෝවන්"
-      services:
-        content: "ඔබට පහත සේවාවන් Diaspora සමග සම්බන්ධ කරන්න පුළුවන්:"
-        heading: "සේවාවන් සම්බන්ධ කරන්න"
-      welcome_to_diaspora: "ඩයස්පොරා වෙතින් ආයුබොවන්, %{name}!"
-    seed:
-      acquaintances: "	ඇඳුනුම්කම්"
-      family: "පවුල"
-      friends: "යහළුවන්"
-      work: "රැකියාව"
+      failure: "%{name} හිස්ව නොපවතී සහ ඉවත් කිරීමට නොහැක."
     update:
-      failure: "ඔබගේ අංගය, %{name}, හි නම save කිරීමට දිග වැඩියි."
-      success: "ඔබගේ අංගය, %{name}, සාර්ථකව නැවත සකසන ලදී."
+      success: ඔබගේ අංගය, %{name}, සාර්ථකව නැවත සකසන ලදී.
+      failure: ඔබගේ අංගය, %{name}, හි නම save කිරීමට දිග වැඩියි.
+    seed:
+      family: පවුල
+      work: රැකියාව
+      acquaintances: "\tඇඳුනුම්කම්"
+      friends: යහළුවන්
+    index:
+      donate: පරිත්‍යාග කරන්න
+      welcome_to_diaspora: ඩයස්පොරා වෙතින් ආයුබොවන්, %{name}!
+      new_here:
+        title: නව පරිශීලකයන්ට ආයුබෝවන්
+        learn_more: තව දැනගන්න
+      help:
+        need_help: උදවුවක් ඕනෙද?
+        here_to_help: ඩයස්පෝරා ප්‍රජාව මෙතැනයි !
+        tag_question: ප්‍රශ්නය
+        tag_bug: දෝෂය
+        tag_feature: විශේෂාංගය
+      services:
+        heading: සේවාවන් සම්බන්ධ කරන්න
+        content: 'ඔබට පහත සේවාවන් Diaspora සමග සම්බන්ධ කරන්න පුළුවන්:'
   bookmarklet:
-    heading: "පොත් සලකුණ"
+    heading: පොත් සලකුණ
   comments:
     new_comment:
-      comment: "ප්‍රතිචාරයක්"
-      commenting: "ප්‍රතිචාර දක්වමින්..."
+      comment: ප්‍රතිචාරයක්
+      commenting: ප්‍රතිචාර දක්වමින්...
   contacts:
     index:
-      only_sharing_with_me: "මා සමග පමණක් share කර ඇත"
-      start_a_conversation: "සංවාදයක් අරබන්න"
+      start_a_conversation: සංවාදයක් අරබන්න
+      only_sharing_with_me: මා සමග පමණක් share කර ඇත
   conversations:
-    create:
-      fail: "පණිවිඩයක් වලංගු නැත"
-      sent: "පණිවිඩය යැව්වා"
     index:
-      no_messages: "පණිවිඩ නැත"
+      no_messages: පණිවිඩ නැත
     new:
-      send: "යවන්න"
-      sending: "යවමින්..."
-      subject: "විෂයය"
+      subject: විෂයය
+      send: යවන්න
+      sending: යවමින්...
+    create:
+      sent: පණිවිඩය යැව්වා
+      fail: පණිවිඩයක් වලංගු නැත
   date:
     formats:
+      fullmonth_day: "%B %d"
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "මකන්න"
-  email: "විද්‍යුත් තැපෑල"
-  find_people: "පුද්ගයින් සෙවීම හෝ #tags"
   invitations:
     create:
-      no_more: "ඔබ සතුව තවත් අරාධනාවන් නැත."
+      no_more: ඔබ සතුව තවත් අරාධනාවන් නැත.
     new:
-      invite_someone_to_join: "කාට හරි ආරාධනා කරන්න ඩයසපෝරා සමග සම්බන්ධවන්න!"
-      language: "භාෂාව"
-      send_an_invitation: "ආරාධනාවක් යවන්න"
+      language: භාෂාව
+      invite_someone_to_join: කාට හරි ආරාධනා කරන්න ඩයසපෝරා සමග සම්බන්ධවන්න!
+      send_an_invitation: ආරාධනාවක් යවන්න
   layouts:
-    application:
-      back_to_top: "නැවත ඉහලට යන්න"
-      whats_new: "අලුතින් මොනවද?"
     header:
-      code: "කේතය"
-      settings: "සැකසුම්"
-  limited: "සීමිතයි"
-  more: "තවත්..."
-  no_results: "කිසිදු ප්‍රතිඵලයක් හමු නොවුණි."
+      settings: සැකසුම්
+      code: කේතය
+    application:
+      whats_new: අලුතින් මොනවද?
+      back_to_top: නැවත ඉහලට යන්න
   notifier:
-    click_here: "මෙතන click කරන්න"
-    hello: "හෙලෝ %{name}!"
-    thanks: "ස්තුතියි,"
-  nsfw: "NSFW"
-  ok: "හරි"
+    click_here: මෙතන click කරන්න
+    hello: හෙලෝ %{name}!
+    thanks: ස්තුතියි,
   people:
-    index:
-      no_results: "හලෝ! ඔයාට මොකක් හරි සෙවීමට අවශ්‍යද ?"
-      results_for: "සෙවුම් ප්‍රතිඵල සඳහා"
     person:
-      thats_you: "ඒ ඔබයි!"
+      thats_you: ඒ ඔබයි!
+    index:
+      results_for: සෙවුම් ප්‍රතිඵල සඳහා
+      no_results: හලෝ! ඔයාට මොකක් හරි සෙවීමට අවශ්‍යද ?
     profile_sidebar:
-      born: "උපන්දිනය"
-      gender: "ලිංගභේදය"
-      location: "ස්ථානය"
+      location: ස්ථානය
+      gender: ලිංගභේදය
+      born: උපන්දිනය
   photos:
     destroy:
-      notice: "පින්තූරය ඉවත් කරන ලදී."
-  privacy: "පෞද්ගලිකත්වය"
+      notice: පින්තූරය ඉවත් කරන ලදී.
   profiles:
     edit:
-      first_name: "මුල් නම"
-      your_birthday: "ඔබගේ උපන් දිනය"
-      your_gender: "ඔබගේ ලිංගිකත්වය"
-      your_location: "ඔබගේ ස්ථානය"
-      your_name: "ඔබගේ නම"
-      your_photo: "ඔබගේ පින්තූරය"
-      your_tags: "ඔබ ගැන වචන 5 කින් විස්තර කරන්න"
-  public: "පොදු"
+      your_name: ඔබගේ නම
+      first_name: මුල් නම
+      your_gender: ඔබගේ ලිංගිකත්වය
+      your_birthday: ඔබගේ උපන් දිනය
+      your_tags: ඔබ ගැන වචන 5 කින් විස්තර කරන්න
+      your_location: ඔබගේ ස්ථානය
+      your_photo: ඔබගේ පින්තූරය
   registrations:
     new:
-      enter_email: "email එක ඇතුලත් කරන්න"
-      enter_password: "මුර පදයක් ඇතුලත් කරන්න ( අවම වශයෙන්වත් අකුරු 6 ක් )"
-      enter_username: "පරිශීලක නාමයක් තෝරා ගන්න (අකුරු, ඉලක්කම් සහ යටි ඉර \"_\" පමණි)"
-      username: "පරිශීලක නාමය"
-  search: "සෙවීම"
+      enter_email: email එක ඇතුලත් කරන්න
+      enter_username: පරිශීලක නාමයක් තෝරා ගන්න (අකුරු, ඉලක්කම් සහ යටි ඉර "_" පමණි)
+      enter_password: මුර පදයක් ඇතුලත් කරන්න ( අවම වශයෙන්වත් අකුරු 6 ක් )
+      username: පරිශීලක නාමය
   services:
     index:
-      disconnect: "විසන්ධි කරන්න"
-      edit_services: "සේවාවන් නැවත සකසන්න"
+      disconnect: විසන්ධි කරන්න
       really_disconnect: "%{service} විසන්ධි කරන්නද?"
-  settings: "සැකසුම්"
+      edit_services: සේවාවන් නැවත සකසන්න
   shared:
-    invitations:
-      by_email: "email එකකින්"
-      invite_your_friends: "ඔබේ මිතුරන්ට ආරාධනා කරන්න"
-      invites: "ආරාධනා කළා"
-    public_explain:
-      manage: "සම්බන්ධ සේවාවන් කළමනාකරණය කරන්න"
     publisher:
       new_user_prefill:
-        invited_by: "ආරාධනා කලාට ස්තුතියි, "
+        invited_by: 'ආරාධනා කලාට ස්තුතියි, '
+    invitations:
+      invites: ආරාධනා කළා
+      invite_your_friends: ඔබේ මිතුරන්ට ආරාධනා කරන්න
+      by_email: email එකකින්
+    public_explain:
+      manage: සම්බන්ධ සේවාවන් කළමනාකරණය කරන්න
     stream_element:
-      via_mobile: "ජංගම දුරකථනය හරහා"
+      via_mobile: ජංගම දුරකථනය හරහා
   status_messages:
     new:
-      mentioning: "සදහන්කරන්න: %{person}"
-  username: "පරිශ්‍රීලක නම"
+      mentioning: 'සදහන්කරන්න: %{person}'
   users:
     edit:
-      change: "වෙනස් කරන්න"
-      change_email: "email වෙනස්කරන්න"
-      change_language: "භාෂාව වෙනස්කරන්න"
-      change_password: "මුරපදය වෙනස්කරන්න"
+      change: වෙනස් කරන්න
+      your_handle: ඔබගේ ඩයස්පෝරා ID
+      your_email: ඔබගේ email
+      change_email: email වෙනස්කරන්න
+      change_password: මුරපදය වෙනස්කරන්න
+      new_password: නව මුරපදය
+      current_password: දැනට පවතින මුරපදය
+      change_language: භාෂාව වෙනස්කරන්න
       close_account:
-        dont_go: "හලෝ, කරුණාකර යන්න එපා!"
-      current_password: "දැනට පවතින මුරපදය"
-      new_password: "නව මුරපදය"
-      your_email: "ඔබගේ email"
-      your_handle: "ඔබගේ ඩයස්පෝරා ID"
-    getting_started:
-      who_are_you: "ඔබ කවුරුන්ද?"
+        dont_go: හලෝ, කරුණාකර යන්න එපා!
     privacy_settings:
-      ignored_users: "ප්‍රතික්ෂේපිත පරිශීලකයන්"
-      stop_ignoring: "ප්‍රතික්ෂේප කිරීම නවත්වන්න"
-      title: "පෞද්ගලිකත්ව සැකසුම්"
+      title: පෞද්ගලිකත්ව සැකසුම්
+      ignored_users: ප්‍රතික්ෂේපිත පරිශීලකයන්
+      stop_ignoring: ප්‍රතික්ෂේප කිරීම නවත්වන්න
+    getting_started:
+      who_are_you: ඔබ කවුරුන්ද?

@@ -5,230 +5,230 @@
 
 
 la:
-  _applications: "Applicātiōnēs"
-  _contacts: "Sociī"
-  _services: "Facultātēs"
-  account: "Computus"
+  settings: Parametra
+  profile: Prōfīlum
+  account: Computus
+  privacy: Arcāna
+  _services: Facultātēs
+  _applications: Applicātiōnēs
+  ok: Sīc
+  cancel: Abrogātā
+  delete: Rāde
+  username: Nōmen ūtēns
+  email: Īnscrīptiō ēlectronica
+  are_you_sure: Esne certē?
+  are_you_sure_delete_account: Esne certē tē velle computum dēlēre? Nōn est labor dēmūtābilis!
+  fill_me_out: Complē
+  public: Pūblica
+  limited: Nōn pūblica
+  search: Quaere
+  nsfw: NSFW (negōtiātiōne imprūdēns)
+  find_people: 'Quaere persōnae aut #mīcae'
+  more: Plūs
+  all_aspects: Tōtae faciēs
+  no_results: Nihil inventum
+  _contacts: Sociī
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "necesse est monodica esse inter cīvis sociōs."
+            person:
+              invalid: nōn est cōnvalida.
+            username:
+              taken: iam est sēpositum.
+              invalid: nōn est cōnvalidum. sōlum licet pōnere litteram, numerum, et sublinamenta.
+            email:
+              taken: iam est sēposita.
         person:
           attributes:
             diaspora_handle:
-              taken: "iam est sēpositum."
+              taken: iam est sēpositum.
+        contact:
+          attributes:
+            person_id:
+              taken: necesse est monodica esse inter cīvis sociōs.
         reshare:
           attributes:
             root_guid:
-              taken: "Hui, euge? iam eandem epistulam impertīverās!"
-        user:
-          attributes:
-            email:
-              taken: "iam est sēposita."
-            person:
-              invalid: "nōn est cōnvalida."
-            username:
-              invalid: "nōn est cōnvalidum. sōlum licet pōnere litteram, numerum, et sublinamenta."
-              taken: "iam est sēpositum."
-  admins:
-    admin_bar:
-      pages: "Pāginae"
-    stats:
-      posts:
-        one: "unam epistulam"
-        other: "%{count} epistulae"
-        zero: "nulla epistulam"
-  all_aspects: "Tōtae faciēs"
-  are_you_sure: "Esne certē?"
-  are_you_sure_delete_account: "Esne certē tē velle computum dēlēre? Nōn est labor dēmūtābilis!"
-  aspects:
-    add_to_aspect:
-      success: "Vērē faciē socium additum est."
-    aspect_listings:
-      add_an_aspect: "adde faciem"
-    destroy:
-      success: "Vērē %{name} demptum est."
-    edit:
-      aspect_list_is_not_visible: "Sociī in faciem nōn possunt inter sē vidērī."
-      aspect_list_is_visible: "Sociī in faciem possunt inter sē vidērī."
-      confirm_remove_aspect: "Esne certē tē velle faciem delēre?"
-      rename: "Trānsnōminā"
-      update: "Corrige"
-      updating: "Corrigere"
-    index:
-      donate: "Dā stipem"
-      help:
-        do_you: "Facisne:"
-        find_a_bug: "... invenīre %{link}?"
-        have_a_question: "... tenēre %{link}"
-        here_to_help: "Cīvitās diasporae adest!"
-        need_help: "Necessene tibi est iuvārī?"
-        tag_bug: "culex"
-        tag_question: "quaesitum"
-      introduce_yourself: "Flūmen tibi est. Insalī atque tē trāde."
-      new_here:
-        follow: "Sequere %{link} et iubē novōs Diasporae cīvēs salvēre!"
-        learn_more: "Cognoscē plūs"
-        title: "Salvēte novi/ae cīvēs!"
-      welcome_to_diaspora: "Salvē Diasporae, %{name}!"
-    no_contacts_message:
-      community_spotlight: "cīvitātis celebritās"
-      or_spotlight: "Aut potes impertīre cum %{link}"
-      try_adding_some_more_contacts: "Sociōs plūrēs %{invite_link} aut potes quaerere."
-      you_should_add_some_more_contacts: "Sociōs plūrēs cōnscrībere dēbēs!"
-    seed:
-      acquaintances: "Hospitēs"
-      family: "Familia"
-      friends: "Amicī"
-      work: "Negōtium"
-  bookmarklet:
-    post_something: "Dīvulgā ad diasporam"
-  cancel: "Abrogātā"
-  contacts:
-    index:
-      all_contacts: "Sociī tōtī"
-      community_spotlight: "Cīvitātis celebritās"
-      my_contacts: "Sociī meī"
-      only_sharing_with_me: "Solus mēcum impertiēns."
-      title: "Sociī"
-    spotlight:
-      community_spotlight: "Cīvitātis celebritās"
-  conversations:
-    create:
-      fail: "Nūntius convalidus"
-      sent: "Nūntius missus est"
-    index:
-      inbox: "Scrīnium"
-      no_messages: "nullus nūntius"
-    new:
-      send: "Mitte"
-      sending: "Mittēre..."
-      subject: "Subiectum"
-      to: "Ad"
-    show:
-      delete: "Abrōgā sermōnem"
-      reply: "Respondē"
-      replying: "Respondēre..."
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Rāde"
-  email: "Īnscrīptiō ēlectronica"
+              taken: Hui, euge? iam eandem epistulam impertīverās!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Corrige errōrēs sequēntēs et recōnāre."
-  fill_me_out: "Complē"
-  find_people: "Quaere persōnae aut #mīcae"
+      correct_the_following_errors_and_try_again: Corrige errōrēs sequēntēs et recōnāre.
+  admins:
+    admin_bar:
+      pages: Pāginae
+    stats:
+      posts:
+        zero: nulla epistulam
+        one: unam epistulam
+        other: "%{count} epistulae"
+  aspects:
+    edit:
+      confirm_remove_aspect: Esne certē tē velle faciem delēre?
+      rename: Trānsnōminā
+      aspect_list_is_visible: Sociī in faciem possunt inter sē vidērī.
+      aspect_list_is_not_visible: Sociī in faciem nōn possunt inter sē vidērī.
+      update: Corrige
+      updating: Corrigere
+    no_contacts_message:
+      you_should_add_some_more_contacts: Sociōs plūrēs cōnscrībere dēbēs!
+      try_adding_some_more_contacts: Sociōs plūrēs %{invite_link} aut potes quaerere.
+      or_spotlight: Aut potes impertīre cum %{link}
+      community_spotlight: cīvitātis celebritās
+    aspect_listings:
+      add_an_aspect: adde faciem
+    destroy:
+      success: Vērē %{name} demptum est.
+    add_to_aspect:
+      success: Vērē faciē socium additum est.
+    seed:
+      family: Familia
+      work: Negōtium
+      acquaintances: Hospitēs
+      friends: Amicī
+    index:
+      donate: Dā stipem
+      welcome_to_diaspora: Salvē Diasporae, %{name}!
+      introduce_yourself: Flūmen tibi est. Insalī atque tē trāde.
+      new_here:
+        title: Salvēte novi/ae cīvēs!
+        follow: Sequere %{link} et iubē novōs Diasporae cīvēs salvēre!
+        learn_more: Cognoscē plūs
+      help:
+        need_help: Necessene tibi est iuvārī?
+        here_to_help: Cīvitās diasporae adest!
+        do_you: 'Facisne:'
+        have_a_question: "... tenēre %{link}"
+        tag_question: quaesitum
+        find_a_bug: "... invenīre %{link}?"
+        tag_bug: culex
+  bookmarklet:
+    post_something: Dīvulgā ad diasporam
+  contacts:
+    index:
+      title: Sociī
+      community_spotlight: Cīvitātis celebritās
+      my_contacts: Sociī meī
+      all_contacts: Sociī tōtī
+      only_sharing_with_me: Solus mēcum impertiēns.
+    spotlight:
+      community_spotlight: Cīvitātis celebritās
+  conversations:
+    index:
+      no_messages: nullus nūntius
+      inbox: Scrīnium
+    show:
+      reply: Respondē
+      replying: Respondēre...
+      delete: Abrōgā sermōnem
+    new:
+      to: Ad
+      subject: Subiectum
+      send: Mitte
+      sending: Mittēre...
+    create:
+      sent: Nūntius missus est
+      fail: Nūntius convalidus
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
   help:
-    irc: "IRC"
+    irc: IRC
   invitations:
     new:
-      language: "Lingua"
+      language: Lingua
   layouts:
-    application:
-      public_feed: "Vestīgia Diasporae publica dē %{name}"
-      whats_new: "Quid novī?"
     header:
-      logout: "Exī"
-      profile: "Prōfīlum"
-      settings: "Parametra"
-  limited: "Nōn pūblica"
-  more: "Plūs"
-  no_results: "Nihil inventum"
+      profile: Prōfīlum
+      settings: Parametra
+      logout: Exī
+    application:
+      whats_new: Quid novī?
+      public_feed: Vestīgia Diasporae publica dē %{name}
   notifications:
     index:
-      and: "et"
+      and: et
   notifier:
-    a_post_you_shared: "epistulam."
-    hello: "Salvē %{name}!"
-    liked:
-      view_post: "Epistulam vidē >"
-    reshared:
-      view_post: "Epistulam vidē >"
+    a_post_you_shared: epistulam.
+    hello: Salvē %{name}!
+    thanks: Grātiās,
     started_sharing:
-      view_profile: "prōfīlum dē %{name} vidē"
-    thanks: "Grātiās,"
-  nsfw: "NSFW (negōtiātiōne imprūdēns)"
-  ok: "Sīc"
+      view_profile: prōfīlum dē %{name} vidē
+    liked:
+      view_post: Epistulam vidē >
+    reshared:
+      view_post: Epistulam vidē >
   people:
     person:
-      thats_you: "Est tū!"
+      thats_you: Est tū!
   photos:
     destroy:
-      notice: "imāgō rāsa est."
+      notice: imāgō rāsa est.
   posts:
     show:
       photos_by:
-        one: "Una imāgō apud %{author}"
+        zero: Imāgō nulla apud %{author}
+        one: Una imāgō apud %{author}
         other: "%{count} imāginēs apud %{author}"
-        zero: "Imāgō nulla apud %{author}"
-  privacy: "Arcāna"
-  profile: "Prōfīlum"
   profiles:
     edit:
-      update_profile: "Corrige prōfīlum"
-      your_gender: "Genus"
-      your_location: "Locātrum"
-      your_name: "Nōmen tibi"
-      your_photo: "Imāgō"
+      your_name: Nōmen tibi
+      your_gender: Genus
+      your_location: Locātrum
+      your_photo: Imāgō
+      update_profile: Corrige prōfīlum
     update:
-      updated: "Prōfīlum corrēctum"
-  public: "Pūblica"
+      updated: Prōfīlum corrēctum
   registrations:
-    create:
-      success: "Diasporam coniūnxerās!"
     new:
-      password: "Tessera"
-  search: "Quaere"
-  settings: "Parametra"
+      password: Tessera
+    create:
+      success: Diasporam coniūnxerās!
   shared:
     aspect_dropdown:
       toggle:
-        one: "In %{count} faciē"
-        other: "In %{count} faciēbus"
-    public_explain:
-      share: "Impertī"
+        one: In %{count} faciē
+        other: In %{count} faciēbus
     publisher:
+      posting: Dīvulgāre...
+      share: Impertī
+      whats_on_your_mind: Quid tibi in animō est?
       new_user_prefill:
-        hello: "Salvēte, mihi nōmen est %{new_user_tag}. "
-        newhere: "NovusHic"
-      posting: "Dīvulgāre..."
-      share: "Impertī"
-      whats_on_your_mind: "Quid tibi in animō est?"
-  streams:
-    aspects:
-      title: "Faciēs meae"
-    aspects_stream: "Faciēs"
-    community_spotlight_stream: "Cīvitātis celebritās"
-    followed_tag:
-      follow: "Sequere"
-    followed_tags_stream: "#Signa sequenda"
-    mentioned_stream: "@Fāmae"
-    mentions:
-      title: "@Fāmae"
+        newhere: NovusHic
+        hello: 'Salvēte, mihi nōmen est %{new_user_tag}. '
+    public_explain:
+      share: Impertī
   tags:
     show:
-      follow: "Sequere #%{tag}"
-  username: "Nōmen ūtēns"
+      follow: 'Sequere #%{tag}'
+  streams:
+    community_spotlight_stream: Cīvitātis celebritās
+    aspects_stream: Faciēs
+    mentioned_stream: "@Fāmae"
+    followed_tags_stream: "#Signa sequenda"
+    mentions:
+      title: "@Fāmae"
+    followed_tag:
+      follow: Sequere
+    aspects:
+      title: Faciēs meae
   users:
     edit:
-      change: "Mūtā"
-      change_email: "Mūtā īnscrīptiōnem ēlectronicam"
-      change_language: "Mūtā linguam"
-      change_password: "Mūtā tesseram"
-      close_account_text: "Dīmittere dē Diasporā (abrogāre computum)"
-      current_password: "Tessera praesēns"
-      new_password: "Tessera nova"
-      your_email: "īnscrīptiō ēlectronica tua"
-    getting_started:
-      what_are_you_in_to: "Quid tibi placet?"
-      who_are_you: "Quis es?"
+      change: Mūtā
+      your_email: īnscrīptiō ēlectronica tua
+      change_email: Mūtā īnscrīptiōnem ēlectronicam
+      change_password: Mūtā tesseram
+      new_password: Tessera nova
+      current_password: Tessera praesēns
+      change_language: Mūtā linguam
+      close_account_text: Dīmittere dē Diasporā (abrogāre computum)
     privacy_settings:
-      title: "Parametra arcānae"
+      title: Parametra arcānae
+    getting_started:
+      who_are_you: Quis es?
+      what_are_you_in_to: Quid tibi placet?
     update:
-      language_changed: "Lingua mūta est"
+      language_changed: Lingua mūta est

@@ -6,16 +6,16 @@
 
 fil:
   javascripts:
-    confirm_dialog: "Sigurado ka ba?"
-    header:
-      view_all: "Tingnan lahat"
-    stream:
-      hide: "Itago"
-      public: "Publiko"
     timeago:
+      prefixAgo: ''
+      suffixAgo: ''
+      suffixFromNow: ''
+      prefixFromNow: ''
       minutes:
         other: "%d minuto"
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: ""
-      suffixFromNow: ""
+    confirm_dialog: Sigurado ka ba?
+    stream:
+      hide: Itago
+      public: Publiko
+    header:
+      view_all: Tingnan lahat

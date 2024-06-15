@@ -5,39 +5,39 @@
 
 
 kn:
-  _applications: "ಅನ್ವಯಿಸುವಿಕೆಗಳು"
-  _contacts: "ಸಂಪರ್ಕಗಳು"
-  _services: "ಸೇವೆಗಳು"
-  account: "ಖಾತೆ"
+  settings: ಸೆಟ್ಟಿಂಗ್ಗಳು
+  profile: ಸ್ವವಿವರ
+  account: ಖಾತೆ
+  privacy: ಖಾಸಗಿತನ
+  _services: ಸೇವೆಗಳು
+  _applications: ಅನ್ವಯಿಸುವಿಕೆಗಳು
+  ok: ಒಪ್ಪಿಗೆ
+  delete: ಅಳಿಸು
+  username: ಬಳಕೆದಾರಹೆಸರು
+  email: ಇಮೇಲ್
+  are_you_sure: ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?
+  are_you_sure_delete_account: ನೀವು ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಮುಚ್ಚಲು ಬಯಸುವಿರಾ? ಇದನ್ನು ರದ್ದುಪಡಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ!
+  fill_me_out: ತುಂಬಿಸಿ
+  public: ಲೋಕಪ್ರಸಿದ್ಧ
+  limited: ಸೀಮಿತ
+  search: ಹುಡುಕು
+  nsfw: ಎನ್ ಎಸ್ ಎಫ್ ಡಬೣಯೂ
+  find_people: 'ಜನರನ್ನು ಹುಡುಕಿ ಅಥವಾ #ಟ್ಯಾಗ್ಗಳು'
+  more: ಮತ್ತಷ್ಟು
+  all_aspects: ಎಲ್ಲಾ ಅಂಶಗಳು
+  no_results: ಫಲಿತಾಂಶಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ
+  _contacts: ಸಂಪರ್ಕಗಳು
   activerecord:
     errors:
       models:
-        contact:
-          attributes:
-            person_id:
-              taken: "ಈ ಬಳಕೆದಾರರ ಸಂಪರ್ಕಗಳ ನಡುವೆ ಅನನ್ಯ ಇರಬೇಕು."
         user:
           attributes:
             person:
-              invalid: "ಅಮಾನ್ಯವಾಗಿದೆ"
+              invalid: ಅಮಾನ್ಯವಾಗಿದೆ
             username:
-              invalid: "ಅಮಾನ್ಯವಾಗಿದೆ. ನಾವು ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು, ಮತ್ತು ಒತ್ತಿಹೇಳುತ್ತದೆ ಮಾತ್ರ ಅವಕಾಶ"
-              taken: "ಈಗಾಗಲೇ ತೆಗೆದುಕೊಳ್ಳಲಾಗಿದೆ"
-  all_aspects: "ಎಲ್ಲಾ ಅಂಶಗಳು"
-  are_you_sure: "ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?"
-  are_you_sure_delete_account: "ನೀವು ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಮುಚ್ಚಲು ಬಯಸುವಿರಾ? ಇದನ್ನು ರದ್ದುಪಡಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ!"
-  delete: "ಅಳಿಸು"
-  email: "ಇಮೇಲ್"
-  fill_me_out: "ತುಂಬಿಸಿ"
-  find_people: "ಜನರನ್ನು ಹುಡುಕಿ ಅಥವಾ #ಟ್ಯಾಗ್ಗಳು"
-  limited: "ಸೀಮಿತ"
-  more: "ಮತ್ತಷ್ಟು"
-  no_results: "ಫಲಿತಾಂಶಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ"
-  nsfw: "ಎನ್ ಎಸ್ ಎಫ್ ಡಬೣಯೂ"
-  ok: "ಒಪ್ಪಿಗೆ"
-  privacy: "ಖಾಸಗಿತನ"
-  profile: "ಸ್ವವಿವರ"
-  public: "ಲೋಕಪ್ರಸಿದ್ಧ"
-  search: "ಹುಡುಕು"
-  settings: "ಸೆಟ್ಟಿಂಗ್ಗಳು"
-  username: "ಬಳಕೆದಾರಹೆಸರು"
+              taken: ಈಗಾಗಲೇ ತೆಗೆದುಕೊಳ್ಳಲಾಗಿದೆ
+              invalid: ಅಮಾನ್ಯವಾಗಿದೆ. ನಾವು ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು, ಮತ್ತು ಒತ್ತಿಹೇಳುತ್ತದೆ ಮಾತ್ರ ಅವಕಾಶ
+        contact:
+          attributes:
+            person_id:
+              taken: ಈ ಬಳಕೆದಾರರ ಸಂಪರ್ಕಗಳ ನಡುವೆ ಅನನ್ಯ ಇರಬೇಕು.

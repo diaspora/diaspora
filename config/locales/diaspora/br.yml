@@ -5,694 +5,694 @@
 
 
 br:
-  _applications: "Arloadoù"
-  _contacts: "Darempredoù"
-  _help: "Skoazell"
-  _services: "Servijoù"
-  account: "Kont"
+  settings: Arventennoù
+  profile: Aelad
+  account: Kont
+  privacy: Prevezded
+  _services: Servijoù
+  _applications: Arloadoù
+  _help: Skoazell
+  ok: Mat eo
+  cancel: Nullañ
+  delete: Diverkañ
+  username: Anv-implijer
+  email: Postel
+  are_you_sure: Ha sur oc'h ?
+  are_you_sure_delete_account: Ha sur oc'h e fell deoc'h klozañ ho kont ? Ne c'hallo ket bezañ disc'hraet !
+  fill_me_out: Disilañ ac'hanon
+  public: A-wel d'an holl
+  limited: Bevennet
+  search: Klask
+  nsfw: NSFW
+  find_people: 'Kavout tud pe #tikedennoù'
+  more: Muioc'h
+  all_aspects: An holl strolladoù
+  no_results: Disoc'h ebet kavet
+  _contacts: Darempredoù
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "a rank bezañ e-unan e-touez darempredoù an implijer-mañ."
+            person:
+              invalid: a zo direizh
+            username:
+              taken: a zo bet tapet c'hoazh
+              invalid: a zo direizh. N'eo aotreet nemet al lizherennoù, ar sifroù, hag ar barrennigoù-islinennañ.
+            email:
+              taken: a zo bet tapet c'hoazh.
         person:
           attributes:
             diaspora_handle:
-              taken: "a zo bet tapet c'hoazh"
-        poll:
+              taken: a zo bet tapet c'hoazh
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "Ne bourchaser ket a-walc'h a ginnigoù votiñ."
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "Kemeret hoc'h eus perzh er votadeg-mañ c'hoazh !"
+            person_id:
+              taken: a rank bezañ e-unan e-touez darempredoù an implijer-mañ.
         reshare:
           attributes:
             root_guid:
-              taken: "Ha ken mat se eo ? Rannet eo bet ar post-mañ ganeoc'h c'hoazh !"
-        user:
+              taken: Ha ken mat se eo ? Rannet eo bet ar post-mañ ganeoc'h c'hoazh !
+        poll:
           attributes:
-            email:
-              taken: "a zo bet tapet c'hoazh."
-            person:
-              invalid: "a zo direizh"
-            username:
-              invalid: "a zo direizh. N'eo aotreet nemet al lizherennoù, ar sifroù, hag ar barrennigoù-islinennañ."
-              taken: "a zo bet tapet c'hoazh"
-  admins:
-    admin_bar:
-      pages: "Pajennoù"
-      pod_stats: "Stadegoù ar pod"
-      user_search: "Klask implijerien"
-      weekly_user_stats: "Stadegoù implijer sizhuniek"
-    stats:
-      2weeks: "Pemzektez"
-      50_most: "50 tikedenn vrudetañ"
-      comments:
-        one: "%{count} evezhiadenn"
-        other: "%{count} evezhiadenn"
-        zero: "%{count} evezhiadenn"
-      current_segment: "Ar regenn vremanel he deus ur geidenn a <b>%{post_yest}</b> post dre implijer, abaoe <b>%{post_day}</b>"
-      daily: "Bemdez"
-      display_results: "O tiskouez an disoc'hoù evit ar regenn <b>%{segment}</b>"
-      go: "mont"
-      month: "Miz"
-      posts:
-        one: "%{count} post"
-        other: "%{count} a bostoù"
-        zero: "%{count} post"
-      shares:
-        one: "%{count} rannadenn"
-        other: "%{count} rannadenn"
-        zero: "%{count} rannadenn"
-      tag_name: "Anv an tiked : <b>%{name_tag}</b> Niver : <b>%{count_tag}</b>"
-      usage_statistic: "Stadegoù implij"
-      users:
-        one: "%{count} implijer"
-        other: "%{count} implijer"
-        zero: "%{count} implijer"
-      week: "Sizhun"
-    user_entry:
-      invite_token: "Bilhed-pediñ"
-    user_search:
-      add_invites: "Ouzhpennañ pedadennoù"
-      email_to: "Postel evit pediñ"
-      under_13: "Diskouez an implijerien dindan 13 bloaz (COPPA)"
-      users:
-        one: "%{count} implijer kavet"
-        other: "%{count} implijer kavet"
-        zero: "Implijer ebet kavet"
-      view_profile: "Gwelet an aelad"
-      you_currently:
-        one: "Ur bedadenn a chom %{link}"
-        other: "%{count} a pedadennoù a chom deoc'h %{link}"
-        zero: "N'ho peus pedadenn ebet ken evit ar mare %{link}"
-    weekly_user_stats:
-      amount_of:
-        one: "Niver a implijerien nevez er sizhun-mañ: %{count}"
-        other: "Niver a implijerien nevez er sizhun-mañ: %{count}"
-        zero: "Niver a implijerien nevez er sizhun-mañ: hini ebet"
-      current_server: "Deiziad red ar servijer zo %{date}"
-  all_aspects: "An holl strolladoù"
-  are_you_sure: "Ha sur oc'h ?"
-  are_you_sure_delete_account: "Ha sur oc'h e fell deoc'h klozañ ho kont ? Ne c'hallo ket bezañ disc'hraet !"
-  aspect_memberships:
-    destroy:
-      failure: "N'eus ket bet gallet tennañ an den er-maez eus ar strollad"
-      no_membership: "N'eus ket bet gallet kavout an den diuzet er strollad-mañ."
-      success: "Tennet eo bet an den er-maez eus ar strollad ervat."
-  aspects:
-    add_to_aspect:
-      failure: "N'eus ket bet gallet ouzhpennañ an darempred d'ar strollad"
-      success: "Ouzhpennet eo bet an darempred d'ar strollad ervat"
-    aspect_listings:
-      add_an_aspect: "+ Ouzhpennañ ur strollad"
-    aspect_stream:
-      make_something: "Grit un dra bennak"
-      stay_updated: "Heuliañ an nevezenti"
-      stay_updated_explanation: "O red pennañ a zo peurleugniet gant o darempredoù, o tagoù heuliet, ha dre mesajoù izili zo ar rouedad."
-    destroy:
-      failure: "%{name} n'eo ket goullo ha ne c'hall ket bezañ diverket"
-      success: "Diverket eo bet %{name} ervat."
-    edit:
-      aspect_list_is_not_visible: "N'hall ket darempredoù ar strollad-mañ en em welet"
-      aspect_list_is_visible: "Gallout a ra darempredoù ar strollad-mañ en em welet"
-      confirm_remove_aspect: "Ha sur oc'h e fell deoc'h diverkañ ar strollad-mañ ?"
-      rename: "cheñch an anv"
-      update: "hizivaat"
-      updating: "oc'h hizivaat"
-    index:
-      donate: "Reiñ arc'hant"
-      help:
-        any_problem: "Ur gudenn bennak?"
-        contact_podmin: "Kit e darempred gant merour ho pod!"
-        do_you: "Hag:"
-        feature_suggestion: "... ul %{link} ?"
-        find_a_bug: "... kavet ur %{link} ?"
-        have_a_question: "... ul %{link} ?"
-        here_to_help: "Izili kumuniezh Diaspora zo aze evit sikour !"
-        mail_podmin: "Postel ar podrour"
-        need_help: "Ezhomm skoazell ?"
-        tag_bug: "#draen"
-        tag_feature: "#perzh"
-        tag_question: "#goulenn"
-        tutorial_link_text: "Kelennskridoù"
-        tutorials_and_wiki: "%{faq}, %{tutorial} ha %{wiki} : skoazell evit ho pazioù kentañ"
-      introduce_yourself: "Hemañ eo ar red darvoudoù. Kit e-barzh hag en em ginnigit"
-      keep_pod_running: "Sikourit %{pod} da vont en-dro buan ha prenit banneoù kafe d'ho servijerien gant ur roadenn viziek."
-      new_here:
-        follow: "Heuilhit %{link} ha roit an degemer mat d'an implijerien nevez war Diapora*!"
-        learn_more: "Gouzout hiroc'h"
-        title: "Degemer an implijerien nevez"
-      services:
-        content: "Gallout a rit kennaskañ ar servijoù-mañ ouzh Diaspora"
-        heading: "Servijoù kennaskañ"
-      welcome_to_diaspora: "Donemat deoc'h e Diaspora, %{name} !"
-    no_contacts_message:
-      community_spotlight: "Emañ ar gouloù warne"
-      or_spotlight: "pe gallout a rit rannañ dre %{link}"
-      try_adding_some_more_contacts: "Gallout a rit klask darempredoù pe pediñ re all"
-      you_should_add_some_more_contacts: "Dleout a rafec'h ouzhpennañ darempredoù all !"
-    seed:
-      acquaintances: "Tud anavezet"
-      family: "Familh"
-      friends: "Mignoned"
-      work: "Labour"
-    update:
-      failure: "Re hir eo anv ho strollad, %{name}, evit gallout bezañ enrollet"
-      success: "Kemmet eo bet ho strollad, %{name}, ervat."
-  blocks:
-    create:
-      failure: "N'hallan ket ober van eus an implijer-mañ"
-      success: "Mat eo, ne vo ket diskouezet an implijer-mañ war ho red en-dro. #silencio"
-    destroy:
-      failure: "N'hallan ket paouez d'ober van eus an implijer-mañ"
-      success: "Sellomp petra ho deus da lavarout ! #lardemat"
-  bookmarklet:
-    explanation: "Postit traoù war diaspora* adalek forzh pelec'h dre lakaat ur sined d'al liamm-mañ => %{link}."
-    heading: "Sinedoù Diaspora"
-    post_something: "Embann un dra bennak e Diaspora"
-  cancel: "Nullañ"
-  comments:
-    new_comment:
-      comment: "Evezhiadenn"
-      commenting: "Oc'h embann..."
-  contacts:
-    index:
-      all_contacts: "An holl zarempredoù"
-      community_spotlight: "Nevezenti ar rouedad"
-      my_contacts: "Ma darempredoù"
-      no_contacts: "Evit doare hoc'h eus ezhomm da ouzhpennañ un nebeud darempredoù"
-      no_contacts_message: "Klaskit %{community_spotlight}"
-      only_sharing_with_me: "O rannañ keleier ganin hepken"
-      start_a_conversation: "Boulc'hañ ur gaoz"
-      title: "Darempredoù"
-    spotlight:
-      community_spotlight: "Nevezenti ar rouedad"
-      suggest_member: "Kinnig anv un ezel"
-  conversations:
-    create:
-      fail: "kemennadenn direizh"
-      sent: "Kemennadenn bet kaset"
-    index:
-      conversations_inbox: "Kaozeadennoù – Boest degemer"
-      inbox: "Boest-lizheroù"
-      new_conversation: "Kaoz nevez"
-      no_messages: "kemennadenn ebet"
-    new:
-      send: "Kaset"
-      sending: "O kas..."
-      subject: "danvez"
-      to: "da"
-    new_conversation:
-      fail: "kemennadenn direizh"
-    show:
-      delete: "diverkañ ha kraouiañ ar gaoz"
-      reply: "respont"
-      replying: "O respont..."
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Diverkañ"
-  email: "Postel"
+            poll_answers:
+              not_enough_poll_answers: Ne bourchaser ket a-walc'h a ginnigoù votiñ.
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: Kemeret hoc'h eus perzh er votadeg-mañ c'hoazh !
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Divankit ar fazioù da heul ha klaskit en-dro."
-  fill_me_out: "Disilañ ac'hanon"
-  find_people: "Kavout tud pe #tikedennoù"
+      correct_the_following_errors_and_try_again: Divankit ar fazioù da heul ha klaskit en-dro.
+  admins:
+    admin_bar:
+      pages: Pajennoù
+      user_search: Klask implijerien
+      weekly_user_stats: Stadegoù implijer sizhuniek
+      pod_stats: Stadegoù ar pod
+    user_search:
+      you_currently:
+        zero: N'ho peus pedadenn ebet ken evit ar mare %{link}
+        one: Ur bedadenn a chom %{link}
+        other: "%{count} a pedadennoù a chom deoc'h %{link}"
+      view_profile: Gwelet an aelad
+      add_invites: Ouzhpennañ pedadennoù
+      email_to: Postel evit pediñ
+      under_13: Diskouez an implijerien dindan 13 bloaz (COPPA)
+      users:
+        zero: Implijer ebet kavet
+        one: "%{count} implijer kavet"
+        other: "%{count} implijer kavet"
+    user_entry:
+      invite_token: Bilhed-pediñ
+    weekly_user_stats:
+      current_server: Deiziad red ar servijer zo %{date}
+      amount_of:
+        zero: 'Niver a implijerien nevez er sizhun-mañ: hini ebet'
+        one: 'Niver a implijerien nevez er sizhun-mañ: %{count}'
+        other: 'Niver a implijerien nevez er sizhun-mañ: %{count}'
+    stats:
+      week: Sizhun
+      2weeks: Pemzektez
+      month: Miz
+      daily: Bemdez
+      usage_statistic: Stadegoù implij
+      go: mont
+      display_results: O tiskouez an disoc'hoù evit ar regenn <b>%{segment}</b>
+      posts:
+        zero: "%{count} post"
+        one: "%{count} post"
+        other: "%{count} a bostoù"
+      comments:
+        zero: "%{count} evezhiadenn"
+        one: "%{count} evezhiadenn"
+        other: "%{count} evezhiadenn"
+      shares:
+        zero: "%{count} rannadenn"
+        one: "%{count} rannadenn"
+        other: "%{count} rannadenn"
+      users:
+        zero: "%{count} implijer"
+        one: "%{count} implijer"
+        other: "%{count} implijer"
+      current_segment: Ar regenn vremanel he deus ur geidenn a <b>%{post_yest}</b> post dre implijer, abaoe <b>%{post_day}</b>
+      50_most: 50 tikedenn vrudetañ
+      tag_name: 'Anv an tiked : <b>%{name_tag}</b> Niver : <b>%{count_tag}</b>'
+  aspects:
+    edit:
+      confirm_remove_aspect: Ha sur oc'h e fell deoc'h diverkañ ar strollad-mañ ?
+      rename: cheñch an anv
+      aspect_list_is_visible: Gallout a ra darempredoù ar strollad-mañ en em welet
+      aspect_list_is_not_visible: N'hall ket darempredoù ar strollad-mañ en em welet
+      update: hizivaat
+      updating: oc'h hizivaat
+    no_contacts_message:
+      you_should_add_some_more_contacts: Dleout a rafec'h ouzhpennañ darempredoù all !
+      try_adding_some_more_contacts: Gallout a rit klask darempredoù pe pediñ re all
+      or_spotlight: pe gallout a rit rannañ dre %{link}
+      community_spotlight: Emañ ar gouloù warne
+    aspect_listings:
+      add_an_aspect: "+ Ouzhpennañ ur strollad"
+    destroy:
+      success: Diverket eo bet %{name} ervat.
+      failure: "%{name} n'eo ket goullo ha ne c'hall ket bezañ diverket"
+    update:
+      success: Kemmet eo bet ho strollad, %{name}, ervat.
+      failure: Re hir eo anv ho strollad, %{name}, evit gallout bezañ enrollet
+    add_to_aspect:
+      failure: N'eus ket bet gallet ouzhpennañ an darempred d'ar strollad
+      success: Ouzhpennet eo bet an darempred d'ar strollad ervat
+    seed:
+      family: Familh
+      work: Labour
+      acquaintances: Tud anavezet
+      friends: Mignoned
+    index:
+      donate: Reiñ arc'hant
+      keep_pod_running: Sikourit %{pod} da vont en-dro buan ha prenit banneoù kafe d'ho servijerien gant ur roadenn viziek.
+      welcome_to_diaspora: Donemat deoc'h e Diaspora, %{name} !
+      introduce_yourself: Hemañ eo ar red darvoudoù. Kit e-barzh hag en em ginnigit
+      new_here:
+        title: Degemer an implijerien nevez
+        follow: Heuilhit %{link} ha roit an degemer mat d'an implijerien nevez war Diapora*!
+        learn_more: Gouzout hiroc'h
+      help:
+        need_help: Ezhomm skoazell ?
+        here_to_help: Izili kumuniezh Diaspora zo aze evit sikour !
+        do_you: 'Hag:'
+        have_a_question: "... ul %{link} ?"
+        tag_question: "#goulenn"
+        find_a_bug: "... kavet ur %{link} ?"
+        tag_bug: "#draen"
+        feature_suggestion: "... ul %{link} ?"
+        tag_feature: "#perzh"
+        tutorials_and_wiki: "%{faq}, %{tutorial} ha %{wiki} : skoazell evit ho pazioù kentañ"
+        tutorial_link_text: Kelennskridoù
+        any_problem: Ur gudenn bennak?
+        contact_podmin: Kit e darempred gant merour ho pod!
+        mail_podmin: Postel ar podrour
+      services:
+        heading: Servijoù kennaskañ
+        content: Gallout a rit kennaskañ ar servijoù-mañ ouzh Diaspora
+    aspect_stream:
+      stay_updated: Heuliañ an nevezenti
+      stay_updated_explanation: O red pennañ a zo peurleugniet gant o darempredoù, o tagoù heuliet, ha dre mesajoù izili zo ar rouedad.
+      make_something: Grit un dra bennak
+  aspect_memberships:
+    destroy:
+      success: Tennet eo bet an den er-maez eus ar strollad ervat.
+      failure: N'eus ket bet gallet tennañ an den er-maez eus ar strollad
+      no_membership: N'eus ket bet gallet kavout an den diuzet er strollad-mañ.
+  bookmarklet:
+    heading: Sinedoù Diaspora
+    post_something: Embann un dra bennak e Diaspora
+    explanation: Postit traoù war diaspora* adalek forzh pelec'h dre lakaat ur sined d'al liamm-mañ => %{link}.
+  comments:
+    new_comment:
+      comment: Evezhiadenn
+      commenting: Oc'h embann...
+  contacts:
+    index:
+      start_a_conversation: Boulc'hañ ur gaoz
+      title: Darempredoù
+      no_contacts: Evit doare hoc'h eus ezhomm da ouzhpennañ un nebeud darempredoù
+      no_contacts_message: Klaskit %{community_spotlight}
+      community_spotlight: Nevezenti ar rouedad
+      my_contacts: Ma darempredoù
+      all_contacts: An holl zarempredoù
+      only_sharing_with_me: O rannañ keleier ganin hepken
+    spotlight:
+      community_spotlight: Nevezenti ar rouedad
+      suggest_member: Kinnig anv un ezel
+  conversations:
+    index:
+      conversations_inbox: Kaozeadennoù – Boest degemer
+      new_conversation: Kaoz nevez
+      no_messages: kemennadenn ebet
+      inbox: Boest-lizheroù
+    show:
+      reply: respont
+      replying: O respont...
+      delete: diverkañ ha kraouiañ ar gaoz
+    new:
+      to: da
+      subject: danvez
+      send: Kaset
+      sending: O kas...
+    create:
+      sent: Kemennadenn bet kaset
+      fail: kemennadenn direizh
+    new_conversation:
+      fail: kemennadenn direizh
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
   help:
-    account_and_data_management:
-      close_account_a: "Kit e dibenn pajenn ho arventennoù ha klikit war \"Serriñ va gont\". Goulennet e vo ganeoc'h enankan ho ker-tremen evit klokaat an hentenn. Dalc'hit soñj, ma serrit ho kont, ne vo <strong>morse</strong> tu deoc'h ad-marilhañ ho anv-implijer war ar pod-mañ."
-      close_account_q: "Penaos e tiverkan va greunenn (kont) ?"
-      data_other_podmins_a: "Ur wech m'emaoc'h o rannañ gant unan bennak war ur pod all, kement post rannet ganeoc'h hag un eilenn eus ho aelad a zo kadavet (er c'hrubuilh) war o pod, hag haezadus eo evit merour ar pod. Pa vez dilamet ur post pe roadennoù un aelad eo dilamet eus ho pod hag kaset e vez un azgoulenn dilamadur d'an holl podoù o deus endalc'het anezho. Ho skeudennoù n'int morse kadavet war podoù all; n'eus nemet ereoù davet anezho."
-      data_other_podmins_q: "Ha gallout a ra merourien podoù all gwelet ma zitouroù din-me ?"
-      data_visible_to_podmin_a: "Berr-ha-berr : pep tra. An eskemmoù etre ar podoù a zo enrineget bewech (oc'h implijout SSL hag enrinegañ dezougerezh diaspora*) , met roadennoù ar pod n'eo ket enrineget. M'o deus c'hoant e c'hell merour stlennvon ar pod (alies eo an den o merañ ar pod) haeziñ holl ho roadennoù aelad ha kement tra embannet ganeoc'h (evel ma ra lodenn vrasañ al lec'hiennoù o kadaviñ roadennoù implijerien). Setu perak e vez roet an dibab deoc'h war peseurt pod marilhañ, evit ma vefe tu deoc'h dibab gant peseurt merour e fiziit ho roadennoù. Erounit ho pod deoc'h-c'hwi a ro deoc'h muioc'h ha prevezded dre ma 'z oc'h kiriek eus haeziñ ar stlennvon."
-      data_visible_to_podmin_q: "Pegement eus va titouroù a c'hell merour ar pod gwelout ?"
-      download_data_a: "Ya. E dibenn an ivinell Kont war pajenn ho arventennoù ho peus div afell : unan evit pellgargañ ho roadennoù, hag unan evit pellgargañ ho skeudennoù."
-      download_data_q: "Gallout a ran pellgargañ un eilenn eus va roadennoù endalc'het en va greunenn (kont) ?"
-      move_pods_a: "En dazont e vo tu deoc'h ezporzhiañ ho kreunenn adalek ur pod hag enporzhiañ anezhi war unan all, met n'eo ket posupl evit ar mare. Gallout a rit digeriñ ur gont all hag ouzhpennañ ho tarempredoù d'ar strolladoù war ar greunenn nevez-mañ, ha goulenn diganto ouzhpennañ ho kreunenn d'o strolladoù ivez."
-      move_pods_q: "Penaos e fiñvan va greunenn (kont) eus ur pod d'egile ?"
-      title: "Kont ha merañ ar roadennoù"
-    aspects:
-      change_aspect_of_post_a: "N'eus ket tu, met tu zo deoc'h sevel ur post nevez gant an hevelep endalc'had hag embann anezhañ d'ur strollad disheñvel."
-      change_aspect_of_post_q: "Ur wech bet embannet un dra bennak, tu 'zo din kemmañ ar strolladoù gouest da sellet ar post ?"
-      contacts_know_aspect_a: "Ne reont ket. N'hallont ket gwelet anv ar strollad lec'h ma 'z int bet lakaet e mod ebet."
-      contacts_know_aspect_q: "Ha gouzout a ra ma darempredoù e peseurt strollad 'm eus lakaet anezho ?"
-      delete_aspect_q: "Penaos e ran evit diverkañ ur strollad ?"
-      person_multiple_aspects_a: "Ya. Kit war ho pajenn darempredoù ha klikit war \"Ma darempredoù\". Evit pep darempred e c'hallit implij ar roll war an tu dehou evit ouzhpennan anezho (pe tennañ anezho) d'ur strollad. Gallout a rit ivez ouzhpennañ (pe tennañ) anezho d'ur strollad gant an diuzer strolladoù war o bajenn aelad. Pe en ur fiñval al logodenn betek o anv lec'h ma vo un \"dreistgartenn\" o tiskouez. Gallout a rit kemmañ ar strolladoù adalek al lec'h-mañ."
-      person_multiple_aspects_q: "Gallout a ran ouzhpennañ un den e meur a strollad ?"
-      post_multiple_aspects_a: "Ya. Pa vez savet ur post ganeoc'h, implijit an afell diuzañ evit diuzañ pe diziuzañ strolladoù. \"An holl strolladoù\" a zo an arventenn dre ziouer. Gallout a ra bezañ gwelet ho post gant an holl strolladoù diuzet. Gallout a rit ivez diuzañ ar strolladoù adalek ar varenn-gostez. Pa vez embannet ganeoc'h, ar strollad(où) bet diuzet er roll kleiz e vo diuzet ent emgefreek en diuzer strolladoù pa vo kroget da skrivañ ur post ganeoc'h."
-      post_multiple_aspects_q: "Ha tu a zo din embann traoù da meur a strollad war an taol ?"
-      remove_notification_a: "Ket."
-      remove_notification_q: "Ma vez dilamet unan bennak eus vur strollad, pe holl va strolladoù, kemennet int eus kement-se ?"
-      rename_aspect_a: "Klikit war \"Ma strolladoù\" er varenn-gostez adalek ur gwel gwazh ha klikit war arlun ar c'hreion evit adenvel ur strollad, pe kit war ho pajenn Darempredoù ha diuzit ar strollad a-zere. Klikit neuze an arlun embann e-kichen anv ar strollad e penn ar bajenn, kemmit an anv ha pouezit war \"Hizivaat\"."
-      rename_aspect_q: "Hag adenvel ur strollad a c'hallan ?"
-      restrict_posts_i_see_a: "Ya. Klikit war 'Ma strolladoù\" er varenn-gostez ha klikit war ur strollad evit diuzañ pe diziuzañ anezhañ. Ne vo gwelet ar post gwant an dud ezel eus ar strollad(où)-mañ nemetken."
-      restrict_posts_i_see_q: "Ha tu a zo din bevenniñ ar postoù da strolladoù resis nemetken em gwazh ?"
-      title: "Strolladoù"
-      what_is_an_aspect_a: "Ar strolladoù a zo an doare ma vez strollet ho tarempredoù war diaspora*. Ur strollad a zo unan eus an dremmoù a vez diskouezet ganeoc'h d'ar bed. Gallout a ra bezañ an den oc'h el labour, pe gant ho familh, pe forzh piv vefec'h gant ur strollad mignoned."
-      what_is_an_aspect_q: "Petra eo ur strollad ?"
-      who_sees_post_a: "Ma vez savet ur post bevennet ganeoc'h, n'hall bezañ gwelet gant an dud bet lakaet er strollad(où) a-raok bezañ bet embannet ar post nemetken. Ho tarempredoù ha n'int ket er strollad na welo ket ar post. Postoù bevennet ne vo morse gwelet gant tud ha n'int ket en ho strolladoù."
-      who_sees_post_q: "Gant piv vez gwelet ar pezh a embannan d'ur strollad ?"
-    foundation_website: "lec'hienn web diazezadenn diaspora*"
+    tutorials: kelennskridoù
+    tutorial: kelennskrid
+    irc: IRC
+    wiki: wiki
+    markdown: Markdown
+    here: amañ
+    foundation_website: lec'hienn web diazezadenn diaspora*
+    third_party_tools: Ostilhoù trede
+    getting_started_tutorial: heuliad kelennskridoù "Kregiñ ganti"
     getting_help:
-      get_support_a_hashtag: "Goulennit war ur post foran war diaspora* en ur implijout an hashtag %{question}"
-      get_support_a_irc: "Deuit ganeomp war %{irc} (kaozeadenn war-eeun)"
-      get_support_a_tutorials: "Dizoloit hor %{tutorials}"
-      get_support_a_website: "Gweladennit hol %{link}"
-      get_support_a_wiki: "Klaskit war ar %{link}"
-      get_support_q: "Petra c'hoarvez ma n'emañ ket va goulenn er FAG ? Pelec'h e c'hallan kaout skoazell ?"
-      getting_started_a: "Chañs ho peus. Klaskit an %{tutorial_series} war lec'hienn hor raktres. Heuliet e vo an hentenn marilhadur paz-dre-paz ha desket e vo deoc'h an diazez evit gouzout penaos implij diaspora*."
-      getting_started_q: "Sikour ! Ezhomm am eus skoazell diazez evit kregiñ !"
-      title: "Kaout skoazell"
-    getting_started_tutorial: "heuliad kelennskridoù \"Kregiñ ganti\""
-    here: "amañ"
-    irc: "IRC"
-    markdown: "Markdown"
+      title: Kaout skoazell
+      getting_started_q: Sikour ! Ezhomm am eus skoazell diazez evit kregiñ !
+      getting_started_a: Chañs ho peus. Klaskit an %{tutorial_series} war lec'hienn hor raktres. Heuliet e vo an hentenn marilhadur paz-dre-paz ha desket e vo deoc'h an diazez evit gouzout penaos implij diaspora*.
+      get_support_q: Petra c'hoarvez ma n'emañ ket va goulenn er FAG ? Pelec'h e c'hallan kaout skoazell ?
+      get_support_a_website: Gweladennit hol %{link}
+      get_support_a_tutorials: Dizoloit hor %{tutorials}
+      get_support_a_wiki: Klaskit war ar %{link}
+      get_support_a_irc: Deuit ganeomp war %{irc} (kaozeadenn war-eeun)
+      get_support_a_hashtag: Goulennit war ur post foran war diaspora* en ur implijout an hashtag %{question}
+    account_and_data_management:
+      title: Kont ha merañ ar roadennoù
+      move_pods_q: Penaos e fiñvan va greunenn (kont) eus ur pod d'egile ?
+      move_pods_a: En dazont e vo tu deoc'h ezporzhiañ ho kreunenn adalek ur pod hag enporzhiañ anezhi war unan all, met n'eo ket posupl evit ar mare. Gallout a rit digeriñ ur gont all hag ouzhpennañ ho tarempredoù d'ar strolladoù war ar greunenn nevez-mañ, ha goulenn diganto ouzhpennañ ho kreunenn d'o strolladoù ivez.
+      download_data_q: Gallout a ran pellgargañ un eilenn eus va roadennoù endalc'het en va greunenn (kont) ?
+      download_data_a: 'Ya. E dibenn an ivinell Kont war pajenn ho arventennoù ho peus div afell : unan evit pellgargañ ho roadennoù, hag unan evit pellgargañ ho skeudennoù.'
+      close_account_q: Penaos e tiverkan va greunenn (kont) ?
+      close_account_a: Kit e dibenn pajenn ho arventennoù ha klikit war "Serriñ va gont". Goulennet e vo ganeoc'h enankan ho ker-tremen evit klokaat an hentenn. Dalc'hit soñj, ma serrit ho kont, ne vo <strong>morse</strong> tu deoc'h ad-marilhañ ho anv-implijer war ar pod-mañ.
+      data_visible_to_podmin_q: Pegement eus va titouroù a c'hell merour ar pod gwelout ?
+      data_visible_to_podmin_a: 'Berr-ha-berr : pep tra. An eskemmoù etre ar podoù a zo enrineget bewech (oc''h implijout SSL hag enrinegañ dezougerezh diaspora*) , met roadennoù ar pod n''eo ket enrineget. M''o deus c''hoant e c''hell merour stlennvon ar pod (alies eo an den o merañ ar pod) haeziñ holl ho roadennoù aelad ha kement tra embannet ganeoc''h (evel ma ra lodenn vrasañ al lec''hiennoù o kadaviñ roadennoù implijerien). Setu perak e vez roet an dibab deoc''h war peseurt pod marilhañ, evit ma vefe tu deoc''h dibab gant peseurt merour e fiziit ho roadennoù. Erounit ho pod deoc''h-c''hwi a ro deoc''h muioc''h ha prevezded dre ma ''z oc''h kiriek eus haeziñ ar stlennvon.'
+      data_other_podmins_q: Ha gallout a ra merourien podoù all gwelet ma zitouroù din-me ?
+      data_other_podmins_a: Ur wech m'emaoc'h o rannañ gant unan bennak war ur pod all, kement post rannet ganeoc'h hag un eilenn eus ho aelad a zo kadavet (er c'hrubuilh) war o pod, hag haezadus eo evit merour ar pod. Pa vez dilamet ur post pe roadennoù un aelad eo dilamet eus ho pod hag kaset e vez un azgoulenn dilamadur d'an holl podoù o deus endalc'het anezho. Ho skeudennoù n'int morse kadavet war podoù all; n'eus nemet ereoù davet anezho.
+    aspects:
+      title: Strolladoù
+      what_is_an_aspect_q: Petra eo ur strollad ?
+      what_is_an_aspect_a: Ar strolladoù a zo an doare ma vez strollet ho tarempredoù war diaspora*. Ur strollad a zo unan eus an dremmoù a vez diskouezet ganeoc'h d'ar bed. Gallout a ra bezañ an den oc'h el labour, pe gant ho familh, pe forzh piv vefec'h gant ur strollad mignoned.
+      who_sees_post_q: Gant piv vez gwelet ar pezh a embannan d'ur strollad ?
+      who_sees_post_a: Ma vez savet ur post bevennet ganeoc'h, n'hall bezañ gwelet gant an dud bet lakaet er strollad(où) a-raok bezañ bet embannet ar post nemetken. Ho tarempredoù ha n'int ket er strollad na welo ket ar post. Postoù bevennet ne vo morse gwelet gant tud ha n'int ket en ho strolladoù.
+      contacts_know_aspect_q: Ha gouzout a ra ma darempredoù e peseurt strollad 'm eus lakaet anezho ?
+      contacts_know_aspect_a: Ne reont ket. N'hallont ket gwelet anv ar strollad lec'h ma 'z int bet lakaet e mod ebet.
+      person_multiple_aspects_q: Gallout a ran ouzhpennañ un den e meur a strollad ?
+      person_multiple_aspects_a: Ya. Kit war ho pajenn darempredoù ha klikit war "Ma darempredoù". Evit pep darempred e c'hallit implij ar roll war an tu dehou evit ouzhpennan anezho (pe tennañ anezho) d'ur strollad. Gallout a rit ivez ouzhpennañ (pe tennañ) anezho d'ur strollad gant an diuzer strolladoù war o bajenn aelad. Pe en ur fiñval al logodenn betek o anv lec'h ma vo un "dreistgartenn" o tiskouez. Gallout a rit kemmañ ar strolladoù adalek al lec'h-mañ.
+      remove_notification_q: Ma vez dilamet unan bennak eus vur strollad, pe holl va strolladoù, kemennet int eus kement-se ?
+      remove_notification_a: Ket.
+      change_aspect_of_post_q: Ur wech bet embannet un dra bennak, tu 'zo din kemmañ ar strolladoù gouest da sellet ar post ?
+      change_aspect_of_post_a: N'eus ket tu, met tu zo deoc'h sevel ur post nevez gant an hevelep endalc'had hag embann anezhañ d'ur strollad disheñvel.
+      post_multiple_aspects_q: Ha tu a zo din embann traoù da meur a strollad war an taol ?
+      post_multiple_aspects_a: Ya. Pa vez savet ur post ganeoc'h, implijit an afell diuzañ evit diuzañ pe diziuzañ strolladoù. "An holl strolladoù" a zo an arventenn dre ziouer. Gallout a ra bezañ gwelet ho post gant an holl strolladoù diuzet. Gallout a rit ivez diuzañ ar strolladoù adalek ar varenn-gostez. Pa vez embannet ganeoc'h, ar strollad(où) bet diuzet er roll kleiz e vo diuzet ent emgefreek en diuzer strolladoù pa vo kroget da skrivañ ur post ganeoc'h.
+      restrict_posts_i_see_q: Ha tu a zo din bevenniñ ar postoù da strolladoù resis nemetken em gwazh ?
+      restrict_posts_i_see_a: Ya. Klikit war 'Ma strolladoù" er varenn-gostez ha klikit war ur strollad evit diuzañ pe diziuzañ anezhañ. Ne vo gwelet ar post gwant an dud ezel eus ar strollad(où)-mañ nemetken.
+      rename_aspect_q: Hag adenvel ur strollad a c'hallan ?
+      rename_aspect_a: Klikit war "Ma strolladoù" er varenn-gostez adalek ur gwel gwazh ha klikit war arlun ar c'hreion evit adenvel ur strollad, pe kit war ho pajenn Darempredoù ha diuzit ar strollad a-zere. Klikit neuze an arlun embann e-kichen anv ar strollad e penn ar bajenn, kemmit an anv ha pouezit war "Hizivaat".
+      delete_aspect_q: Penaos e ran evit diverkañ ur strollad ?
     mentions:
-      title: "Menegoù"
-      what_is_a_mention_q: "Petra eo ur \"meneg\" ?"
-    miscellaneous:
-      diaspora_app_q: "Hag un arload diaspora* evit Android pe IOS zo ?"
-      photo_albums_q: "Hag albomoù video pe skeudennoù zo ?"
+      title: Menegoù
+      what_is_a_mention_q: Petra eo ur "meneg" ?
     pods:
-      what_is_a_pod_a: "Un dafariad oc'h erounit ar meziant diaspora* ha kennasket d'ar rouedad diaspora eo ur pod. \"Pod\" a zo un dave d'ar ger Saoznek \"pod\", a dalv kement ha \"klorenn\", oc'h enderc'hel greun evel-mañ ma vez endalc'het kontoù gant an dafariad. Meur a pod a vez kavet. Gallout a rit ouzhpennañ mignoned adalek ar podoù all hag eskemm ganto. N'eus ezhomm ebet digeriñ kontoù war podoù disheñvel ! Unan 'zo trawalc'h. Gallout a rit soñjal eo ur pod disapora* evel ur pourchaser posteloù. Podoù foran a zo, reoù prevez, ha ma klaskit mat ez eus tu deoc'h erounit ho hini."
+      what_is_a_pod_a: Un dafariad oc'h erounit ar meziant diaspora* ha kennasket d'ar rouedad diaspora eo ur pod. "Pod" a zo un dave d'ar ger Saoznek "pod", a dalv kement ha "klorenn", oc'h enderc'hel greun evel-mañ ma vez endalc'het kontoù gant an dafariad. Meur a pod a vez kavet. Gallout a rit ouzhpennañ mignoned adalek ar podoù all hag eskemm ganto. N'eus ezhomm ebet digeriñ kontoù war podoù disheñvel ! Unan 'zo trawalc'h. Gallout a rit soñjal eo ur pod disapora* evel ur pourchaser posteloù. Podoù foran a zo, reoù prevez, ha ma klaskit mat ez eus tu deoc'h erounit ho hini.
     posts_and_posting:
-      char_limit_services_q: "Petra c'hoarvez ma rannan va fost gant ur servij kennasket gant ur vevenn arouezioù bihanoc'h ?"
+      char_limit_services_q: Petra c'hoarvez ma rannan va fost gant ur servij kennasket gant ur vevenn arouezioù bihanoc'h ?
     private_posts:
-      title: "Embannadennoù prevez"
+      title: Embannadennoù prevez
     public_posts:
-      title: "Embannadennoù foran"
+      title: Embannadennoù foran
     sharing:
-      title: "O rannañ"
+      title: O rannañ
     tags:
-      title: "Tikedennoù"
-      what_are_tags_for_q: "Da betra servij an tikedennoù ?"
-    third_party_tools: "Ostilhoù trede"
-    tutorial: "kelennskrid"
-    tutorials: "kelennskridoù"
-    wiki: "wiki"
+      title: Tikedennoù
+      what_are_tags_for_q: Da betra servij an tikedennoù ?
+    miscellaneous:
+      photo_albums_q: Hag albomoù video pe skeudennoù zo ?
+      diaspora_app_q: Hag un arload diaspora* evit Android pe IOS zo ?
   invitations:
     create:
-      empty: "Merkit da nebeutañ ur chomlec'h postel."
-      no_more: "N'ho 'peus pedadenn ebet ken."
-      note_already_sent: "Pedadennoù a zo dija bet kaset da : %{emails}"
-      rejected: "Kudennoù zo gant ar chomlec'hioù postel-mañ: "
-      sent: "Pedadennoù zo bet kaset da: %{emails}"
+      sent: 'Pedadennoù zo bet kaset da: %{emails}'
+      rejected: 'Kudennoù zo gant ar chomlec''hioù postel-mañ: '
+      no_more: N'ho 'peus pedadenn ebet ken.
+      empty: Merkit da nebeutañ ur chomlec'h postel.
+      note_already_sent: 'Pedadennoù a zo dija bet kaset da : %{emails}'
     new:
+      language: Yezh
+      invite_someone_to_join: Kouviit unan bennak da zont e Diaspora !
+      comma_separated_plz: Gallout a rit merkañ meur a chomlec'h postel dispartiet gant skejoù.
+      send_an_invitation: Kas ur bedadenn
+      sending_invitation: O kas ar bedadenn
+      paste_link: Ken-rannit al liamm-se gant ho mignoned evit pediñ aneho war disapora*, pe kasit al liamm dre bostel war-eeun.
       codes_left:
-        one: "Chom 'ra %{count} pedadenn war ar c'hod-mañ."
-        other: "Chom 'ra %{count} pedadenn war ar c'hod-mañ."
-        zero: "Ne chom pedadenn ebet ar ar c'hod-mañ ken."
-      comma_separated_plz: "Gallout a rit merkañ meur a chomlec'h postel dispartiet gant skejoù."
-      invite_someone_to_join: "Kouviit unan bennak da zont e Diaspora !"
-      language: "Yezh"
-      paste_link: "Ken-rannit al liamm-se gant ho mignoned evit pediñ aneho war disapora*, pe kasit al liamm dre bostel war-eeun."
-      send_an_invitation: "Kas ur bedadenn"
-      sending_invitation: "O kas ar bedadenn"
+        zero: Ne chom pedadenn ebet ar ar c'hod-mañ ken.
+        one: Chom 'ra %{count} pedadenn war ar c'hod-mañ.
+        other: Chom 'ra %{count} pedadenn war ar c'hod-mañ.
   layouts:
-    application:
-      back_to_top: "Distreiñ e krec'h"
-      powered_by: "KASET EN-DRO GANT DIASPORA*"
-      public_feed: "Gwazh diaspora* foran evit %{name}"
-      source_package: "Pellgargañ pakad ar boneg tarzh"
-      whats_new: "petra nevez ?"
     header:
-      code: "kod"
-      logout: "Digevreañ"
-      profile: "Aelad"
-      settings: "Arventennoù"
-  limited: "Bevennet"
-  more: "Muioc'h"
-  no_results: "Disoc'h ebet kavet"
+      profile: Aelad
+      settings: Arventennoù
+      logout: Digevreañ
+      code: kod
+    application:
+      powered_by: KASET EN-DRO GANT DIASPORA*
+      whats_new: petra nevez ?
+      public_feed: Gwazh diaspora* foran evit %{name}
+      back_to_top: Distreiñ e krec'h
+      source_package: Pellgargañ pakad ar boneg tarzh
   notifications:
-    also_commented:
-      one: "%{actors} en deus savet ur gemennadenn all diwar-benn %{post_link} %{post_author}."
-      other: "%{actors} o deus savet ur gemennadenn all diwar-benn %{post_link} %{post_author}."
-      zero: "%{actors} en deus savet ur gemennadenn all diwar-benn %{post_link} %{post_author}."
-    also_commented_deleted:
-      one: "Evezhiadennoù diwar-benn an destenn diverket a oa bet graet gant %{actors}. "
-      other: "Evezhiadennoù diwar-benn an destenn diverket a oa bet graet gant %{actors}. "
-      zero: "Evezhiadennoù diwar-benn an destenn diverket a oa bet graet gant %{actors}. "
-    comment_on_post:
-      one: "Un evezhiadenn da %{post_link} zo bet savet gant.%{actors}."
-      other: "Un evezhiadenn da %{post_link} zo bet savet gant.%{actors}."
-      zero: "Un evezhiadenn da %{post_link} zo bet savet gant.%{actors}."
-    index:
-      all_notifications: "An holl gemennoù"
-      also_commented: "Evezhiadennoù lakaet all"
-      and: "ha"
-      and_others:
-        one: "hag unan ouzhpenn"
-        other: "ha %{count} all"
-        zero: "ha den ebet all"
-      comment_on_post: "Lakaat un evezhiadenn diwar-benn an embannadenn"
-      liked: "Plijet"
-      mark_all_as_read: "Merkit pep tra evel lennet"
-      mark_read: "Merkañ ar re lennet"
-      mark_unread: "Merkañ evel ket lennet"
-      mentioned: "Meneget"
-      notifications: "Kemennoù"
-      reshared: "Rannet pelloc'h"
-      show_all: "diskouez an holl"
-      show_unread: "diskouez ar re da lenn"
-      started_sharing: "Kroget da rannan keleier"
-    liked:
-      one: "Plijet eo bet %{actors} gant %{post_link}."
-      other: "Plijet eo bet %{actors} gant %{post_link}."
-      zero: "Plijet eo bet %{actors} gant %{post_link}."
-    liked_post_deleted:
-      one: "Plijet e oa bet %{actors} gant ho testenn diverket."
-      other: "Plijet e oa bet %{actors} gant ho testenn diverket."
-      zero: "Plijet e oa bet %{actors} gant ho testenn diverket."
-    mentioned:
-      one: "Meneget oc'h bet gant %{actors} e %{post_link}."
-      other: "Meneget oc'h bet gant %{actors} e %{post_link}."
-      zero: "Meneget oc'h bet gant %{actors} e %{post_link}."
-    mentioned_deleted:
-      one: "Meneget e oac'h bet en un destenn diverket gant %{actors}."
-      other: "Meneget e oac'h bet en un destenn diverket gant %{actors}."
-      zero: "Meneget e oac'h bet en un destenn diverket gant %{actors}."
-    private_message:
-      one: "Kaset ez eus bet ur gemennadenn deoc'h gant %{actors}."
-      other: "Kaset ez eus bet ur gemennadenn deoc'h gant %{actors}."
-      zero: "Kaset ez eus bet ur gemennadenn deoc'h gant %{actors}."
-    reshared:
-      one: "Adrannet  eo bet %{post_link} gant %{actors}."
-      other: "Adrannet  eo bet %{post_link} gant %{actors}."
-      zero: "Addrannet eo bet %{post_link} gant %{actors}."
-    reshared_post_deleted:
-      one: "Rannet pelloc'h eo bet ho testenn diverket gant %{actors}."
-      other: "Rannet pelloc'h eo bet ho testenn diverket gant %{actors}."
-      zero: "Rannet pelloc'h eo bet ho testenn diverket gant %{actors}."
     started_sharing:
+      zero: N'eus den ebet %{actors} o rannañ udb. ganeoc'h.
       one: "%{actors} zo krog da rannañ traoù ganeoc'h"
       other: "%{actors} zo krog da rannañ traoù ganeoc'h"
-      zero: "N'eus den ebet %{actors} o rannañ udb. ganeoc'h."
-  notifier:
-    a_post_you_shared: "ur post"
-    click_here: "klikañ amañ"
+    private_message:
+      zero: Kaset ez eus bet ur gemennadenn deoc'h gant %{actors}.
+      one: Kaset ez eus bet ur gemennadenn deoc'h gant %{actors}.
+      other: Kaset ez eus bet ur gemennadenn deoc'h gant %{actors}.
     comment_on_post:
-      reply: "Varienn: %{name}"
-    confirm_email:
-      click_link: "Evit gweredekaat ho chomlec'h postel nevez %{unconfirmed_email}, klikit war al liamm-mañ:"
-      subject: "Gweredekait ho chomlec'h postel nevez %{unconfirmed_email}"
-    email_sent_by_diaspora: "Ar postel-mañ a zo bet kaset gant %{pod_name}. M'ho 'peus c'hoant paouez da gaout posteloù evel-se,"
-    hello: "Ac'hanta %{name} !"
-    invite:
-      message: |-
-          Demat !
-
-          Pedet oc'h bet da zont war diaspora* !
-
-          Klikit war al liamm-mañ evit kregiñ
-
-          [%{invite_url}][1]
-
-
-          A galon,
-
-          Ar robot posteloù diapsora*
-
-          [1]: %{invite_url}
-    invited_you: "Pedet oc'h bet gant %{name} war diaspora*"
+      zero: Un evezhiadenn da %{post_link} zo bet savet gant.%{actors}.
+      one: Un evezhiadenn da %{post_link} zo bet savet gant.%{actors}.
+      other: Un evezhiadenn da %{post_link} zo bet savet gant.%{actors}.
+    also_commented:
+      zero: "%{actors} en deus savet ur gemennadenn all diwar-benn %{post_link} %{post_author}."
+      one: "%{actors} en deus savet ur gemennadenn all diwar-benn %{post_link} %{post_author}."
+      other: "%{actors} o deus savet ur gemennadenn all diwar-benn %{post_link} %{post_author}."
+    mentioned:
+      zero: Meneget oc'h bet gant %{actors} e %{post_link}.
+      one: Meneget oc'h bet gant %{actors} e %{post_link}.
+      other: Meneget oc'h bet gant %{actors} e %{post_link}.
     liked:
-      liked: "plijet eo bet %{name} gant ar pezh zo bet skrivet ganeoc'h"
-      view_post: "Sellet ouzh an embannadenn >"
+      zero: Plijet eo bet %{actors} gant %{post_link}.
+      one: Plijet eo bet %{actors} gant %{post_link}.
+      other: Plijet eo bet %{actors} gant %{post_link}.
+    reshared:
+      zero: Addrannet eo bet %{post_link} gant %{actors}.
+      one: Adrannet  eo bet %{post_link} gant %{actors}.
+      other: Adrannet  eo bet %{post_link} gant %{actors}.
+    also_commented_deleted:
+      zero: 'Evezhiadennoù diwar-benn an destenn diverket a oa bet graet gant %{actors}. '
+      one: 'Evezhiadennoù diwar-benn an destenn diverket a oa bet graet gant %{actors}. '
+      other: 'Evezhiadennoù diwar-benn an destenn diverket a oa bet graet gant %{actors}. '
+    liked_post_deleted:
+      zero: Plijet e oa bet %{actors} gant ho testenn diverket.
+      one: Plijet e oa bet %{actors} gant ho testenn diverket.
+      other: Plijet e oa bet %{actors} gant ho testenn diverket.
+    reshared_post_deleted:
+      zero: Rannet pelloc'h eo bet ho testenn diverket gant %{actors}.
+      one: Rannet pelloc'h eo bet ho testenn diverket gant %{actors}.
+      other: Rannet pelloc'h eo bet ho testenn diverket gant %{actors}.
+    mentioned_deleted:
+      zero: Meneget e oac'h bet en un destenn diverket gant %{actors}.
+      one: Meneget e oac'h bet en un destenn diverket gant %{actors}.
+      other: Meneget e oac'h bet en un destenn diverket gant %{actors}.
+    index:
+      notifications: Kemennoù
+      mark_all_as_read: Merkit pep tra evel lennet
+      mark_read: Merkañ ar re lennet
+      mark_unread: Merkañ evel ket lennet
+      show_all: diskouez an holl
+      show_unread: diskouez ar re da lenn
+      all_notifications: An holl gemennoù
+      also_commented: Evezhiadennoù lakaet all
+      comment_on_post: Lakaat un evezhiadenn diwar-benn an embannadenn
+      liked: Plijet
+      mentioned: Meneget
+      reshared: Rannet pelloc'h
+      started_sharing: Kroget da rannan keleier
+      and_others:
+        zero: ha den ebet all
+        one: hag unan ouzhpenn
+        other: ha %{count} all
+      and: ha
+  notifier:
+    a_post_you_shared: ur post
+    email_sent_by_diaspora: Ar postel-mañ a zo bet kaset gant %{pod_name}. M'ho 'peus c'hoant paouez da gaout posteloù evel-se,
+    click_here: klikañ amañ
+    hello: Ac'hanta %{name} !
+    thanks: Trugarez,
+    to_change_your_notification_settings: evit cheñch an arventennoù kemenn
+    single_admin:
+      subject: 'Ur gemennadenn diwar-benn ho kont *Diaspora:'
+      admin: Ho merour *Diaspora
+    started_sharing:
+      subject: Krog eo %{name} da rannañ traoù ganeoc'h e Diaspora*
+      sharing: zo krog da rannañ keleier ganeoc'h !
+      view_profile: Gwelet aelad %{name}
+    comment_on_post:
+      reply: 'Varienn: %{name}'
     mentioned:
       subject: "%{name} en/he deus meneget ac'hanoc'h war diaspora*"
     private_message:
-      reply_to_or_view: "Respont pe sellet ouzh ar gaoz-mañ >"
+      reply_to_or_view: Respont pe sellet ouzh ar gaoz-mañ >
+    liked:
+      liked: plijet eo bet %{name} gant ar pezh zo bet skrivet ganeoc'h
+      view_post: Sellet ouzh an embannadenn >
     reshared:
-      reshared: "Kenrannet ez eus bet gant %{name} un dra bennak bet skrivet ganeoc'h"
-      view_post: "Sellet ouzh an embannadenn >"
-    single_admin:
-      admin: "Ho merour *Diaspora"
-      subject: "Ur gemennadenn diwar-benn ho kont *Diaspora:"
-    started_sharing:
-      sharing: "zo krog da rannañ keleier ganeoc'h !"
-      subject: "Krog eo %{name} da rannañ traoù ganeoc'h e Diaspora*"
-      view_profile: "Gwelet aelad %{name}"
-    thanks: "Trugarez,"
-    to_change_your_notification_settings: "evit cheñch an arventennoù kemenn"
-  nsfw: "NSFW"
-  ok: "Mat eo"
+      reshared: Kenrannet ez eus bet gant %{name} un dra bennak bet skrivet ganeoc'h
+      view_post: Sellet ouzh an embannadenn >
+    confirm_email:
+      subject: Gweredekait ho chomlec'h postel nevez %{unconfirmed_email}
+      click_link: 'Evit gweredekaat ho chomlec''h postel nevez %{unconfirmed_email}, klikit war al liamm-mañ:'
+    invited_you: Pedet oc'h bet gant %{name} war diaspora*
+    invite:
+      message: |-
+        Demat !
+
+        Pedet oc'h bet da zont war diaspora* !
+
+        Klikit war al liamm-mañ evit kregiñ
+
+        [%{invite_url}][1]
+
+
+        A galon,
+
+        Ar robot posteloù diapsora*
+
+        [1]: %{invite_url}
   people:
-    add_contact:
-      invited_by: "kouviet oc'h bet gant"
-    index:
-      couldnt_find_them: "N'eus ket bet gallet kavout anezho ?"
-      looking_for: "O klask war-lec'h embannadennoù taget gant %{tag_link} emaoc'h ?"
-      no_one_found: "... ha n'eus ket bet kavet den."
-      no_results: "Hopala ! Ret e deoc'h klask un dra bennak."
-      results_for: "Implijerien o klotañ %{search_term}"
-      search_handle: "Ober gant ho kod anaout diaspora* (username@pod.tld) evit bezañ sur da gavout ho mignoned."
-      searching: "O klask, gortozit ur pennadig..."
-      send_invite: "Netra c'hoazh ? Kas ur bedadenn !"
     person:
-      thats_you: "C'hwi eo !"
-    profile_sidebar:
-      bio: "Buhez"
-      born: "Deiziad ganedigezh"
-      gender: "Reizh"
-      location: "Lec'hiadur"
+      thats_you: C'hwi eo !
+    index:
+      results_for: Implijerien o klotañ %{search_term}
+      no_results: Hopala ! Ret e deoc'h klask un dra bennak.
+      couldnt_find_them: N'eus ket bet gallet kavout anezho ?
+      search_handle: Ober gant ho kod anaout diaspora* (username@pod.tld) evit bezañ sur da gavout ho mignoned.
+      send_invite: Netra c'hoazh ? Kas ur bedadenn !
+      no_one_found: "... ha n'eus ket bet kavet den."
+      searching: O klask, gortozit ur pennadig...
+      looking_for: O klask war-lec'h embannadennoù taget gant %{tag_link} emaoc'h ?
     show:
-      closed_account: "Ar c'hont-mañ a zo bet prenet."
-      does_not_exist: "An den-mañ n'eus ket anezhañ !"
-      has_not_shared_with_you_yet: "N'eo bet rannet embannadenn ebet ganeoc'h a-berzh %{name}"
+      has_not_shared_with_you_yet: N'eo bet rannet embannadenn ebet ganeoc'h a-berzh %{name}
+      does_not_exist: An den-mañ n'eus ket anezhañ !
+      closed_account: Ar c'hont-mañ a zo bet prenet.
+    profile_sidebar:
+      bio: Buhez
+      location: Lec'hiadur
+      gender: Reizh
+      born: Deiziad ganedigezh
+    add_contact:
+      invited_by: kouviet oc'h bet gant
   photos:
     create:
-      integrity_error: "C'hwitet war kargadenn ar skeudenn. Sur oc'h eo ur skeudenn ?"
-      runtime_error: "C'hwitet war kargadenn ar skeudenn. Sur oc'h eo staget ho kouriz surentez ?"
-      type_error: "C'hwitet war kargadenn ar skeudenn. Sur oc'h bezañ bet ouzhpennet ur skeudenn ?"
+      runtime_error: C'hwitet war kargadenn ar skeudenn. Sur oc'h eo staget ho kouriz surentez ?
+      integrity_error: C'hwitet war kargadenn ar skeudenn. Sur oc'h eo ur skeudenn ?
+      type_error: C'hwitet war kargadenn ar skeudenn. Sur oc'h bezañ bet ouzhpennet ur skeudenn ?
     destroy:
-      notice: "Dilamet eo bet ar skeudenn"
+      notice: Dilamet eo bet ar skeudenn
     new_profile_photo:
-      upload: "Kargit ur poltred nevez evit ho aelad !"
+      upload: Kargit ur poltred nevez evit ho aelad !
   posts:
     presenter:
-      title: "Un embannadenn a-berzh %{name}"
+      title: Un embannadenn a-berzh %{name}
     show:
       photos_by:
-        one: "Ur skeudenn gant %{author}"
+        zero: Skeudenn ebet gant %{author}
+        one: Ur skeudenn gant %{author}
         other: "%{count} skeudenn gant %{author}"
-        zero: "Skeudenn ebet gant %{author}"
-      reshare_by: "Adrannet gant %{author}"
-  privacy: "Prevezded"
-  profile: "Aelad"
+      reshare_by: Adrannet gant %{author}
   profiles:
     edit:
-      allow_search: "Aotren tud da glask ac'hanoc'h war diaspora*"
-      first_name: "Anv-bihan"
-      last_name: "Anv-familh"
-      nsfw_check: "Merkañ kement tra rannet ganin evel NSFW"
-      update_profile: "Hizivaat an aelad"
-      your_bio: "Ho puhez"
-      your_birthday: "Ho teiziad ganedigezh"
-      your_gender: "Ho reizh"
-      your_location: "Lec'h annez"
-      your_name: "Hoc'h anv"
-      your_photo: "Ho poltred"
-      your_tags: "Deskrivit ac'hanoc'h gant 5 ger"
-      your_tags_placeholder: "evel #sinema #farsus #loened #Breizh #dudioù"
+      your_name: Hoc'h anv
+      first_name: Anv-bihan
+      last_name: Anv-familh
+      your_gender: Ho reizh
+      your_birthday: Ho teiziad ganedigezh
+      your_tags: Deskrivit ac'hanoc'h gant 5 ger
+      your_tags_placeholder: 'evel #sinema #farsus #loened #Breizh #dudioù'
+      your_bio: Ho puhez
+      your_location: Lec'h annez
+      your_photo: Ho poltred
+      update_profile: Hizivaat an aelad
+      allow_search: Aotren tud da glask ac'hanoc'h war diaspora*
+      nsfw_check: Merkañ kement tra rannet ganin evel NSFW
     update:
-      failed: "C'hwitet hizivadenn an aelad"
-      updated: "Patrom nevesaet"
-  public: "A-wel d'an holl"
+      updated: Patrom nevesaet
+      failed: C'hwitet hizivadenn an aelad
   registrations:
-    create:
-      success: "Enskrivet oc'h war diaspora* !"
-    invalid_invite: "Al liamm pedadenn roet ganeoc'h n'eo ket mat ken"
     new:
-      email: "POSTEL"
-      enter_email: "Skrivit ur postel"
-      enter_password: "Merkit ur ger-tremen (c'hwec'h arouezenn da nebeutañ)"
-      enter_password_again: "Skrivit an hevelep ger-tremen hag a-raok"
-      enter_username: "Dibabit un anv-implijer (lizherennoù, niverennoù hag isvarrennoù nemetken)"
-      password: "GER-TREMEN"
-      password_confirmation: "KADARNAAT AR GER-TREMEN"
-      sign_up: "LAKAAT E ANV"
-      submitting: "O kas..."
-      username: "ANV-IMPLIJER"
-  reshares:
-    comment_email_subject: "Adrannadenn %{resharer} eus embannadenn %{author}"
-    reshare:
-      deleted: "Embannadenn orin diverket gant an aozer."
-      reshare_confirmation: "Rannañ pelloc'h testenn %{author} ?"
-      reshared_via: "rannet pelloc'h dre"
-  search: "Klask"
-  services:
+      enter_email: Skrivit ur postel
+      enter_username: Dibabit un anv-implijer (lizherennoù, niverennoù hag isvarrennoù nemetken)
+      enter_password: Merkit ur ger-tremen (c'hwec'h arouezenn da nebeutañ)
+      enter_password_again: Skrivit an hevelep ger-tremen hag a-raok
+      sign_up: LAKAAT E ANV
+      email: POSTEL
+      username: ANV-IMPLIJER
+      password: GER-TREMEN
+      password_confirmation: KADARNAAT AR GER-TREMEN
+      submitting: O kas...
     create:
-      already_authorized: "Un implijer gant an id diaspora %{diaspora_id} en deus aotreet ar c'hont %{service_name} dija."
-      failure: "C'hwitet war ar c'hennask"
-      read_only_access: "Al live haeziñ a zo e mod lenn nemetken, klaskit aotreañ diwezhatoc'h"
-      success: "Kennasket gant berzh"
-    destroy:
-      success: "Diverket ar c'hennask gant berzh."
-    failure:
-      error: "Ur gudenn a zo bet en ur c'hennaskañ ar servij"
+      success: Enskrivet oc'h war diaspora* !
+    invalid_invite: Al liamm pedadenn roet ganeoc'h n'eo ket mat ken
+  reshares:
+    reshare:
+      reshared_via: rannet pelloc'h dre
+      reshare_confirmation: Rannañ pelloc'h testenn %{author} ?
+      deleted: Embannadenn orin diverket gant an aozer.
+    comment_email_subject: Adrannadenn %{resharer} eus embannadenn %{author}
+  services:
     index:
-      connect: "Kennaskañ"
-      disconnect: "digennaskañ"
-      edit_services: "Kemmañ ar servijoù"
-      logged_in_as: "kevreet evel"
-      really_disconnect: "digennaskañ diouzh %{service} ?"
-      services_explanation: "Embann ho postoù dre servijoù all a c'hallit en ur gennaskañ ouzh servijoù all."
-  settings: "Arventennoù"
+      connect: Kennaskañ
+      disconnect: digennaskañ
+      logged_in_as: kevreet evel
+      really_disconnect: digennaskañ diouzh %{service} ?
+      edit_services: Kemmañ ar servijoù
+      services_explanation: Embann ho postoù dre servijoù all a c'hallit en ur gennaskañ ouzh servijoù all.
+    create:
+      success: Kennasket gant berzh
+      failure: C'hwitet war ar c'hennask
+      already_authorized: Un implijer gant an id diaspora %{diaspora_id} en deus aotreet ar c'hont %{service_name} dija.
+      read_only_access: Al live haeziñ a zo e mod lenn nemetken, klaskit aotreañ diwezhatoc'h
+    destroy:
+      success: Diverket ar c'hennask gant berzh.
+    failure:
+      error: Ur gudenn a zo bet en ur c'hennaskañ ar servij
+  blocks:
+    create:
+      success: 'Mat eo, ne vo ket diskouezet an implijer-mañ war ho red en-dro. #silencio'
+      failure: N'hallan ket ober van eus an implijer-mañ
+    destroy:
+      success: 'Sellomp petra ho deus da lavarout ! #lardemat'
+      failure: N'hallan ket paouez d'ober van eus an implijer-mañ
   shared:
     aspect_dropdown:
       toggle:
-        one: "en %{count} strollad"
-        other: "e %{count} strollad"
-        zero: "Ouzhpennañ d'ar strollad"
-    invitations:
-      by_email: "Dre bostel"
-      invite_your_friends: "Pediñ mignoned"
-      invites: "Pedadennoù"
-      share_this: "Rannañ an ere dre bostel, blog, pe rouedadoù kevredadel !"
-    public_explain:
-      atom_feed: "Gwazh atom"
-      control_your_audience: "Mestroniit ho heklev"
-      logged_in: "kennasket da %{service}"
-      manage: "Merañ ar servijoù kennasket"
-      new_user_welcome_message: "Implijit #hashtags evit rummadiñ ho embannadennoù ha kavout tud a rann ho dedennoù.  Galvit tud dreist gant @Mentions"
-      outside: "Ar c'hemennadennoù foran a vo gwelet gant tud e diavaez diaspora*."
-      share: "Rannañ"
-      title: "Arventennañ ar servijoù kennasket"
-      visibility_dropdown: "Implijit ar roll disachañ evit kemmañ gwelusted ho embannadenn.  (Aliañ a reomp deoc'h da lakaat an hini kentañ-mañ foran.)"
+        zero: Ouzhpennañ d'ar strollad
+        one: en %{count} strollad
+        other: e %{count} strollad
     publisher:
-      discard_post: "Nullan an embannadenn"
-      get_location: "Kaout ho lec'hiadur"
+      posting: Oc'h embann...
+      share: Kenrannañ
+      get_location: Kaout ho lec'hiadur
+      remove_location: Lemel kuit al lec'hiadur
+      whats_on_your_mind: E petra emaoc'h o soñjal ?
+      discard_post: Nullan an embannadenn
       new_user_prefill:
-        hello: "Demat d'an holl, me zo %{new_user_tag}. "
-        i_like: "Dedennet on gant %{tags}. "
-        invited_by: "Trug' evit ar bedadenn, "
-        newhere: "NevezAmañ"
+        newhere: NevezAmañ
+        hello: 'Demat d''an holl, me zo %{new_user_tag}. '
+        i_like: 'Dedennet on gant %{tags}. '
+        invited_by: 'Trug'' evit ar bedadenn, '
       poll:
-        add_a_poll: "Ouzhpennañ ur votadeg"
-      posting: "Oc'h embann..."
-      remove_location: "Lemel kuit al lec'hiadur"
-      share: "Kenrannañ"
-      whats_on_your_mind: "E petra emaoc'h o soñjal ?"
+        add_a_poll: Ouzhpennañ ur votadeg
+    invitations:
+      invites: Pedadennoù
+      invite_your_friends: Pediñ mignoned
+      by_email: Dre bostel
+      share_this: Rannañ an ere dre bostel, blog, pe rouedadoù kevredadel !
+    public_explain:
+      control_your_audience: Mestroniit ho heklev
+      new_user_welcome_message: 'Implijit #hashtags evit rummadiñ ho embannadennoù ha kavout tud a rann ho dedennoù.  Galvit tud dreist gant @Mentions'
+      visibility_dropdown: Implijit ar roll disachañ evit kemmañ gwelusted ho embannadenn.  (Aliañ a reomp deoc'h da lakaat an hini kentañ-mañ foran.)
+      title: Arventennañ ar servijoù kennasket
+      share: Rannañ
+      outside: Ar c'hemennadennoù foran a vo gwelet gant tud e diavaez diaspora*.
+      logged_in: kennasket da %{service}
+      manage: Merañ ar servijoù kennasket
+      atom_feed: Gwazh atom
     stream_element:
-      via: "dre %{link}"
-      via_mobile: "dre pellgomzer"
-  simple_captcha:
-    label: "Merkañ ar c'hod er voest:"
-    message:
-      default: "Ne glote ket ar c'hod kuzh gant ar skeudenn"
-      failed: "Chwitet eo bet ar gwiriañ dre Mab-den"
-      user: "Disheñvel e oa ar skeudenn guzh diouzh ar c'hod"
-    placeholder: "Merkañ talvoud ar skeudenn"
+      via: dre %{link}
+      via_mobile: dre pellgomzer
   status_messages:
     new:
-      mentioning: "Menegiñ : %{person}"
-    too_long: "{\"one\"=>\"Lezit ho kemennadennoù statud dindan %{count}\", \"other\"=>\"Lezit ho kemennadennoù statud dindan %{count}\", \"zero\"=>\"Lezit ho kemennadennoù statud dindan %{count}\"}"
-  streams:
-    activity:
-      title: "Ma obererezh"
-    aspects:
-      title: "Ma strolladoù"
-    aspects_stream: "Strolladoù"
-    comment_stream:
-      title: "Embannadennoù lakaet evezhiadennoù warno"
-    community_spotlight_stream: "Nevezenti ar rouedad"
-    followed_tag:
-      add_a_tag: "Ouzhpennañ un dikedenn"
-      follow: "Heuliañ"
-      title: "#Tikedennoù heuliet"
-    followed_tags_stream: "#Tagoù heuliet"
-    like_stream:
-      title: "Red plijus"
-    mentioned_stream: "@Menegoù"
-    mentions:
-      title: "@Menegoù"
-    multi:
-      title: "Red keleier"
-    public:
-      title: "Obererezh Foran"
-    tags:
-      title: "Embannadennoù merket : %{tags}"
+      mentioning: 'Menegiñ : %{person}'
+    too_long: '{"one"=>"Lezit ho kemennadennoù statud dindan %{count}", "other"=>"Lezit ho kemennadennoù statud dindan %{count}", "zero"=>"Lezit ho kemennadennoù statud dindan %{count}"}'
   tags:
     show:
-      follow: "Heuliañ #%{tag}"
-      none: "An tag goulo n'eus ket dioutañ !"
-      stop_following: "Paouez da heuliañ #%{tag}"
-  username: "Anv-implijer"
+      follow: 'Heuliañ #%{tag}'
+      stop_following: 'Paouez da heuliañ #%{tag}'
+      none: An tag goulo n'eus ket dioutañ !
+  streams:
+    community_spotlight_stream: Nevezenti ar rouedad
+    aspects_stream: Strolladoù
+    mentioned_stream: "@Menegoù"
+    followed_tags_stream: "#Tagoù heuliet"
+    mentions:
+      title: "@Menegoù"
+    comment_stream:
+      title: Embannadennoù lakaet evezhiadennoù warno
+    like_stream:
+      title: Red plijus
+    followed_tag:
+      title: "#Tikedennoù heuliet"
+      add_a_tag: Ouzhpennañ un dikedenn
+      follow: Heuliañ
+    tags:
+      title: 'Embannadennoù merket : %{tags}'
+    public:
+      title: Obererezh Foran
+    multi:
+      title: Red keleier
+    aspects:
+      title: Ma strolladoù
+    activity:
+      title: Ma obererezh
   users:
-    confirm_email:
-      email_confirmed: "Postel %{email} gweredekaet"
-      email_not_confirmed: "N'eus ket bet gallet gweredekaat ar chomlec'h. Liamm a-dreuz ?"
-    destroy:
-      no_password: "Enlakait ho ger-kuzh evit prennañ ho kont, mar plij ganeoc'h."
-      success: "Prennet eo bet ho kont. Gellout 'ra kemer un 20 munutenn bennak evit echuiñ ar c'hlozadur. Trugarez deoc'h evit bezañ bet klasket diaspora*."
-      wrong_password: "Ar ger-kuzh bet enlakaet n'eo ket an hini ho 'peus bremañ."
     edit:
-      also_commented: "unan bennak a lak evezhiadennoù war un embannadenn lec'h m'ho peus lakaet un evezhiadenn"
-      auto_follow_aspect: "Strollad evit an darempredoù ouzhpennet ez emgefreek"
-      auto_follow_back: "Rannañ ent emgefre gant an implijerien a grog da rannañ traoù ganeoc'h."
-      change: "Cheñch"
-      change_email: "Cheñch postel"
-      change_language: "Cheñch yezh"
-      change_password: "Cheñch ger-tremen"
-      character_minimum_expl: "a rank bezañ ennañ c'hwec'h arouezenn da vihanañ"
+      edit_account: Kemmañ ar gont
+      change: Cheñch
+      your_handle: Ho kod anaout diaspora
+      your_email: Ho postel
+      change_email: Cheñch postel
+      email_awaiting_confirmation: Kaset ez eus bet deoc'h ul liamm gweredekaat %{unconfirmed_email}. E-keit ha na vo ket heuliet al liamm-se ha gweredekaet ar chomlec'h nevez ganeoc'h e kendalc'himp da ober gant ho chomlec'h kozh %{email}.
+      change_password: Cheñch ger-tremen
+      new_password: Ger-tremen nevez
+      current_password: Ho ker-tremen
+      current_password_expl: an hini a zo implijet ganeoc'h evit kennaskañ
+      character_minimum_expl: a rank bezañ ennañ c'hwec'h arouezenn da vihanañ
+      change_language: Cheñch yezh
+      close_account_text: Klozañ ar gont
+      stream_preferences: Dibarzhioù ar gwazh
+      following: Arventennoù ar rannadennoù
+      auto_follow_back: Rannañ ent emgefre gant an implijerien a grog da rannañ traoù ganeoc'h.
+      auto_follow_aspect: Strollad evit an darempredoù ouzhpennet ez emgefreek
+      receive_email_notifications: Resevout kemennoù postel pa
+      started_sharing: unan bennak a grog da rannañ traoù ganeoc'h
+      mentioned: meneget oc'h en un embannadenn
+      liked: unan bennak a zo plijet gant o embannadenn
+      reshared: unan bennak a adrann ho embannadenn
+      comment_on_post: unan bennak n'eus lakaet un evezhadenn war ho embannadenn
+      also_commented: unan bennak a lak evezhiadennoù war un embannadenn lec'h m'ho peus lakaet un evezhiadenn
+      private_message: resevet ho peus ur gemennadenn prevez
+      download_export: Pellgargañ ma aelad
+      request_export_update: Azgrenaat roadennoù ma aelad
+      export_data: Ezporzhiañ roadennoù
       close_account:
-        dont_go: "Hep, n'it ket kuit mar plij !"
-        lock_username: "Ho anv implijer a vo stanket. Ne vo ket tu deoc'h krouiñ ur gont nevez war ar pod-mañ gant an hevelep anv."
-        locked_out: "Digennasket ha stanket e vo ho gont betek ma vo diverket"
-        make_diaspora_better: "C'hoant hon eus diadpora* da vezañ gwelloc'h, neuze vefe ret deoc'h sikour ac'hanomp e plas mont kuit. M'ho 'peus c'hoant mont kuit, c'hoant hon eus ouifec'h petra c'hoarvezo goude"
-        mr_wiggles: "Aotrou Wiggles a vo trist gwelet ac'hanoc'h o vont kuit"
-        no_turning_back: "N'eus ket tu nullañ ! Ma 'z oc'h sur da vat, enlakait ho ger-kuzh dindan."
-        what_we_delete: "Diverket e vo hoc'h embannadennoù hag ho roadennoù aelad ken buan ha ma vo posupl en ober. Kavet e vo c'hoazh hoc'h evezhiadennoù strewet amañ hag ahont met stag e vint hiviziken ouzh ho kod anaout Diaspora ha n'eo ket mui ouzh hoc'h anv."
-      close_account_text: "Klozañ ar gont"
-      comment_on_post: "unan bennak n'eus lakaet un evezhadenn war ho embannadenn"
-      current_password: "Ho ker-tremen"
-      current_password_expl: "an hini a zo implijet ganeoc'h evit kennaskañ"
-      download_export: "Pellgargañ ma aelad"
-      edit_account: "Kemmañ ar gont"
-      email_awaiting_confirmation: "Kaset ez eus bet deoc'h ul liamm gweredekaat %{unconfirmed_email}. E-keit ha na vo ket heuliet al liamm-se ha gweredekaet ar chomlec'h nevez ganeoc'h e kendalc'himp da ober gant ho chomlec'h kozh %{email}."
-      export_data: "Ezporzhiañ roadennoù"
-      following: "Arventennoù ar rannadennoù"
-      liked: "unan bennak a zo plijet gant o embannadenn"
-      mentioned: "meneget oc'h en un embannadenn"
-      new_password: "Ger-tremen nevez"
-      private_message: "resevet ho peus ur gemennadenn prevez"
-      receive_email_notifications: "Resevout kemennoù postel pa"
-      request_export_update: "Azgrenaat roadennoù ma aelad"
-      reshared: "unan bennak a adrann ho embannadenn"
-      started_sharing: "unan bennak a grog da rannañ traoù ganeoc'h"
-      stream_preferences: "Dibarzhioù ar gwazh"
-      your_email: "Ho postel"
-      your_handle: "Ho kod anaout diaspora"
-    getting_started:
-      awesome_take_me_to_diaspora: "Dispar ! Kas ac'hanon betek diaspora*"
-      community_welcome: "kumuniezh diaspora* a zo laouen da zegemer ac'hanoc'h !"
-      hashtag_explanation: "Gant an hashtags ez eus tu deoc'h eskemm hag heuliañ ar pezh a zedenn ac'hanoc'h. Un doare dreist da gavout tud nevez war diaspora* eo ivez."
-      hashtag_suggestions: "Klaskit heuliañ klavioù evel #arz, #filmoù, #gif, h.a."
-      well_hello_there: "Hey, demat deoc'h !"
-      what_are_you_in_to: "Petra blij deoc'h ?"
-      who_are_you: "Piv oc'h-c'hwi ?"
+        dont_go: Hep, n'it ket kuit mar plij !
+        make_diaspora_better: C'hoant hon eus diadpora* da vezañ gwelloc'h, neuze vefe ret deoc'h sikour ac'hanomp e plas mont kuit. M'ho 'peus c'hoant mont kuit, c'hoant hon eus ouifec'h petra c'hoarvezo goude
+        mr_wiggles: Aotrou Wiggles a vo trist gwelet ac'hanoc'h o vont kuit
+        what_we_delete: Diverket e vo hoc'h embannadennoù hag ho roadennoù aelad ken buan ha ma vo posupl en ober. Kavet e vo c'hoazh hoc'h evezhiadennoù strewet amañ hag ahont met stag e vint hiviziken ouzh ho kod anaout Diaspora ha n'eo ket mui ouzh hoc'h anv.
+        locked_out: Digennasket ha stanket e vo ho gont betek ma vo diverket
+        lock_username: Ho anv implijer a vo stanket. Ne vo ket tu deoc'h krouiñ ur gont nevez war ar pod-mañ gant an hevelep anv.
+        no_turning_back: N'eus ket tu nullañ ! Ma 'z oc'h sur da vat, enlakait ho ger-kuzh dindan.
     privacy_settings:
-      title: "Arventennoù prevezded"
+      title: Arventennoù prevezded
+    destroy:
+      success: Prennet eo bet ho kont. Gellout 'ra kemer un 20 munutenn bennak evit echuiñ ar c'hlozadur. Trugarez deoc'h evit bezañ bet klasket diaspora*.
+      no_password: Enlakait ho ger-kuzh evit prennañ ho kont, mar plij ganeoc'h.
+      wrong_password: Ar ger-kuzh bet enlakaet n'eo ket an hini ho 'peus bremañ.
+    getting_started:
+      well_hello_there: Hey, demat deoc'h !
+      community_welcome: kumuniezh diaspora* a zo laouen da zegemer ac'hanoc'h !
+      awesome_take_me_to_diaspora: Dispar ! Kas ac'hanon betek diaspora*
+      who_are_you: Piv oc'h-c'hwi ?
+      what_are_you_in_to: Petra blij deoc'h ?
+      hashtag_explanation: Gant an hashtags ez eus tu deoc'h eskemm hag heuliañ ar pezh a zedenn ac'hanoc'h. Un doare dreist da gavout tud nevez war diaspora* eo ivez.
+      hashtag_suggestions: 'Klaskit heuliañ klavioù evel #arz, #filmoù, #gif, h.a.'
+    update:
+      password_changed: Ger-tremen cheñchet. Kevreañ gant ho ker-tremen nevez a c'hellit ober bremañ.
+      password_not_changed: Ur gudenn zo bet e-ser cheñch ar ger-tremen
+      language_changed: Yezh cheñchet
+      language_not_changed: Kudennoù zo bet en ur cheñch ar yezh
+      settings_updated: Nevesaet an arventennoù
+      settings_not_updated: C'hwitet eo bet nevesaat an arventennoù
+      email_notifications_changed: Kemmet eo bet ar c'hemennoù dre bostel
+      unconfirmed_email_changed: Cheñchet eo ar chomlec'h postel. Rekis eo gweredekaat.
+      unconfirmed_email_not_changed: C'hwitet eo bet ar cheñchamant chomlec'h postel
+      follow_settings_changed: Kemmet eo bet an arventennoù heuliañ
+      follow_settings_not_changed: C'hwitet eo bet kemmañ an arventennoù heuliañ.
     public:
       does_not_exist: "%{username} n'eus ket anezhañ!"
-    update:
-      email_notifications_changed: "Kemmet eo bet ar c'hemennoù dre bostel"
-      follow_settings_changed: "Kemmet eo bet an arventennoù heuliañ"
-      follow_settings_not_changed: "C'hwitet eo bet kemmañ an arventennoù heuliañ."
-      language_changed: "Yezh cheñchet"
-      language_not_changed: "Kudennoù zo bet en ur cheñch ar yezh"
-      password_changed: "Ger-tremen cheñchet. Kevreañ gant ho ker-tremen nevez a c'hellit ober bremañ."
-      password_not_changed: "Ur gudenn zo bet e-ser cheñch ar ger-tremen"
-      settings_not_updated: "C'hwitet eo bet nevesaat an arventennoù"
-      settings_updated: "Nevesaet an arventennoù"
-      unconfirmed_email_changed: "Cheñchet eo ar chomlec'h postel. Rekis eo gweredekaat."
-      unconfirmed_email_not_changed: "C'hwitet eo bet ar cheñchamant chomlec'h postel"
+    confirm_email:
+      email_confirmed: Postel %{email} gweredekaet
+      email_not_confirmed: N'eus ket bet gallet gweredekaat ar chomlec'h. Liamm a-dreuz ?
   will_paginate:
-    next_label: "war-lerc'h &laquo;"
     previous_label: "&laquo; kent"
+    next_label: war-lerc'h &laquo;
+  simple_captcha:
+    placeholder: Merkañ talvoud ar skeudenn
+    label: 'Merkañ ar c''hod er voest:'
+    message:
+      default: Ne glote ket ar c'hod kuzh gant ar skeudenn
+      user: Disheñvel e oa ar skeudenn guzh diouzh ar c'hod
+      failed: Chwitet eo bet ar gwiriañ dre Mab-den

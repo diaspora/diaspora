@@ -5,603 +5,603 @@
 
 
 en_pirate:
-  _applications: "Applications"
-  _contacts: "Mateys"
-  _services: "Ye Services"
-  _terms: "Terms matey"
-  account: "Ye account"
+  settings: Settin's
+  profile: Ye duffle
+  account: Ye account
+  privacy: Ye privacy settin's
+  _services: Ye Services
+  _applications: Applications
+  ok: Aye
+  cancel: Nevermind
+  delete: Scuttle
+  username: Yer Username
+  email: Yer Carrier Pigeon (Email)
+  are_you_sure: Are ye sure?
+  are_you_sure_delete_account: Are ye sure you want t' walk the plank? Yer account will be shark bait!
+  fill_me_out: Fill me out arrr
+  public: The Sea can see this
+  limited: Only ye crews
+  search: Scour
+  nsfw: Not safe for lad's or lasses'
+  find_people: Scour fer mates or treasures
+  more: More!
+  all_aspects: Yer Crews
+  no_results: Ye results be in davey jones' locker. Yargh!
+  _contacts: Mateys
+  _terms: Terms matey
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "must be unique among this matey's mates."
+            person:
+              invalid: be invalid.
+            username:
+              taken: has been hornswaggled!
+              invalid: is invalid. We only allow letters, numbers, 'n underscores.
+            email:
+              taken: has been hornswaggled!
         person:
           attributes:
             diaspora_handle:
-              taken: "has been hornswaggled!"
+              taken: has been hornswaggled!
+        contact:
+          attributes:
+            person_id:
+              taken: must be unique among this matey's mates.
         reshare:
           attributes:
             root_guid:
-              taken: "Ye've already reshared that post!"
-        user:
-          attributes:
-            email:
-              taken: "has been hornswaggled!"
-            person:
-              invalid: "be invalid."
-            username:
-              invalid: "is invalid. We only allow letters, numbers, 'n underscores."
-              taken: "has been hornswaggled!"
-  admins:
-    admin_bar:
-      pages: "Pages"
-      pod_stats: "Ship stats"
-      user_search: "Matey search"
-      weekly_user_stats: "Weekly matey stats"
-    user_search:
-      add_invites: "Add ye old invites"
-      email_to: "Email to invite mateys"
-  all_aspects: "Yer Crews"
-  are_you_sure: "Are ye sure?"
-  are_you_sure_delete_account: "Are ye sure you want t' walk the plank? Yer account will be shark bait!"
-  aspect_memberships:
-    destroy:
-      failure: "Blast! Failed to kick matey out yer crew"
-      no_membership: "Could nah find th' selected scallywag in that crew"
-      success: "Successfully scuttled scallywag from that crew"
-  aspects:
-    add_to_aspect:
-      failure: "Failed to add contact to crew."
-      success: "Successfully added contact to crew."
-    aspect_listings:
-      add_an_aspect: "+ Add a crew"
-    aspect_stream:
-      stay_updated: "Stay up 't date"
-      stay_updated_explanation: "Yer main stream is populated with all of yer contacts, tags ye follow, and posts from some creative members of the community."
-    destroy:
-      failure: "%{name} not be empty and could not be removed YARGH!"
-      success: "%{name} was removed successfully mate."
-    edit:
-      aspect_list_is_not_visible: "Yer crew list is hidden to others in crew"
-      aspect_list_is_visible: "Yer crew list is visible to others in crew"
-      confirm_remove_aspect: "Are ye sure ye wants t' scuttle this crew?"
-      rename: "rename"
-      update: "update"
-      updating: "updatin'"
-    index:
-      donate: "Give some dubloons!"
-      help:
-        contact_podmin: "Contact ye ship captain!"
-        do_you: "Do ye:"
-        feature_suggestion: "... do ye have a %{link} suggestion?"
-        find_a_bug: "... ye find a %{link}?"
-        have_a_question: "do ye have a %{link}?"
-        here_to_help: "Diaspora community is here to help!"
-        mail_podmin: "Cap'n's email"
-        need_help: "S.O.S."
-        tag_bug: "blunder"
-        tag_feature: "addition"
-        tag_question: "wanna know somethin'!"
-      introduce_yourself: "This be yer sea. Make yerself acquainted ye bucko."
-      keep_pod_running: "Keep %{pod} sailing swift and buy the ships some new sails with a monthly gold donation! Argh!"
-      new_here:
-        follow: "Follow %{link} 'n welcome new mateys 't diaspora*!"
-        learn_more: "Learn more matey"
-        title: "Welcome New Buccaneers"
-      services:
-        content: "Ye can connect the following services to diaspora*:"
-        heading: "Connect ye services"
-      welcome_to_diaspora: "Welcome to diaspora*, %{name}. Ye old seadog!"
-    no_contacts_message:
-      community_spotlight: "crew spotlight"
-      or_spotlight: "Or ye can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more mateys."
-      you_should_add_some_more_contacts: "Ye should add some more contacts!"
-    seed:
-      acquaintances: "Landlubbers"
-      family: "Kin"
-      friends: "Mateys"
-      work: "Shipmates"
-    update:
-      failure: "Yer crew, %{name}, had too many words, YARGH!"
-      success: "Yer crew, %{name}. has been edited matey!"
-  blocks:
-    create:
-      failure: "Could not send'em to the brig!"
-      success: "Alright mate, ye wont see that scallywag in yer sea again. #walkedtheplank!"
-    destroy:
-      failure: "Couldnt stop ignorin' that scallywag."
-      success: "Aye, let's see what the matey's gotta say! #Yahar"
-  bookmarklet:
-    explanation: "Post to diaspora* from anywhere by marking this link on yer map => %{link}"
-    heading: "Mark on ye map"
-    post_something: "Post 't d*"
-  cancel: "Nevermind"
-  comments:
-    new_comment:
-      comment: "Comm'nt"
-      commenting: "Commentin'"
-  contacts:
-    index:
-      add_contact: "Add matey"
-      all_contacts: "All yer mateys"
-      community_spotlight: "Crew spotlight"
-      my_contacts: "Me Mateys"
-      no_contacts: "No Mateys."
-      no_contacts_message: "Check out ye old %{community_spotlight}"
-      only_sharing_with_me: "Mateys only sharin' with me"
-      start_a_conversation: "Send a letter"
-      title: "Mateys"
-    spotlight:
-      community_spotlight: "Crew spotlight"
-      suggest_member: "Suggest a matey"
-  conversations:
-    create:
-      fail: "Problem with letter, YARGH!"
-      sent: "Letter sent"
-    index:
-      inbox: "Pigeon's nest"
-      new_conversation: "New letter"
-      no_messages: "no letters"
-    new:
-      send: "Fire"
-      sending: "Sendin'..."
-      subject: "Subject"
-      to: "'t"
-    new_conversation:
-      fail: "Yargh! Invalid letter matey! Re-ink ye feather!"
-    show:
-      delete: "scuttle and batten down the discussion"
-      reply: "send a letter back"
-      replying: "Replyin'"
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Scuttle"
-  email: "Yer Carrier Pigeon (Email)"
+              taken: Ye've already reshared that post!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Correct ye blunders 'n try again ye scallywag!"
-  fill_me_out: "Fill me out arrr"
-  find_people: "Scour fer mates or treasures"
+      correct_the_following_errors_and_try_again: Correct ye blunders 'n try again ye scallywag!
+  admins:
+    admin_bar:
+      pages: Pages
+      user_search: Matey search
+      weekly_user_stats: Weekly matey stats
+      pod_stats: Ship stats
+    user_search:
+      add_invites: Add ye old invites
+      email_to: Email to invite mateys
+  aspects:
+    edit:
+      confirm_remove_aspect: Are ye sure ye wants t' scuttle this crew?
+      rename: rename
+      aspect_list_is_visible: Yer crew list is visible to others in crew
+      aspect_list_is_not_visible: Yer crew list is hidden to others in crew
+      update: update
+      updating: updatin'
+    no_contacts_message:
+      you_should_add_some_more_contacts: Ye should add some more contacts!
+      try_adding_some_more_contacts: You can search (top) or invite (right) more mateys.
+      or_spotlight: Or ye can share with %{link}
+      community_spotlight: crew spotlight
+    aspect_listings:
+      add_an_aspect: "+ Add a crew"
+    destroy:
+      success: "%{name} was removed successfully mate."
+      failure: "%{name} not be empty and could not be removed YARGH!"
+    update:
+      success: Yer crew, %{name}. has been edited matey!
+      failure: Yer crew, %{name}, had too many words, YARGH!
+    add_to_aspect:
+      failure: Failed to add contact to crew.
+      success: Successfully added contact to crew.
+    seed:
+      family: Kin
+      work: Shipmates
+      acquaintances: Landlubbers
+      friends: Mateys
+    index:
+      donate: Give some dubloons!
+      keep_pod_running: Keep %{pod} sailing swift and buy the ships some new sails with a monthly gold donation! Argh!
+      welcome_to_diaspora: Welcome to diaspora*, %{name}. Ye old seadog!
+      introduce_yourself: This be yer sea. Make yerself acquainted ye bucko.
+      new_here:
+        title: Welcome New Buccaneers
+        follow: Follow %{link} 'n welcome new mateys 't diaspora*!
+        learn_more: Learn more matey
+      help:
+        need_help: S.O.S.
+        here_to_help: Diaspora community is here to help!
+        do_you: 'Do ye:'
+        have_a_question: do ye have a %{link}?
+        tag_question: wanna know somethin'!
+        find_a_bug: "... ye find a %{link}?"
+        tag_bug: blunder
+        feature_suggestion: "... do ye have a %{link} suggestion?"
+        tag_feature: addition
+        contact_podmin: Contact ye ship captain!
+        mail_podmin: Cap'n's email
+      services:
+        heading: Connect ye services
+        content: 'Ye can connect the following services to diaspora*:'
+    aspect_stream:
+      stay_updated: Stay up 't date
+      stay_updated_explanation: Yer main stream is populated with all of yer contacts, tags ye follow, and posts from some creative members of the community.
+  aspect_memberships:
+    destroy:
+      success: Successfully scuttled scallywag from that crew
+      failure: Blast! Failed to kick matey out yer crew
+      no_membership: Could nah find th' selected scallywag in that crew
+  bookmarklet:
+    heading: Mark on ye map
+    post_something: Post 't d*
+    explanation: Post to diaspora* from anywhere by marking this link on yer map => %{link}
+  comments:
+    new_comment:
+      comment: Comm'nt
+      commenting: Commentin'
+  contacts:
+    index:
+      start_a_conversation: Send a letter
+      title: Mateys
+      no_contacts: No Mateys.
+      no_contacts_message: Check out ye old %{community_spotlight}
+      community_spotlight: Crew spotlight
+      my_contacts: Me Mateys
+      all_contacts: All yer mateys
+      only_sharing_with_me: Mateys only sharin' with me
+      add_contact: Add matey
+    spotlight:
+      community_spotlight: Crew spotlight
+      suggest_member: Suggest a matey
+  conversations:
+    index:
+      new_conversation: New letter
+      no_messages: no letters
+      inbox: Pigeon's nest
+    show:
+      reply: send a letter back
+      replying: Replyin'
+      delete: scuttle and batten down the discussion
+    new:
+      to: "'t"
+      subject: Subject
+      send: Fire
+      sending: Sendin'...
+    create:
+      sent: Letter sent
+      fail: Problem with letter, YARGH!
+    new_conversation:
+      fail: Yargh! Invalid letter matey! Re-ink ye feather!
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
   invitations:
     create:
-      no_more: "Ye have no more invitations."
-      rejected: "Yer pigeon can't deliver to the followin' addresses: "
-      sent: "Invitations have been sent t': %{emails}"
+      sent: 'Invitations have been sent t'': %{emails}'
+      rejected: 'Yer pigeon can''t deliver to the followin'' addresses: '
+      no_more: Ye have no more invitations.
     new:
+      language: What do ye speak?
+      invite_someone_to_join: Invite a bucko t' diaspora*!
+      comma_separated_plz: Ye can enter multiple email addresses separated by commas.
+      send_an_invitation: Send n' invitation
+      sending_invitation: Sending ye invite via pigeon...
+      paste_link: Share this link with ye crew to invite them aboard to diaspora*, or email them the link via an email cannonball. Argh!
       codes_left:
-        one: "One invite be left on this code"
-        other: "Ye got %{count} invites left on this code"
-        zero: "Blimey! No invites left on this code"
-      comma_separated_plz: "Ye can enter multiple email addresses separated by commas."
-      invite_someone_to_join: "Invite a bucko t' diaspora*!"
-      language: "What do ye speak?"
-      paste_link: "Share this link with ye crew to invite them aboard to diaspora*, or email them the link via an email cannonball. Argh!"
-      send_an_invitation: "Send n' invitation"
-      sending_invitation: "Sending ye invite via pigeon..."
+        zero: Blimey! No invites left on this code
+        one: One invite be left on this code
+        other: Ye got %{count} invites left on this code
   layouts:
-    application:
-      back_to_top: "Back to crow's nest"
-      powered_by: "This ship be POWERED BY diaspora*"
-      public_feed: "Sea-wide diaspora* feed for %{name}"
-      source_package: "Download the blueprints! Argh!"
-      whats_new: "what be new?"
     header:
-      code: "Code"
-      logout: "Abandon Ship"
-      profile: "Ye Ship"
-      settings: "Ye Ships Rigging"
-  limited: "Only ye crews"
-  more: "More!"
-  no_results: "Ye results be in davey jones' locker. Yargh!"
+      profile: Ye Ship
+      settings: Ye Ships Rigging
+      logout: Abandon Ship
+      code: Code
+    application:
+      powered_by: This ship be POWERED BY diaspora*
+      whats_new: what be new?
+      public_feed: Sea-wide diaspora* feed for %{name}
+      back_to_top: Back to crow's nest
+      source_package: Download the blueprints! Argh!
   notifications:
-    also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-    also_commented_deleted:
-      few: "%{actors} commented on a scuttled post."
-      many: "%{actors} commented on a scuttled post."
-      one: "%{actors} commented on a scuttled post."
-      other: "%{actors} commented on a scuttled post."
-      two: "%{actors} commented on a scuttled post."
-      zero: "%{actors} commented on a scuttled post."
-    comment_on_post:
-      few: "%{actors} commented on yer %{post_link}."
-      many: "%{actors} commented on yer %{post_link}."
-      one: "%{actors} commented on yer %{post_link}."
-      other: "%{actors} commented on yer %{post_link}."
-      two: "%{actors} commented on yer %{post_link}."
-      zero: "%{actors} commented on yer %{post_link}."
-    index:
-      and: "'n"
-      and_others:
-        few: "'n %{count} others"
-        many: "'n %{count} others"
-        one: "'n one more"
-        other: "'n %{count} others"
-        two: "'n %{count} others"
-        zero: "'n nobody else"
-      liked: "Liked"
-      mark_all_as_read: "Mark that ye read all"
-      mark_unread: "Mark unread"
-      notifications: "Notifications"
-      reshared: "Reposted"
-      started_sharing: "Started sharin'"
-    liked:
-      few: "%{actors} has just liked yer %{post_link}."
-      many: "%{actors} has just liked yer %{post_link}."
-      one: "%{actors} has just liked yer %{post_link}."
-      other: "%{actors} has just liked yer %{post_link}."
-      two: "%{actors} has just liked yer %{post_link}."
-      zero: "%{actors} has just liked yer %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} liked yer scuttled post."
-      many: "%{actors} liked yer scuttled post."
-      one: "%{actors} liked yer scuttled post."
-      other: "%{actors} liked yer scuttled post."
-      two: "%{actors} liked yer scuttled post."
-      zero: "%{actors} liked yer scuttled post."
-    mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} mentioned you in a scuttled post."
-      many: "%{actors} mentioned you in a scuttled post."
-      one: "%{actors} mentioned you in a scuttled post."
-      other: "%{actors} mentioned you in a scuttled post."
-      two: "%{actors} mentioned you in a scuttled post."
-      zero: "%{actors} mentioned you in a scuttled post."
-    private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
-    reshared:
-      few: "%{actors} has reshared yer %{post_link}."
-      many: "%{actors} has reshared yer %{post_link}."
-      one: "%{actors} has reshared yer %{post_link}."
-      other: "%{actors} has reshared yer %{post_link}."
-      two: "%{actors} has reshared yer %{post_link}."
-      zero: "%{actors} has reshared yer %{post_link}."
-    reshared_post_deleted:
-      few: "%{actors} reshared yer scuttled post."
-      many: "%{actors} reshared yer scuttled post."
-      one: "%{actors} reshared yer scuttled post."
-      other: "%{actors} reshared yer scuttled post."
-      two: "%{actors} reshared yer scuttled post."
-      zero: "%{actors} reshared yer scuttled post."
     started_sharing:
+      zero: "%{actors} started sharin' with ye."
+      one: "%{actors} started sharin' with ye."
+      two: "%{actors} started sharin' with ye."
       few: "%{actors} started sharin' with ye."
       many: "%{actors} started sharin' with ye."
-      one: "%{actors} started sharin' with ye."
       other: "%{actors} started sharin' with ye."
-      two: "%{actors} started sharin' with ye."
-      zero: "%{actors} started sharin' with ye."
-  notifier:
-    a_post_you_shared: "a post."
-    click_here: "look here"
+    private_message:
+      zero: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
     comment_on_post:
-      reply: "Reply or see %{name}'s post >"
-    confirm_email:
-      click_link: "To activate yer new email %{unconfirmed_email} in a bottle coordinates , please click 'tis link."
-      subject: "Please activate yer new email %{unconfirmed_email}"
-    email_sent_by_diaspora: "This letter was sent by %{pod_name}. If ye'd like to stop gettin' letters like this,"
-    hello: "Hello %{name}! How are ye, matey?"
-    invite:
-      message: |-
-          Ahoy matey!
-
-          Ye have been invited aboard to join diaspora* by matey %{diaspora_id}!
-
-          Click this link to start boarding!
-
-          [%{invite_url}][1]
-
-          Or ye can add %{diaspora_id} to ye crew if ye already are aboard.
-
-
-          Savvy? Cheers matey!
-
-          The diaspora* email pirate!
-
-          P.S.: Just in case ye dont know (yet) what diaspora* is, [here][2] be the answer!
-
-          [1]: %{invite_url}
-          [2]: %{diasporafoundation_url}
-    invited_you: "Matey %{name} invited ye to diaspora*"
+      zero: "%{actors} commented on yer %{post_link}."
+      one: "%{actors} commented on yer %{post_link}."
+      two: "%{actors} commented on yer %{post_link}."
+      few: "%{actors} commented on yer %{post_link}."
+      many: "%{actors} commented on yer %{post_link}."
+      other: "%{actors} commented on yer %{post_link}."
+    also_commented:
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+    mentioned:
+      zero: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} has mentioned you in a %{post_link}."
+      many: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} has mentioned you in a %{post_link}."
     liked:
-      liked: "%{name} just like'd yer post"
-      view_post: "Read post >"
+      zero: "%{actors} has just liked yer %{post_link}."
+      one: "%{actors} has just liked yer %{post_link}."
+      two: "%{actors} has just liked yer %{post_link}."
+      few: "%{actors} has just liked yer %{post_link}."
+      many: "%{actors} has just liked yer %{post_link}."
+      other: "%{actors} has just liked yer %{post_link}."
+    reshared:
+      zero: "%{actors} has reshared yer %{post_link}."
+      one: "%{actors} has reshared yer %{post_link}."
+      two: "%{actors} has reshared yer %{post_link}."
+      few: "%{actors} has reshared yer %{post_link}."
+      many: "%{actors} has reshared yer %{post_link}."
+      other: "%{actors} has reshared yer %{post_link}."
+    also_commented_deleted:
+      zero: "%{actors} commented on a scuttled post."
+      one: "%{actors} commented on a scuttled post."
+      two: "%{actors} commented on a scuttled post."
+      few: "%{actors} commented on a scuttled post."
+      many: "%{actors} commented on a scuttled post."
+      other: "%{actors} commented on a scuttled post."
+    liked_post_deleted:
+      zero: "%{actors} liked yer scuttled post."
+      one: "%{actors} liked yer scuttled post."
+      two: "%{actors} liked yer scuttled post."
+      few: "%{actors} liked yer scuttled post."
+      many: "%{actors} liked yer scuttled post."
+      other: "%{actors} liked yer scuttled post."
+    reshared_post_deleted:
+      zero: "%{actors} reshared yer scuttled post."
+      one: "%{actors} reshared yer scuttled post."
+      two: "%{actors} reshared yer scuttled post."
+      few: "%{actors} reshared yer scuttled post."
+      many: "%{actors} reshared yer scuttled post."
+      other: "%{actors} reshared yer scuttled post."
+    mentioned_deleted:
+      zero: "%{actors} mentioned you in a scuttled post."
+      one: "%{actors} mentioned you in a scuttled post."
+      two: "%{actors} mentioned you in a scuttled post."
+      few: "%{actors} mentioned you in a scuttled post."
+      many: "%{actors} mentioned you in a scuttled post."
+      other: "%{actors} mentioned you in a scuttled post."
+    index:
+      notifications: Notifications
+      mark_all_as_read: Mark that ye read all
+      mark_unread: Mark unread
+      liked: Liked
+      reshared: Reposted
+      started_sharing: Started sharin'
+      and_others:
+        zero: "'n nobody else"
+        one: "'n one more"
+        two: "'n %{count} others"
+        few: "'n %{count} others"
+        many: "'n %{count} others"
+        other: "'n %{count} others"
+      and: "'n"
+  notifier:
+    a_post_you_shared: a post.
+    email_sent_by_diaspora: This letter was sent by %{pod_name}. If ye'd like to stop gettin' letters like this,
+    click_here: look here
+    hello: Hello %{name}! How are ye, matey?
+    thanks: Thanks matey,
+    to_change_your_notification_settings: t' change yer notification settin's
+    single_admin:
+      subject: 'A message about yer diaspora* account:'
+      admin: Yer diaspora* cap'n
+    started_sharing:
+      subject: "%{name} started sharin' with ye on diaspora*"
+      sharing: has start'd sharin' with ye!
+      view_profile: Look at %{name}'s ship
+    comment_on_post:
+      reply: Reply or see %{name}'s post >
     mentioned:
       subject: "%{name} has mention'd ye on diaspora*"
     private_message:
-      reply_to_or_view: "Reply 't or read this conversation >"
-    report_email:
-      subject: "Ahoy there matey! A new %{type} was marked offensive!"
+      reply_to_or_view: Reply 't or read this conversation >
+    liked:
+      liked: "%{name} just like'd yer post"
+      view_post: Read post >
     reshared:
       reshared: "%{name} just reshare'd yer post"
-      view_post: "Read post >"
-    single_admin:
-      admin: "Yer diaspora* cap'n"
-      subject: "A message about yer diaspora* account:"
-    started_sharing:
-      sharing: "has start'd sharin' with ye!"
-      subject: "%{name} started sharin' with ye on diaspora*"
-      view_profile: "Look at %{name}'s ship"
-    thanks: "Thanks matey,"
-    to_change_your_notification_settings: "t' change yer notification settin's"
-  nsfw: "Not safe for lad's or lasses'"
-  ok: "Aye"
+      view_post: Read post >
+    confirm_email:
+      subject: Please activate yer new email %{unconfirmed_email}
+      click_link: To activate yer new email %{unconfirmed_email} in a bottle coordinates , please click 'tis link.
+    report_email:
+      subject: Ahoy there matey! A new %{type} was marked offensive!
+    invited_you: Matey %{name} invited ye to diaspora*
+    invite:
+      message: |-
+        Ahoy matey!
+
+        Ye have been invited aboard to join diaspora* by matey %{diaspora_id}!
+
+        Click this link to start boarding!
+
+        [%{invite_url}][1]
+
+        Or ye can add %{diaspora_id} to ye crew if ye already are aboard.
+
+
+        Savvy? Cheers matey!
+
+        The diaspora* email pirate!
+
+        P.S.: Just in case ye dont know (yet) what diaspora* is, [here][2] be the answer!
+
+        [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
   people:
-    add_contact:
-      invited_by: "Ye were invited by"
-    index:
-      couldnt_find_them: "Nothin' from the crow's nest?"
-      looking_for: "Lookin' fer posts tagged %{tag_link}?"
-      no_one_found: "...and no landblubbers were found."
-      no_results: "Ahoy! Ye need 't search fer somethin'."
-      results_for: "Scallywags matchin' %{search_term}"
-      searching: "Aye, searchin', be patient matey..."
     person:
-      thats_you: "That's ye!"
-    profile_sidebar:
-      bio: "Ye tale"
-      born: "date o' birth"
-      gender: "Ye gender"
-      location: "Sea I be in"
+      thats_you: That's ye!
+    index:
+      results_for: Scallywags matchin' %{search_term}
+      no_results: Ahoy! Ye need 't search fer somethin'.
+      couldnt_find_them: Nothin' from the crow's nest?
+      no_one_found: "...and no landblubbers were found."
+      searching: Aye, searchin', be patient matey...
+      looking_for: Lookin' fer posts tagged %{tag_link}?
     show:
-      closed_account: "This ship has been sunk."
-      does_not_exist: "Matey does not exist! Arrr"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with ye yet!"
+      does_not_exist: Matey does not exist! Arrr
+      closed_account: This ship has been sunk.
+    profile_sidebar:
+      bio: Ye tale
+      location: Sea I be in
+      gender: Ye gender
+      born: date o' birth
+    add_contact:
+      invited_by: Ye were invited by
   photos:
     create:
-      integrity_error: "Portrait hanging failed.  Are ye sure that was a portrait?"
-      runtime_error: "Portrait hanging failed.  Are ye sure yer hatches be battened down?"
-      type_error: "Portrait hangin' failed.  Are ye sure a portrait was added mate?"
+      runtime_error: Portrait hanging failed.  Are ye sure yer hatches be battened down?
+      integrity_error: Portrait hanging failed.  Are ye sure that was a portrait?
+      type_error: Portrait hangin' failed.  Are ye sure a portrait was added mate?
     destroy:
-      notice: "Portrait scuttled!"
+      notice: Portrait scuttled!
     new_profile_photo:
-      upload: "Hang a new portrait in ye ship!"
+      upload: Hang a new portrait in ye ship!
   posts:
     presenter:
-      title: "A post from matey %{name}"
+      title: A post from matey %{name}
     show:
       photos_by:
-        one: "One portrait by %{author}"
+        zero: No portraits by %{author}
+        one: One portrait by %{author}
         other: "%{count} portraits by %{author}"
-        zero: "No portraits by %{author}"
-      reshare_by: "Reshare by %{author}"
-  privacy: "Ye privacy settin's"
-  profile: "Ye duffle"
+      reshare_by: Reshare by %{author}
+  report:
+    delete_link: Make it walk the plank
+    status:
+      destroyed: Sunk the post! Ya har har har har!
   profiles:
     edit:
-      allow_search: "Allow fer scallywags to search fer ye within diaspora*"
-      first_name: "Ye first name"
-      last_name: "Ye last name"
-      nsfw_check: "Mark everythin' I share as Not Safe For Scalawags"
-      update_profile: "Update duffle"
-      your_bio: "Ye story"
-      your_birthday: "Yer day o' birth"
-      your_gender: "Lad, lass, or something else?"
-      your_location: "Where ye be in the sea?"
-      your_name: "Yer name"
-      your_photo: "Ye portrait"
-      your_tags: "Describe yerself in 5 words, mate."
-      your_tags_placeholder: "like #treasure #ships #plunderin #sea #rum"
+      your_name: Yer name
+      first_name: Ye first name
+      last_name: Ye last name
+      your_gender: Lad, lass, or something else?
+      your_birthday: Yer day o' birth
+      your_tags: Describe yerself in 5 words, mate.
+      your_tags_placeholder: 'like #treasure #ships #plunderin #sea #rum'
+      your_bio: Ye story
+      your_location: Where ye be in the sea?
+      your_photo: Ye portrait
+      update_profile: Update duffle
+      allow_search: Allow fer scallywags to search fer ye within diaspora*
+      nsfw_check: Mark everythin' I share as Not Safe For Scalawags
     update:
-      failed: "Failed to update profile, matey!"
-      updated: "Ye profile updated"
-  public: "The Sea can see this"
+      updated: Ye profile updated
+      failed: Failed to update profile, matey!
   registrations:
-    create:
-      success: "Ye've joined diaspora*! YARGH!"
-    invalid_invite: "The invite link ye provided is no longer valid ye scalawag! Yar!"
     new:
-      email: "Ye ship [Email scalawag]"
-      enter_email: "Enter ye email"
-      enter_password: "Enter ye secret phrase (six letters max ye scalawag)"
-      enter_password_again: "Enter ye same secret phrase again matey"
-      enter_username: "Pick ye username (only letters, numbers, and ye old underscores)"
-      password: "Ye password"
-      sign_up: "Create ye olde account"
-      submitting: "Submittin'..."
-      username: "Ye username"
-  report:
-    delete_link: "Make it walk the plank"
-    status:
-      destroyed: "Sunk the post! Ya har har har har!"
-  reshares:
-    comment_email_subject: "%{resharer}'s reshare of matey %{author}'s post"
-    reshare:
-      deleted: "Ye old post deleted by it's cap'n."
-      reshare_confirmation: "Reshare matey %{author}'s post?"
-      reshared_via: "Reshared via"
-  search: "Scour"
-  services:
+      enter_email: Enter ye email
+      enter_username: Pick ye username (only letters, numbers, and ye old underscores)
+      enter_password: Enter ye secret phrase (six letters max ye scalawag)
+      enter_password_again: Enter ye same secret phrase again matey
+      sign_up: Create ye olde account
+      email: Ye ship [Email scalawag]
+      username: Ye username
+      password: Ye password
+      submitting: Submittin'...
     create:
-      already_authorized: "A matey named %{diaspora_id} already authorized that %{service_name} record. ARR!"
-      failure: "Blow me down! Ye authentication failed."
-      success: "Ye authentication be successful."
-    destroy:
-      success: "Authentication has walked the plank!"
-    failure:
-      error: "there be an error connectin' that service"
+      success: Ye've joined diaspora*! YARGH!
+    invalid_invite: The invite link ye provided is no longer valid ye scalawag! Yar!
+  reshares:
+    reshare:
+      reshared_via: Reshared via
+      reshare_confirmation: Reshare matey %{author}'s post?
+      deleted: Ye old post deleted by it's cap'n.
+    comment_email_subject: "%{resharer}'s reshare of matey %{author}'s post"
+  services:
     index:
-      disconnect: "Off with it's head!"
-      edit_services: "Edit ye services"
-      logged_in_as: "Aboard as %{nickname}."
-      really_disconnect: "Make %{service} walk the plank?"
-  settings: "Settin's"
+      disconnect: Off with it's head!
+      logged_in_as: Aboard as %{nickname}.
+      really_disconnect: Make %{service} walk the plank?
+      edit_services: Edit ye services
+    create:
+      success: Ye authentication be successful.
+      failure: Blow me down! Ye authentication failed.
+      already_authorized: A matey named %{diaspora_id} already authorized that %{service_name} record. ARR!
+    destroy:
+      success: Authentication has walked the plank!
+    failure:
+      error: there be an error connectin' that service
+  blocks:
+    create:
+      success: 'Alright mate, ye wont see that scallywag in yer sea again. #walkedtheplank!'
+      failure: Could not send'em to the brig!
+    destroy:
+      success: 'Aye, let''s see what the matey''s gotta say! #Yahar'
+      failure: Couldnt stop ignorin' that scallywag.
   shared:
     aspect_dropdown:
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add to aspect"
-    invitations:
-      by_email: "Invite mateys by message"
-      invite_your_friends: "Invite ye mateys"
-      invites: "Ye invites"
-    public_explain:
-      atom_feed: "Ye atom feed"
-      control_your_audience: "Control ye crew"
-      logged_in: "on deck at %{service}"
-      manage: "Manage ye connected services"
-      new_user_welcome_message: "Use #hashtags t' classify yer posts n' find mateys.  Call out mateys with @Mentions"
-      outside: "Sea-wide messages will be available fer others outside of diaspora* t' see."
-      share: "Shar"
-      title: "Set up ye connected services"
-      visibility_dropdown: "Use this dropdown t' change the visibility of yer post.  (It's good idear ye make this first one sea-wide.)"
+        zero: Add to aspect
+        one: In %{count} aspect
+        two: In %{count} aspects
+        few: In %{count} aspects
+        many: In %{count} aspects
+        other: In %{count} aspects
     publisher:
-      discard_post: "Scuttle post"
-      formatWithMarkdown: "Ye can use ye olde %{markdown_link} to pretty up ye post"
-      get_location: "Get ye coordinates"
+      formatWithMarkdown: Ye can use ye olde %{markdown_link} to pretty up ye post
+      posting: Firin!
+      share: Fire!
+      get_location: Get ye coordinates
+      remove_location: Eye patch ye location!
+      whats_on_your_mind: What be botherin' you?
+      discard_post: Scuttle post
       new_user_prefill:
-        hello: "Ahoy there matey's! I be #%{new_user_tag}. "
-        i_like: "I be interested in %{tags}."
-        invited_by: "Thanks for invite matey, "
-        newhere: "NewMatey"
-      posting: "Firin!"
-      remove_location: "Eye patch ye location!"
-      share: "Fire!"
-      whats_on_your_mind: "What be botherin' you?"
+        newhere: NewMatey
+        hello: 'Ahoy there matey''s! I be #%{new_user_tag}. '
+        i_like: I be interested in %{tags}.
+        invited_by: 'Thanks for invite matey, '
+    invitations:
+      invites: Ye invites
+      invite_your_friends: Invite ye mateys
+      by_email: Invite mateys by message
+    public_explain:
+      control_your_audience: Control ye crew
+      new_user_welcome_message: 'Use #hashtags t'' classify yer posts n'' find mateys.  Call out mateys with @Mentions'
+      visibility_dropdown: Use this dropdown t' change the visibility of yer post.  (It's good idear ye make this first one sea-wide.)
+      title: Set up ye connected services
+      share: Shar
+      outside: Sea-wide messages will be available fer others outside of diaspora* t' see.
+      logged_in: on deck at %{service}
+      manage: Manage ye connected services
+      atom_feed: Ye atom feed
     stream_element:
-      via: "Via %{link}"
-      via_mobile: "Via bird"
-  simple_captcha:
-    label: "Enter the secret in ye olde box:"
-    message:
-      default: "Blargh! Ye secret code didint match with the image ye scalawag!"
+      via: Via %{link}
+      via_mobile: Via bird
   status_messages:
     new:
-      mentioning: "Mentionin': %{person}"
+      mentioning: 'Mentionin'': %{person}'
     too_long:
-      few: "Ye scallywag, make yer status messages less than %{count} characters"
-      many: "Ye scallywag,make yer status messages less than %{count} characters"
-      one: "Ye scallywag, make yer status messages less than %{count} character"
-      other: "Ye scallywag, make yer status messages less than %{count} characters"
-      two: "Ye scallywag, make yer status messages less than %{count} characters"
-      zero: "Ye scallywag,make yer status messages less than %{count} characters"
-  streams:
-    activity:
-      title: "Me activity"
-    aspects:
-      title: "Yer Aspects"
-    aspects_stream: "Crews"
-    comment_stream:
-      title: "Ye commented posts"
-    community_spotlight_stream: "Sea spotlight"
-    followed_tag:
-      add_a_tag: "Add a tag matey"
-      follow: "Follow"
-      title: "#Followed tags"
-    followed_tags_stream: "#Followed tags"
-    like_stream:
-      title: "Like stream"
-    mentioned_stream: "@Mentions"
-    mentions:
-      title: "Yer Mentions"
-    multi:
-      title: "Sea"
-    public:
-      title: "Sea activity"
-    tags:
-      title: "Ye posts tagged: %{tags}"
+      zero: Ye scallywag,make yer status messages less than %{count} characters
+      one: Ye scallywag, make yer status messages less than %{count} character
+      two: Ye scallywag, make yer status messages less than %{count} characters
+      few: Ye scallywag, make yer status messages less than %{count} characters
+      many: Ye scallywag,make yer status messages less than %{count} characters
+      other: Ye scallywag, make yer status messages less than %{count} characters
   tags:
     show:
-      follow: "Follow %{tag}"
-      none: "Avast ye! Ye empty tag doesnt exist!"
-      stop_following: "Stop Followin' #%{tag}"
-  username: "Yer Username"
-  users:
-    confirm_email:
-      email_confirmed: "Email %{email} be activated"
-      email_not_confirmed: "Ye email cant be activated matey. Wrong link?"
-    destroy:
-      no_password: "Enter ye current secret to abandon ship."
-      success: "Aye, ye account has been locked! We give ye about 20 minutes until ye be finished. Tell Davey Jones we say hello matey! Thanks for coming aboard matey!"
-      wrong_password: "What ye entered didnt match ye current secret."
-    edit:
-      also_commented: "A matey comments on a post ye have commented on"
-      auto_follow_aspect: "Aspect for mateys ye auto share with:"
-      auto_follow_back: "Automatically follow back if someone follows ye"
-      change: "Change"
-      change_email: "Change ye email"
-      change_language: "Change ye language"
-      change_password: "Change ye secret"
-      character_minimum_expl: "must be at least six characters matey"
-      close_account:
-        dont_go: "Yo Ho HO! No need t' walk the plank!"
-        lock_username: "Ye username will be locked. Ye will not be able to join this ship with the same identity."
-        locked_out: "Ye will be walking the plank and ye will be drowning in the sea until ye account visits Davey Jones' locker. Yahar!"
-        make_diaspora_better: "We want ye t' make diaspora* better arr, so ye should help before ye walk the plank and feed the fishes. If ye do want t' walk, we want ye t' be savvy on what happens next ye old seadog arrr."
-        mr_wiggles: "Mr Wiggles will be sad t' see ye go mate."
-        no_turning_back: "There be no turning back matey! Dead men tell no tales. If ye really be sure, enter ye secret below."
-        what_we_delete: "We scuttle all of yer posts, profile data, as soon as humanly possible. Yer comments will hang around, but be associated with yer Diaspora Handle."
-      close_account_text: "Scuttle ye ship"
-      comment_on_post: "A matey comments on ye post"
-      current_password: "Current secret"
-      current_password_expl: "the one ye come aboard with..."
-      edit_account: "Edit ye ship"
-      email_awaiting_confirmation: "Avast ye! We have sent ye an activation link to %{unconfirmed_email}. Until ye follow this link and activate the new address, we will continue to use ye previous address %{email} matey."
-      export_data: "Export ye booty"
-      following: "Sharin' settins'"
-      liked: "matey likes ye post"
-      mentioned: "ye be mentioned in a post"
-      new_password: "New secret"
-      private_message: "ye receive a private message"
-      receive_email_notifications: "Receive messages in a bottle when ye:"
-      reshared: "A matey reshares ye post"
-      show_community_spotlight: "Show Community Spotlight in sea"
-      show_getting_started: "Show \"Bucko\" hints"
-      started_sharing: "matey starts sharin' with ye"
-      stream_preferences: "Sea settin's"
-      your_email: "Yer email"
-      your_handle: "Yer diaspora id"
-    getting_started:
-      awesome_take_me_to_diaspora: "Yo ho ho! Take me to diaspora*"
-      community_welcome: "diaspora*'s crew be happy to have ye aboard matey! ARGH!"
-      hashtag_explanation: "Hashtags allow ye to talk about and follow ye interests.  They be a great way to find new mateys on diaspora*."
-      hashtag_suggestions: "Try followin things like #treasure, #rum, #wenches, etc."
-      well_hello_there: "Ya har me matey!"
-      what_are_you_in_to: "What are ye into?"
-      who_are_you: "Who are ye?"
-    privacy_settings:
-      ignored_users: "Ye prisoners"
-      stop_ignoring: "Free prisoner"
-      title: "Privacy settins'"
+      follow: Follow %{tag}
+      stop_following: 'Stop Followin'' #%{tag}'
+      none: Avast ye! Ye empty tag doesnt exist!
+  streams:
+    community_spotlight_stream: Sea spotlight
+    aspects_stream: Crews
+    mentioned_stream: "@Mentions"
+    followed_tags_stream: "#Followed tags"
+    mentions:
+      title: Yer Mentions
+    comment_stream:
+      title: Ye commented posts
+    like_stream:
+      title: Like stream
+    followed_tag:
+      title: "#Followed tags"
+      add_a_tag: Add a tag matey
+      follow: Follow
+    tags:
+      title: 'Ye posts tagged: %{tags}'
     public:
-      does_not_exist: "The matey %{username} doesnt exist! Argh!"
+      title: Sea activity
+    multi:
+      title: Sea
+    aspects:
+      title: Yer Aspects
+    activity:
+      title: Me activity
+  users:
+    edit:
+      edit_account: Edit ye ship
+      change: Change
+      your_handle: Yer diaspora id
+      your_email: Yer email
+      change_email: Change ye email
+      email_awaiting_confirmation: Avast ye! We have sent ye an activation link to %{unconfirmed_email}. Until ye follow this link and activate the new address, we will continue to use ye previous address %{email} matey.
+      change_password: Change ye secret
+      new_password: New secret
+      current_password: Current secret
+      current_password_expl: the one ye come aboard with...
+      character_minimum_expl: must be at least six characters matey
+      change_language: Change ye language
+      close_account_text: Scuttle ye ship
+      stream_preferences: Sea settin's
+      show_community_spotlight: Show Community Spotlight in sea
+      show_getting_started: Show "Bucko" hints
+      following: Sharin' settins'
+      auto_follow_back: Automatically follow back if someone follows ye
+      auto_follow_aspect: 'Aspect for mateys ye auto share with:'
+      receive_email_notifications: 'Receive messages in a bottle when ye:'
+      started_sharing: matey starts sharin' with ye
+      mentioned: ye be mentioned in a post
+      liked: matey likes ye post
+      reshared: A matey reshares ye post
+      comment_on_post: A matey comments on ye post
+      also_commented: A matey comments on a post ye have commented on
+      private_message: ye receive a private message
+      export_data: Export ye booty
+      close_account:
+        dont_go: Yo Ho HO! No need t' walk the plank!
+        make_diaspora_better: We want ye t' make diaspora* better arr, so ye should help before ye walk the plank and feed the fishes. If ye do want t' walk, we want ye t' be savvy on what happens next ye old seadog arrr.
+        mr_wiggles: Mr Wiggles will be sad t' see ye go mate.
+        what_we_delete: We scuttle all of yer posts, profile data, as soon as humanly possible. Yer comments will hang around, but be associated with yer Diaspora Handle.
+        locked_out: Ye will be walking the plank and ye will be drowning in the sea until ye account visits Davey Jones' locker. Yahar!
+        lock_username: Ye username will be locked. Ye will not be able to join this ship with the same identity.
+        no_turning_back: There be no turning back matey! Dead men tell no tales. If ye really be sure, enter ye secret below.
+    privacy_settings:
+      title: Privacy settins'
+      ignored_users: Ye prisoners
+      stop_ignoring: Free prisoner
+    destroy:
+      success: Aye, ye account has been locked! We give ye about 20 minutes until ye be finished. Tell Davey Jones we say hello matey! Thanks for coming aboard matey!
+      no_password: Enter ye current secret to abandon ship.
+      wrong_password: What ye entered didnt match ye current secret.
+    getting_started:
+      well_hello_there: Ya har me matey!
+      community_welcome: diaspora*'s crew be happy to have ye aboard matey! ARGH!
+      awesome_take_me_to_diaspora: Yo ho ho! Take me to diaspora*
+      who_are_you: Who are ye?
+      what_are_you_in_to: What are ye into?
+      hashtag_explanation: Hashtags allow ye to talk about and follow ye interests.  They be a great way to find new mateys on diaspora*.
+      hashtag_suggestions: 'Try followin things like #treasure, #rum, #wenches, etc.'
     update:
-      email_notifications_changed: "Aye, ye email notifications have been changed"
-      follow_settings_changed: "Follow settins' changed"
-      follow_settings_not_changed: "Blimey! Follow settins' change failed."
-      language_changed: "Language changed"
-      language_not_changed: "Blimey! Language change failed!"
-      password_changed: "Secret changed.  Ye can now come aboard with ye new secret."
-      password_not_changed: "Blimey! Secret change failed!"
-      settings_not_updated: "Argh! Settins' updated failed"
-      settings_updated: "Settins' updated"
-      unconfirmed_email_changed: "Ye email has changed. Go'n activate it matey."
-      unconfirmed_email_not_changed: "Blimey! Email change failed! Argh!"
+      password_changed: Secret changed.  Ye can now come aboard with ye new secret.
+      password_not_changed: Blimey! Secret change failed!
+      language_changed: Language changed
+      language_not_changed: Blimey! Language change failed!
+      settings_updated: Settins' updated
+      settings_not_updated: Argh! Settins' updated failed
+      email_notifications_changed: Aye, ye email notifications have been changed
+      unconfirmed_email_changed: Ye email has changed. Go'n activate it matey.
+      unconfirmed_email_not_changed: Blimey! Email change failed! Argh!
+      follow_settings_changed: Follow settins' changed
+      follow_settings_not_changed: Blimey! Follow settins' change failed.
+    public:
+      does_not_exist: The matey %{username} doesnt exist! Argh!
+    confirm_email:
+      email_confirmed: Email %{email} be activated
+      email_not_confirmed: Ye email cant be activated matey. Wrong link?
   will_paginate:
-    next_label: "next &raquo;"
     previous_label: "&laquo; previous"
+    next_label: next &raquo;
+  simple_captcha:
+    label: 'Enter the secret in ye olde box:'
+    message:
+      default: Blargh! Ye secret code didint match with the image ye scalawag!

@@ -6,113 +6,113 @@
 
 eu:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Adiskidea gehitu"
-      all_aspects: "Arlo guztiak"
-      error: "Ezin izan da <%= name %>(r)ekin harremanetan hasi. Isiltzen ari zara erabiltzaile hori?"
-      select_aspects: "Arloak aukeratu"
-      started_sharing_with: "<%= name %>(r)ekin harremanetan hasi zara!"
-      stopped_sharing_with: "Jada ez zaude <%= name %>(r)ekin harremanetan."
-      toggle:
-        one: "Arlo <%= count %>ean"
-        other: "<%= count %> arlotan"
-        zero: "Arloak hautatu"
-    aspect_navigation:
-      deselect_all: "Guztiak deshautatu"
-      no_aspects: "Ez da arlorik hautatu"
-      select_all: "Guztiak hautatu"
-    comments:
-      hide: "iruzkinak ezkutatu"
-      show: "iruzkin guztiak erakutsi"
-    confirm_dialog: "Ziur al zaude?"
-    delete: "Ezabatu"
-    failed_to_post_message: "Huts egin du mezuaren bidalketak!"
-    getting_started:
-      alright_ill_wait: "Beno, itxarongo dut."
-      hey: "Aizu, <%= name %>!"
-      no_tags: "Aizu, ez duzu etiketarik jarraitzen! Jarraitu hala ere?"
-      preparing_your_stream: "Zure kronologia pertsonalizatua prestatzen..."
-    header:
-      admin: "Kudeatu"
-      close: "itxi"
-      contacts: "Lagunak"
-      home: "Hasiera"
-      log_out: "Atera"
-      mark_all_as_read: "Guztiak irakurri gisa markatu"
-      notifications: "Jakinarazpenak"
-      profile: "Profila"
-      recent_notifications: "Jakinarazpen Berrienak"
-      search: "Bilatu"
-      settings: "Ezarpenak"
-      view_all: "Guztiak ikusi"
-    ignore: "Isildu"
-    my_activity: "Nire Jarduera"
-    my_stream: "Kronologia"
-    people:
-      not_found: "eta ez da inor aurkitu..."
-    photo_uploader:
-      looking_good: "Ene bada, oso jatorra dirudizu!"
-    reshares:
-      post: "Birpartekatu nahi al duzu <%= name %>(r)en mezua?"
-      successful: "Mezua arrakastaz birpartekatu da!"
-    show_more: "erakutsi gehiago"
-    stream:
-      comment: "Iruzkindu"
-      follow: "Jarraitu"
-      hide: "Ezkutatu"
-      hide_nsfw_posts: "Ezkutatu #nsfw mezuak"
-      like: "Gustuko dut"
-      likes:
-        few: "<%= count %>(e)k gustuko dute"
-        many: "<%= count %>(e)k gustuko dute"
-        one: "<%= count %>ek gustuko du"
-        other: "<%= count %>(e)k gustuko dute"
-        two: "<%= count %>(e)k gustuko dute"
-        zero: "<%= count %>(e)k gustuko dute"
-      limited: "Mugatua"
-      more_comments:
-        few: "Erakutsi <%= count %> iruzkin gehiago"
-        many: "Erakutsi <%= count %> iruzkin gehiago"
-        one: "Erakutsi iruzkin <%= count %> gehiago"
-        other: "Erakutsi <%= count %> iruzkin gehiago"
-        two: "Erakutsi <%= count %> iruzkin gehiago"
-        zero: "Erakutsi <%= count %> iruzkin gehiago"
-      original_post_deleted: "Jatorrizko mezua egileak ezabatu du."
-      public: "Publikoa"
-      reshare: "Birpartekatu"
-      reshares:
-        few: "<%= count %> Birpartekaketa"
-        many: "<%= count %> Birpartekaketa"
-        one: "Birpartekaketa <%= count %> "
-        other: "<%= count %> Birpatekaketa"
-        two: "<%= count %> Birpatekaketa"
-        zero: "<%= count %> Birpatekaketa"
-      show_nsfw_post: "Mezua erakutsi"
-      show_nsfw_posts: "Guztiak erakutsi"
-      unfollow: "Ez jarraitu"
-      unlike: "Ez dut gustuko"
-    tags:
-      wasnt_that_interesting: "Beno, suposatzen dut #<%= tagName %> ez zela oso interesgarria..."
     timeago:
-      day: "egun bat"
-      days:
-        other: "%d egun"
-      hour: "ordu bat"
-      hours:
-        other: "%d ordu"
-      minute: "minutu bat"
+      prefixAgo: duela
+      suffixAgo: ''
+      suffixFromNow: barru
+      prefixFromNow: ''
+      seconds: minutu bat baino gutxiago
+      minute: minutu bat
       minutes:
         other: "%d minutu"
-      month: "hilabete bat"
+      hour: ordu bat
+      hours:
+        other: "%d ordu"
+      day: egun bat
+      days:
+        other: "%d egun"
+      month: hilabete bat
       months:
         other: "%d hilabete"
-      prefixAgo: "duela"
-      prefixFromNow: ""
-      seconds: "minutu bat baino gutxiago"
-      suffixAgo: ""
-      suffixFromNow: "barru"
-      year: "urte bat"
+      year: urte bat
       years:
         other: "%d urte"
+    confirm_dialog: Ziur al zaude?
+    delete: Ezabatu
+    ignore: Isildu
+    my_activity: Nire Jarduera
+    my_stream: Kronologia
+    aspect_dropdown:
+      add_to_aspect: Adiskidea gehitu
+      select_aspects: Arloak aukeratu
+      all_aspects: Arlo guztiak
+      stopped_sharing_with: Jada ez zaude <%= name %>(r)ekin harremanetan.
+      started_sharing_with: "<%= name %>(r)ekin harremanetan hasi zara!"
+      error: Ezin izan da <%= name %>(r)ekin harremanetan hasi. Isiltzen ari zara erabiltzaile hori?
+      toggle:
+        zero: Arloak hautatu
+        one: Arlo <%= count %>ean
+        other: "<%= count %> arlotan"
+    show_more: erakutsi gehiago
+    failed_to_post_message: Huts egin du mezuaren bidalketak!
+    comments:
+      show: iruzkin guztiak erakutsi
+      hide: iruzkinak ezkutatu
+    reshares:
+      successful: Mezua arrakastaz birpartekatu da!
+      post: Birpartekatu nahi al duzu <%= name %>(r)en mezua?
+    aspect_navigation:
+      select_all: Guztiak hautatu
+      deselect_all: Guztiak deshautatu
+      no_aspects: Ez da arlorik hautatu
+    getting_started:
+      hey: Aizu, <%= name %>!
+      no_tags: Aizu, ez duzu etiketarik jarraitzen! Jarraitu hala ere?
+      alright_ill_wait: Beno, itxarongo dut.
+      preparing_your_stream: Zure kronologia pertsonalizatua prestatzen...
+    photo_uploader:
+      looking_good: Ene bada, oso jatorra dirudizu!
+    tags:
+      wasnt_that_interesting: 'Beno, suposatzen dut #<%= tagName %> ez zela oso interesgarria...'
+    people:
+      not_found: eta ez da inor aurkitu...
+    stream:
+      hide: Ezkutatu
+      public: Publikoa
+      limited: Mugatua
+      like: Gustuko dut
+      unlike: Ez dut gustuko
+      reshare: Birpartekatu
+      comment: Iruzkindu
+      original_post_deleted: Jatorrizko mezua egileak ezabatu du.
+      show_nsfw_post: Mezua erakutsi
+      show_nsfw_posts: Guztiak erakutsi
+      hide_nsfw_posts: 'Ezkutatu #nsfw mezuak'
+      follow: Jarraitu
+      unfollow: Ez jarraitu
+      likes:
+        zero: "<%= count %>(e)k gustuko dute"
+        one: "<%= count %>ek gustuko du"
+        two: "<%= count %>(e)k gustuko dute"
+        few: "<%= count %>(e)k gustuko dute"
+        many: "<%= count %>(e)k gustuko dute"
+        other: "<%= count %>(e)k gustuko dute"
+      reshares:
+        zero: "<%= count %> Birpatekaketa"
+        one: 'Birpartekaketa <%= count %> '
+        two: "<%= count %> Birpatekaketa"
+        few: "<%= count %> Birpartekaketa"
+        many: "<%= count %> Birpartekaketa"
+        other: "<%= count %> Birpatekaketa"
+      more_comments:
+        zero: Erakutsi <%= count %> iruzkin gehiago
+        one: Erakutsi iruzkin <%= count %> gehiago
+        two: Erakutsi <%= count %> iruzkin gehiago
+        few: Erakutsi <%= count %> iruzkin gehiago
+        many: Erakutsi <%= count %> iruzkin gehiago
+        other: Erakutsi <%= count %> iruzkin gehiago
+    header:
+      home: Hasiera
+      profile: Profila
+      contacts: Lagunak
+      settings: Ezarpenak
+      admin: Kudeatu
+      log_out: Atera
+      notifications: Jakinarazpenak
+      search: Bilatu
+      recent_notifications: Jakinarazpen Berrienak
+      mark_all_as_read: Guztiak irakurri gisa markatu
+      view_all: Guztiak ikusi
+      close: itxi
     viewer:
-      reshared: ""
+      reshared: ''

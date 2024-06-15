@@ -6,352 +6,352 @@
 
 ru:
   javascripts:
-    admin:
-      pods:
-        actions: "Действия"
-        added: "Добавлено"
-        check: "проверить подключение"
-        errors:
-          few: "Проверка подключения вернула ошибку на  <%= count %> подах."
-          many: "Проверка подключения вернула ошибку на  <%= count %> подах."
-          one: "Проверка подключения вернула ошибку на одном поде."
-          other: "Проверка подключения вернула ошибку на  <%= count %> подах."
-        follow_link: "открыть ссылку в браузере"
-        last_check: "последняя проверка:"
-        more_info: "показать больше информации"
-        ms:
-          few: "<%= count %>мс"
-          many: "<%= count %>мс"
-          one: "<%= count %>мс"
-          other: "<%= count %>мс"
-        no_info: "Нет дополнительной информации"
-        not_available: "недоступно"
-        offline_since: "недоступен с:"
-        pod: "Под"
-        recheck:
-          failure: "Проверка не выполнялась."
-          success: "Под только что был перепроверен."
-        response_time: "Время отклика:"
-        server_software: "Серверное ПО:"
-        ssl: "SSL"
-        ssl_disabled: "SSL выключен"
-        ssl_enabled: "SSL включен"
-        states:
-          dns_failed: "Не удалось разрешить доменное имя (DNS)"
-          http_failed: "HTTP  соединение не удалось"
-          net_failed: "Попытка подключения не удалась"
-          no_errors: "Хорошо"
-          ssl_failed: "Защищённое (SSL) соединение не удалось"
-          unchecked: "Непроверено"
-          unknown_error: "При проверке возникла неизвестная ошибка"
-          version_failed: "Не могу получить версию ПО"
-        status: "Статус"
-        unchecked:
-          few: "Есть <%= count %> пода, не проверявшихся ни разу."
-          many: "Есть <%= count %> подов, не проверявшихся ни разу."
-          one: "Остался один непроверенный под."
-          other: "Есть <%= count %> подов, не проверявшихся ни разу."
-        unknown: "неизвестно"
-        version_failed:
-          few: "<%= count %> пода не имеют информации о версии (старые поды, нет NodeInfo)"
-          many: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
-          one: "<%= count %> под не имеет информации о версии (старые поды, нет NodeInfo)"
-          other: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
-    admins:
-      dashboard:
-        compare_versions: "Последняя версия диаспоры* - <%= latestVersion %>, ваш под использует <%= podVersion %>."
-        error: "Не могу определить последнюю версию диаспоры*"
-        outdated: "Ваш под устарел."
-        up_to_date: "Ваш под актуален!"
-    and: "и"
-    aspect_dropdown:
-      add_to_aspect: "Добавить контакт"
-      all_aspects: "Все аспекты"
-      error: "Невозможно добавить пользователя <%= name %>.  Возможно, вы его заблокировали?"
-      error_remove: "Невозможно удалить <%= name %> из аспекта :("
-      mobile_row_checked: "<%= name %> (переместить)"
-      mobile_row_unchecked: "<%= name %> (добавить)"
-      select_aspects: "Выбрать аспекты"
-      started_sharing_with: "Вы добавили <%= name %>!"
-      stopped_sharing_with: "Вы удалили <%= name %>."
-      toggle:
-        few: "В <%= count %> аспектах"
-        many: "В <%= count %> аспектах"
-        one: "В <%= count %> аспекте"
-        other: "В <%= count %> аспектах"
-        two: "В <%= count %> аспектах"
-        zero: "Выбрать аспекты"
-      updating: "обновление..."
-    aspect_navigation:
-      add_an_aspect: "+ Добавить аспект"
-      deselect_all: "Снять выделение"
-      no_aspects: "Аспект не выбран"
-      select_all: "Выделить всё"
-    aspects:
-      create:
-        add_a_new_aspect: "Новый аспект"
-        failure: "Не удалось создать аспект."
-        success: "Ваш новый аспект <%= name %> создан"
-      name: "Название"
-    bookmarklet:
-      post_something: "Опубликовать в диаспоре*"
-      post_submit: "Отправка записи..."
-      post_success: "Отправка завершена! Закрытие окна..."
-    cancel: "Отмена"
-    comma: ","
-    comments:
-      hide: "скрыть комментарии"
-      no_comments: "Комментариев ещё нет."
-      show: "Показать все комментарии"
-    confirm_dialog: "Вы уверены?"
-    confirm_unload: "Пожалуйста, подтвердите, что хотите покинуть страницу — введённые вами данные не будут сохранены."
-    contacts:
-      add_contact: "Добавить контакт"
-      error_add: "Невозможно добавить <%= name %> в аспект :("
-      error_remove: "Невозможно удалить <%= name %> из аспекта :("
-      remove_contact: "Удалить контакт"
-      search_no_results: "Контакты не найдены"
-    conversation:
-      create:
-        no_recipient: "Эй, сперва укажите получателя!"
-      new:
-        no_contacts: "Нужно добавить кого-нибудь в список контактов, перед тем, как заводить разговор."
-    create: "Создать"
-    delete: "Удалить"
-    edit: "Изменить"
-    errors:
-      connection: "Невозможно подключиться к серверу."
-    failed_to_post_message: "Не удалось отправить сообщение!"
-    failed_to_remove: "Удаление не завершено!"
-    getting_started:
-      alright_ill_wait: "Хорошо, я подожду."
-      hey: "Привет, <%= name %>!"
-      no_tags: "Вы не следите ни за одной меткой! Все равно продолжить?"
-      preparing_your_stream: "Подготовка вашего личного потока..."
-    header:
-      admin: "Администратор"
-      close: "закрыть"
-      contacts: "Контакты"
-      conversations: "Разговоры"
-      help: "Помощь"
-      home: "Главная"
-      log_out: "Выйти"
-      mark_all_as_read: "Пометить как прочитанные"
-      moderator: "Модератор"
-      notifications: "Уведомления"
-      profile: "Профиль"
-      recent_notifications: "Последние уведомления"
-      search: "Поиск"
-      settings: "Настройки"
-      switch_to_touch_optimized_mode: "Включить сенсорный режим"
-      toggle_navigation: "Переключение навигации"
-      view_all: "Посмотреть всё"
-    hide_post: "Скрыть эту запись?"
-    hide_post_failed: "Невозможно скрыть запись"
-    ignore: "Блокировать"
-    ignore_failed: "Невозможно игнорировать этого пользователя"
-    ignore_user: "Игнорировать этого пользователя?"
-    my_activity: "Моя активность"
-    my_aspects: "Мои аспекты"
-    my_stream: "Поток"
-    no_results: "Ничего не найдено."
-    notifications:
-      mark_read: "Пометить как прочитанное"
-      mark_unread: "Пометить как непрочитанное"
-      new_notifications:
-        few: "У вас <%= count %> непрочитанных уведомления."
-        many: "У вас <%= count %> непрочитанных уведомлений."
-        one: "У вас <%= count %> непрочитанное уведомление."
-        other: "У вас <%= count %> непрочитанных уведомлений."
-    people:
-      edit_my_profile: "Редактировать профиль"
-      helper:
-        is_not_sharing: "<%= name %> не делится с вами"
-        is_sharing: "<%= name %> делится с вами"
-      mention: "Упоминание"
-      message: "Сообщение"
-      not_found: "никого не найдено..."
-      stop_ignoring: "Отменить игнорирование"
-    photo_uploader:
-      completed: "<%= file %> готово"
-      empty: "{file} пуст, выберите пожалуйста файл повторно."
-      error: "Возникла проблема при загрузке <%= file %>"
-      invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
-      looking_good: "Чёрт возьми, вы выглядите потрясающе!"
-      size_error: "{file} имеет слишком большой размер, максимальный размер файла: {sizeLimit}."
-      upload_photos: "Загрузить фото"
-    poll:
-      answer_count:
-        few: "<%=count%> голоса"
-        many: "<%=count%> голосов "
-        one: "<%=count%> голос"
-        other: "<%=count%> голосов "
-        zero: "Нет ответов."
-      close_result: "Скрыть результаты"
-      count:
-        few: "<%=count%> человека проголосовало"
-        many: "<%=count%> людей проголосовало"
-        one: "<%=count%> человек проголосовал"
-        other: "<%=count%> людей проголосовало"
-        zero: "Никто ещё не проголосовал"
-      go_to_original_post: "Вы можете принять участие в этом опросе, перейдя к <%= original_post_link %>"
-      original_post: "оригиналу записи"
-      result: "Результаты"
-      show_result: "Показать результаты"
-      vote: "Голосовать"
-      your_vote: "Ваш голос"
-    profile:
-      add_some: "добавить"
-      bio: "О себе"
-      born: "Дата рождения"
-      edit: "Редактировать"
-      gender: "Пол"
-      location: "Местоположение"
-      photos: "Фотографии"
-      posts: "Записи"
-      you_have_no_tags: "у вас нет меток!"
-    publisher:
-      add_option: "Добавить вариант"
-      markdown_editor:
-        preview: "Предпросмотр"
-        texts:
-          code: "код"
-          heading: "заголовок"
-          insert_image_description_text: "введите сюда описание изображения"
-          insert_image_help_text: "Вставьте ссылку на изображение сюда"
-          insert_image_title: "введите сюда заголовок изображения"
-          insert_link_description_text: "введите сюда описание ссылки"
-          insert_link_help_text: "Вставьте ссылку сюда"
-          italic: "текст курсивом"
-          list: "текст списка"
-          quote: "текст цитаты"
-          strong: "жирный текст"
-        tooltips:
-          bold: "Жирный"
-          cancel: "Отменить сообщение"
-          code: "Вставить код"
-          heading: "Заголовок"
-          insert_image: "Вставить изображение"
-          insert_link: "Вставить ссылку"
-          insert_ordered_list: "Вставить нумерованный список"
-          insert_unordered_list: "Вставить маркированный список"
-          italic: "Курсив"
-          preview: "Предпросмотр сообщения"
-          quote: "Вставить цитату"
-          write: "Редактировать сообщение"
-        write: "Редактор"
-      mention_success: "Успешно упомянут: <%= names %>"
-      near_from: "Отправлено из: <%= location %>"
-      option: "Вариант <%= nr %>"
-      question: "Вопрос"
-    remove_post: "Переместить запись?"
-    report:
-      name: "Пожаловаться"
-      prompt: "Пожалуйста, укажите причину:"
-      prompt_default: "например: оскорбительное содержание"
-      status:
-        created: "Жалоба успешно отправлена"
-        exists: "Жалоба уже отправлена"
-    reshares:
-      post: "Поделиться записью пользователя <%= name %>?"
-      successful: "Вы успешно поделились записью!"
-    show_all: "Показать все"
-    show_more: "показать больше"
-    stream:
-      comment: "Комментировать"
-      comments:
-        few: "<%= count %> комментария"
-        many: "<%= count %> комментариев"
-        one: "<%= count %> комментарий"
-        other: "<%= count %> комментариев"
-        zero: "<%= count %> комментариев"
-      disable_post_notifications: "Отключить уведомления на эту запись"
-      enable_post_notifications: "Включить уведомления на эту запись"
-      follow: "Следить"
-      followed_tag:
-        add_a_tag: "Добавить метку"
-        follow: "Следить"
-        title: "#Метки"
-      hide: "Скрыть"
-      hide_nsfw_posts: "Скрыть записи #nsfw"
-      like: "Нравится"
-      likes:
-        few: "Понравилось: <%= count %>"
-        many: "Понравилось: <%= count %>"
-        one: "Понравилось: <%= count %>"
-        other: "Понравилось: <%= count %>"
-        two: "Понравилось: <%= count %>"
-        zero: "Понравилось: <%= count %>"
-      limited: "Ограниченная"
-      more_comments:
-        few: "Ещё <%= count %> комментария"
-        many: "Ещё <%= count %> комментариев"
-        one: "Ещё <%= count %> комментарий"
-        other: "Ещё <%= count %> комментариев"
-        zero: "Ещё <%= count %> комментариев"
-      no_posts_yet: "Здесь пока не видно записей."
-      original_post_deleted: "Исходная запись удалена автором."
-      permalink: "Постоянная ссылка"
-      public: "Публичная"
-      reshare: "Поделиться"
-      reshares:
-        few: "Поделились: <%= count %>"
-        many: "Поделились: <%= count %>"
-        one: "Поделился: <%= count %>"
-        other: "Поделились: <%= count %>"
-        zero: "Поделилось: <%= count %>"
-      show_nsfw_post: "Показать запись"
-      show_nsfw_posts: "Показать всё"
-      tags:
-        follow: "Следить за меткой #<%= tag %>"
-        follow_error: "Не смог подписаться на <%= tag %> :("
-        following: "Вы следите за меткой #<%= tag %>"
-        stop_following: "Не следить за меткой #<%= tag %>"
-        stop_following_confirm: "Не следить за меткой #<%= tag %>?"
-        stop_following_error: "Не смог отписаться от <%= tag %> :("
-      unfollow: "Не следить"
-      unlike: "Не нравится"
-      via: "через <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Что ж, видимо, метка #<%= tagName %> была не такой уж интересной..."
     timeago:
-      day: "день"
-      days:
-        few: "%d дня"
-        many: "%d дней"
-        one: "день"
-        other: "%d д."
-      hour: "около часа"
-      hours:
-        few: "около %d часов"
-        many: "около %d часов"
-        one: "около часа"
-        other: "около %d часов"
-      inPast: "в любой момент"
-      minute: "около минуты"
+      prefixAgo: ''
+      suffixAgo: назад
+      suffixFromNow: с этого момента
+      prefixFromNow: ''
+      inPast: в любой момент
+      seconds: меньше минуты
+      minute: около минуты
       minutes:
+        one: 1 минута
         few: "%d минуты"
         many: "%d минут"
-        one: "1 минута"
         other: "%d мин."
-      month: "около месяца"
+      hour: около часа
+      hours:
+        one: около часа
+        few: около %d часов
+        many: около %d часов
+        other: около %d часов
+      day: день
+      days:
+        one: день
+        few: "%d дня"
+        many: "%d дней"
+        other: "%d д."
+      month: около месяца
       months:
+        one: месяц
         few: "%d месяца"
         many: "%d месяцев"
-        one: "месяц"
         other: "%d месяцев"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "меньше минуты"
-      suffixAgo: "назад"
-      suffixFromNow: "с этого момента"
-      wordSeparator: " "
-      year: "около года"
+      year: около года
       years:
+        one: год
         few: "%d года"
         many: "%d лет"
-        one: "год"
         other: "%d лет"
-    unblock_failed: "Разблокировка пользователя не удалась"
+      wordSeparator: " "
+    cancel: Отмена
+    confirm_dialog: Вы уверены?
+    confirm_unload: Пожалуйста, подтвердите, что хотите покинуть страницу — введённые вами данные не будут сохранены.
+    create: Создать
+    delete: Удалить
+    ignore: Блокировать
+    report:
+      prompt: 'Пожалуйста, укажите причину:'
+      prompt_default: 'например: оскорбительное содержание'
+      name: Пожаловаться
+      status:
+        created: Жалоба успешно отправлена
+        exists: Жалоба уже отправлена
+    ignore_user: Игнорировать этого пользователя?
+    ignore_failed: Невозможно игнорировать этого пользователя
+    hide_post: Скрыть эту запись?
+    hide_post_failed: Невозможно скрыть запись
+    remove_post: Переместить запись?
+    unblock_failed: Разблокировка пользователя не удалась
+    and: и
+    comma: ","
+    edit: Изменить
+    no_results: Ничего не найдено.
+    show_all: Показать все
+    admins:
+      dashboard:
+        up_to_date: Ваш под актуален!
+        outdated: Ваш под устарел.
+        compare_versions: Последняя версия диаспоры* - <%= latestVersion %>, ваш под использует <%= podVersion %>.
+        error: Не могу определить последнюю версию диаспоры*
+    admin:
+      pods:
+        pod: Под
+        ssl: SSL
+        ssl_enabled: SSL включен
+        ssl_disabled: SSL выключен
+        added: Добавлено
+        status: Статус
+        states:
+          unchecked: Непроверено
+          no_errors: Хорошо
+          dns_failed: Не удалось разрешить доменное имя (DNS)
+          net_failed: Попытка подключения не удалась
+          ssl_failed: Защищённое (SSL) соединение не удалось
+          http_failed: HTTP  соединение не удалось
+          version_failed: Не могу получить версию ПО
+          unknown_error: При проверке возникла неизвестная ошибка
+        actions: Действия
+        offline_since: 'недоступен с:'
+        last_check: 'последняя проверка:'
+        more_info: показать больше информации
+        check: проверить подключение
+        recheck:
+          success: Под только что был перепроверен.
+          failure: Проверка не выполнялась.
+        follow_link: открыть ссылку в браузере
+        no_info: Нет дополнительной информации
+        server_software: 'Серверное ПО:'
+        response_time: 'Время отклика:'
+        ms:
+          one: "<%= count %>мс"
+          few: "<%= count %>мс"
+          many: "<%= count %>мс"
+          other: "<%= count %>мс"
+        unknown: неизвестно
+        not_available: недоступно
+        unchecked:
+          one: Остался один непроверенный под.
+          few: Есть <%= count %> пода, не проверявшихся ни разу.
+          many: Есть <%= count %> подов, не проверявшихся ни разу.
+          other: Есть <%= count %> подов, не проверявшихся ни разу.
+        version_failed:
+          one: "<%= count %> под не имеет информации о версии (старые поды, нет NodeInfo)"
+          few: "<%= count %> пода не имеют информации о версии (старые поды, нет NodeInfo)"
+          many: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
+          other: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
+        errors:
+          one: Проверка подключения вернула ошибку на одном поде.
+          few: Проверка подключения вернула ошибку на  <%= count %> подах.
+          many: Проверка подключения вернула ошибку на  <%= count %> подах.
+          other: Проверка подключения вернула ошибку на  <%= count %> подах.
+    aspects:
+      name: Название
+      create:
+        add_a_new_aspect: Новый аспект
+        success: Ваш новый аспект <%= name %> создан
+        failure: Не удалось создать аспект.
+    errors:
+      connection: Невозможно подключиться к серверу.
+    contacts:
+      add_contact: Добавить контакт
+      remove_contact: Удалить контакт
+      error_add: Невозможно добавить <%= name %> в аспект :(
+      error_remove: Невозможно удалить <%= name %> из аспекта :(
+      search_no_results: Контакты не найдены
+    my_activity: Моя активность
+    my_stream: Поток
+    my_aspects: Мои аспекты
+    publisher:
+      near_from: 'Отправлено из: <%= location %>'
+      option: Вариант <%= nr %>
+      add_option: Добавить вариант
+      question: Вопрос
+      markdown_editor:
+        preview: Предпросмотр
+        write: Редактор
+        tooltips:
+          bold: Жирный
+          italic: Курсив
+          heading: Заголовок
+          insert_link: Вставить ссылку
+          insert_image: Вставить изображение
+          insert_ordered_list: Вставить нумерованный список
+          insert_unordered_list: Вставить маркированный список
+          preview: Предпросмотр сообщения
+          write: Редактировать сообщение
+          cancel: Отменить сообщение
+          quote: Вставить цитату
+          code: Вставить код
+        texts:
+          strong: жирный текст
+          italic: текст курсивом
+          heading: заголовок
+          insert_link_description_text: введите сюда описание ссылки
+          insert_link_help_text: Вставьте ссылку сюда
+          insert_image_description_text: введите сюда описание изображения
+          insert_image_help_text: Вставьте ссылку на изображение сюда
+          insert_image_title: введите сюда заголовок изображения
+          list: текст списка
+          quote: текст цитаты
+          code: код
+      mention_success: 'Успешно упомянут: <%= names %>'
+    bookmarklet:
+      post_something: Опубликовать в диаспоре*
+      post_submit: Отправка записи...
+      post_success: Отправка завершена! Закрытие окна...
+    aspect_dropdown:
+      add_to_aspect: Добавить контакт
+      select_aspects: Выбрать аспекты
+      all_aspects: Все аспекты
+      updating: обновление...
+      mobile_row_checked: "<%= name %> (переместить)"
+      mobile_row_unchecked: "<%= name %> (добавить)"
+      stopped_sharing_with: Вы удалили <%= name %>.
+      started_sharing_with: Вы добавили <%= name %>!
+      error: Невозможно добавить пользователя <%= name %>.  Возможно, вы его заблокировали?
+      error_remove: Невозможно удалить <%= name %> из аспекта :(
+      toggle:
+        zero: Выбрать аспекты
+        one: В <%= count %> аспекте
+        two: В <%= count %> аспектах
+        few: В <%= count %> аспектах
+        many: В <%= count %> аспектах
+        other: В <%= count %> аспектах
+    show_more: показать больше
+    failed_to_post_message: Не удалось отправить сообщение!
+    failed_to_remove: Удаление не завершено!
+    comments:
+      show: Показать все комментарии
+      hide: скрыть комментарии
+      no_comments: Комментариев ещё нет.
+    reshares:
+      successful: Вы успешно поделились записью!
+      post: Поделиться записью пользователя <%= name %>?
+    aspect_navigation:
+      select_all: Выделить всё
+      deselect_all: Снять выделение
+      no_aspects: Аспект не выбран
+      add_an_aspect: "+ Добавить аспект"
+    getting_started:
+      hey: Привет, <%= name %>!
+      no_tags: Вы не следите ни за одной меткой! Все равно продолжить?
+      alright_ill_wait: Хорошо, я подожду.
+      preparing_your_stream: Подготовка вашего личного потока...
+    photo_uploader:
+      upload_photos: Загрузить фото
+      looking_good: Чёрт возьми, вы выглядите потрясающе!
+      completed: "<%= file %> готово"
+      error: Возникла проблема при загрузке <%= file %>
+      invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
+      size_error: "{file} имеет слишком большой размер, максимальный размер файла: {sizeLimit}."
+      empty: "{file} пуст, выберите пожалуйста файл повторно."
+    tags:
+      wasnt_that_interesting: 'Что ж, видимо, метка #<%= tagName %> была не такой уж интересной...'
+    people:
+      not_found: никого не найдено...
+      mention: Упоминание
+      message: Сообщение
+      edit_my_profile: Редактировать профиль
+      stop_ignoring: Отменить игнорирование
+      helper:
+        is_sharing: "<%= name %> делится с вами"
+        is_not_sharing: "<%= name %> не делится с вами"
+    profile:
+      edit: Редактировать
+      add_some: добавить
+      you_have_no_tags: у вас нет меток!
+      bio: О себе
+      location: Местоположение
+      gender: Пол
+      born: Дата рождения
+      photos: Фотографии
+      posts: Записи
+    conversation:
+      create:
+        no_recipient: Эй, сперва укажите получателя!
+      new:
+        no_contacts: Нужно добавить кого-нибудь в список контактов, перед тем, как заводить разговор.
+    notifications:
+      mark_read: Пометить как прочитанное
+      mark_unread: Пометить как непрочитанное
+      new_notifications:
+        one: У вас <%= count %> непрочитанное уведомление.
+        few: У вас <%= count %> непрочитанных уведомления.
+        many: У вас <%= count %> непрочитанных уведомлений.
+        other: У вас <%= count %> непрочитанных уведомлений.
+    stream:
+      hide: Скрыть
+      public: Публичная
+      limited: Ограниченная
+      like: Нравится
+      unlike: Не нравится
+      reshare: Поделиться
+      comment: Комментировать
+      original_post_deleted: Исходная запись удалена автором.
+      show_nsfw_post: Показать запись
+      show_nsfw_posts: Показать всё
+      hide_nsfw_posts: 'Скрыть записи #nsfw'
+      follow: Следить
+      unfollow: Не следить
+      enable_post_notifications: Включить уведомления на эту запись
+      disable_post_notifications: Отключить уведомления на эту запись
+      permalink: Постоянная ссылка
+      via: через <%= provider %>
+      no_posts_yet: Здесь пока не видно записей.
+      likes:
+        zero: 'Понравилось: <%= count %>'
+        one: 'Понравилось: <%= count %>'
+        two: 'Понравилось: <%= count %>'
+        few: 'Понравилось: <%= count %>'
+        many: 'Понравилось: <%= count %>'
+        other: 'Понравилось: <%= count %>'
+      reshares:
+        zero: 'Поделилось: <%= count %>'
+        one: 'Поделился: <%= count %>'
+        few: 'Поделились: <%= count %>'
+        many: 'Поделились: <%= count %>'
+        other: 'Поделились: <%= count %>'
+      comments:
+        zero: "<%= count %> комментариев"
+        one: "<%= count %> комментарий"
+        few: "<%= count %> комментария"
+        many: "<%= count %> комментариев"
+        other: "<%= count %> комментариев"
+      more_comments:
+        zero: Ещё <%= count %> комментариев
+        one: Ещё <%= count %> комментарий
+        few: Ещё <%= count %> комментария
+        many: Ещё <%= count %> комментариев
+        other: Ещё <%= count %> комментариев
+      followed_tag:
+        title: "#Метки"
+        add_a_tag: Добавить метку
+        follow: Следить
+      tags:
+        follow: 'Следить за меткой #<%= tag %>'
+        following: 'Вы следите за меткой #<%= tag %>'
+        stop_following: 'Не следить за меткой #<%= tag %>'
+        stop_following_confirm: 'Не следить за меткой #<%= tag %>?'
+        follow_error: Не смог подписаться на <%= tag %> :(
+        stop_following_error: Не смог отписаться от <%= tag %> :(
+    header:
+      home: Главная
+      profile: Профиль
+      contacts: Контакты
+      settings: Настройки
+      help: Помощь
+      admin: Администратор
+      moderator: Модератор
+      log_out: Выйти
+      toggle_navigation: Переключение навигации
+      switch_to_touch_optimized_mode: Включить сенсорный режим
+      notifications: Уведомления
+      conversations: Разговоры
+      search: Поиск
+      recent_notifications: Последние уведомления
+      mark_all_as_read: Пометить как прочитанные
+      view_all: Посмотреть всё
+      close: закрыть
     viewer:
-      reshared: "Поделились"
+      reshared: Поделились
+    poll:
+      vote: Голосовать
+      go_to_original_post: Вы можете принять участие в этом опросе, перейдя к <%= original_post_link %>
+      original_post: оригиналу записи
+      result: Результаты
+      count:
+        zero: Никто ещё не проголосовал
+        one: "<%=count%> человек проголосовал"
+        few: "<%=count%> человека проголосовало"
+        many: "<%=count%> людей проголосовало"
+        other: "<%=count%> людей проголосовало"
+      answer_count:
+        zero: Нет ответов.
+        one: "<%=count%> голос"
+        few: "<%=count%> голоса"
+        many: "<%=count%> голосов "
+        other: "<%=count%> голосов "
+      show_result: Показать результаты
+      close_result: Скрыть результаты
+      your_vote: Ваш голос

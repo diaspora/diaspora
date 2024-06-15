@@ -7,85 +7,85 @@
 ms:
   devise:
     confirmations:
-      confirmed: "Akaun anda telah berjaya disahkan. Anda kini ditandatangani."
+      confirmed: Akaun anda telah berjaya disahkan. Anda kini ditandatangani.
+      send_instructions: nda akan menerima e-mel dengan arahan mengenai cara untuk mengesahkan akaun anda dalam beberapa minit.
       new:
-        resend_confirmation: "Menghantar semula arahan pengesahan"
-      send_instructions: "nda akan menerima e-mel dengan arahan mengenai cara untuk mengesahkan akaun anda dalam beberapa minit."
+        resend_confirmation: Menghantar semula arahan pengesahan
     failure:
-      inactive: "Akaun anda tidak diaktifkan lagi."
-      invalid: "Tidak sah nama pengguna atau kata laluan."
-      invalid_token: "Token pengesahan tidak sah."
-      locked: "Akaun anda dikunci."
-      not_found_in_database: "Emel atau kata laluan tidak sah."
-      timeout: "Sesi anda luput, sila mendaftar masuk sekali lagi untuk meneruskan."
-      unauthenticated: "Anda perlu log masuk atau mendaftar sebelum meneruskan."
-      unconfirmed: "Anda perlu log masuk atau mendaftar sebelum meneruskan."
-    invitations:
-      invitation_token_invalid: "Token jemputan yang diberikan adalah tidak sah!"
-      send_instructions: "Jemputan anda telah dihantar."
-      updated: "Kata laluan anda telah ditubuhkan dengan jayanya. Anda kini ditandatangani."
+      inactive: Akaun anda tidak diaktifkan lagi.
+      invalid: Tidak sah nama pengguna atau kata laluan.
+      locked: Akaun anda dikunci.
+      not_found_in_database: Emel atau kata laluan tidak sah.
+      timeout: Sesi anda luput, sila mendaftar masuk sekali lagi untuk meneruskan.
+      unauthenticated: Anda perlu log masuk atau mendaftar sebelum meneruskan.
+      unconfirmed: Anda perlu log masuk atau mendaftar sebelum meneruskan.
+      invalid_token: Token pengesahan tidak sah.
     mailer:
       confirmation_instructions:
-        confirm: "Sahkan akaun saya"
-        subject: "pengesahan tunjuk-cara"
-        you_can_confirm: "Anda boleh mengesahkan akaun anda melalui link di bawah:"
-      hello: "Hello %{username}!"
-      inviter:
-        accept_at: "pada% {url}, anda boleh menerimanya melalui link di bawah."
-        have_invited_you: "%{names} telah menjemput anda untuk menyertai Diaspora"
+        subject: pengesahan tunjuk-cara
+        you_can_confirm: 'Anda boleh mengesahkan akaun anda melalui link di bawah:'
+        confirm: Sahkan akaun saya
       reset_password_instructions:
-        change: "Tukar kata laluan saya"
-        ignore: "Jika anda tidak membuat permintaan ini, sila abaikan email ini."
-        someone_requested: "Seseorang telah meminta link untuk menukar kata laluan anda, dan anda boleh melakukan ini melalui link di bawah."
-        subject: "Arahan tukar kata laluan"
-        wont_change: "Kata laluan anda tidak akan berubah sehingga anda mengakses pautan di atas dan mencipta yang baru."
+        subject: Arahan tukar kata laluan
+        someone_requested: Seseorang telah meminta link untuk menukar kata laluan anda, dan anda boleh melakukan ini melalui link di bawah.
+        change: Tukar kata laluan saya
+        wont_change: Kata laluan anda tidak akan berubah sehingga anda mengakses pautan di atas dan mencipta yang baru.
+        ignore: Jika anda tidak membuat permintaan ini, sila abaikan email ini.
       unlock_instructions:
-        account_locked: "Akaun anda telah dikunci kerana jumlah cubaan \"sign in\" yang berlebihan."
-        click_to_unlock: "Klik pautan di bawah untuk membuka akaun anda:"
-        subject: "Arahan Membuka Kunci"
-        unlock: "Buka kunci akaun saya"
-      welcome: "Selamat Datang %{username}!"
+        subject: Arahan Membuka Kunci
+        account_locked: Akaun anda telah dikunci kerana jumlah cubaan "sign in" yang berlebihan.
+        click_to_unlock: 'Klik pautan di bawah untuk membuka akaun anda:'
+        unlock: Buka kunci akaun saya
+      welcome: Selamat Datang %{username}!
+      hello: Hello %{username}!
+      inviter:
+        have_invited_you: "%{names} telah menjemput anda untuk menyertai Diaspora"
+        accept_at: pada% {url}, anda boleh menerimanya melalui link di bawah.
     passwords:
+      send_instructions: Anda akan menerima e-mel dengan arahan mengenai cara untuk menetapkan semula kata laluan anda dalam beberapa minit.
+      updated: Kata laluan anda telah berubah dengan jayanya. Anda kini ditandatangani.
       edit:
-        change_password: "Tukar kata laluan saya"
-        confirm_password: "Sahkan kata laluan"
-        new_password: "Kata laluan baru"
+        change_password: Tukar kata laluan saya
+        new_password: Kata laluan baru
+        confirm_password: Sahkan kata laluan
       new:
-        email: "Alamat emel"
-        forgot_password: "Lupa kata laluan anda?"
-        reset_password: "Tetapkan semula kata laluan"
-        send_password_instructions: "Hantar saya arahan menetap semula kata laluan"
-      send_instructions: "Anda akan menerima e-mel dengan arahan mengenai cara untuk menetapkan semula kata laluan anda dalam beberapa minit."
-      updated: "Kata laluan anda telah berubah dengan jayanya. Anda kini ditandatangani."
+        forgot_password: Lupa kata laluan anda?
+        reset_password: Tetapkan semula kata laluan
+        email: Alamat emel
+        send_password_instructions: Hantar saya arahan menetap semula kata laluan
     registrations:
-      destroyed: "Selamat tinggal! Akaun anda telah berjaya dibatalkan. Kami berharap untuk melihat anda semula tidak lama lagi."
-      signed_up: "Anda telah mendaftar dengan jayanya. Jika diaktifkan, pengesahan telah dihantar ke e-mel anda."
-      updated: "Anda mengemas kini akaun anda dengan jayanya."
+      destroyed: Selamat tinggal! Akaun anda telah berjaya dibatalkan. Kami berharap untuk melihat anda semula tidak lama lagi.
+      signed_up: Anda telah mendaftar dengan jayanya. Jika diaktifkan, pengesahan telah dihantar ke e-mel anda.
+      updated: Anda mengemas kini akaun anda dengan jayanya.
     sessions:
+      signed_in: Ditandatangani dengan jayanya.
+      signed_out: Signed dengan jayanya.
       new:
-        login: "Masuk"
-        modern_browsers: "hanya menyokong pelayar moden."
-        password: "Kata Laluan"
-        remember_me: "Ingat saya"
-        sign_in: "Masuk"
-        username: "Nama pengguna"
-      signed_in: "Ditandatangani dengan jayanya."
-      signed_out: "Signed dengan jayanya."
+        login: Masuk
+        username: Nama pengguna
+        password: Kata Laluan
+        sign_in: Masuk
+        remember_me: Ingat saya
+        modern_browsers: hanya menyokong pelayar moden.
+    unlocks:
+      send_instructions: Anda akan menerima e-mel dengan arahan mengenai bagaimana untuk membuka akaun anda dalam beberapa minit.
+      unlocked: Akaun anda telah berjaya dibuka. Anda kini ditandatangani.
+      new:
+        resend_unlock: Hantar semula arahan membuka kunci
+    invitations:
+      send_instructions: Jemputan anda telah dihantar.
+      invitation_token_invalid: Token jemputan yang diberikan adalah tidak sah!
+      updated: Kata laluan anda telah ditubuhkan dengan jayanya. Anda kini ditandatangani.
     shared:
       links:
-        forgot_your_password: "Lupa kata laluan anda?"
-        receive_confirmation: "Tidak menerima arahan pengesahan?"
-        receive_unlock: "Tidak menerima arahan membuka kunci?"
-        sign_in: "Daftar masuk"
-        sign_up: "Daftar"
-        sign_up_closed: "Pendaftaran terbuka ditutup pada masa ini."
-    unlocks:
-      new:
-        resend_unlock: "Hantar semula arahan membuka kunci"
-      send_instructions: "Anda akan menerima e-mel dengan arahan mengenai bagaimana untuk membuka akaun anda dalam beberapa minit."
-      unlocked: "Akaun anda telah berjaya dibuka. Anda kini ditandatangani."
+        sign_in: Daftar masuk
+        sign_up: Daftar
+        sign_up_closed: Pendaftaran terbuka ditutup pada masa ini.
+        forgot_your_password: Lupa kata laluan anda?
+        receive_confirmation: Tidak menerima arahan pengesahan?
+        receive_unlock: Tidak menerima arahan membuka kunci?
   errors:
     messages:
-      already_confirmed: "telah disahkan"
-      not_found: "tidak dijumpai"
-      not_locked: "tidak dikunci"
+      already_confirmed: telah disahkan
+      not_found: tidak dijumpai
+      not_locked: tidak dikunci

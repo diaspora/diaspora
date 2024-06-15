@@ -7,108 +7,108 @@
 sc:
   devise:
     confirmations:
-      confirmed: "Su contu de posta eletrònica tuo est istadu cunfirmadu."
+      confirmed: Su contu de posta eletrònica tuo est istadu cunfirmadu.
+      send_instructions: As a retzire una lìtera eletrònica cun istrutziones pro cunfirmare sa crae de intrada tua in una paia de minutos.
+      send_paranoid_instructions: Si su contu de posta eletrònica tuo est giai in s'elencu nostru as a retzire una lìtera cun sas istrutziones pro cunfirmare s'indiritzu tuo in una paia de minutos.
       new:
-        resend_confirmation: "Torra a imbiare sas istrutziones de cunfirma"
-      send_instructions: "As a retzire una lìtera eletrònica cun istrutziones pro cunfirmare sa crae de intrada tua in una paia de minutos."
-      send_paranoid_instructions: "Si su contu de posta eletrònica tuo est giai in s'elencu nostru as a retzire una lìtera cun sas istrutziones pro cunfirmare s'indiritzu tuo in una paia de minutos."
+        resend_confirmation: Torra a imbiare sas istrutziones de cunfirma
     failure:
-      already_authenticated: "Ses giai intradu."
-      inactive: "Su contu tuo no est istadu galu ativadu"
+      already_authenticated: Ses giai intradu.
+      inactive: Su contu tuo no est istadu galu ativadu
       invalid: "%{authentication_keys} o crae invàlidas."
-      invalid_token: "Getone de autenticatzione non vàlidu."
-      last_attempt: "Tenes galu unu tentativu a disponimentu in antis chi su contu tuo bèngiat blocadu."
-      locked: "Su contu tuo est blocadu."
+      locked: Su contu tuo est blocadu.
+      last_attempt: Tenes galu unu tentativu a disponimentu in antis chi su contu tuo bèngiat blocadu.
       not_found_in_database: "%{authentication_keys} o crae invàlidas."
-      timeout: "Sa sessione tua est iscadida. Pro praghere torra a intrare pro sighire."
-      unauthenticated: "Depes intrare in su contu tuo o ti depes registrare in antis de pòdere sighire."
-      unconfirmed: "Depes cunfirmare s'indiritzu de posta eletrònica in antis de pòdere sighire."
-    invitations:
-      invitation_token_invalid: "Iscusa·nos! Su getone de invitu tuo no est vàlidu."
-      send_instructions: "S'invitu tuo est istadu imbiadu."
-      updated: "Sa crae de intrada tua est istada impostada. Como ses intradu."
+      timeout: Sa sessione tua est iscadida. Pro praghere torra a intrare pro sighire.
+      unauthenticated: Depes intrare in su contu tuo o ti depes registrare in antis de pòdere sighire.
+      unconfirmed: Depes cunfirmare s'indiritzu de posta eletrònica in antis de pòdere sighire.
+      invalid_token: Getone de autenticatzione non vàlidu.
     mailer:
       confirmation_instructions:
-        confirm: "Cunfirma su contu meu"
-        subject: "Istrutziones pro sa cunfirma"
-        you_can_confirm: "Podes cunfirmare su contu tuo pro mèdiu de su ligàmene inoghe in suta:"
-      hello: "Salude %{username}!"
+        subject: Istrutziones pro sa cunfirma
+        you_can_confirm: 'Podes cunfirmare su contu tuo pro mèdiu de su ligàmene inoghe in suta:'
+        confirm: Cunfirma su contu meu
+      reset_password_instructions:
+        subject: Istrutziones pro torrare a impostare sa crae de intrada
+        someone_requested: Calicunu at pedidu unu ligàmene pro cambiare sa crae tua. Si ses istadu tue lu podes fàghere pro mèdiu de su ligàmene inoghe in suta.
+        change: Càmbia sa crae mea
+        wont_change: Sa crae tua no at a cambiare finas a cando no as a aberire su ligàmene inoghe in pitzu e nd'as a creare una noa.
+        ignore: Si non l'as pedidu tue, pro praghere ignora custa lìtera.
+      unlock_instructions:
+        subject: Istrutziones de isblocu
+        account_locked: Su contu tuo est istadu blocadu pro more de unu nùmeru tropu mannu de tentativos de intrada fallidos.
+        click_to_unlock: 'Incarca in su ligàmene inoghe pro isblocare su contu tuo:'
+        unlock: Isbloca su contu meu
+      password_change:
+        subject: Crae cambiada
+      welcome: Bene bènnidu %{username}!
+      hello: Salude %{username}!
       inviter:
-        accept_at: "in %{url}, lu podes atzetare pro mèdiu de su ligàmene inoghe in suta."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} t'ant invitadu a t'aunire a diaspora*"
-      password_change:
-        subject: "Crae cambiada"
-      reset_password_instructions:
-        change: "Càmbia sa crae mea"
-        ignore: "Si non l'as pedidu tue, pro praghere ignora custa lìtera."
-        someone_requested: "Calicunu at pedidu unu ligàmene pro cambiare sa crae tua. Si ses istadu tue lu podes fàghere pro mèdiu de su ligàmene inoghe in suta."
-        subject: "Istrutziones pro torrare a impostare sa crae de intrada"
-        wont_change: "Sa crae tua no at a cambiare finas a cando no as a aberire su ligàmene inoghe in pitzu e nd'as a creare una noa."
-      unlock_instructions:
-        account_locked: "Su contu tuo est istadu blocadu pro more de unu nùmeru tropu mannu de tentativos de intrada fallidos."
-        click_to_unlock: "Incarca in su ligàmene inoghe pro isblocare su contu tuo:"
-        subject: "Istrutziones de isblocu"
-        unlock: "Isbloca su contu meu"
-      welcome: "Bene bènnidu %{username}!"
+        accept_at: in %{url}, lu podes atzetare pro mèdiu de su ligàmene inoghe in suta.
     omniauth_callbacks:
-      failure: "Impossìbile fàghere s'autenticatzione pro tie dae %{kind}, ca \"%{reason}\"."
-      success: "Autenticatzione dae su contu %{kind} resissida."
+      failure: Impossìbile fàghere s'autenticatzione pro tie dae %{kind}, ca "%{reason}".
+      success: Autenticatzione dae su contu %{kind} resissida.
     passwords:
+      no_token: Non podes intrare in custa pàgina chene partire dae una lìtera de posta eletrònica pro s'impostatzione de sa crae. Si benis dae una de cussas lìteras ista atentu a impreare s'URL intreu frunidu.
+      send_instructions: As a retzire una lìtera eletrònica cun istrutziones pro torrare a impostare sa crae de intrada tua in una paia de minutos.
+      send_paranoid_instructions: Si su contu de p. eletrònica tuo esistit in s'elencu nostru as a retzire unu ligàmene de riprìstinu in s'indiritzu de posta eletrònicu tuo in una paia de minutos.
+      updated: Su cambiamentu de sa crae tua est resissidu. Como ses intradu.
+      updated_not_active: Sa crae tua est istada cambiada.
       edit:
-        change_password: "Càmbia sa crae mea"
-        confirm_password: "Cunfirma sa crae"
-        new_password: "Crae noa"
+        change_password: Càmbia sa crae mea
+        new_password: Crae noa
+        confirm_password: Cunfirma sa crae
       new:
-        email: "Indiritzu de p. eletrònica"
-        forgot_password: "As ismentigadu sa crae tua?"
-        reset_password: "Torra a impostare sa crae"
-        send_password_instructions: "Imbia·mi sas istrutziones pro torrare a impostare sa crae"
-      no_token: "Non podes intrare in custa pàgina chene partire dae una lìtera de posta eletrònica pro s'impostatzione de sa crae. Si benis dae una de cussas lìteras ista atentu a impreare s'URL intreu frunidu."
-      send_instructions: "As a retzire una lìtera eletrònica cun istrutziones pro torrare a impostare sa crae de intrada tua in una paia de minutos."
-      send_paranoid_instructions: "Si su contu de p. eletrònica tuo esistit in s'elencu nostru as a retzire unu ligàmene de riprìstinu in s'indiritzu de posta eletrònicu tuo in una paia de minutos."
-      updated: "Su cambiamentu de sa crae tua est resissidu. Como ses intradu."
-      updated_not_active: "Sa crae tua est istada cambiada."
+        forgot_password: As ismentigadu sa crae tua?
+        reset_password: Torra a impostare sa crae
+        email: Indiritzu de p. eletrònica
+        send_password_instructions: Imbia·mi sas istrutziones pro torrare a impostare sa crae
     registrations:
-      destroyed: "Adiosu! Su contu tuo est istadu iscantzelladu. Isperamus de ti bìdere torra."
-      signed_up: "Sa registratzione est resissida. Si su servìtziu est abilitadu una lìtera de cunfirma est istada imbiada a s'indiritzu de posta eletrònica tua."
-      signed_up_but_inactive: "Ti ses registradu. Ma non podes galu intrare, ca su contu tuo no est galu ativadu."
-      signed_up_but_locked: "Ti ses registradu. Ma non podes galu intrare, ca su contu tuo no est blocadu."
-      signed_up_but_unconfirmed: "Unu messàgiu cun unu ligàmene de cunfirma est istadu imbiadu a su contu de posta eletrònica tuo. Pro praghere sighi su ligàmene pro ativare su contu tuo."
-      update_needs_confirmation: "As agiornadu su contu tuo, ma tenimus bisòngiu de verificare su contu nou tuo. Pro praghere verìfica s'indiritzu tuo e sighi su ligàmene de cunfirma pro cunfirmare su contu de posta eletrònica tuo."
-      updated: "Su contu tuo est istadu abilitadu cun sutzessu."
+      destroyed: Adiosu! Su contu tuo est istadu iscantzelladu. Isperamus de ti bìdere torra.
+      signed_up: Sa registratzione est resissida. Si su servìtziu est abilitadu una lìtera de cunfirma est istada imbiada a s'indiritzu de posta eletrònica tua.
+      signed_up_but_inactive: Ti ses registradu. Ma non podes galu intrare, ca su contu tuo no est galu ativadu.
+      signed_up_but_locked: Ti ses registradu. Ma non podes galu intrare, ca su contu tuo no est blocadu.
+      signed_up_but_unconfirmed: Unu messàgiu cun unu ligàmene de cunfirma est istadu imbiadu a su contu de posta eletrònica tuo. Pro praghere sighi su ligàmene pro ativare su contu tuo.
+      update_needs_confirmation: As agiornadu su contu tuo, ma tenimus bisòngiu de verificare su contu nou tuo. Pro praghere verìfica s'indiritzu tuo e sighi su ligàmene de cunfirma pro cunfirmare su contu de posta eletrònica tuo.
+      updated: Su contu tuo est istadu abilitadu cun sutzessu.
     sessions:
-      already_signed_out: "Ses essidu."
+      signed_in: Intrada resissida.
+      signed_out: Essida resissida.
+      already_signed_out: Ses essidu.
       new:
-        login: "Intra"
-        modern_browsers: "suportat petzi sos esploradores (sos browsers) modernos."
-        password: "Crae"
-        remember_me: "Ammenta·ti de mene"
-        sign_in: "Intra"
-        username: "Nùmene impreadore"
-      signed_in: "Intrada resissida."
-      signed_out: "Essida resissida."
+        login: Intra
+        username: Nùmene impreadore
+        password: Crae
+        sign_in: Intra
+        remember_me: Ammenta·ti de mene
+        modern_browsers: suportat petzi sos esploradores (sos browsers) modernos.
+    unlocks:
+      send_instructions: As a retzire una lìtera cun istrutziones pro isblocare su contu tuo in una paia de minutos.
+      send_paranoid_instructions: Si su contu tuo esistit as a retzire una lìtera cun sas istrutziones pro isblocare su contu tuo in una paia de minutos.
+      unlocked: Su contu tuo est istadu isblocadu. Pro praghere intra pro sighire.
+      new:
+        resend_unlock: Torra a imbiare sas istrutziones de isblocu
+    invitations:
+      send_instructions: S'invitu tuo est istadu imbiadu.
+      invitation_token_invalid: Iscusa·nos! Su getone de invitu tuo no est vàlidu.
+      updated: Sa crae de intrada tua est istada impostada. Como ses intradu.
     shared:
       links:
-        forgot_your_password: "As ismentigadu sa crae tua?"
-        receive_confirmation: "No as retzidu sas istrutziones pro sa cunfirma?"
-        receive_unlock: "No as retzidu sas istrutziones pro s'isblocu?"
-        sign_in: "Intra"
-        sign_up: "Crea unu contu"
-        sign_up_closed: "Sas registratziones abertas non sunt disponìbiles in custu momentu."
-    unlocks:
-      new:
-        resend_unlock: "Torra a imbiare sas istrutziones de isblocu"
-      send_instructions: "As a retzire una lìtera cun istrutziones pro isblocare su contu tuo in una paia de minutos."
-      send_paranoid_instructions: "Si su contu tuo esistit as a retzire una lìtera cun sas istrutziones pro isblocare su contu tuo in una paia de minutos."
-      unlocked: "Su contu tuo est istadu isblocadu. Pro praghere intra pro sighire."
+        sign_in: Intra
+        sign_up: Crea unu contu
+        sign_up_closed: Sas registratziones abertas non sunt disponìbiles in custu momentu.
+        forgot_your_password: As ismentigadu sa crae tua?
+        receive_confirmation: No as retzidu sas istrutziones pro sa cunfirma?
+        receive_unlock: No as retzidu sas istrutziones pro s'isblocu?
   errors:
     messages:
-      already_confirmed: "est istadu giai cunfirmadu, pro praghere torra a proare"
-      confirmation_period_expired: "depet èssere cunfirmadu intro de %{period}, pro praghere pedi·ne unu nou"
-      expired: "est iscadidu, pro praghere pedi·ne unu nou"
-      not_found: "non agatadu"
-      not_locked: "no est istadu blocadu"
+      already_confirmed: est istadu giai cunfirmadu, pro praghere torra a proare
+      confirmation_period_expired: depet èssere cunfirmadu intro de %{period}, pro praghere pedi·ne unu nou
+      expired: est iscadidu, pro praghere pedi·ne unu nou
+      not_found: non agatadu
+      not_locked: no est istadu blocadu
       not_saved:
-        one: "1 errore nos at impedidu de sarvare custu %{resource}:"
+        one: '1 errore nos at impedidu de sarvare custu %{resource}:'
         other: "%{count} errores nos ant impedidu de sarvare custu %{resource}:"

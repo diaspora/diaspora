@@ -6,90 +6,90 @@
 
 id:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Tambahkan kontak"
-      all_aspects: "Semua aspek"
-      error: "Tidak bisa berbagi dengan <%= name %>. Apakah anda mengabaikan mereka ?"
-      select_aspects: "Pilih salah satu aspek"
-      started_sharing_with: "Anda mulai berbagi dengan <%= name %> !"
-      stopped_sharing_with: "Anda berhenti berbagi dengan <%= name %>"
-      toggle:
-        other: "Dalam <%= count %> Hal"
-        zero: "Dalam <%= count %> Hal"
-    aspect_navigation:
-      deselect_all: "Batalkan semua pilihan"
-      no_aspects: "Tak ada apapun yang di pilih"
-      select_all: "Pilih semua"
-    comments:
-      hide: "sembunyikan komentar"
-      show: "tampilkan semua komentar"
-    confirm_dialog: "Anda yakin ?"
-    delete: "Menghapus"
-    failed_to_post_message: "Gagal memposting pesan!"
-    getting_started:
-      alright_ill_wait: "Baiklah, Saya akan menunggu"
-      hey: "Hey, <%= name %>!"
-      no_tags: "Hey, anda belum mengikuti 'tags' apapun! Lanjutkan ?"
-      preparing_your_stream: "Mempersiapkan 'stream' personalisasi anda"
-    header:
-      search: "Temukan nama orang atau #tags"
-    ignore: "Abaikan"
-    my_activity: "Aktifitas Saya"
-    my_stream: "Stream"
-    photo_uploader:
-      looking_good: "Puji Tuhan, anda terlihat luar biasa!"
-    show_more: "Tampilkan lebih banyak lagi"
-    stream:
-      comment: "Komentar"
-      follow: "Ikuti"
-      hide: "Sembunyikan"
-      hide_nsfw_posts: "Sembunyikan #nsfw"
-      like: "Suka"
-      likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
-      limited: "Terbatas"
-      more_comments:
-        other: "Tampilkan <%= count %> komentar"
-        zero: "Tampilkan <%= count %> komentar"
-      original_post_deleted: "Posting asli di hapus oleh penulis."
-      public: "Publik"
-      reshare: "Sebarkan/Bagikan Lagi"
-      reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
-      show_nsfw_post: "Tampilkan"
-      show_nsfw_posts: "Tampilkan semua"
-      unfollow: "Berhenti ikuti"
-      unlike: "Tidak Suka"
-    tags:
-      wasnt_that_interesting: "OK, sepertinya #<%= tagName %> tidak terlalu menarik..."
     timeago:
-      day: "sehari"
-      days:
-        other: "%d hari"
-      hour: "sekitar sejam"
-      hours:
-        other: "sekitar %d jam"
-      minute: "sekitar satu menit"
+      prefixAgo: ''
+      suffixAgo: yang lalu
+      suffixFromNow: dari sekarang
+      prefixFromNow: ''
+      seconds: kurang dari semenit
+      minute: sekitar satu menit
       minutes:
         other: "%d menit"
-      month: "sekitar sebulan"
+      hour: sekitar sejam
+      hours:
+        other: sekitar %d jam
+      day: sehari
+      days:
+        other: "%d hari"
+      month: sekitar sebulan
       months:
         other: "%d tahun"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "kurang dari semenit"
-      suffixAgo: "yang lalu"
-      suffixFromNow: "dari sekarang"
-      year: "sekitar setahun"
+      year: sekitar setahun
       years:
         other: "%d tahun"
+    confirm_dialog: Anda yakin ?
+    delete: Menghapus
+    ignore: Abaikan
+    my_activity: Aktifitas Saya
+    my_stream: Stream
+    aspect_dropdown:
+      add_to_aspect: Tambahkan kontak
+      select_aspects: Pilih salah satu aspek
+      all_aspects: Semua aspek
+      stopped_sharing_with: Anda berhenti berbagi dengan <%= name %>
+      started_sharing_with: Anda mulai berbagi dengan <%= name %> !
+      error: Tidak bisa berbagi dengan <%= name %>. Apakah anda mengabaikan mereka ?
+      toggle:
+        zero: Dalam <%= count %> Hal
+        other: Dalam <%= count %> Hal
+    show_more: Tampilkan lebih banyak lagi
+    failed_to_post_message: Gagal memposting pesan!
+    comments:
+      show: tampilkan semua komentar
+      hide: sembunyikan komentar
+    aspect_navigation:
+      select_all: Pilih semua
+      deselect_all: Batalkan semua pilihan
+      no_aspects: Tak ada apapun yang di pilih
+    getting_started:
+      hey: Hey, <%= name %>!
+      no_tags: Hey, anda belum mengikuti 'tags' apapun! Lanjutkan ?
+      alright_ill_wait: Baiklah, Saya akan menunggu
+      preparing_your_stream: Mempersiapkan 'stream' personalisasi anda
+    photo_uploader:
+      looking_good: Puji Tuhan, anda terlihat luar biasa!
+    tags:
+      wasnt_that_interesting: 'OK, sepertinya #<%= tagName %> tidak terlalu menarik...'
+    stream:
+      hide: Sembunyikan
+      public: Publik
+      limited: Terbatas
+      like: Suka
+      unlike: Tidak Suka
+      reshare: Sebarkan/Bagikan Lagi
+      comment: Komentar
+      original_post_deleted: Posting asli di hapus oleh penulis.
+      show_nsfw_post: Tampilkan
+      show_nsfw_posts: Tampilkan semua
+      hide_nsfw_posts: 'Sembunyikan #nsfw'
+      follow: Ikuti
+      unfollow: Berhenti ikuti
+      likes:
+        zero: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        two: "<%= count %> Likes"
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        other: "<%= count %> Likes"
+      reshares:
+        zero: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        two: "<%= count %> Reshares"
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        other: "<%= count %> Reshares"
+      more_comments:
+        zero: Tampilkan <%= count %> komentar
+        other: Tampilkan <%= count %> komentar
+    header:
+      search: 'Temukan nama orang atau #tags'

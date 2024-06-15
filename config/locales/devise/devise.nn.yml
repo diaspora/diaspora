@@ -7,81 +7,81 @@
 nn:
   devise:
     confirmations:
-      confirmed: "Kontoen din er stadfesta. Du kan no logga deg på."
+      confirmed: Kontoen din er stadfesta. Du kan no logga deg på.
+      send_instructions: Om ei lita stund vil du få ei e-postmelding med rettleiing om korleis du stadfestar kontoen din.
       new:
-        resend_confirmation: "Send stadfestingsrettleiinga på nytt"
-      send_instructions: "Om ei lita stund vil du få ei e-postmelding med rettleiing om korleis du stadfestar kontoen din."
+        resend_confirmation: Send stadfestingsrettleiinga på nytt
     failure:
-      inactive: "Kontoen din var ikkje teken i bruk."
-      invalid: "Brukarnamnet eller passordet er ugyldig."
-      invalid_token: "Ugyldig aktiveringkode"
-      locked: "Kontoen din er låst."
-      timeout: "Økta finst ikkje lenger. Logg deg på att."
-      unauthenticated: "Du må logga deg på eller melda deg inn før du kan halda fram."
-      unconfirmed: "Du må stadfesta kontoen din før du kan halda fram."
-    invitations:
-      invitation_token_invalid: "Invitasjonsførespurnaden er ikkje gyldig."
-      send_instructions: "Invitasjonen din er vorten send."
-      updated: "Passordet ditt vart lagra. Du kan no logga deg på."
+      inactive: Kontoen din var ikkje teken i bruk.
+      invalid: Brukarnamnet eller passordet er ugyldig.
+      locked: Kontoen din er låst.
+      timeout: Økta finst ikkje lenger. Logg deg på att.
+      unauthenticated: Du må logga deg på eller melda deg inn før du kan halda fram.
+      unconfirmed: Du må stadfesta kontoen din før du kan halda fram.
+      invalid_token: Ugyldig aktiveringkode
     mailer:
       confirmation_instructions:
-        confirm: "Stadfest kontoen min"
-        subject: "Stadfestingsrettleiing"
-        you_can_confirm: "Du kan stadfesta kontoen din ved å nytta lenkja nedanfor:"
-      hello: "Hei %{username}."
+        subject: Stadfestingsrettleiing
+        you_can_confirm: 'Du kan stadfesta kontoen din ved å nytta lenkja nedanfor:'
+        confirm: Stadfest kontoen min
+      reset_password_instructions:
+        subject: Nullstill passordrettleiinga
+        someone_requested: Nokon har spurt etter ei lenkje for å nullstilla passordet ditt. Du kan gjera dette ved hjelp av lenkja nedanfor.
+        change: Endra passordet mitt
+        wont_change: Passordet vil ikkje verta endra før du nyttar lenkja ovanfor og lagar eit nytt eit.
+        ignore: Om du ikkje bad om dette, kan du berre sjå vekk frå meldinga.
+      unlock_instructions:
+        subject: Opplåsingsrettleiing
+        account_locked: Kontoen din er låst grunna for mange mislykka påloggingsforsøk.
+        click_to_unlock: 'Klikk på lenkja nedanfor for å låsa opp kontoen din:'
+        unlock: Lås opp kontoen min
+      welcome: Velkomen %{username}.
+      hello: Hei %{username}.
       inviter:
-        accept_at: "på %{url}, du kan godta det gjennom lenkja nedanfor."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} har invitert deg til å verta med i Diaspora"
-      reset_password_instructions:
-        change: "Endra passordet mitt"
-        ignore: "Om du ikkje bad om dette, kan du berre sjå vekk frå meldinga."
-        someone_requested: "Nokon har spurt etter ei lenkje for å nullstilla passordet ditt. Du kan gjera dette ved hjelp av lenkja nedanfor."
-        subject: "Nullstill passordrettleiinga"
-        wont_change: "Passordet vil ikkje verta endra før du nyttar lenkja ovanfor og lagar eit nytt eit."
-      unlock_instructions:
-        account_locked: "Kontoen din er låst grunna for mange mislykka påloggingsforsøk."
-        click_to_unlock: "Klikk på lenkja nedanfor for å låsa opp kontoen din:"
-        subject: "Opplåsingsrettleiing"
-        unlock: "Lås opp kontoen min"
-      welcome: "Velkomen %{username}."
+        accept_at: på %{url}, du kan godta det gjennom lenkja nedanfor.
     passwords:
+      send_instructions: Om ei lita stund vil du få ein e-post med opplysningar om korleis du kan nullstilla passordet ditt.
+      updated: Passordet ditt vart endra. Du er no pålogga.
       edit:
-        change_password: "Endra passordet mitt"
+        change_password: Endra passordet mitt
       new:
-        forgot_password: "Har du gløymt passordet ditt?"
-        send_password_instructions: "Send meg opplysningar om korleis nullstilla passordet"
-      send_instructions: "Om ei lita stund vil du få ein e-post med opplysningar om korleis du kan nullstilla passordet ditt."
-      updated: "Passordet ditt vart endra. Du er no pålogga."
+        forgot_password: Har du gløymt passordet ditt?
+        send_password_instructions: Send meg opplysningar om korleis nullstilla passordet
     registrations:
-      destroyed: "Ha det! Kontoen din vart sletta. Vi vonar vi ser deg att snart."
-      signed_up: "Du er no påmeld. Om du slo på valet, vil det koma ei stadfesting til e-postkontoen din."
-      updated: "Kontoen din vart oppdatert."
+      destroyed: Ha det! Kontoen din vart sletta. Vi vonar vi ser deg att snart.
+      signed_up: Du er no påmeld. Om du slo på valet, vil det koma ei stadfesting til e-postkontoen din.
+      updated: Kontoen din vart oppdatert.
     sessions:
+      signed_in: Er pålogga.
+      signed_out: Er utlogga.
       new:
-        login: "Logg på"
-        modern_browsers: "kan berre nytta moderne nettlesarar."
-        password: "Passord"
-        remember_me: "Hugs meg"
-        sign_in: "Logg på"
-        username: "Brukarnamn"
-      signed_in: "Er pålogga."
-      signed_out: "Er utlogga."
+        login: Logg på
+        username: Brukarnamn
+        password: Passord
+        sign_in: Logg på
+        remember_me: Hugs meg
+        modern_browsers: kan berre nytta moderne nettlesarar.
+    unlocks:
+      send_instructions: Om ei lita stund vil du få ei e-postmelding med rettleiing om korleis låsa opp att kontoen din.
+      unlocked: Kontoen din vart låst opp. Du kan no logga deg på.
+      new:
+        resend_unlock: Send opplåsingrettleiinga på nytt
+    invitations:
+      send_instructions: Invitasjonen din er vorten send.
+      invitation_token_invalid: Invitasjonsførespurnaden er ikkje gyldig.
+      updated: Passordet ditt vart lagra. Du kan no logga deg på.
     shared:
       links:
-        forgot_your_password: "Har du gløymt passordet ditt?"
-        receive_confirmation: "Har du ikkje fått stadfestingsrettleiinga?"
-        receive_unlock: "Fekk du ikkje nullstillingsrettleiinga?"
-        sign_in: "Logg på"
-        sign_up: "Påmelding"
-        sign_up_closed: "Du kan ikkje melda deg på nett no."
-    unlocks:
-      new:
-        resend_unlock: "Send opplåsingrettleiinga på nytt"
-      send_instructions: "Om ei lita stund vil du få ei e-postmelding med rettleiing om korleis låsa opp att kontoen din."
-      unlocked: "Kontoen din vart låst opp. Du kan no logga deg på."
+        sign_in: Logg på
+        sign_up: Påmelding
+        sign_up_closed: Du kan ikkje melda deg på nett no.
+        forgot_your_password: Har du gløymt passordet ditt?
+        receive_confirmation: Har du ikkje fått stadfestingsrettleiinga?
+        receive_unlock: Fekk du ikkje nullstillingsrettleiinga?
   errors:
     messages:
-      already_confirmed: "var allereie stadfesta"
-      not_found: "ikkje funnen"
-      not_locked: "vart ikkje låst"
+      already_confirmed: var allereie stadfesta
+      not_found: ikkje funnen
+      not_locked: vart ikkje låst

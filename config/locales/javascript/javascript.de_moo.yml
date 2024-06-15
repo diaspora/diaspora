@@ -6,314 +6,316 @@
 
 de_moo:
   javascripts:
+    timeago:
+      prefixAgo: vor
+      suffixAgo: ''
+      suffixFromNow: ab jetzt
+      prefixFromNow: in
+      inPast: jeden Moment
+      seconds: weniger als eine Minute
+      minute: etwa einer Minute
+      minutes:
+        one: einer Minute
+        other: "%d Minuten"
+      hour: etwa einer Stunde
+      hours:
+        one: etwa einer Stunde
+        other: etwa %d Stunden
+      day: einem Tag
+      days:
+        one: einem Tag
+        other: "%d Tagen"
+      month: etwa einem Monat
+      months:
+        one: einem Monat
+        other: "%d Monaten"
+      year: etwa einem Jahr
+      years:
+        one: einem Jahr
+        other: "%d Jahren"
+      wordSeparator: " "
+    cancel: Abbrechen
+    confirm_dialog: Bist du dir sicher?
+    confirm_unload: Bitte bestätige, dass du diese Weide verlassen willst. - Von dir eingegebene Daten werden nicht gespeichert.
+    create: Erstellen
+    delete: Löschen
+    ignore: Ignorieren
+    report:
+      prompt: 'Bitte gib einen Grund an:'
+      prompt_default: z.B. anstößiger Inhalt
+      name: Beitrag melden
+      status:
+        created: Die Meldung wurde erfolgreich erstellt
+        exists: Die Meldung existiert bereits
+    ignore_user: Dieses Rindvieh ignorieren?
+    ignore_failed: Konnte Rindvieh nicht ignorieren
+    hide_post: Diesen Beitrag ausblenden?
+    hide_post_failed: Ausblenden des Beitrags nicht möglich
+    remove_post: Diesen Beitrag löschen?
+    unblock_failed: Die Kuh zu entblocken ist fehlgeschlagen.
+    and: und
+    comma: ","
+    edit: Bearbeiten
+    no_results: Keine Treffer
+    show_all: Alle anzeigen
+    admins:
+      dashboard:
+        up_to_date: Dein Bauernhof ist auf dem neuesten Stand!
+        outdated: Dein Bauernhof ist veraltet.
+        compare_versions: Die neueste diaspora*-Version ist <%= latestVersion %>, dein Bauernhof verwendet <%= podVersion %>.
+        error: Konnte neueste diaspora*-Version nicht ermitteln.
     admin:
       pods:
-        actions: "Aktionen"
-        added: "Hinzugefügt"
-        check: "Verbindungstest durchführen"
-        errors:
-          one: "Der Verbindungstest meldete für einen Bauernhof einen Fehler."
-          other: "Der Verbindungstest meldete für <%= count %> Bauernhöfe einen Fehler."
-        follow_link: "Link im Browser öffnen"
-        last_check: "letzte Überprüfung:"
-        more_info: "zeige weitere Informationen"
+        pod: Bauernhof
+        ssl: SSL
+        ssl_enabled: SSL aktiviert
+        ssl_disabled: SSL deaktiviert
+        added: Hinzugefügt
+        status: Status
+        states:
+          unchecked: Nicht überprüft
+          no_errors: OK
+          dns_failed: Namensauflösung (DNS) fehlgeschlagen
+          net_failed: Verbindungsversuch fehlgeschlagen
+          ssl_failed: Sichere Verbindung (SSL) fehlgeschlagen
+          http_failed: HTTP-Verbindung fehlgeschlagen
+          version_failed: Konnte Softwareversion nicht ermitteln
+          unknown_error: Während der Überprüfung ist ein nicht angegebener Fehler aufgetreten
+        actions: Aktionen
+        offline_since: 'offline seit:'
+        last_check: 'letzte Überprüfung:'
+        more_info: zeige weitere Informationen
+        check: Verbindungstest durchführen
+        recheck:
+          success: Der Bauernhof wurde soeben erneut überprüft.
+          failure: Die Überprüfung wurde nicht durchgeführt.
+        follow_link: Link im Browser öffnen
+        no_info: Zurzeit sind keine weiteren Informationen verfügbar
+        server_software: 'Server-Software:'
+        response_time: 'Antwortzeit:'
         ms:
           one: "<%= count %> ms"
           other: "<%= count %> ms"
-        no_info: "Zurzeit sind keine weiteren Informationen verfügbar"
-        not_available: "nicht verfügbar"
-        offline_since: "offline seit:"
-        pod: "Bauernhof"
-        recheck:
-          failure: "Die Überprüfung wurde nicht durchgeführt."
-          success: "Der Bauernhof wurde soeben erneut überprüft."
-        response_time: "Antwortzeit:"
-        server_software: "Server-Software:"
-        ssl: "SSL"
-        ssl_disabled: "SSL deaktiviert"
-        ssl_enabled: "SSL aktiviert"
-        states:
-          dns_failed: "Namensauflösung (DNS) fehlgeschlagen"
-          http_failed: "HTTP-Verbindung fehlgeschlagen"
-          net_failed: "Verbindungsversuch fehlgeschlagen"
-          no_errors: "OK"
-          ssl_failed: "Sichere Verbindung (SSL) fehlgeschlagen"
-          unchecked: "Nicht überprüft"
-          unknown_error: "Während der Überprüfung ist ein nicht angegebener Fehler aufgetreten"
-          version_failed: "Konnte Softwareversion nicht ermitteln"
-        status: "Status"
+        unknown: unbekannt
+        not_available: nicht verfügbar
         unchecked:
-          one: "Es gibt noch immer einen Bauernhof, der gar nicht überprüft wurde."
-          other: "Es gibt noch immer <%= count %> Bauernhöfe, die gar nicht überprüft wurden."
-        unknown: "unbekannt"
+          one: Es gibt noch immer einen Bauernhof, der gar nicht überprüft wurde.
+          other: Es gibt noch immer <%= count %> Bauernhöfe, die gar nicht überprüft wurden.
         version_failed:
-          one: "Es gibt einen Bauernhof, der keine Version hat (alter Bauernhof, kein NodeInfo)."
-          other: "Es gibt <%= count %> Bauernhöfe, die keine Version haben (alte Bauernhöfe, kein NodeInfo).\n"
-    admins:
-      dashboard:
-        compare_versions: "Die neueste diaspora*-Version ist <%= latestVersion %>, dein Bauernhof verwendet <%= podVersion %>."
-        error: "Konnte neueste diaspora*-Version nicht ermitteln."
-        outdated: "Dein Bauernhof ist veraltet."
-        up_to_date: "Dein Bauernhof ist auf dem neuesten Stand!"
-    and: "und"
+          one: Es gibt einen Bauernhof, der keine Version hat (alter Bauernhof, kein NodeInfo).
+          other: 'Es gibt <%= count %> Bauernhöfe, die keine Version haben (alte Bauernhöfe, kein NodeInfo).
+
+            '
+        errors:
+          one: Der Verbindungstest meldete für einen Bauernhof einen Fehler.
+          other: Der Verbindungstest meldete für <%= count %> Bauernhöfe einen Fehler.
+    aspects:
+      name: Name
+      create:
+        add_a_new_aspect: Eine neue Herde hinzufügen
+        success: Deine neue Herde <%= name %> wurde erstellt
+        failure: Erstellen der Herde fehlgeschlagen.
+    errors:
+      connection: Konnte keine Verbindung mit dem Server aufbauen.
+    contacts:
+      add_contact: Mitkuh hinzufügen
+      remove_contact: Mitkuh entfernen
+      error_add: Konnte <%= name %> nicht zur Herde hinzufügen :(
+      error_remove: Konnte <%= name %> nicht aus der Herde entfernen :(
+      search_no_results: Keine Mitkühe gefunden
+    my_activity: Meine Aktivität
+    my_stream: Weide
+    my_aspects: Meine Herden
+    publisher:
+      near_from: Gesendet aus <%= location %>
+      option: Antwort
+      add_option: Eine Antwortmöglichkeit hinzufügen
+      question: Frage
+      markdown_editor:
+        preview: Vorschau
+        write: Verfassen
+        tooltips:
+          bold: Fett
+          italic: Kursiv
+          heading: Überschrift
+          insert_link: Link einfügen
+          insert_image: Bild einfügen
+          insert_ordered_list: Nummerierte Liste einfügen
+          insert_unordered_list: Unsortierte Liste einfügen
+          preview: Vorschau der Nachricht ansehen
+          write: Nachricht bearbeiten
+          cancel: Nachricht abbrechen
+          quote: Zitat einfügen
+          code: Code einfügen
+        texts:
+          strong: fetter Text
+          italic: kursiver Text
+          heading: Überschrift
+          insert_link_description_text: Linkbeschreibung hier eingeben
+          insert_link_help_text: Link hier eingeben
+          insert_image_description_text: Bildbeschreibung hier eingeben
+          insert_image_help_text: Bildlink hier eingeben
+          insert_image_title: Bildtitel hier eingeben
+          list: Listentext hier
+          quote: Zitattext hier
+          code: Code hier
+      mention_success: Erfolgreich <%= names %> angemuuuht
+    bookmarklet:
+      post_something: Erstelle einen Beitrag in diaspora*
+      post_submit: Beitrag einreichen...
+      post_success: Gepostet! Popup-Fenster wird geschlossen...
     aspect_dropdown:
-      add_to_aspect: "Mitkuh hinzufügen"
-      all_aspects: "Alle Herden"
-      error: "Teilen mit <%= name %> nicht möglich. Ignorierst du sie/ihn?"
-      error_remove: "Konnte <%= name %> nicht aus der Herde entfernen :("
+      add_to_aspect: Mitkuh hinzufügen
+      select_aspects: Ausgewählte Herden
+      all_aspects: Alle Herden
+      updating: aktualisiere...
       mobile_row_checked: "<%= name %> (entfernen)"
       mobile_row_unchecked: "<%= name %> (hinzufügen)"
-      select_aspects: "Ausgewählte Herden"
-      started_sharing_with: "Du hast angefangen, mit <%= name %> zu teilen!"
-      stopped_sharing_with: "Du hast aufgehört, mit <%= name %> zu teilen!"
+      stopped_sharing_with: Du hast aufgehört, mit <%= name %> zu teilen!
+      started_sharing_with: Du hast angefangen, mit <%= name %> zu teilen!
+      error: Teilen mit <%= name %> nicht möglich. Ignorierst du sie/ihn?
+      error_remove: Konnte <%= name %> nicht aus der Herde entfernen :(
       toggle:
-        one: "In einer Herde"
-        other: "In <%= count %> Herden"
-      updating: "aktualisiere..."
-    aspect_navigation:
-      add_an_aspect: "+ Herde hinzufügen"
-      deselect_all: "Alle abwählen"
-      no_aspects: "Keine Herden ausgewählt"
-      select_all: "Alle auswählen"
-    aspects:
-      create:
-        add_a_new_aspect: "Eine neue Herde hinzufügen"
-        failure: "Erstellen der Herde fehlgeschlagen."
-        success: "Deine neue Herde <%= name %> wurde erstellt"
-      name: "Name"
-    bookmarklet:
-      post_something: "Erstelle einen Beitrag in diaspora*"
-      post_submit: "Beitrag einreichen..."
-      post_success: "Gepostet! Popup-Fenster wird geschlossen..."
-    cancel: "Abbrechen"
-    comma: ","
+        one: In einer Herde
+        other: In <%= count %> Herden
+    show_more: Mehr anzeigen
+    failed_to_post_message: Konnte Beitrag nicht senden!
+    failed_to_remove: Fehler beim Entfernen des Beitrags!
     comments:
-      hide: "Kommentare ausblenden"
-      no_comments: "Bisher sind keine Kommentare vorhanden."
-      show: "Alle Kommentare zeigen"
-    confirm_dialog: "Bist du dir sicher?"
-    confirm_unload: "Bitte bestätige, dass du diese Weide verlassen willst. - Von dir eingegebene Daten werden nicht gespeichert."
-    contacts:
-      add_contact: "Mitkuh hinzufügen"
-      error_add: "Konnte <%= name %> nicht zur Herde hinzufügen :("
-      error_remove: "Konnte <%= name %> nicht aus der Herde entfernen :("
-      remove_contact: "Mitkuh entfernen"
-      search_no_results: "Keine Mitkühe gefunden"
+      show: Alle Kommentare zeigen
+      hide: Kommentare ausblenden
+      no_comments: Bisher sind keine Kommentare vorhanden.
+    reshares:
+      successful: Der Beitrag wurde erfolgreich wiedergekäut!
+      post: "<%= name %>s Beitrag wiederkäuen?"
+    aspect_navigation:
+      select_all: Alle auswählen
+      deselect_all: Alle abwählen
+      no_aspects: Keine Herden ausgewählt
+      add_an_aspect: "+ Herde hinzufügen"
+    getting_started:
+      hey: Hey, <%= name %>!
+      no_tags: Hey, du folgst noch keinen Tags! Trotzdem weitermachen?
+      alright_ill_wait: Alles klar, ich warte.
+      preparing_your_stream: Deine persönliche Weide wird zusammengestellt …
+    photo_uploader:
+      upload_photos: Bilder hochladen
+      looking_good: OMG, du siehst flauschig aus!
+      completed: "<%= file %> hochgeladen"
+      error: Beim Hochladen von <%= file %> ist ein Fehler aufgetreten.
+      invalid_ext: "{file} hat eine ungültige Erweiterung. Nur {extensions} sind erlaubt."
+      size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
+      empty: Die Datei {file} ist leer. Bitte treffe eine erneute Auswahl ohne diese Datei.
+    tags:
+      wasnt_that_interesting: 'OK, #<%= tagName %> war wohl doch nicht so interessant...'
+    people:
+      not_found: und niemand wurde gefunden...
+      mention: Anmuuuhen
+      message: Nachricht
+      edit_my_profile: Mein Profil bearbeiten
+      stop_ignoring: Nicht mehr ignorieren
+      helper:
+        is_sharing: "<%= name %> teilt mit dir"
+        is_not_sharing: "<%= name %> teilt nicht mit dir"
+    profile:
+      edit: Bearbeiten
+      add_some: Füge neue hinzu
+      you_have_no_tags: Du hast keine Tags!
+      bio: Bio
+      location: Ort
+      gender: Geschlecht
+      born: Geburtstag
+      photos: Fotos
+      posts: Beiträge
     conversation:
       create:
-        no_recipient: "Hey, du musst erst eine Empfängerkuh angeben!"
+        no_recipient: Hey, du musst erst eine Empfängerkuh angeben!
       new:
-        no_contacts: "Du musst einige Mitkühe hinzufügen, bevor du eine Konversation anfangen kannst."
-    create: "Erstellen"
-    delete: "Löschen"
-    edit: "Bearbeiten"
-    errors:
-      connection: "Konnte keine Verbindung mit dem Server aufbauen."
-    failed_to_post_message: "Konnte Beitrag nicht senden!"
-    failed_to_remove: "Fehler beim Entfernen des Beitrags!"
-    getting_started:
-      alright_ill_wait: "Alles klar, ich warte."
-      hey: "Hey, <%= name %>!"
-      no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
-      preparing_your_stream: "Deine persönliche Weide wird zusammengestellt …"
-    header:
-      admin: "Leitkuhfunktionen"
-      close: "Schließen"
-      contacts: "Mitkühe"
-      conversations: "Konversationen"
-      help: "Hilfe"
-      home: "Startseite"
-      log_out: "Abmelden"
-      mark_all_as_read: "Alle als gelesen markieren"
-      moderator: "Moderator"
-      notifications: "Benachrichtigungen"
-      profile: "Profil"
-      recent_notifications: "Neueste Benachrichtigungen"
-      search: "Suche"
-      settings: "Einstellungen"
-      switch_to_touch_optimized_mode: "In den touch-optimierten Modus wechseln"
-      toggle_navigation: "Navigation umschalten"
-      view_all: "Alle anzeigen"
-    hide_post: "Diesen Beitrag ausblenden?"
-    hide_post_failed: "Ausblenden des Beitrags nicht möglich"
-    ignore: "Ignorieren"
-    ignore_failed: "Konnte Rindvieh nicht ignorieren"
-    ignore_user: "Dieses Rindvieh ignorieren?"
-    my_activity: "Meine Aktivität"
-    my_aspects: "Meine Herden"
-    my_stream: "Weide"
-    no_results: "Keine Treffer"
+        no_contacts: Du musst einige Mitkühe hinzufügen, bevor du eine Konversation anfangen kannst.
     notifications:
-      mark_read: "Als gelesen markieren"
-      mark_unread: "Als ungelesen markieren"
+      mark_read: Als gelesen markieren
+      mark_unread: Als ungelesen markieren
       new_notifications:
-        one: "Du hast eine ungelesene Benachrichtigung"
-        other: "Du hast <%= count %> ungelesene Benachrichtigungen"
-    people:
-      edit_my_profile: "Mein Profil bearbeiten"
-      helper:
-        is_not_sharing: "<%= name %> teilt nicht mit dir"
-        is_sharing: "<%= name %> teilt mit dir"
-      mention: "Anmuuuhen"
-      message: "Nachricht"
-      not_found: "und niemand wurde gefunden..."
-      stop_ignoring: "Nicht mehr ignorieren"
-    photo_uploader:
-      completed: "<%= file %> hochgeladen"
-      empty: "Die Datei {file} ist leer. Bitte treffe eine erneute Auswahl ohne diese Datei."
-      error: "Beim Hochladen von <%= file %> ist ein Fehler aufgetreten."
-      invalid_ext: "{file} hat eine ungültige Erweiterung. Nur {extensions} sind erlaubt."
-      looking_good: "OMG, du siehst flauschig aus!"
-      size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
-      upload_photos: "Bilder hochladen"
-    poll:
-      answer_count:
-        one: "1 Stimme"
-        other: "<%=count%> Stimmen"
-        zero: "0 Stimmen"
-      close_result: "Ergebnis ausblenden"
-      count:
-        one: "Bisher eine Stimme"
-        other: "Bisher <%=count%> Stimmen"
-      go_to_original_post: "Du kannst an dieser Umfrage im <%= original_post_link %> teilnehmen."
-      original_post: "Originalbeitrag"
-      result: "Ergebnis"
-      show_result: "Ergebnis anzeigen"
-      vote: "Abstimmen"
-      your_vote: "Deine Stimme"
-    profile:
-      add_some: "Füge neue hinzu"
-      bio: "Bio"
-      born: "Geburtstag"
-      edit: "Bearbeiten"
-      gender: "Geschlecht"
-      location: "Ort"
-      photos: "Fotos"
-      posts: "Beiträge"
-      you_have_no_tags: "Du hast keine Tags!"
-    publisher:
-      add_option: "Eine Antwortmöglichkeit hinzufügen"
-      markdown_editor:
-        preview: "Vorschau"
-        texts:
-          code: "Code hier"
-          heading: "Überschrift"
-          insert_image_description_text: "Bildbeschreibung hier eingeben"
-          insert_image_help_text: "Bildlink hier eingeben"
-          insert_image_title: "Bildtitel hier eingeben"
-          insert_link_description_text: "Linkbeschreibung hier eingeben"
-          insert_link_help_text: "Link hier eingeben"
-          italic: "kursiver Text"
-          list: "Listentext hier"
-          quote: "Zitattext hier"
-          strong: "fetter Text"
-        tooltips:
-          bold: "Fett"
-          cancel: "Nachricht abbrechen"
-          code: "Code einfügen"
-          heading: "Überschrift"
-          insert_image: "Bild einfügen"
-          insert_link: "Link einfügen"
-          insert_ordered_list: "Nummerierte Liste einfügen"
-          insert_unordered_list: "Unsortierte Liste einfügen"
-          italic: "Kursiv"
-          preview: "Vorschau der Nachricht ansehen"
-          quote: "Zitat einfügen"
-          write: "Nachricht bearbeiten"
-        write: "Verfassen"
-      mention_success: "Erfolgreich <%= names %> angemuuuht"
-      near_from: "Gesendet aus <%= location %>"
-      option: "Antwort"
-      question: "Frage"
-    remove_post: "Diesen Beitrag löschen?"
-    report:
-      name: "Beitrag melden"
-      prompt: "Bitte gib einen Grund an:"
-      prompt_default: "z.B. anstößiger Inhalt"
-      status:
-        created: "Die Meldung wurde erfolgreich erstellt"
-        exists: "Die Meldung existiert bereits"
-    reshares:
-      post: "<%= name %>s Beitrag wiederkäuen?"
-      successful: "Der Beitrag wurde erfolgreich wiedergekäut!"
-    show_all: "Alle anzeigen"
-    show_more: "Mehr anzeigen"
+        one: Du hast eine ungelesene Benachrichtigung
+        other: Du hast <%= count %> ungelesene Benachrichtigungen
     stream:
-      comment: "Kommentieren"
-      comments:
-        one: "<%= count %> Kommentar"
-        other: "<%= count %> Kommentare"
-        zero: "<%= count %> Kommentare"
-      disable_post_notifications: "Benachrichtigungen für diesen Beitrag deaktivieren"
-      enable_post_notifications: "Benachrichtigungen für diesen Beitrag aktivieren"
-      follow: "Folgen"
-      followed_tag:
-        add_a_tag: "Einen Tag hinzufügen"
-        follow: "Folgen"
-        title: "#Tags, denen du folgst"
-      hide: "Ausblenden"
-      hide_nsfw_posts: "Als #nsfw markierte Beiträge ausblenden"
-      like: "Gefällt mir"
+      hide: Ausblenden
+      public: Öffentlich
+      limited: Begrenzt
+      like: Gefällt mir
+      unlike: Gefällt mir nicht mehr
+      reshare: Wiederkäuen
+      comment: Kommentieren
+      original_post_deleted: Originalbeitrag wurde von Autorenkuh gelöscht
+      show_nsfw_post: Beitrag anzeigen
+      show_nsfw_posts: Alle anzeigen
+      hide_nsfw_posts: 'Als #nsfw markierte Beiträge ausblenden'
+      follow: Folgen
+      unfollow: Nicht mehr folgen
+      enable_post_notifications: Benachrichtigungen für diesen Beitrag aktivieren
+      disable_post_notifications: Benachrichtigungen für diesen Beitrag deaktivieren
+      permalink: Permalink
+      via: via <%= provider %>
+      no_posts_yet: Es gibt noch keine Beiträge, die hier angezeigt werden könnten.
       likes:
-        one: "Einer Kuh gefällt das"
+        zero: Keiner Kuh gefällt das
+        one: Einer Kuh gefällt das
         other: "<%= count %> Kühen gefällt das"
-        zero: "Keiner Kuh gefällt das"
-      limited: "Begrenzt"
-      more_comments:
-        one: "Zeige <%= count %> weiteren Kommentar"
-        other: "Zeige <%= count %> weitere Kommentare"
-        zero: "Keine weiteren Kommentare"
-      no_posts_yet: "Es gibt noch keine Beiträge, die hier angezeigt werden könnten."
-      original_post_deleted: "Originalbeitrag wurde von Autorenkuh gelöscht"
-      permalink: "Permalink"
-      public: "Öffentlich"
-      reshare: "Wiederkäuen"
       reshares:
+        zero: "<%= count %> mal wiedergekäut"
         one: "<%= count %> mal wiedergekäut"
         other: "<%= count %> mal wiedergekäut"
-        zero: "<%= count %> mal wiedergekäut"
-      show_nsfw_post: "Beitrag anzeigen"
-      show_nsfw_posts: "Alle anzeigen"
+      comments:
+        zero: "<%= count %> Kommentare"
+        one: "<%= count %> Kommentar"
+        other: "<%= count %> Kommentare"
+      more_comments:
+        zero: Keine weiteren Kommentare
+        one: Zeige <%= count %> weiteren Kommentar
+        other: Zeige <%= count %> weitere Kommentare
+      followed_tag:
+        title: "#Tags, denen du folgst"
+        add_a_tag: Einen Tag hinzufügen
+        follow: Folgen
       tags:
         follow: "#<%= tag %> folgen"
-        follow_error: "Konnte #<%= tag %> nicht folgen :("
-        following: "Du folgst #<%=tag%>"
-        stop_following: "Aufhören, #<%= tag %> zu folgen"
-        stop_following_confirm: "Aufhören, #<%= tag %> zu folgen?"
-        stop_following_error: "Konnte nicht aufhören <%= tag %> zu folgen :("
-      unfollow: "Nicht mehr folgen"
-      unlike: "Gefällt mir nicht mehr"
-      via: "via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "OK, #<%= tagName %> war wohl doch nicht so interessant..."
-    timeago:
-      day: "einem Tag"
-      days:
-        one: "einem Tag"
-        other: "%d Tagen"
-      hour: "etwa einer Stunde"
-      hours:
-        one: "etwa einer Stunde"
-        other: "etwa %d Stunden"
-      inPast: "jeden Moment"
-      minute: "etwa einer Minute"
-      minutes:
-        one: "einer Minute"
-        other: "%d Minuten"
-      month: "etwa einem Monat"
-      months:
-        one: "einem Monat"
-        other: "%d Monaten"
-      prefixAgo: "vor"
-      prefixFromNow: "in"
-      seconds: "weniger als eine Minute"
-      suffixAgo: ""
-      suffixFromNow: "ab jetzt"
-      wordSeparator: " "
-      year: "etwa einem Jahr"
-      years:
-        one: "einem Jahr"
-        other: "%d Jahren"
-    unblock_failed: "Die Kuh zu entblocken ist fehlgeschlagen."
+        following: 'Du folgst #<%=tag%>'
+        stop_following: 'Aufhören, #<%= tag %> zu folgen'
+        stop_following_confirm: 'Aufhören, #<%= tag %> zu folgen?'
+        follow_error: 'Konnte #<%= tag %> nicht folgen :('
+        stop_following_error: Konnte nicht aufhören <%= tag %> zu folgen :(
+    header:
+      home: Startseite
+      profile: Profil
+      contacts: Mitkühe
+      settings: Einstellungen
+      help: Hilfe
+      admin: Leitkuhfunktionen
+      moderator: Moderator
+      log_out: Abmelden
+      toggle_navigation: Navigation umschalten
+      switch_to_touch_optimized_mode: In den touch-optimierten Modus wechseln
+      notifications: Benachrichtigungen
+      conversations: Konversationen
+      search: Suche
+      recent_notifications: Neueste Benachrichtigungen
+      mark_all_as_read: Alle als gelesen markieren
+      view_all: Alle anzeigen
+      close: Schließen
     viewer:
-      reshared: "Wiedergekäut"
+      reshared: Wiedergekäut
+    poll:
+      vote: Abstimmen
+      go_to_original_post: Du kannst an dieser Umfrage im <%= original_post_link %> teilnehmen.
+      original_post: Originalbeitrag
+      result: Ergebnis
+      count:
+        one: Bisher eine Stimme
+        other: Bisher <%=count%> Stimmen
+      answer_count:
+        zero: 0 Stimmen
+        one: 1 Stimme
+        other: "<%=count%> Stimmen"
+      show_result: Ergebnis anzeigen
+      close_result: Ergebnis ausblenden
+      your_vote: Deine Stimme

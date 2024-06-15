@@ -5,1378 +5,1366 @@
 
 
 ia:
-  _applications: "Applicationes"
-  _contacts: "Contactos"
-  _help: "Adjuta"
-  _podmin_mail: "Contactar le administrator del pod"
-  _services: "Servicios"
-  _statistics: "Statisticas"
-  _terms: "Terminos"
-  account: "Conto"
+  settings: Configuration
+  profile: Profilo
+  account: Conto
+  privacy: Confidentialitate
+  _services: Servicios
+  _applications: Applicationes
+  _help: Adjuta
+  ok: OK
+  cancel: Cancellar
+  delete: Deler
+  username: Nomine de usator
+  email: E-mail
+  are_you_sure: Es tu secur?
+  are_you_sure_delete_account: Es tu secur de voler clauder tu conto? Isto non pote esser disfacite!
+  are_you_sure_ignore_user: Tu es sur le puncto de ignorar iste usator. Es tu secur?
+  fill_me_out: Plena me
+  public: Public
+  limited: Limitate
+  search: Cercar
+  nsfw: NSFW
+  find_people: 'Cercar personas o #etiquettas'
+  more: Plus
+  all_aspects: Tote le aspectos
+  no_results: Nulle resultato trovate
+  _contacts: Contactos
+  _terms: Terminos
+  _podmin_mail: Contactar le administrator del pod
+  _statistics: Statisticas
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "debe esser unic inter le contactos de iste usator."
+            person:
+              invalid: es invalide.
+            username:
+              taken: es jam in uso.
+              invalid: es invalide. Nos permitte solmente litteras, numeros e tractos de sublineamento.
+            email:
+              taken: es jam in uso.
         person:
           attributes:
             diaspora_handle:
-              taken: "es jam in uso."
-        poll:
+              taken: es jam in uso.
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "Insufficiente optiones de sondage."
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "Tu ha jam participate a iste sondage."
+            person_id:
+              taken: debe esser unic inter le contactos de iste usator.
         reshare:
           attributes:
             root_guid:
-              taken: "Tu ha jam repetite iste message."
-        user:
+              taken: Tu ha jam repetite iste message.
+        poll:
           attributes:
-            email:
-              taken: "es jam in uso."
-            person:
-              invalid: "es invalide."
-            username:
-              invalid: "es invalide. Nos permitte solmente litteras, numeros e tractos de sublineamento."
-              taken: "es jam in uso."
-  admins:
-    admin_bar:
-      dashboard: "Pannello de instrumentos"
-      pages: "Paginas"
-      pod_network: "Rete de pods"
-      pod_stats: "Statisticas del pod"
-      report: "Reportos"
-      sidekiq_monitor: "Monitor Sidekiq"
-      user_search: "Recerca de usatores"
-      weekly_user_stats: "Statisticas septimanal de usatores"
-    dashboard:
-      fetching_diaspora_version: "Determina ultime version de diaspora*..."
-      pod_status: "Stato del pod"
-    pods:
-      pod_network: "Rete de pods"
-    stats:
-      2weeks: "2 septimanas"
-      50_most: "Le 50 etiquettas le plus popular"
-      comments:
-        one: "%{count} commento"
-        other: "%{count} commentos"
-        zero: "%{count} commentos"
-      current_segment: "Le segmento actual ha un media de %{post_yest} entratas per usator, a partir del %{post_day}"
-      daily: "Quotidian"
-      display_results: "Resultatos del segmento %{segment}"
-      go: "Va"
-      month: "Mense"
-      posts:
-        one: "%{count} entrata"
-        other: "%{count} entratas"
-        zero: "%{count} entratas"
-      shares:
-        one: "%{count} entrata dividite"
-        other: "%{count} entratas dividite"
-        zero: "%{count} entratas dividite"
-      tag_name: "Nomine del etiquetta: %{name_tag} Occurrentias: %{count_tag}"
-      usage_statistic: "Statisticas de uso"
-      users:
-        one: "%{count} usator"
-        other: "%{count} usatores"
-        zero: "%{count} usatores"
-      week: "Septimana"
-    user_entry:
-      account_closed: "Conto claudite"
-      admin: "Administrator"
-      current_sign_in_ip: "Adresse IP al initio del session actual"
-      diaspora_handle: "ID de diaspora*"
-      email: "E-mail"
-      guid: "GUID"
-      id: "ID"
-      invite_token: "Indicio de invitation"
-      last_seen: "Ultime session"
-      moderator: "Moderator"
-      ? "no"
-      : "No"
-      nsfw: "#nsfw"
-      spotlight: "In evidentia"
-      unknown: "Incognite"
-      ? "yes"
-      : Si
-    user_search:
-      account_closing_scheduled: "Le conto de %{name} es planate a esser claudite. Illo essera processate in alcun momentos…"
-      account_locking_scheduled: "Le conto de %{name} es planate a esser blocate. Illo essera processate in alcun momentos…"
-      account_unlocking_scheduled: "Le conto de %{name} es planate a esser disblocate. Illo essera processate in alcun momentos…"
-      add_admin: "%{name} ha essite facite administrator."
-      add_invites: "Adder invitationes"
-      add_moderator: "%{name} ha essite facite moderator."
-      add_spotlight: "%{name} ha essite addite a \"Usatores in evidentia\"."
-      are_you_sure: "Es tu secur de voler clauder iste conto?"
-      are_you_sure_lock_account: "Es tu secur de voler blocar iste conto?"
-      are_you_sure_unlock_account: "Es tu secur de voler disblocar iste conto?"
-      close_account: "Clauder conto"
-      delete_admin: "%{name} ha essite removite del lista de administratores."
-      delete_moderator: "%{name} ha essite removite del lista de moderatores."
-      delete_spotlight: "%{name} ha essite removite de \"Usatores in evidentia\"."
-      does_not_exist: "Usator non existe!"
-      email_to: "Adresse de e-mail a invitar"
-      invite: "Invitar"
-      lock_account: "Blocar conto"
-      make_admin: "Facer administrator"
-      make_moderator: "Facer moderator"
-      make_spotlight: "Adder a \"Usatores in evidentia\""
-      remove_admin: "Remover como administrator"
-      remove_moderator: "Remover como moderator"
-      remove_spotlight: "Remover de \"Usatores in evidentia\""
-      role_implemented: "%{name} ha jam recipite iste rolo!"
-      role_removal_implemented: "%{name} ha jam essite removite de iste rolo!"
-      under_13: "Monstrar usatores con minus de 13 annos (COPPA)"
-      unlock_account: "Disblocar conto"
-      users:
-        one: "Un usator trovate"
-        other: "%{count} usatores trovate"
-        zero: "Nulle usator trovate"
-      view_profile: "Vider profilo"
-      you_currently:
-        one: "Il te resta un invitation %{link}"
-        other: "Il te resta %{count} invitationes %{link}"
-        zero: "Il non te resta invitationes %{link}"
-    weekly_user_stats:
-      amount_of:
-        one: "Numero de nove usatores iste septimana: %{count}"
-        other: "Numero de nove usatores iste septimana: %{count}"
-        zero: "Numero de nove usatores iste septimana: zero"
-      current_server: "Le data actual del servitor es %{date}"
-  all_aspects: "Tote le aspectos"
-  api:
-    openid_connect:
-      authorizations:
-        destroy:
-          fail: "Le tentativa de revocar le autorisation con ID %{id} ha fallite"
-        new:
-          access: "%{name} demanda accesso a:"
-          approve: "Approbar"
-          bad_request: "ID de cliente o URI de redirection mancante"
-          client_id_not_found: "Nulle cliente con client_id %{client_id} con URI de redirection %{redirect_uri} trovate"
-          deny: "Refusar"
-          no_requirement: "%{name} non require permissiones"
-          private_contacts_linkage_error: "private:lectura e private:modification require etiam contactos:lectura"
-          redirection_message: "Es tu secur de voler dar accesso a %{redirect_uri}?"
-          unknown_scope: "Portata incognite: %{scope_name}"
-      error_page:
-        contact_developer: "Per favor, contacta le programmator del application e include tote le message de error sequente:"
-        could_not_authorize: "Le application non poteva esser autorisate"
-        login_required: "Tu debe aperir session ante de poter autorisar iste application"
-        title: "Un problema ha occurrite."
-      scopes:
-        ? "contacts:modify"
-        :
-          description: "Isto concede le accesso in scriptura al contactos e al datos associate (p.ex. aspectos)."
-          name: "Contactos (scriptura)"
-        ? "contacts:read"
-        :
-          description: "Isto concede le accesso in lectura sol al contactos e al datos associate (p.ex. aspectos)."
-          name: "Contactos (lectura sol)"
-        conversations:
-          description: "Isto concede le permission de lectura e scriptura al messages private."
-          name: "Conversationes"
-        email:
-          description: "Isto concede le accesso in lectura sol a tu adresse de e-mail."
-          name: "E-mail"
-        interactions:
-          description: "Isto concede le accesso necessari pro interager con entratas, p.ex. appreciar o commentar."
-          name: "Interactiones"
-        name:
-          description: "Isto concede le accesso in lectura sol a tu nomine complete."
-          name: "Nomine complete"
-        nickname:
-          description: "Isto concede le accesso in lectura sol a tu nomine de usator."
-          name: "Nomine de usator"
-        notifications:
-          description: "Isto concede le accesso in lectura e scriptura a tu notificationes."
-          name: "Notificationes"
-        openid:
-          description: "Isto concede le accesso in lectura sol al informationes de base de tu profilo."
-          name: "Informationes de base del profilo"
-        picture:
-          description: "Isto concede le accesso in lectura sol al imagine de tu profilo."
-          name: "Imagine del profilo"
-        ? "private:modify"
-        :
-          description: "Isto concede le accesso necessari pro publicar entratas private."
-          name: "Entratas private (scriptura)"
-        ? "private:read"
-        :
-          description: "Isto concede le accesso in lectura sol al entratas private de te e de tu contactos."
-          name: "Entratas private (lectura sol)"
-        profile:
-          description: "Isto concede le accesso in lectura sol al informationes de tu profilo extendite."
-          name: "Profilo extendite (lectura sol)"
-        ? "profile:modify"
-        :
-          description: "Isto concede le accesso necessari pro actualisar le datos de tu profilo extendite."
-          name: "Profilo extendite (scriptura)"
-        ? "profile:read_private"
-        :
-          description: "Isto concede le accesso in lectura sol al datos de tu profilo private."
-          name: "Datos del profilo private (lectura sol)"
-        ? "public:modify"
-        :
-          description: "Isto concede le accesso in scriptura necessari pro publicar entratas public e datos associate (p.ex. votos e attachamentos multimedial)."
-          name: "Entratas public (scriptura)"
-        ? "public:read"
-        :
-          description: "Isto concede le accesso a tu entratas public, incluse interactiones e datos associate."
-          name: "Entratas public (lectura sol)"
-        sub:
-          description: "Isto concede le accesso in lectura sol a tu identificator unic."
-          name: "Identificator unic"
-        ? "tags:modify"
-        :
-          description: "Isto concede le accesso necessari pro modificar le etiquettas que tu seque."
-          name: "Etiquettas (scriptura)"
-        ? "tags:read"
-        :
-          description: "Isto concede le accesso in lectura sol al etiquettas e fluxos de etiquetta que tu seque."
-          name: "Etiquettas (lectura sol)"
-      user_applications:
-        index:
-          access: "%{name} ha accesso a:"
-          edit_applications: "Applicationes"
-          no_requirement: "%{name} non require permissiones"
-          title: "Applicationes autorisate"
-        no_applications: "Tu non ha applicationes autorisate"
-        policy: "Vider le politica de confidentialitate del application"
-        revoke_autorization: "Revocar"
-        tos: "Vider le conditiones de servicio del application"
-  are_you_sure: "Es tu secur?"
-  are_you_sure_delete_account: "Es tu secur de voler clauder tu conto? Isto non pote esser disfacite!"
-  are_you_sure_ignore_user: "Tu es sur le puncto de ignorar iste usator. Es tu secur?"
-  aspect_memberships:
-    destroy:
-      failure: "Le remotion del persona del aspecto ha fallite."
-      forbidden: "Tu non ha le permission de facer isto."
-      invalid_statement: "Elemento duple rejectate."
-      no_membership: "Le persona seligite non se trova in ille aspecto."
-      success: "Persona removite del aspecto con successo."
-  aspects:
-    add_to_aspect:
-      failure: "Le addition del contacto al aspecto ha fallite."
-      success: "Le contacto ha essite addite al aspecto con successo."
-    aspect_listings:
-      add_an_aspect: "+ Adder un aspecto"
-    aspect_stream:
-      make_something: "Crea qualcosa"
-      stay_updated: "Mantene te al currente"
-      stay_updated_explanation: "Le fluxo principal es plenate con tote le contactos tue, le etiquettas que tu seque, e messages de alcun membros creative del communitate."
-    destroy:
-      failure: "%{name} non pote esser removite."
-      success: "%{name} ha essite removite con successo."
-      success_auto_follow_back: "%{name} ha essite removite con successo. Tu ha usate iste aspecto pro automaticamente sequer le usatores que te seque. Verifica tu configuration de usator pro seliger un nove aspecto pro reciprocation automatic de sequimento."
-    edit:
-      aspect_list_is_not_visible: "Le contactos in iste aspecto non pote vider le un le altere."
-      aspect_list_is_visible: "Le contactos in iste aspecto pote vider le un le altere."
-      confirm_remove_aspect: "Es tu secur de voler deler iste aspecto?"
-      rename: "Renominar"
-      update: "Actualisar"
-      updating: "Actualisation in curso"
-    index:
-      donate: "Donar"
-      donate_liberapay: "Facer un donation a liberapay"
-      help:
-        any_problem: "Problema?"
-        contact_podmin: "Contacta le administrator de tu pod!"
-        do_you: "Esque tu:"
-        feature_suggestion: "... ha un suggestion de %{link}?"
-        find_a_bug: "... ha trovate un %{link}?"
-        have_a_question: "... ha un %{link}?"
-        here_to_help: "Le communitate de diaspora* es a tu disposition!"
-        mail_podmin: "E-mail del \"podmin\""
-        need_help: "Require adjuta?"
-        support_forum: "Tu pote etiam participar al %{support_forum}."
-        support_forum_link: "foro de supporto"
-        tag_bug: "bug"
-        tag_feature: "functionalitate"
-        tag_question: "question"
-        tutorial_link_text: "Tutoriales"
-        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: adjuta pro le prime passos."
-      introduce_yourself: "Iste fluxo es le tue. Non hesita… presenta te!"
-      keep_pod_running: "Adjuta al mantenentia e melioration de %{pod} (e al caffeination de su gerentes) con un donation mensual!"
-      new_here:
-        follow: "Seque %{link} e saluta nove usatores in diaspora*!"
-        learn_more: "Leger plus"
-        title: "Accolliger nove usatores"
-      services:
-        content: "Tu pote connecter le sequente servicios a diaspora*:"
-        heading: "Connecter servicios"
-      welcome_to_diaspora: "Benvenite a diaspora*, %{name}!"
-    no_contacts_message:
-      community_spotlight: "Usatores in evidentia"
-      invite_link_text: "invitar"
-      or_spotlight: "O tu pote divider con %{link}"
-      try_adding_some_more_contacts: "Tu pote cercar o %{invite_link} altere contactos."
-      you_should_add_some_more_contacts: "Tu deberea adder plus contactos!"
-    seed:
-      acquaintances: "Cognoscitos"
-      family: "Familia"
-      friends: "Amicos"
-      work: "Labor"
-    update:
-      failure: "Tu aspecto, %{name}, ha un nomine troppo longe e non pote esser salveguardate."
-      success: "Tu aspecto, %{name}, ha essite modificate con successo."
-  blocks:
-    create:
-      failure: "Un error ha impedite de ignorar iste usator. #evasion"
-      success: "In ordine, tu non plus videra iste usator in tu fluxo. #silentio!"
-    destroy:
-      failure: "Impossibile cessar de ignorar iste usator a causa de un error. #evasion"
-      success: "Que nos vide lo que iste usator ha a dicer! #salutes"
-  bookmarklet:
-    explanation: "Invia cosas a diaspora* ab ubique con iste ligamine: %{link}"
-    heading: "Mini-marcapaginas"
-    post_something: "Inviar a diaspora*"
-  cancel: "Cancellar"
-  color_themes:
-    dark: "Obscur"
-    dark_green: "Verde obscur"
-    egyptian_blue: "Blau egyptie"
-    magenta: "Magenta"
-    original: "Gris original"
-    original_white: "Fundo blanc original"
-  comments:
-    create:
-      fail: "Le creation del commento ha fallite"
-    destroy:
-      fail: "Le deletion del commento ha fallite"
-      success: "Le commento %{id} ha essite delite"
-    new_comment:
-      comment: "Commentar"
-      commenting: "Commenta…"
-    not_found: "Entrata o commento non trovate"
-  contacts:
-    index:
-      add_contact: "Adder contacto"
-      all_contacts: "Tote le contactos"
-      community_spotlight: "Usatores in evidentia"
-      my_contacts: "Mi contactos"
-      no_contacts: "Il pare que tu debe adder alcun contactos!"
-      no_contacts_in_aspect: "Tu non ha ancora contactos in iste aspecto. Infra es un lista de tu contactos existente le quales tu pote adder a iste aspecto."
-      no_contacts_message: "Visita %{community_spotlight}"
-      only_sharing_with_me: "Divide con me, ma non vice versa"
-      start_a_conversation: "Initiar un conversation"
-      title: "Contactos"
-      user_search: "Recerca de contactos"
-    spotlight:
-      community_spotlight: "Usatores in evidentia"
-      no_members: "Il non ha ancora membros."
-      suggest_member: "Suggerer un membro"
-  conversations:
-    create:
-      fail: "Message non valide"
-      sent: "Message inviate"
-    destroy:
-      delete_success: "Le conversation ha essite delite"
-      hide_success: "Le conversation ha essite celate"
-    index:
-      conversations_inbox: "Conversationes – Cassa de entrata"
-      inbox: "Cassa de entrata"
-      new_conversation: "Nove conversation"
-      no_contacts: "Es necessari adder alcun contactos ante de poter initiar un conversation"
-      no_messages: "Nulle message"
-    new:
-      message: "Message"
-      send: "Inviar"
-      sending: "Invia…"
-      subject: "Subjecto"
-      subject_default: "Sin subjecto"
-      to: "A"
-    new_conversation:
-      fail: "Message non valide"
-    not_found: "Conversation non trovate"
-    show:
-      delete: "Deler conversation"
-      hide: "Celar e silentiar le conversation"
-      last_message: "Ultime message recipite %{timeago}"
-      reply: "Responder"
-      replying: "Responde…"
-  date:
-    formats:
-      birthday: "le %d de %B"
-      birthday_with_year: "le %d de %B %Y"
-      fullmonth_day: "le %d de %B"
-  delete: "Deler"
-  email: "E-mail"
-  error_messages:
-    csrf_token_fail: "Le indicio CSRF non es valide. Per favor, aperi session e reproba."
-    desktop_view_link: "vista scriptorio"
-    helper:
-      correct_the_following_errors_and_try_again: "Corrige le sequente errores e proba de novo."
-    mobile_not_available: "Iste pagina non es disponibile in vista mobile. Cambia al %{desktop_link}."
-    need_javascript: "Iste sito web require JavaScript pro poter functionar. Si tu ha disactivate JavaScript, per favor reactiva lo e recarga iste pagina."
+            poll_answers:
+              not_enough_poll_answers: Insufficiente optiones de sondage.
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: Tu ha jam participate a iste sondage.
   errors:
     messages:
-      carrierwave_download_error: "non poteva esser discargate"
-      carrierwave_integrity_error: "non es de un typo de file permittite"
-      carrierwave_processing_error: "non poteva esser processate"
-      content_type_blacklist_error: "Tu non ha le permission de incargar files %{content_type}."
-      content_type_whitelist_error: "Tu non ha le permission de incargar files %{content_type}."
-      extension_blacklist_error: "Tu non ha le permission de incargar files %{extension}. Typos prohibite: %{prohibited_types}"
-      extension_whitelist_error: "Tu non ha le permission de incargar files %{extension}. Typos permittite: %{allowed_types}"
-      max_size_error: "Le dimension del file debe esser inferior a %{max_size}."
-      min_size_error: "Le dimension del file debe esser superior a %{min_size}."
-      mini_magick_processing_error: "Le tractamento con \"MiniMagick\" ha fallite. Pote esser que iste file non es un imagine? Error original: %{e}"
-      rmagick_processing_error: "Le tractamento con \"rmagick\" ha fallite. Pote esser que iste file non es un imagine?"
-  fill_me_out: "Plena me"
-  find_people: "Cercar personas o #etiquettas"
-  help:
-    account_and_data_management:
-      close_account_a: "Vade al fin de tu pagina de configuration e clicca sur le button \"Clauder conto\". Le systema te demandara de entrar tu contrasigno pro completar le processo. Non oblida que, si tu claude tu conto, tu <strong>nunquam</strong> potera re-inscriber tu nomine de usator in le mesme pod."
-      close_account_q: "Como pote io deler mi conto?"
-      data_other_podmins_a: "Un vice que tu divide cosas con un persona in un altere pod, omne entratas que tu divide con illa e un copia del datos de tu profilo es immagazinate (in cache) in le pod de illa, e es accessibile al administrator del base de datos de iste pod. Quando tu dele un entrata o datos de profilo, illo es delite de tu pod e un requesta de deletion es inviate a omne altere pods ubi illo es immagazinate. Tu imagines nunquam es immagazinate in un altere pod que le tue; solmente ligamines a illos es transmittite a altere pods."
-      data_other_podmins_q: "Esque le administratores de altere pods pote vider mi information?"
-      data_visible_to_podmin_a: "In breve: toto. Le communication inter pods es sempre cryptate (con SSL e le cryptation de transporto proprie de diaspora*), ma le immagazinage de datos in pods non es cryptate. Si ille vole, le administrator del base de datos de tu pod (generalmente le persona qui gere le pod) poterea acceder a tote le datos de tu profilo e tote le entratas que tu invia (como es le caso pro le majoritate del sitos web que immagazina datos de usator). Es pro isto que tu ha le selection del pod in le qual crear tu conto, de maniera que tu pote seliger un pod gerite per un persona in que tu ha confidentia. Gerer tu proprie pod forni un melior protection del vita private perque tu controla alora le accesso al base de datos."
-      data_visible_to_podmin_q: "Quante information mie pote le administrator de mi pod vider?"
-      download_data_a: "Si. Al fundo del scheda Conto in tu pagina de configuration il ha duo buttones: un pro discargar tu datos e un pro discargar tu photos."
-      download_data_q: "Pote io discargar un copia de tote le datos continite in mi conto?"
-      move_pods_a: "Le version 0.7.0.0 de diaspora* possibilisa le prime stadio del migration de contos: tu pote ora exportar tote tu datos ab le section \"Conto\" del configurationes. Mantene tu datos secur! In un edition futur il essera possibile transferer tote le conto, incluse le entratas e contactos, a un altere pod."
-      move_pods_q: "Como displaciar mi conto de un pod a un altere?"
-      title: "Gestion de conto e datos"
-    aspects:
-      change_aspect_of_post_a: "No, ma tu pote sempre facer un nove entrata con le mesme contento e inviar lo a un altere aspecto."
-      change_aspect_of_post_q: "Un vice que io ha inviate qualcosa, pote io cambiar le aspecto(s) que pote vider le entrata?"
-      contacts_know_aspect_a: "No. Illes non pote vider le nomine del aspecto in alcun maniera."
-      contacts_know_aspect_q: "Esque mi contactos sapera in qual aspectos io les mitte?"
-      delete_aspect_a: "Clicca sur \"Mi aspectos\" in le barra lateral a partir de un vista de fluxo e clicca sur le micre stilo de graphite presso le aspecto que tu vole deler, o vade a tu pagina Contactos e selige le aspecto in question. Postea clicca sur le icone de corbe a papiro in cyma al dextra del pagina."
-      delete_aspect_q: "Como deler un aspecto?"
-      person_multiple_aspects_a: "Si. Visita tu pagina de contactos e clicca sur \"Mi contactos\". Pro cata contacto tu pote usar le menu a dextra pro adder la a (o remover la de) omne aspectos que tu vole. O tu pote adder la a un nove aspecto (o remover la de un aspecto) per cliccar sur le button selector de aspectos in su pagina de profilo. O mesmo tu pote simplemente punctar le mouse verso su nomine quando tu lo vide in le fluxo, e un 'carta' de information apparera, in que tu pote cambiar le aspectos in que illa es."
-      person_multiple_aspects_q: "Pote io adder un persona a plure aspectos?"
-      post_multiple_aspects_a: "Si. Quando tu scribe un entrata, usa le button selector de aspectos pro marcar o dismarcar aspectos. \"Tote le aspectos\" es le option predefinite. Le entrata essera visibile a tote le aspectos que tu marca. Tu pote anque seliger le aspectos al quales tu vole inviar lo in le barra lateral. Quando tu invia le entrata, le aspecto(s) que tu ha seligite in le lista al sinistra es memorate e essera seligite automaticamente in le selector de aspectos quando tu comencia a facer un nove entrata."
-      post_multiple_aspects_q: "Pote io inviar un entrata a plure aspectos insimul?"
-      remove_notification_a: "No. In ultra, illa non essera notificate si tu la adde a altere aspectos quando tu jam divide con illa."
-      remove_notification_q: "Si io remove un persona de un aspecto, o de tote mi aspectos, esque illa recipera notification de isto?"
-      rename_aspect_a: "Clicca sur \"Mi aspectos\" in le barra lateral a partir de un vista de fluxo e clicca sur le micre stilo de graphite presso le aspecto que tu vole renominar, o vade a tu pagina Contactos e selige le aspecto in question. Postea clicca sur le icone de modification al latere del nomine del aspecto in cyma de iste pagina, cambia le nomine e clicca sur \"Actualisar\"."
-      rename_aspect_q: "Como renomina io un aspecto?"
-      restrict_posts_i_see_a: "Si. Clicca sur \"Mi aspectos\" in le barra lateral e postea clicca sur individual aspectos in le lista pro marcar o dismarcar los. Solmente le entratas scribite per personas in le aspectos marcate apparera in tu fluxo."
-      restrict_posts_i_see_q: "Pote io limitar le entratas in mi fluxo de maniera que solmente entratas de certe aspectos se monstra?"
-      title: "Aspectos"
-      what_is_an_aspect_a: "Aspectos es le maniera de gruppar tu contactos in diaspora*. Cata aspecto es un del facies que tu monstra al mundo. Un aspecto poterea representar te a tu collegas, o a tu familia, o a tu amicos in un club de que tu es membro."
-      what_is_an_aspect_q: "Que es un aspecto?"
-      who_sees_post_a: "Si tu scribe un entrata limitate, illo essera visibile solmente pro le personas que tu ha mittite in ille aspecto (o in ille aspectos, si tu lo ha inviate a plure aspectos) ante de publicar le entrata. Tu contactos que non es in le aspecto non potera vider le entrata. Entratas limitate nunquam essera visibile pro alcun persona que tu non ha mittite in un de tu aspectos."
-      who_sees_post_q: "Quando io invia qualcosa a un aspecto, qui lo videra?"
-    community_guidelines: "directivas del communitate"
-    faq: "FAQ"
-    foundation_website: "le sito web del fundation diaspora*"
-    getting_help:
-      get_support_a_discourse: "Cerca discussiones existente que pertine a tu question o aperi un nove discussion in nostre platteforma %{discourse}"
-      get_support_a_faq: "Lege nostre pagina de %{faq} sur le wiki"
-      get_support_a_hashtag: "Pone le question in un entrata public de diaspora* adjungente le etiquetta %{question}"
-      get_support_a_irc: "Visita nos in %{irc} (conversation in directo)"
-      get_support_a_tutorials: "Lege nostre %{tutorials}"
-      get_support_a_website: "Visita nostre %{link}"
-      get_support_a_wiki: "Cerca in le %{link}"
-      get_support_q: "E si le FAQ non ha un responsa a mi question, ubi pote io trovar adjuta?"
-      getting_started_a: "Fortunatemente, le %{tutorial_series} in nostre sito es a tu disposition. Illo te guidara passo post passo per le processo de inscription e te inseniara le aspectos fundamental de usar diaspora*."
-      getting_started_q: "Succurso! Io ha besonio de adjuta pro comenciar!"
-      title: "Obtener adjuta"
-    getting_started_tutorial: "Serie de tutoriales \"Prime passos\""
-    here: "hic"
-    irc: "IRC"
-    keyboard_shortcuts:
-      keyboard_shortcuts_a1: "In le vista de fluxo tu pote usar le sequente claves accelerator:"
-      keyboard_shortcuts_li1: "j - Saltar al proxime entrata"
-      keyboard_shortcuts_li2: "k - Saltar al previe entrata"
-      keyboard_shortcuts_li3: "c - Commentar le entrata actual"
-      keyboard_shortcuts_li4: "l - Appreciar le entrata actual"
-      keyboard_shortcuts_li5: "r - Repeter le entrata actual"
-      keyboard_shortcuts_li6: "m - Displicar le entrata actual"
-      keyboard_shortcuts_li7: "o - Aperir le prime ligamine in le entrata actual"
-      keyboard_shortcuts_li8: "Ctrl+Enter – Inviar le message que tu ha scribite"
-      keyboard_shortcuts_q: "Qual claves accelerator es disponibile?"
-      title: "Claves accelerator"
-    markdown: "Markdown"
-    mentions:
-      how_to_mention_a: "Scribe le signo \"@\" e comencia a scriber su nomine. Un menu disrolante deberea apparer que permitte seliger le nomine plus facilemente. Nota ben que il es solmente possibile mentionar personas que tu ha addite a un aspecto."
-      how_to_mention_q: "Como mentionar un persona quando io scribe un entrata?"
-      mention_in_comment_a: "A partir del version 0.7.0.0, si! Tu pote mentionar alcuno in un commento del mesme maniera que tu lo facerea in un entrata, scribente un “@” ante su nomine. Nota ben: quando tu commenta un entrata non public, tu pote solmente mentionar usatores que ha jam interagite con le entrata."
-      mention_in_comment_q: "Pote io mentionar qualcuno in un commento?"
-      see_mentions_a: "Si, clicca sur \"@Mentiones\" in le columna sinistre in tu pagina principal."
-      see_mentions_q: "Existe un maniera de vider le entratas in que on me ha mentionate?"
-      title: "Mentiones"
-      what_is_a_mention_a: "Un mention es un ligamine al pagina de profilo de un persona que appare in un entrata. Quando un persona es mentionate, illa recipe un notification que dirige su attention verso le entrata."
-      what_is_a_mention_q: "Que es un \"mention\"?"
-    miscellaneous:
-      back_to_top_a: "Si. Post rolar a basso in un pagina, clicca sur le sagitta gris que appare in le angulo dextre al fundo de tu fenestra de navigator."
-      back_to_top_q: "Ha il un maniera rapide de retornar al initio del pagina post que io rola a basso?"
-      diaspora_app_a: "Il ha plure applicationes de Android disveloppate per membros del communitate. Plures de iste projectos es abandonate e non functiona ben con le version actual de diaspora*. Non expecta troppo de iste apps in iste momento. Actualmente il non ha un app pro iOS. Le melior maniera de acceder a diaspora* a partir de tu dispositivo mobile es per medio de un navigator web, perque nos ha concipite un version mobile del sito que deberea functionar ben in tote le dispositivos, ben que su functionalitate non es ancora complete."
-      diaspora_app_q: "Ha il un app diaspora* pro Android o iOS?"
-      photo_albums_a: "No, non in iste momento. Nonobstante, tu pote vider le imagines incargate per un persona in le scheda Photos de su pagina de profilo."
-      photo_albums_q: "Ha il albumes de photos o videos?"
-      subscribe_feed_a: "Si, ma iste functionalitate non es ancora polite e le formato del resultato es assatis crude. Si tu vole essayar lo in omne caso, va al pagina de profilo de un persona e clicca sur le button de syndication in tu navigator, o tu pote copiar le URL del profilo (p.ex. https://nominedelpod.org/people/alcunnumero) e collar lo in un lector de syndication. Le adresse de syndication resultante ha iste aspecto: https://nominedelpod.org/public/nominedeusator.atom (diaspora* usa Atom, non RSS)."
-      subscribe_feed_q: "Pote io subscriber me al entratas public de un persona con un lector de syndication?"
-      title: "Miscellanea"
+      carrierwave_processing_error: non poteva esser processate
+      carrierwave_integrity_error: non es de un typo de file permittite
+      carrierwave_download_error: non poteva esser discargate
+      extension_whitelist_error: 'Tu non ha le permission de incargar files %{extension}. Typos permittite: %{allowed_types}'
+      extension_blacklist_error: 'Tu non ha le permission de incargar files %{extension}. Typos prohibite: %{prohibited_types}'
+      content_type_whitelist_error: Tu non ha le permission de incargar files %{content_type}.
+      content_type_blacklist_error: Tu non ha le permission de incargar files %{content_type}.
+      rmagick_processing_error: Le tractamento con "rmagick" ha fallite. Pote esser que iste file non es un imagine?
+      mini_magick_processing_error: 'Le tractamento con "MiniMagick" ha fallite. Pote esser que iste file non es un imagine? Error original: %{e}'
+      min_size_error: Le dimension del file debe esser superior a %{min_size}.
+      max_size_error: Le dimension del file debe esser inferior a %{max_size}.
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Corrige le sequente errores e proba de novo.
+    need_javascript: Iste sito web require JavaScript pro poter functionar. Si tu ha disactivate JavaScript, per favor reactiva lo e recarga iste pagina.
+    csrf_token_fail: Le indicio CSRF non es valide. Per favor, aperi session e reproba.
+    mobile_not_available: Iste pagina non es disponibile in vista mobile. Cambia al %{desktop_link}.
+    desktop_view_link: vista scriptorio
+  admins:
+    admin_bar:
+      pages: Paginas
+      dashboard: Pannello de instrumentos
+      user_search: Recerca de usatores
+      weekly_user_stats: Statisticas septimanal de usatores
+      pod_stats: Statisticas del pod
+      report: Reportos
+      sidekiq_monitor: Monitor Sidekiq
+      pod_network: Rete de pods
+    dashboard:
+      pod_status: Stato del pod
+      fetching_diaspora_version: Determina ultime version de diaspora*...
+    user_search:
+      you_currently:
+        zero: Il non te resta invitationes %{link}
+        one: Il te resta un invitation %{link}
+        other: Il te resta %{count} invitationes %{link}
+      view_profile: Vider profilo
+      add_invites: Adder invitationes
+      close_account: Clauder conto
+      lock_account: Blocar conto
+      unlock_account: Disblocar conto
+      are_you_sure: Es tu secur de voler clauder iste conto?
+      are_you_sure_lock_account: Es tu secur de voler blocar iste conto?
+      are_you_sure_unlock_account: Es tu secur de voler disblocar iste conto?
+      account_closing_scheduled: Le conto de %{name} es planate a esser claudite. Illo essera processate in alcun momentos…
+      account_locking_scheduled: Le conto de %{name} es planate a esser blocate. Illo essera processate in alcun momentos…
+      account_unlocking_scheduled: Le conto de %{name} es planate a esser disblocate. Illo essera processate in alcun momentos…
+      make_admin: Facer administrator
+      remove_admin: Remover como administrator
+      make_moderator: Facer moderator
+      remove_moderator: Remover como moderator
+      make_spotlight: Adder a "Usatores in evidentia"
+      remove_spotlight: Remover de "Usatores in evidentia"
+      add_admin: "%{name} ha essite facite administrator."
+      delete_admin: "%{name} ha essite removite del lista de administratores."
+      add_moderator: "%{name} ha essite facite moderator."
+      delete_moderator: "%{name} ha essite removite del lista de moderatores."
+      add_spotlight: '%{name} ha essite addite a "Usatores in evidentia".'
+      delete_spotlight: '%{name} ha essite removite de "Usatores in evidentia".'
+      does_not_exist: Usator non existe!
+      role_implemented: "%{name} ha jam recipite iste rolo!"
+      role_removal_implemented: "%{name} ha jam essite removite de iste rolo!"
+      email_to: Adresse de e-mail a invitar
+      invite: Invitar
+      under_13: Monstrar usatores con minus de 13 annos (COPPA)
+      users:
+        zero: Nulle usator trovate
+        one: Un usator trovate
+        other: "%{count} usatores trovate"
+    user_entry:
+      id: ID
+      guid: GUID
+      email: E-mail
+      diaspora_handle: ID de diaspora*
+      last_seen: Ultime session
+      current_sign_in_ip: Adresse IP al initio del session actual
+      account_closed: Conto claudite
+      nsfw: "#nsfw"
+      admin: Administrator
+      moderator: Moderator
+      spotlight: In evidentia
+      unknown: Incognite
+      invite_token: Indicio de invitation
+      'yes': Si
+      'no': 'No'
+    weekly_user_stats:
+      current_server: Le data actual del servitor es %{date}
+      amount_of:
+        zero: 'Numero de nove usatores iste septimana: zero'
+        one: 'Numero de nove usatores iste septimana: %{count}'
+        other: 'Numero de nove usatores iste septimana: %{count}'
+    stats:
+      week: Septimana
+      2weeks: 2 septimanas
+      month: Mense
+      daily: Quotidian
+      usage_statistic: Statisticas de uso
+      go: Va
+      display_results: Resultatos del segmento %{segment}
+      posts:
+        zero: "%{count} entratas"
+        one: "%{count} entrata"
+        other: "%{count} entratas"
+      comments:
+        zero: "%{count} commentos"
+        one: "%{count} commento"
+        other: "%{count} commentos"
+      shares:
+        zero: "%{count} entratas dividite"
+        one: "%{count} entrata dividite"
+        other: "%{count} entratas dividite"
+      users:
+        zero: "%{count} usatores"
+        one: "%{count} usator"
+        other: "%{count} usatores"
+      current_segment: Le segmento actual ha un media de %{post_yest} entratas per usator, a partir del %{post_day}
+      50_most: Le 50 etiquettas le plus popular
+      tag_name: 'Nomine del etiquetta: %{name_tag} Occurrentias: %{count_tag}'
     pods:
-      find_people_a: "Si tu vole invitar tu amicos a unir se a diaspora*, usa le ligamine de invitation o le ligamine de e-mail in le barra lateral. Seque #etiquettas pro discoperir personas con interesses commun al tues, e adde le personas qui invia cosas que te interessa a un aspecto. Annuncia tu presentia in disaspora* in un entrata public con le etiquetta #novicio (interlingua) e/o #newhere (anglese)."
-      find_people_q: "Io ha justo adherite a un pod, como pote io trovar gente con qui divider?"
-      title: "Pods"
-      use_search_box_a: "Pro cercar un persona, scribe su nomine de usator o su nomine de diaspora* (le nomine que appare in su profilo). Si necun del duo functiona, scribe su ID de diaspora* complete (nominedeusator@nominedelpod.org). Si le recerca non functiona le prime vice, le causa pote esser le latentia del rete; essaya lo de novo."
-      use_search_box_q: "Como usar le quadro de recerca pro trovar un persona in particular?"
-      what_is_a_pod_a: "Un pod es un servitor que executa le software de diaspora* e que es connectite al rete de diaspora*. \"Pod\" (siliqua) es un metaphora que refere a siliquas in plantas que contine granas, como un servitor contine plure contos de usator. Il ha multe differente pods. Tu pote adder amicos de altere pods e communicar con illes. Non es necessari crear contos sur plure pods! Un es sufficiente – de iste maniera, on pote considerar un pod de diaspora* como similar a un fornitor de posta electronic. Il ha pods public, pods private, e con alcun effortio tu pote mesmo gerer le tue."
-      what_is_a_pod_q: "Que es un pod?"
+      pod_network: Rete de pods
+  aspects:
+    edit:
+      confirm_remove_aspect: Es tu secur de voler deler iste aspecto?
+      rename: Renominar
+      aspect_list_is_visible: Le contactos in iste aspecto pote vider le un le altere.
+      aspect_list_is_not_visible: Le contactos in iste aspecto non pote vider le un le altere.
+      update: Actualisar
+      updating: Actualisation in curso
+    no_contacts_message:
+      you_should_add_some_more_contacts: Tu deberea adder plus contactos!
+      try_adding_some_more_contacts: Tu pote cercar o %{invite_link} altere contactos.
+      invite_link_text: invitar
+      or_spotlight: O tu pote divider con %{link}
+      community_spotlight: Usatores in evidentia
+    aspect_listings:
+      add_an_aspect: "+ Adder un aspecto"
+    destroy:
+      success: "%{name} ha essite removite con successo."
+      success_auto_follow_back: "%{name} ha essite removite con successo. Tu ha usate iste aspecto pro automaticamente sequer le usatores que te seque. Verifica tu configuration de usator pro seliger un nove aspecto pro reciprocation automatic de sequimento."
+      failure: "%{name} non pote esser removite."
+    update:
+      success: Tu aspecto, %{name}, ha essite modificate con successo.
+      failure: Tu aspecto, %{name}, ha un nomine troppo longe e non pote esser salveguardate.
+    add_to_aspect:
+      failure: Le addition del contacto al aspecto ha fallite.
+      success: Le contacto ha essite addite al aspecto con successo.
+    seed:
+      family: Familia
+      work: Labor
+      acquaintances: Cognoscitos
+      friends: Amicos
+    index:
+      donate: Donar
+      keep_pod_running: Adjuta al mantenentia e melioration de %{pod} (e al caffeination de su gerentes) con un donation mensual!
+      donate_liberapay: Facer un donation a liberapay
+      welcome_to_diaspora: Benvenite a diaspora*, %{name}!
+      introduce_yourself: Iste fluxo es le tue. Non hesita… presenta te!
+      new_here:
+        title: Accolliger nove usatores
+        follow: Seque %{link} e saluta nove usatores in diaspora*!
+        learn_more: Leger plus
+      help:
+        need_help: Require adjuta?
+        here_to_help: Le communitate de diaspora* es a tu disposition!
+        do_you: 'Esque tu:'
+        have_a_question: "... ha un %{link}?"
+        tag_question: question
+        find_a_bug: "... ha trovate un %{link}?"
+        tag_bug: bug
+        feature_suggestion: "... ha un suggestion de %{link}?"
+        tag_feature: functionalitate
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: adjuta pro le prime passos."
+        tutorial_link_text: Tutoriales
+        support_forum: Tu pote etiam participar al %{support_forum}.
+        support_forum_link: foro de supporto
+        any_problem: Problema?
+        contact_podmin: Contacta le administrator de tu pod!
+        mail_podmin: E-mail del "podmin"
+      services:
+        heading: Connecter servicios
+        content: 'Tu pote connecter le sequente servicios a diaspora*:'
+    aspect_stream:
+      stay_updated: Mantene te al currente
+      stay_updated_explanation: Le fluxo principal es plenate con tote le contactos tue, le etiquettas que tu seque, e messages de alcun membros creative del communitate.
+      make_something: Crea qualcosa
+  aspect_memberships:
+    destroy:
+      success: Persona removite del aspecto con successo.
+      failure: Le remotion del persona del aspecto ha fallite.
+      no_membership: Le persona seligite non se trova in ille aspecto.
+      forbidden: Tu non ha le permission de facer isto.
+      invalid_statement: Elemento duple rejectate.
+  bookmarklet:
+    heading: Mini-marcapaginas
+    post_something: Inviar a diaspora*
+    explanation: 'Invia cosas a diaspora* ab ubique con iste ligamine: %{link}'
+  color_themes:
+    dark: Obscur
+    dark_green: Verde obscur
+    egyptian_blue: Blau egyptie
+    magenta: Magenta
+    original: Gris original
+    original_white: Fundo blanc original
+  comments:
+    create:
+      fail: Le creation del commento ha fallite
+    new_comment:
+      comment: Commentar
+      commenting: Commenta…
+    destroy:
+      success: Le commento %{id} ha essite delite
+      fail: Le deletion del commento ha fallite
+    not_found: Entrata o commento non trovate
+  contacts:
+    index:
+      start_a_conversation: Initiar un conversation
+      title: Contactos
+      no_contacts: Il pare que tu debe adder alcun contactos!
+      no_contacts_message: Visita %{community_spotlight}
+      community_spotlight: Usatores in evidentia
+      no_contacts_in_aspect: Tu non ha ancora contactos in iste aspecto. Infra es un lista de tu contactos existente le quales tu pote adder a iste aspecto.
+      my_contacts: Mi contactos
+      all_contacts: Tote le contactos
+      only_sharing_with_me: Divide con me, ma non vice versa
+      add_contact: Adder contacto
+      user_search: Recerca de contactos
+    spotlight:
+      community_spotlight: Usatores in evidentia
+      suggest_member: Suggerer un membro
+      no_members: Il non ha ancora membros.
+  conversations:
+    index:
+      conversations_inbox: Conversationes – Cassa de entrata
+      new_conversation: Nove conversation
+      no_messages: Nulle message
+      inbox: Cassa de entrata
+      no_contacts: Es necessari adder alcun contactos ante de poter initiar un conversation
+    show:
+      reply: Responder
+      replying: Responde…
+      hide: Celar e silentiar le conversation
+      delete: Deler conversation
+      last_message: Ultime message recipite %{timeago}
+    new:
+      to: A
+      subject: Subjecto
+      subject_default: Sin subjecto
+      message: Message
+      send: Inviar
+      sending: Invia…
+    create:
+      sent: Message inviate
+      fail: Message non valide
+    new_conversation:
+      fail: Message non valide
+    destroy:
+      delete_success: Le conversation ha essite delite
+      hide_success: Le conversation ha essite celate
+    not_found: Conversation non trovate
+  date:
+    formats:
+      fullmonth_day: le %d de %B
+      birthday: le %d de %B
+      birthday_with_year: le %d de %B %Y
+  help:
+    title_header: Adjuta
+    tutorials: tutoriales
+    tutorial: tutorial
+    irc: IRC
+    wiki: wiki
+    faq: FAQ
+    markdown: Markdown
+    here: hic
+    foundation_website: le sito web del fundation diaspora*
+    third_party_tools: Instrumentos de tertios
+    getting_started_tutorial: Serie de tutoriales "Prime passos"
+    community_guidelines: directivas del communitate
+    getting_help:
+      title: Obtener adjuta
+      getting_started_q: Succurso! Io ha besonio de adjuta pro comenciar!
+      getting_started_a: Fortunatemente, le %{tutorial_series} in nostre sito es a tu disposition. Illo te guidara passo post passo per le processo de inscription e te inseniara le aspectos fundamental de usar diaspora*.
+      get_support_q: E si le FAQ non ha un responsa a mi question, ubi pote io trovar adjuta?
+      get_support_a_website: Visita nostre %{link}
+      get_support_a_tutorials: Lege nostre %{tutorials}
+      get_support_a_wiki: Cerca in le %{link}
+      get_support_a_irc: Visita nos in %{irc} (conversation in directo)
+      get_support_a_faq: Lege nostre pagina de %{faq} sur le wiki
+      get_support_a_hashtag: Pone le question in un entrata public de diaspora* adjungente le etiquetta %{question}
+      get_support_a_discourse: Cerca discussiones existente que pertine a tu question o aperi un nove discussion in nostre platteforma %{discourse}
+    account_and_data_management:
+      title: Gestion de conto e datos
+      move_pods_q: Como displaciar mi conto de un pod a un altere?
+      move_pods_a: 'Le version 0.7.0.0 de diaspora* possibilisa le prime stadio del migration de contos: tu pote ora exportar tote tu datos ab le section "Conto" del configurationes. Mantene tu datos secur! In un edition futur il essera possibile transferer tote le conto, incluse le entratas e contactos, a un altere pod.'
+      download_data_q: Pote io discargar un copia de tote le datos continite in mi conto?
+      download_data_a: 'Si. Al fundo del scheda Conto in tu pagina de configuration il ha duo buttones: un pro discargar tu datos e un pro discargar tu photos.'
+      close_account_q: Como pote io deler mi conto?
+      close_account_a: Vade al fin de tu pagina de configuration e clicca sur le button "Clauder conto". Le systema te demandara de entrar tu contrasigno pro completar le processo. Non oblida que, si tu claude tu conto, tu <strong>nunquam</strong> potera re-inscriber tu nomine de usator in le mesme pod.
+      data_visible_to_podmin_q: Quante information mie pote le administrator de mi pod vider?
+      data_visible_to_podmin_a: 'In breve: toto. Le communication inter pods es sempre cryptate (con SSL e le cryptation de transporto proprie de diaspora*), ma le immagazinage de datos in pods non es cryptate. Si ille vole, le administrator del base de datos de tu pod (generalmente le persona qui gere le pod) poterea acceder a tote le datos de tu profilo e tote le entratas que tu invia (como es le caso pro le majoritate del sitos web que immagazina datos de usator). Es pro isto que tu ha le selection del pod in le qual crear tu conto, de maniera que tu pote seliger un pod gerite per un persona in que tu ha confidentia. Gerer tu proprie pod forni un melior protection del vita private perque tu controla alora le accesso al base de datos.'
+      data_other_podmins_q: Esque le administratores de altere pods pote vider mi information?
+      data_other_podmins_a: Un vice que tu divide cosas con un persona in un altere pod, omne entratas que tu divide con illa e un copia del datos de tu profilo es immagazinate (in cache) in le pod de illa, e es accessibile al administrator del base de datos de iste pod. Quando tu dele un entrata o datos de profilo, illo es delite de tu pod e un requesta de deletion es inviate a omne altere pods ubi illo es immagazinate. Tu imagines nunquam es immagazinate in un altere pod que le tue; solmente ligamines a illos es transmittite a altere pods.
+    aspects:
+      title: Aspectos
+      what_is_an_aspect_q: Que es un aspecto?
+      what_is_an_aspect_a: Aspectos es le maniera de gruppar tu contactos in diaspora*. Cata aspecto es un del facies que tu monstra al mundo. Un aspecto poterea representar te a tu collegas, o a tu familia, o a tu amicos in un club de que tu es membro.
+      who_sees_post_q: Quando io invia qualcosa a un aspecto, qui lo videra?
+      who_sees_post_a: Si tu scribe un entrata limitate, illo essera visibile solmente pro le personas que tu ha mittite in ille aspecto (o in ille aspectos, si tu lo ha inviate a plure aspectos) ante de publicar le entrata. Tu contactos que non es in le aspecto non potera vider le entrata. Entratas limitate nunquam essera visibile pro alcun persona que tu non ha mittite in un de tu aspectos.
+      contacts_know_aspect_q: Esque mi contactos sapera in qual aspectos io les mitte?
+      contacts_know_aspect_a: No. Illes non pote vider le nomine del aspecto in alcun maniera.
+      person_multiple_aspects_q: Pote io adder un persona a plure aspectos?
+      person_multiple_aspects_a: Si. Visita tu pagina de contactos e clicca sur "Mi contactos". Pro cata contacto tu pote usar le menu a dextra pro adder la a (o remover la de) omne aspectos que tu vole. O tu pote adder la a un nove aspecto (o remover la de un aspecto) per cliccar sur le button selector de aspectos in su pagina de profilo. O mesmo tu pote simplemente punctar le mouse verso su nomine quando tu lo vide in le fluxo, e un 'carta' de information apparera, in que tu pote cambiar le aspectos in que illa es.
+      remove_notification_q: Si io remove un persona de un aspecto, o de tote mi aspectos, esque illa recipera notification de isto?
+      remove_notification_a: No. In ultra, illa non essera notificate si tu la adde a altere aspectos quando tu jam divide con illa.
+      change_aspect_of_post_q: Un vice que io ha inviate qualcosa, pote io cambiar le aspecto(s) que pote vider le entrata?
+      change_aspect_of_post_a: No, ma tu pote sempre facer un nove entrata con le mesme contento e inviar lo a un altere aspecto.
+      post_multiple_aspects_q: Pote io inviar un entrata a plure aspectos insimul?
+      post_multiple_aspects_a: Si. Quando tu scribe un entrata, usa le button selector de aspectos pro marcar o dismarcar aspectos. "Tote le aspectos" es le option predefinite. Le entrata essera visibile a tote le aspectos que tu marca. Tu pote anque seliger le aspectos al quales tu vole inviar lo in le barra lateral. Quando tu invia le entrata, le aspecto(s) que tu ha seligite in le lista al sinistra es memorate e essera seligite automaticamente in le selector de aspectos quando tu comencia a facer un nove entrata.
+      restrict_posts_i_see_q: Pote io limitar le entratas in mi fluxo de maniera que solmente entratas de certe aspectos se monstra?
+      restrict_posts_i_see_a: Si. Clicca sur "Mi aspectos" in le barra lateral e postea clicca sur individual aspectos in le lista pro marcar o dismarcar los. Solmente le entratas scribite per personas in le aspectos marcate apparera in tu fluxo.
+      rename_aspect_q: Como renomina io un aspecto?
+      rename_aspect_a: Clicca sur "Mi aspectos" in le barra lateral a partir de un vista de fluxo e clicca sur le micre stilo de graphite presso le aspecto que tu vole renominar, o vade a tu pagina Contactos e selige le aspecto in question. Postea clicca sur le icone de modification al latere del nomine del aspecto in cyma de iste pagina, cambia le nomine e clicca sur "Actualisar".
+      delete_aspect_q: Como deler un aspecto?
+      delete_aspect_a: Clicca sur "Mi aspectos" in le barra lateral a partir de un vista de fluxo e clicca sur le micre stilo de graphite presso le aspecto que tu vole deler, o vade a tu pagina Contactos e selige le aspecto in question. Postea clicca sur le icone de corbe a papiro in cyma al dextra del pagina.
+    mentions:
+      title: Mentiones
+      what_is_a_mention_q: Que es un "mention"?
+      what_is_a_mention_a: Un mention es un ligamine al pagina de profilo de un persona que appare in un entrata. Quando un persona es mentionate, illa recipe un notification que dirige su attention verso le entrata.
+      how_to_mention_q: Como mentionar un persona quando io scribe un entrata?
+      how_to_mention_a: Scribe le signo "@" e comencia a scriber su nomine. Un menu disrolante deberea apparer que permitte seliger le nomine plus facilemente. Nota ben que il es solmente possibile mentionar personas que tu ha addite a un aspecto.
+      mention_in_comment_q: Pote io mentionar qualcuno in un commento?
+      mention_in_comment_a: 'A partir del version 0.7.0.0, si! Tu pote mentionar alcuno in un commento del mesme maniera que tu lo facerea in un entrata, scribente un “@” ante su nomine. Nota ben: quando tu commenta un entrata non public, tu pote solmente mentionar usatores que ha jam interagite con le entrata.'
+      see_mentions_q: Existe un maniera de vider le entratas in que on me ha mentionate?
+      see_mentions_a: Si, clicca sur "@Mentiones" in le columna sinistre in tu pagina principal.
+    pods:
+      title: Pods
+      what_is_a_pod_q: Que es un pod?
+      what_is_a_pod_a: Un pod es un servitor que executa le software de diaspora* e que es connectite al rete de diaspora*. "Pod" (siliqua) es un metaphora que refere a siliquas in plantas que contine granas, como un servitor contine plure contos de usator. Il ha multe differente pods. Tu pote adder amicos de altere pods e communicar con illes. Non es necessari crear contos sur plure pods! Un es sufficiente – de iste maniera, on pote considerar un pod de diaspora* como similar a un fornitor de posta electronic. Il ha pods public, pods private, e con alcun effortio tu pote mesmo gerer le tue.
+      find_people_q: Io ha justo adherite a un pod, como pote io trovar gente con qui divider?
+      find_people_a: 'Si tu vole invitar tu amicos a unir se a diaspora*, usa le ligamine de invitation o le ligamine de e-mail in le barra lateral. Seque #etiquettas pro discoperir personas con interesses commun al tues, e adde le personas qui invia cosas que te interessa a un aspecto. Annuncia tu presentia in disaspora* in un entrata public con le etiquetta #novicio (interlingua) e/o #newhere (anglese).'
+      use_search_box_q: Como usar le quadro de recerca pro trovar un persona in particular?
+      use_search_box_a: Pro cercar un persona, scribe su nomine de usator o su nomine de diaspora* (le nomine que appare in su profilo). Si necun del duo functiona, scribe su ID de diaspora* complete (nominedeusator@nominedelpod.org). Si le recerca non functiona le prime vice, le causa pote esser le latentia del rete; essaya lo de novo.
     posts_and_posting:
-      char_limit_services_a: "In tal caso tu deberea limitar tu entrata al numero minor de characteres (140 in le caso de Twitter; 1000 in le caso de Tumblr), e le numero de characteres que te resta es monstrate quando le icone de iste servicio se mitte in evidentia. Tu pote totevia inviar un entrata a iste servicios si illo excede le limite, ma le texto essera truncate in iste servicios e un ligamine verso le entrata sur diaspora* essera adjungite."
-      char_limit_services_q: "Que passa si io divide mi entrata con un servicio connectite con un numero minor de characteres?"
-      character_limit_a: "65,535 characteres. Isto es 65,395 plus characteres de lo que on te permitte in Twitter! ;)"
-      character_limit_q: "Que es le limite de characteres pro entratas?"
-      embed_multimedia_a: "Generalmente tu pote collar le URL (p.ex. http://www.youtube.com/watch?v=nnnnnnnnnnn ) in tu entrata e le video o audio essera incorporate automaticamente. Alcun sitos supportate pro isto es: YouTube, Vimeo, SoundCloud, Flickr e alcun alteres. diaspora* usa oEmbed pro iste function. Si tu insere un ligamine directe a un file audio o video, diaspora* lo monstrara usante le reproductor HTML5 standard. Nos sempre augmenta le numero de fontes multimedia supportate. Non oblida de inserer sempre ligamines simple e complete: non usa ligamines abbreviate; non include operatores post le URL de base. Permitte un poco de tempore pro vider le previsualisation ante que tu refresca le pagina post inviar."
-      embed_multimedia_q: "Como incorporar un video, audio o altere contento multimedial in un entrata?"
-      format_text_a: "diaspora* usa un systema de marcation simplificate con le nomine %{markdown}. Le publicator ha buttones pro facilitar le formatation del texto. Si tu prefere formatar manualmente le texto, consulta %{here} le syntaxe complete de Markdown. Le scheda de previsualisation permitte vider le aspecto de tu message ante que tu lo divulga. Non oblida que es impossibile modificar lo post publication, dunque usa le previsualisation pro assecurar que illo es perfecte ante de pressar \"Divider\"!"
-      format_text_q: "Como pote io formatar le texto in mi entratas (grasse, italic, etc.)?"
-      hide_posts_a: "Si tu puncta le mouse verso le parte superior de un entrata, un × appare al dextra. Clicca sur illo pro celar le entrata e silentiar le notificationes sur illo. Tu pote ancora vider le entrata si tu visita le pagina de profilo del persona qui lo ha inviate."
-      hide_posts_q: "Como cela io un entrata?"
-      ignore_user_a1: "Si tu actualmente divide cosas con ille persona, remover la de tote tu aspectos elimina le majoritate de su entratas de tu fluxo. Un methodo plus complete es \"ignorar\" le conto in question. Isto impedi que alcun entrata sue appare in tu fluxo, e illa non plus pote commentar o appreciar tu entratas. Nonobstante, illa ancora pote repeter tu entratas e commentar le repetitiones de tu entratas, e su commentos sur entratas de altere personas que appare in tu fluxo continua a esser visibile pro te."
-      ignore_user_a2: "Pro ignorar un conto, clicca sur le icone “ignorar” (un circulo con un linea diagonal que lo transversa) in cyma al dextra de un de su entratas. Su entratas disparera immediatemente de tu fluxo. Alternativemente, visita su pagina de profilo e clicca sur le icone “ignorar” illac. Tu potera ancora vider su entratas sur su pagina de profilo, o per usar le vista de entrata singule."
-      ignore_user_a3: "Le lista de personas que tu ignora se trova in le configuration de tu conto sub Confidentialitate. Pro cessar de ignorar un persona, remove la del lista sur ille pagina."
-      ignore_user_q: "Como impedi io que le entratas de un persona appare in mi fluxo?"
-      insert_images_a: "Si tu vole includer in le entrata un imagine immagazinate sur tu computator, clicca sur le micre icone de camera al fundo del publicator. Il anque es possibile traher e deponer un imagine, o plure imagines, ab tu computator verso iste icone. Si tu vole inserer un imagine ab le web in le entrata, clicca sur le button de imagine in le alto del publicator, lo que creara le codice Markdown pro te."
-      insert_images_comments_a: "Tu pote usar Markdown pro inserer un imagine ab le web in un commento, como in entratas. Nonobstante, non es possibile incargar imagines ab tu computator directemente in commentos. Incarga los a un servicio hospite de imagines e postea insere los usante le button de imagine supra le publicator."
-      insert_images_comments_q: "Pote io inserer imagines in commentos?"
-      insert_images_q: "Como inserer imagines in entratas?"
-      post_location_a: "Clicca sur le icone de spinula al latere del camera in le quadro de publication. Isto insere tu position geographic ab OpenStreetMap. Tu pote modificar tu position, per exemplo, si tu vole divulgar solmente le citate e non le adresse stratal exacte."
-      post_location_q: "Como adder mi position geographic a un entrata?"
-      post_notification_a: "Se trova un icone de campana al latere del X in alto a dextra de un entrata. Clicca sur iste pro activar o disactivar le notificationes pro le entrata in question."
-      post_notification_q: "Como reciper, o non plus reciper, notificationes sur un entrata?"
-      post_poll_a: "Clicca sur le icone de graphico pro generar un sondage. Scribe un question e al minus duo responsas. Non oblida de render le entrata public si tu vole que tote le mundo pote participar al sondage."
-      post_poll_q: "Como adder un sondage a mi entrata?"
-      post_report_a: "Clicca sur le triangulo de alerta in alto a dextra de un entrata pro signalar lo al administrator de tu pod. Insere in le quadro que appare un motivo pro signalar. Per favor, signala solmente le entratas que infringe nostre %{community_guidelines} o le conditiones de servicio de tu pod, per exemplo, le entratas que contine material illegal, abusive o spam."
-      post_report_q: "Como signalar un entrata offensive?"
-      size_of_images_a: "No. Cata imagine se redimensiona automaticamente pro adaptar se al fluxo o al vista de entrata unic. Markdown non ha codice pro specificar le dimension de un imagine."
-      size_of_images_q: "Pote io personalisar le dimension de imagines in entratas o commentos?"
-      stream_full_of_posts_a1: "Tu fluxo se compone de tres typos de entratas:"
-      stream_full_of_posts_li1: "Entratas scribite per personas con qui tu divide cosas, le quales es dividite in duo typos: entratas public e entratas limitate dividite con un aspecto de que tu face parte. Pro remover iste entratas de tu fluxo, simplemente cessa de divider con le persona."
-      stream_full_of_posts_li2: "Entratas public que contine un del etiquettas que tu seque. Pro remover istes, cessa de sequer le etiquetta in question."
-      stream_full_of_posts_li3: "Entratas public per personas listate como \"Usatores in evidentia\". Istes pote esser removite per dismarcar le option \"Monstrar usatores in evidentia in le fluxo?\" in le scheda Conto de tu Configuration."
-      stream_full_of_posts_q: "Proque mi fluxo es plen de entratas de personas que io non cognosce e con le quales io non divide?"
-      title: "Scriber e inviar entratas"
+      title: Scriber e inviar entratas
+      stream_full_of_posts_q: Proque mi fluxo es plen de entratas de personas que io non cognosce e con le quales io non divide?
+      stream_full_of_posts_a1: 'Tu fluxo se compone de tres typos de entratas:'
+      stream_full_of_posts_li1: 'Entratas scribite per personas con qui tu divide cosas, le quales es dividite in duo typos: entratas public e entratas limitate dividite con un aspecto de que tu face parte. Pro remover iste entratas de tu fluxo, simplemente cessa de divider con le persona.'
+      stream_full_of_posts_li2: Entratas public que contine un del etiquettas que tu seque. Pro remover istes, cessa de sequer le etiquetta in question.
+      stream_full_of_posts_li3: Entratas public per personas listate como "Usatores in evidentia". Istes pote esser removite per dismarcar le option "Monstrar usatores in evidentia in le fluxo?" in le scheda Conto de tu Configuration.
+      hide_posts_q: Como cela io un entrata?
+      hide_posts_a: Si tu puncta le mouse verso le parte superior de un entrata, un × appare al dextra. Clicca sur illo pro celar le entrata e silentiar le notificationes sur illo. Tu pote ancora vider le entrata si tu visita le pagina de profilo del persona qui lo ha inviate.
+      post_notification_q: Como reciper, o non plus reciper, notificationes sur un entrata?
+      post_notification_a: Se trova un icone de campana al latere del X in alto a dextra de un entrata. Clicca sur iste pro activar o disactivar le notificationes pro le entrata in question.
+      ignore_user_q: Como impedi io que le entratas de un persona appare in mi fluxo?
+      ignore_user_a1: Si tu actualmente divide cosas con ille persona, remover la de tote tu aspectos elimina le majoritate de su entratas de tu fluxo. Un methodo plus complete es "ignorar" le conto in question. Isto impedi que alcun entrata sue appare in tu fluxo, e illa non plus pote commentar o appreciar tu entratas. Nonobstante, illa ancora pote repeter tu entratas e commentar le repetitiones de tu entratas, e su commentos sur entratas de altere personas que appare in tu fluxo continua a esser visibile pro te.
+      ignore_user_a2: Pro ignorar un conto, clicca sur le icone “ignorar” (un circulo con un linea diagonal que lo transversa) in cyma al dextra de un de su entratas. Su entratas disparera immediatemente de tu fluxo. Alternativemente, visita su pagina de profilo e clicca sur le icone “ignorar” illac. Tu potera ancora vider su entratas sur su pagina de profilo, o per usar le vista de entrata singule.
+      ignore_user_a3: Le lista de personas que tu ignora se trova in le configuration de tu conto sub Confidentialitate. Pro cessar de ignorar un persona, remove la del lista sur ille pagina.
+      post_report_q: Como signalar un entrata offensive?
+      post_report_a: Clicca sur le triangulo de alerta in alto a dextra de un entrata pro signalar lo al administrator de tu pod. Insere in le quadro que appare un motivo pro signalar. Per favor, signala solmente le entratas que infringe nostre %{community_guidelines} o le conditiones de servicio de tu pod, per exemplo, le entratas que contine material illegal, abusive o spam.
+      character_limit_q: Que es le limite de characteres pro entratas?
+      character_limit_a: 65,535 characteres. Isto es 65,395 plus characteres de lo que on te permitte in Twitter! ;)
+      char_limit_services_q: Que passa si io divide mi entrata con un servicio connectite con un numero minor de characteres?
+      char_limit_services_a: In tal caso tu deberea limitar tu entrata al numero minor de characteres (140 in le caso de Twitter; 1000 in le caso de Tumblr), e le numero de characteres que te resta es monstrate quando le icone de iste servicio se mitte in evidentia. Tu pote totevia inviar un entrata a iste servicios si illo excede le limite, ma le texto essera truncate in iste servicios e un ligamine verso le entrata sur diaspora* essera adjungite.
+      format_text_q: Como pote io formatar le texto in mi entratas (grasse, italic, etc.)?
+      format_text_a: diaspora* usa un systema de marcation simplificate con le nomine %{markdown}. Le publicator ha buttones pro facilitar le formatation del texto. Si tu prefere formatar manualmente le texto, consulta %{here} le syntaxe complete de Markdown. Le scheda de previsualisation permitte vider le aspecto de tu message ante que tu lo divulga. Non oblida que es impossibile modificar lo post publication, dunque usa le previsualisation pro assecurar que illo es perfecte ante de pressar "Divider"!
+      insert_images_q: Como inserer imagines in entratas?
+      insert_images_a: Si tu vole includer in le entrata un imagine immagazinate sur tu computator, clicca sur le micre icone de camera al fundo del publicator. Il anque es possibile traher e deponer un imagine, o plure imagines, ab tu computator verso iste icone. Si tu vole inserer un imagine ab le web in le entrata, clicca sur le button de imagine in le alto del publicator, lo que creara le codice Markdown pro te.
+      insert_images_comments_q: Pote io inserer imagines in commentos?
+      insert_images_comments_a: Tu pote usar Markdown pro inserer un imagine ab le web in un commento, como in entratas. Nonobstante, non es possibile incargar imagines ab tu computator directemente in commentos. Incarga los a un servicio hospite de imagines e postea insere los usante le button de imagine supra le publicator.
+      size_of_images_q: Pote io personalisar le dimension de imagines in entratas o commentos?
+      size_of_images_a: No. Cata imagine se redimensiona automaticamente pro adaptar se al fluxo o al vista de entrata unic. Markdown non ha codice pro specificar le dimension de un imagine.
+      embed_multimedia_q: Como incorporar un video, audio o altere contento multimedial in un entrata?
+      embed_multimedia_a: 'Generalmente tu pote collar le URL (p.ex. http://www.youtube.com/watch?v=nnnnnnnnnnn ) in tu entrata e le video o audio essera incorporate automaticamente. Alcun sitos supportate pro isto es: YouTube, Vimeo, SoundCloud, Flickr e alcun alteres. diaspora* usa oEmbed pro iste function. Si tu insere un ligamine directe a un file audio o video, diaspora* lo monstrara usante le reproductor HTML5 standard. Nos sempre augmenta le numero de fontes multimedia supportate. Non oblida de inserer sempre ligamines simple e complete: non usa ligamines abbreviate; non include operatores post le URL de base. Permitte un poco de tempore pro vider le previsualisation ante que tu refresca le pagina post inviar.'
+      post_location_q: Como adder mi position geographic a un entrata?
+      post_location_a: Clicca sur le icone de spinula al latere del camera in le quadro de publication. Isto insere tu position geographic ab OpenStreetMap. Tu pote modificar tu position, per exemplo, si tu vole divulgar solmente le citate e non le adresse stratal exacte.
+      post_poll_q: Como adder un sondage a mi entrata?
+      post_poll_a: Clicca sur le icone de graphico pro generar un sondage. Scribe un question e al minus duo responsas. Non oblida de render le entrata public si tu vole que tote le mundo pote participar al sondage.
     private_posts:
-      can_comment_a: "Solmente le usatores qui ha aperite session in disaspora* e que tu habeva placiate in ille aspecto ante de inviar le entrata private potera commentar o appreciar lo."
-      can_comment_q: "Qui pote commentar o appreciar mi entrata private?"
-      can_reshare_a: "Nemo. Entratas private non es repetibile. Nonobstante, le usatores de diaspora* qui ha aperite session e qui es in ille aspecto poterea copiar e collar lo. Il depende de te si tu ha confidentia in ille personas!"
-      can_reshare_q: "Qui pote repeter mi entrata private?"
-      see_comment_a: "Solmente le personas con qui le entrata ha essite dividite (le personas qui es in le aspectos seligite per le autor original) pote vider su commentos e appreciationes. "
-      see_comment_q: "Quando io commenta o apprecia un entrata private, qui pote vider lo?"
-      title: "Entratas private"
-      who_sees_post_a: "Solmente le usatores qui ha aperite session in disaspora* e que tu habeva placiate in ille aspecto ante de inviar le entrata private pote vider lo."
-      who_sees_post_q: "Quando io invia un message a un aspecto (i.e. un entrata private), qui potera vider lo?"
-    profile:
-      title: "Profilo"
-      what_do_tags_do_a: "Illos adjuta le gente a cognoscer te. Le imagine de tu profilo etiam apparera in le columna sinistre del paginas de fluxo correspondente a ille etiquettas, insimul con le imagines del altere personas que ha iste etiquettas in lor profilos basic."
-      what_do_tags_do_q: "Que face le etiquettas in mi profilo basic?"
-      whats_in_profile_a: "Un profilo ha duo partes: le profilo basic e le profilo extendite. Le profilo basic contine tu nomine, le cinque etiquettas que tu ha eligite pro describer te, e tu photo. Le profilo extendite contine tu biographia, loco, genere e die de nascentia. Tote iste information es facultative; a te le decision de fornir lo o non. Tu pote render iste information de profilo tanto personal o tanto anonyme como tu vole. Le profilo extendite appare in le columna sinistre de tu pagina de profilo, sub le imagine del profilo."
-      whats_in_profile_q: "Que es in mi profilo?"
-      who_sees_profile_a: "Le profilo basic (nomine, imagine e #etiquettas) es public. Le profilo extendite es normalmente private, ma tu pote render toto accessibile al publico si tu lo prefere. Solmente le personas con qui tu divide cosas (i.e. que tu ha addite a un de tu aspectos) pote vider tu profilo extendite si tu lo mantene private. Altere personas videra solmente tu information public. Omne information de profilo que tu rende public pote esser vidite per qualcunque usator del web e pote esser indexate per motores de recerca."
-      who_sees_profile_q: "Qui vide mi profilo?"
+      title: Entratas private
+      who_sees_post_q: Quando io invia un message a un aspecto (i.e. un entrata private), qui potera vider lo?
+      who_sees_post_a: Solmente le usatores qui ha aperite session in disaspora* e que tu habeva placiate in ille aspecto ante de inviar le entrata private pote vider lo.
+      can_comment_q: Qui pote commentar o appreciar mi entrata private?
+      can_comment_a: Solmente le usatores qui ha aperite session in disaspora* e que tu habeva placiate in ille aspecto ante de inviar le entrata private potera commentar o appreciar lo.
+      can_reshare_q: Qui pote repeter mi entrata private?
+      can_reshare_a: Nemo. Entratas private non es repetibile. Nonobstante, le usatores de diaspora* qui ha aperite session e qui es in ille aspecto poterea copiar e collar lo. Il depende de te si tu ha confidentia in ille personas!
+      see_comment_q: Quando io commenta o apprecia un entrata private, qui pote vider lo?
+      see_comment_a: 'Solmente le personas con qui le entrata ha essite dividite (le personas qui es in le aspectos seligite per le autor original) pote vider su commentos e appreciationes. '
     public_posts:
-      can_comment_reshare_like_a: "Omne usator qui ha aperite session in diaspora* pote commentar, repeter o appreciar tu entrata public. Le exception a isto es le personas que tu ha ignorate, le quales non potera appreciar o commentar tu entratas."
-      can_comment_reshare_like_q: "Qui pote commentar, repeter o appreciar mi entrata public?"
-      deselect_aspect_posting_a: "Dismarcar aspectos non ha effecto sur un entrata public. Illo remanera public e apparera in le fluxos de tote tu contactos. Pro render un entrata visibile solmente pro certe aspectos, tu debe seliger ille aspectos usante le selector de aspectos sub le quadro de entrata."
-      deselect_aspect_posting_q: "Que eveni quando io dismarca un o plus aspectos in le columna a sinistra quando io face un entrata public?"
-      find_public_post_a: "Tu entratas public apparera in le fluxos de quicunque te seque. Si tu ha includite #etiquettas in tu entrata public, quicunque seque iste etiquettas trovara tu entrata in su fluxo. Cata entrata public anque ha un adresse URL specific al qual omnes pote acceder, mesmo sin aperir session; assi, es possibile mitter ligamines a entratas public directemente in Twitter, blogs, etc. Le entratas public pote anque esser indexate per motores de recerca."
-      find_public_post_q: "Como pote altere personas trovar mi entrata public?"
-      see_comment_reshare_like_a: "Le commentos, appreciationes e repetitiones de entratas public es etiam public. Omne usator de diaspora* e omne alteres sur internet pote vider tu interactiones con un entrata public."
-      see_comment_reshare_like_q: "Quando io commenta, repete o apprecia un entrata public, qui pote vider lo?"
-      title: "Entratas public"
-      who_sees_post_a: "Qualcunque usator de internet poterea vider un entrata que tu marca como public, dunque, assecura te que tu vole vermente que tu message sia public. Isto es un excellente maniera de attinger le mundo."
-      who_sees_post_q: "Quando io invia qualcosa publicamente, qui pote vider lo?"
+      title: Entratas public
+      who_sees_post_q: Quando io invia qualcosa publicamente, qui pote vider lo?
+      who_sees_post_a: Qualcunque usator de internet poterea vider un entrata que tu marca como public, dunque, assecura te que tu vole vermente que tu message sia public. Isto es un excellente maniera de attinger le mundo.
+      find_public_post_q: Como pote altere personas trovar mi entrata public?
+      find_public_post_a: 'Tu entratas public apparera in le fluxos de quicunque te seque. Si tu ha includite #etiquettas in tu entrata public, quicunque seque iste etiquettas trovara tu entrata in su fluxo. Cata entrata public anque ha un adresse URL specific al qual omnes pote acceder, mesmo sin aperir session; assi, es possibile mitter ligamines a entratas public directemente in Twitter, blogs, etc. Le entratas public pote anque esser indexate per motores de recerca.'
+      can_comment_reshare_like_q: Qui pote commentar, repeter o appreciar mi entrata public?
+      can_comment_reshare_like_a: Omne usator qui ha aperite session in diaspora* pote commentar, repeter o appreciar tu entrata public. Le exception a isto es le personas que tu ha ignorate, le quales non potera appreciar o commentar tu entratas.
+      see_comment_reshare_like_q: Quando io commenta, repete o apprecia un entrata public, qui pote vider lo?
+      see_comment_reshare_like_a: Le commentos, appreciationes e repetitiones de entratas public es etiam public. Omne usator de diaspora* e omne alteres sur internet pote vider tu interactiones con un entrata public.
+      deselect_aspect_posting_q: Que eveni quando io dismarca un o plus aspectos in le columna a sinistra quando io face un entrata public?
+      deselect_aspect_posting_a: Dismarcar aspectos non ha effecto sur un entrata public. Illo remanera public e apparera in le fluxos de tote tu contactos. Pro render un entrata visibile solmente pro certe aspectos, tu debe seliger ille aspectos usante le selector de aspectos sub le quadro de entrata.
+    profile:
+      title: Profilo
+      whats_in_profile_q: Que es in mi profilo?
+      whats_in_profile_a: 'Un profilo ha duo partes: le profilo basic e le profilo extendite. Le profilo basic contine tu nomine, le cinque etiquettas que tu ha eligite pro describer te, e tu photo. Le profilo extendite contine tu biographia, loco, genere e die de nascentia. Tote iste information es facultative; a te le decision de fornir lo o non. Tu pote render iste information de profilo tanto personal o tanto anonyme como tu vole. Le profilo extendite appare in le columna sinistre de tu pagina de profilo, sub le imagine del profilo.'
+      who_sees_profile_q: Qui vide mi profilo?
+      who_sees_profile_a: 'Le profilo basic (nomine, imagine e #etiquettas) es public. Le profilo extendite es normalmente private, ma tu pote render toto accessibile al publico si tu lo prefere. Solmente le personas con qui tu divide cosas (i.e. que tu ha addite a un de tu aspectos) pote vider tu profilo extendite si tu lo mantene private. Altere personas videra solmente tu information public. Omne information de profilo que tu rende public pote esser vidite per qualcunque usator del web e pote esser indexate per motores de recerca.'
+      what_do_tags_do_q: Que face le etiquettas in mi profilo basic?
+      what_do_tags_do_a: Illos adjuta le gente a cognoscer te. Le imagine de tu profilo etiam apparera in le columna sinistre del paginas de fluxo correspondente a ille etiquettas, insimul con le imagines del altere personas que ha iste etiquettas in lor profilos basic.
     resharing_posts:
-      reshare_private_post_aspects_a: "No, il non es possibile repeter un entrata private. Isto es pro respectar le intentiones del autor original qui lo ha dividite solmente con un gruppo particular de personas."
-      reshare_private_post_aspects_q: "Pote io repeter un entrata private solmente a certe aspectos?"
-      reshare_public_post_aspects_a: "No, quando tu repete un entrata public, illo deveni automaticamente un de tu entratas public. Pro divider lo con certe aspectos, copia e colla le contento del entrata in un entrata nove e limitate."
-      reshare_public_post_aspects_q: "Pote io repeter un entrata public solmente a certe aspectos?"
-      title: "Repeter entratas"
+      title: Repeter entratas
+      reshare_public_post_aspects_q: Pote io repeter un entrata public solmente a certe aspectos?
+      reshare_public_post_aspects_a: No, quando tu repete un entrata public, illo deveni automaticamente un de tu entratas public. Pro divider lo con certe aspectos, copia e colla le contento del entrata in un entrata nove e limitate.
+      reshare_private_post_aspects_q: Pote io repeter un entrata private solmente a certe aspectos?
+      reshare_private_post_aspects_a: No, il non es possibile repeter un entrata private. Isto es pro respectar le intentiones del autor original qui lo ha dividite solmente con un gruppo particular de personas.
     sharing:
-      add_to_aspect_a1: "Suppone que Julia adde Mario a un aspecto, ma Mario non ha (ancora) addite Julia a un aspecto:"
-      add_to_aspect_a2: "Iste situation se appella communication asymmetric. Si e quando Mario adde Julia a un aspecto sue, alora le communication devenirea reciproc: le entratas public e private de Julia e de Mario apparerea in le fluxos le un del altere, e Julia poterea vider le profilo private de Mario. Illes poterea alora etiam inviar messages private inter se."
-      add_to_aspect_li1: "Mario recipera notification del facto que Julia ha \"comenciate a divider\" con Mario."
-      add_to_aspect_li2: "Julia videra ab iste momento in su fluxo le entratas public de Mario."
-      add_to_aspect_li3: "Julia non videra alcun entrata private de Mario."
-      add_to_aspect_li4: "Mario non videra in su fluxo le entratas public o private de Julia."
-      add_to_aspect_li5: "Ma si Mario visita le pagina de profilo de Julia, alora ille videra le entratas private que Julia invia al aspecto in le qual illa le ha includite. (Ille videra etiam le entratas public de illa que omnes pote vider.)"
-      add_to_aspect_li6: "Mario potera vider le profilo private de Julia (biographia, loco, genere, data de nascentia)."
-      add_to_aspect_li7: "Julia apparera sub \"Divide con me, ma non vice versa\" in le pagina de contactos de Mario."
-      add_to_aspect_li8: "Amy potera etiam @mentionar Ben in un entrata."
-      add_to_aspect_q: "Que eveni quando io adde un persona a un de mi aspectos, o quando un persona me adde a un de su aspectos?"
-      list_not_sharing_a: "No, ma tu pote determinar si un persona divide con te per visitar su pagina de profilo. Si illa lo face, il habera un marca verde al latere de su ID de diaspora*. Si non, il habera un circulo gris."
-      list_not_sharing_q: "Ha il un lista de personas que io ha addite a un de mi aspectos, ma qui non me ha addite a un del lores?"
-      only_sharing_a: "Se tracta del personas qui te ha addite a un de lor aspectos, ma qui non es (ancora) in alcun de tu aspectos. In altere parolas, illes divide con te, ma tu non divide con illes: tu pote pensar de illes como \"sequitores\". Si tu les adde a un aspecto, illes apparera sub ille aspecto e non sub \"Divide con me, ma non vice versa\". Vide hic supra."
-      only_sharing_q: "Qui es le personas listate sub \"Divide con me, ma non vice versa\" in mi pagina de contactos?"
-      see_old_posts_a: "No. Illa potera vider solmente le entratas nove in ille aspecto. Illa (e tote le mundo) pote vider tu entratas public ancian in tu pagina de profilo, e illa los videra forsan in su fluxo."
-      see_old_posts_q: "Quando io adde un persona a un aspecto, pote illa vider le ancian entratas que io ha jam inviate a ille aspecto?"
-      sharing_notification_a: "Tu deberea reciper un notification cata vice que un persona comencia a divider con te."
-      sharing_notification_q: "Como sape io quando un persona comencia a divider con me?"
-      title: "Divider"
+      title: Divider
+      add_to_aspect_q: Que eveni quando io adde un persona a un de mi aspectos, o quando un persona me adde a un de su aspectos?
+      add_to_aspect_a1: 'Suppone que Julia adde Mario a un aspecto, ma Mario non ha (ancora) addite Julia a un aspecto:'
+      add_to_aspect_li1: Mario recipera notification del facto que Julia ha "comenciate a divider" con Mario.
+      add_to_aspect_li2: Julia videra ab iste momento in su fluxo le entratas public de Mario.
+      add_to_aspect_li3: Julia non videra alcun entrata private de Mario.
+      add_to_aspect_li4: Mario non videra in su fluxo le entratas public o private de Julia.
+      add_to_aspect_li5: Ma si Mario visita le pagina de profilo de Julia, alora ille videra le entratas private que Julia invia al aspecto in le qual illa le ha includite. (Ille videra etiam le entratas public de illa que omnes pote vider.)
+      add_to_aspect_li6: Mario potera vider le profilo private de Julia (biographia, loco, genere, data de nascentia).
+      add_to_aspect_li7: Julia apparera sub "Divide con me, ma non vice versa" in le pagina de contactos de Mario.
+      add_to_aspect_li8: Amy potera etiam @mentionar Ben in un entrata.
+      add_to_aspect_a2: 'Iste situation se appella communication asymmetric. Si e quando Mario adde Julia a un aspecto sue, alora le communication devenirea reciproc: le entratas public e private de Julia e de Mario apparerea in le fluxos le un del altere, e Julia poterea vider le profilo private de Mario. Illes poterea alora etiam inviar messages private inter se.'
+      sharing_notification_q: Como sape io quando un persona comencia a divider con me?
+      sharing_notification_a: Tu deberea reciper un notification cata vice que un persona comencia a divider con te.
+      only_sharing_q: Qui es le personas listate sub "Divide con me, ma non vice versa" in mi pagina de contactos?
+      only_sharing_a: 'Se tracta del personas qui te ha addite a un de lor aspectos, ma qui non es (ancora) in alcun de tu aspectos. In altere parolas, illes divide con te, ma tu non divide con illes: tu pote pensar de illes como "sequitores". Si tu les adde a un aspecto, illes apparera sub ille aspecto e non sub "Divide con me, ma non vice versa". Vide hic supra.'
+      list_not_sharing_q: Ha il un lista de personas que io ha addite a un de mi aspectos, ma qui non me ha addite a un del lores?
+      list_not_sharing_a: No, ma tu pote determinar si un persona divide con te per visitar su pagina de profilo. Si illa lo face, il habera un marca verde al latere de su ID de diaspora*. Si non, il habera un circulo gris.
+      see_old_posts_q: Quando io adde un persona a un aspecto, pote illa vider le ancian entratas que io ha jam inviate a ille aspecto?
+      see_old_posts_a: No. Illa potera vider solmente le entratas nove in ille aspecto. Illa (e tote le mundo) pote vider tu entratas public ancian in tu pagina de profilo, e illa los videra forsan in su fluxo.
     tags:
-      filter_tags_a: "Iste functionalitate non es ancora disponibile directemente de diaspora*, ma alcun %{third_party_tools} ha essite scribite que pote fornir lo."
-      filter_tags_q: "Como pote io filtrar/excluder alcun etiquettas de mi fluxo?"
-      followed_tags_a: "Post cercar un etiquetta, tu pote cliccar sur le button in le alto del pagina del etiquetta pro \"sequer\" ille etiquetta. Illo apparera in le lista de etiquettas sequite in le menu sinistre. Un clic sur un de tu etiquettas sequite te porta a un pagina que monstra le entratas recente que contine ille etiquetta. Clicca sur \"etiquettas #sequite\" pro vider un fluxo de entratas que include qualcunque etiquetta que tu seque. Le entratas que contine ille etiquetta essera etiam includite in tu fluxo principal."
-      followed_tags_q: "Que es \"etiquettas #sequite\" e como seque io un etiquetta?"
-      people_tag_page_a: "Illes es le personas qui ha listate ille etiquetta pro describer se in lor profilos public."
-      people_tag_page_q: "Qui es le personas listate al latere sinistre de un pagina de etiquetta?"
-      tags_in_comments_a: "Un etiquetta addite a un commento appare como ligamine al pagina de iste etiquetta, ma non face le entrata (o commento) in question apparer in iste pagina. Isto functiona solmente pro etiquettas in le texto principal de un entrata."
-      tags_in_comments_q: "Pote io mitter etiquettas in commentos o solmente in messages?"
-      title: "Etiquettas"
-      what_are_tags_for_a: "Etiquettas servi a categorisar un entrata, normalmente per topico. Si tu cerca un etiquetta, es monstrate tote le entratas visibile pro te (public e private) con iste etiquetta. Isto permitte al personas interessate in un certe topico cercar le entratas public concernente lo."
-      what_are_tags_for_q: "A que servi etiquettas?"
-    third_party_tools: "Instrumentos de tertios"
-    title_header: "Adjuta"
-    tutorial: "tutorial"
-    tutorials: "tutoriales"
-    wiki: "wiki"
+      title: Etiquettas
+      what_are_tags_for_q: A que servi etiquettas?
+      what_are_tags_for_a: Etiquettas servi a categorisar un entrata, normalmente per topico. Si tu cerca un etiquetta, es monstrate tote le entratas visibile pro te (public e private) con iste etiquetta. Isto permitte al personas interessate in un certe topico cercar le entratas public concernente lo.
+      tags_in_comments_q: Pote io mitter etiquettas in commentos o solmente in messages?
+      tags_in_comments_a: Un etiquetta addite a un commento appare como ligamine al pagina de iste etiquetta, ma non face le entrata (o commento) in question apparer in iste pagina. Isto functiona solmente pro etiquettas in le texto principal de un entrata.
+      followed_tags_q: 'Que es "etiquettas #sequite" e como seque io un etiquetta?'
+      followed_tags_a: 'Post cercar un etiquetta, tu pote cliccar sur le button in le alto del pagina del etiquetta pro "sequer" ille etiquetta. Illo apparera in le lista de etiquettas sequite in le menu sinistre. Un clic sur un de tu etiquettas sequite te porta a un pagina que monstra le entratas recente que contine ille etiquetta. Clicca sur "etiquettas #sequite" pro vider un fluxo de entratas que include qualcunque etiquetta que tu seque. Le entratas que contine ille etiquetta essera etiam includite in tu fluxo principal.'
+      people_tag_page_q: Qui es le personas listate al latere sinistre de un pagina de etiquetta?
+      people_tag_page_a: Illes es le personas qui ha listate ille etiquetta pro describer se in lor profilos public.
+      filter_tags_q: Como pote io filtrar/excluder alcun etiquettas de mi fluxo?
+      filter_tags_a: Iste functionalitate non es ancora disponibile directemente de diaspora*, ma alcun %{third_party_tools} ha essite scribite que pote fornir lo.
+    keyboard_shortcuts:
+      title: Claves accelerator
+      keyboard_shortcuts_q: Qual claves accelerator es disponibile?
+      keyboard_shortcuts_a1: 'In le vista de fluxo tu pote usar le sequente claves accelerator:'
+      keyboard_shortcuts_li1: j - Saltar al proxime entrata
+      keyboard_shortcuts_li2: k - Saltar al previe entrata
+      keyboard_shortcuts_li3: c - Commentar le entrata actual
+      keyboard_shortcuts_li4: l - Appreciar le entrata actual
+      keyboard_shortcuts_li5: r - Repeter le entrata actual
+      keyboard_shortcuts_li6: m - Displicar le entrata actual
+      keyboard_shortcuts_li7: o - Aperir le prime ligamine in le entrata actual
+      keyboard_shortcuts_li8: Ctrl+Enter – Inviar le message que tu ha scribite
+    miscellaneous:
+      title: Miscellanea
+      back_to_top_q: Ha il un maniera rapide de retornar al initio del pagina post que io rola a basso?
+      back_to_top_a: Si. Post rolar a basso in un pagina, clicca sur le sagitta gris que appare in le angulo dextre al fundo de tu fenestra de navigator.
+      photo_albums_q: Ha il albumes de photos o videos?
+      photo_albums_a: No, non in iste momento. Nonobstante, tu pote vider le imagines incargate per un persona in le scheda Photos de su pagina de profilo.
+      subscribe_feed_q: Pote io subscriber me al entratas public de un persona con un lector de syndication?
+      subscribe_feed_a: 'Si, ma iste functionalitate non es ancora polite e le formato del resultato es assatis crude. Si tu vole essayar lo in omne caso, va al pagina de profilo de un persona e clicca sur le button de syndication in tu navigator, o tu pote copiar le URL del profilo (p.ex. https://nominedelpod.org/people/alcunnumero) e collar lo in un lector de syndication. Le adresse de syndication resultante ha iste aspecto: https://nominedelpod.org/public/nominedeusator.atom (diaspora* usa Atom, non RSS).'
+      diaspora_app_q: Ha il un app diaspora* pro Android o iOS?
+      diaspora_app_a: Il ha plure applicationes de Android disveloppate per membros del communitate. Plures de iste projectos es abandonate e non functiona ben con le version actual de diaspora*. Non expecta troppo de iste apps in iste momento. Actualmente il non ha un app pro iOS. Le melior maniera de acceder a diaspora* a partir de tu dispositivo mobile es per medio de un navigator web, perque nos ha concipite un version mobile del sito que deberea functionar ben in tote le dispositivos, ben que su functionalitate non es ancora complete.
   home:
     default:
-      be_who_you_want_to_be: "Sia qui tu vole esser"
-      be_who_you_want_to_be_info: "Multe retes te obliga a usar tu nomine real. Non diaspora*. Hic tu pote eliger qui tu vole esser e quanto tu vole divulgar de te. Tu pote vermente decider como tu interage con altere personas."
-      byline: "Le mundo social in linea ubi tu ha le controlo"
-      choose_your_audience: "Elige tu audientia"
-      choose_your_audience_info: "Le \"aspectos\" de diaspora* permitte divider cosas solmente con le personas appropriate. Tu pote scriber in publico o si privatemente como tu vole. Divide un photo amusante con tote le mundo, o divide un secreto personal con tu amicos intime. Le controlo es tue."
-      diaspora_site_link: "rete federate de diaspora*"
-      headline: "Benvenite a %{pod_name}"
-      own_your_data: "Possede tu datos"
-      own_your_data_info: "Multe retes usa tu datos pro ganiar moneta analysante tu interactiones e usante iste information pro diriger publicitate a te. diaspora* non usa tu datos pro alcun scopo, salvo illo de permitter te de connecter e divider cosas con altere personas."
-      part_of_diaspora: "Parte del %{diaspora_site_link}"
+      headline: Benvenite a %{pod_name}
+      part_of_diaspora: Parte del %{diaspora_site_link}
+      diaspora_site_link: rete federate de diaspora*
+      byline: Le mundo social in linea ubi tu ha le controlo
+      be_who_you_want_to_be: Sia qui tu vole esser
+      be_who_you_want_to_be_info: Multe retes te obliga a usar tu nomine real. Non diaspora*. Hic tu pote eliger qui tu vole esser e quanto tu vole divulgar de te. Tu pote vermente decider como tu interage con altere personas.
+      choose_your_audience: Elige tu audientia
+      choose_your_audience_info: Le "aspectos" de diaspora* permitte divider cosas solmente con le personas appropriate. Tu pote scriber in publico o si privatemente como tu vole. Divide un photo amusante con tote le mundo, o divide un secreto personal con tu amicos intime. Le controlo es tue.
+      own_your_data: Possede tu datos
+      own_your_data_info: Multe retes usa tu datos pro ganiar moneta analysante tu interactiones e usante iste information pro diriger publicitate a te. diaspora* non usa tu datos pro alcun scopo, salvo illo de permitter te de connecter e divider cosas con altere personas.
     podmin:
-      byline: "Tu es sur le puncto de cambiar le facie de Internet. Preste a comenciar?"
-      configuration_info: "Aperi %{database_path} e %{diaspora_path} in tu editor de texto preferite e revide los meticulosemente; illos ha commentos extense."
-      configure_your_pod: "Configurar tu pod"
-      contact_irc: "contacta nos sur IRC"
-      contribute: "Contribuer"
-      contribute_info: "Adjuta a meliorar diaspora*! Si tu trova errores, per favor %{report_bugs}."
-      create_an_account: "Crear un conto"
+      headline: Benvenite, amico.
+      byline: Tu es sur le puncto de cambiar le facie de Internet. Preste a comenciar?
+      configure_your_pod: Configurar tu pod
+      create_an_account: Crear un conto
+      make_yourself_an_admin: Facer te administrator
+      update_your_pod: Actualisar tu pod
+      getting_help: Obtener adjuta
+      contribute: Contribuer
+      configuration_info: Aperi %{database_path} e %{diaspora_path} in tu editor de texto preferite e revide los meticulosemente; illos ha commentos extense.
       create_an_account_info: "%{sign_up_link} pro un nove conto."
-      faq_for_podmins: "FAQ pro gestores de pod in nostre wiki"
-      getting_help: "Obtener adjuta"
-      getting_help_info: "Nos ha enumerate alcun %{faq} con avisos e consilios extra e solutiones de problemas commun. Alternativemente, %{irc}."
-      headline: "Benvenite, amico."
-      make_yourself_an_admin: "Facer te administrator"
-      make_yourself_an_admin_info: "Instructiones se trova in le %{wiki}. Iste function insere un ligamine “%{admin_dashboard}” in tu menu personal in cyma del pagina durante que tu es in session aperte. Illo permitte cercar usatores e forni statisticas pro tu pod, inter altere cosas."
-      report_bugs: "reporta los"
-      update_instructions: "instructiones pro le actualisation in le wiki de diaspora*"
-      update_your_pod: "Actualisar tu pod"
-      update_your_pod_info: "Tu pote trovar %{update_instructions}."
+      make_yourself_an_admin_info: Instructiones se trova in le %{wiki}. Iste function insere un ligamine “%{admin_dashboard}” in tu menu personal in cyma del pagina durante que tu es in session aperte. Illo permitte cercar usatores e forni statisticas pro tu pod, inter altere cosas.
+      update_your_pod_info: Tu pote trovar %{update_instructions}.
+      update_instructions: instructiones pro le actualisation in le wiki de diaspora*
+      getting_help_info: Nos ha enumerate alcun %{faq} con avisos e consilios extra e solutiones de problemas commun. Alternativemente, %{irc}.
+      faq_for_podmins: FAQ pro gestores de pod in nostre wiki
+      contact_irc: contacta nos sur IRC
+      contribute_info: Adjuta a meliorar diaspora*! Si tu trova errores, per favor %{report_bugs}.
+      report_bugs: reporta los
   invitation_codes:
+    not_valid: Iste codice de invitation non plus es valide
     already_logged_in: "%{inviter} te ha invitate a unir te a iste pod, ma tu ha jam aperite session."
-    not_valid: "Iste codice de invitation non plus es valide"
   invitations:
     create:
-      closed: "Le invitationes es claudite sur iste pod de diaspora*."
-      empty: "Per favor, specifica al minus un adresse de e-mail."
-      no_more: "Tu non ha altere invitationes."
-      note_already_sent: "Invitationes ha jam essite inviate a: %{emails}"
-      rejected: "Le sequente adresses de e-mail habeva problemas: %{emails}"
-      sent: "Le sequente adresses ha recipite un invitation: %{emails}"
+      sent: 'Le sequente adresses ha recipite un invitation: %{emails}'
+      rejected: 'Le sequente adresses de e-mail habeva problemas: %{emails}'
+      no_more: Tu non ha altere invitationes.
+      empty: Per favor, specifica al minus un adresse de e-mail.
+      note_already_sent: 'Invitationes ha jam essite inviate a: %{emails}'
+      closed: Le invitationes es claudite sur iste pod de diaspora*.
     new:
+      language: Lingua
+      invite_someone_to_join: Invita qualcuno a unir se a diaspora*!
+      comma_separated_plz: Tu pote entrar plure adresses de e-mail separante los per commas.
+      send_an_invitation: Inviar un invitation
+      sending_invitation: Invia invitation...
+      paste_link: Divide iste ligamine con tu amicos pro invitar les a diaspora*, o invia le ligamine directemente a illes per e-mail.
       codes_left:
-        one: "Un invitation resta pro iste codice"
+        zero: Il non resta invitationes pro iste codice
+        one: Un invitation resta pro iste codice
         other: "%{count} invitationes resta pro iste codice"
-        zero: "Il non resta invitationes pro iste codice"
-      comma_separated_plz: "Tu pote entrar plure adresses de e-mail separante los per commas."
-      invite_someone_to_join: "Invita qualcuno a unir se a diaspora*!"
-      language: "Lingua"
-      paste_link: "Divide iste ligamine con tu amicos pro invitar les a diaspora*, o invia le ligamine directemente a illes per e-mail."
-      send_an_invitation: "Inviar un invitation"
-      sending_invitation: "Invia invitation..."
   layouts:
-    application:
-      back_to_top: "Retornar al cyma"
-      be_excellent: "Sia benevole verso omnes! ♥"
-      discourse: "Discussion e supporto del projecto"
-      powered_by: "Actionate per diaspora*"
-      public_feed: "Fluxo public de diaspora* pro %{name}"
-      source_package: "Discargar le pacchetto con le codice-fonte"
-      statistics_link: "Statisticas del pod"
-      switch_to_standard_mode: "Cambiar al modo standard"
-      switch_to_touch_optimized_mode: "Cambiar al modo tactile"
-      whats_new: "Que es nove?"
     header:
-      code: "Codice"
-      logout: "Clauder session"
-      profile: "Profilo"
-      settings: "Configuration"
-      toggle_navigation: "Alternar navigation"
+      profile: Profilo
+      settings: Configuration
+      logout: Clauder session
+      code: Codice
+      toggle_navigation: Alternar navigation
+    application:
+      powered_by: Actionate per diaspora*
+      whats_new: Que es nove?
+      statistics_link: Statisticas del pod
+      discourse: Discussion e supporto del projecto
+      switch_to_touch_optimized_mode: Cambiar al modo tactile
+      switch_to_standard_mode: Cambiar al modo standard
+      public_feed: Fluxo public de diaspora* pro %{name}
+      back_to_top: Retornar al cyma
+      source_package: Discargar le pacchetto con le codice-fonte
+      be_excellent: Sia benevole verso omnes! ♥
   likes:
     create:
-      error: "Appreciation fallite."
-      fail: "Le creation del appreciation ha fallite"
+      error: Appreciation fallite.
+      fail: Le creation del appreciation ha fallite
     destroy:
-      error: "Le cancellation del appreciation ha fallite."
-    not_found: "Entrata o appreciation non trovate"
+      error: Le cancellation del appreciation ha fallite.
+    people_like_this:
+      zero: Nulle appreciation
+      one: 1 appreciation
+      other: "%{count} appreciationes"
+    people_like_this_comment:
+      zero: Nulle appreciation
+      one: 1 appreciation
+      other: "%{count} appreciationes"
     people_dislike_this:
+      zero: Nulle dispreciation
       one: "%{count} dispreciation"
       other: "%{count} dispreciationes"
-      zero: "Nulle dispreciation"
-    people_like_this:
-      one: "1 appreciation"
-      other: "%{count} appreciationes"
-      zero: "Nulle appreciation"
-    people_like_this_comment:
-      one: "1 appreciation"
-      other: "%{count} appreciationes"
-      zero: "Nulle appreciation"
-  limited: "Limitate"
-  more: "Plus"
-  no_results: "Nulle resultato trovate"
+    not_found: Entrata o appreciation non trovate
   notifications:
-    also_commented:
-      one: "%{actors} etiam commentava le entrata %{post_link} de %{post_author}."
-      other: "%{actors} etiam commentava le entrata %{post_link} de %{post_author}."
-      zero: "Nemo altere commentava le entrata %{post_link} de %{post_author}."
-    also_commented_deleted:
-      one: "%{actors} ha commentate un entrata delite."
-      other: "%{actors} ha commentate un entrata delite."
-      zero: "%{actors} ha commentate un entrata delite."
+    started_sharing:
+      zero: "%{actors} ha comenciate a divider con te."
+      one: "%{actors} ha comenciate a divider con te."
+      other: "%{actors} ha comenciate a divider con te."
+    private_message:
+      zero: "%{actors} te ha inviate un message."
+      one: "%{actors} te ha inviate un message."
+      other: "%{actors} te ha inviate un message."
     comment_on_post:
+      zero: "%{actors} commentava tu entrata %{post_link}."
       one: "%{actors} commentava tu entrata %{post_link}."
       other: "%{actors} commentava tu entrata %{post_link}."
-      zero: "%{actors} commentava tu entrata %{post_link}."
-    contacts_birthday:
-      one: "%{actors} ha su anniversario %{date}."
-      other: "%{actors} ha lor anniversario %{date}."
-      zero: "%{actors} ha lor anniversario %{date}."
-    index:
-      all_notifications: "Tote le notificationes"
-      also_commented: "Etiam commentava"
-      and: "e"
-      and_others:
-        one: "e un altere"
-        other: "e %{count} alteres"
-        zero: "e nemo altere"
-      comment_on_post: "Commentava tu entrata"
-      contacts_birthday: "Anniversario"
-      liked: "Apprecia tu entrata"
-      mark_all_as_read: "Marcar totes como legite"
-      mark_all_shown_as_read: "Marcar tote le entratas monstrate como legite"
-      mark_read: "Marcar como legite"
-      mark_unread: "Marcar como non legite"
-      mentioned: "Mentionate in entrata"
-      mentioned_in_comment: "Mentionate in commento"
-      no_notifications: "Tu non ha ancora notificationes."
-      notifications: "Notificationes"
-      reshared: "Repetite"
-      show_all: "Monstrar totes"
-      show_unread: "Monstrar non legite"
-      started_sharing: "Comenciate a divider"
-    liked:
-      one: "%{actors} ha appreciate tu entrata %{post_link}."
-      other: "%{actors} ha appreciate tu entrata %{post_link}."
-      zero: "%{actors} ha appreciate tu entrata %{post_link}."
-    liked_post_deleted:
-      one: "%{actors} apprecia tu entrata delite."
-      other: "%{actors} apprecia tu entrata delite."
-      zero: "%{actors} apprecia tu entrata delite."
+    also_commented:
+      zero: Nemo altere commentava le entrata %{post_link} de %{post_author}.
+      one: "%{actors} etiam commentava le entrata %{post_link} de %{post_author}."
+      other: "%{actors} etiam commentava le entrata %{post_link} de %{post_author}."
     mentioned:
       one: "%{actors} te ha mentionate in le entrata %{post_link}."
       other: "%{actors} te ha mentionate in le entrata %{post_link}."
-    mentioned_deleted:
-      one: "%{actors} te ha mentionate in un entrata delite."
-      other: "%{actors} te ha mentionate in un entrata delite."
     mentioned_in_comment:
       one: "%{actors} te ha mentionate in un <a href='%{comment_path}'>commento</a> sur le entrata %{post_link}."
       other: "%{actors} te ha mentionate in un <a href='%{comment_path}'>commento</a> sur le entrata %{post_link}."
+    liked:
+      zero: "%{actors} ha appreciate tu entrata %{post_link}."
+      one: "%{actors} ha appreciate tu entrata %{post_link}."
+      other: "%{actors} ha appreciate tu entrata %{post_link}."
+    reshared:
+      zero: "%{actors} ha repetite tu entrata %{post_link}."
+      one: "%{actors} ha repetite tu entrata %{post_link}."
+      other: "%{actors} ha repetite tu entrata %{post_link}."
+    contacts_birthday:
+      zero: "%{actors} ha lor anniversario %{date}."
+      one: "%{actors} ha su anniversario %{date}."
+      other: "%{actors} ha lor anniversario %{date}."
+    also_commented_deleted:
+      zero: "%{actors} ha commentate un entrata delite."
+      one: "%{actors} ha commentate un entrata delite."
+      other: "%{actors} ha commentate un entrata delite."
+    liked_post_deleted:
+      zero: "%{actors} apprecia tu entrata delite."
+      one: "%{actors} apprecia tu entrata delite."
+      other: "%{actors} apprecia tu entrata delite."
+    reshared_post_deleted:
+      zero: "%{actors} ha repetite tu entrata delite."
+      one: "%{actors} ha repetite tu entrata delite."
+      other: "%{actors} ha repetite tu entrata delite."
+    mentioned_deleted:
+      one: "%{actors} te ha mentionate in un entrata delite."
+      other: "%{actors} te ha mentionate in un entrata delite."
     mentioned_in_comment_deleted:
       one: "%{actors} te ha mentionate in un commento delite."
       other: "%{actors} te ha mentionate in un commento delite."
-    private_message:
-      one: "%{actors} te ha inviate un message."
-      other: "%{actors} te ha inviate un message."
-      zero: "%{actors} te ha inviate un message."
-    reshared:
-      one: "%{actors} ha repetite tu entrata %{post_link}."
-      other: "%{actors} ha repetite tu entrata %{post_link}."
-      zero: "%{actors} ha repetite tu entrata %{post_link}."
-    reshared_post_deleted:
-      one: "%{actors} ha repetite tu entrata delite."
-      other: "%{actors} ha repetite tu entrata delite."
-      zero: "%{actors} ha repetite tu entrata delite."
-    started_sharing:
-      one: "%{actors} ha comenciate a divider con te."
-      other: "%{actors} ha comenciate a divider con te."
-      zero: "%{actors} ha comenciate a divider con te."
+    index:
+      notifications: Notificationes
+      mark_all_as_read: Marcar totes como legite
+      mark_all_shown_as_read: Marcar tote le entratas monstrate como legite
+      mark_read: Marcar como legite
+      mark_unread: Marcar como non legite
+      show_all: Monstrar totes
+      show_unread: Monstrar non legite
+      all_notifications: Tote le notificationes
+      also_commented: Etiam commentava
+      comment_on_post: Commentava tu entrata
+      liked: Apprecia tu entrata
+      mentioned: Mentionate in entrata
+      mentioned_in_comment: Mentionate in commento
+      reshared: Repetite
+      started_sharing: Comenciate a divider
+      contacts_birthday: Anniversario
+      no_notifications: Tu non ha ancora notificationes.
+      and_others:
+        zero: e nemo altere
+        one: e un altere
+        other: e %{count} alteres
+      and: e
   notifier:
-    a_limited_post_comment: "Il ha un nove commento pro te sur un entrata limitate in diaspora*."
-    a_post_you_shared: "un entrata."
-    a_private_message: "Il ha un nove message private pro te in diaspora*."
-    also_commented:
-      limited_subject: "Il ha un nove commento sur un entrata que tu ha commentate"
-    click_here: "Clicca hic"
+    a_post_you_shared: un entrata.
+    a_private_message: Il ha un nove message private pro te in diaspora*.
+    a_limited_post_comment: Il ha un nove commento pro te sur un entrata limitate in diaspora*.
+    email_sent_by_diaspora: Iste message ha essite inviate per %{pod_name}. Si tu non vole reciper altere e-mail como iste,
+    click_here: Clicca hic
+    hello: Salute %{name}!
+    thanks: Gratias,
+    to_change_your_notification_settings: pro cambiar tu configuration de notificationes
+    single_admin:
+      subject: 'Un message concernente tu conto de diaspora*:'
+      admin: Tu administrator de diaspora*
+    started_sharing:
+      subject: "%{name} ha comenciate a divider con te in diaspora*"
+      sharing: ha comenciate a divider con te!
+      view_profile: Vider le profilo de %{name} >
     comment_on_post:
-      limited_subject: "Il ha un nove commento sur un de tu entratas"
-      reply: "Responder o leger le entrata de %{name} >"
-    confirm_email:
-      click_link: "Pro activar tu nove adresse de e-mail %{unconfirmed_email}, seque iste ligamine:"
-      subject: "Per favor activa tu nove adresse de e-mail %{unconfirmed_email}"
-    contacts_birthday:
-      birthday: "%{name} ha su anniversario hodie. Desira le/la un felice anniversario!"
-      subject: "%{name} ha su anniversario hodie"
-      view_profile: "Vider le profilo de %{name} >"
-    csrf_token_fail:
-      body: |-
-          Salute %{name},
-
-          diaspora* ha detegite un tentativa de acceder a tu session le qual pote esser non autorisate. Pro evitar omne possibilitate que tu datos sia compromittite, nos ha claudite tu session. Non te preoccupa; es secur reaperir session ora.
-
-          Un requesta ha essite inviate con un indicio CSRF incorrecte o mancante. Isto poterea esser totalmente innocente, o poterea esser un attacco de requesta falsificate trans sitos (CSRF).
-
-          Le causa poterea esser:
-
-            - Un add-on manipulante le requesta o effectuante requestas sin indicio;
-            - Un scheda lassate aperte de un session passate;
-            - Un altere sito web faciente requestas, con o sin tu permission;
-            - Varie altere instrumentos externe;
-            - Codice malitiose tentante acceder a tu datos.
-
-          Pro plus information sur CSRF, vide [%{link}](%{link}).
-
-          Si tu vide iste message plure vices, per favor verifica le punctos precedente, incluse omne add-ons o extensiones del navigator.
-
-          Gratias,
-          Le robot messagero de disapora*!
-      subject: "Nos ha recipite un requesta non autorisate de tu conto, %{name}"
-    email_sent_by_diaspora: "Iste message ha essite inviate per %{pod_name}. Si tu non vole reciper altere e-mail como iste,"
-    export_email:
-      body: |-
-          Hallo %{name},
-
-          Le archivo de tu datos personal ha essite preparate pro discargamento via [iste ligamine](%{url}).
-
-          Amicalmente,
-
-          Le robot messagero de diaspora*!
-      subject: "Datos personal de %{name} preste pro discargamento"
-    export_failure_email:
-      body: |-
-          Hallo %{name},
-
-          Un problema ha occurrite durante le preparation de tu datos personal pro discargamento.
-          Si le problema persiste, contacta le administrator de tu pod pro obtener adjuta.
-
-          Con regret,
-
-          Le robot messagero de diaspora*!
-      subject: "Problema con datos personal de %{name}"
-    export_photos_email:
-      body: |-
-          Hallo %{name},
-
-          Le tractamento de tu photos ha terminate e tu pote ora [discargar los per medio de iste ligamine](%{url}).
-
-          Amicalmente,
-
-          Le robot messagero de diaspora*!      
-      subject: "Photos de %{name} preste pro discargar"
-    export_photos_failure_email:
-      body: |-
-          Hallo %{name},
-
-          Un problema ha occurrite durante le tractamento de tu photos pro discargamento.
-          Si le problema persiste, contacta le administrator de tu pod pro obtener adjuta.
-
-          Con regret,
-
-          Le robot messagero de diaspora*!
-      subject: "Problema con photos de %{name}"
-    hello: "Salute %{name}!"
-    invite:
-      message: |-
-          Salute!
-
-          %{diaspora_id} te ha invitate a unir te a diaspora*!
-
-          Clicca sur iste ligamine pro comenciar:
-
-          [%{invite_url}][1]
-
-          O, si tu ha jam un conto, tu pote adder %{diaspora_id} a tu contactos.
-
-
-          Cordialmente,
-
-          Le robot messagero de diaspora*
-
-          P.S.: Si tu non sape (ancora) lo que es diaspora*, le responsa es [hic][2]!
-
-          [1]: %{invite_url}
-          [2]: %{diasporafoundation_url}
-    invited_you: "%{name} te ha invitate a diaspora*"
+      limited_subject: Il ha un nove commento sur un de tu entratas
+      reply: Responder o leger le entrata de %{name} >
+    also_commented:
+      limited_subject: Il ha un nove commento sur un entrata que tu ha commentate
+    mentioned:
+      subject: "%{name} te ha mentionate in diaspora*"
+      limited_post: Tu ha essite mentionate in un entrata limitate.
+    mentioned_in_comment:
+      limited_post: Tu ha essite mentionate in un commento sur un entrata limitate.
+      reply: Responder o leger iste conversation >
+    private_message:
+      subject: Il ha un nove message private pro te
+      reply_to_or_view: Responde o lege iste conversation >
     liked:
       liked: "%{name} apprecia tu entrata"
       limited_post: "%{name} apprecia tu entrata limitate"
-      view_post: "Vider entrata >"
-    mentioned:
-      limited_post: "Tu ha essite mentionate in un entrata limitate."
-      subject: "%{name} te ha mentionate in diaspora*"
-    mentioned_in_comment:
-      limited_post: "Tu ha essite mentionate in un commento sur un entrata limitate."
-      reply: "Responder o leger iste conversation >"
-    private_message:
-      reply_to_or_view: "Responde o lege iste conversation >"
-      subject: "Il ha un nove message private pro te"
-    remove_old_user:
-      body: |-
-          Salute,
-
-          Il sembla que tu non plus ha interesse in tu conto a %{pod_url}, viste que tu non lo ha usate durante %{after_days} dies. Pro assecurar que nostre usatores active recipe le melior prestationes sur iste pod de diaspora*, nos volerea eliminar le contos non desirate de nostre base de datos.
-
-          Totevia, nos lo amarea si tu remane parte del communitate de diaspora*, e tu pote naturalmente retener tu conto si tu lo vole.
-
-          Pro mantener tu conto active, tote lo que tu debe facer es aperir session ante le %{remove_after}. Quando tu aperi session, prende un momento pro reguardar circa diaspora*; multe cosas ha cambiate post tu ultime visita, e nos pensa que te placera le meliorationes que nos ha apportate. Seque alcun #etiquettas pro cercar le contento que te interessa.
-
-          Aperi session hic: %{login_url}. Si tu ha oblidate le detalios de tu conto, tu pote demandar un rememoration sur iste pagina.
-
-          Sperante de revider te,
-
-          Le messagero robotic de diaspora*
-      subject: "Tu conto de diaspora* ha essite marcate pro elimination a causa de inactivitate"
-    report_email:
-      body: |-
-          Salute,
-
-          Le %{type} con ID %{id} ha essite marcate como offensive.
-
-          Motivo: "%{reason}"
-
-          [%{url}][1]
-
-          Per favor revide isto le plus tosto possibile!
-
-
-          Cordialmente,
-
-          Le messagero robotic de diaspora*
-
-          [1]: %{url}
-      subject: "Un nove %{type} ha essite marcate como offensive"
-      type:
-        comment: "commento"
-        post: "entrata"
+      view_post: Vider entrata >
     reshared:
       reshared: "%{name} ha repetite tu entrata"
-      view_post: "Vider entrata >"
-    single_admin:
-      admin: "Tu administrator de diaspora*"
-      subject: "Un message concernente tu conto de diaspora*:"
-    started_sharing:
-      sharing: "ha comenciate a divider con te!"
-      subject: "%{name} ha comenciate a divider con te in diaspora*"
-      view_profile: "Vider le profilo de %{name} >"
-    thanks: "Gratias,"
-    to_change_your_notification_settings: "pro cambiar tu configuration de notificationes"
-  nsfw: "NSFW"
-  ok: "OK"
+      view_post: Vider entrata >
+    contacts_birthday:
+      subject: "%{name} ha su anniversario hodie"
+      birthday: "%{name} ha su anniversario hodie. Desira le/la un felice anniversario!"
+      view_profile: Vider le profilo de %{name} >
+    confirm_email:
+      subject: Per favor activa tu nove adresse de e-mail %{unconfirmed_email}
+      click_link: 'Pro activar tu nove adresse de e-mail %{unconfirmed_email}, seque iste ligamine:'
+    csrf_token_fail:
+      subject: Nos ha recipite un requesta non autorisate de tu conto, %{name}
+      body: |-
+        Salute %{name},
+
+        diaspora* ha detegite un tentativa de acceder a tu session le qual pote esser non autorisate. Pro evitar omne possibilitate que tu datos sia compromittite, nos ha claudite tu session. Non te preoccupa; es secur reaperir session ora.
+
+        Un requesta ha essite inviate con un indicio CSRF incorrecte o mancante. Isto poterea esser totalmente innocente, o poterea esser un attacco de requesta falsificate trans sitos (CSRF).
+
+        Le causa poterea esser:
+
+          - Un add-on manipulante le requesta o effectuante requestas sin indicio;
+          - Un scheda lassate aperte de un session passate;
+          - Un altere sito web faciente requestas, con o sin tu permission;
+          - Varie altere instrumentos externe;
+          - Codice malitiose tentante acceder a tu datos.
+
+        Pro plus information sur CSRF, vide [%{link}](%{link}).
+
+        Si tu vide iste message plure vices, per favor verifica le punctos precedente, incluse omne add-ons o extensiones del navigator.
+
+        Gratias,
+        Le robot messagero de disapora*!
+    report_email:
+      type:
+        post: entrata
+        comment: commento
+      subject: Un nove %{type} ha essite marcate como offensive
+      body: |-
+        Salute,
+
+        Le %{type} con ID %{id} ha essite marcate como offensive.
+
+        Motivo: %{reason}
+
+        [%{url}][1]
+
+        Per favor revide isto le plus tosto possibile!
+
+
+        Cordialmente,
+
+        Le messagero robotic de diaspora*
+
+        [1]: %{url}
+    export_email:
+      subject: Datos personal de %{name} preste pro discargamento
+      body: |-
+        Hallo %{name},
+
+        Le archivo de tu datos personal ha essite preparate pro discargamento via [iste ligamine](%{url}).
+
+        Amicalmente,
+
+        Le robot messagero de diaspora*!
+    export_failure_email:
+      subject: Problema con datos personal de %{name}
+      body: |-
+        Hallo %{name},
+
+        Un problema ha occurrite durante le preparation de tu datos personal pro discargamento.
+        Si le problema persiste, contacta le administrator de tu pod pro obtener adjuta.
+
+        Con regret,
+
+        Le robot messagero de diaspora*!
+    export_photos_email:
+      subject: Photos de %{name} preste pro discargar
+      body: |-
+        Hallo %{name},
+
+        Le tractamento de tu photos ha terminate e tu pote ora [discargar los per medio de iste ligamine](%{url}).
+
+        Amicalmente,
+
+        Le robot messagero de diaspora*!      
+    export_photos_failure_email:
+      subject: Problema con photos de %{name}
+      body: |-
+        Hallo %{name},
+
+        Un problema ha occurrite durante le tractamento de tu photos pro discargamento.
+        Si le problema persiste, contacta le administrator de tu pod pro obtener adjuta.
+
+        Con regret,
+
+        Le robot messagero de diaspora*!
+    invited_you: "%{name} te ha invitate a diaspora*"
+    invite:
+      message: |-
+        Salute!
+
+        %{diaspora_id} te ha invitate a unir te a diaspora*!
+
+        Clicca sur iste ligamine pro comenciar:
+
+        [%{invite_url}][1]
+
+        O, si tu ha jam un conto, tu pote adder %{diaspora_id} a tu contactos.
+
+
+        Cordialmente,
+
+        Le robot messagero de diaspora*
+
+        P.S.: Si tu non sape (ancora) lo que es diaspora*, le responsa es [hic][2]!
+
+        [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
+    remove_old_user:
+      subject: Tu conto de diaspora* ha essite marcate pro elimination a causa de inactivitate
+      body: |-
+        Salute,
+
+        Il sembla que tu non plus ha interesse in tu conto a %{pod_url}, viste que tu non lo ha usate durante %{after_days} dies. Pro assecurar que nostre usatores active recipe le melior prestationes sur iste pod de diaspora*, nos volerea eliminar le contos non desirate de nostre base de datos.
+
+        Totevia, nos lo amarea si tu remane parte del communitate de diaspora*, e tu pote naturalmente retener tu conto si tu lo vole.
+
+        Pro mantener tu conto active, tote lo que tu debe facer es aperir session ante le %{remove_after}. Quando tu aperi session, prende un momento pro reguardar circa diaspora*; multe cosas ha cambiate post tu ultime visita, e nos pensa que te placera le meliorationes que nos ha apportate. Seque alcun #etiquettas pro cercar le contento que te interessa.
+
+        Aperi session hic: %{login_url}. Si tu ha oblidate le detalios de tu conto, tu pote demandar un rememoration sur iste pagina.
+
+        Sperante de revider te,
+
+        Le messagero robotic de diaspora*
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          redirection_message: Es tu secur de voler dar accesso a %{redirect_uri}?
+          access: "%{name} demanda accesso a:"
+          no_requirement: "%{name} non require permissiones"
+          approve: Approbar
+          deny: Refusar
+          bad_request: ID de cliente o URI de redirection mancante
+          client_id_not_found: Nulle cliente con client_id %{client_id} con URI de redirection %{redirect_uri} trovate
+          private_contacts_linkage_error: private:lectura e private:modification require etiam contactos:lectura
+          unknown_scope: 'Portata incognite: %{scope_name}'
+        destroy:
+          fail: Le tentativa de revocar le autorisation con ID %{id} ha fallite
+      user_applications:
+        index:
+          edit_applications: Applicationes
+          title: Applicationes autorisate
+          access: "%{name} ha accesso a:"
+          no_requirement: "%{name} non require permissiones"
+        no_applications: Tu non ha applicationes autorisate
+        revoke_autorization: Revocar
+        tos: Vider le conditiones de servicio del application
+        policy: Vider le politica de confidentialitate del application
+      scopes:
+        openid:
+          name: Informationes de base del profilo
+          description: Isto concede le accesso in lectura sol al informationes de base de tu profilo.
+        sub:
+          name: Identificator unic
+          description: Isto concede le accesso in lectura sol a tu identificator unic.
+        name:
+          name: Nomine complete
+          description: Isto concede le accesso in lectura sol a tu nomine complete.
+        nickname:
+          name: Nomine de usator
+          description: Isto concede le accesso in lectura sol a tu nomine de usator.
+        picture:
+          name: Imagine del profilo
+          description: Isto concede le accesso in lectura sol al imagine de tu profilo.
+        contacts:read:
+          name: Contactos (lectura sol)
+          description: Isto concede le accesso in lectura sol al contactos e al datos associate (p.ex. aspectos).
+        contacts:modify:
+          name: Contactos (scriptura)
+          description: Isto concede le accesso in scriptura al contactos e al datos associate (p.ex. aspectos).
+        conversations:
+          name: Conversationes
+          description: Isto concede le permission de lectura e scriptura al messages private.
+        email:
+          name: E-mail
+          description: Isto concede le accesso in lectura sol a tu adresse de e-mail.
+        interactions:
+          name: Interactiones
+          description: Isto concede le accesso necessari pro interager con entratas, p.ex. appreciar o commentar.
+        notifications:
+          name: Notificationes
+          description: Isto concede le accesso in lectura e scriptura a tu notificationes.
+        private:read:
+          name: Entratas private (lectura sol)
+          description: Isto concede le accesso in lectura sol al entratas private de te e de tu contactos.
+        private:modify:
+          name: Entratas private (scriptura)
+          description: Isto concede le accesso necessari pro publicar entratas private.
+        public:read:
+          name: Entratas public (lectura sol)
+          description: Isto concede le accesso a tu entratas public, incluse interactiones e datos associate.
+        public:modify:
+          name: Entratas public (scriptura)
+          description: Isto concede le accesso in scriptura necessari pro publicar entratas public e datos associate (p.ex. votos e attachamentos multimedial).
+        profile:
+          name: Profilo extendite (lectura sol)
+          description: Isto concede le accesso in lectura sol al informationes de tu profilo extendite.
+        profile:modify:
+          name: Profilo extendite (scriptura)
+          description: Isto concede le accesso necessari pro actualisar le datos de tu profilo extendite.
+        profile:read_private:
+          name: Datos del profilo private (lectura sol)
+          description: Isto concede le accesso in lectura sol al datos de tu profilo private.
+        tags:read:
+          name: Etiquettas (lectura sol)
+          description: Isto concede le accesso in lectura sol al etiquettas e fluxos de etiquetta que tu seque.
+        tags:modify:
+          name: Etiquettas (scriptura)
+          description: Isto concede le accesso necessari pro modificar le etiquettas que tu seque.
+      error_page:
+        title: Un problema ha occurrite.
+        contact_developer: 'Per favor, contacta le programmator del application e include tote le message de error sequente:'
+        login_required: Tu debe aperir session ante de poter autorisar iste application
+        could_not_authorize: Le application non poteva esser autorisate
   people:
-    add_contact:
-      invited_by: "Tu ha essite invitate per"
-    index:
-      couldnt_find_them: "Non trovate?"
-      looking_for: "Cercar entratas con le etiquetta %{tag_link}?"
-      no_one_found: "Nulle persona ha essite trovate."
-      no_results: "Pro cercar, primo scribe alcun parolas."
-      results_for: "Usatores correspondente a %{search_term}"
-      search_handle: "Usa lor ID de diaspora* (p.ex. nominedeusator@pod.tld) pro cercar tu amicos."
-      searching: "Recerca in curso, un momento per favor..."
-      send_invite: "Ancora nihil? Invia un invitation!"
     person:
-      thats_you: "Es tu!"
-    profile_sidebar:
-      bio: "Bio"
-      born: "Data de nascentia"
-      gender: "Genere"
-      location: "Loco"
+      thats_you: Es tu!
+    index:
+      results_for: Usatores correspondente a %{search_term}
+      no_results: Pro cercar, primo scribe alcun parolas.
+      couldnt_find_them: Non trovate?
+      search_handle: Usa lor ID de diaspora* (p.ex. nominedeusator@pod.tld) pro cercar tu amicos.
+      send_invite: Ancora nihil? Invia un invitation!
+      no_one_found: Nulle persona ha essite trovate.
+      searching: Recerca in curso, un momento per favor...
+      looking_for: Cercar entratas con le etiquetta %{tag_link}?
     show:
-      closed_account: "Iste conto ha essite claudite."
-      does_not_exist: "Iste persona non existe!"
       has_not_shared_with_you_yet: "%{name} non ha ancora dividite alcun entrata con te!"
+      does_not_exist: Iste persona non existe!
+      closed_account: Iste conto ha essite claudite.
+    profile_sidebar:
+      bio: Bio
+      location: Loco
+      gender: Genere
+      born: Data de nascentia
+    add_contact:
+      invited_by: Tu ha essite invitate per
   photos:
     create:
-      integrity_error: "Le incargamento del photo ha fallite. Es tu secur que iste file contine un imagine?"
-      runtime_error: "Le incargamento del photo ha fallite a causa de un problema interne."
-      type_error: "Le incargamento del photo ha fallite. Es tu secur que un imagine ha essite addite?"
+      runtime_error: Le incargamento del photo ha fallite a causa de un problema interne.
+      integrity_error: Le incargamento del photo ha fallite. Es tu secur que iste file contine un imagine?
+      type_error: Le incargamento del photo ha fallite. Es tu secur que un imagine ha essite addite?
     destroy:
-      notice: "Photo delite."
+      notice: Photo delite.
     new_profile_photo:
-      upload: "Incargar un nove photo de profilo!"
+      upload: Incargar un nove photo de profilo!
   polls:
     votes:
+      zero: "%{count} votos usque ora"
       one: "%{count} voto usque ora"
       other: "%{count} votos usque ora"
-      zero: "%{count} votos usque ora"
   posts:
     presenter:
-      title: "Un entrata de %{name}"
+      title: Un entrata de %{name}
     show:
-      forbidden: "Tu non ha le permission de facer isto"
-      location: "Inviate ab: %{location}"
+      location: 'Inviate ab: %{location}'
+      forbidden: Tu non ha le permission de facer isto
       photos_by:
-        one: "Un photo per %{author}"
+        zero: Il non ha photos per %{author}
+        one: Un photo per %{author}
         other: "%{count} photos per %{author}"
-        zero: "Il non ha photos per %{author}"
-      reshare_by: "Repetite per %{author}"
-  privacy: "Confidentialitate"
-  profile: "Profilo"
+      reshare_by: Repetite per %{author}
+  report:
+    title: Summario de reportos
+    post_label: "<strong>Entrata</strong>: %{content}"
+    comment_label: "<strong>Commento</strong>: %{data}"
+    reported_label: "<strong>Signalate per</strong> %{person}"
+    reason_label: 'Motivo:'
+    review_link: Marcar como revidite
+    delete_link: Deler elemento
+    reported_user_details: Detalios sur le usator reportate
+    confirm_deletion: Es tu secur de voler deler le elemento?
+    not_found: Le entrata/commento non ha essite trovate. Pare que le usator lo ha delite.
+    status:
+      destroyed: Le entrata ha essite destruite
+      failed: Qualcosa ha errate
+    unreviewed_reports:
+      zero: Il non ha reportos non revidite.
+      one: Il ha un reporto non revidite.
+      other: Il ha %{count} reportos non revidite.
   profiles:
     edit:
-      allow_search: "Permitter que on te cerca in diaspora*"
-      basic: "Mi profilo basic"
-      basic_hint: "Cata elemento de tu profilo es optional. Le profilo basic es sempre visibile pro le publico."
-      extended: "Mi profilo extendite"
-      extended_hint: "Clicca sur le commutator pro definir le visibilitate de tu profilo extendite. \"Public\" vole dicer que illo es visibile pro tote le internet, \"limitate\" vole dicer que solmente le personas in tu aspectos de contacto videra iste information."
-      extended_visibility_text: "Visibilitate de tu profilo extendite:"
-      first_name: "Prenomine"
-      last_name: "Nomine de familia"
-      limited: "Limitate"
-      nsfw_check: "Marcar tote lo que io divide como NSFW"
-      nsfw_explanation: "NSFW (‘not safe for work’, non appropriate pro le travalio) es un standard communitari pro contento que poterea esser inappropriate durante que on es al travalio. Si tu intende a divider frequentemente tal material, per favor, marca iste option, de maniera que tote le cosas que tu divide essera celate pro le personas qui non ha optate pro vider los."
-      nsfw_explanation2: "Si tu non selige iste option, per favor, adde le etiquetta #nsfw cata vice que tu divide tal material."
-      public: "Public"
-      settings: "Configuration de profilo"
-      update_profile: "Actualisar profilo"
-      your_bio: "Tu bio"
-      your_birthday: "Tu data de nascentia"
-      your_gender: "Tu genere"
-      your_location: "Tu loco"
-      your_name: "Tu nomine"
-      your_photo: "Tu photo"
-      your_tags: "Describe te in 5 parolas"
-      your_tags_placeholder: "P.ex. #films #cattones #viages #docente #interlingua"
+      basic: Mi profilo basic
+      extended: Mi profilo extendite
+      settings: Configuration de profilo
+      extended_visibility_text: 'Visibilitate de tu profilo extendite:'
+      public: Public
+      limited: Limitate
+      basic_hint: Cata elemento de tu profilo es optional. Le profilo basic es sempre visibile pro le publico.
+      extended_hint: Clicca sur le commutator pro definir le visibilitate de tu profilo extendite. "Public" vole dicer que illo es visibile pro tote le internet, "limitate" vole dicer que solmente le personas in tu aspectos de contacto videra iste information.
+      your_name: Tu nomine
+      first_name: Prenomine
+      last_name: Nomine de familia
+      your_gender: Tu genere
+      your_birthday: Tu data de nascentia
+      your_tags: Describe te in 5 parolas
+      your_tags_placeholder: 'P.ex. #films #cattones #viages #docente #interlingua'
+      your_bio: Tu bio
+      your_location: Tu loco
+      your_photo: Tu photo
+      update_profile: Actualisar profilo
+      allow_search: Permitter que on te cerca in diaspora*
+      nsfw_explanation: NSFW (‘not safe for work’, non appropriate pro le travalio) es un standard communitari pro contento que poterea esser inappropriate durante que on es al travalio. Si tu intende a divider frequentemente tal material, per favor, marca iste option, de maniera que tote le cosas que tu divide essera celate pro le personas qui non ha optate pro vider los.
+      nsfw_explanation2: 'Si tu non selige iste option, per favor, adde le etiquetta #nsfw cata vice que tu divide tal material.'
+      nsfw_check: Marcar tote lo que io divide como NSFW
     update:
-      failed: "Le actualisation del profilo ha fallite"
-      updated: "Profilo actualisate"
-  public: "Public"
+      updated: Profilo actualisate
+      failed: Le actualisation del profilo ha fallite
   registrations:
-    closed:
-      another_pod: "un altere pod"
-      closed_pod: "Iste pod es actualmente claudite pro le creation de contos, ma tu pote totevia adherer al rete de diaspora* per inscriber te a %{wiki}. Post que tote le pods es interconnectite, tu potera acceder al mesme contento."
-      find_pods: "Un lista de pods ubi tu pote inscriber te se trova a %{fediverse_observer}."
-      other_questions: "Si tu ha altere questiones sur le election de un pod, consulta nostre %{wiki}."
-    create:
-      success: "Tu ha adherite a diaspora*!"
-    invalid_invite: "Le ligamine de invitation que tu ha fornite non plus es valide."
     new:
-      email: "E-mail"
-      enter_email: "Scribe tu adresse de e-mail"
-      enter_password: "Elige un contrasigno (de sex characteres al minimo)"
-      enter_password_again: "Repete le contrasigno"
-      enter_username: "Elige un nomine de usator (usa solmente litteras, numeros e tractos de sublineamento)"
-      password: "Contrasigno"
-      password_confirmation: "Confirma contrasigno"
-      sign_up: "Crear conto"
-      submitting: "Submitte…"
-      terms: "Per crear un conto tu accepta le %{terms_link}."
-      terms_link: "conditiones de servicio"
-      username: "Nomine de usator"
-  report:
-    comment_label: "<strong>Commento</strong>: %{data}"
-    confirm_deletion: "Es tu secur de voler deler le elemento?"
-    delete_link: "Deler elemento"
-    not_found: "Le entrata/commento non ha essite trovate. Pare que le usator lo ha delite."
-    post_label: "<strong>Entrata</strong>: %{content}"
-    reason_label: "Motivo:"
-    reported_label: "<strong>Signalate per</strong> %{person}"
-    reported_user_details: "Detalios sur le usator reportate"
-    review_link: "Marcar como revidite"
-    status:
-      destroyed: "Le entrata ha essite destruite"
-      failed: "Qualcosa ha errate"
-    title: "Summario de reportos"
-    unreviewed_reports:
-      one: "Il ha un reporto non revidite."
-      other: "Il ha %{count} reportos non revidite."
-      zero: "Il non ha reportos non revidite."
+      enter_email: Scribe tu adresse de e-mail
+      enter_username: Elige un nomine de usator (usa solmente litteras, numeros e tractos de sublineamento)
+      enter_password: Elige un contrasigno (de sex characteres al minimo)
+      enter_password_again: Repete le contrasigno
+      sign_up: Crear conto
+      email: E-mail
+      username: Nomine de usator
+      password: Contrasigno
+      password_confirmation: Confirma contrasigno
+      submitting: Submitte…
+      terms: Per crear un conto tu accepta le %{terms_link}.
+      terms_link: conditiones de servicio
+    create:
+      success: Tu ha adherite a diaspora*!
+    closed:
+      closed_pod: Iste pod es actualmente claudite pro le creation de contos, ma tu pote totevia adherer al rete de diaspora* per inscriber te a %{wiki}. Post que tote le pods es interconnectite, tu potera acceder al mesme contento.
+      another_pod: un altere pod
+      find_pods: Un lista de pods ubi tu pote inscriber te se trova a %{fediverse_observer}.
+      other_questions: Si tu ha altere questiones sur le election de un pod, consulta nostre %{wiki}.
+    invalid_invite: Le ligamine de invitation que tu ha fornite non plus es valide.
   reshares:
-    comment_email_subject: "Repetition de %{resharer} del entrata de %{author}"
     create:
-      error: "Repetition fallite."
+      error: Repetition fallite.
     reshare:
-      deleted: "Le entrata original ha essite delite per le autor."
-      reshare_confirmation: "Repeter le entrata de %{author}?"
-      reshared_via: "Repetite via"
-  search: "Cercar"
+      reshared_via: Repetite via
+      reshare_confirmation: Repeter le entrata de %{author}?
+      deleted: Le entrata original ha essite delite per le autor.
+    comment_email_subject: Repetition de %{resharer} del entrata de %{author}
   services:
-    create:
-      already_authorized: "Un usator con le ID de Diaspora \"%{diaspora_id}\" ha jam autorisate iste conto de %{service_name}."
-      failure: "Authentication fallite."
-      read_only_access: "Le nivello de accesso es lectura solmente. Per favor proba de authenticar de novo plus tarde."
-      success: "Authentication succedite."
-    destroy:
-      success: "Authentication delite con successo."
-    failure:
-      error: "Un error occurreva durante le connexion a iste servicio"
-    index:
-      connect: "Connecter"
-      disconnect: "Disconnecter"
-      edit_services: "Modificar servicios"
-      logged_in_as: "Connectite como %{nickname}."
-      no_services_available: "Il non ha servicios disponibile in iste pod."
-      not_logged_in: "Non connectite."
-      really_disconnect: "Disconnecter %{service}?"
-      services_explanation: "Le connexion a altere servicios da le possibilitate de publicar tu messages anque in illos quando tu los scribe in diaspora*."
-      share_to: "Divider sur %{provider}"
-      title: "Gerer servicios connectite"
     provider:
-      tumblr: "Tumblr"
-      twitter: "Twitter"
-      wordpress: "WordPress"
-  settings: "Configuration"
+      tumblr: Tumblr
+      twitter: Twitter
+      wordpress: WordPress
+    index:
+      title: Gerer servicios connectite
+      connect: Connecter
+      disconnect: Disconnecter
+      logged_in_as: Connectite como %{nickname}.
+      no_services_available: Il non ha servicios disponibile in iste pod.
+      not_logged_in: Non connectite.
+      really_disconnect: Disconnecter %{service}?
+      edit_services: Modificar servicios
+      services_explanation: Le connexion a altere servicios da le possibilitate de publicar tu messages anque in illos quando tu los scribe in diaspora*.
+      share_to: Divider sur %{provider}
+    create:
+      success: Authentication succedite.
+      failure: Authentication fallite.
+      already_authorized: Un usator con le ID de Diaspora "%{diaspora_id}" ha jam autorisate iste conto de %{service_name}.
+      read_only_access: Le nivello de accesso es lectura solmente. Per favor proba de authenticar de novo plus tarde.
+    destroy:
+      success: Authentication delite con successo.
+    failure:
+      error: Un error occurreva durante le connexion a iste servicio
+  blocks:
+    create:
+      success: 'In ordine, tu non plus videra iste usator in tu fluxo. #silentio!'
+      failure: 'Un error ha impedite de ignorar iste usator. #evasion'
+    destroy:
+      success: 'Que nos vide lo que iste usator ha a dicer! #salutes'
+      failure: 'Impossibile cessar de ignorar iste usator a causa de un error. #evasion'
   shared:
     aspect_dropdown:
       mobile_row_checked: "%{name} (remover)"
       mobile_row_unchecked: "%{name} (adder)"
       toggle:
-        one: "In %{count} aspecto"
-        other: "In %{count} aspectos"
-    invitations:
-      by_email: "Invitar personas per e-mail"
-      invite_your_friends: "Invitar tu amicos"
-      invites: "Invitationes"
-      share_this: "Divide iste ligamine per e-mail, blog o rete social!"
-    public_explain:
-      atom_feed: "Syndication Atom"
-      control_your_audience: "Eliger tu audientia"
-      logged_in: "Session aperite in %{service}"
-      manage: "Gerer servicios connectite"
-      new_user_welcome_message: "Usa #etiquettas pro classificar tu messages e trovar personas con interesses in commun. Commenda personas extraordinari con @Mentiones."
-      outside: "Le messages public essera visibile pro altere personas foras de diaspora*."
-      share: "Divider"
-      title: "Connecter altere servicios"
-      visibility_dropdown: "Iste menu disrolante es pro cambiar le visibilitate de tu message. (Nos suggere que tu rende iste prime message public.)"
+        one: In %{count} aspecto
+        other: In %{count} aspectos
     publisher:
-      discard_post: "Abandonar entrata"
-      formatWithMarkdown: "Tu pote usar %{markdown_link} pro formatar tu entrata"
-      get_location: "Localisar te"
+      formatWithMarkdown: Tu pote usar %{markdown_link} pro formatar tu entrata
+      posting: Invio in curso…
+      share: Divider
+      get_location: Localisar te
+      remove_location: Remover loco
+      whats_on_your_mind: De que pensa tu?
+      discard_post: Abandonar entrata
       new_user_prefill:
-        hello: "Salute, io es #%{new_user_tag}. "
-        i_like: "Io me interessa in %{tags}. "
-        invited_by: "Gratias pro le invitation, "
-        newhere: "novicio"
+        newhere: novicio
+        hello: 'Salute, io es #%{new_user_tag}. '
+        i_like: 'Io me interessa in %{tags}. '
+        invited_by: 'Gratias pro le invitation, '
       poll:
-        add_a_poll: "Adder un sondage"
-      posting: "Invio in curso…"
-      remove_location: "Remover loco"
-      share: "Divider"
-      whats_on_your_mind: "De que pensa tu?"
+        add_a_poll: Adder un sondage
+    invitations:
+      invites: Invitationes
+      invite_your_friends: Invitar tu amicos
+      by_email: Invitar personas per e-mail
+      share_this: Divide iste ligamine per e-mail, blog o rete social!
+    public_explain:
+      control_your_audience: Eliger tu audientia
+      new_user_welcome_message: 'Usa #etiquettas pro classificar tu messages e trovar personas con interesses in commun. Commenda personas extraordinari con @Mentiones.'
+      visibility_dropdown: Iste menu disrolante es pro cambiar le visibilitate de tu message. (Nos suggere que tu rende iste prime message public.)
+      title: Connecter altere servicios
+      share: Divider
+      outside: Le messages public essera visibile pro altere personas foras de diaspora*.
+      logged_in: Session aperite in %{service}
+      manage: Gerer servicios connectite
+      atom_feed: Syndication Atom
     stream_element:
-      via: "Via %{link}"
-      via_mobile: "Per mobile"
-  simple_captcha:
-    label: "Scribe le codice in le quadro:"
-    message:
-      default: "Le codice secrete non corresponde al imagine"
-      failed: "Verification human fallite"
-      user: "Le imagine secrete e le codice differe"
-    placeholder: "Scribe le valor"
-  statistics:
-    active_users_halfyear: "Usatores active per medie anno"
-    active_users_monthly: "Usatores active per mense"
-    closed: "Claudite"
-    disabled: "Non disponibile"
-    enabled: "Disponibile"
-    local_comments: "Commentos local"
-    local_posts: "Entratas local"
-    name: "Nomine"
-    network: "Rete"
-    open: "Aperte"
-    registrations: "Registrationes"
-    services: "Servicios"
-    total_users: "Total de usatores"
-    version: "Version"
+      via: Via %{link}
+      via_mobile: Per mobile
   status_messages:
-    bad_aspects: "Le IDs de aspectos fornite non es applicabile (non existe o nemo los possede)"
     new:
-      mentioning: "Mentiona: %{person}"
-    too_long: "Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres."
+      mentioning: 'Mentiona: %{person}'
+    too_long: Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres.
+    bad_aspects: Le IDs de aspectos fornite non es applicabile (non existe o nemo los possede)
   stream_helper:
-    no_more_posts: "Fin del fluxo."
-    no_posts_yet: "Il non ha ancora entratas."
-  streams:
-    activity:
-      title: "Mi activitate"
-    admin:
-      title: "Admin"
-    aspects:
-      all: "Tote le aspectos"
-      title: "Mi aspectos"
-    aspects_stream: "Aspectos"
-    comment_stream:
-      title: "Messages commentate"
-    commented:
-      title: "Entratas commentate"
-    community_spotlight_stream: "Usatores in evidentia"
-    followed_tag:
-      add_a_tag: "Adder un etiquetta"
-      all: "Tote le etiquettas"
-      follow: "Sequer"
-      title: "#Etiquettas sequite"
-    followed_tags_stream: "#Etiquettas sequite"
-    like_stream:
-      title: "Fluxo de entratas appreciate"
-    liked:
-      title: "Entratas appreciate"
-    local_public:
-      title: "Entratas local"
-    mentioned_stream: "@Mentiones"
-    mentions:
-      title: "@Mentiones"
-    multi:
-      title: "Fluxo"
-    public:
-      title: "Activitate public"
-    tags:
-      title: "Messages con etiquetta: %{tags}"
+    no_more_posts: Fin del fluxo.
+    no_posts_yet: Il non ha ancora entratas.
+  tags:
+    show:
+      tagged_people:
+        zero: Nemo con etiquetta %{tag}
+        one: 1 persona con etiquetta %{tag}
+        other: "%{count} personas con etiquetta %{tag}"
+      follow: 'Sequer #%{tag}'
+      stop_following: 'Non plus sequer #%{tag}'
+      none: Le etiquetta vacue non existe!
+    name_too_long: Per favor, non scribe plus de %{count} characteres in le nomine del etiquetta. In iste momento illo ha %{current_length} characteres.
   tag_followings:
     manage:
-      no_tags: "Tu non seque alcun etiquetta."
-      title: "Gerer etiquettas sequite"
-  tags:
-    name_too_long: "Per favor, non scribe plus de %{count} characteres in le nomine del etiquetta. In iste momento illo ha %{current_length} characteres."
-    show:
-      follow: "Sequer #%{tag}"
-      none: "Le etiquetta vacue non existe!"
-      stop_following: "Non plus sequer #%{tag}"
-      tagged_people:
-        one: "1 persona con etiquetta %{tag}"
-        other: "%{count} personas con etiquetta %{tag}"
-        zero: "Nemo con etiquetta %{tag}"
-  two_factor_auth:
-    activated:
-      change_button: "Disactivar"
-      change_label: "Disactiva le authentication bifactorial inserente tu contrasigno"
-      status: "Authentication bifactorial activate"
-    confirm:
-      activate_button: "Confirmar e activar"
-      input_explanation: "Post scannar o entrar le secreto, entra le codice a sex digitos que tu vide e confirma le activation."
-      input_title: "Confirmar con codice TOTP"
-      manual_explanation: "Si tu non succede a scannar automaticamente le codice QR, tu pote manualmente entrar le secreto in tu application."
-      manual_explanation_cont: "Nos usa \"time-based one-time passwords\" (TOTP, contrasignos temporal a uso unic) con codices a sex digitos. Si tu application te demanda un intervallo de tempore e un algorithmo, responde 30 secundas e sha1, respectivemente.<br />Le spatios es solmente pro lectura facile; per favor, entra le codice sin spatios."
-      scan_explanation: "Per favor, scanna le codice QR con un application con capabilitate TOTP, como andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
-      scan_title: "Scannar le codice QR"
-      status: "Le authentication bifactorial non es ancora activate completemente. Tu debe confirmar le activation con un codice TOTP."
-      title: "Confirmar activation"
-    deactivated:
-      change_button: "Activar"
-      change_label: "Activar authentication bifactorial"
-      status: "Authentication bifactorial non activate"
-    explanation: "Le authentication bifactorial es un maniera efficace de assecurar que tu es le unic persona que pote aperir session in tu conto. Quando tu aperi session, tu entrara un codice a 6 digitos accompaniante tu contrasigno pro provar tu identitate. Ma sia caute: si tu perde tu telephono e le codices de recuperation create quando tu activa iste function, le accesso a tu conto de diaspora* essera blocate pro sempre."
-    flash:
-      error_token: "Le codice es incorrecte o invalide"
-      success_activation: "Le activation del authentication bifactorial ha succedite"
-      success_deactivation: "Le disactivation del authentication bifactorial ha succedite"
-    input_token:
-      label: "Codice bifactorial"
-      placeholder: "codice bifactorial a sex digitos"
-    recovery:
-      button: "Generar nove codices de recuperation"
-      explanation: "In caso que tu perde le accesso a tu telephono, tu pote usar un del codices de recuperation sequente pro reganiar le accesso a tu conto. Mantene le codices de recuperation ben secur. Per exemplo, tu pote imprimer los e guardar los con altere documentos importante."
-      explanation_short: "Le codices de recuperation te permitte reganiar le accesso a tu conto si tu perde tu telephono. Nota ben que tu pote usar cata codice de recuperation solmente un vice."
-      invalidation_notice: "Si tu perde tu codices de recuperation, tu pote generar alteres hic. Le ancian codices de recuperation devenira invalide."
-      reminder: "Alternativemente, tu pote usar un del codices de recuperation."
-      title: "Codices de recuperation"
-    title: "Authentication bifactorial"
-  username: "Nomine de usator"
-  users:
-    confirm_email:
-      email_confirmed: "Adresse de e-mail %{email} activate"
-      email_not_confirmed: "Le adresse de e-mail non poteva esser activate. Ligamine incorrecte?"
-    destroy:
-      no_password: "Per favor entra tu contrasigno actual pro clauder tu conto."
-      success: "Tu conto ha essite blocate. Le clausura definitive de tu conto pote durar 20 minutas. Gratias pro haber essayate diaspora*."
-      wrong_password: "Le contrasigno entrate non corresponde a tu contrasigno actual."
-    edit:
-      also_commented: "un persona commenta un entrata que tu ha commentate"
-      auto_follow_aspect: "Aspecto pro usatores con que tu divide automaticamente:"
-      auto_follow_back: "Divider automaticamente con omne persona qui comencia a divider con te"
-      birthday: "un persona ha su anniversario"
-      change: "Cambiar"
-      change_color_theme: "Cambiar thema de colores"
-      change_email: "Cambiar adresse de e-mail"
-      change_language: "Cambiar lingua"
-      change_password: "Cambiar contrasigno"
-      character_minimum_expl: "al minus 6 characteres"
-      close_account:
-        dont_go: "Per favor, non parti!"
-        lock_username: "Tu nomine de usator essera blocate. Tu non potera crear un nove conto sur iste pod con le mesme ID."
-        locked_out: "Le session essera claudite e tu essera excludite del conto usque illo habera essite delite."
-        make_diaspora_better: "Nos amarea si tu remane e adjuta nos a meliorar diaspora* in vice de quitar. Nonobstante, si tu vermente vole quitar, ecce lo que evenira:"
-        mr_wiggles: "Sr. Wiggles essera triste de vider te partir"
-        no_turning_back: "Tu ha arrivate al puncto de non retorno! Si tu es vermente secur, scribe hic infra tu contrasigno."
-        what_we_delete: "Nos va deler, le plus tosto possibile, tote le entratas e datos de profilo pertinente a te. Tu commentos sur le entratas de altere personas remanera, ma essera associate a tu ID de diaspora* in loco de tu nomine."
-      close_account_text: "Clauder conto"
-      comment_on_post: "un persona commenta un entrata tue"
-      current_password: "Contrasigno actual"
-      current_password_expl: "illo con que tu aperi session..."
-      default_post_visibility: "Aspectos pre-seligite pro publicar entratas"
-      download_export: "Discargar mi profilo"
-      download_export_photos: "Discargar mi photos"
-      edit_account: "Modificar conto"
-      email_awaiting_confirmation: "Nos te ha inviate un ligamine de activation al adresse %{unconfirmed_email}. Usque al momento que tu seque iste ligamine pro activar le nove adresse, nos va continuar a usar tu adresse original %{email}."
-      export_data: "Exportar datos"
-      export_in_progress: "Nos prepara in iste momento un archivo de tu datos personal. Per favor, reveni in alcun momentos."
-      export_photos_in_progress: "Le tractamento de tu photos non ha ancora terminate. Per favor, essaya lo de novo in qualque momentos."
-      following: "Configuration de divider"
-      last_exported_html: "(Ultime actualisation %{timeago})"
-      liked: "un persona apprecia un entrata tue"
-      mentioned: "un persona te mentiona in un entrata sue"
-      mentioned_in_comment: "tu es mentionate in un commento"
-      new_password: "Contrasigno nove"
-      private_message: "tu recipe un message private"
-      protocol_handler:
-        browser: "Iste protocollo es actualmente in le stadio experimental e le successo del interactiones que lo usa dependera de tu navigator del web. Si tu vole modificar o remover iste gestor, tu debe facer lo via le configuration de tu navigator. Le button hic infra essera sempre activate, e tu debera configurar le gestor separatemente in cata navigator que tu usa."
-        description: "web+diaspora:// es un nove protocollo web que nos ha introducite. Omne ligamine a un pagina diaspora* sur un sito web externe que usa iste protocollo pote esser aperite in le pod que alberga tu conto diaspora*. Clicca sur le button hic infra pro facer que tu navigator del web usa %{pod_url} pro recognoscer le ligamines web+diaspora:// externe."
-        register: "Registrar le gestor web+diaspora:// sur iste navigator"
-        title: "Gestor de protocollo web+diaspora://"
-      receive_email_notifications: "Reciper notificationes per e-mail quando:"
-      request_export: "Requestar le datos de mi profilo"
-      request_export_photos: "Requestar mi photos"
-      request_export_photos_update: "Refrescar mi photos"
-      request_export_update: "Refrescar le datos de mi profilo"
-      reshared: "un persona repete un entrata tue"
-      show_community_spotlight: "Monstrar \"Usatores in evidentia\" in fluxo"
-      show_getting_started: "Monstrar le avisos \"Como initiar\""
-      someone_reported: "alcuno invia un reporto"
-      started_sharing: "un persona comencia a divider con te"
-      stream_preferences: "Preferentias de fluxo"
-      your_email: "Tu adresse de e-mail"
-      your_email_private: "Tu adresse de e-mail nunquam essera visibile pro altere usatores."
-      your_handle: "Tu ID de diaspora*"
-    getting_started:
-      awesome_take_me_to_diaspora: "Superbe! Conduce me a diaspora*"
-      community_welcome: "Le communitate de diaspora* es felice de accolliger te!"
-      hashtag_explanation: "Le #etiquettas permitte discuter e sequer tu interesses. Illos anque es un bon maniera de trovar nove personas in diaspora*."
-      hashtag_suggestions: "Tenta sequer etiquettas como #arte, #films, #gif, etc."
-      well_hello_there: "Salutationes a te!"
-      what_are_you_in_to: "Quales es tu interesses?"
-      who_are_you: "Qui es tu?"
-    privacy_settings:
-      ignored_users: "Usatores ignorate"
-      no_user_ignored_message: "Tu non ignora usatores in iste momento."
-      stop_ignoring: "Non plus ignorar"
-      strip_exif: "Remover le metadatos, p.ex. localitate, autor, modello de camera, de imagines incargate (recommendate)"
-      title: "Configuration de confidentialitate"
+      title: Gerer etiquettas sequite
+      no_tags: Tu non seque alcun etiquetta.
+  streams:
+    community_spotlight_stream: Usatores in evidentia
+    aspects_stream: Aspectos
+    mentioned_stream: "@Mentiones"
+    followed_tags_stream: "#Etiquettas sequite"
+    mentions:
+      title: "@Mentiones"
+    comment_stream:
+      title: Messages commentate
+    like_stream:
+      title: Fluxo de entratas appreciate
+    followed_tag:
+      title: "#Etiquettas sequite"
+      add_a_tag: Adder un etiquetta
+      follow: Sequer
+      all: Tote le etiquettas
+    admin:
+      title: Admin
+    tags:
+      title: 'Messages con etiquetta: %{tags}'
     public:
-      does_not_exist: "Le usator %{username} non existe!"
+      title: Activitate public
+    local_public:
+      title: Entratas local
+    multi:
+      title: Fluxo
+    aspects:
+      title: Mi aspectos
+      all: Tote le aspectos
+    activity:
+      title: Mi activitate
+    liked:
+      title: Entratas appreciate
+    commented:
+      title: Entratas commentate
+  users:
+    edit:
+      edit_account: Modificar conto
+      change: Cambiar
+      your_handle: Tu ID de diaspora*
+      your_email: Tu adresse de e-mail
+      your_email_private: Tu adresse de e-mail nunquam essera visibile pro altere usatores.
+      change_email: Cambiar adresse de e-mail
+      email_awaiting_confirmation: Nos te ha inviate un ligamine de activation al adresse %{unconfirmed_email}. Usque al momento que tu seque iste ligamine pro activar le nove adresse, nos va continuar a usar tu adresse original %{email}.
+      change_password: Cambiar contrasigno
+      new_password: Contrasigno nove
+      current_password: Contrasigno actual
+      current_password_expl: illo con que tu aperi session...
+      character_minimum_expl: al minus 6 characteres
+      change_language: Cambiar lingua
+      change_color_theme: Cambiar thema de colores
+      close_account_text: Clauder conto
+      stream_preferences: Preferentias de fluxo
+      show_community_spotlight: Monstrar "Usatores in evidentia" in fluxo
+      show_getting_started: Monstrar le avisos "Como initiar"
+      following: Configuration de divider
+      auto_follow_back: Divider automaticamente con omne persona qui comencia a divider con te
+      auto_follow_aspect: 'Aspecto pro usatores con que tu divide automaticamente:'
+      default_post_visibility: Aspectos pre-seligite pro publicar entratas
+      receive_email_notifications: 'Reciper notificationes per e-mail quando:'
+      started_sharing: un persona comencia a divider con te
+      someone_reported: alcuno invia un reporto
+      mentioned: un persona te mentiona in un entrata sue
+      mentioned_in_comment: tu es mentionate in un commento
+      liked: un persona apprecia un entrata tue
+      reshared: un persona repete un entrata tue
+      comment_on_post: un persona commenta un entrata tue
+      also_commented: un persona commenta un entrata que tu ha commentate
+      private_message: tu recipe un message private
+      birthday: un persona ha su anniversario
+      download_export: Discargar mi profilo
+      request_export: Requestar le datos de mi profilo
+      request_export_update: Refrescar le datos de mi profilo
+      export_data: Exportar datos
+      export_in_progress: Nos prepara in iste momento un archivo de tu datos personal. Per favor, reveni in alcun momentos.
+      last_exported_html: "(Ultime actualisation %{timeago})"
+      download_export_photos: Discargar mi photos
+      request_export_photos: Requestar mi photos
+      request_export_photos_update: Refrescar mi photos
+      export_photos_in_progress: Le tractamento de tu photos non ha ancora terminate. Per favor, essaya lo de novo in qualque momentos.
+      close_account:
+        dont_go: Per favor, non parti!
+        make_diaspora_better: 'Nos amarea si tu remane e adjuta nos a meliorar diaspora* in vice de quitar. Nonobstante, si tu vermente vole quitar, ecce lo que evenira:'
+        mr_wiggles: Sr. Wiggles essera triste de vider te partir
+        what_we_delete: Nos va deler, le plus tosto possibile, tote le entratas e datos de profilo pertinente a te. Tu commentos sur le entratas de altere personas remanera, ma essera associate a tu ID de diaspora* in loco de tu nomine.
+        locked_out: Le session essera claudite e tu essera excludite del conto usque illo habera essite delite.
+        lock_username: Tu nomine de usator essera blocate. Tu non potera crear un nove conto sur iste pod con le mesme ID.
+        no_turning_back: Tu ha arrivate al puncto de non retorno! Si tu es vermente secur, scribe hic infra tu contrasigno.
+      protocol_handler:
+        title: Gestor de protocollo web+diaspora://
+        description: web+diaspora:// es un nove protocollo web que nos ha introducite. Omne ligamine a un pagina diaspora* sur un sito web externe que usa iste protocollo pote esser aperite in le pod que alberga tu conto diaspora*. Clicca sur le button hic infra pro facer que tu navigator del web usa %{pod_url} pro recognoscer le ligamines web+diaspora:// externe.
+        browser: Iste protocollo es actualmente in le stadio experimental e le successo del interactiones que lo usa dependera de tu navigator del web. Si tu vole modificar o remover iste gestor, tu debe facer lo via le configuration de tu navigator. Le button hic infra essera sempre activate, e tu debera configurar le gestor separatemente in cata navigator que tu usa.
+        register: Registrar le gestor web+diaspora:// sur iste navigator
+    privacy_settings:
+      title: Configuration de confidentialitate
+      strip_exif: Remover le metadatos, p.ex. localitate, autor, modello de camera, de imagines incargate (recommendate)
+      ignored_users: Usatores ignorate
+      stop_ignoring: Non plus ignorar
+      no_user_ignored_message: Tu non ignora usatores in iste momento.
+    destroy:
+      success: Tu conto ha essite blocate. Le clausura definitive de tu conto pote durar 20 minutas. Gratias pro haber essayate diaspora*.
+      no_password: Per favor entra tu contrasigno actual pro clauder tu conto.
+      wrong_password: Le contrasigno entrate non corresponde a tu contrasigno actual.
+    getting_started:
+      well_hello_there: Salutationes a te!
+      community_welcome: Le communitate de diaspora* es felice de accolliger te!
+      awesome_take_me_to_diaspora: Superbe! Conduce me a diaspora*
+      who_are_you: Qui es tu?
+      what_are_you_in_to: Quales es tu interesses?
+      hashtag_explanation: 'Le #etiquettas permitte discuter e sequer tu interesses. Illos anque es un bon maniera de trovar nove personas in diaspora*.'
+      hashtag_suggestions: 'Tenta sequer etiquettas como #arte, #films, #gif, etc.'
     update:
-      color_theme_changed: "Le thema de colores ha essite cambiate."
-      color_theme_not_changed: "Un error ha occurrite durante le cambio de thema de colores."
-      email_notifications_changed: "Notificationes per e-mail cambiate"
-      follow_settings_changed: "Configuration de sequimento cambiate"
-      follow_settings_not_changed: "Cambiamento de configuration de sequimento fallite"
-      language_changed: "Tu ha cambiate de lingua"
-      language_not_changed: "Cambiamento de lingua fallite"
-      password_changed: "Contrasigno cambiate. Tu pote ora aperir session con tu nove contrasigno."
-      password_not_changed: "Le cambio del contrasigno ha fallite."
-      settings_not_updated: "Actualisation de configuration fallite"
-      settings_updated: "Configuration actualisate"
-      unconfirmed_email_changed: "Adresse de e-mail cambiate. Necessita activation."
-      unconfirmed_email_not_changed: "Cambio de e-mail fallite"
+      password_changed: Contrasigno cambiate. Tu pote ora aperir session con tu nove contrasigno.
+      password_not_changed: Le cambio del contrasigno ha fallite.
+      language_changed: Tu ha cambiate de lingua
+      language_not_changed: Cambiamento de lingua fallite
+      settings_updated: Configuration actualisate
+      settings_not_updated: Actualisation de configuration fallite
+      email_notifications_changed: Notificationes per e-mail cambiate
+      unconfirmed_email_changed: Adresse de e-mail cambiate. Necessita activation.
+      unconfirmed_email_not_changed: Cambio de e-mail fallite
+      follow_settings_changed: Configuration de sequimento cambiate
+      follow_settings_not_changed: Cambiamento de configuration de sequimento fallite
+      color_theme_changed: Le thema de colores ha essite cambiate.
+      color_theme_not_changed: Un error ha occurrite durante le cambio de thema de colores.
+    public:
+      does_not_exist: Le usator %{username} non existe!
+    confirm_email:
+      email_confirmed: Adresse de e-mail %{email} activate
+      email_not_confirmed: Le adresse de e-mail non poteva esser activate. Ligamine incorrecte?
+  two_factor_auth:
+    title: Authentication bifactorial
+    explanation: 'Le authentication bifactorial es un maniera efficace de assecurar que tu es le unic persona que pote aperir session in tu conto. Quando tu aperi session, tu entrara un codice a 6 digitos accompaniante tu contrasigno pro provar tu identitate. Ma sia caute: si tu perde tu telephono e le codices de recuperation create quando tu activa iste function, le accesso a tu conto de diaspora* essera blocate pro sempre.'
+    activated:
+      status: Authentication bifactorial activate
+      change_label: Disactiva le authentication bifactorial inserente tu contrasigno
+      change_button: Disactivar
+    deactivated:
+      status: Authentication bifactorial non activate
+      change_label: Activar authentication bifactorial
+      change_button: Activar
+    confirm:
+      title: Confirmar activation
+      status: Le authentication bifactorial non es ancora activate completemente. Tu debe confirmar le activation con un codice TOTP.
+      scan_title: Scannar le codice QR
+      scan_explanation: Per favor, scanna le codice QR con un application con capabilitate TOTP, como andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS).
+      manual_explanation: Si tu non succede a scannar automaticamente le codice QR, tu pote manualmente entrar le secreto in tu application.
+      manual_explanation_cont: Nos usa "time-based one-time passwords" (TOTP, contrasignos temporal a uso unic) con codices a sex digitos. Si tu application te demanda un intervallo de tempore e un algorithmo, responde 30 secundas e sha1, respectivemente.<br />Le spatios es solmente pro lectura facile; per favor, entra le codice sin spatios.
+      input_title: Confirmar con codice TOTP
+      input_explanation: Post scannar o entrar le secreto, entra le codice a sex digitos que tu vide e confirma le activation.
+      activate_button: Confirmar e activar
+    input_token:
+      label: Codice bifactorial
+      placeholder: codice bifactorial a sex digitos
+    recovery:
+      title: Codices de recuperation
+      reminder: Alternativemente, tu pote usar un del codices de recuperation.
+      explanation: In caso que tu perde le accesso a tu telephono, tu pote usar un del codices de recuperation sequente pro reganiar le accesso a tu conto. Mantene le codices de recuperation ben secur. Per exemplo, tu pote imprimer los e guardar los con altere documentos importante.
+      explanation_short: Le codices de recuperation te permitte reganiar le accesso a tu conto si tu perde tu telephono. Nota ben que tu pote usar cata codice de recuperation solmente un vice.
+      invalidation_notice: Si tu perde tu codices de recuperation, tu pote generar alteres hic. Le ancian codices de recuperation devenira invalide.
+      button: Generar nove codices de recuperation
+    flash:
+      success_activation: Le activation del authentication bifactorial ha succedite
+      success_deactivation: Le disactivation del authentication bifactorial ha succedite
+      error_token: Le codice es incorrecte o invalide
   will_paginate:
-    next_label: "sequente &raquo;"
     previous_label: "&laquo; precedente"
+    next_label: sequente &raquo;
+  simple_captcha:
+    placeholder: Scribe le valor
+    label: 'Scribe le codice in le quadro:'
+    message:
+      default: Le codice secrete non corresponde al imagine
+      user: Le imagine secrete e le codice differe
+      failed: Verification human fallite
+  statistics:
+    name: Nomine
+    network: Rete
+    services: Servicios
+    total_users: Total de usatores
+    active_users_halfyear: Usatores active per medie anno
+    active_users_monthly: Usatores active per mense
+    local_posts: Entratas local
+    local_comments: Commentos local
+    version: Version
+    registrations: Registrationes
+    enabled: Disponibile
+    disabled: Non disponibile
+    open: Aperte
+    closed: Claudite

@@ -5,323 +5,323 @@
 
 
 mk:
-  _applications: "Апликации"
-  _contacts: "Контакти"
-  _services: "Сервиси"
-  account: "Корисничка сметка"
+  settings: Подесувања
+  profile: Профил
+  account: Корисничка сметка
+  privacy: Приватност
+  _services: Сервиси
+  _applications: Апликации
+  ok: ОК
+  cancel: Откажи
+  delete: Избриши
+  username: Корисничко име
+  email: Е-маил
+  are_you_sure: Дали сте сигурни?
+  are_you_sure_delete_account: Дали сте сигурни дека сакате да ја избришете вашата корисничка сметка? После ова не можете да ја вратите.
+  fill_me_out: Пополни ме
+  public: Јавно
+  limited: Ограничено
+  search: Барај
+  nsfw: За возрасни
+  find_people: 'Пронајди пријатели или #тагови'
+  more: Повеќе
+  all_aspects: All aspects
+  no_results: Нема резултати
+  _contacts: Контакти
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            person:
+              invalid: е навалиден.
+            username:
+              taken: е веќе искористено.
+              invalid: is invalid. We only allow letters, numbers, and underscores
+            email:
+              taken: е веќе искористена.
         person:
           attributes:
             diaspora_handle:
-              taken: "е веќе искористено."
+              taken: е веќе искористено.
         reshare:
           attributes:
             root_guid:
-              taken: "You've already reshared that post!"
-        user:
-          attributes:
-            email:
-              taken: "е веќе искористена."
-            person:
-              invalid: "е навалиден."
-            username:
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
-              taken: "е веќе искористено."
-  all_aspects: "All aspects"
-  are_you_sure: "Дали сте сигурни?"
-  are_you_sure_delete_account: "Дали сте сигурни дека сакате да ја избришете вашата корисничка сметка? После ова не можете да ја вратите."
-  aspects:
-    add_to_aspect:
-      failure: "Неуспешно додавање на контактот во аспект."
-      success: "Успешно додаден контактот во аспект."
-    destroy:
-      success: "%{name} е отстранет успешно."
-    edit:
-      rename: "реименувај"
-      update: "ажурирај"
-      updating: "ажурирање"
-    index:
-      donate: "Донирај"
-      help:
-        do_you: "Дали"
-        have_a_question: "...има %{link}"
-        here_to_help: "Diaspora community is here to help!"
-        need_help: "Помош?"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
-      new_here:
-        learn_more: "Научи повеќе"
-    no_contacts_message:
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-    seed:
-      family: "Фамилија"
-      friends: "Пријатели"
-      work: "Работа"
-    update:
-      success: "Вашиот аспект, %{name}, беше успешно уреден."
-  bookmarklet:
-    explanation: "%{link} from anywhere by bookmarking this link."
-    heading: "Diaspora Bookmarklet"
-  cancel: "Откажи"
-  comments:
-    new_comment:
-      comment: "Коментар"
-      commenting: "Коментирање..."
-  contacts:
-    index:
-      all_contacts: "Сите контакти"
-      my_contacts: "Мои контакти"
-      no_contacts: "No contacts."
-      no_contacts_message: "Провери %{community_spotlight}"
-      start_a_conversation: "Започни разговор"
-      title: "Контакти"
-  conversations:
-    create:
-      fail: "Невалидна порака"
-      sent: "Пораката е пратена"
-    index:
-      inbox: "Сандаче"
-      no_messages: "нема пораки"
-    new:
-      send: "Прати"
-      sending: "Праќање..."
-      subject: "Наслов"
-      to: "до"
-    show:
-      delete: "избриши и блокирај разговор"
-      reply: "врати"
-  delete: "Избриши"
-  email: "Е-маил"
+              taken: You've already reshared that post!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Поправете ги следниве грешки и обидете се повторно."
-  fill_me_out: "Пополни ме"
-  find_people: "Пронајди пријатели или #тагови"
+      correct_the_following_errors_and_try_again: Поправете ги следниве грешки и обидете се повторно.
+  aspects:
+    edit:
+      rename: реименувај
+      update: ажурирај
+      updating: ажурирање
+    no_contacts_message:
+      try_adding_some_more_contacts: You can search (top) or invite (right) more contacts.
+    destroy:
+      success: "%{name} е отстранет успешно."
+    update:
+      success: Вашиот аспект, %{name}, беше успешно уреден.
+    add_to_aspect:
+      failure: Неуспешно додавање на контактот во аспект.
+      success: Успешно додаден контактот во аспект.
+    seed:
+      family: Фамилија
+      work: Работа
+      friends: Пријатели
+    index:
+      donate: Донирај
+      new_here:
+        learn_more: Научи повеќе
+      help:
+        need_help: Помош?
+        here_to_help: Diaspora community is here to help!
+        do_you: Дали
+        have_a_question: "...има %{link}"
+        tag_question: "#question"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+  bookmarklet:
+    heading: Diaspora Bookmarklet
+    explanation: "%{link} from anywhere by bookmarking this link."
+  comments:
+    new_comment:
+      comment: Коментар
+      commenting: Коментирање...
+  contacts:
+    index:
+      start_a_conversation: Започни разговор
+      title: Контакти
+      no_contacts: No contacts.
+      no_contacts_message: Провери %{community_spotlight}
+      my_contacts: Мои контакти
+      all_contacts: Сите контакти
+  conversations:
+    index:
+      no_messages: нема пораки
+      inbox: Сандаче
+    show:
+      reply: врати
+      delete: избриши и блокирај разговор
+    new:
+      to: до
+      subject: Наслов
+      send: Прати
+      sending: Праќање...
+    create:
+      sent: Пораката е пратена
+      fail: Невалидна порака
   invitations:
     create:
-      no_more: "Немате повеќе покани."
-      rejected: "Следните е-маил адреси имаа проблем:"
-      sent: "Поканите беа испратени кон:"
+      sent: 'Поканите беа испратени кон:'
+      rejected: 'Следните е-маил адреси имаа проблем:'
+      no_more: Немате повеќе покани.
     new:
-      invite_someone_to_join: "Поканете некој да се придружи на Diaspora!"
-      language: "Јазик"
-      send_an_invitation: "Испрати покана"
+      language: Јазик
+      invite_someone_to_join: Поканете некој да се придружи на Diaspora!
+      send_an_invitation: Испрати покана
   layouts:
     header:
-      code: "код"
-      logout: "одјави се"
-      profile: "profile"
-      settings: "settings"
-  limited: "Ограничено"
-  more: "Повеќе"
-  no_results: "Нема резултати"
+      profile: profile
+      settings: settings
+      logout: одјави се
+      code: код
   notifications:
-    also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-    also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
-    comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
-    index:
-      and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
-    liked:
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
-    mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
-    reshared:
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
-    reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
     started_sharing:
+      zero: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
-      two: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
+    private_message:
+      zero: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+    comment_on_post:
+      zero: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+    also_commented:
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+    mentioned:
+      zero: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} has mentioned you in a %{post_link}."
+      many: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} has mentioned you in a %{post_link}."
+    liked:
+      zero: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
+      few: "%{actors} has just liked your %{post_link}."
+      many: "%{actors} has just liked your %{post_link}."
+      other: "%{actors} has just liked your %{post_link}."
+    reshared:
+      zero: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+    also_commented_deleted:
+      zero: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+    liked_post_deleted:
+      zero: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+    reshared_post_deleted:
+      zero: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+    mentioned_deleted:
+      zero: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+    index:
+      and_others:
+        zero: and nobody else
+        one: and one more
+        two: and %{count} others
+        few: and %{count} others
+        many: and %{count} others
+        other: and %{count} others
   notifier:
-    confirm_email:
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    hello: "Здраво %{name}!"
+    hello: Здраво %{name}!
+    single_admin:
+      subject: 'A message from your Diaspora administrator:'
+    started_sharing:
+      subject: "%{name} has started sharing with you on Diaspora*"
     liked:
       liked: "%{name} has just liked your post: "
     reshared:
       reshared: "%{name} just reshared your post"
-    single_admin:
-      subject: "A message from your Diaspora administrator:"
-    started_sharing:
-      subject: "%{name} has started sharing with you on Diaspora*"
-  nsfw: "За возрасни"
-  ok: "ОК"
+    confirm_email:
+      subject: Please activate your new e-mail address %{unconfirmed_email}
+      click_link: 'To activate your new e-mail address %{unconfirmed_email}, please click this link:'
   people:
-    index:
-      results_for: "резултати од пребарување за"
     person:
-      thats_you: "тоа си ти!"
-    profile_sidebar:
-      bio: "Биографија"
-      born: "роденден"
-      gender: "пол"
+      thats_you: тоа си ти!
+    index:
+      results_for: резултати од пребарување за
     show:
-      does_not_exist: "Личноста не постои!"
+      does_not_exist: Личноста не постои!
+    profile_sidebar:
+      bio: Биографија
+      gender: пол
+      born: роденден
   photos:
     destroy:
-      notice: "Сликата е избришана."
+      notice: Сликата е избришана.
   posts:
     show:
       photos_by:
+        zero: No photos by %{author}
+        one: One photo by %{author}
+        two: Two photos by %{author}
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
-  privacy: "Приватност"
-  profile: "Профил"
   profiles:
     edit:
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-  public: "Јавно"
+      your_tags: 'You: in 5 #tags'
+      your_tags_placeholder: 'i.e. #diaspora #ironing #kittens #music'
   registrations:
-    create:
-      success: "Вие и се придруживте на Diaspora!"
     new:
-      enter_email: "Enter an e-mail"
+      enter_email: Enter an e-mail
+    create:
+      success: Вие и се придруживте на Diaspora!
   reshares:
     reshare:
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-  search: "Барај"
+      reshare_confirmation: Reshare %{author} - %{text}?
   services:
-    create:
-      success: "Автентификацијата е успешна!"
-    destroy:
-      success: "Успешно уништена автентификација."
     index:
-      disconnect: "прекини"
-      logged_in_as: "најавен како"
-      really_disconnect: "прекини %{service}?"
-  settings: "Подесувања"
+      disconnect: прекини
+      logged_in_as: најавен како
+      really_disconnect: прекини %{service}?
+    create:
+      success: Автентификацијата е успешна!
+    destroy:
+      success: Успешно уништена автентификација.
   shared:
     aspect_dropdown:
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add to aspect"
-    invitations:
-      by_email: "by Email"
-    public_explain:
-      logged_in: "најавен во %{service}"
-      manage: "менаџирај ги поврзаните сервиси"
-      outside: "Јавните пораки ќе бидат достапни за сите кои се надвор од Diaspora."
-      title: "На пат сте да испратите јавна порака!"
+        zero: Add to aspect
+        one: In %{count} aspect
+        two: In %{count} aspects
+        few: In %{count} aspects
+        many: In %{count} aspects
+        other: In %{count} aspects
     publisher:
+      posting: Објавување...
+      share: Сподели
+      whats_on_your_mind: what's on your mind?
       new_user_prefill:
-        i_like: "I'm interested in %{tags}."
-      posting: "Објавување..."
-      share: "Сподели"
-      whats_on_your_mind: "what's on your mind?"
+        i_like: I'm interested in %{tags}.
+    invitations:
+      by_email: by Email
+    public_explain:
+      title: На пат сте да испратите јавна порака!
+      outside: Јавните пораки ќе бидат достапни за сите кои се надвор од Diaspora.
+      logged_in: најавен во %{service}
+      manage: менаџирај ги поврзаните сервиси
   status_messages:
-    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
+    too_long: '{"few"=>"please make your status messages less than %{count} characters", "many"=>"please make your status messages less than %{count} characters", "one"=>"please make your status messages less than %{count} character", "other"=>"please make your status messages less than %{count} characters", "two"=>"please make your status messages less than %{count} characters", "zero"=>"please make your status messages less than %{count} characters"}'
   streams:
-    aspects:
-      title: "Your Aspects"
     mentions:
-      title: "Your Mentions"
-  username: "Корисничко име"
+      title: Your Mentions
+    aspects:
+      title: Your Aspects
   users:
-    confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
-      auto_follow_back: "Automatically follow back if a someone follows you"
-      change_email: "Change E-Mail"
-      change_language: "Промени јазик"
-      change_password: "Промени лозинка"
+      your_handle: Вашето diaspora корисничко име
+      your_email: Вашиот е-маил
+      change_email: Change E-Mail
+      email_awaiting_confirmation: We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}.
+      change_password: Промени лозинка
+      new_password: Нова лозинка
+      change_language: Промени јазик
+      auto_follow_back: Automatically follow back if a someone follows you
+      receive_email_notifications: Receive email notificaions?
+      export_data: Изнеси податоци
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
-      export_data: "Изнеси податоци"
-      new_password: "Нова лозинка"
-      receive_email_notifications: "Receive email notificaions?"
-      your_email: "Вашиот е-маил"
-      your_handle: "Вашето diaspora корисничко име"
-    public:
-      does_not_exist: "Корисникот %{username} не постои!"
+        what_we_delete: We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle.
     update:
-      email_notifications_changed: "Language Change Failed"
-      language_changed: "Јазикот е променет"
-      language_not_changed: "Изменувањето на јазик е неуспешно"
-      password_changed: "Лозинката е променета"
-      password_not_changed: "Промената на лозинка е неуспешна"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      password_changed: Лозинката е променета
+      password_not_changed: Промената на лозинка е неуспешна
+      language_changed: Јазикот е променет
+      language_not_changed: Изменувањето на јазик е неуспешно
+      email_notifications_changed: Language Change Failed
+      unconfirmed_email_changed: E-Mail Changed. Needs activation.
+      unconfirmed_email_not_changed: E-Mail Change Failed
+    public:
+      does_not_exist: Корисникот %{username} не постои!
+    confirm_email:
+      email_confirmed: E-Mail %{email} activated
+      email_not_confirmed: E-Mail could not be activated. Wrong link?

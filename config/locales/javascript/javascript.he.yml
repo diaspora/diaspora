@@ -6,145 +6,145 @@
 
 he:
   javascripts:
-    and: "וגם"
-    aspect_dropdown:
-      add_to_aspect: "הוספת איש קשר"
-      all_aspects: "כל ההיבטים"
-      error: "לא ניתן להתחיל לשתף את <%= name %>. האם אתם מתעלמים מהם?"
-      error_remove: "לא ניתן להסיר את <%= name %> מההיבט :("
-      select_aspects: "בחירת היבטים"
-      started_sharing_with: "התחלת לשתף עם <%= name %>!"
-      stopped_sharing_with: "הפסקת לשתף עם <%= name %>."
-      toggle:
-        one: "בהיבט אחד"
-        other: "ב-<%= count %> היבטים"
-        zero: "בחר היבט"
-    aspect_navigation:
-      add_an_aspect: "+ הוספת היבט"
-      deselect_all: "ביטול בחירה"
-      no_aspects: "לא נבחר היבט"
-      select_all: "בחר הכל"
-    comma: ","
-    comments:
-      hide: "הסתרת תגובות"
-      no_comments: "אין תגובות כרגע."
-      show: "הצגת כל התגובות"
-    confirm_dialog: "האם אתם בטוחים?"
-    delete: "מחיקה"
-    edit: "עריכה"
-    failed_to_post_message: "פרסום ההודעה נכשל!"
-    failed_to_remove: "הנסיון להסיר את הערך נכשל!"
-    getting_started:
-      alright_ill_wait: "בסדר, אני אמתין."
-      hey: "שלום, <%= name %>!"
-      no_tags: "הי, לא עקבתם אחרי אף תגית! האם להמשיך בכל זאת?"
-      preparing_your_stream: "מכין את החדשות המותאמות עבורך..."
-    header:
-      admin: "ניהול"
-      close: "סגירה"
-      contacts: "אנשי קשר"
-      conversations: "שיחות"
-      help: "עזרה"
-      home: "בית"
-      log_out: "התנתקות"
-      mark_all_as_read: "סימון הכל כנקרא"
-      notifications: "התראות"
-      profile: "פרופיל "
-      recent_notifications: "התראות אחרונות"
-      search: "חיפוש"
-      settings: "הגדרות"
-      view_all: "הצגת הכל"
-    ignore: "התעלמות"
-    ignore_user: "להתעלם ממשמש זה?"
-    my_activity: "הפעילות שלי"
-    my_aspects: "ההיבטים שלי"
-    my_stream: "חדשות"
-    notifications:
-      mark_read: "סימון כנקרא"
-      mark_unread: "סימון כלא נקרא"
-    people:
-      not_found: "ואף לא אחד נמצא..."
-    photo_uploader:
-      completed: "<%= file %> הושלמה"
-      empty: "הקובץ {file} ריק, נא לבחור קבצים בשנית בלעדיו"
-      error: "אירעה בעיה בעת העלאת <%= file %>"
-      invalid_ext: "לקובץ {file} יש סיומת לא מוכרת. רק הסיומות הבאות מותרות: {extensions}"
-      looking_good: "נראה טוב!"
-      size_error: "הקובץ {file} גדול מדי, גודל הקובץ המירבי הוא {sizeLimit}."
-    poll:
-      close_result: "הסתרת תוצאה"
-      count:
-        one: "הצבעה אחת עד כה"
-        other: "<%=count%> הצבעות עד כה"
-      result: "תוצאה"
-      show_result: "הצגת תוצאה"
-      vote: "הצבעה"
-    publisher:
-      add_option: "הוספת אפשרות"
-      near_from: "פורסם מ<%= location %>"
-      option: "אפשרות <%= nr %>"
-      question: "שאלה"
-    reshares:
-      post: "האם לשתף מחדש את ההודעה של <%= name %>?"
-      successful: "ההודעה שותפה מחדש בהצלחה!"
-    show_more: "הצגת עוד"
-    stream:
-      comment: "תגובה"
-      follow: "עקיבה"
-      followed_tag:
-        add_a_tag: "הוספת תגית"
-        follow: "עקיבה"
-        title: "תגיות נעקבות"
-      hide: "הסתר"
-      hide_nsfw_posts: "הסתרת הודעות שאינן מתאימות לצפיה בציבור (nsfw#)"
-      like: "אהבתי"
-      likes:
-        one: "מישהו אחד אוהב את זה"
-        other: "<%= count %> אנשים אוהבים את זה"
-        zero: "<%= count %> אנשים אוהבים את זה"
-      limited: "מוגבל"
-      more_comments:
-        one: "הצגת תגובה אחת נוספת"
-        other: "הצגת <%= count %> תגובות נוספות"
-        zero: "הצגת <%= count %> תגובות נוספות"
-      original_post_deleted: "ההודעה המקורית נמחקה על ידי הכותב."
-      public: "ציבורי"
-      reshare: "שיתוף מחדש"
-      reshares:
-        one: "שיתוף מחדש אחד"
-        other: "<%= count %> שיתופים מחדש"
-        zero: "<%= count %> שיתופים מחדש"
-      show_nsfw_post: "הצגת ההודעה"
-      show_nsfw_posts: "הצגת הכל"
-      tags:
-        follow: "עקוב אחרי #<%= tag %>"
-        following: "עוקב אחרי #<%= tag %>"
-        stop_following: "הפסק מעקב אחר #<%= tag %>"
-      unfollow: "הפסקת עקיבה"
-      unlike: "לא אהבתי"
-      via: "באמצעות <%= provider %>"
-    tags:
-      wasnt_that_interesting: "בסדר, כנראה שהתגית #<%= tagName %> לא הייתה מעניינת במיוחד..."
     timeago:
-      day: "יום"
-      days:
-        other: "%d ימים"
-      hour: "כשעה"
-      hours:
-        other: "כ-%d שעות"
-      minute: "כדקה"
+      prefixAgo: לפני
+      suffixAgo: ''
+      suffixFromNow: מעכשיו
+      prefixFromNow: מעכשיו
+      seconds: פחות מדקה
+      minute: כדקה
       minutes:
         other: "%d דקות"
-      month: "כחודש"
+      hour: כשעה
+      hours:
+        other: כ-%d שעות
+      day: יום
+      days:
+        other: "%d ימים"
+      month: כחודש
       months:
         other: "%d חודשים"
-      prefixAgo: "לפני"
-      prefixFromNow: "מעכשיו"
-      seconds: "פחות מדקה"
-      suffixAgo: ""
-      suffixFromNow: "מעכשיו"
-      year: "כשנה"
+      year: כשנה
       years:
         other: "%d שנים"
+    confirm_dialog: האם אתם בטוחים?
+    delete: מחיקה
+    ignore: התעלמות
+    ignore_user: להתעלם ממשמש זה?
+    and: וגם
+    comma: ","
+    edit: עריכה
+    my_activity: הפעילות שלי
+    my_stream: חדשות
+    my_aspects: ההיבטים שלי
+    publisher:
+      near_from: פורסם מ<%= location %>
+      option: אפשרות <%= nr %>
+      add_option: הוספת אפשרות
+      question: שאלה
+    aspect_dropdown:
+      add_to_aspect: הוספת איש קשר
+      select_aspects: בחירת היבטים
+      all_aspects: כל ההיבטים
+      stopped_sharing_with: הפסקת לשתף עם <%= name %>.
+      started_sharing_with: התחלת לשתף עם <%= name %>!
+      error: לא ניתן להתחיל לשתף את <%= name %>. האם אתם מתעלמים מהם?
+      error_remove: לא ניתן להסיר את <%= name %> מההיבט :(
+      toggle:
+        zero: בחר היבט
+        one: בהיבט אחד
+        other: ב-<%= count %> היבטים
+    show_more: הצגת עוד
+    failed_to_post_message: פרסום ההודעה נכשל!
+    failed_to_remove: הנסיון להסיר את הערך נכשל!
+    comments:
+      show: הצגת כל התגובות
+      hide: הסתרת תגובות
+      no_comments: אין תגובות כרגע.
+    reshares:
+      successful: ההודעה שותפה מחדש בהצלחה!
+      post: האם לשתף מחדש את ההודעה של <%= name %>?
+    aspect_navigation:
+      select_all: בחר הכל
+      deselect_all: ביטול בחירה
+      no_aspects: לא נבחר היבט
+      add_an_aspect: "+ הוספת היבט"
+    getting_started:
+      hey: שלום, <%= name %>!
+      no_tags: הי, לא עקבתם אחרי אף תגית! האם להמשיך בכל זאת?
+      alright_ill_wait: בסדר, אני אמתין.
+      preparing_your_stream: מכין את החדשות המותאמות עבורך...
+    photo_uploader:
+      looking_good: נראה טוב!
+      completed: "<%= file %> הושלמה"
+      error: אירעה בעיה בעת העלאת <%= file %>
+      invalid_ext: 'לקובץ {file} יש סיומת לא מוכרת. רק הסיומות הבאות מותרות: {extensions}'
+      size_error: הקובץ {file} גדול מדי, גודל הקובץ המירבי הוא {sizeLimit}.
+      empty: הקובץ {file} ריק, נא לבחור קבצים בשנית בלעדיו
+    tags:
+      wasnt_that_interesting: 'בסדר, כנראה שהתגית #<%= tagName %> לא הייתה מעניינת במיוחד...'
+    people:
+      not_found: ואף לא אחד נמצא...
+    notifications:
+      mark_read: סימון כנקרא
+      mark_unread: סימון כלא נקרא
+    stream:
+      hide: הסתר
+      public: ציבורי
+      limited: מוגבל
+      like: אהבתי
+      unlike: לא אהבתי
+      reshare: שיתוף מחדש
+      comment: תגובה
+      original_post_deleted: ההודעה המקורית נמחקה על ידי הכותב.
+      show_nsfw_post: הצגת ההודעה
+      show_nsfw_posts: הצגת הכל
+      hide_nsfw_posts: הסתרת הודעות שאינן מתאימות לצפיה בציבור (nsfw#)
+      follow: עקיבה
+      unfollow: הפסקת עקיבה
+      via: באמצעות <%= provider %>
+      likes:
+        zero: "<%= count %> אנשים אוהבים את זה"
+        one: מישהו אחד אוהב את זה
+        other: "<%= count %> אנשים אוהבים את זה"
+      reshares:
+        zero: "<%= count %> שיתופים מחדש"
+        one: שיתוף מחדש אחד
+        other: "<%= count %> שיתופים מחדש"
+      more_comments:
+        zero: הצגת <%= count %> תגובות נוספות
+        one: הצגת תגובה אחת נוספת
+        other: הצגת <%= count %> תגובות נוספות
+      followed_tag:
+        title: תגיות נעקבות
+        add_a_tag: הוספת תגית
+        follow: עקיבה
+      tags:
+        follow: 'עקוב אחרי #<%= tag %>'
+        following: 'עוקב אחרי #<%= tag %>'
+        stop_following: 'הפסק מעקב אחר #<%= tag %>'
+    header:
+      home: בית
+      profile: 'פרופיל '
+      contacts: אנשי קשר
+      settings: הגדרות
+      help: עזרה
+      admin: ניהול
+      log_out: התנתקות
+      notifications: התראות
+      conversations: שיחות
+      search: חיפוש
+      recent_notifications: התראות אחרונות
+      mark_all_as_read: סימון הכל כנקרא
+      view_all: הצגת הכל
+      close: סגירה
     viewer:
-      reshared: "בוצע שיתוף מחדש"
+      reshared: בוצע שיתוף מחדש
+    poll:
+      vote: הצבעה
+      result: תוצאה
+      count:
+        one: הצבעה אחת עד כה
+        other: "<%=count%> הצבעות עד כה"
+      show_result: הצגת תוצאה
+      close_result: הסתרת תוצאה

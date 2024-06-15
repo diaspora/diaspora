@@ -6,239 +6,239 @@
 
 hu:
   javascripts:
-    admin:
-      pods:
-        follow_link: "hivatkozás megnyitása böngészőben"
-        ssl_enabled: "SSL engedélyezve"
-    and: "és"
-    aspect_dropdown:
-      add_to_aspect: "Hozzáadás a csoporthoz"
-      all_aspects: "Összes csoport"
-      error: "Nem indult el a megosztás vele: <%= name %>. Visszavonod?"
-      error_remove: "<%= name %> nem távolítható el a csoportból :("
-      select_aspects: "Csoportok kiválasztása"
-      started_sharing_with: "Mostantól megosztasz vele: <%= name %>!"
-      stopped_sharing_with: "Nem osztasz meg többé vele: <%= name %>."
-      toggle:
-        few: "<%= count %> csoportban"
-        many: "<%= count %> csoportban"
-        one: "<%= count %> csoportban"
-        other: "<%= count %> csoportban"
-        two: "<%= count %> csoportban"
-        zero: "Csoportok kiválasztása"
-      updating: "frissítés..."
-    aspect_navigation:
-      add_an_aspect: "+ Új csoport"
-      deselect_all: "Összes kijelölés megszüntetése"
-      no_aspects: "Nincs csoport kiválasztva"
-      select_all: "Mindent kijelöl"
-    aspects:
-      create:
-        add_a_new_aspect: "Új csoport hozzáadása"
-        success: "Az új csoportod létrejött (<%= name %>)"
-    bookmarklet:
-      post_something: "Hozz létre bejegyzést"
-      post_submit: "Bejegyzés közzététele..."
-      post_success: "Közzétéve! A felugró ablak bezáródik..."
-    cancel: "Mégsem"
-    comma: ","
-    comments:
-      hide: "hozzászólások elrejtése"
-      no_comments: "Még nincs hozzászólás."
-      show: "összes hozzászólás"
-    confirm_dialog: "Biztos vagy benne?"
-    contacts:
-      add_contact: "Ismerős hozzáadása"
-      remove_contact: "Ismerős eltávolítása"
-      search_no_results: "Nincsenek kapcsolatok"
-    conversation:
-      create:
-        no_recipient: "Először meg kell adnod egy címzettet!"
-      new:
-        no_contacts: "Először hozzá kell adnod ismerősöket, ha társalogni szeretnél valakivel."
-    create: "Létrehozás"
-    delete: "Töröl"
-    edit: "Szerkesztés"
-    failed_to_post_message: "Üzenet elküldése sikertelen!"
-    failed_to_remove: "Nem sikerült eltávolítani az elemet!"
-    getting_started:
-      alright_ill_wait: "Rendben, várok!"
-      hey: "Szia <%= name %>!"
-      no_tags: "Hé, még egyetlen címkét sem követsz! Így is folytatod?"
-      preparing_your_stream: "Személyre szabott hírfolyamod előkészítése..."
-    header:
-      admin: "Adminisztráció"
-      close: "bezárás"
-      contacts: "Ismerősök"
-      conversations: "Társalgások"
-      help: "Súgó"
-      home: "Kezdőlap"
-      log_out: "Kijelentkezés"
-      mark_all_as_read: "Összes olvasottnak jelölése"
-      notifications: "Értesítések"
-      profile: "Profil"
-      recent_notifications: "Friss értesítések"
-      search: "Keresés"
-      settings: "Beállítások"
-      view_all: "Összes"
-    hide_post: "Bejegyzés elrejetése?"
-    hide_post_failed: "Bejegyzés elrejtése nem lehetséges"
-    ignore: "Mellőzés"
-    ignore_failed: "Nem sikerült mellőzni ezt a felhasználót"
-    ignore_user: "Felhasználó mellőzése?"
-    my_activity: "Tevékenységeim"
-    my_aspects: "Csoportjaim"
-    my_stream: "Hírfolyam"
-    no_results: "Nincs találat"
-    notifications:
-      mark_read: "Olvasottnak jelöl"
-      mark_unread: "Olvasatlannak jelöl"
-      new_notifications:
-        other: "<%= count %> olvasatlan értesítésed van"
-    people:
-      edit_my_profile: "Profilom szerkesztése"
-      mention: "Említés"
-      message: "Üzenet"
-      not_found: "és nem találni senkit..."
-      stop_ignoring: "Mellőzés megszüntetése"
-    photo_uploader:
-      completed: "<%= file %> feltöltve"
-      empty: "{file} üres, kérlek válassz képeket újra, mellőzve a jelenlegit."
-      error: "Hiba történt a(z) \"<%= file %>\" nevű állomány feltöltésekor"
-      invalid_ext: "{file} érvénytelen kiterjesztésű. Csak {extensions} használata megengedett."
-      looking_good: "Azt a mindenit! Remekül nézel ki!"
-      size_error: "{file} túl nagy, az állomány mérete legfeljebb {sizeLimit} lehet."
-      upload_photos: "Kép feltöltése"
-    poll:
-      answer_count:
-        other: "<%=count%> szavazat"
-        zero: "0 szavazat"
-      close_result: "Eredmény rejtése"
-      count:
-        other: "<%=count%> szavazat eddig"
-      original_post: "eredeti bejegyzés"
-      result: "Eredmény"
-      show_result: "Eredmény mutatása"
-      vote: "Szavazás"
-      your_vote: "A te szavazatod"
-    profile:
-      add_some: "adj meg néhányat"
-      bio: "személyes"
-      born: "születésnap"
-      edit: "szerkesztés"
-      gender: "nem"
-      location: "lakóhely"
-      photos: "Képek"
-      posts: "bejegyzések"
-      you_have_no_tags: "nincsenek címkéid!"
-    publisher:
-      add_option: "Válasz hozzáadása"
-      markdown_editor:
-        preview: "Előnézet"
-        texts:
-          heading: "címsor szövege"
-          insert_image_description_text: "ide írd be a kép leírását"
-          insert_image_help_text: "A beillesztendő kép elérési címe"
-          insert_image_title: "ide írd be a kép címét"
-          insert_link_description_text: "ide írd be a hivatkozás leírását"
-          insert_link_help_text: "A beillesztendő hivatkozás"
-          italic: "dőlt szöveg"
-        tooltips:
-          bold: "Félkövér"
-          cancel: "Szerkesztés megszakítása"
-          code: "Kód beillesztése"
-          heading: "Címsor"
-          insert_image: "Kép beillesztése"
-          insert_link: "Hivatkozás beillesztése"
-          insert_ordered_list: "Rendezett lista beillesztése"
-          insert_unordered_list: "Rendezetlen lista beillesztése"
-          italic: "Dőlt"
-          preview: "Az üzenet előnézete"
-          quote: "Idézet beillesztése"
-          write: "Üzenet szerkesztése"
-        write: "Szöveg"
-      near_from: "<%= location %> közelében"
-      option: "Válasz"
-      question: "Kérdés"
-    remove_post: "Bejegyzés törlése?"
-    report:
-      name: "Jelentés"
-      prompt: "Kérünk adj meg egy indokot:"
-      prompt_default: "pl. sértő tartalom"
-      status:
-        created: "A jelentés sikeresen létrehozva"
-        exists: "A jelentés már létezik"
-    reshares:
-      post: "Szeretnéd továbbosztani <%= name %> bejegyzését?"
-      successful: "A bejegyzés sikeresen megosztva."
-    show_more: "tovább"
-    stream:
-      comment: "Hozzászólás"
-      disable_post_notifications: "Értesítések tiltása a bejegyzéshez"
-      enable_post_notifications: "Értesítések engedélyezése a bejegyzéshez"
-      follow: "Követem"
-      followed_tag:
-        add_a_tag: "Címke hozzáadása"
-        follow: "Követés"
-        title: "#követett címkék"
-      hide: "Elrejtés"
-      hide_nsfw_posts: "#nsfw bejegyzések rejtése"
-      like: "Tetszik"
-      likes:
-        other: "<%= count %> személy kedveli"
-        zero: "<%= count %> kedveli"
-      limited: "Korlátozott"
-      more_comments:
-        few: "Mutasd a többi <%= count %> hozzászólást"
-        many: "Mutasd a további <%= count %> hozzászólást"
-        one: "Mutasd a többi <%= count %> hozzászólást"
-        other: "Mutasd a többi <%= count %> hozzászólást"
-        two: "Mutasd a többi <%= count %> hozzászólást"
-        zero: "Mutasd a többi <%= count %> hozzászólást"
-      no_posts_yet: "Még nincs megjeleníthető bejegyzés."
-      original_post_deleted: "Az eredeti bejegyzést a szerző törölte."
-      permalink: "Közvetlen hivatkozás"
-      public: "Nyilvános"
-      reshare: "Megosztás"
-      reshares:
-        few: "<%= count %> megosztás"
-        many: "<%= count %> megosztás"
-        one: "<%= count %> megosztás"
-        other: "<%= count %> megosztás"
-        two: "<%= count %> megosztás"
-        zero: "<%= count %> megosztás"
-      show_nsfw_post: "Bejegyzés megjelenítése"
-      show_nsfw_posts: "Összes megjelenítése"
-      tags:
-        follow: "címke követése"
-        following: "#<%= tag %> követve"
-        stop_following: "követés leállítása #<%= tag %>"
-      unfollow: "Nem követem"
-      unlike: "Nem tetszik"
-      via: "<%= provider %> használatával"
-    tags:
-      wasnt_that_interesting: "Oké, a(z) #<%= tagName %> címke talán mégsem volt annyira érdekes."
     timeago:
-      day: "egy nappal"
-      days:
-        other: "%d nappal"
-      hour: "körülbelül egy órával"
-      hours:
-        other: "körülbelül %d órával"
-      minute: "körülbelül egy perccel"
+      prefixAgo: ''
+      suffixAgo: ezelőtt
+      suffixFromNow: mostantól
+      prefixFromNow: ''
+      seconds: kevesebb mint egy perccel
+      minute: körülbelül egy perccel
       minutes:
         other: "%d perccel"
-      month: "körülbelül egy hónappal"
+      hour: körülbelül egy órával
+      hours:
+        other: körülbelül %d órával
+      day: egy nappal
+      days:
+        other: "%d nappal"
+      month: körülbelül egy hónappal
       months:
         other: "%d hónappal"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "kevesebb mint egy perccel"
-      suffixAgo: "ezelőtt"
-      suffixFromNow: "mostantól"
-      wordSeparator: " "
-      year: "körülbelül egy évvel"
+      year: körülbelül egy évvel
       years:
         other: "%d évvel"
+      wordSeparator: " "
+    cancel: Mégsem
+    confirm_dialog: Biztos vagy benne?
+    create: Létrehozás
+    delete: Töröl
+    ignore: Mellőzés
+    report:
+      prompt: 'Kérünk adj meg egy indokot:'
+      prompt_default: pl. sértő tartalom
+      name: Jelentés
+      status:
+        created: A jelentés sikeresen létrehozva
+        exists: A jelentés már létezik
+    ignore_user: Felhasználó mellőzése?
+    ignore_failed: Nem sikerült mellőzni ezt a felhasználót
+    hide_post: Bejegyzés elrejetése?
+    hide_post_failed: Bejegyzés elrejtése nem lehetséges
+    remove_post: Bejegyzés törlése?
+    and: és
+    comma: ","
+    edit: Szerkesztés
+    no_results: Nincs találat
+    admin:
+      pods:
+        ssl_enabled: SSL engedélyezve
+        follow_link: hivatkozás megnyitása böngészőben
+    aspects:
+      create:
+        add_a_new_aspect: Új csoport hozzáadása
+        success: Az új csoportod létrejött (<%= name %>)
+    contacts:
+      add_contact: Ismerős hozzáadása
+      remove_contact: Ismerős eltávolítása
+      search_no_results: Nincsenek kapcsolatok
+    my_activity: Tevékenységeim
+    my_stream: Hírfolyam
+    my_aspects: Csoportjaim
+    publisher:
+      near_from: "<%= location %> közelében"
+      option: Válasz
+      add_option: Válasz hozzáadása
+      question: Kérdés
+      markdown_editor:
+        preview: Előnézet
+        write: Szöveg
+        tooltips:
+          bold: Félkövér
+          italic: Dőlt
+          heading: Címsor
+          insert_link: Hivatkozás beillesztése
+          insert_image: Kép beillesztése
+          insert_ordered_list: Rendezett lista beillesztése
+          insert_unordered_list: Rendezetlen lista beillesztése
+          preview: Az üzenet előnézete
+          write: Üzenet szerkesztése
+          cancel: Szerkesztés megszakítása
+          quote: Idézet beillesztése
+          code: Kód beillesztése
+        texts:
+          italic: dőlt szöveg
+          heading: címsor szövege
+          insert_link_description_text: ide írd be a hivatkozás leírását
+          insert_link_help_text: A beillesztendő hivatkozás
+          insert_image_description_text: ide írd be a kép leírását
+          insert_image_help_text: A beillesztendő kép elérési címe
+          insert_image_title: ide írd be a kép címét
+    bookmarklet:
+      post_something: Hozz létre bejegyzést
+      post_submit: Bejegyzés közzététele...
+      post_success: Közzétéve! A felugró ablak bezáródik...
+    aspect_dropdown:
+      add_to_aspect: Hozzáadás a csoporthoz
+      select_aspects: Csoportok kiválasztása
+      all_aspects: Összes csoport
+      updating: frissítés...
+      stopped_sharing_with: 'Nem osztasz meg többé vele: <%= name %>.'
+      started_sharing_with: 'Mostantól megosztasz vele: <%= name %>!'
+      error: 'Nem indult el a megosztás vele: <%= name %>. Visszavonod?'
+      error_remove: "<%= name %> nem távolítható el a csoportból :("
+      toggle:
+        zero: Csoportok kiválasztása
+        one: "<%= count %> csoportban"
+        two: "<%= count %> csoportban"
+        few: "<%= count %> csoportban"
+        many: "<%= count %> csoportban"
+        other: "<%= count %> csoportban"
+    show_more: tovább
+    failed_to_post_message: Üzenet elküldése sikertelen!
+    failed_to_remove: Nem sikerült eltávolítani az elemet!
+    comments:
+      show: összes hozzászólás
+      hide: hozzászólások elrejtése
+      no_comments: Még nincs hozzászólás.
+    reshares:
+      successful: A bejegyzés sikeresen megosztva.
+      post: Szeretnéd továbbosztani <%= name %> bejegyzését?
+    aspect_navigation:
+      select_all: Mindent kijelöl
+      deselect_all: Összes kijelölés megszüntetése
+      no_aspects: Nincs csoport kiválasztva
+      add_an_aspect: "+ Új csoport"
+    getting_started:
+      hey: Szia <%= name %>!
+      no_tags: Hé, még egyetlen címkét sem követsz! Így is folytatod?
+      alright_ill_wait: Rendben, várok!
+      preparing_your_stream: Személyre szabott hírfolyamod előkészítése...
+    photo_uploader:
+      upload_photos: Kép feltöltése
+      looking_good: Azt a mindenit! Remekül nézel ki!
+      completed: "<%= file %> feltöltve"
+      error: Hiba történt a(z) "<%= file %>" nevű állomány feltöltésekor
+      invalid_ext: "{file} érvénytelen kiterjesztésű. Csak {extensions} használata megengedett."
+      size_error: "{file} túl nagy, az állomány mérete legfeljebb {sizeLimit} lehet."
+      empty: "{file} üres, kérlek válassz képeket újra, mellőzve a jelenlegit."
+    tags:
+      wasnt_that_interesting: 'Oké, a(z) #<%= tagName %> címke talán mégsem volt annyira érdekes.'
+    people:
+      not_found: és nem találni senkit...
+      mention: Említés
+      message: Üzenet
+      edit_my_profile: Profilom szerkesztése
+      stop_ignoring: Mellőzés megszüntetése
+    profile:
+      edit: szerkesztés
+      add_some: adj meg néhányat
+      you_have_no_tags: nincsenek címkéid!
+      bio: személyes
+      location: lakóhely
+      gender: nem
+      born: születésnap
+      photos: Képek
+      posts: bejegyzések
+    conversation:
+      create:
+        no_recipient: Először meg kell adnod egy címzettet!
+      new:
+        no_contacts: Először hozzá kell adnod ismerősöket, ha társalogni szeretnél valakivel.
+    notifications:
+      mark_read: Olvasottnak jelöl
+      mark_unread: Olvasatlannak jelöl
+      new_notifications:
+        other: "<%= count %> olvasatlan értesítésed van"
+    stream:
+      hide: Elrejtés
+      public: Nyilvános
+      limited: Korlátozott
+      like: Tetszik
+      unlike: Nem tetszik
+      reshare: Megosztás
+      comment: Hozzászólás
+      original_post_deleted: Az eredeti bejegyzést a szerző törölte.
+      show_nsfw_post: Bejegyzés megjelenítése
+      show_nsfw_posts: Összes megjelenítése
+      hide_nsfw_posts: "#nsfw bejegyzések rejtése"
+      follow: Követem
+      unfollow: Nem követem
+      enable_post_notifications: Értesítések engedélyezése a bejegyzéshez
+      disable_post_notifications: Értesítések tiltása a bejegyzéshez
+      permalink: Közvetlen hivatkozás
+      via: "<%= provider %> használatával"
+      no_posts_yet: Még nincs megjeleníthető bejegyzés.
+      likes:
+        zero: "<%= count %> kedveli"
+        other: "<%= count %> személy kedveli"
+      reshares:
+        zero: "<%= count %> megosztás"
+        one: "<%= count %> megosztás"
+        two: "<%= count %> megosztás"
+        few: "<%= count %> megosztás"
+        many: "<%= count %> megosztás"
+        other: "<%= count %> megosztás"
+      more_comments:
+        zero: Mutasd a többi <%= count %> hozzászólást
+        one: Mutasd a többi <%= count %> hozzászólást
+        two: Mutasd a többi <%= count %> hozzászólást
+        few: Mutasd a többi <%= count %> hozzászólást
+        many: Mutasd a további <%= count %> hozzászólást
+        other: Mutasd a többi <%= count %> hozzászólást
+      followed_tag:
+        title: "#követett címkék"
+        add_a_tag: Címke hozzáadása
+        follow: Követés
+      tags:
+        follow: címke követése
+        following: "#<%= tag %> követve"
+        stop_following: 'követés leállítása #<%= tag %>'
+    header:
+      home: Kezdőlap
+      profile: Profil
+      contacts: Ismerősök
+      settings: Beállítások
+      help: Súgó
+      admin: Adminisztráció
+      log_out: Kijelentkezés
+      notifications: Értesítések
+      conversations: Társalgások
+      search: Keresés
+      recent_notifications: Friss értesítések
+      mark_all_as_read: Összes olvasottnak jelölése
+      view_all: Összes
+      close: bezárás
     viewer:
-      reshared: "Megosztva"
+      reshared: Megosztva
+    poll:
+      vote: Szavazás
+      original_post: eredeti bejegyzés
+      result: Eredmény
+      count:
+        other: "<%=count%> szavazat eddig"
+      answer_count:
+        zero: 0 szavazat
+        other: "<%=count%> szavazat"
+      show_result: Eredmény mutatása
+      close_result: Eredmény rejtése
+      your_vote: A te szavazatod

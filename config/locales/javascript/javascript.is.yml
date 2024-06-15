@@ -6,130 +6,130 @@
 
 is:
   javascripts:
-    and: "og"
-    aspect_dropdown:
-      add_to_aspect: "Add to aspect"
-      all_aspects: "Allar sýnir"
-      error: "Gat ekki byrjað deilingu með <%= name %>.  Ertu að hunsa þá?"
-      error_remove: "Gat ekki fjarlægt <%= name %> úr þessari ásýnd :("
-      select_aspects: "Veldu sýn"
-      started_sharing_with: "You have started sharing with <%= name %>!"
-      stopped_sharing_with: "You have stopped sharing with <%= name %>."
-      toggle:
-        one: "Í <%= count %> ásýnd"
-        other: "Í <%= count %> ásýndum"
-        zero: "Velja ásýndir"
-    aspect_navigation:
-      add_an_aspect: "+ Bæta við sýn"
-      deselect_all: "Velja ekkert"
-      no_aspects: "Engin sýn valin"
-      select_all: "Velja allt"
-    comma: ","
-    comments:
-      hide: "Fela athugasemdir"
-      no_comments: "Það eru engar athugasemdir komnar."
-      show: "Birta allar athugasemdir"
-    confirm_dialog: "Ertu viss?"
-    delete: "Eyða"
-    edit: "Breyta"
-    failed_to_post_message: "Tókst ekki að senda skeytið!"
-    getting_started:
-      alright_ill_wait: "Ekkert mál, ég get beðið."
-      hey: "Hey, <%= name %>!"
-      no_tags: "Hey, þú hefur ekki valið að fylgjast með neinum merkjum! Halda samt áfram?"
-      preparing_your_stream: "Preparing your personialized stream..."
-    header:
-      admin: "Kerfisstjórn"
-      close: "Loka"
-      contacts: "Tengiliðir"
-      help: "Hjálp"
-      home: "Heim"
-      log_out: "Aftengjast"
-      mark_all_as_read: "Merkja allt sem lesið"
-      notifications: "Tilkynningar"
-      profile: "Síðan mín"
-      recent_notifications: "Nýlegar tilkynningar"
-      search: "Find people or #tags"
-      settings: "Stillingar"
-      view_all: "Skoða allt"
-    ignore_user: "Horfa framhjá þessum notanda?"
-    my_aspects: "Mínar ásýndir"
-    notifications:
-      mark_read: "Merkja sem lesið"
-      mark_unread: "Merkja sem ólesið"
-    people:
-      not_found: "og engin fannst..."
-    photo_uploader:
-      completed: "<%= file %> móttekin"
-      empty: "{file} skráin er tóm, veldu skrárnar aftur en slepptu þessari skrá."
-      invalid_ext: "{file} er með ógilda skráarendingu. Aðeins {extensions} eru leyfðar."
-      looking_good: "Vá, þú lítur vel út!"
-      size_error: "{file} skráin er of stór, hámarksstærð er {sizeLimit}."
-    poll:
-      close_result: "Fela niðurstöður"
-      result: "Niðurstaða"
-      show_result: "Birta niðurstöður"
-    publisher:
-      near_from: "Sennt inn nálægt: <%= location %>"
-    reshares:
-      post: "Deila áfram færslu frá <%= name %>?"
-      successful: "Tókst að deila þessu skeyti áfram!"
-    show_more: "Sýna meira"
-    stream:
-      comment: "Athugasemd"
-      follow: "Fyljgast með"
-      followed_tag:
-        add_a_tag: "Bæta við merki"
-        title: "#Merki sem fylgst er með"
-      hide: "Fela"
-      hide_nsfw_posts: "Fela skeyti sem hennta ekki vinnu"
-      like: "Líka við"
-      likes:
-        one: "<%= count %> líkar"
-        other: "<%= count %> líkar"
-        zero: "<%= count %> líkar"
-      limited: "Takmarkað"
-      more_comments:
-        one: "Birta <%= count %> athugasemd til viðbótar"
-        other: "Birta <%= count %> athugasemdir til viðbótar"
-        zero: "Birta <%= count %> athugasemd til viðbótar"
-      original_post_deleted: "Upphaflegri færslu var eytt af höfundinum"
-      public: "Aðengilegt"
-      reshare: "Deila áfram"
-      reshares:
-        one: "<%= count %> endurdeiling"
-        other: "<%= count %> endurdeilingar"
-        zero: "<%= count %> endurdeilingar"
-      show_nsfw_post: "Sýna skeyti"
-      show_nsfw_posts: "Sýna öll skeyti"
-      tags:
-        follow: "Fylgjast með #<%= tag %>"
-        following: "Fylgist með #<%= tag %>"
-        stop_following: "Hætta að fylgjast með #<%= tag %>"
-      unfollow: "Hætta að fylgjast með"
-      unlike: "Hætta við að líka við"
-    tags:
-      wasnt_that_interesting: "Gott og vel, ætli #<%= tagName %> sé nokkuð svo áhugavert..."
     timeago:
-      day: "á dag"
-      days:
-        other: "%d dagar"
-      hour: "um klukkustund"
-      hours:
-        other: "um það bil %d klukkutímar"
-      minute: "um eina mínútu"
+      prefixAgo: fyrir
+      suffixAgo: síðan
+      suffixFromNow: ''
+      prefixFromNow: eftir
+      seconds: minna en mínútu
+      minute: um eina mínútu
       minutes:
         other: "%d mínútur"
-      month: "um það bil mánuð"
+      hour: um klukkustund
+      hours:
+        other: um það bil %d klukkutímar
+      day: á dag
+      days:
+        other: "%d dagar"
+      month: um það bil mánuð
       months:
         other: "%d mánuðir"
-      prefixAgo: "fyrir"
-      prefixFromNow: "eftir"
-      seconds: "minna en mínútu"
-      suffixAgo: "síðan"
-      suffixFromNow: ""
-      year: "um það bil ár"
+      year: um það bil ár
       years:
         other: "%d ára"
+    confirm_dialog: Ertu viss?
+    delete: Eyða
+    ignore_user: Horfa framhjá þessum notanda?
+    and: og
+    comma: ","
+    edit: Breyta
+    my_aspects: Mínar ásýndir
+    publisher:
+      near_from: 'Sennt inn nálægt: <%= location %>'
+    aspect_dropdown:
+      add_to_aspect: Add to aspect
+      select_aspects: Veldu sýn
+      all_aspects: Allar sýnir
+      stopped_sharing_with: You have stopped sharing with <%= name %>.
+      started_sharing_with: You have started sharing with <%= name %>!
+      error: Gat ekki byrjað deilingu með <%= name %>.  Ertu að hunsa þá?
+      error_remove: Gat ekki fjarlægt <%= name %> úr þessari ásýnd :(
+      toggle:
+        zero: Velja ásýndir
+        one: Í <%= count %> ásýnd
+        other: Í <%= count %> ásýndum
+    show_more: Sýna meira
+    failed_to_post_message: Tókst ekki að senda skeytið!
+    comments:
+      show: Birta allar athugasemdir
+      hide: Fela athugasemdir
+      no_comments: Það eru engar athugasemdir komnar.
+    reshares:
+      successful: Tókst að deila þessu skeyti áfram!
+      post: Deila áfram færslu frá <%= name %>?
+    aspect_navigation:
+      select_all: Velja allt
+      deselect_all: Velja ekkert
+      no_aspects: Engin sýn valin
+      add_an_aspect: "+ Bæta við sýn"
+    getting_started:
+      hey: Hey, <%= name %>!
+      no_tags: Hey, þú hefur ekki valið að fylgjast með neinum merkjum! Halda samt áfram?
+      alright_ill_wait: Ekkert mál, ég get beðið.
+      preparing_your_stream: Preparing your personialized stream...
+    photo_uploader:
+      looking_good: Vá, þú lítur vel út!
+      completed: "<%= file %> móttekin"
+      invalid_ext: "{file} er með ógilda skráarendingu. Aðeins {extensions} eru leyfðar."
+      size_error: "{file} skráin er of stór, hámarksstærð er {sizeLimit}."
+      empty: "{file} skráin er tóm, veldu skrárnar aftur en slepptu þessari skrá."
+    tags:
+      wasnt_that_interesting: 'Gott og vel, ætli #<%= tagName %> sé nokkuð svo áhugavert...'
+    people:
+      not_found: og engin fannst...
+    notifications:
+      mark_read: Merkja sem lesið
+      mark_unread: Merkja sem ólesið
+    stream:
+      hide: Fela
+      public: Aðengilegt
+      limited: Takmarkað
+      like: Líka við
+      unlike: Hætta við að líka við
+      reshare: Deila áfram
+      comment: Athugasemd
+      original_post_deleted: Upphaflegri færslu var eytt af höfundinum
+      show_nsfw_post: Sýna skeyti
+      show_nsfw_posts: Sýna öll skeyti
+      hide_nsfw_posts: Fela skeyti sem hennta ekki vinnu
+      follow: Fyljgast með
+      unfollow: Hætta að fylgjast með
+      likes:
+        zero: "<%= count %> líkar"
+        one: "<%= count %> líkar"
+        other: "<%= count %> líkar"
+      reshares:
+        zero: "<%= count %> endurdeilingar"
+        one: "<%= count %> endurdeiling"
+        other: "<%= count %> endurdeilingar"
+      more_comments:
+        zero: Birta <%= count %> athugasemd til viðbótar
+        one: Birta <%= count %> athugasemd til viðbótar
+        other: Birta <%= count %> athugasemdir til viðbótar
+      followed_tag:
+        title: "#Merki sem fylgst er með"
+        add_a_tag: Bæta við merki
+      tags:
+        follow: 'Fylgjast með #<%= tag %>'
+        following: 'Fylgist með #<%= tag %>'
+        stop_following: 'Hætta að fylgjast með #<%= tag %>'
+    header:
+      home: Heim
+      profile: Síðan mín
+      contacts: Tengiliðir
+      settings: Stillingar
+      help: Hjálp
+      admin: Kerfisstjórn
+      log_out: Aftengjast
+      notifications: Tilkynningar
+      search: 'Find people or #tags'
+      recent_notifications: Nýlegar tilkynningar
+      mark_all_as_read: Merkja allt sem lesið
+      view_all: Skoða allt
+      close: Loka
     viewer:
-      reshared: "Deilt áfram"
+      reshared: Deilt áfram
+    poll:
+      result: Niðurstaða
+      show_result: Birta niðurstöður
+      close_result: Fela niðurstöður

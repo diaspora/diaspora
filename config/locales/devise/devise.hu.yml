@@ -7,88 +7,88 @@
 hu:
   devise:
     confirmations:
-      confirmed: "Az e-mail címedet sikeresen megerősítetted."
+      confirmed: Az e-mail címedet sikeresen megerősítetted.
+      send_instructions: Pár percen belül kapsz egy e-mailt, benne a megerősítéshez szükséges utasításokkal.
       new:
-        resend_confirmation: "Megerősítési utasítások újraküldése"
-      send_instructions: "Pár percen belül kapsz egy e-mailt, benne a megerősítéshez szükséges utasításokkal."
+        resend_confirmation: Megerősítési utasítások újraküldése
     failure:
-      inactive: "A fiókodat még nem aktiváltad."
-      invalid: "Érvénytelen %{authentication_keys} vagy jelszó."
-      invalid_token: "Érvénytelen hitelesítési azonosító."
-      locked: "A fiókod zárolva van."
-      not_found_in_database: "Érvénytelen %{authentication_keys} vagy jelszó."
-      timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
-      unauthenticated: "A továbblépéshez bejelentkezés vagy regisztráció szükséges."
-      unconfirmed: "A folytatáshoz meg kell erősítened az e-mail címedet."
-    invitations:
-      invitation_token_invalid: "Sajnáljuk, de a meghívás nem érvényes."
-      send_instructions: "A meghívód elküldve."
-      updated: "A jelszó beállítva. Bejelentkeztél."
+      inactive: A fiókodat még nem aktiváltad.
+      invalid: Érvénytelen %{authentication_keys} vagy jelszó.
+      locked: A fiókod zárolva van.
+      not_found_in_database: Érvénytelen %{authentication_keys} vagy jelszó.
+      timeout: A munkamenet lejárt, kérjük jelentkezz be újra.
+      unauthenticated: A továbblépéshez bejelentkezés vagy regisztráció szükséges.
+      unconfirmed: A folytatáshoz meg kell erősítened az e-mail címedet.
+      invalid_token: Érvénytelen hitelesítési azonosító.
     mailer:
       confirmation_instructions:
-        confirm: "Fiókom megerősítése"
-        subject: "Megerősítési utasítások"
-        you_can_confirm: "Megerősítheted a fiókod ezen a linken keresztül:"
-      hello: "Szia %{username}!"
+        subject: Megerősítési utasítások
+        you_can_confirm: 'Megerősítheted a fiókod ezen a linken keresztül:'
+        confirm: Fiókom megerősítése
+      reset_password_instructions:
+        subject: Utasítások jelszó alaphelyzetbe állításához
+        someone_requested: Valaki jelszóváltoztatást kért. Ha te voltál az, a következő link segítségével tudod véghezvinni.
+        change: Jelszavam módosítása
+        wont_change: A jelszavad addig nem változik meg, amíg a fenti linken keresztül nem hozol létre egy újat.
+        ignore: Ha nem kérted ezt, hagyd figyelmen kívül a levelet.
+      unlock_instructions:
+        subject: Feloldási utasítások
+        account_locked: Fiókod zárolva lett a túl sokszori hibás bejelentkezési kísérlet miatt.
+        click_to_unlock: 'Kattints az alábbi linkre, hogy feloldd a fiókod:'
+        unlock: Fiókom feloldása
+      welcome: Üdv %{username}!
+      hello: Szia %{username}!
       inviter:
-        accept_at: "Meghívás elfogadása: %{url}"
         has_invited_you: "%{name} meghívott a Diaspora* közösségi oldalra."
         have_invited_you: "%{names} meghívott a diaspora* közösségi oldalra."
-      reset_password_instructions:
-        change: "Jelszavam módosítása"
-        ignore: "Ha nem kérted ezt, hagyd figyelmen kívül a levelet."
-        someone_requested: "Valaki jelszóváltoztatást kért. Ha te voltál az, a következő link segítségével tudod véghezvinni."
-        subject: "Utasítások jelszó alaphelyzetbe állításához"
-        wont_change: "A jelszavad addig nem változik meg, amíg a fenti linken keresztül nem hozol létre egy újat."
-      unlock_instructions:
-        account_locked: "Fiókod zárolva lett a túl sokszori hibás bejelentkezési kísérlet miatt."
-        click_to_unlock: "Kattints az alábbi linkre, hogy feloldd a fiókod:"
-        subject: "Feloldási utasítások"
-        unlock: "Fiókom feloldása"
-      welcome: "Üdv %{username}!"
+        accept_at: 'Meghívás elfogadása: %{url}'
     passwords:
+      send_instructions: Néhány perc múlva kapsz egy e-mailt arról, hogyan állíthatod alaphelyzetbe a jelszavadat.
+      updated: A jelszavad megváltozott. Sikeresen bejelentkeztél.
+      updated_not_active: A jelszó megváltozott.
       edit:
-        change_password: "Megváltoztatom a jelszavamat"
-        confirm_password: "Jelszó megerősítése"
-        new_password: "Új jelszó"
+        change_password: Megváltoztatom a jelszavamat
+        new_password: Új jelszó
+        confirm_password: Jelszó megerősítése
       new:
-        email: "E-mail cím"
-        forgot_password: "Elfelejtetted a jelszavad?"
-        reset_password: "Jelszó visszaállítása"
-        send_password_instructions: "Új jelszót igénylek"
-      send_instructions: "Néhány perc múlva kapsz egy e-mailt arról, hogyan állíthatod alaphelyzetbe a jelszavadat."
-      updated: "A jelszavad megváltozott. Sikeresen bejelentkeztél."
-      updated_not_active: "A jelszó megváltozott."
+        forgot_password: Elfelejtetted a jelszavad?
+        reset_password: Jelszó visszaállítása
+        email: E-mail cím
+        send_password_instructions: Új jelszót igénylek
     registrations:
-      destroyed: "Viszlát! A fiókod törölve. Reméljük hamarosan újra látunk. =)"
-      signed_up: "Sikeresen feliratkoztál. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk."
-      signed_up_but_inactive: "A regisztráció sikeres volt. Jelenleg azonban még nem tudsz bejelentkezni, ehhez még szükség van egy megerősítésre."
-      updated: "A fiókod sikeresen frissítve."
+      destroyed: Viszlát! A fiókod törölve. Reméljük hamarosan újra látunk. =)
+      signed_up: Sikeresen feliratkoztál. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk.
+      signed_up_but_inactive: A regisztráció sikeres volt. Jelenleg azonban még nem tudsz bejelentkezni, ehhez még szükség van egy megerősítésre.
+      updated: A fiókod sikeresen frissítve.
     sessions:
+      signed_in: Sikeresen bejelentkeztél.
+      signed_out: Sikeresen kijelentkeztél.
       new:
-        login: "Bejelentkezés"
-        modern_browsers: "csak modern böngészőket támogatunk."
-        password: "Jelszó"
-        remember_me: "Emlékezzen rám"
-        sign_in: "Bejelentkezés"
-        username: "Felhasználónév"
-      signed_in: "Sikeresen bejelentkeztél."
-      signed_out: "Sikeresen kijelentkeztél."
+        login: Bejelentkezés
+        username: Felhasználónév
+        password: Jelszó
+        sign_in: Bejelentkezés
+        remember_me: Emlékezzen rám
+        modern_browsers: csak modern böngészőket támogatunk.
+    unlocks:
+      send_instructions: Pár percen belül kapsz egy e-mailt, benne a fiókod feloldásához szükséges utasításokkal.
+      unlocked: A fiókod sikeresen feloldva. Jelentkezz be a folytatáshoz.
+      new:
+        resend_unlock: Feloldási utasítások újraküldése
+    invitations:
+      send_instructions: A meghívód elküldve.
+      invitation_token_invalid: Sajnáljuk, de a meghívás nem érvényes.
+      updated: A jelszó beállítva. Bejelentkeztél.
     shared:
       links:
-        forgot_your_password: "Elfelejtetted a jelszavad?"
-        receive_confirmation: "Nem kaptál megerősítési utasítást?"
-        receive_unlock: "Nem kaptad meg feloldási utasítást?"
-        sign_in: "Bejelentkezés"
-        sign_up: "Fiók létrehozása"
-        sign_up_closed: "A nyílt regisztrálás jelenleg nem hozzáférhető."
-    unlocks:
-      new:
-        resend_unlock: "Feloldási utasítások újraküldése"
-      send_instructions: "Pár percen belül kapsz egy e-mailt, benne a fiókod feloldásához szükséges utasításokkal."
-      unlocked: "A fiókod sikeresen feloldva. Jelentkezz be a folytatáshoz."
+        sign_in: Bejelentkezés
+        sign_up: Fiók létrehozása
+        sign_up_closed: A nyílt regisztrálás jelenleg nem hozzáférhető.
+        forgot_your_password: Elfelejtetted a jelszavad?
+        receive_confirmation: Nem kaptál megerősítési utasítást?
+        receive_unlock: Nem kaptad meg feloldási utasítást?
   errors:
     messages:
-      already_confirmed: "már megerősítésre került, kérlek jelentkezz be"
-      not_found: "nem található"
-      not_locked: "nem volt lezárva"
+      already_confirmed: már megerősítésre került, kérlek jelentkezz be
+      not_found: nem található
+      not_locked: nem volt lezárva

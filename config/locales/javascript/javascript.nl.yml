@@ -6,311 +6,311 @@
 
 nl:
   javascripts:
+    timeago:
+      prefixAgo: ''
+      suffixAgo: geleden
+      suffixFromNow: vanaf nu
+      prefixFromNow: ''
+      inPast: op elk moment nu
+      seconds: iets minder dan een minuut
+      minute: ongeveer een minuut
+      minutes:
+        other: "%d minuten"
+      hour: ongeveer een uur
+      hours:
+        other: ongeveer %d uur
+      day: een dag
+      days:
+        other: "%d dagen"
+      month: ongeveer een maand
+      months:
+        other: "%d maanden"
+      year: ongeveer een jaar
+      years:
+        other: "%d jaar"
+      wordSeparator: " "
+    cancel: Annuleren
+    confirm_dialog: Weet je het zeker?
+    confirm_unload: Bevestig dat je deze pagina wilt verlaten - gegevens die je hebt ingevoerd, worden niet bewaard.
+    create: Creëren
+    delete: Verwijder
+    ignore: Negeer
+    report:
+      prompt: 'Geef de reden op:'
+      prompt_default: b.v. aanstootgevende inhoud
+      name: Melding
+      status:
+        created: Het is succesvol gemeld
+        exists: De melding bestaat al
+    ignore_user: Wilt u deze gebruiker negeren?
+    ignore_failed: Kan deze gebruiker niet negeren
+    hide_post: Dit bericht verbergen?
+    hide_post_failed: Kon bericht niet verbergen
+    remove_post: Dit bericht verwijderen?
+    unblock_failed: Deblokkeren van deze gebruiker is mislukt
+    and: en
+    comma: ","
+    edit: Bewerken
+    no_results: Geen zoekresultaten
+    show_all: Toon alle
+    admins:
+      dashboard:
+        up_to_date: Je pod is bijgewerkt!
+        outdated: Je pod is verouderd.
+        compare_versions: De laatste diaspora* release is <%= latestVersion %>, jouw pod draait nog <%= podVersion %>.
+        error: Kan de laatste diaspora* versie niet bepalen.
     admin:
       pods:
-        actions: "Acties"
-        added: "Toegevoegd"
-        check: "voer verbindingstest uit"
-        errors:
-          one: "De verbindingstest gaf een foutmelding voor een pod."
-          other: "De verbindingstest gaf een foutmelding voor <%= count %> pods."
-        follow_link: "open link in browser"
-        last_check: "laatst gecontroleerd:"
-        more_info: "toon meer informatie"
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL geactiveerd
+        ssl_disabled: SSL gedeactiveerd
+        added: Toegevoegd
+        status: Status
+        states:
+          unchecked: Uitgevinkt
+          no_errors: OK
+          dns_failed: Naam resolutie (DNS) mislukt
+          net_failed: Verbindingspoging mislukt
+          ssl_failed: Beveiligde verbinding (SSL) mislukt
+          http_failed: HTTP verbinding mislukt
+          version_failed: Kan de softwareversie niet ophalen
+          unknown_error: Er trad een niet-gedefnieerde fout op tijdens de controle
+        actions: Acties
+        offline_since: 'offline sinds:'
+        last_check: 'laatst gecontroleerd:'
+        more_info: toon meer informatie
+        check: voer verbindingstest uit
+        recheck:
+          success: De pod is net weer gecontroleerd.
+          failure: De controle is niet uitgevoerd.
+        follow_link: open link in browser
+        no_info: Op dit punt is geen extra informatie beschikbaar
+        server_software: 'Serversoftware:'
+        response_time: Responsetijd
         ms:
           one: "<%= count %>ms"
           other: "<%= count %>ms"
-        no_info: "Op dit punt is geen extra informatie beschikbaar"
-        not_available: "niet beschikbaar"
-        offline_since: "offline sinds:"
-        pod: "Pod"
-        recheck:
-          failure: "De controle is niet uitgevoerd."
-          success: "De pod is net weer gecontroleerd."
-        response_time: "Responsetijd"
-        server_software: "Serversoftware:"
-        ssl: "SSL"
-        ssl_disabled: "SSL gedeactiveerd"
-        ssl_enabled: "SSL geactiveerd"
-        states:
-          dns_failed: "Naam resolutie (DNS) mislukt"
-          http_failed: "HTTP verbinding mislukt"
-          net_failed: "Verbindingspoging mislukt"
-          no_errors: "OK"
-          ssl_failed: "Beveiligde verbinding (SSL) mislukt"
-          unchecked: "Uitgevinkt"
-          unknown_error: "Er trad een niet-gedefnieerde fout op tijdens de controle"
-          version_failed: "Kan de softwareversie niet ophalen"
-        status: "Status"
+        unknown: onbekend
+        not_available: niet beschikbaar
         unchecked:
-          one: "Er nog steeds een pod die niet is gecontroleerd."
-          other: "Er nog steeds <%= count %> pods die niet zijn gecontroleerd."
-        unknown: "onbekend"
+          one: Er nog steeds een pod die niet is gecontroleerd.
+          other: Er nog steeds <%= count %> pods die niet zijn gecontroleerd.
         version_failed:
-          one: "Er is een pod zonder versie (oude pod, geen NodeInfo)."
-          other: "Er zijn <%= count %> pods zonder versie (oude pods, geen NodeInfo)."
-    admins:
-      dashboard:
-        compare_versions: "De laatste diaspora* release is <%= latestVersion %>, jouw pod draait nog <%= podVersion %>."
-        error: "Kan de laatste diaspora* versie niet bepalen."
-        outdated: "Je pod is verouderd."
-        up_to_date: "Je pod is bijgewerkt!"
-    and: "en"
+          one: Er is een pod zonder versie (oude pod, geen NodeInfo).
+          other: Er zijn <%= count %> pods zonder versie (oude pods, geen NodeInfo).
+        errors:
+          one: De verbindingstest gaf een foutmelding voor een pod.
+          other: De verbindingstest gaf een foutmelding voor <%= count %> pods.
+    aspects:
+      name: Naam
+      create:
+        add_a_new_aspect: Nieuw aspect toevoegen
+        success: Je nieuwe aspect <%= name %> is gecreëerd
+        failure: Creëren aspect mislukt.
+    errors:
+      connection: Geen verbinding met de server.
+    contacts:
+      add_contact: Toevoegen contact
+      remove_contact: Verwijder contact
+      error_add: Kon <%= name %> niet toevoegen aan het aspect :(
+      error_remove: Kon <%= name %> niet verwijderen uit het aspect :(
+      search_no_results: geen contactpersonen gevonden
+    my_activity: Mijn activiteit
+    my_stream: Stream
+    my_aspects: Mijn aspecten
+    publisher:
+      near_from: 'Geplaatst vanaf: <%= location %>'
+      option: Keuze <%= nr %>
+      add_option: Keuzemogelijkheid toevoegen
+      question: Vraag
+      markdown_editor:
+        preview: Voorbeeld
+        write: Schrijven
+        tooltips:
+          bold: Vet
+          italic: Cursief
+          heading: Koptekst
+          insert_link: Invoegen link
+          insert_image: Invoegen afbeelding
+          insert_ordered_list: Invoegen genummerde lijst
+          insert_unordered_list: Invoegen ongenummerde lijst
+          preview: Voorbeeld bericht
+          write: Bewerk bericht
+          cancel: Annuleren bericht
+          quote: Invoegen quote
+          code: Invoegen code
+        texts:
+          strong: Benadrukte tekst
+          italic: Cursieve tekst
+          heading: Koptekst
+          insert_link_help_text: Voeg link hier in
+          insert_image_description_text: geef afbeelding beschrijving hier
+          insert_image_help_text: Voeg afbeelding link hier in
+          insert_image_title: voeg hier afbeeldingstekst in
+          list: lijst tekst hier
+          quote: quote hier
+          code: code hier
+      mention_success: 'Succesvol vermeld: <%= names %>'
+    bookmarklet:
+      post_something: Plaatsen op diaspora*
+      post_submit: Bericht aanmelden...
+      post_success: Geplaatst! Sluit nu pop-up venster...
     aspect_dropdown:
-      add_to_aspect: "Voeg contact toe"
-      all_aspects: "Alle aspecten"
-      error: "Je kan niet delen met <%= name %>.  Negeer je hen?"
-      error_remove: "Kon <%= name %> niet uit het aspect verwijderen :("
+      add_to_aspect: Voeg contact toe
+      select_aspects: Selecteer aspecten
+      all_aspects: Alle aspecten
+      updating: bijwerken...
       mobile_row_checked: "<%= name %> (verwijderen)"
       mobile_row_unchecked: "<%= name %> (toevoegen)"
-      select_aspects: "Selecteer aspecten"
-      started_sharing_with: "Je deelt nu met <%= name %>!"
-      stopped_sharing_with: "Je deelt niet meer met <%= name %>."
+      stopped_sharing_with: Je deelt niet meer met <%= name %>.
+      started_sharing_with: Je deelt nu met <%= name %>!
+      error: Je kan niet delen met <%= name %>.  Negeer je hen?
+      error_remove: Kon <%= name %> niet uit het aspect verwijderen :(
       toggle:
-        few: "In <%= count %> aspecten"
-        many: "In <%= count %> aspecten"
-        one: "In <%= count %> aspect"
-        other: "In <%= count %> aspecten"
-        two: "In <%= count %> aspecten"
-        zero: "Aspecten selecteren"
-      updating: "bijwerken..."
-    aspect_navigation:
-      add_an_aspect: "+ Toevoegen aspect"
-      deselect_all: "Alles deselecteren"
-      no_aspects: "Geen aspecten geselecteerd"
-      select_all: "Alles selecteren"
-    aspects:
-      create:
-        add_a_new_aspect: "Nieuw aspect toevoegen"
-        failure: "Creëren aspect mislukt."
-        success: "Je nieuwe aspect <%= name %> is gecreëerd"
-      name: "Naam"
-    bookmarklet:
-      post_something: "Plaatsen op diaspora*"
-      post_submit: "Bericht aanmelden..."
-      post_success: "Geplaatst! Sluit nu pop-up venster..."
-    cancel: "Annuleren"
-    comma: ","
+        zero: Aspecten selecteren
+        one: In <%= count %> aspect
+        two: In <%= count %> aspecten
+        few: In <%= count %> aspecten
+        many: In <%= count %> aspecten
+        other: In <%= count %> aspecten
+    show_more: Laat meer zien
+    failed_to_post_message: Bericht plaatsen mislukt!
+    failed_to_remove: Kon het bericht niet verwijderen!
     comments:
-      hide: "Verberg reacties"
-      no_comments: "Er zijn nog geen reacties."
-      show: "Laat reacties zien"
-    confirm_dialog: "Weet je het zeker?"
-    confirm_unload: "Bevestig dat je deze pagina wilt verlaten - gegevens die je hebt ingevoerd, worden niet bewaard."
-    contacts:
-      add_contact: "Toevoegen contact"
-      error_add: "Kon <%= name %> niet toevoegen aan het aspect :("
-      error_remove: "Kon <%= name %> niet verwijderen uit het aspect :("
-      remove_contact: "Verwijder contact"
-      search_no_results: "geen contactpersonen gevonden"
-    conversation:
-      create:
-        no_recipient: "Hé, je moet eerst een ontvanger toevoegen!"
-      new:
-        no_contacts: "Je moet een paar contactpersonen opgeven om een conversatie te kunnen starten."
-    create: "Creëren"
-    delete: "Verwijder"
-    edit: "Bewerken"
-    errors:
-      connection: "Geen verbinding met de server."
-    failed_to_post_message: "Bericht plaatsen mislukt!"
-    failed_to_remove: "Kon het bericht niet verwijderen!"
-    getting_started:
-      alright_ill_wait: "Prima, ik wacht wel."
-      hey: "Hallo, <%= name %>!"
-      no_tags: "He, je volgt geen tags! Toch doorgaan?"
-      preparing_your_stream: "Je gepersonaliseerde stream klaarmaken..."
-    header:
-      admin: "Beheer"
-      close: "Sluiten"
-      contacts: "Contacten"
-      conversations: "Conversaties"
-      help: "Help"
-      home: "Home"
-      log_out: "Uitloggen"
-      mark_all_as_read: "Markeer alles gelezen"
-      moderator: "Moderator"
-      notifications: "Notificaties"
-      profile: "Profiel"
-      recent_notifications: "Recente meldingen"
-      search: "Zoek"
-      settings: "Instellingen"
-      switch_to_touch_optimized_mode: "Schakel over naar de aanraakmodus"
-      toggle_navigation: "Omschakelen navigatie"
-      view_all: "Bekijk alle"
-    hide_post: "Dit bericht verbergen?"
-    hide_post_failed: "Kon bericht niet verbergen"
-    ignore: "Negeer"
-    ignore_failed: "Kan deze gebruiker niet negeren"
-    ignore_user: "Wilt u deze gebruiker negeren?"
-    my_activity: "Mijn activiteit"
-    my_aspects: "Mijn aspecten"
-    my_stream: "Stream"
-    no_results: "Geen zoekresultaten"
-    notifications:
-      mark_read: "Markeren als gelezen"
-      mark_unread: "Markeren als ongelezen"
-      new_notifications:
-        one: "Je hebt <%= count %> ongelezen melding"
-        other: "Je hebt <%= count %> ongelezen meldingen"
-    people:
-      edit_my_profile: "Bewerk mijn profiel"
-      helper:
-        is_not_sharing: "<%= name %> deelt niet met jou"
-        is_sharing: "<%= name %> deelt met jou"
-      mention: "Vermelden"
-      message: "Bericht"
-      not_found: "... en er niemand gevonden"
-      stop_ignoring: "Stop negeren"
-    photo_uploader:
-      completed: "<%= file %> gereed"
-      empty: "{file} is leeg. Selecteer de bestanden opnieuw, zonder deze."
-      error: "Er ontstond een probleem bij het uploaden van bestand <%= file %>"
-      invalid_ext: "{file} heeft een ongeldige extensie. Alleen {extensions} zijn toegelaten."
-      looking_good: "Wow, wat ben je knap!"
-      size_error: "{file} is te groot, maximum omvang is {sizeLimit}."
-    poll:
-      answer_count:
-        one: "1 stem"
-        other: "<%=count%> stemmen"
-        zero: "0 stemmen"
-      close_result: "Verberg resultaat"
-      count:
-        one: "1 stem tot dit moment"
-        other: "<%=count%> stemmen tot dit moment"
-      go_to_original_post: "Je kunt deelnemen aan deze peiling over <%= original_post_link %>"
-      original_post: "origineel bericht"
-      result: "Resultaat"
-      show_result: "Toon resultaat"
-      vote: "Stem"
-      your_vote: "Jouw stem"
-    profile:
-      add_some: "Voeg wat toe"
-      bio: "Bio"
-      born: "Verjaardag"
-      edit: "Bewerken"
-      gender: "Geslacht"
-      location: "Locatie"
-      photos: "Foto's"
-      posts: "Berichten"
-      you_have_no_tags: "Je hebt geen tags!"
-    publisher:
-      add_option: "Keuzemogelijkheid toevoegen"
-      markdown_editor:
-        preview: "Voorbeeld"
-        texts:
-          code: "code hier"
-          heading: "Koptekst"
-          insert_image_description_text: "geef afbeelding beschrijving hier"
-          insert_image_help_text: "Voeg afbeelding link hier in"
-          insert_image_title: "voeg hier afbeeldingstekst in"
-          insert_link_help_text: "Voeg link hier in"
-          italic: "Cursieve tekst"
-          list: "lijst tekst hier"
-          quote: "quote hier"
-          strong: "Benadrukte tekst"
-        tooltips:
-          bold: "Vet"
-          cancel: "Annuleren bericht"
-          code: "Invoegen code"
-          heading: "Koptekst"
-          insert_image: "Invoegen afbeelding"
-          insert_link: "Invoegen link"
-          insert_ordered_list: "Invoegen genummerde lijst"
-          insert_unordered_list: "Invoegen ongenummerde lijst"
-          italic: "Cursief"
-          preview: "Voorbeeld bericht"
-          quote: "Invoegen quote"
-          write: "Bewerk bericht"
-        write: "Schrijven"
-      mention_success: "Succesvol vermeld: <%= names %>"
-      near_from: "Geplaatst vanaf: <%= location %>"
-      option: "Keuze <%= nr %>"
-      question: "Vraag"
-    remove_post: "Dit bericht verwijderen?"
-    report:
-      name: "Melding"
-      prompt: "Geef de reden op:"
-      prompt_default: "b.v. aanstootgevende inhoud"
-      status:
-        created: "Het is succesvol gemeld"
-        exists: "De melding bestaat al"
+      show: Laat reacties zien
+      hide: Verberg reacties
+      no_comments: Er zijn nog geen reacties.
     reshares:
-      post: "Doorgeven <%= name %>'s bericht?"
-      successful: "Het bericht is gedeeld!"
-    show_all: "Toon alle"
-    show_more: "Laat meer zien"
-    stream:
-      comment: "Reageren"
-      comments:
-        one: "<%= count %> reactie"
-        other: "<%= count %> reacties"
-        zero: "<%= count %> reacties"
-      disable_post_notifications: "Uitschakelen meldingen voor dit bericht"
-      enable_post_notifications: "Inschakelen meldingen voor dit bericht"
-      follow: "Volgen"
-      followed_tag:
-        add_a_tag: "Voeg een label toe"
-        follow: "Volgen"
-        title: "#Gevolgde tags"
-      hide: "Verberg"
-      hide_nsfw_posts: "Verberg #nsfw berichten"
-      like: "Vind ik leuk"
-      likes:
-        one: "<%= count %> persoon vind dit leuk"
-        other: "<%= count %> mensen vinden dit leuk"
-        zero: "<%= count %> mensen vinden dit leuk"
-      limited: "Beperkt zichtbaar"
-      more_comments:
-        one: "Toon nog <%= count %> reactie"
-        other: "Toon nog <%= count %> reacties"
-        zero: "Toon nog <%= count %> reacties"
-      no_posts_yet: "Er zijn nog geen berichten om hier weer te geven."
-      original_post_deleted: "Originele bericht verwijderd door de auteur."
-      permalink: "Permalink"
-      public: "Openbaar"
-      reshare: "Doorgeven"
-      reshares:
-        one: "<%= count %>keer opnieuw gedeeld"
-        other: "<%= count %>keer opnieuw gedeeld"
-        zero: "<%= count %>keer opnieuw gedeeld"
-      show_nsfw_post: "Toon bericht"
-      show_nsfw_posts: "Toon alles"
-      tags:
-        follow: "Volg #<%= tag %>"
-        follow_error: "Kon <%= tag %> niet volgen :("
-        following: "Volgend #<%= tag %>"
-        stop_following: "Stop met volgen #<%= tag %>"
-        stop_following_confirm: "Stoppen met volgen van <%= tag %>?"
-        stop_following_error: "Kon niet stoppen met volgen van <%= tag %> :("
-      unfollow: "Niet meer volgen"
-      unlike: "Loslaten"
-      via: "via <%= provider %>"
+      successful: Het bericht is gedeeld!
+      post: Doorgeven <%= name %>'s bericht?
+    aspect_navigation:
+      select_all: Alles selecteren
+      deselect_all: Alles deselecteren
+      no_aspects: Geen aspecten geselecteerd
+      add_an_aspect: "+ Toevoegen aspect"
+    getting_started:
+      hey: Hallo, <%= name %>!
+      no_tags: He, je volgt geen tags! Toch doorgaan?
+      alright_ill_wait: Prima, ik wacht wel.
+      preparing_your_stream: Je gepersonaliseerde stream klaarmaken...
+    photo_uploader:
+      looking_good: Wow, wat ben je knap!
+      completed: "<%= file %> gereed"
+      error: Er ontstond een probleem bij het uploaden van bestand <%= file %>
+      invalid_ext: "{file} heeft een ongeldige extensie. Alleen {extensions} zijn toegelaten."
+      size_error: "{file} is te groot, maximum omvang is {sizeLimit}."
+      empty: "{file} is leeg. Selecteer de bestanden opnieuw, zonder deze."
     tags:
       wasnt_that_interesting: "#<%= tagName %> zal dan toch niet zo interessant geweest zijn..."
-    timeago:
-      day: "een dag"
-      days:
-        other: "%d dagen"
-      hour: "ongeveer een uur"
-      hours:
-        other: "ongeveer %d uur"
-      inPast: "op elk moment nu"
-      minute: "ongeveer een minuut"
-      minutes:
-        other: "%d minuten"
-      month: "ongeveer een maand"
-      months:
-        other: "%d maanden"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "iets minder dan een minuut"
-      suffixAgo: "geleden"
-      suffixFromNow: "vanaf nu"
-      wordSeparator: " "
-      year: "ongeveer een jaar"
-      years:
-        other: "%d jaar"
-    unblock_failed: "Deblokkeren van deze gebruiker is mislukt"
+    people:
+      not_found: "... en er niemand gevonden"
+      mention: Vermelden
+      message: Bericht
+      edit_my_profile: Bewerk mijn profiel
+      stop_ignoring: Stop negeren
+      helper:
+        is_sharing: "<%= name %> deelt met jou"
+        is_not_sharing: "<%= name %> deelt niet met jou"
+    profile:
+      edit: Bewerken
+      add_some: Voeg wat toe
+      you_have_no_tags: Je hebt geen tags!
+      bio: Bio
+      location: Locatie
+      gender: Geslacht
+      born: Verjaardag
+      photos: Foto's
+      posts: Berichten
+    conversation:
+      create:
+        no_recipient: Hé, je moet eerst een ontvanger toevoegen!
+      new:
+        no_contacts: Je moet een paar contactpersonen opgeven om een conversatie te kunnen starten.
+    notifications:
+      mark_read: Markeren als gelezen
+      mark_unread: Markeren als ongelezen
+      new_notifications:
+        one: Je hebt <%= count %> ongelezen melding
+        other: Je hebt <%= count %> ongelezen meldingen
+    stream:
+      hide: Verberg
+      public: Openbaar
+      limited: Beperkt zichtbaar
+      like: Vind ik leuk
+      unlike: Loslaten
+      reshare: Doorgeven
+      comment: Reageren
+      original_post_deleted: Originele bericht verwijderd door de auteur.
+      show_nsfw_post: Toon bericht
+      show_nsfw_posts: Toon alles
+      hide_nsfw_posts: 'Verberg #nsfw berichten'
+      follow: Volgen
+      unfollow: Niet meer volgen
+      enable_post_notifications: Inschakelen meldingen voor dit bericht
+      disable_post_notifications: Uitschakelen meldingen voor dit bericht
+      permalink: Permalink
+      via: via <%= provider %>
+      no_posts_yet: Er zijn nog geen berichten om hier weer te geven.
+      likes:
+        zero: "<%= count %> mensen vinden dit leuk"
+        one: "<%= count %> persoon vind dit leuk"
+        other: "<%= count %> mensen vinden dit leuk"
+      reshares:
+        zero: "<%= count %>keer opnieuw gedeeld"
+        one: "<%= count %>keer opnieuw gedeeld"
+        other: "<%= count %>keer opnieuw gedeeld"
+      comments:
+        zero: "<%= count %> reacties"
+        one: "<%= count %> reactie"
+        other: "<%= count %> reacties"
+      more_comments:
+        zero: Toon nog <%= count %> reacties
+        one: Toon nog <%= count %> reactie
+        other: Toon nog <%= count %> reacties
+      followed_tag:
+        title: "#Gevolgde tags"
+        add_a_tag: Voeg een label toe
+        follow: Volgen
+      tags:
+        follow: 'Volg #<%= tag %>'
+        following: 'Volgend #<%= tag %>'
+        stop_following: 'Stop met volgen #<%= tag %>'
+        stop_following_confirm: Stoppen met volgen van <%= tag %>?
+        follow_error: Kon <%= tag %> niet volgen :(
+        stop_following_error: Kon niet stoppen met volgen van <%= tag %> :(
+    header:
+      home: Home
+      profile: Profiel
+      contacts: Contacten
+      settings: Instellingen
+      help: Help
+      admin: Beheer
+      moderator: Moderator
+      log_out: Uitloggen
+      toggle_navigation: Omschakelen navigatie
+      switch_to_touch_optimized_mode: Schakel over naar de aanraakmodus
+      notifications: Notificaties
+      conversations: Conversaties
+      search: Zoek
+      recent_notifications: Recente meldingen
+      mark_all_as_read: Markeer alles gelezen
+      view_all: Bekijk alle
+      close: Sluiten
     viewer:
-      reshared: "Doorgegeven"
+      reshared: Doorgegeven
+    poll:
+      vote: Stem
+      go_to_original_post: Je kunt deelnemen aan deze peiling over <%= original_post_link %>
+      original_post: origineel bericht
+      result: Resultaat
+      count:
+        one: 1 stem tot dit moment
+        other: "<%=count%> stemmen tot dit moment"
+      answer_count:
+        zero: 0 stemmen
+        one: 1 stem
+        other: "<%=count%> stemmen"
+      show_result: Toon resultaat
+      close_result: Verberg resultaat
+      your_vote: Jouw stem

@@ -7,108 +7,108 @@
 vi:
   devise:
     confirmations:
-      confirmed: "Tài khoản của bạn đã được xác thực thành công."
+      confirmed: Tài khoản của bạn đã được xác thực thành công.
+      send_instructions: Bạn sẽ nhận được email hướng dẫn xác thực tài khoản trong ít phút nữa.
+      send_paranoid_instructions: Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được một email hướng dẫn xác thực địa chỉ email trong vài phút nữa.
       new:
-        resend_confirmation: "Gửi lại liên kết xác thực"
-      send_instructions: "Bạn sẽ nhận được email hướng dẫn xác thực tài khoản trong ít phút nữa."
-      send_paranoid_instructions: "Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được một email hướng dẫn xác thực địa chỉ email trong vài phút nữa."
+        resend_confirmation: Gửi lại liên kết xác thực
     failure:
-      already_authenticated: "Bạn đã đăng nhập."
-      inactive: "Tài khoản của bạn chưa được kích hoạt."
-      invalid: "Sai %{authentication_keys} hoặc mật khẩu."
-      invalid_token: "Token xác thực không hợp lệ."
-      last_attempt: "Tài khoản của bạn sẽ bị khoá nếu bạn thử sai lần nữa."
-      locked: "Tài khoản của bạn đã bị khoá."
-      not_found_in_database: "Sai %{authentication_keys} hoặc mật khẩu."
-      timeout: "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại để tiếp tục."
-      unauthenticated: "Bạn cần đăng nhập hoặc đăng ký để tiếp tục."
-      unconfirmed: "Bạn cần phải xác thực tài khoản trước khi tiếp tục."
-    invitations:
-      invitation_token_invalid: "Xin lỗi nhưng lời mời không hợp lệ."
-      send_instructions: "Thư mời của bạn đã được gửi."
-      updated: "Thiết lập mật khẩu thành công. Bạn đã đăng nhập."
+      already_authenticated: Bạn đã đăng nhập.
+      inactive: Tài khoản của bạn chưa được kích hoạt.
+      invalid: Sai %{authentication_keys} hoặc mật khẩu.
+      locked: Tài khoản của bạn đã bị khoá.
+      last_attempt: Tài khoản của bạn sẽ bị khoá nếu bạn thử sai lần nữa.
+      not_found_in_database: Sai %{authentication_keys} hoặc mật khẩu.
+      timeout: Phiên đăng nhập đã hết hạn, hãy đăng nhập lại để tiếp tục.
+      unauthenticated: Bạn cần đăng nhập hoặc đăng ký để tiếp tục.
+      unconfirmed: Bạn cần phải xác thực tài khoản trước khi tiếp tục.
+      invalid_token: Token xác thực không hợp lệ.
     mailer:
       confirmation_instructions:
-        confirm: "Xác thực tài khoản của tôi"
-        subject: "Hướng dẫn xác thực"
-        you_can_confirm: "Bạn có thể xác thực tài khoản thông qua liên kết sau:"
-      hello: "Xin chào %{username}!"
+        subject: Hướng dẫn xác thực
+        you_can_confirm: 'Bạn có thể xác thực tài khoản thông qua liên kết sau:'
+        confirm: Xác thực tài khoản của tôi
+      reset_password_instructions:
+        subject: Hướng dẫn khôi phục mật khẩu
+        someone_requested: "Ai đó đã yêu cầu \x1Dreset mật khẩu của bạn. Nếu đúng là bạn, \bhãy nhấn vào liên kết dưới đây."
+        change: Đổi mật khẩu
+        then_connect: Sau khi reset mật khẩu, bạn sẽ có thể tiếp tục đăng nhập Diaspora với tài khoản "%{username}"
+        wont_change: Mật khẩu của bạn sẽ không được thay đổi cho đến khi bạn truy cập liên kết trên và tạo mật khẩu mới.
+        ignore: Nếu bạn không yêu cầu, hãy bỏ qua thư này.
+      unlock_instructions:
+        subject: Hướng dẫn mở khoá
+        account_locked: Tài khoản của bạn bị khoá do đăng nhập thất bại quá số lần quy định.
+        click_to_unlock: 'Nhấn vào liên kết bên dưới để mở khoá tài khoản:'
+        unlock: Mở khoá tài khoản
+      password_change:
+        subject: Đổi mật khẩu
+      welcome: Chào mừng %{username}!
+      hello: Xin chào %{username}!
       inviter:
-        accept_at: "tại %{url}, bạn có thể chấp nhận nó qua đường dẫn bên dưới."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} mời bạn tham gia Diaspora"
-      password_change:
-        subject: "Đổi mật khẩu"
-      reset_password_instructions:
-        change: "Đổi mật khẩu"
-        ignore: "Nếu bạn không yêu cầu, hãy bỏ qua thư này."
-        someone_requested: "Ai đó đã yêu cầu \x1dreset mật khẩu của bạn. Nếu đúng là bạn, \bhãy nhấn vào liên kết dưới đây."
-        subject: "Hướng dẫn khôi phục mật khẩu"
-        then_connect: "Sau khi reset mật khẩu, bạn sẽ có thể tiếp tục đăng nhập Diaspora với tài khoản \"%{username}\""
-        wont_change: "Mật khẩu của bạn sẽ không được thay đổi cho đến khi bạn truy cập liên kết trên và tạo mật khẩu mới."
-      unlock_instructions:
-        account_locked: "Tài khoản của bạn bị khoá do đăng nhập thất bại quá số lần quy định."
-        click_to_unlock: "Nhấn vào liên kết bên dưới để mở khoá tài khoản:"
-        subject: "Hướng dẫn mở khoá"
-        unlock: "Mở khoá tài khoản"
-      welcome: "Chào mừng %{username}!"
+        accept_at: tại %{url}, bạn có thể chấp nhận nó qua đường dẫn bên dưới.
     omniauth_callbacks:
-      failure: "Không thể cấp phép bạn từ %{kind} vì lý do \"%{reason}\"."
-      success: "Cấp phép thành công từ tài khoản %{kind}."
+      failure: Không thể cấp phép bạn từ %{kind} vì lý do "%{reason}".
+      success: Cấp phép thành công từ tài khoản %{kind}.
     passwords:
+      no_token: Bạn không thể truy cập trang này nếu không mở email reset mật khẩu. Nếu bạn đã mở email reset mật khẩu, hãy chắc rằng bạn sử dụng đầy đủ URL được cung cấp.
+      send_instructions: Bạn sẽ nhận được email hướng dẫn cách reset mật khẩu trong ít phút nữa.
+      send_paranoid_instructions: Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được một email khôi phục mật khẩu trong vài phút nữa.
+      updated: Đã đổi mật khẩu thành công.
+      updated_not_active: Đã đổi mật khẩu thành công.
       edit:
-        change_password: "Đổi mật khẩu"
-        confirm_password: "Nhập lại mật khẩu"
-        new_password: "Mật khẩu mới"
+        change_password: Đổi mật khẩu
+        new_password: Mật khẩu mới
+        confirm_password: Nhập lại mật khẩu
       new:
-        email: "Địa chỉ email"
-        forgot_password: "Quên mật khẩu?"
-        reset_password: "Reset mật khẩu"
-        send_password_instructions: "Gửi cho tôi hướng dẫn thiết đặt lại mật khẩu"
-      no_token: "Bạn không thể truy cập trang này nếu không mở email reset mật khẩu. Nếu bạn đã mở email reset mật khẩu, hãy chắc rằng bạn sử dụng đầy đủ URL được cung cấp."
-      send_instructions: "Bạn sẽ nhận được email hướng dẫn cách reset mật khẩu trong ít phút nữa."
-      send_paranoid_instructions: "Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được một email khôi phục mật khẩu trong vài phút nữa."
-      updated: "Đã đổi mật khẩu thành công."
-      updated_not_active: "Đã đổi mật khẩu thành công."
+        forgot_password: Quên mật khẩu?
+        reset_password: Reset mật khẩu
+        email: Địa chỉ email
+        send_password_instructions: Gửi cho tôi hướng dẫn thiết đặt lại mật khẩu
     registrations:
-      destroyed: "Tạm biệt! Tài khoản của bạn đã được xoá thành công. Chúng tôi hy vọng sẽ gặp lại bạn."
-      signed_up: "Bạn đã đăng ký thành công. Một email xác thực sẽ được gửi cho bạn."
-      signed_up_but_inactive: "Bạn đã đăng ký thành công. Tuy nhiên, bạn cần phải xác thực email trước khi có thể đăng nhập."
-      signed_up_but_locked: "Bạn đã đăng ký thành công. Tuy nhiên, tài khoản của bạn đã bị khoá."
-      signed_up_but_unconfirmed: "Một hướng dẫn đã được gửi tới địa chỉ email của bạn. Hãy nhấn vào liên kết để kích hoạt tài khoản của bạn."
-      update_needs_confirmation: "Đã cập nhật tài khoản thành công nhưng chúng tôi cần xác thực địa chỉ email mới của bạn. Hãy kiểm tra và nhấn vào liên kết để xác thực địa chỉ email mới của bạn."
-      updated: "Bạn đã cập nhật tài khoản thành công."
+      destroyed: Tạm biệt! Tài khoản của bạn đã được xoá thành công. Chúng tôi hy vọng sẽ gặp lại bạn.
+      signed_up: Bạn đã đăng ký thành công. Một email xác thực sẽ được gửi cho bạn.
+      signed_up_but_inactive: Bạn đã đăng ký thành công. Tuy nhiên, bạn cần phải xác thực email trước khi có thể đăng nhập.
+      signed_up_but_locked: Bạn đã đăng ký thành công. Tuy nhiên, tài khoản của bạn đã bị khoá.
+      signed_up_but_unconfirmed: Một hướng dẫn đã được gửi tới địa chỉ email của bạn. Hãy nhấn vào liên kết để kích hoạt tài khoản của bạn.
+      update_needs_confirmation: Đã cập nhật tài khoản thành công nhưng chúng tôi cần xác thực địa chỉ email mới của bạn. Hãy kiểm tra và nhấn vào liên kết để xác thực địa chỉ email mới của bạn.
+      updated: Bạn đã cập nhật tài khoản thành công.
     sessions:
-      already_signed_out: "Đã đăng xuất."
+      signed_in: Đăng nhập thành công.
+      signed_out: Đăng xuất thành công.
+      already_signed_out: Đã đăng xuất.
       new:
-        login: "Đăng nhập"
-        modern_browsers: "chỉ hỗ trợ những trình duyệt hiện đại."
-        password: "Mật khẩu"
-        remember_me: "Ghi nhớ"
-        sign_in: "Đăng nhập"
-        username: "Tên người dùng"
-      signed_in: "Đăng nhập thành công."
-      signed_out: "Đăng xuất thành công."
+        login: Đăng nhập
+        username: Tên người dùng
+        password: Mật khẩu
+        sign_in: Đăng nhập
+        remember_me: Ghi nhớ
+        modern_browsers: chỉ hỗ trợ những trình duyệt hiện đại.
+    unlocks:
+      send_instructions: Bạn sẽ nhận được email hướng dẫn mở khoá tài khoản trong ít phút nữa.
+      send_paranoid_instructions: Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được một email hướng dẫn mở khoá trong vài phút nữa.
+      unlocked: "Tài khoản của bạn đã được mở khoá. \x1DHãy đăng nhập để tiếp tục."
+      new:
+        resend_unlock: Gửi lại chỉ dẫn mở khoá
+    invitations:
+      send_instructions: Thư mời của bạn đã được gửi.
+      invitation_token_invalid: Xin lỗi nhưng lời mời không hợp lệ.
+      updated: Thiết lập mật khẩu thành công. Bạn đã đăng nhập.
     shared:
       links:
-        forgot_your_password: "Quên mật khẩu?"
-        receive_confirmation: "Không nhận được email xác thực?"
-        receive_unlock: "Không nhận được email mở khoá?"
-        sign_in: "Đăng nhập"
-        sign_up: "Đăng ký"
-        sign_up_closed: "Máy chủ đã tắt đăng ký."
-    unlocks:
-      new:
-        resend_unlock: "Gửi lại chỉ dẫn mở khoá"
-      send_instructions: "Bạn sẽ nhận được email hướng dẫn mở khoá tài khoản trong ít phút nữa."
-      send_paranoid_instructions: "Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được một email hướng dẫn mở khoá trong vài phút nữa."
-      unlocked: "Tài khoản của bạn đã được mở khoá. \x1dHãy đăng nhập để tiếp tục."
+        sign_in: Đăng nhập
+        sign_up: Đăng ký
+        sign_up_closed: Máy chủ đã tắt đăng ký.
+        forgot_your_password: Quên mật khẩu?
+        receive_confirmation: Không nhận được email xác thực?
+        receive_unlock: Không nhận được email mở khoá?
   errors:
     messages:
-      already_confirmed: "đã được xác thực, thử đăng nhập lại"
-      confirmation_period_expired: "cần phải xác thực trong %{period}, xin hãy yêu cầu lại"
-      expired: "hết hạn, xin hãy yêu cầu lại"
-      not_found: "không tìm thấy"
-      not_locked: "không khoá"
+      already_confirmed: đã được xác thực, thử đăng nhập lại
+      confirmation_period_expired: cần phải xác thực trong %{period}, xin hãy yêu cầu lại
+      expired: hết hạn, xin hãy yêu cầu lại
+      not_found: không tìm thấy
+      not_locked: không khoá
       not_saved:
         other: "%{count} lỗi xảy ra từ %{resource}:"

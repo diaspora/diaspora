@@ -7,110 +7,110 @@
 pl:
   devise:
     confirmations:
-      confirmed: "Twój adres e-mail został potwierdzony."
+      confirmed: Twój adres e-mail został potwierdzony.
+      send_instructions: W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta.
+      send_paranoid_instructions: Jeśli Twój adres e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją potwierdzenia adresu.
       new:
-        resend_confirmation: "Wyślij ponownie instrukcję aktywacji"
-      send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta."
-      send_paranoid_instructions: "Jeśli Twój adres e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją potwierdzenia adresu."
+        resend_confirmation: Wyślij ponownie instrukcję aktywacji
     failure:
-      already_authenticated: "Już jesteś zalogowany."
-      inactive: "Twoje konto nie zostało jeszcze aktywowane."
-      invalid: "Niepoprawne %{authentication_keys} lub hasło."
-      invalid_token: "Nieprawidłowy token uwierzytelnienia."
-      last_attempt: "Możesz spróbować jeszcze jeden raz, potem Twoje konto zostanie zablokowane."
-      locked: "Twoje konto jest zablokowane."
-      not_found_in_database: "Niewłaściwy %{authentication_keys} lub hasło."
-      timeout: "Sesja wygasła. Aby kontynuować, zaloguj się ponownie."
-      unauthenticated: "Aby kontynuować zaloguj lub zarejestruj się."
-      unconfirmed: "Przed przejściem dalej, musisz potwierdzić Twój adres e-mail."
-    invitations:
-      invitation_token_invalid: "Token zaproszenia jest nieprawidłowy!"
-      send_instructions: "Zaproszenie zostało wysłane."
-      updated: "Hasło zostało pomyślnie zmienione. Zalogowano."
+      already_authenticated: Już jesteś zalogowany.
+      inactive: Twoje konto nie zostało jeszcze aktywowane.
+      invalid: Niepoprawne %{authentication_keys} lub hasło.
+      locked: Twoje konto jest zablokowane.
+      last_attempt: Możesz spróbować jeszcze jeden raz, potem Twoje konto zostanie zablokowane.
+      not_found_in_database: Niewłaściwy %{authentication_keys} lub hasło.
+      timeout: Sesja wygasła. Aby kontynuować, zaloguj się ponownie.
+      unauthenticated: Aby kontynuować zaloguj lub zarejestruj się.
+      unconfirmed: Przed przejściem dalej, musisz potwierdzić Twój adres e-mail.
+      invalid_token: Nieprawidłowy token uwierzytelnienia.
     mailer:
       confirmation_instructions:
-        confirm: "Aktywuj moje konto"
-        subject: "Instrukcja aktywacji"
-        you_can_confirm: "Możesz aktywować swoje konto klikając poniższe łącze:"
-      hello: "Cześć %{username}!"
+        subject: Instrukcja aktywacji
+        you_can_confirm: 'Możesz aktywować swoje konto klikając poniższe łącze:'
+        confirm: Aktywuj moje konto
+      reset_password_instructions:
+        subject: Instrukcja resetowania hasła
+        someone_requested: Ktoś poprosił o zmianę hasła. Jeśli to ty, to hasło możesz zmienić używając linku poniżej.
+        change: Zmiana hasła
+        wont_change: Hasło nie zostanie zmienione do momentu kliknięcia powyższego łącza i utworzenia nowego.
+        ignore: Jeśli nie chcesz zmienić hasła, zignoruj tę wiadomość.
+      unlock_instructions:
+        subject: Instrukcja odblokowania
+        account_locked: Konto zostało zablokowane, ponieważ przekroczono limit nieudanych prób logowania.
+        click_to_unlock: 'Kliknij poniższe łącze, aby odblokować konto:'
+        unlock: Odblokuj moje konto
+      password_change:
+        subject: Hasło zmienione
+      welcome: Witaj %{username}!
+      hello: Cześć %{username}!
       inviter:
-        accept_at: "na %{url}, możesz je zaakceptować używając poniższego łącza."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} zaprasza Cię do diaspory*"
-      password_change:
-        subject: "Hasło zmienione"
-      reset_password_instructions:
-        change: "Zmiana hasła"
-        ignore: "Jeśli nie chcesz zmienić hasła, zignoruj tę wiadomość."
-        someone_requested: "Ktoś poprosił o zmianę hasła. Jeśli to ty, to hasło możesz zmienić używając linku poniżej."
-        subject: "Instrukcja resetowania hasła"
-        wont_change: "Hasło nie zostanie zmienione do momentu kliknięcia powyższego łącza i utworzenia nowego."
-      unlock_instructions:
-        account_locked: "Konto zostało zablokowane, ponieważ przekroczono limit nieudanych prób logowania."
-        click_to_unlock: "Kliknij poniższe łącze, aby odblokować konto:"
-        subject: "Instrukcja odblokowania"
-        unlock: "Odblokuj moje konto"
-      welcome: "Witaj %{username}!"
+        accept_at: na %{url}, możesz je zaakceptować używając poniższego łącza.
     omniauth_callbacks:
-      failure: "Nie udało się uwierzytelnić Cię z %{kind} z powodu „%{reason}”."
-      success: "Pomyślnie uwierzytelniono kontem %{kind}."
+      failure: Nie udało się uwierzytelnić Cię z %{kind} z powodu „%{reason}”.
+      success: Pomyślnie uwierzytelniono kontem %{kind}.
     passwords:
+      no_token: Nie możesz pomyślnie odwiedzić tej strony w inny sposób niż poprzez kliknięcie odnośnika w e-mailu resetu hasła. Jeśli znalazłeś się tutaj właśnie przez tego typu e-mail, upewnij się, że kliknąłeś lub wkleiłeś pełny adres URL.
+      send_instructions: W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję resetowania hasła.
+      send_paranoid_instructions: Jeśli Twój e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz e-mail z łączem po kliknięciu którego będziesz mógł ustawić nowe hasło.
+      updated: Hasło zostało zmienione. Zalogowano pomyślnie.
+      updated_not_active: Twoje hasło zostało pomyślnie zmienione.
       edit:
-        change_password: "Zmień hasło"
-        confirm_password: "Powtórz hasło"
-        new_password: "Nowe hasło"
+        change_password: Zmień hasło
+        new_password: Nowe hasło
+        confirm_password: Powtórz hasło
       new:
-        email: "Adres e-mail"
-        forgot_password: "Nie pamiętasz hasła?"
-        reset_password: "Resetuj hasło"
-        send_password_instructions: "Wyślij mi instrukcję resetowania hasła"
-      no_token: "Nie możesz pomyślnie odwiedzić tej strony w inny sposób niż poprzez kliknięcie odnośnika w e-mailu resetu hasła. Jeśli znalazłeś się tutaj właśnie przez tego typu e-mail, upewnij się, że kliknąłeś lub wkleiłeś pełny adres URL."
-      send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję resetowania hasła."
-      send_paranoid_instructions: "Jeśli Twój e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz e-mail z łączem po kliknięciu którego będziesz mógł ustawić nowe hasło."
-      updated: "Hasło zostało zmienione. Zalogowano pomyślnie."
-      updated_not_active: "Twoje hasło zostało pomyślnie zmienione."
+        forgot_password: Nie pamiętasz hasła?
+        reset_password: Resetuj hasło
+        email: Adres e-mail
+        send_password_instructions: Wyślij mi instrukcję resetowania hasła
     registrations:
-      destroyed: "Do widzenia! Konto zostało pomyślnie zamknięte. Mamy nadzieję, że wkrótce zobaczymy Cię ponownie."
-      signed_up: "Rejestracja przebiegła pomyślnie. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający ten fakt."
-      signed_up_but_inactive: "Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane."
-      signed_up_but_locked: "Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto zostało zablokowane."
-      signed_up_but_unconfirmed: "Wiadomość z łączem aktywacyjnym została wysłana na Twój adres e-mail. Prosimy o kliknięcie łącza w celu aktywowania Twojego konta."
-      update_needs_confirmation: "Twoje konto zostało zaktualizowane, ale musimy zweryfikować Twój nowy adres e-mail. Sprawdź swoją skrzynkę i kliknij na przesłane łącze, aby potwierdzić Twój nowy adres."
-      updated: "Pomyślnie zaktualizowano konto."
+      destroyed: Do widzenia! Konto zostało pomyślnie zamknięte. Mamy nadzieję, że wkrótce zobaczymy Cię ponownie.
+      signed_up: Rejestracja przebiegła pomyślnie. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający ten fakt.
+      signed_up_but_inactive: Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane.
+      signed_up_but_locked: Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto zostało zablokowane.
+      signed_up_but_unconfirmed: Wiadomość z łączem aktywacyjnym została wysłana na Twój adres e-mail. Prosimy o kliknięcie łącza w celu aktywowania Twojego konta.
+      update_needs_confirmation: Twoje konto zostało zaktualizowane, ale musimy zweryfikować Twój nowy adres e-mail. Sprawdź swoją skrzynkę i kliknij na przesłane łącze, aby potwierdzić Twój nowy adres.
+      updated: Pomyślnie zaktualizowano konto.
     sessions:
-      already_signed_out: "Wylogowano pomyślnie."
+      signed_in: Zalogowano pomyślnie.
+      signed_out: Pomyślnie wylogowano.
+      already_signed_out: Wylogowano pomyślnie.
       new:
-        login: "Zaloguj się"
-        modern_browsers: "obsługuje wyłącznie współczesne przeglądarki."
-        password: "Hasło"
-        remember_me: "Pamiętaj mnie"
-        sign_in: "Zaloguj się"
-        username: "Nazwa użytkownika"
-      signed_in: "Zalogowano pomyślnie."
-      signed_out: "Pomyślnie wylogowano."
+        login: Zaloguj się
+        username: Nazwa użytkownika
+        password: Hasło
+        sign_in: Zaloguj się
+        remember_me: Pamiętaj mnie
+        modern_browsers: obsługuje wyłącznie współczesne przeglądarki.
+    unlocks:
+      send_instructions: W ciągu kilku minut otrzymasz wiadomość z instrukcją odblokowania konta.
+      send_paranoid_instructions: Jeśli Twoje konto istnieje, w ciągu kilku minut otrzymasz e-mail z instrukcją jak je odblokować.
+      unlocked: Konto zostało pomyślnie odblokowane. Pomyślnie zalogowano.
+      new:
+        resend_unlock: Wyślij ponownie instrukcję odblokowywania
+    invitations:
+      send_instructions: Zaproszenie zostało wysłane.
+      invitation_token_invalid: Token zaproszenia jest nieprawidłowy!
+      updated: Hasło zostało pomyślnie zmienione. Zalogowano.
     shared:
       links:
-        forgot_your_password: "Nie pamiętasz hasła?"
-        receive_confirmation: "Nie otrzymano instrukcji aktywacji?"
-        receive_unlock: "Nie otrzymano instrukcji odblokowywania?"
-        sign_in: "Zaloguj się"
-        sign_up: "Zarejestruj się"
-        sign_up_closed: "Otwarta rejestracja jest w tym momencie wyłączona."
-    unlocks:
-      new:
-        resend_unlock: "Wyślij ponownie instrukcję odblokowywania"
-      send_instructions: "W ciągu kilku minut otrzymasz wiadomość z instrukcją odblokowania konta."
-      send_paranoid_instructions: "Jeśli Twoje konto istnieje, w ciągu kilku minut otrzymasz e-mail z instrukcją jak je odblokować."
-      unlocked: "Konto zostało pomyślnie odblokowane. Pomyślnie zalogowano."
+        sign_in: Zaloguj się
+        sign_up: Zarejestruj się
+        sign_up_closed: Otwarta rejestracja jest w tym momencie wyłączona.
+        forgot_your_password: Nie pamiętasz hasła?
+        receive_confirmation: Nie otrzymano instrukcji aktywacji?
+        receive_unlock: Nie otrzymano instrukcji odblokowywania?
   errors:
     messages:
-      already_confirmed: "już potwierdzony, prosimy spróbować się zalogować"
-      confirmation_period_expired: "musi być potwierdzone w przeciągu %{period}, prosimy poprosić o nowy"
-      expired: "wygasł, poproś o nowy"
-      not_found: "nie znaleziono"
-      not_locked: "nie był zablokowany"
+      already_confirmed: już potwierdzony, prosimy spróbować się zalogować
+      confirmation_period_expired: musi być potwierdzone w przeciągu %{period}, prosimy poprosić o nowy
+      expired: wygasł, poproś o nowy
+      not_found: nie znaleziono
+      not_locked: nie był zablokowany
       not_saved:
+        one: '1 błąd uniemożliwił zapisanie %{resource}:'
         few: "%{count} błędy uniemożliwiły zapisanie %{resource}:"
         many: "%{count} błędów uniemożliwiło zapisanie %{resource}:"
-        one: "1 błąd uniemożliwił zapisanie %{resource}:"
         other: "%{count} błędów uniemożliwiło zapisanie %{resource}:"

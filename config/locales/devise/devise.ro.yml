@@ -7,82 +7,82 @@
 ro:
   devise:
     confirmations:
-      confirmed: "Contul dvs. a fost confirmat cu succes. Sunteți acum autentificat(ă)."
+      confirmed: Contul dvs. a fost confirmat cu succes. Sunteți acum autentificat(ă).
+      send_instructions: În scurt timp veți primi un email cu instrucțiuni pentru confirmarea contului.
       new:
-        resend_confirmation: "Retrimite instrucţiunile de confirmare"
-      send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru confirmarea contului."
+        resend_confirmation: Retrimite instrucţiunile de confirmare
     failure:
-      inactive: "Contul dvs. încă nu a fost activat."
-      invalid: "Email sau parolă incorectă."
-      invalid_token: "Cheie de autentificare invalidă."
-      locked: "Contul dvs. este blocat."
-      not_found_in_database: "Adresă de email sau parolă invalidă"
-      timeout: "Sesiunea dvs. a expirat, autentificați-vă din nou pentru a continua."
-      unauthenticated: "Pentru a continuna, înregistrați-vă."
-      unconfirmed: "Pentru a continua, confirmați contul dvs."
-    invitations:
-      invitation_token_invalid: "Invitaţia furnizată nu este valabilă!"
-      send_instructions: "Invitaţia dvs. a fost trimisă."
-      updated: "Parola dvs. a fost stabilită cu succes. Sunteţi acum logat"
+      inactive: Contul dvs. încă nu a fost activat.
+      invalid: Email sau parolă incorectă.
+      locked: Contul dvs. este blocat.
+      not_found_in_database: Adresă de email sau parolă invalidă
+      timeout: Sesiunea dvs. a expirat, autentificați-vă din nou pentru a continua.
+      unauthenticated: Pentru a continuna, înregistrați-vă.
+      unconfirmed: Pentru a continua, confirmați contul dvs.
+      invalid_token: Cheie de autentificare invalidă.
     mailer:
       confirmation_instructions:
-        confirm: "Confirmă contul meu"
-        subject: "Instrucţiuni de confirmare"
-        you_can_confirm: "Puteţi confirma contul dvs. prin intermediul link-ul de mai jos:"
-      hello: "Bună %{username}!"
+        subject: Instrucţiuni de confirmare
+        you_can_confirm: 'Puteţi confirma contul dvs. prin intermediul link-ul de mai jos:'
+        confirm: Confirmă contul meu
+      reset_password_instructions:
+        subject: Instrucţiuni pentru a reseta parola
+        someone_requested: Cineva a solicitat un link pentru a schimba parola, puteţi face acest lucru prin intermediul link-ul de mai jos.
+        change: Schimbă-mi parola
+        wont_change: Parola dvs. nu se va schimba până când nu veţi accesa linkul de mai sus şi veţi crea una nouă.
+        ignore: Dacă nu aţi facut aceasta petiţie, vă rugăm să ignoraţi acest e-mail.
+      unlock_instructions:
+        subject: Instrucţiuni pentru a debloca
+        account_locked: Contul dvs. a fost blocat din cauza unei cantitaţi excesive de încercări nereuşite de autentificare.
+        click_to_unlock: Clic pe link-ul de mai jos pentru a debloca contul dvs.
+        unlock: Deblochează-mi contul
+      welcome: Bine ai revenit %{username}!
+      hello: Bună %{username}!
       inviter:
-        accept_at: "la adresa %{url}, poţi accepta prin folosirea legăturii de mai jos."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} te-au invitat să te alături comunităţii Diaspora"
-      reset_password_instructions:
-        change: "Schimbă-mi parola"
-        ignore: "Dacă nu aţi facut aceasta petiţie, vă rugăm să ignoraţi acest e-mail."
-        someone_requested: "Cineva a solicitat un link pentru a schimba parola, puteţi face acest lucru prin intermediul link-ul de mai jos."
-        subject: "Instrucţiuni pentru a reseta parola"
-        wont_change: "Parola dvs. nu se va schimba până când nu veţi accesa linkul de mai sus şi veţi crea una nouă."
-      unlock_instructions:
-        account_locked: "Contul dvs. a fost blocat din cauza unei cantitaţi excesive de încercări nereuşite de autentificare."
-        click_to_unlock: "Clic pe link-ul de mai jos pentru a debloca contul dvs."
-        subject: "Instrucţiuni pentru a debloca"
-        unlock: "Deblochează-mi contul"
-      welcome: "Bine ai revenit %{username}!"
+        accept_at: la adresa %{url}, poţi accepta prin folosirea legăturii de mai jos.
     passwords:
+      send_instructions: În scurt timp veți primi un email cu instrucțiuni pentru resetarea parolei.
+      updated: Parolă schimbată cu success. Sunteți acum autentificat(ă).
       edit:
-        change_password: "Schimbă-mi parola"
+        change_password: Schimbă-mi parola
       new:
-        forgot_password: "Aţi uitat parola?"
-        send_password_instructions: "Trimite-mi instrucţiunile pentru a reseta parola"
-      send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru resetarea parolei."
-      updated: "Parolă schimbată cu success. Sunteți acum autentificat(ă)."
+        forgot_password: Aţi uitat parola?
+        send_password_instructions: Trimite-mi instrucţiunile pentru a reseta parola
     registrations:
-      destroyed: "La revedere! Contul dvs. a fost dezactivat cu succes. Sperăm să vă revedem în curând."
-      signed_up: "Sunteți autentificat(ă). Dacă este cazul, un mesaj de confirmare a fost trimis pe email-ul dvs."
-      updated: "Cont actualizat cu succes."
+      destroyed: La revedere! Contul dvs. a fost dezactivat cu succes. Sperăm să vă revedem în curând.
+      signed_up: Sunteți autentificat(ă). Dacă este cazul, un mesaj de confirmare a fost trimis pe email-ul dvs.
+      updated: Cont actualizat cu succes.
     sessions:
+      signed_in: Autentificare cu succes.
+      signed_out: Deconectare cu succes.
       new:
-        login: "Autentificare"
-        modern_browsers: "suportă doar browser-ele moderne."
-        password: "Parola"
-        remember_me: "Nu mă uita"
-        sign_in: "Autentificare"
-        username: "Nume de utilizator"
-      signed_in: "Autentificare cu succes."
-      signed_out: "Deconectare cu succes."
+        login: Autentificare
+        username: Nume de utilizator
+        password: Parola
+        sign_in: Autentificare
+        remember_me: Nu mă uita
+        modern_browsers: suportă doar browser-ele moderne.
+    unlocks:
+      send_instructions: În scurt timp veți primi un email cu instrucțiuni pentru deblocarea contului.
+      unlocked: Cont deblocat cu succes. Sunteți acum autentificat(ă).
+      new:
+        resend_unlock: Retrimite-mi instrucţiunile de deblocare
+    invitations:
+      send_instructions: Invitaţia dvs. a fost trimisă.
+      invitation_token_invalid: Invitaţia furnizată nu este valabilă!
+      updated: Parola dvs. a fost stabilită cu succes. Sunteţi acum logat
     shared:
       links:
-        forgot_your_password: "Aţi uitat parola?"
-        receive_confirmation: "Nu aţi primit instrucţiunile de confirmare?"
-        receive_unlock: "Nu aţi primit instrucţiunile de deblocare?"
-        sign_in: "Autentificare"
-        sign_up: "Înregistrează-te"
-        sign_up_closed: "Înscrierile sunt închise în acest moment."
-    unlocks:
-      new:
-        resend_unlock: "Retrimite-mi instrucţiunile de deblocare"
-      send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru deblocarea contului."
-      unlocked: "Cont deblocat cu succes. Sunteți acum autentificat(ă)."
+        sign_in: Autentificare
+        sign_up: Înregistrează-te
+        sign_up_closed: Înscrierile sunt închise în acest moment.
+        forgot_your_password: Aţi uitat parola?
+        receive_confirmation: Nu aţi primit instrucţiunile de confirmare?
+        receive_unlock: Nu aţi primit instrucţiunile de deblocare?
   errors:
     messages:
-      already_confirmed: "a fost deja confirmat"
-      not_found: "Inexistent"
-      not_locked: "nu a fost blocat"
+      already_confirmed: a fost deja confirmat
+      not_found: Inexistent
+      not_locked: nu a fost blocat

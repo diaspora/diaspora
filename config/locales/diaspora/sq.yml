@@ -5,1423 +5,1403 @@
 
 
 sq:
-  _applications: "Zbatime"
-  _contacts: "Kontakte"
-  _help: "Ndihmë"
-  _podmin_mail: "Lidhuni me përgjegjësin e nyjës"
-  _services: "Shërbime"
-  _statistics: "Statistika"
-  _terms: "Terma"
-  account: "Llogari"
+  settings: Rregullime
+  profile: Profil
+  account: Llogari
+  privacy: Privatësi
+  _services: Shërbime
+  _applications: Zbatime
+  _help: Ndihmë
+  ok: OK
+  cancel: Anuloje
+  delete: Fshije
+  username: Emër përdoruesi
+  email: Email
+  are_you_sure: Jeni i sigurt?
+  are_you_sure_delete_account: Jeni i sigurt se doni të mbyllet llogaria juaj? Kjo nuk mund të zhbëhet!
+  are_you_sure_ignore_user: Ju ndan një hap nga shpërfillja e atij përdoruesi. Jeni i sigurt?
+  fill_me_out: Plotësomëni
+  public: Publike
+  limited: E kufizuar
+  search: Kërkoni
+  nsfw: NSFW
+  find_people: 'Gjeni persona ose #etiketa'
+  more: Më tepër
+  all_aspects: Krejt aspektet
+  no_results: S’u gjetën përfundime
+  _contacts: Kontakte
+  _terms: Terma
+  _podmin_mail: Lidhuni me përgjegjësin e nyjës
+  _statistics: Statistika
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "duhet të jetë unik mes kontakteve të këtij përdoruesi."
+            person:
+              invalid: është i pavlefshëm.
+            username:
+              taken: është i zënë.
+              invalid: është i pavlefshëm. Lejojmë vetëm shkronja, numra, dhe nënvija.
+            email:
+              taken: është i zënë.
         person:
           attributes:
             diaspora_handle:
-              taken: "është i zënë."
-        poll:
+              taken: është i zënë.
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "S’u dhanë mundësi të mjaftueshme pyetësori."
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "Keni marrë pjesë tashmë në këtë pyetësor!"
+            person_id:
+              taken: duhet të jetë unik mes kontakteve të këtij përdoruesi.
         reshare:
           attributes:
             root_guid:
-              taken: "E bukur, hë? E keni ndarë një herë me të tjerët këtë postim!"
-        user:
+              taken: E bukur, hë? E keni ndarë një herë me të tjerët këtë postim!
+        poll:
           attributes:
-            email:
-              taken: "është i zënë."
-            person:
-              invalid: "është i pavlefshëm."
-            username:
-              invalid: "është i pavlefshëm. Lejojmë vetëm shkronja, numra, dhe nënvija."
-              taken: "është i zënë."
-  admins:
-    admin_bar:
-      dashboard: "Pult"
-      pages: "Faqe"
-      pod_network: "Rrjet nyjeje"
-      pod_stats: "Statistika nyjeje"
-      report: "Raportime"
-      sidekiq_monitor: "Mbikëqyrës Sidekiq"
-      user_search: "Kërkim nga përdoruesit"
-      weekly_user_stats: "Statistika javore përdoruesish"
-    dashboard:
-      fetching_diaspora_version: "Po përcaktohet versioni më i ri i diaspora*-s…"
-      pod_status: "Gjendje nyjeje"
-    pods:
-      pod_network: "Rrjet nyjeje"
-    stats:
-      2weeks: "2 javë"
-      50_most: "50 etiketat më popullore"
-      comments:
-        one: "%{count} koment"
-        other: "%{count} komente"
-        zero: "%{count} komente"
-      current_segment: "Segmenti i tanishëm ka mesatarisht %{post_yest} postime për përdorues, duke filluar me %{post_day}"
-      daily: "Përditë"
-      display_results: "Po shfaqen përfundime nga segmenti %{segment}"
-      go: "Shko"
-      month: "Muaj"
-      posts:
-        one: "%{count} postim"
-        other: "%{count} postime"
-        zero: "%{count} postime"
-      shares:
-        one: "%{count} ndarje"
-        other: "%{count} ndarje"
-        zero: "%{count} ndarje"
-      tag_name: "Emër etikete: %{name_tag} Numër: %{count_tag}"
-      usage_statistic: "Statistika përdorimi"
-      users:
-        one: "%{count} përdorues"
-        other: "%{count} përdorues"
-        zero: "%{count} përdorues"
-      week: "Javë"
-    user_entry:
-      account_closed: "Llogari e mbyllur"
-      admin: "Përgjegjësi"
-      current_sign_in_ip: "Adresë IP në hyrjen aktuale"
-      diaspora_handle: "ID diaspora*"
-      email: "Email"
-      guid: "GUID"
-      id: "ID"
-      invite_token: "Token ftese"
-      last_seen: "Parë së fundi më"
-      moderator: "Moderator"
-      ? "no"
-      : Jo
-      nsfw: "#nsfw"
-      spotlight: "Projektor"
-      unknown: "E panjohur"
-      ? "yes"
-      : Po
-    user_search:
-      account_closing_scheduled: "Llogaria e %{name} është planifikuar për t’u mbyllur. Kjo do të bëhet pas pak çastesh…"
-      account_locking_scheduled: "Llogaria e %{name} është planifikuar për t’u kyçur. Kjo do të bëhet pas pak çastesh…"
-      account_unlocking_scheduled: "Llogaria e %{name} është planifikuar për t’u shkyçur. Kjo do të bëhet pas pak çastesh…"
-      add_admin: "%{name} është bërë një përgjegjës."
-      add_invites: "Shtoni ftesa"
-      add_moderator: "%{name} është bërë një moderator."
-      add_spotlight: "%{name} është shtuar te projektori i bashkësisë."
-      are_you_sure: "Jeni i sigurt se doni të mbyllet kjo llogari?"
-      are_you_sure_lock_account: "Jeni i sigurt se doni të kyçet kjo llogari?"
-      are_you_sure_unlock_account: "Jeni i sigurt se doni të shkyçet kjo llogari?"
-      close_account: "Mbylle llogarinë"
-      delete_admin: "%{name} është hequr prej listës së përgjegjësve."
-      delete_moderator: "%{name} është hequr prej listës së moderatorëve."
-      delete_spotlight: "%{name} është hequr prej projektorit të bashkësisë."
-      does_not_exist: "Përdoruesi s’ekziston!"
-      email_to: "Email për ftesë"
-      invite: "Ftoje"
-      lock_account: "Kyçe llogarinë"
-      make_admin: "Bëje përgjegjës"
-      make_moderator: "Bëje moderator"
-      make_spotlight: "Shtoje te projektori i bashkësisë"
-      remove_admin: "Hiqe nga përgjegjës"
-      remove_moderator: "Hiqe nga moderator"
-      remove_spotlight: "Hiqe nga projektor bashkësie"
-      role_implemented: "%{name} i është dhënë tashmë ky rol!"
-      role_removal_implemented: "%{name} është hequr tashmë nga ky rol!"
-      under_13: "Shfaq përdorues që janë nën 13 vjeç (COPPA)"
-      unlock_account: "Shkyçe llogarinë"
-      users:
-        one: "U gjet %{count} përdorues"
-        other: "U gjetën %{count} përdorues"
-        zero: "U gjetën %{count} përdorues"
-      view_profile: "Shihni profilin"
-      you_currently:
-        one: "Aktualisht keni ende një ftesë %{link}"
-        other: "Aktualisht keni ende %{count} ftesa %{link}"
-        zero: "Aktualisht s’keni më  ndonjë ftesë %{link}"
-    weekly_user_stats:
-      amount_of:
-        one: "Numër përdoruesish të rinj këtë javë: %{count}"
-        other: "Numër përdoruesish të rinj këtë javë: %{count}"
-        zero: "Numër përdoruesish të rinj këtë javë: asnjë"
-      current_server: "Data e tanishme e shërbyesit është %{date}"
-  all_aspects: "Krejt aspektet"
-  api:
-    openid_connect:
-      authorizations:
-        destroy:
-          fail: "Përpjekja për të shfuqizuar autorizimin me ID %{id} dështoi"
-        new:
-          access: "%{name} lyp hyrje të:"
-          approve: "Miratoje"
-          bad_request: "Mungon ID klienti ose URI ridrejtimi"
-          client_id_not_found: "S’u gjet klient me client_id %{client_id} me URI ridrejtimi %{redirect_uri}"
-          deny: "Mohoje"
-          no_requirement: "%{name} s’ka nevojë për leje"
-          private_contacts_linkage_error: "private:read dhe private:modify lypin edhe contacts:read"
-          redirection_message: "Jeni i sigurt se doni t’i jepni hyrje te %{redirect_uri}?"
-          unknown_scope: "Fushëveprim i panjohur: %{scope_name}"
-      error_page:
-        contact_developer: "Ju lutemi, lidhuni me zhvilluesin e aplikacionit dhe të përfshini mesazhin vijues të hollësishëm të gabimit:"
-        could_not_authorize: "Aplikacioni s’u autorizua dot"
-        login_required: "Përpara se të mund të autorizoni këtë aplikacion, duhet të hyni në llogarinë tuaj"
-        title: "Oh! Diç shkoi ters :("
-      scopes:
-        ? "contacts:modify"
-        :
-          description: "Kjo akordon hyrje shkrimi te kontaktet dhe të dhënat e lidhura me to (të tilla si, aspekte)."
-          name: "Kontakte (Shkrim)"
-        ? "contacts:read"
-        :
-          description: "Kjo akordon hyrje vetëm-për-lexim te kontaktet dhe të dhënat e lidhura me to (të tilla si, aspekte)."
-          name: "Kontakte (Vetëm-lexim)"
-        conversations:
-          description: "Kjo akordon leje leximi dhe shkrimit te mesazhe private."
-          name: "Biseda"
-        email:
-          description: "Kjo akordon hyrje vetëm-për-lexim te adresa juaj email."
-          name: "Email"
-        interactions:
-          description: "Kjo akordon hyrje te ndërveprim me postime, për shembull, pëlqim, ose parashtrim i një komenti."
-          name: "Ndërveprime"
-        name:
-          description: "Kjo akordon hyrje vetëm-për-lexim te emri juaj i plotë."
-          name: "Emër i plotë"
-        nickname:
-          description: "Kjo akordon hyrje vetëm-për-lexim te emri juaj i përdoruesit."
-          name: "Emër përdoruesi"
-        notifications:
-          description: "Kjo akordon hyrje leximi dhe shkrimi te njoftimet tuaja."
-          name: "Njoftime"
-        openid:
-          description: "Kjo akordon hyrje vetëm-për-lexim te të dhëna elementare profili."
-          name: "Të dhëna elementare profili"
-        picture:
-          description: "Kjo akordon hyrje vetëm-për-lexim te fotoja e profilit tuaj."
-          name: "Foto profili"
-        ? "private:modify"
-        :
-          description: "Kjo akordon hyrje te botim postimesh private."
-          name: "Postime Private (Shkrim)"
-        ? "private:read"
-        :
-          description: "Kjo akordon hyrje vetëm-për-lexim te postimet private tuajat dhe të kontakteve tuaj."
-          name: "Postime Private (Vetëm-lexim)"
-        profile:
-          description: "Kjo akordon hyrje vetëm-për-lexim te të dhënat e profilit tuaj të zgjeruar."
-          name: "Profil i zgjeruar (Vetëm-lexim)"
-        ? "profile:modify"
-        :
-          description: "Kjo akordon hyrje për përditësim të dhënash të profilit tuaj të zgjeruar."
-          name: "Profil i zgjeruar (Shkrim)"
-        ? "profile:read_private"
-        :
-          description: "Kjo akordon hyrje vetëm-për-lexim te të dhëna të profilit tuaj privat."
-          name: "Të dhëna profili privat (Vetëm-lexim)"
-        ? "public:modify"
-        :
-          description: "Kjo akordon hyrje shkrimi për të botuar postime publike dhe te të dhëna të lidhura me to (të tilla si, vota dhe media e bashkëngjitur)."
-          name: "Postime Publike (Shkrim)"
-        ? "public:read"
-        :
-          description: "Kjo akordon hyrje te postimet tuaja publike, përfshi ndërveprime dhe të dhëna që lidhen me to."
-          name: "Postime Publike (Vetëm-lexim)"
-        sub:
-          description: "Kjo akordon hyrje vetëm-për-lexim te identifikuesi juaj unik."
-          name: "Identifikues unik"
-        ? "tags:modify"
-        :
-          description: "Kjo akordon hyrje për të ndryshuar etiketat që ndiqni."
-          name: "Etiketa (Shkrim)"
-        ? "tags:read"
-        :
-          description: "Kjo akordon hyrje vetëm-për-lexim te etiketat tuaja të ndjekura dhe te rrjedha etiketash."
-          name: "Etiketa (Vetëm-shkrim)"
-      user_applications:
-        index:
-          access: "%{name} mund të hyjë në:"
-          edit_applications: "Aplikacione"
-          no_requirement: "%{name} s’ka nevojë për leje"
-          title: "Aplikacione të autorizuar"
-        no_applications: "S’keni aplikacione të autorizuar"
-        policy: "Shihni rregullat e privatësisë të aplikacionit"
-        revoke_autorization: "Shfuqizoje"
-        tos: "Shihni kushtet e shërbimit të aplikacionit"
-  are_you_sure: "Jeni i sigurt?"
-  are_you_sure_delete_account: "Jeni i sigurt se doni të mbyllet llogaria juaj? Kjo nuk mund të zhbëhet!"
-  are_you_sure_ignore_user: "Ju ndan një hap nga shpërfillja e atij përdoruesi. Jeni i sigurt?"
-  aspect_memberships:
-    destroy:
-      failure: "S’u arrit të hiqet personi nga aspekti."
-      forbidden: "S’keni leje të bëni këtë."
-      invalid_statement: "U hodh tej zë i përsëdytur."
-      no_membership: "Në atë aspekt s’u gjet dot personi i përzgjedhur."
-      success: "Personi u hoq me sukses nga aspekti."
-  aspects:
-    add_to_aspect:
-      failure: "Shtimi i kontaktit te aspekti dështoi."
-      success: "Kontakti u shtua me sukses te aspekti."
-    aspect_listings:
-      add_an_aspect: "+ Shtoni një aspekt"
-    aspect_stream:
-      make_something: "Bëni diçka"
-      stay_updated: "Jini përherë i përditësuar"
-      stay_updated_explanation: "Rrëkeza juaj kryesore mbushet me krejt kontaktet tuaj, etiketat që ndiqni, dhe postime prej disa anëtarëve me krijimtari të bashkësisë."
-    destroy:
-      failure: "%{name} s’u hoq dot."
-      success: "%{name} u hoq me sukses."
-      success_auto_follow_back: "\"%{name} u hoq me sukses. Këtë aspekt e përdorët për të ndjekur përdorues vetvetiu. Shihni te rregullimet tuaja të përdoruesit se si të përzgjidhni një aspekt të ri vetëndjekjeje."
-    edit:
-      aspect_list_is_not_visible: "Kontakte në këtë aspekt s’janë në gjendje të shohin njëri-tjetrin."
-      aspect_list_is_visible: "Kontakte në këtë aspekt janë të dukshëm për njëri-tjetrin."
-      confirm_remove_aspect: "Jeni i sigurt se doni të fshihet ky aspekt?"
-      rename: "Riemërtojeni"
-      update: "Përditësoje"
-      updating: "Përditësim"
-    index:
-      donate: "Dhuroni"
-      donate_liberapay: "Dhuroni te liberapay"
-      help:
-        any_problem: "Keni një problem?"
-        contact_podmin: "Lidhuni me përgjegjësin e nyjës tuaj!"
-        do_you: ":"
-        feature_suggestion: "... keni një këshillë për një %{link}?"
-        find_a_bug: "... gjeni një %{link}?"
-        have_a_question: "... keni një %{link}?"
-        here_to_help: "Bashkësia diaspora* është këtu!"
-        mail_podmin: "Email përgjegjësi"
-        need_help: "Ju duhet ndihmë?"
-        support_forum: "Mundeni edhe të merrni pjesë te %{support_forum}."
-        support_forum_link: "forumi i asistencës"
-        tag_bug: "të metë"
-        tag_feature: "veçori të re"
-        tag_question: "pyetje"
-        tutorial_link_text: "Përkujdesore"
-        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: ndihmë për ju në hapat e para."
-      introduce_yourself: "Kjo është rrëkeza juaj. Fillojani duke prezantuar vetveten."
-      keep_pod_running: "Mbajeni të shpejtë xhirimin e %{pod}-it dhe u blini shërbyesve kafenë e ditës, përmes një dhurimi të përmuajshëm!"
-      new_here:
-        follow: "Ndiqni %{link} dhe përshëndetni mirëseardhjen e përdoruesve të rinj te diaspora*!"
-        learn_more: "Mësoni më tepër"
-        title: "Mirë se vini, përdorues i ri"
-      services:
-        content: "Te diaspora* mund të lidheni me shërbimet vijuese:"
-        heading: "Shërbime lidhjesh"
-      welcome_to_diaspora: "Mirë se vini te diaspora*, %{name}!"
-    no_contacts_message:
-      community_spotlight: "Projektorit mbi bashkësinë"
-      invite_link_text: "ftoni"
-      or_spotlight: "Ose mund të kërkoni përmes %{link}"
-      try_adding_some_more_contacts: "Mund të kërkoni ose %{invite_link} më tepër kontakte."
-      you_should_add_some_more_contacts: "Do të duhej të shtoni ca kontakte!"
-    seed:
-      acquaintances: "Të njohur"
-      family: "Të familjes"
-      friends: "Miq"
-      work: "Të punës"
-    update:
-      failure: "Aspekti juaj %{name} e kish emrin shumë të gjatë për t'ia ruajtur."
-      success: "Aspekti juaj %{name} u përpunua me sukses."
-  blocks:
-    create:
-      failure: "S’e shpërfilla dot atë përdorues. #evasion"
-      success: "Në rregull, s’do ta shihni sërish atë përdorues te rrjedha juaj. #silencio!"
-    destroy:
-      failure: "S’munda dot ta ndal shpërfilljen e atij përdoruesi. #evasion"
-      success: "Pa të shohim se ç’kanë për të thënë! #sayhello"
-  bookmarklet:
-    explanation: "Postoni te diaspora* prej kudo qofshi, duke faqeruajtur këtë lidhje => %{link}."
-    heading: "Aplikacionth Faqerojtës"
-    post_something: "Postoni te diaspora*"
-  cancel: "Anuloje"
-  color_themes:
-    dark: "E errët"
-    dark_green: "E gjelbër e errët"
-    egyptian_blue: "Blu egjiptiane"
-    magenta: "E purpur"
-    original: "Origjinalja gri"
-    original_white: "Origjinalja me sfond të bardhë"
-  comments:
-    create:
-      fail: "Krijimi i komentit dështoi"
-    destroy:
-      fail: "Fshirja e komentit dështoi"
-      success: "Komenti %{id} u fshi me sukses"
-    new_comment:
-      comment: "Koment"
-      commenting: "Po komentohet..."
-    not_found: "S’u gjet postim ose koment"
-  contacts:
-    index:
-      add_contact: "Shtoni kontakt"
-      all_contacts: "Krejt kontaktet"
-      community_spotlight: "Projektor i bashkësisë"
-      my_contacts: "Kontaktet e mia"
-      no_contacts: "Duket se keni nevojë të shtoni ndonjë kontakt!"
-      no_contacts_in_aspect: "Në këtë aspekt s’keni ende ndonjë kontakt. Më poshtë keni një listë të kontakteve ekzistuese që mund të shtoni në këtë aspekt."
-      no_contacts_message: "Kontrolloni te %{community_spotlight}"
-      only_sharing_with_me: "Vetëm ata që ndajnë gjëra me mua"
-      start_a_conversation: "Filloni një bashkëbisedim"
-      title: "Kontakte"
-      user_search: "Kërkim kontaktesh"
-    spotlight:
-      community_spotlight: "Projektori i bashkësisë"
-      no_members: "Ende s’ka anëtarë."
-      suggest_member: "Sugjeroni një anëtar"
-  conversations:
-    create:
-      fail: "Mesazh i mangët"
-      sent: "Mesazhi u dërgua"
-    destroy:
-      delete_success: "Biseda u fshi me sukses"
-      hide_success: "Biseda u fsheh me sukses"
-    index:
-      conversations_inbox: "Biseda – Të marra"
-      inbox: "Të marrat"
-      new_conversation: "Bisedë e re"
-      no_contacts: "Përpara se të nisni një bisedë, duhet të shtoni ca kontakte"
-      no_messages: "Pa mesazhe"
-    new:
-      message: "Mesazh"
-      send: "Dërgoje"
-      sending: "Po dërgohet..."
-      subject: "Subjekt"
-      subject_default: "Pa subjekt"
-      to: "Për"
-    new_conversation:
-      fail: "Mesazh i pavlefshëm"
-    not_found: "S’u gjet bisedë"
-    show:
-      delete: "Fshije bisedën"
-      hide: "Fshihe dhe heshtoje bisedën"
-      last_message: "Mesazhi i fundit i marrë %{timeago}"
-      reply: "Përgjigjuni"
-      replying: "Po përgjigjeni..."
-  date:
-    formats:
-      birthday: "%d %B"
-      birthday_with_year: "%d %B %Y"
-      fullmonth_day: "%d %B"
-  delete: "Fshije"
-  email: "Email"
-  error_messages:
-    csrf_token_fail: "Token-i CSRF është i pavlefshëm. Ju lutemi, bëni hyrjen dhe riprovoni."
-    desktop_view_link: "pamje desktop"
-    helper:
-      correct_the_following_errors_and_try_again: "Ndreqni gabimet vijuese dhe riprovoni."
-    mobile_not_available: "Kjo faqe s’është e passhme nën pamjen për celular, ju lutemi, kaloni te %{desktop_link}."
-    need_javascript: "Ky sajt lyp JavaScript që të funksionojë si duhet. Nëse e keni çaktivizuar JavaScript-in, ju lutemi, aktivizojeni dhe rifreskoni këtë faqe."
+            poll_answers:
+              not_enough_poll_answers: S’u dhanë mundësi të mjaftueshme pyetësori.
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: Keni marrë pjesë tashmë në këtë pyetësor!
   errors:
     messages:
-      carrierwave_download_error: "s’u shkarkua dot"
-      carrierwave_integrity_error: "s’është e një lloji të lejuar kartelash"
-      carrierwave_processing_error: "s’u arrit të bëhej"
-      content_type_blacklist_error: "S’keni leje të ngarkoni kartela %{content_type}"
-      content_type_whitelist_error: "S’keni leje të ngarkoni kartela %{content_type}"
-      extension_blacklist_error: "S’keni leje të ngarkoni kartela %{extension}, lloje të ndaluar: %{prohibited_types}"
-      extension_whitelist_error: "S’keni leje të ngarkoni kartela %{extension}, lloje të lejuar: %{allowed_types}"
-      max_size_error: "Madhësia e kartelës duhet të jetë më e vogël se %{max_size}"
-      min_size_error: "Madhësia e kartelës duhet të jetë më e madhe se %{min_size}"
-      mini_magick_processing_error: "S’u arrit të manipulohej me MiniMagick, ndoshta s’është figurë? Gabim Origjinal: %{e}"
-      rmagick_processing_error: "S’u arrit të manipulohej me rmagick, ndoshta s’është figurë?"
-  fill_me_out: "Plotësomëni"
-  find_people: "Gjeni persona ose #etiketa"
-  help:
-    account_and_data_management:
-      close_account_a: "Shkoni në fund të faqes së rregullimeve tuaja dhe klikoni mbi butonin “Mbylle llogarinë”. Do t’ju kërkohet të jepni fjalëkalimin tuaj që të plotësohet procesi. Mos harroni, nëse mbyllni llogarinë tuaj, nuk do të jeni <strong>kurrë</strong> më në gjendje të riregjistroni në po atë nyje emrin tuaj të përdoruesit."
-      close_account_q: "Si ta fshij sythin (llogarinë) tim?"
-      data_other_podmins_a: "Nga çasti që ndani gjëra me dikë në një nyje tjetër, çfarëdo postimesh që ndani me ta dhe një kopje e të dhënave tuaja të profilit depozitohen (në fshehtinën e) te nyja e tyre, dhe janë të përdorshme nga përgjegjësi i bazës së të dhënave të nyjës. Kur fshini një postim apo kur fshihen të dhëna profili, ato fshihen te nyja juaj dhe një kërkesë fshirjeje dërgohet për secilin prej nyjave të tjera ku qenë depozituar më parë. Figurat tuaja nuk depozitohen kurrë në ndonjë nyje, hiq atë tuajën; nyjave të tjera u transmetohen vetëm lidhje për te to."
-      data_other_podmins_q: "A munden përgjegjësit e nyjave të tjera të shohin të dhëna të miat?"
-      data_visible_to_podmin_a: "Shkurt: gjithçka. Ndërlidhja mes nyjave është gjithmonë e fshehtëzuar (përmes SSL-së dhe mekanizmit të fshehtëzimit të transporteve të vetë diaspora*-s), por depoja e të dhënave në nyje s’është e fshehtëzuar. Nëse do të donte, përgjegjësi i bazës së të dhënave për nyjën tuaj (zakonisht personi që mban në punë nyjën) mund të hyjë në krejt të dhënat e profilit tuaj dhe në gjithçka që postoni (ashtu siç ndodh në shumicën e sajteve që depozitojnë të dhëna përdoruesi). Kjo është arsyeja pse ju japim mundësinë e zgjedhje se me cilën nyje të regjistroheni, që të mund të zgjidhni një nyje përgjegjësit të së cilës pranoni t’i besoni të dhënat tuaja. Xhirimi nga vetë ju i nyjës suaj ofron më tepër privatësi, ngaqë atëherë keni kontrollin e hyrjeve në bazën e të dhënave."
-      data_visible_to_podmin_q: "Sa nga të dhënat e mia mund të shohë përgjegjësi i nyjës sime?"
-      download_data_a: "Po. Në fund të skedës Llogari te faqja e rregullimeve tuaja do të gjeni dy butona: një për shkarkimin e të dhënave tuaja, dhe një për shkarkimin e fotove tuaja."
-      download_data_q: "A mund të shkarkoj një kopje të krejt të dhënave të mia që përmbahen në sythin (llogarinë) tim?"
-      move_pods_a: "Versioni 0.7.0.0 i diaspora*-s furnizon fazën e parë të migrimit të llogarisë: tani mund të eksportoni krejt të dhënat tuaja prej ndarjes “Llogari” e rregullimeve të përdoruesit. Mbajini të sigurta të dhënat tuaja! Në një hedhje të ardhshme në qarkullim do të jeni në gjendje të migroni në një nyjë tjetër krejt llogarinë tuaj, përfshi postime dhe kontakte."
-      move_pods_q: "Si ta kaloj sythin (llogarinë) tim nga një nyjë në një tjetër?"
-      title: "Administrim llogarie dhe të dhënash"
-    aspects:
-      change_aspect_of_post_a: "Jo, por mundeni gjithmonë të krijoni një postim të ri me të njëjtën lëndë dhe ta postoni në një aspekt tjetër."
-      change_aspect_of_post_q: "Pasi të kem postuar diçka, a mund të ndryshoj aspektin(et) që të mund ta shohin?"
-      contacts_know_aspect_a: "Jo. Nuk munden të shohin emrin e aspektit me asnjë mënyrë."
-      contacts_know_aspect_q: "A e dinë kontaktet e mia se në cilat aspekte i kam vendosur?"
-      delete_aspect_a: "Klikoni “Aspektet e mia” te anështylla, që prej skenës së rrjedhës, dhe klikoni ikonën laps në krah të aspektit që doni të fshini, ose shkoni te faqja e Kontakteve tuaj dhe përzgjidhni aspektin që doni. Mandej klikoni ikonën e hedhurinave në cepin e sipërm djathtas të faqes."
-      delete_aspect_q: "Si ta fshij një aspekt?"
-      person_multiple_aspects_a: "Po. Shkoni te faqja e kontakteve tuaj dhe klikoni mbi “Kontaktet e mia”. Për secilin kontakt mund të përdorni menunë djathtas për t’i shtuar te (ose për t’i hequr nga) sa aspekte të doni. Ose mund t’i shtoni te një aspekt i ri (ose t’i hiqni prej një aspekti) duke klikuar butonin e përzgjedhësit të aspekteve në faqen e tyre të profilit. Ose mund të kaloni kursorin sipër emrit të njërit, kur e shihni në rrjedhë, dhe do të shfaqet një dritare e vockël. Mund t’i ndryshoni aspektet e secilit drejt e aty."
-      person_multiple_aspects_q: "A mund ta shtoj një person në disa aspekte?"
-      post_multiple_aspects_a: "Po. Kur krijoni një postim, përdorni butonin e përzgjedhësit të aspekteve që të përzgjidhni ose shpërzgjidhni aspekte. Rregullimi parazgjedhje është “Krejt aspektet”. Postimi juaj do të jetë i dukshëm në krejt aspektet që përzgjidhni. Aspektet në të cilët doni ta postoni, mund t’i përzgjidhni edhe te anështylla. Kur postoni, aspekti(et) që keni përzgjedhur te lista majtas, do të përzgjidhen vetvetiu te përzgjedhësi i aspekteve, kur filloni të krijoni një postim të ri."
-      post_multiple_aspects_q: "A mund të postoj lëndë në disa aspekte njëherësh?"
-      remove_notification_a: "Jo. Dhe as njoftohen kur i shtoni në më tepër aspekte, nëse ndani tashmë gjëra me ta."
-      remove_notification_q: "Nëse heq dikë nga një aspekt, ose nga krejt aspektet e mia, a njoftohen rreth kësaj?"
-      rename_aspect_a: "Klikoni “Aspektet e mia” te anështylla, që prej skenës së rrjedhës, dhe klikoni ikonën laps në krah të aspektit që doni të riemërtoni, ose shkoni te faqja e Kontakteve tuaj dhe përzgjidhni aspektin që doni. Mandej klikoni ikonën e përpunimit në krah të emrit të aspektit, në krye të kësaj faqeje, ndryshoni emrin dhe shtypni “Përditësoje”."
-      rename_aspect_q: "Si ta riemërtoj një aspekt?"
-      restrict_posts_i_see_a: "Po. Klikoni “Aspektet e mia” te anështylla dhe mandej klikoni te lista aspekte individuale që t’i përzgjidhni ose shpërzgjidhni. Në rrjedhën tuaj do të shfaqen vetëm postime nga persona prej aspekteve të përzgjedhura."
-      restrict_posts_i_see_q: "A mund t’i kufizoj postimet në rrjedhën time për vetëm disa, ato nga disa aspekte?"
-      title: "Aspekte"
-      what_is_an_aspect_a: "Aspektet janë mënyra se si i gruponi kontaktet tuaja në diaspora*. Një aspekt përfaqëson një nga fytyrat që i tregoni botës. Ky mund të jetë çka jeni në punë, ose cili jeni për familjen tuaj, ose cili jeni për shokët e një klubi në të cilin bëni pjesë."
-      what_is_an_aspect_q: "Ç’është një aspekt?"
-      who_sees_post_a: "Nëse bëni një postim të kufizuar, do të jetë i dukshëm vetëm për persona që keni vendosur në atë aspekt (ose aspekte, nëse është bërë në disa aspekte) përpara dërgimit të postimit. Kontaktet që nuk janë pjesë e aspektit, nuk kanë asnjë mundësi ta shohin postimin. Postimet e kufizuara nuk do të jenë kurrë të dukshme për cilindo që s’e keni vendosur në aspektin përkatës."
-      who_sees_post_q: "Ç’është një aspekt?"
-    community_guidelines: "udhëzime bashkësie"
-    faq: "PBR"
-    foundation_website: "sajti i diaspora* foundation"
-    getting_help:
-      get_support_a_discourse: "Kërkoni për diskutime ekzistues që lidhen me pyetjet tuaja ose hapni një rrjedhë të re te platforma jonë %{discourse}"
-      get_support_a_faq: "Lexoni faqen tonë %{faq} në wiki"
-      get_support_a_hashtag: "Pyetni në një postim publik te diaspora* duke përdorur hashtag-un %{question}"
-      get_support_a_irc: "Ejani te ne në %{irc} (fjalosje e atypëratyshme)"
-      get_support_a_tutorials: "Hidhni një sy te %{tutorials} tona"
-      get_support_a_website: "Vizitoni %{link} tonë"
-      get_support_a_wiki: "Kërkoni te %{link}"
-      get_support_q: "Po kur pyetja ime s’ka përgjigje te këto PBR? Ku mund të marr gjetiu tjetër asistencë?"
-      getting_started_a: "Jeni me fat. Provoni %{tutorial_series} te sajti ynë mbi projektin. Do t’ju kalojë hap pas hapi përmes procesit të regjistrimit dhe do t’ju mësojë krejt gjërat themelore që keni nevojë të dini mbi përdorimin e diaspora*."
-      getting_started_q: "Ndihmë! Më duhet ca ndihmë e thjeshtë, sa për t’ia filluar!"
-      title: "Si të merret ndihmë"
-    getting_started_tutorial: "Seria e përkujdesoreve ”Si t’ia fillohet”"
-    here: "këtu"
-    irc: "IRC"
-    keyboard_shortcuts:
-      keyboard_shortcuts_a1: "Te pamja me rrjedhën mund të përdorni shkurtoret vijuese për tastierën:"
-      keyboard_shortcuts_li1: "j – Kaloni te postimi pasues"
-      keyboard_shortcuts_li2: "k – Kaloni te postimi i mëparshëm"
-      keyboard_shortcuts_li3: "c – Komentoni te postimi i tanishëm"
-      keyboard_shortcuts_li4: "l – Pëlqeni postimin e tanishëm"
-      keyboard_shortcuts_li5: "r – Rindani me të tjerët postimin e tanishëm"
-      keyboard_shortcuts_li6: "m – Zgjeroni shfaqjen e postimit të tanishëm"
-      keyboard_shortcuts_li7: "o – Hapni lidhjen e parë në postimin e tanishëm"
-      keyboard_shortcuts_li8: "Ctrl+Enter –Dërgoni mesazhin që po shkruani"
-      keyboard_shortcuts_q: "Ç’shkurtore tastiere ka të gatshme?"
-      title: "Shkurtore tastiere"
-    markdown: "Markdown"
-    mentions:
-      how_to_mention_a: "Shtypni shenjë “@” dhe filloni të shtypni emrin e tij. Do të hapet një menu hapmbyll që t’ju lejojë ta përzgjidhni më lehtë. Kini parasysh se mundet të përmenden vetëm persona që i keni të shtuar në një aspekt."
-      how_to_mention_q: "Si ta përmend dikë teksa krijoj një postim?"
-      mention_in_comment_a: "Që me versionin 0.7.0.0, po! Mund ta përmendni dikë në një koment në të njëjtën mënyrë që do të bënit në një postim, duke shtypur “@” dhe mandej të filloni të shtypni emrin e tij. Ju lutemi, kini parasysh se kur komentoni në një postim që s’është publik, mund të përmendni vetëm përdoruesit që kanë ndërvepruar tashmë me postimin."
-      mention_in_comment_q: "A mund ta përmend dikë në një koment?"
-      see_mentions_a: "Po, klikoni “@Përmendje” në shtyllën në të majtë të faqes tuaj hyrëse."
-      see_mentions_q: "A ka ndonjë mënyrë të shoh postime në të cilat jam përmendur?"
-      title: "Përmendje"
-      what_is_a_mention_a: "Një përmendje është një lidhje për te faqja e profilit të një personi që shfaqet në një postim. Kur dikush përmendet, ai merr një njoftim që u tërheq vëmendjen te postimi."
-      what_is_a_mention_q: "Ç’është një “përmendje”?"
-    miscellaneous:
-      back_to_top_a: "Po. Pas rrëshqitjes poshtë në një faqe, klikoni mbi shigjetën ngjyrë gri që duket në cepin e poshtëm majtas të dritares së shfletuesit tuaj."
-      back_to_top_q: "A ka një rrugë të shpejtë për të kaluar në krye të faqes pasi kam rrëshqitur për poshtë?"
-      diaspora_app_a: "Ka pasur disa aplikacione Android në zhvillim e sipër nga anëtarë të bashkësisë. Disa janë projekte të braktisura prej kohësh, ndaj edhe nuk funksionojnë mirë me versionin e tanishëm të diaspora*. Hëpërhë mos prisni shumë prej këtyre aplikacioneve. Nuk ka aplikacion për iOS hëpërhë. Rruga më e mirë për të përdorur diaspora*-n prej pajisjes suaj celulare është përmes një shfletuesi, ngaqë kemi krijuar një version për celular të sajtit, i cili do të duhej të punonte paq në krejt pajisjet, edhe pse nuk përmban ende gjithë funksionet."
-      diaspora_app_q: "A ka një aplikacion diaspora* për Android ose iOS?"
-      photo_albums_a: "Jo, hëpërhë jo. Sidoqoftë, mund të shihni fotot e ngarkuara nga një person në skedën Foto të faqes së tyre të profilit."
-      photo_albums_q: "A ka albume fotosh apo videosh?"
-      subscribe_feed_a: "Po, por kjo është ende një veçori jo shumë e latuar dhe formatimi i përfundime është ende me shumë cepa. Nëse prapë dëshironi ta provoni, shkoni te faqja e profilit të dikujt dhe klikoni butonin e prurjeve te shfletuesi juaj, ose mund të kopjoni URL-në e profilit (p.sh. https://podname.org/people/somenumber) dhe t’ia furnizoni një lexuesi prurjesh. Adresa e prurjes që përftohet duket pak a shumë si kjo: https://podname.org/public/username.atom – diaspora* përdor Atom-in, në vend se RSS-në."
-      subscribe_feed_q: "A mund të pajtohem te postimet publike të dikujt përmes një lexuesi prurjesh?"
-      title: "Të ndryshme"
+      carrierwave_processing_error: s’u arrit të bëhej
+      carrierwave_integrity_error: s’është e një lloji të lejuar kartelash
+      carrierwave_download_error: s’u shkarkua dot
+      extension_whitelist_error: 'S’keni leje të ngarkoni kartela %{extension}, lloje të lejuar: %{allowed_types}'
+      extension_blacklist_error: 'S’keni leje të ngarkoni kartela %{extension}, lloje të ndaluar: %{prohibited_types}'
+      content_type_whitelist_error: S’keni leje të ngarkoni kartela %{content_type}
+      content_type_blacklist_error: S’keni leje të ngarkoni kartela %{content_type}
+      rmagick_processing_error: S’u arrit të manipulohej me rmagick, ndoshta s’është figurë?
+      mini_magick_processing_error: 'S’u arrit të manipulohej me MiniMagick, ndoshta s’është figurë? Gabim Origjinal: %{e}'
+      min_size_error: Madhësia e kartelës duhet të jetë më e madhe se %{min_size}
+      max_size_error: Madhësia e kartelës duhet të jetë më e vogël se %{max_size}
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Ndreqni gabimet vijuese dhe riprovoni.
+    need_javascript: Ky sajt lyp JavaScript që të funksionojë si duhet. Nëse e keni çaktivizuar JavaScript-in, ju lutemi, aktivizojeni dhe rifreskoni këtë faqe.
+    csrf_token_fail: Token-i CSRF është i pavlefshëm. Ju lutemi, bëni hyrjen dhe riprovoni.
+    mobile_not_available: Kjo faqe s’është e passhme nën pamjen për celular, ju lutemi, kaloni te %{desktop_link}.
+    desktop_view_link: pamje desktop
+  admins:
+    admin_bar:
+      pages: Faqe
+      dashboard: Pult
+      user_search: Kërkim nga përdoruesit
+      weekly_user_stats: Statistika javore përdoruesish
+      pod_stats: Statistika nyjeje
+      report: Raportime
+      sidekiq_monitor: Mbikëqyrës Sidekiq
+      pod_network: Rrjet nyjeje
+    dashboard:
+      pod_status: Gjendje nyjeje
+      fetching_diaspora_version: Po përcaktohet versioni më i ri i diaspora*-s…
+    user_search:
+      you_currently:
+        zero: Aktualisht s’keni më  ndonjë ftesë %{link}
+        one: Aktualisht keni ende një ftesë %{link}
+        other: Aktualisht keni ende %{count} ftesa %{link}
+      view_profile: Shihni profilin
+      add_invites: Shtoni ftesa
+      close_account: Mbylle llogarinë
+      lock_account: Kyçe llogarinë
+      unlock_account: Shkyçe llogarinë
+      are_you_sure: Jeni i sigurt se doni të mbyllet kjo llogari?
+      are_you_sure_lock_account: Jeni i sigurt se doni të kyçet kjo llogari?
+      are_you_sure_unlock_account: Jeni i sigurt se doni të shkyçet kjo llogari?
+      account_closing_scheduled: Llogaria e %{name} është planifikuar për t’u mbyllur. Kjo do të bëhet pas pak çastesh…
+      account_locking_scheduled: Llogaria e %{name} është planifikuar për t’u kyçur. Kjo do të bëhet pas pak çastesh…
+      account_unlocking_scheduled: Llogaria e %{name} është planifikuar për t’u shkyçur. Kjo do të bëhet pas pak çastesh…
+      make_admin: Bëje përgjegjës
+      remove_admin: Hiqe nga përgjegjës
+      make_moderator: Bëje moderator
+      remove_moderator: Hiqe nga moderator
+      make_spotlight: Shtoje te projektori i bashkësisë
+      remove_spotlight: Hiqe nga projektor bashkësie
+      add_admin: "%{name} është bërë një përgjegjës."
+      delete_admin: "%{name} është hequr prej listës së përgjegjësve."
+      add_moderator: "%{name} është bërë një moderator."
+      delete_moderator: "%{name} është hequr prej listës së moderatorëve."
+      add_spotlight: "%{name} është shtuar te projektori i bashkësisë."
+      delete_spotlight: "%{name} është hequr prej projektorit të bashkësisë."
+      does_not_exist: Përdoruesi s’ekziston!
+      role_implemented: "%{name} i është dhënë tashmë ky rol!"
+      role_removal_implemented: "%{name} është hequr tashmë nga ky rol!"
+      email_to: Email për ftesë
+      invite: Ftoje
+      under_13: Shfaq përdorues që janë nën 13 vjeç (COPPA)
+      users:
+        zero: U gjetën %{count} përdorues
+        one: U gjet %{count} përdorues
+        other: U gjetën %{count} përdorues
+    user_entry:
+      id: ID
+      guid: GUID
+      email: Email
+      diaspora_handle: ID diaspora*
+      last_seen: Parë së fundi më
+      current_sign_in_ip: Adresë IP në hyrjen aktuale
+      account_closed: Llogari e mbyllur
+      nsfw: "#nsfw"
+      admin: Përgjegjësi
+      moderator: Moderator
+      spotlight: Projektor
+      unknown: E panjohur
+      invite_token: Token ftese
+      'yes': Po
+      'no': Jo
+    weekly_user_stats:
+      current_server: Data e tanishme e shërbyesit është %{date}
+      amount_of:
+        zero: 'Numër përdoruesish të rinj këtë javë: asnjë'
+        one: 'Numër përdoruesish të rinj këtë javë: %{count}'
+        other: 'Numër përdoruesish të rinj këtë javë: %{count}'
+    stats:
+      week: Javë
+      2weeks: 2 javë
+      month: Muaj
+      daily: Përditë
+      usage_statistic: Statistika përdorimi
+      go: Shko
+      display_results: Po shfaqen përfundime nga segmenti %{segment}
+      posts:
+        zero: "%{count} postime"
+        one: "%{count} postim"
+        other: "%{count} postime"
+      comments:
+        zero: "%{count} komente"
+        one: "%{count} koment"
+        other: "%{count} komente"
+      shares:
+        zero: "%{count} ndarje"
+        one: "%{count} ndarje"
+        other: "%{count} ndarje"
+      users:
+        zero: "%{count} përdorues"
+        one: "%{count} përdorues"
+        other: "%{count} përdorues"
+      current_segment: Segmenti i tanishëm ka mesatarisht %{post_yest} postime për përdorues, duke filluar me %{post_day}
+      50_most: 50 etiketat më popullore
+      tag_name: 'Emër etikete: %{name_tag} Numër: %{count_tag}'
     pods:
-      find_people_a: "Nëse doni të ftoni miqtë tuaj të përdorin diaspora*-n, përdorni lidhjen e ftesës ose lidhjen për email, te anështylla. Ndiqni #etiketa që të zbuloni persona të tjerë që kanë interesa të përbashkëta me tuajat, dhe shtoni ata që postojnë në një aspekt gjëra që kanë interes për ju. Në një postim publik thërrisni fort se jeni #irikëtu."
-      find_people_q: "Sapo u regjistrova në një nyje, si mund të gjej persona me të cilët të ndaj gjëra?"
-      title: "Nyja"
-      use_search_box_a: "Nëse e dini ID-në e plotë të tyre në diaspora* (p.sh., emërpërdoruesi@emërnyjeje.org), mund t’i gjeni duke kërkuar për ta. Nëse gjendeni në të njëjtën nyje, mund të kërkoni thjesht për emrin e tyre të përdoruesit. Si rrugë tjetër, mund të kërkoni për ta sipas emrash profili (emri që shihni në ekran). Nëse kërkimi s’funksionon herën e parë, provoni sërish."
-      use_search_box_q: "Si ta përdor kutinë e kërkimeve për të gjetur individë të veçantë?"
-      what_is_a_pod_a: "Një nyjë është një shërbyes që xhiron software-in diaspora* dhe është i lidhur me rrjetin diaspora*. “Nyjë” është një metaforë që i referohet bishtajës te disa bimë bishtajore, të cilat përmbajnë fara, në atë mënyrë që një shërbyes përmban një numër llogarish përdoruesi. Ka mjaft nyje të ndryshme. Mund të shtoni shokë prej nyjash të tjera dhe të komunikoni me ta. S’ka nevojë të hapni nga një llogari në nyje të ndryshme! Mjafton një – në këtë mënyrë, diaspora*-n mund ta mendoni të ngjashme me një furnizues llogarish email. Ka nyje publike, nyje private, dhe me pak përpjekje mund të xhironi një tuajën."
-      what_is_a_pod_q: "Ç’është një nyjë?"
+      pod_network: Rrjet nyjeje
+  aspects:
+    edit:
+      confirm_remove_aspect: Jeni i sigurt se doni të fshihet ky aspekt?
+      rename: Riemërtojeni
+      aspect_list_is_visible: Kontakte në këtë aspekt janë të dukshëm për njëri-tjetrin.
+      aspect_list_is_not_visible: Kontakte në këtë aspekt s’janë në gjendje të shohin njëri-tjetrin.
+      update: Përditësoje
+      updating: Përditësim
+    no_contacts_message:
+      you_should_add_some_more_contacts: Do të duhej të shtoni ca kontakte!
+      try_adding_some_more_contacts: Mund të kërkoni ose %{invite_link} më tepër kontakte.
+      invite_link_text: ftoni
+      or_spotlight: Ose mund të kërkoni përmes %{link}
+      community_spotlight: Projektorit mbi bashkësinë
+    aspect_listings:
+      add_an_aspect: "+ Shtoni një aspekt"
+    destroy:
+      success: "%{name} u hoq me sukses."
+      success_auto_follow_back: "\"%{name} u hoq me sukses. Këtë aspekt e përdorët për të ndjekur përdorues vetvetiu. Shihni te rregullimet tuaja të përdoruesit se si të përzgjidhni një aspekt të ri vetëndjekjeje."
+      failure: "%{name} s’u hoq dot."
+    update:
+      success: Aspekti juaj %{name} u përpunua me sukses.
+      failure: Aspekti juaj %{name} e kish emrin shumë të gjatë për t'ia ruajtur.
+    add_to_aspect:
+      failure: Shtimi i kontaktit te aspekti dështoi.
+      success: Kontakti u shtua me sukses te aspekti.
+    seed:
+      family: Të familjes
+      work: Të punës
+      acquaintances: Të njohur
+      friends: Miq
+    index:
+      donate: Dhuroni
+      keep_pod_running: Mbajeni të shpejtë xhirimin e %{pod}-it dhe u blini shërbyesve kafenë e ditës, përmes një dhurimi të përmuajshëm!
+      donate_liberapay: Dhuroni te liberapay
+      welcome_to_diaspora: Mirë se vini te diaspora*, %{name}!
+      introduce_yourself: Kjo është rrëkeza juaj. Fillojani duke prezantuar vetveten.
+      new_here:
+        title: Mirë se vini, përdorues i ri
+        follow: Ndiqni %{link} dhe përshëndetni mirëseardhjen e përdoruesve të rinj te diaspora*!
+        learn_more: Mësoni më tepër
+      help:
+        need_help: Ju duhet ndihmë?
+        here_to_help: Bashkësia diaspora* është këtu!
+        do_you: ":"
+        have_a_question: "... keni një %{link}?"
+        tag_question: pyetje
+        find_a_bug: "... gjeni një %{link}?"
+        tag_bug: të metë
+        feature_suggestion: "... keni një këshillë për një %{link}?"
+        tag_feature: veçori të re
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: ndihmë për ju në hapat e para."
+        tutorial_link_text: Përkujdesore
+        support_forum: Mundeni edhe të merrni pjesë te %{support_forum}.
+        support_forum_link: forumi i asistencës
+        any_problem: Keni një problem?
+        contact_podmin: Lidhuni me përgjegjësin e nyjës tuaj!
+        mail_podmin: Email përgjegjësi
+      services:
+        heading: Shërbime lidhjesh
+        content: 'Te diaspora* mund të lidheni me shërbimet vijuese:'
+    aspect_stream:
+      stay_updated: Jini përherë i përditësuar
+      stay_updated_explanation: Rrëkeza juaj kryesore mbushet me krejt kontaktet tuaj, etiketat që ndiqni, dhe postime prej disa anëtarëve me krijimtari të bashkësisë.
+      make_something: Bëni diçka
+  aspect_memberships:
+    destroy:
+      success: Personi u hoq me sukses nga aspekti.
+      failure: S’u arrit të hiqet personi nga aspekti.
+      no_membership: Në atë aspekt s’u gjet dot personi i përzgjedhur.
+      forbidden: S’keni leje të bëni këtë.
+      invalid_statement: U hodh tej zë i përsëdytur.
+  bookmarklet:
+    heading: Aplikacionth Faqerojtës
+    post_something: Postoni te diaspora*
+    explanation: Postoni te diaspora* prej kudo qofshi, duke faqeruajtur këtë lidhje => %{link}.
+  color_themes:
+    dark: E errët
+    dark_green: E gjelbër e errët
+    egyptian_blue: Blu egjiptiane
+    magenta: E purpur
+    original: Origjinalja gri
+    original_white: Origjinalja me sfond të bardhë
+  comments:
+    create:
+      fail: Krijimi i komentit dështoi
+    new_comment:
+      comment: Koment
+      commenting: Po komentohet...
+    destroy:
+      success: Komenti %{id} u fshi me sukses
+      fail: Fshirja e komentit dështoi
+    not_found: S’u gjet postim ose koment
+  contacts:
+    index:
+      start_a_conversation: Filloni një bashkëbisedim
+      title: Kontakte
+      no_contacts: Duket se keni nevojë të shtoni ndonjë kontakt!
+      no_contacts_message: Kontrolloni te %{community_spotlight}
+      community_spotlight: Projektor i bashkësisë
+      no_contacts_in_aspect: Në këtë aspekt s’keni ende ndonjë kontakt. Më poshtë keni një listë të kontakteve ekzistuese që mund të shtoni në këtë aspekt.
+      my_contacts: Kontaktet e mia
+      all_contacts: Krejt kontaktet
+      only_sharing_with_me: Vetëm ata që ndajnë gjëra me mua
+      add_contact: Shtoni kontakt
+      user_search: Kërkim kontaktesh
+    spotlight:
+      community_spotlight: Projektori i bashkësisë
+      suggest_member: Sugjeroni një anëtar
+      no_members: Ende s’ka anëtarë.
+  conversations:
+    index:
+      conversations_inbox: Biseda – Të marra
+      new_conversation: Bisedë e re
+      no_messages: Pa mesazhe
+      inbox: Të marrat
+      no_contacts: Përpara se të nisni një bisedë, duhet të shtoni ca kontakte
+    show:
+      reply: Përgjigjuni
+      replying: Po përgjigjeni...
+      hide: Fshihe dhe heshtoje bisedën
+      delete: Fshije bisedën
+      last_message: Mesazhi i fundit i marrë %{timeago}
+    new:
+      to: Për
+      subject: Subjekt
+      subject_default: Pa subjekt
+      message: Mesazh
+      send: Dërgoje
+      sending: Po dërgohet...
+    create:
+      sent: Mesazhi u dërgua
+      fail: Mesazh i mangët
+    new_conversation:
+      fail: Mesazh i pavlefshëm
+    destroy:
+      delete_success: Biseda u fshi me sukses
+      hide_success: Biseda u fsheh me sukses
+    not_found: S’u gjet bisedë
+  date:
+    formats:
+      fullmonth_day: "%d %B"
+      birthday: "%d %B"
+      birthday_with_year: "%d %B %Y"
+  help:
+    title_header: Ndihmë
+    tutorials: përkujdesore
+    tutorial: përkujdesore
+    irc: IRC
+    wiki: wiki
+    faq: PBR
+    markdown: Markdown
+    here: këtu
+    foundation_website: sajti i diaspora* foundation
+    third_party_tools: Mjete palësh të treta
+    getting_started_tutorial: Seria e përkujdesoreve ”Si t’ia fillohet”
+    community_guidelines: udhëzime bashkësie
+    getting_help:
+      title: Si të merret ndihmë
+      getting_started_q: Ndihmë! Më duhet ca ndihmë e thjeshtë, sa për t’ia filluar!
+      getting_started_a: Jeni me fat. Provoni %{tutorial_series} te sajti ynë mbi projektin. Do t’ju kalojë hap pas hapi përmes procesit të regjistrimit dhe do t’ju mësojë krejt gjërat themelore që keni nevojë të dini mbi përdorimin e diaspora*.
+      get_support_q: Po kur pyetja ime s’ka përgjigje te këto PBR? Ku mund të marr gjetiu tjetër asistencë?
+      get_support_a_website: Vizitoni %{link} tonë
+      get_support_a_tutorials: Hidhni një sy te %{tutorials} tona
+      get_support_a_wiki: Kërkoni te %{link}
+      get_support_a_irc: Ejani te ne në %{irc} (fjalosje e atypëratyshme)
+      get_support_a_faq: Lexoni faqen tonë %{faq} në wiki
+      get_support_a_hashtag: Pyetni në një postim publik te diaspora* duke përdorur hashtag-un %{question}
+      get_support_a_discourse: Kërkoni për diskutime ekzistues që lidhen me pyetjet tuaja ose hapni një rrjedhë të re te platforma jonë %{discourse}
+    account_and_data_management:
+      title: Administrim llogarie dhe të dhënash
+      move_pods_q: Si ta kaloj sythin (llogarinë) tim nga një nyjë në një tjetër?
+      move_pods_a: 'Versioni 0.7.0.0 i diaspora*-s furnizon fazën e parë të migrimit të llogarisë: tani mund të eksportoni krejt të dhënat tuaja prej ndarjes “Llogari” e rregullimeve të përdoruesit. Mbajini të sigurta të dhënat tuaja! Në një hedhje të ardhshme në qarkullim do të jeni në gjendje të migroni në një nyjë tjetër krejt llogarinë tuaj, përfshi postime dhe kontakte.'
+      download_data_q: A mund të shkarkoj një kopje të krejt të dhënave të mia që përmbahen në sythin (llogarinë) tim?
+      download_data_a: 'Po. Në fund të skedës Llogari te faqja e rregullimeve tuaja do të gjeni dy butona: një për shkarkimin e të dhënave tuaja, dhe një për shkarkimin e fotove tuaja.'
+      close_account_q: Si ta fshij sythin (llogarinë) tim?
+      close_account_a: Shkoni në fund të faqes së rregullimeve tuaja dhe klikoni mbi butonin “Mbylle llogarinë”. Do t’ju kërkohet të jepni fjalëkalimin tuaj që të plotësohet procesi. Mos harroni, nëse mbyllni llogarinë tuaj, nuk do të jeni <strong>kurrë</strong> më në gjendje të riregjistroni në po atë nyje emrin tuaj të përdoruesit.
+      data_visible_to_podmin_q: Sa nga të dhënat e mia mund të shohë përgjegjësi i nyjës sime?
+      data_visible_to_podmin_a: 'Shkurt: gjithçka. Ndërlidhja mes nyjave është gjithmonë e fshehtëzuar (përmes SSL-së dhe mekanizmit të fshehtëzimit të transporteve të vetë diaspora*-s), por depoja e të dhënave në nyje s’është e fshehtëzuar. Nëse do të donte, përgjegjësi i bazës së të dhënave për nyjën tuaj (zakonisht personi që mban në punë nyjën) mund të hyjë në krejt të dhënat e profilit tuaj dhe në gjithçka që postoni (ashtu siç ndodh në shumicën e sajteve që depozitojnë të dhëna përdoruesi). Kjo është arsyeja pse ju japim mundësinë e zgjedhje se me cilën nyje të regjistroheni, që të mund të zgjidhni një nyje përgjegjësit të së cilës pranoni t’i besoni të dhënat tuaja. Xhirimi nga vetë ju i nyjës suaj ofron më tepër privatësi, ngaqë atëherë keni kontrollin e hyrjeve në bazën e të dhënave.'
+      data_other_podmins_q: A munden përgjegjësit e nyjave të tjera të shohin të dhëna të miat?
+      data_other_podmins_a: Nga çasti që ndani gjëra me dikë në një nyje tjetër, çfarëdo postimesh që ndani me ta dhe një kopje e të dhënave tuaja të profilit depozitohen (në fshehtinën e) te nyja e tyre, dhe janë të përdorshme nga përgjegjësi i bazës së të dhënave të nyjës. Kur fshini një postim apo kur fshihen të dhëna profili, ato fshihen te nyja juaj dhe një kërkesë fshirjeje dërgohet për secilin prej nyjave të tjera ku qenë depozituar më parë. Figurat tuaja nuk depozitohen kurrë në ndonjë nyje, hiq atë tuajën; nyjave të tjera u transmetohen vetëm lidhje për te to.
+    aspects:
+      title: Aspekte
+      what_is_an_aspect_q: Ç’është një aspekt?
+      what_is_an_aspect_a: Aspektet janë mënyra se si i gruponi kontaktet tuaja në diaspora*. Një aspekt përfaqëson një nga fytyrat që i tregoni botës. Ky mund të jetë çka jeni në punë, ose cili jeni për familjen tuaj, ose cili jeni për shokët e një klubi në të cilin bëni pjesë.
+      who_sees_post_q: Ç’është një aspekt?
+      who_sees_post_a: Nëse bëni një postim të kufizuar, do të jetë i dukshëm vetëm për persona që keni vendosur në atë aspekt (ose aspekte, nëse është bërë në disa aspekte) përpara dërgimit të postimit. Kontaktet që nuk janë pjesë e aspektit, nuk kanë asnjë mundësi ta shohin postimin. Postimet e kufizuara nuk do të jenë kurrë të dukshme për cilindo që s’e keni vendosur në aspektin përkatës.
+      contacts_know_aspect_q: A e dinë kontaktet e mia se në cilat aspekte i kam vendosur?
+      contacts_know_aspect_a: Jo. Nuk munden të shohin emrin e aspektit me asnjë mënyrë.
+      person_multiple_aspects_q: A mund ta shtoj një person në disa aspekte?
+      person_multiple_aspects_a: Po. Shkoni te faqja e kontakteve tuaj dhe klikoni mbi “Kontaktet e mia”. Për secilin kontakt mund të përdorni menunë djathtas për t’i shtuar te (ose për t’i hequr nga) sa aspekte të doni. Ose mund t’i shtoni te një aspekt i ri (ose t’i hiqni prej një aspekti) duke klikuar butonin e përzgjedhësit të aspekteve në faqen e tyre të profilit. Ose mund të kaloni kursorin sipër emrit të njërit, kur e shihni në rrjedhë, dhe do të shfaqet një dritare e vockël. Mund t’i ndryshoni aspektet e secilit drejt e aty.
+      remove_notification_q: Nëse heq dikë nga një aspekt, ose nga krejt aspektet e mia, a njoftohen rreth kësaj?
+      remove_notification_a: Jo. Dhe as njoftohen kur i shtoni në më tepër aspekte, nëse ndani tashmë gjëra me ta.
+      change_aspect_of_post_q: Pasi të kem postuar diçka, a mund të ndryshoj aspektin(et) që të mund ta shohin?
+      change_aspect_of_post_a: Jo, por mundeni gjithmonë të krijoni një postim të ri me të njëjtën lëndë dhe ta postoni në një aspekt tjetër.
+      post_multiple_aspects_q: A mund të postoj lëndë në disa aspekte njëherësh?
+      post_multiple_aspects_a: Po. Kur krijoni një postim, përdorni butonin e përzgjedhësit të aspekteve që të përzgjidhni ose shpërzgjidhni aspekte. Rregullimi parazgjedhje është “Krejt aspektet”. Postimi juaj do të jetë i dukshëm në krejt aspektet që përzgjidhni. Aspektet në të cilët doni ta postoni, mund t’i përzgjidhni edhe te anështylla. Kur postoni, aspekti(et) që keni përzgjedhur te lista majtas, do të përzgjidhen vetvetiu te përzgjedhësi i aspekteve, kur filloni të krijoni një postim të ri.
+      restrict_posts_i_see_q: A mund t’i kufizoj postimet në rrjedhën time për vetëm disa, ato nga disa aspekte?
+      restrict_posts_i_see_a: Po. Klikoni “Aspektet e mia” te anështylla dhe mandej klikoni te lista aspekte individuale që t’i përzgjidhni ose shpërzgjidhni. Në rrjedhën tuaj do të shfaqen vetëm postime nga persona prej aspekteve të përzgjedhura.
+      rename_aspect_q: Si ta riemërtoj një aspekt?
+      rename_aspect_a: Klikoni “Aspektet e mia” te anështylla, që prej skenës së rrjedhës, dhe klikoni ikonën laps në krah të aspektit që doni të riemërtoni, ose shkoni te faqja e Kontakteve tuaj dhe përzgjidhni aspektin që doni. Mandej klikoni ikonën e përpunimit në krah të emrit të aspektit, në krye të kësaj faqeje, ndryshoni emrin dhe shtypni “Përditësoje”.
+      delete_aspect_q: Si ta fshij një aspekt?
+      delete_aspect_a: Klikoni “Aspektet e mia” te anështylla, që prej skenës së rrjedhës, dhe klikoni ikonën laps në krah të aspektit që doni të fshini, ose shkoni te faqja e Kontakteve tuaj dhe përzgjidhni aspektin që doni. Mandej klikoni ikonën e hedhurinave në cepin e sipërm djathtas të faqes.
+    mentions:
+      title: Përmendje
+      what_is_a_mention_q: Ç’është një “përmendje”?
+      what_is_a_mention_a: Një përmendje është një lidhje për te faqja e profilit të një personi që shfaqet në një postim. Kur dikush përmendet, ai merr një njoftim që u tërheq vëmendjen te postimi.
+      how_to_mention_q: Si ta përmend dikë teksa krijoj një postim?
+      how_to_mention_a: Shtypni shenjë “@” dhe filloni të shtypni emrin e tij. Do të hapet një menu hapmbyll që t’ju lejojë ta përzgjidhni më lehtë. Kini parasysh se mundet të përmenden vetëm persona që i keni të shtuar në një aspekt.
+      mention_in_comment_q: A mund ta përmend dikë në një koment?
+      mention_in_comment_a: Që me versionin 0.7.0.0, po! Mund ta përmendni dikë në një koment në të njëjtën mënyrë që do të bënit në një postim, duke shtypur “@” dhe mandej të filloni të shtypni emrin e tij. Ju lutemi, kini parasysh se kur komentoni në një postim që s’është publik, mund të përmendni vetëm përdoruesit që kanë ndërvepruar tashmë me postimin.
+      see_mentions_q: A ka ndonjë mënyrë të shoh postime në të cilat jam përmendur?
+      see_mentions_a: Po, klikoni “@Përmendje” në shtyllën në të majtë të faqes tuaj hyrëse.
+    pods:
+      title: Nyja
+      what_is_a_pod_q: Ç’është një nyjë?
+      what_is_a_pod_a: Një nyjë është një shërbyes që xhiron software-in diaspora* dhe është i lidhur me rrjetin diaspora*. “Nyjë” është një metaforë që i referohet bishtajës te disa bimë bishtajore, të cilat përmbajnë fara, në atë mënyrë që një shërbyes përmban një numër llogarish përdoruesi. Ka mjaft nyje të ndryshme. Mund të shtoni shokë prej nyjash të tjera dhe të komunikoni me ta. S’ka nevojë të hapni nga një llogari në nyje të ndryshme! Mjafton një – në këtë mënyrë, diaspora*-n mund ta mendoni të ngjashme me një furnizues llogarish email. Ka nyje publike, nyje private, dhe me pak përpjekje mund të xhironi një tuajën.
+      find_people_q: Sapo u regjistrova në një nyje, si mund të gjej persona me të cilët të ndaj gjëra?
+      find_people_a: 'Nëse doni të ftoni miqtë tuaj të përdorin diaspora*-n, përdorni lidhjen e ftesës ose lidhjen për email, te anështylla. Ndiqni #etiketa që të zbuloni persona të tjerë që kanë interesa të përbashkëta me tuajat, dhe shtoni ata që postojnë në një aspekt gjëra që kanë interes për ju. Në një postim publik thërrisni fort se jeni #irikëtu.'
+      use_search_box_q: Si ta përdor kutinë e kërkimeve për të gjetur individë të veçantë?
+      use_search_box_a: Nëse e dini ID-në e plotë të tyre në diaspora* (p.sh., emërpërdoruesi@emërnyjeje.org), mund t’i gjeni duke kërkuar për ta. Nëse gjendeni në të njëjtën nyje, mund të kërkoni thjesht për emrin e tyre të përdoruesit. Si rrugë tjetër, mund të kërkoni për ta sipas emrash profili (emri që shihni në ekran). Nëse kërkimi s’funksionon herën e parë, provoni sërish.
     posts_and_posting:
-      char_limit_services_a: "Në këtë rast do të duhej ta kufizonit postimin tuaj aq sa është kufiri më i ulët (140 në rastin e Twitter-it; 1000 në rastin e Tumblr-it), dhe numri i shenjave të mbetura për përdorim ju shfaqet në ikonën e shërbimit, kur kjo është e theksuar. Mund të postoni prapëseprapë në këto shërbime, edhe kur postimi juaj është më i gjatë se sa kufijtë e tyre, por teksti në këto shërbime do të shfaqet i cunguar dhe me një lidhje për te postimi në diaspora*."
-      char_limit_services_q: "Po kur ndaj postim me një shërbim të lidhur te diaspora*, i cili ka kufi më të ulët për shenjat?"
-      character_limit_a: "65535 shenja. Që do të thotë 65395 më shumë se sa ju jepen në Twitter! ;)"
-      character_limit_q: "Sa është kufiri për shenjat në një postim?"
-      embed_multimedia_a: "Zakonisht, thjesht mund të hidhni URL-në (p.sh. http://www.youtube.com/watch?v=nnnnnnnnnnn ) te postimi juaj dhe videoja apo audioja do të trupëzohet vetvetiu. Në sajtet e mbuluar përfshihen: YouTube, Vimeo, SoundCloud, Flickr dhe ndoca të tjerë. Për këtë veçori, diaspora* përdor oEmbed. Dora-dora mbulojmë gjithnjë e më shumë burime media. Mbani mend të postoni përherë lidhje të thjeshta, të plota – jo lidhje të shkurtuara; pa operatorë pas URL-së bazë – dhe lërini pakëz kohë përpara se të rifreskoni faqen pas postimit, për të parë si duket."
-      embed_multimedia_q: "Si të trupëzoj video, audio, ose tjetër lëndë multimedia në një postim?"
-      format_text_a: "diaspora* përdor një sistem të thjeshtëzuar, të quajtur %{markdown}. Botuesi ka butona për ta bërë të lehtë formatin e tekstit tuaj. Nëse doni ta formatoni dorazi postimin tuaj, sintaksën e plotë të Markdown-it mund ta gjeni %{here}. Butoni i paraparjeve do të thotë se mund të shihni si do të duket mesazhi juaj, përpara se ta ndani me të tjerët. Mos harroni se s’mund ta përpunoni më pas postimit, ndaj përdorni paraparjen për t’u siguruar se është si e doni, përpara se të shtypni butonin “Ndaje”!"
-      format_text_q: "Si ta formatoj tekstin në postimet e mia (shkronja të trasha, të pjerrëta, etj.)?"
-      hide_posts_a: "Nëse e vendosni kursorin në krye të një postimi, në të djathtë do të shfaqet një X. Klikoni mbi që të fshihet postimi dhe të ndalen njoftimet mbi të. Mund ta shihni prapë postimin, nëse vizitoni faqen e profilit të personit që e postoi."
-      hide_posts_q: "Si ta fsheh një postim?"
-      ignore_user_a1: "Nëse aktualisht ndani gjëra me atë person, heqja e tij prej aspekteve tuaj do të sjellë ndaljen e shfaqjes në rrjedhën tuaj të shumë prej postimeve të tij. Një metodë më e plotë është të “shpërfillet” ajo llogari. Kjo do të pengojë shfaqjen në rrjedhën tuaj të cilitdo postim prej tij, dhe ky s’do të jetë në gjendje të pëlqejë postimin tuaj ose të komentojë në të. Por, do të jetë në gjendje megjithatë të rindajë postimet tuaja, të komentojë në rindarje të postimeve tuaj dhe komentet e tij në postime nga persona të tjerë që shfaqen në rrjedhën tuaj do të jenë ende të dukshme për ju."
-      ignore_user_a2: "Që të shpërfillet një llogari, klikoni mbi ikonën “shpërfille” (një rreth me një vijë diagonale nëpër të) në të djathtë sipër të njërit prej postimeve nga ajo llogari. Postimet prej saj do të zhduken me një herë prej rrjedhës tuaj. Ndryshe, shkoni te profili i tyre dhe klikoni atje ikonën shpërfille. Ama do të jeni prapë në gjendje të shihni postimet e tij në faqen e profilit të tij, ose duke përdorur pamjen “postim njësh”."
-      ignore_user_a3: "Një listë të personave që shpërfillni, mund ta gjeni te rregullimet e llogarisë tuaj, nën ndarjen “Privatësi”. Që të reshtni së shpërfilluri dikë, hiqeni nga lista në atë faqe."
-      ignore_user_q: "Si ta ndaloj shfaqjen në rrjedhën time të postimeve të dikujt?"
-      insert_images_a: "Nëse doni të përfshini në postimin tuaj një figurë të depozituar në kompjuterin tuaj, klikoni ikonën e vogël kamera në fund të botuesit. Mundeni edhe të tërhiqni dhe lini një ose disa figura, nga kompjuteri juaj në atë ikonë. Nëse doni të futni në postimin tuaj një figurë nga interneti, klikoni butonin e figurave në krye të botuesit, çka do të krijojë për ju kodin Markdown përkatës."
-      insert_images_comments_a: "Që të futni një figurë nga interneti në një koment, mund të përdorni kod Markdown, njësoj si te postimet. Por, s’mund të ngarkoni figura nga kompjuteri juaj drejt e te komente. Ngarkojini ato në një shërbim strehimi figurash dhe mandej futini duke përdorur butonin e figurave sipër botuesit."
-      insert_images_comments_q: "A mund të fus figura në komente?"
-      insert_images_q: "Si të fus figura në postime?"
-      post_location_a: "Brenda skenës së botimi, klikoni ikonën piketë në krah të kamerës. Kjo do të shkaktojë futjen e vendndodhjes suaj me ndihmën e OpenStreetMap-it. Vendndodhjen tuaj mund ta përpunoni – mirë është të vendosni vetëm qytetin ku gjendeni, se sa adresën e saktë (rrugë, numër, etj)."
-      post_location_q: "Si t’i shtoj një postimi vendndodhjen time?"
-      post_notification_a: "Në krah të X-it, në cepin e djathtë sipër të një postimi, do të gjeni një zilkë. Klikoni mbi që të aktivizoni ose çaktivizoni njoftimet mbi atë postim."
-      post_notification_q: "Si të marr njoftime, ose të resht së marri njoftime rreth një postimi?"
-      post_poll_a: "Klikoni mbi ikonën grafik që të prodhohet një pyetësor. Shtypni një pyetje dhe të paktën dy përgjigje. Mos harroni ta bëni postimin tuaj publik, nëse doni që gjithkush të jetë në gjendje të marrë pjesë te pyetësorin tuaj."
-      post_poll_q: "Si të shtoj një pyetësor te postimi im?"
-      post_report_a: "Klikoni ikonën trekëndëshe të sinjalizimeve, në cepin e djathtë sipër të postimit që doni t’i njoftohet përgjegjësit të nyjës suaj. Te kutia e dialogut jepni një arsye për sinjalizimin e këtij postimi. Ju lutemi, raportoni vetëm postime që cenojnë %{community_guidelines} tonat ose kushtet e shërbimit të nyjës tuaj, për shembull, postime që përmbajnë lëndë të paligjshme, ose që është abuzive ose spam."
-      post_report_q: "Si të njoftoj për një postim fyes?"
-      size_of_images_a: "Jo. Figurat ripërmasohen vetvetiu që t’i nxërë rrjedha pse pamja njëpostimëshe. Markdown s’ka kod për përcaktim të madhësisë së një figure."
-      size_of_images_q: "A mund ta përshtat madhësinë e figurave në postime apo komente?"
-      stream_full_of_posts_a1: "Rrjedha juaj popullohet me tre lloje postimesh:"
-      stream_full_of_posts_li1: "Postime nga persona me të cilët ndani gjëra, që janë dy llojesh: postime publike dhe postime të kufizuara të ndara me ju në një aspekt pjesë e të cilit jeni. Që t’i hiqni këto postime prej rrjedhës suaj, thjesht reshtni së ndari gjëra me atë person."
-      stream_full_of_posts_li2: "Postime publike që përmbajnë një prej etiketave që ndiqni. Që të hiqni këto, reshtni së ndjekuri atë etiketë."
-      stream_full_of_posts_li3: "Postime publike nga persona pjesë e projektorit të bashkësisë. Këto mund të hiqen duke i hequr shenjën mundësisë “Të shfaqet në rrjedhë projektori i bashkësisë?”, te skeda Llogari, te Rregullimet tuaja."
-      stream_full_of_posts_q: "Pse është rrjedha ime plot me postime prej personash që s’i njoh dhe me të cilët nuk ndaj gjëra?"
-      title: "Postime dhe postim"
+      title: Postime dhe postim
+      stream_full_of_posts_q: Pse është rrjedha ime plot me postime prej personash që s’i njoh dhe me të cilët nuk ndaj gjëra?
+      stream_full_of_posts_a1: 'Rrjedha juaj popullohet me tre lloje postimesh:'
+      stream_full_of_posts_li1: 'Postime nga persona me të cilët ndani gjëra, që janë dy llojesh: postime publike dhe postime të kufizuara të ndara me ju në një aspekt pjesë e të cilit jeni. Që t’i hiqni këto postime prej rrjedhës suaj, thjesht reshtni së ndari gjëra me atë person.'
+      stream_full_of_posts_li2: Postime publike që përmbajnë një prej etiketave që ndiqni. Që të hiqni këto, reshtni së ndjekuri atë etiketë.
+      stream_full_of_posts_li3: Postime publike nga persona pjesë e projektorit të bashkësisë. Këto mund të hiqen duke i hequr shenjën mundësisë “Të shfaqet në rrjedhë projektori i bashkësisë?”, te skeda Llogari, te Rregullimet tuaja.
+      hide_posts_q: Si ta fsheh një postim?
+      hide_posts_a: Nëse e vendosni kursorin në krye të një postimi, në të djathtë do të shfaqet një X. Klikoni mbi që të fshihet postimi dhe të ndalen njoftimet mbi të. Mund ta shihni prapë postimin, nëse vizitoni faqen e profilit të personit që e postoi.
+      post_notification_q: Si të marr njoftime, ose të resht së marri njoftime rreth një postimi?
+      post_notification_a: Në krah të X-it, në cepin e djathtë sipër të një postimi, do të gjeni një zilkë. Klikoni mbi që të aktivizoni ose çaktivizoni njoftimet mbi atë postim.
+      ignore_user_q: Si ta ndaloj shfaqjen në rrjedhën time të postimeve të dikujt?
+      ignore_user_a1: Nëse aktualisht ndani gjëra me atë person, heqja e tij prej aspekteve tuaj do të sjellë ndaljen e shfaqjes në rrjedhën tuaj të shumë prej postimeve të tij. Një metodë më e plotë është të “shpërfillet” ajo llogari. Kjo do të pengojë shfaqjen në rrjedhën tuaj të cilitdo postim prej tij, dhe ky s’do të jetë në gjendje të pëlqejë postimin tuaj ose të komentojë në të. Por, do të jetë në gjendje megjithatë të rindajë postimet tuaja, të komentojë në rindarje të postimeve tuaj dhe komentet e tij në postime nga persona të tjerë që shfaqen në rrjedhën tuaj do të jenë ende të dukshme për ju.
+      ignore_user_a2: Që të shpërfillet një llogari, klikoni mbi ikonën “shpërfille” (një rreth me një vijë diagonale nëpër të) në të djathtë sipër të njërit prej postimeve nga ajo llogari. Postimet prej saj do të zhduken me një herë prej rrjedhës tuaj. Ndryshe, shkoni te profili i tyre dhe klikoni atje ikonën shpërfille. Ama do të jeni prapë në gjendje të shihni postimet e tij në faqen e profilit të tij, ose duke përdorur pamjen “postim njësh”.
+      ignore_user_a3: Një listë të personave që shpërfillni, mund ta gjeni te rregullimet e llogarisë tuaj, nën ndarjen “Privatësi”. Që të reshtni së shpërfilluri dikë, hiqeni nga lista në atë faqe.
+      post_report_q: Si të njoftoj për një postim fyes?
+      post_report_a: Klikoni ikonën trekëndëshe të sinjalizimeve, në cepin e djathtë sipër të postimit që doni t’i njoftohet përgjegjësit të nyjës suaj. Te kutia e dialogut jepni një arsye për sinjalizimin e këtij postimi. Ju lutemi, raportoni vetëm postime që cenojnë %{community_guidelines} tonat ose kushtet e shërbimit të nyjës tuaj, për shembull, postime që përmbajnë lëndë të paligjshme, ose që është abuzive ose spam.
+      character_limit_q: Sa është kufiri për shenjat në një postim?
+      character_limit_a: 65535 shenja. Që do të thotë 65395 më shumë se sa ju jepen në Twitter! ;)
+      char_limit_services_q: Po kur ndaj postim me një shërbim të lidhur te diaspora*, i cili ka kufi më të ulët për shenjat?
+      char_limit_services_a: Në këtë rast do të duhej ta kufizonit postimin tuaj aq sa është kufiri më i ulët (140 në rastin e Twitter-it; 1000 në rastin e Tumblr-it), dhe numri i shenjave të mbetura për përdorim ju shfaqet në ikonën e shërbimit, kur kjo është e theksuar. Mund të postoni prapëseprapë në këto shërbime, edhe kur postimi juaj është më i gjatë se sa kufijtë e tyre, por teksti në këto shërbime do të shfaqet i cunguar dhe me një lidhje për te postimi në diaspora*.
+      format_text_q: Si ta formatoj tekstin në postimet e mia (shkronja të trasha, të pjerrëta, etj.)?
+      format_text_a: diaspora* përdor një sistem të thjeshtëzuar, të quajtur %{markdown}. Botuesi ka butona për ta bërë të lehtë formatin e tekstit tuaj. Nëse doni ta formatoni dorazi postimin tuaj, sintaksën e plotë të Markdown-it mund ta gjeni %{here}. Butoni i paraparjeve do të thotë se mund të shihni si do të duket mesazhi juaj, përpara se ta ndani me të tjerët. Mos harroni se s’mund ta përpunoni më pas postimit, ndaj përdorni paraparjen për t’u siguruar se është si e doni, përpara se të shtypni butonin “Ndaje”!
+      insert_images_q: Si të fus figura në postime?
+      insert_images_a: Nëse doni të përfshini në postimin tuaj një figurë të depozituar në kompjuterin tuaj, klikoni ikonën e vogël kamera në fund të botuesit. Mundeni edhe të tërhiqni dhe lini një ose disa figura, nga kompjuteri juaj në atë ikonë. Nëse doni të futni në postimin tuaj një figurë nga interneti, klikoni butonin e figurave në krye të botuesit, çka do të krijojë për ju kodin Markdown përkatës.
+      insert_images_comments_q: A mund të fus figura në komente?
+      insert_images_comments_a: Që të futni një figurë nga interneti në një koment, mund të përdorni kod Markdown, njësoj si te postimet. Por, s’mund të ngarkoni figura nga kompjuteri juaj drejt e te komente. Ngarkojini ato në një shërbim strehimi figurash dhe mandej futini duke përdorur butonin e figurave sipër botuesit.
+      size_of_images_q: A mund ta përshtat madhësinë e figurave në postime apo komente?
+      size_of_images_a: Jo. Figurat ripërmasohen vetvetiu që t’i nxërë rrjedha pse pamja njëpostimëshe. Markdown s’ka kod për përcaktim të madhësisë së një figure.
+      embed_multimedia_q: Si të trupëzoj video, audio, ose tjetër lëndë multimedia në një postim?
+      embed_multimedia_a: 'Zakonisht, thjesht mund të hidhni URL-në (p.sh. http://www.youtube.com/watch?v=nnnnnnnnnnn ) te postimi juaj dhe videoja apo audioja do të trupëzohet vetvetiu. Në sajtet e mbuluar përfshihen: YouTube, Vimeo, SoundCloud, Flickr dhe ndoca të tjerë. Për këtë veçori, diaspora* përdor oEmbed. Dora-dora mbulojmë gjithnjë e më shumë burime media. Mbani mend të postoni përherë lidhje të thjeshta, të plota – jo lidhje të shkurtuara; pa operatorë pas URL-së bazë – dhe lërini pakëz kohë përpara se të rifreskoni faqen pas postimit, për të parë si duket.'
+      post_location_q: Si t’i shtoj një postimi vendndodhjen time?
+      post_location_a: Brenda skenës së botimi, klikoni ikonën piketë në krah të kamerës. Kjo do të shkaktojë futjen e vendndodhjes suaj me ndihmën e OpenStreetMap-it. Vendndodhjen tuaj mund ta përpunoni – mirë është të vendosni vetëm qytetin ku gjendeni, se sa adresën e saktë (rrugë, numër, etj).
+      post_poll_q: Si të shtoj një pyetësor te postimi im?
+      post_poll_a: Klikoni mbi ikonën grafik që të prodhohet një pyetësor. Shtypni një pyetje dhe të paktën dy përgjigje. Mos harroni ta bëni postimin tuaj publik, nëse doni që gjithkush të jetë në gjendje të marrë pjesë te pyetësorin tuaj.
     private_posts:
-      can_comment_a: "Mund të komentojnë ose ta pëlqejnë vetëm përdorues të diaspora*-s që i keni vendosur në atë aspekt përpara se të bënit postimin privat."
-      can_comment_q: "Kush mund të komentojë dhe të pëlqejë postimin tim privat?"
-      can_reshare_a: "Askush. Postimet private nuk mund të rindahen. Megjithatë, përdorues diaspora* që kanë bërë hyrjen, mund ta kopjojnë dhe hedhin gjetiu. U besoni apo jo këtyre personave… atë e dini ju!"
-      can_reshare_q: "Kush mund ta rindajë me të tjerët postimin tim privat?"
-      see_comment_a: "Vetëm personat me të cilët qe ndarë ai postim (personat që gjenden në aspektet e përzgjedhura nga postuesi origjinal) mund të shohin komentet dhe pëlqimet për të. "
-      see_comment_q: "Kur komentoj një një postim privat, ose pëlqej një të tillë, kush mund ta shohë?"
-      title: "Postime private"
-      who_sees_post_a: "Një postim privat mund ta shohin vetëm përdorues të diaspora*-s që kanë bërë hyrjen në llogarinë e tyre dhe të cilët i keni vendosur në atë aspekt para bërjes së postimit."
-      who_sees_post_q: "Kur postoj një mesazh në një aspekt (pra, një postim privat), kush e sheh?"
-    profile:
-      title: "Profil"
-      what_do_tags_do_a: "Ato ndihmojnë njerëzit t’ju njohin. Fotoja juaj e profilit do të shfaqet në anën e majtë të atyre faqeve të veçanta të etiketave, tok me të kujtdo tjetër që i ka etiketat te profili i vet bazë."
-      what_do_tags_do_q: "Ç’rol luajnë etiketat në profilin tim bazë?"
-      whats_in_profile_a: "Profili juaj publik përbëhet nga dy pjesë: profili juaj bazë dhe profili juaj i zgjeruar. Profili juaj bazë përbëhet nga emri juaj, pesë etiketa që i zgjidhni ju për të përshkruar veten, dhe fotoja juaj. Profili juaj i zgjeruar përbëhet nga jetëshkrimi juaj, vendndodhja, gjinia dhe datëlindja. Krejt këto të dhëna janë në dëshirën tuaj – vendosni ju t’i jepni apo jo, dhe këto të dhëna profili mund t’i bëni të identifikueshme ose anonime sipas qejfit. Profili juaj i zgjeruar shfaqet te shtylla majtas e faqes tuaj të profilit, nën foton e profilit tuaj."
-      whats_in_profile_q: "Ç’ka në profilin tim?"
-      who_sees_profile_a: "Profili juaj bazë (emër, figurë profili dhe #etiketa) është publik. Profili juaj i zgjeruar, si parazgjedhje, është privat, por mund ta bëni krejt publik, nëse doni. Vetëm personat që ndajnë gjëra me ju (që do të thotë se i keni shtuar një një nga aspektet tuaj) mund të shohin profilin tuaj të zgjeruar, nëse e mbani privat. Të tjerët do të shohin vetëm të dhëna të profilit tuaj publik. Çfarëdo të dhëna profili që bëni publike, mund të shihen nga cili që përdor internetin, dhe mund të indeksohen nga motorë kërkimesh"
-      who_sees_profile_q: "Kush mund të shohë profilin tim?"
+      title: Postime private
+      who_sees_post_q: Kur postoj një mesazh në një aspekt (pra, një postim privat), kush e sheh?
+      who_sees_post_a: Një postim privat mund ta shohin vetëm përdorues të diaspora*-s që kanë bërë hyrjen në llogarinë e tyre dhe të cilët i keni vendosur në atë aspekt para bërjes së postimit.
+      can_comment_q: Kush mund të komentojë dhe të pëlqejë postimin tim privat?
+      can_comment_a: Mund të komentojnë ose ta pëlqejnë vetëm përdorues të diaspora*-s që i keni vendosur në atë aspekt përpara se të bënit postimin privat.
+      can_reshare_q: Kush mund ta rindajë me të tjerët postimin tim privat?
+      can_reshare_a: Askush. Postimet private nuk mund të rindahen. Megjithatë, përdorues diaspora* që kanë bërë hyrjen, mund ta kopjojnë dhe hedhin gjetiu. U besoni apo jo këtyre personave… atë e dini ju!
+      see_comment_q: Kur komentoj një një postim privat, ose pëlqej një të tillë, kush mund ta shohë?
+      see_comment_a: 'Vetëm personat me të cilët qe ndarë ai postim (personat që gjenden në aspektet e përzgjedhura nga postuesi origjinal) mund të shohin komentet dhe pëlqimet për të. '
     public_posts:
-      can_comment_reshare_like_a: "Cilido përdorues i futur i diaspora*-s mund ta komentojë, rindajë, ose pëlqejë postimin tuaj publik. Përjashtim nga kjo bëjnë personat të cilët i keni shpërfillur, të cilët s’do të jenë në gjendje të komentojnë në postimet tuaja."
-      can_comment_reshare_like_q: "Kush mund të komentojë, rindajë dhe pëlqejë postimin tim publik?"
-      deselect_aspect_posting_a: "Shpërzgjedhja e aspekteve nuk e prek një postim publik. Do të jetë sërish publik dhe do të shfaqet në rrjedhën e krejt kontakteve tuaja. Për ta bërë një postim të dukshëm vetëm për aspekte të caktuara, lypset që këto aspekte t’i përzgjidhni që prej përzgjedhësit të aspekteve, nën botuesin."
-      deselect_aspect_posting_q: "Çfarë ndodh kur shpërzgjedh një ose më tepër aspekte, teksa bëj një postim publik?"
-      find_public_post_a: "Postimet tuaja publike do të shfaqen në rrjedhat e cilitdo që ju ndjek. Nëse përfshitë #etiketa në postimin tuaj publik, cilido që i ndjek këto etiketa do ta gjejë postimin tuaj në rrjedhën e tij. Çdo postim publik përmban gjithashtu një URL të veçantë që mund ta shohë gjithkush, madje edhe pse nuk kanë bërë hyrjen – kështu që postimet publike mund të lidhen drejt e nga Twitter, blogje, etj. Postimet publike mund edhe të indeksohen nga motorë kërkimesh."
-      find_public_post_q: "Si mund t’i gjejnë postimet e mia publike persona të tjerë?"
-      see_comment_reshare_like_a: "Komentet, pëlqimet, dhe rindarjet e postimeve e publike janë po ashtu publike. Cilido përdorues i diaspora*-s që ka bërë hyrjen, dhe cilido tjetër në internet mund të shohë ndërveprimet tuaj me një postim publik."
-      see_comment_reshare_like_q: "Kur komentoj, rindaj diçka, ose pëlqej një postim publik, kush mund ta shohë?"
-      title: "Postime publike"
-      who_sees_post_a: "Cilido që përdor internetin mundet potencialisht të shohë një postim të cilit i vini shenjë si publik, ndaj sigurohuni se doni vërtet që postimi juaj të jetë publik. Është një mënyrë e goditur për të mbërritur tek bota."
-      who_sees_post_q: "Kur postoj diçka publikisht, kush mund ta shohë?"
+      title: Postime publike
+      who_sees_post_q: Kur postoj diçka publikisht, kush mund ta shohë?
+      who_sees_post_a: Cilido që përdor internetin mundet potencialisht të shohë një postim të cilit i vini shenjë si publik, ndaj sigurohuni se doni vërtet që postimi juaj të jetë publik. Është një mënyrë e goditur për të mbërritur tek bota.
+      find_public_post_q: Si mund t’i gjejnë postimet e mia publike persona të tjerë?
+      find_public_post_a: 'Postimet tuaja publike do të shfaqen në rrjedhat e cilitdo që ju ndjek. Nëse përfshitë #etiketa në postimin tuaj publik, cilido që i ndjek këto etiketa do ta gjejë postimin tuaj në rrjedhën e tij. Çdo postim publik përmban gjithashtu një URL të veçantë që mund ta shohë gjithkush, madje edhe pse nuk kanë bërë hyrjen – kështu që postimet publike mund të lidhen drejt e nga Twitter, blogje, etj. Postimet publike mund edhe të indeksohen nga motorë kërkimesh.'
+      can_comment_reshare_like_q: Kush mund të komentojë, rindajë dhe pëlqejë postimin tim publik?
+      can_comment_reshare_like_a: Cilido përdorues i futur i diaspora*-s mund ta komentojë, rindajë, ose pëlqejë postimin tuaj publik. Përjashtim nga kjo bëjnë personat të cilët i keni shpërfillur, të cilët s’do të jenë në gjendje të komentojnë në postimet tuaja.
+      see_comment_reshare_like_q: Kur komentoj, rindaj diçka, ose pëlqej një postim publik, kush mund ta shohë?
+      see_comment_reshare_like_a: Komentet, pëlqimet, dhe rindarjet e postimeve e publike janë po ashtu publike. Cilido përdorues i diaspora*-s që ka bërë hyrjen, dhe cilido tjetër në internet mund të shohë ndërveprimet tuaj me një postim publik.
+      deselect_aspect_posting_q: Çfarë ndodh kur shpërzgjedh një ose më tepër aspekte, teksa bëj një postim publik?
+      deselect_aspect_posting_a: Shpërzgjedhja e aspekteve nuk e prek një postim publik. Do të jetë sërish publik dhe do të shfaqet në rrjedhën e krejt kontakteve tuaja. Për ta bërë një postim të dukshëm vetëm për aspekte të caktuara, lypset që këto aspekte t’i përzgjidhni që prej përzgjedhësit të aspekteve, nën botuesin.
+    profile:
+      title: Profil
+      whats_in_profile_q: Ç’ka në profilin tim?
+      whats_in_profile_a: 'Profili juaj publik përbëhet nga dy pjesë: profili juaj bazë dhe profili juaj i zgjeruar. Profili juaj bazë përbëhet nga emri juaj, pesë etiketa që i zgjidhni ju për të përshkruar veten, dhe fotoja juaj. Profili juaj i zgjeruar përbëhet nga jetëshkrimi juaj, vendndodhja, gjinia dhe datëlindja. Krejt këto të dhëna janë në dëshirën tuaj – vendosni ju t’i jepni apo jo, dhe këto të dhëna profili mund t’i bëni të identifikueshme ose anonime sipas qejfit. Profili juaj i zgjeruar shfaqet te shtylla majtas e faqes tuaj të profilit, nën foton e profilit tuaj.'
+      who_sees_profile_q: Kush mund të shohë profilin tim?
+      who_sees_profile_a: 'Profili juaj bazë (emër, figurë profili dhe #etiketa) është publik. Profili juaj i zgjeruar, si parazgjedhje, është privat, por mund ta bëni krejt publik, nëse doni. Vetëm personat që ndajnë gjëra me ju (që do të thotë se i keni shtuar një një nga aspektet tuaj) mund të shohin profilin tuaj të zgjeruar, nëse e mbani privat. Të tjerët do të shohin vetëm të dhëna të profilit tuaj publik. Çfarëdo të dhëna profili që bëni publike, mund të shihen nga cili që përdor internetin, dhe mund të indeksohen nga motorë kërkimesh'
+      what_do_tags_do_q: Ç’rol luajnë etiketat në profilin tim bazë?
+      what_do_tags_do_a: Ato ndihmojnë njerëzit t’ju njohin. Fotoja juaj e profilit do të shfaqet në anën e majtë të atyre faqeve të veçanta të etiketave, tok me të kujtdo tjetër që i ka etiketat te profili i vet bazë.
     resharing_posts:
-      reshare_private_post_aspects_a: "Jo, s’është e mundur të rindahen postimet private. Kjo bëhet për të respektuar dëshirën e postuesit origjinal, që e ndau atë vetëm me një grup të veçantë personash."
-      reshare_private_post_aspects_q: "A mund ta rindaj me të tjerët një postim privat në aspekte që përzgjedh?"
-      reshare_public_post_aspects_a: "Jo, kur rindani një postim publik, bëhet vetvetiu një nga postimet tuaja publike. Që ta ndani në disa prej aspekteve, kopjoni dhe ngjiteni lëndën e postimit në një postim të ri, të kufizuar për aspektet që doni."
-      reshare_public_post_aspects_q: "A mund ta rindaj me të tjerët një postim publik në aspekte që përzgjedh"
-      title: "Rindarje postimesh"
+      title: Rindarje postimesh
+      reshare_public_post_aspects_q: A mund ta rindaj me të tjerët një postim publik në aspekte që përzgjedh
+      reshare_public_post_aspects_a: Jo, kur rindani një postim publik, bëhet vetvetiu një nga postimet tuaja publike. Që ta ndani në disa prej aspekteve, kopjoni dhe ngjiteni lëndën e postimit në një postim të ri, të kufizuar për aspektet që doni.
+      reshare_private_post_aspects_q: A mund ta rindaj me të tjerët një postim privat në aspekte që përzgjedh?
+      reshare_private_post_aspects_a: Jo, s’është e mundur të rindahen postimet private. Kjo bëhet për të respektuar dëshirën e postuesit origjinal, që e ndau atë vetëm me një grup të veçantë personash.
     sharing:
-      add_to_aspect_a1: "Le të themi se Mira e shton Benin në një aspekt, por Beni nuk e ka shtuar (ende) Mirën në një aspekt:"
-      add_to_aspect_a2: "Ky proces njihet si ndarje asimetrike. Vetëm nëse edhe Beni e shton Mirën në ndonjë aspekt, atëherë do të shndërrohet në ndarje të dyanshme, me shfaqjen në rrjedhat e secilit të postimeve publike të Mirës dhe të Benit, si dhe të postimeve private me rëndësi, dhe Mira do të jetë në gjendje të shohë profilin privat të Benit. Pas kësaj ata do të jenë në gjendje t’i dërgojnë njëri-tjetrit mesazhe private."
-      add_to_aspect_li1: "Beni do të marrë një njoftim se Mira ka “filluar të ndajë gjëra” me Benin."
-      add_to_aspect_li2: "Mira do të fillojë të shohë në rrjedhën e saj postimet publike të Benit."
-      add_to_aspect_li3: "Mira s’do të shohë ndonjë prej postimeve private të Benit."
-      add_to_aspect_li4: "Beni s’do të shohë në rrjedhën e tij ndonjë postim publik apo privat të Mirës."
-      add_to_aspect_li5: "Por nëse Beni shkon te faqja e profilit të Mirës, do të jetë në gjendje të shohë postimet private që bën Mira te aspekti në të cilin ka vendosur Benin (si edhe postimet publike të saj, të cilat atje mund t’i shohë kushdo)."
-      add_to_aspect_li6: "Beni do të jetë në gjendje të shoh profilin privat të Mirës (jetëshkrimin, vendin, gjininë, datëlindjen)."
-      add_to_aspect_li7: "Te faqja e kontakteve të Benit, Mira do të shfaqet nën “Vetëm ndajnë me mua”."
-      add_to_aspect_li8: "Mira do të jetë në gjendje ta @përmendë Benin në një postim."
-      add_to_aspect_q: "Ç’ndodh kur shtoj dikë në një nga aspektet e mia, ose kur dikush më shton në një nga aspektet e veta?"
-      list_not_sharing_a: "Jo, por mund të shihni nëse dikush ndan apo jo gjëra me ju, duke vizituar faqen e tyre të profilit. Po qe se ndajnë, do të ketë një shenjë të gjelbër në krah të ID-së së tij diaspora*. Nëse s’ndan, do të jetë një rreth gri."
-      list_not_sharing_q: "A ka ndonjë listë të personave të cilët i kam shtuar në një nga aspektet e mi, por që s’më kanë shtuar në ndonjë të tyrin?"
-      only_sharing_a: "Këta janë persona që ju kanë shtuar në një prej aspekteve të tyre, por që (ende) s’gjenden në ndonjë nga aspektet tuaj. Me fjalë të tjera, ata ndajnë gjëra me ju, por ju nuk ndani gjë me ta: mund t’i mendoni si persona që ju “ndjekin”. Nëse i shtoni në një aspekt, ata do të shfaqen në atë aspekt dhe jo më nën “Që ndajnë vetëm me mua”. Shihni më sipër."
-      only_sharing_q: "Cilët janë personat te pjesa “Që vetëm ndajnë me mua” e faqes sime të kontakteve?"
-      see_old_posts_a: "Jo. Do të jenë në gjendje të shohin vetëm postime të reja të mëvonshme në atë aspekt. Ata (dhe cilido tjetër) mund të shohin postimet tuaja publike më të vjetra te faqja e profilit tuaj, dhe mund t’i shohin ato edhe te rrjedhat e tyre."
-      see_old_posts_q: "Kur shtoj dikë te një aspekt, a mund të shohin postime më të vjetra që kam bërë tashmë nën atë aspekt?"
-      sharing_notification_a: "Do të duhej të merrnit një njoftim, sa herë që dikush zë e ndan gjëra me ju."
-      sharing_notification_q: "Si ta marr vesh që dikush fillon të ndajë me mua?"
-      title: "Ndarje me të tjerët"
+      title: Ndarje me të tjerët
+      add_to_aspect_q: Ç’ndodh kur shtoj dikë në një nga aspektet e mia, ose kur dikush më shton në një nga aspektet e veta?
+      add_to_aspect_a1: 'Le të themi se Mira e shton Benin në një aspekt, por Beni nuk e ka shtuar (ende) Mirën në një aspekt:'
+      add_to_aspect_li1: Beni do të marrë një njoftim se Mira ka “filluar të ndajë gjëra” me Benin.
+      add_to_aspect_li2: Mira do të fillojë të shohë në rrjedhën e saj postimet publike të Benit.
+      add_to_aspect_li3: Mira s’do të shohë ndonjë prej postimeve private të Benit.
+      add_to_aspect_li4: Beni s’do të shohë në rrjedhën e tij ndonjë postim publik apo privat të Mirës.
+      add_to_aspect_li5: Por nëse Beni shkon te faqja e profilit të Mirës, do të jetë në gjendje të shohë postimet private që bën Mira te aspekti në të cilin ka vendosur Benin (si edhe postimet publike të saj, të cilat atje mund t’i shohë kushdo).
+      add_to_aspect_li6: Beni do të jetë në gjendje të shoh profilin privat të Mirës (jetëshkrimin, vendin, gjininë, datëlindjen).
+      add_to_aspect_li7: Te faqja e kontakteve të Benit, Mira do të shfaqet nën “Vetëm ndajnë me mua”.
+      add_to_aspect_li8: Mira do të jetë në gjendje ta @përmendë Benin në një postim.
+      add_to_aspect_a2: Ky proces njihet si ndarje asimetrike. Vetëm nëse edhe Beni e shton Mirën në ndonjë aspekt, atëherë do të shndërrohet në ndarje të dyanshme, me shfaqjen në rrjedhat e secilit të postimeve publike të Mirës dhe të Benit, si dhe të postimeve private me rëndësi, dhe Mira do të jetë në gjendje të shohë profilin privat të Benit. Pas kësaj ata do të jenë në gjendje t’i dërgojnë njëri-tjetrit mesazhe private.
+      sharing_notification_q: Si ta marr vesh që dikush fillon të ndajë me mua?
+      sharing_notification_a: Do të duhej të merrnit një njoftim, sa herë që dikush zë e ndan gjëra me ju.
+      only_sharing_q: Cilët janë personat te pjesa “Që vetëm ndajnë me mua” e faqes sime të kontakteve?
+      only_sharing_a: 'Këta janë persona që ju kanë shtuar në një prej aspekteve të tyre, por që (ende) s’gjenden në ndonjë nga aspektet tuaj. Me fjalë të tjera, ata ndajnë gjëra me ju, por ju nuk ndani gjë me ta: mund t’i mendoni si persona që ju “ndjekin”. Nëse i shtoni në një aspekt, ata do të shfaqen në atë aspekt dhe jo më nën “Që ndajnë vetëm me mua”. Shihni më sipër.'
+      list_not_sharing_q: A ka ndonjë listë të personave të cilët i kam shtuar në një nga aspektet e mi, por që s’më kanë shtuar në ndonjë të tyrin?
+      list_not_sharing_a: Jo, por mund të shihni nëse dikush ndan apo jo gjëra me ju, duke vizituar faqen e tyre të profilit. Po qe se ndajnë, do të ketë një shenjë të gjelbër në krah të ID-së së tij diaspora*. Nëse s’ndan, do të jetë një rreth gri.
+      see_old_posts_q: Kur shtoj dikë te një aspekt, a mund të shohin postime më të vjetra që kam bërë tashmë nën atë aspekt?
+      see_old_posts_a: Jo. Do të jenë në gjendje të shohin vetëm postime të reja të mëvonshme në atë aspekt. Ata (dhe cilido tjetër) mund të shohin postimet tuaja publike më të vjetra te faqja e profilit tuaj, dhe mund t’i shohin ato edhe te rrjedhat e tyre.
     tags:
-      filter_tags_a: "Kjo s’është ende e mundur drejtpërsëdrejti përmes diaspora*-s, por janë shkruar disa %{third_party_tools} që mund ta bëjnë këtë."
-      filter_tags_q: "Si mund të filtroj/përjashtoj disa etiketa nga rrjedha ime?"
-      followed_tags_a: "Pasi kërkoni për një etiketë, mund të klikoni mbi butonin në krye të faqes së etiketës për “ta ndjekur” atë etiketë. Ajo mandej do të shfaqet te lista juaj e etiketave të ndjekura, te menuja majtas. Klikimi mbi një nga etiketat që ndiqni ju shpie te faqja e asaj etikete, dhe mund të shihni kështu postime së fundi që përmbajnë atë etiketë. Klikoni mbi Etiketa të #Ndjekura që të shihni një rrjedhë postimesh që përmbajnë cilëndo nga etiketat që ndiqni. Postimet që përmbajnë atë etiketë do të përfshihen gjithashtu te rrjedha juaj kryesore."
-      followed_tags_q: "Ç’janë “Etiketat e #Ndjekura” dhe si ndiqet një etiketë?"
-      people_tag_page_a: "Janë persona që e kanë vënë atë etiketë te përshkrimi i vetes në faqet e tyre publike."
-      people_tag_page_q: "Cilët janë personat e radhitur në anën e majtë të një faqeje etiketash?"
-      tags_in_comments_a: "Një etiketë e shtuar te një koment, edhe pse do të shfaqet si një lidhje te faqja e etiketës, nuk do ta bëjë atë postim (ose koment) të duket në atë faqe etiketash. Gjëja funksionon vetëm për etiketa në postime."
-      tags_in_comments_q: "A mund të vendos etiketa në komente, apo vetëm në postime?"
-      title: "Etiketa"
-      what_are_tags_for_a: "Etiketat janë një rrugë për të kategorizuar një postim, zakonisht sipas temash. Kërkimi për një etiketë përgjigjet me krejt postimet të cilat ju është lejuar t’i shihni, si publiket, ashtu edhe ato private, me atë etiketë. Kjo u lejon personave të interesuar mbi një temë të caktuar të gjejnë postime publike mbi të."
-      what_are_tags_for_q: "Për çfarë duhen etiketat?"
-    third_party_tools: "Mjete palësh të treta"
-    title_header: "Ndihmë"
-    tutorial: "përkujdesore"
-    tutorials: "përkujdesore"
-    wiki: "wiki"
+      title: Etiketa
+      what_are_tags_for_q: Për çfarë duhen etiketat?
+      what_are_tags_for_a: Etiketat janë një rrugë për të kategorizuar një postim, zakonisht sipas temash. Kërkimi për një etiketë përgjigjet me krejt postimet të cilat ju është lejuar t’i shihni, si publiket, ashtu edhe ato private, me atë etiketë. Kjo u lejon personave të interesuar mbi një temë të caktuar të gjejnë postime publike mbi të.
+      tags_in_comments_q: A mund të vendos etiketa në komente, apo vetëm në postime?
+      tags_in_comments_a: Një etiketë e shtuar te një koment, edhe pse do të shfaqet si një lidhje te faqja e etiketës, nuk do ta bëjë atë postim (ose koment) të duket në atë faqe etiketash. Gjëja funksionon vetëm për etiketa në postime.
+      followed_tags_q: 'Ç’janë “Etiketat e #Ndjekura” dhe si ndiqet një etiketë?'
+      followed_tags_a: 'Pasi kërkoni për një etiketë, mund të klikoni mbi butonin në krye të faqes së etiketës për “ta ndjekur” atë etiketë. Ajo mandej do të shfaqet te lista juaj e etiketave të ndjekura, te menuja majtas. Klikimi mbi një nga etiketat që ndiqni ju shpie te faqja e asaj etikete, dhe mund të shihni kështu postime së fundi që përmbajnë atë etiketë. Klikoni mbi Etiketa të #Ndjekura që të shihni një rrjedhë postimesh që përmbajnë cilëndo nga etiketat që ndiqni. Postimet që përmbajnë atë etiketë do të përfshihen gjithashtu te rrjedha juaj kryesore.'
+      people_tag_page_q: Cilët janë personat e radhitur në anën e majtë të një faqeje etiketash?
+      people_tag_page_a: Janë persona që e kanë vënë atë etiketë te përshkrimi i vetes në faqet e tyre publike.
+      filter_tags_q: Si mund të filtroj/përjashtoj disa etiketa nga rrjedha ime?
+      filter_tags_a: Kjo s’është ende e mundur drejtpërsëdrejti përmes diaspora*-s, por janë shkruar disa %{third_party_tools} që mund ta bëjnë këtë.
+    keyboard_shortcuts:
+      title: Shkurtore tastiere
+      keyboard_shortcuts_q: Ç’shkurtore tastiere ka të gatshme?
+      keyboard_shortcuts_a1: 'Te pamja me rrjedhën mund të përdorni shkurtoret vijuese për tastierën:'
+      keyboard_shortcuts_li1: j – Kaloni te postimi pasues
+      keyboard_shortcuts_li2: k – Kaloni te postimi i mëparshëm
+      keyboard_shortcuts_li3: c – Komentoni te postimi i tanishëm
+      keyboard_shortcuts_li4: l – Pëlqeni postimin e tanishëm
+      keyboard_shortcuts_li5: r – Rindani me të tjerët postimin e tanishëm
+      keyboard_shortcuts_li6: m – Zgjeroni shfaqjen e postimit të tanishëm
+      keyboard_shortcuts_li7: o – Hapni lidhjen e parë në postimin e tanishëm
+      keyboard_shortcuts_li8: Ctrl+Enter –Dërgoni mesazhin që po shkruani
+    miscellaneous:
+      title: Të ndryshme
+      back_to_top_q: A ka një rrugë të shpejtë për të kaluar në krye të faqes pasi kam rrëshqitur për poshtë?
+      back_to_top_a: Po. Pas rrëshqitjes poshtë në një faqe, klikoni mbi shigjetën ngjyrë gri që duket në cepin e poshtëm majtas të dritares së shfletuesit tuaj.
+      photo_albums_q: A ka albume fotosh apo videosh?
+      photo_albums_a: Jo, hëpërhë jo. Sidoqoftë, mund të shihni fotot e ngarkuara nga një person në skedën Foto të faqes së tyre të profilit.
+      subscribe_feed_q: A mund të pajtohem te postimet publike të dikujt përmes një lexuesi prurjesh?
+      subscribe_feed_a: 'Po, por kjo është ende një veçori jo shumë e latuar dhe formatimi i përfundime është ende me shumë cepa. Nëse prapë dëshironi ta provoni, shkoni te faqja e profilit të dikujt dhe klikoni butonin e prurjeve te shfletuesi juaj, ose mund të kopjoni URL-në e profilit (p.sh. https://podname.org/people/somenumber) dhe t’ia furnizoni një lexuesi prurjesh. Adresa e prurjes që përftohet duket pak a shumë si kjo: https://podname.org/public/username.atom – diaspora* përdor Atom-in, në vend se RSS-në.'
+      diaspora_app_q: A ka një aplikacion diaspora* për Android ose iOS?
+      diaspora_app_a: Ka pasur disa aplikacione Android në zhvillim e sipër nga anëtarë të bashkësisë. Disa janë projekte të braktisura prej kohësh, ndaj edhe nuk funksionojnë mirë me versionin e tanishëm të diaspora*. Hëpërhë mos prisni shumë prej këtyre aplikacioneve. Nuk ka aplikacion për iOS hëpërhë. Rruga më e mirë për të përdorur diaspora*-n prej pajisjes suaj celulare është përmes një shfletuesi, ngaqë kemi krijuar një version për celular të sajtit, i cili do të duhej të punonte paq në krejt pajisjet, edhe pse nuk përmban ende gjithë funksionet.
   home:
     default:
-      be_who_you_want_to_be: "Jini ai që doni të jeni"
-      be_who_you_want_to_be_info: "Mjaft rrjete ngulin këmbë të përdorni identitetin tuaj të njëmendtë. diaspora* jo. Këtu mund të zgjidhni ç’doni të jeni, dhe të zbuloni aq shumë ose aq pak rreth vetes sa doni. Vërtet është në dorën tuaj se si doni të ndërveproni me të tjerë persona."
-      byline: "Bota shoqërore internetore ku kontrollin e keni ju"
-      choose_your_audience: "Zgjidhni publikun tuaj"
-      choose_your_audience_info: "Aspektet në diaspora* ju lejojnë të ndani gjëra vetëm me personat që doni. Mund të jeni aq publik, ose aq privat sa doni. Tregojini krejt botës një foto zbavitëse, ose një të fshehtë të madhe vetëm miqve tuaj më të afërt. Kontrollin e keni ju."
-      diaspora_site_link: "Rrjeti i federuar diaspora*"
-      headline: "Mirë se vini në %{pod_name}"
-      own_your_data: "Jini zot i të dhënave tuaja"
-      own_your_data_info: "Mjaft rrjete fitojnë para duke analizuar ndërveprimet tuaja dhe duke e përdorur këtë analizë për t’ju reklamuar gjëra. diaspora* nuk i përdor të dhënat tuaja për ndonjë qëllim tjetër veç t’ju lejojë të lidheni dhe ndani gjëra me të tjerët."
-      part_of_diaspora: "Pjesë e %{diaspora_site_link}"
+      headline: Mirë se vini në %{pod_name}
+      part_of_diaspora: Pjesë e %{diaspora_site_link}
+      diaspora_site_link: Rrjeti i federuar diaspora*
+      byline: Bota shoqërore internetore ku kontrollin e keni ju
+      be_who_you_want_to_be: Jini ai që doni të jeni
+      be_who_you_want_to_be_info: Mjaft rrjete ngulin këmbë të përdorni identitetin tuaj të njëmendtë. diaspora* jo. Këtu mund të zgjidhni ç’doni të jeni, dhe të zbuloni aq shumë ose aq pak rreth vetes sa doni. Vërtet është në dorën tuaj se si doni të ndërveproni me të tjerë persona.
+      choose_your_audience: Zgjidhni publikun tuaj
+      choose_your_audience_info: Aspektet në diaspora* ju lejojnë të ndani gjëra vetëm me personat që doni. Mund të jeni aq publik, ose aq privat sa doni. Tregojini krejt botës një foto zbavitëse, ose një të fshehtë të madhe vetëm miqve tuaj më të afërt. Kontrollin e keni ju.
+      own_your_data: Jini zot i të dhënave tuaja
+      own_your_data_info: Mjaft rrjete fitojnë para duke analizuar ndërveprimet tuaja dhe duke e përdorur këtë analizë për t’ju reklamuar gjëra. diaspora* nuk i përdor të dhënat tuaja për ndonjë qëllim tjetër veç t’ju lejojë të lidheni dhe ndani gjëra me të tjerët.
     podmin:
-      byline: "Jeni gati për të ndryshuar Internetin. Le t’ju përgatisim!"
-      configuration_info: "Hapni %{database_path} dhe %{diaspora_path} në përpunuesin e teksteve që parapëlqeni dhe shqyrtojini me sukse, janë të komentuar në mënyrë të zgjeruar."
-      configure_your_pod: "Formësoni nyjën tuaj"
-      contact_irc: "lidhuni me ne përmes IRC-së"
-      contribute: "Jepni ndihmesë"
-      contribute_info: "Bëjeni edhe më të mirë diaspora*-n! Nëse gjeni ndonjë të metë, ju lutemi %{report_bugs}."
-      create_an_account: "Krijoni një llogari"
+      headline: Mirë se erdhët, shok.
+      byline: Jeni gati për të ndryshuar Internetin. Le t’ju përgatisim!
+      configure_your_pod: Formësoni nyjën tuaj
+      create_an_account: Krijoni një llogari
+      make_yourself_an_admin: Bëjeni veten një përgjegjës
+      update_your_pod: Përditësoni nyjën tuaj
+      getting_help: Si të merret ndihmë
+      contribute: Jepni ndihmesë
+      configuration_info: Hapni %{database_path} dhe %{diaspora_path} në përpunuesin e teksteve që parapëlqeni dhe shqyrtojini me sukse, janë të komentuar në mënyrë të zgjeruar.
       create_an_account_info: "%{sign_up_link} për një lidhje të re."
-      faq_for_podmins: "PBR për mirëmbajtës nyjash, te wiki jonë"
-      getting_help: "Si të merret ndihmë"
-      getting_help_info: "Kemi radhitur disa %{faq}, përfshi disa ndihmëza dhe marifete shtesë, dhe zgjidhje për shumicën e problemeve të zakonshme. Mos ngurroni gjithashtu të %{irc}."
-      headline: "Mirë se erdhët, shok."
-      make_yourself_an_admin: "Bëjeni veten një përgjegjës"
-      make_yourself_an_admin_info: "Udhëzime mund të gjeni te %{wiki}. Kjo do të shtonte një lidhje “%{admin_dashboard}” te menuja juaj e përdoruesit, në krye, kur jeni i futur. Ju jep gjëra të tilla si kërkim përdoruesish dhe statistika për nyjën tuaj."
-      report_bugs: "njoftoni për to"
-      update_instructions: "përditësoni udhëzimet te wiki e diaspora*"
-      update_your_pod: "Përditësoni nyjën tuaj"
-      update_your_pod_info: "Mund të gjeni %{update_instructions}."
+      make_yourself_an_admin_info: Udhëzime mund të gjeni te %{wiki}. Kjo do të shtonte një lidhje “%{admin_dashboard}” te menuja juaj e përdoruesit, në krye, kur jeni i futur. Ju jep gjëra të tilla si kërkim përdoruesish dhe statistika për nyjën tuaj.
+      update_your_pod_info: Mund të gjeni %{update_instructions}.
+      update_instructions: përditësoni udhëzimet te wiki e diaspora*
+      getting_help_info: Kemi radhitur disa %{faq}, përfshi disa ndihmëza dhe marifete shtesë, dhe zgjidhje për shumicën e problemeve të zakonshme. Mos ngurroni gjithashtu të %{irc}.
+      faq_for_podmins: PBR për mirëmbajtës nyjash, te wiki jonë
+      contact_irc: lidhuni me ne përmes IRC-së
+      contribute_info: Bëjeni edhe më të mirë diaspora*-n! Nëse gjeni ndonjë të metë, ju lutemi %{report_bugs}.
+      report_bugs: njoftoni për to
   invitation_codes:
-    already_logged_in: "Jeni ftuar nga %{inviter} të bëheni pjesë e kësaj nyjeje, por jeni tashmë i futur."
-    not_valid: "Ai kod ftese s’është më i vlefshëm"
+    not_valid: Ai kod ftese s’është më i vlefshëm
+    already_logged_in: Jeni ftuar nga %{inviter} të bëheni pjesë e kësaj nyjeje, por jeni tashmë i futur.
   invitations:
     create:
-      closed: "Në këtë nyjë diaspora* ftesat janë mbyllur."
-      empty: "Ju lutemi, jepni të paktën një adresë email."
-      no_more: "Nuk keni më ftesa."
-      note_already_sent: "Janë dërguar tashmë ftesa te: %{emails}"
-      rejected: "Adresat email vijuese patën probleme: %{emails}"
-      sent: "Janë dërguar ftesa për: %{emails}"
+      sent: 'Janë dërguar ftesa për: %{emails}'
+      rejected: 'Adresat email vijuese patën probleme: %{emails}'
+      no_more: Nuk keni më ftesa.
+      empty: Ju lutemi, jepni të paktën një adresë email.
+      note_already_sent: 'Janë dërguar tashmë ftesa te: %{emails}'
+      closed: Në këtë nyjë diaspora* ftesat janë mbyllur.
     new:
+      language: Gjuhë
+      invite_someone_to_join: Ftoni dikë që të marrë pjesë në diaspora*!
+      comma_separated_plz: Mund të jepni disa adresa email njëherësh, ndarë me presje.
+      send_an_invitation: Dërgoni një ftesë
+      sending_invitation: Po dërgohet ftesa…
+      paste_link: Ndajeni me shokët tuaj këtë lidhje që t’i ftoni ata te diaspora*, ose dërgojuani lidhjen drejtpërsëdrejti me email.
       codes_left:
-        one: "Ende një ftesë te ky kod"
-        other: "Ende %{count} ftesa te ky kod"
         zero: "\"S’kanë mbetur më ftesa te ky kod"
-      comma_separated_plz: "Mund të jepni disa adresa email njëherësh, ndarë me presje."
-      invite_someone_to_join: "Ftoni dikë që të marrë pjesë në diaspora*!"
-      language: "Gjuhë"
-      paste_link: "Ndajeni me shokët tuaj këtë lidhje që t’i ftoni ata te diaspora*, ose dërgojuani lidhjen drejtpërsëdrejti me email."
-      send_an_invitation: "Dërgoni një ftesë"
-      sending_invitation: "Po dërgohet ftesa…"
+        one: Ende një ftesë te ky kod
+        other: Ende %{count} ftesa te ky kod
   layouts:
-    application:
-      back_to_top: "Mbrapsht në krye"
-      be_excellent: "Jini të shkëlqyer njëri me tjetrin!"
-      discourse: "Diskutime dhe asistencë për projektin"
-      powered_by: "Bazuar në diaspora*"
-      public_feed: "Prurje publike diaspora për %{name}"
-      source_package: "Shkarkoni paketën e kodit burim"
-      statistics_link: "Statistika nyjeje"
-      switch_to_standard_mode: "Kalo nën mënyrën standarde"
-      switch_to_touch_optimized_mode: "Kalo nën mënyrën e optimizuar për ekrane me prekje"
-      whats_new: "Ç'ka të re?"
     header:
-      code: "Kod"
-      logout: "Dilni"
-      profile: "Profil"
-      settings: "Rregullime"
-      toggle_navigation: "Shfaq/fshih lëvizjen"
+      profile: Profil
+      settings: Rregullime
+      logout: Dilni
+      code: Kod
+      toggle_navigation: Shfaq/fshih lëvizjen
+    application:
+      powered_by: Bazuar në diaspora*
+      whats_new: Ç'ka të re?
+      statistics_link: Statistika nyjeje
+      discourse: Diskutime dhe asistencë për projektin
+      switch_to_touch_optimized_mode: Kalo nën mënyrën e optimizuar për ekrane me prekje
+      switch_to_standard_mode: Kalo nën mënyrën standarde
+      public_feed: Prurje publike diaspora për %{name}
+      back_to_top: Mbrapsht në krye
+      source_package: Shkarkoni paketën e kodit burim
+      be_excellent: Jini të shkëlqyer njëri me tjetrin!
   likes:
     create:
-      error: "Pëlqimi dështoi."
-      fail: "Krijimi i pëlqimit dështoi"
+      error: Pëlqimi dështoi.
+      fail: Krijimi i pëlqimit dështoi
     destroy:
-      error: "S’u hoq dot pëlqimi."
-    not_found: "S’u gjet postim ose pëlqim"
+      error: S’u hoq dot pëlqimi.
+    people_like_this:
+      zero: Pa pëlqime
+      one: "%{count} pëlqim"
+      other: "%{count} pëlqime"
+    people_like_this_comment:
+      zero: Pa pëlqime
+      one: "%{count} pëlqim"
+      other: "%{count} pëlqime"
     people_dislike_this:
+      zero: Pa mospëlqime
       one: "%{count} mospëlqim"
       other: "%{count} mospëlqime"
-      zero: "Pa mospëlqime"
-    people_like_this:
-      one: "%{count} pëlqim"
-      other: "%{count} pëlqime"
-      zero: "Pa pëlqime"
-    people_like_this_comment:
-      one: "%{count} pëlqim"
-      other: "%{count} pëlqime"
-      zero: "Pa pëlqime"
-  limited: "E kufizuar"
-  more: "Më tepër"
-  no_results: "S’u gjetën përfundime"
+    not_found: S’u gjet postim ose pëlqim
   notifications:
+    started_sharing:
+      zero: "%{actors} zunë të ndajnë gjëra me ju."
+      one: "%{actors} filloi të ndajë gjëra me ju."
+      two: "%{actors} filluan të ndajnë gjëra me ju."
+      few: "%{actors} filluan të ndajnë gjëra me ju."
+      many: "%{actors} filluan të ndajnë gjëra me ju."
+      other: "%{actors} filluan të ndajnë gjëra me ju."
+    private_message:
+      zero: "%{actors} ju kanë dërguar mesazh."
+      one: "%{actors} ju dërgoi mesazh."
+      two: "%{actors} ju dërguan mesazh."
+      few: "%{actors} ju dërguan mesazh."
+      many: "%{actors} ju dërguan mesazh."
+      other: "%{actors} ju dërguan mesazh."
+    comment_on_post:
+      zero: Te %{post_link} juaj ka komentuar %{actors}.
+      one: Te %{post_link} juaj komentoi %{actors}.
+      two: Te %{post_link} juaj komentuan %{actors}.
+      few: Te %{post_link} juaj komentuan %{actors}.
+      many: Te %{post_link} juaj komentuan %{actors}.
+      other: Te %{post_link} juaj komentuan %{actors}.
     also_commented:
+      zero: "%{actors} ka komentuar gjithashtu te %{post_link} nga %{post_author}."
+      one: "%{actors} ka komentuar gjithashtu te %{post_link} nga %{post_author}."
+      two: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
       few: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
       many: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
-      one: "%{actors} ka komentuar gjithashtu te %{post_link} nga %{post_author}."
       other: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
-      two: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
-      zero: "%{actors} ka komentuar gjithashtu te %{post_link} nga %{post_author}."
-    also_commented_deleted:
-      few: "%{actors} kanë komentuar në një postim të fshirë."
-      many: "%{actors} kanë komentuar në një postim të fshirë."
-      one: "%{actors} ka komentuar në një postim të fshirë."
-      other: "%{actors} kanë komentuar në një postim të fshirë."
-      two: "%{actors} kanë komentuar në një postim të fshirë."
-      zero: "%{actors} që ka komentuar në një postim të fshirë."
-    comment_on_post:
-      few: "Te %{post_link} juaj komentuan %{actors}."
-      many: "Te %{post_link} juaj komentuan %{actors}."
-      one: "Te %{post_link} juaj komentoi %{actors}."
-      other: "Te %{post_link} juaj komentuan %{actors}."
-      two: "Te %{post_link} juaj komentuan %{actors}."
-      zero: "Te %{post_link} juaj ka komentuar %{actors}."
-    contacts_birthday:
-      one: "%{actors} ka ditëlindjen më %{date}."
-      other: "%{actors} kanë ditëlindjen më %{date}."
-      zero: "%{actors} kanë ditëlindjen më %{date}."
-    index:
-      all_notifications: "Krejt njoftimet"
-      also_commented: "Ka komentuar edhe"
-      and: "dhe"
-      and_others:
-        few: "dhe %{count} të tjerë"
-        many: "dhe %{count} të tjerë"
-        one: "dhe një tjetër"
-        other: "dhe %{count} të tjerë"
-        two: "dhe %{count} të tjerë"
-        zero: "dhe askush tjetër"
-      comment_on_post: "Koment në postim"
-      contacts_birthday: "Datëlindje"
-      liked: "Të pëlqyer"
-      mark_all_as_read: "Vëru shenjë të tërave si të lexuara"
-      mark_all_shown_as_read: "Vëru shenjë krejt të shfaqurave si të lexuara"
-      mark_read: "Vëri shenjë si të lexuar"
-      mark_unread: "Vëri shenjë si të palexuar"
-      mentioned: "Përmendur në postim"
-      mentioned_in_comment: "Përmendur në koment"
-      no_notifications: "S’keni ende njoftime."
-      notifications: "Njoftime"
-      reshared: "Rindarë"
-      show_all: "Shfaqi krejt"
-      show_unread: "Shfaq të palexuarat"
-      started_sharing: "Zuri të ndajë"
-    liked:
-      few: "%{post_link} tuaj e kanë përlqyer %{actors}."
-      many: "%{post_link} tuaj e kanë përlqyer %{actors}."
-      one: "%{post_link} tuaj e ka pëlqyer %{actors}."
-      other: "%{post_link} tuaj e kanë pëlqyer %{actors}."
-      two: "%{post_link} tuaj e kanë përlqyer %{actors}."
-      zero: "%{post_link} tuaj e kanë pëlqyer %{actors}."
-    liked_post_deleted:
-      few: "Postimin tuaj të fshirë e pëlqyen %{actors}."
-      many: "Postimin tuaj të fshirë e pëlqyen %{actors}."
-      one: "Postimin tuaj të fshirë e pëlqeu %{actors}."
-      other: "Postimin tuaj të fshirë e pëlqyen %{actors}."
-      two: "Postimin tuaj të fshirë e pëlqyen %{actors}."
-      zero: "Postimin tuaj të fshirë e pëlqyen %{actors}."
     mentioned:
+      zero: "%{actors} ju ka përmendur te postimi %{post_link}."
+      one: "%{actors} ju përmendi te postimi %{post_link}."
+      two: "%{actors} ju përmendën te një %{post_link}."
       few: "%{actors} ju përmendën te një %{post_link}."
       many: "%{actors} ju përmendën te një %{post_link}."
-      one: "%{actors} ju përmendi te postimi %{post_link}."
       other: "%{actors} ju përmendën te postimi %{post_link}."
-      two: "%{actors} ju përmendën te një %{post_link}."
-      zero: "%{actors} ju ka përmendur te postimi %{post_link}."
-    mentioned_deleted:
-      few: "Në një postim të fshirë ju kanë përmendur %{actors}."
-      many: "Në një postim të fshirë ju kanë përmendur %{actors}."
-      one: "Në një postim të fshirë ju ka përmendur %{actors}."
-      other: "Në një postim të fshirë ju kanë përmendur %{actors}."
-      two: "Në një postim të fshirë ju kanë përmendur %{actors}."
-      zero: "Në një postim të fshirë ju kanë përmendur %{actors}."
     mentioned_in_comment:
       one: "%{actors} ju ka përmendur në një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
       other: "%{actors} ju kanë përmendur në një <a href='%{comment_path}'>koment</a> te postimi %{post_link}."
+    liked:
+      zero: "%{post_link} tuaj e kanë pëlqyer %{actors}."
+      one: "%{post_link} tuaj e ka pëlqyer %{actors}."
+      two: "%{post_link} tuaj e kanë përlqyer %{actors}."
+      few: "%{post_link} tuaj e kanë përlqyer %{actors}."
+      many: "%{post_link} tuaj e kanë përlqyer %{actors}."
+      other: "%{post_link} tuaj e kanë pëlqyer %{actors}."
+    reshared:
+      zero: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+      one: "%{post_link} tuaj e ka rindarë me dikë %{actors}."
+      two: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+      few: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+      many: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+      other: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+    contacts_birthday:
+      zero: "%{actors} kanë ditëlindjen më %{date}."
+      one: "%{actors} ka ditëlindjen më %{date}."
+      other: "%{actors} kanë ditëlindjen më %{date}."
+    also_commented_deleted:
+      zero: "%{actors} që ka komentuar në një postim të fshirë."
+      one: "%{actors} ka komentuar në një postim të fshirë."
+      two: "%{actors} kanë komentuar në një postim të fshirë."
+      few: "%{actors} kanë komentuar në një postim të fshirë."
+      many: "%{actors} kanë komentuar në një postim të fshirë."
+      other: "%{actors} kanë komentuar në një postim të fshirë."
+    liked_post_deleted:
+      zero: Postimin tuaj të fshirë e pëlqyen %{actors}.
+      one: Postimin tuaj të fshirë e pëlqeu %{actors}.
+      two: Postimin tuaj të fshirë e pëlqyen %{actors}.
+      few: Postimin tuaj të fshirë e pëlqyen %{actors}.
+      many: Postimin tuaj të fshirë e pëlqyen %{actors}.
+      other: Postimin tuaj të fshirë e pëlqyen %{actors}.
+    reshared_post_deleted:
+      zero: Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}.
+      one: Postimin tuaj të fshirë e ka rindarë me dikë %{actors}.
+      two: Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}.
+      few: Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}.
+      many: Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}.
+      other: Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}.
+    mentioned_deleted:
+      zero: Në një postim të fshirë ju kanë përmendur %{actors}.
+      one: Në një postim të fshirë ju ka përmendur %{actors}.
+      two: Në një postim të fshirë ju kanë përmendur %{actors}.
+      few: Në një postim të fshirë ju kanë përmendur %{actors}.
+      many: Në një postim të fshirë ju kanë përmendur %{actors}.
+      other: Në një postim të fshirë ju kanë përmendur %{actors}.
     mentioned_in_comment_deleted:
       one: "%{actors} ju përmendi në një koment të fshirë."
       other: "%{actors} ju përmendën në një koment të fshirë."
-    private_message:
-      few: "%{actors} ju dërguan mesazh."
-      many: "%{actors} ju dërguan mesazh."
-      one: "%{actors} ju dërgoi mesazh."
-      other: "%{actors} ju dërguan mesazh."
-      two: "%{actors} ju dërguan mesazh."
-      zero: "%{actors} ju kanë dërguar mesazh."
-    reshared:
-      few: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
-      many: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
-      one: "%{post_link} tuaj e ka rindarë me dikë %{actors}."
-      other: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
-      two: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
-      zero: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
-    reshared_post_deleted:
-      few: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
-      many: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
-      one: "Postimin tuaj të fshirë e ka rindarë me dikë %{actors}."
-      other: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
-      two: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
-      zero: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
-    started_sharing:
-      few: "%{actors} filluan të ndajnë gjëra me ju."
-      many: "%{actors} filluan të ndajnë gjëra me ju."
-      one: "%{actors} filloi të ndajë gjëra me ju."
-      other: "%{actors} filluan të ndajnë gjëra me ju."
-      two: "%{actors} filluan të ndajnë gjëra me ju."
-      zero: "%{actors} zunë të ndajnë gjëra me ju."
+    index:
+      notifications: Njoftime
+      mark_all_as_read: Vëru shenjë të tërave si të lexuara
+      mark_all_shown_as_read: Vëru shenjë krejt të shfaqurave si të lexuara
+      mark_read: Vëri shenjë si të lexuar
+      mark_unread: Vëri shenjë si të palexuar
+      show_all: Shfaqi krejt
+      show_unread: Shfaq të palexuarat
+      all_notifications: Krejt njoftimet
+      also_commented: Ka komentuar edhe
+      comment_on_post: Koment në postim
+      liked: Të pëlqyer
+      mentioned: Përmendur në postim
+      mentioned_in_comment: Përmendur në koment
+      reshared: Rindarë
+      started_sharing: Zuri të ndajë
+      contacts_birthday: Datëlindje
+      no_notifications: S’keni ende njoftime.
+      and_others:
+        zero: dhe askush tjetër
+        one: dhe një tjetër
+        two: dhe %{count} të tjerë
+        few: dhe %{count} të tjerë
+        many: dhe %{count} të tjerë
+        other: dhe %{count} të tjerë
+      and: dhe
   notifier:
-    a_limited_post_comment: "Te diaspora* ka një koment të ri në një postim të kufizuar për ta parë."
-    a_post_you_shared: "postim."
-    a_private_message: "Ka një mesazh të ri privat te diaspora* për ju."
-    also_commented:
-      limited_subject: "Ka një koment të ri në një postim ku komentuat"
-    click_here: "Klikoni këtu"
+    a_post_you_shared: postim.
+    a_private_message: Ka një mesazh të ri privat te diaspora* për ju.
+    a_limited_post_comment: Te diaspora* ka një koment të ri në një postim të kufizuar për ta parë.
+    email_sent_by_diaspora: Ky email u dërgua nga %{pod_name}.  Nëse doni të reshtni së marri email-e të tillë,
+    click_here: Klikoni këtu
+    hello: Tungjatjeta %{name}!
+    thanks: Faleminderit,
+    to_change_your_notification_settings: që të ndryshoni rregullimet tuaja mbi njoftimet
+    single_admin:
+      subject: 'Një mesazh lidhur me llogarinë tuaj diaspora*:'
+      admin: Përgjegjësi juaj i diaspora*-s
+    started_sharing:
+      subject: "%{name} filloi të ndajë gjëra me ju në diaspora*"
+      sharing: ka filluar të ndajë gjëra me ju!
+      view_profile: Shihni profilin për %{name}
     comment_on_post:
-      limited_subject: "Ka një koment të ri në një nga postimet tuaja"
-      reply: "Përgjigjjuni ose shihni postimin nga %{name} >"
-    confirm_email:
-      click_link: "Që të aktivizoni adresën tuaj të re email %{unconfirmed_email}, ju lutemi, ndiqni këtë lidhje:"
-      subject: "Ju lutemi, aktivizoni adresën tuaj të re email %{unconfirmed_email}"
-    contacts_birthday:
-      birthday: "%{name} ka ditëlindjen sot. Urojini “Gëzuar Ditëlindjen!”"
-      subject: "%{name} ka ditëlindjen sot"
-      view_profile: "Shihni profilin e %{name}"
-    csrf_token_fail:
-      body: |-
-          Tungjatjeta %{name},
-
-          diaspora* ka pikasur një përpjekje për hyrje në sesionin tuaj, e cila mund të jetë e paautorizuar. Që të shmanget çfarëdo shansi që të dhënat tuaja të komprometohen, është bërë dalja juaj nga llogaria. Mos u shqetësoni; mund të ribëni hyrjen pa rrezik tani.
-
-          Është bërë një kërkesë duke përdorur një token CSRF të pasaktë ose që mungon. Kjo mund të jetë plotësisht e pafajshme, por mund të jetë edhe sulm sajesë kërkese ndërsajtëshe (CSRF).
-
-          Kjo mund të jetë shkaktuar nga:
-
-            - Një shtesë që po manipulon kërkesën ose po bën kërkesa pa token-in;
-            - Një skedë e harruar hapur që prej një sesioni të kaluar;
-            - Një tjetër sajt që po bën kërkesa, me ose pa lejen tuaj;
-            - Të tjera mjete të ndryshme të jashtme;
-            - Kod dashakeq që po rreket të hyjë në të dhënat tuaja.
-
-          Për më tepër të dhëna mbi CSRF, shihni [%{link}](%{link}).
-
-          Nëse e shihni në mënyrë të përsëritur këtë mesazh, ju lutemi, kontrolloni pikat më sipër, përfshi çfarëdo shtese shfletuesi.
-
-          Faleminderit,
-          Roboti i email-eve diaspora*!
-      subject: "Morëm një kërkesë të paautorizuar nga llogaria juaj, %{name}"
-    email_sent_by_diaspora: "Ky email u dërgua nga %{pod_name}.  Nëse doni të reshtni së marri email-e të tillë,"
-    export_email:
-      body: |-
-          Tungjatjeta %{name},
-
-          Të dhënat tuaja janë përpunuar dhe janë gati për shkarkim përmes ndjekjes së  [kësaj lidhjeje](%{url}).
-
-          Shëndet,
-
-          Roboti i email-eve diaspora*!
-      subject: "Të dhënat tuaja personale janë gati për shkarkim, %{name}"
-    export_failure_email:
-      body: |-
-          Tungjatjeta %{name}
-
-          Hasëm një problem teksa përpunonim të dhënat tuaja personale për shkarkim.
-          Nëse problemi vazhdon, ju lutemi, lidhuni me përgjegjësin e nyjës tuaj!
-
-          Më ndjeni,
-
-          Roboti i email-eve diaspora*!
-      subject: "Na ndjeni, pati një problem me të dhënat tuaja, %{name}"
-    export_photos_email:
-      body: |-
-          Tungjatjeta %{name},
-
-          Fotot tuaja janë përpunuar dhe janë gati për shkarkim përmes [kësaj lidhje](%{url}).
-
-          Shëndet,
-
-          Roboti i email-eve diaspora*!
-      subject: "Fotot tuaja janë gati për shkarkim, %{name}"
-    export_photos_failure_email:
-      body: |-
-          Tungjatjeta %{name}
-
-          Hasëm një problem, teksa përpunonim fotot tuaja për shkarkim.
-          Nëse problemi vazhdon, ju lutemi, lidhuni me përgjegjësin e nyjës tuaj.
-
-          Ndjesë,
-
-          Roboti i email-eve diaspora*!
-      subject: "Pati një problem me fotot tuaja, %{name}"
-    hello: "Tungjatjeta %{name}!"
-    invite:
-      message: |-
-          Tungjatjeta!
-
-          Jeni ftuar të merrni pjesë në diaspora* nga %{user}!
-
-          Që t’ia filloni, klikoni mbi këtë lidhje
-
-          [%{invite_url}][1]
-
-          Ose mund të shtoni %{diaspora_id} te kontaktet tuaja, nëse keni tashmë një llogari.
-
-
-          Me dashuri,
-
-          Roboti i email-eve diaspora*!
-
-          P.S.: Thjesht, në rast se nuk e dini (ende) se ç’është diaspora*, përgjigja është [këtu][2]!
-
-          [1]: %{invite_url}
-          [2]: %{diasporafoundation_url}
-    invited_you: "%{name} ju ka ftuar te diaspora*"
+      limited_subject: Ka një koment të ri në një nga postimet tuaja
+      reply: Përgjigjjuni ose shihni postimin nga %{name} >
+    also_commented:
+      limited_subject: Ka një koment të ri në një postim ku komentuat
+    mentioned:
+      subject: "%{name} ju ka përmendur në diaspora*"
+      limited_post: U përmendët në një postim të kufizuar.
+    mentioned_in_comment:
+      limited_post: U përmendët te një koment në një postim të kufizuar.
+      reply: Përgjigjuni ose shiheni këtë bisedë >
+    private_message:
+      subject: Ka një mesazh të ri privat për ju
+      reply_to_or_view: Përgjigjuni te ose shiheni këtë bashkëbisedim >
     liked:
       liked: "%{name} e pëlqeu postimin tuaj"
       limited_post: "%{name} pëlqeu postimin tuaj të kufizuar"
-      view_post: "Shiheni postimin >"
-    mentioned:
-      limited_post: "U përmendët në një postim të kufizuar."
-      subject: "%{name} ju ka përmendur në diaspora*"
-    mentioned_in_comment:
-      limited_post: "U përmendët te një koment në një postim të kufizuar."
-      reply: "Përgjigjuni ose shiheni këtë bisedë >"
-    private_message:
-      reply_to_or_view: "Përgjigjuni te ose shiheni këtë bashkëbisedim >"
-      subject: "Ka një mesazh të ri privat për ju"
-    remove_old_user:
-      body: |-
-          Tungjatjeta,
-
-          Duket sikur s’e doni më llogarinë tuaj te %{pod_url}, ngaqë s’e keni përdorur për %{after_days} ditë. Për të bërë të mundur që përdoruesit tanë aktivë të përfitojnë punimin më të mirë nga kjo nyjë diaspora*, do të donim të hiqnim prej bazës tonë të të dhënave, llogari të papërdorura.
-
-          Do të donim të mbeteni pjesë e bashkësisë diaspora*, dhe jeni të mirëpritur ta mbani gjallë llogarinë tuaj, nëse doni.
-
-          Nëse doni ta mbani gjallë llogarinë tuaj, krejt çka na duhet është të bëni hyrje në të para %{remove_after}. Kur të bëni hyrjen, ndaluni një çast dhe hidhni një sy përreth në diaspora*. Ka ndryshuar mjaft, që nga hera e fundit që e patë, dhe mendojmë se do t’i donit përmirësimet që kemi bërë. Ndiqni ca #etiketa, që të gjeni lëndë që doni.
-
-          Hyni këtu: %{login_url}. Nëse keni harruar kredencialet tuaj të hyrjes, mund të kërkoni një kujtues për to po në atë faqe.
-
-          Shpresojmë t’ju shohim sërish,
-
-          Roboti i email-eve diaspora* email!
-      subject: "Llogarisë tuaj te diaspora* i është vënë shenjë për heqje, për shkak mosveprimtarie"
-    report_email:
-      body: |-
-          Tungjatjeta,
-
-          %{type}it me ID-në %{id} iu vu shenjë si fyes.
-
-          Arsye: "%{reason}"
-
-          [%{url}][1]
-
-          Ju lutemi, shqyrtojeni sa më shpejt që mundet!
-
-
-          Shëndet,
-
-          Roboti i email-eve te diaspora*!!
-
-          [1]: %{url}
-      subject: "Një %{type}i të ri iu vu shenjë si fyes"
-      type:
-        comment: "koment"
-        post: "postim"
+      view_post: Shiheni postimin >
     reshared:
       reshared: "%{name} e rindau me dikë postimin tuaj"
-      view_post: "Shiheni postimin >"
-    single_admin:
-      admin: "Përgjegjësi juaj i diaspora*-s"
-      subject: "Një mesazh lidhur me llogarinë tuaj diaspora*:"
-    started_sharing:
-      sharing: "ka filluar të ndajë gjëra me ju!"
-      subject: "%{name} filloi të ndajë gjëra me ju në diaspora*"
-      view_profile: "Shihni profilin për %{name}"
-    thanks: "Faleminderit,"
-    to_change_your_notification_settings: "që të ndryshoni rregullimet tuaja mbi njoftimet"
-  nsfw: "NSFW"
-  ok: "OK"
+      view_post: Shiheni postimin >
+    contacts_birthday:
+      subject: "%{name} ka ditëlindjen sot"
+      birthday: "%{name} ka ditëlindjen sot. Urojini “Gëzuar Ditëlindjen!”"
+      view_profile: Shihni profilin e %{name}
+    confirm_email:
+      subject: Ju lutemi, aktivizoni adresën tuaj të re email %{unconfirmed_email}
+      click_link: 'Që të aktivizoni adresën tuaj të re email %{unconfirmed_email}, ju lutemi, ndiqni këtë lidhje:'
+    csrf_token_fail:
+      subject: Morëm një kërkesë të paautorizuar nga llogaria juaj, %{name}
+      body: |-
+        Tungjatjeta %{name},
+
+        diaspora* ka pikasur një përpjekje për hyrje në sesionin tuaj, e cila mund të jetë e paautorizuar. Që të shmanget çfarëdo shansi që të dhënat tuaja të komprometohen, është bërë dalja juaj nga llogaria. Mos u shqetësoni; mund të ribëni hyrjen pa rrezik tani.
+
+        Është bërë një kërkesë duke përdorur një token CSRF të pasaktë ose që mungon. Kjo mund të jetë plotësisht e pafajshme, por mund të jetë edhe sulm sajesë kërkese ndërsajtëshe (CSRF).
+
+        Kjo mund të jetë shkaktuar nga:
+
+          - Një shtesë që po manipulon kërkesën ose po bën kërkesa pa token-in;
+          - Një skedë e harruar hapur që prej një sesioni të kaluar;
+          - Një tjetër sajt që po bën kërkesa, me ose pa lejen tuaj;
+          - Të tjera mjete të ndryshme të jashtme;
+          - Kod dashakeq që po rreket të hyjë në të dhënat tuaja.
+
+        Për më tepër të dhëna mbi CSRF, shihni [%{link}](%{link}).
+
+        Nëse e shihni në mënyrë të përsëritur këtë mesazh, ju lutemi, kontrolloni pikat më sipër, përfshi çfarëdo shtese shfletuesi.
+
+        Faleminderit,
+        Roboti i email-eve diaspora*!
+    report_email:
+      type:
+        post: postim
+        comment: koment
+      subject: Një %{type}i të ri iu vu shenjë si fyes
+      body: |-
+        Tungjatjeta,
+
+        %{type}it me ID-në %{id} iu vu shenjë si fyes.
+
+        Arsye: "%{reason}"
+
+        [%{url}][1]
+
+        Ju lutemi, shqyrtojeni sa më shpejt që mundet!
+
+
+        Shëndet,
+
+        Roboti i email-eve te diaspora*!!
+
+        [1]: %{url}
+    export_email:
+      subject: Të dhënat tuaja personale janë gati për shkarkim, %{name}
+      body: |-
+        Tungjatjeta %{name},
+
+        Të dhënat tuaja janë përpunuar dhe janë gati për shkarkim përmes ndjekjes së  [kësaj lidhjeje](%{url}).
+
+        Shëndet,
+
+        Roboti i email-eve diaspora*!
+    export_failure_email:
+      subject: Na ndjeni, pati një problem me të dhënat tuaja, %{name}
+      body: |-
+        Tungjatjeta %{name}
+
+        Hasëm një problem teksa përpunonim të dhënat tuaja personale për shkarkim.
+        Nëse problemi vazhdon, ju lutemi, lidhuni me përgjegjësin e nyjës tuaj!
+
+        Më ndjeni,
+
+        Roboti i email-eve diaspora*!
+    export_photos_email:
+      subject: Fotot tuaja janë gati për shkarkim, %{name}
+      body: |-
+        Tungjatjeta %{name},
+
+        Fotot tuaja janë përpunuar dhe janë gati për shkarkim përmes [kësaj lidhje](%{url}).
+
+        Shëndet,
+
+        Roboti i email-eve diaspora*!
+    export_photos_failure_email:
+      subject: Pati një problem me fotot tuaja, %{name}
+      body: "Tungjatjeta %{name}\n\nHasëm një problem, teksa përpunonim fotot tuaja për shkarkim.\nNëse problemi vazhdon, ju lutemi, lidhuni me përgjegjësin e nyjës tuaj. \n\nNdjesë,\n\nRoboti i email-eve diaspora*!"
+    invited_you: "%{name} ju ka ftuar te diaspora*"
+    invite:
+      message: |-
+        Tungjatjeta!
+
+        Jeni ftuar të merrni pjesë në diaspora* nga %{user}!
+
+        Që t’ia filloni, klikoni mbi këtë lidhje
+
+        [%{invite_url}][1]
+
+        Ose mund të shtoni %{diaspora_id} te kontaktet tuaja, nëse keni tashmë një llogari.
+
+
+        Me dashuri,
+
+        Roboti i email-eve diaspora*!
+
+        P.S.: Thjesht, në rast se nuk e dini (ende) se ç’është diaspora*, përgjigja është [këtu][2]!
+
+        [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
+    remove_old_user:
+      subject: Llogarisë tuaj te diaspora* i është vënë shenjë për heqje, për shkak mosveprimtarie
+      body: |-
+        Tungjatjeta,
+
+        Duket sikur s’e doni më llogarinë tuaj te %{pod_url}, ngaqë s’e keni përdorur për %{after_days} ditë. Për të bërë të mundur që përdoruesit tanë aktivë të përfitojnë punimin më të mirë nga kjo nyjë diaspora*, do të donim të hiqnim prej bazës tonë të të dhënave, llogari të papërdorura.
+
+        Do të donim të mbeteni pjesë e bashkësisë diaspora*, dhe jeni të mirëpritur ta mbani gjallë llogarinë tuaj, nëse doni.
+
+        Nëse doni ta mbani gjallë llogarinë tuaj, krejt çka na duhet është të bëni hyrje në të para %{remove_after}. Kur të bëni hyrjen, ndaluni një çast dhe hidhni një sy përreth në diaspora*. Ka ndryshuar mjaft, që nga hera e fundit që e patë, dhe mendojmë se do t’i donit përmirësimet që kemi bërë. Ndiqni ca #etiketa, që të gjeni lëndë që doni.
+
+        Hyni këtu: %{login_url}. Nëse keni harruar kredencialet tuaj të hyrjes, mund të kërkoni një kujtues për to po në atë faqe.
+
+        Shpresojmë t’ju shohim sërish,
+
+        Roboti i email-eve diaspora* email!
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          redirection_message: Jeni i sigurt se doni t’i jepni hyrje te %{redirect_uri}?
+          access: "%{name} lyp hyrje të:"
+          no_requirement: "%{name} s’ka nevojë për leje"
+          approve: Miratoje
+          deny: Mohoje
+          bad_request: Mungon ID klienti ose URI ridrejtimi
+          client_id_not_found: S’u gjet klient me client_id %{client_id} me URI ridrejtimi %{redirect_uri}
+          private_contacts_linkage_error: private:read dhe private:modify lypin edhe contacts:read
+          unknown_scope: 'Fushëveprim i panjohur: %{scope_name}'
+        destroy:
+          fail: Përpjekja për të shfuqizuar autorizimin me ID %{id} dështoi
+      user_applications:
+        index:
+          edit_applications: Aplikacione
+          title: Aplikacione të autorizuar
+          access: "%{name} mund të hyjë në:"
+          no_requirement: "%{name} s’ka nevojë për leje"
+        no_applications: S’keni aplikacione të autorizuar
+        revoke_autorization: Shfuqizoje
+        tos: Shihni kushtet e shërbimit të aplikacionit
+        policy: Shihni rregullat e privatësisë të aplikacionit
+      scopes:
+        openid:
+          name: Të dhëna elementare profili
+          description: Kjo akordon hyrje vetëm-për-lexim te të dhëna elementare profili.
+        sub:
+          name: Identifikues unik
+          description: Kjo akordon hyrje vetëm-për-lexim te identifikuesi juaj unik.
+        name:
+          name: Emër i plotë
+          description: Kjo akordon hyrje vetëm-për-lexim te emri juaj i plotë.
+        nickname:
+          name: Emër përdoruesi
+          description: Kjo akordon hyrje vetëm-për-lexim te emri juaj i përdoruesit.
+        picture:
+          name: Foto profili
+          description: Kjo akordon hyrje vetëm-për-lexim te fotoja e profilit tuaj.
+        contacts:read:
+          name: Kontakte (Vetëm-lexim)
+          description: Kjo akordon hyrje vetëm-për-lexim te kontaktet dhe të dhënat e lidhura me to (të tilla si, aspekte).
+        contacts:modify:
+          name: Kontakte (Shkrim)
+          description: Kjo akordon hyrje shkrimi te kontaktet dhe të dhënat e lidhura me to (të tilla si, aspekte).
+        conversations:
+          name: Biseda
+          description: Kjo akordon leje leximi dhe shkrimit te mesazhe private.
+        email:
+          name: Email
+          description: Kjo akordon hyrje vetëm-për-lexim te adresa juaj email.
+        interactions:
+          name: Ndërveprime
+          description: Kjo akordon hyrje te ndërveprim me postime, për shembull, pëlqim, ose parashtrim i një komenti.
+        notifications:
+          name: Njoftime
+          description: Kjo akordon hyrje leximi dhe shkrimi te njoftimet tuaja.
+        private:read:
+          name: Postime Private (Vetëm-lexim)
+          description: Kjo akordon hyrje vetëm-për-lexim te postimet private tuajat dhe të kontakteve tuaj.
+        private:modify:
+          name: Postime Private (Shkrim)
+          description: Kjo akordon hyrje te botim postimesh private.
+        public:read:
+          name: Postime Publike (Vetëm-lexim)
+          description: Kjo akordon hyrje te postimet tuaja publike, përfshi ndërveprime dhe të dhëna që lidhen me to.
+        public:modify:
+          name: Postime Publike (Shkrim)
+          description: Kjo akordon hyrje shkrimi për të botuar postime publike dhe te të dhëna të lidhura me to (të tilla si, vota dhe media e bashkëngjitur).
+        profile:
+          name: Profil i zgjeruar (Vetëm-lexim)
+          description: Kjo akordon hyrje vetëm-për-lexim te të dhënat e profilit tuaj të zgjeruar.
+        profile:modify:
+          name: Profil i zgjeruar (Shkrim)
+          description: Kjo akordon hyrje për përditësim të dhënash të profilit tuaj të zgjeruar.
+        profile:read_private:
+          name: Të dhëna profili privat (Vetëm-lexim)
+          description: Kjo akordon hyrje vetëm-për-lexim te të dhëna të profilit tuaj privat.
+        tags:read:
+          name: Etiketa (Vetëm-shkrim)
+          description: Kjo akordon hyrje vetëm-për-lexim te etiketat tuaja të ndjekura dhe te rrjedha etiketash.
+        tags:modify:
+          name: Etiketa (Shkrim)
+          description: Kjo akordon hyrje për të ndryshuar etiketat që ndiqni.
+      error_page:
+        title: Oh! Diç shkoi ters :(
+        contact_developer: 'Ju lutemi, lidhuni me zhvilluesin e aplikacionit dhe të përfshini mesazhin vijues të hollësishëm të gabimit:'
+        login_required: Përpara se të mund të autorizoni këtë aplikacion, duhet të hyni në llogarinë tuaj
+        could_not_authorize: Aplikacioni s’u autorizua dot
   people:
-    add_contact:
-      invited_by: "Qetë ftuar nga"
-    index:
-      couldnt_find_them: "S’i gjetët dot?"
-      looking_for: "Po kërkonit për postime me etiketën %{tag_link}?"
-      no_one_found: "...dhe nuk u gjet njeri."
-      no_results: "Hej! Lypset të kërkoni për diçka."
-      results_for: "Përdorues me përputhje me %{search_term}"
-      search_handle: "Që të jeni të sigurt se i gjeni shokët tuaj, përdorni ID-të e tyre diaspora* (emërpërdoruesi@pod.tld)."
-      searching: "Po kërkohet, ju lutemi, bëni durim…"
-      send_invite: "Ende asgjë? Dërgojuni një ftesë!"
     person:
-      thats_you: "Ky jeni ju!"
-    profile_sidebar:
-      bio: "Jetëshkrim"
-      born: "Datëlindje"
-      gender: "Gjini"
-      location: "Vendndodhje"
+      thats_you: Ky jeni ju!
+    index:
+      results_for: Përdorues me përputhje me %{search_term}
+      no_results: Hej! Lypset të kërkoni për diçka.
+      couldnt_find_them: S’i gjetët dot?
+      search_handle: Që të jeni të sigurt se i gjeni shokët tuaj, përdorni ID-të e tyre diaspora* (emërpërdoruesi@pod.tld).
+      send_invite: Ende asgjë? Dërgojuni një ftesë!
+      no_one_found: "...dhe nuk u gjet njeri."
+      searching: Po kërkohet, ju lutemi, bëni durim…
+      looking_for: Po kërkonit për postime me etiketën %{tag_link}?
     show:
-      closed_account: "Kjo llogari është mbyllur."
-      does_not_exist: "Personi nuk ekziston!"
       has_not_shared_with_you_yet: "%{name} nuk ka ndarë ende ndonjë postim me ju!"
+      does_not_exist: Personi nuk ekziston!
+      closed_account: Kjo llogari është mbyllur.
+    profile_sidebar:
+      bio: Jetëshkrim
+      location: Vendndodhje
+      gender: Gjini
+      born: Datëlindje
+    add_contact:
+      invited_by: Qetë ftuar nga
   photos:
     create:
-      integrity_error: "Ngarkimi i fotos dështoi. Jeni i sigurt se qe një figurë?"
-      runtime_error: "Ngarkimi i fotos dështoi. Jeni i sigurt se rripin e sigurimit e kishit lidhur?"
-      type_error: "Ngarkimi i fotos dështoi. Jeni i sigurt se shtuat një figurë?"
+      runtime_error: Ngarkimi i fotos dështoi. Jeni i sigurt se rripin e sigurimit e kishit lidhur?
+      integrity_error: Ngarkimi i fotos dështoi. Jeni i sigurt se qe një figurë?
+      type_error: Ngarkimi i fotos dështoi. Jeni i sigurt se shtuat një figurë?
     destroy:
-      notice: "Fotoja u fshi."
+      notice: Fotoja u fshi.
     new_profile_photo:
-      upload: "Ngarkoni një foto të re profili!"
+      upload: Ngarkoni një foto të re profili!
   polls:
     votes:
+      zero: "%{count} vota deri tani"
       one: "%{count} votë deri tani"
       other: "%{count} vota deri tani"
-      zero: "%{count} vota deri tani"
   posts:
     presenter:
-      title: "Postim prej %{name}"
+      title: Postim prej %{name}
     show:
-      forbidden: "S’keni leje ta bëni këtë"
-      location: "Postuar nga: %{location}"
+      location: 'Postuar nga: %{location}'
+      forbidden: S’keni leje ta bëni këtë
       photos_by:
+        zero: S’ka foto nga %{author}
+        one: Një foto nga %{author}
+        two: Two photos by %{author}
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "Një foto nga %{author}"
         other: "%{count} foto nga %{author}"
-        two: "Two photos by %{author}"
-        zero: "S’ka foto nga %{author}"
-      reshare_by: "Rindarje nga %{author}"
-  privacy: "Privatësi"
-  profile: "Profil"
+      reshare_by: Rindarje nga %{author}
+  report:
+    title: Përmbledhje raportimesh
+    post_label: "<strong>Postim</strong>: %{content}"
+    comment_label: "<strong>Koment</strong>: %{data}"
+    reported_label: "<strong>Raportuar nga</strong> %{person}"
+    reason_label: 'Arsye:'
+    review_link: Vëri shenjë si të lexuar
+    delete_link: Fshije objektin
+    reported_user_details: Hollësi mbi përdoruesin e raportuar
+    confirm_deletion: Jeni i sigurt se doni të fshihet ky objekt?
+    not_found: Postimi/komenti s’u gjet. Duket se qe fshirë nga përdoruesi!
+    status:
+      destroyed: Postimi është asgjësuar
+      failed: Diç shkoi keq
+    unreviewed_reports:
+      zero: S’ka raportime të pashqyrtuar.
+      one: Ka një postim të pashqyrtuar.
+      other: Ka %{count} postime të pashqyrtuar.
   profiles:
     edit:
-      allow_search: "Lejojuni njerëzve të kërkojnë për ju brenda diaspora*-s"
-      basic: "Profili im bazë"
-      basic_hint: "Çdo zë te profili juaj është opsional. Profili juaj bazë do të jetë përherë publikisht i dukshëm."
-      extended: "Profili im i zgjeruar"
-      extended_hint: "Që të caktoni dukshmërinë e profilit tuaj të zgjeruar, klikoni mbi çelësin. Publik do të thotë se është i dukshëm në internet, i kufizuar do të thotë vetëm persona me të cilët ndani gjëra mund t’i shohin këto të dhëna."
-      extended_visibility_text: "Dukshmëri e profilit tuaj të zgjeruar:"
-      first_name: "Emri"
-      last_name: "Mbiemri"
-      limited: "I kufizuar"
-      nsfw_check: "Vëri shenjë si NSFW gjithçkaje që ndaj me të tjerët"
-      nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në punë) është standardi i bashkësisë vetë-administruese diaspora* për lëndë që mund të mos jetë e përshtatshme për t’u parë kur jeni në punë. Nëse planifikoni të ndani shpesh me të tjerët material të tillë, ju lutemi, i vini shenjë kësaj mundësie, që gjithçka që ndani me të tjerët, të fshihet te rrjedhat e njerëzve, deri sa ata të zgjedhin ta shohin."
-      nsfw_explanation2: "Nëse vendosni të mos e përzgjidhni këtë mundësi, ju lutemi, shtoni etiketën #nsfw sa herë që ndani me të tjerët material të tillë."
-      public: "Publik"
-      settings: "Rregullime profili"
-      update_profile: "Përditësoni profilin"
-      your_bio: "Jetëshkrimi juaj"
-      your_birthday: "Datëlindja juaj"
-      your_gender: "Gjinia juaj"
-      your_location: "Vendndodhja juaj"
-      your_name: "Emri juaj"
-      your_photo: "Fotoja juaj"
-      your_tags: "Përshkruani veten me 5 fjalë"
-      your_tags_placeholder: "Fjala vjen #filma #lepujt #udhëtime #mësues #Pukë"
+      basic: Profili im bazë
+      extended: Profili im i zgjeruar
+      settings: Rregullime profili
+      extended_visibility_text: 'Dukshmëri e profilit tuaj të zgjeruar:'
+      public: Publik
+      limited: I kufizuar
+      basic_hint: Çdo zë te profili juaj është opsional. Profili juaj bazë do të jetë përherë publikisht i dukshëm.
+      extended_hint: Që të caktoni dukshmërinë e profilit tuaj të zgjeruar, klikoni mbi çelësin. Publik do të thotë se është i dukshëm në internet, i kufizuar do të thotë vetëm persona me të cilët ndani gjëra mund t’i shohin këto të dhëna.
+      your_name: Emri juaj
+      first_name: Emri
+      last_name: Mbiemri
+      your_gender: Gjinia juaj
+      your_birthday: Datëlindja juaj
+      your_tags: Përshkruani veten me 5 fjalë
+      your_tags_placeholder: 'Fjala vjen #filma #lepujt #udhëtime #mësues #Pukë'
+      your_bio: Jetëshkrimi juaj
+      your_location: Vendndodhja juaj
+      your_photo: Fotoja juaj
+      update_profile: Përditësoni profilin
+      allow_search: Lejojuni njerëzve të kërkojnë për ju brenda diaspora*-s
+      nsfw_explanation: NSFW (“not safe for work ” - jo e përshtatshme për në punë) është standardi i bashkësisë vetë-administruese diaspora* për lëndë që mund të mos jetë e përshtatshme për t’u parë kur jeni në punë. Nëse planifikoni të ndani shpesh me të tjerët material të tillë, ju lutemi, i vini shenjë kësaj mundësie, që gjithçka që ndani me të tjerët, të fshihet te rrjedhat e njerëzve, deri sa ata të zgjedhin ta shohin.
+      nsfw_explanation2: 'Nëse vendosni të mos e përzgjidhni këtë mundësi, ju lutemi, shtoni etiketën #nsfw sa herë që ndani me të tjerët material të tillë.'
+      nsfw_check: Vëri shenjë si NSFW gjithçkaje që ndaj me të tjerët
     update:
-      failed: "Përditësimi i profilit dështoi"
-      updated: "Profili u përditësua"
-  public: "Publike"
+      updated: Profili u përditësua
+      failed: Përditësimi i profilit dështoi
   registrations:
-    closed:
-      another_pod: "nyjë tjetër"
-      closed_pod: "Kjo nyjë është aktualisht e mbyllur për regjistrime të reja. Sidoqoftë, mundeni prapë të merrni pjesë në rrjetin diaspora* duke u regjistruar në %{wiki}. Ngaqë krejt nyjat janë të lidhura me njëra-tjetrën, do të mund të përdorni po të njëjtën lëndë të këtushme."
-      find_pods: "Te %{fediverse_observer} ka një listë nyjash te të cilat mund të regjistroheni."
-      other_questions: "Nëse keni çfarëdo pyetje tjetër lidhur me zgjedhjen e një nyjeje, shihni %{wiki} tonë."
-    create:
-      success: "U bëtë pjesë e diaspora*-s!"
-    invalid_invite: "Lidhja e ftesës që dhatë s’është më e vlefshme!"
     new:
-      email: "Email"
-      enter_email: "Jepni adresën tuaj email"
-      enter_password: "Jepni një fjalëkalim (minimumi gjashtë shenja)"
-      enter_password_again: "Jepni të njëjtin fjalëkalim si më parë"
-      enter_username: "Zgjidhni një emër përdoruesi (shkronja, numra dhe nënvija vetëm)"
-      password: "Fjalëkalim"
-      password_confirmation: "Ripohim fjalëkalimi"
-      sign_up: "Krijoni llogari"
-      submitting: "Po parashtrohet…"
-      terms: "Duke krijuar një llogari pranoni %{terms_link}."
-      terms_link: "kushtet e shërbimit."
-      username: "Emër përdoruesi"
-  report:
-    comment_label: "<strong>Koment</strong>: %{data}"
-    confirm_deletion: "Jeni i sigurt se doni të fshihet ky objekt?"
-    delete_link: "Fshije objektin"
-    not_found: "Postimi/komenti s’u gjet. Duket se qe fshirë nga përdoruesi!"
-    post_label: "<strong>Postim</strong>: %{content}"
-    reason_label: "Arsye:"
-    reported_label: "<strong>Raportuar nga</strong> %{person}"
-    reported_user_details: "Hollësi mbi përdoruesin e raportuar"
-    review_link: "Vëri shenjë si të lexuar"
-    status:
-      destroyed: "Postimi është asgjësuar"
-      failed: "Diç shkoi keq"
-    title: "Përmbledhje raportimesh"
-    unreviewed_reports:
-      one: "Ka një postim të pashqyrtuar."
-      other: "Ka %{count} postime të pashqyrtuar."
-      zero: "S’ka raportime të pashqyrtuar."
+      enter_email: Jepni adresën tuaj email
+      enter_username: Zgjidhni një emër përdoruesi (shkronja, numra dhe nënvija vetëm)
+      enter_password: Jepni një fjalëkalim (minimumi gjashtë shenja)
+      enter_password_again: Jepni të njëjtin fjalëkalim si më parë
+      sign_up: Krijoni llogari
+      email: Email
+      username: Emër përdoruesi
+      password: Fjalëkalim
+      password_confirmation: Ripohim fjalëkalimi
+      submitting: Po parashtrohet…
+      terms: Duke krijuar një llogari pranoni %{terms_link}.
+      terms_link: kushtet e shërbimit.
+    create:
+      success: U bëtë pjesë e diaspora*-s!
+    closed:
+      closed_pod: Kjo nyjë është aktualisht e mbyllur për regjistrime të reja. Sidoqoftë, mundeni prapë të merrni pjesë në rrjetin diaspora* duke u regjistruar në %{wiki}. Ngaqë krejt nyjat janë të lidhura me njëra-tjetrën, do të mund të përdorni po të njëjtën lëndë të këtushme.
+      another_pod: nyjë tjetër
+      find_pods: Te %{fediverse_observer} ka një listë nyjash te të cilat mund të regjistroheni.
+      other_questions: Nëse keni çfarëdo pyetje tjetër lidhur me zgjedhjen e një nyjeje, shihni %{wiki} tonë.
+    invalid_invite: Lidhja e ftesës që dhatë s’është më e vlefshme!
   reshares:
-    comment_email_subject: "Rindarje prej %{resharer} e postimit nga %{author}"
     create:
-      error: "S’u arrit të rindahej."
+      error: S’u arrit të rindahej.
     reshare:
-      deleted: "Postimi origjinal është fshirë nga autori."
-      reshare_confirmation: "Të rindahet postimi i %{author}?"
-      reshared_via: "Rindarë përmes"
-  search: "Kërkoni"
+      reshared_via: Rindarë përmes
+      reshare_confirmation: Të rindahet postimi i %{author}?
+      deleted: Postimi origjinal është fshirë nga autori.
+    comment_email_subject: Rindarje prej %{resharer} e postimit nga %{author}
   services:
-    create:
-      already_authorized: "Një përdorues me id-në diaspora* %{diaspora_id} e pat autorizuar tashmë këtë llogari %{service_name}."
-      failure: "Mirëfilltësimi dështoi."
-      read_only_access: "Shkalla e hyrjes është vetëm lexim, ju lutemi, provoni ta riautorizoni më vonë"
-      success: "Mirëfilltësim i suksesshëm."
-    destroy:
-      success: "Mirëfilltësimi u fshi me sukses."
-    failure:
-      error: "Pati një gabim në lidhjen me atë shërbim"
-    index:
-      connect: "Lidhu"
-      disconnect: "Shkëputu"
-      edit_services: "Përpunoni shërbime"
-      logged_in_as: "I futur si %{nickname}."
-      no_services_available: "S’ka shërbime gati për këtë nyjë."
-      not_logged_in: "Aktualisht jo i futur."
-      really_disconnect: "Të shkëputet nga %{service}?"
-      services_explanation: "Lidhja te shërbime ndarjesh prej palësh të treta ju jep aftësinë të botoni postime në to, ndërkohë që i shkruani në diaspora*."
-      share_to: "Ndajeni në %{provider}"
-      title: "Administroni shërbime të lidhura"
     provider:
-      tumblr: "Tumblr"
-      twitter: "Twitter"
-      wordpress: "WordPress"
-  settings: "Rregullime"
+      tumblr: Tumblr
+      twitter: Twitter
+      wordpress: WordPress
+    index:
+      title: Administroni shërbime të lidhura
+      connect: Lidhu
+      disconnect: Shkëputu
+      logged_in_as: I futur si %{nickname}.
+      no_services_available: S’ka shërbime gati për këtë nyjë.
+      not_logged_in: Aktualisht jo i futur.
+      really_disconnect: Të shkëputet nga %{service}?
+      edit_services: Përpunoni shërbime
+      services_explanation: Lidhja te shërbime ndarjesh prej palësh të treta ju jep aftësinë të botoni postime në to, ndërkohë që i shkruani në diaspora*.
+      share_to: Ndajeni në %{provider}
+    create:
+      success: Mirëfilltësim i suksesshëm.
+      failure: Mirëfilltësimi dështoi.
+      already_authorized: Një përdorues me id-në diaspora* %{diaspora_id} e pat autorizuar tashmë këtë llogari %{service_name}.
+      read_only_access: Shkalla e hyrjes është vetëm lexim, ju lutemi, provoni ta riautorizoni më vonë
+    destroy:
+      success: Mirëfilltësimi u fshi me sukses.
+    failure:
+      error: Pati një gabim në lidhjen me atë shërbim
+  blocks:
+    create:
+      success: 'Në rregull, s’do ta shihni sërish atë përdorues te rrjedha juaj. #silencio!'
+      failure: 'S’e shpërfilla dot atë përdorues. #evasion'
+    destroy:
+      success: 'Pa të shohim se ç’kanë për të thënë! #sayhello'
+      failure: 'S’munda dot ta ndal shpërfilljen e atij përdoruesi. #evasion'
   shared:
     aspect_dropdown:
       mobile_row_checked: "%{name} (hiqeni)"
       mobile_row_unchecked: "%{name} (shtojeni)"
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "Në %{count} aspekt"
-        other: "Në %{count} aspekte"
-        two: "In %{count} aspects"
-        zero: "Shtoni kontakt"
-    invitations:
-      by_email: "Ftoni njerëz me email"
-      invite_your_friends: "Ftoni shokë tuajt"
-      invites: "Ftesa"
-      share_this: "Ndajeni këtë lidhje përmes email-i, blogu, ose rrjetesh shoqërore!"
-    public_explain:
-      atom_feed: "Prurje Atom"
-      control_your_audience: "Kontrolloni publikun tuaj"
-      logged_in: "I futur te %{service}"
-      manage: "Administroni shërbimet me të cilat lidheni"
-      new_user_welcome_message: "Përdorni #hashtag-ë që të sistemoni postimet tuaja dhe të gjeni kështu persona që kanë interesa të njëjta me tuajat. Tërhiqni në bisedë persona të mahnitshëm, përmes funksionit @Përmendje"
-      outside: "Mesazhet publike do të jeni të dukshme nga të tjerët jashtë diaspora*-s."
-      share: "Ndajeni me të tjerë"
-      title: "Ujdisni shërbime të lidhura"
-      visibility_dropdown: "Përdoreni këtë menu hapmbyll që të ndryshoni gjendjen e postimit tuaj. (Këshillojmë që këtë të parin ta bëni publik.)"
+        zero: Shtoni kontakt
+        one: Në %{count} aspekt
+        two: In %{count} aspects
+        few: In %{count} aspects
+        many: In %{count} aspects
+        other: Në %{count} aspekte
     publisher:
-      discard_post: "Hidhe tej postimin"
-      formatWithMarkdown: "Për formatimin e postimeve tuaja mund të përdorni %{markdown_link}"
-      get_location: "Merrni vendndodhjen tuaj"
+      formatWithMarkdown: Për formatimin e postimeve tuaja mund të përdorni %{markdown_link}
+      posting: Po postohet…
+      share: Ndajeni me të tjerë
+      get_location: Merrni vendndodhjen tuaj
+      remove_location: Hiqe vendndodhjen
+      whats_on_your_mind: Ç’bluani në mendje?
+      discard_post: Hidhe tej postimin
       new_user_prefill:
-        hello: "Njatjeta të gjithëve, jam #%{new_user_tag}. "
-        i_like: "Më interesojnë %{tags}. "
-        invited_by: "Faleminderit për ftesën, "
-        newhere: "rishtar"
+        newhere: rishtar
+        hello: 'Njatjeta të gjithëve, jam #%{new_user_tag}. '
+        i_like: 'Më interesojnë %{tags}. '
+        invited_by: 'Faleminderit për ftesën, '
       poll:
-        add_a_poll: "Shtoni një pyetësor"
-      posting: "Po postohet…"
-      remove_location: "Hiqe vendndodhjen"
-      share: "Ndajeni me të tjerë"
-      whats_on_your_mind: "Ç’bluani në mendje?"
+        add_a_poll: Shtoni një pyetësor
+    invitations:
+      invites: Ftesa
+      invite_your_friends: Ftoni shokë tuajt
+      by_email: Ftoni njerëz me email
+      share_this: Ndajeni këtë lidhje përmes email-i, blogu, ose rrjetesh shoqërore!
+    public_explain:
+      control_your_audience: Kontrolloni publikun tuaj
+      new_user_welcome_message: 'Përdorni #hashtag-ë që të sistemoni postimet tuaja dhe të gjeni kështu persona që kanë interesa të njëjta me tuajat. Tërhiqni në bisedë persona të mahnitshëm, përmes funksionit @Përmendje'
+      visibility_dropdown: Përdoreni këtë menu hapmbyll që të ndryshoni gjendjen e postimit tuaj. (Këshillojmë që këtë të parin ta bëni publik.)
+      title: Ujdisni shërbime të lidhura
+      share: Ndajeni me të tjerë
+      outside: Mesazhet publike do të jeni të dukshme nga të tjerët jashtë diaspora*-s.
+      logged_in: I futur te %{service}
+      manage: Administroni shërbimet me të cilat lidheni
+      atom_feed: Prurje Atom
     stream_element:
-      via: "Përmes %{link}"
-      via_mobile: "Përmes celularit"
-  simple_captcha:
-    label: "Jepni kodin te kutia:"
-    message:
-      default: "Kodi sekret s’u përputh me figurën"
-      failed: "Verifikimi njerëzor dështoi"
-      user: "Figura e fshehtë dhe kodi ndryshonin nga njëri-tjetri"
-    placeholder: "Jepni vlerën e figurës"
-  statistics:
-    active_users_halfyear: "Përdorues aktivë në gjysmën e vitit"
-    active_users_monthly: "Përdorues aktivë në muaj"
-    closed: "Mbyllur"
-    disabled: "Çaktivizuar"
-    enabled: "Të passhme"
-    local_comments: "Komente vendore"
-    local_posts: "Postime vendore"
-    name: "Emër"
-    network: "Rrjet"
-    open: "Hapur"
-    registrations: "Regjistrime"
-    services: "Shërbime"
-    total_users: "Përdorues gjithsej"
-    version: "Version"
+      via: Përmes %{link}
+      via_mobile: Përmes celularit
   status_messages:
-    bad_aspects: "ID-të e dhëna të aspekteve s’janë të aplikueshme (s’ekzistojnë ose s’janë pronë e dikujt)"
     new:
-      mentioning: "Me përmendje të: %{person}"
-    too_long: "Ju lutemi, bëjeni mesazhin për gjendjen tuaj më pak se %{count} shenja. Tani është %{current_length} shenja"
+      mentioning: 'Me përmendje të: %{person}'
+    too_long: Ju lutemi, bëjeni mesazhin për gjendjen tuaj më pak se %{count} shenja. Tani është %{current_length} shenja
+    bad_aspects: ID-të e dhëna të aspekteve s’janë të aplikueshme (s’ekzistojnë ose s’janë pronë e dikujt)
   stream_helper:
-    no_more_posts: "Keni mbërritur në fundin e rrjedhës."
-    no_posts_yet: "Ende s’ka postime."
-  streams:
-    activity:
-      title: "Veprimtaria ime"
-    admin:
-      title: "Përgjegjës"
-    aspects:
-      all: "Krejt aspektet"
-      title: "Aspektet e mi"
-    aspects_stream: "Aspekte"
-    comment_stream:
-      title: "Postime të komentuara"
-    commented:
-      title: "Postime të komentuara"
-    community_spotlight_stream: "Projektor bashkësie"
-    followed_tag:
-      add_a_tag: "Shtoni një etiketë"
-      all: "Krejt etiketat"
-      follow: "Ndiqe"
-      title: "Etiketa të #ndjekura"
-    followed_tags_stream: "Etiketa të #ndjekura"
-    like_stream:
-      title: "Rrjedhë të pëlqyerash"
-    liked:
-      title: "Postime të pëlqyera"
-    local_public:
-      title: "Postime vendore"
-    mentioned_stream: "@Përmendje"
-    mentions:
-      title: "@Përmendje"
-    multi:
-      title: "Rrjedhë"
-    public:
-      title: "Veprimtari publike"
-    tags:
-      title: "Postime të etiketuara me: %{tags}"
+    no_more_posts: Keni mbërritur në fundin e rrjedhës.
+    no_posts_yet: Ende s’ka postime.
+  tags:
+    show:
+      tagged_people:
+        zero: Asnjë i etiketuar me %{tag}.
+        one: 1 person i etiketuar me %{tag}
+        other: "%{count} persona të etiketuar me %{tag}"
+      follow: 'Ndiqeni #%{tag}'
+      stop_following: 'Resht së ndjekuri #%{tag}'
+      none: Etiketa e zbrazët s’ka kuptim!
+    name_too_long: Ju lutemi, bëjeni emrin e etiketës suaj më të shkurtër se %{count} shenja. Tani është %{current_length} shenja
   tag_followings:
     manage:
-      no_tags: "S’ndiqni ndonjë etiketë."
-      title: "Administrim etiketash të ndjekura"
-  tags:
-    name_too_long: "Ju lutemi, bëjeni emrin e etiketës suaj më të shkurtër se %{count} shenja. Tani është %{current_length} shenja"
-    show:
-      follow: "Ndiqeni #%{tag}"
-      none: "Etiketa e zbrazët s’ka kuptim!"
-      stop_following: "Resht së ndjekuri #%{tag}"
-      tagged_people:
-        one: "1 person i etiketuar me %{tag}"
-        other: "%{count} persona të etiketuar me %{tag}"
-        zero: "Asnjë i etiketuar me %{tag}."
-  two_factor_auth:
-    activated:
-      change_button: "Çaktivizoje"
-      change_label: "Çaktivizojeni mirëfilltësimin dyfaktorësh duke dhënë fjalëkalimin tuaj"
-      status: "Mirëfilltësimi dyfaktorësh është i aktivizuar"
-    confirm:
-      activate_button: "Ripohojeni dhe aktivizojeni"
-      input_explanation: "Pas skanimi ose dhënies së të fshehtës, jepni kodin me gjashtë shifra që shihni dhe ripohoni ujdisjen."
-      input_title: "Ripohojeni me token TOTP"
-      manual_explanation: "Në rast se s’mund të skanoni dot automatikisht kodin QR, mund të jepni dorazi të fshehtën te aplikacioni juaj."
-      manual_explanation_cont: "Përdorim fjalëkalime njëpërdorimsh, me bazë kohën (TOTP), me token-ë gjashtëshifrorë. Në rast se aplikacioni ju kërkon një interval kohor dhe algoritëm, jepni përkatësisht 30 sekonda dhe sha1. <br /> Hapësirat janë thjesht për lexim më të kollajtë, ju lutemi, kodin jepeni pa to."
-      scan_explanation: "Ju lutemi, skanoni kodin QR me një aplikacion të aftë për TOTP, bie fjala, andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
-      scan_title: "Skanoni kodin QR"
-      status: "Mirëfilltësimi dyfaktorësh s’është aktivizuar ende plotësisht, ju duhet të ripohoni aktivizimin me një token TOTP"
-      title: "Ripohoni aktivizimin"
-    deactivated:
-      change_button: "Aktivizoje"
-      change_label: "Aktivizo mirëfilltësimin dyfaktorësh"
-      status: "Mirëfilltësimi dyfaktorësh s’është i aktivizuar"
-    explanation: "Mirëfilltësimi dyfaktorësh është një rrugë e fuqishme për të garantuar që jeni i vetmi i aftë të hyjë në llogarinë tuaj. Kur bëni hyrjen, për të dëshmuar identitetin tuaj, tok me fjalëkalimin tuaj do të jepni një kod gjashtëshifror. Por bëni kujdes: nëse humbni telefonin tuaj dhe kodet e rimarrjes të krijuar kur aktivizoni këtë veçori, hyrja në llogarinë tuaj diaspora* do të bllokohet përgjithmonë."
-    flash:
-      error_token: "Token-i qe i pasaktë ose i pavlefshëm"
-      success_activation: "Mirëfilltësimi dyfaktorësh u aktivizua me sukses"
-      success_deactivation: "Mirëfilltësimi dyfaktorësh u çaktivizua me sukses"
-    input_token:
-      label: "Token dyfaktorëshi"
-      placeholder: "token gjashtëshifror dyfaktorëshi"
-    recovery:
-      button: "Prodho kode të rinj rimarrjesh"
-      explanation: "Nëse humbni hyrjen në telefonin tuaj, që të rifitoni hyrjen në llogarinë tuaj, mund të përdorni një nga kodet e rimarrjes më poshtë. Mbajini të parrezik kodet e rimarrjes. Për shembull, mund t’i shtypni dhe t’i depozitoni atje ku mbani dokumente të tjera të rëndësishme."
-      explanation_short: "Kodet e rimarrjes ju lejojnë të rifitoni hyrje te llogaria juaj, nëse keni humbur telefonin tuaj. Kini parasysh që një kod mund ta përdorni vetëm një herë."
-      invalidation_notice: "Nëse humbni kodet tuaj të rimarrjes, mund t’i riprodhoni këtu. Kodet tuaj të vjetër të rimarrjes do të bëhen të pavlefshëm."
-      reminder: "Ndryshe, mund të përdorni një nga kodet e rimarrjeve."
-      title: "Kode rimarrjesh"
-    title: "Mirëfilltësim dyfaktorësh"
-  username: "Emër përdoruesi"
-  users:
-    confirm_email:
-      email_confirmed: "Email-i %{email} u aktivizua"
-      email_not_confirmed: "Email-i s’u aktivizua dot. Lidhje e gabuar?"
-    destroy:
-      no_password: "Ju lutemi, që të mbyllet llogaria juaj, jepni fjalëkalimin të tanishëm."
-      success: "Llogaria juaj është kyçur. Mund të marrë 20 minuta që të përfundojmë mbylljen e llogarisë tuaj. Faleminderit që provuat diaspora*-n."
-      wrong_password: "Fjalëkalimi i dhënë s’u përputh me fjalëkalimin tuaj të tanishëm."
-    edit:
-      also_commented: "dikush komenton në një postim ku keni komentuar"
-      auto_follow_aspect: "Aspekt për përdorues me të cilët ndani gjëra vetvetiu:"
-      auto_follow_back: "Ndani vetvetiu me përdorues që fillojnë të ndajnë gjëra me ju"
-      birthday: "dikush ka ditëlindjen"
-      change: "Ndryshoje"
-      change_color_theme: "Ndryshoni temë ngjyrash"
-      change_email: "Ndryshoni email"
-      change_language: "Ndryshoni gjuhë"
-      change_password: "Ndryshoni fjalëkalim"
-      character_minimum_expl: "duhet të jetë të paktën gjashtë shenja"
-      close_account:
-        dont_go: "Hej, ju lutemi, mos ikni!"
-        lock_username: "Emri juaj i përdoruesit do të kyçet. S’do të jeni në gjendje të krijoni një llogari të re me po të njëjtën ID në këtë nyjë."
-        locked_out: "Do të bëhet çregjistrimi juaj dhe s’do t’ju lejohet më hyrja në llogarinë tuaj, derisa të jetë fshirë."
-        make_diaspora_better: "Do të donim të qëndronit dhe të na ndihmonit ta bëjmë diaspora*-n më të mirë, në vend se të largoheni. Nëse dëshironi vërtet të largoheni, ja se ç’do të ndodhë më pas:"
-        mr_wiggles: "Z. Wiggles do të trishtohet, kur t’ju shohë që po largoheni"
-        no_turning_back: "S’ka kthim mbrapa! Nëse jeni vërtet i sigurt, jepni fjalëkalimin tuaj më poshtë."
-        what_we_delete: "Do të fshijmë krejt të dhënat e postimeve dhe profilit tuaj, sa më shpejt që të mundet. Komentet tuaj në postimet e personave të tjerë prapë do të shfaqen, por ato do t’i përshoqërohen ID-së tuaj diaspora*, në vend se emrit tuaj."
-      close_account_text: "Mbylle llogarinë"
-      comment_on_post: "dikush komenton në postim tuajin"
-      current_password: "Fjalëkalimi i tanishëm"
-      current_password_expl: "ai me të cilin hyni përmes…"
-      default_post_visibility: "Aspekte parazgjedhje përzgjedhur për akte postimi"
-      download_export: "Shkarko profilin tim"
-      download_export_photos: "Shkarko fotot e mia"
-      edit_account: "Përpunoni llogari"
-      email_awaiting_confirmation: "Ju kemi dërguar një lidhje aktivizimi te %{unconfirmed_email}. Derisa të ndiqni këtë lidhje dhe të aktivizoni adresën e re, do të vazhdojmë të përdorim adresën tuaj origjinale %{email}."
-      export_data: "Eksporto të dhëna"
-      export_in_progress: "Jemi duke përgatitur të dhënat tuaja. Ju lutemi, kontrolloni sërish pas pak çastesh."
-      export_photos_in_progress: "Jemi duke përgatitur fotot tuaja. Ju lutemi, kontrolloni sërish pas pak çastesh."
-      following: "Rregullime për ndarje me të tjerë"
-      last_exported_html: "(Përditësuar së fundi më %{timeago})"
-      liked: "dikush pëlqen postim tuajin"
-      mentioned: "përmendeni në një postim"
-      mentioned_in_comment: "përmendeni në një koment"
-      new_password: "Fjalëkalim i ri"
-      private_message: "merrni një mesazh privat"
-      protocol_handler:
-        browser: "Ky protokoll aktualisht është në fazën eksperimentale dhe suksesi i ndërveprimeve të prodhuara nga përdorimi i tij do të varen nga shfletuesi juaj. Nëse doni të administroni apo hiqni këtë mjet, këtë mund ta bëni që nga rregullimet e shfletuesit tuaj. Butoni më poshtë do të jetë përherë i aktivizuar, dhe është e nevojshme ta ujdisni mjetin veçmas në secilin shfletues që përdorni."
-        description: "web+diaspora:// është një protokoll i ri që sapo e paraqesim. Çfarëdo lidhje te një faqe diaspora* në një sajt të jashtëm që përdor këtë protokoll mund të hapet te nyja në të cilën është regjistruar llogaria juaj. Klikoni mbi butonin më poshtë që ta ujdisni shfletuesin tuaj të përdorë %{pod_url} për të njohur lidhje të jashtme web+diaspora://."
-        register: "Regjistroni protokollin web+diaspora:// në këtë shfletues"
-        title: "Trajtues protokolli web+diaspora://"
-      receive_email_notifications: "Merrni njoftime me email kur:"
-      request_export: "Kërko të dhënat e profilit tim"
-      request_export_photos: "Kërko fotot e mia"
-      request_export_photos_update: "Rifresko fotot e mia"
-      request_export_update: "Rifresko të dhënat e profilit tim"
-      reshared: "dikush rindan postim tuajin"
-      show_community_spotlight: "Shfaq te rrjedha “projektorin e bashkësisë”"
-      show_getting_started: "Shfaq ndihmëza “si t’ia fillohet”"
-      someone_reported: "dikush dërgon një raportim"
-      started_sharing: "dikush zë të ndajë gjëra me ju"
-      stream_preferences: "Parapëlqime rrjedhe"
-      your_email: "Email-i juaj"
-      your_email_private: "Email-i juaj s’do të shihet kurrë nga përdorues të tjerë"
-      your_handle: "ID-ja juaj diaspora*"
-    getting_started:
-      awesome_take_me_to_diaspora: "Mrekulli! Shpjemëni te diaspora*"
-      community_welcome: "Bashkësia diaspora* është e gëzuar t’ju shohë në gjirin e saj!"
-      hashtag_explanation: "Etiketat ju lejojnë të flisni për to dhe të ndiqni interesat tuaja. Janë gjithashtu rrugë e dobishme për të gjetur shokë të rinj në diaspora*."
-      hashtag_suggestions: "Provoni të ndiqni etiketa të tilla si #art, #movies, #gif, etj."
-      well_hello_there: "E po…, tungjatjetani!"
-      what_are_you_in_to: "Me se po merreni?"
-      who_are_you: "Kush jeni?"
-    privacy_settings:
-      ignored_users: "Përdorues të shpërfillur"
-      no_user_ignored_message: "Aktualisht s’shpërfillni ndonjë përdorues"
-      stop_ignoring: "Resht së shpërfilluri"
-      strip_exif: "Figurave të ngarkuara hiqu tejtëdhëna të tilla si vendi, autori dhe modeli i kamerës (e këshilluar)"
-      title: "Rregullime privatësie"
+      title: Administrim etiketash të ndjekura
+      no_tags: S’ndiqni ndonjë etiketë.
+  streams:
+    community_spotlight_stream: Projektor bashkësie
+    aspects_stream: Aspekte
+    mentioned_stream: "@Përmendje"
+    followed_tags_stream: 'Etiketa të #ndjekura'
+    mentions:
+      title: "@Përmendje"
+    comment_stream:
+      title: Postime të komentuara
+    like_stream:
+      title: Rrjedhë të pëlqyerash
+    followed_tag:
+      title: 'Etiketa të #ndjekura'
+      add_a_tag: Shtoni një etiketë
+      follow: Ndiqe
+      all: Krejt etiketat
+    admin:
+      title: Përgjegjës
+    tags:
+      title: 'Postime të etiketuara me: %{tags}'
     public:
-      does_not_exist: "Përdoruesi %{username} s’ekziston!"
+      title: Veprimtari publike
+    local_public:
+      title: Postime vendore
+    multi:
+      title: Rrjedhë
+    aspects:
+      title: Aspektet e mi
+      all: Krejt aspektet
+    activity:
+      title: Veprimtaria ime
+    liked:
+      title: Postime të pëlqyera
+    commented:
+      title: Postime të komentuara
+  users:
+    edit:
+      edit_account: Përpunoni llogari
+      change: Ndryshoje
+      your_handle: ID-ja juaj diaspora*
+      your_email: Email-i juaj
+      your_email_private: Email-i juaj s’do të shihet kurrë nga përdorues të tjerë
+      change_email: Ndryshoni email
+      email_awaiting_confirmation: Ju kemi dërguar një lidhje aktivizimi te %{unconfirmed_email}. Derisa të ndiqni këtë lidhje dhe të aktivizoni adresën e re, do të vazhdojmë të përdorim adresën tuaj origjinale %{email}.
+      change_password: Ndryshoni fjalëkalim
+      new_password: Fjalëkalim i ri
+      current_password: Fjalëkalimi i tanishëm
+      current_password_expl: ai me të cilin hyni përmes…
+      character_minimum_expl: duhet të jetë të paktën gjashtë shenja
+      change_language: Ndryshoni gjuhë
+      change_color_theme: Ndryshoni temë ngjyrash
+      close_account_text: Mbylle llogarinë
+      stream_preferences: Parapëlqime rrjedhe
+      show_community_spotlight: Shfaq te rrjedha “projektorin e bashkësisë”
+      show_getting_started: Shfaq ndihmëza “si t’ia fillohet”
+      following: Rregullime për ndarje me të tjerë
+      auto_follow_back: Ndani vetvetiu me përdorues që fillojnë të ndajnë gjëra me ju
+      auto_follow_aspect: 'Aspekt për përdorues me të cilët ndani gjëra vetvetiu:'
+      default_post_visibility: Aspekte parazgjedhje përzgjedhur për akte postimi
+      receive_email_notifications: 'Merrni njoftime me email kur:'
+      started_sharing: dikush zë të ndajë gjëra me ju
+      someone_reported: dikush dërgon një raportim
+      mentioned: përmendeni në një postim
+      mentioned_in_comment: përmendeni në një koment
+      liked: dikush pëlqen postim tuajin
+      reshared: dikush rindan postim tuajin
+      comment_on_post: dikush komenton në postim tuajin
+      also_commented: dikush komenton në një postim ku keni komentuar
+      private_message: merrni një mesazh privat
+      birthday: dikush ka ditëlindjen
+      download_export: Shkarko profilin tim
+      request_export: Kërko të dhënat e profilit tim
+      request_export_update: Rifresko të dhënat e profilit tim
+      export_data: Eksporto të dhëna
+      export_in_progress: Jemi duke përgatitur të dhënat tuaja. Ju lutemi, kontrolloni sërish pas pak çastesh.
+      last_exported_html: "(Përditësuar së fundi më %{timeago})"
+      download_export_photos: Shkarko fotot e mia
+      request_export_photos: Kërko fotot e mia
+      request_export_photos_update: Rifresko fotot e mia
+      export_photos_in_progress: Jemi duke përgatitur fotot tuaja. Ju lutemi, kontrolloni sërish pas pak çastesh.
+      close_account:
+        dont_go: Hej, ju lutemi, mos ikni!
+        make_diaspora_better: 'Do të donim të qëndronit dhe të na ndihmonit ta bëjmë diaspora*-n më të mirë, në vend se të largoheni. Nëse dëshironi vërtet të largoheni, ja se ç’do të ndodhë më pas:'
+        mr_wiggles: Z. Wiggles do të trishtohet, kur t’ju shohë që po largoheni
+        what_we_delete: Do të fshijmë krejt të dhënat e postimeve dhe profilit tuaj, sa më shpejt që të mundet. Komentet tuaj në postimet e personave të tjerë prapë do të shfaqen, por ato do t’i përshoqërohen ID-së tuaj diaspora*, në vend se emrit tuaj.
+        locked_out: Do të bëhet çregjistrimi juaj dhe s’do t’ju lejohet më hyrja në llogarinë tuaj, derisa të jetë fshirë.
+        lock_username: Emri juaj i përdoruesit do të kyçet. S’do të jeni në gjendje të krijoni një llogari të re me po të njëjtën ID në këtë nyjë.
+        no_turning_back: S’ka kthim mbrapa! Nëse jeni vërtet i sigurt, jepni fjalëkalimin tuaj më poshtë.
+      protocol_handler:
+        title: Trajtues protokolli web+diaspora://
+        description: web+diaspora:// është një protokoll i ri që sapo e paraqesim. Çfarëdo lidhje te një faqe diaspora* në një sajt të jashtëm që përdor këtë protokoll mund të hapet te nyja në të cilën është regjistruar llogaria juaj. Klikoni mbi butonin më poshtë që ta ujdisni shfletuesin tuaj të përdorë %{pod_url} për të njohur lidhje të jashtme web+diaspora://.
+        browser: Ky protokoll aktualisht është në fazën eksperimentale dhe suksesi i ndërveprimeve të prodhuara nga përdorimi i tij do të varen nga shfletuesi juaj. Nëse doni të administroni apo hiqni këtë mjet, këtë mund ta bëni që nga rregullimet e shfletuesit tuaj. Butoni më poshtë do të jetë përherë i aktivizuar, dhe është e nevojshme ta ujdisni mjetin veçmas në secilin shfletues që përdorni.
+        register: Regjistroni protokollin web+diaspora:// në këtë shfletues
+    privacy_settings:
+      title: Rregullime privatësie
+      strip_exif: Figurave të ngarkuara hiqu tejtëdhëna të tilla si vendi, autori dhe modeli i kamerës (e këshilluar)
+      ignored_users: Përdorues të shpërfillur
+      stop_ignoring: Resht së shpërfilluri
+      no_user_ignored_message: Aktualisht s’shpërfillni ndonjë përdorues
+    destroy:
+      success: Llogaria juaj është kyçur. Mund të marrë 20 minuta që të përfundojmë mbylljen e llogarisë tuaj. Faleminderit që provuat diaspora*-n.
+      no_password: Ju lutemi, që të mbyllet llogaria juaj, jepni fjalëkalimin të tanishëm.
+      wrong_password: Fjalëkalimi i dhënë s’u përputh me fjalëkalimin tuaj të tanishëm.
+    getting_started:
+      well_hello_there: E po…, tungjatjetani!
+      community_welcome: Bashkësia diaspora* është e gëzuar t’ju shohë në gjirin e saj!
+      awesome_take_me_to_diaspora: Mrekulli! Shpjemëni te diaspora*
+      who_are_you: Kush jeni?
+      what_are_you_in_to: Me se po merreni?
+      hashtag_explanation: Etiketat ju lejojnë të flisni për to dhe të ndiqni interesat tuaja. Janë gjithashtu rrugë e dobishme për të gjetur shokë të rinj në diaspora*.
+      hashtag_suggestions: 'Provoni të ndiqni etiketa të tilla si #art, #movies, #gif, etj.'
     update:
-      color_theme_changed: "Tema e ngjyrave u ndryshua me sukses."
-      color_theme_not_changed: "Ndodhi një gabim teksa ndryshohej tema e ngjyrave."
-      email_notifications_changed: "Njoftimet me email u ndryshuan"
-      follow_settings_changed: "Rregullimet për ndjekje u ndryshuan"
-      follow_settings_not_changed: "Ndryshimi i rregullimeve për ndjekje dështoi."
-      language_changed: "Gjuha u ndryshua"
-      language_not_changed: "Ndryshimi i gjuhës dështoi"
-      password_changed: "Fjalëkalimi u ndryshua. Tani mund të regjistroheni me fjalëkalimin tuaj të ri."
-      password_not_changed: "Ndryshimi i fjalëkalimit dështoi"
-      settings_not_updated: "Përditësimi i rregullimeve dështoi"
-      settings_updated: "Rregullimet u përditësuan"
-      unconfirmed_email_changed: "Email-i u ndryshua. Kjo lyp aktivizim."
-      unconfirmed_email_not_changed: "Ndryshimi i email-it dështoi"
+      password_changed: Fjalëkalimi u ndryshua. Tani mund të regjistroheni me fjalëkalimin tuaj të ri.
+      password_not_changed: Ndryshimi i fjalëkalimit dështoi
+      language_changed: Gjuha u ndryshua
+      language_not_changed: Ndryshimi i gjuhës dështoi
+      settings_updated: Rregullimet u përditësuan
+      settings_not_updated: Përditësimi i rregullimeve dështoi
+      email_notifications_changed: Njoftimet me email u ndryshuan
+      unconfirmed_email_changed: Email-i u ndryshua. Kjo lyp aktivizim.
+      unconfirmed_email_not_changed: Ndryshimi i email-it dështoi
+      follow_settings_changed: Rregullimet për ndjekje u ndryshuan
+      follow_settings_not_changed: Ndryshimi i rregullimeve për ndjekje dështoi.
+      color_theme_changed: Tema e ngjyrave u ndryshua me sukses.
+      color_theme_not_changed: Ndodhi një gabim teksa ndryshohej tema e ngjyrave.
+    public:
+      does_not_exist: Përdoruesi %{username} s’ekziston!
+    confirm_email:
+      email_confirmed: Email-i %{email} u aktivizua
+      email_not_confirmed: Email-i s’u aktivizua dot. Lidhje e gabuar?
+  two_factor_auth:
+    title: Mirëfilltësim dyfaktorësh
+    explanation: 'Mirëfilltësimi dyfaktorësh është një rrugë e fuqishme për të garantuar që jeni i vetmi i aftë të hyjë në llogarinë tuaj. Kur bëni hyrjen, për të dëshmuar identitetin tuaj, tok me fjalëkalimin tuaj do të jepni një kod gjashtëshifror. Por bëni kujdes: nëse humbni telefonin tuaj dhe kodet e rimarrjes të krijuar kur aktivizoni këtë veçori, hyrja në llogarinë tuaj diaspora* do të bllokohet përgjithmonë.'
+    activated:
+      status: Mirëfilltësimi dyfaktorësh është i aktivizuar
+      change_label: Çaktivizojeni mirëfilltësimin dyfaktorësh duke dhënë fjalëkalimin tuaj
+      change_button: Çaktivizoje
+    deactivated:
+      status: Mirëfilltësimi dyfaktorësh s’është i aktivizuar
+      change_label: Aktivizo mirëfilltësimin dyfaktorësh
+      change_button: Aktivizoje
+    confirm:
+      title: Ripohoni aktivizimin
+      status: Mirëfilltësimi dyfaktorësh s’është aktivizuar ende plotësisht, ju duhet të ripohoni aktivizimin me një token TOTP
+      scan_title: Skanoni kodin QR
+      scan_explanation: Ju lutemi, skanoni kodin QR me një aplikacion të aftë për TOTP, bie fjala, andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS).
+      manual_explanation: Në rast se s’mund të skanoni dot automatikisht kodin QR, mund të jepni dorazi të fshehtën te aplikacioni juaj.
+      manual_explanation_cont: Përdorim fjalëkalime njëpërdorimsh, me bazë kohën (TOTP), me token-ë gjashtëshifrorë. Në rast se aplikacioni ju kërkon një interval kohor dhe algoritëm, jepni përkatësisht 30 sekonda dhe sha1. <br /> Hapësirat janë thjesht për lexim më të kollajtë, ju lutemi, kodin jepeni pa to.
+      input_title: Ripohojeni me token TOTP
+      input_explanation: Pas skanimi ose dhënies së të fshehtës, jepni kodin me gjashtë shifra që shihni dhe ripohoni ujdisjen.
+      activate_button: Ripohojeni dhe aktivizojeni
+    input_token:
+      label: Token dyfaktorëshi
+      placeholder: token gjashtëshifror dyfaktorëshi
+    recovery:
+      title: Kode rimarrjesh
+      reminder: Ndryshe, mund të përdorni një nga kodet e rimarrjeve.
+      explanation: Nëse humbni hyrjen në telefonin tuaj, që të rifitoni hyrjen në llogarinë tuaj, mund të përdorni një nga kodet e rimarrjes më poshtë. Mbajini të parrezik kodet e rimarrjes. Për shembull, mund t’i shtypni dhe t’i depozitoni atje ku mbani dokumente të tjera të rëndësishme.
+      explanation_short: Kodet e rimarrjes ju lejojnë të rifitoni hyrje te llogaria juaj, nëse keni humbur telefonin tuaj. Kini parasysh që një kod mund ta përdorni vetëm një herë.
+      invalidation_notice: Nëse humbni kodet tuaj të rimarrjes, mund t’i riprodhoni këtu. Kodet tuaj të vjetër të rimarrjes do të bëhen të pavlefshëm.
+      button: Prodho kode të rinj rimarrjesh
+    flash:
+      success_activation: Mirëfilltësimi dyfaktorësh u aktivizua me sukses
+      success_deactivation: Mirëfilltësimi dyfaktorësh u çaktivizua me sukses
+      error_token: Token-i qe i pasaktë ose i pavlefshëm
   will_paginate:
-    next_label: "pasuesja &raquo;"
     previous_label: "&laquo; e mëparshmja"
+    next_label: pasuesja &raquo;
+  simple_captcha:
+    placeholder: Jepni vlerën e figurës
+    label: 'Jepni kodin te kutia:'
+    message:
+      default: Kodi sekret s’u përputh me figurën
+      user: Figura e fshehtë dhe kodi ndryshonin nga njëri-tjetri
+      failed: Verifikimi njerëzor dështoi
+  statistics:
+    name: Emër
+    network: Rrjet
+    services: Shërbime
+    total_users: Përdorues gjithsej
+    active_users_halfyear: Përdorues aktivë në gjysmën e vitit
+    active_users_monthly: Përdorues aktivë në muaj
+    local_posts: Postime vendore
+    local_comments: Komente vendore
+    version: Version
+    registrations: Regjistrime
+    enabled: Të passhme
+    disabled: Çaktivizuar
+    open: Hapur
+    closed: Mbyllur

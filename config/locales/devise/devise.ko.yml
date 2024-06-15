@@ -7,84 +7,84 @@
 ko:
   devise:
     confirmations:
-      confirmed: "계정이 성공적으로 확인되었습니다. 지금 로그인 되었습니다."
+      confirmed: 계정이 성공적으로 확인되었습니다. 지금 로그인 되었습니다.
+      send_instructions: 계정을 확인하기 위한 메일이 몇 분 안에 도착합니다.
       new:
-        resend_confirmation: "확인 메일 다시 보내기"
-      send_instructions: "계정을 확인하기 위한 메일이 몇 분 안에 도착합니다."
+        resend_confirmation: 확인 메일 다시 보내기
     failure:
-      inactive: "아직 계정이 활성화되지 않았습니다."
-      invalid: "유효하지 않은 사용자 이름과 암호."
-      invalid_token: "유효하지 않은 인증 토큰."
-      locked: "계정이 잠깁니다."
-      not_found_in_database: "잘못 된 이메일 또는 비밀 번호입니다."
-      timeout: "세션이 만료되었습니다. 다시 로그인하세요."
-      unauthenticated: "더 나아가기 전에 로그인하거나 가입해야 합니다."
-      unconfirmed: "더 나아가기 전에 계정을 확인해야 합니다."
-    invitations:
-      invitation_token_invalid: "죄송합니다! 초대장 토큰이 유효하지 않습니다."
-      send_instructions: "초대장을 보냈습니다"
-      updated: "암호가 성공적으로 설정되었습니다. 지금 로그인했습니다."
+      inactive: 아직 계정이 활성화되지 않았습니다.
+      invalid: 유효하지 않은 사용자 이름과 암호.
+      locked: 계정이 잠깁니다.
+      not_found_in_database: 잘못 된 이메일 또는 비밀 번호입니다.
+      timeout: 세션이 만료되었습니다. 다시 로그인하세요.
+      unauthenticated: 더 나아가기 전에 로그인하거나 가입해야 합니다.
+      unconfirmed: 더 나아가기 전에 계정을 확인해야 합니다.
+      invalid_token: 유효하지 않은 인증 토큰.
     mailer:
       confirmation_instructions:
-        confirm: "내 계정 확인하기"
-        subject: "확인 절차"
-        you_can_confirm: "아래 링크로 계정을 확인할 수 있습니다:"
+        subject: 확인 절차
+        you_can_confirm: '아래 링크로 계정을 확인할 수 있습니다:'
+        confirm: 내 계정 확인하기
+      reset_password_instructions:
+        subject: 암호 재설정 절차
+        someone_requested: '아래 링크로 암호를 다시 정할 수 있습니다:'
+        change: 암호 바꾸기
+        wont_change: 암호는 링크를 클릭해서 새 암호를 만들기 전까지 바뀌지 않습니다.
+        ignore: 암호 초기화를 요청하지 않았다면 이 메일을 무시하세요.
+      unlock_instructions:
+        subject: 계정 풀기 안내
+        account_locked: 귀하의 계정은 많은 양의 로그인 실패로 인해 잠겨있습니다.
+        click_to_unlock: '아래 링크로 계정을 풀을 수 있습니다:'
+        unlock: 내 계정 풀기
+      welcome: "%{username}님 환영합니다!"
       hello: "%{username}님!"
       inviter:
-        accept_at: "%{URL}에서, 아래의 링크를 통해 확인할 수 있습니다."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} 님이 나를 디아스포라로 초대했습니다"
-      reset_password_instructions:
-        change: "암호 바꾸기"
-        ignore: "암호 초기화를 요청하지 않았다면 이 메일을 무시하세요."
-        someone_requested: "아래 링크로 암호를 다시 정할 수 있습니다:"
-        subject: "암호 재설정 절차"
-        wont_change: "암호는 링크를 클릭해서 새 암호를 만들기 전까지 바뀌지 않습니다."
-      unlock_instructions:
-        account_locked: "귀하의 계정은 많은 양의 로그인 실패로 인해 잠겨있습니다."
-        click_to_unlock: "아래 링크로 계정을 풀을 수 있습니다:"
-        subject: "계정 풀기 안내"
-        unlock: "내 계정 풀기"
-      welcome: "%{username}님 환영합니다!"
+        accept_at: "%{URL}에서, 아래의 링크를 통해 확인할 수 있습니다."
     passwords:
+      send_instructions: 몇 분 안으로 암호를 초기화하기 위한 이메일이 도착합니다.
+      updated: 암호를 성공적으로 바꾼 뒤 로그인했습니다.
       edit:
-        change_password: "암호 바꾸기"
-        confirm_password: "암호 확인"
-        new_password: "새 암호"
+        change_password: 암호 바꾸기
+        new_password: 새 암호
+        confirm_password: 암호 확인
       new:
-        email: "이메일"
-        forgot_password: "암호를 잊었습니까?"
-        reset_password: "암호 재설정"
-        send_password_instructions: "암호 재설정 메일 보내기"
-      send_instructions: "몇 분 안으로 암호를 초기화하기 위한 이메일이 도착합니다."
-      updated: "암호를 성공적으로 바꾼 뒤 로그인했습니다."
+        forgot_password: 암호를 잊었습니까?
+        reset_password: 암호 재설정
+        email: 이메일
+        send_password_instructions: 암호 재설정 메일 보내기
     registrations:
-      destroyed: "계정을 성공적으로 없앴습니다. 또 만나요!"
-      signed_up: "성공적으로 가입했습니다. 활성화되었다면 확인 메일이 보내집니다."
-      updated: "계정을 성공적으로 갱신했습니다."
+      destroyed: 계정을 성공적으로 없앴습니다. 또 만나요!
+      signed_up: 성공적으로 가입했습니다. 활성화되었다면 확인 메일이 보내집니다.
+      updated: 계정을 성공적으로 갱신했습니다.
     sessions:
+      signed_in: 성공적으로 로그인했습니다.
+      signed_out: 성공적으로 로그아웃했습니다.
       new:
-        login: "로그인"
-        modern_browsers: "최신 브라우저만 지원합니다."
-        password: "암호"
-        remember_me: "로그인 유지"
-        sign_in: "로그인"
-        username: "사용자 이름"
-      signed_in: "성공적으로 로그인했습니다."
-      signed_out: "성공적으로 로그아웃했습니다."
+        login: 로그인
+        username: 사용자 이름
+        password: 암호
+        sign_in: 로그인
+        remember_me: 로그인 유지
+        modern_browsers: 최신 브라우저만 지원합니다.
+    unlocks:
+      send_instructions: 계정을 풀기 위한 메일이 몇 분 안에 도착합니다.
+      unlocked: 계정이 성공적으로 풀렸습니다. 지금 로그인했습니다.
+      new:
+        resend_unlock: 풀기 메일 다시 보내기
+    invitations:
+      send_instructions: 초대장을 보냈습니다
+      invitation_token_invalid: 죄송합니다! 초대장 토큰이 유효하지 않습니다.
+      updated: 암호가 성공적으로 설정되었습니다. 지금 로그인했습니다.
     shared:
       links:
-        forgot_your_password: "암호를 잊었습니까?"
-        receive_confirmation: "확인 절차를 받지 못했습니까?"
-        receive_unlock: "풀기 절차를 받지 못했습니까?"
-        sign_in: "로그인"
-        sign_up: "가입하기"
-        sign_up_closed: "현재 공개 가입이 닫혀있습니다."
-    unlocks:
-      new:
-        resend_unlock: "풀기 메일 다시 보내기"
-      send_instructions: "계정을 풀기 위한 메일이 몇 분 안에 도착합니다."
-      unlocked: "계정이 성공적으로 풀렸습니다. 지금 로그인했습니다."
+        sign_in: 로그인
+        sign_up: 가입하기
+        sign_up_closed: 현재 공개 가입이 닫혀있습니다.
+        forgot_your_password: 암호를 잊었습니까?
+        receive_confirmation: 확인 절차를 받지 못했습니까?
+        receive_unlock: 풀기 절차를 받지 못했습니까?
   errors:
     messages:
       already_confirmed: ": 이미 확인되었습니다"
