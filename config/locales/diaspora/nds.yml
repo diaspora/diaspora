@@ -5,808 +5,806 @@
 
 
 nds:
-  _applications: "Programme"
-  _contacts: "Kontakte"
-  _help: "Hülp"
-  _services: "Deenste"
-  _statistics: "Statistiken"
-  _terms: "Bedingungen"
-  account: "Konto"
+  settings: Instellungen
+  profile: Profil
+  account: Konto
+  privacy: Privatsphäre
+  _services: Deenste
+  _applications: Programme
+  _help: Hülp
+  ok: OK
+  cancel: Avbreken
+  delete: Löschen
+  username: Brukernaam
+  email: E-Mail
+  are_you_sure: Bist du sicher?
+  are_you_sure_delete_account: Bist du di sicher, dat du dien Konto taumoken wist? Dat kannst du nich rückgängig moken!
+  fill_me_out: Füll mi ut
+  public: Öffentlich
+  limited: Inschränkt
+  search: Seuken
+  nsfw: NSFW (unpassend för den Arbeitsplatz)
+  find_people: 'Lüüd or #Tags finnen'
+  more: Mehr
+  all_aspects: All Aspekte
+  no_results: Keene Resultate funnen
+  _contacts: Kontakte
+  _terms: Bedingungen
+  _statistics: Statistiken
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "mut ünner de Kontakte von dissen Bruker eendüdig ween."
+            person:
+              invalid: is ungültig.
+            username:
+              taken: is schon vergeben.
+              invalid: is ungültig. Wi nehmt nur Bookstaven, Nummern und Ünnerstreeke.
+            email:
+              taken: is schon vergeben
         person:
           attributes:
             diaspora_handle:
-              taken: "is schon vergeben"
-        poll:
+              taken: is schon vergeben
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "Nich genuch Mööglichkeiten för de Ümfroog bereetstellt."
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "Du hest an disse Ümfroog schon deelnommen!"
+            person_id:
+              taken: mut ünner de Kontakte von dissen Bruker eendüdig ween.
         reshare:
           attributes:
             root_guid:
-              taken: "Teemlich gaud, wat?  Du hest dissen Bidrag al wiederseggt!"
-        user:
+              taken: Teemlich gaud, wat?  Du hest dissen Bidrag al wiederseggt!
+        poll:
           attributes:
-            email:
-              taken: "is schon vergeben"
-            person:
-              invalid: "is ungültig."
-            username:
-              invalid: "is ungültig. Wi nehmt nur Bookstaven, Nummern und Ünnerstreeke."
-              taken: "is schon vergeben."
-  admins:
-    admin_bar:
-      pages: "Sieden"
-      pod_stats: "Podstatistiken"
-      report: "Meldungen"
-      user_search: "Brukerseuk"
-      weekly_user_stats: "Weekentliche Brukerstatistiken"
-    stats:
-      2weeks: "2 Weeken"
-      50_most: "De 50 an meisten benutzte Tags"
-      comments:
-        one: "Een Kommentar"
-        other: "%{count} Kommentare"
-        zero: "Keene Kommentare"
-      daily: "Dag för Dag"
-      display_results: "Zeig Resultate von dat Segment <b>%{segment}</b>"
-      go: "Los"
-      month: "Monat"
-      posts:
-        one: "Een Bidrag"
-        other: "%{count} Bidräg"
-        zero: "Keene Bidräg"
-      shares:
-        one: "Een mol deelt"
-        other: "%{count} mol deelt"
-        zero: "Noch nich deelt."
-      tag_name: "Tag-Noom: <b>%{name_tag}</b> Antohl: <b>%{count_tag}</b>"
-      usage_statistic: "Nutzungsstatistiken"
-      users:
-        one: "Een Bruker"
-        other: "%{count} Bruker"
-        zero: "Keene Bruker"
-      week: "Week"
-    user_entry:
-      account_closed: "Konto schloten"
-      diaspora_handle: "diaspora*-Handle"
-      email: "E-Mail-Adress"
-      guid: "GUID"
-      id: "ID"
-      last_seen: "Toletzt sehn"
-      ? "no"
-      : Nee
-      nsfw: "#nsfw"
-      unknown: "Unbekannt"
-      ? "yes"
-      : Ja
-    user_search:
-      add_invites: "Inlodungen dortaudaun"
-      are_you_sure_lock_account: "Bist du di sicher, dat du dit Konto sparn willst?"
-      close_account: "Konto schluten"
-      email_to: "E-Mail-Adress ton Inloden"
-      under_13: "Zeig Bruker ünner 13 (COPPA)"
-      users:
-        one: "Een Bruker funnen"
-        other: "%{count} Bruker funnen"
-        zero: "Keen Bruker funnen"
-      view_profile: "Profil ankieken"
-      you_currently:
-        one: "Du hest noch eene Inlodung öber %{link}"
-        other: "Du hest noch %{count} Inlodungen öber %{link}"
-        zero: "Du hest grood keene Inlodungen mehr öber %{link}"
-    weekly_user_stats:
-      amount_of:
-        one: "Antohl von nee’e Bruker in disse Week: Een"
-        other: "Antohl von nee’e Bruker in disse Week: %{count}"
-        zero: "Antohl von nee’e Bruker in disse Week: keene"
-      current_server: "Dat Serverdatum is grood %{date}"
-  all_aspects: "All Aspekte"
-  are_you_sure: "Bist du sicher?"
-  are_you_sure_delete_account: "Bist du di sicher, dat du dien Konto taumoken wist? Dat kannst du nich rückgängig moken!"
-  aspect_memberships:
-    destroy:
-      failure: "Kun Person nich ut’n Aspekt rutsortiern."
-      no_membership: "Kun de utwählte Person nich in den Aspekt finnen."
-      success: "Person erfolgriek ut’n Aspekt rutsortiert."
-  aspects:
-    add_to_aspect:
-      failure: "Kun Kontakt nich to’n Aspekt dortaudaun."
-      success: "Kontakt erfolgriek to’n Aspekt dortaudoon."
-    aspect_listings:
-      add_an_aspect: "+ Een Aspekt dortaudaun"
-    aspect_stream:
-      make_something: "Mok wat"
-      stay_updated: "Bliev op’n neesten Stand"
-      stay_updated_explanation: "Dien Hauptstream ward mit all diene Kontakte, de Tags de du folgst und Bidräg von een poor kreative Lüüd ut de Gemeenschaft füllt."
-    destroy:
-      failure: "%{name} kunn nich löscht warn."
-      success: "%{name} is erfolgriek löscht worrn."
-    edit:
-      aspect_list_is_not_visible: "Kontakte in dissen Aspekt künnt sik nich gegensiedig sehn."
-      aspect_list_is_visible: "Kontakte in dissen Aspekt künnt sik gegensiedig sehn."
-      confirm_remove_aspect: "Bist du di sicher, dat du dissen Aspekt löschen willst?"
-      rename: "Ümbenennen"
-      update: "Aktualiseern"
-      updating: "Aktualiseer"
-    index:
-      donate: "Spenden"
-      help:
-        any_problem: "Hest du een Problem?"
-        do_you: "Hest du:"
-        feature_suggestion: "... een Vörschlag för eene nee’e %{link}?"
-        find_a_bug: "... een %{link} funnen?"
-        have_a_question: "... eene %{link}?"
-        here_to_help: "De diaspora*-Gemeenschaft is för di dor!"
-        mail_podmin: "E-Mail an’n Podmin"
-        need_help: "Brukst du Hülp?"
-        tag_bug: "Fehler"
-        tag_feature: "Funktion"
-        tag_question: "Froog"
-        tutorial_link_text: "Anleidungen"
-        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Hülp för diene eersten Schritte."
-      introduce_yourself: "Dat is dien Stream.  Leg los und stell di vör."
-      new_here:
-        follow: "Folg %{link} un begrööt nee’e Bruker op diaspora*!"
-        learn_more: "Mehr rutkriegen"
-        title: "Begrööt nee’e Bruker"
-      services:
-        content: "Du kannst de folgenden Deenste mit diaspora* verbinnen:"
-        heading: "Verbinn Deenste"
-      welcome_to_diaspora: "Willkomen to diaspora*, %{name}!"
-    no_contacts_message:
-      community_spotlight: "vörstellten Gemeenschaftsmitglieder"
-      or_spotlight: "Oder du kannst mit de %{link} deelen"
-      try_adding_some_more_contacts: "Du kannst mehr Kontakte seuken oder inlooden."
-      you_should_add_some_more_contacts: "Du schullst een poor mehr Kontakte schluten!"
-    seed:
-      acquaintances: "Bekannte"
-      family: "Familie"
-      friends: "Frünnen"
-      work: "Arbeit"
-    update:
-      failure: "De Noom von dien Aspekt, %{name}, wör to lang ton Speichern."
-      success: "Dien Aspekt, %{name}, is erfolgriek ännert worn."
-  blocks:
-    create:
-      failure: "Ik kun dissen Bruker nich ignorieren.  #evasion"
-      success: "Allns kloor, du warst dissen Bruker nich mehr in dien Stream sehn. #silencio!"
-    destroy:
-      failure: "Ik kun nich ophören, den Bruker to ignorieren.  #evasion"
-      success: "Lott uns man kieken, wat de to seggen hebbt! #segghallo"
-  bookmarklet:
-    explanation: "Schriev nee’e Bidräg von öberall, indem du dissen Link to diene Leseteken dortaudeist => %{link}."
-    heading: "Leseteken."
-    post_something: "Schriev wat in diaspora*"
-  cancel: "Avbreken"
-  comments:
-    new_comment:
-      comment: "Kommenteeren"
-      commenting: "Kommenteer..."
-  contacts:
-    index:
-      add_contact: "Kontakt schluten"
-      all_contacts: "Alle Kontakte"
-      community_spotlight: "vörstellten Gemeenschaftsmitglieder"
-      my_contacts: "Miene Kontakte"
-      no_contacts: "Sütt so ut, as op du een poor mehr Kontakte schluten muss!"
-      no_contacts_message: "Kiek di doch mol de %{community_spotlight} an"
-      only_sharing_with_me: "Nur mit di Deelende"
-      start_a_conversation: "Fang een Schnack an"
-      title: "Kontakte"
-      user_search: "Kontaktseuk"
-    spotlight:
-      community_spotlight: "Vörstellte Gemeenschaftsmitglieder"
-      suggest_member: "schlo wen vör"
-  conversations:
-    create:
-      fail: "Ungültige Noricht"
-      sent: "Noricht afschickt"
-    destroy:
-      delete_success: "Schnack erfolgriek löscht"
-      hide_success: "Schnack erfolgriek versteken"
-    index:
-      conversations_inbox: "Schnacks – Ingang"
-      inbox: "Ingang"
-      new_conversation: "Nee’en Schnack"
-      no_messages: "Keene Norichten"
-    new:
-      send: "Schicken"
-      sending: "Schick..."
-      subject: "Sook"
-      subject_default: "Keene Sook"
-      to: "An"
-    new_conversation:
-      fail: "Ungültige Noricht"
-    show:
-      delete: "Schnack löschen"
-      hide: "Schnack versteken und stummschalten"
-      reply: "Antwoorten"
-      replying: "Antwoort..."
-  date:
-    formats:
-      birthday: "%d. %B"
-      birthday_with_year: "%d. %B %Y"
-      fullmonth_day: "%d. %B"
-  delete: "Löschen"
-  email: "E-Mail"
+            poll_answers:
+              not_enough_poll_answers: Nich genuch Mööglichkeiten för de Ümfroog bereetstellt.
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: Du hest an disse Ümfroog schon deelnommen!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Kiek mol de folgenden Fehler dörch und verseuk dat nochmol."
-  fill_me_out: "Füll mi ut"
-  find_people: "Lüüd or #Tags finnen"
+      correct_the_following_errors_and_try_again: Kiek mol de folgenden Fehler dörch und verseuk dat nochmol.
+  admins:
+    admin_bar:
+      pages: Sieden
+      user_search: Brukerseuk
+      weekly_user_stats: Weekentliche Brukerstatistiken
+      pod_stats: Podstatistiken
+      report: Meldungen
+    user_search:
+      you_currently:
+        zero: Du hest grood keene Inlodungen mehr öber %{link}
+        one: Du hest noch eene Inlodung öber %{link}
+        other: Du hest noch %{count} Inlodungen öber %{link}
+      view_profile: Profil ankieken
+      add_invites: Inlodungen dortaudaun
+      close_account: Konto schluten
+      are_you_sure_lock_account: Bist du di sicher, dat du dit Konto sparn willst?
+      email_to: E-Mail-Adress ton Inloden
+      under_13: Zeig Bruker ünner 13 (COPPA)
+      users:
+        zero: Keen Bruker funnen
+        one: Een Bruker funnen
+        other: "%{count} Bruker funnen"
+    user_entry:
+      id: ID
+      guid: GUID
+      email: E-Mail-Adress
+      diaspora_handle: diaspora*-Handle
+      last_seen: Toletzt sehn
+      account_closed: Konto schloten
+      nsfw: "#nsfw"
+      unknown: Unbekannt
+      'yes': Ja
+      'no': Nee
+    weekly_user_stats:
+      current_server: Dat Serverdatum is grood %{date}
+      amount_of:
+        zero: 'Antohl von nee’e Bruker in disse Week: keene'
+        one: 'Antohl von nee’e Bruker in disse Week: Een'
+        other: 'Antohl von nee’e Bruker in disse Week: %{count}'
+    stats:
+      week: Week
+      2weeks: 2 Weeken
+      month: Monat
+      daily: Dag för Dag
+      usage_statistic: Nutzungsstatistiken
+      go: Los
+      display_results: Zeig Resultate von dat Segment <b>%{segment}</b>
+      posts:
+        zero: Keene Bidräg
+        one: Een Bidrag
+        other: "%{count} Bidräg"
+      comments:
+        zero: Keene Kommentare
+        one: Een Kommentar
+        other: "%{count} Kommentare"
+      shares:
+        zero: Noch nich deelt.
+        one: Een mol deelt
+        other: "%{count} mol deelt"
+      users:
+        zero: Keene Bruker
+        one: Een Bruker
+        other: "%{count} Bruker"
+      50_most: De 50 an meisten benutzte Tags
+      tag_name: 'Tag-Noom: <b>%{name_tag}</b> Antohl: <b>%{count_tag}</b>'
+  aspects:
+    edit:
+      confirm_remove_aspect: Bist du di sicher, dat du dissen Aspekt löschen willst?
+      rename: Ümbenennen
+      aspect_list_is_visible: Kontakte in dissen Aspekt künnt sik gegensiedig sehn.
+      aspect_list_is_not_visible: Kontakte in dissen Aspekt künnt sik nich gegensiedig sehn.
+      update: Aktualiseern
+      updating: Aktualiseer
+    no_contacts_message:
+      you_should_add_some_more_contacts: Du schullst een poor mehr Kontakte schluten!
+      try_adding_some_more_contacts: Du kannst mehr Kontakte seuken oder inlooden.
+      or_spotlight: Oder du kannst mit de %{link} deelen
+      community_spotlight: vörstellten Gemeenschaftsmitglieder
+    aspect_listings:
+      add_an_aspect: "+ Een Aspekt dortaudaun"
+    destroy:
+      success: "%{name} is erfolgriek löscht worrn."
+      failure: "%{name} kunn nich löscht warn."
+    update:
+      success: Dien Aspekt, %{name}, is erfolgriek ännert worn.
+      failure: De Noom von dien Aspekt, %{name}, wör to lang ton Speichern.
+    add_to_aspect:
+      failure: Kun Kontakt nich to’n Aspekt dortaudaun.
+      success: Kontakt erfolgriek to’n Aspekt dortaudoon.
+    seed:
+      family: Familie
+      work: Arbeit
+      acquaintances: Bekannte
+      friends: Frünnen
+    index:
+      donate: Spenden
+      welcome_to_diaspora: Willkomen to diaspora*, %{name}!
+      introduce_yourself: Dat is dien Stream.  Leg los und stell di vör.
+      new_here:
+        title: Begrööt nee’e Bruker
+        follow: Folg %{link} un begrööt nee’e Bruker op diaspora*!
+        learn_more: Mehr rutkriegen
+      help:
+        need_help: Brukst du Hülp?
+        here_to_help: De diaspora*-Gemeenschaft is för di dor!
+        do_you: 'Hest du:'
+        have_a_question: "... eene %{link}?"
+        tag_question: Froog
+        find_a_bug: "... een %{link} funnen?"
+        tag_bug: Fehler
+        feature_suggestion: "... een Vörschlag för eene nee’e %{link}?"
+        tag_feature: Funktion
+        tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Hülp för diene eersten Schritte."
+        tutorial_link_text: Anleidungen
+        any_problem: Hest du een Problem?
+        mail_podmin: E-Mail an’n Podmin
+      services:
+        heading: Verbinn Deenste
+        content: 'Du kannst de folgenden Deenste mit diaspora* verbinnen:'
+    aspect_stream:
+      stay_updated: Bliev op’n neesten Stand
+      stay_updated_explanation: Dien Hauptstream ward mit all diene Kontakte, de Tags de du folgst und Bidräg von een poor kreative Lüüd ut de Gemeenschaft füllt.
+      make_something: Mok wat
+  aspect_memberships:
+    destroy:
+      success: Person erfolgriek ut’n Aspekt rutsortiert.
+      failure: Kun Person nich ut’n Aspekt rutsortiern.
+      no_membership: Kun de utwählte Person nich in den Aspekt finnen.
+  bookmarklet:
+    heading: Leseteken.
+    post_something: Schriev wat in diaspora*
+    explanation: Schriev nee’e Bidräg von öberall, indem du dissen Link to diene Leseteken dortaudeist => %{link}.
+  comments:
+    new_comment:
+      comment: Kommenteeren
+      commenting: Kommenteer...
+  contacts:
+    index:
+      start_a_conversation: Fang een Schnack an
+      title: Kontakte
+      no_contacts: Sütt so ut, as op du een poor mehr Kontakte schluten muss!
+      no_contacts_message: Kiek di doch mol de %{community_spotlight} an
+      community_spotlight: vörstellten Gemeenschaftsmitglieder
+      my_contacts: Miene Kontakte
+      all_contacts: Alle Kontakte
+      only_sharing_with_me: Nur mit di Deelende
+      add_contact: Kontakt schluten
+      user_search: Kontaktseuk
+    spotlight:
+      community_spotlight: Vörstellte Gemeenschaftsmitglieder
+      suggest_member: schlo wen vör
+  conversations:
+    index:
+      conversations_inbox: Schnacks – Ingang
+      new_conversation: Nee’en Schnack
+      no_messages: Keene Norichten
+      inbox: Ingang
+    show:
+      reply: Antwoorten
+      replying: Antwoort...
+      hide: Schnack versteken und stummschalten
+      delete: Schnack löschen
+    new:
+      to: An
+      subject: Sook
+      subject_default: Keene Sook
+      send: Schicken
+      sending: Schick...
+    create:
+      sent: Noricht afschickt
+      fail: Ungültige Noricht
+    new_conversation:
+      fail: Ungültige Noricht
+    destroy:
+      delete_success: Schnack erfolgriek löscht
+      hide_success: Schnack erfolgriek versteken
+  date:
+    formats:
+      fullmonth_day: "%d. %B"
+      birthday: "%d. %B"
+      birthday_with_year: "%d. %B %Y"
   help:
-    account_and_data_management:
-      data_other_podmins_q: "Künnt de Administratoren von annere Pods miene Informationen sehn?"
-      data_visible_to_podmin_q: "Wie veel von miene Informationen kann de Pod-Administrator sehn?"
-      title: "Konto- und Datenverwaltung"
-    aspects:
-      change_aspect_of_post_q: "Kann ik de Aspekte ännern, de een Bidrag seen künnt, wenn ik em schon afschickt heb?"
-      contacts_know_aspect_a: "Nee. Se künnt den Noom von den Aspekt ünner keene Ümstände sehn."
-      contacts_know_aspect_q: "Weet miene Kontakte, in welche Aspekte ik jüm doon heb?"
-      delete_aspect_q: "Wie lösch ik een Aspekt?"
-      person_multiple_aspects_q: "Kann ik eene Person in mehrere Aspekte daun?"
-      post_multiple_aspects_q: "Kann ik Inhalt an mehrere Aspekte op eenmol schrieben?"
-      remove_notification_a: "Nee. Se ward ok nich benorichtigt, falls du jüm to mehr Aspekte dortaudeist, während du schon mit jüm deelst."
-      remove_notification_q: "Wenn ik wen ut een or mehrere von miene Aspekte rutdau, ward he doröber benorichtigt?"
-      rename_aspect_q: "Wie benenn ik eenen Aspekt üm?"
-      restrict_posts_i_see_q: "Kann ik de Bidräg in mien Stream op de von bestimmte Aspekte inschränken?"
-      title: "Aspekte"
-      what_is_an_aspect_q: "Wat is een Aspekt?"
-      who_sees_post_q: "Wer sütt dat, wenn ik wat an bestimmte Aspekte schriev?"
-    faq: "FAQ"
-    foundation_website: "Websiet von de diaspora* foundation"
-    getting_help:
-      get_support_a_faq: "Lees unsere %{faq}-Siet in’t Wiki"
-      get_support_a_hashtag: "Froog in een öffentlichen Bidrag op diaspora* mit den Hashtag %{question}"
-      get_support_a_irc: "Komm to uns in den %{irc} (Echttied-Tippschnack)"
-      get_support_a_tutorials: "Bekiek unsere %{tutorials}"
-      get_support_a_website: "Bekiek unsere %{link}"
-      get_support_a_wiki: "Seuk in dat %{link}"
-      get_support_q: "Wat, wenn de FAQ miene Froog nich beantwoort? Wo kan ik noch Hülp kriegen?"
-      getting_started_a: "Du hest Glück. Probier de %{tutorial_series} op unsere Projektsiet ut. De ward die Schritt för Schritt dörch de Registrierung führen und die all de grundlegenden Sooken bibringen, de du öber dat Bruken von diaspora* weeten muss."
-      getting_started_q: "Hülp! Ik bruk een beten grundlegende Hülp, üm lostoleggen!"
-      title: "Krieg Hülp"
+    title_header: Hülp
+    tutorials: Anleidungen
+    tutorial: Anleidung
+    irc: IRC
+    wiki: Wiki
+    faq: FAQ
+    markdown: Markdown
+    here: hier
+    foundation_website: Websiet von de diaspora* foundation
+    third_party_tools: Drittanbeederwarktüch
     getting_started_tutorial: "„Eerste Schritte”-Anleidungsreeg"
-    here: "hier"
-    irc: "IRC"
-    keyboard_shortcuts:
-      keyboard_shortcuts_li1: "j – Spring to’n neegsten Bidrag"
-      keyboard_shortcuts_li2: "k – Spring to’n letzten Bidrag"
-      keyboard_shortcuts_li3: "c – Kommentier den aktuellen Bidrag"
-      keyboard_shortcuts_li4: "l – Bekund Gefallen an’n aktuellen Bidrag"
-      keyboard_shortcuts_li5: "r – Segg den aktuellen Bidrag wider"
-      keyboard_shortcuts_li6: "m – Klapp den aktuellen Bidrag ut"
-      keyboard_shortcuts_li7: "o – Mok den eersten Link in’n aktuellen Bidrag open"
-      keyboard_shortcuts_li8: "Strg+Enter – Schick do Noricht, de du grood schriffst"
-      keyboard_shortcuts_q: "Wat för Tastenköttel gift dat?"
-      title: "Tastenköttel"
-    markdown: "Markdown"
+    getting_help:
+      title: Krieg Hülp
+      getting_started_q: Hülp! Ik bruk een beten grundlegende Hülp, üm lostoleggen!
+      getting_started_a: Du hest Glück. Probier de %{tutorial_series} op unsere Projektsiet ut. De ward die Schritt för Schritt dörch de Registrierung führen und die all de grundlegenden Sooken bibringen, de du öber dat Bruken von diaspora* weeten muss.
+      get_support_q: Wat, wenn de FAQ miene Froog nich beantwoort? Wo kan ik noch Hülp kriegen?
+      get_support_a_website: Bekiek unsere %{link}
+      get_support_a_tutorials: Bekiek unsere %{tutorials}
+      get_support_a_wiki: Seuk in dat %{link}
+      get_support_a_irc: Komm to uns in den %{irc} (Echttied-Tippschnack)
+      get_support_a_faq: Lees unsere %{faq}-Siet in’t Wiki
+      get_support_a_hashtag: Froog in een öffentlichen Bidrag op diaspora* mit den Hashtag %{question}
+    account_and_data_management:
+      title: Konto- und Datenverwaltung
+      data_visible_to_podmin_q: Wie veel von miene Informationen kann de Pod-Administrator sehn?
+      data_other_podmins_q: Künnt de Administratoren von annere Pods miene Informationen sehn?
+    aspects:
+      title: Aspekte
+      what_is_an_aspect_q: Wat is een Aspekt?
+      who_sees_post_q: Wer sütt dat, wenn ik wat an bestimmte Aspekte schriev?
+      contacts_know_aspect_q: Weet miene Kontakte, in welche Aspekte ik jüm doon heb?
+      contacts_know_aspect_a: Nee. Se künnt den Noom von den Aspekt ünner keene Ümstände sehn.
+      person_multiple_aspects_q: Kann ik eene Person in mehrere Aspekte daun?
+      remove_notification_q: Wenn ik wen ut een or mehrere von miene Aspekte rutdau, ward he doröber benorichtigt?
+      remove_notification_a: Nee. Se ward ok nich benorichtigt, falls du jüm to mehr Aspekte dortaudeist, während du schon mit jüm deelst.
+      change_aspect_of_post_q: Kann ik de Aspekte ännern, de een Bidrag seen künnt, wenn ik em schon afschickt heb?
+      post_multiple_aspects_q: Kann ik Inhalt an mehrere Aspekte op eenmol schrieben?
+      restrict_posts_i_see_q: Kann ik de Bidräg in mien Stream op de von bestimmte Aspekte inschränken?
+      rename_aspect_q: Wie benenn ik eenen Aspekt üm?
+      delete_aspect_q: Wie lösch ik een Aspekt?
     mentions:
-      how_to_mention_q: "Wie kann ik wen erwähnen, wenn ik een Bidrag schriev?"
-      mention_in_comment_q: "Kann ik wen in een Kommentar erwähnen?"
-      see_mentions_a: "Ja, klick in de linke Spalte von diene Startsiet op „@Erwähnungen”."
-      see_mentions_q: "Gift dat eene Mööglichkeit, de Bidräg to seen, in de ik erwähnt worn bin?"
-      title: "Erwähnungen"
-      what_is_a_mention_q: "Wat is eene „Erwähnung“?"
-    miscellaneous:
-      back_to_top_q: "Gift dat eene schnelle Mööglichkeit, üm no’n Rünnerscrollen an den Anfang von eene Siet trüchtogohn?"
-      diaspora_app_q: "Gift dat eene diaspora*-App för Android oder iOS?"
-      photo_albums_a: "Nee, in’n Moment nich. Du kannst aber de Bilder, de eene Person hochlood het, in’n Tab „Bilder” op ehre Profilsiet ankieken."
-      photo_albums_q: "Gift dat Bilder- or Videoalben?"
-      subscribe_feed_q: "Kann ik de öffentlichen Bidräg von wen mit een Feedreader abonnieren?"
-      title: "Verschiedenes"
+      title: Erwähnungen
+      what_is_a_mention_q: Wat is eene „Erwähnung“?
+      how_to_mention_q: Wie kann ik wen erwähnen, wenn ik een Bidrag schriev?
+      mention_in_comment_q: Kann ik wen in een Kommentar erwähnen?
+      see_mentions_q: Gift dat eene Mööglichkeit, de Bidräg to seen, in de ik erwähnt worn bin?
+      see_mentions_a: Ja, klick in de linke Spalte von diene Startsiet op „@Erwähnungen”.
     pods:
-      title: "Pods"
-      use_search_box_q: "Wie bruk ik dat Seukfeld üm bestimmte Lüüd to finnen?"
-      what_is_a_pod_q: "Wat is een Pod?"
+      title: Pods
+      what_is_a_pod_q: Wat is een Pod?
+      use_search_box_q: Wie bruk ik dat Seukfeld üm bestimmte Lüüd to finnen?
     posts_and_posting:
-      character_limit_a: "65.535 Teken. Dat sind 65.395 Teken mehr as op Twitter! ;)"
-      character_limit_q: "Wat is de Tekenbegrenzung för Bidräg?"
-      embed_multimedia_q: "Wie bau ik een Video, Toon oder annern Multimedia-Inhalt in miene Bidräg in?"
-      format_text_q: "Wie kann ik den Text in miene Bidräg formatieren (fett, kursiv und so wieder)?"
-      hide_posts_q: "Wie verstek ik een Bidrag?"
-      insert_images_comments_q: "Kan ik Bilder in Kommentare inbringen?"
-      insert_images_q: "Wie kann ik Bilder in miene Bidräg inbringen?"
-      size_of_images_a: "Nee. De Grött von Bilder ward automatisch so ännert, dat se in den Stream oder de Inkelbidragsansicht rinpasst. Markdown het keenen Code, um de Grött von een Bild antogeben."
-      size_of_images_q: "Kann ik de Grött von Bilder in Bidräg or Kommantare ännern?"
-      stream_full_of_posts_a1: "Dien Stream is ut dree Arten von Bidräg opbaut:"
-      stream_full_of_posts_q: "Warum is mien Stream full mit Bidräg von Lüüd de ik nich ken und mit de ik nich deel?"
-      title: "Bidräg un Schrieben"
+      title: Bidräg un Schrieben
+      stream_full_of_posts_q: Warum is mien Stream full mit Bidräg von Lüüd de ik nich ken und mit de ik nich deel?
+      stream_full_of_posts_a1: 'Dien Stream is ut dree Arten von Bidräg opbaut:'
+      hide_posts_q: Wie verstek ik een Bidrag?
+      character_limit_q: Wat is de Tekenbegrenzung för Bidräg?
+      character_limit_a: 65.535 Teken. Dat sind 65.395 Teken mehr as op Twitter! ;)
+      format_text_q: Wie kann ik den Text in miene Bidräg formatieren (fett, kursiv und so wieder)?
+      insert_images_q: Wie kann ik Bilder in miene Bidräg inbringen?
+      insert_images_comments_q: Kan ik Bilder in Kommentare inbringen?
+      size_of_images_q: Kann ik de Grött von Bilder in Bidräg or Kommantare ännern?
+      size_of_images_a: Nee. De Grött von Bilder ward automatisch so ännert, dat se in den Stream oder de Inkelbidragsansicht rinpasst. Markdown het keenen Code, um de Grött von een Bild antogeben.
+      embed_multimedia_q: Wie bau ik een Video, Toon oder annern Multimedia-Inhalt in miene Bidräg in?
     private_posts:
-      can_comment_a: "Nur anmeldte Bruker von diaspora*, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em kommentieren oder Gefallen an em bekunden."
-      can_comment_q: "Wer kann miene Bidräg kommentieren oder Gefallen an jüm bekunden?"
-      can_reshare_a: "Keener. Private Bidräg künnt nich wiederseggt warden. Anmeldte Bruker von diaspora*, de in den Aspekt sind, kunnen em aber grundsätzlich kopieren und infügen. Dat ligt an di, op du disse Lüüd vertraust!"
-      can_reshare_q: "Wer kann mien privaten Bidrag wiederseggen?"
-      see_comment_a: "Nur de Lüüd, mit de de Bidrag deelt worn is (de Lüüd de in de von’n Schrieber utwählten Aspekte sind) künnt siene Kommentare und de Lüüd, de Gefallen an em bekund hebbt, sehn. "
-      see_comment_q: "Wer kann dat sehn, wenn ik een privaten Bidrag kommentier oder Gefallen an em bekund?"
-      title: "Private Bidräg"
-      who_sees_post_a: "Nur anmeldte Bruker von diaspora*, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em sehn."
-      who_sees_post_q: "Wenn ik een Bidrag an een Aspekt schriev (t.B. een privaten Bidrag), wer kann em sehn?"
+      title: Private Bidräg
+      who_sees_post_q: Wenn ik een Bidrag an een Aspekt schriev (t.B. een privaten Bidrag), wer kann em sehn?
+      who_sees_post_a: Nur anmeldte Bruker von diaspora*, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em sehn.
+      can_comment_q: Wer kann miene Bidräg kommentieren oder Gefallen an jüm bekunden?
+      can_comment_a: Nur anmeldte Bruker von diaspora*, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em kommentieren oder Gefallen an em bekunden.
+      can_reshare_q: Wer kann mien privaten Bidrag wiederseggen?
+      can_reshare_a: Keener. Private Bidräg künnt nich wiederseggt warden. Anmeldte Bruker von diaspora*, de in den Aspekt sind, kunnen em aber grundsätzlich kopieren und infügen. Dat ligt an di, op du disse Lüüd vertraust!
+      see_comment_q: Wer kann dat sehn, wenn ik een privaten Bidrag kommentier oder Gefallen an em bekund?
+      see_comment_a: 'Nur de Lüüd, mit de de Bidrag deelt worn is (de Lüüd de in de von’n Schrieber utwählten Aspekte sind) künnt siene Kommentare und de Lüüd, de Gefallen an em bekund hebbt, sehn. '
     public_posts:
-      can_comment_reshare_like_a: "Jede anmeldte Bruker von diaspora* kann diene öffentlichen Bidräg kommentieren, widerseggen oder Gefallen an em bekunden."
-      can_comment_reshare_like_q: "Wer kann mien öffentlichen Bidrag kommentieren, widerseggen oder Gefallen an em bekunden?"
-      find_public_post_q: "Wie künnt annere Lüüd miene öffentlichen Bidräg finnen?"
-      see_comment_reshare_like_q: "Wer kann dat sehn, wenn ik een öffentlichen Bidrag kommentier, widersegg oder Gefallen an em bekund?"
-      title: "Öffentliche Bidräg"
-      who_sees_post_a: "Grundsätzlich kann jeder, de dat Internet brukt, een Bidrag sehn, den du as öffentlich markiert hest, also weest die sicher, dat dien Bidrag wirklich öffentlich ween schall. Dat is eene tolle Mööglichkeit, de wide Welt to erreichen."
-      who_sees_post_q: "Wer sütt dat, wenn ik wat öffentlich schriev?"
+      title: Öffentliche Bidräg
+      who_sees_post_q: Wer sütt dat, wenn ik wat öffentlich schriev?
+      who_sees_post_a: Grundsätzlich kann jeder, de dat Internet brukt, een Bidrag sehn, den du as öffentlich markiert hest, also weest die sicher, dat dien Bidrag wirklich öffentlich ween schall. Dat is eene tolle Mööglichkeit, de wide Welt to erreichen.
+      find_public_post_q: Wie künnt annere Lüüd miene öffentlichen Bidräg finnen?
+      can_comment_reshare_like_q: Wer kann mien öffentlichen Bidrag kommentieren, widerseggen oder Gefallen an em bekunden?
+      can_comment_reshare_like_a: Jede anmeldte Bruker von diaspora* kann diene öffentlichen Bidräg kommentieren, widerseggen oder Gefallen an em bekunden.
+      see_comment_reshare_like_q: Wer kann dat sehn, wenn ik een öffentlichen Bidrag kommentier, widersegg oder Gefallen an em bekund?
     resharing_posts:
-      reshare_private_post_aspects_q: "Kan ik een privaten Bidrag an bestimmte Aspekte widerseggen?"
-      reshare_public_post_aspects_q: "Kan ik een öffentlichen Bidrag an bestimmte Aspekte widerseggen?"
-      title: "Wiederseggen von Bidräg"
+      title: Wiederseggen von Bidräg
+      reshare_public_post_aspects_q: Kan ik een öffentlichen Bidrag an bestimmte Aspekte widerseggen?
+      reshare_private_post_aspects_q: Kan ik een privaten Bidrag an bestimmte Aspekte widerseggen?
     sharing:
-      title: "Deelen"
+      title: Deelen
     tags:
-      filter_tags_q: "Kan ik een poor Tags ut mien Stream rutfiltern oder jüm dorvon utschluten?"
-      followed_tags_q: "Wat sind „#Folgte Tags” und wie folg ik een Tag?"
-      tags_in_comments_q: "Kann ik Tags in Kommantare inbringen oder nur in Bidräg?"
-      title: "Tags"
-      what_are_tags_for_q: "Woför sind Tags gaud?"
-    third_party_tools: "Drittanbeederwarktüch"
-    title_header: "Hülp"
-    tutorial: "Anleidung"
-    tutorials: "Anleidungen"
-    wiki: "Wiki"
+      title: Tags
+      what_are_tags_for_q: Woför sind Tags gaud?
+      tags_in_comments_q: Kann ik Tags in Kommantare inbringen oder nur in Bidräg?
+      followed_tags_q: Wat sind „#Folgte Tags” und wie folg ik een Tag?
+      filter_tags_q: Kan ik een poor Tags ut mien Stream rutfiltern oder jüm dorvon utschluten?
+    keyboard_shortcuts:
+      title: Tastenköttel
+      keyboard_shortcuts_q: Wat för Tastenköttel gift dat?
+      keyboard_shortcuts_li1: j – Spring to’n neegsten Bidrag
+      keyboard_shortcuts_li2: k – Spring to’n letzten Bidrag
+      keyboard_shortcuts_li3: c – Kommentier den aktuellen Bidrag
+      keyboard_shortcuts_li4: l – Bekund Gefallen an’n aktuellen Bidrag
+      keyboard_shortcuts_li5: r – Segg den aktuellen Bidrag wider
+      keyboard_shortcuts_li6: m – Klapp den aktuellen Bidrag ut
+      keyboard_shortcuts_li7: o – Mok den eersten Link in’n aktuellen Bidrag open
+      keyboard_shortcuts_li8: Strg+Enter – Schick do Noricht, de du grood schriffst
+    miscellaneous:
+      title: Verschiedenes
+      back_to_top_q: Gift dat eene schnelle Mööglichkeit, üm no’n Rünnerscrollen an den Anfang von eene Siet trüchtogohn?
+      photo_albums_q: Gift dat Bilder- or Videoalben?
+      photo_albums_a: Nee, in’n Moment nich. Du kannst aber de Bilder, de eene Person hochlood het, in’n Tab „Bilder” op ehre Profilsiet ankieken.
+      subscribe_feed_q: Kann ik de öffentlichen Bidräg von wen mit een Feedreader abonnieren?
+      diaspora_app_q: Gift dat eene diaspora*-App för Android oder iOS?
   invitations:
     create:
-      empty: "Bidde geev minstens eene E-Mail-Adress in."
-      no_more: "Du kannst keene Inlodungen mehr schicken."
-      note_already_sent: "Inlodungen sind schon schickt worn an: %{emails}"
-      rejected: "Bi disse E-Mail-Adressen geev dat Probleme: "
-      sent: "Inlodungen sind schickt worn an: %{emails}"
+      sent: 'Inlodungen sind schickt worn an: %{emails}'
+      rejected: 'Bi disse E-Mail-Adressen geev dat Probleme: '
+      no_more: Du kannst keene Inlodungen mehr schicken.
+      empty: Bidde geev minstens eene E-Mail-Adress in.
+      note_already_sent: 'Inlodungen sind schon schickt worn an: %{emails}'
     new:
+      language: Sprook
+      invite_someone_to_join: Lod eenen to diaspora* in!
+      comma_separated_plz: Du kannst mehrere E-Mail-Adressen dörch Kommas trennt ingeben.
+      send_an_invitation: Eene Inlodung schicken
+      sending_invitation: Schick Inlodung...
+      paste_link: Deel dissen Link mit diene Frünnen oder schick jüm direkt een Nettbreef dormit, üm jüm to diaspora* intoloden.
       codes_left:
-        one: "Eene Inlodung op dissen Code öber"
+        zero: Keene Inlodungen op dissen Code öber
+        one: Eene Inlodung op dissen Code öber
         other: "%{count} Inlodungen op dissen Code öber"
-        zero: "Keene Inlodungen op dissen Code öber"
-      comma_separated_plz: "Du kannst mehrere E-Mail-Adressen dörch Kommas trennt ingeben."
-      invite_someone_to_join: "Lod eenen to diaspora* in!"
-      language: "Sprook"
-      paste_link: "Deel dissen Link mit diene Frünnen oder schick jüm direkt een Nettbreef dormit, üm jüm to diaspora* intoloden."
-      send_an_invitation: "Eene Inlodung schicken"
-      sending_invitation: "Schick Inlodung..."
   layouts:
-    application:
-      back_to_top: "Trüch no boben"
-      powered_by: "Andreeven von diaspora*"
-      public_feed: "Öffentliche diaspora*-Feed för %{name}"
-      source_package: "Lod dat Quellcodepaket rünner"
-      statistics_link: "Podstatistiken"
-      whats_new: "Wat gift dat Nee’es?"
     header:
-      code: "Code"
-      logout: "Afmelden"
-      profile: "Profil"
-      settings: "Instellungen"
-  limited: "Inschränkt"
-  more: "Mehr"
-  no_results: "Keene Resultate funnen"
+      profile: Profil
+      settings: Instellungen
+      logout: Afmelden
+      code: Code
+    application:
+      powered_by: Andreeven von diaspora*
+      whats_new: Wat gift dat Nee’es?
+      statistics_link: Podstatistiken
+      public_feed: Öffentliche diaspora*-Feed för %{name}
+      back_to_top: Trüch no boben
+      source_package: Lod dat Quellcodepaket rünner
   notifications:
-    also_commented:
-      one: "%{actors} het ok den Bidrag %{post_link} von %{post_author} kommentiert."
-      other: "%{actors} hebbt ok den Bidrag %{post_link} von %{post_author} kommentiert."
-      zero: "Keener het ok den Bidrag %{post_link} von %{post_author} kommenteert."
-    also_commented_deleted:
-      one: "%{actors} het een löschten Bidrag kommentiert."
-      other: "%{actors} hebbt een löschten Bidrag kommentiert."
-      zero: "Keener het een löschten Bidrag kommentiert."
-    comment_on_post:
-      one: "%{actors} het dien Bidrag %{post_link} kommentiert."
-      other: "%{actors} hebbt dien Bidrag %{post_link} kommentiert."
-      zero: "Keener het dien Bidrag %{post_link} kommentiert."
-    index:
-      all_notifications: "Alle Benorichtigungen"
-      and: "und"
-      and_others:
-        one: "und noch een"
-        other: "und %{count} annere"
-        zero: "und sonst keener"
-      mark_all_as_read: "Alle as leest markieren"
-      mark_all_shown_as_read: "Markier alle zeigten as leest"
-      mark_read: "As leest markieren"
-      mark_unread: "As unleest markieren"
-      no_notifications: "Du hest noch keene Benorichtigungen."
-      notifications: "Benorichtigungen"
-      show_all: "Alle anzeigen"
-      show_unread: "Unleeste anzeigen"
-    liked:
-      one: "%{actors} mag dien Bidrag %{post_link}."
-      other: "%{actors} mögt dien Bidrag %{post_link}."
-      zero: "Keener mag dien Bidrag %{post_link}."
-    liked_post_deleted:
-      one: "%{actors} mag dien löschten Bidrag."
-      other: "%{actors} mögt dien löschten Bidrag."
-      zero: "Keener mag dien löschten Bidrag."
-    mentioned:
-      one: "%{actors} het di in den Bidrag %{post_link} erwähnt."
-      other: "%{actors} hebbt di in den Bidrag %{post_link} erwähnt."
-      zero: "Keener het di in den Bidrag %{post_link} erwähnt."
-    mentioned_deleted:
-      one: "%{actors} het di in een löschten Bidrag erwähnt."
-      other: "%{actors} hebbt di in een löschten Bidrag erwähnt."
-      zero: "Keener het di in een löschten Bidrag erwähnt."
-    private_message:
-      one: "%{actors} het di eene Noricht schickt"
-      other: "%{actors} hebbt di eene Noricht schickt"
-      zero: "Keener het di eene Noricht schickt"
-    reshared:
-      one: "%{actors} het dien Bidrag %{post_link} wiederseggt."
-      other: "%{actors} hebbt dien Bidrag %{post_link} wiederseggt."
-      zero: "Keener het dien Bidrag %{post_link} wiederseggt."
-    reshared_post_deleted:
-      one: "%{actors} het dien löschten Bidrag wiederseggt."
-      other: "%{actors} hebbt dien löschten Bidrag wiederseggt."
-      zero: "Keener het dien löschten Bidrag wiederseggt."
     started_sharing:
+      zero: Keener het anfungen, mit di to deelen
       one: "%{actors} het anfungen, mit di to deelen"
       other: "%{actors} hebbt anfungen, mit di to deelen"
-      zero: "Keener het anfungen, mit di to deelen"
-  notifier:
-    a_limited_post_comment: "Dat gift een nee’en Kommentar op een inschränkten Bidrag för di to’n Ankieken op diaspora*."
-    a_post_you_shared: "een Bidrag."
-    a_private_message: "Dat gift eene nee’e private Noricht för di to’n Ankieken op diaspora*."
-    click_here: "Klick hier"
+    private_message:
+      zero: Keener het di eene Noricht schickt
+      one: "%{actors} het di eene Noricht schickt"
+      other: "%{actors} hebbt di eene Noricht schickt"
     comment_on_post:
-      reply: "Op den Bidrag von %{name} antwoorten oder em ankieken >"
-    confirm_email:
-      click_link: "Bidde folg dissen Link, üm diene nee’e E-Mail-Adress %{unconfirmed_email} in gang to setten:"
-      subject: "Bidde set diene nee’e E-Mail-Adress %{unconfirmed_email} in gang"
-    email_sent_by_diaspora: "Disse E-Mail is von %{pod_name} schickt worn. Wenn du keene solche E-Mails mehr kriegen willst,"
-    export_email:
-      subject: "Diene persönlichen Doten sind bereet to’n Rünnerloden, %{name}"
-    export_failure_email:
-      subject: "Deit uns leed, dat geev een Problem mit diene Doten, %{name}"
-    export_photos_failure_email:
-      subject: "Dat geev een Problem mit diene Bilder, %{name}"
-    hello: "Hallo %{name}!"
-    invite:
-      message: |-
-          Hallo!
-
-          Du bist inlod worn, op diaspora* to kommen!
-
-          Klick op dissen Link, üm antofangen
-
-          [%{invite_url}][1]
-
-
-          Alles Leeve,
-
-          De E-Mail-Roboter von diaspora*!
-
-          P.S.: Nur för den Fall, dat du (noch) nich weest, wat diaspora* is, gift dat [hier][2] de Antwoort!
-
-          [1]: %{invite_url}
-          [2]: %{diasporafoundation_url}
-    invited_you: "%{name} het di to diaspora* inlod."
+      zero: Keener het dien Bidrag %{post_link} kommentiert.
+      one: "%{actors} het dien Bidrag %{post_link} kommentiert."
+      other: "%{actors} hebbt dien Bidrag %{post_link} kommentiert."
+    also_commented:
+      zero: Keener het ok den Bidrag %{post_link} von %{post_author} kommenteert.
+      one: "%{actors} het ok den Bidrag %{post_link} von %{post_author} kommentiert."
+      other: "%{actors} hebbt ok den Bidrag %{post_link} von %{post_author} kommentiert."
+    mentioned:
+      zero: Keener het di in den Bidrag %{post_link} erwähnt.
+      one: "%{actors} het di in den Bidrag %{post_link} erwähnt."
+      other: "%{actors} hebbt di in den Bidrag %{post_link} erwähnt."
     liked:
-      liked: "%{name} mag dien Bidrag"
-      view_post: "Bidrag ankieken >"
+      zero: Keener mag dien Bidrag %{post_link}.
+      one: "%{actors} mag dien Bidrag %{post_link}."
+      other: "%{actors} mögt dien Bidrag %{post_link}."
+    reshared:
+      zero: Keener het dien Bidrag %{post_link} wiederseggt.
+      one: "%{actors} het dien Bidrag %{post_link} wiederseggt."
+      other: "%{actors} hebbt dien Bidrag %{post_link} wiederseggt."
+    also_commented_deleted:
+      zero: Keener het een löschten Bidrag kommentiert.
+      one: "%{actors} het een löschten Bidrag kommentiert."
+      other: "%{actors} hebbt een löschten Bidrag kommentiert."
+    liked_post_deleted:
+      zero: Keener mag dien löschten Bidrag.
+      one: "%{actors} mag dien löschten Bidrag."
+      other: "%{actors} mögt dien löschten Bidrag."
+    reshared_post_deleted:
+      zero: Keener het dien löschten Bidrag wiederseggt.
+      one: "%{actors} het dien löschten Bidrag wiederseggt."
+      other: "%{actors} hebbt dien löschten Bidrag wiederseggt."
+    mentioned_deleted:
+      zero: Keener het di in een löschten Bidrag erwähnt.
+      one: "%{actors} het di in een löschten Bidrag erwähnt."
+      other: "%{actors} hebbt di in een löschten Bidrag erwähnt."
+    index:
+      notifications: Benorichtigungen
+      mark_all_as_read: Alle as leest markieren
+      mark_all_shown_as_read: Markier alle zeigten as leest
+      mark_read: As leest markieren
+      mark_unread: As unleest markieren
+      show_all: Alle anzeigen
+      show_unread: Unleeste anzeigen
+      all_notifications: Alle Benorichtigungen
+      no_notifications: Du hest noch keene Benorichtigungen.
+      and_others:
+        zero: und sonst keener
+        one: und noch een
+        other: und %{count} annere
+      and: und
+  notifier:
+    a_post_you_shared: een Bidrag.
+    a_private_message: Dat gift eene nee’e private Noricht för di to’n Ankieken op diaspora*.
+    a_limited_post_comment: Dat gift een nee’en Kommentar op een inschränkten Bidrag för di to’n Ankieken op diaspora*.
+    email_sent_by_diaspora: Disse E-Mail is von %{pod_name} schickt worn. Wenn du keene solche E-Mails mehr kriegen willst,
+    click_here: Klick hier
+    hello: Hallo %{name}!
+    thanks: Danke,
+    to_change_your_notification_settings: üm diene Benorichtigungsinstellungen to ännern
+    single_admin:
+      subject: 'Eene Noricht öber dien diaspora*-Konto:'
+      admin: Dien diaspora*-Administrator
+    started_sharing:
+      subject: "%{name} het anfungen, op diaspora* mit di to deelen"
+      sharing: het anfungen, mit di to deelen!
+      view_profile: Profil von %{name} ankieken
+    comment_on_post:
+      reply: Op den Bidrag von %{name} antwoorten oder em ankieken >
     mentioned:
       subject: "%{name} het di op diaspora* erwähnt"
     private_message:
-      reply_to_or_view: "Op dissen Schnack antwoorten or em ankieken >"
-    report_email:
-      subject: "Een nee’en %{type} is as anstöttend markiert worn"
-      type:
-        comment: "Kommentar"
-        post: "Bidrag"
+      reply_to_or_view: Op dissen Schnack antwoorten or em ankieken >
+    liked:
+      liked: "%{name} mag dien Bidrag"
+      view_post: Bidrag ankieken >
     reshared:
       reshared: "%{name} het dien Bidrag wiederseggt"
-      view_post: "Bidrag ankieken >"
-    single_admin:
-      admin: "Dien diaspora*-Administrator"
-      subject: "Eene Noricht öber dien diaspora*-Konto:"
-    started_sharing:
-      sharing: "het anfungen, mit di to deelen!"
-      subject: "%{name} het anfungen, op diaspora* mit di to deelen"
-      view_profile: "Profil von %{name} ankieken"
-    thanks: "Danke,"
-    to_change_your_notification_settings: "üm diene Benorichtigungsinstellungen to ännern"
-  nsfw: "NSFW (unpassend för den Arbeitsplatz)"
-  ok: "OK"
+      view_post: Bidrag ankieken >
+    confirm_email:
+      subject: Bidde set diene nee’e E-Mail-Adress %{unconfirmed_email} in gang
+      click_link: 'Bidde folg dissen Link, üm diene nee’e E-Mail-Adress %{unconfirmed_email} in gang to setten:'
+    report_email:
+      type:
+        post: Bidrag
+        comment: Kommentar
+      subject: Een nee’en %{type} is as anstöttend markiert worn
+    export_email:
+      subject: Diene persönlichen Doten sind bereet to’n Rünnerloden, %{name}
+    export_failure_email:
+      subject: Deit uns leed, dat geev een Problem mit diene Doten, %{name}
+    export_photos_failure_email:
+      subject: Dat geev een Problem mit diene Bilder, %{name}
+    invited_you: "%{name} het di to diaspora* inlod."
+    invite:
+      message: |-
+        Hallo!
+
+        Du bist inlod worn, op diaspora* to kommen!
+
+        Klick op dissen Link, üm antofangen
+
+        [%{invite_url}][1]
+
+
+        Alles Leeve,
+
+        De E-Mail-Roboter von diaspora*!
+
+        P.S.: Nur för den Fall, dat du (noch) nich weest, wat diaspora* is, gift dat [hier][2] de Antwoort!
+
+        [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
   people:
-    add_contact:
-      invited_by: "Du bist inlod worn von"
-    index:
-      couldnt_find_them: "Kunnst du jüm nich finnen?"
-      looking_for: "Seukst du no Bidräg, de mit %{tag_link} taggt sind?"
-      no_one_found: "...und nix is funnen worn."
-      no_results: "He! Du muss no wat seuken."
-      results_for: "%{search_term} entsprekende Bruker"
-      searching: "Seuk, bidde weest geduldig..."
-      send_invite: "Immer noch nix? Schick ne Inlodung!"
     person:
-      thats_you: "Dat bist du!"
-    profile_sidebar:
-      bio: "Beschriebung"
-      born: "Geburtsdag"
-      gender: "Geschlecht"
-      location: "Ort"
+      thats_you: Dat bist du!
+    index:
+      results_for: "%{search_term} entsprekende Bruker"
+      no_results: He! Du muss no wat seuken.
+      couldnt_find_them: Kunnst du jüm nich finnen?
+      send_invite: Immer noch nix? Schick ne Inlodung!
+      no_one_found: "...und nix is funnen worn."
+      searching: Seuk, bidde weest geduldig...
+      looking_for: Seukst du no Bidräg, de mit %{tag_link} taggt sind?
     show:
-      closed_account: "Dit Konto is taumokt worn."
-      does_not_exist: "De Person gift dat nich!"
       has_not_shared_with_you_yet: "%{name} het noch keene Bidräg mit di deelt!"
+      does_not_exist: De Person gift dat nich!
+      closed_account: Dit Konto is taumokt worn.
+    profile_sidebar:
+      bio: Beschriebung
+      location: Ort
+      gender: Geschlecht
+      born: Geburtsdag
+    add_contact:
+      invited_by: Du bist inlod worn von
   photos:
     create:
-      integrity_error: "Hoochloden von dat Bild fehlschloon.  Bist du di sicher, dat dat een Bild wör?"
-      runtime_error: "Hoochloden von dat Bild fehlschloon.  Bist du di sicher, dat du di anschnallt hest?"
-      type_error: "Hoochloden von dat Bild fehlschloon.  Bist du di sicher, dat du een Bild dortaudoon hest?"
+      runtime_error: Hoochloden von dat Bild fehlschloon.  Bist du di sicher, dat du di anschnallt hest?
+      integrity_error: Hoochloden von dat Bild fehlschloon.  Bist du di sicher, dat dat een Bild wör?
+      type_error: Hoochloden von dat Bild fehlschloon.  Bist du di sicher, dat du een Bild dortaudoon hest?
     destroy:
-      notice: "Bild löscht."
+      notice: Bild löscht.
     new_profile_photo:
-      upload: "Nee’es Profilbild hoochloden!"
+      upload: Nee’es Profilbild hoochloden!
   posts:
     presenter:
-      title: "Een Bidrag von %{name}"
+      title: Een Bidrag von %{name}
     show:
       photos_by:
-        one: "Een Bild von %{author}"
+        zero: Keene Biller von %{author}
+        one: Een Bild von %{author}
         other: "%{count} Biller von %{author}"
-        zero: "Keene Biller von %{author}"
-      reshare_by: "Wiederseggt von %{author}"
-  privacy: "Privatsphäre"
-  profile: "Profil"
+      reshare_by: Wiederseggt von %{author}
+  report:
+    title: Meldungsöbersicht
+    post_label: "<b>Bidrag:</b>: %{title}"
+    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    reported_label: "<b>Meld von</b> %{person}"
+    reason_label: 'Grund:'
+    delete_link: Indrag löschen
+    confirm_deletion: Bist du di sicher, dat du den Indrag löschen willst?
+    status:
+      destroyed: De Bidrag is löscht worn
+      failed: Irgendwat in scheevgoon
   profiles:
     edit:
-      allow_search: "Lüüd erlauben, op diaspora* no di to seuken"
-      first_name: "Vörnoom"
-      last_name: "Nonoom"
-      nsfw_check: "Markier alles, wat ik deel, as NSFW"
-      nsfw_explanation2: "Wenn du disse Option nich utwählst, bring bidde jedes mol, wenn du so’n Material deelst, #nsfw in den Bidrag in."
-      update_profile: "Profil aktualisieren"
-      your_bio: "Diene Beschriebung"
-      your_birthday: "Dien Geburtsdag"
-      your_gender: "Dien Geschlecht"
-      your_location: "Dien Ort"
-      your_name: "Dien Noom"
-      your_photo: "Dien Bild"
-      your_tags: "Beschriev di sülbst in fiev Wüür"
-      your_tags_placeholder: "To’n Bispeel #Filme #Katten #Reisen #Lehrer #NewYork"
+      your_name: Dien Noom
+      first_name: Vörnoom
+      last_name: Nonoom
+      your_gender: Dien Geschlecht
+      your_birthday: Dien Geburtsdag
+      your_tags: Beschriev di sülbst in fiev Wüür
+      your_tags_placeholder: 'To’n Bispeel #Filme #Katten #Reisen #Lehrer #NewYork'
+      your_bio: Diene Beschriebung
+      your_location: Dien Ort
+      your_photo: Dien Bild
+      update_profile: Profil aktualisieren
+      allow_search: Lüüd erlauben, op diaspora* no di to seuken
+      nsfw_explanation2: 'Wenn du disse Option nich utwählst, bring bidde jedes mol, wenn du so’n Material deelst, #nsfw in den Bidrag in.'
+      nsfw_check: Markier alles, wat ik deel, as NSFW
     update:
-      failed: "Kun Profil nich aktualisieren"
-      updated: "Profil aktualisiert"
-  public: "Öffentlich"
+      updated: Profil aktualisiert
+      failed: Kun Profil nich aktualisieren
   registrations:
-    create:
-      success: "Du bist nu bi diaspora*!"
-    invalid_invite: "Dien Inlodungslink is nich mehr gültig!"
     new:
-      email: "E-Mail-Adress"
-      enter_email: "Geev dien E-Mail-Adress in"
-      enter_password: "Geev een Passwoort in (minnens söss Teken)"
-      enter_password_again: "Geev dat glieke Passwoort wie vörher in"
-      enter_username: "Seuk di een Brukernoom ut (nur Bookstoven, Nummern und Ünnerstriche)"
-      password: "Passwoort"
-      password_confirmation: "Passwoortbestätigung"
-      sign_up: "Registrieren"
-      terms_link: "Nutzungsbedingungen"
-      username: "Brukernoom"
-  report:
-    comment_label: "<b>Kommentar</b>:<br>%{data}"
-    confirm_deletion: "Bist du di sicher, dat du den Indrag löschen willst?"
-    delete_link: "Indrag löschen"
-    post_label: "<b>Bidrag:</b>: %{title}"
-    reason_label: "Grund:"
-    reported_label: "<b>Meld von</b> %{person}"
-    status:
-      destroyed: "De Bidrag is löscht worn"
-      failed: "Irgendwat in scheevgoon"
-    title: "Meldungsöbersicht"
-  reshares:
-    comment_email_subject: "%{resharer} sien Version von %{author} sien Bidrag"
-    reshare:
-      deleted: "Originalbidrag von’n Autor löscht."
-      reshare_confirmation: "Bidrag von %{author} wiederseggen?"
-      reshared_via: "Wiederseggt öber"
-  search: "Seuken"
-  services:
+      enter_email: Geev dien E-Mail-Adress in
+      enter_username: Seuk di een Brukernoom ut (nur Bookstoven, Nummern und Ünnerstriche)
+      enter_password: Geev een Passwoort in (minnens söss Teken)
+      enter_password_again: Geev dat glieke Passwoort wie vörher in
+      sign_up: Registrieren
+      email: E-Mail-Adress
+      username: Brukernoom
+      password: Passwoort
+      password_confirmation: Passwoortbestätigung
+      terms_link: Nutzungsbedingungen
     create:
-      already_authorized: "Een Bruker mit de diaspora-ID %{diaspora_id} het dit %{service_name}-Konto schon autorisiert."
-      failure: "Authentifizierung fehlschloon."
-      read_only_access: "Taugriffsebene is nur lesen, bidde verseuk de Autorisierung noher nochmol"
-      success: "Authentifizierung erfolgriek."
-    destroy:
-      success: "Autorisierung erfolgriek rückgängig mokt."
-    failure:
-      error: "Dat geev een Fehler bin Verbinnen mit den Deenst"
-    index:
-      connect: "Verbinnen"
-      disconnect: "Verbinnung trennen"
-      edit_services: "Deenste ännern"
-      logged_in_as: "Anmeld as %{nickname}."
-      not_logged_in: "Grood nich anmeld."
-      really_disconnect: "Verbinnung to %{service} trennen?"
+      success: Du bist nu bi diaspora*!
+    invalid_invite: Dien Inlodungslink is nich mehr gültig!
+  reshares:
+    reshare:
+      reshared_via: Wiederseggt öber
+      reshare_confirmation: Bidrag von %{author} wiederseggen?
+      deleted: Originalbidrag von’n Autor löscht.
+    comment_email_subject: "%{resharer} sien Version von %{author} sien Bidrag"
+  services:
     provider:
-      tumblr: "Tumblr"
-      twitter: "Twitter"
-      wordpress: "WordPress"
-  settings: "Instellungen"
+      tumblr: Tumblr
+      twitter: Twitter
+      wordpress: WordPress
+    index:
+      connect: Verbinnen
+      disconnect: Verbinnung trennen
+      logged_in_as: Anmeld as %{nickname}.
+      not_logged_in: Grood nich anmeld.
+      really_disconnect: Verbinnung to %{service} trennen?
+      edit_services: Deenste ännern
+    create:
+      success: Authentifizierung erfolgriek.
+      failure: Authentifizierung fehlschloon.
+      already_authorized: Een Bruker mit de diaspora-ID %{diaspora_id} het dit %{service_name}-Konto schon autorisiert.
+      read_only_access: Taugriffsebene is nur lesen, bidde verseuk de Autorisierung noher nochmol
+    destroy:
+      success: Autorisierung erfolgriek rückgängig mokt.
+    failure:
+      error: Dat geev een Fehler bin Verbinnen mit den Deenst
+  blocks:
+    create:
+      success: 'Allns kloor, du warst dissen Bruker nich mehr in dien Stream sehn. #silencio!'
+      failure: 'Ik kun dissen Bruker nich ignorieren.  #evasion'
+    destroy:
+      success: 'Lott uns man kieken, wat de to seggen hebbt! #segghallo'
+      failure: 'Ik kun nich ophören, den Bruker to ignorieren.  #evasion'
   shared:
     aspect_dropdown:
       toggle:
-        one: "In een Aspekt"
-        other: "In %{count} Aspekte"
-        zero: "Kontakt sluten"
-    invitations:
-      by_email: "Per E-Mail"
-      invite_your_friends: "Lod dien Frünnen in"
-      invites: "Inlodungen"
-      share_this: "Deel dissen Link öber E-Mail, dien Blog oder soziale Nettwaark!"
-    public_explain:
-      atom_feed: "Atom-Feed"
-      control_your_audience: "Legg diene anpielte Grupp fast"
-      logged_in: "Anmeld bi %{service}"
-      manage: "Verbunnene Deenste verwalten"
-      new_user_welcome_message: "Nehm #Hashtags, üm diene Bidräg intoordnen un Lüüd to finnen, de diene Interessen deelt.  Rop no tolle Lüüd mit @Erwähnungen"
-      share: "Deelen"
-      title: "Verbunnene Deenste inrichten"
+        zero: Kontakt sluten
+        one: In een Aspekt
+        other: In %{count} Aspekte
     publisher:
-      discard_post: "Bidrag opgeben"
-      formatWithMarkdown: "Du kannst %{markdown_link} nehmen, üm dien Bidrag to formatieren"
+      formatWithMarkdown: Du kannst %{markdown_link} nehmen, üm dien Bidrag to formatieren
+      posting: Schriev...
+      share: Deelen
+      whats_on_your_mind: Wat geiht di dörch den Kopp?
+      discard_post: Bidrag opgeben
       new_user_prefill:
-        hello: "Moin alle, Ik bin #%{new_user_tag}. "
-        i_like: "Ik interessier mi för %{tags}. "
-        invited_by: "Danke för de Inlodung, "
-        newhere: "neehier"
-      posting: "Schriev..."
-      share: "Deelen"
-      whats_on_your_mind: "Wat geiht di dörch den Kopp?"
+        newhere: neehier
+        hello: 'Moin alle, Ik bin #%{new_user_tag}. '
+        i_like: 'Ik interessier mi för %{tags}. '
+        invited_by: 'Danke för de Inlodung, '
+    invitations:
+      invites: Inlodungen
+      invite_your_friends: Lod dien Frünnen in
+      by_email: Per E-Mail
+      share_this: Deel dissen Link öber E-Mail, dien Blog oder soziale Nettwaark!
+    public_explain:
+      control_your_audience: Legg diene anpielte Grupp fast
+      new_user_welcome_message: 'Nehm #Hashtags, üm diene Bidräg intoordnen un Lüüd to finnen, de diene Interessen deelt.  Rop no tolle Lüüd mit @Erwähnungen'
+      title: Verbunnene Deenste inrichten
+      share: Deelen
+      logged_in: Anmeld bi %{service}
+      manage: Verbunnene Deenste verwalten
+      atom_feed: Atom-Feed
     stream_element:
-      via: "Öber %{link}"
-      via_mobile: "Öber mobil"
-  simple_captcha:
-    label: "Geev den Code in dat Feld in:"
-    message:
-      default: "De geheime Code het nich mit dat Bild öbereenstimmt"
-      user: "Dat geheime Bild und du de geheime Code wörn ünnerschiedlich"
-    placeholder: "Geev den Wert von dat Bild in"
-  statistics:
-    active_users_halfyear: "Aktive Bruker in’t halbe Johr"
-    active_users_monthly: "Aktive Bruker in’n Monat"
-    closed: "Schloten"
-    local_comments: "Lokale Kommentare"
-    local_posts: "Lokale Bidräg"
-    name: "Noom"
-    network: "Nettwark"
-    open: "Open"
-    registrations: "Registrierungen"
-    services: "Deenste"
-    total_users: "Bruker insgesamt"
-    version: "Version"
+      via: Öber %{link}
+      via_mobile: Öber mobil
   status_messages:
     new:
-      mentioning: "Erwähn: %{person}"
-    too_long: "Bidde mok dien Bidrag kötter as %{count} Teken. In Moment is he %{current_length} Teken lang"
+      mentioning: 'Erwähn: %{person}'
+    too_long: Bidde mok dien Bidrag kötter as %{count} Teken. In Moment is he %{current_length} Teken lang
   stream_helper:
-    no_more_posts: "Du bist an't Enn von'n Stream ankommen."
-    no_posts_yet: "Dat gift noch keene Bidräg."
-  streams:
-    activity:
-      title: "Mien Rümröören"
-    aspects:
-      title: "Miene Aspekte"
-    aspects_stream: "Aspekte"
-    comment_stream:
-      title: "Kommentierte Bidräg"
-    community_spotlight_stream: "Vörstellte Gemeenschaftsmitglieder"
-    followed_tag:
-      add_a_tag: "Een Tag dortaudoon"
-      follow: "Folgen"
-      title: "#Folgte Tags"
-    followed_tags_stream: "#Folgte Tags"
-    like_stream:
-      title: "„Mag ik”-Stream"
-    mentioned_stream: "@Erwähnungen"
-    mentions:
-      title: "@Erwähnungen"
-    multi:
-      title: "Stream"
-    public:
-      title: "Öffentliches Rümröören"
-    tags:
-      title: "Bidräg tagged mit: %{tags}"
+    no_more_posts: Du bist an't Enn von'n Stream ankommen.
+    no_posts_yet: Dat gift noch keene Bidräg.
   tags:
     show:
-      follow: "Folg #%{tag}"
-      none: "Den leeren Tag gift dat nich!"
-      stop_following: "#%{tag} nich mehr folgen"
       tagged_people:
-        one: "1 Person taggt mit %{tag}"
+        zero: Keener taggt mit %{tag}
+        one: 1 Person taggt mit %{tag}
         other: "%{count} Lüüd taggt mit %{tag}"
-        zero: "Keener taggt mit %{tag}"
-  username: "Brukernaam"
-  users:
-    confirm_email:
-      email_confirmed: "E-Mail-Adress %{email} in gang set"
-      email_not_confirmed: "Kun E-Mail-Adress nich in gang setten. Falsche Link?"
-    destroy:
-      no_password: "Bidde geev dien jetziges Passwoort in, üm dien Konto to schluten."
-      success: "Dien Konto is spart worn. Wi brukt bit to 20 Minuten, üm dien Konto vullständig to schluten. Danke, dat du diaspora* utprobiert hest."
-      wrong_password: "Dat ingebene Passwoort het dien jetziges Passwoort nich entsproken."
-    edit:
-      also_commented: "wen een Bidrag kommentiert, den du ok kommentiert hest"
-      auto_follow_aspect: "Aspekt för Bruker, mit de du deelst:"
-      auto_follow_back: "Automatisch mit Bruker deelen, de anfangt, mit mi to deelen"
-      change: "Ännern"
-      change_email: "E-Mail-Adress ännern"
-      change_language: "Sprook ännern"
-      change_password: "Passwoort ännern"
-      character_minimum_expl: "mut minstens söss Teken lang ween"
-      close_account:
-        dont_go: "He, bidde goh nich!"
-        lock_username: "Dien Brukernoom ward spart. Du warst op dissen Pod keen nee'es Konto mit de sülbe ID anleggen künnen."
-        locked_out: "Du warst afmeld und ut dien Konto utspart warn, bit dat löscht worn is."
-        make_diaspora_better: "Wi deen dat good finnen, wenn du bliffst un uns hülpst, diaspora* beter to moken, statt wegtogohn. Wenn du aber wirklich weggohn willst, ward dat hier as neegstes passiern:"
-        mr_wiggles: "Herrn Wiggles ward trurig ween, di gohn to sehn"
-        no_turning_back: "Dat gift keen Trüch! Wenn du di wirklich sicher bist, geev ünnen dien Passwoort in."
-        what_we_delete: "Wi ward all diene Bidräg un Profildaten so schnell, wie dat man geiht, löschen. Diene Kommentare op de Bidräg von annere Lüüd ward immer noch to sehn ween, aber se ward mit diene diaspora*-ID statt mit dien Noom verknüppt."
-      close_account_text: "Konto schluten"
-      comment_on_post: "wen dien Bidrag kommentiert"
-      current_password: "Jetziges Passwoort"
-      current_password_expl: "dat, mit dat du di anmeldst..."
-      download_export: "Mien Profil rünnerloden"
-      download_export_photos: "Miene Bilder rünnerloden"
-      edit_account: "Konto ännern"
-      email_awaiting_confirmation: "Wie hebbt di een Link ton In-Gang-Setten an %{unconfirmed_email} schickt. Bit du dissen Link folgst und diene nee’e E-Mail-Adress in gang sets, ward wi wieder diene ole Adress %{email} nehmen."
-      export_data: "Daten exportieren"
-      export_photos_in_progress: "Wi verarbeit grood diene Bilder. Bidde kiek gliek noch mol trüch."
-      following: "Instellungen för’t Deelen"
-      liked: "wen dien Bidrag mag"
-      mentioned: "du in een Bidrag erwähnt warst"
-      new_password: "Nee’es Passwoort"
-      private_message: "du eene private Noricht kriegst"
-      receive_email_notifications: "E-Mail-Benorichtigungen kriegen wenn:"
-      request_export: "Miene Profildoten anfroogen"
-      request_export_photos: "Miene Bilder anfroogen"
-      request_export_photos_update: "Miene Bilder aktualisieren"
-      request_export_update: "Miene Profildoten aktualisieren"
-      reshared: "wen dien Bidrag wiederseggt"
-      show_community_spotlight: "Vörstellte Gemeenschaftsmitglieder in’n Stream zeigen"
-      show_getting_started: "„Eerste Schritte”-Henwiese weer anzeigen"
-      someone_reported: "wen eene Meldung schickt"
-      started_sharing: "wen anfangt, mit di to deelen"
-      stream_preferences: "Stream-Instellungen"
-      your_email: "Diene E-Mail-Adress"
-      your_handle: "Diene diaspora*-ID"
-    getting_started:
-      awesome_take_me_to_diaspora: "Toll! Bring mi to diaspora*"
-      community_welcome: "De Gemeenschaft von diaspora* freit sik, di an Boord to hebben!"
-      hashtag_explanation: "Mit Hashtags kannst du öber diene Interessen schnacken und jüm folgen.  Se sind ok eene tolle Mööglichkeit, üm nee'e Lüüd op diaspora* kennen to lernen."
-      hashtag_suggestions: "Verseuk mol, Tags wie #Kunst, #Filme, #gif oder so to folgen"
-      well_hello_there: "Naja, hallo erstmol!"
-      what_are_you_in_to: "Wat magst du?"
-      who_are_you: "Wer bist du?"
-    privacy_settings:
-      ignored_users: "Ignorierte Bruker"
-      no_user_ignored_message: "Du ignorierst grood keenen eenzigen annern Bruker"
-      stop_ignoring: "nich mehr ignorieren"
-      title: "Privatsphäre-Instellungen"
+      follow: 'Folg #%{tag}'
+      stop_following: "#%{tag} nich mehr folgen"
+      none: Den leeren Tag gift dat nich!
+  streams:
+    community_spotlight_stream: Vörstellte Gemeenschaftsmitglieder
+    aspects_stream: Aspekte
+    mentioned_stream: "@Erwähnungen"
+    followed_tags_stream: "#Folgte Tags"
+    mentions:
+      title: "@Erwähnungen"
+    comment_stream:
+      title: Kommentierte Bidräg
+    like_stream:
+      title: "„Mag ik”-Stream"
+    followed_tag:
+      title: "#Folgte Tags"
+      add_a_tag: Een Tag dortaudoon
+      follow: Folgen
+    tags:
+      title: 'Bidräg tagged mit: %{tags}'
     public:
-      does_not_exist: "Den Bruker %{username} gift dat nich!"
+      title: Öffentliches Rümröören
+    multi:
+      title: Stream
+    aspects:
+      title: Miene Aspekte
+    activity:
+      title: Mien Rümröören
+  users:
+    edit:
+      edit_account: Konto ännern
+      change: Ännern
+      your_handle: Diene diaspora*-ID
+      your_email: Diene E-Mail-Adress
+      change_email: E-Mail-Adress ännern
+      email_awaiting_confirmation: Wie hebbt di een Link ton In-Gang-Setten an %{unconfirmed_email} schickt. Bit du dissen Link folgst und diene nee’e E-Mail-Adress in gang sets, ward wi wieder diene ole Adress %{email} nehmen.
+      change_password: Passwoort ännern
+      new_password: Nee’es Passwoort
+      current_password: Jetziges Passwoort
+      current_password_expl: dat, mit dat du di anmeldst...
+      character_minimum_expl: mut minstens söss Teken lang ween
+      change_language: Sprook ännern
+      close_account_text: Konto schluten
+      stream_preferences: Stream-Instellungen
+      show_community_spotlight: Vörstellte Gemeenschaftsmitglieder in’n Stream zeigen
+      show_getting_started: "„Eerste Schritte”-Henwiese weer anzeigen"
+      following: Instellungen för’t Deelen
+      auto_follow_back: Automatisch mit Bruker deelen, de anfangt, mit mi to deelen
+      auto_follow_aspect: 'Aspekt för Bruker, mit de du deelst:'
+      receive_email_notifications: 'E-Mail-Benorichtigungen kriegen wenn:'
+      started_sharing: wen anfangt, mit di to deelen
+      someone_reported: wen eene Meldung schickt
+      mentioned: du in een Bidrag erwähnt warst
+      liked: wen dien Bidrag mag
+      reshared: wen dien Bidrag wiederseggt
+      comment_on_post: wen dien Bidrag kommentiert
+      also_commented: wen een Bidrag kommentiert, den du ok kommentiert hest
+      private_message: du eene private Noricht kriegst
+      download_export: Mien Profil rünnerloden
+      request_export: Miene Profildoten anfroogen
+      request_export_update: Miene Profildoten aktualisieren
+      export_data: Daten exportieren
+      download_export_photos: Miene Bilder rünnerloden
+      request_export_photos: Miene Bilder anfroogen
+      request_export_photos_update: Miene Bilder aktualisieren
+      export_photos_in_progress: Wi verarbeit grood diene Bilder. Bidde kiek gliek noch mol trüch.
+      close_account:
+        dont_go: He, bidde goh nich!
+        make_diaspora_better: 'Wi deen dat good finnen, wenn du bliffst un uns hülpst, diaspora* beter to moken, statt wegtogohn. Wenn du aber wirklich weggohn willst, ward dat hier as neegstes passiern:'
+        mr_wiggles: Herrn Wiggles ward trurig ween, di gohn to sehn
+        what_we_delete: Wi ward all diene Bidräg un Profildaten so schnell, wie dat man geiht, löschen. Diene Kommentare op de Bidräg von annere Lüüd ward immer noch to sehn ween, aber se ward mit diene diaspora*-ID statt mit dien Noom verknüppt.
+        locked_out: Du warst afmeld und ut dien Konto utspart warn, bit dat löscht worn is.
+        lock_username: Dien Brukernoom ward spart. Du warst op dissen Pod keen nee'es Konto mit de sülbe ID anleggen künnen.
+        no_turning_back: Dat gift keen Trüch! Wenn du di wirklich sicher bist, geev ünnen dien Passwoort in.
+    privacy_settings:
+      title: Privatsphäre-Instellungen
+      ignored_users: Ignorierte Bruker
+      stop_ignoring: nich mehr ignorieren
+      no_user_ignored_message: Du ignorierst grood keenen eenzigen annern Bruker
+    destroy:
+      success: Dien Konto is spart worn. Wi brukt bit to 20 Minuten, üm dien Konto vullständig to schluten. Danke, dat du diaspora* utprobiert hest.
+      no_password: Bidde geev dien jetziges Passwoort in, üm dien Konto to schluten.
+      wrong_password: Dat ingebene Passwoort het dien jetziges Passwoort nich entsproken.
+    getting_started:
+      well_hello_there: Naja, hallo erstmol!
+      community_welcome: De Gemeenschaft von diaspora* freit sik, di an Boord to hebben!
+      awesome_take_me_to_diaspora: Toll! Bring mi to diaspora*
+      who_are_you: Wer bist du?
+      what_are_you_in_to: Wat magst du?
+      hashtag_explanation: Mit Hashtags kannst du öber diene Interessen schnacken und jüm folgen.  Se sind ok eene tolle Mööglichkeit, üm nee'e Lüüd op diaspora* kennen to lernen.
+      hashtag_suggestions: 'Verseuk mol, Tags wie #Kunst, #Filme, #gif oder so to folgen'
     update:
-      email_notifications_changed: "E-Mail-Benorichtigungen ännert"
-      follow_settings_changed: "Instellungen för’t Folgen ännert"
-      follow_settings_not_changed: "Ännern von de Instellungen för’t Folgen fehlschloon."
-      language_changed: "Sprook ännert"
-      language_not_changed: "Kun Sprook nich ännern"
-      password_changed: "Passwoort ännert.  Du kannst di nu mit dien nee’es Passwoort anmelden."
-      password_not_changed: "Ännern von’t Passwoort fehlschloon"
-      settings_not_updated: "Aktualisieren von de Instellungen fehlschloon"
-      settings_updated: "Instellungen aktualisiert"
-      unconfirmed_email_changed: "E-Mail-Adress ännert. Mutt in gang set warn."
-      unconfirmed_email_not_changed: "Ännern von de E-Mail-Adress fehlschloon"
+      password_changed: Passwoort ännert.  Du kannst di nu mit dien nee’es Passwoort anmelden.
+      password_not_changed: Ännern von’t Passwoort fehlschloon
+      language_changed: Sprook ännert
+      language_not_changed: Kun Sprook nich ännern
+      settings_updated: Instellungen aktualisiert
+      settings_not_updated: Aktualisieren von de Instellungen fehlschloon
+      email_notifications_changed: E-Mail-Benorichtigungen ännert
+      unconfirmed_email_changed: E-Mail-Adress ännert. Mutt in gang set warn.
+      unconfirmed_email_not_changed: Ännern von de E-Mail-Adress fehlschloon
+      follow_settings_changed: Instellungen för’t Folgen ännert
+      follow_settings_not_changed: Ännern von de Instellungen för’t Folgen fehlschloon.
+    public:
+      does_not_exist: Den Bruker %{username} gift dat nich!
+    confirm_email:
+      email_confirmed: E-Mail-Adress %{email} in gang set
+      email_not_confirmed: Kun E-Mail-Adress nich in gang setten. Falsche Link?
   will_paginate:
-    next_label: "neegste &raquo;"
     previous_label: "&laquo; vörherige"
+    next_label: neegste &raquo;
+  simple_captcha:
+    placeholder: Geev den Wert von dat Bild in
+    label: 'Geev den Code in dat Feld in:'
+    message:
+      default: De geheime Code het nich mit dat Bild öbereenstimmt
+      user: Dat geheime Bild und du de geheime Code wörn ünnerschiedlich
+  statistics:
+    name: Noom
+    network: Nettwark
+    services: Deenste
+    total_users: Bruker insgesamt
+    active_users_halfyear: Aktive Bruker in’t halbe Johr
+    active_users_monthly: Aktive Bruker in’n Monat
+    local_posts: Lokale Bidräg
+    local_comments: Lokale Kommentare
+    version: Version
+    registrations: Registrierungen
+    open: Open
+    closed: Schloten

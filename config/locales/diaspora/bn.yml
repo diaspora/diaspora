@@ -5,57 +5,57 @@
 
 
 bn:
-  _applications: "প্রয়োগসমূহ"
-  _contacts: "যোগাযোগ"
-  _services: "পরিষেবাসমূহ"
-  account: "বিবরণী"
+  settings: সেটিংস
+  profile: পরিলেখ
+  account: বিবরণী
+  privacy: একান্ততা
+  _services: পরিষেবাসমূহ
+  _applications: প্রয়োগসমূহ
+  ok: বেশ
+  cancel: বাতিল
+  delete: বাদ
+  username: ভোক্তার নাম
+  email: বৈ-ডাক
+  are_you_sure: আপনি কি নিশ্চিত?
+  are_you_sure_delete_account: আপনি কি আপনার বিবরণী বন্ধ করতে চান? এটা কিন্তু অপরিবর্তনীয়
+  fill_me_out: ভর্তি করে দিন
+  public: সর্বজনীন
+  limited: সীমিত
+  search: সন্ধান
+  nsfw: কাজের জন্য সুরক্ষিত নয়
+  find_people: 'লোক বা #tag খুঁজুন'
+  more: আরও
+  all_aspects: সব দিক
+  no_results: এমন কিছু খুঁজে পাওয়া যায়নি
+  _contacts: যোগাযোগ
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "ভোক্তার যোগাযোগের সবার থেকে আলাদা হতে হবে"
+            person:
+              invalid: অকার্যকর
+            username:
+              taken: নেওয়া হয়ে গেছে
+              invalid: অকার্যকর। শুধু অক্ষর, সংখ্যা ও আন্ডারস্কোর গ্রহণযোগ্য
+            email:
+              taken: নেওয়া হয়ে গেছে
         person:
           attributes:
             diaspora_handle:
-              taken: "নেওয়া হয়ে গেছে"
+              taken: নেওয়া হয়ে গেছে
+        contact:
+          attributes:
+            person_id:
+              taken: ভোক্তার যোগাযোগের সবার থেকে আলাদা হতে হবে
         reshare:
           attributes:
             root_guid:
-              taken: "বেশ ভাল। আপনি ইতিমধ্যে ডাকটি পুনঃভাগ করেছেন!"
-        user:
-          attributes:
-            email:
-              taken: "নেওয়া হয়ে গেছে"
-            person:
-              invalid: "অকার্যকর"
-            username:
-              invalid: "অকার্যকর। শুধু অক্ষর, সংখ্যা ও আন্ডারস্কোর গ্রহণযোগ্য"
-              taken: "নেওয়া হয়ে গেছে"
-  all_aspects: "সব দিক"
-  are_you_sure: "আপনি কি নিশ্চিত?"
-  are_you_sure_delete_account: "আপনি কি আপনার বিবরণী বন্ধ করতে চান? এটা কিন্তু অপরিবর্তনীয়"
-  aspects:
-    edit:
-      confirm_remove_aspect: "আপনি নিশ্চিত এটি মুছে ফেলতে চান?"
-      rename: "নবনামাঙ্কণ"
-  cancel: "বাতিল"
-  delete: "বাদ"
-  email: "বৈ-ডাক"
+              taken: বেশ ভাল। আপনি ইতিমধ্যে ডাকটি পুনঃভাগ করেছেন!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "ভুলগুলি ঠিক করে আবার চেষ্টা করুন।"
-  fill_me_out: "ভর্তি করে দিন"
-  find_people: "লোক বা #tag খুঁজুন"
-  limited: "সীমিত"
-  more: "আরও"
-  no_results: "এমন কিছু খুঁজে পাওয়া যায়নি"
-  nsfw: "কাজের জন্য সুরক্ষিত নয়"
-  ok: "বেশ"
-  privacy: "একান্ততা"
-  profile: "পরিলেখ"
-  public: "সর্বজনীন"
-  search: "সন্ধান"
-  settings: "সেটিংস"
-  username: "ভোক্তার নাম"
+      correct_the_following_errors_and_try_again: ভুলগুলি ঠিক করে আবার চেষ্টা করুন।
+  aspects:
+    edit:
+      confirm_remove_aspect: আপনি নিশ্চিত এটি মুছে ফেলতে চান?
+      rename: নবনামাঙ্কণ

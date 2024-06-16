@@ -7,73 +7,73 @@
 et:
   devise:
     confirmations:
-      confirmed: "Sinu konto on edukalt kinnitatud. Oled nüüd sisse logitud."
+      confirmed: Sinu konto on edukalt kinnitatud. Oled nüüd sisse logitud.
+      send_instructions: Mõne minuti jooksul saabub sulle e-kiri koos juhistega oma konto kinnitamiseks.
       new:
-        resend_confirmation: "Saada uuesti juhised konto kinnitamiseks."
-      send_instructions: "Mõne minuti jooksul saabub sulle e-kiri koos juhistega oma konto kinnitamiseks."
+        resend_confirmation: Saada uuesti juhised konto kinnitamiseks.
     failure:
-      inactive: "Sinu konto ei ole veel aktiveeritud."
-      invalid: "Vale kasutajanimi või salasõna"
-      invalid_token: "Vigane autentimisvõti."
-      locked: "Sinu konto on suletud."
-      timeout: "Sinu seanss aegus, jätkamiseks logi palun uuesti sisse."
-      unauthenticated: "Enne jätkamist pead konto looma või sisse logima."
-      unconfirmed: "Enne jätkamist pead oma eposti kinnitama."
-    invitations:
-      invitation_token_invalid: "Vabandame! See kutse võti ei kehti."
-      send_instructions: "Sinu kutse on saadetud."
-      updated: "Sinu salasõna on edukalt muudetud. Oled nüüd sisse logitud."
+      inactive: Sinu konto ei ole veel aktiveeritud.
+      invalid: Vale kasutajanimi või salasõna
+      locked: Sinu konto on suletud.
+      timeout: Sinu seanss aegus, jätkamiseks logi palun uuesti sisse.
+      unauthenticated: Enne jätkamist pead konto looma või sisse logima.
+      unconfirmed: Enne jätkamist pead oma eposti kinnitama.
+      invalid_token: Vigane autentimisvõti.
     mailer:
       confirmation_instructions:
-        confirm: "Kinnita mu konto"
-        subject: "Kinnitamise juhised"
-        you_can_confirm: "Sa saad oma konto kinnitada järgneva lingi abil:"
-      hello: "Tere %{username}!"
+        subject: Kinnitamise juhised
+        you_can_confirm: 'Sa saad oma konto kinnitada järgneva lingi abil:'
+        confirm: Kinnita mu konto
+      reset_password_instructions:
+        subject: Parooli taastamise juhised
+        change: Muuda mu parooli
+      welcome: "%{username}, tere tulemast!"
+      hello: Tere %{username}!
       inviter:
-        accept_at: "aadressil %{url}, sa saad kutse aksepteerida.kasutades alljärgnevat linki."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} on kutsunud sind Diasporaga liituma"
-      reset_password_instructions:
-        change: "Muuda mu parooli"
-        subject: "Parooli taastamise juhised"
-      welcome: "%{username}, tere tulemast!"
+        accept_at: aadressil %{url}, sa saad kutse aksepteerida.kasutades alljärgnevat linki.
     passwords:
+      send_instructions: Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks.
+      updated: Sinu parool on edukalt muudetud. Oled nüüd sisse logitud.
       edit:
-        change_password: "Muuda parooli"
+        change_password: Muuda parooli
       new:
-        forgot_password: "Unustasid parooli?"
-        send_password_instructions: "Saada mulle juhised salasõna lähtestamiseks."
-      send_instructions: "Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks."
-      updated: "Sinu parool on edukalt muudetud. Oled nüüd sisse logitud."
+        forgot_password: Unustasid parooli?
+        send_password_instructions: Saada mulle juhised salasõna lähtestamiseks.
     registrations:
-      destroyed: "Nägemist! Sinu konto on deaktiveeritud. Loodetavasti näeme sind varsti jälle."
-      signed_up: "Oled edukalt registreerunud. Kinnitus saadeti sinu e-mailile."
-      updated: "Sinu konto on edukalt uuendatud."
+      destroyed: Nägemist! Sinu konto on deaktiveeritud. Loodetavasti näeme sind varsti jälle.
+      signed_up: Oled edukalt registreerunud. Kinnitus saadeti sinu e-mailile.
+      updated: Sinu konto on edukalt uuendatud.
     sessions:
+      signed_in: Edukalt sisse logitud.
+      signed_out: Edukalt välja logitud.
       new:
-        login: "Logi sisse"
-        modern_browsers: "toetab ainult kaasaegseid brausereid."
-        password: "Salasõna"
-        remember_me: "Mäleta mind"
-        sign_in: "Registreeru"
-        username: "Kasutajanimi"
-      signed_in: "Edukalt sisse logitud."
-      signed_out: "Edukalt välja logitud."
+        login: Logi sisse
+        username: Kasutajanimi
+        password: Salasõna
+        sign_in: Registreeru
+        remember_me: Mäleta mind
+        modern_browsers: toetab ainult kaasaegseid brausereid.
+    unlocks:
+      send_instructions: Mõne minuti jooksul saabub sulle e-kiri koos juhistega oma konto taasavamiseks.
+      unlocked: Sinu konto on edukalt taasavatud. Oled nüüd sisse logitud.
+      new:
+        resend_unlock: Saada uuesti juhised konto avamiseks
+    invitations:
+      send_instructions: Sinu kutse on saadetud.
+      invitation_token_invalid: Vabandame! See kutse võti ei kehti.
+      updated: Sinu salasõna on edukalt muudetud. Oled nüüd sisse logitud.
     shared:
       links:
-        forgot_your_password: "Unustasid parooli?"
-        receive_confirmation: "Juhised konto kinnitamiseks ei saabunud?"
-        receive_unlock: "Juhised konto taasavamiseks ei saabunud?"
-        sign_in: "Logi sisse"
-        sign_up: "Loo konto"
-        sign_up_closed: "Avatud liitumised on hetkel peatatud."
-    unlocks:
-      new:
-        resend_unlock: "Saada uuesti juhised konto avamiseks"
-      send_instructions: "Mõne minuti jooksul saabub sulle e-kiri koos juhistega oma konto taasavamiseks."
-      unlocked: "Sinu konto on edukalt taasavatud. Oled nüüd sisse logitud."
+        sign_in: Logi sisse
+        sign_up: Loo konto
+        sign_up_closed: Avatud liitumised on hetkel peatatud.
+        forgot_your_password: Unustasid parooli?
+        receive_confirmation: Juhised konto kinnitamiseks ei saabunud?
+        receive_unlock: Juhised konto taasavamiseks ei saabunud?
   errors:
     messages:
-      already_confirmed: "on juba kinnitatud, palun proovi sisse logida"
-      not_found: "ei leitud"
-      not_locked: "ei ole lukustatud"
+      already_confirmed: on juba kinnitatud, palun proovi sisse logida
+      not_found: ei leitud
+      not_locked: ei ole lukustatud

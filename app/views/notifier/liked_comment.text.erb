@@ -1,0 +1,10 @@
+<% if @notification.like_target.public? %>
+<%= "#{t(".liked", name: @notification.sender_name)}:" %>
+
+<%= post_message(@notification.like_target) %>
+<% else %>
+<%= "#{t(".limited_post", name: @notification.sender_name)}." %>
+<% end %>
+
+<%= t(".view_comment") %>
+<%= post_url(@notification.like_target.root, anchor: @notification.like_target.guid) %>

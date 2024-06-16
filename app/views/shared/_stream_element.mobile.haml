@@ -19,21 +19,19 @@
     - if post.is_a?(StatusMessage)
       = render "status_messages/status_message", post: post, photos: post.photos
 
-  .bottom-bar.nsfw-hidden{class: ("inactive" unless defined?(expanded_info) && expanded_info)}
-    = render partial: "comments/post_stats", locals: {post: post}
-
-    - if defined?(expanded_info) && expanded_info
-      != show_comments_link(post, "active")
+  - expanded_info = defined?(expanded_info) && expanded_info
+  .bottom-bar.nsfw-hidden{class: ("inactive" unless expanded_info)}
+    .post-actions-container
+      != show_comments_link(post, expanded_info ? "active" : "")
+      = render partial: "comments/post_stats", locals: {post: post}
+    - if expanded_info
       .comment-container
         %ul.comments
           = render partial: "comments/comment", collection: post.comments.for_a_stream, locals: {post: post}
-
-    - else
-      != show_comments_link(post)
 
     .ajax-loader.hidden
       .loader
         .spinner
 
-    .add-comment-switcher{class: ("hidden" unless defined?(expanded_info) && expanded_info)}
+    .add-comment-switcher{class: ("hidden" unless expanded_info)}
       = render partial: "comments/new_comment", locals: {post_id: post.id}

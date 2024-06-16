@@ -10,6 +10,15 @@ class PersonPresenter < BasePresenter
     }
   end
 
+  def as_api_json
+    {
+      guid:        guid,
+      diaspora_id: diaspora_handle,
+      name:        name,
+      avatar:      AvatarPresenter.new(@presentable).medium
+    }.compact
+  end
+
   def full_hash
     base_hash_with_contact.merge(
       relationship:      relationship,
@@ -17,6 +26,20 @@ class PersonPresenter < BasePresenter
       is_own_profile:    own_profile?,
       show_profile_info: public_details? || own_profile? || person_is_following_current_user
     )
+  end
+
+  def profile_hash_as_api_json
+    if own_profile?
+      ProfilePresenter.new(profile).as_self_api_json.merge(guid: guid)
+    else
+      show_detailed = @presentable.public_details? || person_is_following_current_user
+      ProfilePresenter.new(profile).as_other_api_json(show_detailed).merge(
+        guid:         guid,
+        blocked:      is_blocked?,
+        relationship: relationship_detailed,
+        aspects:      aspects_detailed
+      )
+    end
   end
 
   def as_json(_options={})
@@ -61,6 +84,26 @@ class PersonPresenter < BasePresenter
     %i(mutual sharing receiving).find do |status|
       contact.public_send("#{status}?")
     end || :not_sharing
+  end
+
+  def relationship_detailed
+    status = {receiving: false, sharing: false}
+    return status unless current_user
+
+    contact = current_user_person_contact
+    return status unless contact
+
+    status.keys.each do |key|
+      status[key] = contact.public_send("#{key}?")
+    end
+    status
+  end
+
+  def aspects_detailed
+    return [] unless current_user_person_contact
+
+    aspects_for_person = current_user.aspects_with_person(@presentable)
+    aspects_for_person.map {|a| AspectPresenter.new(a).as_api_json(false, with_order: false) }
   end
 
   def person_is_following_current_user

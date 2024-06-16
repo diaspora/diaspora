@@ -5,105 +5,105 @@
 
 
 fa:
-  _applications: "برنامه‌های کاربردی"
-  _contacts: "مخاطبین"
-  _services: "سرویس‌ها"
-  account: "حساب کاربری"
+  settings: تنظیمات
+  profile: نمایه
+  account: حساب کاربری
+  privacy: حریم خصوصی
+  _services: سرویس‌ها
+  _applications: برنامه‌های کاربردی
+  ok: قبول
+  cancel: لفو
+  delete: حذف
+  username: نام‌کاربری
+  email: رایانامه
+  are_you_sure: مطمئن هستید؟
+  are_you_sure_delete_account: مطمئن هستید که می‌خواهید حساب کاربریتان را ببندید؟ این کار غیرقابل بازگشت است!
+  fill_me_out: پر کنید
+  public: عمومی
+  limited: محدود
+  search: جستجو
+  nsfw: NSFW
+  find_people: 'یافتن افراد یا #تگ‌ها'
+  more: بیشتر
+  all_aspects: تمام منظرها
+  no_results: نتیجه‌ای یافت نشد
+  _contacts: مخاطبین
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "باید در میان مخاطبین این کاربران منحصر به فرد باشد."
+            person:
+              invalid: نامعتبر است.
+            username:
+              taken: درحال حاظر گرفته‌شده.
+              invalid: نامعتبر است. فقط می‌توانید از حروف، اعداد، و خط تیره استفاده کنید.
+            email:
+              taken: درحال حاظر گرفته‌شده.
         person:
           attributes:
             diaspora_handle:
-              taken: "درحال حاظر گرفته‌شده."
+              taken: درحال حاظر گرفته‌شده.
+        contact:
+          attributes:
+            person_id:
+              taken: باید در میان مخاطبین این کاربران منحصر به فرد باشد.
         reshare:
           attributes:
             root_guid:
-              taken: "خوبه، نه؟ شما اون پست رو دوباره به اشتراک گذاشتید."
-        user:
-          attributes:
-            email:
-              taken: "درحال حاظر گرفته‌شده."
-            person:
-              invalid: "نامعتبر است."
-            username:
-              invalid: "نامعتبر است. فقط می‌توانید از حروف، اعداد، و خط تیره استفاده کنید."
-              taken: "درحال حاظر گرفته‌شده."
-  all_aspects: "تمام منظرها"
-  are_you_sure: "مطمئن هستید؟"
-  are_you_sure_delete_account: "مطمئن هستید که می‌خواهید حساب کاربریتان را ببندید؟ این کار غیرقابل بازگشت است!"
-  aspects:
-    add_to_aspect:
-      failure: "خطا در اضافه کردن مخاطب به منظر"
-      success: "مخاطب با موفقیت به منظر اضافه شد."
-    aspect_listings:
-      add_an_aspect: "+اضافه کردن منظر"
-    aspect_stream:
-      stay_updated: "بروز بمانید"
-    destroy:
-      failure: "‎%{name}‎ خالی نیست و نمی‌توانید حذفش کنید."
-      success: "‎%{name}‎ با موفقیت حذف شد."
-    edit:
-      aspect_list_is_not_visible: "لیست منظر برای افراد دیگر در این منظر مخفی است"
-      aspect_list_is_visible: "لیست منظر برای افراد دیگر در این منظر قابل مشاهده است"
-      confirm_remove_aspect: "مطمئن هستید می‌خواهید این منظر را حذف کنید؟"
-      rename: "تغییر نام"
-      update: "بروزرسانی"
-      updating: "در حال بروزرسانی"
-    index:
-      donate: "کمک مالی"
-      help:
-        do_you: "آیا شما:"
-        feature_suggestion: "یک پیشنهاد ‎%{link}‎ دارید؟"
-        find_a_bug: "یک ‎%{link}‎ یافتید؟"
-        have_a_question: "یک %{link} دارید؟"
-        here_to_help: "جامعه دیاسپورا اینجاست!"
-        need_help: "به راهنمایی نیاز دارد؟"
-        tag_bug: "اشکال"
-        tag_feature: "ویژگی‌ها"
-        tag_question: "پرسش"
-      introduce_yourself: "این خط جریان شماست. زود باش و خودت رو معرفی کن."
-      new_here:
-        follow: "‎%{link}‎ دبنلا کنید و به کاربران جدید دیاسپورا* خوش آمد بگوئید!"
-        learn_more: "بیشتر بدانید"
-        title: "خوش آمد گویی به کاربران جدید"
-      services:
-        content: "شما می‌توانید سرویس‌های زیر را به دیاسپورا متصل کنید:"
-        heading: "اتصال سرویس‌ها"
-      welcome_to_diaspora: "%{name}، به دیاسپورا خوش آمدی!"
-    no_contacts_message:
-      community_spotlight: "کانون توجه جامعه"
-      or_spotlight: "یا می توانید با ‎%{link}‎ به اشترام بگذارید"
-      try_adding_some_more_contacts: "شما می‌توانید مخاطبین بیشتری را جستجو یا دعوت کنید."
-      you_should_add_some_more_contacts: "شما باید مخاطبین بیشتری اضافه کنید!"
-    seed:
-      acquaintances: "آشنایان"
-      family: "خانواده"
-      friends: "دوستان"
-      work: "کار"
-    update:
-      failure: "منظر ‎%{name}‎، نامش برای ذخیره سازی طولانی هست."
-      success: "منظر ‎%{name}‎، با موفقیت ویرایش شد."
-  cancel: "لفو"
-  delete: "حذف"
-  email: "رایانامه"
+              taken: خوبه، نه؟ شما اون پست رو دوباره به اشتراک گذاشتید.
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "خطاها را درست کرده و دوباره تلاش کنید."
-  fill_me_out: "پر کنید"
-  find_people: "یافتن افراد یا #تگ‌ها"
-  limited: "محدود"
-  more: "بیشتر"
-  no_results: "نتیجه‌ای یافت نشد"
-  nsfw: "NSFW"
-  ok: "قبول"
-  privacy: "حریم خصوصی"
-  profile: "نمایه"
-  public: "عمومی"
-  search: "جستجو"
-  settings: "تنظیمات"
-  username: "نام‌کاربری"
+      correct_the_following_errors_and_try_again: خطاها را درست کرده و دوباره تلاش کنید.
+  aspects:
+    edit:
+      confirm_remove_aspect: مطمئن هستید می‌خواهید این منظر را حذف کنید؟
+      rename: تغییر نام
+      aspect_list_is_visible: لیست منظر برای افراد دیگر در این منظر قابل مشاهده است
+      aspect_list_is_not_visible: لیست منظر برای افراد دیگر در این منظر مخفی است
+      update: بروزرسانی
+      updating: در حال بروزرسانی
+    no_contacts_message:
+      you_should_add_some_more_contacts: شما باید مخاطبین بیشتری اضافه کنید!
+      try_adding_some_more_contacts: شما می‌توانید مخاطبین بیشتری را جستجو یا دعوت کنید.
+      or_spotlight: یا می توانید با ‎%{link}‎ به اشترام بگذارید
+      community_spotlight: کانون توجه جامعه
+    aspect_listings:
+      add_an_aspect: "+اضافه کردن منظر"
+    destroy:
+      success: "‎%{name}‎ با موفقیت حذف شد."
+      failure: "‎%{name}‎ خالی نیست و نمی‌توانید حذفش کنید."
+    update:
+      success: منظر ‎%{name}‎، با موفقیت ویرایش شد.
+      failure: منظر ‎%{name}‎، نامش برای ذخیره سازی طولانی هست.
+    add_to_aspect:
+      failure: خطا در اضافه کردن مخاطب به منظر
+      success: مخاطب با موفقیت به منظر اضافه شد.
+    seed:
+      family: خانواده
+      work: کار
+      acquaintances: آشنایان
+      friends: دوستان
+    index:
+      donate: کمک مالی
+      welcome_to_diaspora: "%{name}، به دیاسپورا خوش آمدی!"
+      introduce_yourself: این خط جریان شماست. زود باش و خودت رو معرفی کن.
+      new_here:
+        title: خوش آمد گویی به کاربران جدید
+        follow: "‎%{link}‎ دبنلا کنید و به کاربران جدید دیاسپورا* خوش آمد بگوئید!"
+        learn_more: بیشتر بدانید
+      help:
+        need_help: به راهنمایی نیاز دارد؟
+        here_to_help: جامعه دیاسپورا اینجاست!
+        do_you: 'آیا شما:'
+        have_a_question: یک %{link} دارید؟
+        tag_question: پرسش
+        find_a_bug: یک ‎%{link}‎ یافتید؟
+        tag_bug: اشکال
+        feature_suggestion: یک پیشنهاد ‎%{link}‎ دارید؟
+        tag_feature: ویژگی‌ها
+      services:
+        heading: اتصال سرویس‌ها
+        content: 'شما می‌توانید سرویس‌های زیر را به دیاسپورا متصل کنید:'
+    aspect_stream:
+      stay_updated: بروز بمانید

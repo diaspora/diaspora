@@ -6,68 +6,68 @@
 
 en_shaw:
   javascripts:
+    timeago:
+      prefixAgo: "\U00010469\U0001045C\U00010474"
+      suffixAgo: "\U00010469\U0001045C\U00010474"
+      suffixFromNow: "\U00010453\U0001046E\U0001046A\U00010465 \U0001046F\U0001046C"
+      prefixFromNow: "\U00010453\U0001046E\U0001046A\U00010465 \U0001046F\U0001046C"
+      seconds: "\U00010464\U00010467\U00010455 \U0001045E\U00010468\U0001046F \U00010469 \U00010465\U00010466\U0001046F\U00010469\U00010451"
+      minute: "\U00010469\U0001045A\U0001046C\U00010451 \U00010469 \U00010465\U00010466\U0001046F\U00010469\U00010451"
+      minutes:
+        other: "%d \U00010465\U00010466\U0001046F\U00010469\U00010451\U00010455"
+      hour: "\U00010469\U0001045A\U0001046C\U00010451 \U00010469\U0001046F \U0001046C\U0001046E"
+      hours:
+        other: "\U00010469\U0001045A\U0001046C\U00010451 %d \U0001046C\U0001046E\U0001045F"
+      day: "\U00010469 \U0001045B\U00010471"
+      days:
+        other: "%d \U0001045B\U00010471\U0001045F"
+      month: "\U00010469\U0001045A\U0001046C\U00010451 \U00010469 \U00010465\U00010473\U0001046F\U00010454"
+      months:
+        other: "%d \U00010465\U00010473\U0001046F\U00010454\U00010455"
+      year: "\U00010469\U0001045A\U0001046C\U00010451 \U00010469 \U00010458\U0001047D"
+      years:
+        other: "%d \U00010458\U0001047D\U0001045F"
+    confirm_dialog: "\U00010478 \U0001047F \U00010456\U0001047B?"
     aspect_dropdown:
-      add_to_aspect: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
-      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
-      started_sharing_with: "You have started sharing with <%= name %>!"
-      stopped_sharing_with: "You have stopped sharing with <%= name %>."
+      add_to_aspect: "\U00010468\U0001045B \U00010451 \U00010468\U00010455\U00010450\U00010467\U00010452\U00010451"
+      stopped_sharing_with: You have stopped sharing with <%= name %>.
+      started_sharing_with: You have started sharing with <%= name %>!
+      error: Couldn't start sharing with <%= name %>.  Are you ignoring them?
       toggle:
-        one: "𐑦𐑯 <%= count %> 𐑨𐑕𐑐𐑧𐑒𐑑"
-        other: "𐑦𐑯 <%= count %> 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        zero: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
+        zero: "\U00010468\U0001045B \U00010451 \U00010468\U00010455\U00010450\U00010467\U00010452\U00010451"
+        one: "\U00010466\U0001046F <%= count %> \U00010468\U00010455\U00010450\U00010467\U00010452\U00010451"
+        other: "\U00010466\U0001046F <%= count %> \U00010468\U00010455\U00010450\U00010467\U00010452\U00010451\U00010455"
+    show_more: "\U00010456\U00010474 \U00010465\U00010479"
+    failed_to_post_message: "\U00010453\U00010471\U00010464\U0001045B \U00010451 \U00010450\U00010474\U00010455\U00010451 \U00010465\U00010467\U00010455\U00010469\U00010461!"
     comments:
-      hide: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-      show: "𐑖𐑴 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-    confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
-    failed_to_post_message: "𐑓𐑱𐑤𐑛 𐑑 𐑐𐑴𐑕𐑑 𐑥𐑧𐑕𐑩𐑡!"
+      show: "\U00010456\U00010474 \U00010477\U00010464 \U00010452\U0001046A\U00010465\U00010469\U0001046F\U00010451\U00010455"
+      hide: "\U00010463\U00010472\U0001045B \U00010452\U0001046A\U00010465\U00010469\U0001046F\U00010451\U00010455"
     getting_started:
-      hey: "Hey, <%= name %>!"
-      preparing_your_stream: "Preparing your personialized stream..."
-    header:
-      search: "Find people or #tags"
-    show_more: "𐑖𐑴 𐑥𐑹"
+      hey: Hey, <%= name %>!
+      preparing_your_stream: Preparing your personialized stream...
+    tags:
+      wasnt_that_interesting: 'OK, I suppose #<%= tagName %> wasn''t all that interesting...'
     stream:
       likes:
+        zero: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        two: "<%= count %> Likes"
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
-        one: "<%= count %> Like"
         other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
-      more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
       reshares:
+        zero: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        two: "<%= count %> Reshares"
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
-    tags:
-      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
-    timeago:
-      day: "𐑩 𐑛𐑱"
-      days:
-        other: "%d 𐑛𐑱𐑟"
-      hour: "𐑩𐑚𐑬𐑑 𐑩𐑯 𐑬𐑮"
-      hours:
-        other: "𐑩𐑚𐑬𐑑 %d 𐑬𐑮𐑟"
-      minute: "𐑩𐑚𐑬𐑑 𐑩 𐑥𐑦𐑯𐑩𐑑"
-      minutes:
-        other: "%d 𐑥𐑦𐑯𐑩𐑑𐑕"
-      month: "𐑩𐑚𐑬𐑑 𐑩 𐑥𐑳𐑯𐑔"
-      months:
-        other: "%d 𐑥𐑳𐑯𐑔𐑕"
-      prefixAgo: "𐑩𐑜𐑴"
-      prefixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"
-      seconds: "𐑤𐑧𐑕 𐑞𐑨𐑯 𐑩 𐑥𐑦𐑯𐑩𐑑"
-      suffixAgo: "𐑩𐑜𐑴"
-      suffixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"
-      year: "𐑩𐑚𐑬𐑑 𐑩 𐑘𐑽"
-      years:
-        other: "%d 𐑘𐑽𐑟"
+      more_comments:
+        zero: Show <%= count %> more comments
+        one: Show <%= count %> more comment
+        two: Show <%= count %> more comments
+        few: Show <%= count %> more comments
+        many: Show <%= count %> more comments
+        other: Show <%= count %> more comments
+    header:
+      search: 'Find people or #tags'

@@ -8,5 +8,5 @@ az:
   devise:
     sessions:
       new:
-        login: "daxil olmaq"
-        sign_in: "Giriş"
+        login: daxil olmaq
+        sign_in: Giriş

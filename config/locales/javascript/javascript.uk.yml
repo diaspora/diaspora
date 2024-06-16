@@ -6,335 +6,335 @@
 
 uk:
   javascripts:
-    admin:
-      pods:
-        actions: "Дії"
-        added: "Додано"
-        check: "виконати тест з'єднання"
-        errors:
-          few: "Перевірка з'єднання повернула помилку для <%= count %> подів."
-          many: "Перевірка з'єднання повернула помилку для <%= count %> подів."
-          one: "Перевірка з'єднання повернула помилку для одного поду."
-          other: "Перевірка з'єднання повернула помилку для <%= count %> подів."
-        follow_link: "відкрити посилання в браузері"
-        last_check: "остання перевірка:"
-        more_info: "показати більше інформації"
-        ms:
-          few: "<%= count %> мс"
-          many: "<%= count %> мс"
-          one: "<%= count %> мс"
-          other: "<%= count %> мс"
-        no_info: "Немає додаткової інформації на даний момент"
-        not_available: "недоступний"
-        offline_since: "відсутня, так як:"
-        pod: "Под"
-        recheck:
-          failure: "Перевірка не була виконана."
-          success: "Под був тільки що перевірив ще раз."
-        response_time: "Час відгуку:"
-        server_software: "Серверне програмне забезпечення:"
-        ssl: "SSL"
-        ssl_disabled: "SSL вимкнено"
-        ssl_enabled: "SSL включено"
-        states:
-          dns_failed: "Сервер імен (DNS) зірвався"
-          http_failed: "HTTP з'єднання розірвано"
-          net_failed: "Спроба підключення не вдалася"
-          no_errors: "Добре"
-          ssl_failed: "Безпечне з'єднання (SSL) не вдалося"
-          unchecked: "Неперевірений"
-          unknown_error: "Невідома помилка сталася під час перевірки"
-          version_failed: "Не вдалося одержати версію програмного забезпечення"
-        status: "Статус"
-        unchecked:
-          few: "Існує ще <%= count %> поди, які не були перевірені на всіх."
-          many: "Існує ще <%= count %> подів, які не були перевірені на всіх."
-          one: "Існує ще один под, який не був перевірений на всіх."
-          other: "Існує ще <%= count %> подів, які не були перевірені на всіх."
-        unknown: "невідомий"
-        version_failed:
-          few: "<%= count %> поди не мають інформації про версії (старі поди, нема NodeInfo)"
-          many: "<%= count %> подів не мають інформації про версії (старі поди, нема NodeInfo)"
-          one: "<%= count %> под не має інформації про версію (старий под, нема NodeInfo)"
-          other: "<%= count %> подів не мають інформації про версії (старі поди, нема NodeInfo)"
-    admins:
-      dashboard:
-        compare_versions: "Останньою версією Діаспори* є <%= latestVersion %>, Ваш под працює на <%= podVersion %>."
-        error: "Неможливо визначити останню версію Діаспори*."
-        outdated: "Ваш под застарів."
-        up_to_date: "Ваш под знаходиться в актуальному стані!"
-    and: "і"
-    aspect_dropdown:
-      add_to_aspect: "Додати контакт"
-      all_aspects: "Усі аспекти"
-      error: "Неможливо почати ділитися з користувачем <%= name %>. Можливо, ви його заблокували?"
-      error_remove: "Неможливо видалити <%= name %> з аспекту :("
-      mobile_row_checked: "<%= name %> (видалити)"
-      mobile_row_unchecked: "<%= name %> (додати)"
-      select_aspects: "Вибрати аспекти"
-      started_sharing_with: "Ви почали ділитися з <%= name %>!"
-      stopped_sharing_with: "Ви перестали ділитися з <%= name %>."
-      toggle:
-        few: "У <%= count %> аспектах"
-        many: "У <%= count %> аспектах"
-        one: "У <%= count %> аспектах"
-        other: "У <%= count %> аспектах"
-        zero: "Вибрати аспекти"
-      updating: "оновлюється..."
-    aspect_navigation:
-      add_an_aspect: "+ Додати аспект"
-      deselect_all: "Зняти вибір з усіх"
-      no_aspects: "Аспект не вибраний"
-      select_all: "Вибрати всі"
-    aspects:
-      create:
-        add_a_new_aspect: "Новий аспект"
-        failure: "Не вдалось створити аспект"
-        success: "Ваша новий аспект <%= name %> створено"
-      name: "Назва"
-    bookmarklet:
-      post_something: "Опублікувати в Діаспорі*"
-      post_submit: "Відправка запису..."
-      post_success: "Відправка завершена! Закриття вікна..."
-    cancel: "Відміна"
-    comma: ","
-    comments:
-      hide: "приховати коментарі"
-      no_comments: "Коментарів ще немає."
-      show: "Показати усі коментарі"
-    confirm_dialog: "Ви упевнені?"
-    confirm_unload: "Будь ласка, підтвердіть, що хочете залишити сторінку - введені вами дані не будуть збережені."
-    contacts:
-      add_contact: "Додати контакт"
-      error_add: "Неможливо додати <%= name %>  в аспект :("
-      error_remove: "Неможливо видалити <%= name %> з аспекту :("
-      remove_contact: "Видалити контакт"
-      search_no_results: "Контакти не знайдено"
-    conversation:
-      create:
-        no_recipient: "Ей, вам потрібно додати спочатку одержувача!"
-      new:
-        no_contacts: "Перш ніж розпочати розмову, треба мати хоча б один контакт."
-    create: "Створити"
-    delete: "Вилучити"
-    edit: "Змінити"
-    errors:
-      connection: "Неможливо підключитися до сервера."
-    failed_to_post_message: "Не вдалося надіслати повідомлення!"
-    failed_to_remove: "Видалення не завершено!"
-    getting_started:
-      alright_ill_wait: "Добре, я почекаю."
-      hey: "Привіт, <%= name %>!"
-      no_tags: "Ви не стежите за жодною міткою! Все одно продовжити?"
-      preparing_your_stream: "Підготовка вашого особистого потоку..."
-    header:
-      admin: "Керування"
-      close: "закрити"
-      contacts: "Контакти"
-      conversations: "Розмови"
-      help: "Довідка"
-      home: "На головну"
-      log_out: "Вийти"
-      mark_all_as_read: "Позначити все як прочитане"
-      moderator: "Модератор"
-      notifications: "Повідомлення"
-      profile: "Профіль"
-      recent_notifications: "Останнє повідомлення"
-      search: "Пошук людей чи #міток"
-      settings: "Налаштування"
-      switch_to_touch_optimized_mode: "Перемкнутися на режим, оптимізований для дотиків"
-      toggle_navigation: "Перемикання навігації"
-      view_all: "Показати все"
-    hide_post: "Приховати запис?"
-    hide_post_failed: "Неможливо приховати запис"
-    ignore: "Iгнорувати"
-    ignore_failed: "Неможливо ігнорувати цього користувача"
-    ignore_user: "Ігнорувати цього користувача?"
-    my_activity: "Моя діяльність"
-    my_aspects: "Мої аспекти"
-    my_stream: "Мій потік"
-    no_results: "Нічого не знайдено"
-    notifications:
-      mark_read: "Помітити як прочитане"
-      mark_unread: "Помітити як непрочитане"
-      new_notifications:
-        few: "Ви маєте <%= count %> непрочитані повідомлення"
-        many: "Ви маєте <%= count %> непрочитані повідомлення"
-        one: "Ви маєте <%= count %> непрочитане повідомлення"
-        other: "Ви маєте <%= count %> непрочитаних повідомленнь"
-    people:
-      edit_my_profile: "Редагувати мій профіль"
-      helper:
-        is_not_sharing: "<%= name %> не ділиться з Вами"
-        is_sharing: "<%= name %> ділиться з Вами"
-      mention: "Згадка"
-      message: "Повідомлення"
-      not_found: "нікого не знайдено..."
-      stop_ignoring: "Припинити ігнорування"
-    photo_uploader:
-      completed: "<%= file %> готово"
-      empty: "{file} порожній, виберіть будь ласка файл повторно."
-      error: "Виникла проблема при завантаженні <%= file %>"
-      invalid_ext: "{file} має неприпустиме розширення. Дозволені тільки {extensions}."
-      looking_good: "Боже мій, ви виглядаєте приголомшливо!"
-      size_error: "{file} має занадто великий розмір, максимальний розмір файлу: {sizeLimit}."
-      upload_photos: "Завантажити фото"
-    poll:
-      answer_count:
-        few: "<%=count%> голоси"
-        many: "<%=count%> голосів"
-        one: "<%=count%> голос"
-        other: "<%=count%> голосів"
-        zero: "0 голосів"
-      close_result: "Приховати результати"
-      count:
-        few: "<%=count%> людини проголосувало"
-        many: "<%=count%> людей проголосувало"
-        one: "<%=count%> людина проголосувала"
-        other: "<%=count%> людей проголосувало"
-        zero: "Ніхто ще не проголосував"
-      go_to_original_post: "Ви можете взяти участь в цьому опитуванні, перейшовши до <%= original_post_link %>"
-      original_post: "оригінал запису"
-      result: "Результати"
-      show_result: "Показати результати"
-      vote: "Голосувати"
-      your_vote: "Ваш голос"
-    profile:
-      add_some: "додати"
-      bio: "Про себе"
-      born: "День народження"
-      edit: "редагувати"
-      gender: "Стать"
-      location: "Місцезнаходження"
-      photos: "Фотогорафії"
-      posts: "Записи"
-      you_have_no_tags: "у вас немає міток!"
-    publisher:
-      add_option: "Додати відповідь"
-      markdown_editor:
-        preview: "Попередній перегляд"
-        texts:
-          code: "код"
-          heading: "заголовок"
-          insert_image_description_text: "введіть сюди опис зображення"
-          insert_image_help_text: "Вставте посилання на зображення сюди"
-          insert_image_title: "введіть сюди заголовок зображення"
-          insert_link_description_text: "введіть сюди опис посилання"
-          insert_link_help_text: "Вставте посилання сюди"
-          italic: "текст курсивом"
-          list: "текст списку"
-          quote: "текст цитати"
-          strong: "жирний текст"
-        tooltips:
-          bold: "Жирний"
-          cancel: "Відмінити повідомлення"
-          code: "Вставити код"
-          heading: "Заголовок"
-          insert_image: "Вставити зображення"
-          insert_link: "Вставити посилання"
-          insert_ordered_list: "Вставити нумерований список"
-          insert_unordered_list: "Вставити маркований список"
-          italic: "Курсив"
-          preview: "Попередній перегляд повідомлення"
-          quote: "Вставити цитату"
-          write: "Редагувати повідомлення"
-        write: "Записати"
-      mention_success: "Успішно згадано: <%= names %>"
-      near_from: "Відправлено з: <%= location %>"
-      option: "Відповідь"
-      question: "Питання"
-    remove_post: "Видалити цей запис?"
-    report:
-      name: "Поскаржитися"
-      prompt: "Будь ласка, вкажіть причину:"
-      prompt_default: "образливий зміст"
-      status:
-        created: "Скаргу надіслано"
-        exists: "Скарга вже надіслана"
-    reshares:
-      post: "Поширити запис <%= name %>?"
-      successful: "Ви успішно поділилися записом!"
-    show_all: "Показати все"
-    show_more: "показати більше"
-    stream:
-      comment: "Коментувати"
-      comments:
-        few: "<%= count %> коментарі"
-        many: "<%= count %> коментарів"
-        one: "<%= count %> коментар"
-        other: "<%= count %> коментарів"
-        zero: "<%= count %> коментарів"
-      disable_post_notifications: "Виключити сповіщення для цього запису"
-      enable_post_notifications: "Включити сповіщення для цього запису"
-      follow: "Слідкувати"
-      followed_tag:
-        add_a_tag: "Додати мітку"
-        follow: "Підписатися"
-        title: "#Мітки"
-      hide: "Приховати"
-      hide_nsfw_posts: "приховати NSFW повідомлення"
-      like: "Подобається"
-      likes:
-        few: "Сподобалося: <%= count %>"
-        many: "Сподобалося: <%= count %>"
-        one: "Сподобалося: <%= count %>"
-        other: "Сподобалося: <%= count %>"
-        zero: "Сподобалося: <%= count %> "
-      limited: "Обмежений"
-      more_comments:
-        few: "Ще <%= count %> коментарі"
-        many: "Ще <%= count %> коментарів"
-        one: "Ще <%= count %> коментар"
-        other: "Ще <%= count %> коментарів"
-        zero: "Ще <%= count %> коментарів"
-      no_posts_yet: "Тут поки немає записів."
-      original_post_deleted: "Початкове повідомлення було вилучено автором."
-      permalink: "Постійне посилання"
-      public: "Публічна"
-      reshare: "Поділитись"
-      reshares:
-        few: "Поділилися: <%= count %>"
-        many: "Поділилися: <%= count %>"
-        one: "Поділилися: <%= count %>"
-        other: "Поділилися: <%= count %>"
-        zero: "Поділилися: <%= count %>"
-      show_nsfw_post: "Переглянути запис"
-      show_nsfw_posts: "Показати все"
-      tags:
-        follow: "Стежити за міткою #<%= tag %>"
-        follow_error: "Не зміг підписатись на <%= tag %> :("
-        following: "Ви підписались на мітку #<%= tag %>"
-        stop_following: "Відписатися від мітки #<%= tag %>"
-        stop_following_confirm: "Не слідкувати за міткою #<%= tag %>?"
-        stop_following_error: "Не зміг відписатись від <%= tag %> :("
-      unfollow: "Не слідкувати"
-      unlike: "Hе подобається"
-      via: "через <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Гаразд, мабуть, стежити за міткою #<%= tagName %> було не так вже цікаво..."
     timeago:
-      day: "день"
-      days:
-        other: "%d днів[-i]"
-      hour: "близько години"
-      hours:
-        other: "близько %d годин"
-      inPast: "в будь-який момент"
-      minute: "близько хвилини"
+      prefixAgo: ''
+      suffixAgo: тому
+      suffixFromNow: з цієї миті
+      prefixFromNow: через
+      inPast: в будь-який момент
+      seconds: декілька секунд
+      minute: близько хвилини
       minutes:
         other: "%d хвилин[-и]"
-      month: "близько місяця"
+      hour: близько години
+      hours:
+        other: близько %d годин
+      day: день
+      days:
+        other: "%d днів[-i]"
+      month: близько місяця
       months:
         other: "%d місяця[-ів]"
-      prefixAgo: ""
-      prefixFromNow: "через"
-      seconds: "декілька секунд"
-      suffixAgo: "тому"
-      suffixFromNow: "з цієї миті"
-      wordSeparator: " "
-      year: "близько року"
+      year: близько року
       years:
         other: "%d років"
-    unblock_failed: "Не вдалось розблокувати цього користувача"
+      wordSeparator: " "
+    cancel: Відміна
+    confirm_dialog: Ви упевнені?
+    confirm_unload: Будь ласка, підтвердіть, що хочете залишити сторінку - введені вами дані не будуть збережені.
+    create: Створити
+    delete: Вилучити
+    ignore: Iгнорувати
+    report:
+      prompt: 'Будь ласка, вкажіть причину:'
+      prompt_default: образливий зміст
+      name: Поскаржитися
+      status:
+        created: Скаргу надіслано
+        exists: Скарга вже надіслана
+    ignore_user: Ігнорувати цього користувача?
+    ignore_failed: Неможливо ігнорувати цього користувача
+    hide_post: Приховати запис?
+    hide_post_failed: Неможливо приховати запис
+    remove_post: Видалити цей запис?
+    unblock_failed: Не вдалось розблокувати цього користувача
+    and: і
+    comma: ","
+    edit: Змінити
+    no_results: Нічого не знайдено
+    show_all: Показати все
+    admins:
+      dashboard:
+        up_to_date: Ваш под знаходиться в актуальному стані!
+        outdated: Ваш под застарів.
+        compare_versions: Останньою версією Діаспори* є <%= latestVersion %>, Ваш под працює на <%= podVersion %>.
+        error: Неможливо визначити останню версію Діаспори*.
+    admin:
+      pods:
+        pod: Под
+        ssl: SSL
+        ssl_enabled: SSL включено
+        ssl_disabled: SSL вимкнено
+        added: Додано
+        status: Статус
+        states:
+          unchecked: Неперевірений
+          no_errors: Добре
+          dns_failed: Сервер імен (DNS) зірвався
+          net_failed: Спроба підключення не вдалася
+          ssl_failed: Безпечне з'єднання (SSL) не вдалося
+          http_failed: HTTP з'єднання розірвано
+          version_failed: Не вдалося одержати версію програмного забезпечення
+          unknown_error: Невідома помилка сталася під час перевірки
+        actions: Дії
+        offline_since: 'відсутня, так як:'
+        last_check: 'остання перевірка:'
+        more_info: показати більше інформації
+        check: виконати тест з'єднання
+        recheck:
+          success: Под був тільки що перевірив ще раз.
+          failure: Перевірка не була виконана.
+        follow_link: відкрити посилання в браузері
+        no_info: Немає додаткової інформації на даний момент
+        server_software: 'Серверне програмне забезпечення:'
+        response_time: 'Час відгуку:'
+        ms:
+          one: "<%= count %> мс"
+          few: "<%= count %> мс"
+          many: "<%= count %> мс"
+          other: "<%= count %> мс"
+        unknown: невідомий
+        not_available: недоступний
+        unchecked:
+          one: Існує ще один под, який не був перевірений на всіх.
+          few: Існує ще <%= count %> поди, які не були перевірені на всіх.
+          many: Існує ще <%= count %> подів, які не були перевірені на всіх.
+          other: Існує ще <%= count %> подів, які не були перевірені на всіх.
+        version_failed:
+          one: "<%= count %> под не має інформації про версію (старий под, нема NodeInfo)"
+          few: "<%= count %> поди не мають інформації про версії (старі поди, нема NodeInfo)"
+          many: "<%= count %> подів не мають інформації про версії (старі поди, нема NodeInfo)"
+          other: "<%= count %> подів не мають інформації про версії (старі поди, нема NodeInfo)"
+        errors:
+          one: Перевірка з'єднання повернула помилку для одного поду.
+          few: Перевірка з'єднання повернула помилку для <%= count %> подів.
+          many: Перевірка з'єднання повернула помилку для <%= count %> подів.
+          other: Перевірка з'єднання повернула помилку для <%= count %> подів.
+    aspects:
+      name: Назва
+      create:
+        add_a_new_aspect: Новий аспект
+        success: Ваша новий аспект <%= name %> створено
+        failure: Не вдалось створити аспект
+    errors:
+      connection: Неможливо підключитися до сервера.
+    contacts:
+      add_contact: Додати контакт
+      remove_contact: Видалити контакт
+      error_add: Неможливо додати <%= name %>  в аспект :(
+      error_remove: Неможливо видалити <%= name %> з аспекту :(
+      search_no_results: Контакти не знайдено
+    my_activity: Моя діяльність
+    my_stream: Мій потік
+    my_aspects: Мої аспекти
+    publisher:
+      near_from: 'Відправлено з: <%= location %>'
+      option: Відповідь
+      add_option: Додати відповідь
+      question: Питання
+      markdown_editor:
+        preview: Попередній перегляд
+        write: Записати
+        tooltips:
+          bold: Жирний
+          italic: Курсив
+          heading: Заголовок
+          insert_link: Вставити посилання
+          insert_image: Вставити зображення
+          insert_ordered_list: Вставити нумерований список
+          insert_unordered_list: Вставити маркований список
+          preview: Попередній перегляд повідомлення
+          write: Редагувати повідомлення
+          cancel: Відмінити повідомлення
+          quote: Вставити цитату
+          code: Вставити код
+        texts:
+          strong: жирний текст
+          italic: текст курсивом
+          heading: заголовок
+          insert_link_description_text: введіть сюди опис посилання
+          insert_link_help_text: Вставте посилання сюди
+          insert_image_description_text: введіть сюди опис зображення
+          insert_image_help_text: Вставте посилання на зображення сюди
+          insert_image_title: введіть сюди заголовок зображення
+          list: текст списку
+          quote: текст цитати
+          code: код
+      mention_success: 'Успішно згадано: <%= names %>'
+    bookmarklet:
+      post_something: Опублікувати в Діаспорі*
+      post_submit: Відправка запису...
+      post_success: Відправка завершена! Закриття вікна...
+    aspect_dropdown:
+      add_to_aspect: Додати контакт
+      select_aspects: Вибрати аспекти
+      all_aspects: Усі аспекти
+      updating: оновлюється...
+      mobile_row_checked: "<%= name %> (видалити)"
+      mobile_row_unchecked: "<%= name %> (додати)"
+      stopped_sharing_with: Ви перестали ділитися з <%= name %>.
+      started_sharing_with: Ви почали ділитися з <%= name %>!
+      error: Неможливо почати ділитися з користувачем <%= name %>. Можливо, ви його заблокували?
+      error_remove: Неможливо видалити <%= name %> з аспекту :(
+      toggle:
+        zero: Вибрати аспекти
+        one: У <%= count %> аспектах
+        few: У <%= count %> аспектах
+        many: У <%= count %> аспектах
+        other: У <%= count %> аспектах
+    show_more: показати більше
+    failed_to_post_message: Не вдалося надіслати повідомлення!
+    failed_to_remove: Видалення не завершено!
+    comments:
+      show: Показати усі коментарі
+      hide: приховати коментарі
+      no_comments: Коментарів ще немає.
+    reshares:
+      successful: Ви успішно поділилися записом!
+      post: Поширити запис <%= name %>?
+    aspect_navigation:
+      select_all: Вибрати всі
+      deselect_all: Зняти вибір з усіх
+      no_aspects: Аспект не вибраний
+      add_an_aspect: "+ Додати аспект"
+    getting_started:
+      hey: Привіт, <%= name %>!
+      no_tags: Ви не стежите за жодною міткою! Все одно продовжити?
+      alright_ill_wait: Добре, я почекаю.
+      preparing_your_stream: Підготовка вашого особистого потоку...
+    photo_uploader:
+      upload_photos: Завантажити фото
+      looking_good: Боже мій, ви виглядаєте приголомшливо!
+      completed: "<%= file %> готово"
+      error: Виникла проблема при завантаженні <%= file %>
+      invalid_ext: "{file} має неприпустиме розширення. Дозволені тільки {extensions}."
+      size_error: "{file} має занадто великий розмір, максимальний розмір файлу: {sizeLimit}."
+      empty: "{file} порожній, виберіть будь ласка файл повторно."
+    tags:
+      wasnt_that_interesting: 'Гаразд, мабуть, стежити за міткою #<%= tagName %> було не так вже цікаво...'
+    people:
+      not_found: нікого не знайдено...
+      mention: Згадка
+      message: Повідомлення
+      edit_my_profile: Редагувати мій профіль
+      stop_ignoring: Припинити ігнорування
+      helper:
+        is_sharing: "<%= name %> ділиться з Вами"
+        is_not_sharing: "<%= name %> не ділиться з Вами"
+    profile:
+      edit: редагувати
+      add_some: додати
+      you_have_no_tags: у вас немає міток!
+      bio: Про себе
+      location: Місцезнаходження
+      gender: Стать
+      born: День народження
+      photos: Фотогорафії
+      posts: Записи
+    conversation:
+      create:
+        no_recipient: Ей, вам потрібно додати спочатку одержувача!
+      new:
+        no_contacts: Перш ніж розпочати розмову, треба мати хоча б один контакт.
+    notifications:
+      mark_read: Помітити як прочитане
+      mark_unread: Помітити як непрочитане
+      new_notifications:
+        one: Ви маєте <%= count %> непрочитане повідомлення
+        few: Ви маєте <%= count %> непрочитані повідомлення
+        many: Ви маєте <%= count %> непрочитані повідомлення
+        other: Ви маєте <%= count %> непрочитаних повідомленнь
+    stream:
+      hide: Приховати
+      public: Публічна
+      limited: Обмежений
+      like: Подобається
+      unlike: Hе подобається
+      reshare: Поділитись
+      comment: Коментувати
+      original_post_deleted: Початкове повідомлення було вилучено автором.
+      show_nsfw_post: Переглянути запис
+      show_nsfw_posts: Показати все
+      hide_nsfw_posts: приховати NSFW повідомлення
+      follow: Слідкувати
+      unfollow: Не слідкувати
+      enable_post_notifications: Включити сповіщення для цього запису
+      disable_post_notifications: Виключити сповіщення для цього запису
+      permalink: Постійне посилання
+      via: через <%= provider %>
+      no_posts_yet: Тут поки немає записів.
+      likes:
+        zero: 'Сподобалося: <%= count %> '
+        one: 'Сподобалося: <%= count %>'
+        few: 'Сподобалося: <%= count %>'
+        many: 'Сподобалося: <%= count %>'
+        other: 'Сподобалося: <%= count %>'
+      reshares:
+        zero: 'Поділилися: <%= count %>'
+        one: 'Поділилися: <%= count %>'
+        few: 'Поділилися: <%= count %>'
+        many: 'Поділилися: <%= count %>'
+        other: 'Поділилися: <%= count %>'
+      comments:
+        zero: "<%= count %> коментарів"
+        one: "<%= count %> коментар"
+        few: "<%= count %> коментарі"
+        many: "<%= count %> коментарів"
+        other: "<%= count %> коментарів"
+      more_comments:
+        zero: Ще <%= count %> коментарів
+        one: Ще <%= count %> коментар
+        few: Ще <%= count %> коментарі
+        many: Ще <%= count %> коментарів
+        other: Ще <%= count %> коментарів
+      followed_tag:
+        title: "#Мітки"
+        add_a_tag: Додати мітку
+        follow: Підписатися
+      tags:
+        follow: 'Стежити за міткою #<%= tag %>'
+        following: 'Ви підписались на мітку #<%= tag %>'
+        stop_following: 'Відписатися від мітки #<%= tag %>'
+        stop_following_confirm: 'Не слідкувати за міткою #<%= tag %>?'
+        follow_error: Не зміг підписатись на <%= tag %> :(
+        stop_following_error: Не зміг відписатись від <%= tag %> :(
+    header:
+      home: На головну
+      profile: Профіль
+      contacts: Контакти
+      settings: Налаштування
+      help: Довідка
+      admin: Керування
+      moderator: Модератор
+      log_out: Вийти
+      toggle_navigation: Перемикання навігації
+      switch_to_touch_optimized_mode: Перемкнутися на режим, оптимізований для дотиків
+      notifications: Повідомлення
+      conversations: Розмови
+      search: 'Пошук людей чи #міток'
+      recent_notifications: Останнє повідомлення
+      mark_all_as_read: Позначити все як прочитане
+      view_all: Показати все
+      close: закрити
     viewer:
-      reshared: "Поділилися"
+      reshared: Поділилися
+    poll:
+      vote: Голосувати
+      go_to_original_post: Ви можете взяти участь в цьому опитуванні, перейшовши до <%= original_post_link %>
+      original_post: оригінал запису
+      result: Результати
+      count:
+        zero: Ніхто ще не проголосував
+        one: "<%=count%> людина проголосувала"
+        few: "<%=count%> людини проголосувало"
+        many: "<%=count%> людей проголосувало"
+        other: "<%=count%> людей проголосувало"
+      answer_count:
+        zero: 0 голосів
+        one: "<%=count%> голос"
+        few: "<%=count%> голоси"
+        many: "<%=count%> голосів"
+        other: "<%=count%> голосів"
+      show_result: Показати результати
+      close_result: Приховати результати
+      your_vote: Ваш голос

@@ -7,108 +7,108 @@
 oc:
   devise:
     confirmations:
-      confirmed: "Vòstre compte es estat confirmat. Ara, sètz connectat."
+      confirmed: Vòstre compte es estat confirmat. Ara, sètz connectat.
+      send_instructions: Recebretz un messatge amb d'instruccions per confirmar vòstre corrièl dins una estona.
+      send_paranoid_instructions: Se vòstre corrièl existís dins nòstra basa de donadas, recebretz a vòstra adreça un messatge amb instruccions per confirmar vòstre corrièl dins una estona.
       new:
-        resend_confirmation: "Renviar las instruccions de confirmacion"
-      send_instructions: "Recebretz un messatge amb d'instruccions per confirmar vòstre corrièl dins una estona."
-      send_paranoid_instructions: "Se vòstre corrièl existís dins nòstra basa de donadas, recebretz a vòstra adreça un messatge amb instruccions per confirmar vòstre corrièl dins una estona."
+        resend_confirmation: Renviar las instruccions de confirmacion
     failure:
-      already_authenticated: "Sètz ja connectat"
-      inactive: "Vòstre compte es pas encara estat activat."
+      already_authenticated: Sètz ja connectat
+      inactive: Vòstre compte es pas encara estat activat.
       invalid: "%{authentication_keys} o senhal invalid."
-      invalid_token: "Geton d'autentificacion invalid."
-      last_attempt: "Avètz encara una tempatativa abans que vòstre compte siá verrolhat."
-      locked: "Vòstre compte es verrolhat."
+      locked: Vòstre compte es verrolhat.
+      last_attempt: Avètz encara una tempatativa abans que vòstre compte siá verrolhat.
       not_found_in_database: "%{authentication_keys} o senhal pas valid."
-      timeout: "Vòstra session a expirat. Connectatz-vos tornamai per contunhar."
-      unauthenticated: "Vos cal vos connectar o vos inscriure abans de contunhar."
-      unconfirmed: "Vos cal confirmar vòstre compte abans de contunhar."
-    invitations:
-      invitation_token_invalid: "O planhèm ! Aqueste convit es pas valid."
-      send_instructions: "Vòstre convit es estat mandat."
-      updated: "Vòstre senhal es estat creat. Ara, sètz connectat."
+      timeout: Vòstra session a expirat. Connectatz-vos tornamai per contunhar.
+      unauthenticated: Vos cal vos connectar o vos inscriure abans de contunhar.
+      unconfirmed: Vos cal confirmar vòstre compte abans de contunhar.
+      invalid_token: Geton d'autentificacion invalid.
     mailer:
       confirmation_instructions:
-        confirm: "Confirmar mon compte"
-        subject: "Instruccions de confirmacion"
-        you_can_confirm: "Podètz confirmar vòstre compte en clicant sul ligam çaijós :"
-      hello: "Adieusiatz %{username} !"
+        subject: Instruccions de confirmacion
+        you_can_confirm: 'Podètz confirmar vòstre compte en clicant sul ligam çaijós :'
+        confirm: Confirmar mon compte
+      reset_password_instructions:
+        subject: Instruccions de reïnicializacion del senhal
+        someone_requested: Qualqu'un a demandat un ligam per cambiar vòstre senhal. S'èretz vos, podètz o far amb lo ligam dejós.
+        change: Cambiar mon senhal
+        wont_change: Vòstre senhal cambiarà pas tant que n'auretz pas creat un novèl en accedissent al ligam çaijós.
+        ignore: S’avètz pas demandat aquò, mercé d'ignorar aqueste corrièl.
+      unlock_instructions:
+        subject: Instruccions de desverrolhatge
+        account_locked: Vòstre compte es estat verrolhat en rason d'un nombre excessiu de temptativas infructuosas de connexion.
+        click_to_unlock: 'Clicatz sul ligam çaijós per desblocar vòstre compte :'
+        unlock: Desverrolhar mon compte
+      password_change:
+        subject: Senhal cambiat
+      welcome: Benvenguda %{username} !
+      hello: Adieusiatz %{username} !
       inviter:
-        accept_at: "a %{url}, lo podètz acceptar a travèrs lo ligal çaijós."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} vos a convidat a rejónher diaspora*"
-      password_change:
-        subject: "Senhal cambiat"
-      reset_password_instructions:
-        change: "Cambiar mon senhal"
-        ignore: "S’avètz pas demandat aquò, mercé d'ignorar aqueste corrièl."
-        someone_requested: "Qualqu'un a demandat un ligam per cambiar vòstre senhal. S'èretz vos, podètz o far amb lo ligam dejós."
-        subject: "Instruccions de reïnicializacion del senhal"
-        wont_change: "Vòstre senhal cambiarà pas tant que n'auretz pas creat un novèl en accedissent al ligam çaijós."
-      unlock_instructions:
-        account_locked: "Vòstre compte es estat verrolhat en rason d'un nombre excessiu de temptativas infructuosas de connexion."
-        click_to_unlock: "Clicatz sul ligam çaijós per desblocar vòstre compte :"
-        subject: "Instruccions de desverrolhatge"
-        unlock: "Desverrolhar mon compte"
-      welcome: "Benvenguda %{username} !"
+        accept_at: a %{url}, lo podètz acceptar a travèrs lo ligal çaijós.
     omniauth_callbacks:
-      failure: "Impossible de vos indentificar de %{kind} perque %{reason}"
-      success: "Autentificacion capitada de lo compte %{kind}."
+      failure: Impossible de vos indentificar de %{kind} perque %{reason}
+      success: Autentificacion capitada de lo compte %{kind}.
     passwords:
+      no_token: Podètz pas accedir a aquesta pagina sens venir d'un corrièl de reïnicializacion de senhal. S'es lo cas, mercés de vos assegurar qu'avètz utilizat l'URL completa.
+      send_instructions: Recebretz un messatge amb d'instruccions per reïnicializar vòstre senhal dins una estona.
+      send_paranoid_instructions: Se vòstre corrièl existís dins nòstra basa de donadas, recebretz a vòstra adreça un ligam per recuperar vòstre senhal dins una estona.
+      updated: Vòstre senhal es estat modificat. Ara, sètz connectat.
+      updated_not_active: Vòstre senhal es estat cambiat amb succès.
       edit:
-        change_password: "Cambiar mon senhal"
-        confirm_password: "Confirmar la senhal"
-        new_password: "Senhal novèl"
+        change_password: Cambiar mon senhal
+        new_password: Senhal novèl
+        confirm_password: Confirmar la senhal
       new:
-        email: "Adreça de corrièl"
-        forgot_password: "Avètz oblidat vòstre senhal ?"
-        reset_password: "Reïnicializar lo senhal"
-        send_password_instructions: "Mandar las instruccions de reïnicializacion de senhal"
-      no_token: "Podètz pas accedir a aquesta pagina sens venir d'un corrièl de reïnicializacion de senhal. S'es lo cas, mercés de vos assegurar qu'avètz utilizat l'URL completa."
-      send_instructions: "Recebretz un messatge amb d'instruccions per reïnicializar vòstre senhal dins una estona."
-      send_paranoid_instructions: "Se vòstre corrièl existís dins nòstra basa de donadas, recebretz a vòstra adreça un ligam per recuperar vòstre senhal dins una estona."
-      updated: "Vòstre senhal es estat modificat. Ara, sètz connectat."
-      updated_not_active: "Vòstre senhal es estat cambiat amb succès."
+        forgot_password: Avètz oblidat vòstre senhal ?
+        reset_password: Reïnicializar lo senhal
+        email: Adreça de corrièl
+        send_password_instructions: Mandar las instruccions de reïnicializacion de senhal
     registrations:
-      destroyed: "Adissatz ! Vòstre compte es estat suprimit amb succès. Esperem vos tornar veire lèu."
-      signed_up: "Vòstra inscripcion es estada efectuada. Se aquesta darrièra es activada, una confirmacion es estada mandada a vòstra adreça de corrièr electronic."
-      signed_up_but_inactive: "Vos sètz inscrit amb succès. Pasmens, vos podètz pas connectar perque vòstre compte es pas encara activat."
-      signed_up_but_locked: "Vos sètz inscrit amb succès. Pasmens, podètz pas vos connectar perque vòstre compte es verrolhat."
-      signed_up_but_unconfirmed: "Un corrièr electronic amb un ligam de confirmacion vos es estat mandat. Seguissètz aqueste ligam per activar vòstre compte."
-      update_needs_confirmation: "Avètz mes a jorn corrèctament vòstre compte mas nos cal verificar vòstra novèla adreça electronica. Consultatz vòstra bóstia de letras e clicatz sul ligam de confirmacion."
-      updated: "Avètz mes a jorn vòstre compte."
+      destroyed: Adissatz ! Vòstre compte es estat suprimit amb succès. Esperem vos tornar veire lèu.
+      signed_up: Vòstra inscripcion es estada efectuada. Se aquesta darrièra es activada, una confirmacion es estada mandada a vòstra adreça de corrièr electronic.
+      signed_up_but_inactive: Vos sètz inscrit amb succès. Pasmens, vos podètz pas connectar perque vòstre compte es pas encara activat.
+      signed_up_but_locked: Vos sètz inscrit amb succès. Pasmens, podètz pas vos connectar perque vòstre compte es verrolhat.
+      signed_up_but_unconfirmed: Un corrièr electronic amb un ligam de confirmacion vos es estat mandat. Seguissètz aqueste ligam per activar vòstre compte.
+      update_needs_confirmation: Avètz mes a jorn corrèctament vòstre compte mas nos cal verificar vòstra novèla adreça electronica. Consultatz vòstra bóstia de letras e clicatz sul ligam de confirmacion.
+      updated: Avètz mes a jorn vòstre compte.
     sessions:
-      already_signed_out: "Desconnexion capitada."
+      signed_in: Ara, sètz connectat.
+      signed_out: Ara, sètz desconnectat.
+      already_signed_out: Desconnexion capitada.
       new:
-        login: "Connexion"
-        modern_browsers: "supòrta solament de navigadors modèrnes."
-        password: "Senhal"
-        remember_me: "Se remembrar de ieu"
-        sign_in: "Connexion"
-        username: "Nom d'utilizaire"
-      signed_in: "Ara, sètz connectat."
-      signed_out: "Ara, sètz desconnectat."
+        login: Connexion
+        username: Nom d'utilizaire
+        password: Senhal
+        sign_in: Connexion
+        remember_me: Se remembrar de ieu
+        modern_browsers: supòrta solament de navigadors modèrnes.
+    unlocks:
+      send_instructions: Recebretz un corrièl amb d'instruccions per lo desverrolhar vòstre compte d'aicí qualques minutas.
+      send_paranoid_instructions: Se vòstre compte existís, recebretz un corrièl amb d'instruccions per lo desverrolhar d'aicí qualques minutas.
+      unlocked: Vòstre compte es estat desverrolhat. Ara, sètz connectat.
+      new:
+        resend_unlock: Renviar las instruccions de desblocatge
+    invitations:
+      send_instructions: Vòstre convit es estat mandat.
+      invitation_token_invalid: O planhèm ! Aqueste convit es pas valid.
+      updated: Vòstre senhal es estat creat. Ara, sètz connectat.
     shared:
       links:
-        forgot_your_password: "Avètz oblidat vòstre senhal ?"
-        receive_confirmation: "Avètz pas recebut las instruccions de confirmacion ?"
-        receive_unlock: "Avètz pas recebut las instruccions de desblocatge ?"
-        sign_in: "Connexion"
-        sign_up: "Crear un compte"
-        sign_up_closed: "Las inscripcions son tampadas pel moment."
-    unlocks:
-      new:
-        resend_unlock: "Renviar las instruccions de desblocatge"
-      send_instructions: "Recebretz un corrièl amb d'instruccions per lo desverrolhar vòstre compte d'aicí qualques minutas."
-      send_paranoid_instructions: "Se vòstre compte existís, recebretz un corrièl amb d'instruccions per lo desverrolhar d'aicí qualques minutas."
-      unlocked: "Vòstre compte es estat desverrolhat. Ara, sètz connectat."
+        sign_in: Connexion
+        sign_up: Crear un compte
+        sign_up_closed: Las inscripcions son tampadas pel moment.
+        forgot_your_password: Avètz oblidat vòstre senhal ?
+        receive_confirmation: Avètz pas recebut las instruccions de confirmacion ?
+        receive_unlock: Avètz pas recebut las instruccions de desblocatge ?
   errors:
     messages:
-      already_confirmed: "es ja estat confirmat"
-      confirmation_period_expired: "auriá degut èsser confirmat dins los %{period}, demandatz un novèl"
-      expired: "a expirat, fasètz una novèla demanda"
-      not_found: "pas trobat"
-      not_locked: "èra pas verrolhat"
+      already_confirmed: es ja estat confirmat
+      confirmation_period_expired: auriá degut èsser confirmat dins los %{period}, demandatz un novèl
+      expired: a expirat, fasètz una novèla demanda
+      not_found: pas trobat
+      not_locked: èra pas verrolhat
       not_saved:
-        one: "1 error a empachat aqueste %{resource} d'èsser utilizat"
+        one: 1 error a empachat aqueste %{resource} d'èsser utilizat
         other: "%{count} errors an empachat aqueste %{resource} d'èsser utilizat"

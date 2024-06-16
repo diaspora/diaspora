@@ -10,10 +10,10 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins "*"
-    resource "/api/openid_connect/user_info", methods: %i(get post)
-    resource "/api/v0/*", methods: %i(delete get post)
-    resource "/.well-known/host-meta"
+    resource "/api/*", methods: :any
     resource "/.well-known/webfinger"
     resource "/.well-known/openid-configuration"
+    resource "/.well-known/nodeinfo"
+    resource "/nodeinfo/*"
   end
 end

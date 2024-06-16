@@ -13,6 +13,7 @@
     padding-right: 10px;
   }
 }
+
 // scss-lint:enable SelectorFormat
 
 .enclosed-checkbox label {
@@ -28,9 +29,31 @@
     max-width: 200px;
     width: auto;
   }
+
+  .crop-container {
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+  }
+
+  .preview {
+    border-radius: 4px;
+    height: 50px;
+    overflow: hidden;
+    width: 50px;
+  }
+
+  .spinner {
+    height: 50px;
+    width: 50px;
+  }
 }
 
-.settings-visibility { margin-left: 10px; }
+.settings-visibility {
+  margin-left: 10px;
+}
 
 .page-profiles.action-edit textarea {
   max-width: 100%;

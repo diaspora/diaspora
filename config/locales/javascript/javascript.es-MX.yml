@@ -6,129 +6,129 @@
 
 es-MX:
   javascripts:
-    and: "y"
-    aspect_dropdown:
-      add_to_aspect: "Añadir contacto"
-      all_aspects: "Todos los aspectos"
-      error: "No se pudo empezar a compartir con <%= name %>. ¿Le estás ignorando?"
-      error_remove: "No se pudo eliminar a <%= name %> del aspecto."
-      select_aspects: "Seleccionar aspectos"
-      started_sharing_with: "¡Has comenzado a compartir con <%= name %>!"
-      stopped_sharing_with: "Has dejado de compartir con <%= name %>."
-      toggle:
-        one: "En un aspecto"
-        other: "En <%= count %> aspectos"
-        zero: "Elige los aspectos"
-    aspect_navigation:
-      add_an_aspect: "+ Añadir un aspecto"
-      deselect_all: "Desmarcar todos"
-      no_aspects: "No hay aspectos seleccionados"
-      select_all: "Marcar todos"
-    comma: ","
-    comments:
-      hide: "ocultar comentarios"
-      no_comments: "Aún no hay comentarios."
-      show: "mostrar todos los comentarios"
-    confirm_dialog: "¿Estás seguro?"
-    delete: "Borrar"
-    edit: "Editar"
-    failed_to_post_message: "¡No se pudo publicar el mensaje!"
-    failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
-    getting_started:
-      alright_ill_wait: "Muy bien, esperaré."
-      hey: "¡Hola, <%= name %>!"
-      no_tags: "¡Eh, no has seguido ninguna etiqueta! ¿Deseas continuar de todas formas?"
-      preparing_your_stream: "Preparando tu entrada personalizada…"
-    header:
-      admin: "Administrador"
-      close: "cerrar"
-      contacts: "Contactos"
-      help: "Ayuda"
-      home: "Inicio"
-      log_out: "Salir"
-      mark_all_as_read: "Marcar todo como leído"
-      notifications: "Notificaciones"
-      profile: "Perfil"
-      recent_notifications: "Notificaciones recientes"
-      search: "Buscar"
-      settings: "Preferencias"
-      view_all: "Ver todo"
-    ignore: "Ignorar"
-    ignore_user: "¿Ignorar a este usuario?"
-    my_activity: "Mi actividad"
-    my_aspects: "Mis aspectos"
-    my_stream: "Entrada"
-    people:
-      not_found: "y nadie fue encontrado…"
-    photo_uploader:
-      completed: "<%= file %> completado"
-      empty: "El archivo {file} está vacío, por favor selecciona los archivos nuevamente sin incluir este."
-      error: "Ocurrió un problema al cargar el archivo <%= file %>"
-      invalid_ext: "El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} están permitidas."
-      looking_good: "¡Ah, te ves increíble!"
-      size_error: "El archivo {file} es demasiado grande, el tamaño máximo de un archivo es {sizeLimit}."
-    publisher:
-      near_from: "Publicado desde: <%= location %>"
-    reshares:
-      post: "¿Compartir la publicación de <%= name %>?"
-      successful: "¡La publicación se compartió exitosamente!"
-    show_more: "mostrar más"
-    stream:
-      comment: "Comentar"
-      follow: "Seguir"
-      followed_tag:
-        add_a_tag: "Añadir una etiqueta"
-        follow: "Seguir"
-        title: "#Etiquetas seguidas"
-      hide: "Ocultar"
-      hide_nsfw_posts: "Ocultar publicaciones no aptas para todo público"
-      like: "Me gusta"
-      likes:
-        one: "Le gusta a una persona"
-        other: "Le gusta a <%= count %> personas"
-        zero: "Le gusta a <%= count %> personas"
-      limited: "Limitado"
-      more_comments:
-        one: "Mostrar un comentario más"
-        other: "Mostrar <%= count %> comentarios más"
-        zero: "Mostrar <%= count %> comentarios más"
-      original_post_deleted: "La publicación original fue eliminada por el autor"
-      public: "Público"
-      reshare: "Volver a compartir"
-      reshares:
-        one: "Compartido una vez"
-        other: "Compartido <%= count %> veces"
-        zero: "Compartido <%= count %> veces"
-      show_nsfw_post: "Mostrar publicación"
-      show_nsfw_posts: "Mostrar todo"
-      tags:
-        follow: "Seguir #<%= tag %>"
-        following: "Siguiendo #<%= tag %>"
-        stop_following: "Dejar de seguir #<%= tag %>"
-      unfollow: "Dejar de seguir"
-      unlike: "No me gusta"
-    tags:
-      wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante…"
     timeago:
-      day: "un día"
-      days:
-        other: "%d días"
-      hour: "una hora aproximadamente"
-      hours:
-        other: "%d horas aproximadamente"
-      minute: "un minuto aproximadamente"
+      prefixAgo: hace
+      suffixAgo: ''
+      suffixFromNow: desde ahora
+      prefixFromNow: dentro de
+      seconds: menos de un minuto
+      minute: un minuto aproximadamente
       minutes:
         other: "%d minutos"
-      month: "un mes aproximadamente"
+      hour: una hora aproximadamente
+      hours:
+        other: "%d horas aproximadamente"
+      day: un día
+      days:
+        other: "%d días"
+      month: un mes aproximadamente
       months:
         other: "%d meses"
-      prefixAgo: "hace"
-      prefixFromNow: "dentro de"
-      seconds: "menos de un minuto"
-      suffixAgo: ""
-      suffixFromNow: "desde ahora"
-      year: "un año aproximadamente"
+      year: un año aproximadamente
       years:
         other: "%d años"
+    confirm_dialog: "¿Estás seguro?"
+    delete: Borrar
+    ignore: Ignorar
+    ignore_user: "¿Ignorar a este usuario?"
+    and: "y"
+    comma: ","
+    edit: Editar
+    my_activity: Mi actividad
+    my_stream: Entrada
+    my_aspects: Mis aspectos
+    publisher:
+      near_from: 'Publicado desde: <%= location %>'
+    aspect_dropdown:
+      add_to_aspect: Añadir contacto
+      select_aspects: Seleccionar aspectos
+      all_aspects: Todos los aspectos
+      stopped_sharing_with: Has dejado de compartir con <%= name %>.
+      started_sharing_with: "¡Has comenzado a compartir con <%= name %>!"
+      error: No se pudo empezar a compartir con <%= name %>. ¿Le estás ignorando?
+      error_remove: No se pudo eliminar a <%= name %> del aspecto.
+      toggle:
+        zero: Elige los aspectos
+        one: En un aspecto
+        other: En <%= count %> aspectos
+    show_more: mostrar más
+    failed_to_post_message: "¡No se pudo publicar el mensaje!"
+    failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
+    comments:
+      show: mostrar todos los comentarios
+      hide: ocultar comentarios
+      no_comments: Aún no hay comentarios.
+    reshares:
+      successful: "¡La publicación se compartió exitosamente!"
+      post: "¿Compartir la publicación de <%= name %>?"
+    aspect_navigation:
+      select_all: Marcar todos
+      deselect_all: Desmarcar todos
+      no_aspects: No hay aspectos seleccionados
+      add_an_aspect: "+ Añadir un aspecto"
+    getting_started:
+      hey: "¡Hola, <%= name %>!"
+      no_tags: "¡Eh, no has seguido ninguna etiqueta! ¿Deseas continuar de todas formas?"
+      alright_ill_wait: Muy bien, esperaré.
+      preparing_your_stream: Preparando tu entrada personalizada…
+    photo_uploader:
+      looking_good: "¡Ah, te ves increíble!"
+      completed: "<%= file %> completado"
+      error: Ocurrió un problema al cargar el archivo <%= file %>
+      invalid_ext: El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} están permitidas.
+      size_error: El archivo {file} es demasiado grande, el tamaño máximo de un archivo es {sizeLimit}.
+      empty: El archivo {file} está vacío, por favor selecciona los archivos nuevamente sin incluir este.
+    tags:
+      wasnt_that_interesting: 'Muy bien, supongo que #<%= tagName %> no era tan interesante…'
+    people:
+      not_found: y nadie fue encontrado…
+    stream:
+      hide: Ocultar
+      public: Público
+      limited: Limitado
+      like: Me gusta
+      unlike: No me gusta
+      reshare: Volver a compartir
+      comment: Comentar
+      original_post_deleted: La publicación original fue eliminada por el autor
+      show_nsfw_post: Mostrar publicación
+      show_nsfw_posts: Mostrar todo
+      hide_nsfw_posts: Ocultar publicaciones no aptas para todo público
+      follow: Seguir
+      unfollow: Dejar de seguir
+      likes:
+        zero: Le gusta a <%= count %> personas
+        one: Le gusta a una persona
+        other: Le gusta a <%= count %> personas
+      reshares:
+        zero: Compartido <%= count %> veces
+        one: Compartido una vez
+        other: Compartido <%= count %> veces
+      more_comments:
+        zero: Mostrar <%= count %> comentarios más
+        one: Mostrar un comentario más
+        other: Mostrar <%= count %> comentarios más
+      followed_tag:
+        title: "#Etiquetas seguidas"
+        add_a_tag: Añadir una etiqueta
+        follow: Seguir
+      tags:
+        follow: 'Seguir #<%= tag %>'
+        following: 'Siguiendo #<%= tag %>'
+        stop_following: 'Dejar de seguir #<%= tag %>'
+    header:
+      home: Inicio
+      profile: Perfil
+      contacts: Contactos
+      settings: Preferencias
+      help: Ayuda
+      admin: Administrador
+      log_out: Salir
+      notifications: Notificaciones
+      search: Buscar
+      recent_notifications: Notificaciones recientes
+      mark_all_as_read: Marcar todo como leído
+      view_all: Ver todo
+      close: cerrar
     viewer:
-      reshared: "Compartido"
+      reshared: Compartido

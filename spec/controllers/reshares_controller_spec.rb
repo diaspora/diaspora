@@ -1,34 +1,34 @@
 # frozen_string_literal: true
 
-describe ResharesController, :type => :controller do
-  describe '#create' do
+describe ResharesController, type: :controller do
+  describe "#create" do
     let(:post_request!) {
       post :create, params: {root_guid: @post_guid}, format: :json
     }
 
     before do
-      @post = FactoryGirl.create(:status_message, :public => true)
+      @post = FactoryBot.create(:status_message, public: true)
       @post_guid = @post.guid
     end
 
-    it 'requires authentication' do
+    it "requires authentication" do
       post_request!
       expect(response).not_to be_successful
     end
 
-    context 'with an authenticated user' do
+    context "with an authenticated user" do
       before do
         sign_in(bob, scope: :user)
         allow(@controller).to receive(:current_user).and_return(bob)
       end
 
-      it 'succeeds' do
+      it "succeeds" do
         expect(response).to be_successful
         post_request!
       end
 
-      it 'creates a reshare' do
-        expect{
+      it "creates a reshare" do
+        expect {
           post_request!
         }.to change(Reshare, :count).by(1)
       end
@@ -39,25 +39,25 @@ describe ResharesController, :type => :controller do
         post_request!
       end
 
-      context 'resharing a reshared post' do
+      context "resharing a reshared post" do
         before do
-          FactoryGirl.create(:reshare, :root => @post, :author => bob.person)
+          FactoryBot.create(:reshare, root: @post, author: bob.person)
         end
 
-        it 'doesn\'t allow the user to reshare the post again' do
+        it "doesn't allow the user to reshare the post again" do
           post_request!
-          expect(response.code).to eq('422')
+          expect(response.code).to eq("422")
           expect(response.body).to eq(I18n.t("reshares.create.error"))
         end
       end
 
-      context 'resharing another user\'s reshare' do
+      context "resharing another user's reshare" do
         before do
           @root = @post
-          @post = FactoryGirl.create(:reshare, :root => @root, :author => alice.person)
+          @post = FactoryBot.create(:reshare, root: @root, author: alice.person)
         end
 
-        it 'reshares the absolute root' do
+        it "reshares the absolute root" do
           post_request!
           expect(@post.reshares.count).to eq(0)
           expect(@root.reshares.count).to eq(2)

@@ -51,4 +51,25 @@ describe ApplicationController, type: :request do
       end
     end
   end
+
+  describe "cross-origin resource sharing" do
+    before do
+      @headers = {
+        origin: "https://example.com"
+      }
+    end
+
+    it "does set permissive headers for API requests" do
+      get "/api/openid_connect/user_info", headers: @headers
+      expect(response.headers["Access-Control-Allow-Origin"]).to eq("*")
+      allow_methods = response.headers["Access-Control-Allow-Methods"].split(",").map(&:strip)
+      expect(allow_methods).to include("GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
+    end
+
+    it "does allow CORS GET for the OpenID configuration" do
+      get "/.well-known/openid-configuration", headers: @headers
+      expect(response.headers["Access-Control-Allow-Origin"]).to eq("*")
+      expect(response.headers["Access-Control-Allow-Methods"]).to eq("GET")
+    end
+  end
 end

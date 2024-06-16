@@ -5,134 +5,134 @@
 
 
 tt:
-  _applications: "Әсбап"
-  _contacts: "Контакт"
-  _services: "Сервис"
-  account: "Һисап"
+  settings: Көйләүләр
+  profile: Профилем
+  account: Һисап
+  privacy: Куркынычсызлык
+  _services: Сервис
+  _applications: Әсбап
+  ok: Әе
+  cancel: Юк
+  delete: Бетерү
+  username: Кулланучы исем
+  email: Электрон тартма
+  are_you_sure: Ышанычыгыз бармы?
+  are_you_sure_delete_account: Һисабыгызны ябу теләген аңлыйсызмы? Аны яңадан кайтарырга була.
+  public: Җәмәгый
+  limited: Чикләнгән
+  search: Эзләү
+  nsfw: Эш өчен куркыныч
+  find_people: 'Таб кешене яки #билгене'
+  more: күбрәк
+  all_aspects: Барлык аспект
+  no_results: Табылмады
+  _contacts: Контакт
   activerecord:
     errors:
       models:
         user:
           attributes:
             username:
-              taken: "артык бирелгән"
-  all_aspects: "Барлык аспект"
-  are_you_sure: "Ышанычыгыз бармы?"
-  are_you_sure_delete_account: "Һисабыгызны ябу теләген аңлыйсызмы? Аны яңадан кайтарырга була."
-  aspect_memberships:
-    destroy:
-      failure: "Кешене аспектан бетерүдә хата"
-      success: "Кеше аспектан уңышлы бетерелде"
+              taken: артык бирелгән
   aspects:
-    add_to_aspect:
-      failure: "Контактны аспектка тоташтырып булмады"
-      success: "Уңышлы тоташтырылды аспектка"
+    edit:
+      update: Яңарту
+      updating: Яңартыла
+    no_contacts_message:
+      you_should_add_some_more_contacts: Сез тагын берничә контактны өстәргә тиеш!
+      or_spotlight: Яки сез бүлешә аласыз %{link}
     aspect_listings:
       add_an_aspect: "+Аспектка өстәү"
-    aspect_stream:
-      stay_updated: "Яңартылды"
     destroy:
-      failure: "%{name} бетереп булмады."
       success: "%{name} уңышлы бетерелде."
-    edit:
-      update: "Яңарту"
-      updating: "Яңартыла"
-    index:
-      donate: "Булышу"
-      help:
-        do_you: "Сез:"
-        find_a_bug: "...өзләргә %{link} ?"
-        have_a_question: "...алган %{link}?"
-        here_to_help: "Диаспора* аралашуы ммонда!"
-        need_help: "Булышу кирәк?"
-        tag_bug: "Хата"
-        tag_question: "сорау"
-      new_here:
-        follow: "Языл %{link} һәм рәхим ит яңа кулланучы диаспорада*!"
-        learn_more: "Өйрәнергә күбрәк"
-        title: "Яңа кулланучылар рәхим итегез"
-      welcome_to_diaspora: "Рәхим итегез, %{name}!"
-    no_contacts_message:
-      or_spotlight: "Яки сез бүлешә аласыз %{link}"
-      you_should_add_some_more_contacts: "Сез тагын берничә контактны өстәргә тиеш!"
-    seed:
-      acquaintances: "Белгән кешеләр"
-      family: "Фамилия"
-      friends: "Дуслар"
-      work: "Эш"
+      failure: "%{name} бетереп булмады."
     update:
-      failure: "Сезнең аспект %{name} исемендә бик күп хәреф"
-      success: "Сезнең аспект %{name} уңышлы үзгәртелде."
-  cancel: "Юк"
+      success: Сезнең аспект %{name} уңышлы үзгәртелде.
+      failure: Сезнең аспект %{name} исемендә бик күп хәреф
+    add_to_aspect:
+      failure: Контактны аспектка тоташтырып булмады
+      success: Уңышлы тоташтырылды аспектка
+    seed:
+      family: Фамилия
+      work: Эш
+      acquaintances: Белгән кешеләр
+      friends: Дуслар
+    index:
+      donate: Булышу
+      welcome_to_diaspora: Рәхим итегез, %{name}!
+      new_here:
+        title: Яңа кулланучылар рәхим итегез
+        follow: Языл %{link} һәм рәхим ит яңа кулланучы диаспорада*!
+        learn_more: Өйрәнергә күбрәк
+      help:
+        need_help: Булышу кирәк?
+        here_to_help: Диаспора* аралашуы ммонда!
+        do_you: 'Сез:'
+        have_a_question: "...алган %{link}?"
+        tag_question: сорау
+        find_a_bug: "...өзләргә %{link} ?"
+        tag_bug: Хата
+    aspect_stream:
+      stay_updated: Яңартылды
+  aspect_memberships:
+    destroy:
+      success: Кеше аспектан уңышлы бетерелде
+      failure: Кешене аспектан бетерүдә хата
   comments:
     new_comment:
-      comment: "Комментар"
-      commenting: "Коментлау..."
+      comment: Комментар
+      commenting: Коментлау...
   contacts:
     index:
-      all_contacts: "Барлык контактлар"
-      my_contacts: "Минем контактлар"
-      title: "Контакт"
+      title: Контакт
+      my_contacts: Минем контактлар
+      all_contacts: Барлык контактлар
   conversations:
-    new:
-      send: "Җибәрү"
-      sending: "Җибәрелә"
     show:
-      reply: "Җавап бирү"
-      replying: "Җавап бирелә"
-  delete: "Бетерү"
-  email: "Электрон тартма"
-  find_people: "Таб кешене яки #билгене"
+      reply: Җавап бирү
+      replying: Җавап бирелә
+    new:
+      send: Җибәрү
+      sending: Җибәрелә
   invitations:
     new:
-      language: "Тел"
+      language: Тел
   layouts:
-    application:
-      back_to_top: "Артка, өс биткә"
-      powered_by: "diaspora*да эшли"
-      public_feed: "%{name} өчен җәмәгый diaspora* feed тасмасы"
-      whats_new: "Нәрсә яңа?"
     header:
-      code: "Коды"
-      logout: "Чыгу"
-      profile: "Профиль"
-      settings: "Көйләхләр"
-  limited: "Чикләнгән"
-  more: "күбрәк"
-  no_results: "Табылмады"
+      profile: Профиль
+      settings: Көйләхләр
+      logout: Чыгу
+      code: Коды
+    application:
+      powered_by: diaspora*да эшли
+      whats_new: Нәрсә яңа?
+      public_feed: "%{name} өчен җәмәгый diaspora* feed тасмасы"
+      back_to_top: Артка, өс биткә
   notifications:
     started_sharing:
+      zero: "%{actors} сезнең белән бүлешә башлады"
       one: "%{actors} сезнең белән бүлешә башлады"
       other: "%{actors} сезнең белән бүлешә башлады"
-      zero: "%{actors} сезнең белән бүлешә башлады"
-  nsfw: "Эш өчен куркыныч"
-  ok: "Әе"
   people:
     profile_sidebar:
-      born: "Туган көн"
-      gender: "Җенес"
+      gender: Җенес
+      born: Туган көн
   photos:
     create:
-      runtime_error: "Фото йөкләгәндә хата. Куркынычсызлык ремене тоташтырылганын беләсезме?"
+      runtime_error: Фото йөкләгәндә хата. Куркынычсызлык ремене тоташтырылганын беләсезме?
     destroy:
-      notice: "Фото бетерелде"
+      notice: Фото бетерелде
     new_profile_photo:
-      upload: "Яңа профиль фотасы йөкләнде!"
-  privacy: "Куркынычсызлык"
-  profile: "Профилем"
+      upload: Яңа профиль фотасы йөкләнде!
   profiles:
     edit:
-      your_gender: "Сезнең җенесегез"
-      your_name: "Сезнең исемегез"
-  public: "Җәмәгый"
-  search: "Эзләү"
-  settings: "Көйләүләр"
+      your_name: Сезнең исемегез
+      your_gender: Сезнең җенесегез
   shared:
     public_explain:
-      atom_feed: "атом feed тасмасы"
-  streams:
-    aspects_stream: "Аспект"
+      atom_feed: атом feed тасмасы
   tags:
     show:
-      follow: "Язылырга #%{tag}"
-  username: "Кулланучы исем"
+      follow: 'Язылырга #%{tag}'
+  streams:
+    aspects_stream: Аспект

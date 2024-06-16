@@ -6,104 +6,104 @@
 
 sr:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Додај контакт"
-      all_aspects: "Сви погледи"
-      error: "Немогуће делити са <%= name %>.  Да ли игноришеш корисника?"
-      select_aspects: "Изабери погледе"
-      started_sharing_with: "Почињеш да делиш са <%= name %>!"
-      stopped_sharing_with: "Више не делиш са <%= name %>."
-      toggle:
-        few: "У <%= count %> погледа"
-        many: "У <%= count %> погледа"
-        one: "У <%= count %> погледу"
-        other: "У <%= count %> погледа"
-        zero: "Изабери погледе"
-    aspect_navigation:
-      deselect_all: "Не означи ниједан"
-      no_aspects: "Ниједан поглед није означен"
-      select_all: "Означи све"
-    comments:
-      hide: "сакриј коментаре"
-      show: "прикажи све коментаре"
-    confirm_dialog: "Јесте ли сигурни?"
-    delete: "Уклони"
-    failed_to_post_message: "Слање поруке није успело!"
-    getting_started:
-      alright_ill_wait: "Важи, сачекаћу."
-      hey: "Хеј, <%= name %>!"
-      no_tags: "Хеј не пратиш ни један таг!  Настави свакако?"
-      preparing_your_stream: "Припремам твоје личне вести..."
-    header:
-      admin: "Администратор"
-      contacts: "Контакти"
-      home: "Почетна"
-      log_out: "Одјави се"
-      mark_all_as_read: "Означи све прочитано"
-      notifications: "Обавештења"
-      profile: "Профил"
-      recent_notifications: "Најновија обавештења"
-      search: "Претрага"
-      settings: "Подешавања"
-      view_all: "Погледај све"
-    ignore: "Игнориши"
-    my_activity: "Моје активности"
-    my_stream: "Вести"
-    photo_uploader:
-      looking_good: "Човече, изгледаш одлично!"
-    show_more: "прикажи још"
-    stream:
-      comment: "Коментариши"
-      follow: "Запрати"
-      hide: "Сакриј"
-      hide_nsfw_posts: "Сакриј #нпзп објаве"
-      like: "Свиђам"
-      likes:
-        few: "<%= count %> свиђања"
-        many: "<%= count %> свиђања"
-        one: "<%= count %> свиђање"
-        other: "<%= count %> свиђања"
-        zero: "<%= count %> свиђања"
-      limited: "Ограничено"
-      more_comments:
-        few: "Прикажи још <%= count %> коментара"
-        many: "Прикажи још <%= count %> коментара"
-        one: "Прикажи још <%= count %> коментар"
-        other: "Прикажи још <%= count %> коментара"
-        zero: "Прикажи још <%= count %> коментара"
-      original_post_deleted: "Оригиналну објаву обрисао аутор"
-      public: "Јавно"
-      reshare: "Подели даље"
-      reshares:
-        few: "<%= count %> дељења"
-        many: "<%= count %> дељења"
-        one: "<%= count %> дељење"
-        other: "<%= count %> дељења"
-        zero: "<%= count %> дељења"
-      show_nsfw_post: "Прикажи објаву"
-      show_nsfw_posts: "Прикажи све"
-      unfollow: "Отпрати"
-      unlike: "Не свиђам"
-    tags:
-      wasnt_that_interesting: "Добро, изгледа да те #<%= tagName %> не занима толико..."
     timeago:
-      day: "један дан"
-      days:
-        other: "%d дана"
-      hour: "око један час"
-      hours:
-        other: "око %d часова"
-      minute: "око минут"
+      prefixAgo: Пре
+      suffixAgo: ''
+      suffixFromNow: од овог тренутка
+      prefixFromNow: ''
+      seconds: мање од минута
+      minute: око минут
       minutes:
         other: "%d минута"
-      month: "око један месец"
+      hour: око један час
+      hours:
+        other: око %d часова
+      day: један дан
+      days:
+        other: "%d дана"
+      month: око један месец
       months:
         other: "%d месеци"
-      prefixAgo: "Пре"
-      prefixFromNow: ""
-      seconds: "мање од минута"
-      suffixAgo: ""
-      suffixFromNow: "од овог тренутка"
-      year: "око једну годину"
+      year: око једну годину
       years:
         other: "%d година"
+    confirm_dialog: Јесте ли сигурни?
+    delete: Уклони
+    ignore: Игнориши
+    my_activity: Моје активности
+    my_stream: Вести
+    aspect_dropdown:
+      add_to_aspect: Додај контакт
+      select_aspects: Изабери погледе
+      all_aspects: Сви погледи
+      stopped_sharing_with: Више не делиш са <%= name %>.
+      started_sharing_with: Почињеш да делиш са <%= name %>!
+      error: Немогуће делити са <%= name %>.  Да ли игноришеш корисника?
+      toggle:
+        zero: Изабери погледе
+        one: У <%= count %> погледу
+        few: У <%= count %> погледа
+        many: У <%= count %> погледа
+        other: У <%= count %> погледа
+    show_more: прикажи још
+    failed_to_post_message: Слање поруке није успело!
+    comments:
+      show: прикажи све коментаре
+      hide: сакриј коментаре
+    aspect_navigation:
+      select_all: Означи све
+      deselect_all: Не означи ниједан
+      no_aspects: Ниједан поглед није означен
+    getting_started:
+      hey: Хеј, <%= name %>!
+      no_tags: Хеј не пратиш ни један таг!  Настави свакако?
+      alright_ill_wait: Важи, сачекаћу.
+      preparing_your_stream: Припремам твоје личне вести...
+    photo_uploader:
+      looking_good: Човече, изгледаш одлично!
+    tags:
+      wasnt_that_interesting: 'Добро, изгледа да те #<%= tagName %> не занима толико...'
+    stream:
+      hide: Сакриј
+      public: Јавно
+      limited: Ограничено
+      like: Свиђам
+      unlike: Не свиђам
+      reshare: Подели даље
+      comment: Коментариши
+      original_post_deleted: Оригиналну објаву обрисао аутор
+      show_nsfw_post: Прикажи објаву
+      show_nsfw_posts: Прикажи све
+      hide_nsfw_posts: 'Сакриј #нпзп објаве'
+      follow: Запрати
+      unfollow: Отпрати
+      likes:
+        zero: "<%= count %> свиђања"
+        one: "<%= count %> свиђање"
+        few: "<%= count %> свиђања"
+        many: "<%= count %> свиђања"
+        other: "<%= count %> свиђања"
+      reshares:
+        zero: "<%= count %> дељења"
+        one: "<%= count %> дељење"
+        few: "<%= count %> дељења"
+        many: "<%= count %> дељења"
+        other: "<%= count %> дељења"
+      more_comments:
+        zero: Прикажи још <%= count %> коментара
+        one: Прикажи још <%= count %> коментар
+        few: Прикажи још <%= count %> коментара
+        many: Прикажи још <%= count %> коментара
+        other: Прикажи још <%= count %> коментара
+    header:
+      home: Почетна
+      profile: Профил
+      contacts: Контакти
+      settings: Подешавања
+      admin: Администратор
+      log_out: Одјави се
+      notifications: Обавештења
+      search: Претрага
+      recent_notifications: Најновија обавештења
+      mark_all_as_read: Означи све прочитано
+      view_all: Погледај све

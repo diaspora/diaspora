@@ -27,11 +27,14 @@ module PublishingCukeHelpers
   end
 
   def upload_file_with_publisher(path)
+    image_count = all(".publisher_photo img", wait: false).count
     with_scope("#publisher-textarea-wrapper") do
       find('input[name="qqfile"]', visible: false)
         .attach_file(Rails.root.join(path).to_s, make_visible: true)
       # wait for the image to be ready
       page.assert_selector(".publisher_photo.loading", count: 0)
+      page.assert_selector(".publisher_photo img", count: image_count + 1)
+      page.assert_selector(".publisher_photo img.hidden", count: 0)
     end
   end
 

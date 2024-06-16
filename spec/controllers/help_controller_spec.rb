@@ -7,10 +7,9 @@ describe HelpController, type: :controller do
       expect(response).to be_successful
     end
 
-    it "fails on mobile" do
-      expect {
-        get :faq, format: :mobile
-      }.to raise_error ActionController::UnknownFormat
+    it "succeeds on mobile" do
+      get :faq, format: :mobile
+      expect(response).to be_successful
     end
   end
 end

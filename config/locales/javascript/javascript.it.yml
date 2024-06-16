@@ -6,201 +6,201 @@
 
 it:
   javascripts:
-    admin:
-      pods:
-        not_available: "non disponibile"
-        pod: "Pod"
-        ssl: "SSL"
-        ssl_disabled: "SSL disattivato"
-        ssl_enabled: "SSL attivato"
-        states:
-          net_failed: "Tentativo di connessione fallito"
-          no_errors: "OK"
-        status: "Status"
-        unknown: "sconosciuto"
-    and: "e"
-    aspect_dropdown:
-      add_to_aspect: "Aggiungi"
-      all_aspects: "Tutti gli aspetti"
-      error: "Non è possibile condividere con <%= name %>. È tra gli utenti ignorati?"
-      error_remove: "Impossibile rimuovere <%= name %> dall'aspetto :("
-      select_aspects: "Scegli gli aspetti"
-      started_sharing_with: "Hai iniziato a condividere con <%= name %>!"
-      stopped_sharing_with: "Hai smesso di condividere con <%= name %>."
-      toggle:
-        few: "In <%= count %> aspetti"
-        many: "In <%= count %> aspetti"
-        one: "In <%= count %> aspetto"
-        other: "In <%= count %> aspetti"
-        two: "In <%= count %> aspetti"
-        zero: "Scegli gli aspetti"
-      updating: "aggiornamento..."
-    aspect_navigation:
-      add_an_aspect: "+ Aggiungi un aspetto"
-      deselect_all: "Deseleziona tutti"
-      no_aspects: "Nessun aspetto selezionato"
-      select_all: "Seleziona tutti"
-    aspects:
-      name: "Nome"
-    comma: ","
-    comments:
-      hide: "nascondi i commenti"
-      no_comments: "Non ci sono commenti al momento."
-      show: "mostra tutti i commenti"
-    confirm_dialog: "Sei sicuro?"
-    contacts:
-      add_contact: "Aggiungi contatto"
-      remove_contact: "Rimuovi contatto"
-    delete: "Elimina"
-    edit: "Modifica"
-    errors:
-      connection: "Impossibile connettersi al server."
-    failed_to_post_message: "Invio messaggio fallito!"
-    getting_started:
-      alright_ill_wait: "Perfetto, aspetterò."
-      hey: "Ciao, <%= name %>!"
-      no_tags: "Non hai scelto di seguire alcun tag, vuoi continuare comunque?"
-      preparing_your_stream: "Sto preparando il tuo stream personalizzato..."
-    header:
-      admin: "Amministrazione"
-      close: "chiudi"
-      contacts: "Contatti"
-      conversations: "Conversazioni"
-      help: "Aiuto"
-      home: "Home"
-      log_out: "Esci"
-      mark_all_as_read: "Segna tutti come letti"
-      moderator: "Moderatore"
-      notifications: "Notifiche"
-      profile: "Profilo"
-      recent_notifications: "Notifiche recenti"
-      search: "Cerca"
-      settings: "Impostazioni"
-      view_all: "Vedi tutti"
-    ignore: "Ignora"
-    ignore_user: "Ignora utente?"
-    my_activity: "Attività"
-    my_aspects: "I miei aspetti"
-    my_stream: "Stream"
-    no_results: "La ricerca non ha prodotto risultati"
-    notifications:
-      mark_read: "Segna come letto"
-      mark_unread: "Segna come da leggere"
-    people:
-      edit_my_profile: "Modifica il mio profilo"
-      message: "Lettera"
-      not_found: "ma nessuno è stato trovato..."
-    photo_uploader:
-      completed: "<%= file %> completato"
-      empty: "{file} è vuoto, per favore seleziona di nuovo i file senza includerlo."
-      invalid_ext: "{file} ha un'estensione non valida. Sono permesse soltanto {extensions}."
-      looking_good: "Accidenti, sei in splendida forma!"
-      size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
-    poll:
-      answer_count:
-        one: "1 voto"
-        other: "<%=count%> voti"
-        zero: "0 voti"
-      vote: "Vota"
-    profile:
-      bio: "Biografia"
-      born: "Data di nascita"
-      edit: "Edita"
-      gender: "Sesso"
-      location: "Posizione"
-      photos: "Fotografie"
-      posts: "Post"
-    publisher:
-      add_option: "Aggiungi una risposta"
-      markdown_editor:
-        preview: "Anteprima"
-        tooltips:
-          bold: "Grassetto"
-          cancel: "Cancella lettera"
-          insert_image: "Inserisci immagine"
-          insert_link: "Inserisci link"
-          italic: "Corsivo"
-          preview: "Anteprima lettera"
-          write: "Modifica lettera"
-      near_from: "Vicino a: <%= location %>"
-      option: "Rispondi"
-      question: "Domanda"
-    report:
-      name: "Segnala"
-      prompt: "Spiega il motivo:"
-      prompt_default: "ad esempio: contenuto offensivo"
-    reshares:
-      post: "Vuoi condividere il post di <%= name %>?"
-      successful: "Il post è stato condiviso!"
-    show_all: "Mostra tutto"
-    show_more: "continua..."
-    stream:
-      comment: "Commenta"
-      comments:
-        one: "<%= count %> commento"
-        other: "<%= count %> commenti"
-        zero: "<%= count %> commenti"
-      follow: "Segui"
-      followed_tag:
-        add_a_tag: "Aggiungi un tag"
-        follow: "Segui"
-        title: "#Tag seguiti"
-      hide: "Nascondi"
-      hide_nsfw_posts: "Nascondi i post #nsfw"
-      like: "Mi piace"
-      likes:
-        few: "<%= count %> mi piace"
-        many: "<%= count %> mi piace"
-        one: "<%= count %> mi piace"
-        other: "<%= count %> mi piace"
-        two: "<%= count %> mi piace"
-        zero: "<%= count %> mi piace"
-      limited: "Non pubblico"
-      more_comments:
-        one: "Mostra <%= count %> altro commento"
-        other: "Mostra gli altri <%= count %> altri commenti"
-        zero: "Mostra gli altri <%= count %> altri commenti"
-      original_post_deleted: "Il post originale è stato rimosso dall'autore."
-      public: "Pubblico"
-      reshare: "Condividi"
-      reshares:
-        few: "<%= count %> Condivisioni"
-        many: "<%= count %> Condivisioni"
-        one: "<%= count %> Condivisione"
-        other: "<%= count %> Condivisioni"
-        two: "<%= count %> Condivisioni"
-        zero: "<%= count %> Condivisioni"
-      show_nsfw_post: "Mostra il post"
-      show_nsfw_posts: "Mostra tutti i post"
-      tags:
-        follow: "Segui #<%= tag %>"
-        following: "Stai seguendo #<%= tag %>"
-        stop_following: "Smetti di seguire #<%= tag %>"
-      unfollow: "Non seguire più"
-      unlike: "Non mi piace più"
-      via: "via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "OK, immagino che #<%= tagName %> non fosse così interessante..."
     timeago:
-      day: "un giorno"
-      days:
-        other: "%d giorni"
-      hour: "circa un'ora"
-      hours:
-        other: "circa %d ore"
-      minute: "circa un minuto"
+      prefixAgo: ''
+      suffixAgo: fa
+      suffixFromNow: da ora
+      prefixFromNow: fra
+      seconds: meno di un minuto
+      minute: circa un minuto
       minutes:
         other: "%d minuti"
-      month: "circa un mese"
+      hour: circa un'ora
+      hours:
+        other: circa %d ore
+      day: un giorno
+      days:
+        other: "%d giorni"
+      month: circa un mese
       months:
         other: "%d mesi"
-      prefixAgo: ""
-      prefixFromNow: "fra"
-      seconds: "meno di un minuto"
-      suffixAgo: "fa"
-      suffixFromNow: "da ora"
-      year: "circa un anno"
+      year: circa un anno
       years:
         other: "%d anni"
+    confirm_dialog: Sei sicuro?
+    delete: Elimina
+    ignore: Ignora
+    report:
+      prompt: 'Spiega il motivo:'
+      prompt_default: 'ad esempio: contenuto offensivo'
+      name: Segnala
+    ignore_user: Ignora utente?
+    and: e
+    comma: ","
+    edit: Modifica
+    no_results: La ricerca non ha prodotto risultati
+    show_all: Mostra tutto
+    admin:
+      pods:
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL attivato
+        ssl_disabled: SSL disattivato
+        status: Status
+        states:
+          no_errors: OK
+          net_failed: Tentativo di connessione fallito
+        unknown: sconosciuto
+        not_available: non disponibile
+    aspects:
+      name: Nome
+    errors:
+      connection: Impossibile connettersi al server.
+    contacts:
+      add_contact: Aggiungi contatto
+      remove_contact: Rimuovi contatto
+    my_activity: Attività
+    my_stream: Stream
+    my_aspects: I miei aspetti
+    publisher:
+      near_from: 'Vicino a: <%= location %>'
+      option: Rispondi
+      add_option: Aggiungi una risposta
+      question: Domanda
+      markdown_editor:
+        preview: Anteprima
+        tooltips:
+          bold: Grassetto
+          italic: Corsivo
+          insert_link: Inserisci link
+          insert_image: Inserisci immagine
+          preview: Anteprima lettera
+          write: Modifica lettera
+          cancel: Cancella lettera
+    aspect_dropdown:
+      add_to_aspect: Aggiungi
+      select_aspects: Scegli gli aspetti
+      all_aspects: Tutti gli aspetti
+      updating: aggiornamento...
+      stopped_sharing_with: Hai smesso di condividere con <%= name %>.
+      started_sharing_with: Hai iniziato a condividere con <%= name %>!
+      error: Non è possibile condividere con <%= name %>. È tra gli utenti ignorati?
+      error_remove: Impossibile rimuovere <%= name %> dall'aspetto :(
+      toggle:
+        zero: Scegli gli aspetti
+        one: In <%= count %> aspetto
+        two: In <%= count %> aspetti
+        few: In <%= count %> aspetti
+        many: In <%= count %> aspetti
+        other: In <%= count %> aspetti
+    show_more: continua...
+    failed_to_post_message: Invio messaggio fallito!
+    comments:
+      show: mostra tutti i commenti
+      hide: nascondi i commenti
+      no_comments: Non ci sono commenti al momento.
+    reshares:
+      successful: Il post è stato condiviso!
+      post: Vuoi condividere il post di <%= name %>?
+    aspect_navigation:
+      select_all: Seleziona tutti
+      deselect_all: Deseleziona tutti
+      no_aspects: Nessun aspetto selezionato
+      add_an_aspect: "+ Aggiungi un aspetto"
+    getting_started:
+      hey: Ciao, <%= name %>!
+      no_tags: Non hai scelto di seguire alcun tag, vuoi continuare comunque?
+      alright_ill_wait: Perfetto, aspetterò.
+      preparing_your_stream: Sto preparando il tuo stream personalizzato...
+    photo_uploader:
+      looking_good: Accidenti, sei in splendida forma!
+      completed: "<%= file %> completato"
+      invalid_ext: "{file} ha un'estensione non valida. Sono permesse soltanto {extensions}."
+      size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
+      empty: "{file} è vuoto, per favore seleziona di nuovo i file senza includerlo."
+    tags:
+      wasnt_that_interesting: 'OK, immagino che #<%= tagName %> non fosse così interessante...'
+    people:
+      not_found: ma nessuno è stato trovato...
+      message: Lettera
+      edit_my_profile: Modifica il mio profilo
+    profile:
+      edit: Edita
+      bio: Biografia
+      location: Posizione
+      gender: Sesso
+      born: Data di nascita
+      photos: Fotografie
+      posts: Post
+    notifications:
+      mark_read: Segna come letto
+      mark_unread: Segna come da leggere
+    stream:
+      hide: Nascondi
+      public: Pubblico
+      limited: Non pubblico
+      like: Mi piace
+      unlike: Non mi piace più
+      reshare: Condividi
+      comment: Commenta
+      original_post_deleted: Il post originale è stato rimosso dall'autore.
+      show_nsfw_post: Mostra il post
+      show_nsfw_posts: Mostra tutti i post
+      hide_nsfw_posts: 'Nascondi i post #nsfw'
+      follow: Segui
+      unfollow: Non seguire più
+      via: via <%= provider %>
+      likes:
+        zero: "<%= count %> mi piace"
+        one: "<%= count %> mi piace"
+        two: "<%= count %> mi piace"
+        few: "<%= count %> mi piace"
+        many: "<%= count %> mi piace"
+        other: "<%= count %> mi piace"
+      reshares:
+        zero: "<%= count %> Condivisioni"
+        one: "<%= count %> Condivisione"
+        two: "<%= count %> Condivisioni"
+        few: "<%= count %> Condivisioni"
+        many: "<%= count %> Condivisioni"
+        other: "<%= count %> Condivisioni"
+      comments:
+        zero: "<%= count %> commenti"
+        one: "<%= count %> commento"
+        other: "<%= count %> commenti"
+      more_comments:
+        zero: Mostra gli altri <%= count %> altri commenti
+        one: Mostra <%= count %> altro commento
+        other: Mostra gli altri <%= count %> altri commenti
+      followed_tag:
+        title: "#Tag seguiti"
+        add_a_tag: Aggiungi un tag
+        follow: Segui
+      tags:
+        follow: 'Segui #<%= tag %>'
+        following: 'Stai seguendo #<%= tag %>'
+        stop_following: 'Smetti di seguire #<%= tag %>'
+    header:
+      home: Home
+      profile: Profilo
+      contacts: Contatti
+      settings: Impostazioni
+      help: Aiuto
+      admin: Amministrazione
+      moderator: Moderatore
+      log_out: Esci
+      notifications: Notifiche
+      conversations: Conversazioni
+      search: Cerca
+      recent_notifications: Notifiche recenti
+      mark_all_as_read: Segna tutti come letti
+      view_all: Vedi tutti
+      close: chiudi
     viewer:
-      reshared: "Condiviso"
+      reshared: Condiviso
+    poll:
+      vote: Vota
+      answer_count:
+        zero: 0 voti
+        one: 1 voto
+        other: "<%=count%> voti"

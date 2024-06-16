@@ -1,4 +1,4 @@
-FROM ruby:2.7-slim-buster
+FROM docker.io/amd64/ruby:3.3-slim-bullseye
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
@@ -12,13 +12,14 @@ RUN DEBIAN_FRONTEND=noninteractive \
         libcurl4-openssl-dev \
         libidn11-dev \
         libmagickwand-dev \
-        libmariadbclient-dev \
+        libmariadb-dev-compat \
         libpq-dev \
         libssl-dev \
         libxml2-dev \
         libxslt1-dev \
         nodejs \
         gosu \
+        yarnpkg \
     && \
     curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o ./google-chrome.deb && \
     apt install -y -qq --no-install-recommends ./google-chrome.deb && \

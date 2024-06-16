@@ -92,7 +92,7 @@ describe Diaspora::MessageRenderer do
 
     context "with diaspora:// links" do
       it "replaces diaspora:// links with pod-local links" do
-        target = FactoryGirl.create(:status_message)
+        target = FactoryBot.create(:status_message)
         expect(
           message("Have a look at diaspora://#{target.diaspora_handle}/post/#{target.guid}.").html
         ).to match(/Have a look at #{AppConfig.url_to("/posts/#{target.guid}")}./)
@@ -109,7 +109,7 @@ describe Diaspora::MessageRenderer do
       end
 
       it "ignores a diaspora:// links with an invalid entity type" do
-        target = FactoryGirl.create(:status_message)
+        target = FactoryBot.create(:status_message)
         text = "Try this: `diaspora://#{target.diaspora_handle}/posts/#{target.guid}`"
         expect(message(text).html).to match(/#{text}/)
       end
@@ -174,13 +174,23 @@ describe Diaspora::MessageRenderer do
       end
 
       it "should leave mentions intact for real diaspora handles" do
-        new_person = FactoryGirl.create(:person, diaspora_handle: 'maxwell@joindiaspora.com')
+        new_person = FactoryBot.create(:person, diaspora_handle: "maxwell@joindiaspora.com")
         expect(
           message(
             "Hey @{maxwell@joindiaspora.com; #{new_person.diaspora_handle}}!",
             mentioned_people: [new_person]
           ).markdownified
         ).to match(/hovercard/)
+      end
+
+      it "does not parse mentions as markdown" do
+        new_person = FactoryBot.create(:person, diaspora_handle: "__underscore__@example.org")
+        expect(
+          message(
+            "Hey @{#{new_person.diaspora_handle}}!",
+            mentioned_people: [new_person]
+          ).markdownified
+        ).to match(%r{>#{new_person.name}</a>})
       end
 
       it 'should process text with both a hashtag and a link' do
@@ -200,8 +210,8 @@ describe Diaspora::MessageRenderer do
 
       context "with diaspora:// links" do
         it "replaces diaspora:// links with pod-local links" do
-          target1 = FactoryGirl.create(:status_message)
-          target2 = FactoryGirl.create(:status_message)
+          target1 = FactoryBot.create(:status_message)
+          target2 = FactoryBot.create(:status_message)
           text = "Have a look at [this post](diaspora://#{target1.diaspora_handle}/post/#{target1.guid}) and " \
                  "this one too diaspora://#{target2.diaspora_handle}/post/#{target2.guid}."
 
@@ -249,8 +259,8 @@ describe Diaspora::MessageRenderer do
 
     context "with diaspora:// links" do
       it "replaces diaspora:// links with pod-local links" do
-        target1 = FactoryGirl.create(:status_message)
-        target2 = FactoryGirl.create(:status_message)
+        target1 = FactoryBot.create(:status_message)
+        target2 = FactoryBot.create(:status_message)
         text = "Have a look at [this post](diaspora://#{target1.diaspora_handle}/post/#{target1.guid}) and " \
                "this one too diaspora://#{target2.diaspora_handle}/post/#{target2.guid}."
 
@@ -306,8 +316,8 @@ describe Diaspora::MessageRenderer do
 
     context "with diaspora:// links" do
       it "replaces diaspora:// links with pod-local links" do
-        target1 = FactoryGirl.create(:status_message)
-        target2 = FactoryGirl.create(:status_message)
+        target1 = FactoryBot.create(:status_message)
+        target2 = FactoryBot.create(:status_message)
         text = "Have a look at [this post](diaspora://#{target1.diaspora_handle}/post/#{target1.guid}) and " \
                "this one too diaspora://#{target2.diaspora_handle}/post/#{target2.guid}."
 

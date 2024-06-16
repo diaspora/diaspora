@@ -7,7 +7,6 @@
 describe ContactsController, :type => :controller do
   describe '#index' do
     before do
-      AppConfig.chat.enabled = true
       @aspect = bob.aspects.create(:name => "another aspect")
       bob.share_with alice.person, @aspect
       bob.share_with eve.person, @aspect
@@ -21,7 +20,7 @@ describe ContactsController, :type => :controller do
 
     it "generates the aspects_manage_contacts_json fixture", fixture: true do
       # adds one not mutual contact
-      bob.share_with(FactoryGirl.create(:person), @aspect)
+      bob.share_with(FactoryBot.create(:person), @aspect)
 
       get :index, params: {a_id: @aspect.id, page: "1"}, format: :json
       save_fixture(response.body, "aspects_manage_contacts_json")

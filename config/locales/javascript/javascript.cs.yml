@@ -6,332 +6,332 @@
 
 cs:
   javascripts:
-    admin:
-      pods:
-        actions: "Akce"
-        added: "Přidáno"
-        check: "Provést test spojení"
-        errors:
-          few: "Zkouška spojení navrátila chybu pro <%= count %> pody."
-          one: "Zkouška spojení navrátila chybu pro jeden pod."
-          other: "Zkouška spojení navrátila chybu pro <%= count %> podů."
-        follow_link: "otevřít odkaz v prohlížeči"
-        last_check: "poslední kontrola:"
-        more_info: "Zobrazit více informací"
-        ms:
-          few: "<%= count %>ms"
-          one: "<%= count %>ms"
-          other: "<%= count %>ms"
-        no_info: "Nyní nejsou dostupné žádné další informace"
-        not_available: "Není k dispozici"
-        offline_since: "Odpojený od doby:"
-        pod: "Pod"
-        recheck:
-          failure: "Kontrola nebyla provedena"
-          success: "Pod byl právě opět zkontrolován."
-        response_time: "Doba odezvy:"
-        server_software: "Software serveru:"
-        ssl: "SSL"
-        ssl_disabled: "SSL vypnuto"
-        ssl_enabled: "SSL zapnuté"
-        states:
-          dns_failed: "Selhalo rozpoznání jména (DNS)"
-          http_failed: "Selhalo spojení HTTP"
-          net_failed: "Pokus o spojení selhal"
-          no_errors: "Budiž"
-          ssl_failed: "Selhalo bezpečné spojení (SSL)"
-          unchecked: "Neoznačené"
-          unknown_error: "Během kontroly se objevila nespecifikovaná chyba"
-          version_failed: "Nebylo možné zjistit verzi software"
-        status: "Stav"
-        unchecked:
-          few: "Jsou zde pořád <%= count %> pody, které vůbec nebyly zkontrolovány."
-          one: "Je zde pořád jeden pod, který vůbec nebyl zkontrolován."
-          other: "Je zde pořád <%= count %> podů, který vůbec nebyly zkontrolovány."
-        unknown: "Neznámý"
-        version_failed:
-          few: "<%= count %> pody nemají verzi (staré pody, žádné NodeInfo)"
-          one: "Jeden pod nemá verzi (starý pod, žádné NodeInfo)."
-          other: "<%= count %> podů nemá verzi (staré pody, žádné NodeInfo)"
-          zero: "Není pod, který by neměl verzi."
+    timeago:
+      prefixAgo: před
+      suffixAgo: ''
+      suffixFromNow: ''
+      prefixFromNow: za
+      inPast: Jakýkoli moment
+      seconds: méně než minutou
+      minute: minutou
+      minutes:
+        one: 1 minuta
+        few: "%d minuty"
+        other: "%d minut"
+      hour: hodinou
+      hours:
+        one: cca. 1 hodina
+        few: cca. %d hodiny
+        other: cca. %d hodin
+      day: 1 dnem
+      days:
+        one: 1 den
+        few: "%d dny"
+        other: "%d dní"
+      month: 1 měsícem
+      months:
+        one: 1 měsíc
+        few: "%d měsíce"
+        other: "%d měsíců"
+      year: 1 rokem
+      years:
+        one: 1 rok
+        few: "%d roky"
+        other: "%d let"
+      wordSeparator: " "
+    cancel: Zrušit
+    confirm_dialog: Jste si jisti?
+    confirm_unload: Prosím potvrďte, že chcete tuto stránku opustit. Data, která jste vložil/a, nebudou uložena.
+    create: Vytvořit
+    delete: Odstranit
+    ignore: Ignorovat
+    report:
+      prompt: 'Prosím, zadejte důvod:'
+      prompt_default: např. urážlivý obsah
+      name: Nahlášení
+      status:
+        created: Zpráva byla úspěšně založena
+        exists: Zpráva již existuje
+    ignore_user: Ignorovat tohoto uživatele?
+    ignore_failed: Tohoto uživatele se nedaří ignorovat
+    hide_post: Skrýt tento příspěvek
+    hide_post_failed: Není možné tento příspěvek skrýt
+    remove_post: Odstranit tento příspěvek?
+    unblock_failed: Odblokování tohoto uživatele selhalo
+    and: a
+    comma: ","
+    edit: Upravit
+    no_results: Žádné výsledky nebyly nalezeny
+    show_all: Zobrazit vše
     admins:
       dashboard:
-        compare_versions: "Nejnovější vydání diaspory* je verze <%= latestVersion %>, na vašem podu běží verze <%= podVersion %>."
-        error: "Není možné zjistit poslední verzi diaspora*."
-        outdated: "Váš pod není aktuální"
-        up_to_date: "Váš pod je aktuální!"
-    and: "a"
+        up_to_date: Váš pod je aktuální!
+        outdated: Váš pod není aktuální
+        compare_versions: Nejnovější vydání diaspory* je verze <%= latestVersion %>, na vašem podu běží verze <%= podVersion %>.
+        error: Není možné zjistit poslední verzi diaspora*.
+    admin:
+      pods:
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL zapnuté
+        ssl_disabled: SSL vypnuto
+        added: Přidáno
+        status: Stav
+        states:
+          unchecked: Neoznačené
+          no_errors: Budiž
+          dns_failed: Selhalo rozpoznání jména (DNS)
+          net_failed: Pokus o spojení selhal
+          ssl_failed: Selhalo bezpečné spojení (SSL)
+          http_failed: Selhalo spojení HTTP
+          version_failed: Nebylo možné zjistit verzi software
+          unknown_error: Během kontroly se objevila nespecifikovaná chyba
+        actions: Akce
+        offline_since: 'Odpojený od doby:'
+        last_check: 'poslední kontrola:'
+        more_info: Zobrazit více informací
+        check: Provést test spojení
+        recheck:
+          success: Pod byl právě opět zkontrolován.
+          failure: Kontrola nebyla provedena
+        follow_link: otevřít odkaz v prohlížeči
+        no_info: Nyní nejsou dostupné žádné další informace
+        server_software: 'Software serveru:'
+        response_time: 'Doba odezvy:'
+        ms:
+          one: "<%= count %>ms"
+          few: "<%= count %>ms"
+          other: "<%= count %>ms"
+        unknown: Neznámý
+        not_available: Není k dispozici
+        unchecked:
+          one: Je zde pořád jeden pod, který vůbec nebyl zkontrolován.
+          few: Jsou zde pořád <%= count %> pody, které vůbec nebyly zkontrolovány.
+          other: Je zde pořád <%= count %> podů, který vůbec nebyly zkontrolovány.
+        version_failed:
+          zero: Není pod, který by neměl verzi.
+          one: Jeden pod nemá verzi (starý pod, žádné NodeInfo).
+          few: "<%= count %> pody nemají verzi (staré pody, žádné NodeInfo)"
+          other: "<%= count %> podů nemá verzi (staré pody, žádné NodeInfo)"
+        errors:
+          one: Zkouška spojení navrátila chybu pro jeden pod.
+          few: Zkouška spojení navrátila chybu pro <%= count %> pody.
+          other: Zkouška spojení navrátila chybu pro <%= count %> podů.
+    aspects:
+      name: Název
+      create:
+        add_a_new_aspect: Přidat nový aspekt
+        success: Váš nový aspekt <%= name %> byl vytvořen
+        failure: Vytvoření aspektu selhalo.
+    errors:
+      connection: Nelze se připojit k serveru.
+    contacts:
+      add_contact: Přidej kontakt
+      remove_contact: Odstraň kontakt
+      error_add: Nelze přidat uživatele <%= name %> do tohoto aspektu :(
+      error_remove: Nelze odebrat uživatele <%= name %> z tohoto aspektu :(
+      search_no_results: Nenalezeny žádné kontakty
+    my_activity: Moje aktivita
+    my_stream: Proud
+    my_aspects: Moje aspekty
+    publisher:
+      near_from: 'Odesláno z: <%= location %>'
+      option: Odpověď
+      add_option: Přidejte odpověď
+      question: Otázka
+      markdown_editor:
+        preview: Náhled
+        write: Zápis
+        tooltips:
+          bold: Tučně
+          italic: Kurzíva
+          heading: Záhlaví
+          insert_link: Vložit odkaz
+          insert_image: Vložit obrázek
+          insert_ordered_list: Vložit tříděný seznam
+          insert_unordered_list: Vložit netříděný seznam
+          preview: Náhled zprávy
+          write: Upravit zprávu
+          cancel: Zrušit zprávu
+          quote: Vložit uvozovky
+          code: Vložit kód
+        texts:
+          strong: tučný text
+          italic: text kurzívou
+          heading: text záhlaví
+          insert_link_description_text: zde popište odkaz
+          insert_link_help_text: zde vložte odkaz
+          insert_image_description_text: zde popište obrázek
+          insert_image_help_text: zde vložte odkaz na obrázek
+          insert_image_title: vložte titulek k obrázku
+          list: zde textový seznam
+          quote: zde text v uvozovkách
+          code: zde kód
+      mention_success: 'Úspěšně zmíněni: <%= names %>'
+    bookmarklet:
+      post_something: Dát příspěvek na diaspora*
+      post_submit: Odesílám příspěvek ...
+      post_success: Odesláno. Uzavírám vyskakovací okno...
     aspect_dropdown:
-      add_to_aspect: "Přidat kontakt"
-      all_aspects: "Všechny aspekty"
-      error: "Nelze zahájit sdílení s <%= name %>. Neignorujete je?"
-      error_remove: "Nepodařilo se odstranit uživatele <%= name %> z aspektu :("
+      add_to_aspect: Přidat kontakt
+      select_aspects: Vybrat aspekty
+      all_aspects: Všechny aspekty
+      updating: aktualizuji...
       mobile_row_checked: "<%= name %> (odstranit)"
       mobile_row_unchecked: "<%= name %> (přidat)"
-      select_aspects: "Vybrat aspekty"
-      started_sharing_with: "Začali jste sdílet s <%= name %>!"
-      stopped_sharing_with: "Přestali jste sdílet s <%= name %>."
+      stopped_sharing_with: Přestali jste sdílet s <%= name %>.
+      started_sharing_with: Začali jste sdílet s <%= name %>!
+      error: Nelze zahájit sdílení s <%= name %>. Neignorujete je?
+      error_remove: Nepodařilo se odstranit uživatele <%= name %> z aspektu :(
       toggle:
-        few: "Ve <%= count %> aspektech"
-        one: "V <%= count %> aspektu"
-        other: "V <%= count %> aspektech"
-      updating: "aktualizuji..."
-    aspect_navigation:
-      add_an_aspect: "+ Přidat aspekt"
-      deselect_all: "Odznačit vše"
-      no_aspects: "Nebyl vybrán žádný aspekt"
-      select_all: "Vybrat vše"
-    aspects:
-      create:
-        add_a_new_aspect: "Přidat nový aspekt"
-        failure: "Vytvoření aspektu selhalo."
-        success: "Váš nový aspekt <%= name %> byl vytvořen"
-      name: "Název"
-    bookmarklet:
-      post_something: "Dát příspěvek na diaspora*"
-      post_submit: "Odesílám příspěvek ..."
-      post_success: "Odesláno. Uzavírám vyskakovací okno..."
-    cancel: "Zrušit"
-    comma: ","
+        one: V <%= count %> aspektu
+        few: Ve <%= count %> aspektech
+        other: V <%= count %> aspektech
+    show_more: Zobrazit více
+    failed_to_post_message: Odeslání příspěvku se nezdařilo!
+    failed_to_remove: Odstranění záznamu selhalo!
     comments:
-      hide: "Skrýt komentáře"
-      no_comments: "Zatím nejsou žádné komentáře."
-      show: "Zobrazit všechny komentáře"
-    confirm_dialog: "Jste si jisti?"
-    confirm_unload: "Prosím potvrďte, že chcete tuto stránku opustit. Data, která jste vložil/a, nebudou uložena."
-    contacts:
-      add_contact: "Přidej kontakt"
-      error_add: "Nelze přidat uživatele <%= name %> do tohoto aspektu :("
-      error_remove: "Nelze odebrat uživatele <%= name %> z tohoto aspektu :("
-      remove_contact: "Odstraň kontakt"
-      search_no_results: "Nenalezeny žádné kontakty"
+      show: Zobrazit všechny komentáře
+      hide: Skrýt komentáře
+      no_comments: Zatím nejsou žádné komentáře.
+    reshares:
+      successful: Příspěvek je sdílen!
+      post: Sdílet příspěvek uživatele <%= name %>?
+    aspect_navigation:
+      select_all: Vybrat vše
+      deselect_all: Odznačit vše
+      no_aspects: Nebyl vybrán žádný aspekt
+      add_an_aspect: "+ Přidat aspekt"
+    getting_started:
+      hey: Ahoj, <%= name %>!
+      no_tags: Hej, žádné štítky neodebíráte! Mám přesto pokračovat?
+      alright_ill_wait: Dobrá, počkám.
+      preparing_your_stream: Připravuji váš osobní proud…
+    photo_uploader:
+      upload_photos: Nahrát fotky
+      looking_good: Tedy, vypadáte úžasně!
+      completed: "<%= file %> dokončen"
+      error: Při nahrávání souboru <%= file %> nastal problém
+      invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
+      size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
+      empty: "{file} je prázdný, prosím vyberte soubory znovu bez něho."
+    tags:
+      wasnt_that_interesting: 'Dobře, předpokládám, že #<%= tagName %> nebyl zase tak zajímavý…'
+    people:
+      not_found: "… a nikdo nebyl nalezen."
+      mention: Zmínka
+      message: Zpráva
+      edit_my_profile: Upravte svůj profil
+      stop_ignoring: Přestaň ignorovat
+      helper:
+        is_sharing: "<%= name %> s Vámi sdílí."
+        is_not_sharing: "<%= name %> s Vámi nesdílí."
+    profile:
+      edit: Upravit
+      add_some: Přidat něco
+      you_have_no_tags: Nemáte žádné štítky!
+      bio: Něco o vás
+      location: Pozice
+      gender: Pohlaví
+      born: Narozeniny
+      photos: Fotky
+      posts: Příspěvky
     conversation:
       create:
-        no_recipient: "Hej, musíte nejdřív přidat příjemce!"
+        no_recipient: Hej, musíte nejdřív přidat příjemce!
       new:
-        no_contacts: "Musíte si přidat nějaké kontakty, než budete moci začít konveraci."
-    create: "Vytvořit"
-    delete: "Odstranit"
-    edit: "Upravit"
-    errors:
-      connection: "Nelze se připojit k serveru."
-    failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
-    failed_to_remove: "Odstranění záznamu selhalo!"
-    getting_started:
-      alright_ill_wait: "Dobrá, počkám."
-      hey: "Ahoj, <%= name %>!"
-      no_tags: "Hej, žádné štítky neodebíráte! Mám přesto pokračovat?"
-      preparing_your_stream: "Připravuji váš osobní proud…"
-    header:
-      admin: "Administrace"
-      close: "Zavřít"
-      contacts: "Kontakty"
-      conversations: "Konverzace"
-      help: "Nápověda"
-      home: "Domů"
-      log_out: "Odhlásit se"
-      mark_all_as_read: "Označit vše jako přečtené"
-      moderator: "Moderátor"
-      notifications: "Oznámení"
-      profile: "Profil"
-      recent_notifications: "Nedávná oznámení"
-      search: "Hledat"
-      settings: "Nastavení"
-      switch_to_touch_optimized_mode: "Přepnutí do režimu dotykového displeje"
-      toggle_navigation: "Vybrat navigaci"
-      view_all: "Zobrazit vše"
-    hide_post: "Skrýt tento příspěvek"
-    hide_post_failed: "Není možné tento příspěvek skrýt"
-    ignore: "Ignorovat"
-    ignore_failed: "Tohoto uživatele se nedaří ignorovat"
-    ignore_user: "Ignorovat tohoto uživatele?"
-    my_activity: "Moje aktivita"
-    my_aspects: "Moje aspekty"
-    my_stream: "Proud"
-    no_results: "Žádné výsledky nebyly nalezeny"
+        no_contacts: Musíte si přidat nějaké kontakty, než budete moci začít konveraci.
     notifications:
-      mark_read: "Označit jako přečtené"
-      mark_unread: "Označit jako nepřečtené"
+      mark_read: Označit jako přečtené
+      mark_unread: Označit jako nepřečtené
       new_notifications:
-        few: "Máte <%= count %> nepřečtená oznámení"
-        one: "Máte <%= count %> nepřečtené oznámení"
-        other: "Máte <%= count %> nepřečtených oznámení"
-    people:
-      edit_my_profile: "Upravte svůj profil"
-      helper:
-        is_not_sharing: "<%= name %> s Vámi nesdílí."
-        is_sharing: "<%= name %> s Vámi sdílí."
-      mention: "Zmínka"
-      message: "Zpráva"
-      not_found: "… a nikdo nebyl nalezen."
-      stop_ignoring: "Přestaň ignorovat"
-    photo_uploader:
-      completed: "<%= file %> dokončen"
-      empty: "{file} je prázdný, prosím vyberte soubory znovu bez něho."
-      error: "Při nahrávání souboru <%= file %> nastal problém"
-      invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
-      looking_good: "Tedy, vypadáte úžasně!"
-      size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
-      upload_photos: "Nahrát fotky"
-    poll:
-      answer_count:
-        few: "<%=count%>  hlasů"
-        one: "1 hlas"
-        other: "<%=count%>  hlasů"
-        zero: "0 hlasů"
-      close_result: "Skrýt výsledky"
-      count:
-        few: "zatím <%=count%> hlasy"
-        one: "zatím 1 hlas"
-        other: "zatím <%=count%> hlasů"
-      go_to_original_post: "Tohoto výzkumu se můžete účastnit zde\" <%= original_post_link %>"
-      original_post: "původní příspěvek"
-      result: "Výsledek"
-      show_result: "Ukázat výsledky"
-      vote: "Hlasovat"
-      your_vote: "Váš hlas"
-    profile:
-      add_some: "Přidat něco"
-      bio: "Něco o vás"
-      born: "Narozeniny"
-      edit: "Upravit"
-      gender: "Pohlaví"
-      location: "Pozice"
-      photos: "Fotky"
-      posts: "Příspěvky"
-      you_have_no_tags: "Nemáte žádné štítky!"
-    publisher:
-      add_option: "Přidejte odpověď"
-      markdown_editor:
-        preview: "Náhled"
-        texts:
-          code: "zde kód"
-          heading: "text záhlaví"
-          insert_image_description_text: "zde popište obrázek"
-          insert_image_help_text: "zde vložte odkaz na obrázek"
-          insert_image_title: "vložte titulek k obrázku"
-          insert_link_description_text: "zde popište odkaz"
-          insert_link_help_text: "zde vložte odkaz"
-          italic: "text kurzívou"
-          list: "zde textový seznam"
-          quote: "zde text v uvozovkách"
-          strong: "tučný text"
-        tooltips:
-          bold: "Tučně"
-          cancel: "Zrušit zprávu"
-          code: "Vložit kód"
-          heading: "Záhlaví"
-          insert_image: "Vložit obrázek"
-          insert_link: "Vložit odkaz"
-          insert_ordered_list: "Vložit tříděný seznam"
-          insert_unordered_list: "Vložit netříděný seznam"
-          italic: "Kurzíva"
-          preview: "Náhled zprávy"
-          quote: "Vložit uvozovky"
-          write: "Upravit zprávu"
-        write: "Zápis"
-      mention_success: "Úspěšně zmíněni: <%= names %>"
-      near_from: "Odesláno z: <%= location %>"
-      option: "Odpověď"
-      question: "Otázka"
-    remove_post: "Odstranit tento příspěvek?"
-    report:
-      name: "Nahlášení"
-      prompt: "Prosím, zadejte důvod:"
-      prompt_default: "např. urážlivý obsah"
-      status:
-        created: "Zpráva byla úspěšně založena"
-        exists: "Zpráva již existuje"
-    reshares:
-      post: "Sdílet příspěvek uživatele <%= name %>?"
-      successful: "Příspěvek je sdílen!"
-    show_all: "Zobrazit vše"
-    show_more: "Zobrazit více"
+        one: Máte <%= count %> nepřečtené oznámení
+        few: Máte <%= count %> nepřečtená oznámení
+        other: Máte <%= count %> nepřečtených oznámení
     stream:
-      comment: "Okomentovat"
-      comments:
-        few: "<%= count %> komentáře"
-        one: "<%= count %> komentář"
-        other: "<%= count %> komentářů"
-        zero: "<%= count %> komentářů"
-      disable_post_notifications: "Zakázat upozornění pro tento příspěvek"
-      enable_post_notifications: "Povolit upozornění pro tento příspěvek"
-      follow: "Sledovat"
-      followed_tag:
-        add_a_tag: "Přidat štítek"
-        follow: "Sledovat"
-        title: "#Sledované štítky"
-      hide: "Skrýt"
-      hide_nsfw_posts: "Skrýt citlivý obsah (erotiku, násilí a podobně)"
-      like: "To se mi líbí"
+      hide: Skrýt
+      public: Veřejný
+      limited: Omezený
+      like: To se mi líbí
+      unlike: To se mi nelíbí
+      reshare: Sdílet
+      comment: Okomentovat
+      original_post_deleted: Původní příspěvek byl odstraněn svým autorem.
+      show_nsfw_post: Zobrazit příspěvek
+      show_nsfw_posts: Zobrazit vše
+      hide_nsfw_posts: Skrýt citlivý obsah (erotiku, násilí a podobně)
+      follow: Sledovat
+      unfollow: Přestat sledovat
+      enable_post_notifications: Povolit upozornění pro tento příspěvek
+      disable_post_notifications: Zakázat upozornění pro tento příspěvek
+      permalink: trvalý odkaz
+      via: skrze <%= provider %>
+      no_posts_yet: Zde ještě nejsou žádné příspěvky k zobrazení.
       likes:
-        few: "<%= count %> uživatelům se to líbí"
+        zero: Nikomu se to nelíbí
         one: "<%= count %> uživateli se to líbí"
+        few: "<%= count %> uživatelům se to líbí"
         other: "<%= count %> uživatelům se to líbí"
-        zero: "Nikomu se to nelíbí"
-      limited: "Omezený"
-      more_comments:
-        few: "Zobrazit <%= count %> další komentáře"
-        one: "Zobrazit <%= count %> další komentář"
-        other: "Zobrazit <%= count %> dalších komentářů"
-        zero: "Zobrazit <%= count %> dalších komentářů"
-      no_posts_yet: "Zde ještě nejsou žádné příspěvky k zobrazení."
-      original_post_deleted: "Původní příspěvek byl odstraněn svým autorem."
-      permalink: "trvalý odkaz"
-      public: "Veřejný"
-      reshare: "Sdílet"
       reshares:
-        few: "<%= count %> uživatelé to sdíleli"
+        zero: Nikdo to nesdílel
         one: "<%= count %> uživatel to sdílel"
+        few: "<%= count %> uživatelé to sdíleli"
         other: "<%= count %> uživatelů to sdílelo"
-        zero: "Nikdo to nesdílel"
-      show_nsfw_post: "Zobrazit příspěvek"
-      show_nsfw_posts: "Zobrazit vše"
+      comments:
+        zero: "<%= count %> komentářů"
+        one: "<%= count %> komentář"
+        few: "<%= count %> komentáře"
+        other: "<%= count %> komentářů"
+      more_comments:
+        zero: Zobrazit <%= count %> dalších komentářů
+        one: Zobrazit <%= count %> další komentář
+        few: Zobrazit <%= count %> další komentáře
+        other: Zobrazit <%= count %> dalších komentářů
+      followed_tag:
+        title: "#Sledované štítky"
+        add_a_tag: Přidat štítek
+        follow: Sledovat
       tags:
-        follow: "Sledovat #<%= tag %>"
-        follow_error: "Není možné sledovat štítek <%= tag %> :("
-        following: "Sledujete #<%= tag %>"
-        stop_following: "Přestat sledovat #<%= tag %>"
-        stop_following_confirm: "Ukončit sledování <%= tag %>"
-        stop_following_error: "Není možné přestat sledovat štítek <%= tag %> :("
-      unfollow: "Přestat sledovat"
-      unlike: "To se mi nelíbí"
-      via: "skrze <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Dobře, předpokládám, že #<%= tagName %> nebyl zase tak zajímavý…"
-    timeago:
-      day: "1 dnem"
-      days:
-        few: "%d dny"
-        one: "1 den"
-        other: "%d dní"
-      hour: "hodinou"
-      hours:
-        few: "cca. %d hodiny"
-        one: "cca. 1 hodina"
-        other: "cca. %d hodin"
-      inPast: "Jakýkoli moment"
-      minute: "minutou"
-      minutes:
-        few: "%d minuty"
-        one: "1 minuta"
-        other: "%d minut"
-      month: "1 měsícem"
-      months:
-        few: "%d měsíce"
-        one: "1 měsíc"
-        other: "%d měsíců"
-      prefixAgo: "před"
-      prefixFromNow: "za"
-      seconds: "méně než minutou"
-      suffixAgo: ""
-      suffixFromNow: ""
-      wordSeparator: " "
-      year: "1 rokem"
-      years:
-        few: "%d roky"
-        one: "1 rok"
-        other: "%d let"
-    unblock_failed: "Odblokování tohoto uživatele selhalo"
+        follow: 'Sledovat #<%= tag %>'
+        following: 'Sledujete #<%= tag %>'
+        stop_following: 'Přestat sledovat #<%= tag %>'
+        stop_following_confirm: Ukončit sledování <%= tag %>
+        follow_error: Není možné sledovat štítek <%= tag %> :(
+        stop_following_error: Není možné přestat sledovat štítek <%= tag %> :(
+    header:
+      home: Domů
+      profile: Profil
+      contacts: Kontakty
+      settings: Nastavení
+      help: Nápověda
+      admin: Administrace
+      moderator: Moderátor
+      log_out: Odhlásit se
+      toggle_navigation: Vybrat navigaci
+      switch_to_touch_optimized_mode: Přepnutí do režimu dotykového displeje
+      notifications: Oznámení
+      conversations: Konverzace
+      search: Hledat
+      recent_notifications: Nedávná oznámení
+      mark_all_as_read: Označit vše jako přečtené
+      view_all: Zobrazit vše
+      close: Zavřít
     viewer:
-      reshared: "Sdíleno"
+      reshared: Sdíleno
+    poll:
+      vote: Hlasovat
+      go_to_original_post: Tohoto výzkumu se můžete účastnit zde" <%= original_post_link %>
+      original_post: původní příspěvek
+      result: Výsledek
+      count:
+        one: zatím 1 hlas
+        few: zatím <%=count%> hlasy
+        other: zatím <%=count%> hlasů
+      answer_count:
+        zero: 0 hlasů
+        one: 1 hlas
+        few: "<%=count%>  hlasů"
+        other: "<%=count%>  hlasů"
+      show_result: Ukázat výsledky
+      close_result: Skrýt výsledky
+      your_vote: Váš hlas

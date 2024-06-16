@@ -8,7 +8,7 @@ describe User::Connecting, type: :model do
   let(:aspect1) { alice.aspects.first }
   let(:aspect2) { alice.aspects.create(name: "other") }
 
-  let(:person) { FactoryGirl.create(:person) }
+  let(:person) { FactoryBot.create(:person) }
 
   describe "disconnecting" do
     describe "#disconnected_by" do
@@ -181,7 +181,7 @@ describe User::Connecting, type: :model do
       it "delivers profile for remote persons" do
         allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
         expect(Diaspora::Federation::Dispatcher)
-          .to receive(:defer_dispatch).with(alice, alice.profile, subscriber_ids: [remote_raphael.id])
+          .to receive(:defer_dispatch).with(alice, alice.profile, {subscriber_ids: [remote_raphael.id]})
 
         alice.share_with(remote_raphael, alice.aspects.first)
       end
@@ -200,7 +200,7 @@ describe User::Connecting, type: :model do
     end
 
     it "should mark the corresponding notification as 'read'" do
-      FactoryGirl.create(:notification, target: eve.person, recipient: alice, type: "Notifications::StartedSharing")
+      FactoryBot.create(:notification, target: eve.person, recipient: alice, type: "Notifications::StartedSharing")
       expect(Notifications::StartedSharing.find_by(recipient_id: alice.id, target: eve.person).unread).to be_truthy
 
       alice.share_with(eve.person, aspect1)

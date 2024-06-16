@@ -58,7 +58,7 @@ class StatusMessage < Post
   end
 
   def nsfw
-    text.try(:match, /#nsfw/i) || super
+    !!(text.try(:match, /#nsfw/i) || super) # rubocop:disable Style/DoubleNegation
   end
 
   def comment_email_subject

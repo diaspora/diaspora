@@ -5,7 +5,6 @@
 //= link contact-list.js
 //= link jquery3.js
 //= link jquery_ujs.js
-//= link jsxc.js
 //= link bookmarklet.js
 //= link mobile/bookmarklet.js
 

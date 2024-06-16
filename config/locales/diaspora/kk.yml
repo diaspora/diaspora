@@ -5,56 +5,56 @@
 
 
 kk:
-  _contacts: "Байланыстар"
-  _services: "Қызмет атқарулар"
-  _statistics: "Статистикасы"
-  account: "Есепшот"
-  are_you_sure: "Сенімдісіз бе?"
+  settings: Құрал саймандар
+  account: Есепшот
+  _services: Қызмет атқарулар
+  ok: ЖАҚСЫ
+  delete: Өшіру
+  username: Қолданушының аты
+  are_you_sure: Сенімдісіз бе?
+  public: Қоғамдық
+  limited: Шектеулі
+  search: Іздеу
+  more: Көбірек
+  no_results: Нәтижелер табылмады
+  _contacts: Байланыстар
+  _statistics: Статистикасы
   aspects:
     edit:
-      rename: "Атын өзгерту"
-      update: "жаңала"
-      updating: "жаңала"
+      rename: Атын өзгерту
+      update: жаңала
+      updating: жаңала
+    seed:
+      family: Жанұя
+      work: жұмыс
+      friends: достар
     index:
       help:
-        tag_bug: "қате"
-        tag_question: "сұрақ"
-    seed:
-      family: "Жанұя"
-      friends: "достар"
-      work: "жұмыс"
+        tag_question: сұрақ
+        tag_bug: қате
   comments:
     new_comment:
-      comment: "түсініктеме"
+      comment: түсініктеме
   conversations:
     new:
-      subject: "тақырып"
-      to: "үшін"
-  delete: "Өшіру"
+      to: үшін
+      subject: тақырып
   invitations:
     new:
-      language: "тіл"
-  limited: "Шектеулі"
-  more: "Көбірек"
-  no_results: "Нәтижелер табылмады"
+      language: тіл
   notifications:
     index:
-      no_notifications: "Сізде әлі ешқандай хабарландыруларды жоқ."
-  ok: "ЖАҚСЫ"
-  public: "Қоғамдық"
-  search: "Іздеу"
-  settings: "Құрал саймандар"
+      no_notifications: Сізде әлі ешқандай хабарландыруларды жоқ.
   shared:
     aspect_dropdown:
       mobile_row_checked: "%{name}(жою)"
       mobile_row_unchecked: "%{name} (үстеу)"
   statistics:
-    closed: "Жабық"
-    enabled: "Жетімді"
-    name: "Аты"
-    network: "Желі"
-    open: "Ашық"
-    services: "Қызмет атқарулар"
-    total_users: "Жалпы пайдаланушылар"
-    version: "Нұсқа"
-  username: "Қолданушының аты"
+    name: Аты
+    network: Желі
+    services: Қызмет атқарулар
+    total_users: Жалпы пайдаланушылар
+    version: Нұсқа
+    enabled: Жетімді
+    open: Ашық
+    closed: Жабық

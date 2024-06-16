@@ -4,9 +4,10 @@ class BlocksController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    block = current_user.blocks.new(block_params)
-
-    send_message(block) if block.save
+    begin
+      block_service.block(Person.find_by!(id: block_params[:person_id]))
+    rescue ActiveRecord::RecordNotUnique
+    end
 
     respond_to do |format|
       format.json { head :no_content }
@@ -15,13 +16,13 @@ class BlocksController < ApplicationController
   end
 
   def destroy
-    block = current_user.blocks.find_by(id: params[:id])
-    notice = if block&.delete
-               ContactRetraction.for(block).defer_dispatch(current_user)
-               {notice: t("blocks.destroy.success")}
-             else
-               {error: t("blocks.destroy.failure")}
-             end
+    notice = nil
+    begin
+      block_service.remove_block(current_user.blocks.find_by!(id: params[:id]))
+      notice = {notice: t("blocks.destroy.success")}
+    rescue ActiveRecord::RecordNotFound
+      notice = {error: t("blocks.destroy.failure")}
+    end
 
     respond_to do |format|
       format.json { head :no_content }
@@ -31,17 +32,11 @@ class BlocksController < ApplicationController
 
   private
 
-  def send_message(block)
-    contact = current_user.contact_for(block.person)
-
-    if contact
-      current_user.disconnect(contact)
-    elsif block.person.remote?
-      Diaspora::Federation::Dispatcher.defer_dispatch(current_user, block)
-    end
-  end
-
   def block_params
     params.require(:block).permit(:person_id)
+  end
+
+  def block_service
+    BlockService.new(current_user)
   end
 end

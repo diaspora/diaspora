@@ -5,210 +5,210 @@
 
 
 ur-PK:
-  _applications: "ایپلی کیشنز"
-  _contacts: "رابطے"
-  _services: "سہولیات"
-  account: "اکاؤنٹ"
+  account: اکاؤنٹ
+  _services: سہولیات
+  _applications: ایپلی کیشنز
+  are_you_sure: کیا آپکو یقین ہے؟
+  all_aspects: تمام پہلو
+  _contacts: رابطے
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: ".اس صارف کے رابطوں کے درمیان منفرد ہونا لازمی ہے"
+            person:
+              invalid: ".غلط ہے"
+            username:
+              taken: ".پہلے ہی لیا جا چکا ہے"
+              invalid: غلط ہے. ہم صرف حروف ، ہندسوں اور مرتب کی اجازت دیتے ہیں
+            email:
+              taken: ".پہلے ہی لیا جا چکا ہے"
         person:
           attributes:
             diaspora_handle:
               taken: ".پہلے ہی لیا جا چکا ہے"
+        contact:
+          attributes:
+            person_id:
+              taken: ".اس صارف کے رابطوں کے درمیان منفرد ہونا لازمی ہے"
         reshare:
           attributes:
             root_guid:
               taken: "!آپ نے یہ منصب پہلے بھی تقسیم کیا ہے"
-        user:
-          attributes:
-            email:
-              taken: ".پہلے ہی لیا جا چکا ہے"
-            person:
-              invalid: ".غلط ہے"
-            username:
-              invalid: "غلط ہے. ہم صرف حروف ، ہندسوں اور مرتب کی اجازت دیتے ہیں"
-              taken: ".پہلے ہی لیا جا چکا ہے"
-  all_aspects: "تمام پہلو"
-  are_you_sure: "کیا آپکو یقین ہے؟"
-  aspect_memberships:
-    destroy:
-      failure: "پہلو سے شخص کو ہٹانے میں ناکام رہے"
-      no_membership: "اس پہلو میں منتخب آدمی کو تلاش نہیں کر سکا"
-      success: "شخص کامیابی سے پہلو سے ہٹا دیا"
   aspects:
-    add_to_aspect:
-      failure: "رابطہ پہلو میں شامل کرنے میں ناکام رہے۔"
-      success: "رابطہ کامیابی سے پہلو میں شامل کر دیا گیا ہے۔"
-    aspect_listings:
-      add_an_aspect: "ایک پہلو شامل کریں +"
-    destroy:
-      failure: "%{name} .خالی نہیں ہے اور اسے ختم نہیں کیا جا سکتا"
-      success: "%{name} کامیابی سے ہٹا دیا گیا۔"
     edit:
-      aspect_list_is_not_visible: "پہلو کی فہرست' پہلو میں دوسروں سے چھپی ہوئ ہے'"
-      aspect_list_is_visible: "پہلو کی فہرست' پہلو میں دوسروں کو دکھائی دے رہی ہے'"
-      confirm_remove_aspect: "کیا آپکو یقین ہے کہ آپ اس پہلو کو خذف کرنا چاہتے ہیں؟"
-      rename: "نام تبدیل کریں"
-      update: "تازہ"
-      updating: "تازہ کیا جا رھا ہے"
+      confirm_remove_aspect: کیا آپکو یقین ہے کہ آپ اس پہلو کو خذف کرنا چاہتے ہیں؟
+      rename: نام تبدیل کریں
+      aspect_list_is_visible: پہلو کی فہرست' پہلو میں دوسروں کو دکھائی دے رہی ہے'
+      aspect_list_is_not_visible: پہلو کی فہرست' پہلو میں دوسروں سے چھپی ہوئ ہے'
+      update: تازہ
+      updating: تازہ کیا جا رھا ہے
+    no_contacts_message:
+      you_should_add_some_more_contacts: آپ کو کچھ مزید رابطے شامل کرنا چاہیئں!
+      try_adding_some_more_contacts: آب مزید رابطے تلاش (top) یا مدعو (right) کر سکتے ہیں۔
+    aspect_listings:
+      add_an_aspect: ایک پہلو شامل کریں +
+    destroy:
+      success: "%{name} کامیابی سے ہٹا دیا گیا۔"
+      failure: "%{name} .خالی نہیں ہے اور اسے ختم نہیں کیا جا سکتا"
+    update:
+      success: آپکے پہلو, %{name}, میں ترمیم ہو گئ ہے۔
+      failure: آپکے پہلو کا نام, %{name}, محفوظ کرنے کی حد سے لمبا ہے۔
+    add_to_aspect:
+      failure: رابطہ پہلو میں شامل کرنے میں ناکام رہے۔
+      success: رابطہ کامیابی سے پہلو میں شامل کر دیا گیا ہے۔
+    seed:
+      family: خاندان
+      work: کام
+      acquaintances: جاننے والے
+      friends: دوست
     index:
-      donate: "عطیہ دیجیے"
+      donate: عطیہ دیجیے
       help:
-        here_to_help: "Diaspora community is here to help!"
+        here_to_help: Diaspora community is here to help!
+        tag_question: "#question"
         tag_bug: "#bug"
         tag_feature: "#feature"
-        tag_question: "#question"
       services:
-        content: "آپ ڈایسپورا کے لئے مندرجہ ذیل خدمات شامل کر سکتے ہیں :"
-        heading: "خدمات کو جوڑیے"
-    no_contacts_message:
-      try_adding_some_more_contacts: "آب مزید رابطے تلاش (top) یا مدعو (right) کر سکتے ہیں۔"
-      you_should_add_some_more_contacts: "آپ کو کچھ مزید رابطے شامل کرنا چاہیئں!"
-    seed:
-      acquaintances: "جاننے والے"
-      family: "خاندان"
-      friends: "دوست"
-      work: "کام"
-    update:
-      failure: "آپکے پہلو کا نام, %{name}, محفوظ کرنے کی حد سے لمبا ہے۔"
-      success: "آپکے پہلو, %{name}, میں ترمیم ہو گئ ہے۔"
+        heading: خدمات کو جوڑیے
+        content: 'آپ ڈایسپورا کے لئے مندرجہ ذیل خدمات شامل کر سکتے ہیں :'
+  aspect_memberships:
+    destroy:
+      success: شخص کامیابی سے پہلو سے ہٹا دیا
+      failure: پہلو سے شخص کو ہٹانے میں ناکام رہے
+      no_membership: اس پہلو میں منتخب آدمی کو تلاش نہیں کر سکا
   contacts:
     index:
-      no_contacts: "No contacts."
+      no_contacts: No contacts.
   layouts:
     header:
-      logout: "log out"
-      profile: "profile"
-      settings: "settings"
+      profile: profile
+      settings: settings
+      logout: log out
   notifications:
-    also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-    also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
-    comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
-    index:
-      and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
-    liked:
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
-    mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
-    reshared:
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
-    reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
     started_sharing:
+      zero: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
-      two: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
+    private_message:
+      zero: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+    comment_on_post:
+      zero: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+    also_commented:
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+    mentioned:
+      zero: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} has mentioned you in a %{post_link}."
+      many: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} has mentioned you in a %{post_link}."
+    liked:
+      zero: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
+      few: "%{actors} has just liked your %{post_link}."
+      many: "%{actors} has just liked your %{post_link}."
+      other: "%{actors} has just liked your %{post_link}."
+    reshared:
+      zero: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+    also_commented_deleted:
+      zero: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+    liked_post_deleted:
+      zero: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+    reshared_post_deleted:
+      zero: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+    mentioned_deleted:
+      zero: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+    index:
+      and_others:
+        zero: and nobody else
+        one: and one more
+        two: and %{count} others
+        few: and %{count} others
+        many: and %{count} others
+        other: and %{count} others
   notifier:
-    confirm_email:
-      click_link: "To activate your new email address %{unconfirmed_email}, please click this link:"
     liked:
       liked: "%{name} just liked your post"
     reshared:
       reshared: "%{name} just reshared your post"
+    confirm_email:
+      click_link: 'To activate your new email address %{unconfirmed_email}, please click this link:'
   posts:
     show:
       photos_by:
+        zero: No photos by %{author}
+        one: One photo by %{author}
+        two: Two photos by %{author}
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
   shared:
     aspect_dropdown:
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add to aspect"
+        zero: Add to aspect
+        one: In %{count} aspect
+        two: In %{count} aspects
+        few: In %{count} aspects
+        many: In %{count} aspects
+        other: In %{count} aspects
     publisher:
       new_user_prefill:
-        i_like: "I'm interested in %{tags}."
+        i_like: I'm interested in %{tags}.
   status_messages:
-    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
+    too_long: '{"few"=>"please make your status messages less than %{count} characters", "many"=>"please make your status messages less than %{count} characters", "one"=>"please make your status messages less than %{count} character", "other"=>"please make your status messages less than %{count} characters", "two"=>"please make your status messages less than %{count} characters", "zero"=>"please make your status messages less than %{count} characters"}'
   streams:
-    aspects:
-      title: "Your Aspects"
     mentions:
-      title: "Your Mentions"
+      title: Your Mentions
+    aspects:
+      title: Your Aspects
   users:
     edit:
-      auto_follow_back: "Automatically follow back if a someone follows you"
+      your_handle: Your diaspora id
+      auto_follow_back: Automatically follow back if a someone follows you
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      your_handle: "Your diaspora id"
+        what_we_delete: We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle.

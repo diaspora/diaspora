@@ -6,94 +6,94 @@
 
 bg:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Добавяне на контакт"
-      all_aspects: "Във всеки аспект"
-      error: "Не е възможно започване на споделяне с <%= name %>.  Вероятно ги игнорирате?"
-      select_aspects: "Избиране на аспект(и)"
-      started_sharing_with: "Започнахте да споделяте с <%= name %>!"
-      stopped_sharing_with: "Престанахте да споделяте с <%= name %>."
-      toggle:
-        one: "В <%= count %> аспекта"
-        other: "В <%= count %> аспекта"
-        zero: "В <%= count %> аспект"
-    aspect_navigation:
-      deselect_all: "Никой"
-      no_aspects: "Няма избран аспект"
-      select_all: "Всички"
-    comments:
-      hide: "скриване на коментарите"
-      show: "показване на коментарите"
-    confirm_dialog: "Сигурни ли сте?"
-    delete: "Изтриване"
-    failed_to_post_message: "Съобщението не бе публикувано!"
-    getting_started:
-      alright_ill_wait: "Добре, ще изчакам."
-      hey: "Здравейте, <%= name %>!"
-      no_tags: "Не следите нито една марка!  Желаете ли да продължите въпреки това?"
-      preparing_your_stream: "Вашият персонализиран поток се подготвя..."
-    header:
-      admin: "Администриране"
-      contacts: "Контакти"
-      home: "Начало"
-      log_out: "Отписване"
-      mark_all_as_read: "Маркирай вс. като прочетени"
-      notifications: "Известия"
-      profile: "Профил"
-      recent_notifications: "Скорошни"
-      search: "Намерете хора или #диез-марки"
-      settings: "Настройки"
-      view_all: "Покажи всички"
-    ignore: "Игнориране"
-    my_activity: "Моята дейност"
-    my_stream: "Поток"
-    photo_uploader:
-      looking_good: "Леле, изглеждате страхотно!"
-    show_more: "покажи още"
-    stream:
-      comment: "Коментиране"
-      hide: "Скриване"
-      like: "Харесва ми"
-      likes:
-        one: "Харесана <%= count %> пъти"
-        other: "Харесана <%= count %> пъти"
-        zero: "Харесана <%= count %> път"
-      limited: "Ограничено"
-      more_comments:
-        few: "Покажи останалите <%= count %> коментара"
-        many: "Покажи останалите <%= count %> коментара"
-        one: "Покажи останалия <%= count %> коментар"
-        other: "Покажи останалите <%= count %> коментара"
-        two: "Show <%= count %> more comments"
-        zero: "Покажи осталите <%= count %> коментара"
-      original_post_deleted: "Авторът на оригиналната публикация я е изтрил."
-      public: "Публично"
-      reshare: "Споделяне"
-      reshares:
-        one: "Споделена <%= count %> пъти"
-        other: "Споделена  <%= count %> пъти"
-        zero: "Споделена <%= count %> път"
-      unlike: "Не ми харесва"
-    tags:
-      wasnt_that_interesting: "Е, вероятно марката #<%= tagName %> не е чак толкова интересна..."
     timeago:
-      day: "ден"
-      days:
-        other: "%d дни"
-      hour: "около час"
-      hours:
-        other: "около %d часа"
-      minute: "около минута"
+      prefixAgo: преди
+      suffixAgo: ''
+      suffixFromNow: от сега
+      prefixFromNow: след
+      seconds: по-малко от минута
+      minute: около минута
       minutes:
         other: "%d минути"
-      month: "около месец"
+      hour: около час
+      hours:
+        other: около %d часа
+      day: ден
+      days:
+        other: "%d дни"
+      month: около месец
       months:
         other: "%d месеца"
-      prefixAgo: "преди"
-      prefixFromNow: "след"
-      seconds: "по-малко от минута"
-      suffixAgo: ""
-      suffixFromNow: "от сега"
-      year: "около година"
+      year: около година
       years:
         other: "%d години"
+    confirm_dialog: Сигурни ли сте?
+    delete: Изтриване
+    ignore: Игнориране
+    my_activity: Моята дейност
+    my_stream: Поток
+    aspect_dropdown:
+      add_to_aspect: Добавяне на контакт
+      select_aspects: Избиране на аспект(и)
+      all_aspects: Във всеки аспект
+      stopped_sharing_with: Престанахте да споделяте с <%= name %>.
+      started_sharing_with: Започнахте да споделяте с <%= name %>!
+      error: Не е възможно започване на споделяне с <%= name %>.  Вероятно ги игнорирате?
+      toggle:
+        zero: В <%= count %> аспект
+        one: В <%= count %> аспекта
+        other: В <%= count %> аспекта
+    show_more: покажи още
+    failed_to_post_message: Съобщението не бе публикувано!
+    comments:
+      show: показване на коментарите
+      hide: скриване на коментарите
+    aspect_navigation:
+      select_all: Всички
+      deselect_all: Никой
+      no_aspects: Няма избран аспект
+    getting_started:
+      hey: Здравейте, <%= name %>!
+      no_tags: Не следите нито една марка!  Желаете ли да продължите въпреки това?
+      alright_ill_wait: Добре, ще изчакам.
+      preparing_your_stream: Вашият персонализиран поток се подготвя...
+    photo_uploader:
+      looking_good: Леле, изглеждате страхотно!
+    tags:
+      wasnt_that_interesting: 'Е, вероятно марката #<%= tagName %> не е чак толкова интересна...'
+    stream:
+      hide: Скриване
+      public: Публично
+      limited: Ограничено
+      like: Харесва ми
+      unlike: Не ми харесва
+      reshare: Споделяне
+      comment: Коментиране
+      original_post_deleted: Авторът на оригиналната публикация я е изтрил.
+      likes:
+        zero: Харесана <%= count %> път
+        one: Харесана <%= count %> пъти
+        other: Харесана <%= count %> пъти
+      reshares:
+        zero: Споделена <%= count %> път
+        one: Споделена <%= count %> пъти
+        other: Споделена  <%= count %> пъти
+      more_comments:
+        zero: Покажи осталите <%= count %> коментара
+        one: Покажи останалия <%= count %> коментар
+        two: Show <%= count %> more comments
+        few: Покажи останалите <%= count %> коментара
+        many: Покажи останалите <%= count %> коментара
+        other: Покажи останалите <%= count %> коментара
+    header:
+      home: Начало
+      profile: Профил
+      contacts: Контакти
+      settings: Настройки
+      admin: Администриране
+      log_out: Отписване
+      notifications: Известия
+      search: 'Намерете хора или #диез-марки'
+      recent_notifications: Скорошни
+      mark_all_as_read: Маркирай вс. като прочетени
+      view_all: Покажи всички

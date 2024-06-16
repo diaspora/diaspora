@@ -1,3 +1,102 @@
+# 0.9.0.0
+
+## New configuration file!
+
+Diaspora\* now uses TOML for the configuration file. We recommend you to migrate to this new format, as with the next major release (1.0) diaspora\* will no longer read the YAML based configuration file at `config/diaspora.yml`. To do so, please copy `config/diaspora.toml.example` to `config/diaspora.toml` and migrate your configuration.
+
+## API!
+
+With the release of diaspora\* Version 0.9, we now officially support building applications on top of the diaspora\* API! Please check out [the official API documentation](https://diaspora.github.io/api-documentation/) for instructions, and please do file bugs if you notice something that could be improved!
+
+We are looking forward to seeing many creative applications!
+
+## The chat integration has been removed
+
+After [a discussion with our community on Discourse](https://discourse.diasporafoundation.org/t/2718), we decided to remove the pieces of XMPP chat integration that were put in place a while ago. When we first added the chat support, we merged the implementation in an unfinished state in the hopes that the open issues will be addressed eventually, and the implementation would end up more polished. This ended up not being the case. After careful consideration and discussion, we did not manage to come up with clear reasons why we need a chat implementation, so we decided that the best way forward would be to remove it.
+
+Although the chat was never enabled per default and was marked as experimental, some production pods did set up the integration and offered an XMPP service to their users. After this release, diaspora\* will no longer contain a chat applet, so users will no longer be able to use the webchat inside diaspora\*. The existing module that is used to enable users to authenticate to Prosody using their diaspora\* credentials will continue to work, but contact list synchronization might not work without further changes to the Prosody module, which is developed independently from this project.
+
+## Changes around the appserver and related configuration
+
+With this release, we switched from `unicorn` to `puma` to run our applications. For podmins running the default setup, this should significantly reduce memory usage, with similar or even better frontend performance! However, as great as this change is, some configuration changes are required.
+
+- The `single_process_mode` and `embed_sidekiq_worker` configurations have been removed. This mode was never truly a "single-process" mode, as it just spawned the Background Workers inside the runserver. If you're using `script/server` to start your pod, this change does not impact you, but if you're running diaspora\* using other means, and you relied on this "single"-process mode, please ensure that Sidekiq workers get started.
+- The format of the `listen` configuration has changed. If you have not set that field in your configuration, you can skip this. Otherwise, make sure to adjust your configuration accordingly:
+  - Listening to Unix sockets with a relative path has changed from `unix:tmp/diaspora.sock` into `unix://tmp/diaspora.sock`.
+  - Listening to Unix sockets with an absolute path has changed from `unix:/run/diaspora/diaspora.sock` to `unix:///run/diaspora/diaspora.sock`.
+  - Listening to a local port has changed from `127.0.0.1:3000` to `tcp://127.0.0.1:3000`.
+- The `PORT` environment variable and the `-p` parameter to `script/server` have been removed. If you used that to run diaspora\* on a non-standard port, please use the `listen` configuration.
+- The `unicorn_worker` configuration has been dropped. With Puma, there should not be a need to increase the number of workers above a single worker in any pod of any size.
+- The `unicorn_timeout` configuration has been renamed to `web_timeout`.
+- **If you don't run your pod with `script/server`**, you have to update your setup. If you previously called `bin/bundle exec unicorn -c config/unicorn.rb` to run diaspora\*, you now have to run `bin/puma -C config/puma.rb`! Please update your systemd-Units or similar accordingly.
+
+## Yarn for frontend dependencies
+
+We use yarn to install the frontend dependencies now, so you need to have that installed. See here for how to install it: https://yarnpkg.com/en/docs/install
+
+## Suggested Ruby version: 3.3
+
+We recommend setting up new pods using Ruby 3.3, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
+
+## Changes to script/server for production pods
+
+If you're currently running your production pod with `./script/server` in a tmux or something similar, please be careful. We made some internal changes that result in the script no longer automatically restarting the server if it crashes - instead, it will just shut down. We strongly recommend running your pod using your system's unit manager, for example with [this systemd unit](https://wiki.diasporafoundation.org/Automatic_startup_methods#Recommended:_systemd).
+
+## Security
+
+* Fix a potential 2FA brute force attack ([CVE-2024-0227](https://github.com/devise-two-factor/devise-two-factor/security/advisories/GHSA-chcr-x7hc-8fp8)).
+  Thanks to Christian Reitter ([Radically Open Security](https://www.radicallyopensecurity.com/)) and Chris MacNaughton ([Centauri Solutions](https://centauri.solutions)).
+
+## Refactor
+* Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581) [#8397](https://github.com/diaspora/diaspora/pull/8397)
+* Remove backporting of mention syntax [#7788](https://github.com/diaspora/diaspora/pull/7788)
+* Enable Content-Security-Policy header by default [#7781](https://github.com/diaspora/diaspora/pull/7781)
+* Do not show getting started after account import [#8036](https://github.com/diaspora/diaspora/pull/8036)
+* Remove the JSXC/Prosody integration [#8069](https://github.com/diaspora/diaspora/pull/8069) [#8341](https://github.com/diaspora/diaspora/pull/8341)
+* Replace `factory_girl` with `factory_bot` [#8218](https://github.com/diaspora/diaspora/pull/8218)
+* Drop relay support [#8243](https://github.com/diaspora/diaspora/pull/8243)
+* Use yarn to manage the frontend dependencies [#8364](https://github.com/diaspora/diaspora/pull/8364)
+* Upgrade to latest `diaspora_federation`, remove support for old federation protocol [#8368](https://github.com/diaspora/diaspora/pull/8368)
+* Remove support for `therubyracer` [#8337](https://github.com/diaspora/diaspora/issues/8337)
+* Replace `unicorn` with `puma` [#8392](https://github.com/diaspora/diaspora/pull/8392)
+* Drop `strip_exif` flag and always remove exif data from uploaded images [#8417](https://github.com/diaspora/diaspora/pull/8417)
+* Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
+* Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
+* Add ruby 3 support [#8423](https://github.com/diaspora/diaspora/pull/8423) [#8426](https://github.com/diaspora/diaspora/pull/8426) [#8427](https://github.com/diaspora/diaspora/pull/8427) [#8448](https://github.com/diaspora/diaspora/pull/8448)
+* Add CORS headers to nodeinfo endpoints to allow for client-side fetching [#8436](https://github.com/diaspora/diaspora/pull/8436)
+* Replace eye with foreman [#8449](https://github.com/diaspora/diaspora/pull/8449)
+
+## Bug fixes
+* Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
+* Photo-upload file picker now correctly restricts possible file types [#8205](https://github.com/diaspora/diaspora/pull/8205)
+* Make inline code inside links show the link color [#8387](https://github.com/diaspora/diaspora/pull/8387)
+* Fix fetching public posts on first account search was missing some data [#8390](https://github.com/diaspora/diaspora/pull/8390)
+* Add redirect from mobile UI photo URLs to post when not using mobile UI [#8400](https://github.com/diaspora/diaspora/pull/8400)
+* Escape mentions before markdown parsing in mobile UI [#8398](https://github.com/diaspora/diaspora/pull/8398)
+* Cleanup duplicate pods in database [#8403](https://github.com/diaspora/diaspora/pull/8403)
+* Fix scrolling issue after closing photo viewer on photos page [#8404](https://github.com/diaspora/diaspora/pull/8404)
+* Filter unicode emojis from email headers [#8421](https://github.com/diaspora/diaspora/pull/8421)
+* Do not show disabled services anymore [#8406](https://github.com/diaspora/diaspora/pull/8406)
+* Update search endpoint to be aware of ignored users [#8363](https://github.com/diaspora/diaspora/pull/8363)
+
+## Features
+* Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
+* Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
+* Add backend for archive import [#7660](https://github.com/diaspora/diaspora/pull/7660) [#8254](https://github.com/diaspora/diaspora/pull/8254) [#8264](https://github.com/diaspora/diaspora/pull/8264) [#8010](https://github.com/diaspora/diaspora/pull/8010) [#8260](https://github.com/diaspora/diaspora/pull/8260) [#8302](https://github.com/diaspora/diaspora/pull/8302) [#8298](https://github.com/diaspora/diaspora/pull/8298)
+* For pods running PostgreSQL, make sure that no upper-case/mixed-case tags exist, and create a `lower(name)` index on tags to speed up ActsAsTaggableOn [#8206](https://github.com/diaspora/diaspora/pull/8206)
+* Allow podmins/moderators to see all local public posts to improve moderation [#8232](https://github.com/diaspora/diaspora/pull/8232) [#8320](https://github.com/diaspora/diaspora/pull/8320)
+* Add support for directly paste images to upload them [#8237](https://github.com/diaspora/diaspora/pull/8237)
+* Add support for webp images and convert new png/jpg to webp to save space and bandwidth [#8358](https://github.com/diaspora/diaspora/pull/8358)
+* Show total and active pods count in the pods list for podmins [#8383](https://github.com/diaspora/diaspora/pull/8383)
+* Allow to select multiple aspects when posting on mobile [#8217](https://github.com/diaspora/diaspora/pull/8217)
+* Add info links to drawer in mobile UI [#8405](https://github.com/diaspora/diaspora/pull/8405)
+* Tell users that there is no help in mobile version, allow to switch to desktop [#8407](https://github.com/diaspora/diaspora/pull/8407)
+* Add Smart App Banner on iOS devices [#8409](https://github.com/diaspora/diaspora/pull/8409)
+* Add a more detailed modal when reporting a post or a comment [#8035](https://github.com/diaspora/diaspora/pull/8035)
+* Re-introduce likes on comments [#8203](https://github.com/diaspora/diaspora/pull/8203) [#8439](https://github.com/diaspora/diaspora/pull/8439) [#8442](https://github.com/diaspora/diaspora/pull/8442)
+* New redesigned registration page [#8285](https://github.com/diaspora/diaspora/pull/8285)
+* Allow comments to be fetched [#8441](https://github.com/diaspora/diaspora/pull/8441)
+
 # 0.7.18.2
 
 To avoid potential security issues, diaspora\* now makes sure that ImageMagick image processing always runs with a restricted `policy.xml`, regardless of the global system settings.
@@ -78,7 +177,7 @@ To avoid potential security issues, diaspora\* now makes sure that ImageMagick i
 * Testing: Replaced phantomjs with headless Chrome/Chromium [#8234](https://github.com/diaspora/diaspora/pull/8234)
 
 ## Bug fixes
-* Update comment counter when weleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
+* Update comment counter when deleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
 * Link diaspora only poduptime list [#8174](https://github.com/diaspora/diaspora/pull/8174)
 * Delete a user's invitation code during account deletion [#8202](https://github.com/diaspora/diaspora/pull/8202)
 * Bump mimemagic [#8231](https://github.com/diaspora/diaspora/pull/8231)

@@ -1,0 +1,62 @@
+## SECURITY WARNING:
+##
+## Do not change this job unless you know what you're doing.
+##
+## This GitHub Action runs on: pull_request_target, which means the jobs run in
+## a context where they have access to a Access Token with write access to the
+## target repo, even if the PR is opened from an external contributor from their
+## fork.
+##
+## This means that if we're not careful, we could be running third-party code
+## within an authenticated scope, which isn't good. To mitigate this, this
+## implementation does:
+##
+##   1. checkout the target branch (i.e. the project's original sources)
+##   2. install the Gems from there, and install them into a directory that's
+##      outside the repository contents.
+##   3. checkout the PRs HEAD
+##   4. restore a bunch of files that would allow code execution from the
+##      project's upstream sources, namely:
+##      - bin/bundle - we'll run that in our Job
+##      - Gemfile/Gemfile.lock - to avoid loading a gem with an identical
+##        version number from a in-repo vendored directory
+
+name: Lint
+on:
+  pull_request_target:
+
+permissions:
+  contents: read
+  statuses: write
+  pull-requests: write
+
+jobs:
+  pronto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install system dependencies
+        run: sudo apt update && sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg
+      - name: Checkout Target branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.base_ref }}
+          fetch-depth: 0
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+      - name: Checkout PR HEAD
+        run: |
+          git fetch -q origin +refs/pull/${{ github.event.pull_request.number }}/head:
+          git checkout -qf FETCH_HEAD
+      - name: Restore the bundle binstub and Gemfiles from the target branch
+        run: |
+          git restore -s ${{ github.base_ref }} -- bin/bundle
+          git restore -s ${{ github.base_ref }} -- Gemfile
+          git restore -s ${{ github.base_ref }} -- Gemfile.lock
+      - name: Run Pronto
+        run: bin/bundle exec pronto run -f github_status github_pr_review -c ${{ github.base_ref }}
+        env:
+          PRONTO_PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
+          PRONTO_GITHUB_ACCESS_TOKEN: ${{ github.token }}
+

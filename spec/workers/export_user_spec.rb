@@ -25,12 +25,7 @@ describe Workers::ExportUser do
 
   context "concurrency" do
     before do
-      AppConfig.environment.single_process_mode = false
-      AppConfig.settings.export_concurrency = 1
-    end
-
-    after :all do
-      AppConfig.environment.single_process_mode = true
+      AppConfig.settings.archive_jobs_concurrency = 1
     end
 
     let(:pid) { "#{Socket.gethostname}:#{Process.pid}:#{SecureRandom.hex(6)}" }
@@ -71,15 +66,6 @@ describe Workers::ExportUser do
         [[pid, SecureRandom.hex(4), {"payload" => {"class" => "Workers::OtherJob"}}]]
       )
 
-      expect(Workers::ExportUser).not_to receive(:perform_in).with(kind_of(Integer), alice.id)
-      expect(alice).to receive(:perform_export!)
-
-      Workers::ExportUser.new.perform(alice.id)
-    end
-
-    it "runs the export when diaspora is in single process mode" do
-      AppConfig.environment.single_process_mode = true
-      expect(Sidekiq::Workers).not_to receive(:new)
       expect(Workers::ExportUser).not_to receive(:perform_in).with(kind_of(Integer), alice.id)
       expect(alice).to receive(:perform_export!)
 

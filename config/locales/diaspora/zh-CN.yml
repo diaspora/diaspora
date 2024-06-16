@@ -5,604 +5,604 @@
 
 
 zh-CN:
-  _applications: "应用"
-  _contacts: "好友"
-  _help: "求助"
-  _services: "服务"
-  account: "帐号"
+  settings: 设置
+  profile: 个人档案
+  account: 帐号
+  privacy: 隐私
+  _services: 服务
+  _applications: 应用
+  _help: 求助
+  ok: 确定
+  cancel: 取消
+  delete: 删除
+  username: 帐号
+  email: 电子邮件
+  are_you_sure: 您确定吗？
+  are_you_sure_delete_account: 您确定要关闭您的帐号吗? 此操作无法撤销!
+  fill_me_out: 补全信息
+  public: 公开
+  limited: 限制
+  search: 搜索
+  nsfw: NSFW(工作不宜)
+  find_people: 找人或#标签
+  more: 更多
+  all_aspects: 所有分组
+  no_results: 没有找到符合条件的内容
+  _contacts: 好友
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "在好友中必须是唯一的。"
+            person:
+              invalid: 不合法。
+            username:
+              taken: 已被注册。
+              invalid: 不合法。用户名中只允许包含字母，数字和下划线。
+            email:
+              taken: 已被注册。
         person:
           attributes:
             diaspora_handle:
-              taken: "已被注册。"
+              taken: 已被注册。
+        contact:
+          attributes:
+            person_id:
+              taken: 在好友中必须是唯一的。
         reshare:
           attributes:
             root_guid:
-              taken: "您已经转发过了。"
-        user:
-          attributes:
-            email:
-              taken: "已被注册。"
-            person:
-              invalid: "不合法。"
-            username:
-              invalid: "不合法。用户名中只允许包含字母，数字和下划线。"
-              taken: "已被注册。"
-  admins:
-    admin_bar:
-      dashboard: "控制面板"
-      pages: "分页"
-      pod_stats: "Pod 统计资料"
-      report: "举报"
-      sidekiq_monitor: "监控Sidekiq"
-      user_search: "搜索用户"
-      weekly_user_stats: "用户统计周报"
-    stats:
-      2weeks: "两周"
-      50_most: "50个最流行的标签"
-      comments:
-        other: "%{count} 个意见"
-        zero: "%{count} 个意见"
-      current_segment: "目前时间区间有 <b>%{post_day}</b> 天，平均每个使用者有 <b>%{post_yest}</b> 篇内容"
-      daily: "一天"
-      display_results: "显示时间在 <b>%{segment}</b> 内的结果"
-      go: "好"
-      month: "一月"
-      posts:
-        other: "%{count} 篇内容"
-        zero: "%{count} 篇内容"
-      shares:
-        other: "分享 %{count} 次"
-        zero: "分享 %{count} 次"
-      tag_name: "标签名： <b>%{name_tag}</b> 数目：<b>%{count_tag}</b>"
-      usage_statistic: "使用状况统计"
-      users:
-        other: "%{count} 位用户"
-        zero: "%{count} 位用户"
-      week: "一周"
-    user_search:
-      add_invites: "增加邀请次数"
-      email_to: "寄电子邮件邀请"
-      under_13: "显示13岁以下的用户 (受COPPA，小孩网路私隐保护法，保护)"
-      users:
-        other: "找到 %{count} 个用户"
-        zero: "找到 %{count} 个用户"
-      you_currently:
-        other: "您目前还可以邀请 %{user_invitation} 次 %{link}"
-    weekly_user_stats:
-      amount_of:
-        other: "本周新用户数目：%{count}"
-        zero: "本周新用户数目：0"
-      current_server: "服务器当前日期：%{date}"
-  all_aspects: "所有分组"
-  are_you_sure: "您确定吗？"
-  are_you_sure_delete_account: "您确定要关闭您的帐号吗? 此操作无法撤销!"
-  aspect_memberships:
-    destroy:
-      failure: "从分组中移除好友失败"
-      no_membership: "在分组中找不到选择的好友"
-      success: "从分组中移除好友成功"
-  aspects:
-    add_to_aspect:
-      failure: "将好友添加到分组失败。"
-      success: "将好友添加到分组成功。"
-    aspect_listings:
-      add_an_aspect: "+ 新增分组"
-    aspect_stream:
-      make_something: "做点什么"
-      stay_updated: "随时更新"
-      stay_updated_explanation: "您的主动态会充满您的好友，您关注的标签，和有趣的群的内容。"
-    destroy:
-      failure: "无法删除 %{name} ，它不是空的。"
-      success: "删除 %{name} 成功。"
-    edit:
-      aspect_list_is_not_visible: "分组中的好友不能看见此分组的好友列表"
-      aspect_list_is_visible: "分组中的好友能够看见此分组的好友列表"
-      confirm_remove_aspect: "您确定要删除这个分组？"
-      rename: "重命名"
-      update: "更新"
-      updating: "更新中"
-    index:
-      donate: "捐助"
-      help:
-        any_problem: "需要帮忙吗？"
-        contact_podmin: "请联络您所在的服务器的管理员！"
-        do_you: "您是否："
-        feature_suggestion: "...想建议 %{link}?"
-        find_a_bug: "...找到一只 %{link}？"
-        have_a_question: "...有 %{link} ？"
-        here_to_help: "Diaspora 社区很高兴帮助您！"
-        mail_podmin: "管理员电邮"
-        need_help: "需要帮助吗？"
-        tag_bug: "#bug"
-        tag_feature: "#特色"
-        tag_question: "#问题"
-        tutorial_link_text: "教程"
-        tutorials_and_wiki: "您可在%{faq}、%{tutorial}和%{wiki}学习如何开始。"
-      introduce_yourself: "这是您的动态。介绍一下自己吧！"
-      keep_pod_running: "让 %{pod} 高速运转，需要您的每月捐助，供应服务器的耗材！"
-      new_here:
-        follow: "关注 %{link} 。欢迎新用户！"
-        learn_more: "了解更多"
-        title: "欢迎新用户！"
-      services:
-        content: "您可以将以下服务连接至 Diaspora："
-        heading: "连接服务"
-      welcome_to_diaspora: "%{name}，欢迎加入 Diaspora！"
-    no_contacts_message:
-      community_spotlight: "社区热点"
-      or_spotlight: "或者您也可以和 %{link} 分享内容"
-      try_adding_some_more_contacts: "您可以在顶端搜索，或者在右侧邀请更多好友。"
-      you_should_add_some_more_contacts: "添加更多好友！"
-    seed:
-      acquaintances: "熟人"
-      family: "家人"
-      friends: "朋友"
-      work: "同事"
-    update:
-      failure: "分组 %{name} 名称太长了，不能保存"
-      success: "分组 %{name} 编辑成功。"
-  blocks:
-    create:
-      failure: "无法忽略用户。#借口"
-      success: "您不会再在动态中看到此用户了。#安静！"
-    destroy:
-      failure: "无法停止忽略用户。#借口"
-      success: "看看他们说什么！#打招呼"
-  bookmarklet:
-    explanation: "收藏<a href='%{link}'>这个链接</a>，即可随时发布新内容"
-    heading: "Diaspora 收藏夹"
-    post_something: "发布新内容到 Diaspora"
-  cancel: "取消"
-  comments:
-    new_comment:
-      comment: "回复"
-      commenting: "回复中……"
-  contacts:
-    index:
-      all_contacts: "所有好友"
-      community_spotlight: "社区热点"
-      my_contacts: "我的好友"
-      no_contacts: "尚未添加好友"
-      no_contacts_message: "来看看 %{community_spotlight}"
-      only_sharing_with_me: "和我分享内容的人"
-      start_a_conversation: "开始对话"
-      title: "好友"
-    spotlight:
-      community_spotlight: "社区热点"
-      suggest_member: "推荐一名成员"
-  conversations:
-    create:
-      fail: "无效的信息"
-      sent: "消息发送成功"
-    index:
-      inbox: "收件箱"
-      no_messages: "没消息"
-    new:
-      send: "发送"
-      sending: "发送中..."
-      subject: "主题"
-      to: "收件人"
-    show:
-      delete: "删除并中止对话"
-      reply: "回复"
-      replying: "回复中..."
-  date:
-    formats:
-      birthday: "%m-%d"
-      birthday_with_year: "%Y-%m-%d"
-      fullmonth_day: "%B%d日"
-  delete: "删除"
-  email: "电子邮件"
+              taken: 您已经转发过了。
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "修正以下错误后重试。"
-  fill_me_out: "补全信息"
-  find_people: "找人或#标签"
+      correct_the_following_errors_and_try_again: 修正以下错误后重试。
+  admins:
+    admin_bar:
+      pages: 分页
+      dashboard: 控制面板
+      user_search: 搜索用户
+      weekly_user_stats: 用户统计周报
+      pod_stats: Pod 统计资料
+      report: 举报
+      sidekiq_monitor: 监控Sidekiq
+    user_search:
+      you_currently:
+        other: 您目前还可以邀请 %{user_invitation} 次 %{link}
+      add_invites: 增加邀请次数
+      email_to: 寄电子邮件邀请
+      under_13: 显示13岁以下的用户 (受COPPA，小孩网路私隐保护法，保护)
+      users:
+        zero: 找到 %{count} 个用户
+        other: 找到 %{count} 个用户
+    weekly_user_stats:
+      current_server: 服务器当前日期：%{date}
+      amount_of:
+        zero: 本周新用户数目：0
+        other: 本周新用户数目：%{count}
+    stats:
+      week: 一周
+      2weeks: 两周
+      month: 一月
+      daily: 一天
+      usage_statistic: 使用状况统计
+      go: 好
+      display_results: 显示时间在 <b>%{segment}</b> 内的结果
+      posts:
+        zero: "%{count} 篇内容"
+        other: "%{count} 篇内容"
+      comments:
+        zero: "%{count} 个意见"
+        other: "%{count} 个意见"
+      shares:
+        zero: 分享 %{count} 次
+        other: 分享 %{count} 次
+      users:
+        zero: "%{count} 位用户"
+        other: "%{count} 位用户"
+      current_segment: 目前时间区间有 <b>%{post_day}</b> 天，平均每个使用者有 <b>%{post_yest}</b> 篇内容
+      50_most: 50个最流行的标签
+      tag_name: 标签名： <b>%{name_tag}</b> 数目：<b>%{count_tag}</b>
+  aspects:
+    edit:
+      confirm_remove_aspect: 您确定要删除这个分组？
+      rename: 重命名
+      aspect_list_is_visible: 分组中的好友能够看见此分组的好友列表
+      aspect_list_is_not_visible: 分组中的好友不能看见此分组的好友列表
+      update: 更新
+      updating: 更新中
+    no_contacts_message:
+      you_should_add_some_more_contacts: 添加更多好友！
+      try_adding_some_more_contacts: 您可以在顶端搜索，或者在右侧邀请更多好友。
+      or_spotlight: 或者您也可以和 %{link} 分享内容
+      community_spotlight: 社区热点
+    aspect_listings:
+      add_an_aspect: "+ 新增分组"
+    destroy:
+      success: 删除 %{name} 成功。
+      failure: 无法删除 %{name} ，它不是空的。
+    update:
+      success: 分组 %{name} 编辑成功。
+      failure: 分组 %{name} 名称太长了，不能保存
+    add_to_aspect:
+      failure: 将好友添加到分组失败。
+      success: 将好友添加到分组成功。
+    seed:
+      family: 家人
+      work: 同事
+      acquaintances: 熟人
+      friends: 朋友
+    index:
+      donate: 捐助
+      keep_pod_running: 让 %{pod} 高速运转，需要您的每月捐助，供应服务器的耗材！
+      welcome_to_diaspora: "%{name}，欢迎加入 Diaspora！"
+      introduce_yourself: 这是您的动态。介绍一下自己吧！
+      new_here:
+        title: 欢迎新用户！
+        follow: 关注 %{link} 。欢迎新用户！
+        learn_more: 了解更多
+      help:
+        need_help: 需要帮助吗？
+        here_to_help: Diaspora 社区很高兴帮助您！
+        do_you: 您是否：
+        have_a_question: "...有 %{link} ？"
+        tag_question: "#问题"
+        find_a_bug: "...找到一只 %{link}？"
+        tag_bug: "#bug"
+        feature_suggestion: "...想建议 %{link}?"
+        tag_feature: "#特色"
+        tutorials_and_wiki: 您可在%{faq}、%{tutorial}和%{wiki}学习如何开始。
+        tutorial_link_text: 教程
+        any_problem: 需要帮忙吗？
+        contact_podmin: 请联络您所在的服务器的管理员！
+        mail_podmin: 管理员电邮
+      services:
+        heading: 连接服务
+        content: 您可以将以下服务连接至 Diaspora：
+    aspect_stream:
+      stay_updated: 随时更新
+      stay_updated_explanation: 您的主动态会充满您的好友，您关注的标签，和有趣的群的内容。
+      make_something: 做点什么
+  aspect_memberships:
+    destroy:
+      success: 从分组中移除好友成功
+      failure: 从分组中移除好友失败
+      no_membership: 在分组中找不到选择的好友
+  bookmarklet:
+    heading: Diaspora 收藏夹
+    post_something: 发布新内容到 Diaspora
+    explanation: 收藏<a href='%{link}'>这个链接</a>，即可随时发布新内容
+  comments:
+    new_comment:
+      comment: 回复
+      commenting: 回复中……
+  contacts:
+    index:
+      start_a_conversation: 开始对话
+      title: 好友
+      no_contacts: 尚未添加好友
+      no_contacts_message: 来看看 %{community_spotlight}
+      community_spotlight: 社区热点
+      my_contacts: 我的好友
+      all_contacts: 所有好友
+      only_sharing_with_me: 和我分享内容的人
+    spotlight:
+      community_spotlight: 社区热点
+      suggest_member: 推荐一名成员
+  conversations:
+    index:
+      no_messages: 没消息
+      inbox: 收件箱
+    show:
+      reply: 回复
+      replying: 回复中...
+      delete: 删除并中止对话
+    new:
+      to: 收件人
+      subject: 主题
+      send: 发送
+      sending: 发送中...
+    create:
+      sent: 消息发送成功
+      fail: 无效的信息
+  date:
+    formats:
+      fullmonth_day: "%B%d日"
+      birthday: "%m-%d"
+      birthday_with_year: "%Y-%m-%d"
   help:
-    account_and_data_management:
-      close_account_a: "您可以去到设定的低端点击“关闭帐号”的按钮。您会需要在这个过程中输入您的密码。记得，您关闭帐号后，您就<strong>永远</strong>不能再在这个伺服器使用同个用户名了。"
-      close_account_q: "我如何删除我的帐号？"
-      data_other_podmins_a: "当您与另一个伺服器的用户共享您的帖子/资料时，所有您分享的帖子和您的用户资料都将被存储(作为缓存)在那个伺服器上，并且能被管理员开启。当你删除掉一则帖子或您的部分/全部资料时，所有曾留着您的资料的伺服器将被给予删除要求。您的照片永远都不会储存在别的伺服器上，别的伺服器只会拥有一个通往您的图片的链接。"
-      data_other_podmins_q: "其他的伺服器管理员看得到我的资料吗？"
-      data_visible_to_podmin_a: "简单来说：全部。伺服器与伺服器之间的通讯永远都被加密(使用SSL和diaspora*自己的加密方法)，但是存储在伺服器上的资料并没有加密。伺服器管理员拥有权力开启您所有的资料(包括帖子)(大部分存储用户资料的网站也一样)。这就是我们给予你选择注册的伺服器的原因：你可以选择一个值得信赖的管理员。您在可以开启您自己的伺服器以后，您也可以因拥有伺服器的管理权而拥有更多的隐私权。"
-      data_visible_to_podmin_q: "伺服器管理员到底能看到我多少资料？"
-      download_data_a: "是的，您可以。在设定中的“帐号”低端找到两个按钮：下载资料和下载图片。"
-      download_data_q: "我可以下载我的帐号所有的资料吗？"
-      move_pods_a: "Diaspora* 0.7.0.0 现在提供迁移帐号的第一步：您现在可以从设定中的“帐号”导出您所有的资料。记得安全的储存您的资料！我们接下来将允许您完全迁移您的账号（包括帖子和联络人）去别的伺服器。"
-      move_pods_q: "我如何把我的帐号移至另一个伺服器？"
-      title: "管理帐号和资料"
-    aspects:
-      restrict_posts_i_see_q: "我可以只阅读一些分组内的人发布的帖子吗？"
-      title: "分组"
-      what_is_an_aspect_a: "分组是个整合您在diaspora*的联络人的方法。一个分组是个您对外的一面。它可以是您的同事、您的家人或者您在一个俱乐部的朋友。"
-      what_is_an_aspect_q: "分组是什么？"
-      who_sees_post_a: "当您指定特定的收帖组时，它只会显示给您所指定的分组内的用户。不在分组内的联络人没有任何阅读您的帖的方法。这些帖子不会对不再您的分组内的用户显示。"
-      who_sees_post_q: "我对一个分组发帖时，有谁可以看到我的帖子？"
-    foundation_website: "diaspora*基金官方网站"
+    tutorials: 教程
+    tutorial: 教程
+    irc: IRC （网路聊天）
+    wiki: 百科
+    markdown: 修饰字体
+    here: 这
+    foundation_website: diaspora*基金官方网站
+    third_party_tools: 第三方用具
+    getting_started_tutorial: 开始教程系列
     getting_help:
-      get_support_a_hashtag: "在公共的帖子使用%{question}问我们问题。"
-      get_support_a_irc: "请在%{irc}(现时交谈服务)加入我们"
-      get_support_a_tutorials: "查看我们的教程：%{tutorials}"
-      get_support_a_website: "请浏览%{link}"
-      get_support_a_wiki: "找看%{link}吧"
-      get_support_q: "朕的问题没被解答。朕需要更多帮助。"
-      getting_started_a: "您很幸运。您可以尝试浏览我们网站的%{tutorial_series}。它会教你注册方法和所有您使用diaspora*所需知道的东西。"
-      getting_started_q: "帮忙下，我需要一些基本的帮助才能开始！"
-      title: "求助"
-    getting_started_tutorial: "开始教程系列"
-    here: "这"
-    irc: "IRC （网路聊天）"
-    markdown: "修饰字体"
-    third_party_tools: "第三方用具"
-    tutorial: "教程"
-    tutorials: "教程"
-    wiki: "百科"
+      title: 求助
+      getting_started_q: 帮忙下，我需要一些基本的帮助才能开始！
+      getting_started_a: 您很幸运。您可以尝试浏览我们网站的%{tutorial_series}。它会教你注册方法和所有您使用diaspora*所需知道的东西。
+      get_support_q: 朕的问题没被解答。朕需要更多帮助。
+      get_support_a_website: 请浏览%{link}
+      get_support_a_tutorials: 查看我们的教程：%{tutorials}
+      get_support_a_wiki: 找看%{link}吧
+      get_support_a_irc: 请在%{irc}(现时交谈服务)加入我们
+      get_support_a_hashtag: 在公共的帖子使用%{question}问我们问题。
+    account_and_data_management:
+      title: 管理帐号和资料
+      move_pods_q: 我如何把我的帐号移至另一个伺服器？
+      move_pods_a: Diaspora* 0.7.0.0 现在提供迁移帐号的第一步：您现在可以从设定中的“帐号”导出您所有的资料。记得安全的储存您的资料！我们接下来将允许您完全迁移您的账号（包括帖子和联络人）去别的伺服器。
+      download_data_q: 我可以下载我的帐号所有的资料吗？
+      download_data_a: 是的，您可以。在设定中的“帐号”低端找到两个按钮：下载资料和下载图片。
+      close_account_q: 我如何删除我的帐号？
+      close_account_a: 您可以去到设定的低端点击“关闭帐号”的按钮。您会需要在这个过程中输入您的密码。记得，您关闭帐号后，您就<strong>永远</strong>不能再在这个伺服器使用同个用户名了。
+      data_visible_to_podmin_q: 伺服器管理员到底能看到我多少资料？
+      data_visible_to_podmin_a: 简单来说：全部。伺服器与伺服器之间的通讯永远都被加密(使用SSL和diaspora*自己的加密方法)，但是存储在伺服器上的资料并没有加密。伺服器管理员拥有权力开启您所有的资料(包括帖子)(大部分存储用户资料的网站也一样)。这就是我们给予你选择注册的伺服器的原因：你可以选择一个值得信赖的管理员。您在可以开启您自己的伺服器以后，您也可以因拥有伺服器的管理权而拥有更多的隐私权。
+      data_other_podmins_q: 其他的伺服器管理员看得到我的资料吗？
+      data_other_podmins_a: 当您与另一个伺服器的用户共享您的帖子/资料时，所有您分享的帖子和您的用户资料都将被存储(作为缓存)在那个伺服器上，并且能被管理员开启。当你删除掉一则帖子或您的部分/全部资料时，所有曾留着您的资料的伺服器将被给予删除要求。您的照片永远都不会储存在别的伺服器上，别的伺服器只会拥有一个通往您的图片的链接。
+    aspects:
+      title: 分组
+      what_is_an_aspect_q: 分组是什么？
+      what_is_an_aspect_a: 分组是个整合您在diaspora*的联络人的方法。一个分组是个您对外的一面。它可以是您的同事、您的家人或者您在一个俱乐部的朋友。
+      who_sees_post_q: 我对一个分组发帖时，有谁可以看到我的帖子？
+      who_sees_post_a: 当您指定特定的收帖组时，它只会显示给您所指定的分组内的用户。不在分组内的联络人没有任何阅读您的帖的方法。这些帖子不会对不再您的分组内的用户显示。
+      restrict_posts_i_see_q: 我可以只阅读一些分组内的人发布的帖子吗？
   home:
     default:
-      headline: "欢迎来到 %{pod_name}"
+      headline: 欢迎来到 %{pod_name}
   invitations:
     create:
-      empty: "请至少填写一个邮箱"
-      no_more: "您暂无邀请函。"
-      note_already_sent: "邀请已被发送至：%{emails}"
-      rejected: "下列电子信箱有问题: "
-      sent: "邀请函已经寄给: "
+      sent: '邀请函已经寄给: '
+      rejected: '下列电子信箱有问题: '
+      no_more: 您暂无邀请函。
+      empty: 请至少填写一个邮箱
+      note_already_sent: 邀请已被发送至：%{emails}
     new:
+      language: 语言
+      invite_someone_to_join: 邀请好友加入 Diaspora！
+      comma_separated_plz: 可以通过逗号分割输入多个电子邮箱
+      send_an_invitation: 发送邀请函
+      sending_invitation: 正在发出邀请...
+      paste_link: 将这个链接分享给您的朋友，邀请他们加入 Diaspora*，或者直接用电子邮件发送给他们。
       codes_left:
-        other: "还可以邀请 %{count} 人"
-        zero: "您已没有邀请函"
-      comma_separated_plz: "可以通过逗号分割输入多个电子邮箱"
-      invite_someone_to_join: "邀请好友加入 Diaspora！"
-      language: "语言"
-      paste_link: "将这个链接分享给您的朋友，邀请他们加入 Diaspora*，或者直接用电子邮件发送给他们。"
-      send_an_invitation: "发送邀请函"
-      sending_invitation: "正在发出邀请..."
+        zero: 您已没有邀请函
+        other: 还可以邀请 %{count} 人
   layouts:
-    application:
-      back_to_top: "回到上面"
-      powered_by: "Powered by DIASPORA*"
-      public_feed: "%{name} 的 Diaspora RSS 订阅"
-      source_package: "下载源代码包"
-      whats_new: "有什么新鲜事？"
     header:
-      code: "源码"
-      logout: "登出"
-      profile: "个人档案"
-      settings: "设置"
-  limited: "限制"
-  more: "更多"
-  no_results: "没有找到符合条件的内容"
+      profile: 个人档案
+      settings: 设置
+      logout: 登出
+      code: 源码
+    application:
+      powered_by: Powered by DIASPORA*
+      whats_new: 有什么新鲜事？
+      public_feed: "%{name} 的 Diaspora RSS 订阅"
+      back_to_top: 回到上面
+      source_package: 下载源代码包
   notifications:
-    also_commented:
-      other: "%{actors} 也对 %{post_author} 的 %{post_link} 发表了评论。"
-      zero: "%{actors} 也对 %{post_author} 的 %{post_link} 发表了评论。"
-    also_commented_deleted:
-      other: "%{actors} 对一个已被删除的内容发表了评论。"
-      zero: "%{actors} 对一个已被删除的内容发表了评论。"
-    comment_on_post:
-      other: "%{actors} 回复了您的 %{post_link}。"
-      zero: "%{actors} 回复了您的 %{post_link}。"
-    index:
-      and: "和"
-      and_others:
-        other: "和另 %{count} 人"
-        zero: "一人"
-      mark_all_as_read: "全部标示为已读"
-      mark_unread: "标记为未读"
-      notifications: "消息"
-    liked:
-      other: "%{actors} 刚刚赞了您的 %{post_link}."
-      zero: "%{actors} 刚刚赞了您的 %{post_link}."
-    liked_post_deleted:
-      other: "%{actors} 赞了您已删除的内容。"
-      zero: "%{actors} 赞了您已删除的内容。"
-    mentioned:
-      other: "%{actors} 在 %{post_link} 中提到了您。"
-      zero: "%{actors} 在 %{post_link} 中提到了您。"
-    mentioned_deleted:
-      other: "%{actors} 在已删除的内容中提到了您。"
-      zero: "%{actors} 在已删除的内容中提到了您。"
-    private_message:
-      other: "%{actors} 向您发了一条信息。"
-      zero: "%{actors} 向您发了一条信息。"
-    reshared:
-      other: "%{actors} 转发了您的 %{post_link}."
-      zero: "%{actors} 转发了您的 %{post_link}."
-    reshared_post_deleted:
-      other: "%{actors} 转发了您已删除的内容。"
-      zero: "%{actors} 转发了您已删除的内容。"
     started_sharing:
-      other: "%{actors} 开始与您分享内容。"
       zero: "%{actors} 开始与您分享内容。"
-  notifier:
-    a_post_you_shared: "一篇内容。"
-    click_here: "点这里"
+      other: "%{actors} 开始与您分享内容。"
+    private_message:
+      zero: "%{actors} 向您发了一条信息。"
+      other: "%{actors} 向您发了一条信息。"
     comment_on_post:
-      reply: "回复或查看 %{name} 的内容"
-    confirm_email:
-      click_link: "请点击以下链接激活您的电子邮箱地址 %{unconfirmed_email} ："
-      subject: "请激活您的电子邮箱地址 %{unconfirmed_email}"
-    email_sent_by_diaspora: "这封电子邮件是由 %{pod_name} 寄出的。如果您不希望收到此类邮件，"
-    hello: "您好 %{name}！"
-    invite:
-      message: |-
-          您好！
-
-          您被邀请加入 Diaspora* 了
-
-          请点击这个链接开始使用
-
-          [%{invite_url}][1]
-
-          祝您好运！
-
-          Diaspora* 电子邮件机器人敬上。
-
-          [1]: %{invite_url}
-    invited_you: "%{name} 邀请您使用 Diaspora*"
+      zero: "%{actors} 回复了您的 %{post_link}。"
+      other: "%{actors} 回复了您的 %{post_link}。"
+    also_commented:
+      zero: "%{actors} 也对 %{post_author} 的 %{post_link} 发表了评论。"
+      other: "%{actors} 也对 %{post_author} 的 %{post_link} 发表了评论。"
+    mentioned:
+      zero: "%{actors} 在 %{post_link} 中提到了您。"
+      other: "%{actors} 在 %{post_link} 中提到了您。"
     liked:
-      liked: "%{name} 刚赞了您发布的内容："
-      view_post: "查看内容 >"
+      zero: "%{actors} 刚刚赞了您的 %{post_link}."
+      other: "%{actors} 刚刚赞了您的 %{post_link}."
+    reshared:
+      zero: "%{actors} 转发了您的 %{post_link}."
+      other: "%{actors} 转发了您的 %{post_link}."
+    also_commented_deleted:
+      zero: "%{actors} 对一个已被删除的内容发表了评论。"
+      other: "%{actors} 对一个已被删除的内容发表了评论。"
+    liked_post_deleted:
+      zero: "%{actors} 赞了您已删除的内容。"
+      other: "%{actors} 赞了您已删除的内容。"
+    reshared_post_deleted:
+      zero: "%{actors} 转发了您已删除的内容。"
+      other: "%{actors} 转发了您已删除的内容。"
+    mentioned_deleted:
+      zero: "%{actors} 在已删除的内容中提到了您。"
+      other: "%{actors} 在已删除的内容中提到了您。"
+    index:
+      notifications: 消息
+      mark_all_as_read: 全部标示为已读
+      mark_unread: 标记为未读
+      and_others:
+        zero: 一人
+        other: 和另 %{count} 人
+      and: 和
+  notifier:
+    a_post_you_shared: 一篇内容。
+    email_sent_by_diaspora: 这封电子邮件是由 %{pod_name} 寄出的。如果您不希望收到此类邮件，
+    click_here: 点这里
+    hello: 您好 %{name}！
+    thanks: 谢谢，
+    to_change_your_notification_settings: 来修改消息通知的设置
+    single_admin:
+      subject: '关于您 Diaspora 帐号的信息:'
+      admin: 为您服务的 Diaspora 管理员
+    started_sharing:
+      subject: "%{name} 刚开始在 Diaspora* 中与您分享内容"
+      sharing: 刚开始与您分享内容！
+      view_profile: 看 %{name} 的个人资料
+    comment_on_post:
+      reply: 回复或查看 %{name} 的内容
     mentioned:
       subject: "%{name} 在 Diaspora* 上发布的内容中提到了您"
     private_message:
-      reply_to_or_view: "回复或查看对话 >"
+      reply_to_or_view: 回复或查看对话 >
+    liked:
+      liked: "%{name} 刚赞了您发布的内容："
+      view_post: 查看内容 >
     reshared:
       reshared: "%{name} 转发了您的内容。"
-      view_post: "查看内容 >"
-    single_admin:
-      admin: "为您服务的 Diaspora 管理员"
-      subject: "关于您 Diaspora 帐号的信息:"
-    started_sharing:
-      sharing: "刚开始与您分享内容！"
-      subject: "%{name} 刚开始在 Diaspora* 中与您分享内容"
-      view_profile: "看 %{name} 的个人资料"
-    thanks: "谢谢，"
-    to_change_your_notification_settings: "来修改消息通知的设置"
-  nsfw: "NSFW(工作不宜)"
-  ok: "确定"
+      view_post: 查看内容 >
+    confirm_email:
+      subject: 请激活您的电子邮箱地址 %{unconfirmed_email}
+      click_link: 请点击以下链接激活您的电子邮箱地址 %{unconfirmed_email} ：
+    invited_you: "%{name} 邀请您使用 Diaspora*"
+    invite:
+      message: |-
+        您好！
+
+        您被邀请加入 Diaspora* 了
+
+        请点击这个链接开始使用
+
+        [%{invite_url}][1]
+
+        祝您好运！
+
+        Diaspora* 电子邮件机器人敬上。
+
+        [1]: %{invite_url}
   people:
-    add_contact:
-      invited_by: "邀请您的用户"
-    index:
-      looking_for: "在找标记为 %{tag_link} 的内容吗？"
-      no_one_found: "找不到相关内容。"
-      no_results: "嘿！ 搜索必须要有目标呀。"
-      results_for: "搜索结果："
-      searching: "搜索中，请稍候…"
     person:
-      thats_you: "这是您自己！"
-    profile_sidebar:
-      bio: "自我介绍"
-      born: "生日"
-      gender: "性别"
-      location: "位置"
+      thats_you: 这是您自己！
+    index:
+      results_for: 搜索结果：
+      no_results: 嘿！ 搜索必须要有目标呀。
+      no_one_found: 找不到相关内容。
+      searching: 搜索中，请稍候…
+      looking_for: 在找标记为 %{tag_link} 的内容吗？
     show:
-      closed_account: "此帐号已经关闭"
-      does_not_exist: "好友不存在！"
       has_not_shared_with_you_yet: "%{name} 暂未和您分享内容！"
+      does_not_exist: 好友不存在！
+      closed_account: 此帐号已经关闭
+    profile_sidebar:
+      bio: 自我介绍
+      location: 位置
+      gender: 性别
+      born: 生日
+    add_contact:
+      invited_by: 邀请您的用户
   photos:
     create:
-      integrity_error: "照片上传失败。您确定它是图片吗？"
-      runtime_error: "照片上传失败。您确定有扣安全带吗？"
-      type_error: "照片上传失败。您确定有选择任何图片吗？"
+      runtime_error: 照片上传失败。您确定有扣安全带吗？
+      integrity_error: 照片上传失败。您确定它是图片吗？
+      type_error: 照片上传失败。您确定有选择任何图片吗？
     destroy:
-      notice: "照片删除成功。"
+      notice: 照片删除成功。
     new_profile_photo:
-      upload: "上传新的头像！"
+      upload: 上传新的头像！
   posts:
     presenter:
-      title: "来自 %{name} 的内容"
+      title: 来自 %{name} 的内容
     show:
       photos_by:
+        zero: 暂无来自 %{author} 的照片
         other: "%{author} 的 %{count} 张照片"
-        zero: "暂无来自 %{author} 的照片"
       reshare_by: "%{author} 转发"
-  privacy: "隐私"
-  profile: "个人档案"
   profiles:
     edit:
-      allow_search: "允许别人在 Diaspora* 中搜索到您"
-      first_name: "名"
-      last_name: "姓"
-      update_profile: "更新个人档案"
-      your_bio: "您的自我介绍"
-      your_birthday: "您的生日"
-      your_gender: "您的性别"
-      your_location: "您的位置"
-      your_name: "您的名字"
-      your_photo: "您的照片"
-      your_tags: "用五个#标签 描述您自己"
-      your_tags_placeholder: "比如 #diaspora #烫发 #猫咪 #音乐"
+      your_name: 您的名字
+      first_name: 名
+      last_name: 姓
+      your_gender: 您的性别
+      your_birthday: 您的生日
+      your_tags: 用五个#标签 描述您自己
+      your_tags_placeholder: '比如 #diaspora #烫发 #猫咪 #音乐'
+      your_bio: 您的自我介绍
+      your_location: 您的位置
+      your_photo: 您的照片
+      update_profile: 更新个人档案
+      allow_search: 允许别人在 Diaspora* 中搜索到您
     update:
-      failed: "个人档案更新失败"
-      updated: "个人档案更新成功"
-  public: "公开"
+      updated: 个人档案更新成功
+      failed: 个人档案更新失败
   registrations:
-    create:
-      success: "您已成功加入 Diaspora 了！"
-    invalid_invite: "此邀请链接已失效！"
     new:
-      email: "电子邮箱"
-      enter_email: "输入电子邮箱"
-      enter_password: "输入密码（至少6个字符）"
-      enter_password_again: "再输入一遍密码"
-      enter_username: "输入用户名(名称只能包含字母，数字和下划线“_”)"
-      password: "密码"
-      password_confirmation: "密保信息"
-      sign_up: "注册"
-      username: "用户名"
-  reshares:
-    comment_email_subject: "%{resharer} 转发了 %{author} 的内容"
-    reshare:
-      deleted: "原内容已被作者删除"
-      reshare_confirmation: "您要转发 %{author} 的内容吗？"
-      reshared_via: "转发自"
-  search: "搜索"
-  services:
+      enter_email: 输入电子邮箱
+      enter_username: 输入用户名(名称只能包含字母，数字和下划线“_”)
+      enter_password: 输入密码（至少6个字符）
+      enter_password_again: 再输入一遍密码
+      sign_up: 注册
+      email: 电子邮箱
+      username: 用户名
+      password: 密码
+      password_confirmation: 密保信息
     create:
-      already_authorized: "已经有 Diaspora 通行证为 %{diaspora_id} 的用户被授权使用 %{service_name} 帐号了"
-      failure: "认证失败"
-      read_only_access: "您只拥有阅读的权限，请尝试修复权限并稍后重新尝试。"
-      success: "验证成功。"
-    destroy:
-      success: "验证删除成功。"
-    failure:
-      error: "与该服务连接时发生错误"
+      success: 您已成功加入 Diaspora 了！
+    invalid_invite: 此邀请链接已失效！
+  reshares:
+    reshare:
+      reshared_via: 转发自
+      reshare_confirmation: 您要转发 %{author} 的内容吗？
+      deleted: 原内容已被作者删除
+    comment_email_subject: "%{resharer} 转发了 %{author} 的内容"
+  services:
     index:
-      disconnect: "断开连接"
-      edit_services: "编辑服务"
-      logged_in_as: "登录为"
-      really_disconnect: "切断与 %{service} 的连接？"
-      services_explanation: "连接第三方共享服务后，diaspora* 就能把您的帖子自动转发出去。"
-  settings: "设置"
+      disconnect: 断开连接
+      logged_in_as: 登录为
+      really_disconnect: 切断与 %{service} 的连接？
+      edit_services: 编辑服务
+      services_explanation: 连接第三方共享服务后，diaspora* 就能把您的帖子自动转发出去。
+    create:
+      success: 验证成功。
+      failure: 认证失败
+      already_authorized: 已经有 Diaspora 通行证为 %{diaspora_id} 的用户被授权使用 %{service_name} 帐号了
+      read_only_access: 您只拥有阅读的权限，请尝试修复权限并稍后重新尝试。
+    destroy:
+      success: 验证删除成功。
+    failure:
+      error: 与该服务连接时发生错误
+  blocks:
+    create:
+      success: 您不会再在动态中看到此用户了。#安静！
+      failure: 无法忽略用户。#借口
+    destroy:
+      success: 看看他们说什么！#打招呼
+      failure: 无法停止忽略用户。#借口
   shared:
     aspect_dropdown:
       toggle:
-        other: "在 %{count} 个分组中"
-        zero: "添加到分组"
-    invitations:
-      by_email: "通过电子邮件"
-      invite_your_friends: "邀请您的好友"
-      invites: "邀请"
-      share_this: "用这个链接来分享在电子邮件，博客或其他您喜爱的社交网络上！"
-    public_explain:
-      atom_feed: "Atom 订阅"
-      control_your_audience: "控制您的听众"
-      logged_in: "成功登录到 %{service}"
-      manage: "管理已连线的服务"
-      new_user_welcome_message: "用 #标签 来区分您的内容，并找到和您有共同兴趣的人。用 @提到 别人。"
-      outside: "不使用 Diaspora 的人也能看到公开讯息。"
-      share: "分享"
-      title: "设定连线服务"
-      visibility_dropdown: "用这个下拉菜单来改变内容的可见范围。  （建议您的第一篇内容为公开）"
+        zero: 添加到分组
+        other: 在 %{count} 个分组中
     publisher:
-      discard_post: "丢弃内容"
-      get_location: "附上您的位置"
+      posting: 发布中……
+      share: 分享
+      get_location: 附上您的位置
+      whats_on_your_mind: 您想到了什么？
+      discard_post: 丢弃内容
       new_user_prefill:
-        hello: "大家好，我是 #%{new_user_tag}。 "
-        i_like: "我对 %{tags} 感兴趣。 "
-        invited_by: "谢谢您的邀请， "
-        newhere: "新用户"
-      posting: "发布中……"
-      share: "分享"
-      whats_on_your_mind: "您想到了什么？"
+        newhere: 新用户
+        hello: '大家好，我是 #%{new_user_tag}。 '
+        i_like: '我对 %{tags} 感兴趣。 '
+        invited_by: '谢谢您的邀请， '
+    invitations:
+      invites: 邀请
+      invite_your_friends: 邀请您的好友
+      by_email: 通过电子邮件
+      share_this: 用这个链接来分享在电子邮件，博客或其他您喜爱的社交网络上！
+    public_explain:
+      control_your_audience: 控制您的听众
+      new_user_welcome_message: '用 #标签 来区分您的内容，并找到和您有共同兴趣的人。用 @提到 别人。'
+      visibility_dropdown: 用这个下拉菜单来改变内容的可见范围。  （建议您的第一篇内容为公开）
+      title: 设定连线服务
+      share: 分享
+      outside: 不使用 Diaspora 的人也能看到公开讯息。
+      logged_in: 成功登录到 %{service}
+      manage: 管理已连线的服务
+      atom_feed: Atom 订阅
     stream_element:
-      via: "通过 %{link}"
-      via_mobile: "通过移动设备"
+      via: 通过 %{link}
+      via_mobile: 通过移动设备
   status_messages:
     new:
-      mentioning: "提及发布中: %{person}"
-    too_long: "{\"other\"=>\"请确保您的状态信息不超过 %{count} 个字符\", \"zero\"=>\"请确保您的状态信息不超过 %{count} 个字符\"}"
-  streams:
-    activity:
-      title: "我的活动"
-    aspects:
-      title: "我的视窗"
-    aspects_stream: "分组"
-    comment_stream:
-      title: "有评论的内容"
-    community_spotlight_stream: "社区热点"
-    followed_tag:
-      add_a_tag: "新增标签"
-      follow: "关注"
-      title: "#关注的标签"
-    followed_tags_stream: "#关注的标签"
-    like_stream:
-      title: "赞的动态"
-    mentioned_stream: "@提到的"
-    mentions:
-      title: "@提到的"
-    multi:
-      title: "动态"
-    public:
-      title: "公开活动"
-    tags:
-      title: "有以下标签的内容：%{tags}"
+      mentioning: '提及发布中: %{person}'
+    too_long: '{"other"=>"请确保您的状态信息不超过 %{count} 个字符", "zero"=>"请确保您的状态信息不超过 %{count} 个字符"}'
   tags:
     show:
-      follow: "关注 #%{tag}"
-      none: "不存在空白标签！"
-      stop_following: "停止关注 #%{tag}"
-  username: "帐号"
-  users:
-    confirm_email:
-      email_confirmed: "电子邮箱地址 %{email} 已激活"
-      email_not_confirmed: "电子邮箱地址无法激活。链接错误？"
-    destroy:
-      no_password: "请输入您目前的密码关闭帐号。"
-      success: "您的帐号已经锁定。完成关闭大约需要 20 分钟的时间。感谢您使用 Diaspora。"
-      wrong_password: "输入的密码与您的密码不符。"
-    edit:
-      also_commented: "…当有人对您的好友的内容发表评论时？"
-      auto_follow_aspect: "自动关注的用户的分组："
-      auto_follow_back: "自动关注关注您的人"
-      change: "更改"
-      change_email: "修改电子邮箱地址"
-      change_language: "更改语言"
-      change_password: "更改密码"
-      character_minimum_expl: "至少需要六个字符。"
-      close_account:
-        dont_go: "请不要离开！"
-        lock_username: "您的用户名会被锁定，不能重新注册。"
-        locked_out: "接下来您会被退出，帐号将关闭。"
-        make_diaspora_better: "希望您能帮助我们让 Diaspora 更好，而不是选择离开。如果您坚持，我们也希望让您知道未来的发展。"
-        mr_wiggles: "Mr Wiggles 会对于您的离开很难过。"
-        no_turning_back: "这将无法撤销！如果您真的确定要这么做，请输入您的密码。"
-        what_we_delete: "我们会尽快删除您发布的内容和个人资料。您的评论会保留，但没有您的个人信息。"
-      close_account_text: "关闭帐号"
-      comment_on_post: "…当有人对您的内容发表评论时？"
-      current_password: "当前密码"
-      current_password_expl: "登入的那个…"
-      edit_account: "编辑帐号"
-      email_awaiting_confirmation: "我们将向 %{unconfirmed_email} 发送一个确认邮件。在确认之前，我们将沿用 %{email} 这个联系方式。"
-      export_data: "资料导出"
-      following: "关注设置"
-      liked: "…当有人赞您发布的内容？"
-      mentioned: "…当贴文中提到您时？"
-      new_password: "新密码"
-      private_message: "…当收到私人信息时？"
-      receive_email_notifications: "是否要在以下情况收到电子邮件通知……"
-      reshared: "…有人转发您的内容时？"
-      show_community_spotlight: "在动态中显示社区热点？"
-      show_getting_started: "显示新手指南"
-      started_sharing: "…当有人开始与您分享内容？"
-      stream_preferences: "动态设置"
-      your_email: "您的电子邮箱"
-      your_handle: "您的 Diaspora 帐号"
-    getting_started:
-      awesome_take_me_to_diaspora: "棒极了！带我去 Diaspora*"
-      community_welcome: "Diaspora 社区欢迎您的到来"
-      hashtag_explanation: "标签让您可以讨论关注您的兴趣。并且也是在 Diaspora 找到新朋友的好办法。"
-      hashtag_suggestions: "试试看关注如 #艺术，#电影, #gif 之类的标签。"
-      well_hello_there: "嗨，您好！"
-      what_are_you_in_to: "您对什么有兴趣？"
-      who_are_you: "您是哪位？"
-    privacy_settings:
-      ignored_users: "忽略的用户"
-      stop_ignoring: "停止忽略"
-      title: "隐私设置"
+      follow: '关注 #%{tag}'
+      stop_following: '停止关注 #%{tag}'
+      none: 不存在空白标签！
+  streams:
+    community_spotlight_stream: 社区热点
+    aspects_stream: 分组
+    mentioned_stream: "@提到的"
+    followed_tags_stream: "#关注的标签"
+    mentions:
+      title: "@提到的"
+    comment_stream:
+      title: 有评论的内容
+    like_stream:
+      title: 赞的动态
+    followed_tag:
+      title: "#关注的标签"
+      add_a_tag: 新增标签
+      follow: 关注
+    tags:
+      title: 有以下标签的内容：%{tags}
     public:
-      does_not_exist: "不存在 %{username} 这个用户！"
+      title: 公开活动
+    multi:
+      title: 动态
+    aspects:
+      title: 我的视窗
+    activity:
+      title: 我的活动
+  users:
+    edit:
+      edit_account: 编辑帐号
+      change: 更改
+      your_handle: 您的 Diaspora 帐号
+      your_email: 您的电子邮箱
+      change_email: 修改电子邮箱地址
+      email_awaiting_confirmation: 我们将向 %{unconfirmed_email} 发送一个确认邮件。在确认之前，我们将沿用 %{email} 这个联系方式。
+      change_password: 更改密码
+      new_password: 新密码
+      current_password: 当前密码
+      current_password_expl: 登入的那个…
+      character_minimum_expl: 至少需要六个字符。
+      change_language: 更改语言
+      close_account_text: 关闭帐号
+      stream_preferences: 动态设置
+      show_community_spotlight: 在动态中显示社区热点？
+      show_getting_started: 显示新手指南
+      following: 关注设置
+      auto_follow_back: 自动关注关注您的人
+      auto_follow_aspect: 自动关注的用户的分组：
+      receive_email_notifications: 是否要在以下情况收到电子邮件通知……
+      started_sharing: "…当有人开始与您分享内容？"
+      mentioned: "…当贴文中提到您时？"
+      liked: "…当有人赞您发布的内容？"
+      reshared: "…有人转发您的内容时？"
+      comment_on_post: "…当有人对您的内容发表评论时？"
+      also_commented: "…当有人对您的好友的内容发表评论时？"
+      private_message: "…当收到私人信息时？"
+      export_data: 资料导出
+      close_account:
+        dont_go: 请不要离开！
+        make_diaspora_better: 希望您能帮助我们让 Diaspora 更好，而不是选择离开。如果您坚持，我们也希望让您知道未来的发展。
+        mr_wiggles: Mr Wiggles 会对于您的离开很难过。
+        what_we_delete: 我们会尽快删除您发布的内容和个人资料。您的评论会保留，但没有您的个人信息。
+        locked_out: 接下来您会被退出，帐号将关闭。
+        lock_username: 您的用户名会被锁定，不能重新注册。
+        no_turning_back: 这将无法撤销！如果您真的确定要这么做，请输入您的密码。
+    privacy_settings:
+      title: 隐私设置
+      ignored_users: 忽略的用户
+      stop_ignoring: 停止忽略
+    destroy:
+      success: 您的帐号已经锁定。完成关闭大约需要 20 分钟的时间。感谢您使用 Diaspora。
+      no_password: 请输入您目前的密码关闭帐号。
+      wrong_password: 输入的密码与您的密码不符。
+    getting_started:
+      well_hello_there: 嗨，您好！
+      community_welcome: Diaspora 社区欢迎您的到来
+      awesome_take_me_to_diaspora: 棒极了！带我去 Diaspora*
+      who_are_you: 您是哪位？
+      what_are_you_in_to: 您对什么有兴趣？
+      hashtag_explanation: 标签让您可以讨论关注您的兴趣。并且也是在 Diaspora 找到新朋友的好办法。
+      hashtag_suggestions: '试试看关注如 #艺术，#电影, #gif 之类的标签。'
     update:
-      email_notifications_changed: "邮件通知更改成功"
-      follow_settings_changed: "关注设置已更新"
-      follow_settings_not_changed: "关注设置更新失败"
-      language_changed: "语言更改成功"
-      language_not_changed: "语言更改失败"
-      password_changed: "密码更改成功"
-      password_not_changed: "密码更改失败"
-      settings_not_updated: "设置更新失败"
-      settings_updated: "设置已更新"
-      unconfirmed_email_changed: "电子邮箱地址已修改，需要激活。"
-      unconfirmed_email_not_changed: "电子邮箱地址修改失败"
+      password_changed: 密码更改成功
+      password_not_changed: 密码更改失败
+      language_changed: 语言更改成功
+      language_not_changed: 语言更改失败
+      settings_updated: 设置已更新
+      settings_not_updated: 设置更新失败
+      email_notifications_changed: 邮件通知更改成功
+      unconfirmed_email_changed: 电子邮箱地址已修改，需要激活。
+      unconfirmed_email_not_changed: 电子邮箱地址修改失败
+      follow_settings_changed: 关注设置已更新
+      follow_settings_not_changed: 关注设置更新失败
+    public:
+      does_not_exist: 不存在 %{username} 这个用户！
+    confirm_email:
+      email_confirmed: 电子邮箱地址 %{email} 已激活
+      email_not_confirmed: 电子邮箱地址无法激活。链接错误？
   will_paginate:
-    next_label: "后面 &raquo;"
     previous_label: "&laquo; 前面"
+    next_label: 后面 &raquo;

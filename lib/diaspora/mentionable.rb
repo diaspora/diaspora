@@ -71,18 +71,14 @@ module Diaspora::Mentionable
     }
   end
 
-  # Regex to find mentions with new syntax, only used for backporting to old syntax
-  NEW_SYNTAX_REGEX = /@\{[^\} ]+\}/
-
-  # replaces new syntax with old syntax, to be compatible with old pods
-  # @deprecated remove when most of the posts can handle the new syntax
-  def self.backport_mention_syntax(text)
-    text.to_s.gsub(NEW_SYNTAX_REGEX) do |match_str|
-      _, diaspora_id = mention_attrs(match_str)
-      person = find_or_fetch_person_by_identifier(diaspora_id)
-      old_syntax = "@{#{person.name.delete('{}')}; #{diaspora_id}}" if person
-      old_syntax || match_str
-    end
+  # Escapes special chars in mentions to not be parsed as markdown
+  #
+  # @param [String] text containing mentions
+  # @return [String] escaped message
+  def self.escape_for_markdown(msg_text)
+    msg_text.to_s.gsub(REGEX) {|match_str|
+      match_str.gsub("_", "\\_")
+    }
   end
 
   private_class_method def self.find_or_fetch_person_by_identifier(identifier)

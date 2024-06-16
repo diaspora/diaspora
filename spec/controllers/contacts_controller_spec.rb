@@ -34,10 +34,10 @@ describe ContactsController, :type => :controller do
     context "format json" do
       context "for the contacts search" do
         before do
-          @person1 = FactoryGirl.create(:person)
+          @person1 = FactoryBot.create(:person)
           bob.share_with(@person1, bob.aspects.first)
-          @person2 = FactoryGirl.create(:person)
-          @person3 = FactoryGirl.create(:person)
+          @person2 = FactoryBot.create(:person)
+          @person3 = FactoryBot.create(:person)
           bob.contacts.create(person: @person3, aspects: [bob.aspects.first], receiving: true, sharing: true)
         end
 
@@ -108,7 +108,7 @@ describe ContactsController, :type => :controller do
         context "with an aspect id" do
           before do
             @aspect = bob.aspects.create(name: "awesome contacts")
-            @person = FactoryGirl.create(:person)
+            @person = FactoryBot.create(:person)
             bob.share_with(@person, @aspect)
           end
 

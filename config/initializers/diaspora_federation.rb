@@ -44,10 +44,9 @@ DiasporaFederation.configure do |config|
           guid:             person.guid,
           nickname:         person.username,
           full_name:        "#{person.profile.first_name} #{person.profile.last_name}".strip,
-          url:              AppConfig.pod_uri,
           photo_large_url:  person.image_url,
-          photo_medium_url: person.image_url(:thumb_medium),
-          photo_small_url:  person.image_url(:thumb_small),
+          photo_medium_url: person.image_url(size: :thumb_medium),
+          photo_small_url:  person.image_url(size: :thumb_small),
           public_key:       person.serialized_public_key,
           searchable:       person.searchable,
           first_name:       person.profile.first_name,
@@ -90,15 +89,15 @@ DiasporaFederation.configure do |config|
       Diaspora::Federation::Entities.related_entity(entity) if entity
     end
 
-    on :queue_public_receive do |xml, legacy=false|
-      Workers::ReceivePublic.perform_async(xml, legacy)
+    on :queue_public_receive do |xml|
+      Workers::ReceivePublic.perform_async(xml)
     end
 
-    on :queue_private_receive do |guid, xml, legacy=false|
+    on :queue_private_receive do |guid, xml|
       person = Person.find_by_guid(guid)
 
       (person.present? && person.owner_id.present?).tap do |user_found|
-        Workers::ReceivePrivate.perform_async(person.owner.id, xml, legacy) if user_found
+        Workers::ReceivePrivate.perform_async(person.owner.id, xml) if user_found
       end
     end
 
@@ -121,10 +120,10 @@ DiasporaFederation.configure do |config|
     on :fetch_public_entity do |entity_type, guid|
       entity = Diaspora::Federation::Mappings.model_class_for(entity_type).all_public.find_by(guid: guid)
       case entity
-      when Post
-        Diaspora::Federation::Entities.post(entity)
       when Poll
         Diaspora::Federation::Entities.status_message(entity.status_message)
+      else
+        Diaspora::Federation::Entities.build(entity) if entity
       end
     end
 

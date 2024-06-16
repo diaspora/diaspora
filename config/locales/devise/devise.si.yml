@@ -7,45 +7,45 @@
 si:
   devise:
     failure:
-      inactive: "ඔබගේ ගිණුම තවම සක්‍රිය කර නැත."
-      invalid: "පරිශීලක නාමය හා මුරපදය වැරදියි."
-      locked: "ඔබගේ ගිණුමට අගුලු දමා ඇත."
-      timeout: "ඔබගේ වාරය අවසානයි, ඉදිරියට යාම සදහා කරුණාකර නැවත sign in කරන්න."
-    invitations:
-      send_instructions: "ඔබගේ ආරාධනාව යැවුවා."
+      inactive: ඔබගේ ගිණුම තවම සක්‍රිය කර නැත.
+      invalid: පරිශීලක නාමය හා මුරපදය වැරදියි.
+      locked: ඔබගේ ගිණුමට අගුලු දමා ඇත.
+      timeout: ඔබගේ වාරය අවසානයි, ඉදිරියට යාම සදහා කරුණාකර නැවත sign in කරන්න.
     mailer:
-      hello: "කොහොමද %{username}!"
+      reset_password_instructions:
+        subject: මුරපදය නැවත සකසන උපදෙස්
+        change: මගේ මුරපදය මාරු කරන්න
+      welcome: ආයුබෝවන් %{username}!
+      hello: කොහොමද %{username}!
       inviter:
         has_invited_you: "%{name}"
-      reset_password_instructions:
-        change: "මගේ මුරපදය මාරු කරන්න"
-        subject: "මුරපදය නැවත සකසන උපදෙස්"
-      welcome: "ආයුබෝවන් %{username}!"
     passwords:
       edit:
-        change_password: "මගේ මුරපදය මාරු කරන්න"
+        change_password: මගේ මුරපදය මාරු කරන්න
       new:
-        forgot_password: "ඔබේ මුරපදය මතක නැත්ද?"
-        send_password_instructions: "මුරපදය යළි පිහිටුවීමට අදාළ උපදෙස් මට එවන්න"
+        forgot_password: ඔබේ මුරපදය මතක නැත්ද?
+        send_password_instructions: මුරපදය යළි පිහිටුවීමට අදාළ උපදෙස් මට එවන්න
     registrations:
-      updated: "ඔබ ඔබගේ ගිණුම සාර්ථකව යාවත්කාලීන කළා."
+      updated: ඔබ ඔබගේ ගිණුම සාර්ථකව යාවත්කාලීන කළා.
     sessions:
+      signed_in: අත්සන් තැබීම සාර්ථකයි.
+      signed_out: ඉවත්වීම සාර්ථකයි.
       new:
-        login: "අතුල්වන්න"
-        modern_browsers: "සහාය දක්වන්නේ නවීන browsers වලට පමණි."
-        password: "මුරපදය"
-        remember_me: "මාව මතක තබාගන්න"
-        sign_in: "අත්සන් කරන්න"
-        username: "පරිශීලක නාමය"
-      signed_in: "අත්සන් තැබීම සාර්ථකයි."
-      signed_out: "ඉවත්වීම සාර්ථකයි."
+        login: අතුල්වන්න
+        username: පරිශීලක නාමය
+        password: මුරපදය
+        sign_in: අත්සන් කරන්න
+        remember_me: මාව මතක තබාගන්න
+        modern_browsers: සහාය දක්වන්නේ නවීන browsers වලට පමණි.
+    unlocks:
+      unlocked: ඔබගේ ගිණුම සාර්ථකව අගුලු හැරියා. ඔබ දැන් අත්සන් තැබුවා.
+    invitations:
+      send_instructions: ඔබගේ ආරාධනාව යැවුවා.
     shared:
       links:
-        forgot_your_password: "ඔබේ මුරපදය අමතකද?"
-    unlocks:
-      unlocked: "ඔබගේ ගිණුම සාර්ථකව අගුලු හැරියා. ඔබ දැන් අත්සන් තැබුවා."
+        forgot_your_password: ඔබේ මුරපදය අමතකද?
   errors:
     messages:
-      already_confirmed: "දැනටමත් සම්මත කර ඇත"
-      not_found: "සොයා ගත නොහැක."
-      not_locked: "අගුලු දමා නැත"
+      already_confirmed: දැනටමත් සම්මත කර ඇත
+      not_found: සොයා ගත නොහැක.
+      not_locked: අගුලු දමා නැත

@@ -6,296 +6,296 @@
 
 zh-TW:
   javascripts:
-    admin:
-      pods:
-        actions: "動作"
-        added: "加入時間"
-        check: "執行連線測試"
-        errors:
-          other: "有<%= count %>個豆莢連線檢查不成功。"
-        follow_link: "在瀏覽器中開啟連結"
-        last_check: "最近檢查時間:"
-        more_info: "顯示更多資訊"
-        ms:
-          other: "<%= count %>毫秒(ms)"
-        no_info: "目前還沒有進一步的資訊"
-        not_available: "沒資料"
-        offline_since: "離線時間:"
-        pod: "豆莢"
-        recheck:
-          failure: "沒有做檢查。"
-          success: "剛剛才又一次檢查這個豆莢。"
-        response_time: "回應時間:"
-        server_software: "伺服器軟體:"
-        ssl: "安全通訊協定(SSL)"
-        ssl_disabled: "沒用 SSL"
-        ssl_enabled: "有用 SSL"
-        states:
-          dns_failed: "解析域名(DNS)失敗"
-          http_failed: "HTTP 連線失敗"
-          net_failed: "連線失敗"
-          no_errors: "正常"
-          ssl_failed: "安全連線(SSL)失敗"
-          unchecked: "沒檢查"
-          unknown_error: "檢查過程中發生不明錯誤"
-          version_failed: "沒辦法取得軟體版本"
-        status: "狀態"
-        unchecked:
-          other: "還有<%= count %>個沒有被檢查過的豆莢。"
-        unknown: "不明"
-        version_failed:
-          other: "有 <%= count %> 個豆莢沒有版本資訊(舊版的豆莢會沒有 NodeInfo)。"
-    admins:
-      dashboard:
-        compare_versions: "diaspora* 最新的釋出版本是 <%= latestVersion %> 版，你的豆莢正在跑的版本是 <%= podVersion %> 版。"
-        error: "沒辦法判斷 diaspora* 的最新版本。"
-        outdated: "你的豆莢是舊版的。"
-        up_to_date: "你的豆莢是最新版本！"
-    and: "及"
-    aspect_dropdown:
-      add_to_aspect: "加聯絡人"
-      all_aspects: "所有社交面"
-      error: "無法開始跟 <%= name %> 分享。你還在忽視他們嗎？"
-      error_remove: "無法把 <%= name %> 從社交面中移除 :("
-      mobile_row_checked: "<%= name %> (移除)"
-      mobile_row_unchecked: "<%= name %> (新增)"
-      select_aspects: "選社交面"
-      started_sharing_with: "你開始跟 <%= name %> 分享了！"
-      stopped_sharing_with: "停止跟 <%= name %> 分享了。"
-      toggle:
-        other: "到<%= count %>個社交面中"
-        zero: "選社交面"
-      updating: "正在更新..."
-    aspect_navigation:
-      add_an_aspect: "+ 新增社交面"
-      deselect_all: "全不選"
-      no_aspects: "沒選任何社交面"
-      select_all: "全選"
-    aspects:
-      create:
-        add_a_new_aspect: "新增社交面"
-        failure: "造社交面失敗。"
-        success: "新社交面<%= name %>已經造出來了"
-      name: "名稱"
-    bookmarklet:
-      post_something: "貼到 diaspora*"
-      post_submit: "傳送貼文中..."
-      post_success: "貼好了！彈出視窗關閉中..."
-    cancel: "取消"
-    comma: "，"
-    comments:
-      hide: "隱藏留言"
-      no_comments: "目前還沒人留言。"
-      show: "顯示所有留言"
-    confirm_dialog: "你確定嗎？"
-    confirm_unload: "請確認要離開這個頁面。你目前輸入的資料將不會保留。"
-    contacts:
-      add_contact: "加聯絡人"
-      error_add: "沒辦法把 <%= name %> 加進這個社交面 :("
-      error_remove: "沒辦法把 <%= name %> 從這個社交面中移除 :("
-      remove_contact: "刪聯絡人"
-      search_no_results: "沒找到聯絡人"
-    conversation:
-      create:
-        no_recipient: "欸，必須要有收訊人 ！"
-      new:
-        no_contacts: "\x1f開始對話前你必須先加一些聯絡人"
-    create: "建立"
-    delete: "刪除"
-    edit: "編輯"
-    errors:
-      connection: "沒辦法跟伺服器連線。"
-    failed_to_post_message: "貼文失敗！"
-    failed_to_remove: "刪掉這個項目的動作失敗了！"
-    getting_started:
-      alright_ill_wait: "好，再說吧。"
-      hey: "嗨，<%= name %>！"
-      no_tags: "咦，你還沒有追蹤任何標籤耶！要往下一步嗎？"
-      preparing_your_stream: "整理你個人的流水帳中..."
-    header:
-      admin: "管理"
-      close: "關閉"
-      contacts: "連絡人"
-      conversations: "對話"
-      help: "說明"
-      home: "我家"
-      log_out: "登出"
-      mark_all_as_read: "全部標示為看過了"
-      moderator: "協調人"
-      notifications: "消息"
-      profile: "個人檔案"
-      recent_notifications: "最新消息"
-      search: "搜尋"
-      settings: "設定"
-      switch_to_touch_optimized_mode: "切換到觸控模式"
-      toggle_navigation: "瀏覽模式切換"
-      view_all: "看全部"
-    hide_post: "要隱藏貼文嗎？"
-    hide_post_failed: "沒辦法隱藏貼文"
-    ignore: "忽視"
-    ignore_failed: "沒辦法忽視這個使用者"
-    ignore_user: "要忽視這個使用者嗎？"
-    my_activity: "我的活動"
-    my_aspects: "我的社交面"
-    my_stream: "流水帳"
-    no_results: "結果什麽都找不到"
-    notifications:
-      mark_read: "標示為看過了"
-      mark_unread: "標示為沒看過"
-      new_notifications:
-        other: "有<%= count %>則還沒看過的通知"
-    people:
-      edit_my_profile: "編輯個人檔案"
-      helper:
-        is_not_sharing: "<%= name %> 沒有跟你分享"
-        is_sharing: "<%= name %> 正在跟你分享中"
-      mention: "指指點點"
-      message: "送訊息"
-      not_found: "...找不到任何人"
-      stop_ignoring: "停止忽視"
-    photo_uploader:
-      completed: "檔案 <%= file %> 完成了"
-      empty: "檔案 {file} 是空的，請不要選它再重選一次。"
-      error: "上傳檔案 <%= file %> 時發生問題"
-      invalid_ext: "檔案 {file} 的副檔名不合格。僅接受 {extensions}。"
-      looking_good: "天啊，你看起來真帥！"
-      size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
-      upload_photos: "上傳相片"
-    poll:
-      answer_count:
-        other: "有<%=count%>個人投票"
-        zero: "沒人投票"
-      close_result: "隱藏結果"
-      count:
-        other: "到目前有 <%=count%> 張票"
-      go_to_original_post: "你可以在 <%= original_post_link %> 參與這次票選。"
-      original_post: "原貼文"
-      result: "結果"
-      show_result: "顯示結果"
-      vote: "投票"
-      your_vote: "你的投票"
-    profile:
-      add_some: "加入一些"
-      bio: "自我介紹"
-      born: "生日"
-      edit: "編輯"
-      gender: "性別"
-      location: "地點"
-      photos: "相片"
-      posts: "貼文"
-      you_have_no_tags: "你沒有任何標籤！"
-    publisher:
-      add_option: "增加答案"
-      markdown_editor:
-        preview: "預覽"
-        texts:
-          code: "在這裡打程式碼"
-          heading: "將文字變標題"
-          insert_image_description_text: "在這裡輸入圖片的說明"
-          insert_image_help_text: "在這裡加入圖片"
-          insert_image_title: "在這裡輸入圖片的標題"
-          insert_link_description_text: "在這裡輸入連結的說明"
-          insert_link_help_text: "在這裡加入連結"
-          italic: "傾斜文字"
-          list: "在這裡條列文字"
-          quote: "在這裡引用文字"
-          strong: "強調文字"
-        tooltips:
-          bold: "粗體"
-          cancel: "取消訊息"
-          code: "加入程式碼"
-          heading: "標題"
-          insert_image: "加入圖片"
-          insert_link: "加入連結"
-          insert_ordered_list: "加入編號清單"
-          insert_unordered_list: "加入項目清單"
-          italic: "斜體"
-          preview: "預覽訊息"
-          quote: "加入引用文字"
-          write: "編輯訊息"
-        write: "編寫"
-      mention_success: "指指點點成功: <%= names %>"
-      near_from: "貼文地點：<%= location %>"
-      option: "答案"
-      question: "問題"
-    remove_post: "要移除貼文嗎？"
-    report:
-      name: "投訴"
-      prompt: "請輸入投訴的理由:"
-      prompt_default: "比如說：內容牽涉人身攻擊"
-      status:
-        created: "投訴成功了"
-        exists: "已經有這筆投訴了"
-    reshares:
-      post: "要轉貼 <%= name %> 的貼文嗎？"
-      successful: "貼文轉貼成功！"
-    show_all: "看全部"
-    show_more: "顯示更多"
-    stream:
-      comment: "留言"
-      comments:
-        other: "有<%= count %>則留言"
-      disable_post_notifications: "關閉貼文的最新通知"
-      enable_post_notifications: "開啟貼文的最新通知"
-      follow: "追蹤"
-      followed_tag:
-        add_a_tag: "新增標籤"
-        follow: "追蹤"
-        title: "#追蹤中的標籤"
-      hide: "隱藏"
-      hide_nsfw_posts: "隱藏 #nsfw (上班時不宜)的貼文"
-      like: "讚"
-      likes:
-        other: "有<%= count %>個人說讚"
-        zero: "有<%= count %>個人說讚"
-      limited: "有限"
-      more_comments:
-        other: "顯示另外<%= count %>則留言"
-        zero: "顯示另外<%= count %>則留言"
-      no_posts_yet: "目前這裡還沒有貼文可以顯示。"
-      original_post_deleted: "原貼文已經被作者刪除了"
-      permalink: "永久連結"
-      public: "公開"
-      reshare: "轉貼"
-      reshares:
-        other: "被轉貼<%= count %>次"
-        zero: "被轉貼<%= count %>次"
-      show_nsfw_post: "顯示貼文"
-      show_nsfw_posts: "全都顯示"
-      tags:
-        follow: "追蹤 #<%= tag %>"
-        follow_error: "沒辦法追蹤 #<%= tag %> :("
-        following: "正在追蹤 #<%= tag %>"
-        stop_following: "停止追蹤 #<%= tag %>"
-        stop_following_confirm: "要停止追蹤 #<%= tag %> 嗎？"
-        stop_following_error: "沒辦法停止追蹤 #<%= tag %> :("
-      unfollow: "取消追蹤"
-      unlike: "收回讚"
-      via: "經由<%= provider %>"
-    tags:
-      wasnt_that_interesting: "OK，我想 #<%= tagName %> 大概沒那麼有趣..."
     timeago:
-      day: "一天"
-      days:
-        other: "%d天"
-      hour: "約一小時"
-      hours:
-        other: "約%d小時"
-      inPast: "再等一下"
-      minute: "約一分鐘"
+      prefixAgo: 在
+      suffixAgo: 前
+      suffixFromNow: 前
+      prefixFromNow: 距今
+      inPast: 再等一下
+      seconds: 少於一分鐘
+      minute: 約一分鐘
       minutes:
         other: "%d分鐘"
-      month: "約一個月"
+      hour: 約一小時
+      hours:
+        other: 約%d小時
+      day: 一天
+      days:
+        other: "%d天"
+      month: 約一個月
       months:
         other: "%d個月"
-      prefixAgo: "在"
-      prefixFromNow: "距今"
-      seconds: "少於一分鐘"
-      suffixAgo: "前"
-      suffixFromNow: "前"
-      year: "約一年"
+      year: 約一年
       years:
         other: "%d年"
-    unblock_failed: "取消封鎖這個使用者失敗了"
+    cancel: 取消
+    confirm_dialog: 你確定嗎？
+    confirm_unload: 請確認要離開這個頁面。你目前輸入的資料將不會保留。
+    create: 建立
+    delete: 刪除
+    ignore: 忽視
+    report:
+      prompt: '請輸入投訴的理由:'
+      prompt_default: 比如說：內容牽涉人身攻擊
+      name: 投訴
+      status:
+        created: 投訴成功了
+        exists: 已經有這筆投訴了
+    ignore_user: 要忽視這個使用者嗎？
+    ignore_failed: 沒辦法忽視這個使用者
+    hide_post: 要隱藏貼文嗎？
+    hide_post_failed: 沒辦法隱藏貼文
+    remove_post: 要移除貼文嗎？
+    unblock_failed: 取消封鎖這個使用者失敗了
+    and: 及
+    comma: "，"
+    edit: 編輯
+    no_results: 結果什麽都找不到
+    show_all: 看全部
+    admins:
+      dashboard:
+        up_to_date: 你的豆莢是最新版本！
+        outdated: 你的豆莢是舊版的。
+        compare_versions: diaspora* 最新的釋出版本是 <%= latestVersion %> 版，你的豆莢正在跑的版本是 <%= podVersion %> 版。
+        error: 沒辦法判斷 diaspora* 的最新版本。
+    admin:
+      pods:
+        pod: 豆莢
+        ssl: 安全通訊協定(SSL)
+        ssl_enabled: 有用 SSL
+        ssl_disabled: 沒用 SSL
+        added: 加入時間
+        status: 狀態
+        states:
+          unchecked: 沒檢查
+          no_errors: 正常
+          dns_failed: 解析域名(DNS)失敗
+          net_failed: 連線失敗
+          ssl_failed: 安全連線(SSL)失敗
+          http_failed: HTTP 連線失敗
+          version_failed: 沒辦法取得軟體版本
+          unknown_error: 檢查過程中發生不明錯誤
+        actions: 動作
+        offline_since: '離線時間:'
+        last_check: '最近檢查時間:'
+        more_info: 顯示更多資訊
+        check: 執行連線測試
+        recheck:
+          success: 剛剛才又一次檢查這個豆莢。
+          failure: 沒有做檢查。
+        follow_link: 在瀏覽器中開啟連結
+        no_info: 目前還沒有進一步的資訊
+        server_software: '伺服器軟體:'
+        response_time: '回應時間:'
+        ms:
+          other: "<%= count %>毫秒(ms)"
+        unknown: 不明
+        not_available: 沒資料
+        unchecked:
+          other: 還有<%= count %>個沒有被檢查過的豆莢。
+        version_failed:
+          other: 有 <%= count %> 個豆莢沒有版本資訊(舊版的豆莢會沒有 NodeInfo)。
+        errors:
+          other: 有<%= count %>個豆莢連線檢查不成功。
+    aspects:
+      name: 名稱
+      create:
+        add_a_new_aspect: 新增社交面
+        success: 新社交面<%= name %>已經造出來了
+        failure: 造社交面失敗。
+    errors:
+      connection: 沒辦法跟伺服器連線。
+    contacts:
+      add_contact: 加聯絡人
+      remove_contact: 刪聯絡人
+      error_add: 沒辦法把 <%= name %> 加進這個社交面 :(
+      error_remove: 沒辦法把 <%= name %> 從這個社交面中移除 :(
+      search_no_results: 沒找到聯絡人
+    my_activity: 我的活動
+    my_stream: 流水帳
+    my_aspects: 我的社交面
+    publisher:
+      near_from: 貼文地點：<%= location %>
+      option: 答案
+      add_option: 增加答案
+      question: 問題
+      markdown_editor:
+        preview: 預覽
+        write: 編寫
+        tooltips:
+          bold: 粗體
+          italic: 斜體
+          heading: 標題
+          insert_link: 加入連結
+          insert_image: 加入圖片
+          insert_ordered_list: 加入編號清單
+          insert_unordered_list: 加入項目清單
+          preview: 預覽訊息
+          write: 編輯訊息
+          cancel: 取消訊息
+          quote: 加入引用文字
+          code: 加入程式碼
+        texts:
+          strong: 強調文字
+          italic: 傾斜文字
+          heading: 將文字變標題
+          insert_link_description_text: 在這裡輸入連結的說明
+          insert_link_help_text: 在這裡加入連結
+          insert_image_description_text: 在這裡輸入圖片的說明
+          insert_image_help_text: 在這裡加入圖片
+          insert_image_title: 在這裡輸入圖片的標題
+          list: 在這裡條列文字
+          quote: 在這裡引用文字
+          code: 在這裡打程式碼
+      mention_success: '指指點點成功: <%= names %>'
+    bookmarklet:
+      post_something: 貼到 diaspora*
+      post_submit: 傳送貼文中...
+      post_success: 貼好了！彈出視窗關閉中...
+    aspect_dropdown:
+      add_to_aspect: 加聯絡人
+      select_aspects: 選社交面
+      all_aspects: 所有社交面
+      updating: 正在更新...
+      mobile_row_checked: "<%= name %> (移除)"
+      mobile_row_unchecked: "<%= name %> (新增)"
+      stopped_sharing_with: 停止跟 <%= name %> 分享了。
+      started_sharing_with: 你開始跟 <%= name %> 分享了！
+      error: 無法開始跟 <%= name %> 分享。你還在忽視他們嗎？
+      error_remove: 無法把 <%= name %> 從社交面中移除 :(
+      toggle:
+        zero: 選社交面
+        other: 到<%= count %>個社交面中
+    show_more: 顯示更多
+    failed_to_post_message: 貼文失敗！
+    failed_to_remove: 刪掉這個項目的動作失敗了！
+    comments:
+      show: 顯示所有留言
+      hide: 隱藏留言
+      no_comments: 目前還沒人留言。
+    reshares:
+      successful: 貼文轉貼成功！
+      post: 要轉貼 <%= name %> 的貼文嗎？
+    aspect_navigation:
+      select_all: 全選
+      deselect_all: 全不選
+      no_aspects: 沒選任何社交面
+      add_an_aspect: "+ 新增社交面"
+    getting_started:
+      hey: 嗨，<%= name %>！
+      no_tags: 咦，你還沒有追蹤任何標籤耶！要往下一步嗎？
+      alright_ill_wait: 好，再說吧。
+      preparing_your_stream: 整理你個人的流水帳中...
+    photo_uploader:
+      upload_photos: 上傳相片
+      looking_good: 天啊，你看起來真帥！
+      completed: 檔案 <%= file %> 完成了
+      error: 上傳檔案 <%= file %> 時發生問題
+      invalid_ext: 檔案 {file} 的副檔名不合格。僅接受 {extensions}。
+      size_error: 檔案 {file} 太大了，上限是{sizeLimit}。
+      empty: 檔案 {file} 是空的，請不要選它再重選一次。
+    tags:
+      wasnt_that_interesting: 'OK，我想 #<%= tagName %> 大概沒那麼有趣...'
+    people:
+      not_found: "...找不到任何人"
+      mention: 指指點點
+      message: 送訊息
+      edit_my_profile: 編輯個人檔案
+      stop_ignoring: 停止忽視
+      helper:
+        is_sharing: "<%= name %> 正在跟你分享中"
+        is_not_sharing: "<%= name %> 沒有跟你分享"
+    profile:
+      edit: 編輯
+      add_some: 加入一些
+      you_have_no_tags: 你沒有任何標籤！
+      bio: 自我介紹
+      location: 地點
+      gender: 性別
+      born: 生日
+      photos: 相片
+      posts: 貼文
+    conversation:
+      create:
+        no_recipient: 欸，必須要有收訊人 ！
+      new:
+        no_contacts: "\x1F開始對話前你必須先加一些聯絡人"
+    notifications:
+      mark_read: 標示為看過了
+      mark_unread: 標示為沒看過
+      new_notifications:
+        other: 有<%= count %>則還沒看過的通知
+    stream:
+      hide: 隱藏
+      public: 公開
+      limited: 有限
+      like: 讚
+      unlike: 收回讚
+      reshare: 轉貼
+      comment: 留言
+      original_post_deleted: 原貼文已經被作者刪除了
+      show_nsfw_post: 顯示貼文
+      show_nsfw_posts: 全都顯示
+      hide_nsfw_posts: '隱藏 #nsfw (上班時不宜)的貼文'
+      follow: 追蹤
+      unfollow: 取消追蹤
+      enable_post_notifications: 開啟貼文的最新通知
+      disable_post_notifications: 關閉貼文的最新通知
+      permalink: 永久連結
+      via: 經由<%= provider %>
+      no_posts_yet: 目前這裡還沒有貼文可以顯示。
+      likes:
+        zero: 有<%= count %>個人說讚
+        other: 有<%= count %>個人說讚
+      reshares:
+        zero: 被轉貼<%= count %>次
+        other: 被轉貼<%= count %>次
+      comments:
+        other: 有<%= count %>則留言
+      more_comments:
+        zero: 顯示另外<%= count %>則留言
+        other: 顯示另外<%= count %>則留言
+      followed_tag:
+        title: "#追蹤中的標籤"
+        add_a_tag: 新增標籤
+        follow: 追蹤
+      tags:
+        follow: '追蹤 #<%= tag %>'
+        following: '正在追蹤 #<%= tag %>'
+        stop_following: '停止追蹤 #<%= tag %>'
+        stop_following_confirm: '要停止追蹤 #<%= tag %> 嗎？'
+        follow_error: '沒辦法追蹤 #<%= tag %> :('
+        stop_following_error: '沒辦法停止追蹤 #<%= tag %> :('
+    header:
+      home: 我家
+      profile: 個人檔案
+      contacts: 連絡人
+      settings: 設定
+      help: 說明
+      admin: 管理
+      moderator: 協調人
+      log_out: 登出
+      toggle_navigation: 瀏覽模式切換
+      switch_to_touch_optimized_mode: 切換到觸控模式
+      notifications: 消息
+      conversations: 對話
+      search: 搜尋
+      recent_notifications: 最新消息
+      mark_all_as_read: 全部標示為看過了
+      view_all: 看全部
+      close: 關閉
     viewer:
-      reshared: "已轉貼"
+      reshared: 已轉貼
+    poll:
+      vote: 投票
+      go_to_original_post: 你可以在 <%= original_post_link %> 參與這次票選。
+      original_post: 原貼文
+      result: 結果
+      count:
+        other: 到目前有 <%=count%> 張票
+      answer_count:
+        zero: 沒人投票
+        other: 有<%=count%>個人投票
+      show_result: 顯示結果
+      close_result: 隱藏結果
+      your_vote: 你的投票

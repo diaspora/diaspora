@@ -6,9 +6,9 @@
 
 module Workers
   class ReceivePublic < ReceiveBase
-    def perform(data, legacy=false)
+    def perform(data)
       filter_errors_for_retry do
-        DiasporaFederation::Federation::Receiver.receive_public(data, legacy)
+        DiasporaFederation::Federation::Receiver.receive_public(data)
       end
     end
   end

@@ -6,7 +6,7 @@
 
 # Use net_http in test, that's better supported by webmock
 unless Rails.env.test?
-  require 'typhoeus/adapters/faraday'
+  require "faraday/typhoeus"
   Faraday.default_adapter = :typhoeus
 end
 
@@ -20,7 +20,7 @@ options = {
 }
 
 Faraday.default_connection = Faraday::Connection.new(options) do |b|
-  b.use FaradayMiddleware::FollowRedirects, limit: 8
+  b.use Faraday::FollowRedirects::Middleware, limit: 8
   b.use :cookie_jar
   b.adapter Faraday.default_adapter
 end

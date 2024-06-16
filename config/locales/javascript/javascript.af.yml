@@ -6,15 +6,15 @@
 
 af:
   javascripts:
-    and: "en"
-    comma: ","
-    header:
-      search: "Soek"
-    my_aspects: "My Aspekte"
-    stream:
-      show_nsfw_posts: "Wys al"
     timeago:
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: ""
-      suffixFromNow: ""
+      prefixAgo: ''
+      suffixAgo: ''
+      suffixFromNow: ''
+      prefixFromNow: ''
+    and: en
+    comma: ","
+    my_aspects: My Aspekte
+    stream:
+      show_nsfw_posts: Wys al
+    header:
+      search: Soek

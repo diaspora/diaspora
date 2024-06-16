@@ -44,3 +44,38 @@ end
 When /^I enter "([^"]*)" in the comment field$/ do |comment_text|
   find("textarea.comment-box.mention-textarea").native.send_keys(comment_text)
 end
+
+Then /^I like the comment "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  # Find like like-link within comment-block
+  find(id: comment_guid).click_link("Like")
+end
+
+Then /^I should see a like within comment "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  block = find(id: comment_guid)
+  expect(block).to have_css(".expand-likes")
+end
+
+When /^I expand likes within comment "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  find(id: comment_guid).click_link("1 Like")
+  find(id: comment_guid).find(".entypo-heart").hover # unfocus avatar to get rid of tooltip
+end
+
+When /^I unlike comment "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  find(id: comment_guid).click_link("Unlike")
+end
+
+Then /^I should see a micro avatar within comment "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  block = find(id: comment_guid)
+  expect(block).to have_css(".micro.avatar")
+end
+
+Then /^I should not see a micro avatar within comment "([^"]*)"$/ do |comment_text|
+  comment_guid = Comment.find_by(text: comment_text).guid
+  block = find(id: comment_guid)
+  expect(block).not_to have_css(".micro.avatar")
+end

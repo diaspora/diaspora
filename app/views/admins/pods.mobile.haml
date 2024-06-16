@@ -2,4 +2,6 @@
   = t(".pod_network")
 
 .alert.alert-warning
-  != t(".pod_desktop_view", desktop_link: link_to(t(".pod_desktop_link"), toggle_mobile_path))
+  != t("error_messages.mobile_not_available",
+    desktop_link: link_to(t("error_messages.desktop_view_link"),
+    toggle_mobile_path))

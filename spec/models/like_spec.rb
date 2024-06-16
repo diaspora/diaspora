@@ -8,23 +8,37 @@ describe Like, type: :model do
   let(:status) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
 
   it "has a valid factory" do
-    expect(FactoryGirl.build(:like)).to be_valid
+    expect(FactoryBot.build(:like)).to be_valid
   end
 
   describe "#destroy" do
-    before do
-      @like = alice.like!(status)
-    end
+    let!(:like) { alice.like!(status) }
 
     it "should delete a participation" do
-      expect { @like.destroy }.to change { Participation.count }.by(-1)
+      expect { like.destroy }.to change { Participation.count }.by(-1)
     end
 
     it "should decrease count participation" do
       alice.comment!(status, "Are you there?")
-      @like.destroy
-      participations = Participation.where(target_id: @like.target_id, author_id: @like.author_id)
+      like.destroy
+      participations = Participation.where(target_id: status.id, author_id: like.author_id)
       expect(participations.first.count).to eq(1)
+    end
+
+    context "on comment" do
+      let(:comment) { bob.comment!(status, "Are you there?") }
+      let!(:like) { alice.like_comment!(comment) }
+
+      it "should delete a participation" do
+        expect { like.destroy }.to change { Participation.count }.by(-1)
+      end
+
+      it "should decrease count participation" do
+        alice.comment!(status, "Yes, I am here!")
+        like.destroy
+        participations = Participation.where(target_id: status.id, author_id: like.author_id)
+        expect(participations.first.count).to eq(1)
+      end
     end
   end
 
@@ -36,7 +50,7 @@ describe Like, type: :model do
     end
 
     it "increments the counter cache on its comment" do
-      comment = FactoryGirl.create(:comment, post: status)
+      comment = FactoryBot.create(:comment, post: status)
       expect {
         alice.like!(comment)
       }.to change { comment.reload.likes_count }.by(1)
@@ -55,23 +69,23 @@ describe Like, type: :model do
   end
 
   it_behaves_like "it is relayable" do
-    let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_raphael) }
+    let(:remote_parent) { FactoryBot.create(:status_message, author: remote_raphael) }
     let(:local_parent) { local_luke.post(:status_message, text: "hi", to: local_luke.aspects.first) }
     let(:object_on_local_parent) { local_luke.like!(local_parent) }
     let(:object_on_remote_parent) { local_luke.like!(remote_parent) }
-    let(:remote_object_on_local_parent) { FactoryGirl.create(:like, target: local_parent, author: remote_raphael) }
+    let(:remote_object_on_local_parent) { FactoryBot.create(:like, target: local_parent, author: remote_raphael) }
     let(:relayable) { Like::Generator.new(alice, status).build }
   end
 
   context "like for a comment" do
     it_behaves_like "it is relayable" do
       let(:local_parent) { local_luke.post(:status_message, text: "hi", to: local_luke.aspects.first) }
-      let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_raphael) }
-      let(:comment_on_local_parent) { FactoryGirl.create(:comment, post: local_parent) }
-      let(:comment_on_remote_parent) { FactoryGirl.create(:comment, post: remote_parent) }
+      let(:remote_parent) { FactoryBot.create(:status_message, author: remote_raphael) }
+      let(:comment_on_local_parent) { FactoryBot.create(:comment, post: local_parent) }
+      let(:comment_on_remote_parent) { FactoryBot.create(:comment, post: remote_parent) }
       let(:object_on_local_parent) { local_luke.like!(comment_on_local_parent) }
       let(:object_on_remote_parent) { local_luke.like!(comment_on_remote_parent) }
-      let(:remote_object_on_local_parent) { FactoryGirl.create(:like, target: local_parent, author: remote_raphael) }
+      let(:remote_object_on_local_parent) { FactoryBot.create(:like, target: local_parent, author: remote_raphael) }
       let(:relayable) { Like::Generator.new(alice, status).build }
     end
   end

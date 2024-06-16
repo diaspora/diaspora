@@ -1,4 +1,4 @@
-@import 'utatti-perfect-scrollbar/css/perfect-scrollbar';
+@import 'perfect-scrollbar/css/perfect-scrollbar';
 
 @import 'color-variables';
 @import 'bootstrap-complete';
@@ -24,6 +24,9 @@
 // font overrides
 @import 'typography';
 
+// New design, can be used adding the .modern-design class to a <div> around the page which is ported
+@import 'modern-design';
+
 // layout
 @import 'sidebar';
 
@@ -40,6 +43,7 @@
 
 // profile and settings pages
 @import 'settings';
+@import 'cropperjs/dist/cropper';
 
 // new SPV
 @import 'header';
@@ -82,8 +86,6 @@
 @import 'stream';
 @import 'stream_element';
 @import 'comments';
-@import 'diaspora_jsxc';
-@import 'chat';
 @import 'markdown-content';
 @import 'oembed';
 @import 'media-embed';
@@ -95,14 +97,14 @@
 
 // code
 @import 'code';
-@import 'highlightjs/github';
+@import 'highlightjs/styles/github';
 
 // statistics
 @import 'statistics';
 
 // gallery
-@import 'blueimp-gallery';
-@import 'blueimp-gallery/blueimp-gallery-indicator';
+@import 'blueimp-gallery/css/blueimp-gallery';
+@import 'blueimp-gallery/css/blueimp-gallery-indicator';
 @import 'gallery';
 
 // settings

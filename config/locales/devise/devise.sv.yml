@@ -7,109 +7,109 @@
 sv:
   devise:
     confirmations:
-      confirmed: "Din e-postadress har verifierats."
+      confirmed: Din e-postadress har verifierats.
+      send_instructions: Du kommer inom några minuter att få ett e-brev med instruktioner för att verifiera din e-postadress.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas, kommer du att få ett brev med instruktioner om hur du på några minuter bekräftar din adress.
       new:
-        resend_confirmation: "Skicka instruktioner för att bekräfta kontot igen"
-      send_instructions: "Du kommer inom några minuter att få ett e-brev med instruktioner för att verifiera din e-postadress."
-      send_paranoid_instructions: "Om din e-postadress finns i vår databas, kommer du att få ett brev med instruktioner om hur du på några minuter bekräftar din adress."
+        resend_confirmation: Skicka instruktioner för att bekräfta kontot igen
     failure:
-      already_authenticated: "Du är redan inloggad."
-      inactive: "Ditt konto är inte aktiverat ännu."
-      invalid: "Fel %{authentication_keys} eller lösenord."
-      invalid_token: "Ogiltig identifiering."
-      last_attempt: "Du har ett försök till innan du blir utelåst."
-      locked: "Ditt konto är låst."
-      not_found_in_database: "Ogiltig %{authentication_keys} eller ogiltigt lösenord."
-      timeout: "Din session är avslutad. Vänligen logga in igen för att fortsätta."
-      unauthenticated: "Du måste logga in innan du kan fortsätta."
-      unconfirmed: "Du måste verifiera din e-postadress innan du kan fortsätta."
-    invitations:
-      invitation_token_invalid: "Vi ber om ursäkt! Den här inbjudan är inte giltig!"
-      send_instructions: "Din inbjudan är nu skickad."
-      updated: "Ditt lösenord är nu inställt och du är inloggad."
+      already_authenticated: Du är redan inloggad.
+      inactive: Ditt konto är inte aktiverat ännu.
+      invalid: Fel %{authentication_keys} eller lösenord.
+      locked: Ditt konto är låst.
+      last_attempt: Du har ett försök till innan du blir utelåst.
+      not_found_in_database: Ogiltig %{authentication_keys} eller ogiltigt lösenord.
+      timeout: Din session är avslutad. Vänligen logga in igen för att fortsätta.
+      unauthenticated: Du måste logga in innan du kan fortsätta.
+      unconfirmed: Du måste verifiera din e-postadress innan du kan fortsätta.
+      invalid_token: Ogiltig identifiering.
     mailer:
       confirmation_instructions:
-        confirm: "Aktivera mitt konto"
-        subject: "Instruktioner för att aktivera ditt konto"
-        you_can_confirm: "Klicka på länken nedan för att aktivera ditt konto:"
-      hello: "Hej %{username}!"
+        subject: Instruktioner för att aktivera ditt konto
+        you_can_confirm: 'Klicka på länken nedan för att aktivera ditt konto:'
+        confirm: Aktivera mitt konto
+      reset_password_instructions:
+        subject: Instruktioner för att återställa lösenordet
+        someone_requested: Någon har efterfrågat en länk för att återställa ditt lösenord. För att återställa lösenordet, klicka på länken nedan.
+        change: Ändra mitt lösenord
+        then_connect: Efter att ett nytt lösenord satts kommer du behöva logga in igen med användarnamnet "%{username}" och ditt nya lösenord.
+        wont_change: Ditt lösenord kommer inte ändras förrän du klickat på länken och ändrat det.
+        ignore: Om det inte är du som vill byta lösenord så kan du ignorera det här mailet.
+      unlock_instructions:
+        subject: Upplåsningsinstruktioner
+        account_locked: Ditt konto har låsts eftersom fel lösenord har angivits för många gånger.
+        click_to_unlock: 'Klicka på länken nedan för att låsa upp ditt konto:'
+        unlock: Lås upp mitt konto
+      password_change:
+        subject: Lösenordet är bytt
+      welcome: Välkommen %{username}!
+      hello: Hej %{username}!
       inviter:
-        accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} har bjudit in dig att gå med i Diaspora*"
-      password_change:
-        subject: "Lösenordet är bytt"
-      reset_password_instructions:
-        change: "Ändra mitt lösenord"
-        ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."
-        someone_requested: "Någon har efterfrågat en länk för att återställa ditt lösenord. För att återställa lösenordet, klicka på länken nedan."
-        subject: "Instruktioner för att återställa lösenordet"
-        then_connect: "Efter att ett nytt lösenord satts kommer du behöva logga in igen med användarnamnet \"%{username}\" och ditt nya lösenord."
-        wont_change: "Ditt lösenord kommer inte ändras förrän du klickat på länken och ändrat det."
-      unlock_instructions:
-        account_locked: "Ditt konto har låsts eftersom fel lösenord har angivits för många gånger."
-        click_to_unlock: "Klicka på länken nedan för att låsa upp ditt konto:"
-        subject: "Upplåsningsinstruktioner"
-        unlock: "Lås upp mitt konto"
-      welcome: "Välkommen %{username}!"
+        accept_at: via %{url}. Du accepterar genom att klicka på länken nedan.
     omniauth_callbacks:
-      failure: "Kunde inte autentisera dig från %{kind} på grund av: %{reason}"
-      success: "Lyckades autentisera från kontot %{kind}."
+      failure: 'Kunde inte autentisera dig från %{kind} på grund av: %{reason}'
+      success: Lyckades autentisera från kontot %{kind}.
     passwords:
+      no_token: Du får inte tillgång till den här sidan utan en länk för att ställa in ett nytt lösenord via e-post. Om du kom hit genom en sådan, kontrollera att de använde hela URL:en som angavs.
+      send_instructions: Du kommer inom några minuter att få ett e-brev med instruktioner för att återställa lösenordet.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas, kommer du inom några få minuter att få en länk skickad till dig för att kunna återställa ditt lösenord.
+      updated: Ditt lösenord har ändrats och du är nu inloggad.
+      updated_not_active: Ditt lösenord är ändrat.
       edit:
-        change_password: "Ändra mitt lösenord"
-        confirm_password: "Bekräfta lösenord"
-        new_password: "Nytt lösenord"
+        change_password: Ändra mitt lösenord
+        new_password: Nytt lösenord
+        confirm_password: Bekräfta lösenord
       new:
-        email: "E-postadress"
-        forgot_password: "Har du glömt ditt lösenord?"
-        reset_password: "Återställ lösenord"
-        send_password_instructions: "Skicka information om hur jag återställer lösenordet"
-      no_token: "Du får inte tillgång till den här sidan utan en länk för att ställa in ett nytt lösenord via e-post. Om du kom hit genom en sådan, kontrollera att de använde hela URL:en som angavs."
-      send_instructions: "Du kommer inom några minuter att få ett e-brev med instruktioner för att återställa lösenordet."
-      send_paranoid_instructions: "Om din e-postadress finns i vår databas, kommer du inom några få minuter att få en länk skickad till dig för att kunna återställa ditt lösenord."
-      updated: "Ditt lösenord har ändrats och du är nu inloggad."
-      updated_not_active: "Ditt lösenord är ändrat."
+        forgot_password: Har du glömt ditt lösenord?
+        reset_password: Återställ lösenord
+        email: E-postadress
+        send_password_instructions: Skicka information om hur jag återställer lösenordet
     registrations:
-      destroyed: "Ditt konto är avslutat. På återseende!"
-      signed_up: "Du har skapat ett konto. Beroende på dina inställningar kan en bekräftelse ha skickats till din e-postadress."
-      signed_up_but_inactive: "Du har nu registrerat dig, men du kommer inte kunna logga in förrän ditt konto är aktiverat."
-      signed_up_but_locked: "Du har nu registrerat dig, men du kan inte logga in medans ditt konto är låst."
-      signed_up_but_unconfirmed: "En bekräftelselänk är du skickad till dig via e-post. Följ den för att aktivera ditt konto."
-      update_needs_confirmation: "Ditt konto har uppdaterats, men vi måste bekräfta din nya e-postadress. Titta i din inkorg och följ länken från oss för att bekräfta din nya adress."
-      updated: "Ditt konto har uppdateras."
+      destroyed: Ditt konto är avslutat. På återseende!
+      signed_up: Du har skapat ett konto. Beroende på dina inställningar kan en bekräftelse ha skickats till din e-postadress.
+      signed_up_but_inactive: Du har nu registrerat dig, men du kommer inte kunna logga in förrän ditt konto är aktiverat.
+      signed_up_but_locked: Du har nu registrerat dig, men du kan inte logga in medans ditt konto är låst.
+      signed_up_but_unconfirmed: En bekräftelselänk är du skickad till dig via e-post. Följ den för att aktivera ditt konto.
+      update_needs_confirmation: Ditt konto har uppdaterats, men vi måste bekräfta din nya e-postadress. Titta i din inkorg och följ länken från oss för att bekräfta din nya adress.
+      updated: Ditt konto har uppdateras.
     sessions:
-      already_signed_out: "Utloggningen lyckades."
+      signed_in: Inloggningen lyckades.
+      signed_out: Utloggningen lyckades
+      already_signed_out: Utloggningen lyckades.
       new:
-        login: "Logga in"
-        modern_browsers: "stöder endast moderna webbläsare."
-        password: "Lösenord"
-        remember_me: "Kom ihåg mig"
-        sign_in: "Logga in"
-        username: "Användarnamn"
-      signed_in: "Inloggningen lyckades."
-      signed_out: "Utloggningen lyckades"
+        login: Logga in
+        username: Användarnamn
+        password: Lösenord
+        sign_in: Logga in
+        remember_me: Kom ihåg mig
+        modern_browsers: stöder endast moderna webbläsare.
+    unlocks:
+      send_instructions: Du kommer inom några minuter att få ett e-brev med instruktioner för att låsa upp ditt konto.
+      send_paranoid_instructions: Om ditt konto finns, kommer du inom några minuter att få ett e-brev med instruktioner för hur du låser upp det.
+      unlocked: Ditt konto har är nu upplåst. Vänligen logga in för att fortsätta.
+      new:
+        resend_unlock: Skicka upplåsningsinstruktioner igen
+    invitations:
+      send_instructions: Din inbjudan är nu skickad.
+      invitation_token_invalid: Vi ber om ursäkt! Den här inbjudan är inte giltig!
+      updated: Ditt lösenord är nu inställt och du är inloggad.
     shared:
       links:
-        forgot_your_password: "Glömt ditt lösenord?"
-        receive_confirmation: "Fick du inget bekräftelsemail?"
-        receive_unlock: "Fick du inga upplåsningsinstruktioner?"
-        sign_in: "Logga in"
-        sign_up: "Skapa konto"
-        sign_up_closed: "Formuläret för att bli medlem är tyvärr stängt."
-    unlocks:
-      new:
-        resend_unlock: "Skicka upplåsningsinstruktioner igen"
-      send_instructions: "Du kommer inom några minuter att få ett e-brev med instruktioner för att låsa upp ditt konto."
-      send_paranoid_instructions: "Om ditt konto finns, kommer du inom några minuter att få ett e-brev med instruktioner för hur du låser upp det."
-      unlocked: "Ditt konto har är nu upplåst. Vänligen logga in för att fortsätta."
+        sign_in: Logga in
+        sign_up: Skapa konto
+        sign_up_closed: Formuläret för att bli medlem är tyvärr stängt.
+        forgot_your_password: Glömt ditt lösenord?
+        receive_confirmation: Fick du inget bekräftelsemail?
+        receive_unlock: Fick du inga upplåsningsinstruktioner?
   errors:
     messages:
-      already_confirmed: "var redan bekräftad, prova att logga in"
-      confirmation_period_expired: "behöver bekräftas inom %{period}. Var vänlig ange en ny"
-      expired: "har löpt ut. Var vänlig ange en ny"
-      not_found: "inte funnet"
-      not_locked: "var ej låst"
+      already_confirmed: var redan bekräftad, prova att logga in
+      confirmation_period_expired: behöver bekräftas inom %{period}. Var vänlig ange en ny
+      expired: har löpt ut. Var vänlig ange en ny
+      not_found: inte funnet
+      not_locked: var ej låst
       not_saved:
-        one: "1 fel hindrade denna %{resource} från att sparas:"
+        one: '1 fel hindrade denna %{resource} från att sparas:'
         other: "%{count} fel hindrade denna %{resource} från att sparas:"

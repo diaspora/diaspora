@@ -2,25 +2,31 @@
 # frozen_string_literal: true
 
 class AvatarPresenter < BasePresenter
-  DEFAULT_IMAGE = ActionController::Base.helpers.image_path("user/default.png")
+  def base_hash(with_default=false)
+    avatar = {
+      small:  small(with_default),
+      medium: medium(with_default),
+      large:  large(with_default),
+      raw:    raw(with_default) # rubocop:disable Rails/OutputSafety
+    }.compact
 
-  def base_hash
-    {
-      small:  small,
-      medium: medium,
-      large:  large
-    }
+    avatar unless avatar.empty?
   end
 
-  def small
-    image_url(:thumb_small) || DEFAULT_IMAGE
+  def small(with_default=false)
+    image_url(size: :thumb_small, fallback_to_default: with_default)
   end
 
-  def medium
-    image_url(:thumb_medium) || DEFAULT_IMAGE
+  def medium(with_default=false)
+    image_url(size: :thumb_medium, fallback_to_default: with_default)
   end
 
-  def large
-    image_url || DEFAULT_IMAGE
+  def large(with_default=false)
+    image_url(size: :scaled_full, fallback_to_default: with_default)
+  end
+
+  def raw(with_default=false)
+    # TODO: Replace me with the actual raw photo.
+    image_url(fallback_to_default: with_default)
   end
 end

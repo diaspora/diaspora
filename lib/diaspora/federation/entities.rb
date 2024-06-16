@@ -26,9 +26,10 @@ module Diaspora
 
       def self.account_migration(account_migration)
         DiasporaFederation::Entities::AccountMigration.new(
-          author:    account_migration.sender.diaspora_handle,
-          profile:   profile(account_migration.new_person.profile),
-          signature: account_migration.signature
+          author:            account_migration.sender.diaspora_handle,
+          profile:           profile(account_migration.new_person.profile),
+          remote_photo_path: account_migration.remote_photo_path,
+          signature:         account_migration.signature
         )
       end
 

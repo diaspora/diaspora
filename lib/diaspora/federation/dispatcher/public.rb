@@ -12,7 +12,7 @@ module Diaspora
         end
 
         def deliver_to_remote(people)
-          targets = target_urls(people) + additional_target_urls
+          targets = target_urls(people)
 
           return if targets.empty?
 
@@ -23,11 +23,6 @@ module Diaspora
           active, inactive = Pod.where(id: people.map(&:pod_id).uniq).partition(&:active?)
           logger.info "ignoring inactive pods: #{inactive.join(', ')}" if inactive.any?
           active.map {|pod| pod.url_to("/receive/public") }
-        end
-
-        def additional_target_urls
-          return [] unless AppConfig.relay.outbound.send? && object.instance_of?(StatusMessage)
-          [AppConfig.relay.outbound.url]
         end
 
         def deliver_to_hub

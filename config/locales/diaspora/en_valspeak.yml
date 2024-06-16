@@ -5,1021 +5,1019 @@
 
 
 en_valspeak:
-  _applications: "Appz"
-  _contacts: "BFFs <3"
-  _help: "Need halp!!"
-  _services: "Other socialz"
-  _statistics: "statsss"
-  _terms: "boring legal stuff"
-  account: "Like ur account"
+  settings: Like ur settinz
+  profile: Like ur profile
+  account: Like ur account
+  privacy: OMG give me some privacy!
+  _services: Other socialz
+  _applications: Appz
+  _help: Need halp!!
+  ok: For SURE
+  cancel: Nvm
+  delete: Trash
+  username: ur like... name ppl will find u by or whatever
+  email: thing b4 txtin like i think its called like email er sumthin?
+  are_you_sure: R u like, for sure?
+  are_you_sure_delete_account: R u like, mental? U like, wanna close ur account? U should like stay! YOLO! Well if u do, remember, like, this CANT b undone. Kay?
+  fill_me_out: Like, put ur txt into here like, K?
+  public: like, every1 can c this
+  limited: Only ur BFFs can c these! OMG!
+  search: 'like look for stuff like #shoes!'
+  nsfw: OMG! GROODY!
+  find_people: 'find new BFFs or #stuff'
+  more: Moar
+  all_aspects: All aspectz
+  no_results: no results found... lame...
+  _contacts: BFFs <3
+  _terms: boring legal stuff
+  _statistics: statsss
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "it must be like... different among this homie's homiez. duh."
+            person:
+              invalid: is like... not valid n junk.
+            username:
+              taken: some1 like, already bought those shoez. sry bout that :\
+              invalid: is like... not valid n junk. u have 2 liek... use letterz, numbahz, and these thingz "_" but like witout the quote thingz...
+            email:
+              taken: is like... already taken.
         person:
           attributes:
             diaspora_handle:
-              taken: "is like... already taken. sry :\\"
-        poll:
+              taken: is like... already taken. sry :\
+        contact:
           attributes:
-            poll_answers:
-              not_enough_poll_answers: "Theres like... not enough stuff to select in the poll..."
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: "uve like... already voted on this poll!! derp."
+            person_id:
+              taken: it must be like... different among this homie's homiez. duh.
         reshare:
           attributes:
             root_guid:
-              taken: "Umm, wtf r u doing? U already reshared that postie? Duh?"
-        user:
+              taken: Umm, wtf r u doing? U already reshared that postie? Duh?
+        poll:
           attributes:
-            email:
-              taken: "is like... already taken."
-            person:
-              invalid: "is like... not valid n junk."
-            username:
-              invalid: "is like... not valid n junk. u have 2 liek... use letterz, numbahz, and these thingz \"_\" but like witout the quote thingz..."
-              taken: "some1 like, already bought those shoez. sry bout that :\\"
-  admins:
-    admin_bar:
-      pages: "Pagies!"
-      pod_stats: "Pod statsss <3"
-      report: "Reportz"
-      sidekiq_monitor: "Technical thingy called Sidekiq monitor... wasnt that like... a phone once? OMG! IT WAS! :DD"
-      user_search: "Ppl search"
-      weekly_user_stats: "Weekly ppl stats"
-    stats:
-      2weeks: "2 weekz"
-      50_most: "ZOMG THE 50 MOST POPULAR TAGZ!!!"
-      comments:
-        one: "%{count} comment!!!(:"
-        other: "%{count} commentz!! :DDD"
-        zero: "%{count} commentz :("
-      current_segment: "So like, the current segment is like.. averagin <b>%{post_yest}</b> posties per usah, from <b>%{post_day}</b>"
-      daily: "Dailyy"
-      display_results: "Showin results from the like.. <b>%{segment}</b> segment"
-      go: "go!!"
-      month: "Month"
-      posts:
-        one: "%{count} postie"
-        other: "%{count} posties!"
-        zero: "%{count} posties :("
-      shares:
-        one: "%{count} share!(:"
-        other: "OMG u like have %{count} sharez!! :DDD"
-        zero: "%{count} sharez :c"
-      tag_name: "Tag Nameuh: <b>%{name_tag}</b> Countuh: <b>%{count_tag}</b>"
-      usage_statistic: "Usage staties"
-      users:
-        one: "%{count} ppl!(:"
-        other: "%{count} ppl!!! :DDD"
-        zero: "%{count} ppl :c"
-      week: "Week"
-    user_entry:
-      account_closed: "account trashed <3"
-      diaspora_handle: "d* handle"
-      email: "Emale"
-      guid: "gee yew eye dee"
-      id: "eye dee"
-      last_seen: "was like, last seen"
-      ? "no"
-      : "no way!"
-      nsfw: "#groody"
-      unknown: "dunno them"
-      ? "yes"
-      : totally
-    user_search:
-      account_closing_scheduled: "So like, the account of %{name} is waitin 2 b closed. it will b done in a few min, kay?"
-      account_locking_scheduled: "So like, that account with like the name... %{name} is like.. scheduled to be locked. So like, it will totally be done in a min. Kthx."
-      account_unlocking_scheduled: "so like... the account for %{name} is like.. scheduled to be like.. unlocked. give it a min, mkay?"
-      add_invites: "add invites!! <3"
-      are_you_sure: "R u like... totally sure u wanna trash this account?"
-      are_you_sure_lock_account: "So like, u totes sure u wanna lock this ppl?"
-      are_you_sure_unlock_account: "So like, u totes sure u wanna unlock this ppl?"
-      close_account: "trash account"
-      email_to: "Email for the ppl 2 invite <3"
-      under_13: "show ppl undah 13 (COPPA)"
-      users:
-        one: "%{count} was like... found! :D"
-        other: "%{count} ppl found!! :D"
-        zero: "%{count} ppl found :("
-      view_profile: "look at profile"
-      you_currently:
-        one: "u only have 1 invite left %{link}"
-        other: "u have like... %{count} invites left %{link}"
-        zero: "u like... have no invites left %{link} :\\"
-    weekly_user_stats:
-      amount_of:
-        one: "Number of new ppl this week: %{count}"
-        other: "Number of new ppl this week: %{count}"
-        zero: "Number of new ppl this week: none :\\"
-      current_server: "So like... the current server date ish like... %{date}"
-  all_aspects: "All aspectz"
-  are_you_sure: "R u like, for sure?"
-  are_you_sure_delete_account: "R u like, mental? U like, wanna close ur account? U should like stay! YOLO! Well if u do, remember, like, this CANT b undone. Kay?"
-  aspect_memberships:
-    destroy:
-      failure: "The person was not like... removed... sry bout that :\\"
-      forbidden: "So like, ur not allowed to do tht..."
-      no_membership: "like... we couldnt find the ppl u picked in that aspect... sry bout tht :\\"
-      success: "The person was like... removed.. n stuff..."
-  aspects:
-    add_to_aspect:
-      failure: "there was like... a problem addin bff to aspect."
-      success: "OMG! Movin them like, totally WORKED! <333"
-    aspect_listings:
-      add_an_aspect: "+ Addn aspect"
-    aspect_stream:
-      make_something: "Make somethin.."
-      stay_updated: "stay like... up 2 date"
-      stay_updated_explanation: "Ur wall has like... ur BFFs n tagz n junk on it..."
-    destroy:
-      failure: "%{name} is like... not gone n so it like... cant b removed... sry bout tht :\\"
-      success: "%{name} is nao like... gone n stuff."
-    edit:
-      aspect_list_is_not_visible: "Ppl in this aspect r like.. not able 2 c each other."
-      aspect_list_is_visible: "Ppl in this aspect r like.. able 2 c each other."
-      confirm_remove_aspect: "R u sure u want 2 like... remove this aspect?"
-      rename: "bag this name.."
-      update: "make like... newer..."
-      updating: "makin like... newer..."
-    index:
-      donate: "give like... free money"
-      help:
-        any_problem: "Havin drama?"
-        contact_podmin: "Contact the dude that manages ur pod!"
-        do_you: "do u... like:"
-        feature_suggestion: "... do u like... have a %{link} suggestion?"
-        find_a_bug: "... find a like... %{link}?"
-        have_a_question: "... have a like... %{link}?"
-        here_to_help: "diaspora ppl r here... yay!"
-        mail_podmin: "the email for the ppl who like... run this bitch"
-        need_help: "so like, wat?"
-        tag_bug: "OMG, i like... have an issue!"
-        tag_feature: "cool new thang"
-        tag_question: "q4u"
-        tutorial_link_text: "Tutorialz!!"
-        tutorials_and_wiki: "%{faq}, %{tutorial}, && %{wiki}: Halp for ur first stepz."
-      introduce_yourself: "so this is like, ur stream thing... its like facebooks wall thingy but like... less annoyin n wit like... less adz n picz of food and stuff... like, post sumthin n see if ne1 repliez... like... yeah"
-      keep_pod_running: "So like, keep %{pod} from bein all slow n stupid by like... donatin monthly n stuff! <3(:"
-      new_here:
-        follow: "follow %{link} n like ... welcome new ppl 2 diaspora*!"
-        learn_more: "like... learn moar n stuff..."
-        title: "dude! u should like, totally whalecum the new diaspora ppl. its a blast like... yeah.."
-      services:
-        content: "U can like... connect the followin things 2 d*:"
-        heading: "connect like... other stuff.."
-      welcome_to_diaspora: "OMG HEY! Like, welcome to diaspora*, %{name}. its pretty bitchin' n has electrolytes(;"
-    no_contacts_message:
-      community_spotlight: "d* celebz"
-      or_spotlight: "Or u can like... share wit %{link}"
-      try_adding_some_more_contacts: "U can like... search or like... invite moar ppl."
-      you_should_add_some_more_contacts: "U should like... add some moar ppl!"
-    seed:
-      acquaintances: "Some ppl I sorta kno"
-      family: "Fam"
-      friends: "BFFs"
-      work: "Work bffs"
-    update:
-      failure: "Ur group, %{name}, had like... a rlly long name.. so yeah... it wasnt saved... sry :\\"
-      success: "Ur aspect, %{name}, has like... not flipped out. So ur good!(:"
-  blocks:
-    create:
-      failure: "couldnt ignore the h8ter.  #lame"
-      success: "Aight, u wont c that weirdo on ur wall again. Ur welcome. ;)"
-    destroy:
-      failure: "I couldnt like... unblock that h8ter.  #couldntunblockh8terlame"
-      success: "Lets c wat they have 2 say!! #sayhaithar"
-  bookmarklet:
-    explanation: "post 2 d* from like.. anywhere by like... saving this thing => %{link}"
-    heading: "save page thingy"
-    post_something: "put it on d* n stuff"
-  cancel: "Nvm"
-  comments:
-    new_comment:
-      comment: "say somethin"
-      commenting: "sayin somethin"
-  contacts:
-    index:
-      add_contact: "Add BFF <3"
-      all_contacts: "All BFFs!!"
-      community_spotlight: "d* celebz <33"
-      my_contacts: "My BFFs!!! <333"
-      no_contacts: "u like... need 2 add sum ppl"
-      no_contacts_message: "OMG! u should like... check out %{community_spotlight}"
-      only_sharing_with_me: "only sharin wit me"
-      start_a_conversation: "start a like... convo"
-      title: "BFFs"
-      user_search: "Ppl stalk"
-    spotlight:
-      community_spotlight: "d* celebz!! <3"
-      no_members: "theres no peeps yet  :c"
-      suggest_member: "Suggest a membah!!(:"
-  conversations:
-    create:
-      fail: "bad txt"
-      sent: "txt sent"
-    destroy:
-      delete_success: "convo successfully deleted YAAAAY!((:"
-      hide_success: "convo be hidden!(:"
-    index:
-      conversations_inbox: "Convos - Inbox"
-      inbox: "Txts <3"
-      new_conversation: "New convo"
-      no_messages: "therez like... no messagez :( </3"
-    new:
-      message: "Msg"
-      send: "txt"
-      sending: "txtin..."
-      subject: "topic"
-      subject_default: "No subjieeee"
-      to: "2"
-    new_conversation:
-      fail: "Bad txt"
-    show:
-      delete: "get rid of n like... block the convo"
-      hide: "gtfo and shush convo"
-      reply: "txt bak"
-      replying: "txtin bak..."
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Trash"
-  email: "thing b4 txtin like i think its called like email er sumthin?"
+            poll_answers:
+              not_enough_poll_answers: Theres like... not enough stuff to select in the poll...
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: uve like... already voted on this poll!! derp.
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "so much drama! chillax n try again, k?"
-  fill_me_out: "Like, put ur txt into here like, K?"
-  find_people: "find new BFFs or #stuff"
+      correct_the_following_errors_and_try_again: so much drama! chillax n try again, k?
+  admins:
+    admin_bar:
+      pages: Pagies!
+      user_search: Ppl search
+      weekly_user_stats: Weekly ppl stats
+      pod_stats: Pod statsss <3
+      report: Reportz
+      sidekiq_monitor: Technical thingy called Sidekiq monitor... wasnt that like... a phone once? OMG! IT WAS! :DD
+    user_search:
+      you_currently:
+        zero: u like... have no invites left %{link} :\
+        one: u only have 1 invite left %{link}
+        other: u have like... %{count} invites left %{link}
+      view_profile: look at profile
+      add_invites: add invites!! <3
+      close_account: trash account
+      are_you_sure: R u like... totally sure u wanna trash this account?
+      are_you_sure_lock_account: So like, u totes sure u wanna lock this ppl?
+      are_you_sure_unlock_account: So like, u totes sure u wanna unlock this ppl?
+      account_closing_scheduled: So like, the account of %{name} is waitin 2 b closed. it will b done in a few min, kay?
+      account_locking_scheduled: So like, that account with like the name... %{name} is like.. scheduled to be locked. So like, it will totally be done in a min. Kthx.
+      account_unlocking_scheduled: so like... the account for %{name} is like.. scheduled to be like.. unlocked. give it a min, mkay?
+      email_to: Email for the ppl 2 invite <3
+      under_13: show ppl undah 13 (COPPA)
+      users:
+        zero: "%{count} ppl found :("
+        one: "%{count} was like... found! :D"
+        other: "%{count} ppl found!! :D"
+    user_entry:
+      id: eye dee
+      guid: gee yew eye dee
+      email: Emale
+      diaspora_handle: d* handle
+      last_seen: was like, last seen
+      account_closed: account trashed <3
+      nsfw: "#groody"
+      unknown: dunno them
+      'yes': totally
+      'no': no way!
+    weekly_user_stats:
+      current_server: So like... the current server date ish like... %{date}
+      amount_of:
+        zero: 'Number of new ppl this week: none :\'
+        one: 'Number of new ppl this week: %{count}'
+        other: 'Number of new ppl this week: %{count}'
+    stats:
+      week: Week
+      2weeks: 2 weekz
+      month: Month
+      daily: Dailyy
+      usage_statistic: Usage staties
+      go: go!!
+      display_results: Showin results from the like.. <b>%{segment}</b> segment
+      posts:
+        zero: "%{count} posties :("
+        one: "%{count} postie"
+        other: "%{count} posties!"
+      comments:
+        zero: "%{count} commentz :("
+        one: "%{count} comment!!!(:"
+        other: "%{count} commentz!! :DDD"
+      shares:
+        zero: "%{count} sharez :c"
+        one: "%{count} share!(:"
+        other: OMG u like have %{count} sharez!! :DDD
+      users:
+        zero: "%{count} ppl :c"
+        one: "%{count} ppl!(:"
+        other: "%{count} ppl!!! :DDD"
+      current_segment: So like, the current segment is like.. averagin <b>%{post_yest}</b> posties per usah, from <b>%{post_day}</b>
+      50_most: ZOMG THE 50 MOST POPULAR TAGZ!!!
+      tag_name: 'Tag Nameuh: <b>%{name_tag}</b> Countuh: <b>%{count_tag}</b>'
+  aspects:
+    edit:
+      confirm_remove_aspect: R u sure u want 2 like... remove this aspect?
+      rename: bag this name..
+      aspect_list_is_visible: Ppl in this aspect r like.. able 2 c each other.
+      aspect_list_is_not_visible: Ppl in this aspect r like.. not able 2 c each other.
+      update: make like... newer...
+      updating: makin like... newer...
+    no_contacts_message:
+      you_should_add_some_more_contacts: U should like... add some moar ppl!
+      try_adding_some_more_contacts: U can like... search or like... invite moar ppl.
+      or_spotlight: Or u can like... share wit %{link}
+      community_spotlight: d* celebz
+    aspect_listings:
+      add_an_aspect: "+ Addn aspect"
+    destroy:
+      success: "%{name} is nao like... gone n stuff."
+      failure: "%{name} is like... not gone n so it like... cant b removed... sry bout tht :\\"
+    update:
+      success: 'Ur aspect, %{name}, has like... not flipped out. So ur good!(:'
+      failure: Ur group, %{name}, had like... a rlly long name.. so yeah... it wasnt saved... sry :\
+    add_to_aspect:
+      failure: there was like... a problem addin bff to aspect.
+      success: OMG! Movin them like, totally WORKED! <333
+    seed:
+      family: Fam
+      work: Work bffs
+      acquaintances: Some ppl I sorta kno
+      friends: BFFs
+    index:
+      donate: give like... free money
+      keep_pod_running: 'So like, keep %{pod} from bein all slow n stupid by like... donatin monthly n stuff! <3(:'
+      welcome_to_diaspora: OMG HEY! Like, welcome to diaspora*, %{name}. its pretty bitchin' n has electrolytes(;
+      introduce_yourself: so this is like, ur stream thing... its like facebooks wall thingy but like... less annoyin n wit like... less adz n picz of food and stuff... like, post sumthin n see if ne1 repliez... like... yeah
+      new_here:
+        title: dude! u should like, totally whalecum the new diaspora ppl. its a blast like... yeah..
+        follow: follow %{link} n like ... welcome new ppl 2 diaspora*!
+        learn_more: like... learn moar n stuff...
+      help:
+        need_help: so like, wat?
+        here_to_help: diaspora ppl r here... yay!
+        do_you: 'do u... like:'
+        have_a_question: "... have a like... %{link}?"
+        tag_question: q4u
+        find_a_bug: "... find a like... %{link}?"
+        tag_bug: OMG, i like... have an issue!
+        feature_suggestion: "... do u like... have a %{link} suggestion?"
+        tag_feature: cool new thang
+        tutorials_and_wiki: "%{faq}, %{tutorial}, && %{wiki}: Halp for ur first stepz."
+        tutorial_link_text: Tutorialz!!
+        any_problem: Havin drama?
+        contact_podmin: Contact the dude that manages ur pod!
+        mail_podmin: the email for the ppl who like... run this bitch
+      services:
+        heading: connect like... other stuff..
+        content: 'U can like... connect the followin things 2 d*:'
+    aspect_stream:
+      stay_updated: stay like... up 2 date
+      stay_updated_explanation: Ur wall has like... ur BFFs n tagz n junk on it...
+      make_something: Make somethin..
+  aspect_memberships:
+    destroy:
+      success: The person was like... removed.. n stuff...
+      failure: The person was not like... removed... sry bout that :\
+      no_membership: like... we couldnt find the ppl u picked in that aspect... sry bout tht :\
+      forbidden: So like, ur not allowed to do tht...
+  bookmarklet:
+    heading: save page thingy
+    post_something: put it on d* n stuff
+    explanation: post 2 d* from like.. anywhere by like... saving this thing => %{link}
+  comments:
+    new_comment:
+      comment: say somethin
+      commenting: sayin somethin
+  contacts:
+    index:
+      start_a_conversation: start a like... convo
+      title: BFFs
+      no_contacts: u like... need 2 add sum ppl
+      no_contacts_message: OMG! u should like... check out %{community_spotlight}
+      community_spotlight: d* celebz <33
+      my_contacts: My BFFs!!! <333
+      all_contacts: All BFFs!!
+      only_sharing_with_me: only sharin wit me
+      add_contact: Add BFF <3
+      user_search: Ppl stalk
+    spotlight:
+      community_spotlight: d* celebz!! <3
+      suggest_member: 'Suggest a membah!!(:'
+      no_members: theres no peeps yet  :c
+  conversations:
+    index:
+      conversations_inbox: Convos - Inbox
+      new_conversation: New convo
+      no_messages: therez like... no messagez :( </3
+      inbox: Txts <3
+    show:
+      reply: txt bak
+      replying: txtin bak...
+      hide: gtfo and shush convo
+      delete: get rid of n like... block the convo
+    new:
+      to: 2
+      subject: topic
+      subject_default: No subjieeee
+      message: Msg
+      send: txt
+      sending: txtin...
+    create:
+      sent: txt sent
+      fail: bad txt
+    new_conversation:
+      fail: Bad txt
+    destroy:
+      delete_success: 'convo successfully deleted YAAAAY!((:'
+      hide_success: 'convo be hidden!(:'
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
   help:
-    account_and_data_management:
-      close_account_a: "Go like.. 2 the bottom of ur settins page n click the Trash Account button."
-      close_account_q: "how do i like... trash my account?"
-      data_other_podmins_a: "So like, once u r sharin wit some1 on anotha pod, ne posties u share wit them n a copy of ur profile stuff r put on their pod, n r accessible 2 that pod'z database keeper... person.. thing. When u trash a postie err profile content is is trashed from ur pod n ne other podz where it was stored. YAY! <3"
-      data_other_podmins_q: "So like, can the ppl of other pods see my stuff? D:"
-      data_visible_to_podmin_a: "Convos between podz is like... super top secret... like... pinky promise not tell ne1. but like... the stuff on the pod is like... not top secret. the person who like, manages ur pod n stuff can like.. see everythin u put on it which is like... wat FB does like... constantlay. totally freaking lame, right? but theres like this cool part of d* where u can run like ur OWN pod n like thats more private n stuff cuz u like control everythin. freakin sick nasty right? :DDD"
-      data_visible_to_podmin_q: "so like... how much of my stuff can the ppl who run this pod like... see? #creepedout"
-      download_data_a: "ya. at like... the bottom of the account tab thingy in ur like... settins page there r like... 2 buttons for dling ur stuff."
-      download_data_q: "can I like... dl a copy of all my stuff on my account?"
-      move_pods_a: "so like, in the future, u will like... b able 2 export ur account from a pod n like... import it on another but this is like, not possible right nao. sry bout that. but u could like.. always open another account n add ur BFFs 2 groups on that new account, n like... ask them 2 add ur new account 2 their groups. K?"
-      move_pods_q: "So like, how do I move my account from one pod 2 another one? :o"
-      title: "Account n stuff management"
-    aspects:
-      change_aspect_of_post_a: "Nope, butt u can always like... make a new postie wit the same stuff and post eet 2 a different aspect. c:"
-      change_aspect_of_post_q: "So like, once ive posted somethin, can i like.. change the aspect(z) that can like.. see it? :o"
-      contacts_know_aspect_a: "nah. they cant."
-      contacts_know_aspect_q: "do like... my BFFs kno which aspects i like.. put them in?"
-      delete_aspect_a: "So like, in ur list of aspectz on the left side of the main page thingy, point ur mouse at like... the aspect u wanna trash. click the adorable little 'edit' pencil thingy that comes up on the right. then like, click the trash button in the box that comes up. Kay?"
-      delete_aspect_q: "How do I like... trash a group?"
-      person_multiple_aspects_a: "Ya. Like, go 2 ur BFFs page n click on my BFFs. for each BFF u can like... use the menu on the right 2 add them 2 (or like... trash them from) as many aspectz as u want. or u can like... add them 2 a new aspect (or trash them from an aspect) by like.. clickin the aspect picker button on their profile. or u can even like... just move the pointer thingy over their name where u like.. c it n the stream, n a 'hover-card' will like... come up. u can change the aspectz they r in right tharrr <3"
-      person_multiple_aspects_q: "So like, can I add a person 2 many aspects?"
-      post_multiple_aspects_a: "Ya. When u like.. make a postie, use the aspect picker button 2 pick or unpick aspectz. Ur post will b shown to like... ALL the aspectz u pick. u could also like... pick the aspectz u wanna post 2 in the sidebar thingy.  when u post, the aspect(z) u picked in the list on teh left will automagically b picked in the aspect picker when u start 2 make a new postie <3 Kay? <3"
-      post_multiple_aspects_q: "So like, can i like, make a postie of some stuff n send it 2 many aspects @ once?"
-      remove_notification_a: "Nah"
-      remove_notification_q: "So like, if i trashed some1 from an aspect, err all of mah aspects, r they like... notified of this?"
-      rename_aspect_a: "Ya. In ur aspectz list thingy on the left side of the main page, like, point ur mouse at the aspect u wanna change the name of. then like, click the ADORABLE little 'edit' pencil thingy that like... comes up on the right. then liek, click rename in the box that comes up. yeah."
-      rename_aspect_q: "can i like, change the name of an aspect?"
-      restrict_posts_i_see_a: "ya. u have 2 like... click on My Aspects err whatever its called. its like in the sidebar thingy n then click individual (woah that weird was so big it made me lightheaded like that 1 time at band camp) aspects in the list thing 2 pick or not pick them. only like... the posties by ppl in the picked aspects will b seen by u on ur Wall n stuff."
-      restrict_posts_i_see_q: "so like, can i like... restrict the posties i c 2 just those from certain aspects?"
-      title: "Aspectz <33"
-      what_is_an_aspect_a: "Aspectz r like, the way u group ur BFFs on d*. an aspect is like... one of the faces u show 2 the world. sort of like wat brittany does. shes such a two-faced bitch fer sure. but like, on d* its like.. kay cuz liek u dont have 2 b showin ur grandpa ur like.. bikini picz which is like.. super gnarly... its totally tubular!!! :D"
-      what_is_an_aspect_q: "Wat is an aspect er group er whatev?"
-      who_sees_post_a: "so like, if u like... make a postie thats like... limited, it will only like, b seen by the ppl u have in ur aspect or group or groups err whatever. BFFs u have that like... arent in the aspect have like... no way of seein the postie, unless u set it 2 like... internet or public n junk. like, only like... posties that r set 2 public can b seen by ppl who u havent like... place in 1 of ur aspects. totally weird, right?"
-      who_sees_post_q: "when i like... make a postie 2 a aspect er whatever.. who can like.. see it?"
-    faq: "FACK"
-    foundation_website: "d* foundation site! i lurve it!! <3"
-    getting_help:
-      get_support_a_faq: "Read our like.. %{faq} page on the wiki"
-      get_support_a_hashtag: "ask in a public postie on d* usin the %{question} hashtag"
-      get_support_a_irc: "join us on %{irc} (Live, nerdy chat)"
-      get_support_a_tutorials: "check out our like, %{tutorials}"
-      get_support_a_website: "like, go to our %{link}"
-      get_support_a_wiki: "search teh %{link} :D!"
-      get_support_q: "So like, wat if mah queztion is like... not answered in this FAQ thingy? Where else can I like.. get support?"
-      getting_started_a: "OMG! ur in luck! :D. Try the %{tutorial_series} on our site thingy. It will like, take u step by step (Not the old TV show btw) through the registration process n like teach u all the thingys u need 2 kno bout usin d*! :D Like, totally try it! <3"
-      getting_started_q: "Halp!! i need sum like... simple halp 2 get me started!"
-      title: "Gettin halp"
+    title_header: Halp
+    tutorials: tutorialz!!
+    tutorial: tutorial<3
+    irc: Nerd chat, gross
+    wiki: ZOMG D*'s OWN WIKIPEDIA!! :DDD
+    faq: FACK
+    markdown: markydown
+    here: like, here.
+    foundation_website: d* foundation site! i lurve it!! <3
+    third_party_tools: 3rd partay toolz
     getting_started_tutorial: "'Gettin started' tutorial seriez"
-    here: "like, here."
-    irc: "Nerd chat, gross"
-    keyboard_shortcuts:
-      keyboard_shortcuts_a1: "In the steam u can like use these keybored shorties:"
-      keyboard_shortcuts_li1: "j - to like... go to next postie"
-      keyboard_shortcuts_li2: "k - to like... go to last postie"
-      keyboard_shortcuts_li3: "c - comment on the current postie"
-      keyboard_shortcuts_li4: "l - <3 the current postie"
-      keyboard_shortcuts_li5: "r - reshar the current postie"
-      keyboard_shortcuts_li6: "like, make the current postie bigger"
-      keyboard_shortcuts_li7: "o - Open the first linkie in the current postie"
-      keyboard_shortcuts_li8: "CTRL+ENTER - like, sends the msg ur writin and stuff..."
-      keyboard_shortcuts_q: "What key shorties r available?(:"
-      title: "Keypad shorties!!!"
-    markdown: "markydown"
+    getting_help:
+      title: Gettin halp
+      getting_started_q: Halp!! i need sum like... simple halp 2 get me started!
+      getting_started_a: OMG! ur in luck! :D. Try the %{tutorial_series} on our site thingy. It will like, take u step by step (Not the old TV show btw) through the registration process n like teach u all the thingys u need 2 kno bout usin d*! :D Like, totally try it! <3
+      get_support_q: So like, wat if mah queztion is like... not answered in this FAQ thingy? Where else can I like.. get support?
+      get_support_a_website: like, go to our %{link}
+      get_support_a_tutorials: check out our like, %{tutorials}
+      get_support_a_wiki: search teh %{link} :D!
+      get_support_a_irc: join us on %{irc} (Live, nerdy chat)
+      get_support_a_faq: Read our like.. %{faq} page on the wiki
+      get_support_a_hashtag: ask in a public postie on d* usin the %{question} hashtag
+    account_and_data_management:
+      title: Account n stuff management
+      move_pods_q: So like, how do I move my account from one pod 2 another one? :o
+      move_pods_a: so like, in the future, u will like... b able 2 export ur account from a pod n like... import it on another but this is like, not possible right nao. sry bout that. but u could like.. always open another account n add ur BFFs 2 groups on that new account, n like... ask them 2 add ur new account 2 their groups. K?
+      download_data_q: can I like... dl a copy of all my stuff on my account?
+      download_data_a: ya. at like... the bottom of the account tab thingy in ur like... settins page there r like... 2 buttons for dling ur stuff.
+      close_account_q: how do i like... trash my account?
+      close_account_a: Go like.. 2 the bottom of ur settins page n click the Trash Account button.
+      data_visible_to_podmin_q: 'so like... how much of my stuff can the ppl who run this pod like... see? #creepedout'
+      data_visible_to_podmin_a: Convos between podz is like... super top secret... like... pinky promise not tell ne1. but like... the stuff on the pod is like... not top secret. the person who like, manages ur pod n stuff can like.. see everythin u put on it which is like... wat FB does like... constantlay. totally freaking lame, right? but theres like this cool part of d* where u can run like ur OWN pod n like thats more private n stuff cuz u like control everythin. freakin sick nasty right? :DDD
+      data_other_podmins_q: 'So like, can the ppl of other pods see my stuff? D:'
+      data_other_podmins_a: So like, once u r sharin wit some1 on anotha pod, ne posties u share wit them n a copy of ur profile stuff r put on their pod, n r accessible 2 that pod'z database keeper... person.. thing. When u trash a postie err profile content is is trashed from ur pod n ne other podz where it was stored. YAY! <3
+    aspects:
+      title: Aspectz <33
+      what_is_an_aspect_q: Wat is an aspect er group er whatev?
+      what_is_an_aspect_a: Aspectz r like, the way u group ur BFFs on d*. an aspect is like... one of the faces u show 2 the world. sort of like wat brittany does. shes such a two-faced bitch fer sure. but like, on d* its like.. kay cuz liek u dont have 2 b showin ur grandpa ur like.. bikini picz which is like.. super gnarly... its totally tubular!!! :D
+      who_sees_post_q: when i like... make a postie 2 a aspect er whatever.. who can like.. see it?
+      who_sees_post_a: so like, if u like... make a postie thats like... limited, it will only like, b seen by the ppl u have in ur aspect or group or groups err whatever. BFFs u have that like... arent in the aspect have like... no way of seein the postie, unless u set it 2 like... internet or public n junk. like, only like... posties that r set 2 public can b seen by ppl who u havent like... place in 1 of ur aspects. totally weird, right?
+      contacts_know_aspect_q: do like... my BFFs kno which aspects i like.. put them in?
+      contacts_know_aspect_a: nah. they cant.
+      person_multiple_aspects_q: So like, can I add a person 2 many aspects?
+      person_multiple_aspects_a: Ya. Like, go 2 ur BFFs page n click on my BFFs. for each BFF u can like... use the menu on the right 2 add them 2 (or like... trash them from) as many aspectz as u want. or u can like... add them 2 a new aspect (or trash them from an aspect) by like.. clickin the aspect picker button on their profile. or u can even like... just move the pointer thingy over their name where u like.. c it n the stream, n a 'hover-card' will like... come up. u can change the aspectz they r in right tharrr <3
+      remove_notification_q: So like, if i trashed some1 from an aspect, err all of mah aspects, r they like... notified of this?
+      remove_notification_a: Nah
+      change_aspect_of_post_q: So like, once ive posted somethin, can i like.. change the aspect(z) that can like.. see it? :o
+      change_aspect_of_post_a: 'Nope, butt u can always like... make a new postie wit the same stuff and post eet 2 a different aspect. c:'
+      post_multiple_aspects_q: So like, can i like, make a postie of some stuff n send it 2 many aspects @ once?
+      post_multiple_aspects_a: Ya. When u like.. make a postie, use the aspect picker button 2 pick or unpick aspectz. Ur post will b shown to like... ALL the aspectz u pick. u could also like... pick the aspectz u wanna post 2 in the sidebar thingy.  when u post, the aspect(z) u picked in the list on teh left will automagically b picked in the aspect picker when u start 2 make a new postie <3 Kay? <3
+      restrict_posts_i_see_q: so like, can i like... restrict the posties i c 2 just those from certain aspects?
+      restrict_posts_i_see_a: ya. u have 2 like... click on My Aspects err whatever its called. its like in the sidebar thingy n then click individual (woah that weird was so big it made me lightheaded like that 1 time at band camp) aspects in the list thing 2 pick or not pick them. only like... the posties by ppl in the picked aspects will b seen by u on ur Wall n stuff.
+      rename_aspect_q: can i like, change the name of an aspect?
+      rename_aspect_a: Ya. In ur aspectz list thingy on the left side of the main page, like, point ur mouse at the aspect u wanna change the name of. then like, click the ADORABLE little 'edit' pencil thingy that like... comes up on the right. then liek, click rename in the box that comes up. yeah.
+      delete_aspect_q: How do I like... trash a group?
+      delete_aspect_a: So like, in ur list of aspectz on the left side of the main page thingy, point ur mouse at like... the aspect u wanna trash. click the adorable little 'edit' pencil thingy that comes up on the right. then like, click the trash button in the box that comes up. Kay?
     mentions:
-      how_to_mention_a: "So like, you type this thing: @ n start typin their name. Then this like... little menu thingy will come up n like let u pick their name. But like, remember that u can like.. only mention ppl u've added n stuff. Totally lame sometimes :\\"
-      how_to_mention_q: "So like, how do I like... mention some1 when making a postie?"
-      mention_in_comment_q: "So can I like... mention some1 in a comment? :o"
-      see_mentions_a: "Ya, click \"Mentionz\" in the like.. left column on ur home page. K?"
-      see_mentions_q: "Is there like, a way 2 c the posties that ive been mentioned in?"
-      title: "Mentionz!"
-      what_is_a_mention_a: "So like, a mention is a link 2 a persons profile that comes up in a postie. When some1 is mentioned they like... get a notie that bugs them when their doin stuff n gets them 2 come check it out."
-      what_is_a_mention_q: "Wats a mention?"
-    miscellaneous:
-      back_to_top_a: "Ya. After scrollin down a page, like, click on teh grey arrow tht comes up in the bottom right corner of ur web browser window thingy..."
-      back_to_top_q: "Is there like... a quick way 2 go back 2 the like... top of a page after i like... scroll down?"
-      diaspora_app_a: "There r many Android apps in like... super early makin. many r like.. not worked on projects n they liek dont work well wit the current version of d*. so like dont expect totally awesome stuff wit these. just use a browser on ur mobile thingy cuz weve made a like... mobile version of teh site which should work well on like... ALL things. there is currently no iOS app tho. sry bout tht :\\"
-      diaspora_app_q: "Is there like... a d* app for Android err iOS err Windows Phone? :o"
-      photo_albums_a: "Nah, not right nao. Butt u can like, look at a stream of their added pics from the Pics and Selfies section in their profile."
-      photo_albums_q: "R there like... pic or vid albumz?"
-      subscribe_feed_a: "Ya, butt this is like... stil not a rlly great workin feature n the formattin of the resultz is kinda groody... but if u like, wanna try it neway, go 2 some1s profile n click the feed button in ur browser, or u can copy pasta the profile link into a feed reader thingy. the resultin feed addy lookz like this: https://joindiaspora.com/public/usahname.atom -- D* uses Atom rather than RSS. JustFYI! <333"
-      subscribe_feed_q: "Can i like... subscribe 2 some1's public posties wit a feed reader thingy?"
-      title: "Misc. stuff"
+      title: Mentionz!
+      what_is_a_mention_q: Wats a mention?
+      what_is_a_mention_a: So like, a mention is a link 2 a persons profile that comes up in a postie. When some1 is mentioned they like... get a notie that bugs them when their doin stuff n gets them 2 come check it out.
+      how_to_mention_q: So like, how do I like... mention some1 when making a postie?
+      how_to_mention_a: 'So like, you type this thing: @ n start typin their name. Then this like... little menu thingy will come up n like let u pick their name. But like, remember that u can like.. only mention ppl u''ve added n stuff. Totally lame sometimes :\'
+      mention_in_comment_q: So can I like... mention some1 in a comment? :o
+      see_mentions_q: Is there like, a way 2 c the posties that ive been mentioned in?
+      see_mentions_a: Ya, click "Mentionz" in the like.. left column on ur home page. K?
     pods:
-      find_people_a: "Invite ur frandz usin the email link in the sidebar thingy. Follow #tagz 2 discovah otherz that liek the same stuff u liek n add those who post thingz that u liek 2 2 an aspect. b for sure 2 liek, say ur #newhere in a public postie! <3"
-      find_people_q: "So like, I just joined a pod thingy. How can I like... find ppl 2 share wit?"
-      title: "Podz"
-      use_search_box_a: "So like, if u kno their fill d* ID (e.g. usahname@podname.org), u can find them by searchin for it. if u r on the same pod u can look for just their usahname. another thing u can do is look for them by their profile name. if lookin them up doesnt work the first time, try again. Kay?"
-      use_search_box_q: "How do I like... use the search box thingy 2 find ppl?"
-      what_is_a_pod_a: "So like, a pod is a compy runnin d* on it and it can liek talk 2 the rest of d*. \"Pod\" as in like, plants that have seedz, yes... liek that plant hehe... just liek how a server, computah thingy has a bunch of different accountz. therez lotz of podz n u can add BFFs from othah podz n talk wit them. n stuff."
-      what_is_a_pod_q: "Wats a pod?"
+      title: Podz
+      what_is_a_pod_q: Wats a pod?
+      what_is_a_pod_a: So like, a pod is a compy runnin d* on it and it can liek talk 2 the rest of d*. "Pod" as in like, plants that have seedz, yes... liek that plant hehe... just liek how a server, computah thingy has a bunch of different accountz. therez lotz of podz n u can add BFFs from othah podz n talk wit them. n stuff.
+      find_people_q: So like, I just joined a pod thingy. How can I like... find ppl 2 share wit?
+      find_people_a: 'Invite ur frandz usin the email link in the sidebar thingy. Follow #tagz 2 discovah otherz that liek the same stuff u liek n add those who post thingz that u liek 2 2 an aspect. b for sure 2 liek, say ur #newhere in a public postie! <3'
+      use_search_box_q: How do I like... use the search box thingy 2 find ppl?
+      use_search_box_a: So like, if u kno their fill d* ID (e.g. usahname@podname.org), u can find them by searchin for it. if u r on the same pod u can look for just their usahname. another thing u can do is look for them by their profile name. if lookin them up doesnt work the first time, try again. Kay?
     posts_and_posting:
-      char_limit_services_a: "in like, that case ur postie is like, limited 2 the smallah key pressed cont (twittar is liek, 140 n tumblar is liek, 1000), n the numbah of key presses u have left 2 use r display when that servie's icon is highlighted. u can stil post 2 these servies if ur postie is longer than their limit, but the txt is like.. smallar on those servies, kay?"
-      char_limit_services_q: "Wat is the amount of times for posties shared 2 other servies wit a smallar key pressed count?"
-      character_limit_a: "Like, a lot. Its like, 65,535 presses. Which is like.. totally rad cuz like... Twittar only lets u have like.. 140. totally lame..."
-      character_limit_q: "so wats the like, amount of times can i press a key in my posties?"
-      embed_multimedia_a: "U can like, usually just paste a link (like, http://www.youtube.com/watch?v=3dcxtEKShXA) into ur postie n the vid or sound will b in the thingy automagically. some of the sitez that r able 2 do this r: YT, Vimeo, soundcloud, flickah n a few moar. d* uses this thingy called oEmbed for this featuh. were supportin new sitez all the time. remembah 2 alwayz post simple, fill linkz: no shortend linkz && no weird symbolz after the link; n give it a lil time b4 u reload the page after postin 2 c the preview. Kthx!!! <33"
-      embed_multimedia_q: "How do I like... put a vid, tune, err other media stuff into a postie?"
-      format_text_a: "By usin like... %{markdown}. U can find teh full Markydown stuff %{here}. The preview button rlly halps, as u can c how ur txt will look b4 u post it."
-      format_text_q: "So how can I like, format txt in mah posties (bold, slanted txt, etc)?"
-      hide_posts_a: "So like, if u point ur mouse at the top of a postie, a cute lil X comes up on the right. click it 2 hide the postie n mute noties bout it. u can still c the post f u visit the profile of the person who made it.(:"
-      hide_posts_q: "So like, how do I like.. hide a postie? N how do I stop gettin noties bout a postie that i like.. commented on? :o"
-      insert_images_a: "So like, click on the cute lil camera thingy 2 add a pic into a postie. Press the pic icon thingy again 2 add another pic, or u can like... pick multiple pics 2 add in 1 go at it. :D"
-      insert_images_comments_q: "Can I insert picz into commentz? :o"
-      insert_images_q: "How do I like... put picz into posties?"
-      post_location_a: "so like, you have to click the little pin icon thingy next to the grandpa camera in the publisher thingy. it will like... say where u r from this site called like... openstreetmap... you know that thing that google maps like rips off from... anyway... you can also like... edit your location... its rlly rad."
-      post_location_q: "so like... how do I add where i am to a postie?:]"
-      post_notification_a: "U will like see a little icon that looks like a bell next to the cute, little X thingy at the top right of a postie. Click it to enable or disable noties for that postie."
-      post_notification_q: "So like, how do I get noties, or stop like... gettin them about a postie.. cuz they can b rlly annoying.. Js"
-      post_report_q: "how like, do i report a groody postie?"
-      size_of_images_a: "No :\\ Pics r resized automagically 2 fit the Wall err stream. Markydown doesnt have a code for specifyin a picz size n stuff."
-      size_of_images_q: "Can I like... customize the size of pics in posties or commentz?"
-      stream_full_of_posts_a1: "ur Wall err stream err whatever is like.. made up of 3 kindsa posties:"
-      stream_full_of_posts_li1: "Posties by ppl u r sharin wit, which come in 2 kinds: public posties n limited posties shared wit an aspect tht u r part of. 2 trash these posties from ur stream, just stop sharin wit the person."
-      stream_full_of_posts_li2: "Like, public posties containin 1 of the tagz tht u follow. 2 trash these, stop followin the tag. yeah..."
-      stream_full_of_posts_li3: "Public posties by ppl listed in the d* celebz thingy. these can b trashed by uncheckin' the \"show d* celebz in stream?\" thingy in the account tab of ur settins."
-      stream_full_of_posts_q: "So like, y is my streem full of posties from ppl idk n dont share wit?"
-      title: "Posties and postin"
+      title: Posties and postin
+      stream_full_of_posts_q: So like, y is my streem full of posties from ppl idk n dont share wit?
+      stream_full_of_posts_a1: 'ur Wall err stream err whatever is like.. made up of 3 kindsa posties:'
+      stream_full_of_posts_li1: 'Posties by ppl u r sharin wit, which come in 2 kinds: public posties n limited posties shared wit an aspect tht u r part of. 2 trash these posties from ur stream, just stop sharin wit the person.'
+      stream_full_of_posts_li2: Like, public posties containin 1 of the tagz tht u follow. 2 trash these, stop followin the tag. yeah...
+      stream_full_of_posts_li3: Public posties by ppl listed in the d* celebz thingy. these can b trashed by uncheckin' the "show d* celebz in stream?" thingy in the account tab of ur settins.
+      hide_posts_q: So like, how do I like.. hide a postie? N how do I stop gettin noties bout a postie that i like.. commented on? :o
+      hide_posts_a: 'So like, if u point ur mouse at the top of a postie, a cute lil X comes up on the right. click it 2 hide the postie n mute noties bout it. u can still c the post f u visit the profile of the person who made it.(:'
+      post_notification_q: So like, how do I get noties, or stop like... gettin them about a postie.. cuz they can b rlly annoying.. Js
+      post_notification_a: U will like see a little icon that looks like a bell next to the cute, little X thingy at the top right of a postie. Click it to enable or disable noties for that postie.
+      post_report_q: how like, do i report a groody postie?
+      character_limit_q: so wats the like, amount of times can i press a key in my posties?
+      character_limit_a: Like, a lot. Its like, 65,535 presses. Which is like.. totally rad cuz like... Twittar only lets u have like.. 140. totally lame...
+      char_limit_services_q: Wat is the amount of times for posties shared 2 other servies wit a smallar key pressed count?
+      char_limit_services_a: in like, that case ur postie is like, limited 2 the smallah key pressed cont (twittar is liek, 140 n tumblar is liek, 1000), n the numbah of key presses u have left 2 use r display when that servie's icon is highlighted. u can stil post 2 these servies if ur postie is longer than their limit, but the txt is like.. smallar on those servies, kay?
+      format_text_q: So how can I like, format txt in mah posties (bold, slanted txt, etc)?
+      format_text_a: By usin like... %{markdown}. U can find teh full Markydown stuff %{here}. The preview button rlly halps, as u can c how ur txt will look b4 u post it.
+      insert_images_q: How do I like... put picz into posties?
+      insert_images_a: So like, click on the cute lil camera thingy 2 add a pic into a postie. Press the pic icon thingy again 2 add another pic, or u can like... pick multiple pics 2 add in 1 go at it. :D
+      insert_images_comments_q: Can I insert picz into commentz? :o
+      size_of_images_q: Can I like... customize the size of pics in posties or commentz?
+      size_of_images_a: No :\ Pics r resized automagically 2 fit the Wall err stream. Markydown doesnt have a code for specifyin a picz size n stuff.
+      embed_multimedia_q: How do I like... put a vid, tune, err other media stuff into a postie?
+      embed_multimedia_a: 'U can like, usually just paste a link (like, http://www.youtube.com/watch?v=3dcxtEKShXA) into ur postie n the vid or sound will b in the thingy automagically. some of the sitez that r able 2 do this r: YT, Vimeo, soundcloud, flickah n a few moar. d* uses this thingy called oEmbed for this featuh. were supportin new sitez all the time. remembah 2 alwayz post simple, fill linkz: no shortend linkz && no weird symbolz after the link; n give it a lil time b4 u reload the page after postin 2 c the preview. Kthx!!! <33'
+      post_location_q: so like... how do I add where i am to a postie?:]
+      post_location_a: so like, you have to click the little pin icon thingy next to the grandpa camera in the publisher thingy. it will like... say where u r from this site called like... openstreetmap... you know that thing that google maps like rips off from... anyway... you can also like... edit your location... its rlly rad.
     private_posts:
-      can_comment_a: "Only like, d* ppl who r logged in that r in tht aspect can comment on or liek ur private postie."
-      can_comment_q: "Who can like.. comment on err liek mah private posties?"
-      can_reshare_a: "No1. Private posties r not resharable. d* ppl tht r logged in tht r in tht r in that aspect can just copy pasta it tho. sry bout tht :\\"
-      can_reshare_q: "So who can like... reshare my private posties?"
-      see_comment_a: "Only the ppl that the postie was shared wit (the ppl who r in the aspectz picked by the poster) can c its commentz n likez. "
-      see_comment_q: "when i like, comment on or liek a private postie, who can c it???"
-      title: "Privy posties!"
-      who_sees_post_a: "Only like, d* ppl who r logged in that r in tht aspect can c ur private postie."
-      who_sees_post_q: "So like, when i post a txt 2 an aspect (as in a private postie), who can c it???"
+      title: Privy posties!
+      who_sees_post_q: So like, when i post a txt 2 an aspect (as in a private postie), who can c it???
+      who_sees_post_a: Only like, d* ppl who r logged in that r in tht aspect can c ur private postie.
+      can_comment_q: Who can like.. comment on err liek mah private posties?
+      can_comment_a: Only like, d* ppl who r logged in that r in tht aspect can comment on or liek ur private postie.
+      can_reshare_q: So who can like... reshare my private posties?
+      can_reshare_a: No1. Private posties r not resharable. d* ppl tht r logged in tht r in tht r in that aspect can just copy pasta it tho. sry bout tht :\
+      see_comment_q: when i like, comment on or liek a private postie, who can c it???
+      see_comment_a: 'Only the ppl that the postie was shared wit (the ppl who r in the aspectz picked by the poster) can c its commentz n likez. '
     public_posts:
-      can_comment_reshare_like_a: "Ne d* ppl who r logged in can do that. Yeah."
-      can_comment_reshare_like_q: "Who can like... comment on, reshare or like... like my public posties?"
-      deselect_aspect_posting_a: "unpickin aspectz doesnt affect a public postie. it will like, still come up in the streamz of all ur BFFs. 2 make a postie viewable only 2 certain aspectz, u need to like, pick those aspects from the button thingy under the liek, publisher thing. yeah."
-      deselect_aspect_posting_q: "So like, what happenz when i like... unpick 1 err moar aspectz when makin a public postie?"
-      find_public_post_a: "Ur like, public posties will come up in the streamz of ne1 followin u. if u included #tagz in ur public postie, ne1 followin those tagz will find ur posy in their streamz. every public postie also has a certain link that ne1 can look at, even if theyre not logged in - so public posties may b linked 2 directly from twittar, blogz, etc. public posts may like, also b indexed by google n other nosey search engine ppl. just fyi!!!"
-      find_public_post_q: "So how can like.. other ppl find my public postie?"
-      see_comment_reshare_like_a: "Ne like, logged in d* ppl n ne1 else on the interwebz can c it. like, commentz, likez, n reshares of public posties r also public n stuff. yeah."
-      see_comment_reshare_like_q: "So like, when i comment on, reshare or like... like a public postie, who can c it then? :o"
-      title: "Public posties!!!"
-      who_sees_post_a: "ne1 usin the internet can possibly c a postie u mark public, so make for sure u rlly do want ur postie 2 b public. its a great way of reachin out 2 the world tho."
-      who_sees_post_q: "When I like... post somethin publicly, like, who can c it?"
+      title: Public posties!!!
+      who_sees_post_q: When I like... post somethin publicly, like, who can c it?
+      who_sees_post_a: ne1 usin the internet can possibly c a postie u mark public, so make for sure u rlly do want ur postie 2 b public. its a great way of reachin out 2 the world tho.
+      find_public_post_q: So how can like.. other ppl find my public postie?
+      find_public_post_a: 'Ur like, public posties will come up in the streamz of ne1 followin u. if u included #tagz in ur public postie, ne1 followin those tagz will find ur posy in their streamz. every public postie also has a certain link that ne1 can look at, even if theyre not logged in - so public posties may b linked 2 directly from twittar, blogz, etc. public posts may like, also b indexed by google n other nosey search engine ppl. just fyi!!!'
+      can_comment_reshare_like_q: Who can like... comment on, reshare or like... like my public posties?
+      can_comment_reshare_like_a: Ne d* ppl who r logged in can do that. Yeah.
+      see_comment_reshare_like_q: So like, when i comment on, reshare or like... like a public postie, who can c it then? :o
+      see_comment_reshare_like_a: Ne like, logged in d* ppl n ne1 else on the interwebz can c it. like, commentz, likez, n reshares of public posties r also public n stuff. yeah.
+      deselect_aspect_posting_q: So like, what happenz when i like... unpick 1 err moar aspectz when makin a public postie?
+      deselect_aspect_posting_a: unpickin aspectz doesnt affect a public postie. it will like, still come up in the streamz of all ur BFFs. 2 make a postie viewable only 2 certain aspectz, u need to like, pick those aspects from the button thingy under the liek, publisher thing. yeah.
     resharing_posts:
-      reshare_private_post_aspects_a: "Nah, its not possible 2 reshare a private postie. This is 2 respect the intention of teh original poster who only shared it wit a certain group of ppl. Kay? Kay, good."
-      reshare_private_post_aspects_q: "Can I like... reshare a private postie with like... only certain aspectz?"
-      reshare_public_post_aspects_a: "Nah, when u like, reshare a public postie, it automagically bcomes 1 of ur public posties. 2 share it wit certain aspectz, copy pasta the stuff of the postie in2 a new postie."
-      reshare_public_post_aspects_q: "so can i like, reshare a public postie wit only certain aspectz?"
-      title: "Resharin posties"
+      title: Resharin posties
+      reshare_public_post_aspects_q: so can i like, reshare a public postie wit only certain aspectz?
+      reshare_public_post_aspects_a: Nah, when u like, reshare a public postie, it automagically bcomes 1 of ur public posties. 2 share it wit certain aspectz, copy pasta the stuff of the postie in2 a new postie.
+      reshare_private_post_aspects_q: Can I like... reshare a private postie with like... only certain aspectz?
+      reshare_private_post_aspects_a: Nah, its not possible 2 reshare a private postie. This is 2 respect the intention of teh original poster who only shared it wit a certain group of ppl. Kay? Kay, good.
     sharing:
-      add_to_aspect_a1: "lets say that Brittany adds Ben 2 an aspect, but Ben has not (yet) like, added Brittany 2 an aspect:"
-      add_to_aspect_a2: "this is called like.. asymmetrical sharin (big word, woah!!!). if n when Ben also adds Brittany 2 an aspect then it would bcome mutual sharin, wit both Brittany's n Ben's public posties and related private posties appearin in each otherz streamz, etc. "
-      add_to_aspect_li1: "So like, Ben will like, get a notie that Brittany has like... \"started sharin\" wit him. probs sharin an STD knowin her. that bitch."
-      add_to_aspect_li2: "Brittany will like...  start to c Ben's public posties in her stream. as well as THC... that bitch..."
-      add_to_aspect_li3: "Brittany will like... not c ne of Ben's private posties."
-      add_to_aspect_li4: "Ben will like... not c ne of Brittany's public or private posties in his stream either."
-      add_to_aspect_li5: "But liek, if Ben goes to Brittany's profile, then he will c Amy's private posties that that bitch makes to her aspects that hes in. as well as like.. her public posties which ne1 can c there)."
-      add_to_aspect_li6: "Ben will like... b able 2 c Brittany's private profile (bio, location, gender, bday, small boobs, etc)."
-      add_to_aspect_li7: "Brittany will like... come up under \"Only sharin wit me\" on Ben's BFFs page."
-      add_to_aspect_q: "so like, wat happenz when i add some1 2 1 of my aspectz? or when some1 adds me 2 1 of their aspectz?"
-      list_not_sharing_a: "Nah, butt u can c whether err not some1 is sharin wit u by lookin at their profile. if they r, the bar under their profile pic will be green; if not, itll b grey like mah kitty. U should liek, get a notie each time some1 starts sharin wit u. Kay?"
-      list_not_sharing_q: "is there liek, a list of ppl who i like, added 2 1 of mah aspectz, butt who have like, not added me to 1 of theirs yet?"
-      only_sharing_a: "These r ppl that have like, added u 2 1 of their aspectz, butt who r not (yet) in ne of ur aspectz. In other wordz, they r sharin wit you, butt u r not sharin wit them (that big werd asymmetrical sharin again). if u add them 2 an aspect, they will then show up under tht aspect n not under \"only sharin wit u\". Look above.(;"
-      only_sharing_q: "so like, who r the ppl listed in \"Only sharin wit meh\" on mah BFFs page?"
-      see_old_posts_a: "Nah. They will only b able 2 c new posties 2 tht aspect. they (n every1 else) can c ur older public posties on ur profile, n they may also c them in their stream."
-      see_old_posts_q: "So liek, when i add some1 2 an aspect, can they c oldr posties tht I have like, already posted 2 that aspect???"
-      title: "Sharin"
+      title: Sharin
+      add_to_aspect_q: so like, wat happenz when i add some1 2 1 of my aspectz? or when some1 adds me 2 1 of their aspectz?
+      add_to_aspect_a1: 'lets say that Brittany adds Ben 2 an aspect, but Ben has not (yet) like, added Brittany 2 an aspect:'
+      add_to_aspect_li1: So like, Ben will like, get a notie that Brittany has like... "started sharin" wit him. probs sharin an STD knowin her. that bitch.
+      add_to_aspect_li2: Brittany will like...  start to c Ben's public posties in her stream. as well as THC... that bitch...
+      add_to_aspect_li3: Brittany will like... not c ne of Ben's private posties.
+      add_to_aspect_li4: Ben will like... not c ne of Brittany's public or private posties in his stream either.
+      add_to_aspect_li5: But liek, if Ben goes to Brittany's profile, then he will c Amy's private posties that that bitch makes to her aspects that hes in. as well as like.. her public posties which ne1 can c there).
+      add_to_aspect_li6: Ben will like... b able 2 c Brittany's private profile (bio, location, gender, bday, small boobs, etc).
+      add_to_aspect_li7: Brittany will like... come up under "Only sharin wit me" on Ben's BFFs page.
+      add_to_aspect_a2: 'this is called like.. asymmetrical sharin (big word, woah!!!). if n when Ben also adds Brittany 2 an aspect then it would bcome mutual sharin, wit both Brittany''s n Ben''s public posties and related private posties appearin in each otherz streamz, etc. '
+      only_sharing_q: so like, who r the ppl listed in "Only sharin wit meh" on mah BFFs page?
+      only_sharing_a: These r ppl that have like, added u 2 1 of their aspectz, butt who r not (yet) in ne of ur aspectz. In other wordz, they r sharin wit you, butt u r not sharin wit them (that big werd asymmetrical sharin again). if u add them 2 an aspect, they will then show up under tht aspect n not under "only sharin wit u". Look above.(;
+      list_not_sharing_q: is there liek, a list of ppl who i like, added 2 1 of mah aspectz, butt who have like, not added me to 1 of theirs yet?
+      list_not_sharing_a: Nah, butt u can c whether err not some1 is sharin wit u by lookin at their profile. if they r, the bar under their profile pic will be green; if not, itll b grey like mah kitty. U should liek, get a notie each time some1 starts sharin wit u. Kay?
+      see_old_posts_q: So liek, when i add some1 2 an aspect, can they c oldr posties tht I have like, already posted 2 that aspect???
+      see_old_posts_a: Nah. They will only b able 2 c new posties 2 tht aspect. they (n every1 else) can c ur older public posties on ur profile, n they may also c them in their stream.
     tags:
-      filter_tags_a: "Sry but this is like, not yet workin through d*, butt some %{third_party_tools} have like, been made tht might do this. YAY FREE SOFTWARE!!! :DDD"
-      filter_tags_q: "So liek, how can i liek, get rid of certain tagz from mah stream???"
-      followed_tags_a: "After like, lookin for a like, tag like, u can liek, click the button at like the top of teh tag'z page 2 like \"follow\" tht tag. then it will like, come up in ur list of like, followed tagz on the like left. clickin 1 of ur like followed tagz takez u 2 tht tag'z like, page thingy, so u can like, c recent postiez wit tht tag in it. u can like, click on #Followed Tagz 2 c a stream of postiez tht include 1 of ne of ur followed tagz. Kay? "
-      followed_tags_q: "Wat r \"#Followed Tagz\" neway? How do u like.. follow them?"
-      people_tag_page_a: "They r ppl who have picked tht tag to describe themselves in their public profile... so yeah like... yeah..."
-      people_tag_page_q: "So like, who r the ppl listed on the left side of a tag page thingy???"
-      tags_in_comments_a: "A tag added 2 a comment will still come up as a link 2 tht tag'z page, butt it will not make tht postie (or comment) come up on tht tag page. This only workz for tagz in postiez."
-      tags_in_comments_q: "Can I like... put tagz in commentz or just in like... posties..?"
-      title: "Tagz!!"
-      what_are_tags_for_a: "Tagz r a way to organize postiez by a certain topic usually. Lookin for a tag showz all postiez wit tht tah tht u can c (both public and private postiez). This letz ppl who liek the same topic find public postiez bout it."
-      what_are_tags_for_q: "Wat r tagz like... for?"
-    third_party_tools: "3rd partay toolz"
-    title_header: "Halp"
-    tutorial: "tutorial<3"
-    tutorials: "tutorialz!!"
-    wiki: "ZOMG D*'s OWN WIKIPEDIA!! :DDD"
+      title: Tagz!!
+      what_are_tags_for_q: Wat r tagz like... for?
+      what_are_tags_for_a: Tagz r a way to organize postiez by a certain topic usually. Lookin for a tag showz all postiez wit tht tah tht u can c (both public and private postiez). This letz ppl who liek the same topic find public postiez bout it.
+      tags_in_comments_q: Can I like... put tagz in commentz or just in like... posties..?
+      tags_in_comments_a: A tag added 2 a comment will still come up as a link 2 tht tag'z page, butt it will not make tht postie (or comment) come up on tht tag page. This only workz for tagz in postiez.
+      followed_tags_q: Wat r "#Followed Tagz" neway? How do u like.. follow them?
+      followed_tags_a: 'After like, lookin for a like, tag like, u can liek, click the button at like the top of teh tag''z page 2 like "follow" tht tag. then it will like, come up in ur list of like, followed tagz on the like left. clickin 1 of ur like followed tagz takez u 2 tht tag''z like, page thingy, so u can like, c recent postiez wit tht tag in it. u can like, click on #Followed Tagz 2 c a stream of postiez tht include 1 of ne of ur followed tagz. Kay? '
+      people_tag_page_q: So like, who r the ppl listed on the left side of a tag page thingy???
+      people_tag_page_a: They r ppl who have picked tht tag to describe themselves in their public profile... so yeah like... yeah...
+      filter_tags_q: So liek, how can i liek, get rid of certain tagz from mah stream???
+      filter_tags_a: Sry but this is like, not yet workin through d*, butt some %{third_party_tools} have like, been made tht might do this. YAY FREE SOFTWARE!!! :DDD
+    keyboard_shortcuts:
+      title: Keypad shorties!!!
+      keyboard_shortcuts_q: 'What key shorties r available?(:'
+      keyboard_shortcuts_a1: 'In the steam u can like use these keybored shorties:'
+      keyboard_shortcuts_li1: j - to like... go to next postie
+      keyboard_shortcuts_li2: k - to like... go to last postie
+      keyboard_shortcuts_li3: c - comment on the current postie
+      keyboard_shortcuts_li4: l - <3 the current postie
+      keyboard_shortcuts_li5: r - reshar the current postie
+      keyboard_shortcuts_li6: like, make the current postie bigger
+      keyboard_shortcuts_li7: o - Open the first linkie in the current postie
+      keyboard_shortcuts_li8: CTRL+ENTER - like, sends the msg ur writin and stuff...
+    miscellaneous:
+      title: Misc. stuff
+      back_to_top_q: Is there like... a quick way 2 go back 2 the like... top of a page after i like... scroll down?
+      back_to_top_a: Ya. After scrollin down a page, like, click on teh grey arrow tht comes up in the bottom right corner of ur web browser window thingy...
+      photo_albums_q: R there like... pic or vid albumz?
+      photo_albums_a: Nah, not right nao. Butt u can like, look at a stream of their added pics from the Pics and Selfies section in their profile.
+      subscribe_feed_q: Can i like... subscribe 2 some1's public posties wit a feed reader thingy?
+      subscribe_feed_a: 'Ya, butt this is like... stil not a rlly great workin feature n the formattin of the resultz is kinda groody... but if u like, wanna try it neway, go 2 some1s profile n click the feed button in ur browser, or u can copy pasta the profile link into a feed reader thingy. the resultin feed addy lookz like this: https://joindiaspora.com/public/usahname.atom -- D* uses Atom rather than RSS. JustFYI! <333'
+      diaspora_app_q: Is there like... a d* app for Android err iOS err Windows Phone? :o
+      diaspora_app_a: There r many Android apps in like... super early makin. many r like.. not worked on projects n they liek dont work well wit the current version of d*. so like dont expect totally awesome stuff wit these. just use a browser on ur mobile thingy cuz weve made a like... mobile version of teh site which should work well on like... ALL things. there is currently no iOS app tho. sry bout tht :\
   home:
     default:
-      be_who_you_want_to_be: "be you!!!!"
-      byline: "Dis is like... an online social network.. sorta like myspace.. but like not, where like... you are totes in control   c:"
-      headline: "OMG! HEY! LIKE, WELCOME TO %{pod_name}!!! :DDD"
+      headline: OMG! HEY! LIKE, WELCOME TO %{pod_name}!!! :DDD
+      byline: 'Dis is like... an online social network.. sorta like myspace.. but like not, where like... you are totes in control   c:'
+      be_who_you_want_to_be: be you!!!!
     podmin:
-      headline: "Hey bruh! <3  [:"
+      headline: 'Hey bruh! <3  [:'
   invitation_codes:
-    not_valid: "Tht invite code is like.. no longer valid... sry bout tht.. :/"
+    not_valid: Tht invite code is like.. no longer valid... sry bout tht.. :/
   invitations:
     create:
-      closed: "so like... invites are like, closed for this d* pod... sry bout that... :c"
-      empty: "Plz enter at least 1 email addy, thx<3"
-      no_more: "u have like... no moar invites."
-      note_already_sent: "Invites have like... already been sent 2: %{emails}"
-      rejected: "the followin email addys made drama: "
-      sent: "Ur invites have like... ben sent 2: %{emails}"
+      sent: 'Ur invites have like... ben sent 2: %{emails}'
+      rejected: 'the followin email addys made drama: '
+      no_more: u have like... no moar invites.
+      empty: Plz enter at least 1 email addy, thx<3
+      note_already_sent: 'Invites have like... already been sent 2: %{emails}'
+      closed: so like... invites are like, closed for this d* pod... sry bout that... :c
     new:
+      language: what do u like... speak?
+      invite_someone_to_join: invite sum1 2 da partay!!!
+      comma_separated_plz: U can enter lots of different email addies by usin commaz! <3
+      send_an_invitation: send an invite
+      sending_invitation: Sendin invite, hold up...
+      paste_link: Share this link wit ur BFFs 2 invite them 2 d*, or like... txt them the link n stuff.
       codes_left:
-        one: "So theres like... one invite left on this code. Yup."
-        other: "ZOMG! theres like %{count} invites left on this code... yeah..."
-        zero: "sry, theres like no invites left on this code. omg like totally lame.... yeah... wanna go 2 taco bell?(:"
-      comma_separated_plz: "U can enter lots of different email addies by usin commaz! <3"
-      invite_someone_to_join: "invite sum1 2 da partay!!!"
-      language: "what do u like... speak?"
-      paste_link: "Share this link wit ur BFFs 2 invite them 2 d*, or like... txt them the link n stuff."
-      send_an_invitation: "send an invite"
-      sending_invitation: "Sendin invite, hold up..."
+        zero: 'sry, theres like no invites left on this code. omg like totally lame.... yeah... wanna go 2 taco bell?(:'
+        one: So theres like... one invite left on this code. Yup.
+        other: ZOMG! theres like %{count} invites left on this code... yeah...
   layouts:
-    application:
-      back_to_top: "Go back 2 the top"
-      powered_by: "this site is like... powered by diaspora*... far out!!"
-      public_feed: "the feed for %{name} that like... every1 can c n stuff"
-      source_package: "dl code n stuff.."
-      statistics_link: "Pod statz"
-      whats_new: "sup?"
     header:
-      code: "code"
-      logout: "Bounce"
-      profile: "Wall"
-      settings: "Settins"
+      profile: Wall
+      settings: Settins
+      logout: Bounce
+      code: code
+    application:
+      powered_by: this site is like... powered by diaspora*... far out!!
+      whats_new: sup?
+      statistics_link: Pod statz
+      public_feed: the feed for %{name} that like... every1 can c n stuff
+      back_to_top: Go back 2 the top
+      source_package: dl code n stuff..
   likes:
     create:
-      error: "couldnt like this bruh.. :c"
-  limited: "Only ur BFFs can c these! OMG!"
-  more: "Moar"
-  no_results: "no results found... lame..."
+      error: couldnt like this bruh.. :c
   notifications:
-    also_commented:
-      one: "%{actors} also like... commented on %{post_author}'s postie %{post_link}!!"
-      other: "%{actors} also like... commented on %{post_author}'s postie %{post_link}!!"
-      zero: "%{actors} also like... commented on %{post_author}'s postie %{post_link}!!"
-    also_commented_deleted:
-      one: "%{actors} like... commented on a trashed postie."
-      other: "%{actors} like... commented on a trashed postie."
-      zero: "%{actors} like... commented on a trashed postie."
-    comment_on_post:
-      one: "%{actors} commented on ur postie %{post_link}. OMG!"
-      other: "%{actors} commented on ur postie %{post_link}. OMG!"
-      zero: "%{actors} like... commented on ur postie %{post_link}."
-    index:
-      all_notifications: "All noties"
-      also_commented: "Also comment'd"
-      and: "n"
-      and_others:
-        one: "n 1 more"
-        other: "n like.. %{count} others"
-        zero: "n no1 else"
-      comment_on_post: "Comment on postie"
-      liked: "lieked"
-      mark_all_as_read: "i totally read them all"
-      mark_all_shown_as_read: "I read all of these..."
-      mark_read: "i liek, read this"
-      mark_unread: "umm, HELLO, i havent read this"
-      mentioned: "Mentioned"
-      no_notifications: "U dont have any noties yet :S"
-      notifications: "Noties!"
-      reshared: "Reshared! <3"
-      show_all: "show like, all"
-      show_unread: "show like, unread stuff"
-      started_sharing: "Started like... sharin"
-    liked:
-      one: "%{actors} has like... liked ur postie %{post_link}."
-      other: "%{actors} have like... liked ur postie %{post_link}."
-      zero: "%{actors} have like... liked ur postie %{post_link}."
-    liked_post_deleted:
-      one: "%{actors} like.. liked ur trashed postie."
-      other: "%{actors} like... liked ur trashed postie."
-      zero: "%{actors} like.. liked ur trashed postie."
-    mentioned:
-      one: "%{actors} has like.. mentioned u in the postie %{post_link}."
-      other: "%{actors} have like... mentioned u in the postie %{post_link}."
-      zero: "%{actors} have like... mentioned u in the postie %{post_link}. :("
-    mentioned_deleted:
-      one: "%{actors} like... mentioned u in a trashed postie."
-      other: "%{actors} like... mentioned u in a trashed postie."
-      zero: "%{actors} like... mentioned u in a trashed postie."
-    private_message:
-      one: "%{actors} sent u a txt"
-      other: "%{actors} sent u a txt"
-      zero: "0 %{actors} sent u a txt"
-    reshared:
-      one: "%{actors} has like... reshared ur postie %{post_link} && stuff.."
-      other: "%{actors} have like... reshared ur postie %{post_link} && stuff.."
-      zero: "%{actors} have like... reshared ur postie %{post_link} && stuff.."
-    reshared_post_deleted:
-      one: "%{actors} like...  reshared ur trashed postie."
-      other: "%{actors} like... reshared ur trashed postie."
-      zero: "%{actors} like... reshared ur trashed postie."
     started_sharing:
+      zero: "%{actors} started sharin wit u :("
       one: "%{actors} started sharin wit u."
       other: "%{actors} started sharin wit u!!! :DDD"
-      zero: "%{actors} started sharin wit u :("
-  notifier:
-    a_limited_post_comment: "OMG!!! YOU GOT A NEW COMMENTT!!! But its like.. on a post that ppl cant see.. so like.. go check it out!"
-    a_post_you_shared: "a postie!!"
-    a_private_message: "So like... there's a new message that's like.. private for to check out on D*!! :D"
-    click_here: "click this txt"
-    comment_on_post:
-      limited_subject: "OMG! THERE'S A NEW COMMENT ON ONE OF YOUR POSTIES!!! :DD"
-      reply: "Reply or like... look at %{name}'s postie >"
-    confirm_email:
-      click_link: "2 like, activate ur like new email %{unconfirmed_email}, plz like, follow this link:"
-      subject: "Plz like... confirm ur new email %{unconfirmed_email}. K thx!!! <3"
-    email_sent_by_diaspora: "This email was like... sent by %{pod_name}. If u'd like... to like... stop gettin emails like this,"
-    export_email:
-      body: |-
-          Hai %{name}!!
-
-          So like, we got ur data, and its totally ready for dl by [clicking here!!!!:D](%{url}).
-
-          Deuces!
-
-          The d* robo!!
-      subject: "u can dl ur personal data nao!!!!, %{name} :D"
-    export_failure_email:
-      body: |-
-          Hey %{name}
-
-          So like, we had an issue while like... processin ur data and stuff.. for like.. download..
-
-          so like.. can you, like, try again?
-
-          so sry bout tht..
-
-
-          d* robot!<3
-      subject: "So like, totally sry, but like... there was a problem with your stuff %{name}"
-    export_photos_email:
-      subject: "Ur pics are ready, %{name}!!! c:"
-    export_photos_failure_email:
-      body: |-
-          Heyy %{name}
-
-          So like, we had an issue like... while gettin ur photos so u could like..download them..
-          Try again bruh!
-
-          Sry bout tht, :/
-
-
-          The d* robot! [:
-      subject: "So like, there was an issue with ur photos, %{name}... so sry bout tht..."
-    hello: "OMG HEY! %{name}"
-    invite:
-      message: |-
-          Ohai!
-
-          U have like... been invited 2 join diaspora*!
-
-          Click this link thingy 2 like.. get started
-
-          [%{invite_url}][1]
-
-
-          <3,
-
-          The d* email robot!
-
-          [1]: %{invite_url}
-    invited_you: "%{name} invited u 2 d*!!!"
-    liked:
-      liked: "OMG! %{name} has like liked ur postie!!!"
-      limited_post: "OMG! %{name} liked ur limited postie!!!! :O"
-      view_post: "Look at postie >"
-    mentioned:
-      limited_post: "so like... you were mentioned in a post thats like.. limited bruh[:"
-      subject: "OMG! %{name} has like... mentioned u on d*"
     private_message:
-      reply_to_or_view: "Reply 2 or like... look at this convo >"
-    remove_old_user:
-      body: |-
-          Hai thar! :P~~
-
-          So like, it looks like you don't want your account @ %{pod_url}, since like... you haven't used it in like... forever... which has been like... %{after_days} days. Mm, cha. That's like... a lot. So like, to make sure that like, the ppl who often use the pod, get like, the best performance and junk, we'd like to totally remove accounts that we think ppl don't want from our database thingy..
-
-          We'd love for you stay and like... hang out with us in the d* community, and youre totally welcome to keep ur account going if you wanna..
-
-          d* is like.. totes better than fb 'n junk... js..
-
-          So like, if you wanna keep ur account like.. active.. which its like, totally cool if you wanna go but like, if you wanna keep ur account, then all you like, need to do is like.. sign in to ur account before like ... %{remove_after}. And like, when u sign back in... itd be totally far out if you would like... play around with d*! Like, stuff changez like.. a lot.. all the time. Its not dead like erryone keeps sayin. its like umm as IF right!? that zuckerberg dude seems dead inside.. like.. does he like totally EVER blink? ew, gross.. gag me with a SPOOOOOOON..
-
-          oh damn, i totes forgot what i was sayin... OH YEAH! so like, if you found d* boring or somethin, try followin some different #tags 'n stuff.. and like.. things are always changin... like ALL the time.. but not like.. in a bad way.. like.. not like how FB is always changin their privacy policy. thats like.. rlly annoyin.. js..
-
-          so like, if you wanna sign in, clickie here: %{login_url}. if youve forgot ur log-in creds, u can like ask for a like.. reminder on tht page.. its totes okay if you forgot. like, omg, this one time, i forgot i left my curling on, and it set my bathroom on fire... my daddy was like SOOOOOOOO angry like omg... he almost like, took my allowance away... it was totally lame..
-
-          so like, anyway, i hope you come back! we can like, netflix and chill and junk.
-
-          baiiii! <3333 :*
-
-
-          the d* robot!
-      subject: "So like, your account has been like... set to be trashed... because you like... haven't been on in awhile. So sry bout tht.."
-    report_email:
-      body: |-
-          Ohai!
-
-          the %{type} wit ID %{id} waz marked as groody. yeah.
-
-          [%{url}][1]
-
-          Plz like, check in on this, kay?
-
-
-          Kthxbye,
-
-          The d* email robot <3
-
-          [1]: %{url}
-      subject: "A new %{type} was like... marked as gag me with a spoon."
-      type:
-        comment: "commentt<3"
-        post: "postie"
+      zero: 0 %{actors} sent u a txt
+      one: "%{actors} sent u a txt"
+      other: "%{actors} sent u a txt"
+    comment_on_post:
+      zero: "%{actors} like... commented on ur postie %{post_link}."
+      one: "%{actors} commented on ur postie %{post_link}. OMG!"
+      other: "%{actors} commented on ur postie %{post_link}. OMG!"
+    also_commented:
+      zero: "%{actors} also like... commented on %{post_author}'s postie %{post_link}!!"
+      one: "%{actors} also like... commented on %{post_author}'s postie %{post_link}!!"
+      other: "%{actors} also like... commented on %{post_author}'s postie %{post_link}!!"
+    mentioned:
+      zero: "%{actors} have like... mentioned u in the postie %{post_link}. :("
+      one: "%{actors} has like.. mentioned u in the postie %{post_link}."
+      other: "%{actors} have like... mentioned u in the postie %{post_link}."
+    liked:
+      zero: "%{actors} have like... liked ur postie %{post_link}."
+      one: "%{actors} has like... liked ur postie %{post_link}."
+      other: "%{actors} have like... liked ur postie %{post_link}."
+    reshared:
+      zero: "%{actors} have like... reshared ur postie %{post_link} && stuff.."
+      one: "%{actors} has like... reshared ur postie %{post_link} && stuff.."
+      other: "%{actors} have like... reshared ur postie %{post_link} && stuff.."
+    also_commented_deleted:
+      zero: "%{actors} like... commented on a trashed postie."
+      one: "%{actors} like... commented on a trashed postie."
+      other: "%{actors} like... commented on a trashed postie."
+    liked_post_deleted:
+      zero: "%{actors} like.. liked ur trashed postie."
+      one: "%{actors} like.. liked ur trashed postie."
+      other: "%{actors} like... liked ur trashed postie."
+    reshared_post_deleted:
+      zero: "%{actors} like... reshared ur trashed postie."
+      one: "%{actors} like...  reshared ur trashed postie."
+      other: "%{actors} like... reshared ur trashed postie."
+    mentioned_deleted:
+      zero: "%{actors} like... mentioned u in a trashed postie."
+      one: "%{actors} like... mentioned u in a trashed postie."
+      other: "%{actors} like... mentioned u in a trashed postie."
+    index:
+      notifications: Noties!
+      mark_all_as_read: i totally read them all
+      mark_all_shown_as_read: I read all of these...
+      mark_read: i liek, read this
+      mark_unread: umm, HELLO, i havent read this
+      show_all: show like, all
+      show_unread: show like, unread stuff
+      all_notifications: All noties
+      also_commented: Also comment'd
+      comment_on_post: Comment on postie
+      liked: lieked
+      mentioned: Mentioned
+      reshared: Reshared! <3
+      started_sharing: Started like... sharin
+      no_notifications: U dont have any noties yet :S
+      and_others:
+        zero: n no1 else
+        one: n 1 more
+        other: n like.. %{count} others
+      and: "n"
+  notifier:
+    a_post_you_shared: a postie!!
+    a_private_message: So like... there's a new message that's like.. private for to check out on D*!! :D
+    a_limited_post_comment: OMG!!! YOU GOT A NEW COMMENTT!!! But its like.. on a post that ppl cant see.. so like.. go check it out!
+    email_sent_by_diaspora: This email was like... sent by %{pod_name}. If u'd like... to like... stop gettin emails like this,
+    click_here: click this txt
+    hello: OMG HEY! %{name}
+    thanks: thx,
+    to_change_your_notification_settings: 2 change ur notie settins
+    single_admin:
+      subject: 'A txt bout ur d* account:'
+      admin: ur dude that runs everythin
+    started_sharing:
+      subject: 'ZOMG!! so like.. %{name} has TOTALLY started sharin wit u!!!(:'
+      sharing: has like... started sharin wit u!
+      view_profile: Look at %{name}'s profile
+    comment_on_post:
+      limited_subject: OMG! THERE'S A NEW COMMENT ON ONE OF YOUR POSTIES!!! :DD
+      reply: Reply or like... look at %{name}'s postie >
+    mentioned:
+      subject: OMG! %{name} has like... mentioned u on d*
+      limited_post: 'so like... you were mentioned in a post thats like.. limited bruh[:'
+    private_message:
+      reply_to_or_view: Reply 2 or like... look at this convo >
+    liked:
+      liked: OMG! %{name} has like liked ur postie!!!
+      limited_post: OMG! %{name} liked ur limited postie!!!! :O
+      view_post: Look at postie >
     reshared:
       reshared: "%{name} like... reshared ur postie... tubular!!"
-      view_post: "Look at postie >"
-    single_admin:
-      admin: "ur dude that runs everythin"
-      subject: "A txt bout ur d* account:"
-    started_sharing:
-      sharing: "has like... started sharin wit u!"
-      subject: "ZOMG!! so like.. %{name} has TOTALLY started sharin wit u!!!(:"
-      view_profile: "Look at %{name}'s profile"
-    thanks: "thx,"
-    to_change_your_notification_settings: "2 change ur notie settins"
-  nsfw: "OMG! GROODY!"
-  ok: "For SURE"
+      view_post: Look at postie >
+    confirm_email:
+      subject: Plz like... confirm ur new email %{unconfirmed_email}. K thx!!! <3
+      click_link: '2 like, activate ur like new email %{unconfirmed_email}, plz like, follow this link:'
+    report_email:
+      type:
+        post: postie
+        comment: commentt<3
+      subject: A new %{type} was like... marked as gag me with a spoon.
+      body: |-
+        Ohai!
+
+        the %{type} wit ID %{id} waz marked as groody. yeah.
+
+        [%{url}][1]
+
+        Plz like, check in on this, kay?
+
+
+        Kthxbye,
+
+        The d* email robot <3
+
+        [1]: %{url}
+    export_email:
+      subject: u can dl ur personal data nao!!!!, %{name} :D
+      body: |-
+        Hai %{name}!!
+
+        So like, we got ur data, and its totally ready for dl by [clicking here!!!!:D](%{url}).
+
+        Deuces!
+
+        The d* robo!!
+    export_failure_email:
+      subject: So like, totally sry, but like... there was a problem with your stuff %{name}
+      body: |-
+        Hey %{name}
+
+        So like, we had an issue while like... processin ur data and stuff.. for like.. download..
+
+        so like.. can you, like, try again?
+
+        so sry bout tht..
+
+
+        d* robot!<3
+    export_photos_email:
+      subject: 'Ur pics are ready, %{name}!!! c:'
+    export_photos_failure_email:
+      subject: So like, there was an issue with ur photos, %{name}... so sry bout tht...
+      body: |-
+        Heyy %{name}
+
+        So like, we had an issue like... while gettin ur photos so u could like..download them..
+        Try again bruh!
+
+        Sry bout tht, :/
+
+
+        The d* robot! [:
+    invited_you: "%{name} invited u 2 d*!!!"
+    invite:
+      message: |-
+        Ohai!
+
+        U have like... been invited 2 join diaspora*!
+
+        Click this link thingy 2 like.. get started
+
+        [%{invite_url}][1]
+
+
+        <3,
+
+        The d* email robot!
+
+        [1]: %{invite_url}
+    remove_old_user:
+      subject: So like, your account has been like... set to be trashed... because you like... haven't been on in awhile. So sry bout tht..
+      body: |-
+        Hai thar! :P~~
+
+        So like, it looks like you don't want your account @ %{pod_url}, since like... you haven't used it in like... forever... which has been like... %{after_days} days. Mm, cha. That's like... a lot. So like, to make sure that like, the ppl who often use the pod, get like, the best performance and junk, we'd like to totally remove accounts that we think ppl don't want from our database thingy..
+
+        We'd love for you stay and like... hang out with us in the d* community, and youre totally welcome to keep ur account going if you wanna..
+
+        d* is like.. totes better than fb 'n junk... js..
+
+        So like, if you wanna keep ur account like.. active.. which its like, totally cool if you wanna go but like, if you wanna keep ur account, then all you like, need to do is like.. sign in to ur account before like ... %{remove_after}. And like, when u sign back in... itd be totally far out if you would like... play around with d*! Like, stuff changez like.. a lot.. all the time. Its not dead like erryone keeps sayin. its like umm as IF right!? that zuckerberg dude seems dead inside.. like.. does he like totally EVER blink? ew, gross.. gag me with a SPOOOOOOON..
+
+        oh damn, i totes forgot what i was sayin... OH YEAH! so like, if you found d* boring or somethin, try followin some different #tags 'n stuff.. and like.. things are always changin... like ALL the time.. but not like.. in a bad way.. like.. not like how FB is always changin their privacy policy. thats like.. rlly annoyin.. js..
+
+        so like, if you wanna sign in, clickie here: %{login_url}. if youve forgot ur log-in creds, u can like ask for a like.. reminder on tht page.. its totes okay if you forgot. like, omg, this one time, i forgot i left my curling on, and it set my bathroom on fire... my daddy was like SOOOOOOOO angry like omg... he almost like, took my allowance away... it was totally lame..
+
+        so like, anyway, i hope you come back! we can like, netflix and chill and junk.
+
+        baiiii! <3333 :*
+
+
+        the d* robot!
   people:
-    add_contact:
-      invited_by: "u were like... invited by"
-    index:
-      couldnt_find_them: "couldnt find them? thats totally lame :("
-      looking_for: "U like... lookin for posties tagged %{tag_link}?"
-      no_one_found: "...and nothin was like... found. sry bout that :\\"
-      no_results: "OMG! Hey! U like, need 2 search for sumthin."
-      results_for: "Ppl who match ur like... search thingy %{search_term}"
-      search_handle: "use their d* ID (usahname@pod.tld) to b for sure 2 find ur BFFs."
-      searching: "im lookin, brb... <3"
-      send_invite: "still nothin? :( send an invite!!! :DDD"
     person:
-      thats_you: "OMG! thats u!!!! FAR OUT!"
-    profile_sidebar:
-      bio: "all about meee <333"
-      born: "Bday"
-      gender: "dude or dudette or whatev..."
-      location: "my crib"
+      thats_you: OMG! thats u!!!! FAR OUT!
+    index:
+      results_for: Ppl who match ur like... search thingy %{search_term}
+      no_results: OMG! Hey! U like, need 2 search for sumthin.
+      couldnt_find_them: couldnt find them? thats totally lame :(
+      search_handle: use their d* ID (usahname@pod.tld) to b for sure 2 find ur BFFs.
+      send_invite: still nothin? :( send an invite!!! :DDD
+      no_one_found: "...and nothin was like... found. sry bout that :\\"
+      searching: im lookin, brb... <3
+      looking_for: U like... lookin for posties tagged %{tag_link}?
     show:
-      closed_account: "this profile is gone dude..."
-      does_not_exist: "they dont like... exist :\\"
       has_not_shared_with_you_yet: "%{name} has like... not shared ne posties wit u yet!"
+      does_not_exist: they dont like... exist :\
+      closed_account: this profile is gone dude...
+    profile_sidebar:
+      bio: all about meee <333
+      location: my crib
+      gender: dude or dudette or whatev...
+      born: Bday
+    add_contact:
+      invited_by: u were like... invited by
   photos:
     create:
-      integrity_error: "The pic didnt like... upload.  R u like for sure that was a pic n not somethin else?"
-      runtime_error: "Pic didnt like... upload.  R u like for sure ur duck face is like.. ducky enough?"
-      type_error: "So like... ur pic wasnt added.  r u like... sure u actually like... added it?"
+      runtime_error: Pic didnt like... upload.  R u like for sure ur duck face is like.. ducky enough?
+      integrity_error: The pic didnt like... upload.  R u like for sure that was a pic n not somethin else?
+      type_error: So like... ur pic wasnt added.  r u like... sure u actually like... added it?
     destroy:
-      notice: "Pic deleted :o"
+      notice: Pic deleted :o
     new_profile_photo:
-      upload: "Upload a new selfie!!! OMG!!"
+      upload: Upload a new selfie!!! OMG!!
   polls:
     votes:
-      one: "%{count} vote so far!!! :]"
-      other: "ZOMG!! %{count} votes so farrrr!!! :DDD"
       zero: "%{count} votes so far..  :c"
+      one: "%{count} vote so far!!! :]"
+      other: ZOMG!! %{count} votes so farrrr!!! :DDD
   posts:
     presenter:
-      title: "A postie from %{name}"
+      title: A postie from %{name}
     show:
-      forbidden: "So like, ur not allowed to do tht..."
-      location: "Postie posted from: %{location} c:"
+      location: 'Postie posted from: %{location} c:'
+      forbidden: So like, ur not allowed to do tht...
       photos_by:
-        one: "One pic by %{author}"
+        zero: No picz by %{author}
+        one: One pic by %{author}
         other: "%{count} picz by %{author}"
-        zero: "No picz by %{author}"
-      reshare_by: "Reshare is like... by %{author}"
-  privacy: "OMG give me some privacy!"
-  profile: "Like ur profile"
+      reshare_by: Reshare is like... by %{author}
+  report:
+    title: Reportz Ovahview
+    post_label: "<b>Postie</b>: %{title}"
+    comment_label: Like, <b>Comment</b>:<br>%{data}
+    reported_label: "<b>Like, reported by</b> %{person}"
+    reason_label: 'Reazun:'
+    review_link: Mark as like, reviewed n stuff
+    delete_link: Trash item
+    confirm_deletion: R u sure u wanna trash this?
+    not_found: "<u>The postie/comment like, wasnt found. mayb it was liek.. trashed by the usah!</u>"
+    status:
+      destroyed: The postie went bye byez!
+      failed: Somethin screwed up. sry bout that :\
   profiles:
     edit:
-      allow_search: "Do u wanna like... let ppl stalk u within d*?"
-      basic: "Basic bitch profile  [;"
-      extended: "Extended profileeee"
-      first_name: "First name? Kthx"
-      last_name: "Last name? Kthx"
-      limited: "Not all of the Internetz can see this  o:"
-      nsfw_check: "Like, mark everythin i share as groody"
-      nsfw_explanation: "Groody (NSFW) is d*'s thingy to hide nudes n other groody stuff that like.. can get u in trouble. make sure u liek, check this thingy if u plan to post this kind of stuff a lot. Kthxbye <3"
-      nsfw_explanation2: "if u liek, choose 2 not pick this option, then liek, plz add the #nsfw or #groody tag thingy each time u share naughty stuff. Kay? Thx!!! <3"
-      public: "Internetz can see this  o:"
-      settings: "Profie settins!!![:"
-      update_profile: "Change ur stuff"
-      your_bio: "Ur bio. Kthx."
-      your_birthday: "Ur bday"
-      your_gender: "Ur gender? Kthx"
-      your_location: "Ur place"
-      your_name: "Ur name"
-      your_photo: "Ur pic"
-      your_tags: "Describe urself in like... 5 werdz"
-      your_tags_placeholder: "like #twilight #selfies #Belieber #iphone #mtv"
+      basic: Basic bitch profile  [;
+      extended: Extended profileeee
+      settings: 'Profie settins!!![:'
+      public: 'Internetz can see this  o:'
+      limited: 'Not all of the Internetz can see this  o:'
+      your_name: Ur name
+      first_name: First name? Kthx
+      last_name: Last name? Kthx
+      your_gender: Ur gender? Kthx
+      your_birthday: Ur bday
+      your_tags: Describe urself in like... 5 werdz
+      your_tags_placeholder: 'like #twilight #selfies #Belieber #iphone #mtv'
+      your_bio: Ur bio. Kthx.
+      your_location: Ur place
+      your_photo: Ur pic
+      update_profile: Change ur stuff
+      allow_search: Do u wanna like... let ppl stalk u within d*?
+      nsfw_explanation: Groody (NSFW) is d*'s thingy to hide nudes n other groody stuff that like.. can get u in trouble. make sure u liek, check this thingy if u plan to post this kind of stuff a lot. Kthxbye <3
+      nsfw_explanation2: 'if u liek, choose 2 not pick this option, then liek, plz add the #nsfw or #groody tag thingy each time u share naughty stuff. Kay? Thx!!! <3'
+      nsfw_check: Like, mark everythin i share as groody
     update:
-      failed: "Ur profie didnt update :("
-      updated: "Profie updated!!! <3"
-  public: "like, every1 can c this"
+      updated: Profie updated!!! <3
+      failed: Ur profie didnt update :(
   registrations:
-    create:
-      success: "u've joined d*!!! OMFG YAAAAAYYY!! :DDD"
-    invalid_invite: "OMG, dude, ur invite link is like... SOOOO old... like... gross. so like, sry but its no longer valid. Kthxbye<3"
     new:
-      email: "EMAIL<3"
-      enter_email: "Enter like... an email"
-      enter_password: "Enter a like... secret code thats like... moar than 6 keys n junk"
-      enter_password_again: "enter what u liek... entered b4"
-      enter_username: "So like.. pick a name that ppl will like... call u by.. n sry but u can only like.. use letters numbers n these things \"_\" but like.. witout the up n down lines n junk..."
-      password: "PASSWERD<3"
-      password_confirmation: "PASSWERD CONFIRMATION!!"
-      sign_up: "SIGN UP!!"
-      submitting: "Submittin... just a sec..."
-      terms: "By creatin an account u like... accept the %{terms_link}."
-      terms_link: "more boring legal stuff"
-      username: "USERNAMEEE<3"
-  report:
-    comment_label: "Like, <b>Comment</b>:<br>%{data}"
-    confirm_deletion: "R u sure u wanna trash this?"
-    delete_link: "Trash item"
-    not_found: "<u>The postie/comment like, wasnt found. mayb it was liek.. trashed by the usah!</u>"
-    post_label: "<b>Postie</b>: %{title}"
-    reason_label: "Reazun:"
-    reported_label: "<b>Like, reported by</b> %{person}"
-    review_link: "Mark as like, reviewed n stuff"
-    status:
-      destroyed: "The postie went bye byez!"
-      failed: "Somethin screwed up. sry bout that :\\"
-    title: "Reportz Ovahview"
+      enter_email: Enter like... an email
+      enter_username: So like.. pick a name that ppl will like... call u by.. n sry but u can only like.. use letters numbers n these things "_" but like.. witout the up n down lines n junk...
+      enter_password: Enter a like... secret code thats like... moar than 6 keys n junk
+      enter_password_again: enter what u liek... entered b4
+      sign_up: SIGN UP!!
+      email: EMAIL<3
+      username: USERNAMEEE<3
+      password: PASSWERD<3
+      password_confirmation: PASSWERD CONFIRMATION!!
+      submitting: Submittin... just a sec...
+      terms: By creatin an account u like... accept the %{terms_link}.
+      terms_link: more boring legal stuff
+    create:
+      success: u've joined d*!!! OMFG YAAAAAYYY!! :DDD
+    invalid_invite: OMG, dude, ur invite link is like... SOOOO old... like... gross. so like, sry but its no longer valid. Kthxbye<3
   reshares:
-    comment_email_subject: "%{resharer}'s like... reshare of %{author}'s postie"
     create:
-      error: "couldnt reshare  :c"
+      error: couldnt reshare  :c
     reshare:
-      deleted: "The original postie was like... deleted by the person who made it :("
-      reshare_confirmation: "Like... reshare %{author}'z postie n stuff?"
-      reshared_via: "like reshared via"
-  search: "like look for stuff like #shoes!"
+      reshared_via: like reshared via
+      reshare_confirmation: Like... reshare %{author}'z postie n stuff?
+      deleted: The original postie was like... deleted by the person who made it :(
+    comment_email_subject: "%{resharer}'s like... reshare of %{author}'s postie"
   services:
-    create:
-      already_authorized: "A person wit like... the d* id %{diaspora_id} already like... enabled that %{service_name} account n stuff..."
-      failure: "So like... it failed n stuff... sry bout tht :\\"
-      read_only_access: "this is like.. read-only... plz try 2 like.. authorize again l8ter. kthx <3"
-      success: "so like... ur connected nao n stuff"
-    destroy:
-      success: "Yay! Trashed eet woo!!"
-    failure:
-      error: "there was drama when connectin 2 that thing :\\"
-    index:
-      connect: "ConnectFour bahahaha OMG!"
-      disconnect: "like disconnect"
-      edit_services: "Edit servies!!!"
-      logged_in_as: "ur like... checkin in as"
-      no_services_available: "so like... there are no services that this pod can like... connect to... sry bout tht..  :c"
-      not_logged_in: "ur like.. currently not logged in and stuffz"
-      really_disconnect: "drop %{service}?"
-      services_explanation: "Connectin 2 servies gives u like... the ability 2 post ur posties 2 them as u write them in d*! :p"
-      share_to: "share 2 %{provider}"
     provider:
-      tumblr: "tmblr"
-      twitter: "Twittar<333"
-      wordpress: "WurdPress"
-  settings: "Like ur settinz"
+      tumblr: tmblr
+      twitter: Twittar<333
+      wordpress: WurdPress
+    index:
+      connect: ConnectFour bahahaha OMG!
+      disconnect: like disconnect
+      logged_in_as: ur like... checkin in as
+      no_services_available: so like... there are no services that this pod can like... connect to... sry bout tht..  :c
+      not_logged_in: ur like.. currently not logged in and stuffz
+      really_disconnect: drop %{service}?
+      edit_services: Edit servies!!!
+      services_explanation: Connectin 2 servies gives u like... the ability 2 post ur posties 2 them as u write them in d*! :p
+      share_to: share 2 %{provider}
+    create:
+      success: so like... ur connected nao n stuff
+      failure: So like... it failed n stuff... sry bout tht :\
+      already_authorized: A person wit like... the d* id %{diaspora_id} already like... enabled that %{service_name} account n stuff...
+      read_only_access: this is like.. read-only... plz try 2 like.. authorize again l8ter. kthx <3
+    destroy:
+      success: Yay! Trashed eet woo!!
+    failure:
+      error: there was drama when connectin 2 that thing :\
+  blocks:
+    create:
+      success: Aight, u wont c that weirdo on ur wall again. Ur welcome. ;)
+      failure: 'couldnt ignore the h8ter.  #lame'
+    destroy:
+      success: 'Lets c wat they have 2 say!! #sayhaithar'
+      failure: 'I couldnt like... unblock that h8ter.  #couldntunblockh8terlame'
   shared:
     aspect_dropdown:
       mobile_row_checked: "%{name} (remove)"
       mobile_row_unchecked: "%{name} (add)"
       toggle:
-        one: "In like... %{count} aspect"
-        other: "In like... %{count} aspectz"
-        zero: "add BFF"
-    invitations:
-      by_email: "By email(:"
-      invite_your_friends: "Invite ur BFFs!!"
-      invites: "Invites!!"
-      share_this: "Share this link like... via email, blogg, or social netz!"
-    public_explain:
-      atom_feed: "Feed thingy"
-      control_your_audience: "Control ur ppl"
-      logged_in: "checked in 2 %{service}"
-      manage: "Like... manage servies ur like... connected 2"
-      new_user_welcome_message: "Like, use #hashtags 2 like... make ur posties bout somethin n find ppl who like... share ur interests.  call out awesome ppl wit @Mentions"
-      outside: "So like... these txts r able 2 b seen by the internet.."
-      share: "Sharrr"
-      title: "Set up other servies"
-      visibility_dropdown: "Use dis dropdown 2 change who can like... c ur postie.  (we like... recommend u make this first 1 2 where ne1 can c it.)"
+        zero: add BFF
+        one: In like... %{count} aspect
+        other: In like... %{count} aspectz
     publisher:
-      discard_post: "Trash postie"
-      formatWithMarkdown: "U can like... use %{markdown_link} to make ur postie totally awesome!!(:"
-      get_location: "Get ur place in the world!"
+      formatWithMarkdown: 'U can like... use %{markdown_link} to make ur postie totally awesome!!(:'
+      posting: Postin...
+      share: Share!!!
+      get_location: Get ur place in the world!
+      remove_location: Trash where u r
+      whats_on_your_mind: Sup dude?
+      discard_post: Trash postie
       new_user_prefill:
-        hello: "OMG liek HEY PPL! im #%{new_user_tag} "
-        i_like: "im like... rlly into %{tags}. "
-        invited_by: "Thx for the invite, "
-        newhere: "Newbie<3"
+        newhere: Newbie<3
+        hello: 'OMG liek HEY PPL! im #%{new_user_tag} '
+        i_like: 'im like... rlly into %{tags}. '
+        invited_by: 'Thx for the invite, '
       poll:
-        add_a_poll: "Add a pole"
-      posting: "Postin..."
-      remove_location: "Trash where u r"
-      share: "Share!!!"
-      whats_on_your_mind: "Sup dude?"
+        add_a_poll: Add a pole
+    invitations:
+      invites: Invites!!
+      invite_your_friends: Invite ur BFFs!!
+      by_email: 'By email(:'
+      share_this: Share this link like... via email, blogg, or social netz!
+    public_explain:
+      control_your_audience: Control ur ppl
+      new_user_welcome_message: 'Like, use #hashtags 2 like... make ur posties bout somethin n find ppl who like... share ur interests.  call out awesome ppl wit @Mentions'
+      visibility_dropdown: Use dis dropdown 2 change who can like... c ur postie.  (we like... recommend u make this first 1 2 where ne1 can c it.)
+      title: Set up other servies
+      share: Sharrr
+      outside: So like... these txts r able 2 b seen by the internet..
+      logged_in: checked in 2 %{service}
+      manage: Like... manage servies ur like... connected 2
+      atom_feed: Feed thingy
     stream_element:
-      via: "like... via %{link}"
-      via_mobile: "via mobilez!!"
-  simple_captcha:
-    label: "enter teh stuff in the box:"
-    message:
-      default: "The captcha didnt match wit the pic D:"
-      failed: "so like, r u human? cuz u have to b in order to get past this :\\ sry bout tht. :\\"
-      user: "The secret pic n code werent the same D:"
-    placeholder: "like, enter in the stuff in the pic"
-  statistics:
-    active_users_halfyear: "Active ppl half yr"
-    active_users_monthly: "Active ppl monthly"
-    closed: "Closed"
-    disabled: "Not availab"
-    enabled: "Availab"
-    local_comments: "Local commentz"
-    local_posts: "Local posties"
-    name: "Nameee"
-    network: "Da network"
-    open: "Open"
-    registrations: "Reggies"
-    services: "Serviez!!!! :3"
-    total_users: "Total ppl"
-    version: "Ver"
+      via: like... via %{link}
+      via_mobile: via mobilez!!
   status_messages:
     new:
-      mentioning: "Mentionin: %{person}"
-    too_long: "Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses"
+      mentioning: 'Mentionin: %{person}'
+    too_long: Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses
   stream_helper:
-    no_more_posts: "youre at the end :("
-    no_posts_yet: "Therez no posties yet.."
-  streams:
-    activity:
-      title: "My happenins"
-    aspects:
-      title: "My Aspectz"
-    aspects_stream: "Aspectz"
-    comment_stream:
-      title: "Commented Posties"
-    community_spotlight_stream: "D* celebz!!"
-    followed_tag:
-      add_a_tag: "Add a like... tag"
-      follow: "Stalk"
-      title: "#Followed Tagz"
-    followed_tags_stream: "#Followed Tagz"
-    like_stream:
-      title: "Like Wall"
-    mentioned_stream: "@Mentionz"
-    mentions:
-      title: "@Mentionz"
-    multi:
-      title: "Wall"
-    public:
-      title: "Stuff every1 can like... c"
-    tags:
-      title: "Posties tagged: %{tags}"
+    no_more_posts: youre at the end :(
+    no_posts_yet: Therez no posties yet..
+  tags:
+    show:
+      tagged_people:
+        zero: No peep is like.. tagged with %{tag}
+        one: 1 peep is like tagged with %{tag}
+        other: "%{count} peeps tagged with %{tag}"
+      follow: 'Follow like... #%{tag}'
+      stop_following: 'Stop like... followin #%{tag}'
+      none: Umm, so the like... empty tag doesnt like... exist :\
+    name_too_long: So like, please make your tag name like... fewer than %{count} chars. Its like.. %{current_length}!!
   tag_followings:
     manage:
-      no_tags: "U arent followin any tags bruh :c"
-  tags:
-    name_too_long: "So like, please make your tag name like... fewer than %{count} chars. Its like.. %{current_length}!!"
-    show:
-      follow: "Follow like... #%{tag}"
-      none: "Umm, so the like... empty tag doesnt like... exist :\\"
-      stop_following: "Stop like... followin #%{tag}"
-      tagged_people:
-        one: "1 peep is like tagged with %{tag}"
-        other: "%{count} peeps tagged with %{tag}"
-        zero: "No peep is like.. tagged with %{tag}"
-  username: "ur like... name ppl will find u by or whatever"
-  users:
-    confirm_email:
-      email_confirmed: "Ur email %{email} is like... activated"
-      email_not_confirmed: "So like, ur email could not like... b activated for sum reason. Do u have the like... wrong link? D:"
-    destroy:
-      no_password: "Plz enter ur like... current passwerd 2 like... trash ur account."
-      success: "Ur account has like... been locked.  and it like.. may take like 20 mins for us 2 like... finish closin ur account..  thx for checkin out d*. byezz <33"
-      wrong_password: "so like, the passwerd u entered didnt match ur like... current 1... yeah."
-    edit:
-      also_commented: "some1 comments on a postie u've commented on"
-      auto_follow_aspect: "Group for automagically added BFFs:"
-      auto_follow_back: "Automagically share wit ppl who start sharin wit u"
-      change: "Changeee"
-      change_color_theme: "change the colorz!!![:"
-      change_email: "Change email <3"
-      change_language: "Change what u read n speak n stuff"
-      change_password: "Change passwerd"
-      character_minimum_expl: "must b like... 6 buttons..."
-      close_account:
-        dont_go: "DUDE! WTF!? Dont leave!"
-        lock_username: "So this will liek.. lock ur username thingy if u decided 2 sign back up n stuff."
-        locked_out: "U will like... get like.. automagically bounced n locked out of ur account."
-        make_diaspora_better: "We like... want u 2 help make d* bettah n stuff, so u should like.. help us out instead of leavin(: if u do wanna leave, we like... wanna make sure u know wat happens next. K?"
-        mr_wiggles: "Mr Wigglez will b sad :(( </3 </3"
-        no_turning_back: "So theres like, no turnin back nao. sry! <3"
-        what_we_delete: "We will like... trash all of ur posties n profile stuff asap. Ur comments will still hang out, but they would b associated wit ur d* ID instead of ur name. K?"
-      close_account_text: "Trash account"
-      comment_on_post: "some1 comments on ur postie"
-      current_password: "Current passwerd :3"
-      current_password_expl: "the 1 u like sign in wit... OMG"
-      default_post_visibility: "Default aspects for posties!!"
-      download_export: "dl my profileee"
-      download_export_photos: "dl my pics"
-      edit_account: "Edit ur account <3"
-      email_awaiting_confirmation: "So we like... sent u a link 2 like activate %{unconfirmed_email}. Until u like... follow this link && activate this new addy, we will continue 2 like.. use ur original addy %{email}. Kay?"
-      export_data: "dl data!!!"
-      export_in_progress: "We're gettin ur data... bbl!!!! <3"
-      export_photos_in_progress: "So like, we're currently gettin ur photos and junk. Bbl! <3"
-      following: "Sharin settins"
-      liked: "some1 likes ur postie"
-      mentioned: "u r mentioned in a postie"
-      new_password: "New passwerd(;"
-      private_message: "u receive a sext :o"
-      receive_email_notifications: "Receive email noties when like:"
-      request_export: "Get my pro dats."
-      request_export_photos: "make a request for my pics"
-      request_export_photos_update: "Refresh my pics"
-      request_export_update: "Refresh my wall data"
-      reshared: "some1 reshares ur postie"
-      show_community_spotlight: "Show d* celebs on Wall"
-      show_getting_started: "Show gettin started stuff"
-      someone_reported: "some1 told on some1"
-      started_sharing: "some1 starts sharin wit u"
-      stream_preferences: "Wall prefies"
-      your_email: "Ur emailll <3"
-      your_email_private: "no one will see ur email bruh!"
-      your_handle: "Ur d* ID"
-    getting_started:
-      awesome_take_me_to_diaspora: "Sweet! Take me 2 d*!!!"
-      community_welcome: "omg, like, thx for comin! <3"
-      hashtag_explanation: "Ok so like, hashtags allow u 2 talk bout n follow ur interests.  theyre like... also a sweet way 2 find new ppl on d* :D"
-      hashtag_suggestions: "Try followin tags like #justinbeiber #16andpregnant #monster #xbox and stuff.."
-      well_hello_there: "Ohai thar! <3"
-      what_are_you_in_to: "Wat r u into?"
-      who_are_you: "Umm like, who r u?"
-    privacy_settings:
-      ignored_users: "Haters"
-      no_user_ignored_message: "You arent like... currently ignoring any other ppl"
-      stop_ignoring: "Stop ignorin hater"
-      strip_exif: "get rid of the like.. stuff in your uploaded pics that like.. lets pigs track u and junk (probs a good idea)"
-      title: "Privie settins"
+      no_tags: U arent followin any tags bruh :c
+  streams:
+    community_spotlight_stream: D* celebz!!
+    aspects_stream: Aspectz
+    mentioned_stream: "@Mentionz"
+    followed_tags_stream: "#Followed Tagz"
+    mentions:
+      title: "@Mentionz"
+    comment_stream:
+      title: Commented Posties
+    like_stream:
+      title: Like Wall
+    followed_tag:
+      title: "#Followed Tagz"
+      add_a_tag: Add a like... tag
+      follow: Stalk
+    tags:
+      title: 'Posties tagged: %{tags}'
     public:
-      does_not_exist: "Umm like... %{username} doesnt exist... yeah.."
+      title: Stuff every1 can like... c
+    multi:
+      title: Wall
+    aspects:
+      title: My Aspectz
+    activity:
+      title: My happenins
+  users:
+    edit:
+      edit_account: Edit ur account <3
+      change: Changeee
+      your_handle: Ur d* ID
+      your_email: Ur emailll <3
+      your_email_private: no one will see ur email bruh!
+      change_email: Change email <3
+      email_awaiting_confirmation: So we like... sent u a link 2 like activate %{unconfirmed_email}. Until u like... follow this link && activate this new addy, we will continue 2 like.. use ur original addy %{email}. Kay?
+      change_password: Change passwerd
+      new_password: New passwerd(;
+      current_password: Current passwerd :3
+      current_password_expl: the 1 u like sign in wit... OMG
+      character_minimum_expl: must b like... 6 buttons...
+      change_language: Change what u read n speak n stuff
+      change_color_theme: 'change the colorz!!![:'
+      close_account_text: Trash account
+      stream_preferences: Wall prefies
+      show_community_spotlight: Show d* celebs on Wall
+      show_getting_started: Show gettin started stuff
+      following: Sharin settins
+      auto_follow_back: Automagically share wit ppl who start sharin wit u
+      auto_follow_aspect: 'Group for automagically added BFFs:'
+      default_post_visibility: Default aspects for posties!!
+      receive_email_notifications: 'Receive email noties when like:'
+      started_sharing: some1 starts sharin wit u
+      someone_reported: some1 told on some1
+      mentioned: u r mentioned in a postie
+      liked: some1 likes ur postie
+      reshared: some1 reshares ur postie
+      comment_on_post: some1 comments on ur postie
+      also_commented: some1 comments on a postie u've commented on
+      private_message: u receive a sext :o
+      download_export: dl my profileee
+      request_export: Get my pro dats.
+      request_export_update: Refresh my wall data
+      export_data: dl data!!!
+      export_in_progress: We're gettin ur data... bbl!!!! <3
+      download_export_photos: dl my pics
+      request_export_photos: make a request for my pics
+      request_export_photos_update: Refresh my pics
+      export_photos_in_progress: So like, we're currently gettin ur photos and junk. Bbl! <3
+      close_account:
+        dont_go: DUDE! WTF!? Dont leave!
+        make_diaspora_better: 'We like... want u 2 help make d* bettah n stuff, so u should like.. help us out instead of leavin(: if u do wanna leave, we like... wanna make sure u know wat happens next. K?'
+        mr_wiggles: Mr Wigglez will b sad :(( </3 </3
+        what_we_delete: We will like... trash all of ur posties n profile stuff asap. Ur comments will still hang out, but they would b associated wit ur d* ID instead of ur name. K?
+        locked_out: U will like... get like.. automagically bounced n locked out of ur account.
+        lock_username: So this will liek.. lock ur username thingy if u decided 2 sign back up n stuff.
+        no_turning_back: So theres like, no turnin back nao. sry! <3
+    privacy_settings:
+      title: Privie settins
+      strip_exif: get rid of the like.. stuff in your uploaded pics that like.. lets pigs track u and junk (probs a good idea)
+      ignored_users: Haters
+      stop_ignoring: Stop ignorin hater
+      no_user_ignored_message: You arent like... currently ignoring any other ppl
+    destroy:
+      success: Ur account has like... been locked.  and it like.. may take like 20 mins for us 2 like... finish closin ur account..  thx for checkin out d*. byezz <33
+      no_password: Plz enter ur like... current passwerd 2 like... trash ur account.
+      wrong_password: so like, the passwerd u entered didnt match ur like... current 1... yeah.
+    getting_started:
+      well_hello_there: Ohai thar! <3
+      community_welcome: omg, like, thx for comin! <3
+      awesome_take_me_to_diaspora: Sweet! Take me 2 d*!!!
+      who_are_you: Umm like, who r u?
+      what_are_you_in_to: Wat r u into?
+      hashtag_explanation: Ok so like, hashtags allow u 2 talk bout n follow ur interests.  theyre like... also a sweet way 2 find new ppl on d* :D
+      hashtag_suggestions: 'Try followin tags like #justinbeiber #16andpregnant #monster #xbox and stuff..'
     update:
-      color_theme_changed: "Theme changeddd!! OMG! SO PURTY!!! <3"
-      color_theme_not_changed: "the color theme didn't change  :c"
-      email_notifications_changed: "Ur email noties have been changed <3"
-      follow_settings_changed: "Stalkin settins changed <3"
-      follow_settings_not_changed: "so like, changin the follow settins didnt work.. sry bout that :\\"
-      language_changed: "Language changedddd <3"
-      language_not_changed: "Oh noes the language change like... didnt work! D:"
-      password_changed: "Passwerd changed!  U can nao check in wit ur new passwerd! <33 :D"
-      password_not_changed: "Ur passwerd like... didnt change... sry bout that :\\"
-      settings_not_updated: "Settins update didnt work... sry bout that :\\"
-      settings_updated: "Settins updated!!! <33"
-      unconfirmed_email_changed: "Ur email was like... changed. N nao it needs activation. K?"
-      unconfirmed_email_not_changed: "so like, the email change didnt work. sry bout that :\\"
+      password_changed: Passwerd changed!  U can nao check in wit ur new passwerd! <33 :D
+      password_not_changed: Ur passwerd like... didnt change... sry bout that :\
+      language_changed: Language changedddd <3
+      language_not_changed: 'Oh noes the language change like... didnt work! D:'
+      settings_updated: Settins updated!!! <33
+      settings_not_updated: Settins update didnt work... sry bout that :\
+      email_notifications_changed: Ur email noties have been changed <3
+      unconfirmed_email_changed: Ur email was like... changed. N nao it needs activation. K?
+      unconfirmed_email_not_changed: so like, the email change didnt work. sry bout that :\
+      follow_settings_changed: Stalkin settins changed <3
+      follow_settings_not_changed: so like, changin the follow settins didnt work.. sry bout that :\
+      color_theme_changed: Theme changeddd!! OMG! SO PURTY!!! <3
+      color_theme_not_changed: the color theme didn't change  :c
+    public:
+      does_not_exist: Umm like... %{username} doesnt exist... yeah..
+    confirm_email:
+      email_confirmed: Ur email %{email} is like... activated
+      email_not_confirmed: 'So like, ur email could not like... b activated for sum reason. Do u have the like... wrong link? D:'
   will_paginate:
-    next_label: "next!! &raquo;"
     previous_label: "&laquo; previe!!"
+    next_label: next!! &raquo;
+  simple_captcha:
+    placeholder: like, enter in the stuff in the pic
+    label: 'enter teh stuff in the box:'
+    message:
+      default: 'The captcha didnt match wit the pic D:'
+      user: 'The secret pic n code werent the same D:'
+      failed: so like, r u human? cuz u have to b in order to get past this :\ sry bout tht. :\
+  statistics:
+    name: Nameee
+    network: Da network
+    services: Serviez!!!! :3
+    total_users: Total ppl
+    active_users_halfyear: Active ppl half yr
+    active_users_monthly: Active ppl monthly
+    local_posts: Local posties
+    local_comments: Local commentz
+    version: Ver
+    registrations: Reggies
+    enabled: Availab
+    disabled: Not availab
+    open: Open
+    closed: Closed

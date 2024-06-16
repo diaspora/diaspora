@@ -6,311 +6,311 @@
 
 nb:
   javascripts:
+    timeago:
+      prefixAgo: for
+      suffixAgo: siden
+      suffixFromNow: fra nå
+      prefixFromNow: om
+      inPast: når som helst nå
+      seconds: under ett minutt
+      minute: ca. et minutt
+      minutes:
+        other: "%d minutter"
+      hour: ca. en time
+      hours:
+        other: ca. %d timer
+      day: en dag
+      days:
+        other: "%d dager"
+      month: ca. en måned
+      months:
+        other: "%d måneder"
+      year: ca. et år
+      years:
+        other: "%d år"
+      wordSeparator: " "
+    cancel: Avbryt
+    confirm_dialog: Er du sikker?
+    confirm_unload: Bekreft at du ønsker å forlate denne siden. Data du har lagt inn vil ikke bli lagret.
+    create: Lag
+    delete: Slett
+    ignore: Ignorer
+    report:
+      prompt: 'Angi en årsak:'
+      prompt_default: støtende innhold
+      name: Rapport
+      status:
+        created: Rapporten er opprettet
+        exists: Rapporten eksisterer allerede
+    ignore_user: Overse denne brukeren?
+    ignore_failed: Ikke mulig å ignorere brukeren
+    hide_post: Gjem dette innlegget?
+    hide_post_failed: Kunne ikke gjemme dette innlegget
+    remove_post: Fjern dette innlegget?
+    unblock_failed: Feilet i å stoppe blokkering
+    and: og
+    comma: ","
+    edit: Rediger
+    no_results: Ingen resultater funnet
+    show_all: Vis alle
+    admins:
+      dashboard:
+        up_to_date: Din belg er oppdatert!
+        outdated: Din belg er utdatert.
+        compare_versions: Den siste diaspora*-versjonen er <%= latestVersion %>, din belg kjører <%= podVersion %>.
+        error: Kunne ikke avgjøre siste diaspora*-versjon.
     admin:
       pods:
-        actions: "Handlinger"
-        added: "Lagt til"
-        check: "kjør tilkoblingstest"
-        errors:
-          one: "Tilkoblingstesten responderte med en feil for én belg."
-          other: "Tilkoblingstesten responderte med en feil for <%= count %> belger."
-        follow_link: "åpne lenken i nettleser"
-        last_check: "forrige kontroll:"
-        more_info: "vis mer informasjon"
+        pod: Belg
+        ssl: SSL
+        ssl_enabled: SSL er aktivert
+        ssl_disabled: SSL er deaktivert
+        added: Lagt til
+        status: Tilstand
+        states:
+          unchecked: Ukontrollert
+          no_errors: OK
+          dns_failed: Navneresolusjon (DNS) feilet
+          net_failed: Tilkoblingsforsøk feilet
+          ssl_failed: Sikker tilkobling (SSL) feilet
+          http_failed: HTTP-tilkobling feilet
+          version_failed: Kunne ikke hente programvareversjon
+          unknown_error: En uspesifisert feil har oppstått i løpet av kontrollen
+        actions: Handlinger
+        offline_since: 'frakoblet siden:'
+        last_check: 'forrige kontroll:'
+        more_info: vis mer informasjon
+        check: kjør tilkoblingstest
+        recheck:
+          success: Denne belgen ble nettopp kontrollert en gang til.
+          failure: Kontrollen ble ikke utført.
+        follow_link: åpne lenken i nettleser
+        no_info: Ingen ekstra informasjon er tilgjengelig på dette tidspunktet
+        server_software: 'Tjenerprogramvare:'
+        response_time: 'Svartid:'
         ms:
           one: "<%= count %>ms"
           other: "<%= count %>ms"
-        no_info: "Ingen ekstra informasjon er tilgjengelig på dette tidspunktet"
-        not_available: "ikke tilgjengelig"
-        offline_since: "frakoblet siden:"
-        pod: "Belg"
-        recheck:
-          failure: "Kontrollen ble ikke utført."
-          success: "Denne belgen ble nettopp kontrollert en gang til."
-        response_time: "Svartid:"
-        server_software: "Tjenerprogramvare:"
-        ssl: "SSL"
-        ssl_disabled: "SSL er deaktivert"
-        ssl_enabled: "SSL er aktivert"
-        states:
-          dns_failed: "Navneresolusjon (DNS) feilet"
-          http_failed: "HTTP-tilkobling feilet"
-          net_failed: "Tilkoblingsforsøk feilet"
-          no_errors: "OK"
-          ssl_failed: "Sikker tilkobling (SSL) feilet"
-          unchecked: "Ukontrollert"
-          unknown_error: "En uspesifisert feil har oppstått i løpet av kontrollen"
-          version_failed: "Kunne ikke hente programvareversjon"
-        status: "Tilstand"
+        unknown: ukjent
+        not_available: ikke tilgjengelig
         unchecked:
-          one: "Det finnes fortsatt en belg som ikke har blitt kontrollert i det hele tatt."
-          other: "Det finnes fortsatt <%= count %> belger som ikke har blitt kontrollert i det hele tatt."
-        unknown: "ukjent"
+          one: Det finnes fortsatt en belg som ikke har blitt kontrollert i det hele tatt.
+          other: Det finnes fortsatt <%= count %> belger som ikke har blitt kontrollert i det hele tatt.
         version_failed:
-          one: "Det finnes én belg som ikke har noen versjon (gammel belg, ingen NodeInfo)."
-          other: "Det finnes <%= count %> belger som ikke har noen versjoner (eldre belger, ingen NodeInfo)."
-    admins:
-      dashboard:
-        compare_versions: "Den siste diaspora*-versjonen er <%= latestVersion %>, din belg kjører <%= podVersion %>."
-        error: "Kunne ikke avgjøre siste diaspora*-versjon."
-        outdated: "Din belg er utdatert."
-        up_to_date: "Din belg er oppdatert!"
-    and: "og"
+          one: Det finnes én belg som ikke har noen versjon (gammel belg, ingen NodeInfo).
+          other: Det finnes <%= count %> belger som ikke har noen versjoner (eldre belger, ingen NodeInfo).
+        errors:
+          one: Tilkoblingstesten responderte med en feil for én belg.
+          other: Tilkoblingstesten responderte med en feil for <%= count %> belger.
+    aspects:
+      name: Navn
+      create:
+        add_a_new_aspect: Legg til et nytt aspekt
+        success: Ditt nye aspekt <%= name %> ble opprettet
+        failure: Kunne ikke opprette aspektet.
+    errors:
+      connection: Kunne ikke koble til tjeneren.
+    contacts:
+      add_contact: Legg til kontakt
+      remove_contact: Fjern kontakt
+      error_add: Kunne ikke legge til <%= name %> til aspektet :(
+      error_remove: Kunne ikke fjerne <%= name %> fra aspektet :(
+      search_no_results: Ingen kontakter funnet
+    my_activity: Min aktivitet
+    my_stream: Strøm
+    my_aspects: Mine aspekter
+    publisher:
+      near_from: 'Publisert fra: <%= location %>'
+      option: Valg <%= nr %>
+      add_option: Legg til valg
+      question: Spørsmål
+      markdown_editor:
+        preview: Forhåndsvis
+        write: Skriv
+        tooltips:
+          bold: Fet skrift
+          italic: Kursiv
+          heading: Overskrift
+          insert_link: Sett inn link
+          insert_image: Sett inn bilde
+          insert_ordered_list: Sett inn kronologisk liste
+          insert_unordered_list: Sett inn uordnet liste
+          preview: Forhåndsvis melding
+          write: Rediger melding
+          cancel: Avbryt melding
+          quote: Sett inn sitat
+          code: Sett inn kode
+        texts:
+          strong: Uthevet tekst
+          italic: Kursiv tekst
+          heading: Tekst for overskrift
+          insert_link_description_text: legg til lenkebeskrivelse her
+          insert_link_help_text: sett inn lenke her
+          insert_image_description_text: legg til bildebeskrivelse her
+          insert_image_help_text: Sett inn bildelink her
+          insert_image_title: legg til bildetittel her
+          list: listetekst her
+          quote: sitert tekst her
+          code: kode her
+      mention_success: 'Nevnte: <%= names %>'
+    bookmarklet:
+      post_something: Publiser noe på diaspora*
+      post_submit: Sender innlegg ...
+      post_success: Publisert! Lukker popup-vinduet ...
     aspect_dropdown:
-      add_to_aspect: "Legg til kategori"
-      all_aspects: "Alle kategorier"
-      error: "Kunne ikke begynne å dele med <%= name %>.  Ignorerer du dem?"
-      error_remove: "Kunne ikke flytte <%= name %> fra aspektet :("
+      add_to_aspect: Legg til kategori
+      select_aspects: Velg kategori
+      all_aspects: Alle kategorier
+      updating: oppdaterer ...
       mobile_row_checked: "<%= name %> (fjern)"
       mobile_row_unchecked: "<%= name %> (legg til)"
-      select_aspects: "Velg kategori"
-      started_sharing_with: "Du har begynt å dele med <%= name %>!"
-      stopped_sharing_with: "Du har sluttet å dele med <%= name %>."
+      stopped_sharing_with: Du har sluttet å dele med <%= name %>.
+      started_sharing_with: Du har begynt å dele med <%= name %>!
+      error: Kunne ikke begynne å dele med <%= name %>.  Ignorerer du dem?
+      error_remove: Kunne ikke flytte <%= name %> fra aspektet :(
       toggle:
-        one: "I <%= count %> kategori"
-        other: "I <%= count %> kategorier"
-        zero: "Legg til kategori"
-      updating: "oppdaterer ..."
-    aspect_navigation:
-      add_an_aspect: "+ Legg til et aspekt"
-      deselect_all: "Avmerk alle"
-      no_aspects: "Ingen kategorier valgt"
-      select_all: "Merk alle"
-    aspects:
-      create:
-        add_a_new_aspect: "Legg til et nytt aspekt"
-        failure: "Kunne ikke opprette aspektet."
-        success: "Ditt nye aspekt <%= name %> ble opprettet"
-      name: "Navn"
-    bookmarklet:
-      post_something: "Publiser noe på diaspora*"
-      post_submit: "Sender innlegg ..."
-      post_success: "Publisert! Lukker popup-vinduet ..."
-    cancel: "Avbryt"
-    comma: ","
+        zero: Legg til kategori
+        one: I <%= count %> kategori
+        other: I <%= count %> kategorier
+    show_more: vis mer
+    failed_to_post_message: Klarte ikke å publisere post!
+    failed_to_remove: Noe gikk galt i forsøket på å fjerne innlegget!
     comments:
-      hide: "skjul kommentarer"
-      no_comments: "Det finnes ingen kommentarer ennå."
-      show: "vis alle kommentarer"
-    confirm_dialog: "Er du sikker?"
-    confirm_unload: "Bekreft at du ønsker å forlate denne siden. Data du har lagt inn vil ikke bli lagret."
-    contacts:
-      add_contact: "Legg til kontakt"
-      error_add: "Kunne ikke legge til <%= name %> til aspektet :("
-      error_remove: "Kunne ikke fjerne <%= name %> fra aspektet :("
-      remove_contact: "Fjern kontakt"
-      search_no_results: "Ingen kontakter funnet"
+      show: vis alle kommentarer
+      hide: skjul kommentarer
+      no_comments: Det finnes ingen kommentarer ennå.
+    reshares:
+      successful: Dette innholdet ble videredelt
+      post: Videredel <%= name %> sitt innhold?
+    aspect_navigation:
+      select_all: Merk alle
+      deselect_all: Avmerk alle
+      no_aspects: Ingen kategorier valgt
+      add_an_aspect: "+ Legg til et aspekt"
+    getting_started:
+      hey: Hei, <%= name %>!
+      no_tags: Hei, du har ikke fulgt noen tagger! Fortsett likevel?
+      alright_ill_wait: Greit, jeg venter.
+      preparing_your_stream: Forbereder din personlige strøm ...
+    photo_uploader:
+      upload_photos: Last opp bilder
+      looking_good: Wow, du ser fantastisk ut!
+      completed: "<%= file %> ferdig"
+      error: Et problem oppstod under opplastning av filen <%= file %>
+      invalid_ext: "{file} har et ugyldig etternavn. Bare {extensions} er tillatt."
+      size_error: "{file} er for stor, maksimal filstørrelse er {sizeLimit}"
+      empty: "{file} er tom, vennligst velg filer igjen uten å bruke den."
+    tags:
+      wasnt_that_interesting: 'OK, jeg skjønner at #<%= tagName %> ikke var så spennende likevel ...'
+    people:
+      not_found: og ingen ble funnet ...
+      mention: Omtale
+      message: Melding
+      edit_my_profile: Endre profilen min
+      stop_ignoring: Slutt å ignorere
+      helper:
+        is_sharing: "<%= name %> deler med deg"
+        is_not_sharing: "<%= name %> deler ikke med deg"
+    profile:
+      edit: Endre
+      add_some: Legg til noen
+      you_have_no_tags: Du har ingen tagger!
+      bio: Biografi
+      location: Lokasjon
+      gender: Kjønn
+      born: Fødselsdag
+      photos: Bilder
+      posts: Innlegg
     conversation:
       create:
-        no_recipient: "Vent, du må legge til en mottaker først!"
+        no_recipient: Vent, du må legge til en mottaker først!
       new:
-        no_contacts: "Du må legge til noen kontakter før du kan starte en samtale."
-    create: "Lag"
-    delete: "Slett"
-    edit: "Rediger"
-    errors:
-      connection: "Kunne ikke koble til tjeneren."
-    failed_to_post_message: "Klarte ikke å publisere post!"
-    failed_to_remove: "Noe gikk galt i forsøket på å fjerne innlegget!"
-    getting_started:
-      alright_ill_wait: "Greit, jeg venter."
-      hey: "Hei, <%= name %>!"
-      no_tags: "Hei, du har ikke fulgt noen tagger! Fortsett likevel?"
-      preparing_your_stream: "Forbereder din personlige strøm ..."
-    header:
-      admin: "Admin"
-      close: "lukk"
-      contacts: "Kontakter"
-      conversations: "Samtaler"
-      help: "Hjelp"
-      home: "Hjem"
-      log_out: "Logg ut"
-      mark_all_as_read: "Merk alle som lest"
-      moderator: "Moderator"
-      notifications: "Varsler"
-      profile: "Profil"
-      recent_notifications: "Nylige varsel"
-      search: "Søk"
-      settings: "Innstillinger"
-      switch_to_touch_optimized_mode: "Bytt til touch-optimalisert visning"
-      toggle_navigation: "Veksle navigasjon"
-      view_all: "Vis alle"
-    hide_post: "Gjem dette innlegget?"
-    hide_post_failed: "Kunne ikke gjemme dette innlegget"
-    ignore: "Ignorer"
-    ignore_failed: "Ikke mulig å ignorere brukeren"
-    ignore_user: "Overse denne brukeren?"
-    my_activity: "Min aktivitet"
-    my_aspects: "Mine aspekter"
-    my_stream: "Strøm"
-    no_results: "Ingen resultater funnet"
+        no_contacts: Du må legge til noen kontakter før du kan starte en samtale.
     notifications:
-      mark_read: "Merk som lest"
-      mark_unread: "Merk som ulest"
+      mark_read: Merk som lest
+      mark_unread: Merk som ulest
       new_notifications:
-        one: "Du har <%= count %> varsel du ikke har lest"
-        other: "Du har <%= count %> varsler du ikke har lest"
-    people:
-      edit_my_profile: "Endre profilen min"
-      helper:
-        is_not_sharing: "<%= name %> deler ikke med deg"
-        is_sharing: "<%= name %> deler med deg"
-      mention: "Omtale"
-      message: "Melding"
-      not_found: "og ingen ble funnet ..."
-      stop_ignoring: "Slutt å ignorere"
-    photo_uploader:
-      completed: "<%= file %> ferdig"
-      empty: "{file} er tom, vennligst velg filer igjen uten å bruke den."
-      error: "Et problem oppstod under opplastning av filen <%= file %>"
-      invalid_ext: "{file} har et ugyldig etternavn. Bare {extensions} er tillatt."
-      looking_good: "Wow, du ser fantastisk ut!"
-      size_error: "{file} er for stor, maksimal filstørrelse er {sizeLimit}"
-      upload_photos: "Last opp bilder"
-    poll:
-      answer_count:
-        one: "Én stemme"
-        other: "<%=count%> stemmer"
-        zero: "Ingen stemmer"
-      close_result: "Skjul resultat"
-      count:
-        one: "1 stemme til nå"
-        other: "<%=count%> stemmer til nå"
-        zero: "ingen stemmer til nå"
-      go_to_original_post: "Du kan delta i denne spørreundersøkelsen på <%= original_post_link %>."
-      original_post: "opprinnelig innlegg"
-      result: "Resultat"
-      show_result: "Vis resultat"
-      vote: "Stem"
-      your_vote: "Din stemme"
-    profile:
-      add_some: "Legg til noen"
-      bio: "Biografi"
-      born: "Fødselsdag"
-      edit: "Endre"
-      gender: "Kjønn"
-      location: "Lokasjon"
-      photos: "Bilder"
-      posts: "Innlegg"
-      you_have_no_tags: "Du har ingen tagger!"
-    publisher:
-      add_option: "Legg til valg"
-      markdown_editor:
-        preview: "Forhåndsvis"
-        texts:
-          code: "kode her"
-          heading: "Tekst for overskrift"
-          insert_image_description_text: "legg til bildebeskrivelse her"
-          insert_image_help_text: "Sett inn bildelink her"
-          insert_image_title: "legg til bildetittel her"
-          insert_link_description_text: "legg til lenkebeskrivelse her"
-          insert_link_help_text: "sett inn lenke her"
-          italic: "Kursiv tekst"
-          list: "listetekst her"
-          quote: "sitert tekst her"
-          strong: "Uthevet tekst"
-        tooltips:
-          bold: "Fet skrift"
-          cancel: "Avbryt melding"
-          code: "Sett inn kode"
-          heading: "Overskrift"
-          insert_image: "Sett inn bilde"
-          insert_link: "Sett inn link"
-          insert_ordered_list: "Sett inn kronologisk liste"
-          insert_unordered_list: "Sett inn uordnet liste"
-          italic: "Kursiv"
-          preview: "Forhåndsvis melding"
-          quote: "Sett inn sitat"
-          write: "Rediger melding"
-        write: "Skriv"
-      mention_success: "Nevnte: <%= names %>"
-      near_from: "Publisert fra: <%= location %>"
-      option: "Valg <%= nr %>"
-      question: "Spørsmål"
-    remove_post: "Fjern dette innlegget?"
-    report:
-      name: "Rapport"
-      prompt: "Angi en årsak:"
-      prompt_default: "støtende innhold"
-      status:
-        created: "Rapporten er opprettet"
-        exists: "Rapporten eksisterer allerede"
-    reshares:
-      post: "Videredel <%= name %> sitt innhold?"
-      successful: "Dette innholdet ble videredelt"
-    show_all: "Vis alle"
-    show_more: "vis mer"
+        one: Du har <%= count %> varsel du ikke har lest
+        other: Du har <%= count %> varsler du ikke har lest
     stream:
-      comment: "Kommenter"
-      comments:
-        one: "<%= count %> kommentar"
-        other: "<%= count %> kommentarer"
-        zero: "Ingen kommentarer"
-      disable_post_notifications: "Slå av varslinger for dette innlegget"
-      enable_post_notifications: "Slå på varslinger for dette innlegget"
-      follow: "Følg"
-      followed_tag:
-        add_a_tag: "Legg til en tag"
-        follow: "Følg"
-        title: "#Fulgte tagger"
-      hide: "Skjul"
-      hide_nsfw_posts: "Gjem #nsfw-posts"
-      like: "Liker"
+      hide: Skjul
+      public: Offentlig
+      limited: Begrenset
+      like: Liker
+      unlike: Liker ikke
+      reshare: Del
+      comment: Kommenter
+      original_post_deleted: Den opprinnelige posten er slettet av forfatteren.
+      show_nsfw_post: Vis innlegg
+      show_nsfw_posts: Vis alle
+      hide_nsfw_posts: 'Gjem #nsfw-posts'
+      follow: Følg
+      unfollow: Ikke følg
+      enable_post_notifications: Slå på varslinger for dette innlegget
+      disable_post_notifications: Slå av varslinger for dette innlegget
+      permalink: Permalenke
+      via: via <%= provider %>
+      no_posts_yet: Det er ingen innlegg å vise her ennå
       likes:
+        zero: "<%= count %> liker dette"
         one: "<%= count %> liker dette"
         other: "<%= count %> liker dette"
-        zero: "<%= count %> liker dette"
-      limited: "Begrenset"
-      more_comments:
-        one: "Vis <%= count %> kommentar til"
-        other: "Vis <%= count %> komentarer til"
-        zero: "Ikke flere kommentarer"
-      no_posts_yet: "Det er ingen innlegg å vise her ennå"
-      original_post_deleted: "Den opprinnelige posten er slettet av forfatteren."
-      permalink: "Permalenke"
-      public: "Offentlig"
-      reshare: "Del"
       reshares:
+        zero: "<%= count %> delinger"
         one: "<%= count %> deling"
         other: "<%= count %> delinger"
-        zero: "<%= count %> delinger"
-      show_nsfw_post: "Vis innlegg"
-      show_nsfw_posts: "Vis alle"
+      comments:
+        zero: Ingen kommentarer
+        one: "<%= count %> kommentar"
+        other: "<%= count %> kommentarer"
+      more_comments:
+        zero: Ikke flere kommentarer
+        one: Vis <%= count %> kommentar til
+        other: Vis <%= count %> komentarer til
+      followed_tag:
+        title: "#Fulgte tagger"
+        add_a_tag: Legg til en tag
+        follow: Følg
       tags:
-        follow: "Følg #<%= tag %>"
-        follow_error: "Kunne ikke følge #<%= tag %>"
-        following: "Følger #<%= tag %>"
-        stop_following: "Stopp å følge #<%= tag %>"
-        stop_following_confirm: "Slutt å følge #<%= tag %>"
-        stop_following_error: "Kunne ikke slutte å følge #<%= tag %>"
-      unfollow: "Ikke følg"
-      unlike: "Liker ikke"
-      via: "via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "OK, jeg skjønner at #<%= tagName %> ikke var så spennende likevel ..."
-    timeago:
-      day: "en dag"
-      days:
-        other: "%d dager"
-      hour: "ca. en time"
-      hours:
-        other: "ca. %d timer"
-      inPast: "når som helst nå"
-      minute: "ca. et minutt"
-      minutes:
-        other: "%d minutter"
-      month: "ca. en måned"
-      months:
-        other: "%d måneder"
-      prefixAgo: "for"
-      prefixFromNow: "om"
-      seconds: "under ett minutt"
-      suffixAgo: "siden"
-      suffixFromNow: "fra nå"
-      wordSeparator: " "
-      year: "ca. et år"
-      years:
-        other: "%d år"
-    unblock_failed: "Feilet i å stoppe blokkering"
+        follow: 'Følg #<%= tag %>'
+        following: 'Følger #<%= tag %>'
+        stop_following: 'Stopp å følge #<%= tag %>'
+        stop_following_confirm: 'Slutt å følge #<%= tag %>'
+        follow_error: 'Kunne ikke følge #<%= tag %>'
+        stop_following_error: 'Kunne ikke slutte å følge #<%= tag %>'
+    header:
+      home: Hjem
+      profile: Profil
+      contacts: Kontakter
+      settings: Innstillinger
+      help: Hjelp
+      admin: Admin
+      moderator: Moderator
+      log_out: Logg ut
+      toggle_navigation: Veksle navigasjon
+      switch_to_touch_optimized_mode: Bytt til touch-optimalisert visning
+      notifications: Varsler
+      conversations: Samtaler
+      search: Søk
+      recent_notifications: Nylige varsel
+      mark_all_as_read: Merk alle som lest
+      view_all: Vis alle
+      close: lukk
     viewer:
-      reshared: "Delt med andre"
+      reshared: Delt med andre
+    poll:
+      vote: Stem
+      go_to_original_post: Du kan delta i denne spørreundersøkelsen på <%= original_post_link %>.
+      original_post: opprinnelig innlegg
+      result: Resultat
+      count:
+        zero: ingen stemmer til nå
+        one: 1 stemme til nå
+        other: "<%=count%> stemmer til nå"
+      answer_count:
+        zero: Ingen stemmer
+        one: Én stemme
+        other: "<%=count%> stemmer"
+      show_result: Vis resultat
+      close_result: Skjul resultat
+      your_vote: Din stemme

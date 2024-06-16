@@ -6,165 +6,165 @@
 
 nds:
   javascripts:
-    and: "und"
-    aspect_dropdown:
-      add_to_aspect: "Kontakt schluten"
-      all_aspects: "Alle Aspekte"
-      toggle:
-        one: "In een Aspekt"
-        other: "In <%= count %> Aspekte"
-        zero: "Aspekte utwählen"
-      updating: "aktualisier..."
-    aspect_navigation:
-      add_an_aspect: "+ Een Aspekt dortaudaun"
-      deselect_all: "Alle afwählen"
-      no_aspects: "Keene Aspekte utwählt"
-      select_all: "Alle utwählen"
-    aspects:
-      name: "Noom"
-    bookmarklet:
-      post_something: "Schriev wat in diaspora*"
-      post_submit: "Schick Bidrag af..."
-      post_success: "Schreben! Mok Pop-Up-Fenster tau..."
-    comma: ","
-    comments:
-      hide: "Kommentare versteken"
-      no_comments: "Dat gift noch keene Kommentare."
-      show: "Alle Kommentare anzeigen"
-    confirm_dialog: "Bist du di sicher?"
-    contacts:
-      add_contact: "Kontakt schluten"
-      error_add: "Kun <%= name %> nich to den Aspekt dortaudaun :("
-      error_remove: "Kun <%= name %> nich ut den Aspekt rutdaun :("
-      remove_contact: "Kontakt löschen"
-      search_no_results: "Keene Kontakte funnen"
-    delete: "Löschen"
-    edit: "Ännern"
-    failed_to_remove: "Kun den Indrag nich löschen!"
-    getting_started:
-      alright_ill_wait: "Geiht kloor, ik war töben."
-      hey: "He, <%= name %>!"
-    header:
-      admin: "Admin"
-      close: "Schluten"
-      contacts: "Kontakte"
-      conversations: "Schnacks"
-      help: "Hülp"
-      home: "Startsiet"
-      log_out: "Afmelden"
-      mark_all_as_read: "Alle as leest markieren"
-      moderator: "Moderator"
-      notifications: "Benorichtigungen"
-      profile: "Profil"
-      recent_notifications: "Letzte Benorichtigungen"
-      search: "Seuken"
-      settings: "Instellungen"
-      view_all: "Alle ankieken"
-    hide_post: "Dissen Bidrag versteken?"
-    ignore: "Ignorieren"
-    ignore_failed: "Kun dissen Bruker nich ignorieren"
-    ignore_user: "Dissen Bruker ignorieren?"
-    my_activity: "Mien Rümröören"
-    my_aspects: "Miene Aspekte"
-    my_stream: "Stream"
-    no_results: "Keene Resultate funnen"
-    notifications:
-      mark_read: "As leest markieren"
-      mark_unread: "As unleest markieren"
-    people:
-      edit_my_profile: "Mien Profil ännern"
-      helper:
-        is_not_sharing: "<%= name %> deelt nich mit di"
-        is_sharing: "<%= name %> deelt mit di"
-      mention: "Erwähnung"
-      message: "Noricht"
-      not_found: "... und keener is funnen worn"
-      stop_ignoring: "Nich mehr ignorieren"
-    photo_uploader:
-      error: "Dat geev een Problem bin hoochloden von de Datei <%= file %>"
-      looking_good: "OMG, du sühst toll ut!"
-    poll:
-      close_result: "Resultat versteken"
-      count:
-        one: "Een Stimm bit nu"
-        other: "<%=count%> Stimmen bit nu"
-      result: "Resultat"
-      show_result: "Resultat zeigen"
-      vote: "Afstimmen"
-    profile:
-      add_some: "Dau een poor dortau"
-      bio: "Beschriebung"
-      born: "Geburtsdag"
-      edit: "Ännern"
-      gender: "Geschlecht"
-      location: "Ort"
-      photos: "Bilder"
-      posts: "Bidräg"
-      you_have_no_tags: "Du hest keene Tags!"
-    publisher:
-      add_option: "Geev eene Antwort af"
-      near_from: "Schreben von: <%= location %>"
-      option: "Antwort"
-      question: "Froog"
-    report:
-      name: "Meldung"
-      prompt: "Bidde geev een Grund an:"
-      prompt_default: "t.B. anstöttenden Inhalt"
-      status:
-        exists: "De Meldung gift dat schon"
-    reshares:
-      post: "Bidrag von <%= name %> wiederseggen?"
-      successful: "De Bidrag is erfolgriek wiederseggt worn!"
-    show_more: "Mehr anzeigen"
-    stream:
-      comment: "Kommentar"
-      follow: "Folgen"
-      followed_tag:
-        follow: "Folgen"
-        title: "#Folgte Tags"
-      hide: "Versteken"
-      hide_nsfw_posts: "#nsfw-Bidräg versteken"
-      like: "Mag ik"
-      likes:
-        one: "1 Person mag dat"
-        other: "<%= count %> Lüüd mögt dat"
-        zero: "Keener mag dat"
-      limited: "Inschränkt"
-      more_comments:
-        one: "Zeig een annern Kommentar"
-        other: "Zeig <%= count %> annere Kommentare"
-        zero: "Zeig keene annern Kommentare"
-      original_post_deleted: "Originalbidrag löscht von’n Autor"
-      public: "Öffentlich"
-      reshare: "Widerseggen"
-      reshares:
-        one: "<%= count %> mol wiederseggt"
-        other: "<%= count %> mol wiederseggt"
-        zero: "Keen mol wiederseggt"
-      show_nsfw_post: "Bidrag anzeigen"
-      show_nsfw_posts: "Alle anzeigen"
-      tags:
-        follow: "Folg #<%= tag %>"
-        following: "Folg #<%= tag %>"
-        stop_following: "#<%= tag %> nich mehr folgen"
-      unfollow: "Nich mehr folgen"
-      unlike: "Mag ik nich mehr"
-      via: "öber <%= provider %>"
     timeago:
-      day: "een Dag"
-      days:
-        other: "%d Doog"
+      prefixAgo: ''
+      suffixAgo: her
+      suffixFromNow: ''
+      prefixFromNow: ''
+      seconds: weniger as eene Minute
       minutes:
         other: "%d Minuten"
+      day: een Dag
+      days:
+        other: "%d Doog"
       months:
         other: "%d Monate"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "weniger as eene Minute"
-      suffixAgo: "her"
-      suffixFromNow: ""
-      wordSeparator: " "
       years:
         other: "%d Johre"
+      wordSeparator: " "
+    confirm_dialog: Bist du di sicher?
+    delete: Löschen
+    ignore: Ignorieren
+    report:
+      prompt: 'Bidde geev een Grund an:'
+      prompt_default: t.B. anstöttenden Inhalt
+      name: Meldung
+      status:
+        exists: De Meldung gift dat schon
+    ignore_user: Dissen Bruker ignorieren?
+    ignore_failed: Kun dissen Bruker nich ignorieren
+    hide_post: Dissen Bidrag versteken?
+    and: und
+    comma: ","
+    edit: Ännern
+    no_results: Keene Resultate funnen
+    aspects:
+      name: Noom
+    contacts:
+      add_contact: Kontakt schluten
+      remove_contact: Kontakt löschen
+      error_add: Kun <%= name %> nich to den Aspekt dortaudaun :(
+      error_remove: Kun <%= name %> nich ut den Aspekt rutdaun :(
+      search_no_results: Keene Kontakte funnen
+    my_activity: Mien Rümröören
+    my_stream: Stream
+    my_aspects: Miene Aspekte
+    publisher:
+      near_from: 'Schreben von: <%= location %>'
+      option: Antwort
+      add_option: Geev eene Antwort af
+      question: Froog
+    bookmarklet:
+      post_something: Schriev wat in diaspora*
+      post_submit: Schick Bidrag af...
+      post_success: Schreben! Mok Pop-Up-Fenster tau...
+    aspect_dropdown:
+      add_to_aspect: Kontakt schluten
+      all_aspects: Alle Aspekte
+      updating: aktualisier...
+      toggle:
+        zero: Aspekte utwählen
+        one: In een Aspekt
+        other: In <%= count %> Aspekte
+    show_more: Mehr anzeigen
+    failed_to_remove: Kun den Indrag nich löschen!
+    comments:
+      show: Alle Kommentare anzeigen
+      hide: Kommentare versteken
+      no_comments: Dat gift noch keene Kommentare.
+    reshares:
+      successful: De Bidrag is erfolgriek wiederseggt worn!
+      post: Bidrag von <%= name %> wiederseggen?
+    aspect_navigation:
+      select_all: Alle utwählen
+      deselect_all: Alle afwählen
+      no_aspects: Keene Aspekte utwählt
+      add_an_aspect: "+ Een Aspekt dortaudaun"
+    getting_started:
+      hey: He, <%= name %>!
+      alright_ill_wait: Geiht kloor, ik war töben.
+    photo_uploader:
+      looking_good: OMG, du sühst toll ut!
+      error: Dat geev een Problem bin hoochloden von de Datei <%= file %>
+    people:
+      not_found: "... und keener is funnen worn"
+      mention: Erwähnung
+      message: Noricht
+      edit_my_profile: Mien Profil ännern
+      stop_ignoring: Nich mehr ignorieren
+      helper:
+        is_sharing: "<%= name %> deelt mit di"
+        is_not_sharing: "<%= name %> deelt nich mit di"
+    profile:
+      edit: Ännern
+      add_some: Dau een poor dortau
+      you_have_no_tags: Du hest keene Tags!
+      bio: Beschriebung
+      location: Ort
+      gender: Geschlecht
+      born: Geburtsdag
+      photos: Bilder
+      posts: Bidräg
+    notifications:
+      mark_read: As leest markieren
+      mark_unread: As unleest markieren
+    stream:
+      hide: Versteken
+      public: Öffentlich
+      limited: Inschränkt
+      like: Mag ik
+      unlike: Mag ik nich mehr
+      reshare: Widerseggen
+      comment: Kommentar
+      original_post_deleted: Originalbidrag löscht von’n Autor
+      show_nsfw_post: Bidrag anzeigen
+      show_nsfw_posts: Alle anzeigen
+      hide_nsfw_posts: "#nsfw-Bidräg versteken"
+      follow: Folgen
+      unfollow: Nich mehr folgen
+      via: öber <%= provider %>
+      likes:
+        zero: Keener mag dat
+        one: 1 Person mag dat
+        other: "<%= count %> Lüüd mögt dat"
+      reshares:
+        zero: Keen mol wiederseggt
+        one: "<%= count %> mol wiederseggt"
+        other: "<%= count %> mol wiederseggt"
+      more_comments:
+        zero: Zeig keene annern Kommentare
+        one: Zeig een annern Kommentar
+        other: Zeig <%= count %> annere Kommentare
+      followed_tag:
+        title: "#Folgte Tags"
+        follow: Folgen
+      tags:
+        follow: 'Folg #<%= tag %>'
+        following: 'Folg #<%= tag %>'
+        stop_following: "#<%= tag %> nich mehr folgen"
+    header:
+      home: Startsiet
+      profile: Profil
+      contacts: Kontakte
+      settings: Instellungen
+      help: Hülp
+      admin: Admin
+      moderator: Moderator
+      log_out: Afmelden
+      notifications: Benorichtigungen
+      conversations: Schnacks
+      search: Seuken
+      recent_notifications: Letzte Benorichtigungen
+      mark_all_as_read: Alle as leest markieren
+      view_all: Alle ankieken
+      close: Schluten
     viewer:
-      reshared: "Widerseggt"
+      reshared: Widerseggt
+    poll:
+      vote: Afstimmen
+      result: Resultat
+      count:
+        one: Een Stimm bit nu
+        other: "<%=count%> Stimmen bit nu"
+      show_result: Resultat zeigen
+      close_result: Resultat versteken

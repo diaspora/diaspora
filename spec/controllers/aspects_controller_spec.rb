@@ -82,7 +82,7 @@ describe AspectsController, :type => :controller do
     end
 
     it "doesn't overwrite random attributes" do
-      new_user = FactoryGirl.create :user
+      new_user = FactoryBot.create :user
       params = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
       put :update, params: {id: @alices_aspect_1.id, aspect: params}

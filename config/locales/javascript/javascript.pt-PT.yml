@@ -6,262 +6,262 @@
 
 pt-PT:
   javascripts:
+    timeago:
+      prefixAgo: ''
+      suffixAgo: ''
+      suffixFromNow: a partir de agora
+      prefixFromNow: ''
+      seconds: menos de um minuto
+      minute: cerca de um minuto
+      minutes:
+        one: 1 minuto
+        other: "%d minutos"
+      hour: cerca de uma hora
+      hours:
+        one: cerca de 1 hora
+        other: cerca de %d horas
+      day: um dia
+      days:
+        one: 1 dia
+        other: "%d dias"
+      month: cerca de um mês
+      months:
+        one: 1 mês
+        other: "%d meses"
+      year: cerca de um ano
+      years:
+        one: 1 ano
+        other: "%d anos"
+    cancel: Cancelar
+    confirm_dialog: Tem a certeza?
+    create: Criar
+    delete: Eliminar
+    ignore: Ignorar
+    report:
+      prompt: Por favor, insira um motivo
+      prompt_default: por exemplo, conteúdo ofensivo
+      name: Comunicar
+      status:
+        created: O relatório foi criado com sucesso
+        exists: O relatório já existe
+    ignore_user: Ignorar este utilizador?
+    hide_post: Ocultar esta publicação?
+    hide_post_failed: Não foi possível ocultar esta publicação
+    remove_post: Remover esta publicação?
+    and: e
+    comma: ","
+    edit: Editar
+    show_all: Mostrar tudo
+    admins:
+      dashboard:
+        up_to_date: O seu servidor está atualizado!
+        outdated: O seu servidor está desatualizado.
     admin:
       pods:
-        actions: "Ações"
-        added: "Adicionado"
-        check: "realizar teste de ligação"
-        follow_link: "abrir hiperligação num navegador"
-        last_check: "última verificação:"
-        more_info: "Mostrar mais informação"
+        pod: Servidor
+        ssl: SSL
+        ssl_enabled: SSL ativado
+        ssl_disabled: SSL desativado
+        added: Adicionado
+        status: Estado
+        states:
+          unchecked: Não verificado
+          no_errors: CONFIRMAR
+          dns_failed: Resolução de nome (DNS) falhou
+          net_failed: A tentativa de ligação falhou
+          ssl_failed: A ligação segura (SSL) falhou
+          http_failed: A ligação HTTP falhou
+          version_failed: Não é possível obter a versão do software
+        actions: Ações
+        offline_since: 'off-line desde:'
+        last_check: 'última verificação:'
+        more_info: Mostrar mais informação
+        check: realizar teste de ligação
+        recheck:
+          success: O servidor acabou de ser novamente verificado.
+          failure: A verificação não foi efetuada.
+        follow_link: abrir hiperligação num navegador
+        no_info: De momento, não existe informação adicional disponível
+        server_software: 'Software do servidor:'
+        response_time: 'Tempo de resposta:'
         ms:
           one: "<%= count %>ms"
           other: "<%= count %>ms"
-        no_info: "De momento, não existe informação adicional disponível"
-        not_available: "indisponível"
-        offline_since: "off-line desde:"
-        pod: "Servidor"
-        recheck:
-          failure: "A verificação não foi efetuada."
-          success: "O servidor acabou de ser novamente verificado."
-        response_time: "Tempo de resposta:"
-        server_software: "Software do servidor:"
-        ssl: "SSL"
-        ssl_disabled: "SSL desativado"
-        ssl_enabled: "SSL ativado"
-        states:
-          dns_failed: "Resolução de nome (DNS) falhou"
-          http_failed: "A ligação HTTP falhou"
-          net_failed: "A tentativa de ligação falhou"
-          no_errors: "CONFIRMAR"
-          ssl_failed: "A ligação segura (SSL) falhou"
-          unchecked: "Não verificado"
-          version_failed: "Não é possível obter a versão do software"
-        status: "Estado"
-        unknown: "desconhecido"
-    admins:
-      dashboard:
-        outdated: "O seu servidor está desatualizado."
-        up_to_date: "O seu servidor está atualizado!"
-    and: "e"
+        unknown: desconhecido
+        not_available: indisponível
+    aspects:
+      name: Nome
+      create:
+        add_a_new_aspect: Adicionar um novo aspeto
+        success: O seu novo aspeto <%= name %> foi criado
+        failure: A criação do aspeto falhou.
+    errors:
+      connection: Não é possível ligar ao servidor.
+    contacts:
+      add_contact: Adicionar contacto
+      remove_contact: Remover contacto
+      error_add: Não foi possível adicionar <%= name %> ao aspeto :(
+      error_remove: Não foi possível remover <%= name%> do aspeto :(
+      search_no_results: Não foram encontrados contactos
+    my_activity: A minha atividade
+    my_stream: Fluxo
+    my_aspects: Os meus aspetos
+    publisher:
+      near_from: 'Publicado em: <%= location %>'
+      option: Responder
+      add_option: Adicionar uma resposta
+      question: Pergunta
+      markdown_editor:
+        preview: Pré-visualizar
+        write: Escrever
+        tooltips:
+          bold: Negrito
+          italic: Itálico
+          insert_link: Inserir hiperligação
+          insert_image: Inserir imagem
+          preview: Pré-visualizar mensagem
+          write: Editar mensagem
+          cancel: Cancelar mensagem
+          code: Inserir código
+        texts:
+          strong: texto negrito
+          italic: texto itálico
+          code: código aqui
+    bookmarklet:
+      post_something: Publicar no diaspora*
+      post_submit: A submeter a publicação...
     aspect_dropdown:
-      add_to_aspect: "Adicionar contacto"
-      all_aspects: "Todos os grupos"
-      error: "Não foi possível começar a partilhar com <%= name %>. Está a ignorá-los?"
-      error_remove: "Não foi possível remover <%= name %> do aspeto :("
+      add_to_aspect: Adicionar contacto
+      select_aspects: Selecionar grupos
+      all_aspects: Todos os grupos
+      updating: a atualizar...
       mobile_row_checked: "<%= name %> (remover)"
       mobile_row_unchecked: "<%= name %> (adicionar)"
-      select_aspects: "Selecionar grupos"
-      started_sharing_with: "Começou a partilhar com <%= name %>!"
-      stopped_sharing_with: "Deixou de partilhar com <%= name %>."
+      stopped_sharing_with: Deixou de partilhar com <%= name %>.
+      started_sharing_with: Começou a partilhar com <%= name %>!
+      error: Não foi possível começar a partilhar com <%= name %>. Está a ignorá-los?
+      error_remove: Não foi possível remover <%= name %> do aspeto :(
       toggle:
-        one: "Em <%=count %> grupo"
-        other: "Em <%=count %> grupos"
-        zero: "Selecione os grupos"
-      updating: "a atualizar..."
-    aspect_navigation:
-      add_an_aspect: "+ Adicionar um aspeto"
-      deselect_all: "Desmarcar todos"
-      no_aspects: "Nenhuns aspectos selecionados"
-      select_all: "Selecionar todos"
-    aspects:
-      create:
-        add_a_new_aspect: "Adicionar um novo aspeto"
-        failure: "A criação do aspeto falhou."
-        success: "O seu novo aspeto <%= name %> foi criado"
-      name: "Nome"
-    bookmarklet:
-      post_something: "Publicar no diaspora*"
-      post_submit: "A submeter a publicação..."
-    cancel: "Cancelar"
-    comma: ","
+        zero: Selecione os grupos
+        one: Em <%=count %> grupo
+        other: Em <%=count %> grupos
+    show_more: Mostrar mais
+    failed_to_post_message: Falhou ao publicar a mensagem!
+    failed_to_remove: Não foi possível remover a entrada!
     comments:
-      hide: "Ocultar comentários"
-      show: "Mostrar todos os comentários"
-    confirm_dialog: "Tem a certeza?"
-    contacts:
-      add_contact: "Adicionar contacto"
-      error_add: "Não foi possível adicionar <%= name %> ao aspeto :("
-      error_remove: "Não foi possível remover <%= name%> do aspeto :("
-      remove_contact: "Remover contacto"
-      search_no_results: "Não foram encontrados contactos"
-    create: "Criar"
-    delete: "Eliminar"
-    edit: "Editar"
-    errors:
-      connection: "Não é possível ligar ao servidor."
-    failed_to_post_message: "Falhou ao publicar a mensagem!"
-    failed_to_remove: "Não foi possível remover a entrada!"
-    getting_started:
-      alright_ill_wait: "Tudo bem, eu irei aguardar."
-      hey: "Olá, <%= name %>!"
-      no_tags: "Olá, não está a seguir quaisquer etiquetas! Mesmo assim, continuar?"
-      preparing_your_stream: "A preparar o seu fluxo personalizado..."
-    header:
-      admin: "Administrador"
-      close: "Fechar"
-      contacts: "Contactos "
-      conversations: "Conversações"
-      help: "Ajuda"
-      home: "Inicio "
-      log_out: "Sair"
-      mark_all_as_read: "Marcar tudo como lido"
-      moderator: "Moderador"
-      notifications: "Notificações"
-      profile: "Perfil"
-      recent_notifications: "Notificações recentes"
-      search: "Procurar"
-      settings: "Definições"
-      toggle_navigation: "Alternar navegação"
-      view_all: "Ver tudo"
-    hide_post: "Ocultar esta publicação?"
-    hide_post_failed: "Não foi possível ocultar esta publicação"
-    ignore: "Ignorar"
-    ignore_user: "Ignorar este utilizador?"
-    my_activity: "A minha atividade"
-    my_aspects: "Os meus aspetos"
-    my_stream: "Fluxo"
-    notifications:
-      mark_read: "Marcar como lida"
-      mark_unread: "Marcar como não lida"
-    people:
-      edit_my_profile: "Editar o meu perfil"
-      mention: "Menção"
-      message: "Mensagem"
-      not_found: "e ninguém foi encontrado..."
-    photo_uploader:
-      completed: "<%= file %> concluído"
-      empty: "O {file} não tem dados, por favor, selecione novamente os ficheiros, sem este."
-      invalid_ext: "O {file} tem uma extensão inválida. Só são permitidas as extensões {extensions}."
-      looking_good: "OMD, tu estás fantástico(a)!"
-      size_error: "O {file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}."
-      upload_photos: "Enviar as fotografias"
-    poll:
-      answer_count:
-        one: "1 voto"
-        other: "<%=count%> votos"
-        zero: "0 votos"
-      close_result: "Ocultar resultado"
-      count:
-        one: "1 voto até agora"
-        other: "<%=count%> votos até agora"
-      original_post: "publicação original"
-      result: "Resultado"
-      show_result: "Mostrar resultado"
-      vote: "Votar"
-      your_vote: "O seu voto"
-    profile:
-      add_some: "Adicionar algum"
-      bio: "Biografia"
-      born: "Aniversário"
-      edit: "Editar"
-      gender: "Sexo"
-      location: "Localização"
-      photos: "Fotografias"
-      posts: "Publicações"
-      you_have_no_tags: "Não tem etiquetas!"
-    publisher:
-      add_option: "Adicionar uma resposta"
-      markdown_editor:
-        preview: "Pré-visualizar"
-        texts:
-          code: "código aqui"
-          italic: "texto itálico"
-          strong: "texto negrito"
-        tooltips:
-          bold: "Negrito"
-          cancel: "Cancelar mensagem"
-          code: "Inserir código"
-          insert_image: "Inserir imagem"
-          insert_link: "Inserir hiperligação"
-          italic: "Itálico"
-          preview: "Pré-visualizar mensagem"
-          write: "Editar mensagem"
-        write: "Escrever"
-      near_from: "Publicado em: <%= location %>"
-      option: "Responder"
-      question: "Pergunta"
-    remove_post: "Remover esta publicação?"
-    report:
-      name: "Comunicar"
-      prompt: "Por favor, insira um motivo"
-      prompt_default: "por exemplo, conteúdo ofensivo"
-      status:
-        created: "O relatório foi criado com sucesso"
-        exists: "O relatório já existe"
+      show: Mostrar todos os comentários
+      hide: Ocultar comentários
     reshares:
-      post: "Voltar a partilhar a publicação de <%= name %>?"
-      successful: "A publicação foi repartilhada com sucesso!"
-    show_all: "Mostrar tudo"
-    show_more: "Mostrar mais"
+      successful: A publicação foi repartilhada com sucesso!
+      post: Voltar a partilhar a publicação de <%= name %>?
+    aspect_navigation:
+      select_all: Selecionar todos
+      deselect_all: Desmarcar todos
+      no_aspects: Nenhuns aspectos selecionados
+      add_an_aspect: "+ Adicionar um aspeto"
+    getting_started:
+      hey: Olá, <%= name %>!
+      no_tags: Olá, não está a seguir quaisquer etiquetas! Mesmo assim, continuar?
+      alright_ill_wait: Tudo bem, eu irei aguardar.
+      preparing_your_stream: A preparar o seu fluxo personalizado...
+    photo_uploader:
+      upload_photos: Enviar as fotografias
+      looking_good: OMD, tu estás fantástico(a)!
+      completed: "<%= file %> concluído"
+      invalid_ext: O {file} tem uma extensão inválida. Só são permitidas as extensões {extensions}.
+      size_error: O {file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}.
+      empty: O {file} não tem dados, por favor, selecione novamente os ficheiros, sem este.
+    tags:
+      wasnt_that_interesting: 'Ok, eu suponho que #<%= tagName %> não era assim tão interessante...'
+    people:
+      not_found: e ninguém foi encontrado...
+      mention: Menção
+      message: Mensagem
+      edit_my_profile: Editar o meu perfil
+    profile:
+      edit: Editar
+      add_some: Adicionar algum
+      you_have_no_tags: Não tem etiquetas!
+      bio: Biografia
+      location: Localização
+      gender: Sexo
+      born: Aniversário
+      photos: Fotografias
+      posts: Publicações
+    notifications:
+      mark_read: Marcar como lida
+      mark_unread: Marcar como não lida
     stream:
-      comment: "Comentar"
-      disable_post_notifications: "Desativar notificações para esta publicação"
-      enable_post_notifications: "Ativar notificações para esta publicação"
-      follow: "Seguir"
-      followed_tag:
-        add_a_tag: "Adicionar uma etiqueta"
-        follow: "Seguir"
-        title: "#Etiquetas Seguidas"
-      hide: "Ocultar"
-      hide_nsfw_posts: "Ocultar publicações #nsfw"
-      like: "Gostar"
+      hide: Ocultar
+      public: Público
+      limited: Limitado
+      like: Gostar
+      unlike: Não gostar
+      reshare: Voltar a Partilhar
+      comment: Comentar
+      original_post_deleted: Publicação original eliminada pelo autor.
+      show_nsfw_post: Mostrar publicação
+      show_nsfw_posts: Mostrar tudo
+      hide_nsfw_posts: 'Ocultar publicações #nsfw'
+      follow: Seguir
+      unfollow: Anular Seguir
+      enable_post_notifications: Ativar notificações para esta publicação
+      disable_post_notifications: Desativar notificações para esta publicação
+      permalink: Ligação permanente
+      via: via <%= provider %>
       likes:
+        zero: "<%= count %> gosto"
         one: "<%= count %> gosto"
         other: "<%= count %> gostos"
-        zero: "<%= count %> gosto"
-      limited: "Limitado"
-      more_comments:
-        one: "Mostrar mais <%= count %> comentário"
-        other: "Mostrar mais <%= count %> comentários"
-        zero: "Mostrar mais <%= count %> comentários"
-      original_post_deleted: "Publicação original eliminada pelo autor."
-      permalink: "Ligação permanente"
-      public: "Público"
-      reshare: "Voltar a Partilhar"
       reshares:
+        zero: "<%= count %> repartilhas"
         one: "<%= count %> repartilha"
         other: "<%= count %> repartilhas"
-        zero: "<%= count %> repartilhas"
-      show_nsfw_post: "Mostrar publicação"
-      show_nsfw_posts: "Mostrar tudo"
+      more_comments:
+        zero: Mostrar mais <%= count %> comentários
+        one: Mostrar mais <%= count %> comentário
+        other: Mostrar mais <%= count %> comentários
+      followed_tag:
+        title: "#Etiquetas Seguidas"
+        add_a_tag: Adicionar uma etiqueta
+        follow: Seguir
       tags:
-        follow: "Seguir #<%= tag %>"
-        follow_error: "Não foi possível seguir #<%= tag %> :("
-        following: "A Seguir #<%= tag %>"
-        stop_following: "Parar de seguir #<%= tag %>"
-        stop_following_confirm: "Deixar de seguir #<%= tag %>"
-        stop_following_error: "Não foi possível deixar de seguir #<%= tag %> :("
-      unfollow: "Anular Seguir"
-      unlike: "Não gostar"
-      via: "via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Ok, eu suponho que #<%= tagName %> não era assim tão interessante..."
-    timeago:
-      day: "um dia"
-      days:
-        one: "1 dia"
-        other: "%d dias"
-      hour: "cerca de uma hora"
-      hours:
-        one: "cerca de 1 hora"
-        other: "cerca de %d horas"
-      minute: "cerca de um minuto"
-      minutes:
-        one: "1 minuto"
-        other: "%d minutos"
-      month: "cerca de um mês"
-      months:
-        one: "1 mês"
-        other: "%d meses"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "menos de um minuto"
-      suffixAgo: ""
-      suffixFromNow: "a partir de agora"
-      year: "cerca de um ano"
-      years:
-        one: "1 ano"
-        other: "%d anos"
+        follow: 'Seguir #<%= tag %>'
+        following: 'A Seguir #<%= tag %>'
+        stop_following: 'Parar de seguir #<%= tag %>'
+        stop_following_confirm: 'Deixar de seguir #<%= tag %>'
+        follow_error: 'Não foi possível seguir #<%= tag %> :('
+        stop_following_error: 'Não foi possível deixar de seguir #<%= tag %> :('
+    header:
+      home: 'Inicio '
+      profile: Perfil
+      contacts: 'Contactos '
+      settings: Definições
+      help: Ajuda
+      admin: Administrador
+      moderator: Moderador
+      log_out: Sair
+      toggle_navigation: Alternar navegação
+      notifications: Notificações
+      conversations: Conversações
+      search: Procurar
+      recent_notifications: Notificações recentes
+      mark_all_as_read: Marcar tudo como lido
+      view_all: Ver tudo
+      close: Fechar
     viewer:
-      reshared: "Repartilhado"
+      reshared: Repartilhado
+    poll:
+      vote: Votar
+      original_post: publicação original
+      result: Resultado
+      count:
+        one: 1 voto até agora
+        other: "<%=count%> votos até agora"
+      answer_count:
+        zero: 0 votos
+        one: 1 voto
+        other: "<%=count%> votos"
+      show_result: Mostrar resultado
+      close_result: Ocultar resultado
+      your_vote: O seu voto

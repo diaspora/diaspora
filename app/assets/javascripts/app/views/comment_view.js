@@ -6,35 +6,52 @@ app.views.Comment = app.views.Content.extend({
   className : "comment media",
   tooltipSelector: "time",
 
-  events : function() {
+  subviews: {
+    ".likes-on-comment": "likesInfoView"
+  },
+
+  events: function() {
     return _.extend({}, app.views.Content.prototype.events, {
       "click .comment_delete": "destroyModel",
-      "click .comment_report": "report"
+      "click .comment_report": "report",
+      "click .like": "toggleLike"
     });
   },
 
-  initialize : function(options){
+  initialize: function(options) {
     this.templateName = options.templateName || this.templateName;
+    this.model.interactions.on("change", this.render, this);
     this.model.on("change", this.render, this);
   },
 
-  presenter : function() {
+  presenter: function() {
     return _.extend(this.defaultPresenter(), {
       canRemove: this.canRemove(),
-      text: app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people"))
+      text: app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people")),
+      likesCount: this.model.attributes.likesCount,
+      userLike: this.model.interactions.userLike()
     });
   },
 
-  ownComment : function() {
+  ownComment: function() {
     return app.currentUser.authenticated() && this.model.get("author").diaspora_id === app.currentUser.get("diaspora_id");
   },
 
-  postOwner : function() {
+  postOwner: function() {
     return  app.currentUser.authenticated() && this.model.get("parent").author.diaspora_id === app.currentUser.get("diaspora_id");
   },
 
-  canRemove : function() {
+  canRemove: function() {
     return app.currentUser.authenticated() && (this.ownComment() || this.postOwner());
+  },
+
+  toggleLike: function(evt) {
+    if (evt) { evt.preventDefault(); }
+    this.model.interactions.toggleLike();
+  },
+
+  likesInfoView: function() {
+    return new app.views.LikesInfo({model: this.model});
   }
 });
 

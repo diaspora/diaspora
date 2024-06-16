@@ -12,12 +12,17 @@ app.collections.Comments = Backbone.Collection.extend({
 
   make : function(text) {
     var self = this;
-    var comment = new app.models.Comment({ "text": text });
+    var comment = new app.models.Comment({"text": text}, {post: this.post});
 
     var deferred = comment.save({}, {
       url: "/posts/"+ this.post.id +"/comments",
       success: function() {
         comment.set({author: app.currentUser.toJSON(), parent: self.post });
+
+        // Need interactions after make
+        comment.interactions = new app.models.LikeInteractions(
+          _.extend({comment: comment, post: self.post}, comment.get("interactions"))
+        );
         self.add(comment);
       }
     });

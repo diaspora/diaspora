@@ -7,10 +7,10 @@
 fil:
   devise:
     mailer:
-      hello: "Kumusta %{username}!"
+      hello: Kumusta %{username}!
     sessions:
       new:
-        remember_me: "Tandaan Ako"
+        remember_me: Tandaan Ako
   errors:
     messages:
-      not_found: "Walang Mahanap"
+      not_found: Walang Mahanap

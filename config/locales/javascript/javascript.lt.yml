@@ -6,100 +6,100 @@
 
 lt:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Pridėti prie kontaktų"
-      all_aspects: "Visos kategorijos"
-      error: "Negalima pradėti dalijimosi su <%= name %>. Gal įjungtas ignoravimas?"
-      select_aspects: "Pasirinkti kategorijas"
-      started_sharing_with: "Jūs pradėjote dalijimąsi su <%= name %>!"
-      stopped_sharing_with: "Jūs sustabdėte dalijimąsi su <%= name %>"
-      toggle:
-        few: "<%= count %> kategorijose"
-        one: "<%= count %> kategorijoje"
-        other: "<%= count %> kategorijų"
-        zero: "Pasirinkite kategorijas"
-    aspect_navigation:
-      deselect_all: "Nesirinkti nieko"
-      no_aspects: "Nepasirinkta nei viena kategorija"
-      select_all: "Pasirinkti viską"
-    comments:
-      hide: "Slėpti komentarus"
-      show: "Rodyti visus komentarus"
-    confirm_dialog: "Ar Jūs tuo įsitikinęs?"
-    delete: "Ištrinti"
-    failed_to_post_message: "Nepavyko išsiųsti žinutės!"
-    getting_started:
-      alright_ill_wait: "Suprantama, aš galiu palaukti!"
-      hey: "Sveiki, <%= name %>!"
-      no_tags: "Labas, Jūs nieko nesekate! Visitiek tęsti?"
-      preparing_your_stream: "Ruošiamas Jūsų Srautas..."
-    header:
-      admin: "Administruoti"
-      contacts: "Kontaktai"
-      home: "Pradžia"
-      log_out: "Atsijungti"
-      mark_all_as_read: "Pažymėti viską kaip skaitytą"
-      notifications: "Įspėjimai"
-      profile: "Anketa"
-      recent_notifications: "Naujausi įspėjimai"
-      search: "Paieška"
-      settings: "Nustatymai"
-      view_all: "Rodyti viską"
-    ignore: "Ignoruoti"
-    my_activity: "Mano veikla"
-    my_stream: "Srautas"
-    photo_uploader:
-      looking_good: "Wow, Jūs atrodote nuostabiai!"
-    show_more: "Rodyti daugiau"
-    stream:
-      comment: "Komentuoti"
-      follow: "Sekti"
-      hide: "Slėpti"
-      hide_nsfw_posts: "Slėpti #nsfw įrašus"
-      like: "Mėgti"
-      likes:
-        few: "<%= count %> mėgstantys"
-        one: "<%= count %> mėgstantis"
-        other: "<%= count %> mėgstančių"
-        zero: "<%= count %> mėgstančių"
-      limited: "Ribotas"
-      more_comments:
-        few: "Rodyti dar <%= count %> komentarus"
-        one: "Rodyti dar <%= count %> komentarą"
-        other: "Rodyti dar <%= count %> komentarų"
-        zero: "Rodyti <%= count %> komentarų"
-      original_post_deleted: "Įrašą ištrynė jo autorius."
-      public: "viešas"
-      reshare: "Pasidalinti"
-      reshares:
-        few: "Dalijasi <%= count %>"
-        one: "Dalijasi <%= count %>"
-        other: "Dalijasi <%= count %>"
-        zero: "Dalijasi <%= count %>"
-      show_nsfw_post: "Rodyti įrašą"
-      show_nsfw_posts: "Rodyti viską"
-      unfollow: "Nesekti"
-      unlike: "Nemėgti"
-    tags:
-      wasnt_that_interesting: "Na gerai, greičiausiai #<%= tagName%> tai nebuvo taip įdomu..."
     timeago:
-      day: "1 d."
-      days:
-        other: "%d d."
-      hour: "maždaug1 val."
-      hours:
-        other: "maždaug %d val."
-      minute: "maždaug 1 min."
+      prefixAgo: ''
+      suffixAgo: prieš
+      suffixFromNow: nuo dabar
+      prefixFromNow: ''
+      seconds: mažiau nei 1 min.
+      minute: maždaug 1 min.
       minutes:
         other: "%d min."
-      month: "maždaug 1 mėn."
+      hour: maždaug1 val.
+      hours:
+        other: maždaug %d val.
+      day: 1 d.
+      days:
+        other: "%d d."
+      month: maždaug 1 mėn.
       months:
         other: "%d mėn."
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "mažiau nei 1 min."
-      suffixAgo: "prieš"
-      suffixFromNow: "nuo dabar"
-      year: "maždaug 1 m."
+      year: maždaug 1 m.
       years:
         other: "%d m."
+    confirm_dialog: Ar Jūs tuo įsitikinęs?
+    delete: Ištrinti
+    ignore: Ignoruoti
+    my_activity: Mano veikla
+    my_stream: Srautas
+    aspect_dropdown:
+      add_to_aspect: Pridėti prie kontaktų
+      select_aspects: Pasirinkti kategorijas
+      all_aspects: Visos kategorijos
+      stopped_sharing_with: Jūs sustabdėte dalijimąsi su <%= name %>
+      started_sharing_with: Jūs pradėjote dalijimąsi su <%= name %>!
+      error: Negalima pradėti dalijimosi su <%= name %>. Gal įjungtas ignoravimas?
+      toggle:
+        zero: Pasirinkite kategorijas
+        one: "<%= count %> kategorijoje"
+        few: "<%= count %> kategorijose"
+        other: "<%= count %> kategorijų"
+    show_more: Rodyti daugiau
+    failed_to_post_message: Nepavyko išsiųsti žinutės!
+    comments:
+      show: Rodyti visus komentarus
+      hide: Slėpti komentarus
+    aspect_navigation:
+      select_all: Pasirinkti viską
+      deselect_all: Nesirinkti nieko
+      no_aspects: Nepasirinkta nei viena kategorija
+    getting_started:
+      hey: Sveiki, <%= name %>!
+      no_tags: Labas, Jūs nieko nesekate! Visitiek tęsti?
+      alright_ill_wait: Suprantama, aš galiu palaukti!
+      preparing_your_stream: Ruošiamas Jūsų Srautas...
+    photo_uploader:
+      looking_good: Wow, Jūs atrodote nuostabiai!
+    tags:
+      wasnt_that_interesting: 'Na gerai, greičiausiai #<%= tagName%> tai nebuvo taip įdomu...'
+    stream:
+      hide: Slėpti
+      public: viešas
+      limited: Ribotas
+      like: Mėgti
+      unlike: Nemėgti
+      reshare: Pasidalinti
+      comment: Komentuoti
+      original_post_deleted: Įrašą ištrynė jo autorius.
+      show_nsfw_post: Rodyti įrašą
+      show_nsfw_posts: Rodyti viską
+      hide_nsfw_posts: 'Slėpti #nsfw įrašus'
+      follow: Sekti
+      unfollow: Nesekti
+      likes:
+        zero: "<%= count %> mėgstančių"
+        one: "<%= count %> mėgstantis"
+        few: "<%= count %> mėgstantys"
+        other: "<%= count %> mėgstančių"
+      reshares:
+        zero: Dalijasi <%= count %>
+        one: Dalijasi <%= count %>
+        few: Dalijasi <%= count %>
+        other: Dalijasi <%= count %>
+      more_comments:
+        zero: Rodyti <%= count %> komentarų
+        one: Rodyti dar <%= count %> komentarą
+        few: Rodyti dar <%= count %> komentarus
+        other: Rodyti dar <%= count %> komentarų
+    header:
+      home: Pradžia
+      profile: Anketa
+      contacts: Kontaktai
+      settings: Nustatymai
+      admin: Administruoti
+      log_out: Atsijungti
+      notifications: Įspėjimai
+      search: Paieška
+      recent_notifications: Naujausi įspėjimai
+      mark_all_as_read: Pažymėti viską kaip skaitytą
+      view_all: Rodyti viską

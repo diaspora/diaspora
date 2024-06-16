@@ -67,8 +67,11 @@ module User::Querying
     contact_for(person).aspects
   end
 
-  def posts_from(person)
-    Post.from_person_visible_by_user(self, person).order("posts.created_at desc")
+  def posts_from(person, with_order=true)
+    base_query = Post.from_person_visible_by_user(self, person)
+    return base_query.order("posts.created_at desc") if with_order
+
+    base_query
   end
 
   def photos_from(person, opts={})

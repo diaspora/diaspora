@@ -11,7 +11,6 @@
 //= require ./publisher/poll_creator_view
 //= require ./publisher/services_view
 //= require ./publisher/uploader_view
-//= require jquery-textchange
 
 app.views.Publisher = Backbone.View.extend({
 
@@ -22,7 +21,7 @@ app.views.Publisher = Backbone.View.extend({
     "focus textarea" : "open",
     "submit form" : "createStatusMessage",
     "click #submit" : "createStatusMessage",
-    "textchange #status_message_text": "checkSubmitAvailability",
+    "input #status_message_text": "checkSubmitAvailability",
     "click #locator" : "showLocation",
     "click #poll_creator" : "togglePollCreator",
     "click #hide_location" : "destroyLocation",
@@ -51,10 +50,6 @@ app.views.Publisher = Backbone.View.extend({
     if( this.standalone ) {
       this.$(".question_mark").hide();
     }
-
-    // this has to be here, otherwise for some reason the callback for the
-    // textchange event won't be called in Backbone...
-    this.inputEl.bind("textchange", $.noop);
 
     $("body").click(function(event) {
       var $target = $(event.target);
@@ -113,6 +108,7 @@ app.views.Publisher = Backbone.View.extend({
 
     this.viewUploader = new app.views.PublisherUploader({
       el: this.$("#file-upload"),
+      dropZoneElementIds: ["publisher-textarea-wrapper"],
       publisher: this
     });
     this.viewUploader.on("change", this.checkSubmitAvailability, this);
@@ -133,10 +129,6 @@ app.views.Publisher = Backbone.View.extend({
         if (photoAttachments.length > 0) {
           new app.views.Gallery({el: photoAttachments});
         }
-      },
-
-      onChange: function() {
-        self.inputEl.trigger("textchange");
       }
     };
 
@@ -284,13 +276,13 @@ app.views.Publisher = Backbone.View.extend({
   getUploadedPhotos: function() {
     var photos = [];
     $("li.publisher_photo img").each(function() {
-      var file = $(this).attr("src").substring("/uploads/images/".length);
+      var photo = $(this);
       photos.push(
         {
           "sizes": {
-            "small" : "/uploads/images/thumb_small_" + file,
-            "medium" : "/uploads/images/thumb_medium_" + file,
-            "large" : "/uploads/images/scaled_full_" + file
+            "small": photo.data("small"),
+            "medium": photo.attr("src"),
+            "large": photo.data("scaled")
           }
         }
       );
@@ -368,8 +360,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // clear text
     this.inputEl.val("");
-    this.inputEl.trigger("keyup")
-                .trigger("keydown");
+    this.inputEl.trigger("input");
     autosize.update(this.inputEl);
 
     // remove photos
@@ -402,9 +393,6 @@ app.views.Publisher = Backbone.View.extend({
 
     // clear poll form
     this.viewPollCreator.clearInputs();
-
-    // force textchange plugin to update lastValue
-    this.inputEl.data("lastValue", "");
 
     return this;
   },
@@ -445,7 +433,8 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   checkSubmitAvailability: function() {
-    if( this._submittable() ) {
+    if (this._submittable()) {
+      this.open();
       this.setButtonsEnabled(true);
     } else {
       this.setButtonsEnabled(false);
@@ -484,7 +473,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   _beforeUnload: function(e) {
-    if(this._submittable() && this.inputEl.val() !== this.prefillText){
+    if (this._submittable() && this.inputEl.val() !== this.prefillText) {
       var confirmationMessage = Diaspora.I18n.t("confirm_unload");
       (e || window.event).returnValue = confirmationMessage;       //Gecko + IE
       return confirmationMessage;                                  //Webkit, Safari, Chrome, etc.

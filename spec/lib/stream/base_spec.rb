@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require Rails.root.join('spec', 'shared_behaviors', 'stream')
+require Rails.root.join("spec/shared_behaviors/stream")
 
 describe Stream::Base do
   before do
     @stream = Stream::Base.new(alice)
   end
 
-  describe '#stream_posts' do
+  describe "#stream_posts" do
     it "should returns the posts.for_a_stream" do
       posts = double
       allow(@stream).to receive(:posts).and_return(posts)
@@ -19,9 +19,9 @@ describe Stream::Base do
 
     context "when alice has liked some posts" do
       before do
-        bob.post(:status_message, :text => "sup", :to => bob.aspects.first.id)
+        bob.post(:status_message, text: "sup", to: bob.aspects.first.id)
         @liked_status = bob.posts.last
-        @like = FactoryGirl.create(:like, :target => @liked_status, :author => alice.person)
+        @like = FactoryBot.create(:like, target: @liked_status, author: alice.person)
       end
 
       it "marks the posts as liked" do
@@ -30,14 +30,14 @@ describe Stream::Base do
     end
   end
 
-  describe '#people' do
-    it 'excludes blocked people' do
+  describe "#people" do
+    it "excludes blocked people" do
       expect(@stream).to receive(:stream_posts).and_return(double.as_null_object)
       @stream.people
     end
   end
 
-  describe 'shared behaviors' do
-    it_should_behave_like 'it is a stream'
+  describe "shared behaviors" do
+    it_should_behave_like "it is a stream"
   end
 end

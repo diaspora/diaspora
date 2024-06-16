@@ -52,8 +52,8 @@ Feature: Mentions
     And I click on the first user in the mentions dropdown list
     And I press "Share"
     Then I should see "Bob Jones" within ".stream-element"
-    When I follow "Bob Jones"
-    Then I should see "Bob Jones"
+    When I follow "Bob Jones" within ".stream-element"
+    Then I should see "Bob Jones" within "#author_info"
 
   Scenario: A user mentions another user in a comment and it displays correctly
     Given following users exist:

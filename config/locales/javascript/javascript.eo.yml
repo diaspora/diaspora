@@ -6,168 +6,168 @@
 
 eo:
   javascripts:
+    timeago:
+      prefixAgo: 'antaŭ '
+      suffixAgo: ''
+      suffixFromNow: ekde nun
+      prefixFromNow: 'post '
+      seconds: malpli ol unu minuto
+      minute: ĉirkaŭ unu minuto
+      minutes:
+        other: "%d minutoj"
+      hour: ĉirkaŭ unu horo
+      hours:
+        other: ĉirkaŭ %d horoj
+      day: unu tago
+      days:
+        other: "%d tagoj"
+      month: ĉirkaŭ unu monato
+      months:
+        other: "%d monatoj"
+      year: ĉirkaŭ unu jaro
+      years:
+        other: "%d jaroj"
+    cancel: Rezigni
+    confirm_dialog: Ĉu vi certas?
+    delete: Forviŝi
+    ignore: Ignori
+    hide_post: Kaŝi ĉi tiun afiŝon?
+    remove_post: Forigi ĉi tiun afiŝon?
+    and: kaj
+    comma: ","
+    edit: Redakti
     admin:
       pods:
-        added: "Aldonita"
-        follow_link: "malfermi ligilon en retumilon"
+        added: Aldonita
         states:
-          no_errors: "Bone"
+          no_errors: Bone
+        follow_link: malfermi ligilon en retumilon
         version_failed:
-          one: "Estas unu pod (Diaspora-servilo) kiu ne havas version (malnova pod, sen NodeInfo)."
-          other: "Estas <%= count %> pods (Diaspora-serviloj) kiuj ne havas version (malnova pod, sen NodeInfo)."
-    and: "kaj"
-    aspect_dropdown:
-      add_to_aspect: "Aldoni kontakton"
-      all_aspects: "Ĉiuj aspektoj"
-      error: "Ne eblis konigi enhavon al <%= name %>. Ĉu vi ignoras ilin?"
-      select_aspects: "Elekti aspektojn"
-      started_sharing_with: "Vi komencis komunigi kun <%= name %>!"
-      stopped_sharing_with: "Vi ĉesis komunigi kun <%= name %>."
-      toggle:
-        one: "En <%= count %> aspekto"
-        other: "En <%= count %> aspektoj"
-        zero: "Elektu aspektojn"
-    aspect_navigation:
-      add_an_aspect: "+ Aldoni aspekton"
-      deselect_all: "Malselekti ĉiujn"
-      no_aspects: "Neniuj aspektoj selektitaj"
-      select_all: "Selekti ĉiujn"
+          one: Estas unu pod (Diaspora-servilo) kiu ne havas version (malnova pod, sen NodeInfo).
+          other: Estas <%= count %> pods (Diaspora-serviloj) kiuj ne havas version (malnova pod, sen NodeInfo).
+    my_activity: Mia aktiveco
+    my_stream: Torento
+    my_aspects: Viaj aspektoj
+    publisher:
+      near_from: 'Afiŝita el: <%= location %>'
+      option: Respondo
+      add_option: Aldoni respondon
+      question: Demando
+      markdown_editor:
+        write: Skribi
+        tooltips:
+          write: Redakti mesaĝon
     bookmarklet:
-      post_something: "Afiŝi al diaspora*"
-    cancel: "Rezigni"
-    comma: ","
+      post_something: Afiŝi al diaspora*
+    aspect_dropdown:
+      add_to_aspect: Aldoni kontakton
+      select_aspects: Elekti aspektojn
+      all_aspects: Ĉiuj aspektoj
+      stopped_sharing_with: Vi ĉesis komunigi kun <%= name %>.
+      started_sharing_with: Vi komencis komunigi kun <%= name %>!
+      error: Ne eblis konigi enhavon al <%= name %>. Ĉu vi ignoras ilin?
+      toggle:
+        zero: Elektu aspektojn
+        one: En <%= count %> aspekto
+        other: En <%= count %> aspektoj
+    show_more: vidi plu
+    failed_to_post_message: Ne povis afiŝi mesaĝon!
     comments:
-      hide: "Kaŝi komentojn"
-      no_comments: "Estas neniom da komentoj ankoraŭ."
-      show: "Vidi ĉiujn komentojn"
-    confirm_dialog: "Ĉu vi certas?"
-    delete: "Forviŝi"
-    edit: "Redakti"
-    failed_to_post_message: "Ne povis afiŝi mesaĝon!"
+      show: Vidi ĉiujn komentojn
+      hide: Kaŝi komentojn
+      no_comments: Estas neniom da komentoj ankoraŭ.
+    reshares:
+      successful: La afiŝo estis sukcese rekonigita!
+      post: Ĉu vi deziras rekonigi la mesaĝon de <%= name %>?
+    aspect_navigation:
+      select_all: Selekti ĉiujn
+      deselect_all: Malselekti ĉiujn
+      no_aspects: Neniuj aspektoj selektitaj
+      add_an_aspect: "+ Aldoni aspekton"
     getting_started:
-      alright_ill_wait: "En ordo, mi atendos."
-      hey: "Hej, <%= name %>!"
-      no_tags: "Hej, vi ne sekvas iun etikedon! Ĉu tamen daŭrigi?"
-      preparing_your_stream: "Preparante vian personan torenton..."
-    header:
-      admin: "administranto"
-      close: "fermi"
-      contacts: "Kontaktoj"
-      help: "Helpo"
-      home: "Ĉefpaĝo"
-      log_out: "Elsaluti"
-      mark_all_as_read: "Marku ĉiujn kiel legitaj"
-      notifications: "Sciigoj"
-      profile: "Profilo"
-      recent_notifications: "Freŝaj sciigoj"
-      search: "Serĉi"
-      settings: "Agordoj"
-      view_all: "Vidi ĉiujn"
-    hide_post: "Kaŝi ĉi tiun afiŝon?"
-    ignore: "Ignori"
-    my_activity: "Mia aktiveco"
-    my_aspects: "Viaj aspektoj"
-    my_stream: "Torento"
-    notifications:
-      mark_read: "Marki legita"
-      mark_unread: "Marki nelegita"
-    people:
-      message: "Mesaĝo"
-      not_found: "...kaj neniu troviĝis."
+      hey: Hej, <%= name %>!
+      no_tags: Hej, vi ne sekvas iun etikedon! Ĉu tamen daŭrigi?
+      alright_ill_wait: En ordo, mi atendos.
+      preparing_your_stream: Preparante vian personan torenton...
     photo_uploader:
+      looking_good: Diable, vi aspektas bonege!
       completed: "<%= file %> kompletita"
-      looking_good: "Diable, vi aspektas bonege!"
+    tags:
+      wasnt_that_interesting: 'Nu, mi supozas, ke #<%= tagName %> ne estis tiel interesa...'
+    people:
+      not_found: "...kaj neniu troviĝis."
+      message: Mesaĝo
+    profile:
+      edit: Redakti
+      add_some: Aldoni iom
+      gender: Sekso
+      born: Naskiĝtago
+      photos: Fotoj
+      posts: Afiŝoj
+    notifications:
+      mark_read: Marki legita
+      mark_unread: Marki nelegita
+    stream:
+      hide: Kaŝi
+      public: Publika
+      limited: Limigita
+      like: Ŝati
+      unlike: Ne plu ŝati
+      reshare: Rekonigi
+      comment: Komenti
+      original_post_deleted: Origina mesaĝo forviŝita de la afiŝinto.
+      show_nsfw_post: Montri afiŝon
+      show_nsfw_posts: Montri ĉiujn
+      hide_nsfw_posts: 'Kaŝi #nsfw-mesaĝojn (ne sekuraj)'
+      follow: Sekvi
+      unfollow: Ne plu sekvi
+      via: per <%= provider %>
+      likes:
+        zero: "<%= count %> ŝatoj"
+        one: "<%= count %> ŝato"
+        other: "<%= count %> ŝatoj"
+      reshares:
+        zero: "<%= count %> Rekonigoj"
+        one: "<%= count %> Rekonigo"
+        other: "<%= count %> Rekonigoj"
+      more_comments:
+        zero: Montru <%= count %> pliajn komentojn
+        one: Montru <%= count %> plian komenton
+        other: Montru <%= count %> pliajn komentojn
+      followed_tag:
+        title: "#Sekvitaj etikedoj"
+        add_a_tag: Aldoni etikedon
+        follow: Sekvi
+      tags:
+        follow: 'Sekvi #<%= tag %>'
+        following: 'Sekvanta #<%= tag %>'
+        stop_following: 'Ĉesi sekvadon de #<%= tag %>'
+    header:
+      home: Ĉefpaĝo
+      profile: Profilo
+      contacts: Kontaktoj
+      settings: Agordoj
+      help: Helpo
+      admin: administranto
+      log_out: Elsaluti
+      notifications: Sciigoj
+      search: Serĉi
+      recent_notifications: Freŝaj sciigoj
+      mark_all_as_read: Marku ĉiujn kiel legitaj
+      view_all: Vidi ĉiujn
+      close: fermi
+    viewer:
+      reshared: Rekonigita
     poll:
-      answer_count:
-        one: "<%=count%> voĉo"
-        other: "<%=count%> voĉoj"
-        zero: "Sen voĉoj"
-      close_result: "Kaŝi rezulton"
+      vote: Voĉdoni
+      result: Rezulto
       count:
         one: "<%=count%> voĉo ĝis nun"
         other: "<%=count%> voĉoj ĝis nun"
-      result: "Rezulto"
-      show_result: "Montri rezulton"
-      vote: "Voĉdoni"
-      your_vote: "Via voĉo"
-    profile:
-      add_some: "Aldoni iom"
-      born: "Naskiĝtago"
-      edit: "Redakti"
-      gender: "Sekso"
-      photos: "Fotoj"
-      posts: "Afiŝoj"
-    publisher:
-      add_option: "Aldoni respondon"
-      markdown_editor:
-        tooltips:
-          write: "Redakti mesaĝon"
-        write: "Skribi"
-      near_from: "Afiŝita el: <%= location %>"
-      option: "Respondo"
-      question: "Demando"
-    remove_post: "Forigi ĉi tiun afiŝon?"
-    reshares:
-      post: "Ĉu vi deziras rekonigi la mesaĝon de <%= name %>?"
-      successful: "La afiŝo estis sukcese rekonigita!"
-    show_more: "vidi plu"
-    stream:
-      comment: "Komenti"
-      follow: "Sekvi"
-      followed_tag:
-        add_a_tag: "Aldoni etikedon"
-        follow: "Sekvi"
-        title: "#Sekvitaj etikedoj"
-      hide: "Kaŝi"
-      hide_nsfw_posts: "Kaŝi #nsfw-mesaĝojn (ne sekuraj)"
-      like: "Ŝati"
-      likes:
-        one: "<%= count %> ŝato"
-        other: "<%= count %> ŝatoj"
-        zero: "<%= count %> ŝatoj"
-      limited: "Limigita"
-      more_comments:
-        one: "Montru <%= count %> plian komenton"
-        other: "Montru <%= count %> pliajn komentojn"
-        zero: "Montru <%= count %> pliajn komentojn"
-      original_post_deleted: "Origina mesaĝo forviŝita de la afiŝinto."
-      public: "Publika"
-      reshare: "Rekonigi"
-      reshares:
-        one: "<%= count %> Rekonigo"
-        other: "<%= count %> Rekonigoj"
-        zero: "<%= count %> Rekonigoj"
-      show_nsfw_post: "Montri afiŝon"
-      show_nsfw_posts: "Montri ĉiujn"
-      tags:
-        follow: "Sekvi #<%= tag %>"
-        following: "Sekvanta #<%= tag %>"
-        stop_following: "Ĉesi sekvadon de #<%= tag %>"
-      unfollow: "Ne plu sekvi"
-      unlike: "Ne plu ŝati"
-      via: "per <%= provider %>"
-    tags:
-      wasnt_that_interesting: "Nu, mi supozas, ke #<%= tagName %> ne estis tiel interesa..."
-    timeago:
-      day: "unu tago"
-      days:
-        other: "%d tagoj"
-      hour: "ĉirkaŭ unu horo"
-      hours:
-        other: "ĉirkaŭ %d horoj"
-      minute: "ĉirkaŭ unu minuto"
-      minutes:
-        other: "%d minutoj"
-      month: "ĉirkaŭ unu monato"
-      months:
-        other: "%d monatoj"
-      prefixAgo: "antaŭ "
-      prefixFromNow: "post "
-      seconds: "malpli ol unu minuto"
-      suffixAgo: ""
-      suffixFromNow: "ekde nun"
-      year: "ĉirkaŭ unu jaro"
-      years:
-        other: "%d jaroj"
-    viewer:
-      reshared: "Rekonigita"
+      answer_count:
+        zero: Sen voĉoj
+        one: "<%=count%> voĉo"
+        other: "<%=count%> voĉoj"
+      show_result: Montri rezulton
+      close_result: Kaŝi rezulton
+      your_vote: Via voĉo

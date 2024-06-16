@@ -3,7 +3,7 @@
 describe AdminsController, type: :controller do
   describe "#dashboard" do
     before do
-      @user = FactoryGirl.create :user
+      @user = FactoryBot.create :user
       Role.add_admin(@user.person)
       sign_in @user, scope: :user
     end

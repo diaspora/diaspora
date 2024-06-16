@@ -24,13 +24,9 @@
 
   .comments > .comment,
   .comment.new-comment-form-wrapper {
-    .avatar {
-      height: 35px;
-      width: 35px;
-    }
     margin: 0;
     border-top: 1px dotted $border-grey;
-    padding: 10px 0;
+    padding: 10px 0 0;
 
     .info {
       margin-top: 5px;
@@ -57,8 +53,6 @@
     }
   }
 
-  .comment.new-comment-form-wrapper { padding-bottom: 0; }
-
   .submit-button {
     margin-top: 10px;
     input {
@@ -81,6 +75,25 @@
     // scss-lint:disable ImportantRule
     display: block !important;
     // scss-lint:enable ImportantRule
+  }
+}
+
+.likes-on-comment {
+  &.likes {
+    margin-top: 6px;
+  }
+
+  .media {
+    margin: 0 0 2px;
+
+    &:not(.display-avatars) .entypo-heart {
+      display: none;
+    }
+  }
+
+  .expand-likes {
+    display: inline-block;
+    margin-bottom: 4px;
   }
 }
 

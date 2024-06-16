@@ -116,8 +116,8 @@ describe PostService do
     let(:status_text) { text_mentioning(alice) }
 
     it "marks a corresponding notifications as read" do
-      FactoryGirl.create(:notification, recipient: alice, target: post, unread: true)
-      FactoryGirl.create(:notification, recipient: alice, target: post, unread: true)
+      FactoryBot.create(:notification, recipient: alice, target: post, unread: true)
+      FactoryBot.create(:notification, recipient: alice, target: post, unread: true)
 
       expect {
         PostService.new(alice).mark_user_notifications(post.id)
@@ -133,7 +133,7 @@ describe PostService do
     end
 
     it "marks a corresponding mention in comment notification as read" do
-      notification = FactoryGirl.create(:notification_mentioned_in_comment)
+      notification = FactoryBot.create(:notification_mentioned_in_comment)
       status_message = notification.target.mentions_container.parent
       user = notification.recipient
 
@@ -144,7 +144,7 @@ describe PostService do
 
     it "does not change the update_at date/time for post notifications" do
       notification = Timecop.travel(1.minute.ago) do
-        FactoryGirl.create(:notification, recipient: alice, target: post, unread: true)
+        FactoryBot.create(:notification, recipient: alice, target: post, unread: true)
       end
 
       expect {
@@ -168,6 +168,50 @@ describe PostService do
       expect_any_instance_of(PostService).not_to receive(:mark_mention_notifications_read).with(post.id)
       PostService.new.mark_user_notifications(post.id)
     end
+
+    context "for comments" do
+      let(:comment) { post.comments.create(author: alice.person, text: "comment") }
+
+      it "marks a corresponding notifications as read" do
+        FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+        FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+
+        expect {
+          PostService.new(alice).mark_user_notifications(post.id)
+        }.to change(Notification.where(unread: true), :count).by(-2)
+      end
+
+      it "does not change the update_at date/time for comment notifications" do
+        notification = Timecop.travel(1.minute.ago) do
+          FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+        end
+
+        expect {
+          PostService.new(alice).mark_user_notifications(post.id)
+        }.not_to(change { Notification.where(id: notification.id).pluck(:updated_at) })
+      end
+
+      it "does not change other users notifications" do
+        alice_notification = FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+        bob_notification = FactoryBot.create(:notification, recipient: bob, target: comment, unread: true)
+
+        PostService.new(alice).mark_user_notifications(post.id)
+
+        expect(Notification.find(alice_notification.id).unread).to be_falsey
+        expect(Notification.find(bob_notification.id).unread).to be_truthy
+      end
+
+      it "marks notifications for all comments on a post as read" do
+        comment2 = post.comments.create(author: alice.person, text: "comment2")
+
+        FactoryBot.create(:notification, recipient: alice, target: comment, unread: true)
+        FactoryBot.create(:notification, recipient: alice, target: comment2, unread: true)
+
+        expect {
+          PostService.new(alice).mark_user_notifications(post.id)
+        }.to change(Notification.where(unread: true), :count).by(-2)
+      end
+    end
   end
 
   describe "#destroy" do
@@ -179,6 +223,13 @@ describe PostService do
     it "sends a retraction on delete" do
       expect(alice).to receive(:retract).with(post)
       PostService.new(alice).destroy(post.id)
+    end
+
+    it "won't delete private post if explicitly unallowed" do
+      expect {
+        PostService.new(alice).destroy(post.id, false)
+      }.to raise_error Diaspora::NonPublic
+      expect(StatusMessage.find_by(id: post.id)).not_to be_nil
     end
 
     it "will not let you destroy posts visible to you but that you do not own" do
@@ -199,8 +250,8 @@ describe PostService do
   describe "#mentionable_in_comment" do
     describe "semi-integration test" do
       let(:post_author_attributes) { {first_name: "Ro#{r_str}"} }
-      let(:post_author)  { FactoryGirl.create(:person, post_author_attributes) }
-      let(:current_user) { FactoryGirl.create(:user_with_aspect) }
+      let(:post_author)  { FactoryBot.create(:person, post_author_attributes) }
+      let(:current_user) { FactoryBot.create(:user_with_aspect) }
       let(:post_service) { PostService.new(current_user) }
 
       shared_context "with commenters and likers" do
@@ -215,33 +266,33 @@ describe PostService do
         end
 
         let!(:commenter1) {
-          FactoryGirl.create(:person, id: ids.shift, first_name: "Ro1#{r_str}").tap {|person|
-            FactoryGirl.create(:comment, author: person, post: post)
+          FactoryBot.create(:person, id: ids.shift, first_name: "Ro1#{r_str}").tap {|person|
+            FactoryBot.create(:comment, author: person, post: post)
           }
         }
 
         let!(:commenter2) {
-          FactoryGirl.create(:person, id: ids.shift, first_name: "Ro2#{r_str}").tap {|person|
-            FactoryGirl.create(:comment, author: person, post: post)
+          FactoryBot.create(:person, id: ids.shift, first_name: "Ro2#{r_str}").tap {|person|
+            FactoryBot.create(:comment, author: person, post: post)
           }
         }
 
         let!(:liker1) {
-          FactoryGirl.create(:person, id: ids.shift, first_name: "Ro1#{r_str}").tap {|person|
-            FactoryGirl.create(:like, author: person, target: post)
+          FactoryBot.create(:person, id: ids.shift, first_name: "Ro1#{r_str}").tap {|person|
+            FactoryBot.create(:like, author: person, target: post)
           }
         }
 
         let!(:liker2) {
-          FactoryGirl.create(:person, id: ids.shift, first_name: "Ro2#{r_str}").tap {|person|
-            FactoryGirl.create(:like, author: person, target: post)
+          FactoryBot.create(:person, id: ids.shift, first_name: "Ro2#{r_str}").tap {|person|
+            FactoryBot.create(:like, author: person, target: post)
           }
         }
       end
 
       shared_context "with a current user's friend" do
         let!(:current_users_friend) {
-          FactoryGirl.create(:person).tap {|friend|
+          FactoryBot.create(:person).tap {|friend|
             current_user.contacts.create!(
               person:    friend,
               aspects:   [current_user.aspects.first],
@@ -253,7 +304,7 @@ describe PostService do
       end
 
       context "with private post" do
-        let(:post) { FactoryGirl.create(:status_message, text: "ohai", author: post_author) }
+        let(:post) { FactoryBot.create(:status_message, text: "ohai", author: post_author) }
 
         context "when the post doesn't have a visibility for the current user" do
           it "doesn't find a post and raises an exception" do
@@ -294,7 +345,7 @@ describe PostService do
       end
 
       context "with public post" do
-        let(:post) { FactoryGirl.create(:status_message, text: "ohai", public: true, author: post_author) }
+        let(:post) { FactoryBot.create(:status_message, text: "ohai", public: true, author: post_author) }
 
         context "with commenters and likers and with a current user's friend" do
           include_context "with commenters and likers"
@@ -315,11 +366,11 @@ describe PostService do
           end
 
           it "doesn't include people with non-matching names" do
-            commenter = FactoryGirl.create(:person, first_name: "RRR#{r_str}")
-            FactoryGirl.create(:comment, author: commenter)
-            liker = FactoryGirl.create(:person, first_name: "RRR#{r_str}")
-            FactoryGirl.create(:like, author: liker)
-            friend = FactoryGirl.create(:person, first_name: "RRR#{r_str}")
+            commenter = FactoryBot.create(:person, first_name: "RRR#{r_str}")
+            FactoryBot.create(:comment, author: commenter)
+            liker = FactoryBot.create(:person, first_name: "RRR#{r_str}")
+            FactoryBot.create(:like, author: liker)
+            friend = FactoryBot.create(:person, first_name: "RRR#{r_str}")
             current_user.contacts.create!(
               person:    friend,
               aspects:   [current_user.aspects.first],
@@ -368,8 +419,8 @@ describe PostService do
         end
 
         it "renders a commenter with multiple comments only once" do
-          person = FactoryGirl.create(:person, first_name: "Ro2#{r_str}")
-          2.times { FactoryGirl.create(:comment, author: person, post: post) }
+          person = FactoryBot.create(:person, first_name: "Ro2#{r_str}")
+          2.times { FactoryBot.create(:comment, author: person, post: post) }
           expect(post_service.mentionable_in_comment(post.id, person.first_name).length).to eq(1)
         end
       end
@@ -399,7 +450,7 @@ describe PostService do
 
       it "calls Person.limit" do
         16.times {
-          FactoryGirl.create(:comment, author: FactoryGirl.create(:person, first_name: "Ro#{r_str}"), post: post)
+          FactoryBot.create(:comment, author: FactoryBot.create(:person, first_name: "Ro#{r_str}"), post: post)
         }
         expect(post_service.mentionable_in_comment(post.id, "Ro").length).to eq(15)
       end

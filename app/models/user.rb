@@ -7,7 +7,6 @@
 require "attr_encrypted"
 
 class User < ApplicationRecord
-  include AuthenticationToken
   include Connecting
   include Querying
   include SocialActions
@@ -325,9 +324,9 @@ class User < ApplicationRecord
     else
       update exporting: false
     end
-  rescue => error
-    logger.error "Unexpected error while exporting user '#{username}': #{error.class}: #{error.message}\n" \
-                 "#{error.backtrace.first(15).join("\n")}"
+  rescue StandardError => e
+    logger.error "Unexpected error while exporting data for '#{username}': #{e.class}: #{e.message}\n" \
+                 "#{e.backtrace.first(15).join("\n")}"
     update exporting: false
   end
 
@@ -335,7 +334,7 @@ class User < ApplicationRecord
     ActiveSupport::Gzip.compress Diaspora::Exporter.new(self).execute
   end
 
-  ######### Photos export ##################
+  ######### Photo export ##################
   mount_uploader :exported_photos_file, ExportedPhotos
 
   def queue_export_photos
@@ -345,9 +344,9 @@ class User < ApplicationRecord
 
   def perform_export_photos!
     PhotoExporter.new(self).perform
-  rescue => error
-    logger.error "Unexpected error while exporting photos for '#{username}': #{error.class}: #{error.message}\n" \
-                 "#{error.backtrace.first(15).join("\n")}"
+  rescue StandardError => e
+    logger.error "Unexpected error while exporting photos for '#{username}': #{e.class}: #{e.message}\n" \
+                 "#{e.backtrace.first(15).join("\n")}"
     update exporting_photos: false
   end
 
@@ -403,11 +402,17 @@ class User < ApplicationRecord
     tag_followings.any? || profile[:image_url]
   end
 
-  ###Helpers############
-  def self.build(opts = {})
+  ### Helpers ############
+  def self.build(opts={})
     u = User.new(opts.except(:person, :id))
     u.setup(opts)
     u
+  end
+
+  def self.find_or_build(opts={})
+    user = User.find_by(username: opts[:username])
+    user ||= User.build(opts)
+    user
   end
 
   def setup(opts)
@@ -417,10 +422,11 @@ class User < ApplicationRecord
     self.language ||= I18n.locale.to_s
     self.color_theme = opts[:color_theme]
     self.color_theme ||= AppConfig.settings.default_color_theme
-    self.valid?
+    valid?
     errors = self.errors
     errors.delete :person
     return if errors.size > 0
+
     self.set_person(Person.new((opts[:person] || {}).except(:id)))
     self.generate_keys
     self
@@ -563,7 +569,6 @@ class User < ApplicationRecord
     self.remove_export = true
     self.remove_exported_photos_file = true
     self[:disable_mail] = true
-    self[:strip_exif] = true
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
 
     random_password = SecureRandom.hex(20)
@@ -606,7 +611,7 @@ class User < ApplicationRecord
     attributes.keys - %w(id username encrypted_password created_at updated_at locked_at
                          serialized_private_key getting_started
                          disable_mail show_community_spotlight_in_stream
-                         strip_exif email remove_after export exporting
+                         email remove_after export exporting
                          exported_photos_file exporting_photos)
   end
 end

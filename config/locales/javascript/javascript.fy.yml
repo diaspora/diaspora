@@ -6,75 +6,75 @@
 
 fy:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Kontakt taheakje"
-    aspect_navigation:
-      deselect_all: "Alle deselektearje"
-      select_all: "Alle selektearje"
-    comments:
-      hide: "reaksjes ferbergje"
-      show: "toan alle reaksjes"
-    confirm_dialog: "Bisto wis?"
-    delete: "Fuortsmite"
-    getting_started:
-      alright_ill_wait: "Akkoard, ik wachtsje."
-      hey: "Hé, <%= name %>"
-    header:
-      admin: "Behearder"
-      contacts: "Kontakten"
-      home: "Thús"
-      log_out: "Útlogge"
-      mark_all_as_read: "Alle as lêzen markearje"
-      notifications: "Notifikaasjes"
-      profile: "Profyl"
-      recent_notifications: "Resinte Notifikaasjes"
-      search: "Sykje"
-      settings: "Ynstellingen"
-      view_all: "Toan alle"
-    ignore: "Negearje"
-    my_activity: "Myn Aktiviteit"
-    photo_uploader:
-      looking_good: "Heare GOD noch oan ta, do sjochst der fantastysk út!"
-    show_more: "toan mear"
-    stream:
-      comment: "Reaksje"
-      follow: "Folgje"
-      hide: "Ferbergje"
-      hide_nsfw_posts: "#nsfw berjochten ferbergje"
-      like: "Fyn-ik-Leuk"
-      likes:
-        one: "<%= count %> Fyn-ik-Leuk"
-        other: "<%= count %> Fyn-ik-Leuks"
-        zero: "<%= count %> Fyn-ik-Leuks"
-      more_comments:
-        one: "Toan <%= count %> oare reaksje"
-        other: "Toan <%= count %> oare reaksjes"
-        zero: "Toan <%= count %> oare reaksjes"
-      public: "Iepenbier"
-      reshares:
-        one: "<%= count %> kear dield"
-        other: "<%= count %> kearen dield"
-        zero: "<%= count %> kearen dield"
-      show_nsfw_post: "Toan berjocht"
-      show_nsfw_posts: "Toan alle"
-      unfollow: "Net mear Folgje"
-      unlike: "Net mear Leuk"
     timeago:
-      day: "in dei"
-      days:
-        other: "%d dagen"
-      hour: "likernôch in oere"
-      hours:
-        other: "likernôch %d oeren"
+      prefixAgo: ''
+      suffixAgo: lyn
+      suffixFromNow: ''
+      prefixFromNow: ''
       minutes:
         other: "%d minuten"
-      month: "likernôch in moanne"
+      hour: likernôch in oere
+      hours:
+        other: likernôch %d oeren
+      day: in dei
+      days:
+        other: "%d dagen"
+      month: likernôch in moanne
       months:
         other: "%d moannen"
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: "lyn"
-      suffixFromNow: ""
-      year: "likernôch in jier"
+      year: likernôch in jier
       years:
         other: "%d jierren"
+    confirm_dialog: Bisto wis?
+    delete: Fuortsmite
+    ignore: Negearje
+    my_activity: Myn Aktiviteit
+    aspect_dropdown:
+      add_to_aspect: Kontakt taheakje
+    show_more: toan mear
+    comments:
+      show: toan alle reaksjes
+      hide: reaksjes ferbergje
+    aspect_navigation:
+      select_all: Alle selektearje
+      deselect_all: Alle deselektearje
+    getting_started:
+      hey: Hé, <%= name %>
+      alright_ill_wait: Akkoard, ik wachtsje.
+    photo_uploader:
+      looking_good: Heare GOD noch oan ta, do sjochst der fantastysk út!
+    stream:
+      hide: Ferbergje
+      public: Iepenbier
+      like: Fyn-ik-Leuk
+      unlike: Net mear Leuk
+      comment: Reaksje
+      show_nsfw_post: Toan berjocht
+      show_nsfw_posts: Toan alle
+      hide_nsfw_posts: "#nsfw berjochten ferbergje"
+      follow: Folgje
+      unfollow: Net mear Folgje
+      likes:
+        zero: "<%= count %> Fyn-ik-Leuks"
+        one: "<%= count %> Fyn-ik-Leuk"
+        other: "<%= count %> Fyn-ik-Leuks"
+      reshares:
+        zero: "<%= count %> kearen dield"
+        one: "<%= count %> kear dield"
+        other: "<%= count %> kearen dield"
+      more_comments:
+        zero: Toan <%= count %> oare reaksjes
+        one: Toan <%= count %> oare reaksje
+        other: Toan <%= count %> oare reaksjes
+    header:
+      home: Thús
+      profile: Profyl
+      contacts: Kontakten
+      settings: Ynstellingen
+      admin: Behearder
+      log_out: Útlogge
+      notifications: Notifikaasjes
+      search: Sykje
+      recent_notifications: Resinte Notifikaasjes
+      mark_all_as_read: Alle as lêzen markearje
+      view_all: Toan alle

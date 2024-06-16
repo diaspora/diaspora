@@ -5,85 +5,87 @@
 
 
 es-BO:
-  _applications: "Aplicaciones"
-  _contacts: "Contactos"
-  _services: "Servicios"
-  account: "Cuenta"
+  settings: configuración
+  profile: Perfil
+  account: Cuenta
+  privacy: privacidad
+  _services: Servicios
+  _applications: Aplicaciones
+  ok: Aceptar
+  cancel: Cancelar
+  delete: Borrar
+  username: Nombre de usuario
+  email: correo electrónico
+  are_you_sure: "¿Estás seguro/a?"
+  are_you_sure_delete_account: "¿Estás seguro/a de que quieres cerrar tu cuenta? ¡Esto no se puede deshacer!"
+  fill_me_out: Complétame
+  public: 'público
+
+    '
+  limited: Limitado
+  search: Búsqueda
+  nsfw: No apto para todo público
+  find_people: 'Encontrar personas o #tags'
+  more: Más
+  all_aspects: Todos los aspectos
+  no_results: No hay resultados
+  _contacts: Contactos
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "debe ser único entre los contactos de este usuario"
+            person:
+              invalid: es inválido
+            username:
+              taken: ya esta siendo usado
+              invalid: no es válido. Solo se permiten letras, números y guiones bajos.
+            email:
+              taken: ya esta siendo usado
         person:
           attributes:
             diaspora_handle:
-              taken: "ya está ocupado."
+              taken: ya está ocupado.
+        contact:
+          attributes:
+            person_id:
+              taken: debe ser único entre los contactos de este usuario
         reshare:
           attributes:
             root_guid:
-              taken: "Esta bueno verdad?  Ya compartiste esa publicación!"
-        user:
-          attributes:
-            email:
-              taken: "ya esta siendo usado"
-            person:
-              invalid: "es inválido"
-            username:
-              invalid: "no es válido. Solo se permiten letras, números y guiones bajos."
-              taken: "ya esta siendo usado"
-  all_aspects: "Todos los aspectos"
-  are_you_sure: "¿Estás seguro/a?"
-  are_you_sure_delete_account: "¿Estás seguro/a de que quieres cerrar tu cuenta? ¡Esto no se puede deshacer!"
+              taken: Esta bueno verdad?  Ya compartiste esa publicación!
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Corrige los siguientes errores e inténtalo de nuevo.
   aspects:
-    add_to_aspect:
-      failure: "Error al añadir el contacto al aspecto."
-      success: "Contacto añadido exitosamente al aspecto."
+    edit:
+      confirm_remove_aspect: "¿Estás seguro de que quieres eliminar este aspecto?"
+      rename: Cambiar nombre
+      aspect_list_is_visible: la lista de contactos del aspecto es visible
+      aspect_list_is_not_visible: la lista de aspectos está oculta a otros en este aspecto
+      update: actualizar
+      updating: actualizando
+    no_contacts_message:
+      you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
+      try_adding_some_more_contacts: Puedes buscar o invitar a más contactos.
+      or_spotlight: o puedes compartir con %{link}
+      community_spotlight: lo más destacado de la comunidad
     aspect_listings:
       add_an_aspect: "+ Añadir un aspecto"
     destroy:
-      failure: "%{name} no esta vacio y no pudo ser eliminado."
       success: "%{name} ha sido eliminado con éxito."
-    edit:
-      aspect_list_is_not_visible: "la lista de aspectos está oculta a otros en este aspecto"
-      aspect_list_is_visible: "la lista de contactos del aspecto es visible"
-      confirm_remove_aspect: "¿Estás seguro de que quieres eliminar este aspecto?"
-      rename: "Cambiar nombre"
-      update: "actualizar"
-      updating: "actualizando"
-    index:
-      donate: "Donar"
-      welcome_to_diaspora: "Bienvenido a Diaspora, %{name}!"
-    no_contacts_message:
-      community_spotlight: "lo más destacado de la comunidad"
-      or_spotlight: "o puedes compartir con %{link}"
-      try_adding_some_more_contacts: "Puedes buscar o invitar a más contactos."
-      you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
-    seed:
-      acquaintances: "Conocidos"
-      family: "Familia"
-      friends: "Amigos"
-      work: "Trabajo"
+      failure: "%{name} no esta vacio y no pudo ser eliminado."
     update:
-      failure: "Tu aspecto, %{name}, tiene un nombre muy largo para ser guardado."
-      success: "Tu aspecto %{name}, ha sido editado con éxito."
-  cancel: "Cancelar"
-  delete: "Borrar"
-  email: "correo electrónico"
-  error_messages:
-    helper:
-      correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
-  fill_me_out: "Complétame"
-  find_people: "Encontrar personas o #tags"
-  limited: "Limitado"
-  more: "Más"
-  no_results: "No hay resultados"
-  nsfw: "No apto para todo público"
-  ok: "Aceptar"
-  privacy: "privacidad"
-  profile: "Perfil"
-  public: "público\n"
-  search: "Búsqueda"
-  settings: "configuración"
-  username: "Nombre de usuario"
+      success: Tu aspecto %{name}, ha sido editado con éxito.
+      failure: Tu aspecto, %{name}, tiene un nombre muy largo para ser guardado.
+    add_to_aspect:
+      failure: Error al añadir el contacto al aspecto.
+      success: Contacto añadido exitosamente al aspecto.
+    seed:
+      family: Familia
+      work: Trabajo
+      acquaintances: Conocidos
+      friends: Amigos
+    index:
+      donate: Donar
+      welcome_to_diaspora: Bienvenido a Diaspora, %{name}!

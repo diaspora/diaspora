@@ -17,7 +17,7 @@ describe ContactsController, type: :request do
       end
 
       context "user has no contacts" do
-        let!(:user) { FactoryGirl.create(:user) }
+        let!(:user) { FactoryBot.create(:user) }
 
         before do
           expect(user.contacts.size).to eq(0)
@@ -46,11 +46,11 @@ describe ContactsController, type: :request do
       end
 
       context "user has contacts" do
-        let!(:user) { FactoryGirl.create(:user) }
+        let!(:user) { FactoryBot.create(:user) }
 
         before do
-          FactoryGirl.create(:contact, person: alice.person, user: user)
-          FactoryGirl.create(:contact, person: bob.person, user: user)
+          FactoryBot.create(:contact, person: alice.person, user: user)
+          FactoryBot.create(:contact, person: bob.person, user: user)
           expect(user.reload.contacts.size).to eq(2)
         end
 

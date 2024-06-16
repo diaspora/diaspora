@@ -7,60 +7,60 @@
 nds:
   devise:
     confirmations:
-      confirmed: "Dien Konto is erfolgriek bestätigt worn. Du bist nu anmeld."
+      confirmed: Dien Konto is erfolgriek bestätigt worn. Du bist nu anmeld.
       new:
-        resend_confirmation: "Bestätigungsanwiesungen nochmol schicken"
+        resend_confirmation: Bestätigungsanwiesungen nochmol schicken
     failure:
-      inactive: "Dien Konto is noch nich in gang set worn."
-      locked: "Dien Konto is spart."
-      not_found_in_database: "Ungültige E-Mail-Adress oder Passwoort."
-      unauthenticated: "Du muss die anmelden oder registrieren, bevör du wiedermokst."
-      unconfirmed: "Du muss dien Konto in gang setten, bevör du wiedermokst."
-    invitations:
-      send_instructions: "Diene Inlodung is afschickt worn."
-      updated: "Dien Passwoort is erfolgriek set worn. Du bist nu anmeld."
+      inactive: Dien Konto is noch nich in gang set worn.
+      locked: Dien Konto is spart.
+      not_found_in_database: Ungültige E-Mail-Adress oder Passwoort.
+      unauthenticated: Du muss die anmelden oder registrieren, bevör du wiedermokst.
+      unconfirmed: Du muss dien Konto in gang setten, bevör du wiedermokst.
     mailer:
-      hello: "Hallo %{username}!"
+      reset_password_instructions:
+        change: Mien Passwoort ännern
+      unlock_instructions:
+        subject: Anwisungen ton Entsparn
+        unlock: Mien Konto entsparn
+      welcome: Willkomen %{username}!
+      hello: Hallo %{username}!
       inviter:
         has_invited_you: "%{name}"
-      reset_password_instructions:
-        change: "Mien Passwoort ännern"
-      unlock_instructions:
-        subject: "Anwisungen ton Entsparn"
-        unlock: "Mien Konto entsparn"
-      welcome: "Willkomen %{username}!"
     passwords:
+      updated: Dien Passwoort is erfolgriek ännert worn. Du bist nu anmeld.
       edit:
-        change_password: "Änner mien Passwoort"
-        confirm_password: "Passwoort bestätigen"
-        new_password: "Nee’es Passwoort"
+        change_password: Änner mien Passwoort
+        new_password: Nee’es Passwoort
+        confirm_password: Passwoort bestätigen
       new:
-        email: "E-Mail-Adress"
-        forgot_password: "Hest du dien Passwoort vergeten?"
-        reset_password: "Passwoort trüchsetten"
-        send_password_instructions: "Schick mi Anwiesungen ton Trüchsetten von mien Passwoort"
-      updated: "Dien Passwoort is erfolgriek ännert worn. Du bist nu anmeld."
+        forgot_password: Hest du dien Passwoort vergeten?
+        reset_password: Passwoort trüchsetten
+        email: E-Mail-Adress
+        send_password_instructions: Schick mi Anwiesungen ton Trüchsetten von mien Passwoort
     registrations:
-      updated: "Du hest dien Konto erfolgriek ännert."
+      updated: Du hest dien Konto erfolgriek ännert.
     sessions:
+      signed_in: Erfolgriek anmeld.
+      signed_out: Erfolgriek afmeld.
       new:
-        login: "Anmelden"
-        modern_browsers: "ünnerstütt nur moderne Netkieker."
-        password: "Passwoort"
-        remember_me: "Erinner di an mi"
-        sign_in: "Anmelden"
-        username: "Brukernoom"
-      signed_in: "Erfolgriek anmeld."
-      signed_out: "Erfolgriek afmeld."
-    shared:
-      links:
-        sign_in: "Anmelden"
-        sign_up: "Registrieren"
+        login: Anmelden
+        username: Brukernoom
+        password: Passwoort
+        sign_in: Anmelden
+        remember_me: Erinner di an mi
+        modern_browsers: ünnerstütt nur moderne Netkieker.
     unlocks:
       new:
-        resend_unlock: "Anwisungen ton Entsparn noch mol schicken"
+        resend_unlock: Anwisungen ton Entsparn noch mol schicken
+    invitations:
+      send_instructions: Diene Inlodung is afschickt worn.
+      updated: Dien Passwoort is erfolgriek set worn. Du bist nu anmeld.
+    shared:
+      links:
+        sign_in: Anmelden
+        sign_up: Registrieren
   errors:
     messages:
-      already_confirmed: "wöör schon bestätigt"
-      not_found: "nich funnen"
-      not_locked: "wöör nich spart"
+      already_confirmed: wöör schon bestätigt
+      not_found: nich funnen
+      not_locked: wöör nich spart

@@ -7,8 +7,8 @@
 yi:
   javascripts:
     timeago:
-      day: "אַ טעג"
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: "צוריק"
-      suffixFromNow: ""
+      prefixAgo: ''
+      suffixAgo: צוריק
+      suffixFromNow: ''
+      prefixFromNow: ''
+      day: אַ טעג

@@ -54,14 +54,6 @@
 ## Do not change this default unless you are sure!
 #require_ssl = true
 
-## Single-process mode (default=false).
-## If set to true, Diaspora will work with just the appserver (Unicorn by
-## default) running. However, this makes it quite slow as intensive jobs
-## must be run all the time inside the request cycle. We strongly
-## recommended you leave this disabled for production setups.
-## Set to true to enable.
-#single_process_mode = false
-
 ## Set redirect URL for an external image host (Amazon S3 or other).
 ## If hosting images for your pod on an external server (even your own),
 ## add its URL here. All requests made to images under /uploads/images
@@ -162,12 +154,12 @@
 ## Settings affecting how ./script/server behaves.
 [configuration.server]
 
-## Where the appserver should listen to (default="unix:tmp/diaspora.sock")
-#listen = "unix:tmp/diaspora.sock"
-#listen = "unix:/run/diaspora/diaspora.sock"
-#listen = "127.0.0.1:3000"
+## Where the appserver should listen to (default="unix://tmp/diaspora.sock")
+#listen = "unix://tmp/diaspora.sock"
+#listen = "unix:///run/diaspora/diaspora.sock"
+#listen = "tcp://127.0.0.1:3000"
 
-## Set the path for the PID file of the unicorn master process (default=tmp/pids/web.pid)
+## Set the path for the PID file of the web master process (default=tmp/pids/web.pid)
 #pid = "tmp/pids/web.pid"
 
 ## Rails environment (default="development").
@@ -175,91 +167,20 @@
 ## Change this to "production" if you wish to run a production environment.
 #rails_environment = "production"
 
-## Write unicorn stderr and stdout log.
-#stderr_log = "log/unicorn-stderr.log"
-#stdout_log = "log/unicorn-stdout.log"
-
-## Number of Unicorn worker processes (default=2).
-## Increase this if you have many users.
-#unicorn_worker = 2
+## Write web stderr and stdout log.
+#stderr_log = "log/web-stderr.log"
+#stdout_log = "log/web-stdout.log"
 
 ## Number of seconds before a request is aborted (default=90).
 ## Increase if you get empty responses, or if large image uploads fail.
 ## Decrease if you're under heavy load and don't care if some
 ## requests fail.
-#unicorn_timeout = 90
-
-## Embed a Sidekiq worker inside the unicorn process (default=false).
-## Useful for minimal Heroku setups.
-#embed_sidekiq_worker = false
+#web_timeout = 90
 
 ## Number of Sidekiq worker processes (default=1).
 ## In most cases it is better to
 ## increase environment.sidekiq.concurrency instead!
 #sidekiq_workers = 1
-
-## Diaspora has an internal XMPP web-client. If you want to enable the chat
-## functionality or want to use a custom XMPP server, then you should edit
-## the following configuration.
-## DEPRECATED: The chat suppport will be removed with Diaspora 0.8.0.0!
-[configuration.chat]
-
-## Enable the chat service and all its components.
-##
-## Please make sure that you followed the Installation-Instructions first:
-## https://wiki.diasporafoundation.org/Integration/Chat#Installation.2FUpdate
-#enabled = true
-
-## Custom XMPP server configuration goes here.
-[configuration.chat.server]
-
-## Use the configuration bridge to prosody (default=true).
-## In case you want to run your own server or want to configure
-## prosody on your own, you should disable it.
-#enabled =  false
-
-## Set the directory in which to look for virtual hosts TLS certificates.
-#certs = "config/certs"
-
-## XEP-0124 BOSH requests
-## The easiest way of avoiding certificate and mixed-content issues
-## is to use a proxy, e.g.:
-##
-## Apache: https://wiki.diasporafoundation.org/Integration/Chat#Apache2
-## Nginx: https://wiki.diasporafoundation.org/Integration/Chat#Nginx
-##
-## If you configured your proxy correctly,
-## you should set the proxy option to 'true'
-[configuration.chat.server.bosh]
-
-## If you'd like to use a proxy, you should set the proxy
-## option to true, otherwise jsxc always tries to
-## connect directly to the port specified below.
-#proxy = true
-
-## Configure the protocol used to access the BOSH endpoint
-#proto = "http"
-
-## Configure the address that prosody should listen on.
-#address = "0.0.0.0"
-
-## Configure the BOSH port.
-#port = 5280
-
-## Configure the bind endpoint.
-#bind = "/http-bind"
-
-## Specify chat server log behaviour here.
-[configuration.chat.server.log]
-
-## Log file location.
-#info = "log/prosody.log"
-
-## Error log file location.
-#error = "log/prosody.err"
-
-## The debug level logs all XML sent and received by the server.
-#debug = false
 
 ## Displays the location of a post in a map.
 ## If you enable this setting you use the map tiles of https://www.mapbox.com
@@ -350,6 +271,14 @@
 ## (or commented out) to enable the first registration (you).
 #enable_registrations = true
 
+## Show local posts stream (default="disabled")
+## If any other setting than disabled local public posts
+## created on this pod can be shown.
+## Setting this to admins shows the local posts stream only to users with the admin role.
+## Setting this to moderators shows the local posts stream only to users with the moderator or admin role.
+## Setting this to everyone shows the local posts stream to all users.
+# enable_local_posts_stream= "disabled"|"admins"|"moderators"|"everyone"
+
 ## Auto-follow on sign-up (default=true)
 ## Users will automatically follow a specified account on creation.
 ## Set this to false if you don't want your users to automatically
@@ -399,10 +328,10 @@
 ## of your Sidekiq workers.
 #typhoeus_concurrency = 20
 
-## Maximum number of parallel user data export jobs (default=1)
-## Be careful, exports of big/old profiles can use a lot of memory, running
-## many of them in parallel can be a problem for small servers.
-#export_concurrency = 1
+## Maximum number of parallel user data import/export jobs (default=1)
+## Be careful, imports and exports of big/old profiles can use a lot of memory,
+## running many of them in parallel can be a problem for small servers.
+#archive_jobs_concurrency = 1
 
 ## Welcome Message settings
 [configuration.settings.welcome_message]
@@ -648,35 +577,6 @@
 
 ## E-mail address via which the administrator can be contacted.
 #podmin_email = "podmin@example.org"
-
-## Settings related to relays
-## Relays are applications that exist to push public posts around to
-## pods which want to subscribe to them but would not otherwise
-## receive them due to not having direct contact with the remote pods.
-##
-## See more regarding relays: https://wiki.diasporafoundation.org/Relay_servers_for_public_posts
-[configuration.relay]
-## Enable this setting to send out public posts from this pod to a relay
-#outbound.send = true
-
-## Change default remote relay url used for sending out here
-#outbound.url = "https://relay.iliketoast.net/receive/public"
-
-## Enable this to receive public posts from relays
-#inbound.subscribe = true
-
-## Scope is either "all" or "tags" (default="tags").
-## - "all", means this pod wants to receive all public posts from a relay
-## - "tags", means this pod wants only posts tagged with certain tags
-#inbound.scope = "tags"
-
-## If scope is "tags", should we include tags that users on this pod follow?
-## These are added in addition to "pod_tags", if set.
-#inbound.include_user_tags = false
-
-## If scope is "tags", a comma separated list of tags here can be set.
-## For example "linux,diaspora", to receive posts related to these tags
-#inbound.pod_tags = "linux,diaspora"
 
 ## Advanced - ignore unless you know better
 

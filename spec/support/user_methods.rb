@@ -24,6 +24,12 @@ class User
 
       p = build_post(class_name, opts)
       p.aspects = aspects
+
+      if class_name == :photo
+        p.width = 42 unless opts.has_key? :width
+        p.height = 42 unless opts.has_key? :height
+      end
+
       if p.save!
         self.aspects.reload
         dispatch_post(p, url: Rails.application.routes.url_helpers.post_url(p, host: AppConfig.pod_uri.to_s))

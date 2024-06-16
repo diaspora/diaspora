@@ -3,11 +3,7 @@
 module SessionsHelper
   def prefilled_username
     uri = Addressable::URI.parse(session["user_return_to"])
-    if uri && uri.query_values
-      uri.query_values["username"]
-    else
-      nil
-    end
+    uri&.query_values&.fetch("login_hint", "")
   end
 
   def display_registration_link?

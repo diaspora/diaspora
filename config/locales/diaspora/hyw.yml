@@ -5,290 +5,290 @@
 
 
 hyw:
-  _applications: "Յաւելուածներ"
-  _contacts: "Մարդիկ"
-  _services: "Ծառայութիւններ"
-  account: "Հաշիւ"
+  settings: Կարգաւորումներ
+  profile: Իմ էջս
+  account: Հաշիւ
+  privacy: Գաղտնութիւն
+  _services: Ծառայութիւններ
+  _applications: Յաւելուածներ
+  ok: Լաւ
+  cancel: Չեղարկել
+  delete: Ջնջել
+  username: Օգտանուն
+  email: Ելմակ
+  are_you_sure: Համոզուա՞ծ ես։
+  are_you_sure_delete_account: Համոզուա՞ծ ես, որ կ՚ուզես հաշիւդ գոցել։ Ալ վերականգնել չըլլար։
+  fill_me_out: Լրացո՛ւր զիս
+  public: Հրապարակային
+  limited: Սահմանափակ
+  search: Որոնում
+  nsfw: Քը՛խ
+  find_people: 'Գտնել մարդիկ կամ #պիտակներ'
+  more: Աւելին
+  all_aspects: Բոլոր խումբերը
+  no_results: Ոչինչ գտնուեցաւ
+  _contacts: Մարդիկ
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "պէտք է միակը ըլլայ այս օգտատիրոջ կապերուն մէջ։"
+            person:
+              invalid: անվաւեր է։
+            username:
+              taken: արդէն կը գործածուի։
+              invalid: անվաւեր է։ Կը թոյլատրուին միայն տառեր, թիւեր եւ ստորագիծեր։
+            email:
+              taken: արդէն կը գործածուի։
         person:
           attributes:
             diaspora_handle:
-              taken: "արդէն կը գործածուի։"
+              taken: արդէն կը գործածուի։
+        contact:
+          attributes:
+            person_id:
+              taken: պէտք է միակը ըլլայ այս օգտատիրոջ կապերուն մէջ։
         reshare:
           attributes:
             root_guid:
-              taken: "Լաւ է, չէ՞ մը։ Արդէն տարածե՜ր ես այս գրառումը։"
-        user:
-          attributes:
-            email:
-              taken: "արդէն կը գործածուի։"
-            person:
-              invalid: "անվաւեր է։"
-            username:
-              invalid: "անվաւեր է։ Կը թոյլատրուին միայն տառեր, թիւեր եւ ստորագիծեր։"
-              taken: "արդէն կը գործածուի։"
-  all_aspects: "Բոլոր խումբերը"
-  are_you_sure: "Համոզուա՞ծ ես։"
-  are_you_sure_delete_account: "Համոզուա՞ծ ես, որ կ՚ուզես հաշիւդ գոցել։ Ալ վերականգնել չըլլար։"
-  aspect_memberships:
-    destroy:
-      failure: "Այս մարդուն խումբէն հեռացնելը ձախողեցաւ։"
-      no_membership: "Նշածդ մարդը այդ խումբին մէջ չգտնուեցաւ։"
-      success: "Այս մարդը յաջողութեամբ հեռացուեցաւ խումբէն։"
-  aspects:
-    add_to_aspect:
-      failure: "Այդ խումբին մարդ աւելցնելը ձախողեցաւ։"
-      success: "Բարեյաջող աւելցուեցաւ խումբին։"
-    aspect_listings:
-      add_an_aspect: "+ Նոր խումբ ստեղծել"
-    aspect_stream:
-      stay_updated: "Եղի՛ր տեղեկացուած"
-      stay_updated_explanation: "Լրահոսիդ մէջ ըլլալու են կապերուդ գործողութիւնները, այն պիտակներով գրառումները որոնց կը հետեւիս եւ համայնքի որոշ «ընտրուած» անդամներու գրառումներ։"
-    destroy:
-      failure: "%{name} խումբդ չի կրնար ջնջուիլ։"
-      success: "%{name} խումբդ բարեյաջող ջնջուեցաւ։"
-    edit:
-      aspect_list_is_not_visible: "Այս խումբին մարդիկ չեն կրնար զիրար տեսնել։"
-      aspect_list_is_visible: "Այս խումբին մարդիկ կրնան զիրար տեսնել։"
-      confirm_remove_aspect: "Վստա՞հ ես, որ կ՚ուզես այս խումբը ջնջել։"
-      rename: "Վերանուանել"
-      update: "Թարմացնել"
-      updating: "Կը թարմացուի"
-    index:
-      donate: "Նուիրաբերել"
-      help:
-        do_you: "Արդեօ՞ք։"
-        feature_suggestion: "… %{link}-ի առաջա՞րկ ունիս։"
-        find_a_bug: "… %{link} գտեր ես։"
-        have_a_question: "… %{link} ունիս։"
-        here_to_help: "տիափորա*-ի համայնքը հո՜ս է։"
-        need_help: "Օգնութիւն կ՚ուզե՞ս"
-        tag_bug: "վրէպ"
-        tag_feature: "առաջարկութիւն"
-        tag_question: "հարցում"
-      introduce_yourself: "Ասիկա լրահոսդ է։ Ընկղմուէ՛ եւ ներկայացի՛ր։"
-      new_here:
-        follow: "Հետեւէ՛ %{link} պիտակը եւ ողջունէ՛ տիասփորա*-ի նոր օգտատէրերուն։"
-        learn_more: "Իմանալ աւելին"
-        title: "Ողջունէ՛ նորեկներուն"
-      services:
-        content: "Հետեւեալ ծառայութիւնները կրնաս միացնել տիասփորա*-ին՝"
-        heading: "Ծառայութիւններ միացնել"
-      welcome_to_diaspora: "Բարի գալուստ տիասփորա*, %{name} ճան։"
-    no_contacts_message:
-      community_spotlight: "Համայնքի լուսակէտ"
-      or_spotlight: "Կամ ալ կրնաս կիսուիլ %{link}ով։"
-      try_adding_some_more_contacts: "Կրնաս նորէն մարդիկ փնտռել կամ %{invite_link}"
-      you_should_add_some_more_contacts: "Քանի մը մարդ ե՛ւս պէտք է աւելացնես։"
-    seed:
-      acquaintances: "Ծանօթներ"
-      family: "Ընտանիք"
-      friends: "Ընկերներ"
-      work: "Աշխատանք"
-    update:
-      failure: "Քու %{name} խումբիդ անունը շատ երկար է եւ չի կրնար պահպանուիլ։"
-      success: "%{name} խումբդ յաջողութեամբ փոփոխուեցաւ։"
-  bookmarklet:
-    explanation: "Գրառէ՛ տիասփորա*-ի մէջ որեւէ տեղէ` տեղադրելով այս յղումը ⇒ %{link}"
-    heading: "Նշագրում"
-    post_something: "Գրառել տիասփորա*-ի մէջ"
-  cancel: "Չեղարկել"
-  comments:
-    new_comment:
-      comment: "Մեկնաբանութիւն"
-      commenting: "Կը մեկնաբանուի..."
-  contacts:
-    index:
-      all_contacts: "Բոլորը"
-      community_spotlight: "Համայնքի լուսակէտ"
-      my_contacts: "Իմ կապերս"
-      no_contacts: "Կ՚երեւի թե նոր ընկերներու կարիք ունիս։"
-      no_contacts_message: "Անցի՛ր %{community_spotlight}-ին ցուցակով։"
-      only_sharing_with_me: "Միայն հետս կիսուողները"
-      start_a_conversation: "Խօսակցութիւն սկսիլ"
-      title: "Մարդիկ"
-    spotlight:
-      community_spotlight: "Համայնքի լուսակէտ"
-  conversations:
-    create:
-      fail: "Անվաւեր հաղորդագրութիւն։"
-      sent: "Հաղորդագրութիւնն ղրկուած է։"
-    index:
-      inbox: "Փոստարկղ"
-      no_messages: "Հաղորդագրութիւններ չկան։"
-    new:
-      send: "Ղրկել"
-      sending: "Կը ղրկուի..."
-      subject: "Թեմա"
-      to: "Որո՞ւն"
-    show:
-      delete: "Խօսակցութիւնը ջնջել"
-      reply: "Պատասխանել"
-      replying: "Պատասխանը կը ղրկուի..."
-  delete: "Ջնջել"
-  email: "Ելմակ"
+              taken: Լաւ է, չէ՞ մը։ Արդէն տարածե՜ր ես այս գրառումը։
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Ուղղէ՛ նշեալ վրիպակները եւ նորէ՛ն փորձէ։"
-  fill_me_out: "Լրացո՛ւր զիս"
-  find_people: "Գտնել մարդիկ կամ #պիտակներ"
+      correct_the_following_errors_and_try_again: Ուղղէ՛ նշեալ վրիպակները եւ նորէ՛ն փորձէ։
+  aspects:
+    edit:
+      confirm_remove_aspect: Վստա՞հ ես, որ կ՚ուզես այս խումբը ջնջել։
+      rename: Վերանուանել
+      aspect_list_is_visible: Այս խումբին մարդիկ կրնան զիրար տեսնել։
+      aspect_list_is_not_visible: Այս խումբին մարդիկ չեն կրնար զիրար տեսնել։
+      update: Թարմացնել
+      updating: Կը թարմացուի
+    no_contacts_message:
+      you_should_add_some_more_contacts: Քանի մը մարդ ե՛ւս պէտք է աւելացնես։
+      try_adding_some_more_contacts: Կրնաս նորէն մարդիկ փնտռել կամ %{invite_link}
+      or_spotlight: Կամ ալ կրնաս կիսուիլ %{link}ով։
+      community_spotlight: Համայնքի լուսակէտ
+    aspect_listings:
+      add_an_aspect: "+ Նոր խումբ ստեղծել"
+    destroy:
+      success: "%{name} խումբդ բարեյաջող ջնջուեցաւ։"
+      failure: "%{name} խումբդ չի կրնար ջնջուիլ։"
+    update:
+      success: "%{name} խումբդ յաջողութեամբ փոփոխուեցաւ։"
+      failure: Քու %{name} խումբիդ անունը շատ երկար է եւ չի կրնար պահպանուիլ։
+    add_to_aspect:
+      failure: Այդ խումբին մարդ աւելցնելը ձախողեցաւ։
+      success: Բարեյաջող աւելցուեցաւ խումբին։
+    seed:
+      family: Ընտանիք
+      work: Աշխատանք
+      acquaintances: Ծանօթներ
+      friends: Ընկերներ
+    index:
+      donate: Նուիրաբերել
+      welcome_to_diaspora: Բարի գալուստ տիասփորա*, %{name} ճան։
+      introduce_yourself: Ասիկա լրահոսդ է։ Ընկղմուէ՛ եւ ներկայացի՛ր։
+      new_here:
+        title: Ողջունէ՛ նորեկներուն
+        follow: Հետեւէ՛ %{link} պիտակը եւ ողջունէ՛ տիասփորա*-ի նոր օգտատէրերուն։
+        learn_more: Իմանալ աւելին
+      help:
+        need_help: Օգնութիւն կ՚ուզե՞ս
+        here_to_help: տիափորա*-ի համայնքը հո՜ս է։
+        do_you: Արդեօ՞ք։
+        have_a_question: "… %{link} ունիս։"
+        tag_question: հարցում
+        find_a_bug: "… %{link} գտեր ես։"
+        tag_bug: վրէպ
+        feature_suggestion: "… %{link}-ի առաջա՞րկ ունիս։"
+        tag_feature: առաջարկութիւն
+      services:
+        heading: Ծառայութիւններ միացնել
+        content: Հետեւեալ ծառայութիւնները կրնաս միացնել տիասփորա*-ին՝
+    aspect_stream:
+      stay_updated: Եղի՛ր տեղեկացուած
+      stay_updated_explanation: Լրահոսիդ մէջ ըլլալու են կապերուդ գործողութիւնները, այն պիտակներով գրառումները որոնց կը հետեւիս եւ համայնքի որոշ «ընտրուած» անդամներու գրառումներ։
+  aspect_memberships:
+    destroy:
+      success: Այս մարդը յաջողութեամբ հեռացուեցաւ խումբէն։
+      failure: Այս մարդուն խումբէն հեռացնելը ձախողեցաւ։
+      no_membership: Նշածդ մարդը այդ խումբին մէջ չգտնուեցաւ։
+  bookmarklet:
+    heading: Նշագրում
+    post_something: Գրառել տիասփորա*-ի մէջ
+    explanation: Գրառէ՛ տիասփորա*-ի մէջ որեւէ տեղէ` տեղադրելով այս յղումը ⇒ %{link}
+  comments:
+    new_comment:
+      comment: Մեկնաբանութիւն
+      commenting: Կը մեկնաբանուի...
+  contacts:
+    index:
+      start_a_conversation: Խօսակցութիւն սկսիլ
+      title: Մարդիկ
+      no_contacts: Կ՚երեւի թե նոր ընկերներու կարիք ունիս։
+      no_contacts_message: Անցի՛ր %{community_spotlight}-ին ցուցակով։
+      community_spotlight: Համայնքի լուսակէտ
+      my_contacts: Իմ կապերս
+      all_contacts: Բոլորը
+      only_sharing_with_me: Միայն հետս կիսուողները
+    spotlight:
+      community_spotlight: Համայնքի լուսակէտ
+  conversations:
+    index:
+      no_messages: Հաղորդագրութիւններ չկան։
+      inbox: Փոստարկղ
+    show:
+      reply: Պատասխանել
+      replying: Պատասխանը կը ղրկուի...
+      delete: Խօսակցութիւնը ջնջել
+    new:
+      to: Որո՞ւն
+      subject: Թեմա
+      send: Ղրկել
+      sending: Կը ղրկուի...
+    create:
+      sent: Հաղորդագրութիւնն ղրկուած է։
+      fail: Անվաւեր հաղորդագրութիւն։
   invitations:
     create:
-      no_more: "Այլեւս հրաւէր ղրկելու իրաւունք չ՚ունիս։"
-      rejected: "Հետեւեալ ելմակներուն հետ խնդիրներ յառաջացան՝ %{emails}"
-      sent: "Հրաւէրները ղրկուեցան հետեւեալ ելմակներուն՝ %{emails}"
+      sent: Հրաւէրները ղրկուեցան հետեւեալ ելմակներուն՝ %{emails}
+      rejected: Հետեւեալ ելմակներուն հետ խնդիրներ յառաջացան՝ %{emails}
+      no_more: Այլեւս հրաւէր ղրկելու իրաւունք չ՚ունիս։
     new:
-      invite_someone_to_join: "Մեկու մը հրաւիրէ՛ տիասփորա*։"
-      language: "Լեզու"
-      send_an_invitation: "Հրաւէր ղրկել"
+      language: Լեզու
+      invite_someone_to_join: Մեկու մը հրաւիրէ՛ տիասփորա*։
+      send_an_invitation: Հրաւէր ղրկել
   layouts:
-    application:
-      back_to_top: "Թռիլ վեր"
-      powered_by: "Կ՚աշխատի տիասփորա*-ի օգնութեամբ"
-      public_feed: "%{name}-ին` տիասփորա*-ի հրապարակային հոսքը"
-      whats_new: "Ի՞նչ կայ չկայ"
     header:
-      code: "Քոտ"
-      logout: "Դուրս ելլել"
-      profile: "Իմ էջս"
-      settings: "Կարգադրումներ"
-  limited: "Սահմանափակ"
-  more: "Աւելին"
-  no_results: "Ոչինչ գտնուեցաւ"
+      profile: Իմ էջս
+      settings: Կարգադրումներ
+      logout: Դուրս ելլել
+      code: Քոտ
+    application:
+      powered_by: Կ՚աշխատի տիասփորա*-ի օգնութեամբ
+      whats_new: Ի՞նչ կայ չկայ
+      public_feed: "%{name}-ին` տիասփորա*-ի հրապարակային հոսքը"
+      back_to_top: Թռիլ վեր
   notifications:
-    also_commented:
-      one: "%{actors} նոյնպէս մեկնաբաներ է %{post_author}-ի %{post_link} գրառումը։"
-      other: "%{actors} նոյնպէս մեկնաբաներ են %{post_author}-ի %{post_link} գրառումը։"
-      zero: "%{actors} նոյնպէս մեկնաբաներ է %{post_author}-ի %{post_link} գրառումը։"
-    also_commented_deleted:
-      one: "%{actors} մեկնաբաներ է ջնջուած գրառումը։"
-      other: "%{actors} մեկնաբաներ են ջնջուած գրառումը։"
-      zero: "%{actors} մեկնաբաներ է ջնջուած գրառումը։"
+    started_sharing:
+      zero: "%{actors} սկսաւ հետդ կիսուիլ"
+      one: "%{actors} սկսաւ հետդ կիսուիլ"
+      other: "%{actors} սկսան հետդ կիսուիլ"
+    private_message:
+      zero: "%{actors} քեզի հաղորդագրութիւն ղրկեր է։"
+      one: "%{actors} քեզի հաղորդագրութիւն ղրկեր է։"
+      other: "%{actors} քեզի հաղորդագրութիւն ղրկեր են։"
     comment_on_post:
+      zero: "%{actors} մեկնաբանեց քու %{post_link}։"
       one: "%{actors} մեկնաբանեց քու %{post_link}։"
       other: "%{actors} մեկնաբանեցին քու %{post_link}։"
-      zero: "%{actors} մեկնաբանեց քու %{post_link}։"
-    index:
-      and: "եւ"
-      and_others:
-        one: "եւ մեկը եւս"
-        other: "եւ %{count} եւս"
-        zero: "եւ այլեւս ոչ ոք"
-      mark_all_as_read: "Ամէնը նշել իբրեւ ընթերցուած"
-      notifications: "Ծանուցումներ"
-    liked:
-      one: "%{actors} հաւներ է քու %{post_link} գրառումդ։"
-      other: "%{actors} հաւներ են քու %{post_link} գրառումդ։"
-      zero: "%{actors} հաւներ է քու %{post_link} գրառումդ։"
-    liked_post_deleted:
-      one: "%{actors} հաւներ է ջնջուած գրառումդ։"
-      other: "%{actors} հաւներ են ջնջուած գրառումդ։"
-      zero: "%{actors} հաւներ է ջնջուած գրառումդ։"
+    also_commented:
+      zero: "%{actors} նոյնպէս մեկնաբաներ է %{post_author}-ի %{post_link} գրառումը։"
+      one: "%{actors} նոյնպէս մեկնաբաներ է %{post_author}-ի %{post_link} գրառումը։"
+      other: "%{actors} նոյնպէս մեկնաբաներ են %{post_author}-ի %{post_link} գրառումը։"
     mentioned:
       one: "%{actors} քեզ նշեր է %{post_link} գրառման մէջ։"
       other: "%{actors} քեզ նշեր են %{post_link} գրառման մէջ։"
+    liked:
+      zero: "%{actors} հաւներ է քու %{post_link} գրառումդ։"
+      one: "%{actors} հաւներ է քու %{post_link} գրառումդ։"
+      other: "%{actors} հաւներ են քու %{post_link} գրառումդ։"
+    reshared:
+      zero: "%{actors} տարածեր է քու %{post_link} գրառումդ։"
+      one: "%{actors} տարածեր է քու %{post_link} գրառումդ։"
+      other: "%{actors} տարածեր են քու %{post_link} գրառումդ։"
+    also_commented_deleted:
+      zero: "%{actors} մեկնաբաներ է ջնջուած գրառումը։"
+      one: "%{actors} մեկնաբաներ է ջնջուած գրառումը։"
+      other: "%{actors} մեկնաբաներ են ջնջուած գրառումը։"
+    liked_post_deleted:
+      zero: "%{actors} հաւներ է ջնջուած գրառումդ։"
+      one: "%{actors} հաւներ է ջնջուած գրառումդ։"
+      other: "%{actors} հաւներ են ջնջուած գրառումդ։"
+    reshared_post_deleted:
+      zero: "%{actors} տարածեր է ջնջուած գրառումդ։"
+      one: "%{actors} տարածեր է ջնջուած գրառումդ։"
+      other: "%{actors} տարածեր են ջնջուած գրառումդ։"
     mentioned_deleted:
       one: "%{actors} քեզ նշեր է ջնջուած գրառման մէջ։"
       other: "%{actors} քեզ նշեր են ջնջուած գրառման մէջ։"
-    private_message:
-      one: "%{actors} քեզի հաղորդագրութիւն ղրկեր է։"
-      other: "%{actors} քեզի հաղորդագրութիւն ղրկեր են։"
-      zero: "%{actors} քեզի հաղորդագրութիւն ղրկեր է։"
-    reshared:
-      one: "%{actors} տարածեր է քու %{post_link} գրառումդ։"
-      other: "%{actors} տարածեր են քու %{post_link} գրառումդ։"
-      zero: "%{actors} տարածեր է քու %{post_link} գրառումդ։"
-    reshared_post_deleted:
-      one: "%{actors} տարածեր է ջնջուած գրառումդ։"
-      other: "%{actors} տարածեր են ջնջուած գրառումդ։"
-      zero: "%{actors} տարածեր է ջնջուած գրառումդ։"
-    started_sharing:
-      one: "%{actors} սկսաւ հետդ կիսուիլ"
-      other: "%{actors} սկսան հետդ կիսուիլ"
-      zero: "%{actors} սկսաւ հետդ կիսուիլ"
+    index:
+      notifications: Ծանուցումներ
+      mark_all_as_read: Ամէնը նշել իբրեւ ընթերցուած
+      and_others:
+        zero: եւ այլեւս ոչ ոք
+        one: եւ մեկը եւս
+        other: եւ %{count} եւս
+      and: եւ
   notifier:
-    a_post_you_shared: "գրառումը։"
-    click_here: "Հո՛ս կտէ։"
+    a_post_you_shared: գրառումը։
+    email_sent_by_diaspora: Այս ելմակը ղրկեր է %{pod_name}-ը։ Եթե այլեւս չես ուզեր այսպիսի ելմակներ ստանալ,
+    click_here: Հո՛ս կտէ։
+    hello: Ողջո՛յն, %{name}
+    thanks: Շնորհակալութիւն,
+    to_change_your_notification_settings: ծանուցմանց կարգադրումները փոխելու համար
+    single_admin:
+      subject: Հաղորդագրութիւն մը տիասփորա*-ի հաշիւիդ վերաբերեալ
+      admin: տիասփորա*-ի քու կառավարիչդ
+    started_sharing:
+      subject: "%{name} սկսաւ հետդ կիսուիլ։"
+      sharing: սկսաւ հետդ կիսուի՜լ։
+      view_profile: Տե՛ս %{name}-ին էջը
     comment_on_post:
-      reply: "Պատասխանէ՛ կամ տե՛ս %{name}-ին գրառումը >"
-    confirm_email:
-      click_link: "%{unconfirmed_email} ելմակդ ակտիւացնելու համար հաճիս հո՛ս սեղմէ՝"
-      subject: "Հաճիս ակտիւացուր նոր %{unconfirmed_email} ելմակդ"
-    email_sent_by_diaspora: "Այս ելմակը ղրկեր է %{pod_name}-ը։ Եթե այլեւս չես ուզեր այսպիսի ելմակներ ստանալ,"
-    hello: "Ողջո՛յն, %{name}"
-    liked:
-      liked: "%{name} հաւներ է գրառումդ"
-      view_post: "Տեսնել գրառումը >"
+      reply: Պատասխանէ՛ կամ տե՛ս %{name}-ին գրառումը >
     mentioned:
       subject: "%{name}-ը քեզ նշեր է տիասփորա*-ի մէջ"
     private_message:
-      reply_to_or_view: "Պատասխանէ՛ կամ տե՛ս այս խօսակցութիւնը >"
+      reply_to_or_view: Պատասխանէ՛ կամ տե՛ս այս խօսակցութիւնը >
+    liked:
+      liked: "%{name} հաւներ է գրառումդ"
+      view_post: Տեսնել գրառումը >
     reshared:
       reshared: "%{name} տարածեր է գրառումդ"
-      view_post: "Տեսնել գրառումը >"
-    single_admin:
-      admin: "տիասփորա*-ի քու կառավարիչդ"
-      subject: "Հաղորդագրութիւն մը տիասփորա*-ի հաշիւիդ վերաբերեալ"
-    started_sharing:
-      sharing: "սկսաւ հետդ կիսուի՜լ։"
-      subject: "%{name} սկսաւ հետդ կիսուիլ։"
-      view_profile: "Տե՛ս %{name}-ին էջը"
-    thanks: "Շնորհակալութիւն,"
-    to_change_your_notification_settings: "ծանուցմանց կարգադրումները փոխելու համար"
-  nsfw: "Քը՛խ"
-  ok: "Լաւ"
+      view_post: Տեսնել գրառումը >
+    confirm_email:
+      subject: Հաճիս ակտիւացուր նոր %{unconfirmed_email} ելմակդ
+      click_link: "%{unconfirmed_email} ելմակդ ակտիւացնելու համար հաճիս հո՛ս սեղմէ՝"
   people:
-    index:
-      looking_for: "Քեզի %{tag_link} պիտակով գրառումնե՞ր պէտք են։"
-      no_one_found: "…եւ ոչ ոք գտնուեցաւ։"
-      no_results: "Հէ՛յ, պէտք է որ բան մը փնտռես։"
-      results_for: "%{search_term} որոնմանը համապատասխանող մարդիկ"
     person:
-      thats_you: "Ասիկա դո՜ւն ես"
-    profile_sidebar:
-      bio: "Կենսագրութիւն"
-      born: "Տարեդարձ"
-      gender: "Սեռ"
-      location: "Տեղ"
+      thats_you: Ասիկա դո՜ւն ես
+    index:
+      results_for: "%{search_term} որոնմանը համապատասխանող մարդիկ"
+      no_results: Հէ՛յ, պէտք է որ բան մը փնտռես։
+      no_one_found: "…եւ ոչ ոք գտնուեցաւ։"
+      looking_for: Քեզի %{tag_link} պիտակով գրառումնե՞ր պէտք են։
     show:
-      closed_account: "Այս հաշիւը գոցուեր է։"
-      does_not_exist: "Այս անձն անգոյ է։ Յամենայն դէպս տիասփորա*-ի մէջ։"
       has_not_shared_with_you_yet: "%{name} հետդ որեւէ գրառմամբ դեռ չէ կիսուած։"
+      does_not_exist: Այս անձն անգոյ է։ Յամենայն դէպս տիասփորա*-ի մէջ։
+      closed_account: Այս հաշիւը գոցուեր է։
+    profile_sidebar:
+      bio: Կենսագրութիւն
+      location: Տեղ
+      gender: Սեռ
+      born: Տարեդարձ
   photos:
     create:
-      integrity_error: "Նկար վերբեռնելը տապալեցաւ։ Վստա՞հ ես, որ հէնց նկար էր։"
-      runtime_error: "Նկար վերբեռնելը տապալեցաւ։ Վստա՞հ ես, որ ամրագօտիդ կապեր ես։"
-      type_error: "Նկար վերբեռնելը տապալեցաւ։ Վստա՞հ ես, որ հէնց նկար էր աւելցուցածդ։"
+      runtime_error: Նկար վերբեռնելը տապալեցաւ։ Վստա՞հ ես, որ ամրագօտիդ կապեր ես։
+      integrity_error: Նկար վերբեռնելը տապալեցաւ։ Վստա՞հ ես, որ հէնց նկար էր։
+      type_error: Նկար վերբեռնելը տապալեցաւ։ Վստա՞հ ես, որ հէնց նկար էր աւելցուցածդ։
     destroy:
-      notice: "Նկարը ջնջուած է։"
+      notice: Նկարը ջնջուած է։
     new_profile_photo:
-      upload: "Նո՜րը վերբեռնել"
+      upload: Նո՜րը վերբեռնել
   posts:
     show:
       photos_by:
-        one: "Մեկ նկար %{author}-ին կողմէ"
-        other: "%{count} նկար %{author}-ին կողմէ"
         zero: "%{author}-ը նկար չ՚ունի"
+        one: Մեկ նկար %{author}-ին կողմէ
+        other: "%{count} նկար %{author}-ին կողմէ"
       reshare_by: "%{author}-ին տարածածը"
-  privacy: "Գաղտնութիւն"
-  profile: "Իմ էջս"
   profiles:
     edit:
-      first_name: "Անուն"
-      last_name: "Մականուն"
-      your_bio: "Կենսագրութիւն"
-      your_birthday: "Տարեդարձ"
-      your_gender: "Սեռ"
-      your_name: "Անունդ"
-      your_tags: "Ինքզինքդ նկարագրէ՛ 5 բառով"
-      your_tags_placeholder: "Զորօրինակ՝ #շարժանկարներ #կատուիկներ #ճամբորդութիւն #ուսուցիչ #Երեւան"
-  public: "Հրապարակային"
-  search: "Որոնում"
-  settings: "Կարգաւորումներ"
-  username: "Օգտանուն"
+      your_name: Անունդ
+      first_name: Անուն
+      last_name: Մականուն
+      your_gender: Սեռ
+      your_birthday: Տարեդարձ
+      your_tags: Ինքզինքդ նկարագրէ՛ 5 բառով
+      your_tags_placeholder: 'Զորօրինակ՝ #շարժանկարներ #կատուիկներ #ճամբորդութիւն #ուսուցիչ #Երեւան'
+      your_bio: Կենսագրութիւն

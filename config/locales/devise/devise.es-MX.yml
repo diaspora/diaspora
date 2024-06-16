@@ -7,84 +7,84 @@
 es-MX:
   devise:
     confirmations:
-      confirmed: "Tu cuenta ha sido confirmada. Has accedido a tu cuenta."
+      confirmed: Tu cuenta ha sido confirmada. Has accedido a tu cuenta.
+      send_instructions: Recibirás un correo electrónico con instrucciones para confirmar tu cuenta dentro de pocos minutos.
       new:
-        resend_confirmation: "Reenviar instrucciones de confirmación"
-      send_instructions: "Recibirás un correo electrónico con instrucciones para confirmar tu cuenta dentro de pocos minutos."
+        resend_confirmation: Reenviar instrucciones de confirmación
     failure:
-      inactive: "Tu cuenta aún no ha sido activada."
-      invalid: "Nombre de usuario o contraseña inválidos."
-      invalid_token: "Identificador de autenticación inválido."
-      locked: "Tu cuenta está bloqueada."
-      not_found_in_database: "Contraseña o correo electrónico inválido."
-      timeout: "Tu sesión ha caducado, por favor accede nuevamente para continuar."
-      unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
-      unconfirmed: "Tienes que confirmar tu cuenta antes de continuar."
-    invitations:
-      invitation_token_invalid: "¡Discúlpanos! Ese identificador de invitación no es válido."
-      send_instructions: "Tu invitación ha sido enviada."
-      updated: "Tu contraseña se ha establecido exitosamente. Has accedido a tu cuenta."
+      inactive: Tu cuenta aún no ha sido activada.
+      invalid: Nombre de usuario o contraseña inválidos.
+      locked: Tu cuenta está bloqueada.
+      not_found_in_database: Contraseña o correo electrónico inválido.
+      timeout: Tu sesión ha caducado, por favor accede nuevamente para continuar.
+      unauthenticated: Necesitas iniciar sesión o registrarte antes de continuar.
+      unconfirmed: Tienes que confirmar tu cuenta antes de continuar.
+      invalid_token: Identificador de autenticación inválido.
     mailer:
       confirmation_instructions:
-        confirm: "Confirmar mi cuenta"
-        subject: "Instrucciones de confirmación"
-        you_can_confirm: "Puedes confirmar tu cuenta a través del siguiente enlace:"
+        subject: Instrucciones de confirmación
+        you_can_confirm: 'Puedes confirmar tu cuenta a través del siguiente enlace:'
+        confirm: Confirmar mi cuenta
+      reset_password_instructions:
+        subject: Instrucciones para reestablecer la contraseña
+        someone_requested: Alguien ha solicitado un enlace para cambiar tu contraseña. Si fuiste tú, puedes cambiarlo a través del enlace siguiente.
+        change: Cambiar mi contraseña
+        wont_change: Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva.
+        ignore: Si no solicitaste esto, por favor, ignora este correo.
+      unlock_instructions:
+        subject: Instrucciones de desbloqueo
+        account_locked: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de ingreso fallidos.
+        click_to_unlock: 'Haz clic en el siguiente enlace para desbloquear tu cuenta:'
+        unlock: Desbloquear mi cuenta
+      welcome: "¡Bienvenido/a %{username}!"
       hello: "¡Hola %{username}!"
       inviter:
-        accept_at: "en %{url} puedes aceptarlo a través del siguiente enlace."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} te ha invitado a unirte a Diaspora"
-      reset_password_instructions:
-        change: "Cambiar mi contraseña"
-        ignore: "Si no solicitaste esto, por favor, ignora este correo."
-        someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña. Si fuiste tú, puedes cambiarlo a través del enlace siguiente."
-        subject: "Instrucciones para reestablecer la contraseña"
-        wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
-      unlock_instructions:
-        account_locked: "Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de ingreso fallidos."
-        click_to_unlock: "Haz clic en el siguiente enlace para desbloquear tu cuenta:"
-        subject: "Instrucciones de desbloqueo"
-        unlock: "Desbloquear mi cuenta"
-      welcome: "¡Bienvenido/a %{username}!"
+        accept_at: en %{url} puedes aceptarlo a través del siguiente enlace.
     passwords:
+      send_instructions: Recibirás un correo electrónico con instrucciones para restablecer tu contraseña dentro de pocos minutos.
+      updated: Tu contraseña se ha modificado exitosamente. Has accedido a tu cuenta.
       edit:
-        change_password: "Cambiar mi contraseña"
+        change_password: Cambiar mi contraseña
       new:
-        email: "Dirección de correo electrónico"
         forgot_password: "¿Olvidaste tu contraseña?"
-        reset_password: "Restablecer contraseña"
-        send_password_instructions: "Envíame instrucciones para restablecer la contraseña."
-      send_instructions: "Recibirás un correo electrónico con instrucciones para restablecer tu contraseña dentro de pocos minutos."
-      updated: "Tu contraseña se ha modificado exitosamente. Has accedido a tu cuenta."
+        reset_password: Restablecer contraseña
+        email: Dirección de correo electrónico
+        send_password_instructions: Envíame instrucciones para restablecer la contraseña.
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido eliminada exitosamente. Esperamos verte de nuevo pronto."
-      signed_up: "Te has registrado exitosamente. Un mensaje de confirmación ha sido enviado a tu correo electrónico."
-      updated: "Has actualizado exitosamente tu cuenta."
+      signed_up: Te has registrado exitosamente. Un mensaje de confirmación ha sido enviado a tu correo electrónico.
+      updated: Has actualizado exitosamente tu cuenta.
     sessions:
+      signed_in: Has accedido exitosamente.
+      signed_out: Has salido exitosamente.
       new:
-        login: "Iniciar sesión"
-        modern_browsers: "Solo es compatible con navegadores modernos."
-        password: "Contraseña"
-        remember_me: "Recordarme"
-        sign_in: "Entrar"
-        username: "Nombre de usuario"
-      signed_in: "Has accedido exitosamente."
-      signed_out: "Has salido exitosamente."
+        login: Iniciar sesión
+        username: Nombre de usuario
+        password: Contraseña
+        sign_in: Entrar
+        remember_me: Recordarme
+        modern_browsers: Solo es compatible con navegadores modernos.
+    unlocks:
+      send_instructions: Recibirás un correo electrónico con instrucciones para desbloquear tu cuenta dentro de pocos minutos.
+      unlocked: Tu cuenta ha sido desbloqueada exitosamente. Has accedido a tu cuenta.
+      new:
+        resend_unlock: Reenviar instrucciones de desbloqueo
+    invitations:
+      send_instructions: Tu invitación ha sido enviada.
+      invitation_token_invalid: "¡Discúlpanos! Ese identificador de invitación no es válido."
+      updated: Tu contraseña se ha establecido exitosamente. Has accedido a tu cuenta.
     shared:
       links:
+        sign_in: Entrar
+        sign_up: Regístrate
+        sign_up_closed: Los registros abiertos no están disponibles en este momento.
         forgot_your_password: "¿Olvidaste tu contraseña?"
         receive_confirmation: "¿No recibiste las instrucciones de confirmación?"
         receive_unlock: "¿No recibiste las instrucciones de desbloqueo?"
-        sign_in: "Entrar"
-        sign_up: "Regístrate"
-        sign_up_closed: "Los registros abiertos no están disponibles en este momento."
-    unlocks:
-      new:
-        resend_unlock: "Reenviar instrucciones de desbloqueo"
-      send_instructions: "Recibirás un correo electrónico con instrucciones para desbloquear tu cuenta dentro de pocos minutos."
-      unlocked: "Tu cuenta ha sido desbloqueada exitosamente. Has accedido a tu cuenta."
   errors:
     messages:
-      already_confirmed: "ya ha sido confirmado"
-      not_found: "no encontrado"
-      not_locked: "no fue bloqueado"
+      already_confirmed: ya ha sido confirmado
+      not_found: no encontrado
+      not_locked: no fue bloqueado

@@ -31,18 +31,6 @@ class UsersController < ApplicationController
     render :edit
   end
 
-  def update_privacy_settings
-    privacy_params = params.fetch(:user).permit(:strip_exif)
-
-    if current_user.update(strip_exif: privacy_params[:strip_exif])
-      flash[:notice] = t("users.update.settings_updated")
-    else
-      flash[:error] = t("users.update.settings_not_updated")
-    end
-
-    redirect_back fallback_location: privacy_settings_path
-  end
-
   def destroy
     if params[:user] && params[:user][:current_password] && current_user.valid_password?(params[:user][:current_password])
       current_user.close_account!
@@ -122,11 +110,6 @@ class UsersController < ApplicationController
     redirect_to edit_user_path
   end
 
-  def auth_token
-    current_user.ensure_authentication_token!
-    render status: 200, json: {token: current_user.authentication_token}
-  end
-
   private
 
   def user_params
@@ -140,6 +123,8 @@ class UsersController < ApplicationController
       :auto_follow_back_aspect_id,
       :getting_started,
       :post_default_public,
+      :exported_photos_file,
+      :export,
       email_preferences: UserPreference::VALID_EMAIL_TYPES.map(&:to_sym)
     )
   end
@@ -165,6 +150,8 @@ class UsersController < ApplicationController
       change_post_default(user_data)
     elsif user_data[:color_theme]
       change_settings(user_data, "users.update.color_theme_changed", "users.update.color_theme_not_changed")
+    elsif user_data[:export] || user_data[:exported_photos_file]
+      upload_export_files(user_data)
     else
       change_settings(user_data)
     end
@@ -226,6 +213,19 @@ class UsersController < ApplicationController
         flash.now[:error] = t("users.update.unconfirmed_email_not_changed")
       end
     end
+  end
+
+  def upload_export_files(user_data)
+    logger.info "Start importing account"
+    @user.export = user_data[:export] if user_data[:export]
+    @user.exported_photos_file = user_data[:exported_photos_file] if user_data[:exported_photos_file]
+    if @user.save
+      flash.now[:notice] = "Your account migration has been scheduled"
+    else
+      flash.now[:error] = "Your account migration could not be scheduled for the following reason:"\
+                          " #{@user.errors.full_messages}"
+    end
+    Workers::ImportUser.perform_async(@user.id)
   end
 
   def change_settings(user_data, successful="users.update.settings_updated", error="users.update.settings_not_updated")

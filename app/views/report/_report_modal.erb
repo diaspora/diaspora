@@ -1,0 +1,27 @@
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">×</button>
+        <h3 class="modal-title"><%= t("report.modal.title", pod_name: pod_name) %></h3>
+      </div>
+      <div class="modal-body">
+        <p>
+          <%= t("report.modal.report_send_email") %>
+          <% if AppConfig.settings.terms.enable? %>
+            <%= t("report.modal.report_only_if_violated_terms", link_to_terms: link_to(t("report.modal.terms_link", pod_name: pod_name), terms_path, target: "_blank", rel: "noopener")).html_safe %>
+          <% else %>
+            <%= t("report.modal.report_only_if_bad", link_to_guidelines: link_to(t("help.community_guidelines"), "https://diasporafoundation.org/community_guidelines", target: "_blank", rel: "noopener")).html_safe %>
+          <% end %>
+        </p>
+        <form id="report-content-form" accept-charset="UTF-8">
+          <p><label for="report-reason-field"><%= t("report.modal.reason_label") %></label></p>
+          <p><textarea id="report-reason-field" name="report-reason" class="form-control" placeholder="<%= t('report.modal.placeholder') %>" autofocus required></textarea></p>
+          <div class="clearfix">
+            <input type="submit" class="btn btn-primary pull-right" value="<%= t("report.modal.submit") %>" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

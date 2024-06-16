@@ -31,7 +31,7 @@ app.views.PublisherAspectSelector  = app.views.AspectsDropdown.extend({
     }
 
     this._updateSelectedAspectIds();
-    this._updateButton('btn-default');
+    this._updateButton();
 
     // update the globe or lock icon
     var icon = this.$("#visibility-icon");
@@ -48,7 +48,7 @@ app.views.PublisherAspectSelector  = app.views.AspectsDropdown.extend({
   updateAspectsSelector: function(ids){
     this._selectAspects(ids);
     this._updateSelectedAspectIds();
-    this._updateButton('btn-default');
+    this._updateButton();
   },
 
   // take care of the form fields that will indicate the selected aspects

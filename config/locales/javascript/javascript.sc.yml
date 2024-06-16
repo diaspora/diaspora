@@ -6,314 +6,314 @@
 
 sc:
   javascripts:
+    timeago:
+      prefixAgo: " "
+      suffixAgo: fàghet
+      suffixFromNow: dae como
+      prefixFromNow: " "
+      inPast: chitzo
+      seconds: de mancu de unu minutu
+      minute: pagu prus o mancu unu minutu
+      minutes:
+        one: 1 minutu
+        other: "%d minutos"
+      hour: pagu prus o mancu un'ora
+      hours:
+        one: pagu prus o mancu 1 ora
+        other: pagu prus o mancu %d oras
+      day: una die
+      days:
+        one: 1 die
+        other: "%d dies"
+      month: pagu prus o mancu unu mese
+      months:
+        one: 1 mese
+        other: "%d meses"
+      year: pagu prus o mancu un annu
+      years:
+        one: 1 annu
+        other: "%d annos"
+      wordSeparator: " "
+    cancel: Annulla
+    confirm_dialog: Seguru ses?
+    confirm_unload: Pro praghere cunfirma chi cheres essire dae custa pàgina. Sos datos chi as insertadu no ant a èssere sarvados.
+    create: Crea
+    delete: Iscantzella
+    ignore: Ignora
+    report:
+      prompt: 'Pro praghere iscrie sa resone:'
+      prompt_default: p. es. cuntenutu ofensivu
+      name: Sinnala
+      status:
+        created: Sa sinnalatzione st istada creada cun sutzessu
+        exists: Custa sinnalatzione esistit giai
+    ignore_user: Ignorare custu impreadore?
+    ignore_failed: Impossìbile ignorare custu impreadore
+    hide_post: Istichire custa publicatzione?
+    hide_post_failed: Impossìbile istichire custa publicatzione
+    remove_post: Bogare custa publicatzione?
+    unblock_failed: Su tentativu de isblocare custu impreadore est fallidu
+    and: e
+    comma: ","
+    edit: Acontza
+    no_results: Perunu resurtadu agatadu
+    show_all: Ammustra totu
+    admins:
+      dashboard:
+        up_to_date: Su pod tuo est agiornadu!
+        outdated: Su pod tuo no est agiornadu.
+        compare_versions: S'ùrtima versione de diaspora* est sa <%= latestVersion %>, su pod tuo tenet sa <%= podVersion %>.
+        error: Impossìbile verificare s'ùrtima versione de diaspora*.
     admin:
       pods:
-        actions: "Atziones"
-        added: "Annantu"
-        check: "faghe una proa de connessione"
-        errors:
-          one: "Sa proa de connessione at sinnaladu un'errore cun unu pod."
-          other: "Sa proa de connessione at sinnaladu un'errore cun <%= count %> pods."
-        follow_link: "aberi su ligàmene in s'esploradore"
-        last_check: "ùrtima verìfica:"
-        more_info: "ammustra àteras informatziones"
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL abilitadu
+        ssl_disabled: SSL disabilitadu
+        added: Annantu
+        status: Istadu
+        states:
+          unchecked: Non verificadu
+          no_errors: AB
+          dns_failed: Risolutzione de su nùmene (DNS) fallida
+          net_failed: Tentativu de connessione fallidu
+          ssl_failed: Connessione segura (SSL) fallida
+          http_failed: Connessione HTTP fallida
+          version_failed: Impossìbile determinare sa versione de su programma
+          unknown_error: B'est istadu un'errore indefinidu durante sa verìfica
+        actions: Atziones
+        offline_since: 'non in lìnia dae su:'
+        last_check: 'ùrtima verìfica:'
+        more_info: ammustra àteras informatziones
+        check: faghe una proa de connessione
+        recheck:
+          success: Custu pod est istadu torra verificadu como pag'ora.
+          failure: Sa verifica no est istada fata.
+        follow_link: aberi su ligàmene in s'esploradore
+        no_info: Peruna informatzione disponìbile in prus in custu momentu
+        server_software: 'Programma de su server:'
+        response_time: 'Tempus de risposta:'
         ms:
           one: "<%= count %>ms"
           other: "<%= count %>ms"
-        no_info: "Peruna informatzione disponìbile in prus in custu momentu"
-        not_available: "non disponìbile"
-        offline_since: "non in lìnia dae su:"
-        pod: "Pod"
-        recheck:
-          failure: "Sa verifica no est istada fata."
-          success: "Custu pod est istadu torra verificadu como pag'ora."
-        response_time: "Tempus de risposta:"
-        server_software: "Programma de su server:"
-        ssl: "SSL"
-        ssl_disabled: "SSL disabilitadu"
-        ssl_enabled: "SSL abilitadu"
-        states:
-          dns_failed: "Risolutzione de su nùmene (DNS) fallida"
-          http_failed: "Connessione HTTP fallida"
-          net_failed: "Tentativu de connessione fallidu"
-          no_errors: "AB"
-          ssl_failed: "Connessione segura (SSL) fallida"
-          unchecked: "Non verificadu"
-          unknown_error: "B'est istadu un'errore indefinidu durante sa verìfica"
-          version_failed: "Impossìbile determinare sa versione de su programma"
-        status: "Istadu"
+        unknown: disconnotu
+        not_available: non disponìbile
         unchecked:
-          one: "B'est galu unu pod chi no est istadu verificadu pro nudda."
-          other: "Bi sunt galu <%= count %> pods chi no sunt istados verificados pro nudda."
-        unknown: "disconnotu"
+          one: B'est galu unu pod chi no est istadu verificadu pro nudda.
+          other: Bi sunt galu <%= count %> pods chi no sunt istados verificados pro nudda.
         version_failed:
-          one: "B'est unu pod chi tenet una versione indefinida (pod betzu, chene NodeInfo)."
-          other: "Bi sunt <%= count %> pods chi tenent una versione indefinida (pods betzos, chene NodeInfo)."
-    admins:
-      dashboard:
-        compare_versions: "S'ùrtima versione de diaspora* est sa <%= latestVersion %>, su pod tuo tenet sa <%= podVersion %>."
-        error: "Impossìbile verificare s'ùrtima versione de diaspora*."
-        outdated: "Su pod tuo no est agiornadu."
-        up_to_date: "Su pod tuo est agiornadu!"
-    and: "e"
+          one: B'est unu pod chi tenet una versione indefinida (pod betzu, chene NodeInfo).
+          other: Bi sunt <%= count %> pods chi tenent una versione indefinida (pods betzos, chene NodeInfo).
+        errors:
+          one: Sa proa de connessione at sinnaladu un'errore cun unu pod.
+          other: Sa proa de connessione at sinnaladu un'errore cun <%= count %> pods.
+    aspects:
+      name: Nùmene
+      create:
+        add_a_new_aspect: Annanghe una cara noa
+        success: Sa cara noa tua <%= name %> est istada creada
+        failure: Creatzione de sa cara fallida.
+    errors:
+      connection: No est istadu possìbile a si connètere a su server.
+    contacts:
+      add_contact: Annanghe unu cuntatu
+      remove_contact: Boga custu cuntatu
+      error_add: No est istadu possìbile a annànghere <%= name %> a sa cara :(
+      error_remove: No est istadu possìbile a bogare <%= name %> dae sa cara :(
+      search_no_results: Perunu cuntatu agatadu
+    my_activity: Atividade mea
+    my_stream: Flussu
+    my_aspects: Caras meas
+    publisher:
+      near_from: 'Publicada in: <%= location %>'
+      option: Risposta
+      add_option: Annanghe una risposta
+      question: Pregunta
+      markdown_editor:
+        preview: Anteprima
+        write: Iscrie
+        tooltips:
+          bold: Grassetu
+          italic: Corsivu
+          heading: Tìtulu
+          insert_link: Inserta unu ligàmene
+          insert_image: Inserta un'immàgine
+          insert_ordered_list: Inserta una lista ordinata
+          insert_unordered_list: Inserta una lista non ordinata
+          preview: Anteprima de su messàgiu
+          write: Acontza su messàgiu
+          cancel: Iscantzella su messàgiu
+          quote: Inserta una tzitatzione
+          code: Inserta còdighe
+        texts:
+          strong: testu in grassetu
+          italic: testu in corsivu
+          heading: testu de tìtulu
+          insert_link_description_text: inserta una descritzione pro su ligàmene inoghe
+          insert_link_help_text: Inserta su ligàmene inoghe
+          insert_image_description_text: inserta sa descritzione de s'immàgine inoghe
+          insert_image_help_text: inserta su ligàmene de s'immàgine inoghe
+          insert_image_title: inserta su tìtulu de s'immàgine inoghe
+          list: testu de sa lista inoghe
+          quote: testu de sa tzitatzione inoghe
+          code: còdighe inoghe
+      mention_success: 'Etichetados curretamente: <%= names %>'
+    bookmarklet:
+      post_something: Pùblica in diaspora*
+      post_submit: Imbiende sa sinnalatzione...
+      post_success: Publicada! Serrende sa bentana popup...
     aspect_dropdown:
-      add_to_aspect: "Annanghe unu cuntatu"
-      all_aspects: "Totu sas caras"
-      error: "Impossìbile incumintzare a cumpartzire cun <%= name %>. Lu ses ignorende?"
-      error_remove: "No est istadu possìbile a bogare <%= name %> dae sa cara :("
+      add_to_aspect: Annanghe unu cuntatu
+      select_aspects: Issèbera sas caras
+      all_aspects: Totu sas caras
+      updating: agiornende...
       mobile_row_checked: "<%= name %> (boga)"
       mobile_row_unchecked: "<%= name %> (annanghe)"
-      select_aspects: "Issèbera sas caras"
-      started_sharing_with: "As incumintzadu a cumpartzire cun <%= name %>!"
-      stopped_sharing_with: "As acabadu de cumpartzire cun <%= name %>."
+      stopped_sharing_with: As acabadu de cumpartzire cun <%= name %>.
+      started_sharing_with: As incumintzadu a cumpartzire cun <%= name %>!
+      error: Impossìbile incumintzare a cumpartzire cun <%= name %>. Lu ses ignorende?
+      error_remove: No est istadu possìbile a bogare <%= name %> dae sa cara :(
       toggle:
-        one: "In <%= count %> cara"
-        other: "In <%= count %> caras"
-      updating: "agiornende..."
-    aspect_navigation:
-      add_an_aspect: "+ Annanghe una cara"
-      deselect_all: "Boga s'ischerta a totu"
-      no_aspects: "Peruna cara ischertada"
-      select_all: "Ischerta totu"
-    aspects:
-      create:
-        add_a_new_aspect: "Annanghe una cara noa"
-        failure: "Creatzione de sa cara fallida."
-        success: "Sa cara noa tua <%= name %> est istada creada"
-      name: "Nùmene"
-    bookmarklet:
-      post_something: "Pùblica in diaspora*"
-      post_submit: "Imbiende sa sinnalatzione..."
-      post_success: "Publicada! Serrende sa bentana popup..."
-    cancel: "Annulla"
-    comma: ","
+        one: In <%= count %> cara
+        other: In <%= count %> caras
+    show_more: Ammustra de prus
+    failed_to_post_message: Publicatzione de su messàgiu fallida!
+    failed_to_remove: S'intrada no est istada pòtia bogare!
     comments:
-      hide: "Istichi sos cummentos"
-      no_comments: "Non bi sunt galu cummentos."
-      show: "Ammustra totu sos cummentos"
-    confirm_dialog: "Seguru ses?"
-    confirm_unload: "Pro praghere cunfirma chi cheres essire dae custa pàgina. Sos datos chi as insertadu no ant a èssere sarvados."
-    contacts:
-      add_contact: "Annanghe unu cuntatu"
-      error_add: "No est istadu possìbile a annànghere <%= name %> a sa cara :("
-      error_remove: "No est istadu possìbile a bogare <%= name %> dae sa cara :("
-      remove_contact: "Boga custu cuntatu"
-      search_no_results: "Perunu cuntatu agatadu"
+      show: Ammustra totu sos cummentos
+      hide: Istichi sos cummentos
+      no_comments: Non bi sunt galu cummentos.
+    reshares:
+      successful: Sa cumpartzidura de sa publicatzione est resissida!
+      post: Torrare a cumpartzire sa publicatzione de <%= name %>?
+    aspect_navigation:
+      select_all: Ischerta totu
+      deselect_all: Boga s'ischerta a totu
+      no_aspects: Peruna cara ischertada
+      add_an_aspect: "+ Annanghe una cara"
+    getting_started:
+      hey: Salude, <%= name %>!
+      no_tags: No as isseberadu peruna eticheta! Cheres sighire su matessi?
+      alright_ill_wait: Andat bene, apo a isetare.
+      preparing_your_stream: Ammaniende su flussu personalizadu tuo...
+    photo_uploader:
+      upload_photos: Càrriga fotografias
+      looking_good: Eh, raju, ses in forma perfeta!
+      completed: "<%= file %> cumpridu"
+      error: B'est istadu un'errore carrighende a <%= file %>
+      invalid_ext: "{file} non tenet un'estensione vàlida. Petzi {extensions} sunt permissos."
+      size_error: "{file} est tropu mannu, sa mannària màssima est de {sizeLimit}."
+      empty: "{file} est bòidu, pro praghere torra a isseberare documentos chene incluire a custu."
+    tags:
+      wasnt_that_interesting: 'AB, immàgino chi #<%= tagName %> non fiat meda interessante...'
+    people:
+      not_found: "...e nemos est istadu agatadu"
+      mention: Nùmena
+      message: Messàgiu
+      edit_my_profile: Acontza su profilu meu
+      stop_ignoring: Acaba·la de l'ignorare
+      helper:
+        is_sharing: "<%= name %> est cumpartende cun tie"
+        is_not_sharing: "<%= name %> no est cumpartzende cun tie"
+    profile:
+      edit: Acontza
+      add_some: Annanghe·nde una paia
+      you_have_no_tags: Non tenes etichetas!
+      bio: Biografia
+      location: Positzione
+      gender: Gènere
+      born: Die de nàschida
+      photos: Fotografias
+      posts: Publicatziones
     conversation:
       create:
-        no_recipient: "Depes annànghere unu retzidore, in antis!"
+        no_recipient: Depes annànghere unu retzidore, in antis!
       new:
-        no_contacts: "Depes annànghere carchi cuntatu in antis de pòdere fàghere incumintzare un'arresonu."
-    create: "Crea"
-    delete: "Iscantzella"
-    edit: "Acontza"
-    errors:
-      connection: "No est istadu possìbile a si connètere a su server."
-    failed_to_post_message: "Publicatzione de su messàgiu fallida!"
-    failed_to_remove: "S'intrada no est istada pòtia bogare!"
-    getting_started:
-      alright_ill_wait: "Andat bene, apo a isetare."
-      hey: "Salude, <%= name %>!"
-      no_tags: "No as isseberadu peruna eticheta! Cheres sighire su matessi?"
-      preparing_your_stream: "Ammaniende su flussu personalizadu tuo..."
-    header:
-      admin: "Amministradore"
-      close: "Serra"
-      contacts: "Cuntatos"
-      conversations: "Arresonos"
-      help: "Agiudu"
-      home: "Pàgina printzipale"
-      log_out: "Essi"
-      mark_all_as_read: "Sinnala·las totu comente lèghidas"
-      moderator: "Moderatore"
-      notifications: "Notìficas"
-      profile: "Profilu"
-      recent_notifications: "Notìficas reghentes"
-      search: "Chirca"
-      settings: "Impostatziones"
-      switch_to_touch_optimized_mode: "Cola a sa modalidade tàtile otimizada"
-      toggle_navigation: "Allughe/istuda su menù de nàvigu"
-      view_all: "Ammustra totu"
-    hide_post: "Istichire custa publicatzione?"
-    hide_post_failed: "Impossìbile istichire custa publicatzione"
-    ignore: "Ignora"
-    ignore_failed: "Impossìbile ignorare custu impreadore"
-    ignore_user: "Ignorare custu impreadore?"
-    my_activity: "Atividade mea"
-    my_aspects: "Caras meas"
-    my_stream: "Flussu"
-    no_results: "Perunu resurtadu agatadu"
+        no_contacts: Depes annànghere carchi cuntatu in antis de pòdere fàghere incumintzare un'arresonu.
     notifications:
-      mark_read: "Sinna·la comente lèghida"
-      mark_unread: "Sinna·la comente non lèghida"
+      mark_read: Sinna·la comente lèghida
+      mark_unread: Sinna·la comente non lèghida
       new_notifications:
-        one: "Tenes <%= count %> notìfica non lèghida"
-        other: "Tenes <%= count %> notìficas non lèghidas"
-    people:
-      edit_my_profile: "Acontza su profilu meu"
-      helper:
-        is_not_sharing: "<%= name %> no est cumpartzende cun tie"
-        is_sharing: "<%= name %> est cumpartende cun tie"
-      mention: "Nùmena"
-      message: "Messàgiu"
-      not_found: "...e nemos est istadu agatadu"
-      stop_ignoring: "Acaba·la de l'ignorare"
-    photo_uploader:
-      completed: "<%= file %> cumpridu"
-      empty: "{file} est bòidu, pro praghere torra a isseberare documentos chene incluire a custu."
-      error: "B'est istadu un'errore carrighende a <%= file %>"
-      invalid_ext: "{file} non tenet un'estensione vàlida. Petzi {extensions} sunt permissos."
-      looking_good: "Eh, raju, ses in forma perfeta!"
-      size_error: "{file} est tropu mannu, sa mannària màssima est de {sizeLimit}."
-      upload_photos: "Càrriga fotografias"
-    poll:
-      answer_count:
-        one: "1 votu"
-        other: "<%=count%> votos"
-        zero: "0 votos"
-      close_result: "Istichi sos risultados"
-      count:
-        one: "1 votu finas a como"
-        other: "<%=count%> votos finas a como"
-      go_to_original_post: "Podes leare parte a custu sondàgiu in sa <%= original_post_link %>."
-      original_post: "publicatzione originale"
-      result: "Risultados"
-      show_result: "Ammustra sos risultados"
-      vote: "Vota"
-      your_vote: "Su votu tuo"
-    profile:
-      add_some: "Annanghe·nde una paia"
-      bio: "Biografia"
-      born: "Die de nàschida"
-      edit: "Acontza"
-      gender: "Gènere"
-      location: "Positzione"
-      photos: "Fotografias"
-      posts: "Publicatziones"
-      you_have_no_tags: "Non tenes etichetas!"
-    publisher:
-      add_option: "Annanghe una risposta"
-      markdown_editor:
-        preview: "Anteprima"
-        texts:
-          code: "còdighe inoghe"
-          heading: "testu de tìtulu"
-          insert_image_description_text: "inserta sa descritzione de s'immàgine inoghe"
-          insert_image_help_text: "inserta su ligàmene de s'immàgine inoghe"
-          insert_image_title: "inserta su tìtulu de s'immàgine inoghe"
-          insert_link_description_text: "inserta una descritzione pro su ligàmene inoghe"
-          insert_link_help_text: "Inserta su ligàmene inoghe"
-          italic: "testu in corsivu"
-          list: "testu de sa lista inoghe"
-          quote: "testu de sa tzitatzione inoghe"
-          strong: "testu in grassetu"
-        tooltips:
-          bold: "Grassetu"
-          cancel: "Iscantzella su messàgiu"
-          code: "Inserta còdighe"
-          heading: "Tìtulu"
-          insert_image: "Inserta un'immàgine"
-          insert_link: "Inserta unu ligàmene"
-          insert_ordered_list: "Inserta una lista ordinata"
-          insert_unordered_list: "Inserta una lista non ordinata"
-          italic: "Corsivu"
-          preview: "Anteprima de su messàgiu"
-          quote: "Inserta una tzitatzione"
-          write: "Acontza su messàgiu"
-        write: "Iscrie"
-      mention_success: "Etichetados curretamente: <%= names %>"
-      near_from: "Publicada in: <%= location %>"
-      option: "Risposta"
-      question: "Pregunta"
-    remove_post: "Bogare custa publicatzione?"
-    report:
-      name: "Sinnala"
-      prompt: "Pro praghere iscrie sa resone:"
-      prompt_default: "p. es. cuntenutu ofensivu"
-      status:
-        created: "Sa sinnalatzione st istada creada cun sutzessu"
-        exists: "Custa sinnalatzione esistit giai"
-    reshares:
-      post: "Torrare a cumpartzire sa publicatzione de <%= name %>?"
-      successful: "Sa cumpartzidura de sa publicatzione est resissida!"
-    show_all: "Ammustra totu"
-    show_more: "Ammustra de prus"
+        one: Tenes <%= count %> notìfica non lèghida
+        other: Tenes <%= count %> notìficas non lèghidas
     stream:
-      comment: "Cummenta"
-      comments:
-        one: "<%= count %> cummentu"
-        other: "<%= count %> cummentos"
-        zero: "<%= count %> cummentos"
-      disable_post_notifications: "Disabìlita sas notìficas pro custa publicatzione"
-      enable_post_notifications: "Abìlita sas notìficas pro custa publicatzione"
-      follow: "Sighi"
-      followed_tag:
-        add_a_tag: "Annanghe un'eticheta"
-        follow: "Sighi"
-        title: "#Etichetas sighidas"
-      hide: "Istichi"
-      hide_nsfw_posts: "Istichi sas publicatziones #nsfw"
-      like: "M'agradat"
+      hide: Istichi
+      public: Pùblicu
+      limited: Limitadu
+      like: M'agradat
+      unlike: Non m'agradat prus
+      reshare: Torra a cumpartzire
+      comment: Cummenta
+      original_post_deleted: Publicatzione originale iscantzellada dae s'autore
+      show_nsfw_post: Ammustra sa publicatzione
+      show_nsfw_posts: Ammustra totu
+      hide_nsfw_posts: 'Istichi sas publicatziones #nsfw'
+      follow: Sighi
+      unfollow: Non la sighire prus
+      enable_post_notifications: Abìlita sas notìficas pro custa publicatzione
+      disable_post_notifications: Disabìlita sas notìficas pro custa publicatzione
+      permalink: Ligàmene permanente
+      via: pro mèdiu de <%= provider %>
+      no_posts_yet: Non bi sunt galu publicatziones de ammustrare.
       likes:
+        zero: "<%= count %> agradessimentos"
         one: "<%= count %> agradessimentu"
         other: "<%= count %> agradessimentos"
-        zero: "<%= count %> agradessimentos"
-      limited: "Limitadu"
-      more_comments:
-        one: "Ammustra <%= count %> àteru cummentu"
-        other: "Ammustra àteros <%= count %> cummentos"
-        zero: "Ammustra àteros <%= count %> cummentos"
-      no_posts_yet: "Non bi sunt galu publicatziones de ammustrare."
-      original_post_deleted: "Publicatzione originale iscantzellada dae s'autore"
-      permalink: "Ligàmene permanente"
-      public: "Pùblicu"
-      reshare: "Torra a cumpartzire"
       reshares:
+        zero: "<%= count %> cumpartziduras"
         one: "<%= count %> cumpartzidura"
         other: "<%= count %> cumpartziduras"
-        zero: "<%= count %> cumpartziduras"
-      show_nsfw_post: "Ammustra sa publicatzione"
-      show_nsfw_posts: "Ammustra totu"
+      comments:
+        zero: "<%= count %> cummentos"
+        one: "<%= count %> cummentu"
+        other: "<%= count %> cummentos"
+      more_comments:
+        zero: Ammustra àteros <%= count %> cummentos
+        one: Ammustra <%= count %> àteru cummentu
+        other: Ammustra àteros <%= count %> cummentos
+      followed_tag:
+        title: "#Etichetas sighidas"
+        add_a_tag: Annanghe un'eticheta
+        follow: Sighi
       tags:
-        follow: "Sighi #<%= tag %>"
-        follow_error: "No est istadu possìbile a incumintzare a sighire a #<%= tag %> :("
-        following: "Ses sighende a #<%= tag %>"
-        stop_following: "Acaba·la de sighire a #<%= tag %>"
-        stop_following_confirm: "Acabare de sighire a #<%= tag %>?"
-        stop_following_error: "No est istadu possìbile a acabare de sighire a #<%= tag %> :("
-      unfollow: "Non la sighire prus"
-      unlike: "Non m'agradat prus"
-      via: "pro mèdiu de <%= provider %>"
-    tags:
-      wasnt_that_interesting: "AB, immàgino chi #<%= tagName %> non fiat meda interessante..."
-    timeago:
-      day: "una die"
-      days:
-        one: "1 die"
-        other: "%d dies"
-      hour: "pagu prus o mancu un'ora"
-      hours:
-        one: "pagu prus o mancu 1 ora"
-        other: "pagu prus o mancu %d oras"
-      inPast: "chitzo"
-      minute: "pagu prus o mancu unu minutu"
-      minutes:
-        one: "1 minutu"
-        other: "%d minutos"
-      month: "pagu prus o mancu unu mese"
-      months:
-        one: "1 mese"
-        other: "%d meses"
-      prefixAgo: " "
-      prefixFromNow: " "
-      seconds: "de mancu de unu minutu"
-      suffixAgo: "fàghet"
-      suffixFromNow: "dae como"
-      wordSeparator: " "
-      year: "pagu prus o mancu un annu"
-      years:
-        one: "1 annu"
-        other: "%d annos"
-    unblock_failed: "Su tentativu de isblocare custu impreadore est fallidu"
+        follow: 'Sighi #<%= tag %>'
+        following: 'Ses sighende a #<%= tag %>'
+        stop_following: 'Acaba·la de sighire a #<%= tag %>'
+        stop_following_confirm: 'Acabare de sighire a #<%= tag %>?'
+        follow_error: 'No est istadu possìbile a incumintzare a sighire a #<%= tag %> :('
+        stop_following_error: 'No est istadu possìbile a acabare de sighire a #<%= tag %> :('
+    header:
+      home: Pàgina printzipale
+      profile: Profilu
+      contacts: Cuntatos
+      settings: Impostatziones
+      help: Agiudu
+      admin: Amministradore
+      moderator: Moderatore
+      log_out: Essi
+      toggle_navigation: Allughe/istuda su menù de nàvigu
+      switch_to_touch_optimized_mode: Cola a sa modalidade tàtile otimizada
+      notifications: Notìficas
+      conversations: Arresonos
+      search: Chirca
+      recent_notifications: Notìficas reghentes
+      mark_all_as_read: Sinnala·las totu comente lèghidas
+      view_all: Ammustra totu
+      close: Serra
     viewer:
-      reshared: "Torrada a cumparzire"
+      reshared: Torrada a cumparzire
+    poll:
+      vote: Vota
+      go_to_original_post: Podes leare parte a custu sondàgiu in sa <%= original_post_link %>.
+      original_post: publicatzione originale
+      result: Risultados
+      count:
+        one: 1 votu finas a como
+        other: "<%=count%> votos finas a como"
+      answer_count:
+        zero: 0 votos
+        one: 1 votu
+        other: "<%=count%> votos"
+      show_result: Ammustra sos risultados
+      close_result: Istichi sos risultados
+      your_vote: Su votu tuo

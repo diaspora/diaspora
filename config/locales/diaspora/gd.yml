@@ -5,222 +5,222 @@
 
 
 gd:
-  _applications: "Aplacaidean"
-  _contacts: "Luchd-aithne"
-  _help: "Cuideachadh"
-  _services: "Seirbheisean"
-  account: "Cunntas"
+  settings: Roghainnean
+  profile: Pròifil
+  account: Cunntas
+  privacy: Prìobhaideachd
+  _services: Seirbheisean
+  _applications: Aplacaidean
+  _help: Cuideachadh
+  ok: Ceart ma-thà
+  cancel: Sguir dheth
+  delete: Sguab às
+  username: Ainm-cleachdaiche
+  email: Post-d
+  are_you_sure: A bheil thu cinnteach?
+  are_you_sure_delete_account: A bheil thu cinnteach gu bheil thu airson an cunntas agad a dhùnadh? Chan urrainn dhut seo a neo-dhèanamh!
+  fill_me_out: Lìon a-steach
+  public: Poblach
+  limited: Cuingichte
+  search: Lorg
+  find_people: 'Lorg daoine no #tagaichean'
+  more: Barrachd
+  no_results: Cha deach toradh a lorg
+  _contacts: Luchd-aithne
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: ", chan fhaod e nochdadh ann an luchd-aithne a’ chleachdaiche seo barrachd air aon turas."
+            person:
+              invalid: "’s e mì-dhligheach."
+            username:
+              taken: "’s e ’ga chleachdadh mu thràth."
+              invalid: "’s e mì-dhligheach. Chan fhaodar ach litrichean, àireamhan agus fo-loidhne a chleachdadh."
+            email:
+              taken: "’s e aig cuideigin eile mu thràth."
         person:
           attributes:
             diaspora_handle:
               taken: "’s e aig cuideigin eile mu thràth."
+        contact:
+          attributes:
+            person_id:
+              taken: ", chan fhaod e nochdadh ann an luchd-aithne a’ chleachdaiche seo barrachd air aon turas."
         reshare:
           attributes:
             root_guid:
-              taken: "Cho math sin? Rinn thu ath-phostadh air mu thràth!"
-        user:
-          attributes:
-            email:
-              taken: "’s e aig cuideigin eile mu thràth."
-            person:
-              invalid: "’s e mì-dhligheach."
-            username:
-              invalid: "’s e mì-dhligheach. Chan fhaodar ach litrichean, àireamhan agus fo-loidhne a chleachdadh."
-              taken: "’s e ’ga chleachdadh mu thràth."
-  admins:
-    admin_bar:
-      pages: "Duilleagan"
-    stats:
-      2weeks: "Cola-deug"
-      daily: "Gu làitheil"
-      month: "Mìos"
-      usage_statistic: "Staitistigs Cleachdaidh"
-      week: "Seachdain"
-  are_you_sure: "A bheil thu cinnteach?"
-  are_you_sure_delete_account: "A bheil thu cinnteach gu bheil thu airson an cunntas agad a dhùnadh? Chan urrainn dhut seo a neo-dhèanamh!"
-  aspects:
-    edit:
-      update: "ùraich"
-      updating: "ag ùrachadh"
-    index:
-      help:
-        feature_suggestion: "... a bheil thu airson %{link} a mholadh?"
-        find_a_bug: "... an do lorg thu %{link}?"
-        have_a_question: "... a bheil %{link} agad?"
-        tag_bug: "mearachd"
-        tag_feature: "comharra"
-        tag_question: "ceist"
-      services:
-        content: "Faodaidh tu ceangal a dhèanamh eadar diaspora* agus na sèirbheisean na leanas."
-        heading: "Dèan ceangal ri Sèirbheis"
-      welcome_to_diaspora: "Fàilte gu diaspora*, a %{name}!"
-    seed:
-      acquaintances: "Muinntireachd"
-      family: "Teaghlach"
-      friends: "Càirdean"
-  cancel: "Sguir dheth"
-  comments:
-    new_comment:
-      comment: "Thoir beachd air"
-      commenting: "a' toirt beachd air..."
-  contacts:
-    index:
-      all_contacts: "Càirdean gu lèir"
-      my_contacts: "Mo Chàirdean"
-      no_contacts_message: "Thoir sùil air %{community_spotlight}"
-      title: "Càirdean"
-  conversations:
-    create:
-      fail: "Teachdaireachd neo-bhrìgheil"
-    new:
-      send: "Cuir"
-      sending: "a' cur..."
-      subject: "cuspair"
-      to: "gu"
-    show:
-      reply: "freagair"
-      replying: "a' freagairt..."
-  date:
-    formats:
-      birthday: ""
-      birthday_with_year: ""
-      fullmonth_day: ""
-  delete: "Sguab às"
-  email: "Post-d"
+              taken: Cho math sin? Rinn thu ath-phostadh air mu thràth!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Cuir ceart na mearachdan a leanas is feuch ris a-rithist."
-  fill_me_out: "Lìon a-steach"
-  find_people: "Lorg daoine no #tagaichean"
+      correct_the_following_errors_and_try_again: Cuir ceart na mearachdan a leanas is feuch ris a-rithist.
+  admins:
+    admin_bar:
+      pages: Duilleagan
+    stats:
+      week: Seachdain
+      2weeks: Cola-deug
+      month: Mìos
+      daily: Gu làitheil
+      usage_statistic: Staitistigs Cleachdaidh
+  aspects:
+    edit:
+      update: ùraich
+      updating: ag ùrachadh
+    seed:
+      family: Teaghlach
+      acquaintances: Muinntireachd
+      friends: Càirdean
+    index:
+      welcome_to_diaspora: Fàilte gu diaspora*, a %{name}!
+      help:
+        have_a_question: "... a bheil %{link} agad?"
+        tag_question: ceist
+        find_a_bug: "... an do lorg thu %{link}?"
+        tag_bug: mearachd
+        feature_suggestion: "... a bheil thu airson %{link} a mholadh?"
+        tag_feature: comharra
+      services:
+        heading: Dèan ceangal ri Sèirbheis
+        content: Faodaidh tu ceangal a dhèanamh eadar diaspora* agus na sèirbheisean na leanas.
+  comments:
+    new_comment:
+      comment: Thoir beachd air
+      commenting: a' toirt beachd air...
+  contacts:
+    index:
+      title: Càirdean
+      no_contacts_message: Thoir sùil air %{community_spotlight}
+      my_contacts: Mo Chàirdean
+      all_contacts: Càirdean gu lèir
+  conversations:
+    show:
+      reply: freagair
+      replying: a' freagairt...
+    new:
+      to: gu
+      subject: cuspair
+      send: Cuir
+      sending: a' cur...
+    create:
+      fail: Teachdaireachd neo-bhrìgheil
+  date:
+    formats:
+      fullmonth_day: ''
+      birthday: ''
+      birthday_with_year: ''
   help:
-    irc: ""
-    markdown: ""
+    irc: ''
+    wiki: ''
+    markdown: ''
     private_posts:
-      title: "Brathan prìobhaideachd"
+      title: Brathan prìobhaideachd
     public_posts:
-      title: "Brathan poblach"
-    wiki: ""
+      title: Brathan poblach
   invitations:
     new:
-      language: "Cànan"
+      language: Cànan
   layouts:
-    application:
-      powered_by: "a' ruith air diaspora*"
-      whats_new: "dè tha dol?"
     header:
-      logout: "Log a-mach"
-      profile: "Profaidhl"
-      settings: "Roghainnean"
-  limited: "Cuingichte"
-  more: "Barrachd"
-  no_results: "Cha deach toradh a lorg"
+      profile: Profaidhl
+      settings: Roghainnean
+      logout: Log a-mach
+    application:
+      powered_by: a' ruith air diaspora*
+      whats_new: dè tha dol?
   notifications:
-    index:
-      and: "agus"
     private_message:
-      one: "Tha %{actors} air teachdaireachd a chur thugad."
-      other: "Tha %{actors} air teachdaireachd a chur thugad."
-      zero: "Tha %{actors} air teachdaireachd a chur thugad."
+      zero: Tha %{actors} air teachdaireachd a chur thugad.
+      one: Tha %{actors} air teachdaireachd a chur thugad.
+      other: Tha %{actors} air teachdaireachd a chur thugad.
+    index:
+      and: agus
   notifier:
-    a_post_you_shared: "brath."
-    click_here: "cliog an seo"
+    a_post_you_shared: brath.
+    click_here: cliog an seo
+    hello: Halò a %{name}!
+    thanks: Tapadh leat,
+    started_sharing:
+      view_profile: Thoir sùil air profaidhl %{name}
     comment_on_post:
-      reply: "Thoir sùil air no sgrìobh freagairt ris a' bhrath a sgrìobh %{name} >"
-    hello: "Halò a %{name}!"
+      reply: Thoir sùil air no sgrìobh freagairt ris a' bhrath a sgrìobh %{name} >
+    mentioned:
+      subject: Thug %{name} iomradh ort air diaspora*
+    private_message:
+      reply_to_or_view: Seall air a' bhrath seo no cuir freagairt ris >
+    liked:
+      liked: Tha do brath còrdadh ri %{name}
+      view_post: Seall air a' bhrath >
+    reshared:
+      reshared: Tha %{name} air do bhrath a sgaoileadh
+      view_post: Seall air a' bhrath >
     invite:
       message: |-
-            Halo!
+          Halo!
 
-          Fhuair thu cuireadh gus gabhail ann an diaspora*!
+        Fhuair thu cuireadh gus gabhail ann an diaspora*!
 
-          Cliog air a' cheangal seo airson tòiseachadh
+        Cliog air a' cheangal seo airson tòiseachadh
 
-          [%{invite_url}][1]
+        [%{invite_url}][1]
 
 
-          Dùrachdan,
+        Dùrachdan,
 
-          An robot diaspora!
+        An robot diaspora!
 
-          [1]: %{invite_url}
-    liked:
-      liked: "Tha do brath còrdadh ri %{name}"
-      view_post: "Seall air a' bhrath >"
-    mentioned:
-      subject: "Thug %{name} iomradh ort air diaspora*"
-    private_message:
-      reply_to_or_view: "Seall air a' bhrath seo no cuir freagairt ris >"
-    reshared:
-      reshared: "Tha %{name} air do bhrath a sgaoileadh"
-      view_post: "Seall air a' bhrath >"
-    started_sharing:
-      view_profile: "Thoir sùil air profaidhl %{name}"
-    thanks: "Tapadh leat,"
-  ok: "Ceart ma-thà"
+        [1]: %{invite_url}
   people:
-    index:
-      no_results: "Haidh! Feumaidh tu rannsachadh airson rudeigin."
     person:
       thats_you: "'S tusa a th' ann!"
-    profile_sidebar:
-      born: "Co-là-breith"
-      gender: "Gnè"
+    index:
+      no_results: Haidh! Feumaidh tu rannsachadh airson rudeigin.
     show:
-      closed_account: "Tha an cunntas seo dùinte."
-  privacy: "Prìobhaideachd"
-  profile: "Pròifil"
+      closed_account: Tha an cunntas seo dùinte.
+    profile_sidebar:
+      gender: Gnè
+      born: Co-là-breith
   profiles:
     edit:
-      allow_search: "Am faod daoine rannsachadh air do shon air diaspora*"
-      first_name: "D' ainm-baistidh"
-      last_name: "Do sloinneadh"
-      update_profile: "Ùraich profaidhl"
-      your_bio: "Mud dheidhinn"
-      your_birthday: "Co-là-breith agad"
-      your_gender: "Do ghnè"
-      your_location: "Cò às a tha thu?"
-      your_name: "D' ainm"
-      your_photo: "Do dhealbh"
-      your_tags: "Còig faclan a' toirt iomradh ort"
-      your_tags_placeholder: "mar eisimpleir #filmichean #piseagan #siubhal #tidsear #eabhraignuadh"
+      your_name: D' ainm
+      first_name: D' ainm-baistidh
+      last_name: Do sloinneadh
+      your_gender: Do ghnè
+      your_birthday: Co-là-breith agad
+      your_tags: Còig faclan a' toirt iomradh ort
+      your_tags_placeholder: 'mar eisimpleir #filmichean #piseagan #siubhal #tidsear #eabhraignuadh'
+      your_bio: Mud dheidhinn
+      your_location: Cò às a tha thu?
+      your_photo: Do dhealbh
+      update_profile: Ùraich profaidhl
+      allow_search: Am faod daoine rannsachadh air do shon air diaspora*
     update:
-      updated: "Profaidhl air ùrachadh"
-  public: "Poblach"
+      updated: Profaidhl air ùrachadh
   registrations:
     new:
-      email: "POST-D"
-      enter_email: "Cuir a-steach seòladh post-d"
-      enter_password: "Tagh facal-faire (co-dhiù sia litrichean)"
-      enter_password_again: "Sgrìobh am facal-faire a-rithist"
-      enter_username: "Tagh ainm-cleachdadh (a-u, 0-9 agus _ a-mhàin)"
-      password: "FACAL-FAIRE"
-      sign_up: "CLÀRAICH"
-      username: "AINM-CLEACHDAIDH"
-  search: "Lorg"
+      enter_email: Cuir a-steach seòladh post-d
+      enter_username: Tagh ainm-cleachdadh (a-u, 0-9 agus _ a-mhàin)
+      enter_password: Tagh facal-faire (co-dhiù sia litrichean)
+      enter_password_again: Sgrìobh am facal-faire a-rithist
+      sign_up: CLÀRAICH
+      email: POST-D
+      username: AINM-CLEACHDAIDH
+      password: FACAL-FAIRE
   services:
     index:
-      edit_services: "Deasaich sèirbheisean"
-  settings: "Roghainnean"
+      edit_services: Deasaich sèirbheisean
   shared:
-    public_explain:
-      atom_feed: ""
-      share: "Sgaoil"
     publisher:
-      share: "Sgaoil"
-  username: "Ainm-cleachdaiche"
+      share: Sgaoil
+    public_explain:
+      share: Sgaoil
+      atom_feed: ''
   users:
     edit:
-      change: "Atharraich"
-      edit_account: "Deasaich cunntas"
-      following: "Roghainnean sgaoilidh"
-      your_email: "Do phost-d"
-      your_handle: "ID diaspora* agad"
+      edit_account: Deasaich cunntas
+      change: Atharraich
+      your_handle: ID diaspora* agad
+      your_email: Do phost-d
+      following: Roghainnean sgaoilidh
     privacy_settings:
-      title: "Roghainnean Prìobhaideachd"
+      title: Roghainnean Prìobhaideachd

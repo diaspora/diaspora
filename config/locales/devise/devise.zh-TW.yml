@@ -7,107 +7,107 @@
 zh-TW:
   devise:
     confirmations:
-      confirmed: "電子信箱已經成功確認了。"
+      confirmed: 電子信箱已經成功確認了。
+      send_instructions: 幾分鐘之內你就會收到一封電子郵件，說明如何確認信箱。
+      send_paranoid_instructions: 如果資料庫裡面有你的電子信箱的話，幾分鐘之內你就會收到一封電子郵件，說明如何確認信箱。
       new:
-        resend_confirmation: "重送確認步驟"
-      send_instructions: "幾分鐘之內你就會收到一封電子郵件，說明如何確認信箱。"
-      send_paranoid_instructions: "如果資料庫裡面有你的電子信箱的話，幾分鐘之內你就會收到一封電子郵件，說明如何確認信箱。"
+        resend_confirmation: 重送確認步驟
     failure:
-      already_authenticated: "已經登入了。"
-      inactive: "你的帳號還沒有開通。"
+      already_authenticated: 已經登入了。
+      inactive: 你的帳號還沒有開通。
       invalid: "%{authentication_keys}或是密碼無效。"
-      invalid_token: "認證信物無效。"
-      last_attempt: "你還可以再試一次，失敗的話帳號就會鎖定了。"
-      locked: "你的帳號被鎖定了。"
+      locked: 你的帳號被鎖定了。
+      last_attempt: 你還可以再試一次，失敗的話帳號就會鎖定了。
       not_found_in_database: "%{authentication_keys}或密碼無效。"
-      timeout: "工作階段過期了，要繼續使用的話請重新登入。"
-      unauthenticated: "繼續之前你必須先登入或註冊。"
-      unconfirmed: "要繼續使用必須要先確認電子信箱。"
-    invitations:
-      invitation_token_invalid: "很抱歉！此邀請信物無效。"
-      send_instructions: "邀請卡寄出去了。"
-      updated: "密碼設定成功。你已經登入了。"
+      timeout: 工作階段過期了，要繼續使用的話請重新登入。
+      unauthenticated: 繼續之前你必須先登入或註冊。
+      unconfirmed: 要繼續使用必須要先確認電子信箱。
+      invalid_token: 認證信物無效。
     mailer:
       confirmation_instructions:
-        confirm: "帳號確認"
-        subject: "確認步驟"
-        you_can_confirm: "你可以使用以下連結確認帳號："
-      hello: "你好，%{username}！"
+        subject: 確認步驟
+        you_can_confirm: 你可以使用以下連結確認帳號：
+        confirm: 帳號確認
+      reset_password_instructions:
+        subject: 密碼重設步驟
+        someone_requested: 如果你有要求要重設密碼的話，請點下方連結進行。
+        change: 更改密碼
+        wont_change: 在按了以上連結，並且設定新的密碼後，你的密碼才會改變。
+        ignore: 如果你沒有要求過，請不用管這封信。
+      unlock_instructions:
+        subject: 解鎖步驟
+        account_locked: 你的帳號因為登入失敗太多次而被鎖定了。
+        click_to_unlock: 點一下以下連結來將你的帳號解鎖：
+        unlock: 帳號解鎖
+      password_change:
+        subject: 密碼改了
+      welcome: 歡迎你，%{username}！
+      hello: 你好，%{username}！
       inviter:
-        accept_at: "於 %{url}，你可以透過以下連結來接受。"
         has_invited_you: "%{name}"
         have_invited_you: "%{names} 邀請你加入 diaspora* "
-      password_change:
-        subject: "密碼改了"
-      reset_password_instructions:
-        change: "更改密碼"
-        ignore: "如果你沒有要求過，請不用管這封信。"
-        someone_requested: "如果你有要求要重設密碼的話，請點下方連結進行。"
-        subject: "密碼重設步驟"
-        wont_change: "在按了以上連結，並且設定新的密碼後，你的密碼才會改變。"
-      unlock_instructions:
-        account_locked: "你的帳號因為登入失敗太多次而被鎖定了。"
-        click_to_unlock: "點一下以下連結來將你的帳號解鎖："
-        subject: "解鎖步驟"
-        unlock: "帳號解鎖"
-      welcome: "歡迎你，%{username}！"
+        accept_at: 於 %{url}，你可以透過以下連結來接受。
     omniauth_callbacks:
-      failure: "跟 %{kind} 認證失敗，原因是：%{reason}。"
+      failure: 跟 %{kind} 認證失敗，原因是：%{reason}。
       success: "%{kind} 帳號認證成功。"
     passwords:
+      no_token: 這個頁面只給重設密碼的電子郵件使用。如果你真的是點密碼重設信件過來的，請確定用的是信件中完整的網址。
+      send_instructions: 幾分鐘之內你就會收到一封電子郵件，說明如何重設密碼。
+      send_paranoid_instructions: 如果資料庫裡面有你的電子信箱的話，幾分鐘之內你就會收到一封電子郵件，裡面有重設密碼的連結。
+      updated: 密碼更改成功，你已經登入了。
+      updated_not_active: 密碼修改成功。
       edit:
-        change_password: "更改密碼"
-        confirm_password: "確認密碼"
-        new_password: "新密碼"
+        change_password: 更改密碼
+        new_password: 新密碼
+        confirm_password: 確認密碼
       new:
-        email: "電子信箱"
-        forgot_password: "忘記密碼了嗎？"
-        reset_password: "重設密碼"
-        send_password_instructions: "傳送密碼重設的步驟給我"
-      no_token: "這個頁面只給重設密碼的電子郵件使用。如果你真的是點密碼重設信件過來的，請確定用的是信件中完整的網址。"
-      send_instructions: "幾分鐘之內你就會收到一封電子郵件，說明如何重設密碼。"
-      send_paranoid_instructions: "如果資料庫裡面有你的電子信箱的話，幾分鐘之內你就會收到一封電子郵件，裡面有重設密碼的連結。"
-      updated: "密碼更改成功，你已經登入了。"
-      updated_not_active: "密碼修改成功。"
+        forgot_password: 忘記密碼了嗎？
+        reset_password: 重設密碼
+        email: 電子信箱
+        send_password_instructions: 傳送密碼重設的步驟給我
     registrations:
-      destroyed: "掰掰！你的帳號已經取消了。希望不久後再見。"
-      signed_up: "你已經登記成功了。如果有設定的話，確認信會送到你的信箱。"
-      signed_up_but_inactive: "帳號註冊成功了。不過因為帳號還沒有開通，所以不能登入。"
-      signed_up_but_locked: "帳號註冊成功了。不過因為帳號在鎖定的狀態，所以還不能登入。"
-      signed_up_but_unconfirmed: "已經寄一封電子郵件到你的信箱了，裡面有帳號確認的連結。請點那個連結來開通你的帳號。"
-      update_needs_confirmation: "帳號更改成功，不過我們必須驗證你新的電子信箱。請檢查你的信箱看有沒有我們寄給你的信件，並且點信件中的連結來進行確認。"
-      updated: "帳號更新成功了。"
+      destroyed: 掰掰！你的帳號已經取消了。希望不久後再見。
+      signed_up: 你已經登記成功了。如果有設定的話，確認信會送到你的信箱。
+      signed_up_but_inactive: 帳號註冊成功了。不過因為帳號還沒有開通，所以不能登入。
+      signed_up_but_locked: 帳號註冊成功了。不過因為帳號在鎖定的狀態，所以還不能登入。
+      signed_up_but_unconfirmed: 已經寄一封電子郵件到你的信箱了，裡面有帳號確認的連結。請點那個連結來開通你的帳號。
+      update_needs_confirmation: 帳號更改成功，不過我們必須驗證你新的電子信箱。請檢查你的信箱看有沒有我們寄給你的信件，並且點信件中的連結來進行確認。
+      updated: 帳號更新成功了。
     sessions:
-      already_signed_out: "登出成功。"
+      signed_in: 登入成功。
+      signed_out: 登出成功。
+      already_signed_out: 登出成功。
       new:
-        login: "登入"
-        modern_browsers: "僅支援新潮的瀏覽器。"
-        password: "密碼"
-        remember_me: "記住我"
-        sign_in: "登入"
-        username: "使用者名稱"
-      signed_in: "登入成功。"
-      signed_out: "登出成功。"
+        login: 登入
+        username: 使用者名稱
+        password: 密碼
+        sign_in: 登入
+        remember_me: 記住我
+        modern_browsers: 僅支援新潮的瀏覽器。
+    unlocks:
+      send_instructions: 幾分鐘之內你就會收到一封電子郵件，說明如何將你的帳號解鎖。
+      send_paranoid_instructions: 如果帳號存在的話，幾分鐘之內你就會收到一封電子郵件，說明如何解鎖。
+      unlocked: 帳號解鎖成功了。要繼續使用請先登入。
+      new:
+        resend_unlock: 重送解鎖步驟
+    invitations:
+      send_instructions: 邀請卡寄出去了。
+      invitation_token_invalid: 很抱歉！此邀請信物無效。
+      updated: 密碼設定成功。你已經登入了。
     shared:
       links:
-        forgot_your_password: "忘記密碼了嗎？"
-        receive_confirmation: "沒收到確認步驟嗎？"
-        receive_unlock: "沒收到解鎖步驟嗎？"
-        sign_in: "登入"
-        sign_up: "註冊"
-        sign_up_closed: "目前不對外開放註冊。"
-    unlocks:
-      new:
-        resend_unlock: "重送解鎖步驟"
-      send_instructions: "幾分鐘之內你就會收到一封電子郵件，說明如何將你的帳號解鎖。"
-      send_paranoid_instructions: "如果帳號存在的話，幾分鐘之內你就會收到一封電子郵件，說明如何解鎖。"
-      unlocked: "帳號解鎖成功了。要繼續使用請先登入。"
+        sign_in: 登入
+        sign_up: 註冊
+        sign_up_closed: 目前不對外開放註冊。
+        forgot_your_password: 忘記密碼了嗎？
+        receive_confirmation: 沒收到確認步驟嗎？
+        receive_unlock: 沒收到解鎖步驟嗎？
   errors:
     messages:
-      already_confirmed: "已經確認過了，請登入看看"
-      confirmation_period_expired: "必須在%{period}內完成確認，請再重試一次。"
-      expired: "已經過期了，請再重試一次。"
-      not_found: "找不到"
-      not_locked: "沒被鎖定"
+      already_confirmed: 已經確認過了，請登入看看
+      confirmation_period_expired: 必須在%{period}內完成確認，請再重試一次。
+      expired: 已經過期了，請再重試一次。
+      not_found: 找不到
+      not_locked: 沒被鎖定
       not_saved:
-        other: "這筆%{resource}資料因為發生了%{count}次錯誤而無法儲存："
+        other: 這筆%{resource}資料因為發生了%{count}次錯誤而無法儲存：

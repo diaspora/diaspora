@@ -7,86 +7,86 @@
 eo:
   devise:
     confirmations:
-      confirmed: "Via konto estis sukcese konfirmita. Vi nun estas ensalutinta."
+      confirmed: Via konto estis sukcese konfirmita. Vi nun estas ensalutinta.
+      send_instructions: Vi post kelkaj minutoj ricevos instrukciojn pri kiel konfirmi vian konton.
       new:
-        resend_confirmation: "Resendi instrukciojn por konfirmi"
-      send_instructions: "Vi post kelkaj minutoj ricevos instrukciojn pri kiel konfirmi vian konton."
+        resend_confirmation: Resendi instrukciojn por konfirmi
     failure:
-      inactive: "Via konto ankoraŭ ne konfirmiĝis."
-      invalid: "Nevalida uzantnomo aŭ pasvorto."
-      invalid_token: "Malvalida identiga ĵetono."
-      locked: "Via konto estas ŝlosita."
-      not_found_in_database: "Nevalida %{authentication_keys} aŭ pasvorto."
-      timeout: "Via seanco senvalidiĝis. Bonvolu ree ensaluti por daŭrigi."
-      unauthenticated: "Vi devas ensaluti aŭ enskribiĝi antaŭ ol daŭrigi."
-      unconfirmed: "Vi devas konfirmi vian konton antaŭ ol daŭrigi."
-    invitations:
-      invitation_token_invalid: "La invita ĵetono, kiun vi provizis, ne estas valida!"
-      send_instructions: "Via invito estas sendita."
-      updated: "Vi sukcese starigis pasvorton. Vi nun estas ensalutinta. "
+      inactive: Via konto ankoraŭ ne konfirmiĝis.
+      invalid: Nevalida uzantnomo aŭ pasvorto.
+      locked: Via konto estas ŝlosita.
+      not_found_in_database: Nevalida %{authentication_keys} aŭ pasvorto.
+      timeout: Via seanco senvalidiĝis. Bonvolu ree ensaluti por daŭrigi.
+      unauthenticated: Vi devas ensaluti aŭ enskribiĝi antaŭ ol daŭrigi.
+      unconfirmed: Vi devas konfirmi vian konton antaŭ ol daŭrigi.
+      invalid_token: Malvalida identiga ĵetono.
     mailer:
       confirmation_instructions:
-        confirm: "Konfirmi mian konton"
-        subject: "Instrukcioj por konfirmi"
-        you_can_confirm: "Vi povas konfirmi vian konton per la suba ligilo:"
-      hello: "Saluton, %{username}!"
+        subject: Instrukcioj por konfirmi
+        you_can_confirm: 'Vi povas konfirmi vian konton per la suba ligilo:'
+        confirm: Konfirmi mian konton
+      reset_password_instructions:
+        subject: Instrukcioj por restartigi pasvorton
+        someone_requested: Iu petis ligilon por ŝanĝi vian pasvorton, kaj vi povas fari tiun per la suba ligilo.
+        change: Ŝanĝi mian pasvorton
+        wont_change: Via pasvorto ne ŝanĝiĝos ĝis vi eniros la supran ligilon kaj kreos novan pasvorton.
+        ignore: Se vi ne petis ĉi tion, bonvolu ignori ĉi tiun retpoŝton.
+      unlock_instructions:
+        subject: Instrukcioj por malŝlosi
+        account_locked: Via konto estas ŝlosita pro tro da malsukcesaj ensalutprovoj.
+        click_to_unlock: 'Alklaku la suban ligilon por malŝlosi vian konton:'
+        unlock: Malŝlosi mian konton.
+      password_change:
+        subject: Pasvorta ŝanĝita
+      welcome: Bonvenon %{username}!
+      hello: Saluton, %{username}!
       inviter:
-        accept_at: "ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} invitis vin aniĝi je DIASPORA*"
-      password_change:
-        subject: "Pasvorta ŝanĝita"
-      reset_password_instructions:
-        change: "Ŝanĝi mian pasvorton"
-        ignore: "Se vi ne petis ĉi tion, bonvolu ignori ĉi tiun retpoŝton."
-        someone_requested: "Iu petis ligilon por ŝanĝi vian pasvorton, kaj vi povas fari tiun per la suba ligilo."
-        subject: "Instrukcioj por restartigi pasvorton"
-        wont_change: "Via pasvorto ne ŝanĝiĝos ĝis vi eniros la supran ligilon kaj kreos novan pasvorton."
-      unlock_instructions:
-        account_locked: "Via konto estas ŝlosita pro tro da malsukcesaj ensalutprovoj."
-        click_to_unlock: "Alklaku la suban ligilon por malŝlosi vian konton:"
-        subject: "Instrukcioj por malŝlosi"
-        unlock: "Malŝlosi mian konton."
-      welcome: "Bonvenon %{username}!"
+        accept_at: ĉe %{url}, vi povas akcepti ĝin per la suba ligilo.
     passwords:
+      send_instructions: Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel restartigi vian pasvorton.
+      updated: Vi sukcese ŝanĝis vian pasvorton. Vi nun estas ensalutinta.
       edit:
-        change_password: "Ŝanĝi mian pasvorton"
-        new_password: "Nova pasvorto"
+        change_password: Ŝanĝi mian pasvorton
+        new_password: Nova pasvorto
       new:
-        email: "Retpoŝtadreso"
-        forgot_password: "Ĉu vi forgesis vian pasvorton?"
-        send_password_instructions: "Sendi al mi instrukciojn por restartigi pasvorton"
-      send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel restartigi vian pasvorton."
-      updated: "Vi sukcese ŝanĝis vian pasvorton. Vi nun estas ensalutinta."
+        forgot_password: Ĉu vi forgesis vian pasvorton?
+        email: Retpoŝtadreso
+        send_password_instructions: Sendi al mi instrukciojn por restartigi pasvorton
     registrations:
-      destroyed: "Adiaŭ! Via konto estas sukcese forigita. Ni esperas baldaŭ denove vin vidi."
-      signed_up: "Vi sukcese enskribiĝis. Se ebligita, konfirmo estis sendita al via retpoŝtadreso."
-      updated: "Vi sukcese ĝisdatigis vian konton."
+      destroyed: Adiaŭ! Via konto estas sukcese forigita. Ni esperas baldaŭ denove vin vidi.
+      signed_up: Vi sukcese enskribiĝis. Se ebligita, konfirmo estis sendita al via retpoŝtadreso.
+      updated: Vi sukcese ĝisdatigis vian konton.
     sessions:
+      signed_in: Sukcese ensalutis.
+      signed_out: Sukcese elsalutis.
       new:
-        login: "Ensaluti"
-        modern_browsers: "funkcias nur per modernaj retumiloj"
-        password: "Pasvorto"
-        remember_me: "Memoru min"
-        sign_in: "Ensaluti"
-        username: "Uzantnomo"
-      signed_in: "Sukcese ensalutis."
-      signed_out: "Sukcese elsalutis."
+        login: Ensaluti
+        username: Uzantnomo
+        password: Pasvorto
+        sign_in: Ensaluti
+        remember_me: Memoru min
+        modern_browsers: funkcias nur per modernaj retumiloj
+    unlocks:
+      send_instructions: Vi ricevos retpoŝton, kiu enhavos instrukciojn pri kiel malŝlosi vian konton, post kelkaj minutoj.
+      unlocked: Via konto sukcese malŝlosiĝis. Vi nun estas ensalutinta.
+      new:
+        resend_unlock: Resendu instrukciojn por malŝlosi
+    invitations:
+      send_instructions: Via invito estas sendita.
+      invitation_token_invalid: La invita ĵetono, kiun vi provizis, ne estas valida!
+      updated: 'Vi sukcese starigis pasvorton. Vi nun estas ensalutinta. '
     shared:
       links:
-        forgot_your_password: "Ĉu vi forgesis vian pasvorton?"
-        receive_confirmation: "Ĉu vi ne ricevis instrukciojn por konfirmi?"
-        receive_unlock: "Ĉu vi ne ricevis instrukciojn por malŝlosi?"
-        sign_in: "Ensaluti"
-        sign_up: "Enskribiĝi"
-        sign_up_closed: "Nun ne estas libera registrado."
-    unlocks:
-      new:
-        resend_unlock: "Resendu instrukciojn por malŝlosi"
-      send_instructions: "Vi ricevos retpoŝton, kiu enhavos instrukciojn pri kiel malŝlosi vian konton, post kelkaj minutoj."
-      unlocked: "Via konto sukcese malŝlosiĝis. Vi nun estas ensalutinta."
+        sign_in: Ensaluti
+        sign_up: Enskribiĝi
+        sign_up_closed: Nun ne estas libera registrado.
+        forgot_your_password: Ĉu vi forgesis vian pasvorton?
+        receive_confirmation: Ĉu vi ne ricevis instrukciojn por konfirmi?
+        receive_unlock: Ĉu vi ne ricevis instrukciojn por malŝlosi?
   errors:
     messages:
-      already_confirmed: "jam konfirmita"
-      not_found: "ne trovita"
-      not_locked: "ne estis ŝlosita"
+      already_confirmed: jam konfirmita
+      not_found: ne trovita
+      not_locked: ne estis ŝlosita

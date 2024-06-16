@@ -150,7 +150,7 @@ STR
       end
 
       it "fetches unknown handles" do
-        person = FactoryGirl.build(:person)
+        person = FactoryBot.build(:person)
         expect(Person).to receive(:find_or_fetch_by_identifier).with("xxx@xxx.xx").and_return(person)
         ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx}")
         expect(ppl).to eq([person])
@@ -166,9 +166,9 @@ STR
   end
 
   describe ".filter_people" do
-    let(:user_a) { FactoryGirl.create(:user_with_aspect, username: "user_a") }
-    let(:user_b) { FactoryGirl.create(:user, username: "user_b") }
-    let(:user_c) { FactoryGirl.create(:user, username: "user_c") }
+    let(:user_a) { FactoryBot.create(:user_with_aspect, username: "user_a") }
+    let(:user_b) { FactoryBot.create(:user, username: "user_b") }
+    let(:user_c) { FactoryBot.create(:user, username: "user_c") }
 
     before do
       user_a.aspects.create!(name: "second")
@@ -207,46 +207,6 @@ STR
       txt = Diaspora::Mentionable.filter_people("mentioning #{mention}", [])
 
       expect(txt).to eq "mentioning @non_existing_user@example.org"
-    end
-  end
-
-  describe ".backport_mention_syntax" do
-    it "replaces the new syntax with the old syntax" do
-      text = "mention @{#{people[0].diaspora_handle}} text"
-      expected_text = "mention @{#{people[0].name}; #{people[0].diaspora_handle}} text"
-      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(expected_text)
-    end
-
-    it "replaces the new syntax with the old syntax for immediately consecutive mentions" do
-      text = "mention @{#{people[0].diaspora_handle}}@{#{people[1].diaspora_handle}} text"
-      expected_text = "mention @{#{people[0].name}; #{people[0].diaspora_handle}}" \
-        "@{#{people[1].name}; #{people[1].diaspora_handle}} text"
-      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(expected_text)
-    end
-
-    it "removes curly braces from name of the mentioned person when adding it" do
-      profile = FactoryGirl.build(:profile, first_name: "{Alice}", last_name: "(Smith) [123]")
-      person = FactoryGirl.create(:person, profile: profile)
-      text = "mention @{#{person.diaspora_handle}} text"
-      expected_text = "mention @{Alice (Smith) [123]; #{person.diaspora_handle}} text"
-      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(expected_text)
-    end
-
-    it "does not change the text, when the mention includes a name" do
-      text = "mention @{#{names[0]}; #{people[0].diaspora_handle}} text"
-      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(text)
-    end
-
-    it "does not change the text, when the person is not found" do
-      text = "mention @{non_existing_user@example.org} text"
-      expect(Person).to receive(:find_or_fetch_by_identifier).with("non_existing_user@example.org").and_return(nil)
-      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(text)
-    end
-
-    it "does not change the text, when the diaspora ID is invalid" do
-      text = "mention @{invalid_diaspora_id} text"
-      expect(Person).not_to receive(:find_or_fetch_by_identifier)
-      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(text)
     end
   end
 end

@@ -104,16 +104,13 @@ module Diaspora; module Fetcher; class Public
 
         logger.debug "post: #{post.to_s[0..250]}"
 
-        entry = StatusMessage.diaspora_initialize(
-          author:                @person,
-          public:                true,
-          guid:                  post["guid"],
-          text:                  post["text"],
-          provider_display_name: post["provider_display_name"],
-          created_at:            ActiveSupport::TimeZone.new("UTC").parse(post["created_at"]).to_datetime,
+        DiasporaFederation::Federation::Fetcher.fetch_public(
+          @person.diaspora_handle,
+          :post,
+          post["guid"]
         )
-        entry.save
-
+      rescue DiasporaFederation::Federation::Fetcher::NotFetchable => e
+        logger.warn e.message
       end
       set_fetch_status Public::Status_Processed
     end
@@ -131,9 +128,8 @@ module Diaspora; module Fetcher; class Public
     # @see check_existing
     # @see check_author
     # @see check_public
-    # @see check_type
     def validate post
-      check_existing(post) && check_author(post) && check_public(post) && check_type(post)
+      check_existing(post) && check_author(post) && check_public(post)
     end
 
     # hopefully there is no post with the same guid somewhere already...
@@ -165,14 +161,5 @@ module Diaspora; module Fetcher; class Public
       logger.warn "the post (#{post['guid']}) is not public, this is not intended..." unless ispublic
 
       ispublic
-    end
-
-    # see, if the type of the given post is something we can handle
-    def check_type post
-      type_ok = (post['post_type'] == "StatusMessage")
-
-      logger.warn "the post (#{post['guid']}) has a type, which cannot be handled (#{post['post_type']})" unless type_ok
-
-      type_ok
     end
 end; end; end

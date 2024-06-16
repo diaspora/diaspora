@@ -36,5 +36,19 @@
     <div class="collapsible comment-content markdown-content">
       {{{text}}}
     </div>
+
+    {{#if loggedIn}}
+      <div class="info">
+        <a href="#" class="like" rel='nofollow'>
+          {{~#if userLike~}}
+            {{~t "stream.unlike"~}}
+          {{~else~}}
+            {{~t "stream.like"~}}
+          {{~/if~}}
+        </a>
+      </div>
+    {{/if}}
+    <div class="likes likes-on-comment"> </div>
+
   </div>
 </div>

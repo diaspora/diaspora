@@ -10,6 +10,7 @@ available:
   da: "Dansk"
   de: "Deutsch"
   de_formal: "Deutsch (Sie)"
+  de_moo: "Deutsch (Kuh)"
   de-CH: "Deutsch (Schwiizerdütsch)"
   el: "Ελληνικά"
   en: "English"
@@ -121,6 +122,8 @@ fallbacks:
   ur-PK:
     - "ur"
   de_formal:
+    - "de"
+  de_moo:
     - "de"
   de-CH:
     - "de"

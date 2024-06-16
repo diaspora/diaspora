@@ -5,134 +5,134 @@
 
 
 lv:
-  _applications: "Lietotnes"
-  _contacts: "Kontakti"
-  _services: "Servisi"
-  account: "Konts"
+  settings: Iestatījumi
+  profile: Profils
+  account: Konts
+  privacy: Privātums
+  _services: Servisi
+  _applications: Lietotnes
+  ok: Labi
+  cancel: Atcelt
+  delete: Dzēst
+  username: Lietotājvārds
+  email: E-pasts
+  are_you_sure: Vai esi pārliecināts?
+  are_you_sure_delete_account: Vai tiešām vēlaties slēgt savu kontu? To nevarēs atjaunot!
+  fill_me_out: Aizpildi mani
+  public: Publisks
+  limited: Ierobežota piekļuve
+  search: Meklēt
+  find_people: 'Meklēt cilvēkus vai #birkas'
+  more: Vairāk
+  all_aspects: Visas grupas
+  no_results: Nekas netika atrasts.
+  _contacts: Kontakti
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "ir jābūt unikālam starp lietotāja kontaktiem."
+            person:
+              invalid: nav derīgs.
+            username:
+              taken: ir aizņemts.
+              invalid: nav derīgs. Ir atļauti tikai burti, cipari un apakšsvītras.
+            email:
+              taken: ir aizņemts.
         person:
           attributes:
             diaspora_handle:
-              taken: "ir aizņemts."
+              taken: ir aizņemts.
+        contact:
+          attributes:
+            person_id:
+              taken: ir jābūt unikālam starp lietotāja kontaktiem.
         reshare:
           attributes:
             root_guid:
-              taken: "Baigi labais, jā? Tu jau esi dalījies ar šo ierakstu!"
-        user:
-          attributes:
-            email:
-              taken: "ir aizņemts."
-            person:
-              invalid: "nav derīgs."
-            username:
-              invalid: "nav derīgs. Ir atļauti tikai burti, cipari un apakšsvītras."
-              taken: "ir aizņemts."
-  all_aspects: "Visas grupas"
-  are_you_sure: "Vai esi pārliecināts?"
-  are_you_sure_delete_account: "Vai tiešām vēlaties slēgt savu kontu? To nevarēs atjaunot!"
-  aspect_memberships:
-    destroy:
-      failure: "Neizdevās noņemt personu no grupas"
-      success: "Persona tika veiksmīgi noņemta no grupas"
+              taken: Baigi labais, jā? Tu jau esi dalījies ar šo ierakstu!
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: Izlabojiet sekojošās kļūdas un mēģiniet vēlreiz.
   aspects:
-    add_to_aspect:
-      failure: "Nesanāca pievienot kontaktu grupai."
-      success: "Kontakts veiksmīgi pievienots grupai."
+    edit:
+      confirm_remove_aspect: Vai jūs tiešām vēlaties dzēst šo grupu?
+      rename: pārsaukt
+      aspect_list_is_visible: Kontakti šajā grupā var redzēt viens otru.
+      aspect_list_is_not_visible: Kontakti šajā grupā neredz viens otru.
+      update: atjaunot
+      updating: atjauno
+    no_contacts_message:
+      you_should_add_some_more_contacts: Pievieno vairāk cilvēku!
+      try_adding_some_more_contacts: Tu vari meklēt vai uzaicināt vairāk cilvēku.
+      or_spotlight: Vai arī tu vari dalīties ar saiti %{link}
+      community_spotlight: Kopienas uzmanībā
     aspect_listings:
       add_an_aspect: "+ Pievienot grupu"
     destroy:
-      failure: "%{name} nav tukša un to nevar noņemt."
       success: "%{name} tika veiksmīgi noņemta."
-    edit:
-      aspect_list_is_not_visible: "Kontakti šajā grupā neredz viens otru."
-      aspect_list_is_visible: "Kontakti šajā grupā var redzēt viens otru."
-      confirm_remove_aspect: "Vai jūs tiešām vēlaties dzēst šo grupu?"
-      rename: "pārsaukt"
-      update: "atjaunot"
-      updating: "atjauno"
-    index:
-      donate: "Ziedot"
-      help:
-        do_you: "Ja tev ir:"
-        feature_suggestion: "... %{link}?"
-        find_a_bug: "... zināma %{link}?"
-        have_a_question: "... %{link}?"
-        here_to_help: "Diaspora* kopiena tev palīdzēs!"
-        need_help: "Nepieciešama palīdzība?"
-        tag_bug: "kļūda"
-        tag_feature: "uzlabojums"
-        tag_question: "jautājums"
-      introduce_yourself: "Šī ir tava plūsma. Sāk rakstīt un iepazīstini ar sevi."
-      new_here:
-        follow: "Seko %{link} un sveicini jaunos lietotājus diaspora*!"
-        learn_more: "Lasīt vairāk"
-        title: "Sveicināti, jaunie lietotāji"
-      services:
-        content: "Tu vari pieslēgt šādus servisus savam diaspora* profilam:"
-        heading: "Pieslēgt servisus"
-      welcome_to_diaspora: "Laipni lūgti diaspora*, %{name}!"
-    no_contacts_message:
-      community_spotlight: "Kopienas uzmanībā"
-      or_spotlight: "Vai arī tu vari dalīties ar saiti %{link}"
-      try_adding_some_more_contacts: "Tu vari meklēt vai uzaicināt vairāk cilvēku."
-      you_should_add_some_more_contacts: "Pievieno vairāk cilvēku!"
-    seed:
-      acquaintances: "Paziņas"
-      family: "Ģimene"
-      friends: "Draugi"
-      work: "Darbs"
+      failure: "%{name} nav tukša un to nevar noņemt."
     update:
-      failure: "Grupas %{name} nosaukums ir pārāk garš, lai to saglabātu."
-      success: "Grupa %{name} tika veiksmīgi labota."
-  cancel: "Atcelt"
+      success: Grupa %{name} tika veiksmīgi labota.
+      failure: Grupas %{name} nosaukums ir pārāk garš, lai to saglabātu.
+    add_to_aspect:
+      failure: Nesanāca pievienot kontaktu grupai.
+      success: Kontakts veiksmīgi pievienots grupai.
+    seed:
+      family: Ģimene
+      work: Darbs
+      acquaintances: Paziņas
+      friends: Draugi
+    index:
+      donate: Ziedot
+      welcome_to_diaspora: Laipni lūgti diaspora*, %{name}!
+      introduce_yourself: Šī ir tava plūsma. Sāk rakstīt un iepazīstini ar sevi.
+      new_here:
+        title: Sveicināti, jaunie lietotāji
+        follow: Seko %{link} un sveicini jaunos lietotājus diaspora*!
+        learn_more: Lasīt vairāk
+      help:
+        need_help: Nepieciešama palīdzība?
+        here_to_help: Diaspora* kopiena tev palīdzēs!
+        do_you: 'Ja tev ir:'
+        have_a_question: "... %{link}?"
+        tag_question: jautājums
+        find_a_bug: "... zināma %{link}?"
+        tag_bug: kļūda
+        feature_suggestion: "... %{link}?"
+        tag_feature: uzlabojums
+      services:
+        heading: Pieslēgt servisus
+        content: 'Tu vari pieslēgt šādus servisus savam diaspora* profilam:'
+  aspect_memberships:
+    destroy:
+      success: Persona tika veiksmīgi noņemta no grupas
+      failure: Neizdevās noņemt personu no grupas
   comments:
     new_comment:
-      comment: "Komentēt"
-      commenting: "Komentē..."
+      comment: Komentēt
+      commenting: Komentē...
   contacts:
     index:
-      all_contacts: "Visi kontakti"
-      start_a_conversation: "Sākt sarunu"
-      title: "Kontakti"
+      start_a_conversation: Sākt sarunu
+      title: Kontakti
+      all_contacts: Visi kontakti
   conversations:
-    create:
-      sent: "Ziņa aizsūtīta"
     index:
-      inbox: "Ienākošās"
-    new:
-      send: "Sūtīt"
-      sending: "Sūta..."
-      subject: "Virsraksts"
-      to: "Adresāts"
+      inbox: Ienākošās
     show:
-      delete: "Dzēst un bloķēt sarunu"
-      reply: "atbildēt"
-      replying: "Atbild..."
-  delete: "Dzēst"
-  email: "E-pasts"
-  error_messages:
-    helper:
-      correct_the_following_errors_and_try_again: "Izlabojiet sekojošās kļūdas un mēģiniet vēlreiz."
-  fill_me_out: "Aizpildi mani"
-  find_people: "Meklēt cilvēkus vai #birkas"
+      reply: atbildēt
+      replying: Atbild...
+      delete: Dzēst un bloķēt sarunu
+    new:
+      to: Adresāts
+      subject: Virsraksts
+      send: Sūtīt
+      sending: Sūta...
+    create:
+      sent: Ziņa aizsūtīta
   invitations:
     create:
-      sent: "Ielūgumi ir aizsūtīt: %{emails}"
+      sent: 'Ielūgumi ir aizsūtīt: %{emails}'
     new:
-      language: "Valoda"
-  limited: "Ierobežota piekļuve"
-  more: "Vairāk"
-  no_results: "Nekas netika atrasts."
-  ok: "Labi"
-  privacy: "Privātums"
-  profile: "Profils"
-  public: "Publisks"
-  search: "Meklēt"
-  settings: "Iestatījumi"
-  username: "Lietotājvārds"
+      language: Valoda

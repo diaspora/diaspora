@@ -7,41 +7,41 @@
 fy:
   devise:
     failure:
-      locked: "Dyn akkount is beskoattele."
-      unauthenticated: "Do moatst ynlogge of oanmelde foardatsto fierder kinst."
+      locked: Dyn akkount is beskoattele.
+      unauthenticated: Do moatst ynlogge of oanmelde foardatsto fierder kinst.
     mailer:
       confirmation_instructions:
-        confirm: "Myn akkount befêstigje"
-      hello: "Guoi %{username}!"
+        confirm: Myn akkount befêstigje
+      reset_password_instructions:
+        change: Feroarje myn wachtwurd
+      welcome: Wolkom %{username}!
+      hello: Guoi %{username}!
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} ha dy útnoadige om jin oan te slute by Diaspora"
-      reset_password_instructions:
-        change: "Feroarje myn wachtwurd"
-      welcome: "Wolkom %{username}!"
     passwords:
       edit:
-        change_password: "Feroarje myn wachtwurd"
+        change_password: Feroarje myn wachtwurd
       new:
-        forgot_password: "Dyn wachtwurd ferjitten?"
+        forgot_password: Dyn wachtwurd ferjitten?
     registrations:
-      updated: "Do hast dyn akkount mei súkses fernijd."
+      updated: Do hast dyn akkount mei súkses fernijd.
     sessions:
+      signed_in: Oanmelde slagge.
+      signed_out: Ôfmelde slagge.
       new:
-        login: "Ynlogge"
-        password: "Wachtwurd"
-        remember_me: "Ûntkear My"
-        sign_in: "Oanmelde"
-        username: "Brûkersnamme"
-      signed_in: "Oanmelde slagge."
-      signed_out: "Ôfmelde slagge."
+        login: Ynlogge
+        username: Brûkersnamme
+        password: Wachtwurd
+        sign_in: Oanmelde
+        remember_me: Ûntkear My
     shared:
       links:
-        forgot_your_password: "Dyn wachtwurd ferjitten?"
-        sign_in: "Ynlogge"
-        sign_up: "Oanmelde"
+        sign_in: Ynlogge
+        sign_up: Oanmelde
+        forgot_your_password: Dyn wachtwurd ferjitten?
   errors:
     messages:
-      already_confirmed: "wie al befêstige"
-      not_found: "net fûn"
-      not_locked: "wie net sluten"
+      already_confirmed: wie al befêstige
+      not_found: net fûn
+      not_locked: wie net sluten

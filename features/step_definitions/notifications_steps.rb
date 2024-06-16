@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 When "I filter notifications by likes" do
-  step %(I follow "Liked" within "#notifications_container .list-group")
+  step %(I follow "Liked post" within "#notifications_container .list-group")
 end
 
 When "I filter notifications by mentions" do

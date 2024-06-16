@@ -6,112 +6,112 @@
 
 sl:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Dodaj stik"
-      all_aspects: "Vsi pogledi"
-      error: "Ne morem začeti deliti s <%= name %>. Ali jih prezirate?"
-      select_aspects: "Izberi poglede"
-      started_sharing_with: "Začeli ste deliti z <%= name %>!"
-      stopped_sharing_with: "Prenehali ste deliti z <%= name %>."
-      toggle:
-        few: "V <%= count %> vidikih"
-        one: "V <%= count %> vidiku"
-        other: "V <%= count %> vidikih"
-        two: "V <%= count %> vidikih"
-        zero: "Izberite vidik"
-    aspect_navigation:
-      deselect_all: "Odstrani izbiro"
-      no_aspects: "Noben pogled ni izbran"
-      select_all: "Izberi vse"
-    comments:
-      hide: "skrij komentarje"
-      show: "prikaži vse komentarje"
-    confirm_dialog: "Ste prepričani"
-    delete: "Izbriši"
-    failed_to_post_message: "Objava ni uspela!"
-    getting_started:
-      alright_ill_wait: "V redu, bom počakal."
-      hey: "Hej, <%= name %>!"
-      no_tags: "Hej, niste sledili nobeni oznaki! Vseeno nadaljuj?"
-      preparing_your_stream: "Pripravljanje vašega osebnega toka ..."
-    header:
-      admin: "Skrbnik"
-      close: "zapri"
-      contacts: "Stiki"
-      home: "Domov"
-      log_out: "Odjava"
-      mark_all_as_read: "Označi vse kot prebrano"
-      notifications: "Obvestila"
-      profile: "Profil"
-      recent_notifications: "Nedavna obvestila"
-      search: "Išči"
-      settings: "Nastavitve"
-      view_all: "Prikaži vse"
-    ignore: "Ne meni se"
-    my_activity: "Moja dejavnost"
-    my_stream: "Tok"
-    people:
-      not_found: "nikogar ni bilo mogoče najti ..."
-    photo_uploader:
-      looking_good: "OMG, izgledaš super!"
-    reshares:
-      post: "Ponovno deli objavo osebe <%= name %>?"
-      successful: "Objavo ste uspešno ponovno delili!"
-    show_more: "pokaži več"
-    stream:
-      comment: "Mnenje"
-      follow: "Sledi"
-      hide: "Skrij"
-      hide_nsfw_posts: "Skrij objave NSFW (Ni varno za službo)"
-      like: "Všeč mi je"
-      likes:
-        few: "<%= count %> je to všeč"
-        one: "<%= count %> je to všeč"
-        other: "<%= count %> je to všeč"
-        two: "<%= count %> je to všeč"
-        zero: "Nikomur ni to všeč"
-      limited: "Omejeno"
-      more_comments:
-        few: "Prikaži <%= count %> mnenja"
-        one: "Prikaži <%= count %> mnenje"
-        other: "Prikaži <%= count %> mnenj"
-        two: "Prikaži <%= count %> mnenji"
-        zero: "Prikaži <%= count %> mnenj"
-      original_post_deleted: "Avtor je izbrisal izvirno objavo."
-      public: "Javno"
-      reshare: "Ponovno deli"
-      reshares:
-        few: "<%= count %> ponovna deljenja"
-        one: "<%= count %> ponovno deljenje"
-        other: "<%= count %> ponovnih deljenj"
-        two: "<%= count %> ponovni deljenji"
-        zero: "<%= count %> ponovnih deljenj"
-      show_nsfw_post: "Prikaži objavo"
-      show_nsfw_posts: "Prikaži vse"
-      unfollow: "Ne sledi več"
-      unlike: "Ni mi všeč"
-    tags:
-      wasnt_that_interesting: "V redu, mislim, da zaznamek #<%= tagName %> ni bil tako zanimiv ..."
     timeago:
-      day: "včeraj"
-      days:
-        other: "pred %d dnem"
-      hour: "pred približno uro"
-      hours:
-        other: "pred približno %d urami"
-      minute: "pred približno minuto"
+      prefixAgo: ''
+      suffixAgo: nazaj
+      suffixFromNow: od zdaj
+      prefixFromNow: ''
+      seconds: pred manj kot minuto
+      minute: pred približno minuto
       minutes:
-        other: "pred %d minutami"
-      month: "pred približno mesecem"
+        other: pred %d minutami
+      hour: pred približno uro
+      hours:
+        other: pred približno %d urami
+      day: včeraj
+      days:
+        other: pred %d dnem
+      month: pred približno mesecem
       months:
-        other: "pred %d meseci"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "pred manj kot minuto"
-      suffixAgo: "nazaj"
-      suffixFromNow: "od zdaj"
-      year: "pred približno letom dni"
+        other: pred %d meseci
+      year: pred približno letom dni
       years:
-        other: "pred %d leti"
+        other: pred %d leti
+    confirm_dialog: Ste prepričani
+    delete: Izbriši
+    ignore: Ne meni se
+    my_activity: Moja dejavnost
+    my_stream: Tok
+    aspect_dropdown:
+      add_to_aspect: Dodaj stik
+      select_aspects: Izberi poglede
+      all_aspects: Vsi pogledi
+      stopped_sharing_with: Prenehali ste deliti z <%= name %>.
+      started_sharing_with: Začeli ste deliti z <%= name %>!
+      error: Ne morem začeti deliti s <%= name %>. Ali jih prezirate?
+      toggle:
+        zero: Izberite vidik
+        one: V <%= count %> vidiku
+        two: V <%= count %> vidikih
+        few: V <%= count %> vidikih
+        other: V <%= count %> vidikih
+    show_more: pokaži več
+    failed_to_post_message: Objava ni uspela!
+    comments:
+      show: prikaži vse komentarje
+      hide: skrij komentarje
+    reshares:
+      successful: Objavo ste uspešno ponovno delili!
+      post: Ponovno deli objavo osebe <%= name %>?
+    aspect_navigation:
+      select_all: Izberi vse
+      deselect_all: Odstrani izbiro
+      no_aspects: Noben pogled ni izbran
+    getting_started:
+      hey: Hej, <%= name %>!
+      no_tags: Hej, niste sledili nobeni oznaki! Vseeno nadaljuj?
+      alright_ill_wait: V redu, bom počakal.
+      preparing_your_stream: Pripravljanje vašega osebnega toka ...
+    photo_uploader:
+      looking_good: OMG, izgledaš super!
+    tags:
+      wasnt_that_interesting: 'V redu, mislim, da zaznamek #<%= tagName %> ni bil tako zanimiv ...'
+    people:
+      not_found: nikogar ni bilo mogoče najti ...
+    stream:
+      hide: Skrij
+      public: Javno
+      limited: Omejeno
+      like: Všeč mi je
+      unlike: Ni mi všeč
+      reshare: Ponovno deli
+      comment: Mnenje
+      original_post_deleted: Avtor je izbrisal izvirno objavo.
+      show_nsfw_post: Prikaži objavo
+      show_nsfw_posts: Prikaži vse
+      hide_nsfw_posts: Skrij objave NSFW (Ni varno za službo)
+      follow: Sledi
+      unfollow: Ne sledi več
+      likes:
+        zero: Nikomur ni to všeč
+        one: "<%= count %> je to všeč"
+        two: "<%= count %> je to všeč"
+        few: "<%= count %> je to všeč"
+        other: "<%= count %> je to všeč"
+      reshares:
+        zero: "<%= count %> ponovnih deljenj"
+        one: "<%= count %> ponovno deljenje"
+        two: "<%= count %> ponovni deljenji"
+        few: "<%= count %> ponovna deljenja"
+        other: "<%= count %> ponovnih deljenj"
+      more_comments:
+        zero: Prikaži <%= count %> mnenj
+        one: Prikaži <%= count %> mnenje
+        two: Prikaži <%= count %> mnenji
+        few: Prikaži <%= count %> mnenja
+        other: Prikaži <%= count %> mnenj
+    header:
+      home: Domov
+      profile: Profil
+      contacts: Stiki
+      settings: Nastavitve
+      admin: Skrbnik
+      log_out: Odjava
+      notifications: Obvestila
+      search: Išči
+      recent_notifications: Nedavna obvestila
+      mark_all_as_read: Označi vse kot prebrano
+      view_all: Prikaži vse
+      close: zapri
     viewer:
-      reshared: "Ponovno deljeno"
+      reshared: Ponovno deljeno

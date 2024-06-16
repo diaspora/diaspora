@@ -6,148 +6,148 @@
 
 ro:
   javascripts:
-    admin:
-      pods:
-        follow_link: "deschide legătura în browser"
-        unknown: "necunoscut"
-    and: "și"
-    aspect_dropdown:
-      add_to_aspect: "Adaugă la contacte"
-      all_aspects: "Toate aspectele"
-      error: "Nu sa putut incepe impartirea de publicatii cu <%= name %>. Ii ignorati cumva ?"
-      select_aspects: "Selectează aspecte"
-      started_sharing_with: "Ati inceput sa impartiti publicatii cu <%= name %>!"
-      stopped_sharing_with: "Nu mai împarti publicații cu <%= name %>."
-      toggle:
-        few: "În <%= count %> aspecte"
-        one: "În <%= count %> aspect"
-        other: "În <%= count %> aspecte"
-        zero: "Selectati aspecte"
-    aspect_navigation:
-      deselect_all: "Deselectează tot"
-      no_aspects: "Niciun aspect selectat"
-      select_all: "Selectează tot"
-    cancel: "Anulează"
-    comma: ","
-    comments:
-      hide: "Ascunde comentariile"
-      no_comments: "Nu există comentarii"
-      show: "Arată toate comentarile"
-    confirm_dialog: "Ești sigur?"
-    delete: "Şterge"
-    edit: "Modifică"
-    failed_to_post_message: "Trimiterea mesajului a eșuat!"
-    getting_started:
-      alright_ill_wait: "E în regulă, voi aștepta."
-      hey: "Salutare, <%= name %>!"
-      no_tags: "Hopa, nu urmati nicio eticheta! Continuati si asa ?"
-      preparing_your_stream: "Se pregateste fluxul personalizat pentru dvs..."
-    header:
-      admin: "Administrare"
-      close: "Închide"
-      contacts: "Contacte"
-      conversations: "Conversații"
-      help: "Ajutor"
-      home: "Acasă"
-      log_out: "Deautentificare"
-      mark_all_as_read: "Marchează-le pe toate ca citite"
-      notifications: "Notificări"
-      profile: "Profil"
-      recent_notifications: "Notificări recente"
-      settings: "Setări"
-      view_all: "Vezi totul"
-    ignore: "Ignoră"
-    my_activity: "Activitatea proprie"
-    my_stream: "Flux"
-    people:
-      message: "Mesaj"
-    photo_uploader:
-      invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
-      looking_good: "WOW, arăți superb!"
-      size_error: "{file} este prea mare, mărimea maximă a unui fişier este {sizeLimit}."
-      upload_photos: "Încarcă fotografii"
-    poll:
-      answer_count:
-        few: "<%=count%> voturi"
-        one: "1 vot"
-        other: "<%=count%> voturi"
-        zero: "0 voturi"
-      vote: "Votează"
-    profile:
-      bio: "Biografie"
-      edit: "Editare"
-      gender: "Gen"
-      photos: "Fotografii"
-      posts: "Postări"
-    publisher:
-      markdown_editor:
-        preview: "Previzualizare"
-      near_from: "Publicat din <%= location %>"
-    show_more: "arată mai mult"
-    stream:
-      comment: "Comentariu"
-      follow: "Urmărește"
-      followed_tag:
-        add_a_tag: "Adaugă o etichetă"
-        follow: "Urmărește"
-        title: "Etichetele #urmărite"
-      hide: "Ascunde"
-      hide_nsfw_posts: "Ascunde #nsfw articole"
-      like: "Îmi place"
-      likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
-      limited: "Limitat"
-      more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
-      original_post_deleted: "Publicaţia originală a fost ştearsă de autorul ei."
-      public: "Public"
-      reshare: "Redistribuie"
-      reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
-      show_nsfw_post: "Afișare articol"
-      show_nsfw_posts: "Arată tot"
-      tags:
-        follow: "Urmărește #<%= tag %>"
-        following: "Urmărești #<%= tag %>"
-        stop_following: "Nu mai urmări #<%= tag %>"
-        stop_following_confirm: "Să nu mai urmăresc #<%= tag %>?"
-      unfollow: "Nu mai urmări"
-      unlike: "Nu-mi place"
-    tags:
-      wasnt_that_interesting: "Bine, presupun ca #<%= tagName %> nu a fost chiar atat de interesant..."
     timeago:
-      day: "o zi"
-      days:
-        other: "%d zile"
-      hour: "o ora"
-      hours:
-        other: "%d ore"
-      minute: "un minut"
+      prefixAgo: acum
+      suffixAgo: în urmă
+      suffixFromNow: în urma
+      prefixFromNow: în timp de
+      seconds: mai putin de un minut
+      minute: un minut
       minutes:
         other: "%d minute"
-      month: "o luna"
+      hour: o ora
+      hours:
+        other: "%d ore"
+      day: o zi
+      days:
+        other: "%d zile"
+      month: o luna
       months:
         other: "%d luni"
-      prefixAgo: "acum"
-      prefixFromNow: "în timp de"
-      seconds: "mai putin de un minut"
-      suffixAgo: "în urmă"
-      suffixFromNow: "în urma"
-      year: "un an"
+      year: un an
       years:
         other: "%d ani"
+    cancel: Anulează
+    confirm_dialog: Ești sigur?
+    delete: Şterge
+    ignore: Ignoră
+    and: și
+    comma: ","
+    edit: Modifică
+    admin:
+      pods:
+        follow_link: deschide legătura în browser
+        unknown: necunoscut
+    my_activity: Activitatea proprie
+    my_stream: Flux
+    publisher:
+      near_from: Publicat din <%= location %>
+      markdown_editor:
+        preview: Previzualizare
+    aspect_dropdown:
+      add_to_aspect: Adaugă la contacte
+      select_aspects: Selectează aspecte
+      all_aspects: Toate aspectele
+      stopped_sharing_with: Nu mai împarti publicații cu <%= name %>.
+      started_sharing_with: Ati inceput sa impartiti publicatii cu <%= name %>!
+      error: Nu sa putut incepe impartirea de publicatii cu <%= name %>. Ii ignorati cumva ?
+      toggle:
+        zero: Selectati aspecte
+        one: În <%= count %> aspect
+        few: În <%= count %> aspecte
+        other: În <%= count %> aspecte
+    show_more: arată mai mult
+    failed_to_post_message: Trimiterea mesajului a eșuat!
+    comments:
+      show: Arată toate comentarile
+      hide: Ascunde comentariile
+      no_comments: Nu există comentarii
+    aspect_navigation:
+      select_all: Selectează tot
+      deselect_all: Deselectează tot
+      no_aspects: Niciun aspect selectat
+    getting_started:
+      hey: Salutare, <%= name %>!
+      no_tags: Hopa, nu urmati nicio eticheta! Continuati si asa ?
+      alright_ill_wait: E în regulă, voi aștepta.
+      preparing_your_stream: Se pregateste fluxul personalizat pentru dvs...
+    photo_uploader:
+      upload_photos: Încarcă fotografii
+      looking_good: WOW, arăți superb!
+      invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
+      size_error: "{file} este prea mare, mărimea maximă a unui fişier este {sizeLimit}."
+    tags:
+      wasnt_that_interesting: 'Bine, presupun ca #<%= tagName %> nu a fost chiar atat de interesant...'
+    people:
+      message: Mesaj
+    profile:
+      edit: Editare
+      bio: Biografie
+      gender: Gen
+      photos: Fotografii
+      posts: Postări
+    stream:
+      hide: Ascunde
+      public: Public
+      limited: Limitat
+      like: Îmi place
+      unlike: Nu-mi place
+      reshare: Redistribuie
+      comment: Comentariu
+      original_post_deleted: Publicaţia originală a fost ştearsă de autorul ei.
+      show_nsfw_post: Afișare articol
+      show_nsfw_posts: Arată tot
+      hide_nsfw_posts: 'Ascunde #nsfw articole'
+      follow: Urmărește
+      unfollow: Nu mai urmări
+      likes:
+        zero: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        two: "<%= count %> Likes"
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        other: "<%= count %> Likes"
+      reshares:
+        zero: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        two: "<%= count %> Reshares"
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        other: "<%= count %> Reshares"
+      more_comments:
+        zero: Show <%= count %> more comments
+        one: Show <%= count %> more comment
+        two: Show <%= count %> more comments
+        few: Show <%= count %> more comments
+        many: Show <%= count %> more comments
+        other: Show <%= count %> more comments
+      followed_tag:
+        title: 'Etichetele #urmărite'
+        add_a_tag: Adaugă o etichetă
+        follow: Urmărește
+      tags:
+        follow: 'Urmărește #<%= tag %>'
+        following: 'Urmărești #<%= tag %>'
+        stop_following: 'Nu mai urmări #<%= tag %>'
+        stop_following_confirm: 'Să nu mai urmăresc #<%= tag %>?'
+    header:
+      home: Acasă
+      profile: Profil
+      contacts: Contacte
+      settings: Setări
+      help: Ajutor
+      admin: Administrare
+      log_out: Deautentificare
+      notifications: Notificări
+      conversations: Conversații
+      recent_notifications: Notificări recente
+      mark_all_as_read: Marchează-le pe toate ca citite
+      view_all: Vezi totul
+      close: Închide
+    poll:
+      vote: Votează
+      answer_count:
+        zero: 0 voturi
+        one: 1 vot
+        few: "<%=count%> voturi"
+        other: "<%=count%> voturi"

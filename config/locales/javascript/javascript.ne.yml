@@ -6,36 +6,36 @@
 
 ne:
   javascripts:
-    delete: "मेट्नुहोस्"
-    header:
-      contacts: "सम्पर्कहरु"
-      home: "गृहपृष्ठ"
-      search: "खोज"
-      view_all: "सबै हेर्नुहोस्"
-    show_more: "अरु हेर्नुहोस्"
+    timeago:
+      prefixAgo: ''
+      suffixAgo: अघि
+      suffixFromNow: अहिले देखी
+      prefixFromNow: ''
+      minute: लगभग एक मिनेट
+      hour: लगभग एक घण्टा
+      hours:
+        other: लगभग %d घण्टा
+      day: एक दिन
+      days:
+        other: "%d दिन"
+      month: लगभग एक महिना
+      months:
+        other: "%d महिना"
+      year: लगभग एक वर्ष
+      years:
+        other: "%d वर्ष"
+    delete: मेट्नुहोस्
+    show_more: अरु हेर्नुहोस्
     stream:
-      hide: "लुकाउनुहोस्"
-      like: "मनपर्यो"
+      hide: लुकाउनुहोस्
+      public: सार्वजनिक
+      like: मनपर्यो
+      unlike: मनपरेन
       likes:
         one: "<%= count %>%= count % जनाले मनपराउनु भयो"
         other: "<%= count %>%= count % जनाले मनपराउनु भयो"
-      public: "सार्वजनिक"
-      unlike: "मनपरेन"
-    timeago:
-      day: "एक दिन"
-      days:
-        other: "%d दिन"
-      hour: "लगभग एक घण्टा"
-      hours:
-        other: "लगभग %d घण्टा"
-      minute: "लगभग एक मिनेट"
-      month: "लगभग एक महिना"
-      months:
-        other: "%d महिना"
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: "अघि"
-      suffixFromNow: "अहिले देखी"
-      year: "लगभग एक वर्ष"
-      years:
-        other: "%d वर्ष"
+    header:
+      home: गृहपृष्ठ
+      contacts: सम्पर्कहरु
+      search: खोज
+      view_all: सबै हेर्नुहोस्

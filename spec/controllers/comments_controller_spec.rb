@@ -45,7 +45,7 @@ describe CommentsController, :type => :controller do
       end
 
       it "doesn't overwrite author_id" do
-        new_user = FactoryGirl.create(:user)
+        new_user = FactoryBot.create(:user)
         comment_hash[:author_id] = new_user.person.id.to_s
         post :create, params: comment_hash
         expect(Comment.find_by_text(comment_hash[:text]).author_id).to eq(alice.person.id)

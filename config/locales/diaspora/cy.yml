@@ -5,292 +5,292 @@
 
 
 cy:
-  _contacts: "Cysylltiadau"
+  settings: Gosodiadau
+  profile: Proffil
+  cancel: Diddymu
+  delete: Dileu
+  username: Enw Defnyddiwr
+  email: E-bost
+  limited: Cyfyngedig
+  find_people: 'Dod o hyd i bobl neu # tagiau'
+  all_aspects: Agweddau i gŷd
+  _contacts: Cysylltiadau
   activerecord:
     errors:
       models:
-        reshare:
-          attributes:
-            root_guid:
-              taken: "Mae hynny'n dda, huh? Rydych chi wedi ailrhannu eisoes y swydd honno!"
         user:
           attributes:
             username:
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
-  all_aspects: "Agweddau i gŷd"
+              invalid: is invalid. We only allow letters, numbers, and underscores
+        reshare:
+          attributes:
+            root_guid:
+              taken: Mae hynny'n dda, huh? Rydych chi wedi ailrhannu eisoes y swydd honno!
   aspects:
-    add_to_aspect:
-      failure: "Failed to add friend to aspect."
-      success: "Successfully added friend to aspect."
+    edit:
+      confirm_remove_aspect: A ydych yn siŵr eich bod am ddileu yr agwedd hon?
+    no_contacts_message:
+      you_should_add_some_more_contacts: Dylech chi ychwanegu mwy o gysylltiadau!
+      try_adding_some_more_contacts: You can search (top) or invite (right) more contacts.
     aspect_listings:
       add_an_aspect: "+ Ychwanegu agwedd"
     destroy:
       success: "%{name} cael ei dynnu yn llwyddiannol."
-    edit:
-      confirm_remove_aspect: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
+    update:
+      success: Eich aspect, %{name},  wedi bod yn golygu yn llwyddiannus.
+    add_to_aspect:
+      failure: Failed to add friend to aspect.
+      success: Successfully added friend to aspect.
     index:
       help:
-        do_you: "Ydych chi:"
+        need_help: Oes rhaid help?
+        here_to_help: Diaspora community is here to help!
+        do_you: 'Ydych chi:'
         have_a_question: "... yn cael cwestion %{link}?"
-        here_to_help: "Diaspora community is here to help!"
-        need_help: "Oes rhaid help?"
+        tag_question: "#question"
         tag_bug: "#bug"
         tag_feature: "#feature"
-        tag_question: "#question"
-    no_contacts_message:
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "Dylech chi ychwanegu mwy o gysylltiadau!"
-    update:
-      success: "Eich aspect, %{name},  wedi bod yn golygu yn llwyddiannus."
-  blocks:
-    create:
-      success: "Ôlreit, ni fyddwch yn gweld y defnyddiwr yn eich ffrwd yn y dyfodol. #silencio!"
   bookmarklet:
+    heading: Diaspora Bookmarklet
     explanation: "%{link} from anywhere by bookmarking this link."
-    heading: "Diaspora Bookmarklet"
-  cancel: "Diddymu"
   comments:
     new_comment:
-      comment: "Sylw"
+      comment: Sylw
   contacts:
     index:
-      all_contacts: "Cysylltiadau i gŷd"
-      my_contacts: "Fy nghysylltiadau"
-      no_contacts: "No contacts."
-      title: "Cysylltiadau"
+      title: Cysylltiadau
+      no_contacts: No contacts.
+      my_contacts: Fy nghysylltiadau
+      all_contacts: Cysylltiadau i gŷd
   conversations:
     create:
-      sent: "Neges wedi anfon"
-  delete: "Dileu"
-  email: "E-bost"
-  find_people: "Dod o hyd i bobl neu # tagiau"
+      sent: Neges wedi anfon
   invitations:
     create:
-      sent: "Your invitation has been sent."
+      sent: Your invitation has been sent.
   layouts:
     header:
-      logout: "Allgofnodi"
-      profile: "profile"
-      settings: "Gosodiadau"
-  limited: "Cyfyngedig"
+      profile: profile
+      settings: Gosodiadau
+      logout: Allgofnodi
   notifications:
-    also_commented:
-      few: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
-      many: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
-      one: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
-      other: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
-      two: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
-      zero: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
-    also_commented_deleted:
-      few: "Mae %{actors} wedi sylwi ar bost dileuwyd"
-      many: "Mae %{actors} wedi sylwi ar bost dileuwyd"
-      one: "Mae %{actors} wedi sylwi ar bost dileuwyd"
-      other: "Mae %{actors} wedi sylwi ar bost dileuwyd"
-      two: "Mae %{actors} wedi sylwi ar bost dileuwyd"
-      zero: "Mae %{actors} wedi sylwi ar bost dileuwyd"
+    started_sharing:
+      zero: Mae %{actors} wedi dechrau rhannu gyda chi.
+      one: Mae %{actors} wedi dechrau rhannu gyda chi.
+      two: Mae %{actors} wedi dechrau rhannu gyda chi.
+      few: Mae %{actors} wedi dechrau rhannu gyda chi.
+      many: Mae %{actors} wedi dechrau rhannu gyda chi.
+      other: Mae %{actors} wedi dechrau rhannu gyda chi.
+    private_message:
+      zero: Mae %{actors} wedi anfon neges iddych chi.
+      one: Mae %{actors} wedi anfon neges iddych chi.
+      two: Mae %{actors} wedi anfon neges iddych chi.
+      few: Mae %{actors} wedi anfon neges iddych chi.
+      many: Mae %{actors} wedi anfon neges iddych chi.
+      other: Mae %{actors} wedi anfon neges iddych chi.
     comment_on_post:
-      few: "Mae %{actors} wedi sylwi ar eich %{post_link}."
-      many: "Mae %{actors} wedi sylwi ar eich %{post_link}."
-      one: "Mae %{actors} wedi sylwi ar eich %{post_link}."
-      other: "Mae %{actors} wedi sylwi ar eich %{post_link}."
-      two: "Mae %{actors} wedi sylwi ar eich %{post_link}."
-      zero: "Mae %{actors} wedi sylwi ar eich %{post_link}."
-    index:
-      and: "a"
-      and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "ac un arall"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
-      mark_all_as_read: "Nodiad pob wedi darllen"
-      notifications: "Hysbysiadau"
-    liked:
-      few: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
-      many: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
-      one: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
-      other: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
-      two: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
-      zero: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
-    liked_post_deleted:
-      few: "%{actors} yn hoffi y post bod chi wedi dileu."
-      many: "%{actors} yn hoffi y post bod chi wedi dileu."
-      one: "%{actors} yn hoffi y post bod chi wedi dileu."
-      other: "%{actors} yn hoffi y post bod chi wedi dileu."
-      two: "%{actors} yn hoffi y post bod chi wedi dileu."
-      zero: "%{actors} yn hoffi y post bod chi wedi dileu."
+      zero: Mae %{actors} wedi sylwi ar eich %{post_link}.
+      one: Mae %{actors} wedi sylwi ar eich %{post_link}.
+      two: Mae %{actors} wedi sylwi ar eich %{post_link}.
+      few: Mae %{actors} wedi sylwi ar eich %{post_link}.
+      many: Mae %{actors} wedi sylwi ar eich %{post_link}.
+      other: Mae %{actors} wedi sylwi ar eich %{post_link}.
+    also_commented:
+      zero: Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}.
+      one: Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}.
+      two: Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}.
+      few: Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}.
+      many: Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}.
+      other: Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}.
     mentioned:
+      zero: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
+    liked:
+      zero: Mae %{actors} wedi newydd hoffi eich %{post_link}.
+      one: Mae %{actors} wedi newydd hoffi eich %{post_link}.
+      two: Mae %{actors} wedi newydd hoffi eich %{post_link}.
+      few: Mae %{actors} wedi newydd hoffi eich %{post_link}.
+      many: Mae %{actors} wedi newydd hoffi eich %{post_link}.
+      other: Mae %{actors} wedi newydd hoffi eich %{post_link}.
+    reshared:
+      zero: Mae %{actors} wedi ail-bostio eich %{post_link}.
+      one: Mae %{actors} wedi ail-bostio eich %{post_link}.
+      two: Mae %{actors} wedi ailrhannu eich %{post_link}.
+      few: Mae %{actors} wedi ailrhannu eich %{post_link}.
+      many: Mae %{actors} wedi ailrhannu eich %{post_link}.
+      other: Mae %{actors} wedi ail-bostio eich %{post_link}.
+    also_commented_deleted:
+      zero: Mae %{actors} wedi sylwi ar bost dileuwyd
+      one: Mae %{actors} wedi sylwi ar bost dileuwyd
+      two: Mae %{actors} wedi sylwi ar bost dileuwyd
+      few: Mae %{actors} wedi sylwi ar bost dileuwyd
+      many: Mae %{actors} wedi sylwi ar bost dileuwyd
+      other: Mae %{actors} wedi sylwi ar bost dileuwyd
+    liked_post_deleted:
+      zero: "%{actors} yn hoffi y post bod chi wedi dileu."
+      one: "%{actors} yn hoffi y post bod chi wedi dileu."
+      two: "%{actors} yn hoffi y post bod chi wedi dileu."
+      few: "%{actors} yn hoffi y post bod chi wedi dileu."
+      many: "%{actors} yn hoffi y post bod chi wedi dileu."
+      other: "%{actors} yn hoffi y post bod chi wedi dileu."
+    reshared_post_deleted:
+      zero: "%{actors} wedi rhannu y swydd yr ydych yn dileu."
+      one: mae %{actors} wedi rhannu eich post wedi dileu.
+      two: mae %{actors} wedi rhannu eich post wedi dileu.
+      few: mae %{actors} wedi rhannu eich post wedi dileu.
+      many: mae %{actors} wedi rhannu eich post wedi dileu.
+      other: "%{actors} wedi rhannu y swydd yr ydych yn dileu."
     mentioned_deleted:
+      zero: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    private_message:
-      few: "Mae %{actors} wedi anfon neges iddych chi."
-      many: "Mae %{actors} wedi anfon neges iddych chi."
-      one: "Mae %{actors} wedi anfon neges iddych chi."
-      other: "Mae %{actors} wedi anfon neges iddych chi."
-      two: "Mae %{actors} wedi anfon neges iddych chi."
-      zero: "Mae %{actors} wedi anfon neges iddych chi."
-    reshared:
-      few: "Mae %{actors} wedi ailrhannu eich %{post_link}."
-      many: "Mae %{actors} wedi ailrhannu eich %{post_link}."
-      one: "Mae %{actors} wedi ail-bostio eich %{post_link}."
-      other: "Mae %{actors} wedi ail-bostio eich %{post_link}."
-      two: "Mae %{actors} wedi ailrhannu eich %{post_link}."
-      zero: "Mae %{actors} wedi ail-bostio eich %{post_link}."
-    reshared_post_deleted:
-      few: "mae %{actors} wedi rhannu eich post wedi dileu."
-      many: "mae %{actors} wedi rhannu eich post wedi dileu."
-      one: "mae %{actors} wedi rhannu eich post wedi dileu."
-      other: "%{actors} wedi rhannu y swydd yr ydych yn dileu."
-      two: "mae %{actors} wedi rhannu eich post wedi dileu."
-      zero: "%{actors} wedi rhannu y swydd yr ydych yn dileu."
-    started_sharing:
-      few: "Mae %{actors} wedi dechrau rhannu gyda chi."
-      many: "Mae %{actors} wedi dechrau rhannu gyda chi."
-      one: "Mae %{actors} wedi dechrau rhannu gyda chi."
-      other: "Mae %{actors} wedi dechrau rhannu gyda chi."
-      two: "Mae %{actors} wedi dechrau rhannu gyda chi."
-      zero: "Mae %{actors} wedi dechrau rhannu gyda chi."
+    index:
+      notifications: Hysbysiadau
+      mark_all_as_read: Nodiad pob wedi darllen
+      and_others:
+        zero: and nobody else
+        one: ac un arall
+        two: and %{count} others
+        few: and %{count} others
+        many: and %{count} others
+        other: and %{count} others
+      and: a
   notifier:
-    a_post_you_shared: "post."
-    click_here: "cliciwch yma"
-    comment_on_post:
-      reply: "Ateb neu gweld post %{name} >"
-    confirm_email:
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    hello: "Helo %{name}!"
-    liked:
-      liked: "Mae %{name} wedi newydd hoffi eich post: "
-      view_post: "Gweld y post >"
-    reshared:
-      reshared: "Mae%{name} wedi newydd ail-bostio eich post"
-      view_post: "Gweld y post >"
+    a_post_you_shared: post.
+    click_here: cliciwch yma
+    hello: Helo %{name}!
+    thanks: Diolch,
     single_admin:
-      subject: "A message from your Diaspora administrator:"
+      subject: 'A message from your Diaspora administrator:'
     started_sharing:
-      sharing: "wedi dechrau rhannu gyda chi!"
-      subject: "Mae %{name} wedi dechrau rhannu gyda chi i mewn Diaspora*"
-    thanks: "Diolch,"
+      subject: Mae %{name} wedi dechrau rhannu gyda chi i mewn Diaspora*
+      sharing: wedi dechrau rhannu gyda chi!
+    comment_on_post:
+      reply: Ateb neu gweld post %{name} >
+    liked:
+      liked: 'Mae %{name} wedi newydd hoffi eich post: '
+      view_post: Gweld y post >
+    reshared:
+      reshared: Mae%{name} wedi newydd ail-bostio eich post
+      view_post: Gweld y post >
+    confirm_email:
+      subject: Please activate your new e-mail address %{unconfirmed_email}
+      click_link: 'To activate your new e-mail address %{unconfirmed_email}, please click this link:'
   people:
     person:
-      thats_you: "chi sy hyn!"
-    profile_sidebar:
-      born: "born"
+      thats_you: chi sy hyn!
     show:
-      does_not_exist: "Dydy'r unigolyn ddim yn bodoli!"
+      does_not_exist: Dydy'r unigolyn ddim yn bodoli!
+    profile_sidebar:
+      born: born
   photos:
     create:
-      type_error: "Mae ffoto wedi methu llwytho i fyny. A ydych yn sicr delwedd ei ychwanegu?"
+      type_error: Mae ffoto wedi methu llwytho i fyny. A ydych yn sicr delwedd ei ychwanegu?
     destroy:
-      notice: "Ffoto wedi dileu."
+      notice: Ffoto wedi dileu.
   posts:
     show:
       photos_by:
+        zero: No photos by %{author}
+        one: One photo by %{author}
+        two: Two photos by %{author}
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
-  profile: "Proffil"
   profiles:
     edit:
-      your_birthday: "Eich penblwydd"
-      your_name: "Eich enw"
-      your_photo: "Eich ffoto"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_name: Eich enw
+      your_birthday: Eich penblwydd
+      your_tags: 'You: in 5 #tags'
+      your_tags_placeholder: 'i.e. #diaspora #ironing #kittens #music'
+      your_photo: Eich ffoto
   registrations:
-    create:
-      success: "Rydych chi wedi ymuno Diaspora!"
     new:
-      enter_email: "Enter an e-mail"
+      enter_email: Enter an e-mail
+    create:
+      success: Rydych chi wedi ymuno Diaspora!
   reshares:
     reshare:
-      deleted: "Post gwreiddiol wedi cael ei ddileu gan yr awdur."
-      reshare_confirmation: "Ailrhannu post %{author}?"
-      reshared_via: "ailrhannwyd gan"
+      reshared_via: ailrhannwyd gan
+      reshare_confirmation: Ailrhannu post %{author}?
+      deleted: Post gwreiddiol wedi cael ei ddileu gan yr awdur.
   services:
-    create:
-      success: "Dilysu llwyddiannus."
-    destroy:
-      success: "Successfully destroyed authentication."
     index:
-      disconnect: "datgysylltu"
-      logged_in_as: "mewngofnodi fel"
-      really_disconnect: "datgysylltu %{service}?"
-  settings: "Gosodiadau"
+      disconnect: datgysylltu
+      logged_in_as: mewngofnodi fel
+      really_disconnect: datgysylltu %{service}?
+    create:
+      success: Dilysu llwyddiannus.
+    destroy:
+      success: Successfully destroyed authentication.
+  blocks:
+    create:
+      success: 'Ôlreit, ni fyddwch yn gweld y defnyddiwr yn eich ffrwd yn y dyfodol. #silencio!'
   shared:
     aspect_dropdown:
       toggle:
-        few: "Mewn %{count} agweddau"
-        many: "Mewn %{count} agweddau"
-        one: "Mewn %{count} agwedd"
-        other: "Mewn %{count} agweddau"
-        two: "Mewn %{count} agweddau"
-        zero: "Add to aspect"
-    invitations:
-      by_email: "gan e-bost"
-    public_explain:
-      title: "You are about to post a public message!"
+        zero: Add to aspect
+        one: Mewn %{count} agwedd
+        two: Mewn %{count} agweddau
+        few: Mewn %{count} agweddau
+        many: Mewn %{count} agweddau
+        other: Mewn %{count} agweddau
     publisher:
+      whats_on_your_mind: Am be' dych chi'n meddwl?
       new_user_prefill:
-        i_like: "I'm interested in %{tags}."
-      whats_on_your_mind: "Am be' dych chi'n meddwl?"
+        i_like: I'm interested in %{tags}.
+    invitations:
+      by_email: gan e-bost
+    public_explain:
+      title: You are about to post a public message!
   status_messages:
-    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
+    too_long: '{"few"=>"please make your status messages less than %{count} characters", "many"=>"please make your status messages less than %{count} characters", "one"=>"please make your status messages less than %{count} character", "other"=>"please make your status messages less than %{count} characters", "two"=>"please make your status messages less than %{count} characters", "zero"=>"please make your status messages less than %{count} characters"}'
   streams:
-    aspects:
-      title: "Eich Agweddau"
-    aspects_stream: "Agweddau"
-    followed_tag:
-      add_a_tag: "Ychwanegu tag"
-      title: "#Tagiau ddilynwyd"
+    aspects_stream: Agweddau
     followed_tags_stream: "#Tagiau ddilynwyd"
     mentions:
-      title: "Your Mentions"
+      title: Your Mentions
+    followed_tag:
+      title: "#Tagiau ddilynwyd"
+      add_a_tag: Ychwanegu tag
     multi:
-      title: "Ffrwd"
-  username: "Enw Defnyddiwr"
+      title: Ffrwd
+    aspects:
+      title: Eich Agweddau
   users:
-    confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
-      auto_follow_back: "Automatically follow back if a someone follows you"
-      change_email: "Newid yr E-Bost"
-      change_language: "Newid yr iaith"
-      change_password: "Newid cyfrinair"
-      close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
-      export_data: "Data Allforio"
-      new_password: "Cyfrinair newydd "
-      receive_email_notifications: "Receive email notificaions?"
+      your_handle: Your diaspora handle
+      change_email: Newid yr E-Bost
+      email_awaiting_confirmation: We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}.
+      change_password: Newid cyfrinair
+      new_password: 'Cyfrinair newydd '
+      change_language: Newid yr iaith
+      auto_follow_back: Automatically follow back if a someone follows you
+      receive_email_notifications: Receive email notificaions?
       reshared: "...rhywun yn rhannu eich post?"
-      your_handle: "Your diaspora handle"
+      export_data: Data Allforio
+      close_account:
+        what_we_delete: We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle.
     privacy_settings:
-      title: "Gosodiadau preifatrwydd"
-    public:
-      does_not_exist: "Nid% Defnyddiwr {username} yn bodoli!"
+      title: Gosodiadau preifatrwydd
     update:
-      email_notifications_changed: "Language Change Failed"
-      language_changed: "Iaith wedi newid"
-      language_not_changed: "Newidiad iaith wedi methu"
-      password_changed: "Password Changed"
-      password_not_changed: "Password Change Failed"
-      settings_not_updated: "Mae diweddaru gosodiadau wedi methu "
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      password_changed: Password Changed
+      password_not_changed: Password Change Failed
+      language_changed: Iaith wedi newid
+      language_not_changed: Newidiad iaith wedi methu
+      settings_not_updated: 'Mae diweddaru gosodiadau wedi methu '
+      email_notifications_changed: Language Change Failed
+      unconfirmed_email_changed: E-Mail Changed. Needs activation.
+      unconfirmed_email_not_changed: E-Mail Change Failed
+    public:
+      does_not_exist: Nid% Defnyddiwr {username} yn bodoli!
+    confirm_email:
+      email_confirmed: E-Mail %{email} activated
+      email_not_confirmed: E-Mail could not be activated. Wrong link?

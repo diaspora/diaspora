@@ -89,6 +89,8 @@ en:
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
     need_javascript: "This website requires JavaScript to function properly. If you disabled JavaScript, please enable it and refresh this page."
     csrf_token_fail: "The CSRF token is invalid. Please sign in and try again."
+    mobile_not_available: "This page is not available on mobile view, please switch to %{desktop_link}."
+    desktop_view_link: "desktop view"
 
   admins:
     admin_bar:
@@ -147,6 +149,7 @@ en:
       email: "Email"
       diaspora_handle: "diaspora* ID"
       last_seen: "Last seen"
+      current_sign_in_ip: "IP address at current sign in"
       account_closed: "Account closed"
       nsfw: "#nsfw"
       admin: "Admin"
@@ -191,8 +194,6 @@ en:
       tag_name: "Tag name: %{name_tag} Count: %{count_tag}"
     pods:
       pod_network: "Pod network"
-      pod_desktop_view: "This page is not available on mobile view, please switch to %{desktop_link}."
-      pod_desktop_link: "desktop view"
   aspects:
     edit:
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
@@ -289,6 +290,12 @@ en:
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
+    create:
+      fail: "Comment creation has failed"
+    destroy:
+      success: "Comment %{id} has been successfully deleted"
+      fail: "Comment deletion has failed"
+    not_found: "Post or comment not found"
 
   contacts:
     index:
@@ -336,6 +343,7 @@ en:
     destroy:
       delete_success: "Conversation successfully deleted"
       hide_success: "Conversation successfully hidden"
+    not_found: "Conversation not found"
   date:
     formats:
       fullmonth_day: "%B %d"
@@ -401,11 +409,6 @@ en:
       rename_aspect_a: "Click “My aspects” in the side-bar from a stream view and click the pencil icon by the aspect you want to rename, or go to your Contacts page and select the relevant aspect. Then click the edit icon next to the aspect name at the top of this page, change the name and press “Update”."
       delete_aspect_q: "How do I delete an aspect?"
       delete_aspect_a: "Click “My aspects” in the side-bar from a stream view and click the pencil icon by the aspect you want to delete, or go to your Contacts page and select the relevant aspect. Then click the trash icon in the top right of the page."
-    chat:
-      title: "Chat"
-      contacts_page: "contacts page"
-      add_contact_roster_q: "How do I chat with someone in diaspora*?"
-      add_contact_roster_a: "First, you need to enable chat for one of the aspects that person is in. To do so, go to the %{contacts_page}, select the aspect you want and click on the chat icon to enable chat for the aspect. %{toggle_privilege} You could, if you prefer, create a special aspect called “Chat” and add the people you want to chat with to that aspect. Once you’ve done this, open the chat interface and select the person you want to chat with."
     mentions:
       title: "Mentions"
       what_is_a_mention_q: "What is a “mention”?"
@@ -659,6 +662,10 @@ en:
       zero: "%{actors} have liked your post %{post_link}."
       one: "%{actors} has liked your post %{post_link}."
       other: "%{actors} have liked your post %{post_link}."
+    liked_comment:
+      zero: "%{actors} have liked your comment %{comment_link}."
+      one: "%{actors} has liked your comment %{comment_link}."
+      other: "%{actors} have liked your comment %{comment_link}."
     reshared:
       zero: "%{actors} have reshared your post %{post_link}."
       one: "%{actors} has reshared your post %{post_link}."
@@ -671,6 +678,10 @@ en:
       zero: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
+    liked_comment_deleted:
+      zero: "%{actors} liked your deleted comment."
+      one: "%{actors} liked your deleted comment."
+      other: "%{actors} liked your deleted comment."
     liked_post_deleted:
       zero: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
@@ -696,7 +707,8 @@ en:
       all_notifications: "All notifications"
       also_commented: "Also commented"
       comment_on_post: "Comment on post"
-      liked: "Liked"
+      liked: "Liked post"
+      liked_comment: "Liked comment"
       mentioned: "Mentioned in post"
       mentioned_in_comment: "Mentioned in comment"
       reshared: "Reshared"
@@ -743,6 +755,10 @@ en:
         liked: "%{name} liked your post"
         limited_post: "%{name} liked your limited post"
         view_post: "View post >"
+    liked_comment:
+        liked: "%{name} liked your comment"
+        limited_post: "%{name} liked your comment on a limited post"
+        view_comment: "View comment >"
     reshared:
         reshared: "%{name} reshared your post"
         view_post: "View post >"
@@ -889,6 +905,8 @@ en:
           deny: "Deny"
           bad_request: "Missing client id or redirect URI"
           client_id_not_found: "No client with client_id %{client_id} with redirect URI %{redirect_uri} found"
+          private_contacts_linkage_error: "private:read and private:modify require contacts:read as well"
+          unknown_scope: "Unknown scope: %{scope_name}"
         destroy:
           fail: "The attempt to revoke the authorization with ID %{id} failed"
       user_applications:
@@ -899,39 +917,72 @@ en:
           no_requirement: "%{name} requires no permissions"
         no_applications: "You have no authorized applications"
         revoke_autorization: "Revoke"
-        tos: "See the application's terms of service"
-        policy: "See the application's privacy policy"
+        tos: "See the application’s terms of service"
+        policy: "See the application’s privacy policy"
       scopes:
         openid:
-          name: "basic profile"
-          description: "This allows the application to read your basic profile"
+          name: "Basic profile information"
+          description: "This grants read-only access to your basic profile information."
         sub:
-          name: "sub"
-          description: "This grants sub permissions to the application"
-        aud:
-          name: "aud"
-          description: "This grants aud permissions to the application"
+          name: "Unique identifier"
+          description: "This grants read-only access to your unique identifier."
         name:
-          name: "name"
-          description: "This grants name permissions to the application"
+          name: "Full name"
+          description: "This grants read-only access to your full name."
         nickname:
-          name: "nickname"
-          description: "This grants nickname permissions to the application"
-        profile:
-          name: "extended profile"
-          description: "This allows the application to read your extended profile"
+          name: "Username"
+          description: "This grants read-only access to your username."
         picture:
-          name: "picture"
-          description: "This grants picture permissions to the application"
-        read:
-          name: "read profile, stream and conversations"
-          description: "This allows the application to read your stream, your conversations and your complete profile"
-        write:
-          name: "send posts, conversations and reactions"
-          description: "This allows the application to send new posts, write conversations, and send reactions"
+          name: "Profile picture"
+          description: "This grants read-only access to your profile picture."
+        'contacts:read':
+          name: "Contacts (Read-only)"
+          description: "This grants read-only access to contacts and related data (such as aspects)."
+        'contacts:modify':
+          name: "Contacts (Write)"
+          description: "This grants write access to contacts and related data (such as aspects)."
+        conversations:
+          name: "Conversations"
+          description: "This grants read and write permission to private messages."
+        email:
+          name: "E-Mail"
+          description: "This grants read-only access to your email address."
+        interactions:
+          name: "Interactions"
+          description: "This grants access to interact with posts, for instance liking or submitting a comment."
+        notifications:
+          name: "Notifications"
+          description: "This grants read and write access to your notifications."
+        'private:read':
+          name: "Private Posts (Read-only)"
+          description: "This grants read-only access to your and your contacts’ private posts."
+        'private:modify':
+          name: "Private Posts (Write)"
+          description: "This grants access to publish private posts."
+        'public:read':
+          name: "Public Posts (Read-only)"
+          description: "This grants access to your public posts, including interactions and related data."
+        'public:modify':
+          name: "Public Posts (Write)"
+          description: "This grants write access to publish public posts and related data (such as votes and attached media)."
+        profile:
+          name: "Extended profile (Read-only)"
+          description: "This grants read-only access to your extended profile data."
+        'profile:modify':
+          name: "Extended profile (Write)"
+          description: "This grants access to update your extended profile data."
+        'profile:read_private':
+          name: "Private profile data (Read-only)"
+          description: "This grants read-only access to your private profile data."
+        'tags:read':
+          name: "Tags (Read-only)"
+          description: "This grants read-only access to your followed tags and tag streams."
+        'tags:modify':
+          name: "Tags (Write)"
+          description: "This grants access to change the tags you follow."
       error_page:
         title: "Oh! Something went wrong :("
-        contact_developer: "You should contact the developer of the application and include the following detailed error message:"
+        contact_developer: "Please contact the application’s developer and include the following detailed error message:"
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
 
@@ -988,6 +1039,15 @@ en:
       reshare_by: "Reshare by %{author}"
 
   report:
+    modal:
+      title: "Reporting content"
+      report_send_email: "Reporting content sends an email to all the moderators of this pod."
+      report_only_if_violated_terms: "Please only report content that violates %{link_to_terms}."
+      terms_link: "%{pod_name} terms"
+      report_only_if_bad: "Please only report content that is not respecting the %{link_to_guidelines}."
+      reason_label: "Please state how the content you are reporting violates our terms of use:"
+      placeholder: "This content violates the terms because..."
+      submit: "Report this content"
     title: "Reports overview"
     post_label: "<strong>Post</strong>: %{content}"
     comment_label: "<strong>Comment</strong>: %{data}"
@@ -1039,18 +1099,20 @@ en:
 
   registrations:
     new:
-      enter_email: "Enter your email address"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
-      enter_password: "Enter a password (six character minimum)"
-      enter_password_again: "Enter the same password as before"
+      title: "Join the diaspora* community!"
+      subtitle: "You're about to create an account on %{podname}. A single account is enough to reach the whole diaspora* network. You don't need to create a new account here if you already have one on another pod.<br />Need help? Check %{tutorials_link}."
+      tutorials_link_label: "the tutorials"
       sign_up: "Create account"
       email: "Email"
+      email_advice: "Your e-mail will never be shared with anyone and will only be used to enable you to recover your account and to send notifications."
       username: "Username"
+      username_advice: "Your username is unique and allows others to find you in the network. It can't be changed once set. Only letters, numbers, \".\", \"_\" and \"-\"."
       password: "Password"
       password_confirmation: "Password confirmation"
       submitting: "Submitting..."
       terms: "By creating an account you accept the %{terms_link}."
       terms_link: "terms of service"
+      import_indication: "Do you want to migrate an existing diaspora* account to %{podname}? If so, sign up first and then go to the user settings page to import your previous account."
     create:
       success: "You’ve joined diaspora*!"
     closed:
@@ -1198,6 +1260,9 @@ en:
     public:
       title: "Public activity"
 
+    local_public:
+      title: "Local posts"
+
     multi:
       title: "Stream"
 
@@ -1243,6 +1308,7 @@ en:
       mentioned: "you are mentioned in a post"
       mentioned_in_comment: "you are mentioned in a comment"
       liked: "someone likes your post"
+      liked_comment: "someone likes your comment"
       reshared: "someone reshares your post"
       comment_on_post: "someone comments on your post"
       also_commented: "someone comments on a post you’ve commented on"
@@ -1276,7 +1342,6 @@ en:
 
     privacy_settings:
       title: "Privacy settings"
-      strip_exif: "Strip metadata such as location, author, and camera model from uploaded images (recommended)"
       ignored_users: "Ignored users"
       stop_ignoring: "Stop ignoring"
       no_user_ignored_message: "You are not currently ignoring any other user"
@@ -1360,7 +1425,7 @@ en:
 
   simple_captcha:
     placeholder: "Enter the image value"
-    label: "Enter the code in the box:"
+    label: "Captcha"
     message:
       default: "The secret code did not match with the image"
       user: "The secret image and code were different"

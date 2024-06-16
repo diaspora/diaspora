@@ -29,6 +29,25 @@ app.pages.AdminPods = app.views.Base.extend({
 
   _showMessages: function() {
     var msgs = document.createDocumentFragment();
+    if (gon.totalCount && gon.totalCount > 0) {
+      let totalPods = $("<div class='alert alert-info' role='alert' />")
+        .append(Diaspora.I18n.t("admin.pods.total", {count: gon.totalCount}));
+      if (gon.activeCount) {
+        if (gon.activeCount === 0) {
+          totalPods
+            .append(" " + Diaspora.I18n.t("admin.pods.none_active"));
+        }
+        if (gon.activeCount === gon.totalCount) {
+          totalPods
+            .append(" " + Diaspora.I18n.t("admin.pods.all_active"));
+        } else {
+          totalPods
+            .append(" " + Diaspora.I18n.t("admin.pods.active", {count: gon.activeCount}));
+        }
+      }
+      msgs.appendChild(totalPods[0]);
+    }
+
     if( gon.uncheckedCount && gon.uncheckedCount > 0 ) {
       var unchecked = $("<div class='alert alert-info' role='alert' />")
         .append(Diaspora.I18n.t("admin.pods.unchecked", {count: gon.uncheckedCount}));

@@ -1,54 +1,79 @@
 .page-registrations {
+  // For the mobile version which doesn't have the same global CSS
+  background: $body-bg;
+
+  #main {
+    padding: 0;
+    padding-top: 46px;
+  }
+  // End specific mobile
+
+  // Overriding bootstrap
+  .form-control {
+    display: inline-block;
+    width: 320px;
+  }
+  // End Overriding bootstrap
+
+  .fields {
+    margin: $triple-margin 0;
+
+    @media screen and (max-width: $breakpoint) {
+      flex-direction: column-reverse;
+      margin: $double-margin 0;
+    }
+
+    section {
+      border-left: solid 3px $brand-primary;
+      padding-left: 10px;
+    }
+  }
+
+  .advice {
+    max-width: 450px;
+  }
+
+  .captcha {
+    align-items: center;
+    display: flex;
+
+    .captcha-img {
+      margin-left: 5px;
+      order: 2;
+    }
+  }
+
+  .import-and-ball-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .import-instructions {
+    align-self: flex-start;
+    background-color: lighten($brand-primary, 40);
+    border: 2px solid lighten($brand-primary, 20);
+    border-radius: $radius;
+    font-size: $smaller;
+    margin-left: $default-margin;
+    padding: $default-margin;
+    width: 240px;
+
+    @media screen and (max-width: $breakpoint) {
+      margin-bottom: $double-margin;
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
   .ball {
     background: image-url('branding/ball.png') no-repeat;
     background-size: contain;
-    height: 633px;
-    max-width: 100%;
-  }
+    height: 250px;
+    width: 250px;
 
-  .v-center {
-    display: table;
-    height: 633px;
-  }
-
-  @media (max-width: $screen-xs-max) {
-    .v-center {
-      height: auto;
+    @media screen and (max-width: $breakpoint) {
+      display: none;
     }
-  }
-
-  .content {
-    display: table-cell;
-    vertical-align: middle;
-
-    h1 {
-      font-size: 35px;
-      margin: 12px 0;
-    }
-  }
-
-  form {
-    max-width: 500px;
-  }
-
-  .captcha-img {
-    left: 10px;
-    position: absolute;
-    top: 169px;
-    width: 120px;
-  }
-
-  .form-control.captcha-input {
-    border-bottom: 1px solid $input-border;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-sizing: border-box;
-    line-height: $line-height-base;
-    padding-left: 130px;
-  }
-
-  .terms > a {
-    color: inherit;
-    text-decoration: underline;
   }
 }

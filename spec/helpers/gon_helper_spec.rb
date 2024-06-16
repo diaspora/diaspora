@@ -4,9 +4,9 @@ describe GonHelper, type: :helper do
   include_context :gon
 
   describe "#gon_load_contact" do
-    let(:contact) { FactoryGirl.build(:contact) }
+    let(:contact) { FactoryBot.build(:contact, person: FactoryBot.create(:person)) }
     let(:current_user) { contact.user }
-    let(:another_contact) { FactoryGirl.build(:contact, user: current_user) }
+    let(:another_contact) { FactoryBot.build(:contact, user: current_user, person: FactoryBot.create(:person)) }
 
     before do
       RequestStore.store[:gon] = Gon::Request.new(controller.request.env)

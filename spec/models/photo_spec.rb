@@ -6,9 +6,9 @@
 
 def with_carrierwave_processing(&block)
   UnprocessedImage.enable_processing = true
-  val = yield
+  yield
+ensure
   UnprocessedImage.enable_processing = false
-  val
 end
 
 describe Photo, :type => :model do
@@ -17,12 +17,13 @@ describe Photo, :type => :model do
     @aspect = @user.aspects.first
 
     @fixture_filename  = 'button.png'
+
     @fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo  = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-    @photo2 = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-    @saved_photo = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
+    @photo = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
+    @photo2 = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
+    @saved_photo = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
     @saved_photo.save
   end
 
@@ -90,7 +91,7 @@ describe Photo, :type => :model do
       @photo.update_remote_path
 
       expect(@photo.remote_photo_path).to include("http")
-      expect(@photo.remote_photo_name).to include(".png")
+      expect(@photo.remote_photo_name).to include(".webp")
     end
   end
 
@@ -146,13 +147,7 @@ describe Photo, :type => :model do
       FileUtils.rm_r Dir.glob(File.join(public_path, "uploads/images/*"))
     end
 
-    it "should preserve EXIF data in according to user preference" do
-      image = image_from a_photo_sent_by(alice)
-
-      expect(image.exif.length).not_to eq(0)
-    end
-
-    it "should not preserve EXIF in according to user preference" do
+    it "should strip EXIF data" do
       image = image_from a_photo_sent_by(bob)
 
       expect(image.exif.length).to eq(0)
@@ -182,7 +177,15 @@ describe Photo, :type => :model do
         @photo.unprocessed_image.store! file
       }.to raise_error CarrierWave::IntegrityError
     end
+  end
 
+  describe "converting files" do
+    it "convert to webp" do
+      with_carrierwave_processing do
+        @photo.unprocessed_image.store! File.open(@fixture_name)
+      end
+      expect(@photo.remote_photo_name).to include(".webp")
+    end
   end
 
   describe "remote photos" do
@@ -197,7 +200,7 @@ describe Photo, :type => :model do
 
       @saved_photo.destroy
 
-      Diaspora::Federation::Receive.photo(federation_photo)
+      Diaspora::Federation::Receive.perform(federation_photo)
 
       new_photo = Photo.find_by(guid: @saved_photo.guid)
       expect(new_photo.url).to eq(url)

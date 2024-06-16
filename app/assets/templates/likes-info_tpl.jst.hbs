@@ -1,6 +1,6 @@
 {{#if likesCount}}
   <div class="comment">
-    <div class="media">
+    <div class="media{{#if displayAvatars}} display-avatars{{/if}}">
       <i class="entypo-heart"></i>
 
       <div class="bd">
@@ -8,9 +8,7 @@
           <a href="#" class="expand-likes gray">
             {{t "stream.likes" count=likesCount}}
           </a>
-
         {{else}}
-
           {{#each likes}}
             {{#linkToAuthor author}}
               {{{personImage this 'small' 'micro'}}}

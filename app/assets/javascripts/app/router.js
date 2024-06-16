@@ -24,6 +24,7 @@ app.Router = Backbone.Router.extend({
     "posts/:id(/)": "singlePost",
     "profile/edit(/)": "settings",
     "public(/)": "stream",
+    "local_public(/)": "stream",
     "stream(/)": "stream",
     "tags/:name(/)": "followed_tags",
     "u/:name(/)": "profile",
@@ -170,10 +171,6 @@ app.Router = Backbone.Router.extend({
         el: $("body > #profile_container")
       });
     });
-  },
-
-  registration: function() {
-    app.page = new app.pages.Registration();
   },
 
   settings: function() {

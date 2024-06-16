@@ -3,7 +3,7 @@
 describe LinksController, type: :controller do
   describe "#resolve" do
     context "with post" do
-      let(:post) { FactoryGirl.create(:status_message) }
+      let(:post) { FactoryBot.create(:status_message) }
       let(:link_text) { "#{post.author.diaspora_handle}/post/#{post.guid}" }
       subject { get :resolve, params: {q: link_query} }
 
@@ -34,7 +34,7 @@ describe LinksController, type: :controller do
       end
 
       context "when post is non-fetchable" do
-        let(:diaspora_id) { FactoryGirl.create(:person).diaspora_handle }
+        let(:diaspora_id) { FactoryBot.create(:person).diaspora_handle }
         let(:guid) { "1234567890abcdef" }
         let(:link_query) { "web+diaspora://#{diaspora_id}/post/#{guid}" }
 

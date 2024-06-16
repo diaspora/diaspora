@@ -1,0 +1,16 @@
+.row
+  .user-consent.col-md-8.col-md-offset-2
+    %ul.list-group
+      %li.list-group-item.authorized-application.clearfix
+        = render "grants_list", app: @app
+
+        .row
+          .col-xs-2.col-xs-offset-2.col-sm-1.col-sm-offset-7
+            = form_tag api_openid_connect_authorizations_path, class: "approval-button" do
+              = submit_tag t(".deny"), class: "btn btn-lg btn-danger"
+              = hidden_field_tag :approve, false
+
+          .col-xs-2.col-xs-offset-3.col-sm-1.col-sm-offset-1
+            = form_tag api_openid_connect_authorizations_path, class: "approval-button" do
+              = submit_tag t(".approve"),  class: "btn btn-lg btn-primary"
+              = hidden_field_tag :approve, true

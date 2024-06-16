@@ -7,90 +7,90 @@
 en_valspeak:
   devise:
     confirmations:
-      confirmed: "Ur account was like... confirmed!!! U r nao signed in!!! YAY! :DDD"
+      confirmed: Ur account was like... confirmed!!! U r nao signed in!!! YAY! :DDD
+      send_instructions: U will like, receive an email tellin u how 2 confirm ur account in a few min. So just liek, chillax n watch netflix r somethin, kay? Kay.
       new:
-        resend_confirmation: "Resend meh teh stuff to confirm mah stuff plz."
-      send_instructions: "U will like, receive an email tellin u how 2 confirm ur account in a few min. So just liek, chillax n watch netflix r somethin, kay? Kay."
+        resend_confirmation: Resend meh teh stuff to confirm mah stuff plz.
     failure:
-      already_authenticated: "Ur already logged in bruh!"
-      inactive: "Ur account is like... not activate yet. U should like, get on that. Kay?"
-      invalid: "Thats like... a invalid usahname or passwerd, kay?"
-      invalid_token: "sry, like, invalid authenty tokennn </3"
-      locked: "Ur account is locked :("
-      not_found_in_database: "sry, this is like... a wrong email or passwerd... sry bout tht... :\\"
-      timeout: "Ur time on d* has like... ended. plz sign in again to continue n stuff."
-      unauthenticated: "U like... need 2 sign in er sign up b4 continuin.."
-      unconfirmed: "U have 2 confirm ur account b4 continuin..."
-    invitations:
-      invitation_token_invalid: "sry bout this but, that invite token is liek, not valid... sry :\\ u mad bro?"
-      send_instructions: "Ur liek, invite was sent n ffuts..."
-      updated: "Ur passwerd was like, set!!! U r nao signed in!!! OMFGBBQ YAAAAAYYYY! :DDDD"
+      already_authenticated: Ur already logged in bruh!
+      inactive: Ur account is like... not activate yet. U should like, get on that. Kay?
+      invalid: Thats like... a invalid usahname or passwerd, kay?
+      locked: Ur account is locked :(
+      not_found_in_database: sry, this is like... a wrong email or passwerd... sry bout tht... :\
+      timeout: Ur time on d* has like... ended. plz sign in again to continue n stuff.
+      unauthenticated: U like... need 2 sign in er sign up b4 continuin..
+      unconfirmed: U have 2 confirm ur account b4 continuin...
+      invalid_token: sry, like, invalid authenty tokennn </3
     mailer:
       confirmation_instructions:
-        confirm: "Confirm mah account!!"
-        subject: "Stuff liek, tellin u how 2 confirm ur account n stuff..."
-        you_can_confirm: "U can confirm ur account through teh link below:"
-      hello: "Ohai %{username}!!"
-      inviter:
-        accept_at: "so like, @ %{url} u can accept it through the link below. Kay? <3"
-        has_invited_you: "%{name}"
-        have_invited_you: "so like, %{names} have invited u to join diaspora*!!! :DDD"
-      password_change:
-        subject: "Secret password changed! Open sesame! [;"
+        subject: Stuff liek, tellin u how 2 confirm ur account n stuff...
+        you_can_confirm: 'U can confirm ur account through teh link below:'
+        confirm: Confirm mah account!!
       reset_password_instructions:
-        change: "Change mah passwerd"
-        ignore: "So like, if u didnt want this email, plz just like, ignore it. Kthx!!!<33"
-        someone_requested: "Some1 like, wanted a link 2 change ur passwerd. if it like, was u, u can like, do this through the link below. Kay?(:"
-        subject: "Reset passwerd info"
-        wont_change: "Ur passwerd like, wont change until u click the link abov n like, make a new 1."
+        subject: Reset passwerd info
+        someone_requested: 'Some1 like, wanted a link 2 change ur passwerd. if it like, was u, u can like, do this through the link below. Kay?(:'
+        change: Change mah passwerd
+        wont_change: Ur passwerd like, wont change until u click the link abov n like, make a new 1.
+        ignore: So like, if u didnt want this email, plz just like, ignore it. Kthx!!!<33
       unlock_instructions:
-        account_locked: "So liek, ur account has liek, been locked cuz u liek... tried loggin in 2 many times n it didnt work... sry bout tht :\\"
-        click_to_unlock: "Click teh link below 2 unlock ur account, kay?:"
-        subject: "Unlock ur stuff info"
-        unlock: "Unlock mah account!!!"
-      welcome: "OHAI! %{username}!"
+        subject: Unlock ur stuff info
+        account_locked: So liek, ur account has liek, been locked cuz u liek... tried loggin in 2 many times n it didnt work... sry bout tht :\
+        click_to_unlock: 'Click teh link below 2 unlock ur account, kay?:'
+        unlock: Unlock mah account!!!
+      password_change:
+        subject: Secret password changed! Open sesame! [;
+      welcome: OHAI! %{username}!
+      hello: Ohai %{username}!!
+      inviter:
+        has_invited_you: "%{name}"
+        have_invited_you: so like, %{names} have invited u to join diaspora*!!! :DDD
+        accept_at: so like, @ %{url} u can accept it through the link below. Kay? <3
     passwords:
+      send_instructions: U will like, receive an email wit some txt on how 2 liek... reset ur passwerd in a few min, kay? So just chillax till then, kay? Kay. <3
+      updated: 'Ur passwerd was liek... changed!! U r nao liek.. signed in.((:'
       edit:
-        change_password: "Change mah passwerddd"
-        confirm_password: "Cunfirm passwerd"
-        new_password: "New passwerddd"
+        change_password: Change mah passwerddd
+        new_password: New passwerddd
+        confirm_password: Cunfirm passwerd
       new:
-        email: "Email addy"
-        forgot_password: "Oh noes!? did u like, forget ur passwerd? D:"
-        reset_password: "Reset passwerd"
-        send_password_instructions: "Send meh stuff on how 2 reset mah passwerd plz! Kthxbye <3"
-      send_instructions: "U will like, receive an email wit some txt on how 2 liek... reset ur passwerd in a few min, kay? So just chillax till then, kay? Kay. <3"
-      updated: "Ur passwerd was liek... changed!! U r nao liek.. signed in.((:"
+        forgot_password: 'Oh noes!? did u like, forget ur passwerd? D:'
+        reset_password: Reset passwerd
+        email: Email addy
+        send_password_instructions: Send meh stuff on how 2 reset mah passwerd plz! Kthxbye <3
     registrations:
-      destroyed: "Byez! Ur account was trashed. hope we c u again! peace out, cub scout! <33"
-      signed_up: "U have signed up n its all good bro. so like, if enabled, a thingy was sent 2 ur email, kay?"
-      updated: "Ur account was liek, updated!!! YAY! <33333"
+      destroyed: Byez! Ur account was trashed. hope we c u again! peace out, cub scout! <33
+      signed_up: U have signed up n its all good bro. so like, if enabled, a thingy was sent 2 ur email, kay?
+      updated: Ur account was liek, updated!!! YAY! <33333
     sessions:
-      already_signed_out: "Logged out!! Kbai!!! ;*"
+      signed_in: Checked in successfully!!! OMG YAY! KITTIES! <3
+      signed_out: Bounced successfully! Byez! <3 :*
+      already_signed_out: Logged out!! Kbai!!! ;*
       new:
-        login: "Check in!!"
-        modern_browsers: "only supports like... browsers that arent like... junk n weird. sry bout that :\\"
-        password: "Passwerd"
-        remember_me: "Remembah me bro!"
-        sign_in: "Check innnn <3"
-        username: "Usahname"
-      signed_in: "Checked in successfully!!! OMG YAY! KITTIES! <3"
-      signed_out: "Bounced successfully! Byez! <3 :*"
+        login: Check in!!
+        username: Usahname
+        password: Passwerd
+        sign_in: Check innnn <3
+        remember_me: Remembah me bro!
+        modern_browsers: only supports like... browsers that arent like... junk n weird. sry bout that :\
+    unlocks:
+      send_instructions: U will liek, get an email tellin u how to unlock ur phone.. erm.. i mean account in a few min, kay?
+      unlocked: Ur account was liek, unlocked!!! U r nao signed in!!! YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYYY!!!
+      new:
+        resend_unlock: Resend the unlock stuff...
+    invitations:
+      send_instructions: Ur liek, invite was sent n ffuts...
+      invitation_token_invalid: sry bout this but, that invite token is liek, not valid... sry :\ u mad bro?
+      updated: Ur passwerd was like, set!!! U r nao signed in!!! OMFGBBQ YAAAAAYYYY! :DDDD
     shared:
       links:
-        forgot_your_password: "forgot ur passwerd?"
-        receive_confirmation: "didnt get the stuff to confirm ur stuff?"
-        receive_unlock: "didnt get the stuff to unlock ur stuff?"
-        sign_in: "sign innn"
-        sign_up: "sign upppp"
-        sign_up_closed: "sry butt, open signups r closed right nao. sry bout that :\\"
-    unlocks:
-      new:
-        resend_unlock: "Resend the unlock stuff..."
-      send_instructions: "U will liek, get an email tellin u how to unlock ur phone.. erm.. i mean account in a few min, kay?"
-      unlocked: "Ur account was liek, unlocked!!! U r nao signed in!!! YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYYY!!!"
+        sign_in: sign innn
+        sign_up: sign upppp
+        sign_up_closed: sry butt, open signups r closed right nao. sry bout that :\
+        forgot_your_password: forgot ur passwerd?
+        receive_confirmation: didnt get the stuff to confirm ur stuff?
+        receive_unlock: didnt get the stuff to unlock ur stuff?
   errors:
     messages:
-      already_confirmed: "was like... already confirmed n stuff"
-      not_found: "couldnt find it :\\"
-      not_locked: "was like.. not locked.."
+      already_confirmed: was like... already confirmed n stuff
+      not_found: couldnt find it :\
+      not_locked: was like.. not locked..

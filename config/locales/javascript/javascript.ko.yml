@@ -6,135 +6,135 @@
 
 ko:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "컨택 추가"
-      all_aspects: "모든 에스팩"
-      error: "<%= name %>님과 공유를 시작할 수 없습니다. 혹시 무시하고 있습니까?"
-      error_remove: "애스펙에서 <%= name %>님을 지울 수 없습니다 :("
-      select_aspects: "에스팩 선택"
-      started_sharing_with: "<%= name %>님과 공유를 시작합니다!"
-      stopped_sharing_with: "<%= name %>님과의 공유를 멈췄습니다."
-      toggle:
-        few: "애스펙 <%= count %>개"
-        many: "애스펙 <%= count %>개"
-        one: "애스펙 하나"
-        other: "애스펙 <%= count %>개"
-        two: "애스펙 <%= count %>개"
-        zero: "애스펙 고르기"
-    aspect_navigation:
-      add_an_aspect: "+ 애스펙 추가"
-      deselect_all: "선택 해제"
-      no_aspects: "에스팩이 선택되지 않았음"
-      select_all: "모두 선택"
+    timeago:
+      prefixAgo: ''
+      suffixAgo: 전
+      suffixFromNow: ''
+      prefixFromNow: 지금부터
+      seconds: 방금
+      minute: 몇 분
+      minutes:
+        other: "%d분"
+      hour: 약 한 시간
+      hours:
+        other: 약 %d시간
+      day: 하루
+      days:
+        other: "%d일"
+      month: 약 한 달
+      months:
+        other: "%d개월"
+      year: 한 해
+      years:
+        other: "%d년"
+    confirm_dialog: 확실합니까?
+    delete: 지우기
+    ignore: 무시하기
+    ignore_user: 이 사용자를 무시할까요?
     comma: ","
-    comments:
-      hide: "댓글 숨기기"
-      show: "모든 댓글 보기"
-    confirm_dialog: "확실합니까?"
-    delete: "지우기"
-    edit: "고치기"
-    failed_to_post_message: "메시지 게시를 실패하였습니다!"
-    getting_started:
-      alright_ill_wait: "기다릴게요."
-      hey: "<%= name %>님 안녕하세요?"
-      no_tags: "태그를 팔로우하지 않았습니다. 그래도 계속하시겠습니까?"
-      preparing_your_stream: "개인 스트림을 준비하고있습니다···"
-    header:
-      admin: "관리"
-      close: "닫기"
-      contacts: "컨택"
-      conversations: "대화"
-      help: "도움말"
-      home: "처음"
-      log_out: "로그아웃"
-      mark_all_as_read: "읽음으로 표시"
-      notifications: "알림"
-      profile: "프로필"
-      recent_notifications: "최근 알림"
-      search: "검색"
-      settings: "설정"
-      view_all: "모두 보기"
-    ignore: "무시하기"
-    ignore_user: "이 사용자를 무시할까요?"
-    my_activity: "내 활동"
-    my_aspects: "내 애스펙"
-    my_stream: "스트림"
-    people:
-      not_found: "아무도 찾을 수 없습니다···"
-    photo_uploader:
-      completed: "<%= file %> 파일 완료"
-      empty: "{file} 파일은 비어있습니다. 다른 파일을 골라주세요."
-      invalid_ext: "{file} 파일의 확장자가 유효하지 않습니다. {extensions} 확장자만 사용할 수 있습니다."
-      looking_good: "와! 멋져요!"
-      size_error: "{file}파일이 너무 큽니다. 최대크기는 {sizeLimit} 입니다."
-    poll:
-      close_result: "결과 숨기기"
-      result: "결과"
+    edit: 고치기
+    my_activity: 내 활동
+    my_stream: 스트림
+    my_aspects: 내 애스펙
     publisher:
-      add_option: "선택 사항 추가"
       near_from: "<%= location %> 근처"
-      question: "질문"
+      add_option: 선택 사항 추가
+      question: 질문
+    aspect_dropdown:
+      add_to_aspect: 컨택 추가
+      select_aspects: 에스팩 선택
+      all_aspects: 모든 에스팩
+      stopped_sharing_with: "<%= name %>님과의 공유를 멈췄습니다."
+      started_sharing_with: "<%= name %>님과 공유를 시작합니다!"
+      error: "<%= name %>님과 공유를 시작할 수 없습니다. 혹시 무시하고 있습니까?"
+      error_remove: 애스펙에서 <%= name %>님을 지울 수 없습니다 :(
+      toggle:
+        zero: 애스펙 고르기
+        one: 애스펙 하나
+        two: 애스펙 <%= count %>개
+        few: 애스펙 <%= count %>개
+        many: 애스펙 <%= count %>개
+        other: 애스펙 <%= count %>개
+    show_more: 더 보기
+    failed_to_post_message: 메시지 게시를 실패하였습니다!
+    comments:
+      show: 모든 댓글 보기
+      hide: 댓글 숨기기
     reshares:
+      successful: 해당 게시물이 성공적으로 재공유되었습니다!
       post: "<%= name %>님의 게시물을 재공유할까요?"
-      successful: "해당 게시물이 성공적으로 재공유되었습니다!"
-    show_more: "더 보기"
+    aspect_navigation:
+      select_all: 모두 선택
+      deselect_all: 선택 해제
+      no_aspects: 에스팩이 선택되지 않았음
+      add_an_aspect: "+ 애스펙 추가"
+    getting_started:
+      hey: "<%= name %>님 안녕하세요?"
+      no_tags: 태그를 팔로우하지 않았습니다. 그래도 계속하시겠습니까?
+      alright_ill_wait: 기다릴게요.
+      preparing_your_stream: 개인 스트림을 준비하고있습니다···
+    photo_uploader:
+      looking_good: 와! 멋져요!
+      completed: "<%= file %> 파일 완료"
+      invalid_ext: "{file} 파일의 확장자가 유효하지 않습니다. {extensions} 확장자만 사용할 수 있습니다."
+      size_error: "{file}파일이 너무 큽니다. 최대크기는 {sizeLimit} 입니다."
+      empty: "{file} 파일은 비어있습니다. 다른 파일을 골라주세요."
+    tags:
+      wasnt_that_interesting: '알겠습니다. #<%= tagName %> 태그는 흥미롭지 않았군요?'
+    people:
+      not_found: 아무도 찾을 수 없습니다···
     stream:
-      comment: "댓글"
-      follow: "팔로우"
-      followed_tag:
-        add_a_tag: "태그 추가"
-        follow: "팔로우"
-        title: "#팔로우한 태그"
-      hide: "숨기기"
+      hide: 숨기기
+      public: 공개
+      limited: 제한됨
+      like: 좋아요
+      unlike: 좋아요 취소
+      reshare: 재공유
+      comment: 댓글
+      original_post_deleted: 작성자가 원본을 지웠습니다.
+      show_nsfw_post: 게시물 보기
+      show_nsfw_posts: 모두 보기
       hide_nsfw_posts: "#유해매체 숨기기"
-      like: "좋아요"
+      follow: 팔로우
+      unfollow: 팔로우 취소
       likes:
+        zero: "<%= count %>명이 좋아합니다"
+        one: 한 명이 좋아합니다
+        two: "<%= count %>명이 좋아합니다"
         few: "<%= count %>명이 좋아합니다"
         many: "<%= count %>명이 좋아합니다"
-        one: "한 명이 좋아합니다"
         other: "<%= count %>명이 좋아합니다"
-        two: "<%= count %>명이 좋아합니다"
-        zero: "<%= count %>명이 좋아합니다"
-      limited: "제한됨"
-      more_comments:
-        other: "댓글 <%= count %>개 더 보기"
-        zero: "댓글 <%= count %>개 더 보기"
-      original_post_deleted: "작성자가 원본을 지웠습니다."
-      public: "공개"
-      reshare: "재공유"
       reshares:
-        other: "재공유 <%= count %>번"
-        zero: "재공유 <%= count %>번"
-      show_nsfw_post: "게시물 보기"
-      show_nsfw_posts: "모두 보기"
+        zero: 재공유 <%= count %>번
+        other: 재공유 <%= count %>번
+      more_comments:
+        zero: 댓글 <%= count %>개 더 보기
+        other: 댓글 <%= count %>개 더 보기
+      followed_tag:
+        title: "#팔로우한 태그"
+        add_a_tag: 태그 추가
+        follow: 팔로우
       tags:
         follow: "#<%= tag %> 태그 팔로우하기"
         following: "#<%= tag %> 태그 팔로우중"
         stop_following: "#<%= tag %> 태그 팔로우 멈추기"
-      unfollow: "팔로우 취소"
-      unlike: "좋아요 취소"
-    tags:
-      wasnt_that_interesting: "알겠습니다. #<%= tagName %> 태그는 흥미롭지 않았군요?"
-    timeago:
-      day: "하루"
-      days:
-        other: "%d일"
-      hour: "약 한 시간"
-      hours:
-        other: "약 %d시간"
-      minute: "몇 분"
-      minutes:
-        other: "%d분"
-      month: "약 한 달"
-      months:
-        other: "%d개월"
-      prefixAgo: ""
-      prefixFromNow: "지금부터"
-      seconds: "방금"
-      suffixAgo: "전"
-      suffixFromNow: ""
-      year: "한 해"
-      years:
-        other: "%d년"
+    header:
+      home: 처음
+      profile: 프로필
+      contacts: 컨택
+      settings: 설정
+      help: 도움말
+      admin: 관리
+      log_out: 로그아웃
+      notifications: 알림
+      conversations: 대화
+      search: 검색
+      recent_notifications: 최근 알림
+      mark_all_as_read: 읽음으로 표시
+      view_all: 모두 보기
+      close: 닫기
     viewer:
-      reshared: "재공유"
+      reshared: 재공유
+    poll:
+      result: 결과
+      close_result: 결과 숨기기

@@ -1,20 +1,23 @@
 # frozen_string_literal: true
 
 describe PersonPresenter do
-  let(:profile_user) { FactoryGirl.create(:user_with_aspect) }
+  let(:profile_user) {
+    FactoryBot.create(:user_with_aspect,
+                      profile: FactoryBot.create(:profile_with_image_url))
+  }
   let(:person) { profile_user.person }
 
   let(:mutual_contact) {
-    FactoryGirl.create(:contact, user: current_user, person: person, sharing: true, receiving: true)
+    FactoryBot.create(:contact, user: current_user, person: person, sharing: true, receiving: true)
   }
   let(:receiving_contact) {
-    FactoryGirl.create(:contact, user: current_user, person: person, sharing: false, receiving: true)
+    FactoryBot.create(:contact, user: current_user, person: person, sharing: false, receiving: true)
   }
   let(:sharing_contact) {
-    FactoryGirl.create(:contact, user: current_user, person: person, sharing: true, receiving: false)
+    FactoryBot.create(:contact, user: current_user, person: person, sharing: true, receiving: false)
   }
   let(:non_contact) {
-    FactoryGirl.create(:contact, user: current_user, person: person, sharing: false, receiving: false)
+    FactoryBot.create(:contact, user: current_user, person: person, sharing: false, receiving: false)
   }
 
   describe "#as_json" do
@@ -25,18 +28,18 @@ describe PersonPresenter do
 
       it "returns the user's additional profile if the user has set additional profile public" do
         person.profile.public_details = true
-        expect(PersonPresenter.new(person, nil).as_json[:profile]).to include(*%i(location bio gender birthday))
+        expect(PersonPresenter.new(person, nil).as_json[:profile]).to include(:location, :bio, :gender, :birthday)
       end
 
       it "doesn't return user's additional profile if the user hasn't set additional profile public" do
         person.profile.public_details = false
-        expect(PersonPresenter.new(person, nil).as_json[:profile]).not_to include(*%i(location bio gender birthday))
+        expect(PersonPresenter.new(person, nil).as_json[:profile]).not_to include(:location, :bio, :gender, :birthday)
       end
     end
 
     context "with a current_user" do
-      let(:current_user) { FactoryGirl.create(:user) }
-      let(:presenter){ PersonPresenter.new(person, current_user) }
+      let(:current_user) { FactoryBot.create(:user) }
+      let(:presenter) { PersonPresenter.new(person, current_user) }
       # here private information == addtional user profile, because additional profile by default is private
 
       it "doesn't share private information when the users aren't connected" do
@@ -87,7 +90,7 @@ describe PersonPresenter do
   end
 
   describe "#full_hash" do
-    let(:current_user) { FactoryGirl.create(:user) }
+    let(:current_user) { FactoryBot.create(:user) }
 
     before do
       @p = PersonPresenter.new(person, current_user)
@@ -130,7 +133,7 @@ describe PersonPresenter do
   end
 
   describe "#hovercard" do
-    let(:current_user) { FactoryGirl.create(:user) }
+    let(:current_user) { FactoryBot.create(:user) }
     let(:presenter) { PersonPresenter.new(person, current_user) }
 
     it "contains data required for hovercard" do
@@ -141,5 +144,85 @@ describe PersonPresenter do
       expect(presenter.hovercard).to have_key(:contact)
       expect(presenter.hovercard[:contact]).to have_key(:aspect_memberships)
     end
+  end
+
+  describe "#profile_hash_as_api_json" do
+    let(:current_user) {
+      FactoryBot.create(:user,
+                        profile: FactoryBot.create(:profile_with_image_url))
+    }
+
+    before do
+      alice.person.profile = FactoryBot.create(:profile_with_image_url)
+    end
+
+    it "contains internal profile if self" do
+      profile_hash = PersonPresenter.new(current_user.person, current_user).profile_hash_as_api_json
+      expect(profile_hash[:diaspora_id]).to eq(current_user.profile.diaspora_handle)
+      confirm_self_data_format(profile_hash)
+    end
+
+    it "contains full data only if private profile is Sharing to me" do
+      alice.profile[:public_details] = false
+      profile_hash = PersonPresenter.new(alice.person, current_user).profile_hash_as_api_json
+      expect(profile_hash[:diaspora_id]).to eq(alice.profile.diaspora_handle)
+      confirm_private_profile_hash(profile_hash)
+
+      alice.share_with(current_user.person, alice.aspects.first)
+      profile_hash = PersonPresenter.new(alice.person, current_user).profile_hash_as_api_json
+      expect(profile_hash[:diaspora_id]).to eq(alice.profile.diaspora_handle)
+      confirm_public_profile_hash(profile_hash)
+    end
+
+    it "contains full profile data for public profile" do
+      alice.profile[:public_details] = true
+      profile_hash = PersonPresenter.new(alice.person, current_user).profile_hash_as_api_json
+      expect(profile_hash[:diaspora_id]).to eq(alice.profile.diaspora_handle)
+      confirm_public_profile_hash(profile_hash)
+    end
+  end
+
+  def confirm_self_data_format(profile_hash)
+    confirm_common_profile_elements(profile_hash)
+    confirm_profile_details(profile_hash)
+    expect(profile_hash).to have_key(:searchable)
+    expect(profile_hash).to have_key(:show_profile_info)
+    expect(profile_hash).to have_key(:nsfw)
+  end
+
+  def confirm_public_profile_hash(profile_hash)
+    confirm_common_profile_elements(profile_hash)
+    confirm_profile_details(profile_hash)
+    expect(profile_hash).to have_key(:blocked)
+    expect(profile_hash).to have_key(:relationship)
+    expect(profile_hash).to have_key(:aspects)
+  end
+
+  # rubocop:disable Metrics/AbcSize
+  def confirm_private_profile_hash(profile_hash)
+    confirm_common_profile_elements(profile_hash)
+    expect(profile_hash).to have_key(:blocked)
+    expect(profile_hash).to have_key(:relationship)
+    expect(profile_hash).to have_key(:aspects)
+    expect(profile_hash).not_to have_key(:birthday)
+    expect(profile_hash).not_to have_key(:gender)
+    expect(profile_hash).not_to have_key(:location)
+    expect(profile_hash).not_to have_key(:bio)
+  end
+  # rubocop:enable Metrics/AbcSize
+
+  def confirm_common_profile_elements(profile_hash)
+    expect(profile_hash).to have_key(:guid)
+    expect(profile_hash).to have_key(:diaspora_id)
+    expect(profile_hash).to have_key(:name)
+    expect(profile_hash).to have_key(:avatar)
+    expect(profile_hash).to have_key(:tags)
+  end
+
+  def confirm_profile_details(profile_hash)
+    expect(profile_hash).to have_key(:birthday)
+    expect(profile_hash).to have_key(:gender)
+    expect(profile_hash).to have_key(:location)
+    expect(profile_hash).to have_key(:bio)
   end
 end

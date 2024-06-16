@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Notifier, type: :mailer do
-  let(:person) { FactoryGirl.create(:person) }
+  let(:person) { FactoryBot.create(:person) }
   let(:pod_name) { AppConfig.settings.pod_name }
 
 
@@ -23,7 +23,7 @@ describe Notifier, type: :mailer do
       before do
         @users = []
         5.times do
-          @users << FactoryGirl.create(:user)
+          @users << FactoryBot.create(:user)
         end
       end
       it "has a body" do
@@ -99,7 +99,7 @@ describe Notifier, type: :mailer do
   describe ".mentioned" do
     before do
       @user = alice
-      @post = FactoryGirl.create(:status_message, public: true)
+      @post = FactoryBot.create(:status_message, public: true)
       @mention = Mention.create(person: @user.person, mentions_container: @post)
 
       @mail = Notifier.send_notification("mentioned", @user.id, @post.author.id, @mention.id)
@@ -125,7 +125,7 @@ describe Notifier, type: :mailer do
 
   describe ".mentioned_in_comment" do
     let(:user) { alice }
-    let(:comment) { FactoryGirl.create(:comment) }
+    let(:comment) { FactoryBot.create(:comment) }
     let(:mention) { Mention.create(person: user.person, mentions_container: comment) }
     let(:mail) { Notifier.send_notification("mentioned_in_comment", user.id, comment.author.id, mention.id) }
 
@@ -159,7 +159,7 @@ describe Notifier, type: :mailer do
   describe ".mentioned limited" do
     before do
       @user = alice
-      @post = FactoryGirl.create(:status_message, public: false)
+      @post = FactoryBot.create(:status_message, public: false)
       @mention = Mention.create(person: @user.person, mentions_container: @post)
 
       @mail = Notifier.send_notification("mentioned", @user.id, @post.author.id, @mention.id)
@@ -180,7 +180,7 @@ describe Notifier, type: :mailer do
 
   describe ".liked" do
     before do
-      @post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      @post = FactoryBot.create(:status_message, author: alice.person, public: true)
       @like = @post.likes.create!(author: bob.person)
       @mail = Notifier.send_notification("liked", alice.id, @like.author.id, @like.id)
     end
@@ -198,24 +198,45 @@ describe Notifier, type: :mailer do
     end
 
     it "can handle a reshare" do
-      reshare = FactoryGirl.create(:reshare)
+      reshare = FactoryBot.create(:reshare)
       like = reshare.likes.create!(author: bob.person)
       Notifier.send_notification("liked", alice.id, like.author.id, like.id)
     end
 
     it "can handle status_messages without text" do
-      photo = FactoryGirl.create(:photo, public: true, author: alice.person)
-      status = FactoryGirl.create(:status_message, author: alice.person, text: nil, photos: [photo], public: true)
+      photo = FactoryBot.create(:photo, public: true, author: alice.person)
+      status = FactoryBot.create(:status_message, author: alice.person, text: nil, photos: [photo], public: true)
       like = status.likes.create!(author: bob.person)
       mail = Notifier.send_notification("liked", alice.id, like.author.id, like.id)
       expect(mail.body.encoded).to include(I18n.t("posts.show.photos_by", count: 1, author: alice.name))
     end
   end
 
+  describe ".liked_comment" do
+    before do
+      @post = FactoryBot.create(:status_message, author: alice.person, public: true)
+      @comment = FactoryBot.create(:comment, author: alice.person, post: @post)
+      @like = @comment.likes.create!(author: bob.person)
+      @mail = Notifier.send_notification("liked_comment", alice.id, @like.author.id, @like.id)
+    end
+
+    it "TO: goes to the right person" do
+      expect(@mail.to).to eq([alice.email])
+    end
+
+    it "BODY: contains the original comment" do
+      expect(@mail.body.encoded).to include(@comment.message.plain_text)
+    end
+
+    it "BODY: contains the name of person liking" do
+      expect(@mail.body.encoded).to include(@like.author.name)
+    end
+  end
+
   describe ".reshared" do
     before do
-      @post = FactoryGirl.create(:status_message, author: alice.person, public: true)
-      @reshare = FactoryGirl.create(:reshare, root: @post, author: bob.person)
+      @post = FactoryBot.create(:status_message, author: alice.person, public: true)
+      @reshare = FactoryBot.create(:reshare, root: @post, author: bob.person)
       @mail = Notifier.send_notification("reshared", alice.id, @reshare.author.id, @reshare.id)
     end
 
@@ -262,6 +283,11 @@ describe Notifier, type: :mailer do
       expect(@mail["From"].to_s).to eq("\"#{pod_name} (#{@cnv.author.name})\" <#{AppConfig.mail.sender_address}>")
     end
 
+    it "FROM: removes emojis from sender's name" do
+      bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+      expect(@mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
+    end
+
     it "should use a generic subject" do
       expect(@mail.subject).to eq(I18n.translate("notifier.private_message.subject"))
     end
@@ -302,6 +328,12 @@ describe Notifier, type: :mailer do
         expect(comment_mail["From"].to_s).to eq("\"#{pod_name} (#{eve.name})\" <#{AppConfig.mail.sender_address}>")
       end
 
+      it "FROM: removes emojis from sender's name" do
+        eve.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+        expect(comment_mail["From"].to_s)
+          .to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
+      end
+
       it "SUBJECT: has a snippet of the post contents, without markdown and without newlines" do
         expect(comment_mail.subject).to eq("Re: Headline")
       end
@@ -318,7 +350,7 @@ describe Notifier, type: :mailer do
 
       [:reshare].each do |post_type|
         context post_type.to_s do
-          let(:commented_post) { FactoryGirl.create(post_type, author: bob.person) }
+          let(:commented_post) { FactoryBot.create(post_type, author: bob.person) }
           it "succeeds" do
             expect {
               comment_mail
@@ -359,7 +391,7 @@ describe Notifier, type: :mailer do
       end
       [:reshare].each do |post_type|
         context post_type.to_s do
-          let(:commented_post) { FactoryGirl.create(post_type, author: bob.person) }
+          let(:commented_post) { FactoryBot.create(post_type, author: bob.person) }
           it "succeeds" do
             expect {
               comment_mail
@@ -390,6 +422,11 @@ describe Notifier, type: :mailer do
           expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
         end
 
+        it "FROM: removes emojis from sender's name" do
+          bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+          expect(mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
+        end
+
         it "SUBJECT: does not show the limited post" do
           expect(mail.subject).not_to include("Limited headline")
         end
@@ -413,6 +450,11 @@ describe Notifier, type: :mailer do
 
         it "FROM: contains the sender's name" do
           expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
+        end
+
+        it "FROM: removes emojis from sender's name" do
+          bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+          expect(mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
         end
 
         it "SUBJECT: does not show the limited post" do
@@ -446,6 +488,11 @@ describe Notifier, type: :mailer do
         expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
       end
 
+      it "FROM: removes emojis from sender's name" do
+        bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+        expect(mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
+      end
+
       it "SUBJECT: does not show the limited post" do
         expect(mail.subject).not_to include("Limited headline")
       end
@@ -457,6 +504,42 @@ describe Notifier, type: :mailer do
 
       it "BODY: does not show the limited post" do
         expect(mail.body.encoded).not_to include("Limited headline")
+      end
+
+      it "BODY: contains the name of person liking" do
+        expect(mail.body.encoded).to include(bob.name)
+      end
+    end
+
+    describe ".liked_comment" do
+      let(:comment) { alice.comment!(limited_post, "Totally is") }
+      let(:like) { bob.like_comment!(comment) }
+      let(:mail) { Notifier.send_notification("liked_comment", alice.id, bob.person.id, like.id) }
+
+      it "TO: goes to the right person" do
+        expect(mail.to).to eq([alice.email])
+      end
+
+      it "FROM: contains the sender's name" do
+        expect(mail["From"].to_s).to eq("\"#{pod_name} (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
+      end
+
+      it "FROM: removes emojis from sender's name" do
+        bob.person.profile.update!(first_name: "1️⃣2️3️⃣ Numbers 123", last_name: "👍✅👍🏻Emojis😀😇❄️")
+        expect(mail["From"].to_s).to eq("\"#{pod_name} (Numbers 123 Emojis)\" <#{AppConfig.mail.sender_address}>")
+      end
+
+      it "SUBJECT: does not show the limited comment" do
+        expect(mail.subject).not_to include("Totally is")
+      end
+
+      it "IN-REPLY-TO and REFERENCES: references the liked post" do
+        expect(mail.in_reply_to).to eq("#{limited_post.guid}@#{AppConfig.pod_uri.host}")
+        expect(mail.references).to eq("#{limited_post.guid}@#{AppConfig.pod_uri.host}")
+      end
+
+      it "BODY: does not show the limited post" do
+        expect(mail.body.encoded).not_to include("Totally is")
       end
 
       it "BODY: contains the name of person liking" do
@@ -555,7 +638,7 @@ describe Notifier, type: :mailer do
 
   describe "hashtags" do
     it "escapes hashtags" do
-      status = FactoryGirl.create(:status_message, author: alice.person, text: "#Welcome to bureaucracy!", public: true)
+      status = FactoryBot.create(:status_message, author: alice.person, text: "#Welcome to bureaucracy!", public: true)
       like = status.likes.create!(author: bob.person)
       mail = Notifier.send_notification("liked", alice.id, like.author.id, like.id)
       expect(mail.body.encoded).to match(

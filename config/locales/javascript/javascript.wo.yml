@@ -6,47 +6,47 @@
 
 wo:
   javascripts:
-    and: "ak"
-    comma: ","
-    edit: "Soppil"
-    getting_started:
-      alright_ill_wait: "Baax na, damay xaar."
-    header:
-      home: "Kër gi"
-      log_out: "Génnu"
-      profile: "Xibaar yu la Ñeel"
-      settings: "Tànneef"
-      view_all: "Xoolal yëpp"
-    my_stream: "Seyaan"
-    stream:
-      follow: "Toppal"
-      followed_tag:
-        follow: "Toppal"
-      hide: "Nëbbal"
-      like: "Bëgg"
-      likes:
-        other: "<%= count %>i Bëgg"
-        zero: "<%= count %>i Bëgg"
-      reshare: "Bokkaat"
-      reshares:
-        other: "<%= count %>i Bokkaat"
-        zero: "<%= count %>i Bokkaat"
-      show_nsfw_posts: "Wonel yëpp"
-      tags:
-        follow: "Toppal #<%= tag %>"
-        following: "Dangay topp #<%= tag %>"
-        stop_following: "Bul topp #<%= tag %>"
-      unfollow: "Du topp"
-      unlike: "Du bëgg"
     timeago:
-      day: "bés"
+      prefixAgo: ''
+      suffixAgo: ''
+      suffixFromNow: ''
+      prefixFromNow: ''
+      day: bés
       days:
         other: "%di bés"
       months:
         other: "%di weer"
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: ""
-      suffixFromNow: ""
       years:
         other: "%di at"
+    and: ak
+    comma: ","
+    edit: Soppil
+    my_stream: Seyaan
+    getting_started:
+      alright_ill_wait: Baax na, damay xaar.
+    stream:
+      hide: Nëbbal
+      like: Bëgg
+      unlike: Du bëgg
+      reshare: Bokkaat
+      show_nsfw_posts: Wonel yëpp
+      follow: Toppal
+      unfollow: Du topp
+      likes:
+        zero: "<%= count %>i Bëgg"
+        other: "<%= count %>i Bëgg"
+      reshares:
+        zero: "<%= count %>i Bokkaat"
+        other: "<%= count %>i Bokkaat"
+      followed_tag:
+        follow: Toppal
+      tags:
+        follow: 'Toppal #<%= tag %>'
+        following: 'Dangay topp #<%= tag %>'
+        stop_following: 'Bul topp #<%= tag %>'
+    header:
+      home: Kër gi
+      profile: Xibaar yu la Ñeel
+      settings: Tànneef
+      log_out: Génnu
+      view_all: Xoolal yëpp

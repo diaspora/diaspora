@@ -8,9 +8,9 @@ describe NotifierHelper, :type => :helper do
   describe "#post_message" do
     before do
       # post for markdown test
-      @markdown_post = FactoryGirl.create(:status_message,
-                                          text:   "[link](https://diasporafoundation.org) **bold text** *other text*",
-                                          public: true)
+      @markdown_post = FactoryBot.create(:status_message,
+                                         text:   "[link](https://diasporafoundation.org) **bold text** *other text*",
+                                         public: true)
       @striped_markdown_post = "link (https://diasporafoundation.org) bold text other text"
     end
 
@@ -23,14 +23,14 @@ describe NotifierHelper, :type => :helper do
     end
 
     it "falls back to the title if the post has no text" do
-      photo = FactoryGirl.build(:photo, public: true)
-      photo_post = FactoryGirl.build(:status_message, author: photo.author, text: "", photos: [photo], public: true)
+      photo = FactoryBot.build(:photo, public: true)
+      photo_post = FactoryBot.build(:status_message, author: photo.author, text: "", photos: [photo], public: true)
       expect(helper.post_message(photo_post))
         .to eq(I18n.t("posts.show.photos_by", count: 1, author: photo_post.author_name))
     end
 
     it "falls back to the title, if the root post was deleted" do
-      reshare = FactoryGirl.create(:reshare)
+      reshare = FactoryBot.create(:reshare)
       reshare.root.destroy
       expect(helper.post_message(Reshare.find(reshare.id)))
         .to eq(I18n.t("posts.show.reshare_by", author: reshare.author_name))
@@ -40,13 +40,13 @@ describe NotifierHelper, :type => :helper do
   describe "#comment_message" do
     before do
       # comment for markdown test
-      @markdown_comment = FactoryGirl.create(:comment)
+      @markdown_comment = FactoryBot.create(:comment)
       @markdown_comment.post.public = true
       @markdown_comment.text = "[link](https://diasporafoundation.org) **bold text** *other text*"
       @striped_markdown_comment = "link (https://diasporafoundation.org) bold text other text"
 
       # comment for limited post
-      @limited_comment = FactoryGirl.create(:comment)
+      @limited_comment = FactoryBot.create(:comment)
       @limited_comment.post.public = false
       @limited_comment.text = "This is top secret comment. Shhhhhhhh!!!"
     end

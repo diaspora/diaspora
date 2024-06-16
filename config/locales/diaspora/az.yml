@@ -5,111 +5,111 @@
 
 
 az:
-  _applications: "Applikasiya"
-  _contacts: ""
-  _services: "Servis"
-  account: "Akkaunt"
+  settings: Set
+  profile: Profil
+  account: Akkaunt
+  privacy: Gaga
+  _services: Servis
+  _applications: Applikasiya
+  ok: OK
+  cancel: Dala
+  delete: Poz
+  username: ''
+  email: ''
+  are_you_sure: ''
+  are_you_sure_delete_account: İstifadəçiliyini bağlamaq isteyində əminsən? bu tamamlanmayıb
+  fill_me_out: ''
+  public: ''
+  limited: ''
+  search: ''
+  nsfw: ''
+  find_people: ''
+  more: ''
+  all_aspects: Bütün tərəflər
+  no_results: Heç bir nəticə tapılmadı
+  _contacts: ''
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            person:
+              invalid: ''
+            username:
+              taken: ''
+              invalid: ''
+            email:
+              taken: ''
         person:
           attributes:
             diaspora_handle:
-              taken: ""
-        user:
-          attributes:
-            email:
-              taken: ""
-            person:
-              invalid: ""
-            username:
-              invalid: ""
-              taken: ""
-  all_aspects: "Bütün tərəflər"
-  are_you_sure: ""
-  are_you_sure_delete_account: "İstifadəçiliyini bağlamaq isteyində əminsən? bu tamamlanmayıb"
-  aspect_memberships:
-    destroy:
-      no_membership: "bu yöndə isare etdiyiniz heç bir şəxs tapılmadı"
-  aspects:
-    add_to_aspect:
-      failure: ""
-      success: ""
-    aspect_listings:
-      add_an_aspect: ""
-    aspect_stream:
-      stay_updated: "Səyfədə qal"
-      stay_updated_explanation: ""
-    destroy:
-      success: ""
-    edit:
-      aspect_list_is_not_visible: ""
-      aspect_list_is_visible: ""
-      confirm_remove_aspect: ""
-      rename: "yenidən adlandırmaq"
-      update: "yeniləmək"
-      updating: "yenilənir"
-    index:
-      donate: ""
-      help:
-        do_you: ""
-        feature_suggestion: ""
-        find_a_bug: ""
-        have_a_question: ""
-        here_to_help: ""
-        need_help: "köməyə ehtiyac var?"
-        tag_bug: ""
-        tag_feature: ""
-        tag_question: ""
-      new_here:
-        follow: ""
-        learn_more: ""
-        title: "Xoş gəlmisiniz,yeni istifadəçilərmiz"
-      services:
-        content: ""
-        heading: "Vericiyə Bağlan"
-      welcome_to_diaspora: ""
-    no_contacts_message:
-      community_spotlight: |-
-          Bank icma xidməti.
-          Bank icmaya xidmət etmir.
-      or_spotlight: ""
-      you_should_add_some_more_contacts: ""
-    seed:
-      acquaintances: ""
-      family: ""
-      friends: ""
-      work: ""
-    update:
-      failure: ""
-      success: ""
-  bookmarklet:
-    explanation: ""
-    heading: "ьфпр"
-    post_something: ""
-  cancel: "Dala"
-  comments:
-    new_comment:
-      comment: ""
-      commenting: ""
-  contacts:
-    index:
-      start_a_conversation: ""
-  delete: "Poz"
-  email: ""
+              taken: ''
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: ""
-  fill_me_out: ""
-  find_people: ""
-  limited: ""
-  more: ""
-  no_results: "Heç bir nəticə tapılmadı"
-  nsfw: ""
-  ok: "OK"
-  privacy: "Gaga"
-  profile: "Profil"
-  public: ""
-  search: ""
-  settings: "Set"
-  username: ""
+      correct_the_following_errors_and_try_again: ''
+  aspects:
+    edit:
+      confirm_remove_aspect: ''
+      rename: yenidən adlandırmaq
+      aspect_list_is_visible: ''
+      aspect_list_is_not_visible: ''
+      update: yeniləmək
+      updating: yenilənir
+    no_contacts_message:
+      you_should_add_some_more_contacts: ''
+      or_spotlight: ''
+      community_spotlight: |-
+        Bank icma xidməti.
+        Bank icmaya xidmət etmir.
+    aspect_listings:
+      add_an_aspect: ''
+    destroy:
+      success: ''
+    update:
+      success: ''
+      failure: ''
+    add_to_aspect:
+      failure: ''
+      success: ''
+    seed:
+      family: ''
+      work: ''
+      acquaintances: ''
+      friends: ''
+    index:
+      donate: ''
+      welcome_to_diaspora: ''
+      new_here:
+        title: Xoş gəlmisiniz,yeni istifadəçilərmiz
+        follow: ''
+        learn_more: ''
+      help:
+        need_help: köməyə ehtiyac var?
+        here_to_help: ''
+        do_you: ''
+        have_a_question: ''
+        tag_question: ''
+        find_a_bug: ''
+        tag_bug: ''
+        feature_suggestion: ''
+        tag_feature: ''
+      services:
+        heading: Vericiyə Bağlan
+        content: ''
+    aspect_stream:
+      stay_updated: Səyfədə qal
+      stay_updated_explanation: ''
+  aspect_memberships:
+    destroy:
+      no_membership: bu yöndə isare etdiyiniz heç bir şəxs tapılmadı
+  bookmarklet:
+    heading: ьфпр
+    post_something: ''
+    explanation: ''
+  comments:
+    new_comment:
+      comment: ''
+      commenting: ''
+  contacts:
+    index:
+      start_a_conversation: ''

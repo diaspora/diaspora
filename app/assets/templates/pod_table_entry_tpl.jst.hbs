@@ -7,7 +7,7 @@
   {{/if}}
   </i>
 </td>
-<td class="pod-title" title="{{host}}">{{host}}</td>
+<td class="pod-title" title="{{host}}">{{host}}{{#if hasPort}}:{{port}}{{/if}}</td>
 <td class="added">
   <small><time datetime="{{created_at}}" title="{{localTime created_at}}"></time></small>
 </td>

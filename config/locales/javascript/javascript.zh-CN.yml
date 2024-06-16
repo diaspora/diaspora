@@ -6,101 +6,101 @@
 
 zh-CN:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "添加到分组"
-      all_aspects: "所有分组"
-      error: "无法与 <%= name %> 共享内容。您是否忽略了他们？"
-      select_aspects: "选择分组"
-      started_sharing_with: "您已开始与 <%= name %> 共享内容。"
-      stopped_sharing_with: "您已停止与 <%= name %> 共享内容。"
-      toggle:
-        other: "在 <%= count %> 个分组中"
-        zero: "添加到分组"
-    aspect_navigation:
-      deselect_all: "清空选择"
-      no_aspects: "尚未选择任何一个分组"
-      select_all: "全选"
-    comments:
-      hide: "隐藏评论"
-      show: "显示所有评论"
-    confirm_dialog: "您确定吗？"
-    delete: "删除"
-    failed_to_post_message: "发布消息失败！"
-    getting_started:
-      alright_ill_wait: "以后再说"
-      hey: "您好，<%= name %>！"
-      no_tags: "嘿，您尚未关注任何标签！要下一步吗？"
-      preparing_your_stream: "正在准备您的个人消息流。"
-    header:
-      admin: "管理"
-      close: "关闭"
-      contacts: "好友"
-      home: "首页"
-      log_out: "退出"
-      mark_all_as_read: "全部标记已读"
-      notifications: "提示"
-      profile: "个人资料"
-      recent_notifications: "新提示"
-      search: "搜索"
-      settings: "设置"
-      view_all: "查看所有"
-    ignore: "忽略"
-    ignore_user: "忽略此用户？"
-    my_activity: "我的活动"
-    my_stream: "动态"
-    people:
-      not_found: "找不到任何人…"
-    photo_uploader:
-      looking_good: "天啊，您太棒了！"
-    reshares:
-      post: "要转发 <%= name %> 的内容吗？"
-      successful: "转发成功"
-    show_more: "查看更多"
-    stream:
-      comment: "评论"
-      follow: "关注"
-      hide: "隐藏"
-      hide_nsfw_posts: "隐藏 #nsfw (工作不宜)的内容"
-      like: "赞"
-      likes:
-        other: "<%= count %> 个赞"
-        zero: "<%= count %> 个赞"
-      limited: "限制"
-      more_comments:
-        other: "显示剩余的 <%= count %> 个评论"
-        zero: "显示剩余的 <%= count %> 个评论"
-      original_post_deleted: "原内容已被作者删除。"
-      public: "公开"
-      reshare: "转发"
-      reshares:
-        other: "<%= count %> 次转发"
-        zero: "<%= count %> 次转发"
-      show_nsfw_post: "显示内容"
-      show_nsfw_posts: "全部显示"
-      unfollow: "取消关注"
-      unlike: "取消赞"
-    tags:
-      wasnt_that_interesting: "我想 #<%= tagName %> 并不全那么有趣。"
     timeago:
-      day: "1 天"
-      days:
-        other: "%d 天"
-      hour: "约 1 小时"
-      hours:
-        other: "约 %d 小时"
-      minute: "约 1 分钟"
+      prefixAgo: 在
+      suffixAgo: 前
+      suffixFromNow: 后
+      prefixFromNow: 距今
+      seconds: 少于 1 分钟
+      minute: 约 1 分钟
       minutes:
         other: "%d 分钟"
-      month: "约 1 个月"
+      hour: 约 1 小时
+      hours:
+        other: 约 %d 小时
+      day: 1 天
+      days:
+        other: "%d 天"
+      month: 约 1 个月
       months:
         other: "%d 个月"
-      prefixAgo: "在"
-      prefixFromNow: "距今"
-      seconds: "少于 1 分钟"
-      suffixAgo: "前"
-      suffixFromNow: "后"
-      year: "约 1 年"
+      year: 约 1 年
       years:
         other: "%d 年"
+    confirm_dialog: 您确定吗？
+    delete: 删除
+    ignore: 忽略
+    ignore_user: 忽略此用户？
+    my_activity: 我的活动
+    my_stream: 动态
+    aspect_dropdown:
+      add_to_aspect: 添加到分组
+      select_aspects: 选择分组
+      all_aspects: 所有分组
+      stopped_sharing_with: 您已停止与 <%= name %> 共享内容。
+      started_sharing_with: 您已开始与 <%= name %> 共享内容。
+      error: 无法与 <%= name %> 共享内容。您是否忽略了他们？
+      toggle:
+        zero: 添加到分组
+        other: 在 <%= count %> 个分组中
+    show_more: 查看更多
+    failed_to_post_message: 发布消息失败！
+    comments:
+      show: 显示所有评论
+      hide: 隐藏评论
+    reshares:
+      successful: 转发成功
+      post: 要转发 <%= name %> 的内容吗？
+    aspect_navigation:
+      select_all: 全选
+      deselect_all: 清空选择
+      no_aspects: 尚未选择任何一个分组
+    getting_started:
+      hey: 您好，<%= name %>！
+      no_tags: 嘿，您尚未关注任何标签！要下一步吗？
+      alright_ill_wait: 以后再说
+      preparing_your_stream: 正在准备您的个人消息流。
+    photo_uploader:
+      looking_good: 天啊，您太棒了！
+    tags:
+      wasnt_that_interesting: '我想 #<%= tagName %> 并不全那么有趣。'
+    people:
+      not_found: 找不到任何人…
+    stream:
+      hide: 隐藏
+      public: 公开
+      limited: 限制
+      like: 赞
+      unlike: 取消赞
+      reshare: 转发
+      comment: 评论
+      original_post_deleted: 原内容已被作者删除。
+      show_nsfw_post: 显示内容
+      show_nsfw_posts: 全部显示
+      hide_nsfw_posts: '隐藏 #nsfw (工作不宜)的内容'
+      follow: 关注
+      unfollow: 取消关注
+      likes:
+        zero: "<%= count %> 个赞"
+        other: "<%= count %> 个赞"
+      reshares:
+        zero: "<%= count %> 次转发"
+        other: "<%= count %> 次转发"
+      more_comments:
+        zero: 显示剩余的 <%= count %> 个评论
+        other: 显示剩余的 <%= count %> 个评论
+    header:
+      home: 首页
+      profile: 个人资料
+      contacts: 好友
+      settings: 设置
+      admin: 管理
+      log_out: 退出
+      notifications: 提示
+      search: 搜索
+      recent_notifications: 新提示
+      mark_all_as_read: 全部标记已读
+      view_all: 查看所有
+      close: 关闭
     viewer:
-      reshared: "转发的"
+      reshared: 转发的

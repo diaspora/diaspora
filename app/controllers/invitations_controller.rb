@@ -30,7 +30,7 @@ class InvitationsController < ApplicationController
     session[:invalid_email_invites] = invalid_emails
 
     unless valid_emails.empty?
-      Workers::Mail::InviteEmail.perform_async(valid_emails.join(","), current_user.id, inviter_params)
+      Workers::Mail::InviteEmail.perform_async(valid_emails.join(","), current_user.id, inviter_params.to_h)
     end
 
     if emails.empty?

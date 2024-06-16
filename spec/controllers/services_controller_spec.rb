@@ -22,7 +22,7 @@ describe ServicesController, :type => :controller do
 
   describe '#index' do
     before do
-      FactoryGirl.create(:service, user: user)
+      FactoryBot.create(:service, user: user)
     end
 
     it "displays user's connected services" do
@@ -118,7 +118,7 @@ describe ServicesController, :type => :controller do
 
   describe '#destroy' do
     before do
-      @service1 = FactoryGirl.create(:service, :user => user)
+      @service1 = FactoryBot.create(:service, user: user)
     end
 
     it 'destroys a service selected by id' do

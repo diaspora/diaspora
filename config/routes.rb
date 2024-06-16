@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get "activity" => "streams#activity", :as => "activity_stream"
   get "stream" => "streams#multi", :as => "stream"
   get "public" => "streams#public", :as => "public_stream"
+  get "local_public" => "streams#local_public", :as => "local_public_stream"
   get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
   get "mentions" => "streams#mentioned", :as => "mentioned_stream"
   get "liked" => "streams#liked", :as => "liked_stream"
@@ -58,7 +59,6 @@ Rails.application.routes.draw do
   get "aspects" => "streams#aspects", :as => "aspects_stream"
 
   resources :aspects, except: %i(index new edit) do
-    put :toggle_chat_privilege
     collection do
       put "order" => :update_order
     end
@@ -106,7 +106,6 @@ Rails.application.routes.draw do
     get :download_profile
     post :export_photos
     get :download_photos
-    post :auth_token
   end
 
   controller :users do
@@ -214,18 +213,61 @@ Rails.application.routes.draw do
   get ".well-known/nodeinfo", to: "node_info#jrd"
   get "nodeinfo/:version",    to: "node_info#document", as: "node_info", constraints: {version: /\d+\.\d+/}
   get "statistics",           to: "node_info#statistics"
+  get ".well-known/host-meta", to: "node_info#host_meta"
 
   # Terms
   if AppConfig.settings.terms.enable? || Rails.env.test?
     get 'terms' => 'terms#index'
   end
 
-  # Relay
-  get ".well-known/x-social-relay" => "social_relay#well_known"
-
   # Startpage
   root :to => 'home#show'
   get "podmin", to: "home#podmin"
+
+  api_version(module: "Api::V1", path: {value: "api/v1"}) do
+    resources :aspects, only: %i[show index create destroy update] do
+      resources :contacts, only: %i[index create destroy]
+    end
+    resources :photos, only: %i[show index create destroy]
+    resources :posts, only: %i[show create destroy] do
+      resources :comments, only: %i[create index destroy] do
+        resource :likes, only: %i[show create destroy]
+        post :report
+      end
+      resource :reshares, only: %i[show create]
+      resource :likes, only: %i[show create destroy]
+      post "subscribe" => "post_interactions#subscribe"
+      post "mute" => "post_interactions#mute"
+      post "hide" => "post_interactions#hide"
+      post "report" => "post_interactions#report"
+      post "vote" => "post_interactions#vote"
+    end
+    resources :conversations do
+      resources :messages, only: %i[index create]
+    end
+    resources :notifications, only: %i[index show update]
+
+    patch "user" => "users#update"
+    get "user" => "users#show"
+    resources :users, only: %i[show] do
+      get :contacts
+      get :photos
+      get :posts
+      post :block
+      delete :block
+    end
+    resources :tag_followings, only: %i[index create destroy]
+    get "search/users" => "search#user_index", :as => "user_index"
+    get "search/posts" => "search#post_index", :as => "post_index"
+    get "search/tags" => "search#tag_index", :as => "tag_index"
+    get "streams/activity" => "streams#activity", :as => "activity_stream"
+    get "streams/main" => "streams#multi", :as => "stream"
+    get "streams/tags" => "streams#followed_tags", :as => "followed_tags_stream"
+    get "streams/mentions" => "streams#mentions", :as => "mentions_stream"
+    get "streams/liked" => "streams#liked", :as => "liked_stream"
+    get "streams/commented" => "streams#commented", :as => "commented_stream"
+    get "streams/aspects" => "streams#aspects", :as => "aspects_stream"
+  end
 
   namespace :api do
     namespace :openid_connect do

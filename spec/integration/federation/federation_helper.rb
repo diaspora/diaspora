@@ -21,13 +21,13 @@ def allow_public_key_fetch(user)
 end
 
 def create_undiscovered_user(pod)
-  FactoryGirl.build(:user).tap do |user|
+  FactoryBot.build(:user).tap do |user|
     allow(user).to receive(:person).and_return(
-      FactoryGirl.build(:person,
-                        profile:               FactoryGirl.build(:profile),
-                        serialized_public_key: user.encryption_key.public_key.export,
-                        pod:                   Pod.find_or_create_by(url: "http://#{pod}"),
-                        diaspora_handle:       "#{user.username}@#{pod}")
+      FactoryBot.build(:person,
+                       profile:               FactoryBot.build(:profile),
+                       serialized_public_key: user.encryption_key.public_key.export,
+                       pod:                   Pod.find_or_create_by(url: "http://#{pod}"),
+                       diaspora_handle:       "#{user.username}@#{pod}")
     )
   end
 end
@@ -55,10 +55,6 @@ def allow_callbacks(callbacks)
 end
 
 def create_relayable_entity(entity_name, parent, diaspora_id)
-  expect(DiasporaFederation.callbacks).to receive(:trigger).with(
-    :fetch_private_key, alice.diaspora_handle
-  ).at_least(1).times.and_return(nil) if parent == local_parent
-
   Fabricate(
     entity_name,
     parent_guid:      parent.guid,

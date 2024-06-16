@@ -5,629 +5,629 @@
 
 
 ko:
-  _applications: "애플리케이션"
-  _contacts: "컨택"
-  _help: "도움말"
-  _services: "서비스"
-  account: "계정"
+  settings: 설정
+  profile: 프로필
+  account: 계정
+  privacy: 개인정보보호
+  _services: 서비스
+  _applications: 애플리케이션
+  _help: 도움말
+  ok: 확인
+  cancel: 취소
+  delete: 지우기
+  username: 사용자 이름
+  email: 이메일
+  are_you_sure: 확실합니까?
+  are_you_sure_delete_account: 계정을 없애려는게 확실합니까? 돌이킬 수 없습니다!
+  fill_me_out: 채워주세요
+  public: 공개
+  limited: 제한됨
+  search: 검색
+  nsfw: 유해매체
+  find_people: '사람이나 #태그 를 찾아보세요'
+  more: 더
+  all_aspects: 모든 애스펙
+  no_results: 결과 없음
+  _contacts: 컨택
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: ": 이 사용자의 컨택 가운데 유일해야 합니다."
+            person:
+              invalid: ": 유효하지 않습니다."
+            username:
+              taken: ": 이미 쓰이고 있습니다."
+              invalid: ": 유효하지 않은 사용자 이름입니다. 로마자, 아라비아 숫자, 밑줄 문자(_)만 쓸 수 있습니다"
+            email:
+              taken: ": 이미 쓰이고 있습니다."
         person:
           attributes:
             diaspora_handle:
               taken: ": 이미 쓰이고 있습니다."
+        contact:
+          attributes:
+            person_id:
+              taken: ": 이 사용자의 컨택 가운데 유일해야 합니다."
         reshare:
           attributes:
             root_guid:
-              taken: "이미 재공유된 게시물입니다!"
-        user:
-          attributes:
-            email:
-              taken: ": 이미 쓰이고 있습니다."
-            person:
-              invalid: ": 유효하지 않습니다."
-            username:
-              invalid: ": 유효하지 않은 사용자 이름입니다. 로마자, 아라비아 숫자, 밑줄 문자(_)만 쓸 수 있습니다"
-              taken: ": 이미 쓰이고 있습니다."
-  admins:
-    admin_bar:
-      pages: "페이지"
-      pod_stats: "팟 통계"
-      report: "보고서"
-      sidekiq_monitor: "사이드킥 모니터"
-      user_search: "사용자 찾기"
-      weekly_user_stats: "주간 사용자 통계"
-    stats:
-      2weeks: "두 주"
-      50_most: "가장 인기있는 태그 50개"
-      comments:
-        other: "댓글 %{count}개"
-        zero: "댓글 %{count}개"
-      current_segment: "<b>%{post_day}</b>, 현재 분기는 사용자당 게시물 <b>%{post_yest}</b>개로 추정하고 있습니다"
-      daily: "매일"
-      display_results: "%{segment} 분기 결과 표시"
-      go: "이동"
-      month: "한 달"
-      posts:
-        other: "게시물 %{count}개"
-        zero: "게시물 %{count}개"
-      shares:
-        other: "재공유 %{count}번"
-        zero: "재공유 %{count}번"
-      tag_name: "태그: <b>%{name_tag}</b> 갯수: <b>%{count_tag}</b>"
-      usage_statistic: "사용 통계"
-      users:
-        other: "사용자 %{count}명"
-        zero: "사용자 %{count}명"
-      week: "한 주"
-    user_search:
-      add_invites: "초대 추가"
-      email_to: "이메일 초대"
-      under_13: "13세 이하 사용자 보이기"
-      users:
-        other: "%{count}명의 사용자를 찾았습니다"
-        zero: "%{count}명의 사용자를 찾았습니다"
-      you_currently:
-        other: "현재 %{user_invitation} 초대가 남았습니다 %{link}"
-    weekly_user_stats:
-      amount_of:
-        other: "이번 주 새 사용자 수: %{count}"
-        zero: "이번 주 새 사용자 수: 없음"
-      current_server: "현재 서버 날짜는 %{date}입니다."
-  all_aspects: "모든 애스펙"
-  are_you_sure: "확실합니까?"
-  are_you_sure_delete_account: "계정을 없애려는게 확실합니까? 돌이킬 수 없습니다!"
-  aspect_memberships:
-    destroy:
-      failure: "애스펙으로부터 사람을 지우는데 실패했습니다"
-      no_membership: "해당 애스펙에서 선택한 사람을 찾을 수 없었습니다"
-      success: "애스펙에서 사람을 성공적으로 지웠습니다"
-  aspects:
-    add_to_aspect:
-      failure: "컨택을 애스펙에 추가하는데 실패했습니다."
-      success: "컨택을 애스펙에 성공적으로 추가했습니다."
-    aspect_listings:
-      add_an_aspect: "+ 애스펙 추가"
-    aspect_stream:
-      make_something: "뭔가 만들어보세요"
-      stay_updated: "최신으로 유지하기"
-      stay_updated_explanation: "내 주 스트림은 내 컨택, 내가 팔로우한 태그, 그리고 디아스포라 커뮤니티의 독창적인 구성원들이 공유한 게시물로 채워집니다."
-    destroy:
-      failure: "%{name} 애스펙이 비어있지 않아 지울 수 없습니다."
-      success: "%{name} 애스펙을 성공적으로 지웠습니다."
-    edit:
-      aspect_list_is_not_visible: "애스펙의 다른 사람들에게 애스펙 목록을 숨깁니다."
-      aspect_list_is_visible: "애스펙의 다른 사람들에게 애스펙 목록을 보입니다."
-      confirm_remove_aspect: "이 애스펙을 지우려는게 확실합니까?"
-      rename: "이름 바꾸기"
-      update: "갱신"
-      updating: "갱신중"
-    index:
-      donate: "기부"
-      help:
-        any_problem: "문제가 있나요?"
-        contact_podmin: "내 팟 관리자에게 문의하기"
-        do_you: "해시태그:"
-        feature_suggestion: "%{link}: 제안해주세요!"
-        find_a_bug: "%{link}: 버그를 보고해주세요!"
-        have_a_question: "%{link}: 물어보세요!"
-        here_to_help: "디아스포라 커뮤니티가 도와드립니다!"
-        mail_podmin: "팟관리자 이메일 주소"
-        need_help: "도움이 필요하세요?"
-        tag_bug: "버그"
-        tag_feature: "기능"
-        tag_question: "질문"
-        tutorial_link_text: "간단 설명서"
-      introduce_yourself: "내 스트림입니다. 자기소개 어때요?"
-      keep_pod_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
-      new_here:
-        follow: "%{link} 태그를 팔로우해서 디아스포라*의 새 사용자를 맞으세요!"
-        learn_more: "자세히"
-        title: "새 사용자를 맞으세요"
-      services:
-        content: "다음의 여러 서비스를 디아스포라에 연결할 수 있습니다:"
-        heading: "서비스를 연결하세요"
-      welcome_to_diaspora: "%{name}님, 디아스포라에 오신걸 환영합니다!"
-    no_contacts_message:
-      community_spotlight: "커뮤니티 스포트라이트"
-      or_spotlight: "%{link}와 공유할 수도 있습니다"
-      try_adding_some_more_contacts: "더 많은 컨택을 찾거나 초대할 수 있습니다."
-      you_should_add_some_more_contacts: "컨택을 좀 더 추가하세요!"
-    seed:
-      acquaintances: "지인"
-      family: "가족"
-      friends: "친구"
-      work: "직장"
-    update:
-      failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
-      success: "%{name} 애스펙을 성공적으로 고쳤습니다."
-  blocks:
-    create:
-      failure: "그 사용자를 무시할 수 없었습니다. #evasion"
-      success: "이제 내 스트림에서 그 사용자를 볼 수 없습니다.  #silencio!"
-    destroy:
-      failure: "해당 사용자를 무시하기를 멈출 수 없었습니다.  #evasion"
-  bookmarklet:
-    explanation: "이 링크를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다 => %{link}."
-    heading: "북마클릿"
-    post_something: "디아스포라에 게시하기"
-  cancel: "취소"
-  comments:
-    new_comment:
-      comment: "댓글 달기"
-      commenting: "댓글 다는 중···"
-  contacts:
-    index:
-      all_contacts: "모든 컨택"
-      community_spotlight: "커뮤니티 스포트라이트"
-      my_contacts: "내 컨택"
-      no_contacts: "컨택을 좀 추가하는게 어때요?"
-      no_contacts_message: "%{community_spotlight}를 확인하세요"
-      only_sharing_with_me: "나와만 공유하고 있는 사람들"
-      start_a_conversation: "대화를 시작하세요"
-      title: "컨택"
-    spotlight:
-      community_spotlight: "커뮤니티 스포트라이트"
-      suggest_member: "회원 제안"
-  conversations:
-    create:
-      fail: "유효하지 않은 쪽지"
-      sent: "쪽지를 보냈습니다"
-    index:
-      conversations_inbox: "대화 - 수신함"
-      inbox: "쪽지함"
-      new_conversation: "새로운 대화"
-      no_messages: "쪽지 없음"
-    new:
-      send: "보내기"
-      sending: "보내는 중···"
-      subject: "제목"
-      to: "받는이"
-    show:
-      delete: "지운 뒤 대화를 차단합니다"
-      reply: "답장"
-      replying: "답장중···"
-  date:
-    formats:
-      birthday: "%B %d일"
-      birthday_with_year: "%Y년 %B %d일"
-      fullmonth_day: "%B %d일"
-  delete: "지우기"
-  email: "이메일"
+              taken: 이미 재공유된 게시물입니다!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "아래의 에러를 정정한 뒤 다시 시도하십시오."
-  fill_me_out: "채워주세요"
-  find_people: "사람이나 #태그 를 찾아보세요"
+      correct_the_following_errors_and_try_again: 아래의 에러를 정정한 뒤 다시 시도하십시오.
+  admins:
+    admin_bar:
+      pages: 페이지
+      user_search: 사용자 찾기
+      weekly_user_stats: 주간 사용자 통계
+      pod_stats: 팟 통계
+      report: 보고서
+      sidekiq_monitor: 사이드킥 모니터
+    user_search:
+      you_currently:
+        other: 현재 %{user_invitation} 초대가 남았습니다 %{link}
+      add_invites: 초대 추가
+      email_to: 이메일 초대
+      under_13: 13세 이하 사용자 보이기
+      users:
+        zero: "%{count}명의 사용자를 찾았습니다"
+        other: "%{count}명의 사용자를 찾았습니다"
+    weekly_user_stats:
+      current_server: 현재 서버 날짜는 %{date}입니다.
+      amount_of:
+        zero: '이번 주 새 사용자 수: 없음'
+        other: '이번 주 새 사용자 수: %{count}'
+    stats:
+      week: 한 주
+      2weeks: 두 주
+      month: 한 달
+      daily: 매일
+      usage_statistic: 사용 통계
+      go: 이동
+      display_results: "%{segment} 분기 결과 표시"
+      posts:
+        zero: 게시물 %{count}개
+        other: 게시물 %{count}개
+      comments:
+        zero: 댓글 %{count}개
+        other: 댓글 %{count}개
+      shares:
+        zero: 재공유 %{count}번
+        other: 재공유 %{count}번
+      users:
+        zero: 사용자 %{count}명
+        other: 사용자 %{count}명
+      current_segment: "<b>%{post_day}</b>, 현재 분기는 사용자당 게시물 <b>%{post_yest}</b>개로 추정하고 있습니다"
+      50_most: 가장 인기있는 태그 50개
+      tag_name: '태그: <b>%{name_tag}</b> 갯수: <b>%{count_tag}</b>'
+  aspects:
+    edit:
+      confirm_remove_aspect: 이 애스펙을 지우려는게 확실합니까?
+      rename: 이름 바꾸기
+      aspect_list_is_visible: 애스펙의 다른 사람들에게 애스펙 목록을 보입니다.
+      aspect_list_is_not_visible: 애스펙의 다른 사람들에게 애스펙 목록을 숨깁니다.
+      update: 갱신
+      updating: 갱신중
+    no_contacts_message:
+      you_should_add_some_more_contacts: 컨택을 좀 더 추가하세요!
+      try_adding_some_more_contacts: 더 많은 컨택을 찾거나 초대할 수 있습니다.
+      or_spotlight: "%{link}와 공유할 수도 있습니다"
+      community_spotlight: 커뮤니티 스포트라이트
+    aspect_listings:
+      add_an_aspect: "+ 애스펙 추가"
+    destroy:
+      success: "%{name} 애스펙을 성공적으로 지웠습니다."
+      failure: "%{name} 애스펙이 비어있지 않아 지울 수 없습니다."
+    update:
+      success: "%{name} 애스펙을 성공적으로 고쳤습니다."
+      failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
+    add_to_aspect:
+      failure: 컨택을 애스펙에 추가하는데 실패했습니다.
+      success: 컨택을 애스펙에 성공적으로 추가했습니다.
+    seed:
+      family: 가족
+      work: 직장
+      acquaintances: 지인
+      friends: 친구
+    index:
+      donate: 기부
+      keep_pod_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
+      welcome_to_diaspora: "%{name}님, 디아스포라에 오신걸 환영합니다!"
+      introduce_yourself: 내 스트림입니다. 자기소개 어때요?
+      new_here:
+        title: 새 사용자를 맞으세요
+        follow: "%{link} 태그를 팔로우해서 디아스포라*의 새 사용자를 맞으세요!"
+        learn_more: 자세히
+      help:
+        need_help: 도움이 필요하세요?
+        here_to_help: 디아스포라 커뮤니티가 도와드립니다!
+        do_you: '해시태그:'
+        have_a_question: "%{link}: 물어보세요!"
+        tag_question: 질문
+        find_a_bug: "%{link}: 버그를 보고해주세요!"
+        tag_bug: 버그
+        feature_suggestion: "%{link}: 제안해주세요!"
+        tag_feature: 기능
+        tutorial_link_text: 간단 설명서
+        any_problem: 문제가 있나요?
+        contact_podmin: 내 팟 관리자에게 문의하기
+        mail_podmin: 팟관리자 이메일 주소
+      services:
+        heading: 서비스를 연결하세요
+        content: '다음의 여러 서비스를 디아스포라에 연결할 수 있습니다:'
+    aspect_stream:
+      stay_updated: 최신으로 유지하기
+      stay_updated_explanation: 내 주 스트림은 내 컨택, 내가 팔로우한 태그, 그리고 디아스포라 커뮤니티의 독창적인 구성원들이 공유한 게시물로 채워집니다.
+      make_something: 뭔가 만들어보세요
+  aspect_memberships:
+    destroy:
+      success: 애스펙에서 사람을 성공적으로 지웠습니다
+      failure: 애스펙으로부터 사람을 지우는데 실패했습니다
+      no_membership: 해당 애스펙에서 선택한 사람을 찾을 수 없었습니다
+  bookmarklet:
+    heading: 북마클릿
+    post_something: 디아스포라에 게시하기
+    explanation: 이 링크를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다 => %{link}.
+  comments:
+    new_comment:
+      comment: 댓글 달기
+      commenting: 댓글 다는 중···
+  contacts:
+    index:
+      start_a_conversation: 대화를 시작하세요
+      title: 컨택
+      no_contacts: 컨택을 좀 추가하는게 어때요?
+      no_contacts_message: "%{community_spotlight}를 확인하세요"
+      community_spotlight: 커뮤니티 스포트라이트
+      my_contacts: 내 컨택
+      all_contacts: 모든 컨택
+      only_sharing_with_me: 나와만 공유하고 있는 사람들
+    spotlight:
+      community_spotlight: 커뮤니티 스포트라이트
+      suggest_member: 회원 제안
+  conversations:
+    index:
+      conversations_inbox: 대화 - 수신함
+      new_conversation: 새로운 대화
+      no_messages: 쪽지 없음
+      inbox: 쪽지함
+    show:
+      reply: 답장
+      replying: 답장중···
+      delete: 지운 뒤 대화를 차단합니다
+    new:
+      to: 받는이
+      subject: 제목
+      send: 보내기
+      sending: 보내는 중···
+    create:
+      sent: 쪽지를 보냈습니다
+      fail: 유효하지 않은 쪽지
+  date:
+    formats:
+      fullmonth_day: "%B %d일"
+      birthday: "%B %d일"
+      birthday_with_year: "%Y년 %B %d일"
   help:
-    account_and_data_management:
-      close_account_a: "설정 페이지의 아래에 가서 계정 지우기 단추를 클릭하세요."
-      close_account_q: "내 시드(계정)을 어떻게 지우나요?"
-      download_data_a: "네. 설정 페이지의 계정 탭 아래에 자료를 다운받는 두 버튼이 있습니다."
-      download_data_q: "내 시드(계정)에 있는 자료를 다운받을 수 있나요?"
-      move_pods_q: "내 시드(계정)를 다른 팟으로 어떻게 옮기나요?"
-      title: "계정 및 자료 관리"
-    aspects:
-      title: "애스펙"
-    foundation_website: "디아스포라 재단 웹사이트"
+    tutorials: 간단 설명서
+    tutorial: 따라하기
+    irc: IRC
+    wiki: 위키
+    markdown: 마크다운
+    foundation_website: 디아스포라 재단 웹사이트
     getting_help:
-      title: "도움말"
-    irc: "IRC"
-    markdown: "마크다운"
-    miscellaneous:
-      title: "기타"
+      title: 도움말
+    account_and_data_management:
+      title: 계정 및 자료 관리
+      move_pods_q: 내 시드(계정)를 다른 팟으로 어떻게 옮기나요?
+      download_data_q: 내 시드(계정)에 있는 자료를 다운받을 수 있나요?
+      download_data_a: 네. 설정 페이지의 계정 탭 아래에 자료를 다운받는 두 버튼이 있습니다.
+      close_account_q: 내 시드(계정)을 어떻게 지우나요?
+      close_account_a: 설정 페이지의 아래에 가서 계정 지우기 단추를 클릭하세요.
+    aspects:
+      title: 애스펙
     private_posts:
-      title: "혼자 보는 글"
+      title: 혼자 보는 글
     public_posts:
-      title: "공개 게시물"
+      title: 공개 게시물
     sharing:
-      title: "공유"
+      title: 공유
     tags:
-      title: "태그"
-    tutorial: "따라하기"
-    tutorials: "간단 설명서"
-    wiki: "위키"
+      title: 태그
+    miscellaneous:
+      title: 기타
   invitations:
     create:
-      empty: "이메일 주소를 한 개 이상 입력해주세요."
-      no_more: "가진 초대장이 없습니다."
-      note_already_sent: "이미 %{emails} 주소로 초대장을 보냈습니다."
-      rejected: "아래의 이메일 주소는 문제가 있습니다: "
-      sent: "초대장을 %{emails} 주소로 보냈습니다."
+      sent: 초대장을 %{emails} 주소로 보냈습니다.
+      rejected: '아래의 이메일 주소는 문제가 있습니다: '
+      no_more: 가진 초대장이 없습니다.
+      empty: 이메일 주소를 한 개 이상 입력해주세요.
+      note_already_sent: 이미 %{emails} 주소로 초대장을 보냈습니다.
     new:
+      language: 언어
+      invite_someone_to_join: 다이스포라에 친구를 초대하세요!
+      comma_separated_plz: 쉼표로 구분하여 여러 이메일 주소를 넣을 수 있습니다.
+      send_an_invitation: 초대장 보내기
+      sending_invitation: 초대장 전송중
+      paste_link: 이 링크를 친구들에게 공유해서 디아스포라*로 초대하거나, 이메일로 직접 보내세요.
       codes_left:
-        other: "이 코드에 초대장 %{count}개 남았습니다"
-        zero: "이 코드에 남은 초대장이 없습니다"
-      comma_separated_plz: "쉼표로 구분하여 여러 이메일 주소를 넣을 수 있습니다."
-      invite_someone_to_join: "다이스포라에 친구를 초대하세요!"
-      language: "언어"
-      paste_link: "이 링크를 친구들에게 공유해서 디아스포라*로 초대하거나, 이메일로 직접 보내세요."
-      send_an_invitation: "초대장 보내기"
-      sending_invitation: "초대장 전송중"
+        zero: 이 코드에 남은 초대장이 없습니다
+        other: 이 코드에 초대장 %{count}개 남았습니다
   layouts:
-    application:
-      back_to_top: "맨 위로 돌아가기"
-      powered_by: "디아스포라* 제공"
-      public_feed: "%{name}님의 공개 디아스포라 피드"
-      source_package: "소스코드 패키지 다운로드"
-      whats_new: "새로운 점"
     header:
-      code: "코드"
-      logout: "로그아웃"
-      profile: "프로필"
-      settings: "설정"
-  limited: "제한됨"
-  more: "더"
-  no_results: "결과 없음"
+      profile: 프로필
+      settings: 설정
+      logout: 로그아웃
+      code: 코드
+    application:
+      powered_by: 디아스포라* 제공
+      whats_new: 새로운 점
+      public_feed: "%{name}님의 공개 디아스포라 피드"
+      back_to_top: 맨 위로 돌아가기
+      source_package: 소스코드 패키지 다운로드
   notifications:
-    also_commented:
-      other: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
-      zero: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
-    also_commented_deleted:
-      other: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
-      zero: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
-    comment_on_post:
-      other: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
-      zero: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
-    index:
-      and: "그리고"
-      and_others:
-        other: "+ %{count}명"
-      mark_all_as_read: "모두 읽음으로 표시"
-      mark_read: "읽음으로 표시"
-      mark_unread: "읽지 않음으로 표시"
-      notifications: "알림"
-      reshared: "재공유"
-      show_all: "모두 보기"
-    liked:
-      few: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
-      many: "%{actors}님이 내 %{post_link}을 좋아합니다."
-      one: "%{actors}님이 내 %{post_link}을 좋아합니다."
-      other: "%{actors}님이 내 %{post_link}을 좋아합니다"
-      two: "%{actors}님이 %{post_link} 게시물을 좋아합니다."
-      zero: "%{actors}님이 내 %{post_link}을 좋아합니다"
-    liked_post_deleted:
-      other: "%{actors}님이 내가 지운 게시물을 좋아합니다."
-      zero: "%{actors}님이 내가 지운 게시물을 좋아합니다."
-    mentioned:
-      few: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
-      many: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
-      one: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
-      other: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
-      two: "%{actors}님이 %{post_link} 게시물에서 나를 멘션했습니다."
-      zero: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
-    mentioned_deleted:
-      few: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
-      many: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
-      one: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
-      other: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
-      two: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
-      zero: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
-    private_message:
-      few: "%{actors}님이 쪽지를 보냈습니다."
-      many: "%{actors}님이 쪽지를 보냈습니다."
-      one: "%{actors}님이 쪽지를 보냈습니다."
-      other: "%{actors}님이 쪽지를 보냈습니다."
-      two: "%{actors}님이 내게 쪽지를 보냈습니다."
-      zero: "%{actors}님이 쪽지를 보냈습니다."
-    reshared:
-      other: "%{actors}님이 내 %{post_link}을 재공유했습니다."
-      zero: "%{actors}님이 내 %{post_link}을 재공유했습니다."
-    reshared_post_deleted:
-      few: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
-      many: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
-      one: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
-      other: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
-      two: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
-      zero: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
     started_sharing:
+      zero: "%{actors}님이 나와 공유를 시작했습니다."
+      one: "%{actors}님이 나와 공유를 시작했습니다."
+      two: "%{actors}님이 나와 공유를 시작했습니다."
       few: "%{actors}님이 나와 공유를 시작했습니다."
       many: "%{actors}님이 나와 공유를 시작했습니다."
-      one: "%{actors}님이 나와 공유를 시작했습니다."
       other: "%{actors}님이 나와 공유를 시작했습니다."
-      two: "%{actors}님이 나와 공유를 시작했습니다."
-      zero: "%{actors}님이 나와 공유를 시작했습니다."
+    private_message:
+      zero: "%{actors}님이 쪽지를 보냈습니다."
+      one: "%{actors}님이 쪽지를 보냈습니다."
+      two: "%{actors}님이 내게 쪽지를 보냈습니다."
+      few: "%{actors}님이 쪽지를 보냈습니다."
+      many: "%{actors}님이 쪽지를 보냈습니다."
+      other: "%{actors}님이 쪽지를 보냈습니다."
+    comment_on_post:
+      zero: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
+      other: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
+    also_commented:
+      zero: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      other: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+    mentioned:
+      zero: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
+      one: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
+      two: "%{actors}님이 %{post_link} 게시물에서 나를 멘션했습니다."
+      few: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
+      many: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
+      other: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
+    liked:
+      zero: "%{actors}님이 내 %{post_link}을 좋아합니다"
+      one: "%{actors}님이 내 %{post_link}을 좋아합니다."
+      two: "%{actors}님이 %{post_link} 게시물을 좋아합니다."
+      few: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
+      many: "%{actors}님이 내 %{post_link}을 좋아합니다."
+      other: "%{actors}님이 내 %{post_link}을 좋아합니다"
+    reshared:
+      zero: "%{actors}님이 내 %{post_link}을 재공유했습니다."
+      other: "%{actors}님이 내 %{post_link}을 재공유했습니다."
+    also_commented_deleted:
+      zero: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
+      other: "%{actors}님이 지워진 게시물에 댓글을 달았습니다."
+    liked_post_deleted:
+      zero: "%{actors}님이 내가 지운 게시물을 좋아합니다."
+      other: "%{actors}님이 내가 지운 게시물을 좋아합니다."
+    reshared_post_deleted:
+      zero: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
+      one: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
+      two: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
+      few: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
+      many: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
+      other: "%{actors}님이 내가 지운 게시물을 재공유했습니다."
+    mentioned_deleted:
+      zero: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
+      one: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
+      two: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
+      few: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
+      many: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
+      other: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
+    index:
+      notifications: 알림
+      mark_all_as_read: 모두 읽음으로 표시
+      mark_read: 읽음으로 표시
+      mark_unread: 읽지 않음으로 표시
+      show_all: 모두 보기
+      reshared: 재공유
+      and_others:
+        other: "+ %{count}명"
+      and: 그리고
   notifier:
-    a_post_you_shared: "게시물"
-    click_here: "여기를 클릭"
+    a_post_you_shared: 게시물
+    email_sent_by_diaspora: 이 메일은 %{pod_name}팟에서 보냈습니다. 이런 메일을 받고싶지 않다면
+    click_here: 여기를 클릭
+    hello: "%{name}님!"
+    thanks: 고맙습니다.
+    to_change_your_notification_settings: 하세요
+    single_admin:
+      subject: '내 디아스포라 계정에 대한 메시지:'
+      admin: 디아스포라 관리자
+    started_sharing:
+      subject: "%{name}님이 디아스포라*에서 나와 공유를 시작했습니다."
+      sharing: 님이 나와 공유를 시작했습니다!
+      view_profile: "%{name}님의 프로필 보기"
     comment_on_post:
       reply: "%{name}님의 게시물에 댓글 달기 >"
-    confirm_email:
-      click_link: "새 이메일 주소 %{unconfirmed_email} 를 활성화하려면 이 링크를 따라가시기 바랍니다:"
-      subject: "새 이메일 주소 %{unconfirmed_email} 를 활성화해주세요"
-    email_sent_by_diaspora: "이 메일은 %{pod_name}팟에서 보냈습니다. 이런 메일을 받고싶지 않다면"
-    hello: "%{name}님!"
-    invite:
-      message: |-
-          안녕하세요?
-
-          귀하를 디아스포라*로 초대합니다!
-
-          이 링크를 클릭해서 시작하세요.
-
-          [%{invite_url}][1]
-
-          Love,
-
-          디아스포라* 이메일 로봇 보냄!
-
-          [1]: %{invite_url}
-    invited_you: "%{name}님이 나를 디아스포라*로 초대했습니다."
-    liked:
-      liked: "%{name}님이 내 게시물을 좋아합니다:"
-      view_post: "게시물 보기 >"
     mentioned:
       subject: "%{name}님이 디아스포라*에서 나를 멘션했습니다"
     private_message:
-      reply_to_or_view: "이 쪽지 답장 또는 보기 >"
-    report_email:
-      type:
-        post: "게시물"
+      reply_to_or_view: 이 쪽지 답장 또는 보기 >
+    liked:
+      liked: "%{name}님이 내 게시물을 좋아합니다:"
+      view_post: 게시물 보기 >
     reshared:
       reshared: "%{name}님이 내 게시물을 재공유했습니다"
-      view_post: "게시물 보기 >"
-    single_admin:
-      admin: "디아스포라 관리자"
-      subject: "내 디아스포라 계정에 대한 메시지:"
-    started_sharing:
-      sharing: "님이 나와 공유를 시작했습니다!"
-      subject: "%{name}님이 디아스포라*에서 나와 공유를 시작했습니다."
-      view_profile: "%{name}님의 프로필 보기"
-    thanks: "고맙습니다."
-    to_change_your_notification_settings: "하세요"
-  nsfw: "유해매체"
-  ok: "확인"
+      view_post: 게시물 보기 >
+    confirm_email:
+      subject: 새 이메일 주소 %{unconfirmed_email} 를 활성화해주세요
+      click_link: '새 이메일 주소 %{unconfirmed_email} 를 활성화하려면 이 링크를 따라가시기 바랍니다:'
+    report_email:
+      type:
+        post: 게시물
+    invited_you: "%{name}님이 나를 디아스포라*로 초대했습니다."
+    invite:
+      message: |-
+        안녕하세요?
+
+        귀하를 디아스포라*로 초대합니다!
+
+        이 링크를 클릭해서 시작하세요.
+
+        [%{invite_url}][1]
+
+        Love,
+
+        디아스포라* 이메일 로봇 보냄!
+
+        [1]: %{invite_url}
   people:
-    add_contact:
-      invited_by: "나를 초대한 사람:"
-    index:
-      looking_for: "%{tag_link} 태그가 달린 게시물을 찾고있나요?"
-      no_one_found: "검색 결과가 없습니다"
-      no_results: "검색 결과가 없습니다"
-      results_for: "검색 결과:"
-      searching: "검색중입니다, 잠시만 기다려주십시오···"
     person:
-      thats_you: "바로 나!"
-    profile_sidebar:
-      bio: "자기소개"
-      born: "생년월일"
-      gender: "성별"
-      location: "위치"
+      thats_you: 바로 나!
+    index:
+      results_for: '검색 결과:'
+      no_results: 검색 결과가 없습니다
+      no_one_found: 검색 결과가 없습니다
+      searching: 검색중입니다, 잠시만 기다려주십시오···
+      looking_for: "%{tag_link} 태그가 달린 게시물을 찾고있나요?"
     show:
-      closed_account: "없어진 계정입니다."
-      does_not_exist: "없는 사람입니다!"
       has_not_shared_with_you_yet: "%{name}님은 아직 나와 아무것도 공유하지 않았습니다!"
+      does_not_exist: 없는 사람입니다!
+      closed_account: 없어진 계정입니다.
+    profile_sidebar:
+      bio: 자기소개
+      location: 위치
+      gender: 성별
+      born: 생년월일
+    add_contact:
+      invited_by: '나를 초대한 사람:'
   photos:
     create:
-      integrity_error: "사진 업로드할 수 없습니다. 이미지가 맞습니까?"
-      runtime_error: "사진을 업로드할 수 없습니다. 안전벨트를 확인하셨습니까?"
-      type_error: "사진 업로드 실패. 이미지를 추가하지 않았습니다."
+      runtime_error: 사진을 업로드할 수 없습니다. 안전벨트를 확인하셨습니까?
+      integrity_error: 사진 업로드할 수 없습니다. 이미지가 맞습니까?
+      type_error: 사진 업로드 실패. 이미지를 추가하지 않았습니다.
     destroy:
-      notice: "사진을 지웠습니다."
+      notice: 사진을 지웠습니다.
     new_profile_photo:
-      upload: "새 프로필 사진 업로드하기!"
+      upload: 새 프로필 사진 업로드하기!
   posts:
     presenter:
       title: "%{name}님의 게시물"
     show:
       photos_by:
+        zero: "%{author}님의 사진 없음"
+        one: "%{author}님의 사진 한 장"
+        two: "%{author}님의 사진 두 장"
         few: "%{author}님의 사진 %{count}장"
         many: "%{author}님의 사진 %{count}장"
-        one: "%{author}님의 사진 한 장"
         other: "%{author}님의 사진 %{count}장"
-        two: "%{author}님의 사진 두 장"
-        zero: "%{author}님의 사진 없음"
       reshare_by: "%{author}님이 재공유"
-  privacy: "개인정보보호"
-  profile: "프로필"
+  report:
+    title: 보고서 개요
+    delete_link: 항목 삭제
+    status:
+      failed: 오류가 발생했습니다
   profiles:
     edit:
-      allow_search: "디아스포라에서 사람들이 나를 검색할 수 있도록 허용합니다"
-      first_name: "이름"
-      last_name: "성"
-      update_profile: "프로필 업데이트"
-      your_bio: "자기소개"
-      your_birthday: "생년월일"
-      your_gender: "성별"
-      your_location: "위치"
-      your_name: "이름"
-      your_photo: "내 사진"
-      your_tags: "낱말 5개로 나를 표현하세요"
-      your_tags_placeholder: "예) #movies #kittens #travel #teacher #newyork"
+      your_name: 이름
+      first_name: 이름
+      last_name: 성
+      your_gender: 성별
+      your_birthday: 생년월일
+      your_tags: 낱말 5개로 나를 표현하세요
+      your_tags_placeholder: '예) #movies #kittens #travel #teacher #newyork'
+      your_bio: 자기소개
+      your_location: 위치
+      your_photo: 내 사진
+      update_profile: 프로필 업데이트
+      allow_search: 디아스포라에서 사람들이 나를 검색할 수 있도록 허용합니다
     update:
-      failed: "프로필 업데이트 실패"
-      updated: "프로필을 업데이트했습니다"
-  public: "공개"
+      updated: 프로필을 업데이트했습니다
+      failed: 프로필 업데이트 실패
   registrations:
-    create:
-      success: "디아스포라에 가입되었습니다!"
-    invalid_invite: "내가 제공한 초대 링크가 더 이상 유효하지 않습니다!"
     new:
-      email: "이메일"
-      enter_email: "이메일 주소를 입력하세요"
-      enter_password: "암호를 입력하세요 (최소 여섯 자)"
-      enter_password_again: "암호를 다시 입력하세요"
-      enter_username: "사용자 이름을 고르세요 (로마자, 아라비아 숫자, 밑줄 문자_ 만)"
-      password: "암호"
-      password_confirmation: "암호 확인"
-      sign_up: "가입"
-      username: "사용자 이름"
-  report:
-    delete_link: "항목 삭제"
-    status:
-      failed: "오류가 발생했습니다"
-    title: "보고서 개요"
-  reshares:
-    comment_email_subject: "%{resharer}님이 재공유한 %{author}님의 게시물"
-    reshare:
-      deleted: "원래 게시물이 지워졌습니다."
-      reshare_confirmation: "%{author}님의 %{text} 게시물을 재공유하시겠습니까?"
-      reshared_via: "재공유 via"
-  search: "검색"
-  services:
+      enter_email: 이메일 주소를 입력하세요
+      enter_username: 사용자 이름을 고르세요 (로마자, 아라비아 숫자, 밑줄 문자_ 만)
+      enter_password: 암호를 입력하세요 (최소 여섯 자)
+      enter_password_again: 암호를 다시 입력하세요
+      sign_up: 가입
+      email: 이메일
+      username: 사용자 이름
+      password: 암호
+      password_confirmation: 암호 확인
     create:
-      already_authorized: "디아스포라의 %{diaspora_id} 계정은 이미 %{service_name} 서비스의 계정에 의해 인증되었습니다."
-      failure: "인증을 실패했습니다."
-      success: "성공적으로 인증되었습니다."
-    destroy:
-      success: "인증을 성공적으로 지웠습니다."
-    failure:
-      error: "서비스 연결중 에러가 발생했습니다."
+      success: 디아스포라에 가입되었습니다!
+    invalid_invite: 내가 제공한 초대 링크가 더 이상 유효하지 않습니다!
+  reshares:
+    reshare:
+      reshared_via: 재공유 via
+      reshare_confirmation: "%{author}님의 %{text} 게시물을 재공유하시겠습니까?"
+      deleted: 원래 게시물이 지워졌습니다.
+    comment_email_subject: "%{resharer}님이 재공유한 %{author}님의 게시물"
+  services:
     index:
-      disconnect: "끊기"
-      edit_services: "서비스 설정"
-      logged_in_as: "로그인 중: "
+      disconnect: 끊기
+      logged_in_as: '로그인 중: '
       really_disconnect: "%{service} 서비스를 끊으시겠습니까?"
-      services_explanation: "서비스 연결로 디아스포라에 내 게시물을 남기면서 해당 서비스에도 같이 게시할 수 있습니다."
-  settings: "설정"
+      edit_services: 서비스 설정
+      services_explanation: 서비스 연결로 디아스포라에 내 게시물을 남기면서 해당 서비스에도 같이 게시할 수 있습니다.
+    create:
+      success: 성공적으로 인증되었습니다.
+      failure: 인증을 실패했습니다.
+      already_authorized: 디아스포라의 %{diaspora_id} 계정은 이미 %{service_name} 서비스의 계정에 의해 인증되었습니다.
+    destroy:
+      success: 인증을 성공적으로 지웠습니다.
+    failure:
+      error: 서비스 연결중 에러가 발생했습니다.
+  blocks:
+    create:
+      success: '이제 내 스트림에서 그 사용자를 볼 수 없습니다.  #silencio!'
+      failure: '그 사용자를 무시할 수 없었습니다. #evasion'
+    destroy:
+      failure: '해당 사용자를 무시하기를 멈출 수 없었습니다.  #evasion'
   shared:
     aspect_dropdown:
       toggle:
-        other: "애스펙 %{count}개"
-        zero: "컨택 추가"
-    invitations:
-      by_email: "이메일 초대"
-      invite_your_friends: "친구들을 초대하세요"
-      invites: "초대"
-      share_this: "이 링크를 이메일, 블로그, 또는 즐겨쓰는 소셜 네트워크를 통해 공유하세요"
-    public_explain:
-      atom_feed: "Atom 구독"
-      control_your_audience: "보일 사람 제어하기"
-      logged_in: "%{service}에 로그인 되었습니다"
-      manage: "서비스 연결 관리"
-      new_user_welcome_message: "#해시태그 는 내 게시물을 분류하고, 같은 관심사를 가진 사람들을 찾습니다. @멘션 으로 멋진 사람들을 부릅니다."
-      outside: "공개 게시물은 디아스포라 밖의 사람들도 볼 수 있습니다."
-      share: "공유하기"
-      title: "서비스 설정"
-      visibility_dropdown: "이 드롭다운 메뉴로 게시물이 누구에게 보일지 바꿉니다. (첫 게시물은 공개로 할 것을 권합니다.)"
+        zero: 컨택 추가
+        other: 애스펙 %{count}개
     publisher:
-      discard_post: "게시물 삭제"
-      get_location: "위치 가져오기"
+      posting: 올리는 중···
+      share: 공유
+      get_location: 위치 가져오기
+      remove_location: 위치 삭제
+      whats_on_your_mind: 무슨 생각해요?
+      discard_post: 게시물 삭제
       new_user_prefill:
-        hello: "반갑습니다! #%{new_user_tag} 했습니다."
-        i_like: "제 관심사는 %{tags} 입니다."
-        invited_by: "초대해주셔서 고맙습니다,"
-        newhere: "새로가입"
+        newhere: 새로가입
+        hello: '반갑습니다! #%{new_user_tag} 했습니다.'
+        i_like: 제 관심사는 %{tags} 입니다.
+        invited_by: 초대해주셔서 고맙습니다,
       poll:
-        add_a_poll: "설문 추가"
-      posting: "올리는 중···"
-      remove_location: "위치 삭제"
-      share: "공유"
-      whats_on_your_mind: "무슨 생각해요?"
+        add_a_poll: 설문 추가
+    invitations:
+      invites: 초대
+      invite_your_friends: 친구들을 초대하세요
+      by_email: 이메일 초대
+      share_this: 이 링크를 이메일, 블로그, 또는 즐겨쓰는 소셜 네트워크를 통해 공유하세요
+    public_explain:
+      control_your_audience: 보일 사람 제어하기
+      new_user_welcome_message: "#해시태그 는 내 게시물을 분류하고, 같은 관심사를 가진 사람들을 찾습니다. @멘션 으로 멋진 사람들을 부릅니다."
+      visibility_dropdown: 이 드롭다운 메뉴로 게시물이 누구에게 보일지 바꿉니다. (첫 게시물은 공개로 할 것을 권합니다.)
+      title: 서비스 설정
+      share: 공유하기
+      outside: 공개 게시물은 디아스포라 밖의 사람들도 볼 수 있습니다.
+      logged_in: "%{service}에 로그인 되었습니다"
+      manage: 서비스 연결 관리
+      atom_feed: Atom 구독
     stream_element:
       via: "%{link}에서"
-      via_mobile: "via 모바일"
+      via_mobile: via 모바일
   status_messages:
     new:
       mentioning: "%{person}님을 멘션합니다"
-    too_long: "{\"other\"=>\"상태 메시지를 %{count}자보다 적게 줄여주세요\", \"zero\"=>\"상태 메시지를 %{count}자보다 적게 줄여주세요\"}"
-  streams:
-    activity:
-      title: "내 활동"
-    aspects:
-      title: "내 애스펙"
-    aspects_stream: "애스펙"
-    comment_stream:
-      title: "댓글 스트림"
-    community_spotlight_stream: "커뮤니티 스포트라이트"
-    followed_tag:
-      add_a_tag: "태그 추가"
-      follow: "팔로우"
-      title: "#팔로우한 태그"
-    followed_tags_stream: "#팔로우한 태그"
-    like_stream:
-      title: "좋아요 스트림"
-    mentioned_stream: "@멘션"
-    mentions:
-      title: "@멘션"
-    multi:
-      title: "스트림"
-    public:
-      title: "공개 활동"
-    tags:
-      title: "태그: %{tags}"
+    too_long: '{"other"=>"상태 메시지를 %{count}자보다 적게 줄여주세요", "zero"=>"상태 메시지를 %{count}자보다 적게 줄여주세요"}'
   tags:
     show:
       follow: "#%{tag} 태그 팔로우하기"
-      none: "빈 태그는 존재하지 않습니다!"
       stop_following: "#%{tag} 태그 팔로우 멈추기"
-  username: "사용자 이름"
+      none: 빈 태그는 존재하지 않습니다!
+  streams:
+    community_spotlight_stream: 커뮤니티 스포트라이트
+    aspects_stream: 애스펙
+    mentioned_stream: "@멘션"
+    followed_tags_stream: "#팔로우한 태그"
+    mentions:
+      title: "@멘션"
+    comment_stream:
+      title: 댓글 스트림
+    like_stream:
+      title: 좋아요 스트림
+    followed_tag:
+      title: "#팔로우한 태그"
+      add_a_tag: 태그 추가
+      follow: 팔로우
+    tags:
+      title: '태그: %{tags}'
+    public:
+      title: 공개 활동
+    multi:
+      title: 스트림
+    aspects:
+      title: 내 애스펙
+    activity:
+      title: 내 활동
   users:
-    confirm_email:
-      email_confirmed: "%{email} 이메일이 활성화되었습니다"
-      email_not_confirmed: "이메일을 활성화할 수 없습니다. 링크를 확인해주세요."
-    destroy:
-      no_password: "계정을 없애기 위해 현재 암호를 입력하시기 바랍니다."
-      success: "내 계정이 잠겼습니다. 계정을 없애기까지 20분 정도 걸릴 수 있습니다. 디아스포라를 이용해 주셔서 고맙습니다."
-      wrong_password: "입력하신 암호가 현재 암호와 맞지 않습니다."
     edit:
-      also_commented: "댓글 달았던 게시물에 내 컨택도 댓글을 달았을 때"
-      auto_follow_aspect: "자동 팔로우 애스펙"
-      auto_follow_back: "나를 팔로우하는 사람을 자동으로 팔로우합니다"
-      change: "바꾸기"
-      change_email: "이메일 바꾸기"
-      change_language: "언어 바꾸기"
-      change_password: "암호 바꾸기"
-      character_minimum_expl: "6자 이상"
-      close_account:
-        dont_go: "제발 가지 마세요!"
-        lock_username: "다시 가입할 때를 위해 사용자 이름을 잠급니다."
-        locked_out: "로그아웃 된 뒤 내 계정이 잠깁니다."
-        make_diaspora_better: "떠나는 것 대신 더 나은 디아스포라를 만들 수 있도록 도와주십시오. 떠나고 싶다면, 다음에 무슨 일이 일어나는지 알려드리겠습니다."
-        mr_wiggles: "Mr Wiggles님이 내가 떠나는 걸 슬퍼할거에요"
-        no_turning_back: "현재로서는 돌이킬 수 있는 방법이 없습니다."
-        what_we_delete: "내 모든 게시물과 프로필 자료가 인간적으로 가능한 한 빨리 지워집니다. 내 댓글은 그대로 달려있지만 내 이름 대신에 디아스포라 핸들과 연결됩니다."
-      close_account_text: "계정 없애기"
-      comment_on_post: "내 게시물에 댓글이 달렸을 때"
-      current_password: "원래 암호"
-      current_password_expl: "로그인할 때 썼던 암호"
-      edit_account: "계정 고치기"
+      edit_account: 계정 고치기
+      change: 바꾸기
+      your_handle: 내 디아스포라 아이디
+      your_email: 이메일 주소
+      change_email: 이메일 바꾸기
       email_awaiting_confirmation: "%{unconfirmed_email} 로 활성화 링크를 보냈습니다. 이 링크를 따라 새 주소를 활성화하기 전까지는 원래 이메일 주소 %{email} 를 사용합니다."
-      export_data: "자료 뽑아내기"
-      following: "팔로우 설정"
-      liked: "누군가가 내 게시물을 좋아할 때"
-      mentioned: "내가 멘션되었을 때"
-      new_password: "새 암호"
-      private_message: "쪽지를 받았을 때"
-      receive_email_notifications: "이럴 때 이메일 알림을 받겠습니다"
-      reshared: "누군가 내 게시물을 재공유할 때"
-      show_community_spotlight: "스트림에 커뮤니티 스포트라이트를 표시할까요?"
-      show_getting_started: "시작 안내 다시 보기"
-      started_sharing: "누군가가 나와 공유를 시작할 때"
-      stream_preferences: "스트림 환경 설정"
-      your_email: "이메일 주소"
-      your_handle: "내 디아스포라 아이디"
-    getting_started:
-      awesome_take_me_to_diaspora: "디아스포라* 시작하기"
-      community_welcome: "디아스포라 커뮤니티가 여러분을 환영합니다!"
-      hashtag_explanation: "해시태그로 내 관심사에 대해 말하거나 팔로우할 수 있습니다. 디아스포라에서 새로운 사람들을 찾을 수 있는 또 하나의 훌륭한 방법입니다."
-      hashtag_suggestions: "#art, #movies, #gif 같은 태그를 팔로우해보세요."
-      well_hello_there: "자, 어서오십시오!"
-      what_are_you_in_to: "뭘 좋아해요?"
-      who_are_you: "누구시죠?"
+      change_password: 암호 바꾸기
+      new_password: 새 암호
+      current_password: 원래 암호
+      current_password_expl: 로그인할 때 썼던 암호
+      character_minimum_expl: 6자 이상
+      change_language: 언어 바꾸기
+      close_account_text: 계정 없애기
+      stream_preferences: 스트림 환경 설정
+      show_community_spotlight: 스트림에 커뮤니티 스포트라이트를 표시할까요?
+      show_getting_started: 시작 안내 다시 보기
+      following: 팔로우 설정
+      auto_follow_back: 나를 팔로우하는 사람을 자동으로 팔로우합니다
+      auto_follow_aspect: 자동 팔로우 애스펙
+      receive_email_notifications: 이럴 때 이메일 알림을 받겠습니다
+      started_sharing: 누군가가 나와 공유를 시작할 때
+      mentioned: 내가 멘션되었을 때
+      liked: 누군가가 내 게시물을 좋아할 때
+      reshared: 누군가 내 게시물을 재공유할 때
+      comment_on_post: 내 게시물에 댓글이 달렸을 때
+      also_commented: 댓글 달았던 게시물에 내 컨택도 댓글을 달았을 때
+      private_message: 쪽지를 받았을 때
+      export_data: 자료 뽑아내기
+      close_account:
+        dont_go: 제발 가지 마세요!
+        make_diaspora_better: 떠나는 것 대신 더 나은 디아스포라를 만들 수 있도록 도와주십시오. 떠나고 싶다면, 다음에 무슨 일이 일어나는지 알려드리겠습니다.
+        mr_wiggles: Mr Wiggles님이 내가 떠나는 걸 슬퍼할거에요
+        what_we_delete: 내 모든 게시물과 프로필 자료가 인간적으로 가능한 한 빨리 지워집니다. 내 댓글은 그대로 달려있지만 내 이름 대신에 디아스포라 핸들과 연결됩니다.
+        locked_out: 로그아웃 된 뒤 내 계정이 잠깁니다.
+        lock_username: 다시 가입할 때를 위해 사용자 이름을 잠급니다.
+        no_turning_back: 현재로서는 돌이킬 수 있는 방법이 없습니다.
     privacy_settings:
-      ignored_users: "내가 무시한 사용자"
-      stop_ignoring: "무시하지 않기"
-      title: "개인정보보호 설정"
+      title: 개인정보보호 설정
+      ignored_users: 내가 무시한 사용자
+      stop_ignoring: 무시하지 않기
+    destroy:
+      success: 내 계정이 잠겼습니다. 계정을 없애기까지 20분 정도 걸릴 수 있습니다. 디아스포라를 이용해 주셔서 고맙습니다.
+      no_password: 계정을 없애기 위해 현재 암호를 입력하시기 바랍니다.
+      wrong_password: 입력하신 암호가 현재 암호와 맞지 않습니다.
+    getting_started:
+      well_hello_there: 자, 어서오십시오!
+      community_welcome: 디아스포라 커뮤니티가 여러분을 환영합니다!
+      awesome_take_me_to_diaspora: 디아스포라* 시작하기
+      who_are_you: 누구시죠?
+      what_are_you_in_to: 뭘 좋아해요?
+      hashtag_explanation: 해시태그로 내 관심사에 대해 말하거나 팔로우할 수 있습니다. 디아스포라에서 새로운 사람들을 찾을 수 있는 또 하나의 훌륭한 방법입니다.
+      hashtag_suggestions: "#art, #movies, #gif 같은 태그를 팔로우해보세요."
+    update:
+      password_changed: 암호를 바꿨습니다. 이제 새 암호로 로그인할 수 있습니다.
+      password_not_changed: 암호를 바꿀 수 없습니다
+      language_changed: 언어를 바꿨습니다
+      language_not_changed: 언어를 바꿀 수 없습니다
+      settings_updated: 설정을 고쳤습니다
+      settings_not_updated: 설정을 고칠 수 없습니다
+      email_notifications_changed: 이메일 알림을 바꿨습니다
+      unconfirmed_email_changed: 이메일을 고쳤습니다. 활성화가 필요합니다.
+      unconfirmed_email_not_changed: 이메일 고치기 실패
+      follow_settings_changed: 팔로우 설정이 바뀌었습니다
+      follow_settings_not_changed: 팔로우 설정 바꾸기를 실패했습니다.
     public:
       does_not_exist: "%{username}님을 찾을 수 없습니다!"
-    update:
-      email_notifications_changed: "이메일 알림을 바꿨습니다"
-      follow_settings_changed: "팔로우 설정이 바뀌었습니다"
-      follow_settings_not_changed: "팔로우 설정 바꾸기를 실패했습니다."
-      language_changed: "언어를 바꿨습니다"
-      language_not_changed: "언어를 바꿀 수 없습니다"
-      password_changed: "암호를 바꿨습니다. 이제 새 암호로 로그인할 수 있습니다."
-      password_not_changed: "암호를 바꿀 수 없습니다"
-      settings_not_updated: "설정을 고칠 수 없습니다"
-      settings_updated: "설정을 고쳤습니다"
-      unconfirmed_email_changed: "이메일을 고쳤습니다. 활성화가 필요합니다."
-      unconfirmed_email_not_changed: "이메일 고치기 실패"
+    confirm_email:
+      email_confirmed: "%{email} 이메일이 활성화되었습니다"
+      email_not_confirmed: 이메일을 활성화할 수 없습니다. 링크를 확인해주세요.
   will_paginate:
-    next_label: "다음 &raquo;"
     previous_label: "&laquo; 이전"
+    next_label: 다음 &raquo;

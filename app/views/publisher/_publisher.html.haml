@@ -55,9 +55,9 @@
             %button.btn.btn-group.btn-primary#submit= t("shared.publisher.share")
 
           .btn-toolbar.pull-right#publisher-service-icons
-            - if current_user.services
-              - current_user.services.each do |service|
-                = service_button(service)
+            - available_services.each do |service|
+              = service_button(service)
+
             .btn.btn-link.question_mark{title: t("shared.public_explain.manage"),
                            data: {toggle: "modal", target: "#publicExplainModal"}}
               %i.entypo-cog

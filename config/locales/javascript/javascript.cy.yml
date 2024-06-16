@@ -6,80 +6,80 @@
 
 cy:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Ychwanegu cysylltiad"
-      all_aspects: "Agweddau i gŷd"
-      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
-      select_aspects: "Dewis agweddau"
-      started_sharing_with: "Rydych chi'n rhannu gyda <%= name %>!"
-      stopped_sharing_with: "Dydych chi ddim yn rhannu nawr gyda <%= name %>."
-      toggle:
-        many: "Mewn <%= count %> agweddau"
-        one: "Mewn <%= count %> agwedd"
-        other: "Mewn <%= count %> agweddau"
-        two: "Mewn <%= count %> agweddau"
-        zero: "Dewiswch agweddau"
-    aspect_navigation:
-      deselect_all: "Dad-ddewis i gŷd"
-      no_aspects: "Dydych chi ddim wedi dewis unrhyw agweddau"
-      select_all: "Dewis i gŷd"
-    comments:
-      hide: "cuddio sylwadau"
-      show: "ddangos sylwadau i gŷd"
-    confirm_dialog: "Chi'n siwr?"
-    failed_to_post_message: "Methwyd i bostio neges!"
-    getting_started:
-      alright_ill_wait: "O'r gorau - 'dwi'n aros..."
-      hey: "Hei, <%= name %>!"
-      no_tags: "Hei, dydych chi ddim yn dilyn unrhyw tagiau! Dal ymlaen beth bynnag?"
-      preparing_your_stream: "Preparing your personalised stream..."
-    header:
-      search: "Find people or #tags"
-    photo_uploader:
-      looking_good: "OMG, rydych chi'n ymddangos yn neis iawn!"
-    show_more: "dangos mwy"
-    stream:
-      likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
-      more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
-      reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
-    tags:
-      wasnt_that_interesting: "OK, mae'n debyg nid yw #<%= tagName %> yn ddiddorol iawn..."
     timeago:
-      day: "diwrnod"
-      days:
-        other: "%d diwrnod"
-      hour: "awr"
-      hours:
-        other: "%d awr"
-      minute: "tua funud"
+      prefixAgo: ''
+      suffixAgo: yn ôl
+      suffixFromNow: o hŷd
+      prefixFromNow: ''
+      seconds: rhai na munud
+      minute: tua funud
       minutes:
         other: "%d munud"
-      month: "mis"
+      hour: awr
+      hours:
+        other: "%d awr"
+      day: diwrnod
+      days:
+        other: "%d diwrnod"
+      month: mis
       months:
         other: "%d mis"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "rhai na munud"
-      suffixAgo: "yn ôl"
-      suffixFromNow: "o hŷd"
-      year: "tua flwyddyn"
+      year: tua flwyddyn
       years:
         other: "%d blyddynoedd"
+    confirm_dialog: Chi'n siwr?
+    aspect_dropdown:
+      add_to_aspect: Ychwanegu cysylltiad
+      select_aspects: Dewis agweddau
+      all_aspects: Agweddau i gŷd
+      stopped_sharing_with: Dydych chi ddim yn rhannu nawr gyda <%= name %>.
+      started_sharing_with: Rydych chi'n rhannu gyda <%= name %>!
+      error: Couldn't start sharing with <%= name %>.  Are you ignoring them?
+      toggle:
+        zero: Dewiswch agweddau
+        one: Mewn <%= count %> agwedd
+        two: Mewn <%= count %> agweddau
+        many: Mewn <%= count %> agweddau
+        other: Mewn <%= count %> agweddau
+    show_more: dangos mwy
+    failed_to_post_message: Methwyd i bostio neges!
+    comments:
+      show: ddangos sylwadau i gŷd
+      hide: cuddio sylwadau
+    aspect_navigation:
+      select_all: Dewis i gŷd
+      deselect_all: Dad-ddewis i gŷd
+      no_aspects: Dydych chi ddim wedi dewis unrhyw agweddau
+    getting_started:
+      hey: Hei, <%= name %>!
+      no_tags: Hei, dydych chi ddim yn dilyn unrhyw tagiau! Dal ymlaen beth bynnag?
+      alright_ill_wait: O'r gorau - 'dwi'n aros...
+      preparing_your_stream: Preparing your personalised stream...
+    photo_uploader:
+      looking_good: OMG, rydych chi'n ymddangos yn neis iawn!
+    tags:
+      wasnt_that_interesting: 'OK, mae''n debyg nid yw #<%= tagName %> yn ddiddorol iawn...'
+    stream:
+      likes:
+        zero: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        two: "<%= count %> Likes"
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        other: "<%= count %> Likes"
+      reshares:
+        zero: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        two: "<%= count %> Reshares"
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        other: "<%= count %> Reshares"
+      more_comments:
+        zero: Show <%= count %> more comments
+        one: Show <%= count %> more comment
+        two: Show <%= count %> more comments
+        few: Show <%= count %> more comments
+        many: Show <%= count %> more comments
+        other: Show <%= count %> more comments
+    header:
+      search: 'Find people or #tags'

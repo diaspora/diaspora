@@ -6,42 +6,42 @@
 
 art-nvi:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "sung tuteti"
-    comments:
-      hide: "wan aysäplltxevi"
-      show: "wìntxu aysäplltxevi nìwotx"
-    confirm_dialog: "Nga lu law srak?"
-    delete: "'aku"
-    getting_started:
-      alright_ill_wait: "Tam, oe payey."
-      hey: "Kaltxì ma <%= name %>!"
-    header:
-      home: "Kelutral"
-      log_out: "Hum"
-      recent_notifications: "Upxare asop"
-      search: "fwew"
-      view_all: "Tse'a nìwotx"
-    my_activity: "Oeyä Tìn"
-    my_stream: "Payfya"
-    show_more: "wìntxu nì'ul"
-    stream:
-      comment: "plltxe"
-      follow: "Sutx"
-      like: "Sunu"
-      unfollow: "Ke sutx"
-      unlike: "Ke Sunu"
     timeago:
-      day: "trr"
+      prefixAgo: ''
+      suffixAgo: ''
+      suffixFromNow: ''
+      prefixFromNow: ''
+      day: trr
       days:
         other: "%d srr"
-      month: "vospxì"
+      month: vospxì
       months:
         other: "%d ayvospxì"
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: ""
-      suffixFromNow: ""
-      year: "zìsìt"
+      year: zìsìt
       years:
         other: "%d ayzìsìt"
+    confirm_dialog: Nga lu law srak?
+    delete: "'aku"
+    my_activity: Oeyä Tìn
+    my_stream: Payfya
+    aspect_dropdown:
+      add_to_aspect: sung tuteti
+    show_more: wìntxu nì'ul
+    comments:
+      show: wìntxu aysäplltxevi nìwotx
+      hide: wan aysäplltxevi
+    getting_started:
+      hey: Kaltxì ma <%= name %>!
+      alright_ill_wait: Tam, oe payey.
+    stream:
+      like: Sunu
+      unlike: Ke Sunu
+      comment: plltxe
+      follow: Sutx
+      unfollow: Ke sutx
+    header:
+      home: Kelutral
+      log_out: Hum
+      search: fwew
+      recent_notifications: Upxare asop
+      view_all: Tse'a nìwotx

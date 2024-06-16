@@ -7,81 +7,81 @@
 zh-CN:
   devise:
     confirmations:
-      confirmed: "帐号确认成功。您已经成功登录。"
+      confirmed: 帐号确认成功。您已经成功登录。
+      send_instructions: 您会在几分钟内收到一封邮件，它将指引您完成帐号确认步骤。
       new:
-        resend_confirmation: "重送发送帐号确认邮件"
-      send_instructions: "您会在几分钟内收到一封邮件，它将指引您完成帐号确认步骤。"
+        resend_confirmation: 重送发送帐号确认邮件
     failure:
-      inactive: "您的帐号尚未激活。"
-      invalid: "邮箱或密码有误。"
-      invalid_token: "验证信息不合法。"
-      locked: "您的帐号已锁定。"
-      timeout: "会话超时。若要继续，请重新登录。"
-      unauthenticated: "请您登录或注册。"
-      unconfirmed: "友情提示：您将可能遇到 Bug。 遇到必须先验证帐号才能继续。"
-    invitations:
-      invitation_token_invalid: "邀请码验证失败。"
-      send_instructions: "邀请发送成功。"
-      updated: "密码设定成功。您已经成功登录。"
+      inactive: 您的帐号尚未激活。
+      invalid: 邮箱或密码有误。
+      locked: 您的帐号已锁定。
+      timeout: 会话超时。若要继续，请重新登录。
+      unauthenticated: 请您登录或注册。
+      unconfirmed: 友情提示：您将可能遇到 Bug。 遇到必须先验证帐号才能继续。
+      invalid_token: 验证信息不合法。
     mailer:
       confirmation_instructions:
-        confirm: "确认帐号"
-        subject: "帐号确认步骤"
-        you_can_confirm: "您可以点击下面的链接确认帐号："
-      hello: "您好, %{username}!"
+        subject: 帐号确认步骤
+        you_can_confirm: 您可以点击下面的链接确认帐号：
+        confirm: 确认帐号
+      reset_password_instructions:
+        subject: 密码重置步骤
+        someone_requested: 有人请求重置您的密码，若确实要这么做，请点击下面的链接。
+        change: 重置密码
+        wont_change: 在点击以上链接重置密码后，您的密码才会改变。
+        ignore: 如果您并没有请求重置密码, 请忽略这封信件。
+      unlock_instructions:
+        subject: 帐号解锁步骤
+        account_locked: 您的帐号因为登录失败次数异常而被锁定。
+        click_to_unlock: 点击下面的链接以解锁您的帐号：
+        unlock: 解锁帐号
+      welcome: 欢迎您, %{username}!
+      hello: 您好, %{username}!
       inviter:
-        accept_at: "在 %{url}， 您可以通过以下链接接受"
         has_invited_you: "%{name}"
         have_invited_you: "%{names} 邀请您加入 Diaspora"
-      reset_password_instructions:
-        change: "重置密码"
-        ignore: "如果您并没有请求重置密码, 请忽略这封信件。"
-        someone_requested: "有人请求重置您的密码，若确实要这么做，请点击下面的链接。"
-        subject: "密码重置步骤"
-        wont_change: "在点击以上链接重置密码后，您的密码才会改变。"
-      unlock_instructions:
-        account_locked: "您的帐号因为登录失败次数异常而被锁定。"
-        click_to_unlock: "点击下面的链接以解锁您的帐号："
-        subject: "帐号解锁步骤"
-        unlock: "解锁帐号"
-      welcome: "欢迎您, %{username}!"
+        accept_at: 在 %{url}， 您可以通过以下链接接受
     passwords:
+      send_instructions: 几分钟内您将收到一封包含密码重置步骤的邮件。
+      updated: 密码修改成功。您已经登入了。
       edit:
-        change_password: "修改密码"
+        change_password: 修改密码
       new:
-        forgot_password: "忘记密码？"
-        send_password_instructions: "请向我发送密码重置步骤"
-      send_instructions: "几分钟内您将收到一封包含密码重置步骤的邮件。"
-      updated: "密码修改成功。您已经登入了。"
+        forgot_password: 忘记密码？
+        send_password_instructions: 请向我发送密码重置步骤
     registrations:
-      destroyed: "再见！您的帐号已经关闭。希望不久后再会。"
-      signed_up: "您已经成功注册。如果有设定的话, 确认信会送到您的邮箱。"
-      updated: "帐号更新成功。"
+      destroyed: 再见！您的帐号已经关闭。希望不久后再会。
+      signed_up: 您已经成功注册。如果有设定的话, 确认信会送到您的邮箱。
+      updated: 帐号更新成功。
     sessions:
+      signed_in: 登录成功。
+      signed_out: 登出成功。
       new:
-        login: "登录"
-        modern_browsers: "只支持较新的浏览器。"
-        password: "密码"
-        remember_me: "记住密码"
-        sign_in: "登录"
-        username: "用户名"
-      signed_in: "登录成功。"
-      signed_out: "登出成功。"
+        login: 登录
+        username: 用户名
+        password: 密码
+        sign_in: 登录
+        remember_me: 记住密码
+        modern_browsers: 只支持较新的浏览器。
+    unlocks:
+      send_instructions: 几分钟后您将收到一封邮件，它将指引您解锁您的帐号。
+      unlocked: 帐号解锁成功。您已经登录。
+      new:
+        resend_unlock: 重新发送解锁步骤
+    invitations:
+      send_instructions: 邀请发送成功。
+      invitation_token_invalid: 邀请码验证失败。
+      updated: 密码设定成功。您已经成功登录。
     shared:
       links:
-        forgot_your_password: "忘记密码？"
-        receive_confirmation: "没有收到确认步骤？"
-        receive_unlock: "没有收到重置步骤？"
-        sign_in: "登录"
-        sign_up: "注册"
-        sign_up_closed: "目前不开放公开注册。"
-    unlocks:
-      new:
-        resend_unlock: "重新发送解锁步骤"
-      send_instructions: "几分钟后您将收到一封邮件，它将指引您解锁您的帐号。"
-      unlocked: "帐号解锁成功。您已经登录。"
+        sign_in: 登录
+        sign_up: 注册
+        sign_up_closed: 目前不开放公开注册。
+        forgot_your_password: 忘记密码？
+        receive_confirmation: 没有收到确认步骤？
+        receive_unlock: 没有收到重置步骤？
   errors:
     messages:
-      already_confirmed: "已确认"
-      not_found: "未找到"
-      not_locked: "未锁定"
+      already_confirmed: 已确认
+      not_found: 未找到
+      not_locked: 未锁定

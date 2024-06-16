@@ -16,15 +16,17 @@ module NotificationsHelper
       elsif %w(Notifications::CommentOnPost Notifications::AlsoCommented Notifications::Reshared Notifications::Liked)
             .include?(note.type)
         opts.merge!(opts_for_post(note.linked_object))
+      elsif note.is_a?(Notifications::LikedComment)
+        opts.merge!(opts_for_comment(note.linked_object))
       elsif note.is_a?(Notifications::ContactsBirthday)
         opts.merge!(opts_for_birthday(note))
       end
     end
-    translation(target_type, opts)
+    translation(target_type, **opts)
   end
 
-  def translation(target_type, opts = {})
-    t("#{target_type}", opts).html_safe
+  def translation(target_type, **kwargs)
+    t(target_type, **kwargs).html_safe # rubocop:disable Rails/OutputSafety
   end
 
   def opts_for_post(post)
@@ -33,7 +35,16 @@ module NotificationsHelper
       post_link:   link_to(post_page_title(post),
                            post_path(post),
                            data:  {ref: post.id},
-                           class: "hard_object_link").html_safe
+                           class: "hard_object_link")
+    }
+  end
+
+  def opts_for_comment(comment)
+    {
+      comment_link: link_to(comment.message.title,
+                            post_path(comment.post, anchor: comment.guid),
+                            data:  {ref: comment.id},
+                            class: "hard_object_link")
     }
   end
 

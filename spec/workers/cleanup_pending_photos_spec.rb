@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Workers::CleanupPendingPhotos do
-  let!(:photo) { FactoryGirl.create(:photo, author: alice.person, pending: true) }
+  let!(:photo) { FactoryBot.create(:photo, author: alice.person, pending: true) }
 
   it "removes pending photos" do
     Timecop.travel(25.hours) do

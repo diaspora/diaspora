@@ -1,0 +1,29 @@
+-# Note: all_aspects is a global in the ApplicationController
+
+.btn-group.aspect-dropdown
+  %button.btn.btn-default.dropdown-toggle{data: {toggle: "dropdown"}}
+    %span.text
+      = t("all_aspects")
+    %span.caret
+  %ul.dropdown-menu.pull-right{unSelectable: "on"}
+
+    %li.public.radio{"data-aspect_id" => "public"}
+      %a
+        %span.status-indicator
+          %i.glyphicon.glyphicon-ok
+        %span.text
+          = t("public")
+    %li.all-aspects.radio.selected{"data-aspect_id" => "all_aspects"}
+      %a
+        %span.status-indicator
+          %i.glyphicon.glyphicon-ok
+        %span.text
+          = t("all_aspects")
+    %li.divider
+    - all_aspects.each do |aspect|
+      %li.aspect-selector{"data-aspect_id" => aspect.id}
+        %a
+          %span.status-indicator
+            %i.glyphicon.glyphicon-ok
+          %span.text
+            = aspect.name

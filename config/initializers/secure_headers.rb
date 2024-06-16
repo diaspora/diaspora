@@ -3,6 +3,7 @@
 SecureHeaders::Configuration.default do |config|
   config.hsts = SecureHeaders::OPT_OUT # added by Rack::SSL
 
+  # rubocop:disable Lint/PercentStringArray
   csp = {
     default_src:     %w['none'],
     connect_src:     %w['self' embedr.flickr.com geo.query.yahoo.com nominatim.openstreetmap.org api.github.com],
@@ -19,20 +20,13 @@ SecureHeaders::Configuration.default do |config|
     style_src:       %w['self' 'unsafe-inline' platform.twitter.com *.twimg.com],
     manifest_src:    %w['self']
   }
+  # rubocop:enable Lint/PercentStringArray
 
   if AppConfig.environment.assets.host.present?
     asset_host = Addressable::URI.parse(AppConfig.environment.assets.host.get).host
     csp[:font_src] << asset_host
     csp[:script_src] << asset_host
     csp[:style_src] << asset_host
-  end
-
-  if AppConfig.chat.enabled?
-    csp[:media_src] << "data:"
-
-    unless AppConfig.chat.server.bosh.proxy?
-      csp[:connect_src] << "#{AppConfig.pod_uri.host}:#{AppConfig.chat.server.bosh.port}"
-    end
   end
 
   csp[:script_src] << "code.jquery.com" if AppConfig.privacy.jquery_cdn?

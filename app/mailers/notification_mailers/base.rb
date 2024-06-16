@@ -36,13 +36,21 @@ module NotificationMailers
 
     def default_headers
       from_name = AppConfig.settings.pod_name
-      from_name += " (#{@sender.profile.full_name.empty? ? @sender.username : @sender.name})" if @sender.present?
+      from_name += " (#{person_name(@sender)})" if @sender.present?
 
       {
         from:          name_and_address(from_name, AppConfig.mail.sender_address),
-        to:            name_and_address(@recipient.name, @recipient.email),
+        to:            name_and_address(person_name(@recipient), @recipient.email),
         template_name: self.class.name.demodulize.underscore
       }
+    end
+
+    def person_name(person)
+      if person.profile.full_name.empty?
+        person.username
+      else
+        person.name.gsub(/\p{Emoji}\uFE0F\u20E3?|\p{Emoji_Presentation}/, "").strip
+      end
     end
 
     def with_recipient_locale(&block)

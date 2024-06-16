@@ -5,7 +5,7 @@
 #   the COPYRIGHT file.
 
 describe Diaspora::Exporter do
-  let(:user) { FactoryGirl.create(:user_with_aspect) }
+  let(:user) { FactoryBot.create(:user_with_aspect) }
 
   context "output json" do
     let(:json) { Diaspora::Exporter.new(user).execute }
@@ -16,7 +16,7 @@ describe Diaspora::Exporter do
         %i[generic_user_data activity status_messages_flavours work_aspect]
       )
 
-      errors = JSON::Validator.fully_validate("lib/schemas/archive-format.json", JSON.parse(json))
+      errors = JSON::Validator.fully_validate(ArchiveValidator::SchemaValidator::JSON_SCHEMA, JSON.parse(json))
       expect(errors).to be_empty
     end
 
@@ -24,7 +24,7 @@ describe Diaspora::Exporter do
       user_properties = build_property_hash(
         user,
         %i[email username language disable_mail show_community_spotlight_in_stream auto_follow_back
-           auto_follow_back_aspect strip_exif],
+           auto_follow_back_aspect],
         private_key: :serialized_private_key
       )
 
@@ -75,7 +75,7 @@ describe Diaspora::Exporter do
     end
 
     it "contains a public status message" do
-      status_message = FactoryGirl.create(:status_message, author: user.person, public: true)
+      status_message = FactoryBot.create(:status_message, author: user.person, public: true)
       serialized = {
         "subscribed_pods_uris": [AppConfig.pod_uri.to_s],
         "entity_type":          "status_message",
@@ -109,7 +109,7 @@ describe Diaspora::Exporter do
     end
 
     it "contains a status message with a poll" do
-      status_message = FactoryGirl.create(:status_message_with_poll, author: user.person)
+      status_message = FactoryBot.create(:status_message_with_poll, author: user.person)
       serialized = {
         "entity_type": "status_message",
         "entity_data": {
@@ -141,7 +141,7 @@ describe Diaspora::Exporter do
     end
 
     it "contains a status message with a photo" do
-      status_message = FactoryGirl.create(:status_message_with_photo, author: user.person)
+      status_message = FactoryBot.create(:status_message_with_photo, author: user.person)
 
       serialized = {
         "entity_type": "status_message",
@@ -174,7 +174,7 @@ describe Diaspora::Exporter do
     end
 
     it "contains a status message with a location" do
-      status_message = FactoryGirl.create(:status_message_with_location, author: user.person)
+      status_message = FactoryBot.create(:status_message_with_location, author: user.person)
 
       serialized = {
         "entity_type": "status_message",
@@ -199,7 +199,7 @@ describe Diaspora::Exporter do
     end
 
     it "contains a reshare" do
-      reshare = FactoryGirl.create(:reshare, author: user.person)
+      reshare = FactoryBot.create(:reshare, author: user.person)
       serialized_reshare = {
         "subscribed_pods_uris": [reshare.root.author.pod.url_to(""), AppConfig.pod_uri.to_s],
         "entity_type":          "reshare",
@@ -228,7 +228,7 @@ describe Diaspora::Exporter do
     end
 
     it "contains a comment" do
-      comment = FactoryGirl.create(:comment, author: user.person)
+      comment = FactoryBot.create(:comment, author: user.person)
       serialized_comment = {
         "entity_type":    "comment",
         "entity_data":    {
@@ -247,7 +247,7 @@ describe Diaspora::Exporter do
     end
 
     it "contains a like" do
-      like = FactoryGirl.create(:like, author: user.person)
+      like = FactoryBot.create(:like, author: user.person)
       serialized_like = {
         "entity_type":    "like",
         "entity_data":    {
@@ -266,7 +266,7 @@ describe Diaspora::Exporter do
     end
 
     it "contains a poll participation" do
-      poll_participation = FactoryGirl.create(:poll_participation, author: user.person)
+      poll_participation = FactoryBot.create(:poll_participation, author: user.person)
       serialized_participation = {
         "entity_type":    "poll_participation",
         "entity_data":    {

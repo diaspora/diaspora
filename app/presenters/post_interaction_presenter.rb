@@ -18,10 +18,19 @@ class PostInteractionPresenter
     }
   end
 
+  def as_counters
+    {
+      comments: @post.comments_count,
+      likes:    @post.likes_count,
+      reshares: @post.reshares_count
+    }
+  end
+
   private
 
   def participations
     return @post.participations.none unless @current_user
+
     @post.participations.where(author: @current_user.person)
   end
 

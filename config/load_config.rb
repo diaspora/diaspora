@@ -42,6 +42,9 @@ AppConfig ||= Configurate::Settings.create do
                  File.join(config_dir, "diaspora.toml"),
                  namespace: "configuration", required: false
   else
+    warn "WARNING: diaspora.yml is deprecated and will no longer be read in diaspora 1.0."
+    warn "         Please copy over diaspora.toml.example to diaspora.toml and migrate your settings from diaspora.yml."
+
     add_provider Configurate::Provider::YAML,
                  File.join(config_dir, "diaspora.yml"),
                  namespace: rails_env, required: false

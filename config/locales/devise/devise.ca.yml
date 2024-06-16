@@ -7,81 +7,81 @@
 ca:
   devise:
     confirmations:
-      confirmed: "S'ha confirmat el vostre compte amb èxit. Ara esteu autenticat."
+      confirmed: S'ha confirmat el vostre compte amb èxit. Ara esteu autenticat.
+      send_instructions: En uns minuts rebreu un correu electrònic amb instruccions per a confirmar la vostra contrasenya.
       new:
-        resend_confirmation: "Torna a enviar les instruccions per a la confirmació"
-      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a confirmar la vostra contrasenya."
+        resend_confirmation: Torna a enviar les instruccions per a la confirmació
     failure:
-      inactive: "El vostre compte encara no era actiu."
-      invalid: "El nom d'usuari o contrasenya no són vàlids."
-      invalid_token: "El testimoni d'autenticació és invàlid."
-      locked: "El vostre compte és blocat."
-      timeout: "La vostra sessió ha caducat, torneu a entrar per a continuar."
-      unauthenticated: "Heu d'entrar o registrar-vos abans de continuar."
-      unconfirmed: "Heu de confirmar el vostre compte abans de continuar."
-    invitations:
-      invitation_token_invalid: "Disculpeu! Aquest testimoni de invitació no és vàlid."
-      send_instructions: "S'ha enviat la vostra invitació."
-      updated: "S'ha establert la vostra contrasenya amb èxit. Ara esteu autenticat."
+      inactive: El vostre compte encara no era actiu.
+      invalid: El nom d'usuari o contrasenya no són vàlids.
+      locked: El vostre compte és blocat.
+      timeout: La vostra sessió ha caducat, torneu a entrar per a continuar.
+      unauthenticated: Heu d'entrar o registrar-vos abans de continuar.
+      unconfirmed: Heu de confirmar el vostre compte abans de continuar.
+      invalid_token: El testimoni d'autenticació és invàlid.
     mailer:
       confirmation_instructions:
-        confirm: "Confirma el meu compte"
-        subject: "Instruccions per a la confirmació"
-        you_can_confirm: "Podeu confirmar el vostre compte mitjançant l'enllaç següent:"
-      hello: "Hola, %{username}!"
+        subject: Instruccions per a la confirmació
+        you_can_confirm: 'Podeu confirmar el vostre compte mitjançant l''enllaç següent:'
+        confirm: Confirma el meu compte
+      reset_password_instructions:
+        subject: Instruccions per al restabliment de la contrasenya
+        someone_requested: Algú ha demanat un enllaç per a canviar la vostra contrasenya, i podeu fer-ho mitjançant l'enllaç següent.
+        change: Canvia la meua contrasenya
+        wont_change: La vostra contrasenya no es canviarà fins que no accediu l'enllaç anterior i en creeu una de nova.
+        ignore: Si no heu demanat això, ignoreu aquest correu electrònic.
+      unlock_instructions:
+        subject: Instruccions per al desblocatge
+        account_locked: S'ha blocat el vostre compte degut a un nombre excessiu d'entrades fallides.
+        click_to_unlock: 'Feu clic a l''enllaç següent per desblocar el vostre compte:'
+        unlock: Desbloca el meu compte
+      welcome: Benvingut/da, %{username}!
+      hello: Hola, %{username}!
       inviter:
-        accept_at: "a %{url}, podeu acceptar-ho mitjançant l'enllaç següent."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} us han convidat a unir-vos a Diàspora"
-      reset_password_instructions:
-        change: "Canvia la meua contrasenya"
-        ignore: "Si no heu demanat això, ignoreu aquest correu electrònic."
-        someone_requested: "Algú ha demanat un enllaç per a canviar la vostra contrasenya, i podeu fer-ho mitjançant l'enllaç següent."
-        subject: "Instruccions per al restabliment de la contrasenya"
-        wont_change: "La vostra contrasenya no es canviarà fins que no accediu l'enllaç anterior i en creeu una de nova."
-      unlock_instructions:
-        account_locked: "S'ha blocat el vostre compte degut a un nombre excessiu d'entrades fallides."
-        click_to_unlock: "Feu clic a l'enllaç següent per desblocar el vostre compte:"
-        subject: "Instruccions per al desblocatge"
-        unlock: "Desbloca el meu compte"
-      welcome: "Benvingut/da, %{username}!"
+        accept_at: a %{url}, podeu acceptar-ho mitjançant l'enllaç següent.
     passwords:
+      send_instructions: En uns minuts rebreu un correu electrònic amb instruccions per a reestablir la vostra contrasenya.
+      updated: S'ha canviat la vostra contrasenya amb èxit. Ara esteu autenticat.
       edit:
-        change_password: "Canvia la contrasenya"
+        change_password: Canvia la contrasenya
       new:
-        forgot_password: "Heu oblidat la vostra contrasenya?"
-        send_password_instructions: "Envia'm instruccions per a reestablir la contrasenya"
-      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a reestablir la vostra contrasenya."
-      updated: "S'ha canviat la vostra contrasenya amb èxit. Ara esteu autenticat."
+        forgot_password: Heu oblidat la vostra contrasenya?
+        send_password_instructions: Envia'm instruccions per a reestablir la contrasenya
     registrations:
-      destroyed: "Adéu! S'ha canceŀlat el vostre compte amb èxit. Esperem tornar a veure-vos molt aviat."
-      signed_up: "Us heu registrat amb èxit. Si està habilitat, s'haurà enviat un correu electrònic de confirmació a la vostra adreça."
-      updated: "Heu actualitzat el compte amb èxit."
+      destroyed: Adéu! S'ha canceŀlat el vostre compte amb èxit. Esperem tornar a veure-vos molt aviat.
+      signed_up: Us heu registrat amb èxit. Si està habilitat, s'haurà enviat un correu electrònic de confirmació a la vostra adreça.
+      updated: Heu actualitzat el compte amb èxit.
     sessions:
+      signed_in: Heu entrat correctament.
+      signed_out: Heu sortit correctament.
       new:
-        login: "Entra"
-        modern_browsers: "només suporta navegadors moderns."
-        password: "Contrasenya"
-        remember_me: "Recorda'm"
-        sign_in: "Entra"
-        username: "Nom d'usuari"
-      signed_in: "Heu entrat correctament."
-      signed_out: "Heu sortit correctament."
+        login: Entra
+        username: Nom d'usuari
+        password: Contrasenya
+        sign_in: Entra
+        remember_me: Recorda'm
+        modern_browsers: només suporta navegadors moderns.
+    unlocks:
+      send_instructions: En uns minuts rebreu un correu electrònic amb instruccions per a desblocar el vostre compte.
+      unlocked: El vostre compte s'ha desblocat amb èxit. Ara esteu autenticat.
+      new:
+        resend_unlock: Torna a enviar les instruccions per al deblocatge
+    invitations:
+      send_instructions: S'ha enviat la vostra invitació.
+      invitation_token_invalid: Disculpeu! Aquest testimoni de invitació no és vàlid.
+      updated: S'ha establert la vostra contrasenya amb èxit. Ara esteu autenticat.
     shared:
       links:
-        forgot_your_password: "Heu oblidat la vostra contrasenya?"
-        receive_confirmation: "No heu rebut les instruccions per a la confirmació?"
-        receive_unlock: "No heu rebut les instruccions per al desblocatge?"
-        sign_in: "Entreu"
-        sign_up: "Registreu-vos"
-        sign_up_closed: "El registre lliure està tancat ara mateix."
-    unlocks:
-      new:
-        resend_unlock: "Torna a enviar les instruccions per al deblocatge"
-      send_instructions: "En uns minuts rebreu un correu electrònic amb instruccions per a desblocar el vostre compte."
-      unlocked: "El vostre compte s'ha desblocat amb èxit. Ara esteu autenticat."
+        sign_in: Entreu
+        sign_up: Registreu-vos
+        sign_up_closed: El registre lliure està tancat ara mateix.
+        forgot_your_password: Heu oblidat la vostra contrasenya?
+        receive_confirmation: No heu rebut les instruccions per a la confirmació?
+        receive_unlock: No heu rebut les instruccions per al desblocatge?
   errors:
     messages:
-      already_confirmed: "ja estava confirmat"
-      not_found: "no s'ha trobat"
-      not_locked: "no estava blocat"
+      already_confirmed: ja estava confirmat
+      not_found: no s'ha trobat
+      not_locked: no estava blocat

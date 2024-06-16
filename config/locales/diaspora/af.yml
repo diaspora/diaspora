@@ -5,13 +5,13 @@
 
 
 af:
-  _help: "Hulp"
+  _help: Hulp
   admins:
     stats:
-      daily: "Daglike"
-      month: "Maand"
-      week: "Week"
+      week: Week
+      month: Maand
+      daily: Daglike
   aspects:
     index:
       help:
-        tutorial_link_text: "Tutoriale"
+        tutorial_link_text: Tutoriale

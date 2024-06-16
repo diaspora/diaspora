@@ -45,26 +45,4 @@ describe SessionsController, type: :controller do
       expect(response).to redirect_to root_path
     end
   end
-
-  describe "#reset_authentication_token" do
-    context "for a logged in user" do
-      before do
-        sign_in @user, scope: :user
-      end
-
-      it "succeeds" do
-        expect { @controller.send(:reset_authentication_token) }.to_not raise_error
-      end
-    end
-
-    context "for a logged out user" do
-      before do
-        sign_out :user
-      end
-
-      it "succeeds" do
-        expect { @controller.send(:reset_authentication_token) }.to_not raise_error
-      end
-    end
-  end
 end

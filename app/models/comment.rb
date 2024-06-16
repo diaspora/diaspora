@@ -37,6 +37,12 @@ class Comment < ApplicationRecord
   scope :including_author, -> { includes(:author => :profile) }
   scope :for_a_stream,  -> { including_author.merge(order('created_at ASC')) }
 
+  scope :all_public, -> {
+    where("commentable_type = 'Post' AND EXISTS(
+      SELECT 1 FROM posts WHERE posts.id = commentable_id AND posts.public = true
+    )")
+  }
+
   before_save do
     self.text.strip! unless self.text.nil?
   end

@@ -7,24 +7,24 @@
 wo:
   devise:
     mailer:
-      hello: "Na nga def %{username}?"
       reset_password_instructions:
-        change: "Soppil sama baatujàll"
-      welcome: "Dalal-jàmm %{username}!"
+        change: Soppil sama baatujàll
+      welcome: Dalal-jàmm %{username}!
+      hello: Na nga def %{username}?
     passwords:
       edit:
-        change_password: "Soppil sama baatujàll"
+        change_password: Soppil sama baatujàll
       new:
-        forgot_password: "Fatte nga sa baatujàll?"
+        forgot_password: Fatte nga sa baatujàll?
     sessions:
       new:
-        login: "Xammeeku"
-        password: "Baatujàll"
-        remember_me: "Fattaliku ma"
-        sign_in: "Xammeeku"
-        username: "Turu Jëfandikukat"
+        login: Xammeeku
+        username: Turu Jëfandikukat
+        password: Baatujàll
+        sign_in: Xammeeku
+        remember_me: Fattaliku ma
     shared:
       links:
-        forgot_your_password: "Fatte nga sa baatujàll?"
-        sign_in: "Xammeeku"
-        sign_up: "Sos am sàq"
+        sign_in: Xammeeku
+        sign_up: Sos am sàq
+        forgot_your_password: Fatte nga sa baatujàll?

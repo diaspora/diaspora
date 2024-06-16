@@ -140,6 +140,12 @@ Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, sco
   end
 end
 
+Then /^I should see (\d+) "([^\"]*)"(?: within "([^\"]*)")?$/ do |count, selector, scope_selector|
+  with_scope(scope_selector) do
+    expect(current_scope).to have_selector(selector, count: count)
+  end
+end
+
 Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
     current_scope.should have_no_css(selector, :visible => true)
@@ -205,6 +211,16 @@ Then /^I should see a flash message with a warning$/ do
 end
 
 Then /^I should see a flash message containing "(.+)"$/ do |text|
+  flash_message_containing? text
+end
+
+Then /^I should see a success flash message containing "(.+)"$/ do |text|
+  flash_message_success?.should be true
+  flash_message_containing? text
+end
+
+Then /^I should see an error flash message containing "(.+)"$/ do |text|
+  flash_message_failure?.should be true
   flash_message_containing? text
 end
 

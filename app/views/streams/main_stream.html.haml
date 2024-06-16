@@ -2,11 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :head do
-  - if AppConfig.chat.enabled?
-    = javascript_include_tag :jsxc, id: 'jsxc',
-      data: { endpoint: get_bosh_endpoint }
-
 - if current_user&.getting_started?
   #welcome-to-diaspora
     .container-fluid
@@ -42,6 +37,9 @@
               = render "aspects/aspect_listings", stream: @stream
             %li.nested-list
               = render "tags/followed_tags_listings"
+            - if AppConfig.local_posts_stream?(current_user)
+              %li{data: {stream: "local_public"}}
+                = link_to t("streams.local_public.title"), local_public_stream_path, rel: "backbone", class: "hoverable"
             %li{data: {stream: "public"}}
               = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
 
@@ -180,3 +178,5 @@
         - unless user_signed_in?
           %h2= @stream.title
         = render "aspects/aspect_stream", stream: @stream
+
+= render "report/report_modal"

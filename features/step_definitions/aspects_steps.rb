@@ -2,7 +2,11 @@
 
 module AspectCukeHelpers
   def click_aspect_dropdown
-    find(".aspect-dropdown .dropdown-toggle").trigger "click"
+    find(".aspect-dropdown > .dropdown-toggle").click
+  end
+
+  def click_share_button
+    find("#submit_new_message").trigger "click"
   end
 
   def toggle_aspect(a_name)
@@ -110,6 +114,17 @@ end
 
 When /^I press the aspect dropdown$/ do
   click_aspect_dropdown
+end
+
+When /^I press the share button$/ do
+  # There were issues 'clicking' the share button on mobile
+  click_share_button
+end
+
+When /^I visit the stream with aspect "([^"]*)"$/ do |aspect_name|
+  # In mobile view aspects are single anchors
+  a_id = @me.aspects.where(name: aspect_name).pick(:id)
+  visit("/aspects?a_ids[]=#{a_id}")
 end
 
 When /^(.*) in the aspect creation modal$/ do |action|

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 describe Diaspora::Federation::Dispatcher::Public do
-  let(:post) { FactoryGirl.create(:status_message, author: alice.person, text: "hello", public: true) }
-  let(:comment) { FactoryGirl.create(:comment, author: alice.person, post: post) }
+  let(:post) { FactoryBot.create(:status_message, author: alice.person, text: "hello", public: true) }
+  let(:comment) { FactoryBot.create(:comment, author: alice.person, post: post) }
 
   describe "#dispatch" do
     context "pubsubhubbub" do
@@ -13,38 +13,6 @@ describe Diaspora::Federation::Dispatcher::Public do
 
       it "does not call pubsubhubbub for comments" do
         expect(Workers::PublishToHub).not_to receive(:perform_async)
-        Diaspora::Federation::Dispatcher.build(alice, comment).dispatch
-      end
-    end
-
-    context "relay functionality" do
-      before do
-        AppConfig.relay.outbound.url = "https://relay.iliketoast.net/receive/public"
-      end
-
-      it "delivers public post to relay when relay is enabled" do
-        AppConfig.relay.outbound.send = true
-
-        expect(Workers::SendPublic).to receive(:perform_async) do |_user_id, _entity_string, urls, _xml|
-          expect(urls).to include("https://relay.iliketoast.net/receive/public")
-        end
-
-        Diaspora::Federation::Dispatcher.build(alice, post).dispatch
-      end
-
-      it "does not deliver post to relay when relay is disabled" do
-        AppConfig.relay.outbound.send = false
-
-        expect(Workers::SendPublic).not_to receive(:perform_async)
-
-        Diaspora::Federation::Dispatcher.build(alice, post).dispatch
-      end
-
-      it "does not deliver comments to relay" do
-        AppConfig.relay.outbound.send = true
-
-        expect(Workers::SendPublic).not_to receive(:perform_async)
-
         Diaspora::Federation::Dispatcher.build(alice, comment).dispatch
       end
     end
@@ -96,8 +64,8 @@ describe Diaspora::Federation::Dispatcher::Public do
       end
 
       it "only queues a public send job for a active pods" do
-        offline_pod = FactoryGirl.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
-        offline_person = FactoryGirl.create(:person, pod: offline_pod)
+        offline_pod = FactoryBot.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
+        offline_person = FactoryBot.create(:person, pod: offline_pod)
 
         expect(Workers::SendPublic).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
           expect(user_id).to eq(alice.id)

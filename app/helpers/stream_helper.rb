@@ -22,7 +22,7 @@ module StreamHelper
   end
 
   private
-
+  # rubocop:disable Rails/HelperInstanceVariable
   def next_stream_path
     if current_page?(:stream)
       stream_path(max_time: time_for_scroll(@stream))
@@ -30,6 +30,8 @@ module StreamHelper
       activity_stream_path(max_time: time_for_scroll(@stream))
     elsif current_page?(:aspects_stream)
       aspects_stream_path(max_time: time_for_scroll(@stream), a_ids: session[:a_ids])
+    elsif current_page?(:local_public_stream)
+      local_public_stream_path(max_time: time_for_scroll(@stream))
     elsif current_page?(:public_stream)
       public_stream_path(max_time: time_for_scroll(@stream))
     elsif current_page?(:commented_stream)
@@ -44,6 +46,7 @@ module StreamHelper
       raise "in order to use pagination for this new stream, update next_stream_path in stream helper"
     end
   end
+  # rubocop:enable Rails/HelperInstanceVariable
 
   def time_for_scroll(stream)
     if stream.stream_posts.empty?

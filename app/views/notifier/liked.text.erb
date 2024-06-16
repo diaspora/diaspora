@@ -3,7 +3,7 @@
 
 <%= post_message(@notification.like_target) %>
 <% else %>
-<%= "#{t("notifier.liked.limited_post", name: @notification.sender_name)}." %>
+<%= "#{t(".limited_post", name: @notification.sender_name)}." %>
 <% end %>
 
 <%= t(".view_post") %>

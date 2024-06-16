@@ -21,15 +21,29 @@ class PostService
     end
   end
 
+  def present_json
+    PostPresenter.new(post, user)
+  end
+
+  def present_interactions_json
+    PostInteractionPresenter.new(post, user)
+  end
+
   def mark_user_notifications(post_id)
     return unless user
     mark_comment_reshare_like_notifications_read(post_id)
     mark_mention_notifications_read(post_id)
+    mark_like_on_comment_notifications_read(post_id)
   end
 
-  def destroy(post_id)
-    post = find!(post_id)
+  def destroy(post_id, private_allowed=true)
+    post = if private_allowed
+             find_non_public_by_guid_or_id_with_user!(post_id)
+           else
+             find_public!(post_id)
+           end
     raise Diaspora::NotMine unless post.author == user.person
+
     user.retract(post)
   end
 
@@ -87,5 +101,11 @@ class PostService
     Mention
       .joins("INNER JOIN comments ON mentions_container_id = comments.id AND mentions_container_type = 'Comment'")
       .where(comments: {commentable_id: post_id, commentable_type: "Post"})
+  end
+
+  def mark_like_on_comment_notifications_read(post_id)
+    Notification.where(recipient_id: user.id, target_type: "Comment",
+                       target_id: Comment.where(commentable_id: post_id, author_id: user.person.id),
+                       unread: true).update_all(unread: false) # rubocop:disable Rails/SkipsModelValidations
   end
 end

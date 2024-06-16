@@ -44,7 +44,7 @@ body {
 
   pre code { border: 0; }
 
-  @import 'highlightjs/darcula';
+  @import 'highlightjs/styles/darcula';
 
   #single-post-content .head {
     .author-name { color: lighten($gray-lighter, 27%); }

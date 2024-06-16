@@ -5,14 +5,12 @@ app.pages.Contacts = Backbone.View.extend({
   el: "#contacts_container",
 
   events: {
-    "click #chat_privilege_toggle" : "toggleChatPrivilege",
     "click #change_aspect_name" : "showAspectNameForm",
     "click .conversation_button": "showMessageModal",
     "click .invitations-button": "showInvitationsModal"
   },
 
   initialize: function(opts) {
-    this.chatToggle = $("#chat_privilege_toggle i");
     this.stream = opts.stream;
     this.stream.render();
     $("#people-stream.contacts .header i").tooltip({"placement": "bottom"});
@@ -25,22 +23,6 @@ app.pages.Contacts = Backbone.View.extend({
     this.aspectCreateView.render();
 
     this.setupAspectSorting();
-  },
-
-  toggleChatPrivilege: function() {
-    if (this.chatToggle.hasClass("enabled")) {
-      this.chatToggle.tooltip("destroy")
-                      .removeClass("enabled")
-                      .removeAttr("data-original-title")
-                      .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_not_enabled"))
-                      .tooltip({"placement": "bottom"});
-    } else {
-      this.chatToggle.tooltip("destroy")
-                      .addClass("enabled")
-                      .removeAttr("data-original-title")
-                      .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_enabled"))
-                      .tooltip({"placement": "bottom"});
-    }
   },
 
   showAspectNameForm: function() {

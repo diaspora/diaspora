@@ -7,7 +7,7 @@
 describe ApplicationHelper, :type => :helper do
   before do
     @user = alice
-    @person = FactoryGirl.create(:person)
+    @person = FactoryBot.create(:person)
   end
 
   describe "#all_services_connected?" do
@@ -25,7 +25,7 @@ describe ApplicationHelper, :type => :helper do
     end
 
     it 'returns true if all networks are connected' do
-      3.times { |t| @current_user.services << FactoryGirl.build(:service) }
+      3.times { @current_user.services << FactoryBot.build(:service) }
       expect(all_services_connected?).to be true
     end
 
@@ -48,7 +48,7 @@ describe ApplicationHelper, :type => :helper do
     end
 
     it "returns false if the service is already connected" do
-      @current_user.services << FactoryGirl.build(:service)
+      @current_user.services << FactoryBot.build(:service)
       expect(AppConfig).to receive(:show_service?).with("twitter", alice).and_return(true)
       expect(service_unconnected?("twitter")).to be false
     end
@@ -163,6 +163,36 @@ describe ApplicationHelper, :type => :helper do
     it 'displays the supplied pod_version if it is set' do
       AppConfig.version.number = "0.0.1.0"
       expect(pod_version).to match "0.0.1.0"
+    end
+  end
+
+  describe "#uri_with_username" do
+    attr_reader :current_user
+
+    before do
+      @current_user = alice
+      def user_signed_in?
+        true
+      end
+    end
+
+    it "displays the pod uri and username if logged in" do
+      allow(AppConfig).to receive(:pod_uri) { "https://diaspora.social" }
+      expect(uri_with_username).to match "https://diaspora.social?username=alice"
+    end
+  end
+
+  describe "#uri_with_username without logged in user" do
+    before do
+      @current_user = alice
+      def user_signed_in?
+        false
+      end
+    end
+
+    it "displays the pod uri" do
+      allow(AppConfig).to receive(:pod_uri) { "https://diaspora.social" }
+      expect(uri_with_username).to match "https://diaspora.social"
     end
   end
 end

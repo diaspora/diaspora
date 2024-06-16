@@ -26,12 +26,7 @@ module Workers
            DiasporaFederation::Salmon::InvalidEncoding,
            Diaspora::Federation::AuthorIgnored,
            Diaspora::Federation::InvalidAuthor,
-           Diaspora::Federation::RecipientClosed,
-           # TODO: deprecated
-           DiasporaFederation::Salmon::MissingMagicEnvelope,
-           DiasporaFederation::Salmon::MissingAuthor,
-           DiasporaFederation::Salmon::MissingHeader,
-           DiasporaFederation::Salmon::InvalidHeader => e
+           Diaspora::Federation::RecipientClosed => e
       logger.warn "don't retry for error: #{e.class}"
     end
   end

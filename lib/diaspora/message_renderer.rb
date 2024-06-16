@@ -71,6 +71,10 @@ module Diaspora
         end
       end
 
+      def escape_mentions_for_markdown
+        @message = Diaspora::Mentionable.escape_for_markdown(message)
+      end
+
       def render_mentions
         unless options[:disable_hovercards] || options[:mentioned_people].empty?
           @message = Diaspora::Mentionable.format message, options[:mentioned_people]
@@ -210,6 +214,7 @@ module Diaspora
         normalize
         diaspora_links
         camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
+        escape_mentions_for_markdown
         markdownify
         render_mentions
         render_tags
@@ -256,7 +261,7 @@ module Diaspora
     # Extracts all the urls from the raw message and return them in the form of a string
     # Different URLs are seperated with a space
     def urls
-      @urls ||= Twitter::Extractor.extract_urls(plain_text_without_markdown).map {|url|
+      @urls ||= Twitter::TwitterText::Extractor.extract_urls(plain_text_without_markdown).map {|url|
         Addressable::URI.parse(url).normalize.to_s
       }
     end

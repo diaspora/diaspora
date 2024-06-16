@@ -20,7 +20,7 @@ module ApplicationCukeHelpers
   def flash_message(opts={})
     selector = opts.delete(:selector)
     selector &&= ".alert-#{selector}"
-    find(selector || ".flash-message", {match: :first}.merge(opts))
+    find(selector || ".flash-message", **{match: :first}.merge(opts))
   end
 
   def confirm_form_validation_error(element)

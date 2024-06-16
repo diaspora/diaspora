@@ -6,317 +6,317 @@
 
 oc:
   javascripts:
+    timeago:
+      prefixAgo: fa
+      suffixAgo: ''
+      suffixFromNow: ara
+      prefixFromNow: d'aicí
+      inPast: lèu lèu
+      seconds: mens d'una minuta
+      minute: environ una minuta
+      minutes:
+        one: una minuta
+        other: "%d minutas"
+      hour: environ una ora
+      hours:
+        one: environ una ora
+        other: environ %d oras
+      day: un jorn
+      days:
+        one: un jorn
+        other: "%d jorns"
+      month: environ un mes
+      months:
+        one: un mes
+        other: "%d meses"
+      year: environ un an
+      years:
+        one: un an
+        other: "%d ans"
+      wordSeparator: " "
+    cancel: Anullar
+    confirm_dialog: Sètz segur ?
+    confirm_unload: Mercé de confirmar que volètz quitar aquesta pagina — las donadas sasidas seràn pas salvadas.
+    create: Crear
+    delete: Suprimir
+    ignore: Ignorar
+    report:
+      prompt: 'Mercé de sasir un motiu :'
+      prompt_default: Contengut ofensant
+      name: Senhalar
+      status:
+        created: Lo senhalament es estat creat amb succès.
+        exists: Lo senhalament existís ja
+    ignore_user: Ignorar aqueste utilizaire ?
+    ignore_failed: Impossible d'ignorar aqueste utilizaire
+    hide_post: Amagar aquesta publicacion ?
+    hide_post_failed: Impossible d'amagar aqueste messatge
+    remove_post: Suprimir aqueste messatge ?
+    unblock_failed: Impossible de desblocar aqueste utilizaire
+    and: e
+    comma: ","
+    edit: Editar
+    no_results: Pas cap de resultat
+    show_all: O mostrar tot
+    admins:
+      dashboard:
+        up_to_date: Vòstre pod es a jorn !
+        outdated: Vòstre pod es pas a jorn.
+        compare_versions: La darrièra version de diaspora* es <%= latestVersion %>, vòstre pod vira jos la version <%= podVersion %>.
+        error: Impossible de determinar la darrièra version de diaspora*.
     admin:
       pods:
-        actions: "Accions"
-        added: "Apondut"
-        check: "executar un tèst de connexion"
-        errors:
-          one: "Lo tèst de connexion rapòrta una error per un pod."
-          other: "Lo tèst de connexion rapòrta una error per <%= count %> pods."
-        follow_link: "dobrir lo ligam dins lo navigador"
-        last_check: "darrièra verificacion :"
-        more_info: "mostrar mai d'informacion"
+        pod: Pod
+        ssl: SSL
+        ssl_enabled: SSL activada
+        ssl_disabled: SSL desactivada
+        added: Apondut
+        status: Estat
+        states:
+          unchecked: Pas verificat
+          no_errors: D'acòrdi
+          dns_failed: La resolucion del nom (DNS) a fracassat
+          net_failed: La tempativa de connexion a fracassat
+          ssl_failed: La connexion securizada (SSL) a fracassat
+          http_failed: La connexion HTTP a fracassat
+          version_failed: Impossible de determinar la version del programa
+          unknown_error: Una error desconeguda s'es produita pendent la verificacion
+        actions: Accions
+        offline_since: 'fòra linha dempuèi :'
+        last_check: 'darrièra verificacion :'
+        more_info: mostrar mai d'informacion
+        check: executar un tèst de connexion
+        recheck:
+          success: Lo pod ven d'èsser verificat tornamai.
+          failure: La verificacion es pas estada executada.
+        follow_link: dobrir lo ligam dins lo navigador
+        no_info: Pas d informacion suplementària de disponibla pel moment.
+        server_software: 'Logicial del servidor :'
+        response_time: 'Temps de responsa :'
         ms:
           one: "<%= count %>&nbsp;ms"
           other: "<%= count %>&nbsp;ms"
-        no_info: "Pas d informacion suplementària de disponibla pel moment."
-        not_available: "pas disponible"
-        offline_since: "fòra linha dempuèi :"
-        pod: "Pod"
-        recheck:
-          failure: "La verificacion es pas estada executada."
-          success: "Lo pod ven d'èsser verificat tornamai."
-        response_time: "Temps de responsa :"
-        server_software: "Logicial del servidor :"
-        ssl: "SSL"
-        ssl_disabled: "SSL desactivada"
-        ssl_enabled: "SSL activada"
-        states:
-          dns_failed: "La resolucion del nom (DNS) a fracassat"
-          http_failed: "La connexion HTTP a fracassat"
-          net_failed: "La tempativa de connexion a fracassat"
-          no_errors: "D'acòrdi"
-          ssl_failed: "La connexion securizada (SSL) a fracassat"
-          unchecked: "Pas verificat"
-          unknown_error: "Una error desconeguda s'es produita pendent la verificacion"
-          version_failed: "Impossible de determinar la version del programa"
-        status: "Estat"
+        unknown: desconegut
+        not_available: pas disponible
         unchecked:
-          one: "Demòra un pod qu'es pas brica estat verificat."
-          other: "Demòra <%= count %> pods que son pas brica estat verificats."
-        unknown: "desconegut"
+          one: Demòra un pod qu'es pas brica estat verificat.
+          other: Demòra <%= count %> pods que son pas brica estat verificats.
         version_failed:
-          one: "I a un pod que sa version es desconeguda (un ancian pod, pas de NodeInfo)."
-          other: "I a <%= count %> pods que lor versions son desconegudas (d'ancians pods, pas de NodeInfo)."
-    admins:
-      dashboard:
-        compare_versions: "La darrièra version de diaspora* es <%= latestVersion %>, vòstre pod vira jos la version <%= podVersion %>."
-        error: "Impossible de determinar la darrièra version de diaspora*."
-        outdated: "Vòstre pod es pas a jorn."
-        up_to_date: "Vòstre pod es a jorn !"
-    and: "e"
+          one: I a un pod que sa version es desconeguda (un ancian pod, pas de NodeInfo).
+          other: I a <%= count %> pods que lor versions son desconegudas (d'ancians pods, pas de NodeInfo).
+        errors:
+          one: Lo tèst de connexion rapòrta una error per un pod.
+          other: Lo tèst de connexion rapòrta una error per <%= count %> pods.
+    aspects:
+      name: Nom
+      create:
+        add_a_new_aspect: Apondre un aspècte novèl
+        success: Vòstre novèl aspècte <%= name %> es estat creat
+        failure: La creacion de l'aspècte a fracassat.
+    errors:
+      connection: Impossible de se conectar al servidor.
+    contacts:
+      add_contact: Apondre aqueste contacte
+      remove_contact: Levar aqueste contacte
+      error_add: Impossible d'apondre <%= name %> a aquesta facieta :(
+      error_remove: Impossible de levar <%= name %> a aquesta facieta :(
+      search_no_results: Cap de contact pas trobat
+    my_activity: Mon activitat
+    my_stream: Flux
+    my_aspects: Mos aspèctes
+    publisher:
+      near_from: Postat a : <%= location %>
+      option: Responsa
+      add_option: Apondre una responsa
+      question: Question
+      markdown_editor:
+        preview: Apercebut
+        write: Escriure
+        tooltips:
+          bold: Gras
+          italic: Italica
+          heading: Títol
+          insert_link: Inserir un ligam
+          insert_image: Inserir un imatge
+          insert_ordered_list: Inserir una lista triada
+          insert_unordered_list: Inserir una lista de piuses
+          preview: Apercebut del messatge
+          write: Modificar lo messatge
+          cancel: Anullar lo messatge
+          quote: Inserir una citacion
+          code: Inserir un còdi
+        texts:
+          strong: Enfasi
+          italic: Tèxte en italica
+          heading: Entèsta
+          insert_link_description_text: Entrar la descripcion del ligam aicí
+          insert_link_help_text: Inserir un ligam aicí
+          insert_image_description_text: Entrar una descripcion per l'imatge aicí
+          insert_image_help_text: Inserir un ligam cap a un imatge aicí
+          insert_image_title: Entrar un intitulat aicí
+          list: tèxte de lista aicí
+          quote: tèxte de citacion aicí
+          code: còdi aicí
+      mention_success: Es ben estat mencionat : <%= names %>
+    bookmarklet:
+      post_something: Publicar sus diaspora*
+      post_submit: Messatge en cors de publicacion...
+      post_success: Publicat ! Tampadura de la fenèstra popup…
     aspect_dropdown:
-      add_to_aspect: "Apondre un contacte"
-      all_aspects: "Totes los aspèctes"
-      error: "Impossible de partejar amb <%= name %>. Ignoratz aquesta persona ?"
-      error_remove: "Pòt pas suprimir <%= name %> de l'aspècte :("
+      add_to_aspect: Apondre un contacte
+      select_aspects: Seleccionar los aspèctes
+      all_aspects: Totes los aspèctes
+      updating: mesa a jorn...
       mobile_row_checked: "<%= name %> (suprimir)"
       mobile_row_unchecked: "<%= name %> (apondre)"
-      select_aspects: "Seleccionar los aspèctes"
-      started_sharing_with: "Avètz començat de partejar amb <%= name %>."
-      stopped_sharing_with: "Avètz quitat de partejar amb <%= name %>."
+      stopped_sharing_with: Avètz quitat de partejar amb <%= name %>.
+      started_sharing_with: Avètz començat de partejar amb <%= name %>.
+      error: Impossible de partejar amb <%= name %>. Ignoratz aquesta persona ?
+      error_remove: Pòt pas suprimir <%= name %> de l'aspècte :(
       toggle:
-        one: "Dins <%= count %> aspècte"
-        other: "Dins <%= count %> aspèctes"
-        zero: "Dins <%= count %> aspècte"
-      updating: "mesa a jorn..."
-    aspect_navigation:
-      add_an_aspect: "+ Apondre un aspècte"
-      deselect_all: "O deseleccionar tot"
-      no_aspects: "Cap d'aspècte pas seleccionat"
-      select_all: "O seleccionar tot"
-    aspects:
-      create:
-        add_a_new_aspect: "Apondre un aspècte novèl"
-        failure: "La creacion de l'aspècte a fracassat."
-        success: "Vòstre novèl aspècte <%= name %> es estat creat"
-      name: "Nom"
-    bookmarklet:
-      post_something: "Publicar sus diaspora*"
-      post_submit: "Messatge en cors de publicacion..."
-      post_success: "Publicat ! Tampadura de la fenèstra popup…"
-    cancel: "Anullar"
-    comma: ","
+        zero: Dins <%= count %> aspècte
+        one: Dins <%= count %> aspècte
+        other: Dins <%= count %> aspèctes
+    show_more: N'afichar mai
+    failed_to_post_message: Impossible de partejar lo messatge !
+    failed_to_remove: L'entrada a pas pogut èsser suprimida
     comments:
-      hide: "Amagar los comentaris"
-      no_comments: "I a pas encara cap de comentari."
-      show: "Afichar totes los comentaris"
-    confirm_dialog: "Sètz segur ?"
-    confirm_unload: "Mercé de confirmar que volètz quitar aquesta pagina — las donadas sasidas seràn pas salvadas."
-    contacts:
-      add_contact: "Apondre aqueste contacte"
-      error_add: "Impossible d'apondre <%= name %> a aquesta facieta :("
-      error_remove: "Impossible de levar <%= name %> a aquesta facieta :("
-      remove_contact: "Levar aqueste contacte"
-      search_no_results: "Cap de contact pas trobat"
+      show: Afichar totes los comentaris
+      hide: Amagar los comentaris
+      no_comments: I a pas encara cap de comentari.
+    reshares:
+      successful: Lo messatge es estat repartejat !
+      post: Tornar partejar lo messatge de <%= name %> ?
+    aspect_navigation:
+      select_all: O seleccionar tot
+      deselect_all: O deseleccionar tot
+      no_aspects: Cap d'aspècte pas seleccionat
+      add_an_aspect: "+ Apondre un aspècte"
+    getting_started:
+      hey: Adiu, <%= name %>
+      no_tags: È, seguissètz pas cap d’etiquetas ! Contunhar malgrat tot ?
+      alright_ill_wait: Bon, vau esperar.
+      preparing_your_stream: Preparacion de vòstre flux personalizat...
+    photo_uploader:
+      upload_photos: Mandar de fotografias
+      looking_good: Impressionant, avètz un super estil !
+      completed: "<%= file %> completat"
+      error: Un problèma s'es produit pendent lo mandadís del fichièr <%= file %>
+      invalid_ext: "{file} a una extension invalida, Solas {extensions} son permesas."
+      size_error: "{file} es tròp gròs, la talha maximala es de {sizeLimit}."
+      empty: "{file} es void, mercé de seleccionar d'autres fichièrs."
+    tags:
+      wasnt_that_interesting: 'D''acòrdi, supausi que #<%= tagName %> es pas la sola causa que vos interèssa...'
+    people:
+      not_found: E degun es pas estat trobat...
+      mention: Mencion
+      message: Messatge
+      edit_my_profile: Modificar mon perfil
+      stop_ignoring: Ignorar pas mai
+      helper:
+        is_sharing: "<%= name %> parteja amb vos"
+        is_not_sharing: "<%= name %> parteja pas amb vos"
+    profile:
+      edit: Modificar
+      add_some: N'apondre
+      you_have_no_tags: Avètz pas d'etiquetas !
+      bio: Biografia
+      location: Localizacion
+      gender: Sèxe
+      born: Anniversari
+      photos: Fòtos
+      posts: Publicacions
     conversation:
       create:
-        no_recipient: "Ei, vos cal apondre un destinari d'en primièr !"
+        no_recipient: Ei, vos cal apondre un destinari d'en primièr !
       new:
-        no_contacts: "Vos cal apondre de contactes abans de poder aviar una conversacion."
-    create: "Crear"
-    delete: "Suprimir"
-    edit: "Editar"
-    errors:
-      connection: "Impossible de se conectar al servidor."
-    failed_to_post_message: "Impossible de partejar lo messatge !"
-    failed_to_remove: "L'entrada a pas pogut èsser suprimida"
-    getting_started:
-      alright_ill_wait: "Bon, vau esperar."
-      hey: "Adiu, <%= name %>"
-      no_tags: "È, seguissètz pas cap d’etiquetas ! Contunhar malgrat tot ?"
-      preparing_your_stream: "Preparacion de vòstre flux personalizat..."
-    header:
-      admin: "Administracion"
-      close: "Tampar"
-      contacts: "Contactes"
-      conversations: "Discussions"
-      help: "Ajuda"
-      home: "Acuèlh"
-      log_out: "Desconnexion"
-      mark_all_as_read: "O marcar tot coma legit"
-      moderator: "Moderator"
-      notifications: "Notificacions"
-      profile: "Perfil"
-      recent_notifications: "Administracion"
-      search: "Recercar"
-      settings: "Paramètres"
-      switch_to_touch_optimized_mode: "Passar al mòde optimizat pel tactil"
-      toggle_navigation: "Afichar/amagar lo menú"
-      view_all: "O veire tot"
-    hide_post: "Amagar aquesta publicacion ?"
-    hide_post_failed: "Impossible d'amagar aqueste messatge"
-    ignore: "Ignorar"
-    ignore_failed: "Impossible d'ignorar aqueste utilizaire"
-    ignore_user: "Ignorar aqueste utilizaire ?"
-    my_activity: "Mon activitat"
-    my_aspects: "Mos aspèctes"
-    my_stream: "Flux"
-    no_results: "Pas cap de resultat"
+        no_contacts: Vos cal apondre de contactes abans de poder aviar una conversacion.
     notifications:
-      mark_read: "Marcar coma legit"
-      mark_unread: "Marcar coma pas legit"
+      mark_read: Marcar coma legit
+      mark_unread: Marcar coma pas legit
       new_notifications:
-        one: "Avètz <%= count %> notificacion pas legida"
-        other: "Avètz <%= count %> notificacions pas legidas"
-        zero: "Avètz pas cap de notificacion pas legida"
-    people:
-      edit_my_profile: "Modificar mon perfil"
-      helper:
-        is_not_sharing: "<%= name %> parteja pas amb vos"
-        is_sharing: "<%= name %> parteja amb vos"
-      mention: "Mencion"
-      message: "Messatge"
-      not_found: "E degun es pas estat trobat..."
-      stop_ignoring: "Ignorar pas mai"
-    photo_uploader:
-      completed: "<%= file %> completat"
-      empty: "{file} es void, mercé de seleccionar d'autres fichièrs."
-      error: "Un problèma s'es produit pendent lo mandadís del fichièr <%= file %>"
-      invalid_ext: "{file} a una extension invalida, Solas {extensions} son permesas."
-      looking_good: "Impressionant, avètz un super estil !"
-      size_error: "{file} es tròp gròs, la talha maximala es de {sizeLimit}."
-      upload_photos: "Mandar de fotografias"
-    poll:
-      answer_count:
-        one: "1 vòte"
-        other: "<%=count%> vòtes"
-        zero: "0 vòte"
-      close_result: "Amagar lo resultat"
-      count:
-        one: "<%=count%> vòte pel moment"
-        other: "<%=count%> vòtes pel moment"
-        zero: "Pas cap de vòte pel moment"
-      go_to_original_post: "Podètz participar a aqueste sondatge sul <%= original_post_link %>."
-      original_post: "messatge inicial"
-      result: "Resultat"
-      show_result: "Afichar lo resultat"
-      vote: "Vòte"
-      your_vote: "Vòstra votacion"
-    profile:
-      add_some: "N'apondre"
-      bio: "Biografia"
-      born: "Anniversari"
-      edit: "Modificar"
-      gender: "Sèxe"
-      location: "Localizacion"
-      photos: "Fòtos"
-      posts: "Publicacions"
-      you_have_no_tags: "Avètz pas d'etiquetas !"
-    publisher:
-      add_option: "Apondre una responsa"
-      markdown_editor:
-        preview: "Apercebut"
-        texts:
-          code: "còdi aicí"
-          heading: "Entèsta"
-          insert_image_description_text: "Entrar una descripcion per l'imatge aicí"
-          insert_image_help_text: "Inserir un ligam cap a un imatge aicí"
-          insert_image_title: "Entrar un intitulat aicí"
-          insert_link_description_text: "Entrar la descripcion del ligam aicí"
-          insert_link_help_text: "Inserir un ligam aicí"
-          italic: "Tèxte en italica"
-          list: "tèxte de lista aicí"
-          quote: "tèxte de citacion aicí"
-          strong: "Enfasi"
-        tooltips:
-          bold: "Gras"
-          cancel: "Anullar lo messatge"
-          code: "Inserir un còdi"
-          heading: "Títol"
-          insert_image: "Inserir un imatge"
-          insert_link: "Inserir un ligam"
-          insert_ordered_list: "Inserir una lista triada"
-          insert_unordered_list: "Inserir una lista de piuses"
-          italic: "Italica"
-          preview: "Apercebut del messatge"
-          quote: "Inserir una citacion"
-          write: "Modificar lo messatge"
-        write: "Escriure"
-      mention_success: "Es ben estat mencionat : <%= names %>"
-      near_from: "Postat a : <%= location %>"
-      option: "Responsa"
-      question: "Question"
-    remove_post: "Suprimir aqueste messatge ?"
-    report:
-      name: "Senhalar"
-      prompt: "Mercé de sasir un motiu :"
-      prompt_default: "Contengut ofensant"
-      status:
-        created: "Lo senhalament es estat creat amb succès."
-        exists: "Lo senhalament existís ja"
-    reshares:
-      post: "Tornar partejar lo messatge de <%= name %> ?"
-      successful: "Lo messatge es estat repartejat !"
-    show_all: "O mostrar tot"
-    show_more: "N'afichar mai"
+        zero: Avètz pas cap de notificacion pas legida
+        one: Avètz <%= count %> notificacion pas legida
+        other: Avètz <%= count %> notificacions pas legidas
     stream:
-      comment: "Comentar"
-      comments:
-        one: "<%= count %> comentari"
-        other: "<%= count %> comentaris"
-        zero: "Pas cap de comentari"
-      disable_post_notifications: "Desactivar las notificacions per aqueste messatge"
-      enable_post_notifications: "Activar las notificacions per aqueste messatge"
-      follow: "Seguir"
-      followed_tag:
-        add_a_tag: "Apondre una etiqueta"
-        follow: "Seguir"
-        title: "#etiquetas seguidas"
-      hide: "Amagar"
-      hide_nsfw_posts: "Amagar los messatges #nsfw"
-      like: "M'agrada"
+      hide: Amagar
+      public: Public
+      limited: Limitat
+      like: M'agrada
+      unlike: M'agrada pas mai
+      reshare: Tornar partejar
+      comment: Comentar
+      original_post_deleted: Lo messatge original es estat escafat per son autor.
+      show_nsfw_post: Mostrar lo messatge
+      show_nsfw_posts: O mostrar tot
+      hide_nsfw_posts: 'Amagar los messatges #nsfw'
+      follow: Seguir
+      unfollow: Seguir pas mai
+      enable_post_notifications: Activar las notificacions per aqueste messatge
+      disable_post_notifications: Desactivar las notificacions per aqueste messatge
+      permalink: Permaligam
+      via: via <%= provider %>
+      no_posts_yet: I a pas cap de messatge a afichar pel moment.
       likes:
-        one: "agrada a <%= count %> persona"
-        other: "agrada a <%= count %> personas"
-        zero: "agrada a <%= count %> persona"
-      limited: "Limitat"
-      more_comments:
-        one: "Afichar <%= count %> comentari suplementari"
-        other: "Afichar <%= count %> comentaris suplementaris"
-        zero: "Afichar <%= count %> comentari suplementari"
-      no_posts_yet: "I a pas cap de messatge a afichar pel moment."
-      original_post_deleted: "Lo messatge original es estat escafat per son autor."
-      permalink: "Permaligam"
-      public: "Public"
-      reshare: "Tornar partejar"
+        zero: agrada a <%= count %> persona
+        one: agrada a <%= count %> persona
+        other: agrada a <%= count %> personas
       reshares:
+        zero: "<%= count %> repartiment"
         one: "<%= count %> repartiment"
         other: "<%= count %> repartiments"
-        zero: "<%= count %> repartiment"
-      show_nsfw_post: "Mostrar lo messatge"
-      show_nsfw_posts: "O mostrar tot"
+      comments:
+        zero: Pas cap de comentari
+        one: "<%= count %> comentari"
+        other: "<%= count %> comentaris"
+      more_comments:
+        zero: Afichar <%= count %> comentari suplementari
+        one: Afichar <%= count %> comentari suplementari
+        other: Afichar <%= count %> comentaris suplementaris
+      followed_tag:
+        title: "#etiquetas seguidas"
+        add_a_tag: Apondre una etiqueta
+        follow: Seguir
       tags:
-        follow: "Seguir #<%= tag %>"
-        follow_error: "Impossible de seguir #<%= tag %> :("
-        following: "Seguiment de #<%= tag %>"
-        stop_following: "Quitar de seguir #<%= tag %>"
-        stop_following_confirm: "Quitar de seguir #<%= tag %> ?"
-        stop_following_error: "Impossible de quitar de seguir #<%= tag %> :("
-      unfollow: "Seguir pas mai"
-      unlike: "M'agrada pas mai"
-      via: "via <%= provider %>"
-    tags:
-      wasnt_that_interesting: "D'acòrdi, supausi que #<%= tagName %> es pas la sola causa que vos interèssa..."
-    timeago:
-      day: "un jorn"
-      days:
-        one: "un jorn"
-        other: "%d jorns"
-      hour: "environ una ora"
-      hours:
-        one: "environ una ora"
-        other: "environ %d oras"
-      inPast: "lèu lèu"
-      minute: "environ una minuta"
-      minutes:
-        one: "una minuta"
-        other: "%d minutas"
-      month: "environ un mes"
-      months:
-        one: "un mes"
-        other: "%d meses"
-      prefixAgo: "fa"
-      prefixFromNow: "d'aicí"
-      seconds: "mens d'una minuta"
-      suffixAgo: ""
-      suffixFromNow: "ara"
-      wordSeparator: " "
-      year: "environ un an"
-      years:
-        one: "un an"
-        other: "%d ans"
-    unblock_failed: "Impossible de desblocar aqueste utilizaire"
+        follow: 'Seguir #<%= tag %>'
+        following: 'Seguiment de #<%= tag %>'
+        stop_following: 'Quitar de seguir #<%= tag %>'
+        stop_following_confirm: 'Quitar de seguir #<%= tag %> ?'
+        follow_error: 'Impossible de seguir #<%= tag %> :('
+        stop_following_error: 'Impossible de quitar de seguir #<%= tag %> :('
+    header:
+      home: Acuèlh
+      profile: Perfil
+      contacts: Contactes
+      settings: Paramètres
+      help: Ajuda
+      admin: Administracion
+      moderator: Moderator
+      log_out: Desconnexion
+      toggle_navigation: Afichar/amagar lo menú
+      switch_to_touch_optimized_mode: Passar al mòde optimizat pel tactil
+      notifications: Notificacions
+      conversations: Discussions
+      search: Recercar
+      recent_notifications: Administracion
+      mark_all_as_read: O marcar tot coma legit
+      view_all: O veire tot
+      close: Tampar
     viewer:
-      reshared: "Repartejat"
+      reshared: Repartejat
+    poll:
+      vote: Vòte
+      go_to_original_post: Podètz participar a aqueste sondatge sul <%= original_post_link %>.
+      original_post: messatge inicial
+      result: Resultat
+      count:
+        zero: Pas cap de vòte pel moment
+        one: "<%=count%> vòte pel moment"
+        other: "<%=count%> vòtes pel moment"
+      answer_count:
+        zero: 0 vòte
+        one: 1 vòte
+        other: "<%=count%> vòtes"
+      show_result: Afichar lo resultat
+      close_result: Amagar lo resultat
+      your_vote: Vòstra votacion

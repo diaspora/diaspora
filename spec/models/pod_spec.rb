@@ -16,26 +16,36 @@ describe Pod, type: :model do
     it "ignores default ports" do
       pod = Pod.find_or_create_by(url: "https://example.org:443/")
       expect(pod.host).to eq("example.org")
-      expect(pod.port).to be_nil
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
     end
 
     it "sets ssl boolean" do
       pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
     end
 
     it "updates ssl boolean if upgraded to https" do
       pod = Pod.find_or_create_by(url: "http://example.org/")
       expect(pod.ssl).to be false
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
       pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
     end
 
     it "does not update ssl boolean if downgraded to http" do
       pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
       pod = Pod.find_or_create_by(url: "http://example.org/")
       expect(pod.ssl).to be true
+      expect(pod.port).to eq(Pod::DEFAULT_PORT)
+    end
+
+    it "normalizes hostname to lowercase" do
+      pod = Pod.find_or_create_by(url: "https://eXaMpLe.oRg/")
+      expect(pod.host).to eq("example.org")
     end
 
     context "validation" do
@@ -84,8 +94,8 @@ describe Pod, type: :model do
 
   describe ".check_scheduled!" do
     it "calls #test_connection! on all scheduled pods" do
-      (0..4).map { FactoryGirl.create(:pod) }
-      FactoryGirl.create(:pod, scheduled_check: true)
+      (0..4).map { FactoryBot.create(:pod) }
+      FactoryBot.create(:pod, scheduled_check: true)
 
       expect_any_instance_of(Pod).to receive(:test_connection!)
       Pod.check_scheduled!
@@ -94,47 +104,47 @@ describe Pod, type: :model do
 
   describe "#active?" do
     it "returns true for an unchecked pod" do
-      pod = FactoryGirl.create(:pod)
+      pod = FactoryBot.create(:pod)
       expect(pod.active?).to be_truthy
     end
 
     it "returns true for an online pod" do
-      pod = FactoryGirl.create(:pod, status: :no_errors)
+      pod = FactoryBot.create(:pod, status: :no_errors)
       expect(pod.reload.active?).to be_truthy
     end
 
     it "returns true for a pod that is offline for less than 14 days" do
-      pod = FactoryGirl.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 13.days)
+      pod = FactoryBot.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 13.days)
       expect(pod.active?).to be_truthy
     end
 
     it "returns false for a pod that is offline for less than 14 days" do
-      pod = FactoryGirl.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
+      pod = FactoryBot.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
       expect(pod.active?).to be_falsey
     end
   end
 
   describe "#schedule_check_if_needed" do
     it "schedules the pod for the next check if it is offline" do
-      pod = FactoryGirl.create(:pod, status: :net_failed)
+      pod = FactoryBot.create(:pod, status: :net_failed)
       pod.schedule_check_if_needed
       expect(pod.scheduled_check).to be_truthy
     end
 
     it "does nothing if the pod unchecked" do
-      pod = FactoryGirl.create(:pod)
+      pod = FactoryBot.create(:pod)
       pod.schedule_check_if_needed
       expect(pod.scheduled_check).to be_falsey
     end
 
     it "does nothing if the pod is online" do
-      pod = FactoryGirl.create(:pod, status: :no_errors)
+      pod = FactoryBot.create(:pod, status: :no_errors)
       pod.schedule_check_if_needed
       expect(pod.scheduled_check).to be_falsey
     end
 
     it "does nothing if the pod is scheduled for the next check" do
-      pod = FactoryGirl.create(:pod, status: :no_errors, scheduled_check: true)
+      pod = FactoryBot.create(:pod, status: :no_errors, scheduled_check: true)
       expect(pod).not_to receive(:update_column)
       pod.schedule_check_if_needed
     end
@@ -142,7 +152,7 @@ describe Pod, type: :model do
 
   describe "#test_connection!" do
     before do
-      @pod = FactoryGirl.create(:pod)
+      @pod = FactoryBot.create(:pod)
       @now = Time.zone.now
 
       @result = ConnectionTester::Result.new
@@ -202,13 +212,18 @@ describe Pod, type: :model do
 
   describe "#url_to" do
     it "appends the path to the pod-url" do
-      pod = FactoryGirl.create(:pod)
+      pod = FactoryBot.create(:pod)
       expect(pod.url_to("/receive/public")).to eq("https://#{pod.host}/receive/public")
+    end
+
+    it "includes non-default port in pod url" do
+      pod = FactoryBot.create(:pod, port: 3000)
+      expect(pod.url_to("/receive/public")).to eq("https://#{pod.host}:#{pod.port}/receive/public")
     end
   end
 
   describe "#update_offline_since" do
-    let(:pod) { FactoryGirl.create(:pod) }
+    let(:pod) { FactoryBot.create(:pod) }
 
     it "handles a successful status" do
       pod.status = :no_errors

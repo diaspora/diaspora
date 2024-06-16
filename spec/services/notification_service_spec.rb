@@ -4,13 +4,13 @@ describe NotificationService do
   describe "notification interrelation" do
     context "with mention in comment" do
       let(:status_message) {
-        FactoryGirl.create(:status_message, public: true, author: alice.person).tap {|status_message|
+        FactoryBot.create(:status_message, public: true, author: alice.person).tap {|status_message|
           eve.comment!(status_message, "whatever")
         }
       }
 
       let(:comment) {
-        FactoryGirl.create(
+        FactoryBot.create(
           :comment,
           author: bob.person,
           text:   text_mentioning(alice, eve),
@@ -70,6 +70,63 @@ describe NotificationService do
 
           NotificationService.new.notify(comment, [])
         end
+      end
+    end
+  end
+
+  describe "query methods" do
+    before do
+      @post = alice.post(
+        :status_message,
+        text:   "This is a status message",
+        public: true,
+        to:     "all"
+      )
+      @notification = FactoryBot.create(:notification, recipient: alice, target: @post)
+      @service = NotificationService.new(alice)
+    end
+
+    describe "#index" do
+      it "gets all" do
+        notifications = @service.index
+        expect(notifications.length).to eq(1)
+      end
+
+      it "gets unread only" do
+        notifications = @service.index(true)
+        expect(notifications.length).to eq(1)
+        @notification.set_read_state(true)
+        notifications = @service.index(true)
+        expect(notifications.length).to eq(0)
+      end
+
+      it "gets only after" do
+        notifications = @service.index(nil, (Time.current - 1.day))
+        expect(notifications.length).to eq(1)
+        @notification.set_read_state(true)
+        notifications = @service.index(nil, (Time.current + 1.day))
+        expect(notifications.length).to eq(0)
+      end
+
+      it "combined filtering" do
+        notifications = @service.index(true, (Time.current - 1.day))
+        expect(notifications.length).to eq(1)
+      end
+    end
+
+    describe "#show" do
+      it "succeeds with valid GUID" do
+        notification = @service.get_by_guid(@notification.guid)
+        expect(notification).not_to be_nil
+      end
+    end
+
+    describe "#update" do
+      it "succeeds with valid GUID" do
+        expect(@service.update_status_by_guid(@notification.guid, true)).to be_truthy
+        expect(@notification.reload.unread).to eq(false)
+        expect(@service.update_status_by_guid(@notification.guid, false)).to be_truthy
+        expect(@notification.reload.unread).to eq(true)
       end
     end
   end

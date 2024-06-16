@@ -12,8 +12,6 @@ en:
     delete: "Delete"
     ignore: "Ignore"
     report:
-      prompt: "Please enter a reason:"
-      prompt_default: "e.g. offensive content"
       name: "Report"
       status:
         created: "The report has successfully been created"
@@ -70,9 +68,17 @@ en:
           other: "<%= count %>ms"
         unknown: "unknown"
         not_available: "not available"
+        total:
+          one: "There is only one known pod."
+          other: "There are <%= count %> known pods in total."
         unchecked:
           one: "There is still one pod that hasn't been checked at all."
           other: "There are still <%= count %> pods that haven't been checked at all."
+        active:
+          one: "One pod was active recently."
+          other: "<%= count %> pods were active recently."
+        none_active: "None of them were active recently."
+        all_active: "All of them were active recently."
         version_failed:
           one: "There is one pod that has no version (old pod, no NodeInfo)."
           other: "There are <%= count %> pods that have no version (old pods, no NodeInfo)."
@@ -121,8 +127,6 @@ en:
 
     contacts:
       add_contact: "Add contact"
-      aspect_chat_is_enabled: "Contacts in this aspect are able to chat with you."
-      aspect_chat_is_not_enabled: "Contacts in this aspect are not able to chat with you."
       remove_contact: "Remove contact"
       error_add: "Couldn’t add <%= name %> to the aspect :("
       error_remove: "Couldn’t remove <%= name %> from the aspect :("

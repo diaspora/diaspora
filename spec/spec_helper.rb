@@ -10,7 +10,6 @@ require File.join(File.dirname(__FILE__), "..", "config", "environment")
 require Rails.root.join("spec", "helper_methods")
 require "rspec/rails"
 require "webmock/rspec"
-require "factory_girl"
 require "sidekiq/testing"
 require "shoulda/matchers"
 require "diaspora_federation/schemas"
@@ -105,6 +104,10 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = :en
     stub_request(:post, "https://pubsubhubbub.appspot.com/")
+    stub_request(
+      :get,
+      "https://example.com/.well-known/webfinger?resource=acct:bob@example.com"
+    )
     $process_queue = false
   end
 
@@ -131,7 +134,7 @@ RSpec.configure do |config|
     RequestStore.store[:gon].gon.clear unless RequestStore.store[:gon].nil?
   end
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   JSON::Validator.add_schema(
     JSON::Schema.new(

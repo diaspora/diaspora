@@ -5,133 +5,133 @@
 
 
 ga:
-  _applications: "Feidhmchláir"
-  _contacts: "Teagmhálacha"
-  _services: "Seirbhísí"
-  account: "Cuntas"
+  settings: Sainroghanna
+  profile: Próifíl
+  account: Cuntas
+  privacy: Príobháideachas
+  _services: Seirbhísí
+  _applications: Feidhmchláir
+  ok: OK
+  cancel: Cealaigh
+  delete: Scrios
+  username: Ainm úsáideora
+  email: Ríomhphoist
+  are_you_sure: An bhfuil tú cinnte?
+  are_you_sure_delete_account: An bhfuil tú cinnte go dteastaíonn uait do chuntas a dhúnadh? Ní féidir é seo a chealaigh!
+  fill_me_out: Líon amach
+  public: Poiblí
+  limited: Teoranta
+  search: Cuardaigh
+  nsfw: NSFW
+  more: Níos mó
+  all_aspects: Gach gnéithe
+  no_results: Níl Torthaí Aimsithe
+  _contacts: Teagmhálacha
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            person:
+              invalid: neamhbhailí.
+            username:
+              taken: glacadh cheana.
+              invalid: neamhbhailí. Tá ach litreacha, uimhreacha agus béim ceadaithe.
+            email:
+              taken: glacadh cheana.
         person:
           attributes:
             diaspora_handle:
-              taken: "glacadh cheana."
-        user:
-          attributes:
-            email:
-              taken: "glacadh cheana."
-            person:
-              invalid: "neamhbhailí."
-            username:
-              invalid: "neamhbhailí. Tá ach litreacha, uimhreacha agus béim ceadaithe."
-              taken: "glacadh cheana."
-  all_aspects: "Gach gnéithe"
-  are_you_sure: "An bhfuil tú cinnte?"
-  are_you_sure_delete_account: "An bhfuil tú cinnte go dteastaíonn uait do chuntas a dhúnadh? Ní féidir é seo a chealaigh!"
+              taken: glacadh cheana.
   aspects:
     edit:
-      rename: "athainmnigh"
-      update: "uasdátaigh"
-      updating: "nuashonrú"
-    index:
-      help:
-        need_help: "Cabhair?"
-        tag_bug: "fabht"
-        tag_feature: "gné"
-      new_here:
-        learn_more: "Breis eolais"
+      rename: athainmnigh
+      update: uasdátaigh
+      updating: nuashonrú
     seed:
-      family: "Gaolmhara"
-      friends: "Cháirde"
-      work: "Obair"
-  cancel: "Cealaigh"
+      family: Gaolmhara
+      work: Obair
+      friends: Cháirde
+    index:
+      new_here:
+        learn_more: Breis eolais
+      help:
+        need_help: Cabhair?
+        tag_bug: fabht
+        tag_feature: gné
   contacts:
     index:
-      all_contacts: "Gach Teagmhálacha"
-      community_spotlight: "Spotsolas Pobail"
-      my_contacts: "Mo Theagmhálacha"
-      title: "Teagmhálacha"
+      title: Teagmhálacha
+      community_spotlight: Spotsolas Pobail
+      my_contacts: Mo Theagmhálacha
+      all_contacts: Gach Teagmhálacha
     spotlight:
-      community_spotlight: "Spotsolas Pobail"
+      community_spotlight: Spotsolas Pobail
   conversations:
     index:
-      inbox: "post isteach"
-    new:
-      send: "Seol"
-      subject: "ábhar"
-      to: "le"
+      inbox: post isteach
     show:
-      reply: "freagair"
-  delete: "Scrios"
-  email: "Ríomhphoist"
-  fill_me_out: "Líon amach"
+      reply: freagair
+    new:
+      to: le
+      subject: ábhar
+      send: Seol
   invitations:
     new:
-      language: "Teanga"
+      language: Teanga
   layouts:
-    application:
-      back_to_top: "Barr"
     header:
-      code: "cód"
-      logout: "Logáil amach"
-      settings: "Sainroghanna"
-  limited: "Teoranta"
-  more: "Níos mó"
-  no_results: "Níl Torthaí Aimsithe"
+      settings: Sainroghanna
+      logout: Logáil amach
+      code: cód
+    application:
+      back_to_top: Barr
   notifications:
     index:
-      and: "agus"
+      notifications: Fógraí
       and_others:
-        one: "agus ceann eile"
-        other: "%{count} gcinn"
+        zero: agus gan ceann eile
+        one: agus ceann eile
         two: "%{count} chinn"
-        zero: "agus gan ceann eile"
-      notifications: "Fógraí"
+        other: "%{count} gcinn"
+      and: agus
   notifier:
-    hello: "Haileo %{name}!"
-    liked:
-      view_post: "Féach ar post >"
-    reshared:
-      view_post: "Féach ar post >"
+    hello: Haileo %{name}!
+    thanks: Maith agat,
     single_admin:
-      admin: "Do riarthóir Diaspóra"
+      admin: Do riarthóir Diaspóra
     started_sharing:
-      view_profile: "Féach ar próifíl %{name}"
-    thanks: "Maith agat,"
-  nsfw: "NSFW"
-  ok: "OK"
+      view_profile: Féach ar próifíl %{name}
+    liked:
+      view_post: Féach ar post >
+    reshared:
+      view_post: Féach ar post >
   people:
     person:
-      thats_you: "Is leatsa!"
+      thats_you: Is leatsa!
     profile_sidebar:
-      born: "Breithlá"
-      gender: "Inscne"
-      location: "Suíomh"
+      location: Suíomh
+      gender: Inscne
+      born: Breithlá
   photos:
     destroy:
-      notice: "Griangraf scriosta."
-  privacy: "Príobháideachas"
-  profile: "Próifíl"
+      notice: Griangraf scriosta.
   profiles:
     edit:
-      first_name: "Ainm baiste"
-      last_name: "Sloinne"
-      your_birthday: "Do bhreithlá"
-      your_gender: "D'inscne"
-      your_name: "D'ainm"
-      your_photo: "Do ghriangraf"
-  public: "Poiblí"
+      your_name: D'ainm
+      first_name: Ainm baiste
+      last_name: Sloinne
+      your_gender: D'inscne
+      your_birthday: Do bhreithlá
+      your_photo: Do ghriangraf
   registrations:
     new:
-      email: "RÍOMHPHOIST"
-      enter_email: "Seoladh ríomhphoist"
-      password: "PASFHOCAL"
-      password_confirmation: "PASFHOCAL DAINGNITHE"
-      sign_up: "CLÁRÚCHÁN"
-      username: "AINM ÚSAIDEOIR"
-  search: "Cuardaigh"
-  settings: "Sainroghanna"
-  username: "Ainm úsáideora"
+      enter_email: Seoladh ríomhphoist
+      sign_up: CLÁRÚCHÁN
+      email: RÍOMHPHOIST
+      username: AINM ÚSAIDEOIR
+      password: PASFHOCAL
+      password_confirmation: PASFHOCAL DAINGNITHE
   users:
     edit:
-      your_email: "Do ríomhphoist"
+      your_email: Do ríomhphoist

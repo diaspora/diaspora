@@ -21,6 +21,10 @@
 
 @import 'typography';
 
+// New design, can be used adding the .modern-design class to a <div> around the page which is ported
+@import 'modern-design';
+@import 'registration';
+
 a {
   color: #2489ce;
   text-decoration: none;
@@ -516,9 +520,13 @@ h3.ltr {
   font-style: inherit;
   font-weight: inherit;
   margin: 0;
-  padding: 15px 15px;
+  padding: 12px;
   vertical-align: baseline;
   word-wrap: break-word;
+
+  p:last-child {
+    margin: 0;
+  }
 }
 
 form#new_conversation.new_conversation {
@@ -632,6 +640,12 @@ h1.session {
       }
     }
   }
+
+  .spinner {
+    height: 50px;
+    margin-top: 10px;
+    width: 50px;
+  }
 }
 
 #birth-date {
@@ -652,40 +666,44 @@ form#update_profile_form {
   .submit_block { margin-bottom: 20px; }
 }
 
-select#user_language, select#user_color_theme, #user_auto_follow_back_aspect_id, #aspect_ids_ {
-  padding: 3px;
-}
-
 .hero-unit-mobile {
-  padding: 10px;
-  font-size: 14px;
-  line-height: 18px;
-  color: inherit;
   background-color: $background-grey;
   border-radius: 10px;
+  color: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 10px;
 }
 
 .search-mobile {
-  text-align: center;
   padding-top: 30px;
+  text-align: center;
 }
 
 input#q.search {
   margin-bottom: 20px;
 }
 
-select#aspect_ids_ {
-  width: auto !important;
-  float: right;
-  margin: 0px;
+.aspect-dropdown {
+  li {
+    @include selectable-list;
+    @include aspect-dropdown-link(128%);
+
+    .status-indicator {
+      display: inline-block;
+      height: 14px;
+      width: 19px;
+    }
+  }
 }
 
 #file-upload-spinner {
-  top: 0px;
+  top: 0;
 }
 
-#publisher_mobile {
+#publisher-mobile {
   float: right;
+  margin-left: 5px;
 }
 
 #file-upload-publisher {

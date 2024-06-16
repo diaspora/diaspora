@@ -7,61 +7,61 @@
 cy:
   devise:
     confirmations:
-      confirmed: "Cadarnhawyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+      confirmed: Cadarnhawyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn.
+      send_instructions: Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau.
       new:
-        resend_confirmation: "Anfon eto cyfarwyddiadau am sut i gadarnhau eich cyfrif"
-      send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
+        resend_confirmation: Anfon eto cyfarwyddiadau am sut i gadarnhau eich cyfrif
     failure:
-      inactive: "Nid yw eich cyfrif wedi'i actifadu."
-      invalid: "E-bost neu gyfrinair annilys."
-      invalid_token: "Tocyn dilysu annilys."
-      locked: "Mae eich cyfrif wedi'i gloi."
-      timeout: "Mae eich sesiwn wedi dod i ben, arwyddwch i mewn eto i barhau."
-      unauthenticated: "Mae angen i chi arwyddo i mewn neu ymuno cyn parhau."
-      unconfirmed: "Rhaid i chi gadarnhau eich cyfrif cyn parhau."
-    invitations:
-      invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Mae eich gwahoddiad wedi cael ei anfon."
+      inactive: Nid yw eich cyfrif wedi'i actifadu.
+      invalid: E-bost neu gyfrinair annilys.
+      locked: Mae eich cyfrif wedi'i gloi.
+      timeout: Mae eich sesiwn wedi dod i ben, arwyddwch i mewn eto i barhau.
+      unauthenticated: Mae angen i chi arwyddo i mewn neu ymuno cyn parhau.
+      unconfirmed: Rhaid i chi gadarnhau eich cyfrif cyn parhau.
+      invalid_token: Tocyn dilysu annilys.
     mailer:
       confirmation_instructions:
-        subject: "Cyfarwyddiadau Cadarnhad"
-      hello: "Helo %{username}!"
+        subject: Cyfarwyddiadau Cadarnhad
       reset_password_instructions:
-        change: "Newid y cyfrinair"
+        change: Newid y cyfrinair
       unlock_instructions:
-        subject: "Cyfarwyddiadau i ddatgloi"
-        unlock: "Datgloi fy nghyfrif"
-      welcome: "Croeso %{username}!"
+        subject: Cyfarwyddiadau i ddatgloi
+        unlock: Datgloi fy nghyfrif
+      welcome: Croeso %{username}!
+      hello: Helo %{username}!
     passwords:
+      send_instructions: Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau.
+      updated: Newidiwyd eich cyfrinair yn llwyddiannus. Rydych chi wedi arwyddo i fewn.
       edit:
-        change_password: "Newid fy nghyfrinair"
+        change_password: Newid fy nghyfrinair
       new:
-        forgot_password: "Wedi anghofio eich cyfrinair?"
-      send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
-      updated: "Newidiwyd eich cyfrinair yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+        forgot_password: Wedi anghofio eich cyfrinair?
     registrations:
-      destroyed: "Hwyl fawr! Canslwyd eich cyfrif yn llwyddiannus. Rydym yn gobeithio gweld chi eto yn fuan."
-      signed_up: "Rydych chi wedi arwyddo i fyny yn llwyddiannus. Anfonwyd cadarnhad at eich e-bost os yw wedi'i alluogi."
-      updated: "Diweddarwyd eich cyfrif yn llwyddiannus."
+      destroyed: Hwyl fawr! Canslwyd eich cyfrif yn llwyddiannus. Rydym yn gobeithio gweld chi eto yn fuan.
+      signed_up: Rydych chi wedi arwyddo i fyny yn llwyddiannus. Anfonwyd cadarnhad at eich e-bost os yw wedi'i alluogi.
+      updated: Diweddarwyd eich cyfrif yn llwyddiannus.
     sessions:
+      signed_in: Arwyddwyd i fewn yn llwyddiannus.
+      signed_out: Arwyddwyd allan yn llwyddiannus.
       new:
-        login: "Mewngofnodi"
-        password: "Cyfrinair"
-        remember_me: "Cofiwch mi"
-        sign_in: "Mewngofnodi"
-        username: "Enw Defnyddiwr"
-      signed_in: "Arwyddwyd i fewn yn llwyddiannus."
-      signed_out: "Arwyddwyd allan yn llwyddiannus."
+        login: Mewngofnodi
+        username: Enw Defnyddiwr
+        password: Cyfrinair
+        sign_in: Mewngofnodi
+        remember_me: Cofiwch mi
+    unlocks:
+      send_instructions: Byddwch yn derbyn e-bost gyda cyfarwyddiadau ar sut i agor eich cyfrif mewn ychydig funudau.
+      unlocked: Datglowyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn.
+    invitations:
+      send_instructions: Mae eich gwahoddiad wedi cael ei anfon.
+      invitation_token_invalid: The invitation token provided is not valid!
     shared:
       links:
-        forgot_your_password: "Wedi anghofio eich cyfrinair?"
-        sign_in: "Mewngofnodi"
-        sign_up: "Cofrestrwch"
-    unlocks:
-      send_instructions: "Byddwch yn derbyn e-bost gyda cyfarwyddiadau ar sut i agor eich cyfrif mewn ychydig funudau."
-      unlocked: "Datglowyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+        sign_in: Mewngofnodi
+        sign_up: Cofrestrwch
+        forgot_your_password: Wedi anghofio eich cyfrinair?
   errors:
     messages:
-      already_confirmed: "cadarnhawyd eisioes"
-      not_found: "ni chanfuwyd"
-      not_locked: "heb ei gloi"
+      already_confirmed: cadarnhawyd eisioes
+      not_found: ni chanfuwyd
+      not_locked: heb ei gloi

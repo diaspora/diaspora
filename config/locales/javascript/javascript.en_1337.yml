@@ -6,73 +6,73 @@
 
 en_1337:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "4DD N00B"
-      all_aspects: "4LL 45P3C75"
-      error: "C0ULDN7 574LK <%= name %>. H4V3 U PWND H1M?"
-      started_sharing_with: "U 574R73D 574LK1NG <%= name %>!"
-      stopped_sharing_with: "U 570PP3D 574LK1NG <%= name %>."
-      toggle:
-        one: "1N <%= count %> 45P3C7"
-        other: "1N <%= count %> 45P3C75"
-        zero: "4DD N00B"
-    aspect_navigation:
-      deselect_all: "D353L3C7 4LL"
-      no_aspects: "N0 45P3C75 53L3C73D"
-      select_all: "53L3C7 4LL"
-    comments:
-      hide: "H1D3 5P4M5!"
-      show: "5H0W 4LL 5P4M5!"
-    confirm_dialog: "5UR3?"
-    failed_to_post_message: "F41L3D 2 53ND 5P4M!"
-    getting_started:
-      hey: "H3Y, <%= name %>!"
-      preparing_your_stream: "Preparing your personialized stream..."
-    header:
-      search: "F1ND N00B5 0R #74G5"
-    show_more: "5H0W M0R3!"
-    stream:
-      likes:
-        few: "<%= count %> <3"
-        many: "<%= count %> <3"
-        one: "<%= count %> <3"
-        other: "<%= count %> <3"
-        two: "<%= count %> <3"
-        zero: "<%= count %> <3"
-      more_comments:
-        few: "5H0W <%= count %> M0R3 C0MM3N75"
-        many: "5H0W <%= count %> M0R3 C0MM3N75"
-        one: "5H0W <%= count %> M0R3 C0MM3N7"
-        other: "5H0W <%= count %> M0R3 C0MM3N75"
-        two: "5H0W <%= count %> M0R3 C0MM3N75"
-        zero: "5H0W <%= count %> M0R3 C0MM3N75"
-      reshares:
-        few: "<%= count %> R35H4R35"
-        many: "<%= count %> R35H4R35"
-        one: "<%= count %> R35H4R3"
-        other: "<%= count %> R35H4R35"
-        two: "<%= count %> R35H4R35"
-        zero: "<%= count %> R35H4R35"
-    tags:
-      wasnt_that_interesting: "0K, 1 5UPP053 #<%= tagName %> W45N7 7H47 1N73R3571NG..."
     timeago:
-      day: "4 D4Y"
-      days:
-        other: "%d D4Y5"
-      hour: "4B0U7 4N H0UR"
-      hours:
-        other: "4B0U7 %d H0UR5"
-      minute: "4B0U7 4 M1NU73"
+      prefixAgo: ''
+      suffixAgo: 4G0
+      suffixFromNow: FR0M N0W
+      prefixFromNow: ''
+      seconds: L355 7H3N 4 M1NU73
+      minute: 4B0U7 4 M1NU73
       minutes:
         other: "%d M1NU735"
-      month: "4B0U7 4 M0N7H"
+      hour: 4B0U7 4N H0UR
+      hours:
+        other: 4B0U7 %d H0UR5
+      day: 4 D4Y
+      days:
+        other: "%d D4Y5"
+      month: 4B0U7 4 M0N7H
       months:
         other: "%d M0N7H5"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "L355 7H3N 4 M1NU73"
-      suffixAgo: "4G0"
-      suffixFromNow: "FR0M N0W"
-      year: "4B0U7 4 Y34R"
+      year: 4B0U7 4 Y34R
       years:
         other: "%d Y34R5"
+    confirm_dialog: 5UR3?
+    aspect_dropdown:
+      add_to_aspect: 4DD N00B
+      all_aspects: 4LL 45P3C75
+      stopped_sharing_with: U 570PP3D 574LK1NG <%= name %>.
+      started_sharing_with: U 574R73D 574LK1NG <%= name %>!
+      error: C0ULDN7 574LK <%= name %>. H4V3 U PWND H1M?
+      toggle:
+        zero: 4DD N00B
+        one: 1N <%= count %> 45P3C7
+        other: 1N <%= count %> 45P3C75
+    show_more: 5H0W M0R3!
+    failed_to_post_message: F41L3D 2 53ND 5P4M!
+    comments:
+      show: 5H0W 4LL 5P4M5!
+      hide: H1D3 5P4M5!
+    aspect_navigation:
+      select_all: 53L3C7 4LL
+      deselect_all: D353L3C7 4LL
+      no_aspects: N0 45P3C75 53L3C73D
+    getting_started:
+      hey: H3Y, <%= name %>!
+      preparing_your_stream: Preparing your personialized stream...
+    tags:
+      wasnt_that_interesting: '0K, 1 5UPP053 #<%= tagName %> W45N7 7H47 1N73R3571NG...'
+    stream:
+      likes:
+        zero: "<%= count %> <3"
+        one: "<%= count %> <3"
+        two: "<%= count %> <3"
+        few: "<%= count %> <3"
+        many: "<%= count %> <3"
+        other: "<%= count %> <3"
+      reshares:
+        zero: "<%= count %> R35H4R35"
+        one: "<%= count %> R35H4R3"
+        two: "<%= count %> R35H4R35"
+        few: "<%= count %> R35H4R35"
+        many: "<%= count %> R35H4R35"
+        other: "<%= count %> R35H4R35"
+      more_comments:
+        zero: 5H0W <%= count %> M0R3 C0MM3N75
+        one: 5H0W <%= count %> M0R3 C0MM3N7
+        two: 5H0W <%= count %> M0R3 C0MM3N75
+        few: 5H0W <%= count %> M0R3 C0MM3N75
+        many: 5H0W <%= count %> M0R3 C0MM3N75
+        other: 5H0W <%= count %> M0R3 C0MM3N75
+    header:
+      search: 'F1ND N00B5 0R #74G5'

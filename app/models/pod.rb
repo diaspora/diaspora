@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Pod < ApplicationRecord
+  # a pod is active if it is online or was online less than 14 days ago
+  ACTIVE_DAYS = 14.days
+
   enum status: %i(
     unchecked
     no_errors
@@ -19,7 +22,7 @@ class Pod < ApplicationRecord
     ConnectionTester::SSLFailure      => :ssl_failed,
     ConnectionTester::HTTPFailure     => :http_failed,
     ConnectionTester::NodeInfoFailure => :version_failed
-  }
+  }.freeze
 
   # this are only the most common errors, the rest will be +unknown_error+
   CURL_ERROR_MAP = {
@@ -31,7 +34,13 @@ class Pod < ApplicationRecord
     redirected_to_other_hostname: :http_failed
   }.freeze
 
-  DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
+  # use -1 as port for default ports
+  # we can't use the real default port (80/443) because we need to handle them
+  # like both are the same and not both can exist at the same time.
+  # we also can't use nil, because databases don't handle NULL in unique indexes
+  # (except postgres >= 15 with "NULLS NOT DISTINCT").
+  DEFAULT_PORT = -1
+  DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT].freeze
 
   has_many :people
 
@@ -39,13 +48,17 @@ class Pod < ApplicationRecord
     where(arel_table[:status].gt(Pod.statuses[:no_errors])).where.not(status: Pod.statuses[:version_failed])
   }
 
+  scope :active, -> {
+    where(["offline_since is null or offline_since > ?", DateTime.now.utc - ACTIVE_DAYS])
+  }
+
   validate :not_own_pod
 
   class << self
     def find_or_create_by(opts) # Rename this method to not override an AR method
       uri = URI.parse(opts.fetch(:url))
-      port = DEFAULT_PORTS.include?(uri.port) ? nil : uri.port
-      find_or_initialize_by(host: uri.host, port: port).tap do |pod|
+      port = DEFAULT_PORTS.include?(uri.port) ? DEFAULT_PORT : uri.port
+      find_or_initialize_by(host: uri.host.downcase, port: port).tap do |pod|
         pod.ssl ||= (uri.scheme == "https")
         pod.save
       end
@@ -73,9 +86,9 @@ class Pod < ApplicationRecord
     Pod.offline_statuses.include?(Pod.statuses[status])
   end
 
-  # a pod is active if it is online or was online less than 14 days ago
+  # a pod is active if it is online or was online recently
   def active?
-    !offline? || offline_since.try {|date| date > DateTime.now.utc - 14.days }
+    !offline? || offline_since.try {|date| date > DateTime.now.utc - ACTIVE_DAYS }
   end
 
   def to_s
@@ -140,13 +153,21 @@ class Pod < ApplicationRecord
 
   # @return [URI]
   def uri
-    @uri ||= (ssl ? URI::HTTPS : URI::HTTP).build(host: host, port: port)
+    @uri ||= (ssl ? URI::HTTPS : URI::HTTP).build(host: host, port: real_port)
     @uri.dup
+  end
+
+  def real_port
+    if port == DEFAULT_PORT
+      ssl ? URI::HTTPS::DEFAULT_PORT : URI::HTTP::DEFAULT_PORT
+    else
+      port
+    end
   end
 
   def not_own_pod
     pod_uri = AppConfig.pod_uri
-    pod_port = DEFAULT_PORTS.include?(pod_uri.port) ? nil : pod_uri.port
-    errors.add(:base, "own pod not allowed") if pod_uri.host == host && pod_port == port
+    pod_port = DEFAULT_PORTS.include?(pod_uri.port) ? DEFAULT_PORT : pod_uri.port
+    errors.add(:base, "own pod not allowed") if pod_uri.host.downcase == host && pod_port == port
   end
 end

@@ -7,86 +7,86 @@
 br:
   devise:
     confirmations:
-      confirmed: "Kadarnaet eo bet ho kont. Kevreet oc'h."
+      confirmed: Kadarnaet eo bet ho kont. Kevreet oc'h.
+      send_instructions: Emaoc'h o vont da resev ur postel a-raok pell ennañ titouroù evit gouzout an doare da gadarnaat ho kont.
       new:
-        resend_confirmation: "Adkas an titouroù kadarnaat."
-      send_instructions: "Emaoc'h o vont da resev ur postel a-raok pell ennañ titouroù evit gouzout an doare da gadarnaat ho kont."
+        resend_confirmation: Adkas an titouroù kadarnaat.
     failure:
-      inactive: "N'eo ket bet gweredekaet ho kont evit c'hoazh."
-      invalid: "Direizh eo ar postel pe ar ger-tremen."
-      invalid_token: "Direizh eo ar bilhed gwiriañ."
-      locked: "Prennet eo ho kont."
-      not_found_in_database: "Chomlec'h postel pe ger-tremen direizh"
-      timeout: "Diamzeret eo an dalc'h, dav eo deoc'h kevreañ en-dro evit kendelc'her."
-      unauthenticated: "Dav eo deoc'h kevreañ pe en em enskrivañ a-raok kendelc'her ganti."
-      unconfirmed: "Dav eo deoc'h kadarnaat ho kont a-raok mont pelloc'h."
-    invitations:
-      invitation_token_invalid: "Ho tigarez ! Direizh eo ar bilhed-pediñ bet kaset deoc'h."
-      send_instructions: "Kaset eo bet ho pedadenn."
-      updated: "Savet eo bet mat ho ker-tremen. Emaoc'h kevreet."
+      inactive: N'eo ket bet gweredekaet ho kont evit c'hoazh.
+      invalid: Direizh eo ar postel pe ar ger-tremen.
+      locked: Prennet eo ho kont.
+      not_found_in_database: Chomlec'h postel pe ger-tremen direizh
+      timeout: Diamzeret eo an dalc'h, dav eo deoc'h kevreañ en-dro evit kendelc'her.
+      unauthenticated: Dav eo deoc'h kevreañ pe en em enskrivañ a-raok kendelc'her ganti.
+      unconfirmed: Dav eo deoc'h kadarnaat ho kont a-raok mont pelloc'h.
+      invalid_token: Direizh eo ar bilhed gwiriañ.
     mailer:
       confirmation_instructions:
-        confirm: "Kadarnaat ma c'hont"
-        subject: "Titouroù kadarnaat"
-        you_can_confirm: "Gallout a rit kadarnaat ho kont gant al liamm dindan:"
-      hello: "Demat deoc'h, %{username}!"
-      inviter:
-        accept_at: "e %{url}, gallout a rit e zegemer dre al liamm a-is."
-        has_invited_you: "%{name}"
-        have_invited_you: "Pedet oc'h bet gant %{names} da lakaat hoc'h anv e Diaspora."
+        subject: Titouroù kadarnaat
+        you_can_confirm: 'Gallout a rit kadarnaat ho kont gant al liamm dindan:'
+        confirm: Kadarnaat ma c'hont
       reset_password_instructions:
-        change: "Cheñch ma ger-tremen"
-        ignore: "Ma n'eo ket bet goulennet an dra-se ganeoc'h, na rit ket van ouzh ar postel-mañ."
-        someone_requested: "Unan bennak en deus goulennet kaout ul liamm da cheñch ho ker-tremen. Mard oa c'hwi e c'hallit en ober en ur glikañ war al liamm a-is."
-        subject: "Titouroù evit adsevel ar ger-tremen"
-        wont_change: "Ne cheñcho ket ho ker-tremen e-keit ha ma n'ho po ket kliket war al liamm a-us ha savet unan nevez."
+        subject: Titouroù evit adsevel ar ger-tremen
+        someone_requested: Unan bennak en deus goulennet kaout ul liamm da cheñch ho ker-tremen. Mard oa c'hwi e c'hallit en ober en ur glikañ war al liamm a-is.
+        change: Cheñch ma ger-tremen
+        wont_change: Ne cheñcho ket ho ker-tremen e-keit ha ma n'ho po ket kliket war al liamm a-us ha savet unan nevez.
+        ignore: Ma n'eo ket bet goulennet an dra-se ganeoc'h, na rit ket van ouzh ar postel-mañ.
       unlock_instructions:
-        account_locked: "Prennet eo bet ho kont abalamour m'hoc'h eus klasket kevreañ en aner re alies"
-        click_to_unlock: "Klikit war al liamm dindan evit dibrennañ ho kont:"
-        subject: "Titouroù dibrennañ"
-        unlock: "Dibrennañ ma c'hont"
-      welcome: "Donemat deoc'h, %{username}!"
+        subject: Titouroù dibrennañ
+        account_locked: Prennet eo bet ho kont abalamour m'hoc'h eus klasket kevreañ en aner re alies
+        click_to_unlock: 'Klikit war al liamm dindan evit dibrennañ ho kont:'
+        unlock: Dibrennañ ma c'hont
+      welcome: Donemat deoc'h, %{username}!
+      hello: Demat deoc'h, %{username}!
+      inviter:
+        has_invited_you: "%{name}"
+        have_invited_you: Pedet oc'h bet gant %{names} da lakaat hoc'h anv e Diaspora.
+        accept_at: e %{url}, gallout a rit e zegemer dre al liamm a-is.
     passwords:
+      send_instructions: Emaoc'h o vont da resev ur postel a-raok pell gant titouroù evit gouzout an doare da adsevel ho ker-tremen.
+      updated: Cheñchet eo bet ho ker-tremen. Kevreet oc'h bremañ.
       edit:
-        change_password: "Cheñch ma ger-tremen"
-        confirm_password: "Kadarnaat ar ger-tremen"
-        new_password: "Ger-tremen nevez"
+        change_password: Cheñch ma ger-tremen
+        new_password: Ger-tremen nevez
+        confirm_password: Kadarnaat ar ger-tremen
       new:
-        email: "Chomlec'h postel"
-        forgot_password: "Ankouaet ho ker-tremen ganeoc'h?"
-        reset_password: "Adtermeniñ ar ger-tremen"
-        send_password_instructions: "Kas din an titouroù evit adsevel ma ger-tremen"
-      send_instructions: "Emaoc'h o vont da resev ur postel a-raok pell gant titouroù evit gouzout an doare da adsevel ho ker-tremen."
-      updated: "Cheñchet eo bet ho ker-tremen. Kevreet oc'h bremañ."
+        forgot_password: Ankouaet ho ker-tremen ganeoc'h?
+        reset_password: Adtermeniñ ar ger-tremen
+        email: Chomlec'h postel
+        send_password_instructions: Kas din an titouroù evit adsevel ma ger-tremen
     registrations:
-      destroyed: "Kenavo ! Diverket eo bet ho kont ervat. Emichañs e viot gwelet en dro a-raok pell."
-      signed_up: "Enskrivet-mat oc'h. M'eo bet dibabet se ganeoc'h e vo kaset ur postel kadarnaat deoc'h."
-      updated: "Hizivaet eo bet ho kont ganeoc'h ervat."
+      destroyed: Kenavo ! Diverket eo bet ho kont ervat. Emichañs e viot gwelet en dro a-raok pell.
+      signed_up: Enskrivet-mat oc'h. M'eo bet dibabet se ganeoc'h e vo kaset ur postel kadarnaat deoc'h.
+      updated: Hizivaet eo bet ho kont ganeoc'h ervat.
     sessions:
+      signed_in: Kevreet oc'h bremañ.
+      signed_out: Digevreet oc'h bremañ.
       new:
-        login: "Kevreañ"
-        modern_browsers: "ne c'hell mont en-dro nemet gant merdeerioù modern."
-        password: "Ger-tremen"
-        remember_me: "Delc'her soñj ac'hanon"
-        sign_in: "Kevreañ"
-        username: "Anv-implijer"
-      signed_in: "Kevreet oc'h bremañ."
-      signed_out: "Digevreet oc'h bremañ."
+        login: Kevreañ
+        username: Anv-implijer
+        password: Ger-tremen
+        sign_in: Kevreañ
+        remember_me: Delc'her soñj ac'hanon
+        modern_browsers: ne c'hell mont en-dro nemet gant merdeerioù modern.
+    unlocks:
+      send_instructions: Emaoc'h o vont da resev a-raok pell ur postel ennañ titouroù evit gouzout an doare da zibrennañ ho kont.
+      unlocked: Dibrennet eo bet ho kont ervat. Kevreet oc'h bremañ.
+      new:
+        resend_unlock: Adkas an titouroù dibrennañ
+    invitations:
+      send_instructions: Kaset eo bet ho pedadenn.
+      invitation_token_invalid: Ho tigarez ! Direizh eo ar bilhed-pediñ bet kaset deoc'h.
+      updated: Savet eo bet mat ho ker-tremen. Emaoc'h kevreet.
     shared:
       links:
-        forgot_your_password: "Ankouaet ho ker-tremen ganeoc'h ?"
-        receive_confirmation: "N'eo ket bet resevet an titouroù kadarnaat ganeoc'h ?"
-        receive_unlock: "N'eo ket bet resevet an titouroù dibrennañ ganeoc'h ?"
-        sign_in: "Kevreañ"
-        sign_up: "En em enskrivañ"
-        sign_up_closed: "Kloz eo an enskrivadurioù digor evit poent."
-    unlocks:
-      new:
-        resend_unlock: "Adkas an titouroù dibrennañ"
-      send_instructions: "Emaoc'h o vont da resev a-raok pell ur postel ennañ titouroù evit gouzout an doare da zibrennañ ho kont."
-      unlocked: "Dibrennet eo bet ho kont ervat. Kevreet oc'h bremañ."
+        sign_in: Kevreañ
+        sign_up: En em enskrivañ
+        sign_up_closed: Kloz eo an enskrivadurioù digor evit poent.
+        forgot_your_password: Ankouaet ho ker-tremen ganeoc'h ?
+        receive_confirmation: N'eo ket bet resevet an titouroù kadarnaat ganeoc'h ?
+        receive_unlock: N'eo ket bet resevet an titouroù dibrennañ ganeoc'h ?
   errors:
     messages:
-      already_confirmed: "zo bet kadarnet dija"
-      not_found: "n'eo ket bet kavet"
-      not_locked: "n'eo ket bet prennet"
+      already_confirmed: zo bet kadarnet dija
+      not_found: n'eo ket bet kavet
+      not_locked: n'eo ket bet prennet

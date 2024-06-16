@@ -10,7 +10,6 @@ module Export
                :show_community_spotlight_in_stream,
                :auto_follow_back,
                :auto_follow_back_aspect,
-               :strip_exif,
                :blocks
     has_one    :profile, serializer: FederationEntitySerializer
     has_many   :contact_groups, each_serializer: Export::AspectSerializer

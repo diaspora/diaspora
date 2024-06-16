@@ -37,7 +37,7 @@ describe Retraction do
     end
 
     it "creates the retraction data for a relayable" do
-      comment = FactoryGirl.create(:comment, author: alice.person, post: post)
+      comment = FactoryBot.create(:comment, author: alice.person, post: post)
 
       data = Retraction.retraction_data_for(comment)
       expect(data[:target_guid]).to eq(comment.guid)
@@ -55,7 +55,7 @@ describe Retraction do
     end
 
     it "creates a retraction for a relayable" do
-      comment = FactoryGirl.create(:comment, author: alice.person, post: post)
+      comment = FactoryBot.create(:comment, author: alice.person, post: post)
 
       expect(Retraction).to receive(:retraction_data_for).with(comment)
 
@@ -71,7 +71,7 @@ describe Retraction do
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
         local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id],
-        "service_types" => []
+        {"service_types" => []}
       )
 
       retraction.defer_dispatch(local_luke)
@@ -87,7 +87,7 @@ describe Retraction do
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
         alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [],
-        "service_types" => ["Services::Twitter"], "tweet_id" => "123"
+        {"service_types" => ["Services::Twitter"], "tweet_id" => "123"}
       )
 
       retraction.defer_dispatch(alice)
@@ -98,7 +98,7 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [], "service_types" => []
+        alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [], {"service_types" => []}
       )
 
       retraction.defer_dispatch(alice)
@@ -119,7 +119,7 @@ describe Retraction do
 
     context "relayable" do
       let(:post) { local_luke.post(:status_message, text: "hello", public: true) }
-      let(:comment) { FactoryGirl.create(:comment, post: post, author: remote_raphael) }
+      let(:comment) { FactoryBot.create(:comment, post: post, author: remote_raphael) }
 
       it "sends retraction to target author if deleted by parent author" do
         retraction = Retraction.for(comment)
@@ -163,7 +163,7 @@ describe Retraction do
     end
 
     it "returns true for a public comment if parent post is not local" do
-      remote_post = FactoryGirl.create(:status_message, author: remote_raphael, public: true)
+      remote_post = FactoryBot.create(:status_message, author: remote_raphael, public: true)
       comment = alice.comment!(remote_post, "destroy!")
       expect(Retraction.for(comment).public?).to be_truthy
     end

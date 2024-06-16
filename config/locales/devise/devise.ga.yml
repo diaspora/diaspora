@@ -7,9 +7,9 @@
 ga:
   devise:
     mailer:
-      hello: "Haileo %{username}!"
-      welcome: "Fáilte %{username}!"
+      welcome: Fáilte %{username}!
+      hello: Haileo %{username}!
     sessions:
       new:
-        login: "Logáil isteach"
-        password: "Pasfhocal"
+        login: Logáil isteach
+        password: Pasfhocal

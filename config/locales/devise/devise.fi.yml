@@ -7,103 +7,103 @@
 fi:
   devise:
     confirmations:
-      confirmed: "Käyttäjätilisi on varmistettu onnistuneesti. Olet nyt kirjautunut sisään."
+      confirmed: Käyttäjätilisi on varmistettu onnistuneesti. Olet nyt kirjautunut sisään.
+      send_instructions: Saat hetken päästä sähköpostiisi ohjeet siitä, miten vahvistat käyttäjätilisi.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy meidän tietokannastamme, saat kohta ohjeita sähköpostitse osoitteen vahvistamisesta.
       new:
-        resend_confirmation: "Lähetä vahvistusohjeet uudelleen"
-      send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten vahvistat käyttäjätilisi."
-      send_paranoid_instructions: "Jos sähköpostiosoitteesi löytyy meidän tietokannastamme, saat kohta ohjeita sähköpostitse osoitteen vahvistamisesta."
+        resend_confirmation: Lähetä vahvistusohjeet uudelleen
     failure:
-      already_authenticated: "Olet jo kirjautunut sisään."
-      inactive: "Käyttätiliäsi ei ole vielä aktivoitu."
-      invalid: "Virheellinen käyttäjätunnus tai salasana."
-      invalid_token: "Virheellinen todennustunnus."
-      last_attempt: "Sinulla on yksi yritys jäljellä ennen kuin käyttäjätilisi lukitaan."
-      locked: "Käyttäjätilisi on lukittu."
-      not_found_in_database: "Virheellinen sähköpostiosoite tai salasana."
-      timeout: "Istunto on vanhentunut, kirjaudu uudelleen jatkaaksesi."
-      unauthenticated: "Sinun tulee rekisteröityä ja/tai kirjautua ennen jatkamista."
-      unconfirmed: "Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa"
-    invitations:
-      invitation_token_invalid: "Kutsun vahvistustunnus on virheellinen!"
-      send_instructions: "Kutsusi on lähetetty."
-      updated: "Salasanasi on asetettu onnistuneesti. Olet kirjautunut sisään."
+      already_authenticated: Olet jo kirjautunut sisään.
+      inactive: Käyttätiliäsi ei ole vielä aktivoitu.
+      invalid: Virheellinen käyttäjätunnus tai salasana.
+      locked: Käyttäjätilisi on lukittu.
+      last_attempt: Sinulla on yksi yritys jäljellä ennen kuin käyttäjätilisi lukitaan.
+      not_found_in_database: Virheellinen sähköpostiosoite tai salasana.
+      timeout: Istunto on vanhentunut, kirjaudu uudelleen jatkaaksesi.
+      unauthenticated: Sinun tulee rekisteröityä ja/tai kirjautua ennen jatkamista.
+      unconfirmed: Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa
+      invalid_token: Virheellinen todennustunnus.
     mailer:
       confirmation_instructions:
-        confirm: "Vahvista käyttäjätilini"
-        subject: "Vahvistamisohjeet"
-        you_can_confirm: "Voit vahvistaa käyttäjätilisi alla olevan linkin kautta:"
-      hello: "Hei, %{username}!"
+        subject: Vahvistamisohjeet
+        you_can_confirm: 'Voit vahvistaa käyttäjätilisi alla olevan linkin kautta:'
+        confirm: Vahvista käyttäjätilini
+      reset_password_instructions:
+        subject: Salasanan palautusohjeet
+        someone_requested: Joku on pyytänyt linkkiä salasanasi vaihtamiseksi. Jos se olit sinä, voit tehdä sen alla olevan linkin kautta.
+        change: Vaihda salasanani
+        wont_change: Salasanasi ei vaihdu, ennen kuin luot uuden yllä olevan linkin kautta.
+        ignore: Jos et pyytänyt tätä, voit jättää tämän sähköpostin huomiotta.
+      unlock_instructions:
+        subject: Lukituksen poisto-ohjeet
+        account_locked: Käyttäjätilisi on lukittu liian usean epäonnistuneen kirjautumisyrityksen vuoksi.
+        click_to_unlock: 'Poista käyttäjätilisi lukitus alla olevasta linkistä:'
+        unlock: Poista käyttäjätilini lukitus
+      password_change:
+        subject: Salasana vaihdettu
+      welcome: Tervetuloa %{username}!
+      hello: Hei, %{username}!
       inviter:
-        accept_at: "osoitteessa %{url}, hyväksyminen alla olevasta linkistä."
         has_invited_you: "%{names}"
         have_invited_you: "%{names} on kutsunut sinut liittymään Diasporan käyttäjäksi"
-      password_change:
-        subject: "Salasana vaihdettu"
-      reset_password_instructions:
-        change: "Vaihda salasanani"
-        ignore: "Jos et pyytänyt tätä, voit jättää tämän sähköpostin huomiotta."
-        someone_requested: "Joku on pyytänyt linkkiä salasanasi vaihtamiseksi. Jos se olit sinä, voit tehdä sen alla olevan linkin kautta."
-        subject: "Salasanan palautusohjeet"
-        wont_change: "Salasanasi ei vaihdu, ennen kuin luot uuden yllä olevan linkin kautta."
-      unlock_instructions:
-        account_locked: "Käyttäjätilisi on lukittu liian usean epäonnistuneen kirjautumisyrityksen vuoksi."
-        click_to_unlock: "Poista käyttäjätilisi lukitus alla olevasta linkistä:"
-        subject: "Lukituksen poisto-ohjeet"
-        unlock: "Poista käyttäjätilini lukitus"
-      welcome: "Tervetuloa %{username}!"
+        accept_at: osoitteessa %{url}, hyväksyminen alla olevasta linkistä.
     passwords:
+      send_instructions: Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat kohta salasanan palautuslinkin sähköpostitse.
+      updated: Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään.
+      updated_not_active: Salasanasi on vaihdettu onnistuneesti.
       edit:
-        change_password: "Vaihda salasanani"
-        confirm_password: "Vahvista salasana"
-        new_password: "Uusi salasana"
+        change_password: Vaihda salasanani
+        new_password: Uusi salasana
+        confirm_password: Vahvista salasana
       new:
-        email: "Sähköpostiosoite"
-        forgot_password: "Unohditko salasanasi?"
-        reset_password: "Vaihda salasana"
-        send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
-      send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."
-      send_paranoid_instructions: "Jos sähköpostiosoitteesi löytyy tietokannastamme, saat kohta salasanan palautuslinkin sähköpostitse."
-      updated: "Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään."
-      updated_not_active: "Salasanasi on vaihdettu onnistuneesti."
+        forgot_password: Unohditko salasanasi?
+        reset_password: Vaihda salasana
+        email: Sähköpostiosoite
+        send_password_instructions: Lähetä minulle salasanan uudelleenasettamisohjeet
     registrations:
-      destroyed: "Näkemiin! Käyttäjätilisi on onnistuneesti peruutettu. Toivottavasti näemme sinut pian uudelleen."
-      signed_up: "Käyttäjätilin luominen onnistui. Mahdollinen vahvistus on lähetetty sähköpostiisi."
-      signed_up_but_inactive: "Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi on aktivoitu."
-      signed_up_but_locked: "Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi lukitus on poistettu."
-      signed_up_but_unconfirmed: "Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa käyttäjätilisi. Ole hyvä ja vahvista käyttäjätilisi saamiesi ohjeiden mukaisesti."
-      update_needs_confirmation: "Käyttäjätietosi on päivitetty onnistuneesti, mutta uusi sähköpostiosoitteesi pitää vielä vahvistaa. Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa uuden osoitteesi."
-      updated: "Päivitit käyttäjätilisi onnistuneesti."
+      destroyed: Näkemiin! Käyttäjätilisi on onnistuneesti peruutettu. Toivottavasti näemme sinut pian uudelleen.
+      signed_up: Käyttäjätilin luominen onnistui. Mahdollinen vahvistus on lähetetty sähköpostiisi.
+      signed_up_but_inactive: Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi on aktivoitu.
+      signed_up_but_locked: Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi lukitus on poistettu.
+      signed_up_but_unconfirmed: Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa käyttäjätilisi. Ole hyvä ja vahvista käyttäjätilisi saamiesi ohjeiden mukaisesti.
+      update_needs_confirmation: Käyttäjätietosi on päivitetty onnistuneesti, mutta uusi sähköpostiosoitteesi pitää vielä vahvistaa. Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa uuden osoitteesi.
+      updated: Päivitit käyttäjätilisi onnistuneesti.
     sessions:
-      already_signed_out: "Uloskirjautuminen onnistui."
+      signed_in: Sisäänkirjautuminen onnistui.
+      signed_out: Uloskirjautuminen onnistui.
+      already_signed_out: Uloskirjautuminen onnistui.
       new:
-        login: "Kirjautuminen"
-        modern_browsers: "tukee vain moderneja selaimia."
-        password: "Salasana"
-        remember_me: "Muista minut"
-        sign_in: "Kirjaudu sisään"
-        username: "Käyttäjänimi"
-      signed_in: "Sisäänkirjautuminen onnistui."
-      signed_out: "Uloskirjautuminen onnistui."
+        login: Kirjautuminen
+        username: Käyttäjänimi
+        password: Salasana
+        sign_in: Kirjaudu sisään
+        remember_me: Muista minut
+        modern_browsers: tukee vain moderneja selaimia.
+    unlocks:
+      send_instructions: Saat hetken kuluttua sähköpostiisi ohjeet siitä, miten avaat käyttäjätilisi lukituksen.
+      send_paranoid_instructions: Jos käyttäjätilisi on olemassa, saat muutaman minuutin kuluttua sähköpostitse ohjeet siitä miten lukitus poistetaan.
+      unlocked: Käyttäjätilisi lukitus on avattu onnistuneesti. Olet nyt kirjautunut sisään.
+      new:
+        resend_unlock: Lähetä lukituksenpoisto-ohjeet uudelleen
+    invitations:
+      send_instructions: Kutsusi on lähetetty.
+      invitation_token_invalid: Kutsun vahvistustunnus on virheellinen!
+      updated: Salasanasi on asetettu onnistuneesti. Olet kirjautunut sisään.
     shared:
       links:
-        forgot_your_password: "Unohditko salasanasi?"
-        receive_confirmation: "Etkö saanut vahvistusohjeita?"
-        receive_unlock: "Etkö saanut lukituksenpoisto-ohjeita?"
-        sign_in: "Kirjaudu"
-        sign_up: "Rekisteröidy"
-        sign_up_closed: "Avoin rekisteröityminen on tällä hetkellä suljettu."
-    unlocks:
-      new:
-        resend_unlock: "Lähetä lukituksenpoisto-ohjeet uudelleen"
-      send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet siitä, miten avaat käyttäjätilisi lukituksen."
-      send_paranoid_instructions: "Jos käyttäjätilisi on olemassa, saat muutaman minuutin kuluttua sähköpostitse ohjeet siitä miten lukitus poistetaan."
-      unlocked: "Käyttäjätilisi lukitus on avattu onnistuneesti. Olet nyt kirjautunut sisään."
+        sign_in: Kirjaudu
+        sign_up: Rekisteröidy
+        sign_up_closed: Avoin rekisteröityminen on tällä hetkellä suljettu.
+        forgot_your_password: Unohditko salasanasi?
+        receive_confirmation: Etkö saanut vahvistusohjeita?
+        receive_unlock: Etkö saanut lukituksenpoisto-ohjeita?
   errors:
     messages:
-      already_confirmed: "oli jo varmistettu"
-      expired: "on vanhentunut, ole hyvä ja pyydä uusi"
-      not_found: "ei löytynyt"
-      not_locked: "ei ollut lukittu"
+      already_confirmed: oli jo varmistettu
+      expired: on vanhentunut, ole hyvä ja pyydä uusi
+      not_found: ei löytynyt
+      not_locked: ei ollut lukittu
       not_saved:
-        one: "1 virhe esti %{resource}-resussin tallentamisen."
+        one: 1 virhe esti %{resource}-resussin tallentamisen.
         other: "%{count} virhettä esti %{resource}-resurssin tallentamisen."

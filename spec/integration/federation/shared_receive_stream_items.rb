@@ -32,8 +32,8 @@ shared_examples_for "messages which are indifferent about sharing fact" do
   end
 
   describe "with messages which require a status to operate on" do
-    let(:local_parent) { FactoryGirl.create(:status_message, author: alice.person, public: public) }
-    let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
+    let(:local_parent) { FactoryBot.create(:status_message, author: alice.person, public: public) }
+    let(:remote_parent) { FactoryBot.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
 
     describe "notifications are sent where required" do
       it "for comment on local post" do
@@ -63,7 +63,7 @@ shared_examples_for "messages which are indifferent about sharing fact" do
       end
     end
 
-    %w(comment like).each do |entity|
+    %w[comment like].each do |entity|
       context "with #{entity}" do
         let(:entity_name) { "#{entity}_entity".to_sym }
         let(:klass) { entity.camelize.constantize }
@@ -103,15 +103,15 @@ shared_examples_for "messages which are indifferent about sharing fact" do
 
     context "with poll_participation" do
       let(:local_parent) {
-        FactoryGirl.create(
+        FactoryBot.create(
           :poll,
-          status_message: FactoryGirl.create(:status_message, author: alice.person, public: public)
+          status_message: FactoryBot.create(:status_message, author: alice.person, public: public)
         )
       }
       let(:remote_parent) {
-        FactoryGirl.create(
+        FactoryBot.create(
           :poll,
-          status_message: FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person, public: public)
+          status_message: FactoryBot.create(:status_message, author: remote_user_on_pod_b.person, public: public)
         )
       }
       let(:entity_name) { :poll_participation_entity }
@@ -127,7 +127,7 @@ shared_examples_for "messages which can't be send without sharing" do
   describe "retractions for non-relayable objects" do
     %w[status_message photo].each do |target|
       context "with #{target}" do
-        let(:target_object) { FactoryGirl.create(target.to_sym, author: remote_user_on_pod_b.person) }
+        let(:target_object) { FactoryBot.create(target.to_sym, author: remote_user_on_pod_b.person) }
 
         it_behaves_like "it retracts non-relayable object"
       end
@@ -136,8 +136,8 @@ shared_examples_for "messages which can't be send without sharing" do
 
   describe "with messages which require a status to operate on" do
     let(:public) { recipient.nil? }
-    let(:local_parent) { FactoryGirl.create(:status_message, author: alice.person, public: public) }
-    let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
+    let(:local_parent) { FactoryBot.create(:status_message, author: alice.person, public: public) }
+    let(:remote_parent) { FactoryBot.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
 
     # this one shouldn't depend on the sharing fact. this must be fixed
     describe "notifications are sent where required" do
@@ -168,14 +168,14 @@ shared_examples_for "messages which can't be send without sharing" do
         it_behaves_like "it retracts relayable object" do
           # case for to-upstream federation
           let(:target_object) {
-            FactoryGirl.create(:comment, author: remote_user_on_pod_b.person, post: local_parent)
+            FactoryBot.create(:comment, author: remote_user_on_pod_b.person, post: local_parent)
           }
         end
 
         it_behaves_like "it retracts relayable object" do
           # case for to-downsteam federation
           let(:target_object) {
-            FactoryGirl.create(:comment, author: remote_user_on_pod_c.person, post: remote_parent)
+            FactoryBot.create(:comment, author: remote_user_on_pod_c.person, post: remote_parent)
           }
         end
       end
@@ -184,14 +184,14 @@ shared_examples_for "messages which can't be send without sharing" do
         it_behaves_like "it retracts relayable object" do
           # case for to-upstream federation
           let(:target_object) {
-            FactoryGirl.create(:like, author: remote_user_on_pod_b.person, target: local_parent)
+            FactoryBot.create(:like, author: remote_user_on_pod_b.person, target: local_parent)
           }
         end
 
         it_behaves_like "it retracts relayable object" do
           # case for to-downsteam federation
           let(:target_object) {
-            FactoryGirl.create(:like, author: remote_user_on_pod_c.person, target: remote_parent)
+            FactoryBot.create(:like, author: remote_user_on_pod_c.person, target: remote_parent)
           }
         end
       end

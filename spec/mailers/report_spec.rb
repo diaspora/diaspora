@@ -18,9 +18,9 @@ describe Report, type: :mailer do
         item_id: @comment.id, item_type: "Comment",
         text: "offensive comment"
       )
-      @remote = FactoryGirl.create(:person, diaspora_handle: "remote@remote.net")
-      @user = FactoryGirl.create(:user_with_aspect, username: "local", language: "de")
-      @user2 = FactoryGirl.create(:user_with_aspect, username: "locally")
+      @remote = FactoryBot.create(:person, diaspora_handle: "remote@remote.net")
+      @user = FactoryBot.create(:user_with_aspect, username: "local", language: "de")
+      @user2 = FactoryBot.create(:user_with_aspect, username: "locally")
       Role.add_admin(@user.person)
       Role.add_moderator(@user2.person)
     end

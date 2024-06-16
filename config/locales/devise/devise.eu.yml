@@ -7,81 +7,81 @@
 eu:
   devise:
     confirmations:
-      confirmed: "Zure kontua baieztatu da. Sartu egin zara."
+      confirmed: Zure kontua baieztatu da. Sartu egin zara.
+      send_instructions: Minutu batzuetan kontua baieztatzeko argibideak jasoko dituzu e-postan.
       new:
-        resend_confirmation: "Berbidali baieztapen argibideak"
-      send_instructions: "Minutu batzuetan kontua baieztatzeko argibideak jasoko dituzu e-postan."
+        resend_confirmation: Berbidali baieztapen argibideak
     failure:
-      inactive: "Zure kontua ez da aktibatu oraindik."
-      invalid: "Erabiltzaile edo pasahitz okerra."
-      invalid_token: "Autentikazio datu akasduna."
-      locked: "Zure kontua ez dago erabilgarri."
-      timeout: "Zure sesioa bukatu da, autentikatu berriz jarraitzeko."
-      unauthenticated: "Izena eman edo autentikatu behar duzu jarraitu aurretik"
-      unconfirmed: "Zure kontua baieztatu behar duzu jarraitu aurretik."
-    invitations:
-      invitation_token_invalid: "Sentitzen dugu, baina gonbidapen kodea ez da baliozkoa."
-      send_instructions: "Gonbidapena bidali duzu."
-      updated: "Zure pasahitza arrakastaz ezarri duzu. Sartu egin zara."
+      inactive: Zure kontua ez da aktibatu oraindik.
+      invalid: Erabiltzaile edo pasahitz okerra.
+      locked: Zure kontua ez dago erabilgarri.
+      timeout: Zure sesioa bukatu da, autentikatu berriz jarraitzeko.
+      unauthenticated: Izena eman edo autentikatu behar duzu jarraitu aurretik
+      unconfirmed: Zure kontua baieztatu behar duzu jarraitu aurretik.
+      invalid_token: Autentikazio datu akasduna.
     mailer:
       confirmation_instructions:
-        confirm: "Kontua baieztatu"
-        subject: "Baieztapen argibideak"
-        you_can_confirm: "Zure kontua baieztatu dezakezu esteka hau jarraituz:"
-      hello: "Kaixo %{username}!"
+        subject: Baieztapen argibideak
+        you_can_confirm: 'Zure kontua baieztatu dezakezu esteka hau jarraituz:'
+        confirm: Kontua baieztatu
+      reset_password_instructions:
+        subject: Pasahitz berreskuraketaren argibideak
+        someone_requested: 'Norbaitek pasahitz aldaketarako esteka bat eskatu du, hau egin dezakezu esteka honako esteka jarraituz:'
+        change: Pasahitza aldatu
+        wont_change: Zure pasahitza ez da aldatuko honako esteka jarraitu eta berri bat ezartzen duzun arte.
+        ignore: Hau eskatu ez bazenuen, mesedez gutxietsi mezu hau.
+      unlock_instructions:
+        subject: Askatu argibideak
+        account_locked: Zure kontua blokeatu da autentikazio akasdun askoren ondoren.
+        click_to_unlock: 'Sakatu honako estekan zure kontua askatzeko:'
+        unlock: Askatu nire kontua
+      welcome: Ongietorri, %{username}!
+      hello: Kaixo %{username}!
       inviter:
-        accept_at: "%{url}(e)n, onartu dezakezu beheko esteka jarraituz."
         has_invited_you: "%{name}"
         have_invited_you: "%{names}(e)k Diasporara batzera gonbidatu zaituzte"
-      reset_password_instructions:
-        change: "Pasahitza aldatu"
-        ignore: "Hau eskatu ez bazenuen, mesedez gutxietsi mezu hau."
-        someone_requested: "Norbaitek pasahitz aldaketarako esteka bat eskatu du, hau egin dezakezu esteka honako esteka jarraituz:"
-        subject: "Pasahitz berreskuraketaren argibideak"
-        wont_change: "Zure pasahitza ez da aldatuko honako esteka jarraitu eta berri bat ezartzen duzun arte."
-      unlock_instructions:
-        account_locked: "Zure kontua blokeatu da autentikazio akasdun askoren ondoren."
-        click_to_unlock: "Sakatu honako estekan zure kontua askatzeko:"
-        subject: "Askatu argibideak"
-        unlock: "Askatu nire kontua"
-      welcome: "Ongietorri, %{username}!"
+        accept_at: "%{url}(e)n, onartu dezakezu beheko esteka jarraituz."
     passwords:
+      send_instructions: Hurrengo minutuetan email bat jasoko dituzu pasahitza berrezartzeko argibideekin.
+      updated: Zure pasahitza arrakastaz aldatu duzu. Autentikatuta zaude orain.
       edit:
-        change_password: "Nire pasahitza aldatu"
+        change_password: Nire pasahitza aldatu
       new:
-        forgot_password: "Pasahitza ahaztu duzu?"
-        send_password_instructions: "Bidali iezadazu pasahitzaren berrezarpenerako argibideak"
-      send_instructions: "Hurrengo minutuetan email bat jasoko dituzu pasahitza berrezartzeko argibideekin."
-      updated: "Zure pasahitza arrakastaz aldatu duzu. Autentikatuta zaude orain."
+        forgot_password: Pasahitza ahaztu duzu?
+        send_password_instructions: Bidali iezadazu pasahitzaren berrezarpenerako argibideak
     registrations:
-      destroyed: "Agur! Zure kontua arrakastaz ezabatu duzu. Laister berriro ikustea espero dugu."
-      signed_up: "Arrakastaz eman duzu izena. Ahal bazen, mezu bat bidalia izan da zure sarrera-ontzira."
-      updated: "Kontua arrakastaz eguneratu duzu."
+      destroyed: Agur! Zure kontua arrakastaz ezabatu duzu. Laister berriro ikustea espero dugu.
+      signed_up: Arrakastaz eman duzu izena. Ahal bazen, mezu bat bidalia izan da zure sarrera-ontzira.
+      updated: Kontua arrakastaz eguneratu duzu.
     sessions:
+      signed_in: Arrakastaz sartu zara.
+      signed_out: Arrakastaz atera zara.
       new:
-        login: "Sartu"
-        modern_browsers: "bakarrik nabigatzaile modernoak onartzen ditu."
-        password: "Pasahitza"
-        remember_me: "Gogoratu nazazu"
-        sign_in: "Sartu"
-        username: "Erabiltzailea"
-      signed_in: "Arrakastaz sartu zara."
-      signed_out: "Arrakastaz atera zara."
+        login: Sartu
+        username: Erabiltzailea
+        password: Pasahitza
+        sign_in: Sartu
+        remember_me: Gogoratu nazazu
+        modern_browsers: bakarrik nabigatzaile modernoak onartzen ditu.
+    unlocks:
+      send_instructions: Zure kontua berriro aktibatzeko argibidedun mezu bat jasoko duzu e-postan minutu batzuetan.
+      unlocked: Zure kontua berraktibatu duzu. Orain sartu egin zara.
+      new:
+        resend_unlock: Desblokeatzeko argibideak bidali
+    invitations:
+      send_instructions: Gonbidapena bidali duzu.
+      invitation_token_invalid: Sentitzen dugu, baina gonbidapen kodea ez da baliozkoa.
+      updated: Zure pasahitza arrakastaz ezarri duzu. Sartu egin zara.
     shared:
       links:
-        forgot_your_password: "Zure pasahitza ahaztu duzu?"
-        receive_confirmation: "Ez duzu baieztapen emailik jaso?"
-        receive_unlock: "Ez duzu askapen argibiderik jaso?"
-        sign_in: "Sartu"
-        sign_up: "Izena eman"
-        sign_up_closed: "Izen-emate irekiak ez daude erabilgarri momentu hontan."
-    unlocks:
-      new:
-        resend_unlock: "Desblokeatzeko argibideak bidali"
-      send_instructions: "Zure kontua berriro aktibatzeko argibidedun mezu bat jasoko duzu e-postan minutu batzuetan."
-      unlocked: "Zure kontua berraktibatu duzu. Orain sartu egin zara."
+        sign_in: Sartu
+        sign_up: Izena eman
+        sign_up_closed: Izen-emate irekiak ez daude erabilgarri momentu hontan.
+        forgot_your_password: Zure pasahitza ahaztu duzu?
+        receive_confirmation: Ez duzu baieztapen emailik jaso?
+        receive_unlock: Ez duzu askapen argibiderik jaso?
   errors:
     messages:
-      already_confirmed: "jadanik baieztatua zegoen"
-      not_found: "ez da aurkitu"
-      not_locked: "ez zegoen giltzapetuta"
+      already_confirmed: jadanik baieztatua zegoen
+      not_found: ez da aurkitu
+      not_locked: ez zegoen giltzapetuta

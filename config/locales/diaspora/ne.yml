@@ -5,103 +5,103 @@
 
 
 ne:
-  _applications: "अनुप्रयोगहरू"
-  _contacts: "सम्पर्कहरू"
-  _services: "सेवाहरु"
-  account: "खाता"
+  settings: सेटिङ
+  profile: प्रोफाइल
+  account: खाता
+  privacy: गोपनीयता
+  _services: सेवाहरु
+  _applications: अनुप्रयोगहरू
+  ok: ठीक छ
+  cancel: रद्द गर्नुहोस्
+  delete: मेट्नुहोस्
+  username: प्रयोगकर्ता नाम
+  email: ईमेल
+  are_you_sure: के तपाईँ निश्चित हुनुहुन्छ?
+  are_you_sure_delete_account: के तपाइँ निश्चय हुनुहुन्छ कि तपाइँ तपाइँको खाता बन्द गर्न चाहनुहुन्छ? यसलाई पूर्ववत गर्न सकिदैन?
+  fill_me_out: मलाई भर्नुहोस्
+  public: सार्वजनिक
+  limited: सीमित
+  search: खोज्नुहोस्
+  nsfw: कामका लागि सुरक्षित छैन
+  find_people: 'व्यक्ति वा #ट्यागहरू फेला पार्नुहोस्'
+  more: थप
+  all_aspects: सबै पक्षहरू
+  no_results: कुनै परिणाम भेटिएन
+  _contacts: सम्पर्कहरू
   activerecord:
     errors:
       models:
-        contact:
+        user:
           attributes:
-            person_id:
-              taken: "यस प्रयोगकर्ताको सम्पर्कहरू बीच अद्वितीय हुनुपर्दछ।"
+            person:
+              invalid: अवैध छ।
+            username:
+              taken: पहिले नै लिइएको छ।
+              invalid: अवैध छ। हामी केवल अक्षर, संख्या, र अन्डरकोरहरू अनुमति दिन्छौं।
+            email:
+              taken: पहिले नै लिइएको छ।
         person:
           attributes:
             diaspora_handle:
-              taken: "पहिले नै लिइएको छ।"
+              taken: पहिले नै लिइएको छ।
+        contact:
+          attributes:
+            person_id:
+              taken: यस प्रयोगकर्ताको सम्पर्कहरू बीच अद्वितीय हुनुपर्दछ।
         reshare:
           attributes:
             root_guid:
-              taken: "त्यो राम्रो छ, ए? तपाईंले पहिले नै यो पोष्ट पुनः साझा गर्नुभयो!"
-        user:
-          attributes:
-            email:
-              taken: "पहिले नै लिइएको छ।"
-            person:
-              invalid: "अवैध छ।"
-            username:
-              invalid: "अवैध छ। हामी केवल अक्षर, संख्या, र अन्डरकोरहरू अनुमति दिन्छौं।"
-              taken: "पहिले नै लिइएको छ।"
-  admins:
-    user_entry:
-      current_sign_in_ip: "हालको साइन इनमा आईपी ठेगाना"
-  all_aspects: "सबै पक्षहरू"
-  are_you_sure: "के तपाईँ निश्चित हुनुहुन्छ?"
-  are_you_sure_delete_account: "के तपाइँ निश्चय हुनुहुन्छ कि तपाइँ तपाइँको खाता बन्द गर्न चाहनुहुन्छ? यसलाई पूर्ववत गर्न सकिदैन?"
-  aspects:
-    edit:
-      aspect_list_is_not_visible: "यस पक्षमा सम्पर्कहरूले एक अर्कालाई हेर्न सक्षम छैनन्।"
-      aspect_list_is_visible: "यस पक्षमा सम्पर्कहरूले एक अर्कालाई हेर्न सक्षम छन्।"
-      confirm_remove_aspect: "के तपाईं पक्का यस पक्षलाई मेटाउन चाहनुहुन्छ?"
-      rename: "पुनः नामाकरण गर्नुहोस्"
-      update: "अद्यावधिक गर्नुहोस्"
-      updating: "अपडेट गर्दै"
-    index:
-      help:
-        tag_question: "प्रश्न"
-      welcome_to_diaspora: "%{name} ज्यु, डायस्पोरामा तपाईलाई स्वागत छ !"
-    no_contacts_message:
-      you_should_add_some_more_contacts: "तपाईंले केही थप सम्पर्कहरू थप्न गर्नुपर्छ!"
-    seed:
-      acquaintances: "परिचित व्यक्तिहरु"
-      family: "परिवार"
-      friends: "साथीहरु"
-      work: "सहकर्मी"
-  cancel: "रद्द गर्नुहोस्"
-  conversations:
-    new:
-      send: "पठाउनुहोस्"
-  delete: "मेट्नुहोस्"
-  email: "ईमेल"
+              taken: त्यो राम्रो छ, ए? तपाईंले पहिले नै यो पोष्ट पुनः साझा गर्नुभयो!
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "त्रुटिहरू सच्याउनुहोस् र फेरि प्रयास गर्नुहोस्।"
-  fill_me_out: "मलाई भर्नुहोस्"
-  find_people: "व्यक्ति वा #ट्यागहरू फेला पार्नुहोस्"
+      correct_the_following_errors_and_try_again: त्रुटिहरू सच्याउनुहोस् र फेरि प्रयास गर्नुहोस्।
+  admins:
+    user_entry:
+      current_sign_in_ip: हालको साइन इनमा आईपी ठेगाना
+  aspects:
+    edit:
+      confirm_remove_aspect: के तपाईं पक्का यस पक्षलाई मेटाउन चाहनुहुन्छ?
+      rename: पुनः नामाकरण गर्नुहोस्
+      aspect_list_is_visible: यस पक्षमा सम्पर्कहरूले एक अर्कालाई हेर्न सक्षम छन्।
+      aspect_list_is_not_visible: यस पक्षमा सम्पर्कहरूले एक अर्कालाई हेर्न सक्षम छैनन्।
+      update: अद्यावधिक गर्नुहोस्
+      updating: अपडेट गर्दै
+    no_contacts_message:
+      you_should_add_some_more_contacts: तपाईंले केही थप सम्पर्कहरू थप्न गर्नुपर्छ!
+    seed:
+      family: परिवार
+      work: सहकर्मी
+      acquaintances: परिचित व्यक्तिहरु
+      friends: साथीहरु
+    index:
+      welcome_to_diaspora: "%{name} ज्यु, डायस्पोरामा तपाईलाई स्वागत छ !"
+      help:
+        tag_question: प्रश्न
+  conversations:
+    new:
+      send: पठाउनुहोस्
   invitations:
     new:
-      language: "भाषा"
-  limited: "सीमित"
-  more: "थप"
-  no_results: "कुनै परिणाम भेटिएन"
+      language: भाषा
   notifications:
     index:
-      and: "र"
+      and: र
   notifier:
-    hello: "नमस्कार %{name} !"
-    thanks: "धन्यवाद,"
-  nsfw: "कामका लागि सुरक्षित छैन"
-  ok: "ठीक छ"
-  privacy: "गोपनीयता"
-  profile: "प्रोफाइल"
+    hello: नमस्कार %{name} !
+    thanks: धन्यवाद,
   profiles:
     edit:
-      first_name: "थर"
-      last_name: "नाम"
-      your_birthday: "जन्मदिन"
-      your_gender: "लिङ्ग"
-      your_location: "ठेगाना"
-      your_photo: "तपाईको तस्वीर"
-  public: "सार्वजनिक"
-  search: "खोज्नुहोस्"
-  settings: "सेटिङ"
-  username: "प्रयोगकर्ता नाम"
+      first_name: थर
+      last_name: नाम
+      your_gender: लिङ्ग
+      your_birthday: जन्मदिन
+      your_location: ठेगाना
+      your_photo: तपाईको तस्वीर
   users:
     edit:
-      change_email: "ईमेल परिवर्तन गर्नुहोस्"
-      change_language: "भाषा परिवर्तन गर्नुहोस्"
-      change_password: "गोप्य शब्द परिवर्तन गर्नुहोस्"
-      current_password: "हालको गोप्य शब्द"
-      new_password: "नयाँ गोप्य शब्द"
-      your_email: "तपाईको ईमेल"
+      your_email: तपाईको ईमेल
+      change_email: ईमेल परिवर्तन गर्नुहोस्
+      change_password: गोप्य शब्द परिवर्तन गर्नुहोस्
+      new_password: नयाँ गोप्य शब्द
+      current_password: हालको गोप्य शब्द
+      change_language: भाषा परिवर्तन गर्नुहोस्

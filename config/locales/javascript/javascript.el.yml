@@ -6,147 +6,147 @@
 
 el:
   javascripts:
-    and: "και"
-    aspect_dropdown:
-      add_to_aspect: "Προσθήκη επαφής"
-      all_aspects: "Όλες οι πτυχές"
-      error: "Δεν μπορεί να ξεκινήσει ο διαμοιρασμός με το χρήστη <%= name %>.  Μήπως τον αγνοείς;"
-      error_remove: "Αδύνατη η αφαίρεση του <%= name %> από την πτυχή :("
-      select_aspects: "Επιλογή πτυχών"
-      started_sharing_with: "Ξεκινήσατε να διαμοιράζεστε με τον χρήστη <%= name %>!"
-      stopped_sharing_with: "Σταματήσατε να διαμοιράζεστε με τον χρήστη <%= name %>."
-      toggle:
-        one: "Σε <%= count %> πτυχή"
-        other: "Σε <%= count %> πτυχές"
-        zero: "Επιλέξτε πτυχές"
-    aspect_navigation:
-      add_an_aspect: "+ Προσθέστε μια πτυχή"
-      deselect_all: "Εξαίρεση όλων"
-      no_aspects: "Καμία πτυχή δεν έχει επιλεγεί "
-      select_all: "Επιλογή όλων"
-    comma: ","
-    comments:
-      hide: "απόκρυψη σχολίων"
-      no_comments: "Δεν υπάρχουν ακόμη σχόλια."
-      show: "προβολή όλων των σχολίων"
-    confirm_dialog: "Είστε σίγουροι;"
-    contacts:
-      add_contact: "Προσθήκη επαφής"
-      remove_contact: "Διαγραφή επαφής"
-    delete: "Διαγραφή"
-    edit: "Επεξεργασία"
-    failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
-    getting_started:
-      alright_ill_wait: "Εντάξει, θα περιμένω."
-      hey: "Γεια σου, <%= name %>!"
-      no_tags: "Γεια, δεν ακολουθείται ακόμα καμία ετικέτα! Συνεχίζουμε παρ' όλ' αυτά;"
-      preparing_your_stream: "Ετοιμάζεται η προσωπική σας ροή..."
-    header:
-      admin: "Διαχείριση"
-      close: "κλείσιμο"
-      contacts: "Επαφές"
-      conversations: "Συζητήσεις"
-      help: "Βοήθεια"
-      home: "Αρχική"
-      log_out: "Αποσύνδεση"
-      mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
-      notifications: "Ειδοποιήσεις"
-      profile: "Προφίλ"
-      recent_notifications: "Πρόσφατες Ειδοποιήσεις"
-      search: "Αναζήτηση"
-      settings: "Ρυθμίσεις"
-      view_all: "Προβολή όλων"
-    ignore: "Αγνόησε"
-    ignore_user: "Να αγνοηθεί αυτός ο χρήστης;"
-    my_activity: "Η δραστηριότητα μου"
-    my_aspects: "Οι πτυχές μου"
-    my_stream: "Ροή"
-    no_results: "Δεν βρέθηκαν αποτελέσματα"
-    people:
-      edit_my_profile: "Επεξεργασία του προφίλ μου"
-      not_found: "και κανείς δεν βρέθηκε..."
-    photo_uploader:
-      completed: "<%= file %> ολοκληρώθηκε"
-      empty: "{file} είναι κενό, παρακαλώ επιλέξτε και πάλι τα αρχεία χωρίς αυτό."
-      invalid_ext: "{file} δεν έχει έγκυρo τύπο αρχείου. Μόνο {extensions} επιτρέπονται."
-      looking_good: "Ναι! Σκίζεις!"
-      size_error: "{file} είναι πολύ μεγάλο, το μέγιστο μέγεθος αρχείου είναι {sizeLimit}."
-    poll:
-      close_result: "Απόκρυψη αποτελεσμάτων"
-      result: "Αποτέλεσμα"
-    profile:
-      bio: "Βιογραφικό"
-      born: "Ημερομηνία Γέννησης"
-      edit: "επεξεργασία"
-      gender: "Φύλο"
-      location: "Τοποθεσία"
-      photos: "Φωτογραφίες"
-    publisher:
-      add_option: "Πρόσθεσε μια απάντηση"
-      near_from: "Αναρτήθηκε από: <%= location %>"
-      question: "Ερώτηση"
-    report:
-      name: "Αναφορά"
-    reshares:
-      post: "Κοινοποίηση της ανάρτησης του <%= name %>;"
-      successful: "Η ανάρτηση κοινοποιήθηκε επιτυχώς!"
-    show_more: "Προβολή περισσότερων"
-    stream:
-      comment: "Σχολιάστε"
-      follow: "Ακολουθήστε"
-      followed_tag:
-        add_a_tag: "Προσθήκη μιας ετικέτας"
-        follow: "Ακολουθήστε"
-        title: "#Ετικέτες που ακολουθείτε"
-      hide: "Απόκρυψη"
-      hide_nsfw_posts: "Απόκριψη των \"μη ασφαλών για εργασία\" (NSFW) δημοσιεύσεων"
-      like: "Μου αρέσει"
-      likes:
-        one: "<%= count %> Μου αρέσει"
-        other: "<%= count %> Μου αρέσει"
-        zero: "<%= count %> Μου αρέσει"
-      limited: "Περιορισμένο"
-      more_comments:
-        one: "Εμφάνιση <%= count %> ακόμη σχόλιο"
-        other: "Εμφάνιση <%= count %> ακόμη σχόλια"
-        zero: "Εμφάνιση <%= count %> ακόμη σχόλιο"
-      original_post_deleted: "Η αρχική δημοσίευση διαγράφτηκε από τον δημιουργό της."
-      public: "Δημόσιο"
-      reshare: "Κοινοποιήστε"
-      reshares:
-        one: "<%= count %> Κοινοποίηση"
-        other: "<%= count %> Κοινοποιήσεις"
-        zero: "<%= count %> Κοινοποιήσεις"
-      show_nsfw_post: "Προβολή δημοσίευσης"
-      show_nsfw_posts: "Προβολή όλων"
-      tags:
-        follow: "Ακολουθήστε την ετικέτα #<%= tag %>"
-        following: "Ακολουθείτε την ετικέτα #<%= tag %>"
-        stop_following: "Σταματήστε να ακολουθείτε την ετικέτα #<%= tag %>"
-      unfollow: "Παύση παρακολούθησης"
-      unlike: "Δεν μου αρέσει"
-    tags:
-      wasnt_that_interesting: "OK, φαντάζομαι πως το #<%= tagName %> δεν ήταν και τόσο ενδιαφέρον τελικά..."
     timeago:
-      day: "μία μέρα"
-      days:
-        other: "%d μέρες"
-      hour: "περίπου μία ώρα"
-      hours:
-        other: "περίπου %d ώρες"
-      minute: "περίπου ένα λεπτό"
+      prefixAgo: ''
+      suffixAgo: πριν
+      suffixFromNow: από τώρα
+      prefixFromNow: ''
+      seconds: λιγότερο από ένα λεπτό
+      minute: περίπου ένα λεπτό
       minutes:
         other: "%d λεπτά"
-      month: "περίπου ένα μήνα"
+      hour: περίπου μία ώρα
+      hours:
+        other: περίπου %d ώρες
+      day: μία μέρα
+      days:
+        other: "%d μέρες"
+      month: περίπου ένα μήνα
       months:
         other: "%d μήνες"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "λιγότερο από ένα λεπτό"
-      suffixAgo: "πριν"
-      suffixFromNow: "από τώρα"
-      year: "περίπου ένα χρόνο"
+      year: περίπου ένα χρόνο
       years:
         other: "%d χρόνια"
+    confirm_dialog: Είστε σίγουροι;
+    delete: Διαγραφή
+    ignore: Αγνόησε
+    report:
+      name: Αναφορά
+    ignore_user: Να αγνοηθεί αυτός ο χρήστης;
+    and: και
+    comma: ","
+    edit: Επεξεργασία
+    no_results: Δεν βρέθηκαν αποτελέσματα
+    contacts:
+      add_contact: Προσθήκη επαφής
+      remove_contact: Διαγραφή επαφής
+    my_activity: Η δραστηριότητα μου
+    my_stream: Ροή
+    my_aspects: Οι πτυχές μου
+    publisher:
+      near_from: 'Αναρτήθηκε από: <%= location %>'
+      add_option: Πρόσθεσε μια απάντηση
+      question: Ερώτηση
+    aspect_dropdown:
+      add_to_aspect: Προσθήκη επαφής
+      select_aspects: Επιλογή πτυχών
+      all_aspects: Όλες οι πτυχές
+      stopped_sharing_with: Σταματήσατε να διαμοιράζεστε με τον χρήστη <%= name %>.
+      started_sharing_with: Ξεκινήσατε να διαμοιράζεστε με τον χρήστη <%= name %>!
+      error: Δεν μπορεί να ξεκινήσει ο διαμοιρασμός με το χρήστη <%= name %>.  Μήπως τον αγνοείς;
+      error_remove: Αδύνατη η αφαίρεση του <%= name %> από την πτυχή :(
+      toggle:
+        zero: Επιλέξτε πτυχές
+        one: Σε <%= count %> πτυχή
+        other: Σε <%= count %> πτυχές
+    show_more: Προβολή περισσότερων
+    failed_to_post_message: Αποτυχία δημοσίευσης μηνύματος!
+    comments:
+      show: προβολή όλων των σχολίων
+      hide: απόκρυψη σχολίων
+      no_comments: Δεν υπάρχουν ακόμη σχόλια.
+    reshares:
+      successful: Η ανάρτηση κοινοποιήθηκε επιτυχώς!
+      post: Κοινοποίηση της ανάρτησης του <%= name %>;
+    aspect_navigation:
+      select_all: Επιλογή όλων
+      deselect_all: Εξαίρεση όλων
+      no_aspects: 'Καμία πτυχή δεν έχει επιλεγεί '
+      add_an_aspect: "+ Προσθέστε μια πτυχή"
+    getting_started:
+      hey: Γεια σου, <%= name %>!
+      no_tags: Γεια, δεν ακολουθείται ακόμα καμία ετικέτα! Συνεχίζουμε παρ' όλ' αυτά;
+      alright_ill_wait: Εντάξει, θα περιμένω.
+      preparing_your_stream: Ετοιμάζεται η προσωπική σας ροή...
+    photo_uploader:
+      looking_good: Ναι! Σκίζεις!
+      completed: "<%= file %> ολοκληρώθηκε"
+      invalid_ext: "{file} δεν έχει έγκυρo τύπο αρχείου. Μόνο {extensions} επιτρέπονται."
+      size_error: "{file} είναι πολύ μεγάλο, το μέγιστο μέγεθος αρχείου είναι {sizeLimit}."
+      empty: "{file} είναι κενό, παρακαλώ επιλέξτε και πάλι τα αρχεία χωρίς αυτό."
+    tags:
+      wasnt_that_interesting: 'OK, φαντάζομαι πως το #<%= tagName %> δεν ήταν και τόσο ενδιαφέρον τελικά...'
+    people:
+      not_found: και κανείς δεν βρέθηκε...
+      edit_my_profile: Επεξεργασία του προφίλ μου
+    profile:
+      edit: επεξεργασία
+      bio: Βιογραφικό
+      location: Τοποθεσία
+      gender: Φύλο
+      born: Ημερομηνία Γέννησης
+      photos: Φωτογραφίες
+    stream:
+      hide: Απόκρυψη
+      public: Δημόσιο
+      limited: Περιορισμένο
+      like: Μου αρέσει
+      unlike: Δεν μου αρέσει
+      reshare: Κοινοποιήστε
+      comment: Σχολιάστε
+      original_post_deleted: Η αρχική δημοσίευση διαγράφτηκε από τον δημιουργό της.
+      show_nsfw_post: Προβολή δημοσίευσης
+      show_nsfw_posts: Προβολή όλων
+      hide_nsfw_posts: Απόκριψη των "μη ασφαλών για εργασία" (NSFW) δημοσιεύσεων
+      follow: Ακολουθήστε
+      unfollow: Παύση παρακολούθησης
+      likes:
+        zero: "<%= count %> Μου αρέσει"
+        one: "<%= count %> Μου αρέσει"
+        other: "<%= count %> Μου αρέσει"
+      reshares:
+        zero: "<%= count %> Κοινοποιήσεις"
+        one: "<%= count %> Κοινοποίηση"
+        other: "<%= count %> Κοινοποιήσεις"
+      more_comments:
+        zero: Εμφάνιση <%= count %> ακόμη σχόλιο
+        one: Εμφάνιση <%= count %> ακόμη σχόλιο
+        other: Εμφάνιση <%= count %> ακόμη σχόλια
+      followed_tag:
+        title: "#Ετικέτες που ακολουθείτε"
+        add_a_tag: Προσθήκη μιας ετικέτας
+        follow: Ακολουθήστε
+      tags:
+        follow: 'Ακολουθήστε την ετικέτα #<%= tag %>'
+        following: 'Ακολουθείτε την ετικέτα #<%= tag %>'
+        stop_following: 'Σταματήστε να ακολουθείτε την ετικέτα #<%= tag %>'
+    header:
+      home: Αρχική
+      profile: Προφίλ
+      contacts: Επαφές
+      settings: Ρυθμίσεις
+      help: Βοήθεια
+      admin: Διαχείριση
+      log_out: Αποσύνδεση
+      notifications: Ειδοποιήσεις
+      conversations: Συζητήσεις
+      search: Αναζήτηση
+      recent_notifications: Πρόσφατες Ειδοποιήσεις
+      mark_all_as_read: Σήμανση όλων ως διαβασμένα
+      view_all: Προβολή όλων
+      close: κλείσιμο
     viewer:
-      reshared: "Κοινοποιήθηκε"
+      reshared: Κοινοποιήθηκε
+    poll:
+      result: Αποτέλεσμα
+      close_result: Απόκρυψη αποτελεσμάτων
