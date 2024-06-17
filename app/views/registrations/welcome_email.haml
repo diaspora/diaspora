@@ -1,0 +1,11 @@
+%h1
+  != t("registrations.welcome_email.member")
+%p
+  != t("registrations.welcome_email.part_of_network", pod_url: link_to(AppConfig.pod_uri.site, AppConfig.pod_uri.site),
+    username: @user.username)
+%p
+  != t("registrations.welcome_email.your_id", id: @user.person.diaspora_handle)
+%p
+  != t("registrations.welcome_email.help")
+%p
+  != t("registrations.welcome_email.welcome")
