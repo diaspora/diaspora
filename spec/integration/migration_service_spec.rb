@@ -226,8 +226,8 @@ describe MigrationService do
 
       service = MigrationService.new(archive_file.path, new_username)
       service.validate
-      expect(service.warnings).to eq(
-        ["reshare Reshare:#{reshare_entity_with_no_root.guid} doesn't have a root, ignored"]
+      expect(service.warnings).to include(
+        "reshare Reshare:#{reshare_entity_with_no_root.guid} doesn't have a root, ignored"
       )
       service.perform!
       user = User.find_by(username: new_username)

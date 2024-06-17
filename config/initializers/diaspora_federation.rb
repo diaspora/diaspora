@@ -15,7 +15,7 @@ DiasporaFederation.configure do |config|
   config.define_callbacks do
     on :fetch_person_for_webfinger do |diaspora_id|
       person = Person.where(diaspora_handle: diaspora_id, closed_account: false).where.not(owner: nil).first
-      if person
+      unless person.nil? || person.closed_account?
         DiasporaFederation::Discovery::WebFinger.new(
           {
             acct_uri:      "acct:#{person.diaspora_handle}",
@@ -39,7 +39,7 @@ DiasporaFederation.configure do |config|
 
     on :fetch_person_for_hcard do |guid|
       person = Person.where(guid: guid, closed_account: false).where.not(owner: nil).take
-      if person
+      unless person.nil? || person.closed_account?
         DiasporaFederation::Discovery::HCard.new(
           guid:             person.guid,
           nickname:         person.username,
@@ -112,6 +112,7 @@ DiasporaFederation.configure do |config|
       when DiasporaFederation::Entities::Retraction
         Diaspora::Federation::Receive.retraction(entity, recipient_id)
       else
+        # TODO: Check for person.closed_account? when merging with #8228 'Block Pod'
         persisted = Diaspora::Federation::Receive.perform(entity)
         Workers::ReceiveLocal.perform_async(persisted.class.to_s, persisted.id, [recipient_id].compact) if persisted
       end
@@ -119,6 +120,7 @@ DiasporaFederation.configure do |config|
 
     on :fetch_public_entity do |entity_type, guid|
       entity = Diaspora::Federation::Mappings.model_class_for(entity_type).all_public.find_by(guid: guid)
+      # TODO: Check for person.closed_account? when merging with #8228 'Block Pod'
       case entity
       when Poll
         Diaspora::Federation::Entities.status_message(entity.status_message)

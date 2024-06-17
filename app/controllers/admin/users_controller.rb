@@ -4,22 +4,32 @@ module Admin
   class UsersController < AdminController
     before_action :validate_user, only: %i(make_admin remove_admin make_moderator remove_moderator make_spotlight remove_spotlight)
 
-    def close_account
-      u = User.find(params[:id])
-      u.close_account!
-      redirect_to user_search_path, notice: t("admins.user_search.account_closing_scheduled", name: u.username)
-    end
-
+    # Receives the user ID to lock an account
     def lock_account
       u = User.find(params[:id])
       u.lock_access!
       redirect_to user_search_path, notice: t("admins.user_search.account_locking_scheduled", name: u.username)
     end
 
+    # Receives the user ID to unlock an account
     def unlock_account
       u = User.find(params[:id])
       u.unlock_access!
       redirect_to user_search_path, notice: t("admins.user_search.account_unlocking_scheduled", name: u.username)
+    end
+
+    # Receives the person ID to close an account
+    def close_account
+      p = Person.find(params[:id])
+      p.close_account!
+      redirect_to user_search_path, notice: t("admins.user_search.account_closing_scheduled", name: p.username)
+    end
+
+    # Closes a remote or local account irretrievable and retracts and deletes all created data
+    def wipe_and_close_account
+      p = Person.find(params[:id])
+      p.wipe_and_close_account!
+      redirect_to user_search_path, notice: t("admins.user_search.account_closing_scheduled", name: p.username)
     end
 
     def make_admin
@@ -33,6 +43,8 @@ module Admin
     end
 
     def remove_admin
+      return if @user == @current_user
+
       if Role.is_admin? @user.person
         Role.remove_admin @user.person
         notice = "admins.user_search.delete_admin"

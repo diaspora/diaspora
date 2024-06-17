@@ -1,0 +1,4 @@
+- unless person.closed_account?
+  = link_to t("admins.user_search.view_profile"),
+    person_path(person),
+    class: "btn btn-default btn-block"

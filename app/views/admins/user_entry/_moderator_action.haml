@@ -1,0 +1,11 @@
+- if person.owner.present? && person != @current_user.person && !person.closed_account?
+  - if Role.moderator_only?(person)
+    = link_to t("admins.user_search.remove_moderator"),
+      admin_remove_moderator_path(person.owner),
+      method: :post,
+      class: "btn btn-danger btn-block"
+  - else
+    = link_to t("admins.user_search.make_moderator"),
+      admin_make_moderator_path(person.owner),
+      method: :post,
+      class: "btn btn-info btn-block"
