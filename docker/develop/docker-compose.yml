@@ -45,10 +45,11 @@ services:
       POSTGRES_PASSWORD: postgres
 
   mysql:
-    image: mariadb:10.9
+    image: mariadb:lts
     ports:
       - 53306:3306
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: mysql
+      MARIADB_ROOT_PASSWORD: mysql
+      MARIADB_AUTO_UPGRADE: 1
