@@ -1,4 +1,4 @@
-- @unreviewed_reports.each do |report|
+- unreviewed_reports.each do |report|
   .panel.panel-default
     - reported_by = report.user.username
     .panel-heading
@@ -38,6 +38,6 @@
                     data:   {confirm: t("report.confirm_deletion")},
                     class:  "btn pull-right btn-danger btn-small col-md-3 col-xs-12",
                     method: :delete
-- if @unreviewed_reports.empty?
+- if unreviewed_reports.empty?
   %h3
     = t("report.no_pending_reports")

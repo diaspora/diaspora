@@ -14,7 +14,7 @@
       = t("report.decision")
     %th
       = t("report.action")
-  - @reviewed_reports.each do |report|
+  - reviewed_reports.each do |report|
     %tr
       %td
         = I18n.l(report.created_at, format: :short)

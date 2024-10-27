@@ -10,7 +10,7 @@ class ReportController < ApplicationController
 
   def index
     @unreviewed_reports = Report.join_originator.where(reviewed: false).order(created_at: :desc)
-    @reviewed_reports = Report.join_originator.where(reviewed: true).order(created_at: :desc)
+    @reviewed_reports = Report.join_originator.where(reviewed: true).order(created_at: :desc).limit(100)
     @statistics_by_reporter = statistics_by_reporter
     @statistics_by_author = statistics_by_author
   end
@@ -48,17 +48,17 @@ class ReportController < ApplicationController
   end
 
   def statistics_by_reporter
-    sql = "select count(*), diaspora_handle, guid from reports
-           join people on reports.user_id = people.owner_id
-           group by diaspora_handle, guid order by 1 desc"
-    ActiveRecord::Base.connection.exec_query sql
+    Report.joins("JOIN people ON reports.user_id = people.owner_id")
+          .select("count(*) as total_count, diaspora_handle, guid")
+          .group("diaspora_handle, guid")
+          .order("total_count desc")
   end
 
   def statistics_by_author
-    sql = "select count(*), diaspora_handle, guid from reports
-           left join people on reported_author_id = people.id
-           where reported_author_id is not null
-           group by diaspora_handle, guid order by 1 desc"
-    ActiveRecord::Base.connection.exec_query sql
+    Report.joins("JOIN people ON reports.reported_author_id = people.id")
+          .select("count(*) as total_count, diaspora_handle, guid")
+          .where.not(reported_author_id: nil)
+          .group("diaspora_handle, guid")
+          .order("total_count desc")
   end
 end
