@@ -7,17 +7,16 @@
 
   <div class="bd">
     <div class="control-icons">
-    {{#if loggedIn}}
-      {{#if canRemove}}
-        <a href="#" class="delete comment_delete" title="{{t "delete"}}">
-          <i class="entypo-trash"></i>
-        </a>
-      {{else}}
+      {{#if canReport}}
         <a href="#" data-type="Comment" class="comment_report" title="{{t "report.name"}}">
           <i class="entypo-warning"></i>
         </a>
       {{/if}}
-    {{/if}}
+      {{#if canRemove}}
+        <a href="#" class="delete comment_delete" title="{{t "delete"}}">
+          <i class="entypo-trash"></i>
+        </a>
+      {{/if}}
     </div>
 
     <div>

@@ -27,6 +27,7 @@ app.views.Comment = app.views.Content.extend({
   presenter: function() {
     return _.extend(this.defaultPresenter(), {
       canRemove: this.canRemove(),
+      canReport: this.canReport(),
       text: app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people")),
       likesCount: this.model.attributes.likesCount,
       userLike: this.model.interactions.userLike()
@@ -43,6 +44,10 @@ app.views.Comment = app.views.Content.extend({
 
   canRemove: function() {
     return app.currentUser.authenticated() && (this.ownComment() || this.postOwner());
+  },
+
+  canReport: function() {
+    return app.currentUser.authenticated() && !this.ownComment();
   },
 
   toggleLike: function(evt) {
