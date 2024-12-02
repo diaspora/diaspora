@@ -39,7 +39,10 @@ app.models.Person = Backbone.Model.extend({
 
     // return the jqXHR with Promise interface
     return block.save()
-      .done(function() { app.events.trigger('person:block:'+self.id); });
+      .done(function() {
+        app.events.trigger("person:block:" + self.id);
+        app.notificationsCollection.fetch();
+      });
   },
 
   unblock: function() {
