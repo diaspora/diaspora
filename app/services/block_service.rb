@@ -11,6 +11,8 @@ class BlockService
     block = @user.blocks.create!(person: person)
     contact = @user.contact_for(person)
 
+    notification_service.read_all_involving(person)
+
     if contact
       @user.disconnect(contact)
     elsif block.person.remote?
@@ -25,5 +27,11 @@ class BlockService
   def remove_block(block)
     block.destroy
     ContactRetraction.for(block).defer_dispatch(@user)
+  end
+
+  private
+
+  def notification_service
+    NotificationService.new(@user)
   end
 end
