@@ -64,6 +64,17 @@ describe("app.models.Person", function() {
       expect(request.method).toEqual("POST");
       expect($.parseJSON(request.params).block.person_id).toEqual(this.sharingContact.id);
     });
+    it("re-fetches the notifications", function(done) {
+      spyOn(app.models.Block.prototype, "save").and.returnValue($.Deferred().resolve());
+
+      app.notificationsCollection = {fetch: $.noop};
+      spyOn(app.notificationsCollection, "fetch");
+
+      this.sharingContact.block().done(function() {
+        expect(app.notificationsCollection.fetch).toHaveBeenCalled();
+        done();
+      });
+    });
   });
 
   context("#unblock", function() {
