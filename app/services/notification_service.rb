@@ -60,7 +60,10 @@ class NotificationService
     Notification
       .for(@user)
       .joins(:notification_actors)
-      .where(notification_actors: {person: person})
+      .where(
+        notification_actors: {person: person},
+        unread:              true
+      )
       .find_each do |note|
         note.unread = false
         note.save
