@@ -9,7 +9,7 @@ module Diaspora
         Twitter::TwitterText::Autolink.auto_link_urls(
           link,
           url_target:           "_blank",
-          link_attribute_block: lambda {|_, attr| attr[:rel] += " noopener noreferrer" }
+          link_attribute_block: lambda {|_, attr| attr[:rel] += " noopener noreferrer" unless link.start_with?("diaspora://")}
         )
       end
     end
