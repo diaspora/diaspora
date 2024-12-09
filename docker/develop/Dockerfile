@@ -26,13 +26,18 @@ RUN DEBIAN_FRONTEND=noninteractive \
     rm ./google-chrome.deb && \
     rm -rf /var/lib/apt/lists/*
 
-
-ARG DIA_UID
-ARG DIA_GID
+ARG DIA_UID=1000
+ARG DIA_GID=1000
 
 ENV HOME="/home/diaspora" \
     GEM_HOME="/diaspora/vendor/bundle" \
-    OPENSSL_CONF="/etc/ssl/"
+    OPENSSL_CONF="/etc/ssl/" \
+    BUNDLE_PATH="$GEM_HOME" \
+    BUNDLE_BIN="$GEM_HOME/bin" \
+    BUNDLE_APP_CONFIG="/diaspora/.bundle"
+
+# Define the PATH with BUNDLE_BIN included
+ENV PATH="$BUNDLE_BIN:$PATH"
 
 RUN addgroup --gid $DIA_GID diaspora && \
     adduser \
@@ -46,15 +51,9 @@ RUN addgroup --gid $DIA_GID diaspora && \
     mkdir $HOME /diaspora && \
     chown -R diaspora:diaspora $HOME /diaspora
 
-
-ENV BUNDLE_PATH="$GEM_HOME" \
-    BUNDLE_BIN="$GEM_HOME/bin" \
-    BUNDLE_APP_CONFIG="/diaspora/.bundle"
-ENV PATH $BUNDLE_BIN:$PATH
-
-
 COPY docker-entrypoint.sh /entrypoint.sh
 COPY docker-exec-entrypoint.sh /exec-entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["./script/server"]
