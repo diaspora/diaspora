@@ -56,13 +56,18 @@ class NotificationService
     notification_types(object).each {|type| type.notify(object, recipient_user_ids) }
   end
 
-  def read_all_involving(person)
+  def read_all_only_involving(person)
+    one_actor_notes = Notification
+                      .joins(:notification_actors)
+                      .group("notifications.id")
+                      .having("COUNT(notification_actors.notification_id) = 1")
     Notification
       .for(@user)
       .joins(:notification_actors)
       .where(
         notification_actors: {person: person},
-        unread:              true
+        unread:              true,
+        id:                  one_actor_notes
       )
       .find_each do |note|
         note.unread = false

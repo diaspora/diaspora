@@ -25,7 +25,7 @@ describe BlockService do
     end
 
     it "marks the notifications of the person as read" do
-      expect_any_instance_of(NotificationService).to receive(:read_all_involving).with(bob.person)
+      expect_any_instance_of(NotificationService).to receive(:read_all_only_involving).with(bob.person)
       service.block(bob.person)
     end
   end

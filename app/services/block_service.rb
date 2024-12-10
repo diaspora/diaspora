@@ -11,7 +11,7 @@ class BlockService
     block = @user.blocks.create!(person: person)
     contact = @user.contact_for(person)
 
-    notification_service.read_all_involving(person)
+    notification_service.read_all_only_involving(person)
 
     if contact
       @user.disconnect(contact)
