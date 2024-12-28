@@ -74,7 +74,7 @@ Feature: reporting of posts and comments
     When I go to the report page
     And I mark report as reviewed
     When I open the reviewed tab on the report page
-    Then I should see the reviewed report with decision No Action
+    Then I should see the reviewed report with decision "No Action"
 
   Scenario: A deleted report content appears in the Reviewed section as deleted
     Given I sign in as "alice@alice.alice"
@@ -87,7 +87,7 @@ Feature: reporting of posts and comments
     When I go to the report page
     And I mark report as deleted
     When I open the reviewed tab on the report page
-    Then I should see the reviewed report with decision Deleted
+    Then I should see the reviewed report with decision "Deleted"
 
   Scenario: A reviewed report can be deleted afterwards
     Given I sign in as "alice@alice.alice"
@@ -102,4 +102,4 @@ Feature: reporting of posts and comments
     When I open the reviewed tab on the report page
     And I confirm the alert after I delete the reviewed report
     When I open the reviewed tab on the report page
-    Then I should see the reviewed report with decision Deleted
+    Then I should see the reviewed report with decision "Deleted"

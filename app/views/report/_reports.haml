@@ -6,26 +6,26 @@
   %ul.nav.nav-tabs{role: "tablist"}
     %li.nav-item.active{role: "presentation"}
       %a{
-        href: "#reports",
-        title: t("report.tooltip_incomming"),
-        aria: {controls: "reports", selected: true},
-        data: {toggle: "tab"}
+          href:  "#reports",
+          title: t("report.tooltip_incomming"),
+          aria:  {controls: "reports", selected: true},
+          data:  {toggle: "tab"}
         }
         = t("report.reported_tab")
     %li.nav-item{role: "presentation"}
       %a{
-        href: "#checked",
-        title: t("report.tooltip_reviewed"),
-        aria: {controls: "checked", selected: false},
-        data: {toggle: "tab"}
+          href:  "#checked",
+          title: t("report.tooltip_reviewed"),
+          aria:  {controls: "checked", selected: false},
+          data:  {toggle: "tab"}
         }
         = t("report.reviewed_tab")
     %li.nav-item{role: "presentation"}
       %a{
-        href: "#statistics",
-        title: t("report.tooltip_statistics"),
-        aria: {controls: "statistics", selected: false},
-        data: {toggle: "tab"}
+          href:  "#statistics",
+          title: t("report.tooltip_statistics"),
+          aria:  {controls: "statistics", selected: false},
+          data:  {toggle: "tab"}
         }
         = t("report.statistics_tab")
   .tab-content

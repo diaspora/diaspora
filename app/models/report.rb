@@ -4,7 +4,7 @@ class Report < ApplicationRecord
   validates :user_id, presence: true
   validates :item_id, presence: true
   validates :item_type, presence: true, inclusion: {
-    in: %w[Post Comment], message: "Type should match `Post` or `Comment`!"
+    in: %w[Post Comment], message: "Type should match `Post` or `Comment`!" # rubocop:disable Rails/I18nLocaleTexts
   }
   validates :text, presence: true
 
@@ -15,6 +15,7 @@ class Report < ApplicationRecord
   belongs_to :post, optional: true
   belongs_to :comment, optional: true
   belongs_to :item, polymorphic: true
+  belongs_to :reported_author, class_name: "Person", optional: true
 
   STATUS_DELETED = "deleted"
   STATUS_NO_ACTION = "no_action"
@@ -26,40 +27,24 @@ class Report < ApplicationRecord
       .select("reports.*, people.diaspora_handle as reported_author, people.guid as reported_author_guid")
   }
 
-  def reported_author
-    return Person.find(reported_author_id) if reported_author_id.present?
-
-    item&.author
-  end
-
   def entry_does_not_exist
     return unless Report.where(item_id: item_id, item_type: item_type).exists?(user_id: user_id)
 
-    errors[:base] << "You cannot report the same post twice."
+    errors.add(:base, "You cannot report the same post twice.")
   end
 
   def post_or_comment_does_exist
     return unless Post.find_by(id: item_id).nil? && Comment.find_by(id: item_id).nil?
 
-    errors[:base] << "Post or comment was already deleted or doesn't exists."
+    errors.add(:base, "Post or comment was already deleted or doesn't exists.")
   end
 
   def destroy_reported_item
     case item
     when Post
-      if item.author.local?
-        item.author.owner.retract(item)
-      else
-        item.destroy
-      end
+      destroy_post_item
     when Comment
-      if item.author.local?
-        item.author.owner.retract(item)
-      elsif item.parent.author.local?
-        item.parent.author.owner.retract(item)
-      else
-        item.destroy
-      end
+      destroy_comment_item
     end
     mark_as_reviewed(STATUS_DELETED)
   end
@@ -74,5 +59,16 @@ class Report < ApplicationRecord
 
   def send_report_notification
     Workers::Mail::ReportWorker.perform_async(id)
+  end
+
+  private
+
+  def destroy_comment_item
+    author = item.author.local? ? item.author : item.parent.author
+    author&.owner&.retract(item) || item.destroy
+  end
+
+  def destroy_post_item
+    item.author.local? ? item.author.owner.retract(item) : item.destroy
   end
 end

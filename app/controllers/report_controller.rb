@@ -17,7 +17,7 @@ class ReportController < ApplicationController
 
   def create
     report = current_user.reports.new(report_params)
-    report.reported_author_id = report.reported_author.id
+    report.reported_author = report.item&.author
     if report.save
       render json: true, status: :ok
     else
