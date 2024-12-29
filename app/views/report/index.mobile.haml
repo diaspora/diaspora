@@ -1,1 +1,9 @@
-= render partial: "report/reports"
+:ruby
+  reports_locals = {
+    unreviewed_reports:     @unreviewed_reports,
+    reviewed_reports:       @reviewed_reports,
+    statistics_by_reporter: @statistics_by_reporter,
+    statistics_by_author:   @statistics_by_author
+  }
+
+= render partial: "report/reports", locals: reports_locals

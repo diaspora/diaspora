@@ -1,6 +1,7 @@
 - unreviewed_reports.each do |report|
   .panel.panel-default
-    - reported_by = report.user.username
+    :ruby
+      reported_by = report.user.username
     .panel-heading
       .reporter.pull-right
         != t("report.reported_label", person: link_to(reported_by, user_profile_path(reported_by)))
@@ -8,8 +9,7 @@
         %span.reason-label
           != "#{t('report.reported_author')}:"
         %span
-          = report.reported_author.name if report.item
-          != "-" if report.item.nil?
+          = report.reported_author&.name || "-"
       .created-at
         %span.reason-label
           != "#{t('report.report_created_at')}:"
@@ -24,7 +24,7 @@
       .content
         = report_content(report)
       .segment-selection
-        - if report.item.present?
+        - if report.item.present? && report.reported_author.present?
           = button_to t("report.reported_user_details"),
                       user_search_path(admins_controller_user_search: {guid: report.reported_author.guid}),
                       class:  "btn pull-left btn-info btn-small col-md-3 col-xs-12",
