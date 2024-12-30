@@ -9,8 +9,8 @@ class ReportController < ApplicationController
   before_action :redirect_unless_moderator, except: [:create]
 
   def index
-    @unreviewed_reports = Report.join_originator.where(reviewed: false).order(created_at: :desc)
-    @reviewed_reports = Report.join_originator.where(reviewed: true).order(created_at: :desc).limit(100)
+    @unreviewed_reports = Report.join_originator.where(reviewed: false).order(created_at: :desc, id: :desc)
+    @reviewed_reports = Report.join_originator.where(reviewed: true).order( created_at: :desc, id: :desc).limit(100)
     @statistics_by_reporter = statistics_by_reporter
     @statistics_by_author = statistics_by_author
   end
