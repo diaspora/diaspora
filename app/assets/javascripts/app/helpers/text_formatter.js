@@ -30,6 +30,10 @@
     md.use(inlinePlugin, "link_new_window_and_missing_http", "link_open", function (tokens, idx) {
       tokens[idx].attrs.forEach(function(attribute, index, array) {
         if( attribute[0] === "href" ) {
+          if (attribute[1].startsWith("diaspora://")) {
+            // if its a diaspora link do not add _blank and return early
+            return;
+          }
           array[index][1] = attribute[1].replace(/^www\./, "http://www.");
         }
       });
