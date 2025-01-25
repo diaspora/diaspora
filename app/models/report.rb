@@ -4,22 +4,28 @@ class Report < ApplicationRecord
   validates :user_id, presence: true
   validates :item_id, presence: true
   validates :item_type, presence: true, inclusion: {
-    in: %w(Post Comment), message: "Type should match `Post` or `Comment`!"}
+    in: %w[Post Comment], message: "Type should match `Post` or `Comment`!" # rubocop:disable Rails/I18nLocaleTexts
+  }
   validates :text, presence: true
 
-  validate :entry_does_not_exist, :on => :create
-  validate :post_or_comment_does_exist, :on => :create
+  validate :entry_does_not_exist, on: :create
+  validate :post_or_comment_does_exist, on: :create
 
   belongs_to :user
   belongs_to :post, optional: true
   belongs_to :comment, optional: true
   belongs_to :item, polymorphic: true
+  belongs_to :reported_author, class_name: "Person", optional: true
 
-  after_commit :send_report_notification, :on => :create
+  STATUS_DELETED = "deleted"
+  STATUS_NO_ACTION = "no_action"
 
-  def reported_author
-    item.author if item
-  end
+  after_commit :send_report_notification, on: :create
+
+  scope :join_originator, -> {
+    joins("LEFT JOIN people ON reported_author_id = people.id ")
+      .select("reports.*, people.diaspora_handle as reported_author, people.guid as reported_author_guid")
+  }
 
   def entry_does_not_exist
     return unless Report.where(item_id: item_id, item_type: item_type).exists?(user_id: user_id)
@@ -36,28 +42,33 @@ class Report < ApplicationRecord
   def destroy_reported_item
     case item
     when Post
-      if item.author.local?
-        item.author.owner.retract(item)
-      else
-        item.destroy
-      end
+      destroy_post_item
     when Comment
-      if item.author.local?
-        item.author.owner.retract(item)
-      elsif item.parent.author.local?
-        item.parent.author.owner.retract(item)
-      else
-        item.destroy
-      end
+      destroy_comment_item
     end
-    mark_as_reviewed
+    mark_as_reviewed(STATUS_DELETED)
   end
 
-  def mark_as_reviewed
-    Report.where(item_id: item_id, item_type: item_type).update_all(reviewed: true)
+  # rubocop:disable Rails/SkipsModelValidations
+
+  def mark_as_reviewed(with_action=STATUS_NO_ACTION)
+    Report.where(item_id: item_id, item_type: item_type)
+          .update_all(reviewed: true, action: with_action)
   end
+  # rubocop:enable Rails/SkipsModelValidations
 
   def send_report_notification
     Workers::Mail::ReportWorker.perform_async(id)
+  end
+
+  private
+
+  def destroy_comment_item
+    author = item.author.local? ? item.author : item.parent.author
+    author&.owner&.retract(item) || item.destroy
+  end
+
+  def destroy_post_item
+    item.author.local? ? item.author.owner.retract(item) : item.destroy
   end
 end

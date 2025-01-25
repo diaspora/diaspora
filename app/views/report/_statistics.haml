@@ -1,0 +1,28 @@
+%h3
+  = t("report.by_reporter")
+%table.table
+  %tr
+    %th
+      = t("report.count")
+    %th
+      = t("report.reported_by")
+  - statistics_by_reporter.each do |by_reporter|
+    %tr
+      %td
+        = by_reporter.total_count
+      %td
+        = link_to by_reporter.diaspora_handle, "/people/#{by_reporter.guid}"
+%h3
+  = t("report.by_author")
+%table.table
+  %tr
+    %th
+      = t("report.count")
+    %th
+      = t("report.reported_author")
+  - statistics_by_author.each do |by_author|
+    %tr
+      %td
+        = by_author.total_count
+      %td
+        = link_to by_author.diaspora_handle, "people/#{by_author.guid}"

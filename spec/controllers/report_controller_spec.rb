@@ -38,6 +38,24 @@ describe ReportController, type: :controller do
         expect(response).to render_template("index")
       end
     end
+
+    context "creates the statistics" do
+      before do
+        Role.add_moderator(alice.person)
+      end
+      let!(:unreviewed_reports) { create_list(:report, 3, reviewed: false) }
+      let!(:reviewed_reports) { create_list(:report, 2, reviewed: true) }
+
+      it "assigns @unreviewed_reports from newest to oldest" do
+        get :index
+        expect(assigns(:unreviewed_reports)).to eq(unreviewed_reports.sort_by(&:created_at).reverse)
+      end
+
+      it "assigns @reviewed_reports from newest to oldest" do
+        get :index
+        expect(assigns(:reviewed_reports)).to eq(reviewed_reports.sort_by(&:created_at).reverse)
+      end
+    end
   end
 
   describe "#create" do

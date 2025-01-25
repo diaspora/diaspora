@@ -1,7 +1,15 @@
+:ruby
+  reports_locals = {
+    unreviewed_reports:     @unreviewed_reports,
+    reviewed_reports:       @reviewed_reports,
+    statistics_by_reporter: @statistics_by_reporter,
+    statistics_by_author:   @statistics_by_author
+  }
+
 .container
   .row
     .col-md-3
       - if current_user.admin?
         = render partial: "admins/admin_bar"
     .col-md-9
-      = render partial: "report/reports"
+      = render partial: "report/reports", locals: reports_locals
