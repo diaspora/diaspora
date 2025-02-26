@@ -1331,7 +1331,7 @@ en:
                To do this, first export your data and photos from the pod you want to move from. Then, import those data and photo archives into this account.
                Your old account on the other pod will be deleted once this process has completed."
         warning: "There is no way back; that account can’t be restored if you change your mind."
-        account: "Import another account..."
+        account: "Import another account"
       
       close_account:
         dont_go: "Hey, please don’t go!"
@@ -1347,6 +1347,7 @@ en:
         description: "web+diaspora:// is a new web protocol that we have introduced. Any link to a diaspora* page on an external website that uses this protocol can be opened in the pod on which your diaspora* account is registered. Click the button below to set your browser to use %{pod_url} to recognise external web+diaspora:// links."
         browser: "This protocol is currently in the experimental stage and the success of interactions using it will depend on your browser. If you want to manage or remove this handler, you will do this via your browser settings. The button below will always be enabled, and you need to set the handler separately in each browser you use."
         register: "Register web+diaspora:// handler on this browser"
+      import_in_progress: "An import is already in progress. Be patient and come back later."
     
     import_modal:
       title: "Import another account"

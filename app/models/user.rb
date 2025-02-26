@@ -608,6 +608,10 @@ class User < ApplicationRecord
     true
   end
 
+  def account_migration_pending?
+    AccountMigration.exists?(new_person_id: id, completed_at: nil)
+  end
+
   private
 
   def clearable_fields

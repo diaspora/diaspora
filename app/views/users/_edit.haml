@@ -242,8 +242,11 @@
           %strong
             = t(".import.warning")
         .form-group
-          .btn.btn-primary{id: "import_account", data: {toggle: "modal", target: "#importAccountModal"}}
-            = t(".import.account")
+          - if current_user.account_migration_pending?
+            .import-in-progress= t(".import_in_progress")
+          - else
+            .btn.btn-primary{id: "import_account", data: {toggle: "modal", target: "#importAccountModal"}}
+              = t(".import.account")
           = render "import_account_modal"
     .row
       .col-md-12
