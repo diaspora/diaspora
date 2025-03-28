@@ -29,8 +29,8 @@
             = t("users.import_modal.old_pod_offline")
 
           = form_for current_user,
-                     url:  edit_user_path,
-                     html: {method: :put, multipart: true, class: "form-horizontal"} do |f|
+                     url:  import_profile_user_path,
+                     html: {method: :post, multipart: true, class: "form-horizontal"} do |f|
             .row
               .col-md-12
                 .upload-btn-wrapper
@@ -60,6 +60,7 @@
                 = f.submit t("users.import_modal.start_import"),
                            class:    "btn btn-primary.pull-right",
                            id:       "upload_profile_files",
-                           disabled: true
+                           disabled: true,
+                           data:     { disable_with: t("users.import_modal.start_import"), turbo: false }
 
 = javascript_include_tag "archive-uploader"

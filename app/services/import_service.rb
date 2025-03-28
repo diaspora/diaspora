@@ -11,8 +11,7 @@ class ImportService
   end
 
   def import_by_files(user, path_to_profile, path_to_photos, opts={})
-    import_profile_if_present(opts, path_to_photos, path_to_profile, user.username)
-
+    import_profile_if_present(opts, path_to_photos, path_to_profile, user)
     import_photos_if_present(path_to_photos, user)
     remove_import_files(path_to_profile, path_to_photos)
   end
@@ -21,16 +20,21 @@ class ImportService
 
   def import_photos_if_present(path_to_photos, user)
     if path_to_photos.present?
+      user.update(importing_photos: true)
       logger.info("Importing photos from import file for '#{user.username}' from #{path_to_photos}")
       import_user_photos(user, path_to_photos)
+      user.update(importing_photos: false)
+
     end
   end
 
-  def import_profile_if_present(opts, path_to_photos, path_to_profile, username)
+  def import_profile_if_present(opts, path_to_photos, path_to_profile, user)
     return if path_to_profile.blank?
 
-    logger.info "Import for profile #{username} at path #{path_to_profile} requested"
-    import_user_profile(path_to_profile, username, opts.merge(photo_migration: path_to_photos.present?))
+    user.update(importing: true)
+    logger.info "Import for profile #{user.username} at path #{path_to_profile} requested"
+    import_user_profile(path_to_profile, user.username, opts.merge(photo_migration: path_to_photos.present?))
+    user.update(importing: false)
   end
 
   def import_user_profile(path_to_profile, username, opts)
