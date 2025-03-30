@@ -34,11 +34,10 @@ class UsersController < ApplicationController
   def import_profile
     @user = current_user
 
-    if user_import_profile_params
-      import_user_profile(user_import_profile_params)
-    end
-  end
+    return unless user_import_profile_params
 
+    import_user_profile(user_import_profile_params)
+  end
 
   def destroy
     if params[:user] && params[:user][:current_password] && current_user.valid_password?(params[:user][:current_password])
@@ -121,14 +120,14 @@ class UsersController < ApplicationController
 
   private
 
-    def user_import_profile_params
-      params.fetch(:user).permit(
-              :exported_photos_file,
-              :export
-      )
-    end
+  def user_import_profile_params
+    params.fetch(:user).permit(
+      :exported_photos_file,
+      :export
+    )
+  end
 
-    def user_params
+  def user_params
     params.fetch(:user).permit(
       :email,
       :language,
@@ -172,10 +171,10 @@ class UsersController < ApplicationController
   end
 
   def import_user_profile(user_data)
-    if user_data[:export] || user_data[:exported_photos_file]
-      update_importing_flag(user_data)
-      process_user_import_files(user_data)
-    end
+    return unless user_data[:export] || user_data[:exported_photos_file]
+
+    update_importing_flag(user_data)
+    process_user_import_files(user_data)
   end
 
   def update_importing_flag(user_data)
