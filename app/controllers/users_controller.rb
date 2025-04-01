@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     return unless user_import_profile_params
 
     import_user_profile(user_import_profile_params)
+    redirect_to request.referer
   end
 
   def destroy
@@ -251,11 +252,11 @@ class UsersController < ApplicationController
     import_is_valid = import_parameter?(import_files)
 
     if import_is_valid
-      flash.now[:notice] = t("users.import.import_has_been_scheduled")
+      flash[:notice] = t("users.import.import_has_been_scheduled")
       Workers::ImportUser.perform_async(@user.id, import_files)
     else
       reset_importing_flag(user_data)
-      flash.now[:error] = t("users.import.import_has_no_files_received")
+      flash[:error] = t("users.import.import_has_no_files_received")
     end
   end
 
