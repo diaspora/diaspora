@@ -569,8 +569,7 @@ class User < ApplicationRecord
      :post_default_public].each do |field|
       self[field] = false
     end
-    self.remove_export = true
-    self.remove_exported_photos_file = true
+    clear_import_export_flags
     self[:disable_mail] = true
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
 
@@ -613,6 +612,13 @@ class User < ApplicationRecord
   end
 
   private
+
+  def clear_import_export_flags
+    self.remove_export = true
+    self.remove_exported_photos_file = true
+    self.importing = false
+    self.importing_photos = false
+  end
 
   def clearable_fields
     attributes.keys - %w(id username encrypted_password created_at updated_at locked_at
