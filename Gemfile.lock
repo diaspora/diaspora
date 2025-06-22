@@ -229,7 +229,7 @@ GEM
       http-cookie (~> 1.0.0)
     faraday-follow_redirects (0.3.0)
       faraday (>= 1, < 3)
-    faraday-net_http (3.1.0)
+    faraday-net_http (3.1.1)
       net-http
     faraday-retry (2.2.1)
       faraday (~> 2.0)
@@ -390,7 +390,7 @@ GEM
     mime-types-data (3.2024.0507)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.7)
+    mini_portile2 (2.8.9)
     minitest (5.23.1)
     mobile-fu (1.4.0)
       rack-mobile-detect
@@ -402,7 +402,7 @@ GEM
     multipart-post (2.4.1)
     mysql2 (0.5.6)
     naught (1.1.0)
-    net-http (0.4.1)
+    net-http (0.6.0)
       uri
     net-imap (0.4.12)
       date
@@ -454,7 +454,7 @@ GEM
       rack
     omniauth-wordpress (0.2.2)
       omniauth-oauth2 (>= 1.1.0)
-    open_graph_reader (0.8.0)
+    open_graph_reader (0.9.1)
       faraday (>= 0.9.0)
       nokogiri (~> 1.6)
     openid_connect (2.3.0)
@@ -507,7 +507,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     raabro (1.4.0)
-    racc (1.8.0)
+    racc (1.8.1)
     rack (2.2.9)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
@@ -732,7 +732,7 @@ GEM
       unf_ext
     unf_ext (0.0.9.1)
     unicode-display_width (2.5.0)
-    uri (0.13.0)
+    uri (1.0.3)
     uuid (2.3.9)
       macaddr (~> 1.0)
     valid (1.2.0)
@@ -832,7 +832,7 @@ DEPENDENCIES
   omniauth-tumblr (= 1.2)
   omniauth-twitter (= 1.4.0)
   omniauth-wordpress (= 0.2.2)
-  open_graph_reader (= 0.8.0)
+  open_graph_reader (= 0.9.1)
   openid_connect (= 2.3.0)
   pg (= 1.5.6)
   pronto (= 0.11.2)
