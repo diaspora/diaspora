@@ -6,6 +6,7 @@
 ## Bug fixes
 * Fix processing for a specific set of uploaded images, like scenes full of snow, by allowing for a larger on-disk cache for ImageMagick [#8460](https://github.com/diaspora/diaspora/pull/8460)
 * Fix a bug with parsing certain OpenGraph metadata structures [#8463](https://github.com/diaspora/diaspora/pull/8463)
+* Handle minimagick errors when uploading photos to the API [#8469](https://github.com/diaspora/diaspora/pull/8469)
 
 ## Features
 * For admins, the offending content's author is now visible in the reports overview [#8464](https://github.com/diaspora/diaspora/pull/8464)
