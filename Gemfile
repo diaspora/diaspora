@@ -129,7 +129,7 @@ gem "string-direction", "1.2.2"
 
 # Security Headers
 
-gem "secure_headers", "6.5.0"
+gem "secure_headers", "7.2.0"
 
 # Services
 
