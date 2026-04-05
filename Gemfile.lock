@@ -406,7 +406,8 @@ GEM
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
     multipart-post (2.4.1)
-    mysql2 (0.5.6)
+    mysql2 (0.5.7)
+      bigdecimal
     naught (1.1.0)
     net-http (0.6.0)
       uri
@@ -836,7 +837,7 @@ DEPENDENCIES
   mini_magick (= 4.12.0)
   minitest (= 5.23.1)
   mobile-fu (= 1.4.0)
-  mysql2 (= 0.5.6)
+  mysql2 (= 0.5.7)
   net-imap
   net-pop
   net-smtp
