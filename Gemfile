@@ -20,7 +20,7 @@ gem "responders", "3.1.1"
 
 # Appserver
 
-gem "puma", "6.4.2", require: false
+gem "puma", "7.2.0", require: false
 
 # Federation
 
