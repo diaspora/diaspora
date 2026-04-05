@@ -216,8 +216,9 @@ GEM
       rake
     et-orbi (1.4.0)
       tzinfo
-    ethon (0.16.0)
+    ethon (0.18.0)
       ffi (>= 1.15.0)
+      logger
     excon (1.4.2)
       logger
     execjs (2.10.1)
@@ -240,7 +241,7 @@ GEM
       net-http (~> 0.5)
     faraday-retry (2.2.1)
       faraday (~> 2.0)
-    faraday-typhoeus (1.1.0)
+    faraday-typhoeus (2.0.0)
       faraday (~> 2.0)
       typhoeus (~> 1.4)
     ferrum (0.14)
@@ -747,8 +748,8 @@ GEM
     twitter-text (3.1.0)
       idn-ruby
       unf (~> 0.1.0)
-    typhoeus (1.4.1)
-      ethon (>= 0.9.0)
+    typhoeus (1.6.0)
+      ethon (>= 0.18.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -824,7 +825,7 @@ DEPENDENCIES
   faraday-cookie_jar (= 0.0.8)
   faraday-follow_redirects (= 0.5.0)
   faraday-retry
-  faraday-typhoeus (= 1.1.0)
+  faraday-typhoeus (= 2.0.0)
   fixture_builder (= 0.5.2)
   fog-aws (= 3.33.1)
   foreman (= 0.88.1)
@@ -904,7 +905,7 @@ DEPENDENCIES
   turbo_dev_assets (= 0.0.2)
   twitter (= 8.0.0)
   twitter-text (= 3.1.0)
-  typhoeus (= 1.4.1)
+  typhoeus (= 1.6.0)
   uuid (= 2.3.9)
   versionist (= 2.0.1)
   webmock (= 3.23.1)
