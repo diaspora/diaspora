@@ -2,12 +2,17 @@
 
 source "https://rubygems.org"
 
-gem "rails", "6.1.7.8"
+gem "rails", "6.1.7.10"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
 gem "net-pop", require: false
 gem "net-smtp", require: false
+
+# concurrent-ruby >= 1.3.5 has dropped their internal dependency on Logger,
+# which causes a crash with rails 6. Therefore, we have to pin that to 1.3.4
+# until we upgrade to rails 7
+gem "concurrent-ruby", "1.3.4"
 
 # Legacy Rails features, remove me!
 # responders (class level)
