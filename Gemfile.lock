@@ -650,7 +650,7 @@ GEM
     ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
-    rubyzip (2.3.2)
+    rubyzip (2.4.1)
     rugged (1.7.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -888,7 +888,7 @@ DEPENDENCIES
   rubocop (= 1.64.0)
   rubocop-rails (= 2.25.0)
   ruby-oembed (= 0.18.1)
-  rubyzip (= 2.3.2)
+  rubyzip (= 2.4.1)
   sassc-rails (= 2.1.2)
   secure_headers (= 7.2.0)
   shoulda-matchers (= 6.2.0)
