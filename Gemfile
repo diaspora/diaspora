@@ -80,7 +80,7 @@ group :mysql, optional: true do
   gem "mysql2", "0.5.7"
 end
 group :postgresql, optional: true do
-  gem "pg",     "1.5.6"
+  gem "pg",     "1.6.3"
 end
 
 gem "activerecord-import", "1.7.0"
