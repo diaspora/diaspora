@@ -181,7 +181,7 @@ gem "rubyzip", "2.4.1", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest", "5.23.1"
+gem "minitest", "6.0.3"
 
 gem "versionist", "2.0.1"
 
