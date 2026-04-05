@@ -188,7 +188,7 @@
     },
     "version": {
       "type": "string",
-      "pattern": "^2\.0$"
+      "pattern": "^2\\.0$"
     }
   },
   "required": [
