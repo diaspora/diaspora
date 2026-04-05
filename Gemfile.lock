@@ -340,8 +340,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (8.0.0)
       railties (>= 3.2.16)
-    js-routes (2.2.8)
-      railties (>= 4)
+    js-routes (2.3.6)
+      railties (>= 5)
+      sorbet-runtime
     js_image_paths (0.2.0)
       rails (>= 4.0, < 8.0)
       sprockets (>= 3.0.0)
@@ -691,6 +692,7 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    sorbet-runtime (0.6.13096)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -830,7 +832,7 @@ DEPENDENCIES
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 4.6.1)
   jquery-ui-rails (= 8.0.0)
-  js-routes (= 2.2.8)
+  js-routes (= 2.3.6)
   js_image_paths (= 0.2.0)
   json (= 2.19.3)
   json-schema (= 6.2.0)
