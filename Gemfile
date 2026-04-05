@@ -133,7 +133,7 @@ gem "secure_headers", "7.2.0"
 
 # Services
 
-gem "omniauth",                       "2.1.2"
+gem "omniauth",                       "2.1.4"
 gem "omniauth-rails_csrf_protection", "1.0.2"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
