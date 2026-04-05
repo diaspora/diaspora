@@ -10,7 +10,6 @@
 //= require charcount
 //= require jquery-placeholder/jquery.placeholder
 //= require jquery.timeago
-//= require jquery-ui/core
 //= require jquery-ui/widget
 //= require jquery-ui/widgets/mouse
 //= require jquery-ui/widgets/sortable
