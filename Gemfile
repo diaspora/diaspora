@@ -30,7 +30,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.7.2"
+gem "json",        "2.19.3"
 gem "json-schema", "4.3.0"
 gem "yajl-ruby",   "1.4.3"
 
