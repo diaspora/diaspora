@@ -205,6 +205,7 @@ GEM
     diff-lcs (1.5.1)
     docile (1.4.0)
     domain_name (0.6.20240107)
+    drb (2.2.3)
     email_validator (2.2.4)
       activemodel
     encryptor (3.0.0)
@@ -405,7 +406,9 @@ GEM
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.23.1)
+    minitest (6.0.3)
+      drb (~> 2.0)
+      prism (~> 1.5)
     mobile-fu (1.4.0)
       rack-mobile-detect
       rails
@@ -493,6 +496,7 @@ GEM
       racc
     pg (1.6.3)
     phantomjs (2.1.1.0)
+    prism (1.9.0)
     pronto (0.11.2)
       gitlab (>= 4.4.0, < 5.0)
       httparty (>= 0.13.7, < 1.0)
@@ -847,7 +851,7 @@ DEPENDENCIES
   listen (= 3.9.0)
   logging-rails (= 0.6.0)
   mini_magick (= 4.13.2)
-  minitest (= 5.23.1)
+  minitest (= 6.0.3)
   mobile-fu (= 1.4.0)
   mysql2 (= 0.5.7)
   net-imap
