@@ -156,7 +156,7 @@ gem "acts-as-taggable-on", "10.0.0"
 gem "addressable",              "2.9.0", require: "addressable/uri"
 gem "faraday",                  "2.14.1"
 gem "faraday-cookie_jar",       "0.0.8"
-gem "faraday-follow_redirects", "0.3.0"
+gem "faraday-follow_redirects", "0.5.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
 gem "typhoeus",                 "1.4.1"
 
