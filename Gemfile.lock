@@ -424,7 +424,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.5)
-    nokogiri (1.16.5)
+    nokogiri (1.19.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -846,7 +846,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
-  nokogiri (= 1.16.5)
+  nokogiri (= 1.19.2)
   omniauth (= 2.1.2)
   omniauth-rails_csrf_protection (= 1.0.2)
   omniauth-tumblr (= 1.2)
