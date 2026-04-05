@@ -106,7 +106,7 @@ gem "js-routes",         "2.3.6"
 # Localization
 
 gem "http_accept_language", "2.1.1"
-gem "rails-i18n",           "7.0.9"
+gem "rails-i18n",           "7.0.10"
 
 # Map
 gem "leaflet-rails", "1.9.4"
