@@ -12,8 +12,8 @@ describe Admin::PodsController, type: :controller do
     it "renders the pod list template" do
       get :index
       expect(response).to render_template("admins/pods")
-      expect(response.body).to match(/id='pod-alerts'/im)
-      expect(response.body).to match(/id='pod-list'/im)
+      expect(response.body).to match(/id="pod-alerts"/im)
+      expect(response.body).to match(/id="pod-list"/im)
     end
 
     it "contains the preloads" do
