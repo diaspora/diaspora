@@ -519,7 +519,7 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (2.2.23)
-    rack-attack (6.7.0)
+    rack-attack (6.8.0)
       rack (>= 1.0, < 4)
     rack-cors (2.0.2)
       rack (>= 2.0.0)
@@ -863,7 +863,7 @@ DEPENDENCIES
   pry
   pry-byebug
   puma (= 7.2.0)
-  rack-attack (= 6.7.0)
+  rack-attack (= 6.8.0)
   rack-cors (= 2.0.2)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)

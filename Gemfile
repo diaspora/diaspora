@@ -121,7 +121,7 @@ gem "twitter-text",      "3.1.0"
 
 # Rate limitting
 
-gem "rack-attack", "6.7.0"
+gem "rack-attack", "6.8.0"
 
 # RTL support
 
