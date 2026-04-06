@@ -260,7 +260,7 @@ group :development, :test do
   gem "rspec-rails", "6.1.5"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "3.0.0", require: false
+  gem "cucumber-rails", "4.0.1", require: false
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
