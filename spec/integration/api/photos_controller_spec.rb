@@ -291,6 +291,17 @@ describe Api::V1::PhotosController do
         )
         expect(response.status).to eq(403)
       end
+
+      it "with imagemagick error" do
+        require "mini_magick"
+        allow(PhotoService).to receive(:new).and_raise(MiniMagick::Error)
+
+        post(
+          api_v1_photos_path,
+          params: {image: @encoded_photo, access_token: access_token}
+        )
+        confirm_api_error(response, 422, "Failed to create the photo")
+      end
     end
   end
 
