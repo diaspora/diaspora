@@ -1,5 +1,3 @@
-version: "3.4"
-
 volumes:
   redis_data:
   postgresql_data:
