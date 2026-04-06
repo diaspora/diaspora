@@ -375,7 +375,8 @@ GEM
     leaflet-rails (1.9.5)
       actionpack (>= 4.2.0)
       railties (>= 4.2.0)
-    listen (3.9.0)
+    listen (3.10.0)
+      logger
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     little-plugger (1.1.4)
@@ -857,7 +858,7 @@ DEPENDENCIES
   json (= 2.19.3)
   json-schema (= 6.2.0)
   leaflet-rails (= 1.9.5)
-  listen (= 3.9.0)
+  listen (= 3.10.0)
   logging-rails (= 0.6.0)
   mini_magick (= 4.13.2)
   minitest (= 6.0.3)
