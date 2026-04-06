@@ -1,4 +1,4 @@
-FROM docker.io/amd64/ruby:3.3-slim-bullseye
+FROM docker.io/amd64/ruby:3.3-slim-trixie
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
@@ -10,7 +10,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
         gsfonts \
         imagemagick \
         libcurl4-openssl-dev \
-        libidn11-dev \
+        libidn-dev \
         libmagickwand-dev \
         libmariadb-dev-compat \
         libpq-dev \
@@ -34,11 +34,9 @@ ENV HOME="/home/diaspora" \
     GEM_HOME="/diaspora/vendor/bundle" \
     OPENSSL_CONF="/etc/ssl/"
 
-RUN addgroup --gid $DIA_GID diaspora && \
-    adduser \
+RUN groupadd --gid $DIA_GID diaspora && \
+    useradd \
         --no-create-home \
-        --disabled-password \
-        --gecos "" \
         --uid $DIA_UID \
         --gid $DIA_GID \
         diaspora \
