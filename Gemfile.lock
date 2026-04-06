@@ -274,7 +274,8 @@ GEM
     fog-xml (0.1.5)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    foreman (0.88.1)
+    foreman (0.90.0)
+      thor (~> 1.4)
     formatador (1.1.0)
     fugit (1.12.1)
       et-orbi (~> 1.4)
@@ -832,7 +833,7 @@ DEPENDENCIES
   faraday-typhoeus (= 2.0.0)
   fixture_builder (= 0.5.2)
   fog-aws (= 3.33.1)
-  foreman (= 0.88.1)
+  foreman (= 0.90.0)
   fuubar (= 2.5.1)
   gon (= 6.6.0)
   haml_lint (= 0.58.0)

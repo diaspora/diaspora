@@ -193,7 +193,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Process management
 
-  gem "foreman", "0.88.1", require: false
+  gem "foreman", "0.90.0", require: false
 
   # Redirects
 
