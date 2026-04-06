@@ -10,6 +10,7 @@
 
 ## Features
 * For admins, the offending content's author is now visible in the reports overview [#8464](https://github.com/diaspora/diaspora/pull/8464)
+* Mark notifications as read, when you block a person [#8456](https://github.com/diaspora/diaspora/pull/8456)
 
 # 0.9.0.0
 
