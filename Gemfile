@@ -168,6 +168,13 @@ gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.20.0"
 gem "will_paginate",           "4.0.1"
 
+# Using 1.19 makes Gon dump the entire user object into Gon, including the
+# private key and ends up breaking the entire layout. 1.18 works in that regard,
+# but the gon tagFollowings preloads are broken, which breaks following tags.
+# So let's just pin it to a version that's known to work until we have time to
+# debug further.
+gem "multi_json", "1.15.0"
+
 # Logging
 
 gem "logging-rails", "0.6.0", require: "logging/rails"
