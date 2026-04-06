@@ -208,10 +208,10 @@ end
 group :development do
   # Linters
   gem "haml_lint",      "0.72.0", require: false
-  gem "pronto",         "0.11.2", require: false
+  gem "pronto",         "0.11.5", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
-  gem "pronto-rubocop", "0.11.5", require: false
+  gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.64.0", require: false
   gem "rubocop-rails",  "2.25.0", require: false
