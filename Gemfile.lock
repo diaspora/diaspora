@@ -74,8 +74,9 @@ GEM
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
     aes_key_wrap (1.1.0)
-    asset_sync (2.19.1)
+    asset_sync (2.19.3)
       activemodel (>= 4.1.0)
+      cgi
       fog-core
       mime-types (>= 2.99)
       unf
@@ -276,7 +277,8 @@ GEM
       nokogiri (>= 1.5.11, < 2.0.0)
     foreman (0.90.0)
       thor (~> 1.4)
-    formatador (1.1.0)
+    formatador (1.2.3)
+      reline
     fugit (1.12.1)
       et-orbi (~> 1.4)
       raabro (~> 1.4)
@@ -333,6 +335,7 @@ GEM
     image_processing (1.14.0)
       mini_magick (>= 4.9.5, < 6)
       ruby-vips (>= 2.0.17, < 3)
+    io-console (0.8.2)
     jasmine (3.10.0)
       jasmine-core (~> 3.10.0)
       phantomjs
@@ -401,9 +404,10 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (1.1.0)
-    mime-types (3.5.2)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.0507)
+    mime-types (3.7.0)
+      logger
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2026.0331)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
@@ -602,6 +606,8 @@ GEM
     redis-client (0.28.0)
       connection_pool
     regexp_parser (2.9.2)
+    reline (0.6.3)
+      io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
     responders (3.1.1)
@@ -805,7 +811,7 @@ DEPENDENCIES
   acts-as-taggable-on (= 10.0.0)
   acts_as_api (= 1.0.1)
   addressable (= 2.9.0)
-  asset_sync (= 2.19.1)
+  asset_sync (= 2.19.3)
   autoprefixer-rails (= 10.4.21.0)
   babel-transpiler (= 0.7.0)
   bootstrap-sass (= 3.4.1)
