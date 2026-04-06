@@ -690,7 +690,7 @@ GEM
       sass (~> 3.5, >= 3.5.5)
     secure_headers (7.2.0)
       cgi (>= 0.1)
-    shoulda-matchers (6.2.0)
+    shoulda-matchers (6.5.0)
       activesupport (>= 5.2.0)
     sidekiq (7.3.10)
       base64
@@ -909,7 +909,7 @@ DEPENDENCIES
   rubyzip (= 2.4.1)
   sassc-rails (= 2.1.2)
   secure_headers (= 7.2.0)
-  shoulda-matchers (= 6.2.0)
+  shoulda-matchers (= 6.5.0)
   sidekiq (= 7.3.10)
   sidekiq-cron (= 2.3.1)
   simple_captcha2 (= 0.5.0)
