@@ -241,7 +241,7 @@ group :test do
 
   gem "capybara",         "3.40.0"
   gem "cuprite",          "0.17"
-  gem "database_cleaner-active_record", "2.1.0"
+  gem "database_cleaner-active_record", "2.2.2"
 
   gem "cucumber-api-steps", "0.14", require: false
 
