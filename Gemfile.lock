@@ -295,11 +295,11 @@ GEM
       i18n (>= 0.7)
       multi_json
       request_store (>= 1.0)
-    haml (6.3.0)
+    haml (7.2.0)
       temple (>= 0.8.2)
       thor
       tilt
-    haml_lint (0.58.0)
+    haml_lint (0.72.0)
       haml (>= 5.0)
       parallel (~> 1.10)
       rainbow
@@ -842,7 +842,7 @@ DEPENDENCIES
   foreman (= 0.90.0)
   fuubar (= 2.5.1)
   gon (= 6.6.0)
-  haml_lint (= 0.58.0)
+  haml_lint (= 0.72.0)
   hamlit (= 4.0.0)
   handlebars_assets (= 0.23.9)
   http_accept_language (= 2.1.1)
