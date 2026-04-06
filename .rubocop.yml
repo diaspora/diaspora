@@ -1,4 +1,5 @@
-require: rubocop-rails
+plugins:
+  - rubocop-rails
 
 AllCops:
   TargetRubyVersion: 3.0
@@ -80,7 +81,7 @@ Layout/CaseIndentation:
 
 # Mixing the styles looks just silly.
 Style/HashSyntax:
- EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedStyle: ruby19_no_mixed_keys
 
 # has_key? and has_value? are far more readable than key? and value?
 Style/PreferredHashMethods:
