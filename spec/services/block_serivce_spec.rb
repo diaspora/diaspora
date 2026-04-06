@@ -23,5 +23,10 @@ describe BlockService do
       expect(Diaspora::Federation::Dispatcher).not_to receive(:defer_dispatch)
       service.block(eve.person)
     end
+
+    it "marks the notifications of the person as read" do
+      expect_any_instance_of(NotificationService).to receive(:read_all_only_involving).with(bob.person)
+      service.block(bob.person)
+    end
   end
 end
