@@ -249,7 +249,7 @@ group :test do
 
   gem "factory_bot_rails", "6.5.1"
   gem "shoulda-matchers",  "6.5.0"
-  gem "timecop",           "0.9.8"
+  gem "timecop",           "0.9.10"
   gem "webmock",           "3.23.1", require: false
 
   gem "diaspora_federation-test", "1.1.0"
