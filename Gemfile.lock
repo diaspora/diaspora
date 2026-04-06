@@ -867,6 +867,7 @@ DEPENDENCIES
   mini_magick (= 4.13.2)
   minitest (= 6.0.3)
   mobile-fu (= 1.4.0)
+  multi_json (= 1.15.0)
   mysql2 (= 0.5.7)
   net-imap
   net-pop
