@@ -7,8 +7,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
         stub_request(:get, "http://example.com/uris")
           .with(headers: {
                   "Accept"          => "*/*",
-                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-                  "User-Agent"      => "Faraday v#{Faraday::VERSION}"
+                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
                 })
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
         post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
@@ -39,8 +38,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
         stub_request(:get, "http://example.com/uris")
           .with(headers: {
                   "Accept"          => "*/*",
-                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-                  "User-Agent"      => "Faraday v#{Faraday::VERSION}"
+                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
                 })
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
         post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
@@ -103,20 +101,27 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
       end
     end
 
+    context "when private network sector_identifier_uri is passed" do
+      it "should refuse to connect" do
+        expect {
+          post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
+              sector_identifier_uri: "http://localhost/uris"}
+        }.to raise_error SsrfFilter::PrivateIPAddress
+      end
+    end
+
     context "when valid parameters with jwks_uri is passed" do
       it "should return a client id" do
         stub_request(:get, "http://example.com/uris")
           .with(headers: {
                   "Accept"          => "*/*",
-                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-                  "User-Agent"      => "Faraday v#{Faraday::VERSION}"
+                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
                 })
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
-        stub_request(:get, "https://kentshikama.com/api/openid_connect/jwks.json")
+        stub_request(:get, "https://example.com/api/openid_connect/jwks.json")
           .with(headers: {
                   "Accept"          => "*/*",
-                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-                  "User-Agent"      => "Faraday v#{Faraday::VERSION}"
+                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
                 })
           .to_return(status: 200,
                      body: "{\"keys\":[{\"kty\":\"RSA\",\"e\":\"AQAB\",\"n\":\"qpW\",\"use\":\"sig\"}]}", headers: {})
@@ -126,10 +131,19 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
              policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos",
              sector_identifier_uri: "http://example.com/uris", subject_type: "pairwise",
              token_endpoint_auth_method: "private_key_jwt",
-             jwks_uri: "https://kentshikama.com/api/openid_connect/jwks.json"}
+             jwks_uri: "https://example.com/api/openid_connect/jwks.json"}
         client_json = JSON.parse(response.body)
         expect(client_json["client_id"].length).to eq(32)
         expect(client_json["ppid"]).to eq(true)
+      end
+    end
+
+    context "when a private network jwks_uri is passed" do
+      it "should refuse to connect" do
+        expect {
+          post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
+               jwks_uri: "https://localhost/api/openid_connect/jwks.json"}
+        }.to raise_error SsrfFilter::PrivateIPAddress
       end
     end
 
