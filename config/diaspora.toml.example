@@ -48,7 +48,7 @@
 
 ## Require SSL (default=true).
 ## When set, your pod will force the use of HTTPS in production mode.
-## Since OAuth2 requires SSL, Diaspora's future API might not work if
+## Since OAuth2 requires SSL, Diaspora's API might not work if
 ## you're not using SSL. Also there is no guarantee that posting to
 ## services will be possible if SSL is disabled.
 ## Do not change this default unless you are sure!
@@ -308,7 +308,7 @@
 ## Changelog URL
 ## URL to the changelog of the diaspora-version your pod is currently running.
 ## If not set an auto-generated url to github is used.
-#changelog_url = "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
+#changelog_url = "https://github.com/diaspora/diaspora/blob/main/Changelog.md"
 
 ## Default color theme
 ## You can change which color theme is displayed when a user is not signed in

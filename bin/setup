@@ -23,7 +23,7 @@ FileUtils.chdir APP_ROOT do
 
   unless File.exist?('config/diaspora.toml')
     puts "\n== Copying example diaspora.toml =="
-    FileUtils.cp 'config/diaspora.toml.example', 'config/database.yml'
+    FileUtils.cp 'config/diaspora.toml.example', 'config/diaspora.toml'
   end
   unless File.exist?('config/database.yml')
     puts "\n== Copying example database.yml =="

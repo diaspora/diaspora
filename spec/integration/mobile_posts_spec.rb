@@ -8,7 +8,7 @@ describe PostsController, type: :request do
       get "/posts/#{sm.id}", params: {format: :mobile}
 
       expect(response.status).to eq(200)
-      expect(response.body).to match(/div class='poll'/)
+      expect(response.body).to match(/div class="poll"/)
       expect(response.body).to match(/#{sm.poll.poll_answers.first.answer}/)
     end
 
@@ -18,7 +18,7 @@ describe PostsController, type: :request do
       get "/posts/#{sm.id}", params: {format: :mobile}
 
       expect(response.status).to eq(200)
-      expect(response.body).to match(/div class='percentage pull-right'>\n50%/)
+      expect(response.body).to match(/div class="percentage pull-right">\n50%/)
     end
   end
 
@@ -29,7 +29,7 @@ describe PostsController, type: :request do
       get "/posts/#{sm.id}", params: {format: :mobile}
 
       expect(response.status).to eq(200)
-      expect(response.body).to match(/'location nsfw-hidden'/)
+      expect(response.body).to match(/"location nsfw-hidden"/)
       expect(response.body).to match(/#{I18n.t("posts.show.location", location: sm.location.address)}/)
     end
   end

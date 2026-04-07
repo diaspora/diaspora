@@ -21,6 +21,10 @@
               = report.text
         .panel-body
           .content
+            %strong
+              = t("report.author_label")
+            %p
+              = report.reported_author.diaspora_handle
             = report_content(report)
           .segment-selection
             = button_to t("report.reported_user_details"),

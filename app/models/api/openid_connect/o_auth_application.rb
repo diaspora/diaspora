@@ -82,7 +82,7 @@ module Api
         def check_sector_identifier_uri(attributes)
           sector_identifier_uri = attributes[:sector_identifier_uri]
           return unless sector_identifier_uri
-          response = Faraday.get(sector_identifier_uri)
+          response = SsrfFilter.get(sector_identifier_uri)
           sector_identifier_uri_json = JSON.parse(response.body)
           redirect_uris = attributes[:redirect_uris]
           sector_identifier_uri_includes_redirect_uris = (redirect_uris - sector_identifier_uri_json).empty?
@@ -112,7 +112,7 @@ module Api
             when :subject_type
               attr[:ppid] = (value == "pairwise")
             when :jwks_uri
-              response = Faraday.get(value)
+              response = SsrfFilter.get(value)
               attr[:jwks] = response.body
               attr[:jwks_uri] = value
             when :jwks

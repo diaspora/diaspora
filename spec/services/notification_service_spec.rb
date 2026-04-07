@@ -129,5 +129,24 @@ describe NotificationService do
         expect(@notification.reload.unread).to eq(true)
       end
     end
+
+    describe "#read_all_only_involving" do
+      before do
+        @notification_actor = @notification.actors.first
+        FactoryBot.create(:notification, recipient: alice, target: @post, actors: [eve.person])
+        FactoryBot.create(:notification, recipient: alice, target: @post, actors: [eve.person, @notification_actor])
+      end
+
+      it "reads the notifications involving only the provided person" do
+        expect {
+          @service.read_all_only_involving(@notification_actor)
+        }.to change(
+          Notification
+            .for(alice)
+            .where({unread: true}),
+          :count
+        ).by(-1)
+      end
+    end
   end
 end

@@ -1,6 +1,6 @@
 <policymap>
   <policy domain="resource" name="time" value="30" />
-  <policy domain="resource" name="disk" value="256MiB"/>
+  <policy domain="resource" name="disk" value="1GiB"/>
   <policy domain="resource" name="map" value="256MiB"/>
   <policy domain="resource" name="memory" value="256MiB"/>
 

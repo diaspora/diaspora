@@ -1,4 +1,4 @@
-FROM docker.io/amd64/ruby:3.3-slim-bullseye
+FROM docker.io/amd64/ruby:3.3-slim-trixie
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
@@ -10,7 +10,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
         gsfonts \
         imagemagick \
         libcurl4-openssl-dev \
-        libidn11-dev \
+        libidn-dev \
         libmagickwand-dev \
         libmariadb-dev-compat \
         libpq-dev \
@@ -18,9 +18,10 @@ RUN DEBIAN_FRONTEND=noninteractive \
         libxml2-dev \
         libxslt1-dev \
         nodejs \
+        npm \
         gosu \
-        yarnpkg \
     && \
+    npm install -g yarn@1.22.22 && \
     curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o ./google-chrome.deb && \
     apt install -y -qq --no-install-recommends ./google-chrome.deb && \
     rm ./google-chrome.deb && \
@@ -34,11 +35,9 @@ ENV HOME="/home/diaspora" \
     GEM_HOME="/diaspora/vendor/bundle" \
     OPENSSL_CONF="/etc/ssl/"
 
-RUN addgroup --gid $DIA_GID diaspora && \
-    adduser \
+RUN groupadd --gid $DIA_GID diaspora && \
+    useradd \
         --no-create-home \
-        --disabled-password \
-        --gecos "" \
         --uid $DIA_UID \
         --gid $DIA_GID \
         diaspora \

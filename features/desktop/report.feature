@@ -23,7 +23,7 @@ Feature: reporting of posts and comments
     And I submit the form
     Then I should see an error flash message containing "The report already exists"
     When I go to the report page
-    Then I should see a report by "alice@alice.alice" with reason "That's my reason" on post "I'm a post by Bob"
+    Then I should see a report by "alice@alice.alice" with reason "That's my reason" on post "I'm a post by Bob" by "bob@localhost"
     And "alice@alice.alice" should have received an email with subject "A new post was marked as offensive"
 
   Scenario: User can report a comment, but cannot report it twice
@@ -42,7 +42,7 @@ Feature: reporting of posts and comments
     And I submit the form
     Then I should see an error flash message containing "The report already exists"
     When I go to the report page
-    Then I should see a report by "alice@alice.alice" with reason "That's my reason" on comment "Bob comment"
+    Then I should see a report by "alice@alice.alice" with reason "That's my reason" on comment "Bob comment" by "bob@localhost"
     And "alice@alice.alice" should have received an email with subject "A new comment was marked as offensive"
 
   Scenario: The correct post is reported

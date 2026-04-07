@@ -56,6 +56,18 @@ class NotificationService
     notification_types(object).each {|type| type.notify(object, recipient_user_ids) }
   end
 
+  def read_all_only_involving(person)
+    Notification
+      .joins(:notification_actors)
+      .where(recipient_id: @user.id, unread: true)
+      .group("notifications.id")
+      .having("COUNT(notification_actors.notification_id) = 1")
+      .having("MIN(notification_actors.person_id) = ?", person.id)
+      .find_each do |note|
+        note.update!(unread: false)
+      end
+  end
+
   private
 
   def notification_types(object)

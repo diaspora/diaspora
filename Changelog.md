@@ -1,3 +1,21 @@
+# 0.9.1.0
+
+## Security
+
+* Fixed a vulnerability in the OpenID Connect API implementation, where an attacker could use malicious client registrations to trigger HTTP requests within the diaspora\* pod's private network. This was originally reported by @offensiveee, and while the report came in as a bunch of lowest-possible-effort GenAI slop disclosures, the underlying issue is valid.
+
+## Refactor
+* Improved compatibility with non-specification-compliant OpenGraph metadata [#8465](https://github.com/diaspora/diaspora/pull/8465)
+
+## Bug fixes
+* Fix processing for a specific set of uploaded images, like scenes full of snow, by allowing for a larger on-disk cache for ImageMagick [#8460](https://github.com/diaspora/diaspora/pull/8460)
+* Fix a bug with parsing certain OpenGraph metadata structures [#8463](https://github.com/diaspora/diaspora/pull/8463)
+* Handle minimagick errors when uploading photos to the API [#8469](https://github.com/diaspora/diaspora/pull/8469)
+
+## Features
+* For admins, the offending content's author is now visible in the reports overview [#8464](https://github.com/diaspora/diaspora/pull/8464)
+* Mark notifications as read, when you block a person [#8456](https://github.com/diaspora/diaspora/pull/8456)
+
 # 0.9.0.0
 
 ## New configuration file!

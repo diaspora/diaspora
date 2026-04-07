@@ -45,7 +45,7 @@ module Api
         raise RuntimeError unless photo
 
         render json: photo_json(photo)
-      rescue CarrierWave::IntegrityError, ActionController::ParameterMissing, RuntimeError
+      rescue CarrierWave::IntegrityError, ActionController::ParameterMissing, RuntimeError, MiniMagick::Error
         render_error 422, "Failed to create the photo"
       end
 
