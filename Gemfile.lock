@@ -926,6 +926,7 @@ DEPENDENCIES
   simplecov (= 0.22.0)
   sinon-rails (= 1.15.0)
   sprockets-rails (= 3.5.2)
+  ssrf_filter (= 1.5.0)
   string-direction (= 1.2.2)
   terser (= 1.2.7)
   timecop (= 0.9.10)

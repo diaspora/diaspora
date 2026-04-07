@@ -8,6 +8,10 @@
 
 # 0.9.1.0 (unreleased)
 
+## Security
+
+* Fixed a vulnerability in the OpenID Connect API implementation, where an attacker could use malicious client registrations to trigger HTTP requests within the diaspora\* pod's private network. This was originally reported by @offensiveee, and while the report came in as a bunch of lowest-possible-effort GenAI slop disclosures, the underlying issue is valid.
+
 ## Refactor
 * Improved compatibility with non-specification-compliant OpenGraph metadata [#8465](https://github.com/diaspora/diaspora/pull/8465)
 

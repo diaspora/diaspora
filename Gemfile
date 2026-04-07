@@ -158,6 +158,7 @@ gem "faraday",                  "2.14.1"
 gem "faraday-cookie_jar",       "0.0.8"
 gem "faraday-follow_redirects", "0.5.0"
 gem "faraday-typhoeus",         "2.0.0", require: false
+gem "ssrf_filter",              "1.5.0"
 gem "typhoeus",                 "1.6.0"
 
 # Views
