@@ -1,12 +1,4 @@
-# 1.0.0 (unreleased)
-
-## Refactor
-
-## Bug fixes
-
-## Features
-
-# 0.9.1.0 (unreleased)
+# 0.9.1.0
 
 ## Security
 
