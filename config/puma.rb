@@ -25,7 +25,7 @@ workers 0
 
 preload_app!
 
-# Below callbacks (before_fork and on_worker_boot) are only used when running
+# Below callbacks (before_fork and before_worker_boot) are only used when running
 # in cluster mode. Since we're not running in cluster mode by default (see
 # workers above), a warning is written on startup about them not being called
 # in single mode. So lets just silence that warnings, but still keep the
@@ -40,7 +40,7 @@ before_fork do
   Sidekiq.redis {|redis| redis.client.disconnect }
 end
 
-on_worker_boot do
+before_worker_boot do
   # reopen logfiles to obtain a new file descriptor
   Logging.reopen
 
