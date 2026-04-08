@@ -53,7 +53,6 @@ defaults:
       style: "mapbox/streets-v9"
   privacy:
     jquery_cdn: false
-    google_analytics_key:
     piwik:
       enable: false
       host:

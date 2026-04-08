@@ -198,7 +198,6 @@ gem "versionist", "2.0.1"
 group :production do # we don"t install these on travis to speed up test runs
   # Analytics
 
-  gem "rack-google-analytics", "1.2.0"
   gem "rack-piwik",            "0.3.0",  require: "rack/piwik"
 
   # Process management

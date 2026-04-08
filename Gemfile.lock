@@ -551,9 +551,6 @@ GEM
       rack (>= 1.0, < 4)
     rack-cors (2.0.2)
       rack (>= 2.0.0)
-    rack-google-analytics (1.2.0)
-      actionpack
-      activesupport
     rack-mobile-detect (0.4.0)
       rack
     rack-oauth2 (2.3.0)
@@ -902,7 +899,6 @@ DEPENDENCIES
   puma (= 7.2.0)
   rack-attack (= 6.8.0)
   rack-cors (= 2.0.2)
-  rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
   rack-rewrite (= 1.5.1)
   rack-ssl (= 1.4.1)
