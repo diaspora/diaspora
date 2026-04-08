@@ -360,24 +360,32 @@ describe MigrationService do
     end
 
     def create_gz_archive
-      target_file = Tempfile.new(%w[archive .json.gz]).path
-      Zlib::GzipWriter.open(target_file) do |gz|
+      target_file = Tempfile.new(%w[archive .json.gz])
+      compressed_archives << target_file
+
+      Zlib::GzipWriter.open(target_file.path) do |gz|
         File.open(archive_file.path).each do |line|
           gz.write line
         end
       end
-      target_file
+      target_file.path
     end
 
     def create_zip_archive
-      target_file = Tempfile.new(%w[archive .zip]).path
-      Zip::OutputStream.open(target_file) do |zip|
+      target_file = Tempfile.new(%w[archive .zip])
+      compressed_archives << target_file
+
+      Zip::OutputStream.open(target_file.path) do |zip|
         zip.put_next_entry("archive.json")
         File.open(archive_file.path).each do |line|
           zip.write line
         end
       end
-      target_file
+      target_file.path
+    end
+
+    def compressed_archives
+      @compressed_archives ||= []
     end
   end
 
