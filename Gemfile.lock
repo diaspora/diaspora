@@ -744,6 +744,8 @@ GEM
       ffi (~> 1.1)
       memoist3 (~> 1.0.0)
     sysexits (1.2.0)
+    syslog (0.4.0)
+      logger
     systemu (2.6.5)
     temple (0.10.4)
     terminal-table (4.0.0)
@@ -928,6 +930,7 @@ DEPENDENCIES
   sprockets-rails (= 3.5.2)
   ssrf_filter (= 1.5.0)
   string-direction (= 1.2.2)
+  syslog (= 0.4.0)
   terser (= 1.2.7)
   timecop (= 0.9.10)
   toml-rb (= 4.1.0)
