@@ -5,6 +5,9 @@
 # the COPYRIGHT file.
 
 if AppConfig.environment.require_ssl?
-  Rails.application.config.middleware.insert_before 0, Rack::SSL
-  puts "Rack::SSL is enabled"
+  Rails.application.config.force_ssl = true
+  Rails.logger.info("Force SSL is enabled")
+elsif Rails.env.production?
+  Rails.application.config.force_ssl = false
+  Rails.logger.info("Force SSL is disabled")
 end
