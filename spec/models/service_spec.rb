@@ -3,14 +3,14 @@
 describe Service, type: :model do
   before do
     @post = alice.post(:status_message, text: "hello", to: alice.aspects.first.id)
-    @service = Services::Twitter.new(access_token: "yeah", uid: 1)
+    @service = Services::Tumblr.new(access_token: "yeah", uid: 1)
     alice.services << @service
   end
 
   it "is unique to a user by service type and uid" do
     @service.save
 
-    second_service = Services::Twitter.new(access_token: "yeah", uid: 1)
+    second_service = Services::Tumblr.new(access_token: "yeah", uid: 1)
 
     alice.services << second_service
     alice.services.last.save
@@ -23,12 +23,12 @@ describe Service, type: :model do
 
   describe ".titles" do
     it "converts passed service titles into service constants" do
-      expect(described_class.titles(["twitter"])).to eql ["Services::Twitter"]
+      expect(described_class.titles(["tumblr"])).to eql ["Services::Tumblr"]
     end
   end
 
   describe ".first_from_omniauth" do
-    let(:omniauth) { {"provider" => "twitter", "uid" => "1", "credentials" => {}, "info" => {}} }
+    let(:omniauth) { {"provider" => "tumblr", "uid" => "1", "credentials" => {}, "info" => {}} }
     it "first service by provider and uid" do
       expect(described_class.first_from_omniauth(omniauth)).to eql @service
     end
@@ -37,7 +37,7 @@ describe Service, type: :model do
   describe ".initialize_from_omniauth" do
     let(:omniauth) do
       {
-        "provider"    => "twitter",
+        "provider"    => "tumblr",
         "uid"         => "2",
         "info"        => {"nickname" => "grimmin"},
         "credentials" => {"token" => "token", "secret" => "not_so_much"}
@@ -45,8 +45,8 @@ describe Service, type: :model do
     end
     let(:subject) { described_class.initialize_from_omniauth(omniauth) }
 
-    it "new service obj of type Services::Twitter" do
-      expect(subject.type).to eql "Services::Twitter"
+    it "new service obj of type Services::Tumblr" do
+      expect(subject.type).to eql "Services::Tumblr"
     end
 
     it "new service obj with oauth options populated" do

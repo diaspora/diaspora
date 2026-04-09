@@ -78,16 +78,16 @@ describe Retraction do
     end
 
     it "adds service metadata to queued job for deletion" do
-      post.tweet_id = "123"
-      twitter = Services::Twitter.new(access_token: "twitter")
-      alice.services << twitter
+      post.tumblr_ids = "{}"
+      tumblr = Services::Tumblr.new(access_token: "tumblr")
+      alice.services << tumblr
 
       retraction = Retraction.for(post)
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
         alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [],
-        {"service_types" => ["Services::Twitter"], "tweet_id" => "123"}
+        {"service_types" => ["Services::Tumblr"], "tumblr_ids" => "{}"}
       )
 
       retraction.defer_dispatch(alice)

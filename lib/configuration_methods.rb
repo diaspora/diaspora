@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Configuration
-  KNOWN_SERVICES = %i[twitter tumblr wordpress].freeze
+  KNOWN_SERVICES = %i[tumblr wordpress].freeze
 
   module Methods
     def pod_uri

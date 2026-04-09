@@ -5,10 +5,6 @@
 #   the COPYRIGHT file.
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  if AppConfig.services.twitter.enable?
-    provider :twitter, AppConfig.services.twitter.key, AppConfig.services.twitter.secret
-  end
-
   if AppConfig.services.tumblr.enable?
     provider :tumblr, AppConfig.services.tumblr.key, AppConfig.services.tumblr.secret
   end

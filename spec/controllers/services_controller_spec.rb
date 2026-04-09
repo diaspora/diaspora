@@ -39,54 +39,28 @@ describe ServicesController, :type => :controller do
 
     it 'creates a new service and associates it with the current user' do
       expect {
-        post :create, params: {provider: "twitter"}
+        post :create, params: {provider: "tumblr"}
       }.to change(user.services, :count).by(1)
     end
 
     it 'saves the provider' do
-      post :create, params: {provider: "twitter"}
+      post :create, params: {provider: "tumblr"}
       expect(user.reload.services.first.class.name).to eq("Services::Tumblr")
     end
 
     context 'when service exists with the same uid' do
-      before { Services::Twitter.create!(uid: omniauth_auth['uid'], user_id: user.id) }
+      before { Services::Tumblr.create!(uid: omniauth_auth["uid"], user_id: user.id) }
 
       it 'doesnt create a new service' do
         service_count = Service.count
-        post :create, params: {provider: "twitter"}
+        post :create, params: {provider: "tumblr"}
         expect(Service.count).to eq(service_count)
       end
 
       it 'flashes an already_authorized error with the diaspora handle for the user'  do
-        post :create, params: {provider: "twitter"}
+        post :create, params: {provider: "tumblr"}
         expect(flash[:error].include?(user.profile.diaspora_handle)).to be true
         expect(flash[:error].include?( 'already authorized' )).to be true
-      end
-    end
-
-    context 'Twitter' do
-      context 'when the access-level is read-only' do
-
-        let(:header) { { 'x-access-level' => 'read' } }
-        let(:access_token) { double("access_token") }
-        let(:extra) { {'extra' => { 'access_token' => access_token }} }
-        let(:provider) { {'provider' => 'twitter'} }
-
-        before do
-          allow(access_token).to receive_message_chain(:response, :header).and_return header
-          request.env['omniauth.auth'] = omniauth_auth.merge!( provider).merge!( extra )
-        end
-
-        it 'doesnt create a new service' do
-          service_count = Service.count
-          post :create, params: {provider: "twitter"}
-          expect(Service.count).to eq(service_count)
-        end
-
-        it 'flashes an read-only access error'  do
-          post :create, params: {provider: "twitter"}
-          expect(flash[:error].include?( 'Access level is read-only' )).to be true
-        end
       end
     end
 
@@ -103,7 +77,7 @@ describe ServicesController, :type => :controller do
 
         expect(Workers::FetchProfilePhoto).not_to receive(:perform_async)
 
-        post :create, params: {provider: "twitter"}
+        post :create, params: {provider: "tumblr"}
       end
 
       it 'queues a job to save user photo if the photo does not exist' do
@@ -111,7 +85,7 @@ describe ServicesController, :type => :controller do
 
         expect(Workers::FetchProfilePhoto).to receive(:perform_async).with(user.id, anything(), "https://service.com/fallback_lowres.jpg")
 
-        post :create, params: {provider: "twitter"}
+        post :create, params: {provider: "tumblr"}
       end
     end
   end

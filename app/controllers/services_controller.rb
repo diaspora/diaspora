@@ -7,12 +7,12 @@ class ServicesController < ApplicationController
   # We need to take a raw POST from an omniauth provider with no authenticity token.
   # See https://github.com/intridea/omniauth/issues/203
   # See also http://www.communityguides.eu/articles/16
-  skip_before_action :verify_authenticity_token, :only => :create
+  skip_before_action :verify_authenticity_token, only: :create
   before_action :authenticate_user!
-  before_action :abort_if_already_authorized, :abort_if_read_only_access, :only => :create
+  before_action :abort_if_already_authorized, only: :create
 
   respond_to :html
-  respond_to :json, :only => :inviter
+  respond_to :json, only: :inviter
 
   def index
     @services = current_user.services
@@ -57,13 +57,6 @@ class ServicesController < ApplicationController
     end
   end
 
-  def abort_if_read_only_access
-    if omniauth_hash['provider'] == 'twitter' && twitter_access_level == 'read'
-      flash[:error] =  I18n.t( 'services.create.read_only_access' )
-      redirect_to_origin
-    end
-  end
-
   def redirect_to_origin
     if origin
       redirect_to origin
@@ -88,13 +81,4 @@ class ServicesController < ApplicationController
     request.env['omniauth.auth']
   end
 
-  def twitter_access_token
-    omniauth_hash['extra']['access_token']
-  end
-
-  #https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema #=> normalized hash
-  #https://gist.github.com/oliverbarnes/6096959 #=> hash with twitter specific extra
-  def twitter_access_level
-    twitter_access_token.response.header['x-access-level']
-  end
 end

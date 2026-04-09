@@ -17,7 +17,7 @@
 ## - Specify lists/arrays as comma-separated values
 ##
 ## - For example, on Heroku:
-##   heroku config:set SERVICES_TWITTER_KEY=yourkey SERVICES_TWITTER_SECRET=yoursecret
+##   heroku config:set SERVICES_TUMBLR_KEY=yourkey SERVICES_TUMBLR_SECRET=yoursecret
 
 ## You need to change or at least review the settings in this section
 ## in order for your pod to work.
@@ -491,11 +491,6 @@
 
 ## Posting from Diaspora to external services (all are disabled by default).
 [configuration.services]
-
-## OAuth credentials for Twitter
-#twitter.enable = true
-#twitter.key = "change_me"
-#twitter.secret = "change_me"
 
 ## OAuth credentials for Tumblr
 #tumblr.enable = true

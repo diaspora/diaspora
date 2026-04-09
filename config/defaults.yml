@@ -135,11 +135,6 @@ defaults:
       report_only: false
       report_uri:
   services:
-    twitter:
-      enable: false
-      key:
-      secret:
-      authorized: true
     tumblr:
       enable: false
       key:
@@ -197,10 +192,6 @@ test:
     invitations:
       open: true
   services:
-    twitter:
-      enable: true
-      key: 'fake'
-      secret: 'sdoigjosdfijg'
     tumblr:
       enable: true
       key: 'fake'

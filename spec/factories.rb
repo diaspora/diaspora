@@ -238,7 +238,7 @@ FactoryBot.define do
 
   factory :service do
     nickname { "sirrobertking" }
-    type { "Services::Twitter" }
+    type { "Services::Tumblr" }
 
     sequence(:uid)           {|token| "00000#{token}" }
     sequence(:access_token)  {|token| "12345#{token}" }

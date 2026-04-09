@@ -51,37 +51,32 @@ describe NodeInfoPresenter do
     context "when services are enabled" do
       before do
         AppConfig.services = {
-          "twitter"   => {"enable" => true},
-          "wordpress" => {"enable" => false},
-          "tumblr"    => {
-            "enable"     => true,
-            "authorized" => false
-          }
+          "tumblr"    => {"enable" => true},
+          "wordpress" => {"enable" => false}
         }
       end
 
       it "provides services" do
-        expect(hash).to include "services" => include("outbound" => ["twitter"])
+        expect(hash).to include "services" => include("outbound" => ["tumblr"])
       end
     end
 
     context "when some services are set to username authorized" do
       before do
         AppConfig.services = {
-          "twitter"   => {"enable" => true},
           "wordpress" => {
             "enable"     => true,
             "authorized" => "alice"
           },
           "tumblr"    => {
             "enable"     => true,
-            "authorized" => false
+            "authorized" => true
           }
         }
       end
 
       it "it doesn't list those" do
-        expect(hash).to include "services" => include("outbound" => ["twitter"])
+        expect(hash).to include "services" => include("outbound" => ["tumblr"])
       end
     end
 

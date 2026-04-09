@@ -3,21 +3,21 @@
 shared_examples "a dispatcher" do
   describe "#dispatch" do
     context "deliver to user services" do
-      let(:twitter) { Services::Twitter.new(access_token: "twitter") }
+      let(:tumblr) { Services::Tumblr.new(access_token: "tumblr") }
 
       before do
-        alice.services << twitter
+        alice.services << tumblr
       end
 
       it "delivers a StatusMessage to specified services" do
-        opts = {service_types: "Services::Twitter", url: "https://example.org/p/123"}
-        expect(Workers::PostToService).to receive(:perform_async).with(twitter.id, post.id, "https://example.org/p/123")
+        opts = {service_types: "Services::Tumblr", url: "https://example.org/p/123"}
+        expect(Workers::PostToService).to receive(:perform_async).with(tumblr.id, post.id, "https://example.org/p/123")
         Diaspora::Federation::Dispatcher.build(alice, post, opts).dispatch
       end
 
       it "delivers a Retraction of a Post to specified services" do
-        opts = {service_types: "Services::Twitter", tweet_id: "123"}
-        expect(Workers::DeletePostFromService).to receive(:perform_async).with(twitter.id, opts.deep_stringify_keys)
+        opts = {service_types: "Services::Tumblr", tumblr_ids: "{}"}
+        expect(Workers::DeletePostFromService).to receive(:perform_async).with(tumblr.id, opts.deep_stringify_keys)
 
         retraction = Retraction.for(post)
         Diaspora::Federation::Dispatcher.build(alice, retraction, opts).dispatch

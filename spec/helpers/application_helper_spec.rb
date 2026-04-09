@@ -49,8 +49,8 @@ describe ApplicationHelper, :type => :helper do
 
     it "returns false if the service is already connected" do
       @current_user.services << FactoryBot.build(:service)
-      expect(AppConfig).to receive(:show_service?).with("twitter", alice).and_return(true)
-      expect(service_unconnected?("twitter")).to be false
+      expect(AppConfig).to receive(:show_service?).with("tumblr", alice).and_return(true)
+      expect(service_unconnected?("tumblr")).to be false
     end
 
     it "returns false if the the service shouldn't be shown" do

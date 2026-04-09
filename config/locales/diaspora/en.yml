@@ -287,11 +287,10 @@ en:
   comments:
     create:
       error: "Failed to comment."
+      fail: "Comment creation has failed"
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
-    create:
-      fail: "Comment creation has failed"
     destroy:
       success: "Comment %{id} has been successfully deleted"
       fail: "Comment deletion has failed"
@@ -447,7 +446,7 @@ en:
       character_limit_q: "What is the character limit for posts?"
       character_limit_a: "65,535 characters. That’s 65,395 more characters than you get on Twitter! ;)"
       char_limit_services_q: "What if I'm sharing my post with a connected service with a smaller character count?"
-      char_limit_services_a: "In that case you should restrict your post to the smaller character count (140 in the case of Twitter; 1000 in the case of Tumblr), and the number of characters you have left to use is displayed when that service’s icon is highlighted. You can still post to these services if your post is longer than their limit, but the text will be truncated on those services with a link to the post on diaspora*."
+      char_limit_services_a: "In that case you should restrict your post to the smaller character count (1000 in the case of Tumblr and WordPress), and the number of characters you have left to use is displayed when that service’s icon is highlighted. You can still post to these services if your post is longer than their limit, but the text will be truncated on those services with a link to the post on diaspora*."
       format_text_q: "How can I format the text in my posts (bold, italics, etc.)?"
       format_text_a: "diaspora* uses a simplified system called %{markdown}. The publisher has buttons to make it easy to format your text. If you want to format your post manually, you can find the full Markdown syntax %{here}. The preview tab means you can see how your message will look before you share it. Remember that you can’t edit it once posted, so use the preview to make sure it’s perfect before pressing Share!"
       insert_images_q: "How do I insert images into posts?"
@@ -1134,7 +1133,6 @@ en:
   services:
     provider:
       tumblr: "Tumblr"
-      twitter: "Twitter"
       wordpress: "WordPress"
     index:
       title: "Manage connected services"
@@ -1151,7 +1149,6 @@ en:
       success: "Authentication successful."
       failure: "Authentication failed."
       already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
-      read_only_access: "Access level is read-only, please try to authorize again later"
     destroy:
       success: "Successfully deleted authentication."
     failure:

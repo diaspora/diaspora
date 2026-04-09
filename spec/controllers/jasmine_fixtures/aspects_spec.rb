@@ -29,10 +29,16 @@ describe StreamsController, :type => :controller do
       end
 
       it 'generates a jasmine fixture with services', :fixture => true do
-        alice.services << Services::Twitter.create(user_id: alice.id)
+        AppConfig.services.wordpress.enable = true
+        AppConfig.configured_services = nil
+
         alice.services << Services::Tumblr.create(user_id: alice.id)
+        alice.services << Services::Wordpress.create(user_id: alice.id)
         get :aspects, params: {prefill: "reshare things"}
         save_fixture(html_for("body"), "aspects_index_services")
+      ensure
+        AppConfig.services.wordpress.enable = false
+        AppConfig.configured_services = nil
       end
 
       it 'generates a jasmine fixture with posts', :fixture => true do
