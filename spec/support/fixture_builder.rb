@@ -37,6 +37,8 @@ def create_basic_users
 end
 
 FixtureBuilder.configure do |fbuilder|
+  fbuilder.skip_tables += %w[ar_internal_metadata]
+
   # rebuild fixtures automatically when these files change:
   fbuilder.files_to_check += Dir[
     "app/models/*.rb", "lib/**/*.rb", "spec/factories/*.rb", "spec/support/fixture_builder.rb"

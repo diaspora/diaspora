@@ -65,6 +65,14 @@ print_usage() {
       echo "tests will be executed."
       print_usage_header "rspec"
       ;;
+    all-tests)
+      echo; echo "Run rspec and cucumber in parallel, then jasmine"
+      echo; echo "This command runs rspec and cucumber desktop/mobile at the"
+      echo "same time, and starts jasmine after rspec passed."
+      echo "Databases must be prepared with setup-tests beforehand."
+      print_usage_header "all-tests [options]" \
+        "    --silent   Do not stream test output; show spinner status instead"
+      ;;
     pronto)
       echo; echo "Run pronto checks"
       print_usage_header "pronto"
@@ -157,6 +165,7 @@ print_usage_full() {
   echo "  cucumber         Run cucumber tests"
   echo "  jasmine          Run jasmine tests"
   echo "  rspec            Run rspec tests"
+  echo "  all-tests        Run all tests with parallel rspec/cucumber"
   echo "  pronto           Run pronto checks"
   echo "  migrate          Execute pending migrations"
   echo
@@ -228,6 +237,338 @@ dia_is_redis_running() {
 dia_get_db() {
   # Get currently configured or assumed db type
   grep -q '^  <<: \*mysql' "$DIASPORA_CONFIG_DB" 2>/dev/null && echo mysql || echo postgresql
+}
+
+dia_test_db_url() {
+  local db_name="$1"
+
+  if [ "$DIASPORA_DOCKER_DB" = "mysql" ]; then
+    printf 'mysql2://root:mysql@mysql:3306/%s' "$db_name"
+  else
+    printf 'postgresql://postgres:postgres@postgresql:5432/%s' "$db_name"
+  fi
+}
+
+dia_test_redis_url() {
+  local redis_db="$1"
+  printf 'redis://redis:6379/%s' "$redis_db"
+}
+
+dia_use_color_output() {
+  [ -z "${NO_COLOR+x}" ]
+}
+
+dia_color_text() {
+  local color="$1"
+  local text="$2"
+
+  if dia_use_color_output && [ "$color" != "0" ]; then
+    printf '\033[%sm%s\033[0m' "$color" "$text"
+  else
+    printf '%s' "$text"
+  fi
+}
+
+dia_status_color() {
+  case "$1" in
+    RUN)
+      printf '36'
+      ;;
+    PASS)
+      printf '32'
+      ;;
+    FAIL)
+      printf '31'
+      ;;
+    SKIP|ABORT)
+      printf '33'
+      ;;
+    *)
+      printf '0'
+      ;;
+  esac
+}
+
+dia_status_mark() {
+  local state="$1"
+  local spinner="$2"
+
+  case "$state" in
+    RUN)
+      printf '%s' "$spinner"
+      ;;
+    PASS)
+      printf 'O'
+      ;;
+    FAIL|ABORT)
+      printf 'X'
+      ;;
+    SKIP)
+      printf '_'
+      ;;
+    *)
+      printf ' '
+      ;;
+  esac
+}
+
+dia_render_status_segment() {
+  local -n _seg_out="$1"
+  local label="$2"
+  local state="$3"
+  local spinner="$4"
+  local color mark
+
+  case "$state" in
+    RUN)         color='36'; mark="$spinner" ;;
+    PASS)        color='32'; mark='O' ;;
+    FAIL|ABORT)  color='31'; mark='X' ;;
+    SKIP)        color='33'; mark='_' ;;
+    *)           color='0';  mark=' ' ;;
+  esac
+
+  if dia_use_color_output && [ "$color" != "0" ]; then
+    printf -v _seg_out '[\033[%sm%s\033[0m] %s:\033[%sm%s\033[0m' \
+      "$color" "$mark" "$label" "$color" "$state"
+  else
+    printf -v _seg_out '[%s] %s:%s' "$mark" "$label" "$state"
+  fi
+}
+
+dia_print_summary_line() {
+  local label="$1"
+  local state="$2"
+  local detail="$3"
+  
+  local color="$(dia_status_color "$state")"
+  local display_state="$(dia_color_text "$color" "$state")"
+
+  printf '  %-18s %s' "$label:" "$display_state"
+  if [ -n "$detail" ]; then
+    printf ' (%s)' "$detail"
+  fi
+  printf '\n'
+}
+
+dia_start_test() {
+  local silent="$1"
+  local label="$2"
+  local color="$3"
+  local log_file="$4"
+  local pid_var="$5"
+  local state_var="$6"
+  shift 6
+
+  local -n pid_ref="$pid_var"
+  local -n state_ref="$state_var"
+
+  if [ "$silent" -eq 1 ]; then
+    dia_run_to_log "$log_file" "$@" &
+  else
+    dia_run_with_prefix_and_log "$label" "$color" "$log_file" "$@" &
+  fi
+
+  pid_ref=$!
+  state_ref="RUN"
+}
+
+dia_complete_test_if_done() {
+  local pid_var="$1"
+  local state_var="$2"
+  local status_var="$3"
+  local interrupted="$4"
+
+  local -n pid_ref="$pid_var"
+  local -n state_ref="$state_var"
+  local -n status_ref="$status_var"
+
+  if [ "$state_ref" = "RUN" ] && [ $interrupted -eq 1 ]; then
+    state_ref="ABORT"
+    wait "$pid_ref" 2>/dev/null
+    pid_ref=""
+    return 0
+  fi
+
+  if [ -n "$pid_ref" ] && [ "$state_ref" = "RUN" ] && ! kill -0 "$pid_ref" 2>/dev/null; then
+    wait "$pid_ref"
+    status_ref=$?
+    pid_ref=""
+
+    if [ "$status_ref" -eq 0 ]; then
+      state_ref="PASS"
+    else
+      state_ref="FAIL"
+    fi
+
+    return 0
+  fi
+
+  return 1
+}
+
+dia_rake_in_test_db() {
+  local db_name="$1"
+  shift
+  local db_url
+
+  db_url="$(dia_test_db_url "$db_name")"
+
+  dia_docker_compose run \
+    --rm \
+    -e RAILS_ENV=test \
+    -e DATABASE_URL="$db_url" \
+    diaspora \
+    bin/rake "$@"
+}
+
+dia_prepare_rspec_test_db() {
+  local tasks=(db:create db:migrate)
+
+  if [ "$#" -gt 0 ]; then
+    tasks+=("$@")
+  fi
+
+  dia_rake_in_test_db "$DIASPORA_TEST_DB_RSPEC" "${tasks[@]}"
+}
+
+dia_prepare_cucumber_test_db() {
+  dia_rake_in_test_db "$1" db:create db:migrate
+}
+
+dia_run_rspec_command() {
+  local db_url="$(dia_test_db_url "$DIASPORA_TEST_DB_RSPEC")"
+  local color_args=()
+  if [ -z "${NO_COLOR+x}" ]; then color_args=(--color --force-color); fi
+
+  dia_docker_compose run \
+    --rm \
+    --label "$DIASPORA_TEST_RUN_LABEL" \
+    -e RAILS_ENV=test \
+    -e DATABASE_URL="$db_url" \
+    diaspora \
+    bin/rspec "${color_args[@]}" "$@"
+}
+
+dia_run_cucumber_suite_command() {
+  local db_name="$1"
+  local redis_db="$2"
+  local screenshot_path="$3"
+  shift 3
+
+  local detach=""
+  if [ "$1" == "-d" ]; then detach="-d"; shift; fi
+
+  mkdir -p "$DIASPORA_ROOT/$screenshot_path"
+
+  local db_url="$(dia_test_db_url "$db_name")"
+  local redis_url="$(dia_test_redis_url "$redis_db")"
+  local color_args=()
+  if [ -z "${NO_COLOR+x}" ]; then color_args=(--color); fi
+
+  dia_docker_compose run \
+    --rm $detach \
+    --label "$DIASPORA_TEST_RUN_LABEL" \
+    -e RAILS_ENV=test \
+    -e SCREENSHOT_PATH="/diaspora/$screenshot_path" \
+    -e DATABASE_URL="$db_url" \
+    -e REDIS_URL="$redis_url" \
+    -e DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL=true \
+    diaspora \
+    bin/cucumber "${color_args[@]}" "$@"
+}
+
+dia_run_cucumber_command() {
+  dia_run_cucumber_suite_command \
+    "$DIASPORA_TEST_DB_CUCUMBER" \
+    "$DIASPORA_TEST_REDIS_CUCUMBER" \
+    "tmp/screenshots/cucumber" \
+    "$@"
+}
+
+dia_run_jasmine_command() {
+  local detach=""
+  if [ "$1" == "-d" ]; then detach="-d"; shift; fi
+
+  local db_url="$(dia_test_db_url "$DIASPORA_TEST_DB_RSPEC")"
+
+  dia_docker_compose run \
+    --rm $detach \
+    --label "$DIASPORA_TEST_RUN_LABEL" \
+    -e RAILS_ENV=test \
+    -e DATABASE_URL="$db_url" \
+    diaspora \
+    bin/rake jasmine:ci "$@"
+}
+
+dia_prefix_stream() {
+  local label="$1"
+  local color="$2"
+  local status_file="$3"
+
+  ruby -e '
+    label = ARGV[0]
+    color = ARGV[1]
+    status_file = ARGV[2]
+
+    use_color = ENV["NO_COLOR"].nil? && (STDOUT.tty? || STDERR.tty? || ENV["CLICOLOR_FORCE"] == "1")
+    prefix = use_color ? "\e[#{color}m[#{label}]\e[0m " : "[#{label}] "
+
+    STDOUT.sync = true
+    buffer = +""
+
+    redraw_status = lambda do
+      next if status_file.nil? || status_file.empty?
+
+      begin
+        status_line = File.read(status_file)
+        STDOUT.write(status_line) unless status_line.empty?
+      rescue Errno::ENOENT
+      end
+    end
+
+    begin
+      loop do
+        chunk = STDIN.readpartial(4096)
+        buffer << chunk.tr("\r", "\n")
+
+        while (idx = buffer.index("\n"))
+          line = buffer.slice!(0, idx + 1)
+          STDOUT.write("\r\e[2K")
+          STDOUT.write(prefix)
+          STDOUT.write(line)
+          redraw_status.call
+        end
+      end
+    rescue EOFError
+      unless buffer.empty?
+        STDOUT.write("\r\e[2K")
+        STDOUT.write(prefix)
+        STDOUT.write(buffer)
+        STDOUT.write("\n")
+        redraw_status.call
+      end
+    end
+  ' "$label" "$color" "$status_file"
+}
+
+dia_run_with_prefix_and_log() {
+  local label="$1"
+  local color="$2"
+  local log_file="$3"
+  shift 3
+
+  (
+    set -o pipefail
+    "$@" 2>&1 | dia_prefix_stream "$label" "$color" "$DIA_STATUS_FILE" | tee "$log_file"
+    exit "${PIPESTATUS[0]}"
+  )
+}
+
+dia_run_to_log() {
+  local log_file="$1"
+  shift
+
+  "$@" > "$log_file" 2>&1
 }
 
 # ----- Command functions -----
@@ -337,11 +678,8 @@ dia_config() {
 
 dia_cucumber() {
   # Run cucumber tests
-  if [ "$1" == "-d" ]; then detach="-d"; shift; fi
-  dia_docker_compose run \
-    --rm $detach \
-    diaspora \
-    bin/cucumber "$@"
+  exit_if_unconfigured
+  dia_run_cucumber_command "$@"
 }
 
 dia_exec() {
@@ -365,11 +703,8 @@ dia_exec() {
 
 dia_jasmine() {
   # Run jasmine tests
-  dia_docker_compose run \
-    --rm $1 \
-    -e RAILS_ENV=test \
-    diaspora \
-    bin/rake jasmine:ci
+  exit_if_unconfigured
+  dia_run_jasmine_command "$@"
 }
 
 dia_logs() {
@@ -421,20 +756,171 @@ dia_restart() {
 dia_rspec() {
   # Run rspec tests
   exit_if_unconfigured
-  assets=""
+  local tasks=()
+
   # Assumption: If (and only if) the tested file is not available, assets need be regenerated
-  [ -f "$DIASPORA_ROOT"/public/404.html ] && assets="assets:generate_error_pages"
-  # Prepare database (and assets if necessary)
-  dia_docker_compose run \
-    --rm \
-    -e RAILS_ENV=test \
-    diaspora \
-    bin/rake db:create db:migrate $assets
-  # Run tests
-  dia_docker_compose run \
-    --rm \
-    diaspora \
-    bin/rspec "$@"
+  if [ ! -f "$DIASPORA_ROOT/public/404.html" ]; then
+    tasks+=(assets:generate_error_pages)
+  fi
+
+  dia_prepare_rspec_test_db "${tasks[@]}"
+  dia_run_rspec_command "$@"
+}
+
+dia_all_tests() {
+  # Run rspec and cucumber in parallel, then jasmine
+  exit_if_unconfigured
+
+  local silent=0
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      --silent)
+        silent=1
+        ;;
+      *)
+        echo "Fatal: Unknown option for all-tests: $1" >&2
+        return 1
+        ;;
+    esac
+    shift
+  done
+
+  local logs_dir="$DIASPORA_ROOT/tmp/test-logs"
+  local rspec_log="$logs_dir/rspec.log"
+  local cucumber_desktop_log="$logs_dir/cucumber-desktop.log"
+  local cucumber_mobile_log="$logs_dir/cucumber-mobile.log"
+  local jasmine_log="$logs_dir/jasmine.log"
+  local stopdb=""
+  local stopredis=""
+  local rspec_status=1
+  local cucumber_desktop_status=1
+  local cucumber_mobile_status=1
+  local jasmine_status=2
+  local overall_status=0
+  local rspec_formatter="${DIASPORA_RSPEC_FORMAT:-documentation}"
+  local rspec_pid=""
+  local cucumber_desktop_pid=""
+  local cucumber_mobile_pid=""
+  local jasmine_pid=""
+  local interrupted=0
+  local rspec_state="WAIT"
+  local cucumber_desktop_state="WAIT"
+  local cucumber_mobile_state="WAIT"
+  local jasmine_state="WAIT"
+  local spinner_frames='-|/\\'
+  local spinner_idx=0
+  local spinner_line=""
+  local status_file="$logs_dir/all-tests.status"
+
+  trap '
+    interrupted=1
+    echo
+    echo "Interrupt received, stopping running tests ..." >&2
+    [ -n "$rspec_pid" ] && kill "$rspec_pid" 2>/dev/null
+    [ -n "$cucumber_desktop_pid" ] && kill "$cucumber_desktop_pid" 2>/dev/null
+    [ -n "$cucumber_mobile_pid" ] && kill "$cucumber_mobile_pid" 2>/dev/null
+    [ -n "$jasmine_pid" ] && kill "$jasmine_pid" 2>/dev/null
+    docker ps -q \
+      --filter "label=com.docker.compose.project=$COMPOSE_PROJECT_NAME" \
+      --filter "label=$DIASPORA_TEST_RUN_LABEL" \
+      2>/dev/null | xargs -r docker stop --time=3 2>/dev/null
+  ' INT TERM
+
+  if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
+  if ! dia_is_redis_running; then stopredis="dia_docker_compose stop redis"; fi
+
+  mkdir -p "$logs_dir"
+  : > "$status_file"
+  export DIA_STATUS_FILE="$status_file"
+
+  echo "Running rspec and cucumber desktop/mobile in parallel ..."
+  dia_start_test "$silent" "rspec" "34" "$rspec_log" rspec_pid rspec_state \
+    dia_run_rspec_command --format "$rspec_formatter"
+  dia_start_test "$silent" "cucumber-desktop" "32" "$cucumber_desktop_log" cucumber_desktop_pid cucumber_desktop_state \
+    dia_run_cucumber_suite_command "$DIASPORA_TEST_DB_CUCUMBER_DESKTOP" "$DIASPORA_TEST_REDIS_CUCUMBER_DESKTOP" "tmp/screenshots/cucumber-desktop" features/desktop
+  dia_start_test "$silent" "cucumber-mobile" "36" "$cucumber_mobile_log" cucumber_mobile_pid cucumber_mobile_state \
+    dia_run_cucumber_suite_command "$DIASPORA_TEST_DB_CUCUMBER_MOBILE" "$DIASPORA_TEST_REDIS_CUCUMBER_MOBILE" "tmp/screenshots/cucumber-mobile" features/mobile
+
+  local seg_rspec seg_cuke_desktop seg_cuke_mobile seg_jasmine spinner
+  while :; do
+    if dia_complete_test_if_done rspec_pid rspec_state rspec_status $interrupted; then
+      if [ "$rspec_status" -eq 0 ]; then
+        dia_start_test "$silent" "jasmine" "35" "$jasmine_log" jasmine_pid jasmine_state \
+          dia_run_jasmine_command
+      else
+        jasmine_state="SKIP"
+        jasmine_status=2
+      fi
+    fi
+
+    dia_complete_test_if_done cucumber_desktop_pid cucumber_desktop_state cucumber_desktop_status $interrupted
+    dia_complete_test_if_done cucumber_mobile_pid cucumber_mobile_state cucumber_mobile_status $interrupted
+    dia_complete_test_if_done jasmine_pid jasmine_state jasmine_status $interrupted
+
+    spinner="${spinner_frames:$((spinner_idx % 4)):1}"
+    dia_render_status_segment seg_rspec         "rspec"        "$rspec_state"            "$spinner"
+    dia_render_status_segment seg_cuke_desktop  "cuke-desktop" "$cucumber_desktop_state" "$spinner"
+    dia_render_status_segment seg_cuke_mobile   "cuke-mobile"  "$cucumber_mobile_state"  "$spinner"
+    dia_render_status_segment seg_jasmine       "jasmine"      "$jasmine_state"          "$spinner"
+    printf -v spinner_line '\r\033[2K%s  %s  %s  %s' \
+      "$seg_rspec" "$seg_cuke_desktop" "$seg_cuke_mobile" "$seg_jasmine"
+    printf '%s' "$spinner_line" > "$status_file"
+    printf '%s' "$spinner_line"
+    spinner_idx=$((spinner_idx + 1))
+
+    if [ "$interrupted" -eq 1 ]; then
+      break
+    fi
+
+    if [ -z "$rspec_pid" ] && [ -z "$cucumber_desktop_pid" ] && [ -z "$cucumber_mobile_pid" ] && [ -z "$jasmine_pid" ]; then
+      break
+    fi
+
+    sleep 0.2
+  done
+  : > "$status_file"
+  printf '\n'
+
+  if [ "$interrupted" -eq 1 ]; then
+    trap - INT TERM
+    [ -n "$stopdb" ] && $stopdb
+    [ -n "$stopredis" ] && $stopredis
+    return 130
+  fi
+
+  trap - INT TERM
+
+  [ -n "$stopdb" ] && $stopdb
+  [ -n "$stopredis" ] && $stopredis
+
+  if [ "$rspec_status" -ne 0 ] || [ "$cucumber_desktop_status" -ne 0 ] || [ "$cucumber_mobile_status" -ne 0 ]; then
+    overall_status=1
+  fi
+
+  if [ "$jasmine_status" -ne 0 ] && [ "$jasmine_status" -ne 2 ]; then
+    overall_status=1
+  fi
+
+  echo
+  echo "Test summary:"
+  dia_print_summary_line "rspec" "$rspec_state" ""
+  dia_print_summary_line "cucumber-desktop" "$cucumber_desktop_state" ""
+  dia_print_summary_line "cucumber-mobile" "$cucumber_mobile_state" ""
+  if [ "$jasmine_status" -eq 2 ]; then
+    dia_print_summary_line "jasmine" "SKIP" "rspec failed"
+  else
+    dia_print_summary_line "jasmine" "$jasmine_state" ""
+  fi
+
+  echo "Logs:"
+  echo "  rspec:             $rspec_log"
+  echo "  cucumber-desktop:  $cucumber_desktop_log"
+  echo "  cucumber-mobile:   $cucumber_mobile_log"
+  if [ "$jasmine_status" -ne 2 ]; then
+    echo "  jasmine:           $jasmine_log"
+  fi
+
+  return "$overall_status"
 }
 
 dia_setup() {
@@ -480,11 +966,16 @@ dia_setup_tests() {
   # stop db/redis if it was not running before
   if ! dia_is_db_running; then stopdb="dia_docker_compose stop $DIASPORA_DOCKER_DB"; fi
   if ! dia_is_redis_running; then stopredis="dia_docker_compose stop redis"; fi
-  dia_docker_compose run \
-    --rm \
-    -e RAILS_ENV=test \
-    diaspora \
-    bin/rake db:create db:migrate tests:generate_fixtures assets:generate_error_pages
+
+  echo "Preparing rspec/jasmine DB ($DIASPORA_TEST_DB_RSPEC) ..."
+  dia_rake_in_test_db "$DIASPORA_TEST_DB_RSPEC" db:create db:migrate tests:generate_fixtures assets:generate_error_pages
+
+  echo "Preparing cucumber desktop DB ($DIASPORA_TEST_DB_CUCUMBER_DESKTOP) ..."
+  dia_prepare_cucumber_test_db "$DIASPORA_TEST_DB_CUCUMBER_DESKTOP"
+
+  echo "Preparing cucumber mobile DB ($DIASPORA_TEST_DB_CUCUMBER_MOBILE) ..."
+  dia_prepare_cucumber_test_db "$DIASPORA_TEST_DB_CUCUMBER_MOBILE"
+
   $stopdb
   $stopredis
 }
@@ -525,6 +1016,14 @@ export DIASPORA_ROOT_GID=1001
 export DIASPORA_CONFIG_DIA=$DIASPORA_ROOT/config/diaspora.toml
 export DIASPORA_CONFIG_DB=$DIASPORA_ROOT/config/database.yml
 export DIASPORA_DOCKER_DB=$(dia_get_db)
+export DIASPORA_TEST_DB_RSPEC=diaspora_test
+export DIASPORA_TEST_DB_CUCUMBER=diaspora_integration1
+export DIASPORA_TEST_REDIS_CUCUMBER=1
+export DIASPORA_TEST_DB_CUCUMBER_DESKTOP=$DIASPORA_TEST_DB_CUCUMBER
+export DIASPORA_TEST_REDIS_CUCUMBER_DESKTOP=$DIASPORA_TEST_REDIS_CUCUMBER
+export DIASPORA_TEST_DB_CUCUMBER_MOBILE=diaspora_integration2
+export DIASPORA_TEST_REDIS_CUCUMBER_MOBILE=2
+export DIASPORA_TEST_RUN_LABEL=org.diaspora.test-run=1
 
 export COMPOSE_FILE=$DIASPORA_ROOT/docker/develop/docker-compose.yml
 export COMPOSE_PROJECT_NAME=diasporadev
@@ -573,7 +1072,7 @@ case "$dia_command" in
     dia_exec "$@"
     ;;
   jasmine)
-    dia_jasmine
+    dia_jasmine "$@"
     ;;
   logs)
     dia_logs "$@"
@@ -592,6 +1091,9 @@ case "$dia_command" in
     ;;
   rspec)
     dia_rspec "$@"
+    ;;
+  all-tests)
+    dia_all_tests "$@"
     ;;
   setup)
     dia_setup "$@"
