@@ -1,18 +1,18 @@
-# 1.0.0 (unreleased)
+# unreleased
 
 ## Refactor
 
-## Bug fixes
-
-## Features
-
-# 0.9.2.0 (unreleased)
-
-## Refactor
+* Drop legacy google analytics integration [#8479](https://github.com/diaspora/diaspora/pull/8479)
+* Drop external services (twitter, tumblr, wordpress) [#8479](https://github.com/diaspora/diaspora/pull/8479)
+* Drop pubsubhubbub [#8479](https://github.com/diaspora/diaspora/pull/8479)
 
 ## Bug fixes
 
+* Fix various deprecation warnings [#8479](https://github.com/diaspora/diaspora/pull/8479)
+
 ## Features
+
+* Switch cookie serializer to "hybrid" [#8479](https://github.com/diaspora/diaspora/pull/8479)
 
 # 0.9.1.0
 

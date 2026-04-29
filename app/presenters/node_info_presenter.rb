@@ -20,7 +20,7 @@ class NodeInfoPresenter
 
   def add_configuration(doc)
     doc.software.version         = version
-    doc.services.outbound        = available_services
+    doc.services.outbound        = []
     doc.open_registrations       = open_registrations?
     doc.metadata["nodeName"]     = name
     doc.metadata["camo"]         = camo_config
@@ -81,12 +81,6 @@ class NodeInfoPresenter
 
   def admin_account
     AppConfig.admins.account if AppConfig.admins.account?
-  end
-
-  def available_services
-    Configuration::KNOWN_SERVICES.select {|service|
-      AppConfig.show_service?(service, nil)
-    }.map(&:to_s)
   end
 
   def total_users

@@ -6,11 +6,6 @@ module Diaspora
       class Public < Dispatcher
         private
 
-        def deliver_to_services
-          deliver_to_hub if object.instance_of?(StatusMessage)
-          super
-        end
-
         def deliver_to_remote(people)
           targets = target_urls(people)
 
@@ -25,10 +20,6 @@ module Diaspora
           active.map {|pod| pod.url_to("/receive/public") }
         end
 
-        def deliver_to_hub
-          logger.debug "deliver to pubsubhubbub sender: #{sender.diaspora_handle}"
-          Workers::PublishToHub.perform_async(sender.atom_url)
-        end
       end
     end
   end

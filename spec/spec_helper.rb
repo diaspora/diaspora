@@ -103,7 +103,6 @@ RSpec.configure do |config|
 
   config.before(:each) do
     I18n.locale = :en
-    stub_request(:post, "https://pubsubhubbub.appspot.com/")
     stub_request(
       :get,
       "https://example.com/.well-known/webfinger?resource=acct:bob@example.com"

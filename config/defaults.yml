@@ -30,7 +30,6 @@ defaults:
       serve: false
       upload: false
       host:
-    pubsub_server: 'https://pubsubhubbub.appspot.com/'
     logging:
       logrotate:
         enable: true
@@ -53,7 +52,6 @@ defaults:
       style: "mapbox/streets-v9"
   privacy:
     jquery_cdn: false
-    google_analytics_key:
     piwik:
       enable: false
       host:
@@ -135,22 +133,6 @@ defaults:
     csp:
       report_only: false
       report_uri:
-  services:
-    twitter:
-      enable: false
-      key:
-      secret:
-      authorized: true
-    tumblr:
-      enable: false
-      key:
-      secret:
-      authorized: true
-    wordpress:
-      enable: false
-      key:
-      secret:
-      authorized: true
   mail:
     enable: false
     sender_address: 'no-reply@example.org'
@@ -197,14 +179,5 @@ test:
     autofollow_on_join_user: ''
     invitations:
       open: true
-  services:
-    twitter:
-      enable: true
-      key: 'fake'
-      secret: 'sdoigjosdfijg'
-    tumblr:
-      enable: true
-      key: 'fake'
-      secret: 'sdoigjosdfijg'
   mail:
     enable: true

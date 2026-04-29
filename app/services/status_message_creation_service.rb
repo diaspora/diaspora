@@ -14,7 +14,7 @@ class StatusMessageCreationService
       load_aspects(params[:aspect_ids]) unless status_message.public?
       add_attachments(status_message, params)
       status_message.save
-      process(status_message, params[:services])
+      process(status_message)
     end
   end
 
@@ -66,9 +66,9 @@ class StatusMessageCreationService
     raise BadAspectsIDs if aspects.empty?
   end
 
-  def process(status_message, services)
+  def process(status_message)
     add_to_streams(status_message) unless status_message.public?
-    dispatch(status_message, services)
+    dispatch(status_message)
   end
 
   def add_to_streams(status_message)
@@ -76,12 +76,9 @@ class StatusMessageCreationService
     status_message.photos.each {|photo| user.add_to_streams(photo, aspects) }
   end
 
-  def dispatch(status_message, services)
-    receiving_services = services ? Service.titles(services) : []
+  def dispatch(status_message)
     status_message.filter_mentions # this is only required until changes from #6818 are deployed on every pod
-    user.dispatch_post(status_message,
-                       url:           short_post_url(status_message.guid, host: AppConfig.environment.url),
-                       service_types: receiving_services)
+    user.dispatch_post(status_message)
   end
 
   class BadAspectsIDs < RuntimeError

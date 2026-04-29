@@ -14,7 +14,6 @@ shared_examples_for "deletes all of the user data" do
       .to(be_truthy)
       .and(change(nil, "notifications empty?") { Notification.where(recipient_id: user.id).empty? }.to(be_truthy))
       .and(change(nil, "blocks empty?") { Block.where(user_id: user.id).empty? }.to(be_truthy))
-      .and(change(nil, "services empty?") { Service.where(user_id: user.id).empty? }.to(be_truthy))
       .and(change(nil, "share visibilities empty?") { ShareVisibility.where(user_id: user.id).empty? }.to(be_truthy))
       .and(change(nil, "aspects empty?") { user.aspects.empty? }.to(be_truthy))
       .and(change(nil, "contacts empty?") { user.contacts.empty? }.to(be_truthy))

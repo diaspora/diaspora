@@ -89,7 +89,6 @@ class StatusMessagesController < ApplicationController
       status_message: %i[text provider_display_name],
       poll_answers:   []
     ).to_h.merge(
-      services:   [*params[:services]].compact,
       aspect_ids: normalize_aspect_ids,
       public:     [*params[:aspect_ids]].first == "public",
       photos:     [*params[:photos]].compact

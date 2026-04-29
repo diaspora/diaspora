@@ -10,55 +10,6 @@ describe ApplicationHelper, :type => :helper do
     @person = FactoryBot.create(:person)
   end
 
-  describe "#all_services_connected?" do
-    before do
-      AppConfig.configured_services = [1, 2, 3]
-
-      def current_user
-        @current_user
-      end
-      @current_user = alice
-    end
-
-    after do
-      AppConfig.configured_services = nil
-    end
-
-    it 'returns true if all networks are connected' do
-      3.times { @current_user.services << FactoryBot.build(:service) }
-      expect(all_services_connected?).to be true
-    end
-
-    it 'returns false if not all networks are connected' do
-      @current_user.services.delete_all
-      expect(all_services_connected?).to be false
-    end
-  end
-
-  describe "#service_unconnected?" do
-    attr_reader :current_user
-
-    before do
-      @current_user = alice
-    end
-
-    it "returns true if the service is unconnected" do
-      expect(AppConfig).to receive(:show_service?).with("service", alice).and_return(true)
-      expect(service_unconnected?("service")).to be true
-    end
-
-    it "returns false if the service is already connected" do
-      @current_user.services << FactoryBot.build(:service)
-      expect(AppConfig).to receive(:show_service?).with("twitter", alice).and_return(true)
-      expect(service_unconnected?("twitter")).to be false
-    end
-
-    it "returns false if the the service shouldn't be shown" do
-      expect(AppConfig).to receive(:show_service?).with("service", alice).and_return(false)
-      expect(service_unconnected?("service")).to be false
-    end
-  end
-
   describe "#jquery_include_tag" do
     describe "with jquery cdn" do
       before do

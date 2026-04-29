@@ -17,17 +17,9 @@ module JasmineFixtureGeneration
   def html_for(selector)
     doc = Nokogiri::HTML(response.body)
 
-    remove_third_party_scripts(doc)
     content = doc.css(selector).first.to_s
 
     return convert_body_tag_to_div(content)
-  end
-
-  # Remove scripts such as Google Analytics to avoid running them
-  # when we load into the dom during js specs.
-  def remove_third_party_scripts(doc)
-    scripts = doc.at('#third-party-scripts')
-    scripts.remove if scripts
   end
 
   # Many of our css and jQuery selectors rely on a class attribute we

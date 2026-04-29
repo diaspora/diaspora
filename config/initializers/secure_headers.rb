@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 SecureHeaders::Configuration.default do |config|
-  config.hsts = SecureHeaders::OPT_OUT # added by Rack::SSL
+  config.hsts = SecureHeaders::OPT_OUT # Already added by enforce_ssl.rb
 
   # rubocop:disable Lint/PercentStringArray
   csp = {

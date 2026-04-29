@@ -15,18 +15,8 @@ class UserPresenter
       admin:                 admin,
       moderator:             moderator,
       aspects:               aspects,
-      services:              services,
-      following_count:       user.contacts.receiving.count,
-      configured_services:   configured_services
+      following_count:       user.contacts.receiving.count
     ).to_json(options)
-  end
-
-  def services
-    ServicePresenter.as_collection(user.services)
-  end
-
-  def configured_services
-    user.services.map(&:provider)
   end
 
   def aspects

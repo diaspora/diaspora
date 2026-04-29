@@ -70,48 +70,20 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id],
-        {"service_types" => []}
+        local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id]
       )
 
       retraction.defer_dispatch(local_luke)
     end
 
-    it "adds service metadata to queued job for deletion" do
-      post.tweet_id = "123"
-      twitter = Services::Twitter.new(access_token: "twitter")
-      alice.services << twitter
-
-      retraction = Retraction.for(post)
-      federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
-
-      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [],
-        {"service_types" => ["Services::Twitter"], "tweet_id" => "123"}
-      )
-
-      retraction.defer_dispatch(alice)
-    end
-
-    it "queues also a job if subscribers is empty" do
-      retraction = Retraction.for(post)
-      federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
-
-      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        alice.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [], {"service_types" => []}
-      )
-
-      retraction.defer_dispatch(alice)
-    end
-
-    it "queues a job with empty opts for non-StatusMessage" do
+    it "queues a job for non-StatusMessage" do
       post = local_luke.post(:status_message, text: "hello", public: true)
       comment = local_luke.comment!(post, "destroy!")
       retraction = Retraction.for(comment)
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id], {}
+        local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id]
       )
 
       retraction.defer_dispatch(local_luke)
@@ -126,7 +98,7 @@ describe Retraction do
         federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
         expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-          local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id], {}
+          local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [remote_raphael.id]
         )
 
         retraction.defer_dispatch(local_luke)
@@ -137,7 +109,7 @@ describe Retraction do
         federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
         expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-          local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, [], {}
+          local_luke.id, "Retraction", federation_retraction.to_h.deep_stringify_keys, []
         )
 
         retraction.defer_dispatch(local_luke, false)
