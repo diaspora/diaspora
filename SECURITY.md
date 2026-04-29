@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-We support the latest stable release, as well as the current state of the `next-minor` and `develop` branches. Security issues for older releases are out of scope.
+We support the latest stable release, as well as the current state of the `develop` branch. Security issues for older releases are out of scope.
 
 ## Reporting a Vulnerability
 
