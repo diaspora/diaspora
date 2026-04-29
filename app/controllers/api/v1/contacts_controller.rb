@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "api/paging/index_paginator"
-
 module Api
   module V1
     class ContactsController < Api::V1::BaseController
