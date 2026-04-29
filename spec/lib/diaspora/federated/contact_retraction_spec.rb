@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-describe ContactRetraction do
+describe Diaspora::Federated::ContactRetraction do
   let(:contact) { FactoryBot.build(:contact, sharing: true, receiving: true) }
-  let(:retraction) { ContactRetraction.for(contact) }
+  let(:retraction) { described_class.for(contact) }
 
   describe "#subscribers" do
     it "contains the contact person" do
@@ -24,7 +24,7 @@ describe ContactRetraction do
     it "creates a retraction for a contact" do
       contact = FactoryBot.build(:contact, sharing: false, receiving: false)
       expect(Diaspora::Federation::Entities).to receive(:contact).with(contact).and_call_original
-      data = ContactRetraction.retraction_data_for(contact)
+      data = described_class.retraction_data_for(contact)
 
       expect(data[:author]).to eq(contact.user.diaspora_handle)
       expect(data[:recipient]).to eq(contact.person.diaspora_handle)
@@ -35,12 +35,12 @@ describe ContactRetraction do
 
   describe ".for" do
     it "creates a retraction for a contact" do
-      expect(ContactRetraction).to receive(:retraction_data_for).with(contact)
-      ContactRetraction.for(contact)
+      expect(described_class).to receive(:retraction_data_for).with(contact)
+      described_class.for(contact)
     end
 
     it "create contact entity with 'sharing' and 'following' set to false" do
-      data = ContactRetraction.for(contact).data
+      data = described_class.for(contact).data
       expect(data[:sharing]).to be_falsey
       expect(data[:following]).to be_falsey
     end
@@ -49,11 +49,12 @@ describe ContactRetraction do
   describe ".defer_dispatch" do
     it "queues a job to send the retraction later" do
       contact = FactoryBot.build(:contact, user: local_luke, person: remote_raphael)
-      retraction = ContactRetraction.for(contact)
+      retraction = described_class.for(contact)
       federation_retraction_data = Diaspora::Federation::Entities.contact(contact).to_h
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, "ContactRetraction", federation_retraction_data.deep_stringify_keys, [remote_raphael.id]
+        local_luke.id, "Diaspora::Federated::ContactRetraction", federation_retraction_data.deep_stringify_keys,
+        [remote_raphael.id]
       )
 
       retraction.defer_dispatch(local_luke)

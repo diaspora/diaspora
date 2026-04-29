@@ -6,8 +6,5 @@
 
 module Diaspora
   module Federated
-    require "diaspora/federated/base"
-    require "diaspora/federated/retraction"
-    require "diaspora/federated/contact_retraction"
   end
 end
