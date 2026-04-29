@@ -53,10 +53,3 @@
           .btn-toolbar.pull-right
             = render partial: "aspects/aspect_dropdown", locals: {selected_aspects: selected_aspects}
             %button.btn.btn-group.btn-primary#submit= t("shared.publisher.share")
-
-          .btn-toolbar.pull-right
-            .btn.btn-link.question-mark{title: t("shared.public_explain.title"),
-                           data: {toggle: "modal", target: "#publicExplainModal"}}
-              %i.entypo-help
-
-= render "shared/public_explain"

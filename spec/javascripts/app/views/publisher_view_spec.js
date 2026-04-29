@@ -19,10 +19,6 @@ describe("app.views.Publisher", function() {
       expect(this.view.$(".md-cancel").is(":visible")).toBeFalsy();
     });
 
-    it("hides the manage services link in standalone mode", function() {
-      expect(this.view.$(".question-mark").is(":visible")).toBeFalsy();
-    });
-
     describe("createStatusMessage", function(){
       it("doesn't add the status message to the stream", function() {
         app.stream = new app.models.Stream();

@@ -31,20 +31,6 @@
     .options_and_submit {
       padding: 10px 0;
 
-      .btn.btn-link.question-mark {
-        text-decoration: none;
-
-        .entypo-help {
-          color: $text-grey;
-          font-size: 16px;
-          line-height: 16px;
-        }
-
-        &:hover .entypo-help {
-          color: $black;
-        }
-      }
-
       @media(max-width: $screen-xs) {
         .btn-toolbar {
           width: 100%;

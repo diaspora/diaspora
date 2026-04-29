@@ -43,13 +43,6 @@ app.views.Publisher = Backbone.View.extend({
     $(window).on("beforeunload", _.bind(this._beforeUnload, this));
     $(window).on("unload", this.clear.bind(this));
 
-    // hide close and preview buttons and manage services link
-    // in case publisher is standalone
-    // (e.g. bookmarklet, mentions popup)
-    if( this.standalone ) {
-      this.$(".question-mark").hide();
-    }
-
     $("body").click(function(event) {
       var $target = $(event.target);
       if ($target.closest("#publisher").length === 0 && !$target.hasClass("dropdown-backdrop")) {
