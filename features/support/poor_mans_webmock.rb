@@ -5,12 +5,6 @@
 #   the COPYRIGHT file.
 
 module Workers
-  class PublishToHub < Base
-    def perform(*_args)
-      # don't publish to pubsubhubbub in cucumber
-    end
-  end
-
   class SendPrivate < Base
     def perform(*_args)
       # don't federate in cucumber

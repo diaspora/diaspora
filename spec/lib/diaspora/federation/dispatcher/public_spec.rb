@@ -5,18 +5,6 @@ describe Diaspora::Federation::Dispatcher::Public do
   let(:comment) { FactoryBot.create(:comment, author: alice.person, post: post) }
 
   describe "#dispatch" do
-    context "pubsubhubbub" do
-      it "delivers public posts to pubsubhubbub" do
-        expect(Workers::PublishToHub).to receive(:perform_async).with(alice.atom_url)
-        Diaspora::Federation::Dispatcher.build(alice, post).dispatch
-      end
-
-      it "does not call pubsubhubbub for comments" do
-        expect(Workers::PublishToHub).not_to receive(:perform_async)
-        Diaspora::Federation::Dispatcher.build(alice, comment).dispatch
-      end
-    end
-
     context "deliver to remote user" do
       let(:encryption_key) { double }
       let(:magic_env) { double }

@@ -60,11 +60,6 @@
 ## will be redirected to https://images.example.org/uploads/images/
 #image_redirect_url = "https://images.example.org"
 
-## Pubsub server (default="https://pubsubhubbub.appspot.com/"").
-## Diaspora is only tested against the default pubsub server.
-## You probably don't want to uncomment or change this.
-#pubsub_server = "https://pubsubhubbub.appspot.com/"
-
 ## Sidekiq - background processing
 [configuration.environment.sidekiq]
 

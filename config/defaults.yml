@@ -30,7 +30,6 @@ defaults:
       serve: false
       upload: false
       host:
-    pubsub_server: 'https://pubsubhubbub.appspot.com/'
     logging:
       logrotate:
         enable: true
