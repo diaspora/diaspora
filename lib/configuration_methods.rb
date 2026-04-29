@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Configuration
-  KNOWN_SERVICES = %i[tumblr wordpress].freeze
 
   module Methods
     def pod_uri
@@ -29,25 +28,6 @@ module Configuration
 
     def bare_pod_uri
       pod_uri.authority.gsub('www.', '')
-    end
-
-    def configured_services
-      return @configured_services unless @configured_services.nil?
-
-      @configured_services = []
-      KNOWN_SERVICES.each do |service|
-        @configured_services << service if services.send(service).enable?
-      end
-
-      @configured_services
-    end
-    attr_writer :configured_services
-
-    def show_service?(service, user)
-      return false unless self["services.#{service}.enable"]
-      # Return true only if 'authorized' is true or equal to user username
-      (user && self["services.#{service}.authorized"] == user.username) ||
-        self["services.#{service}.authorized"] == true
     end
 
     def local_posts_stream?(user)

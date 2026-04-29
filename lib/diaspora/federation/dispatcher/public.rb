@@ -4,12 +4,12 @@ module Diaspora
   module Federation
     class Dispatcher
       class Public < Dispatcher
-        private
-
-        def deliver_to_services
+        def dispatch
           deliver_to_hub if object.instance_of?(StatusMessage)
           super
         end
+
+        private
 
         def deliver_to_remote(people)
           targets = target_urls(people)

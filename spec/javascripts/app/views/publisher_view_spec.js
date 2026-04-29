@@ -20,7 +20,7 @@ describe("app.views.Publisher", function() {
     });
 
     it("hides the manage services link in standalone mode", function() {
-      expect(this.view.$(".question_mark").is(":visible")).toBeFalsy();
+      expect(this.view.$(".question-mark").is(":visible")).toBeFalsy();
     });
 
     describe("createStatusMessage", function(){
@@ -311,80 +311,6 @@ describe("app.views.Publisher", function() {
         var e = $.Event();
         expect(this.view._beforeUnload(e)).toBe(undefined);
         expect(e.returnValue).toBe(undefined);
-      });
-    });
-  });
-
-  context("services", function(){
-    beforeEach( function(){
-      spec.loadFixture('aspects_index_services');
-      this.view = new app.views.Publisher();
-    });
-
-    it("toggles the 'dim' class on a clicked item", function() {
-      var first = $(".service_icon").eq(0);
-      var second = $(".service_icon").eq(1);
-
-      expect(first.hasClass('dim')).toBeTruthy();
-      expect(second.hasClass('dim')).toBeTruthy();
-
-      first.trigger('click');
-
-      expect(first.hasClass('dim')).toBeFalsy();
-      expect(second.hasClass('dim')).toBeTruthy();
-
-      first.trigger('click');
-
-      expect(first.hasClass('dim')).toBeTruthy();
-      expect(second.hasClass('dim')).toBeTruthy();
-    });
-
-    it("creates a counter element", function(){
-      expect(this.view.$('.counter').length).toBe(0);
-      $(".service_icon").first().trigger('click');
-      expect(this.view.$('.counter').length).toBe(1);
-    });
-
-    it("removes any old counters", function(){
-      spyOn($.fn, "remove");
-      $(".service_icon").first().trigger('click');
-      expect($.fn.remove).toHaveBeenCalled();
-    });
-
-    it("toggles the hidden input field", function(){
-      expect(this.view.$('input[name="services[]"]').length).toBe(0);
-      $(".service_icon").first().trigger('click');
-      expect(this.view.$('input[name="services[]"]').length).toBe(1);
-      $(".service_icon").first().trigger('click');
-      expect(this.view.$('input[name="services[]"]').length).toBe(0);
-    });
-
-    it("toggles the correct input", function() {
-      var first = $(".service_icon").eq(0);
-      var second = $(".service_icon").eq(1);
-
-      first.trigger('click');
-      second.trigger('click');
-
-      expect(this.view.$('input[name="services[]"]').length).toBe(2);
-
-      first.trigger('click');
-
-      var prov1 = first.attr('id');
-      var prov2 = second.attr('id');
-
-      expect(this.view.$('input[name="services[]"][value="'+prov1+'"]').length).toBe(0);
-      expect(this.view.$('input[name="services[]"][value="'+prov2+'"]').length).toBe(1);
-    });
-
-    describe("#clear", function() {
-      it("resets the char counter", function() {
-        this.view.$(".service_icon").first().trigger("click");
-        expect(parseInt(this.view.$(".counter").text(), 10)).toBeGreaterThan(0);
-        this.view.$(".counter").text("0");
-        expect(parseInt(this.view.$(".counter").text(), 10)).not.toBeGreaterThan(0);
-        this.view.clear($.Event());
-        expect(parseInt(this.view.$(".counter").text(), 10)).toBeGreaterThan(0);
       });
     });
   });

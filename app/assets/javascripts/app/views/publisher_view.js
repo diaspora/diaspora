@@ -9,7 +9,6 @@
 //= require ./publisher/getting_started_view
 //= require ./publisher/mention_view
 //= require ./publisher/poll_creator_view
-//= require ./publisher/services_view
 //= require ./publisher/uploader_view
 
 app.views.Publisher = Backbone.View.extend({
@@ -48,7 +47,7 @@ app.views.Publisher = Backbone.View.extend({
     // in case publisher is standalone
     // (e.g. bookmarklet, mentions popup)
     if( this.standalone ) {
-      this.$(".question_mark").hide();
+      this.$(".question-mark").hide();
     }
 
     $("body").click(function(event) {
@@ -88,12 +87,6 @@ app.views.Publisher = Backbone.View.extend({
     }
 
     var form = this.$(".content_creation form");
-
-    this.view_services = new app.views.PublisherServices({
-      el:    this.$("#publisher-service-icons"),
-      input: this.inputEl,
-      form:  form
-    });
 
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
       el: this.$(".public_toggle .aspect-dropdown"),
@@ -204,7 +197,6 @@ app.views.Publisher = Backbone.View.extend({
       },
       "aspect_ids" : serializedForm["aspect_ids[]"],
       "photos" : serializedForm["photos[]"],
-      "services" : serializedForm["services[]"],
       "location_address" : $("#location_address").val(),
       "location_coords" : serializedForm["location[coords]"],
       "poll_question" : serializedForm["poll_question"],

@@ -2,7 +2,7 @@
 
 describe Diaspora::Federation::Dispatcher do
   let(:post) { FactoryBot.create(:status_message, author: alice.person, text: "hello", public: true) }
-  let(:opts) { {service_types: "Services::Tumblr"} }
+  let(:opts) { {} }
 
   describe ".build" do
     it "creates a public dispatcher for a public post" do

@@ -14,11 +14,4 @@ describe("app.models.User", function(){
     });
   });
 
-  describe("isServiceConnected", function(){
-    it("checks to see if the sent provider name is a configured service", function(){
-      this.user.set({configured_services: ["tumblr"]}); // eslint-disable-line camelcase
-      expect(this.user.isServiceConfigured("tumblr")).toBeTruthy();
-      expect(this.user.isServiceConfigured("wordpress")).toBeFalsy();
-    });
-  });
 });

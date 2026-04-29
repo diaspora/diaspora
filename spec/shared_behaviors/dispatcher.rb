@@ -2,46 +2,6 @@
 
 shared_examples "a dispatcher" do
   describe "#dispatch" do
-    context "deliver to user services" do
-      let(:tumblr) { Services::Tumblr.new(access_token: "tumblr") }
-
-      before do
-        alice.services << tumblr
-      end
-
-      it "delivers a StatusMessage to specified services" do
-        opts = {service_types: "Services::Tumblr", url: "https://example.org/p/123"}
-        expect(Workers::PostToService).to receive(:perform_async).with(tumblr.id, post.id, "https://example.org/p/123")
-        Diaspora::Federation::Dispatcher.build(alice, post, opts).dispatch
-      end
-
-      it "delivers a Retraction of a Post to specified services" do
-        opts = {service_types: "Services::Tumblr", tumblr_ids: "{}"}
-        expect(Workers::DeletePostFromService).to receive(:perform_async).with(tumblr.id, opts.deep_stringify_keys)
-
-        retraction = Retraction.for(post)
-        Diaspora::Federation::Dispatcher.build(alice, retraction, opts).dispatch
-      end
-
-      it "does not queue service jobs when no services specified" do
-        opts = {url: "https://example.org/p/123"}
-        expect(Workers::PostToService).not_to receive(:perform_async)
-        Diaspora::Federation::Dispatcher.build(alice, post, opts).dispatch
-      end
-
-      it "does not deliver a Comment to services" do
-        expect(Workers::PostToService).not_to receive(:perform_async)
-        Diaspora::Federation::Dispatcher.build(alice, comment).dispatch
-      end
-
-      it "does not deliver a Retraction of a Comment to services" do
-        expect(Workers::DeletePostFromService).not_to receive(:perform_async)
-
-        retraction = Retraction.for(comment)
-        Diaspora::Federation::Dispatcher.build(alice, retraction).dispatch
-      end
-    end
-
     context "deliver to local user" do
       it "queues receive local job for all local receivers" do
         local_subscriber_ids = post.subscribers.select(&:local?).map(&:owner_id)

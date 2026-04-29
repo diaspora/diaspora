@@ -17,7 +17,7 @@
 ## - Specify lists/arrays as comma-separated values
 ##
 ## - For example, on Heroku:
-##   heroku config:set SERVICES_TUMBLR_KEY=yourkey SERVICES_TUMBLR_SECRET=yoursecret
+##   heroku config:set ENVIRONMENT_URL=https://example.org
 
 ## You need to change or at least review the settings in this section
 ## in order for your pod to work.
@@ -488,19 +488,6 @@
 ## CSP report URI
 ## You can set an URI here, where the user agent reports violations as JSON document via a POST request.
 #report_uri = "/csp_violation_reports"
-
-## Posting from Diaspora to external services (all are disabled by default).
-[configuration.services]
-
-## OAuth credentials for Tumblr
-#tumblr.enable = true
-#tumblr.key = "change_me"
-#tumblr.secret = "change_me"
-
-## OAuth credentials for Wordpress
-#wordpress.enable = true
-#wordpress.client_id = "change_me"
-#wordpress.secret = "change_me"
 
 ## Allow your pod to send emails for notifications, password recovery
 ## and other purposes (disabled by default).

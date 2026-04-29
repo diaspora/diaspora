@@ -70,8 +70,6 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
 
-  has_many :services
-
   has_many :user_preferences
 
   has_many :tag_followings
@@ -388,10 +386,6 @@ class User < ApplicationRecord
     else
       false
     end
-  end
-
-  def update_profile_with_omniauth( user_info )
-    update_profile( self.profile.from_omniauth_hash( user_info ) )
   end
 
   def deliver_profile_update(opts={})

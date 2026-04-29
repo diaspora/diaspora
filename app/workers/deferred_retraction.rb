@@ -8,12 +8,12 @@ module Workers
   class DeferredRetraction < Base
     sidekiq_options queue: :high
 
-    def perform(user_id, retraction_class, retraction_data, recipient_ids, opts)
+    def perform(user_id, retraction_class, retraction_data, recipient_ids)
       user = User.find(user_id)
       subscribers = Person.where(id: recipient_ids)
       object = retraction_class.constantize.new(retraction_data.deep_symbolize_keys, subscribers)
 
-      Diaspora::Federation::Dispatcher.build(user, object, opts.deep_symbolize_keys).dispatch
+      Diaspora::Federation::Dispatcher.build(user, object).dispatch
     end
   end
 end

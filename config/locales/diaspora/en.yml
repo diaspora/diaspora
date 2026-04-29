@@ -10,7 +10,6 @@ en:
   profile: "Profile"
   account: "Account"
   privacy: "Privacy"
-  _services: "Services"
   _applications: "Applications"
   _help: "Help"
   ok: "OK"
@@ -254,10 +253,6 @@ en:
         any_problem: "Got a problem?"
         contact_podmin: "Contact the administrator of your pod!"
         mail_podmin: "Podmin email"
-      services:
-        heading: "Connect services"
-        content: "You can connect the following services to diaspora*:"
-
     aspect_stream:
       stay_updated: "Stay updated"
       stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
@@ -445,8 +440,6 @@ en:
       post_report_a: "Click the alert triangle icon at the top right of the post to report it to your podmin. Enter a reason for reporting this post in the dialog box. Please only report posts that break our %{community_guidelines} or your pod’s terms of service, for example posts containing illegal content, or which are abusive or spam."
       character_limit_q: "What is the character limit for posts?"
       character_limit_a: "65,535 characters. That’s 65,395 more characters than you get on Twitter! ;)"
-      char_limit_services_q: "What if I'm sharing my post with a connected service with a smaller character count?"
-      char_limit_services_a: "In that case you should restrict your post to the smaller character count (1000 in the case of Tumblr and WordPress), and the number of characters you have left to use is displayed when that service’s icon is highlighted. You can still post to these services if your post is longer than their limit, but the text will be truncated on those services with a link to the post on diaspora*."
       format_text_q: "How can I format the text in my posts (bold, italics, etc.)?"
       format_text_a: "diaspora* uses a simplified system called %{markdown}. The publisher has buttons to make it easy to format your text. If you want to format your post manually, you can find the full Markdown syntax %{here}. The preview tab means you can see how your message will look before you share it. Remember that you can’t edit it once posted, so use the preview to make sure it’s perfect before pressing Share!"
       insert_images_q: "How do I insert images into posts?"
@@ -1130,30 +1123,6 @@ en:
       reshare_confirmation: "Reshare %{author}’s post?"
       deleted: "Original post deleted by author."
     comment_email_subject: "%{resharer}’s reshare of %{author}’s post"
-  services:
-    provider:
-      tumblr: "Tumblr"
-      wordpress: "WordPress"
-    index:
-      title: "Manage connected services"
-      connect: "Connect"
-      disconnect: "Disconnect"
-      logged_in_as: "Logged in as %{nickname}."
-      no_services_available: "There are no services available on this pod."
-      not_logged_in: "Currently not logged in."
-      really_disconnect: "Disconnect %{service}?"
-      edit_services: "Edit services"
-      services_explanation: "Connecting to third-party sharing services gives you the ability to publish your posts to them as you write them in diaspora*."
-      share_to: "Share to %{provider}"
-    create:
-      success: "Authentication successful."
-      failure: "Authentication failed."
-      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
-    destroy:
-      success: "Successfully deleted authentication."
-    failure:
-      error: "There was an error connecting to that service"
-
   blocks:
     create:
       success: "All right, you won’t see that user in your stream again. #silencio!"
@@ -1193,11 +1162,9 @@ en:
       control_your_audience: "Control your audience"
       new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests. Call out awesome people with @Mentions"
       visibility_dropdown: "Use this dropdown to change visibility of your post. (We suggest you make this first one public.)"
-      title: "Set up connected services"
+      title: "Set up post visibility"
       share: "Share"
       outside: "Public messages will be available for others outside of diaspora* to see."
-      logged_in: "Logged in to %{service}"
-      manage: "Manage connected services"
       atom_feed: "Atom feed"
     stream_element:
       via: "Via %{link}"
@@ -1432,7 +1399,6 @@ en:
   statistics:
     name: "Name"
     network: "Network"
-    services: "Services"
     total_users: "Total users"
     active_users_halfyear: "Active users half year"
     active_users_monthly: "Active users monthly"
@@ -1440,7 +1406,5 @@ en:
     local_comments: "Local comments"
     version: "Version"
     registrations: "Registrations"
-    enabled: "Available"
-    disabled: "Not available"
     open: "Open"
     closed: "Closed"

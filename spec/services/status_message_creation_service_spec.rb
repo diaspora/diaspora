@@ -162,15 +162,8 @@ describe StatusMessageCreationService do
 
     context "dispatch" do
       it "dispatches the StatusMessage" do
-        expect(alice).to receive(:dispatch_post).with(instance_of(StatusMessage), hash_including(service_types: []))
+        expect(alice).to receive(:dispatch_post).with(instance_of(StatusMessage))
         StatusMessageCreationService.new(alice).create(params)
-      end
-
-      it "dispatches the StatusMessage to services" do
-        expect(alice).to receive(:dispatch_post)
-          .with(instance_of(StatusMessage),
-                hash_including(service_types: array_including(%w[Services::Tumblr Services::Wordpress])))
-        StatusMessageCreationService.new(alice).create(params.merge(services: %w[tumblr wordpress]))
       end
 
       context "with mention" do

@@ -28,19 +28,6 @@ describe StreamsController, :type => :controller do
         save_fixture(html_for("body"), "aspects_index_prefill")
       end
 
-      it 'generates a jasmine fixture with services', :fixture => true do
-        AppConfig.services.wordpress.enable = true
-        AppConfig.configured_services = nil
-
-        alice.services << Services::Tumblr.create(user_id: alice.id)
-        alice.services << Services::Wordpress.create(user_id: alice.id)
-        get :aspects, params: {prefill: "reshare things"}
-        save_fixture(html_for("body"), "aspects_index_services")
-      ensure
-        AppConfig.services.wordpress.enable = false
-        AppConfig.configured_services = nil
-      end
-
       it 'generates a jasmine fixture with posts', :fixture => true do
         bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.where(:name => "generic").first.id)
         message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)

@@ -37,7 +37,7 @@ class Retraction
   def defer_dispatch(user, include_target_author=true)
     subscribers = dispatch_subscribers(include_target_author)
     Workers::DeferredRetraction.perform_async(user.id, self.class.to_s, data.deep_stringify_keys,
-                                              subscribers.map(&:id), service_opts(user).deep_stringify_keys)
+                                              subscribers.map(&:id))
   end
 
   def perform
@@ -59,15 +59,4 @@ class Retraction
     subscribers
   end
 
-  def service_opts(user)
-    return {} unless target.is_a?(StatusMessage)
-
-    user.services.each_with_object(service_types: []) do |service, opts|
-      service_opts = service.post_opts(target)
-      if service_opts
-        opts.merge!(service_opts)
-        opts[:service_types] << service.class.to_s
-      end
-    end
-  end
 end

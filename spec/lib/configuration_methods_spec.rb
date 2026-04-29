@@ -85,47 +85,6 @@ describe Configuration::Methods do
     end
   end
 
-  describe "#configured_services" do
-    it "includes the enabled services only" do
-      services = double
-      enabled = double
-      allow(enabled).to receive(:enable?).and_return(true)
-      disabled = double
-      allow(disabled).to receive(:enable?).and_return(false)
-      allow(services).to receive(:tumblr).and_return(enabled)
-      allow(services).to receive(:wordpress).and_return(disabled)
-      allow(@settings).to receive(:services).and_return(services)
-      expect(@settings.configured_services).to include :tumblr
-      expect(@settings.configured_services).not_to include :wordpress
-    end
-  end
-
-  describe "#show_service" do
-    before do
-      AppConfig.services.wordpress.authorized = false
-      AppConfig.services.wordpress.enable = true
-      AppConfig.services.tumblr.enable = true
-    end
-
-    it "shows service with no authorized key" do
-      expect(AppConfig.show_service?("tumblr", bob)).to be_truthy
-    end
-
-    it "doesn't show service with authorized key false" do
-      expect(AppConfig.show_service?("wordpress", bob)).to be_falsey
-    end
-
-    it "doesn't show service with authorized key not equal to username" do
-      AppConfig.services.tumblr.authorized = "alice"
-      expect(AppConfig.show_service?("tumblr", bob)).to be_falsey
-    end
-
-    it "shows service with authorized key equal to username" do
-      AppConfig.services.tumblr.authorized = "alice"
-      expect(AppConfig.show_service?("tumblr", alice)).to be_truthy
-    end
-  end
-
   describe "#has_local_posts_stream" do
     let!(:moderator) { create(:user) }
     let!(:admin) { create(:user) }

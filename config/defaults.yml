@@ -134,17 +134,6 @@ defaults:
     csp:
       report_only: false
       report_uri:
-  services:
-    tumblr:
-      enable: false
-      key:
-      secret:
-      authorized: true
-    wordpress:
-      enable: false
-      key:
-      secret:
-      authorized: true
   mail:
     enable: false
     sender_address: 'no-reply@example.org'
@@ -191,10 +180,5 @@ test:
     autofollow_on_join_user: ''
     invitations:
       open: true
-  services:
-    tumblr:
-      enable: true
-      key: 'fake'
-      secret: 'sdoigjosdfijg'
   mail:
     enable: true

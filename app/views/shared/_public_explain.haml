@@ -17,10 +17,6 @@
       .modal-body
         %p=t('.outside')
         %p= link_to t(".atom_feed"), current_user.atom_url
-        - if current_user.services
-          - for service in current_user.services
-            %p= t('.logged_in', :service => service.provider)
-        %p= link_to t('.manage'), services_path
       .modal-footer
         .btn.btn-default{type: "button", data: {dismiss: "modal"}, aria: {hidden: "true"}}
           = t("ok")

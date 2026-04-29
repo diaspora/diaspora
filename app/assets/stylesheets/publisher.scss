@@ -31,22 +31,17 @@
     .options_and_submit {
       padding: 10px 0;
 
-      #publisher-service-icons {
+      .btn.btn-link.question-mark {
         text-decoration: none;
 
-        .entypo-cog, .service_icon {
+        .entypo-help {
           color: $text-grey;
           font-size: 16px;
           line-height: 16px;
         }
-        .service_icon { padding: 6px 5px; }
-        .btn.btn-link.question_mark:hover .entypo-cog { color: $black; }
-        .dim { opacity: 0.3; }
-        .social-media-logos-wordpress-16x16 {
-          background: image-url('social-media-logos/wordpress-16x16.png') no-repeat;
-          display: inline-block;
-          height: 16px;
-          width: 16px;
+
+        &:hover .entypo-help {
+          color: $black;
         }
       }
 

@@ -31,7 +31,7 @@ describe NodeInfoPresenter do
         },
         "services"          => {
           "inbound"  => [],
-          "outbound" => AppConfig.configured_services.map(&:to_s)
+          "outbound" => []
         },
         "openRegistrations" => AppConfig.settings.enable_registrations?,
         "usage"             => {
@@ -46,38 +46,6 @@ describe NodeInfoPresenter do
           }
         }
       )
-    end
-
-    context "when services are enabled" do
-      before do
-        AppConfig.services = {
-          "tumblr"    => {"enable" => true},
-          "wordpress" => {"enable" => false}
-        }
-      end
-
-      it "provides services" do
-        expect(hash).to include "services" => include("outbound" => ["tumblr"])
-      end
-    end
-
-    context "when some services are set to username authorized" do
-      before do
-        AppConfig.services = {
-          "wordpress" => {
-            "enable"     => true,
-            "authorized" => "alice"
-          },
-          "tumblr"    => {
-            "enable"     => true,
-            "authorized" => true
-          }
-        }
-      end
-
-      it "it doesn't list those" do
-        expect(hash).to include "services" => include("outbound" => ["tumblr"])
-      end
     end
 
     context "when counts are enabled" do
@@ -149,7 +117,7 @@ describe NodeInfoPresenter do
           "protocols"         => ["diaspora"],
           "services"          => {
             "inbound"  => [],
-            "outbound" => AppConfig.configured_services.map(&:to_s)
+            "outbound" => []
           },
           "openRegistrations" => AppConfig.settings.enable_registrations?,
           "usage"             => {
@@ -180,7 +148,7 @@ describe NodeInfoPresenter do
           "protocols"         => ["diaspora"],
           "services"          => {
             "inbound"  => [],
-            "outbound" => AppConfig.configured_services.map(&:to_s)
+            "outbound" => []
           },
           "openRegistrations" => AppConfig.settings.enable_registrations?,
           "usage"             => {

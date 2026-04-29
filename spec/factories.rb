@@ -236,17 +236,6 @@ FactoryBot.define do
     count { 0 }
   end
 
-  factory :service do
-    nickname { "sirrobertking" }
-    type { "Services::Tumblr" }
-
-    sequence(:uid)           {|token| "00000#{token}" }
-    sequence(:access_token)  {|token| "12345#{token}" }
-    sequence(:access_secret) {|token| "98765#{token}" }
-
-    user
-  end
-
   factory :pod do
     sequence(:host) {|n| "pod#{n}.example#{r_str}.com" }
     port { -1 }
