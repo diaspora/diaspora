@@ -155,7 +155,9 @@ class Person < ApplicationRecord
   # @param [Post] the post for which we query mentionable in comments people
   # @return [Person::ActiveRecord_Relation]
   scope :allowed_to_be_mentioned_in_a_comment_to, ->(post) {
-    allowed = if post.public?
+    allowed = if post.nil?
+                none
+              elsif post.public?
                 all
               else
                 left_join_visible_post_interactions_on_authorship(post.id)
