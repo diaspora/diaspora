@@ -42,7 +42,7 @@ class PostService
            else
              find_public!(post_id)
            end
-    raise Diaspora::NotMine unless post.author == user.person
+    raise Diaspora::Exceptions::NotMine unless post.author == user.person
 
     user.retract(post)
   end
@@ -65,7 +65,7 @@ class PostService
   def find_public!(id_or_guid)
     Post.where(post_key(id_or_guid) => id_or_guid).first.tap do |post|
       raise ActiveRecord::RecordNotFound, "could not find a post with id #{id_or_guid}" unless post
-      raise Diaspora::NonPublic unless post.public?
+      raise Diaspora::Exceptions::NonPublic unless post.public?
     end
   end
 

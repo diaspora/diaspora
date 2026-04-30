@@ -12,7 +12,7 @@ class LikesController < ApplicationController
              :mobile,
              :json
 
-  rescue_from Diaspora::NonPublic do
+  rescue_from Diaspora::Exceptions::NonPublic do
     authenticate_user!
   end
 

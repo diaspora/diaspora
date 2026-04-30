@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     head :not_found
   end
 
-  rescue_from Diaspora::NonPublic do
+  rescue_from Diaspora::Exceptions::NonPublic do
     authenticate_user!
   end
 

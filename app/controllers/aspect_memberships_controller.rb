@@ -59,7 +59,7 @@ class AspectMembershipsController < ApplicationController
     render plain: I18n.t("aspect_memberships.destroy.no_membership"), status: 404
   end
 
-  rescue_from Diaspora::NotMine do
+  rescue_from Diaspora::Exceptions::NotMine do
     render plain: I18n.t("aspect_memberships.destroy.forbidden"), status: 403
   end
 end
