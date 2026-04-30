@@ -4,7 +4,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'i18n_interpolation_fallbacks'
 require "i18n/backend/fallbacks"
 
 settings_file = Pathname.new(__FILE__).dirname.join('..').expand_path.join('locale_settings.yml')

@@ -47,11 +47,8 @@ module Configuration
         warn "       Run heroku config:add SECRET_TOKEN=#{SecureRandom.hex(40)}"
         abort
       else
-        token_file = File.expand_path(
-          "../config/initializers/secret_token.rb",
-          File.dirname(__FILE__)
-        )
-        system "DISABLE_SPRING=1 bin/rake generate:secret_token" unless File.exist? token_file
+        token_file = Rails.root.join("config/initializers/secret_token.rb")
+        system "DISABLE_SPRING=1 bin/rake generate:secret_token" unless token_file.exist?
         require token_file
         Diaspora::Application.config.secret_key_base
       end

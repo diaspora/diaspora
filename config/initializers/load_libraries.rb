@@ -13,6 +13,3 @@ require 'typhoeus'
 
 # Our libs
 require 'diaspora'
-require 'direction_detector'
-require 'configuration_methods'
-require 'i18n_interpolation_fallbacks'
