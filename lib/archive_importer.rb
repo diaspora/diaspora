@@ -67,7 +67,7 @@ class ArchiveImporter
   def import_aspects
     contact_groups.each do |group|
       begin
-        user.aspects.create!(group.slice("name"))
+        @user.aspects.create!(group.slice("name"))
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end
@@ -92,7 +92,7 @@ class ArchiveImporter
 
   def import_collection(collection, importer_class)
     collection.each do |object|
-      importer_class.new(object, user).import
+      importer_class.new(object, @user).import
     end
   end
 
@@ -100,7 +100,7 @@ class ArchiveImporter
     archive_hash.fetch("user").fetch("followed_tags", []).each do |tag_name|
       begin
         tag = ActsAsTaggableOn::Tag.find_or_create_by(name: tag_name)
-        user.tag_followings.create!(tag: tag)
+        @user.tag_followings.create!(tag: tag)
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end
@@ -115,7 +115,7 @@ class ArchiveImporter
         next
       end
       begin
-        user.participations.create!(target: post)
+        @user.participations.create!(target: post)
       rescue ActiveRecord::RecordInvalid => e
         logger.warn "#{self}: #{e}"
       end

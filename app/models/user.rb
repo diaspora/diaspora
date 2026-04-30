@@ -309,6 +309,9 @@ class User < ApplicationRecord
   ######### Data export ##################
   mount_uploader :export, ExportedUser
 
+  ######### Photo export ##################
+  mount_uploader :exported_photos_file, ExportedPhotos
+
   def queue_export
     update exporting: true, export: nil, exported_at: nil
     Workers::ExportUser.perform_async(id)
@@ -560,8 +563,7 @@ class User < ApplicationRecord
      :post_default_public].each do |field|
       self[field] = false
     end
-    self.remove_export = true
-    self.remove_exported_photos_file = true
+    clear_import_export_flags
     self[:disable_mail] = true
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
 
@@ -599,7 +601,18 @@ class User < ApplicationRecord
     true
   end
 
+  def account_migration_pending?
+    importing || importing_photos
+  end
+
   private
+
+  def clear_import_export_flags
+    self.remove_export = true
+    self.remove_exported_photos_file = true
+    self.importing = false
+    self.importing_photos = false
+  end
 
   def clearable_fields
     attributes.keys - %w(id username encrypted_password created_at updated_at locked_at
