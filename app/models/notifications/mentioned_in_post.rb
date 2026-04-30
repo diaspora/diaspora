@@ -5,7 +5,7 @@ module Notifications
     include Notifications::Mentioned
 
     def mail_job
-      Workers::Mail::Mentioned
+      Mail::MentionedWorker
     end
 
     def popup_translation_key

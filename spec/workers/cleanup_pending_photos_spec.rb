@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-describe Workers::CleanupPendingPhotos do
+describe CleanupPendingPhotosWorker do
   let!(:photo) { FactoryBot.create(:photo, author: alice.person, pending: true) }
 
   it "removes pending photos" do
     Timecop.travel(25.hours) do
-      Workers::CleanupPendingPhotos.new.perform
+      CleanupPendingPhotosWorker.new.perform
       expect(Photo).not_to exist(photo.id)
     end
   end
 
   it "does not remove pending photos newer than one day" do
     Timecop.travel(1.hour) do
-      Workers::CleanupPendingPhotos.new.perform
+      CleanupPendingPhotosWorker.new.perform
       expect(Photo).to exist(photo.id)
     end
   end
@@ -24,7 +24,7 @@ describe Workers::CleanupPendingPhotos do
       photos:         [photo.id]
     )
     Timecop.travel(25.hours) do
-      Workers::CleanupPendingPhotos.new.perform
+      CleanupPendingPhotosWorker.new.perform
       expect(Photo).to exist(photo.id)
     end
   end

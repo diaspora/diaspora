@@ -24,7 +24,7 @@ describe Diaspora::Federation::Dispatcher::Private do
           aspects: [aspect1, aspect2]
         )
 
-        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, [bob.id])
+        expect(ReceiveLocalWorker).to receive(:perform_async).with("StatusMessage", post.id, [bob.id])
         Diaspora::Federation::Dispatcher.build(alice, post).dispatch
       end
     end
@@ -36,7 +36,7 @@ describe Diaspora::Federation::Dispatcher::Private do
       let(:json) { "{\"aes_key\": \"...\", \"encrypted_magic_envelope\": \"...\"}" }
 
       it "queues a private send job" do
-        expect(Workers::SendPrivate).to receive(:perform_async) do |user_id, _entity_string, targets|
+        expect(SendPrivateWorker).to receive(:perform_async) do |user_id, _entity_string, targets|
           expect(user_id).to eq(alice.id)
           expect(targets.size).to eq(1)
           expect(targets).to have_key(remote_raphael.receive_url)
@@ -61,7 +61,7 @@ describe Diaspora::Federation::Dispatcher::Private do
         bobs_post = FactoryBot.create(:status_message, author: alice.person, text: "hello", public: false)
         bob.add_to_streams(bobs_post, [bob.aspects.first])
 
-        expect(Workers::SendPrivate).not_to receive(:perform_async)
+        expect(SendPrivateWorker).not_to receive(:perform_async)
 
         Diaspora::Federation::Dispatcher.build(bob, bobs_post).dispatch
       end
@@ -69,7 +69,7 @@ describe Diaspora::Federation::Dispatcher::Private do
       it "queues private send job for a specific subscriber" do
         remote_person = FactoryBot.create(:person)
 
-        expect(Workers::SendPrivate).to receive(:perform_async) do |user_id, _entity_string, targets|
+        expect(SendPrivateWorker).to receive(:perform_async) do |user_id, _entity_string, targets|
           expect(user_id).to eq(alice.id)
           expect(targets.size).to eq(1)
           expect(targets).to have_key(remote_person.receive_url)
@@ -95,7 +95,7 @@ describe Diaspora::Federation::Dispatcher::Private do
         offline_pod = FactoryBot.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
         offline_person = FactoryBot.create(:person, pod: offline_pod)
 
-        expect(Workers::SendPrivate).to receive(:perform_async) do |user_id, _entity_string, targets|
+        expect(SendPrivateWorker).to receive(:perform_async) do |user_id, _entity_string, targets|
           expect(user_id).to eq(alice.id)
           expect(targets.size).to eq(1)
           expect(targets).to have_key(remote_person.receive_url)

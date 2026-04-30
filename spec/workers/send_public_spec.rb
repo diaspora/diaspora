@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Workers::SendPublic do
+describe SendPublicWorker do
   let(:sender_id) { "any_user@example.org" }
   let(:obj_str) { "status_message@guid" }
   let(:urls) { ["https://example.org/receive/public", "https://example.com/receive/public"] }
@@ -10,9 +10,9 @@ describe Workers::SendPublic do
     expect(DiasporaFederation::Federation::Sender).to receive(:public).with(
       sender_id, obj_str, urls, xml
     ).and_return([])
-    expect(Workers::SendPublic).not_to receive(:perform_in)
+    expect(SendPublicWorker).not_to receive(:perform_in)
 
-    Workers::SendPublic.new.perform(sender_id, obj_str, urls, xml)
+    SendPublicWorker.new.perform(sender_id, obj_str, urls, xml)
   end
 
   it "retries failing urls" do
@@ -20,11 +20,11 @@ describe Workers::SendPublic do
     expect(DiasporaFederation::Federation::Sender).to receive(:public).with(
       sender_id, obj_str, urls, xml
     ).and_return(failing_urls)
-    expect(Workers::SendPublic).to receive(:perform_in).with(
+    expect(SendPublicWorker).to receive(:perform_in).with(
       kind_of(Integer), sender_id, obj_str, failing_urls, xml, 1
     )
 
-    Workers::SendPublic.new.perform(sender_id, obj_str, urls, xml)
+    SendPublicWorker.new.perform(sender_id, obj_str, urls, xml)
   end
 
   it "does not retry failing urls if max retries is reached" do
@@ -32,10 +32,10 @@ describe Workers::SendPublic do
     expect(DiasporaFederation::Federation::Sender).to receive(:public).with(
       sender_id, obj_str, urls, xml
     ).and_return(failing_urls)
-    expect(Workers::SendPublic).not_to receive(:perform_in)
+    expect(SendPublicWorker).not_to receive(:perform_in)
 
     expect {
-      Workers::SendPublic.new.perform(sender_id, obj_str, urls, xml, 9)
-    }.to raise_error Workers::SendBase::MaxRetriesReached
+      SendPublicWorker.new.perform(sender_id, obj_str, urls, xml, 9)
+    }.to raise_error SendBaseWorker::MaxRetriesReached
   end
 end

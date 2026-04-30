@@ -126,7 +126,7 @@ class PeopleController < ApplicationController
   end
 
   def background_search(search_query)
-    Workers::FetchWebfinger.perform_async(search_query)
+    FetchWebfingerWorker.perform_async(search_query)
     @background_query = search_query.downcase
     gon.preloads[:background_query] = @background_query
   end

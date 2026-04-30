@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Workers::ProcessPhoto do
+describe ProcessPhotoWorker do
   before do
    @user = alice
    @aspect = @user.aspects.first
@@ -14,7 +14,7 @@ describe Workers::ProcessPhoto do
   it 'saves the processed image' do
     expect(@saved_photo.processed_image.path).to be_nil
 
-    result = Workers::ProcessPhoto.new.perform(@saved_photo.id)
+    result = ProcessPhotoWorker.new.perform(@saved_photo.id)
 
     @saved_photo.reload
 
@@ -24,14 +24,14 @@ describe Workers::ProcessPhoto do
 
   context 'when trying to process a photo that has already been processed' do
     before do
-      Workers::ProcessPhoto.new.perform(@saved_photo.id)
+      ProcessPhotoWorker.new.perform(@saved_photo.id)
       @saved_photo.reload
     end
 
     it 'does not process the photo' do
       processed_image_path = @saved_photo.processed_image.path
 
-      result = Workers::ProcessPhoto.new.perform(@saved_photo.id)
+      result = ProcessPhotoWorker.new.perform(@saved_photo.id)
 
       @saved_photo.reload
 
@@ -48,7 +48,7 @@ describe Workers::ProcessPhoto do
     end
 
     it 'does not process the gif' do
-      result = Workers::ProcessPhoto.new.perform(@saved_gif.id)
+      result = ProcessPhotoWorker.new.perform(@saved_gif.id)
 
       expect(@saved_gif.reload.processed_image.path).to be_nil
       expect(result).to be false
@@ -58,15 +58,14 @@ describe Workers::ProcessPhoto do
   it 'does not throw an error if it is called on a remote photo' do
     p = FactoryBot.create(:remote_photo)
     p.unprocessed_image = nil
-    expect{
-      result = Workers::ProcessPhoto.new.perform(p.id)
+    expect {
+      ProcessPhotoWorker.new.perform(p.id)
     }.to_not raise_error
-
   end
 
   it 'handles already deleted photos gracefully' do
     expect {
-      Workers::ProcessPhoto.new.perform(0)
+      ProcessPhotoWorker.new.perform(0)
     }.to_not raise_error
   end
 end

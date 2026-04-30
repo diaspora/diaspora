@@ -3,7 +3,7 @@
 module Notifications
   class LikedComment < Notification
     def mail_job
-      Workers::Mail::LikedComment
+      Mail::LikedCommentWorker
     end
 
     def popup_translation_key

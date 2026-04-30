@@ -154,7 +154,7 @@ describe "Receive federation messages feature" do
     it "treats sharing request receive correctly" do
       entity = Fabricate(:contact_entity, author: sender_id, recipient: alice.diaspora_handle)
 
-      expect(Workers::ReceiveLocal).to receive(:perform_async).and_call_original
+      expect(ReceiveLocalWorker).to receive(:perform_async).and_call_original
 
       post_message(generate_payload(entity, sender, alice), alice)
 
@@ -222,7 +222,7 @@ describe "Receive federation messages feature" do
           }
 
           it "receives the message correctly" do
-            expect(Workers::ReceiveLocal).to receive(:perform_async)
+            expect(ReceiveLocalWorker).to receive(:perform_async)
             post_message(generate_payload(message, sender, recipient), recipient)
 
             received_message = Message.find_by(guid: message.guid)
@@ -249,7 +249,7 @@ describe "Receive federation messages feature" do
           }
 
           it "receives the message correctly" do
-            expect(Workers::ReceiveLocal).to receive(:perform_async)
+            expect(ReceiveLocalWorker).to receive(:perform_async)
             post_message(generate_payload(message, remote_user_on_pod_c, recipient), recipient)
 
             received_message = Message.find_by(guid: message.guid)

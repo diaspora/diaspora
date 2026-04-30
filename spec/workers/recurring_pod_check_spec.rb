@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Workers::RecurringPodCheck do
+describe RecurringPodCheckWorker do
   before do
     @pods = (0..4).map do
       FactoryBot.build(:pod).tap {|pod|
@@ -11,6 +11,6 @@ describe Workers::RecurringPodCheck do
   end
 
   it "performs a connection test on all existing pods" do
-    Workers::RecurringPodCheck.new.perform
+    RecurringPodCheckWorker.new.perform
   end
 end

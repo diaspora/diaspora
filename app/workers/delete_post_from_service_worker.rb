@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+#
+class DeletePostFromServiceWorker < BaseWorker
+  sidekiq_options queue: :high
+
+  def perform(service_id, opts)
+    service = Service.find_by(id: service_id)
+    service.delete_from_service(opts.deep_symbolize_keys)
+  end
+end

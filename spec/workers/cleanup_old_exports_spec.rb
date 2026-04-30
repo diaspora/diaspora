@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Workers::CleanupOldExports do
+describe CleanupOldExportsWorker do
   let(:user) { FactoryBot.create(:user) }
 
   context "with profile data" do
@@ -10,7 +10,7 @@ describe Workers::CleanupOldExports do
 
     it "removes old archives" do
       Timecop.travel(Time.zone.today + 15.days) do
-        Workers::CleanupOldExports.new.perform
+        CleanupOldExportsWorker.new.perform
         user.reload
         expect(user.export).not_to be_present
         expect(user.exported_at).to be_nil
@@ -19,7 +19,7 @@ describe Workers::CleanupOldExports do
 
     it "does not remove new archives" do
       Timecop.travel(Time.zone.today + 1.day) do
-        Workers::CleanupOldExports.new.perform
+        CleanupOldExportsWorker.new.perform
         user.reload
         expect(user.export).to be_present
         expect(user.exported_at).to be_present
@@ -34,7 +34,7 @@ describe Workers::CleanupOldExports do
 
     it "removes old archives" do
       Timecop.travel(Time.zone.today + 15.days) do
-        Workers::CleanupOldExports.new.perform
+        CleanupOldExportsWorker.new.perform
         user.reload
         expect(user.exported_photos_file).not_to be_present
         expect(user.exported_photos_at).to be_nil
@@ -43,7 +43,7 @@ describe Workers::CleanupOldExports do
 
     it "does not remove new archives" do
       Timecop.travel(Time.zone.today + 1.day) do
-        Workers::CleanupOldExports.new.perform
+        CleanupOldExportsWorker.new.perform
         user.reload
         expect(user.exported_photos_file).to be_present
         expect(user.exported_photos_at).to be_present

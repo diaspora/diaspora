@@ -15,38 +15,38 @@ def default_job_config
 
   {
     check_birthday:          {
-      "cron":  "0 0 * * *",
-      "class": "Workers::CheckBirthday"
+      cron:  "0 0 * * *",
+      class: "CheckBirthdayWorker"
     },
 
     clean_cached_files:      {
-      "cron":  "#{random_minute.call} #{random_hour.call} * * *",
-      "class": "Workers::CleanCachedFiles"
+      cron:  "#{random_minute.call} #{random_hour.call} * * *",
+      class: "CleanCachedFilesWorker"
     },
 
     cleanup_old_exports:     {
-      "cron":  "#{random_minute.call} #{random_hour.call} * * *",
-      "class": "Workers::CleanupOldExports"
+      cron:  "#{random_minute.call} #{random_hour.call} * * *",
+      class: "CleanupOldExportsWorker"
     },
 
     cleanup_pending_photos:  {
-      "cron":  "#{random_minute.call} #{random_hour.call} * * *",
-      "class": "Workers::CleanupPendingPhotos"
+      cron:  "#{random_minute.call} #{random_hour.call} * * *",
+      class: "CleanupPendingPhotosWorker"
     },
 
     queue_users_for_removal: {
-      "cron":  "#{random_minute.call} #{random_hour.call} * * *",
-      "class": "Workers::QueueUsersForRemoval"
+      cron:  "#{random_minute.call} #{random_hour.call} * * *",
+      class: "QueueUsersForRemovalWorker"
     },
 
     recheck_scheduled_pods:  {
-      "cron":  "*/30 * * * *",
-      "class": "Workers::RecheckScheduledPods"
+      cron:  "*/30 * * * *",
+      class: "RecheckScheduledPodsWorker"
     },
 
     recurring_pod_check:     {
-      "cron":  "#{random_minute.call} #{random_hour.call} * * *",
-      "class": "Workers::RecurringPodCheck"
+      cron:  "#{random_minute.call} #{random_hour.call} * * *",
+      class: "RecurringPodCheckWorker"
     }
   }
 end

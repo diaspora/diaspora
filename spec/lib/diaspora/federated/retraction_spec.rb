@@ -69,7 +69,7 @@ describe Diaspora::Federated::Retraction do
       retraction = described_class.for(post)
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
-      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+      expect(DeferredRetractionWorker).to receive(:perform_async).with(
         local_luke.id, "Diaspora::Federated::Retraction", federation_retraction.to_h.deep_stringify_keys,
         [remote_raphael.id]
       )
@@ -83,7 +83,7 @@ describe Diaspora::Federated::Retraction do
       retraction = described_class.for(comment)
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
-      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+      expect(DeferredRetractionWorker).to receive(:perform_async).with(
         local_luke.id, "Diaspora::Federated::Retraction", federation_retraction.to_h.deep_stringify_keys,
         [remote_raphael.id]
       )
@@ -99,7 +99,7 @@ describe Diaspora::Federated::Retraction do
         retraction = described_class.for(comment)
         federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
-        expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+        expect(DeferredRetractionWorker).to receive(:perform_async).with(
           local_luke.id, "Diaspora::Federated::Retraction", federation_retraction.to_h.deep_stringify_keys,
           [remote_raphael.id]
         )
@@ -111,11 +111,11 @@ describe Diaspora::Federated::Retraction do
         retraction = described_class.for(comment)
         federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
-        expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+        expect(DeferredRetractionWorker).to receive(:perform_async).with(
           local_luke.id, "Diaspora::Federated::Retraction", federation_retraction.to_h.deep_stringify_keys, []
         )
 
-        retraction.defer_dispatch(local_luke, false)
+        retraction.defer_dispatch(local_luke, include_target_author: false)
       end
     end
   end

@@ -13,7 +13,7 @@ describe Diaspora::Federation::Dispatcher::Public do
       it "queues a public send job" do
         alice.share_with(remote_raphael, alice.aspects.first)
 
-        expect(Workers::SendPublic).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
+        expect(SendPublicWorker).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
           expect(user_id).to eq(alice.id)
           expect(urls.size).to eq(1)
           expect(urls[0]).to eq(remote_raphael.pod.url_to("/receive/public"))
@@ -30,13 +30,13 @@ describe Diaspora::Federation::Dispatcher::Public do
       end
 
       it "does not queue a public send job when no remote recipients specified" do
-        expect(Workers::SendPublic).not_to receive(:perform_async)
+        expect(SendPublicWorker).not_to receive(:perform_async)
 
         Diaspora::Federation::Dispatcher.build(alice, post).dispatch
       end
 
       it "queues public send job for a specific subscriber" do
-        expect(Workers::SendPublic).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
+        expect(SendPublicWorker).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
           expect(user_id).to eq(alice.id)
           expect(urls.size).to eq(1)
           expect(urls[0]).to eq(remote_raphael.pod.url_to("/receive/public"))
@@ -55,7 +55,7 @@ describe Diaspora::Federation::Dispatcher::Public do
         offline_pod = FactoryBot.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
         offline_person = FactoryBot.create(:person, pod: offline_pod)
 
-        expect(Workers::SendPublic).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
+        expect(SendPublicWorker).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
           expect(user_id).to eq(alice.id)
           expect(urls.size).to eq(1)
           expect(urls[0]).to eq(remote_raphael.pod.url_to("/receive/public"))

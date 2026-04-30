@@ -36,10 +36,10 @@ module Diaspora
         new(federation_retraction_data, target.subscribers.select(&:remote?), target)
       end
 
-      def defer_dispatch(user, include_target_author=true)
+      def defer_dispatch(user, include_target_author: true)
         subscribers = dispatch_subscribers(include_target_author)
-        Workers::DeferredRetraction.perform_async(user.id, self.class.to_s, data.deep_stringify_keys,
-                                                  subscribers.map(&:id))
+        DeferredRetractionWorker.perform_async(user.id, self.class.to_s, data.deep_stringify_keys,
+                                               subscribers.map(&:id))
       end
 
       def perform
@@ -57,7 +57,9 @@ module Diaspora
       attr_reader :target
 
       def dispatch_subscribers(include_target_author)
-        subscribers << target.author if target.is_a?(Diaspora::Relayable) && include_target_author && target.author.remote?
+        if target.is_a?(Diaspora::Relayable) && include_target_author && target.author.remote?
+          subscribers << target.author
+        end
         subscribers
       end
     end
