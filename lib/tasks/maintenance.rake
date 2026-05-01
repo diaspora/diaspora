@@ -11,6 +11,6 @@ namespace :maintenance do
     # Note! settings.maintenance.remove_old_users
     # must still be enabled, this only bypasses
     # scheduling to run the queuing immediately
-    Workers::QueueUsersForRemoval.perform_async
+    QueueUsersForRemovalWorker.perform_async
   end
 end

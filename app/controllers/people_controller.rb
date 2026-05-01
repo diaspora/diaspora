@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
     render template: "errors/error_404", layout: "error_page", locals: {code: 404}, status: :not_found
   end
 
-  rescue_from Diaspora::AccountClosed do
+  rescue_from Diaspora::Exceptions::AccountClosed do
     respond_to do |format|
       format.any { redirect_back fallback_location: root_path, notice: t("people.show.closed_account") }
       format.json { head :gone }
@@ -122,11 +122,11 @@ class PeopleController < ApplicationController
     )
 
     raise ActiveRecord::RecordNotFound if @person.nil?
-    raise Diaspora::AccountClosed if @person.closed_account?
+    raise Diaspora::Exceptions::AccountClosed if @person.closed_account?
   end
 
   def background_search(search_query)
-    Workers::FetchWebfinger.perform_async(search_query)
+    FetchWebfingerWorker.perform_async(search_query)
     @background_query = search_query.downcase
     gon.preloads[:background_query] = @background_query
   end

@@ -87,11 +87,10 @@ describe User::Connecting, type: :model do
 
       it "dispatches a retraction for remote person" do
         contact = local_leia.contact_for(remote_raphael)
-        retraction = double
 
         expect(contact).to receive(:receiving=).with(false)
-        expect(Retraction).to receive(:for).with(contact).and_return(retraction)
-        expect(retraction).to receive(:defer_dispatch).with(local_leia)
+        expect(Diaspora::Federated::ContactRetraction).to receive(:for).with(contact).and_call_original
+        expect_any_instance_of(Diaspora::Federated::ContactRetraction).to receive(:defer_dispatch).with(local_leia)
 
         local_leia.disconnect(contact)
       end

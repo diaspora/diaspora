@@ -126,7 +126,7 @@ class Photo < ApplicationRecord
   end
 
   def queue_processing_job
-    Workers::ProcessPhoto.perform_async(id)
+    ProcessPhotoWorker.perform_async(id)
   end
 
   def self.visible(current_user, person, limit=:all, max_time=nil)

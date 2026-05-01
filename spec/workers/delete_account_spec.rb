@@ -4,14 +4,14 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-describe Workers::DeleteAccount do
+describe DeleteAccountWorker do
   describe '#perform' do
     it 'performs the account deletion' do
       account_deletion = double
       allow(AccountDeletion).to receive(:find).and_return(account_deletion)
       expect(account_deletion).to receive(:perform!)
       
-      Workers::DeleteAccount.new.perform(1)
+      DeleteAccountWorker.new.perform(1)
     end
   end
 end

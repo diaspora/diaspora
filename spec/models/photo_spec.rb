@@ -210,7 +210,7 @@ describe Photo, :type => :model do
 
   describe '#queue_processing_job' do
     it 'should queue a job to process the images' do
-      expect(Workers::ProcessPhoto).to receive(:perform_async).with(@photo.id)
+      expect(ProcessPhotoWorker).to receive(:perform_async).with(@photo.id)
       @photo.queue_processing_job
     end
   end

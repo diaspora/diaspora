@@ -3,7 +3,7 @@
 module Notifications
   class ContactsBirthday < Notification
     def mail_job
-      Workers::Mail::ContactsBirthday
+      Mail::ContactsBirthdayWorker
     end
 
     def popup_translation_key

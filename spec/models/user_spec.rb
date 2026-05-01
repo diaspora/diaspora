@@ -560,22 +560,22 @@ describe User, type: :model do
       alice.disable_mail = false
       alice.save
 
-      expect(Workers::Mail::StartedSharing).to receive(:perform_async).with(alice.id, "contactrequestid").once
-      alice.mail(Workers::Mail::StartedSharing, alice.id, "contactrequestid")
+      expect(Mail::StartedSharingWorker).to receive(:perform_async).with(alice.id, "contactrequestid").once
+      alice.mail(Mail::StartedSharingWorker, alice.id, "contactrequestid")
     end
 
     it "does not enqueue a mail job if the correct corresponding job has a preference entry" do
       alice.user_preferences.create(email_type: "started_sharing")
-      expect(Workers::Mail::StartedSharing).not_to receive(:perform_async)
-      alice.mail(Workers::Mail::StartedSharing, alice.id, "contactrequestid")
+      expect(Mail::StartedSharingWorker).not_to receive(:perform_async)
+      alice.mail(Mail::StartedSharingWorker, alice.id, "contactrequestid")
     end
 
     it "does not send a mail if disable_mail is set to true" do
       alice.disable_mail = true
       alice.save
       alice.reload
-      expect(Workers::Mail::StartedSharing).not_to receive(:perform_async)
-      alice.mail(Workers::Mail::StartedSharing, alice.id, "contactrequestid")
+      expect(Mail::StartedSharingWorker).not_to receive(:perform_async)
+      alice.mail(Mail::StartedSharingWorker, alice.id, "contactrequestid")
     end
   end
 
@@ -680,12 +680,12 @@ describe User, type: :model do
     describe "#send_confirm_email" do
       it "enqueues a mail job on user with unconfirmed email" do
         user.update(unconfirmed_email: "alice@newmail.com")
-        expect(Workers::Mail::ConfirmEmail).to receive(:perform_async).with(alice.id).once
+        expect(Mail::ConfirmEmailWorker).to receive(:perform_async).with(alice.id).once
         alice.send_confirm_email
       end
 
       it "enqueues NO mail job on user without unconfirmed email" do
-        expect(Workers::Mail::ConfirmEmail).not_to receive(:perform_async).with(alice.id)
+        expect(Mail::ConfirmEmailWorker).not_to receive(:perform_async).with(alice.id)
         alice.send_confirm_email
       end
     end
@@ -756,7 +756,7 @@ describe User, type: :model do
 
     context "posts" do
       it "sends a retraction" do
-        expect(Retraction).to receive(:for).with(post).and_return(retraction)
+        expect(Diaspora::Federated::Retraction).to receive(:for).with(post).and_return(retraction)
         expect(retraction).to receive(:defer_dispatch).with(bob)
         expect(retraction).to receive(:perform)
 
@@ -768,7 +768,7 @@ describe User, type: :model do
   describe "#send_reset_password_instructions" do
     it "queues up a job to send the reset password instructions" do
       user = FactoryBot.create :user
-      expect(Workers::ResetPassword).to receive(:perform_async).with(user.id)
+      expect(ResetPasswordWorker).to receive(:perform_async).with(user.id)
       user.send_reset_password_instructions
     end
   end
@@ -990,7 +990,7 @@ describe User, type: :model do
     it "queues up a job to perform the export" do
       user = FactoryBot.create(:user)
       user.update export: Tempfile.new([user.username, ".json.gz"]), exported_at: Time.zone.now
-      expect(Workers::ExportUser).to receive(:perform_async).with(user.id)
+      expect(ExportUserWorker).to receive(:perform_async).with(user.id)
       user.queue_export
       expect(user.exporting).to be_truthy
       expect(user.export).not_to be_present
@@ -1027,7 +1027,7 @@ describe User, type: :model do
     it "queues up a job to perform the export photos" do
       user = FactoryBot.create(:user)
       user.update exported_photos_file: Tempfile.new([user.username, ".zip"]), exported_photos_at: Time.zone.now
-      expect(Workers::ExportPhotos).to receive(:perform_async).with(user.id)
+      expect(ExportPhotosWorker).to receive(:perform_async).with(user.id)
       user.queue_export_photos
       expect(user.exporting_photos).to be_truthy
       expect(user.exported_photos_file).not_to be_present

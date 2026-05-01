@@ -15,8 +15,3 @@ module Diaspora
     end
   end
 end
-
-require "diaspora/federation/dispatcher"
-require "diaspora/federation/entities"
-require "diaspora/federation/mappings"
-require "diaspora/federation/receive"

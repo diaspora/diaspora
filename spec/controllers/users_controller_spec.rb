@@ -233,7 +233,7 @@ describe UsersController, :type => :controller do
       end
 
       it 'sends out activation email on success' do
-        expect(Workers::Mail::ConfirmEmail).to receive(:perform_async).with(@user.id).once
+        expect(Mail::ConfirmEmailWorker).to receive(:perform_async).with(@user.id).once
         put :update, params: {id: @user.id, user: {email: "my@newemail.com"}}
       end
 
@@ -308,7 +308,7 @@ describe UsersController, :type => :controller do
 
   describe '#destroy' do
     it 'does nothing if the password does not match' do
-      expect(Workers::DeleteAccount).not_to receive(:perform_async)
+      expect(DeleteAccountWorker).not_to receive(:perform_async)
       delete :destroy, params: {user: {current_password: "stuff"}}
     end
 
@@ -318,7 +318,7 @@ describe UsersController, :type => :controller do
     end
 
     it 'enqueues a delete job' do
-      expect(Workers::DeleteAccount).to receive(:perform_async).with(anything)
+      expect(DeleteAccountWorker).to receive(:perform_async).with(anything)
       delete :destroy, params: {user: {current_password: "bluepin7"}}
     end
   end

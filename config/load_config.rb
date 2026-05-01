@@ -9,11 +9,11 @@ rails_env = ENV["RAILS_ENV"] || ENV["RACK_ENV"] || "development"
 
 module Rails
   def self.root
-    @__root ||= Pathname.new File.expand_path("../../", __FILE__)
+    @root ||= Pathname.new(File.expand_path("..", __dir__))
   end
 end
 
-require Rails.root.join "lib", "configuration_methods"
+require Rails.root.join("lib/configuration/methods")
 
 config_dir = Rails.root.join("config").to_s
 

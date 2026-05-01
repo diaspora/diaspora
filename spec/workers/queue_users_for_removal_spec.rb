@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Workers::QueueUsersForRemoval do
+describe QueueUsersForRemovalWorker do
   describe "remove_old_users is active" do
     before do
       AppConfig.settings.maintenance.remove_old_users.enable = true
@@ -11,7 +11,7 @@ describe Workers::QueueUsersForRemoval do
 
     it "#does not queue user that is not inactive" do
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 728.days, sign_in_count: 5)
-      Workers::QueueUsersForRemoval.new.perform
+      QueueUsersForRemovalWorker.new.perform
       user.reload
       expect(user.remove_after).to eq(nil)
       expect(ActionMailer::Base.deliveries.count).to eq(0)
@@ -20,7 +20,7 @@ describe Workers::QueueUsersForRemoval do
     it "#queues user that is inactive" do
       removal_date = Time.zone.now + AppConfig.settings.maintenance.remove_old_users.warn_days.to_i.days
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 732.days, sign_in_count: 5)
-      Workers::QueueUsersForRemoval.new.perform
+      QueueUsersForRemovalWorker.new.perform
       user.reload
       expect(user.remove_after.to_i).to be_within(1.day).of(removal_date.utc.to_i)
       expect(ActionMailer::Base.deliveries.count).to eq(1)
@@ -29,7 +29,7 @@ describe Workers::QueueUsersForRemoval do
     it "#queues user that is inactive and has not logged in" do
       removal_date = Time.zone.now
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 735.days, sign_in_count: 0)
-      Workers::QueueUsersForRemoval.new.perform
+      QueueUsersForRemovalWorker.new.perform
       user.reload
       expect(user.remove_after.to_i).to be_within(1.day).of(removal_date.utc.to_i)
       expect(ActionMailer::Base.deliveries.count).to eq(0) # no email sent
@@ -37,7 +37,7 @@ describe Workers::QueueUsersForRemoval do
 
     it "#does not queue user that is not inactive and has not logged in" do
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 728.days, sign_in_count: 0)
-      Workers::QueueUsersForRemoval.new.perform
+      QueueUsersForRemovalWorker.new.perform
       user.reload
       expect(user.remove_after).to eq(nil)
       expect(ActionMailer::Base.deliveries.count).to eq(0)
@@ -46,7 +46,7 @@ describe Workers::QueueUsersForRemoval do
     it "#does not queue user that has already been flagged for removal" do
       removal_date = Time.zone.today + 5.days
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 735.days, sign_in_count: 5, remove_after: removal_date)
-      Workers::QueueUsersForRemoval.new.perform
+      QueueUsersForRemovalWorker.new.perform
       user.reload
       expect(user.remove_after).to eq(removal_date)
       expect(ActionMailer::Base.deliveries.count).to eq(0)
@@ -55,7 +55,7 @@ describe Workers::QueueUsersForRemoval do
     it "#does not queue more warnings than has been configured as limit" do
       FactoryBot.create(:user, last_seen: Time.zone.now - 735.days, sign_in_count: 1)
       FactoryBot.create(:user, last_seen: Time.zone.now - 735.days, sign_in_count: 1)
-      Workers::QueueUsersForRemoval.new.perform
+      QueueUsersForRemovalWorker.new.perform
       expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
 
@@ -72,7 +72,7 @@ describe Workers::QueueUsersForRemoval do
 
     it "#does not queue user that is not inactive" do
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 728.days, sign_in_count: 5)
-      Workers::QueueUsersForRemoval.new.perform
+      QueueUsersForRemovalWorker.new.perform
       user.reload
       expect(user.remove_after).to eq(nil)
       expect(ActionMailer::Base.deliveries.count).to eq(0)
@@ -80,7 +80,7 @@ describe Workers::QueueUsersForRemoval do
 
     it "#does not queue user that is inactive" do
       user = FactoryBot.create(:user, last_seen: Time.zone.now - 735.days, sign_in_count: 5)
-      Workers::QueueUsersForRemoval.new.perform
+      QueueUsersForRemovalWorker.new.perform
       user.reload
       expect(user.remove_after).to eq(nil)
       expect(ActionMailer::Base.deliveries.count).to eq(0)

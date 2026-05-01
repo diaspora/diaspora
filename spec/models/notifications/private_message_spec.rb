@@ -30,7 +30,7 @@ describe Notifications::PrivateMessage, type: :model do
         expect(args.first[:recipient].id).to eq(bob.id)
         m.call(recipient: bob)
       end
-      expect(bob).to receive(:mail).with(Workers::Mail::PrivateMessage, bob.id, alice.person.id, msg.id)
+      expect(bob).to receive(:mail).with(Mail::PrivateMessageWorker, bob.id, alice.person.id, msg.id)
 
       Notifications::PrivateMessage.notify(conversation, [bob.id])
     end
@@ -40,7 +40,7 @@ describe Notifications::PrivateMessage, type: :model do
         expect(args.first[:recipient].id).to eq(bob.id)
         m.call(recipient: bob)
       end
-      expect(bob).to receive(:mail).with(Workers::Mail::PrivateMessage, bob.id, alice.person.id, msg.id)
+      expect(bob).to receive(:mail).with(Mail::PrivateMessageWorker, bob.id, alice.person.id, msg.id)
 
       Notifications::PrivateMessage.notify(msg, [bob.id])
     end

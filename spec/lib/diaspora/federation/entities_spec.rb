@@ -267,7 +267,7 @@ describe Diaspora::Federation::Entities do
     context "Retraction" do
       it "builds a Retraction entity for a Photo retraction" do
         target = FactoryBot.create(:photo, author: alice.person)
-        retraction = Retraction.for(target)
+        retraction = Diaspora::Federated::Retraction.for(target)
         federation_entity = described_class.build(retraction)
 
         expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Retraction)
@@ -278,7 +278,7 @@ describe Diaspora::Federation::Entities do
 
       it "builds a Contact for a Contact retraction" do
         target = FactoryBot.create(:contact, receiving: false)
-        retraction = ContactRetraction.for(target)
+        retraction = Diaspora::Federated::ContactRetraction.for(target)
         federation_entity = described_class.build(retraction)
 
         expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)
@@ -292,7 +292,7 @@ describe Diaspora::Federation::Entities do
       it "builds a Contact for a Contact retraction with block" do
         target = FactoryBot.create(:contact, receiving: false)
         FactoryBot.create(:block, user: target.user, person: target.person)
-        retraction = ContactRetraction.for(target)
+        retraction = Diaspora::Federated::ContactRetraction.for(target)
         federation_entity = described_class.build(retraction)
 
         expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)
@@ -306,7 +306,7 @@ describe Diaspora::Federation::Entities do
       it "builds a Contact for a Block retraction" do
         target = FactoryBot.create(:block)
         target.delete
-        retraction = ContactRetraction.for(target)
+        retraction = Diaspora::Federated::ContactRetraction.for(target)
         federation_entity = described_class.build(retraction)
 
         expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)

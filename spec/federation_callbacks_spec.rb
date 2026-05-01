@@ -309,7 +309,7 @@ describe "diaspora federation callbacks" do
   describe ":queue_public_receive" do
     it "enqueues a ReceivePublic job" do
       data = "<diaspora/>"
-      expect(Workers::ReceivePublic).to receive(:perform_async).with(data)
+      expect(ReceivePublicWorker).to receive(:perform_async).with(data)
 
       DiasporaFederation.callbacks.trigger(:queue_public_receive, data)
     end
@@ -324,7 +324,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "enqueues a ReceivePrivate job" do
-      expect(Workers::ReceivePrivate).to receive(:perform_async).with(alice.id, data)
+      expect(ReceivePrivateWorker).to receive(:perform_async).with(alice.id, data)
 
       DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, data)
     end
@@ -346,7 +346,7 @@ describe "diaspora federation callbacks" do
       account_deletion = Fabricate(:account_deletion_entity, author: remote_person.diaspora_handle)
 
       expect(Diaspora::Federation::Receive).to receive(:account_deletion).with(account_deletion)
-      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+      expect(ReceiveLocalWorker).not_to receive(:perform_async)
 
       DiasporaFederation.callbacks.trigger(:receive_entity, account_deletion, account_deletion.author, nil)
     end
@@ -356,7 +356,7 @@ describe "diaspora federation callbacks" do
       recipient_id = FactoryBot.create(:user).id
 
       expect(Diaspora::Federation::Receive).to receive(:retraction).with(retraction, recipient_id)
-      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+      expect(ReceiveLocalWorker).not_to receive(:perform_async)
 
       DiasporaFederation.callbacks.trigger(:receive_entity, retraction, retraction.author, recipient_id)
     end
@@ -366,7 +366,7 @@ describe "diaspora federation callbacks" do
       persisted = FactoryBot.create(:status_message)
 
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
-      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
+      expect(ReceiveLocalWorker).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
 
       DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, nil)
     end
@@ -378,7 +378,7 @@ describe "diaspora federation callbacks" do
       expect(Person).to receive(:by_account_identifier).with(received.author).and_return(remote_person)
       expect(remote_person.pod).to receive(:schedule_check_if_needed)
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
-      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
+      expect(ReceiveLocalWorker).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
 
       DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, nil)
     end
@@ -390,7 +390,7 @@ describe "diaspora federation callbacks" do
 
       expect(Diaspora::Federation::Receive).to receive(:handle_closed_recipient).with(remote_person, recipient)
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
-      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [recipient.id])
+      expect(ReceiveLocalWorker).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [recipient.id])
 
       DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, recipient.id)
     end
@@ -399,7 +399,7 @@ describe "diaspora federation callbacks" do
       received = Fabricate(:status_message_entity, author: remote_person.diaspora_handle)
 
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(nil)
-      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+      expect(ReceiveLocalWorker).not_to receive(:perform_async)
 
       DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, nil)
     end

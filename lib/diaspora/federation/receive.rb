@@ -185,8 +185,8 @@ module Diaspora
         when Diaspora::Relayable
           if object.root.author.local?
             root_author = object.root.author.owner
-            retraction = Retraction.for(object)
-            retraction.defer_dispatch(root_author, false)
+            retraction = Diaspora::Federated::Retraction.for(object)
+            retraction.defer_dispatch(root_author, include_target_author: false)
             retraction.perform
           else
             object.destroy!
@@ -312,7 +312,7 @@ module Diaspora
         root_author = relayable.root.author.owner
         return unless root_author && root_author.ignored_people.include?(relayable.author)
 
-        retraction = Retraction.for(relayable)
+        retraction = Diaspora::Federated::Retraction.for(relayable)
         Diaspora::Federation::Dispatcher.build(root_author, retraction, subscribers: [relayable.author]).dispatch
 
         raise Diaspora::Federation::AuthorIgnored

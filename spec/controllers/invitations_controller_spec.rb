@@ -18,7 +18,7 @@ describe InvitationsController, type: :controller do
       let(:invite_params) { {email_inviter: {emails: ""}} }
 
       it "does not create an EmailInviter" do
-        expect(Workers::Mail::InviteEmail).not_to receive(:perform_async)
+        expect(Mail::InviteEmailWorker).not_to receive(:perform_async)
         post :create, params: invite_params
       end
 
@@ -38,7 +38,7 @@ describe InvitationsController, type: :controller do
       let(:invite_params) { {email_inviter: {emails: emails}} }
 
       it "creates an InviteEmail worker" do
-        expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(
+        expect(Mail::InviteEmailWorker).to receive(:perform_async).with(
           emails, alice.id, invite_params[:email_inviter].stringify_keys
         )
         post :create, params: invite_params
@@ -61,7 +61,7 @@ describe InvitationsController, type: :controller do
       let(:invite_params) { {email_inviter: {emails: emails}} }
 
       it "does not create an InviteEmail worker" do
-        expect(Workers::Mail::InviteEmail).not_to receive(:perform_async)
+        expect(Mail::InviteEmailWorker).not_to receive(:perform_async)
         post :create, params: invite_params
       end
 
@@ -84,7 +84,7 @@ describe InvitationsController, type: :controller do
       let(:invite_params) { {email_inviter: {emails: valid_emails + "," + invalid_emails}} }
 
       it "creates an InviteEmail worker" do
-        expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(
+        expect(Mail::InviteEmailWorker).to receive(:perform_async).with(
           valid_emails, alice.id, invite_params[:email_inviter].stringify_keys
         )
         post :create, params: invite_params

@@ -39,7 +39,7 @@ describe ApplicationController, type: :request do
 
       it "sends an email to the current user if the token validation failed" do
         expect_any_instance_of(UsersController).to receive(:verified_request?).and_return(false)
-        expect(Workers::Mail::CsrfTokenFail).to receive(:perform_async).with(alice.id)
+        expect(Mail::CsrfTokenFailWorker).to receive(:perform_async).with(alice.id)
         put edit_user_path, params: {user: {language: "en"}}
       end
 

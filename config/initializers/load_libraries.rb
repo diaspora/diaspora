@@ -13,9 +13,3 @@ require 'typhoeus'
 
 # Our libs
 require 'diaspora'
-require 'direction_detector'
-require 'email_inviter'
-require 'evil_query'
-require 'publisher'
-require 'stream'
-require 'account_deleter'

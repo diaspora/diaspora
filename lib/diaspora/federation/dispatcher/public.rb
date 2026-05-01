@@ -11,7 +11,7 @@ module Diaspora
 
           return if targets.empty?
 
-          Workers::SendPublic.perform_async(sender.id, entity.to_s, targets, magic_envelope.to_xml)
+          SendPublicWorker.perform_async(sender.id, entity.to_s, targets, magic_envelope.to_xml)
         end
 
         def target_urls(people)
@@ -19,7 +19,6 @@ module Diaspora
           logger.info "ignoring inactive pods: #{inactive.join(', ')}" if inactive.any?
           active.map {|pod| pod.url_to("/receive/public") }
         end
-
       end
     end
   end

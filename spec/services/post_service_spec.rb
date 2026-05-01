@@ -85,7 +85,7 @@ describe PostService do
       it "NonPublic if the post is private" do
         expect {
           PostService.new.find!(post.id)
-        }.to raise_error Diaspora::NonPublic
+        }.to raise_error Diaspora::Exceptions::NonPublic
       end
 
       it "RecordNotFound if the post cannot be found" do
@@ -228,15 +228,15 @@ describe PostService do
     it "won't delete private post if explicitly unallowed" do
       expect {
         PostService.new(alice).destroy(post.id, false)
-      }.to raise_error Diaspora::NonPublic
+      }.to raise_error Diaspora::Exceptions::NonPublic
       expect(StatusMessage.find_by(id: post.id)).not_to be_nil
     end
 
     it "will not let you destroy posts visible to you but that you do not own" do
       expect {
         PostService.new(bob).destroy(post.id)
-      }.to raise_error Diaspora::NotMine
-      expect(StatusMessage.find_by_id(post.id)).not_to be_nil
+      }.to raise_error Diaspora::Exceptions::NotMine
+      expect(StatusMessage.find_by(id: post.id)).not_to be_nil
     end
 
     it "will not let you destroy posts that are not visible to you" do

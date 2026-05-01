@@ -20,7 +20,7 @@ describe Notifications::Reshared, type: :model do
 
     it "sends an email to the root author" do
       allow(Notifications::Reshared).to receive(:concatenate_or_create).and_return(reshared_notification)
-      expect(alice).to receive(:mail).with(Workers::Mail::Reshared, alice.id, reshare.author.id, reshare.id)
+      expect(alice).to receive(:mail).with(Mail::ResharedWorker, alice.id, reshare.author.id, reshare.id)
 
       Notifications::Reshared.notify(reshare, [])
     end

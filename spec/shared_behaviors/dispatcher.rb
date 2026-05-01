@@ -5,12 +5,12 @@ shared_examples "a dispatcher" do
     context "deliver to local user" do
       it "queues receive local job for all local receivers" do
         local_subscriber_ids = post.subscribers.select(&:local?).map(&:owner_id)
-        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, local_subscriber_ids)
+        expect(ReceiveLocalWorker).to receive(:perform_async).with("StatusMessage", post.id, local_subscriber_ids)
         Diaspora::Federation::Dispatcher.build(alice, post).dispatch
       end
 
       it "gets the object for the receiving user" do
-        expect(Workers::ReceiveLocal).to receive(:perform_async).with("RSpec::Mocks::Double", 42, [bob.id])
+        expect(ReceiveLocalWorker).to receive(:perform_async).with("RSpec::Mocks::Double", 42, [bob.id])
 
         object = double
         object_to_receive = double
@@ -23,7 +23,7 @@ shared_examples "a dispatcher" do
       end
 
       it "does not queue a job if the object to receive is nil" do
-        expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+        expect(ReceiveLocalWorker).not_to receive(:perform_async)
 
         object = double
         expect(object).to receive(:subscribers).and_return([bob.person])
@@ -34,12 +34,12 @@ shared_examples "a dispatcher" do
       end
 
       it "queues receive local job for a specific subscriber" do
-        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, [eve.id])
+        expect(ReceiveLocalWorker).to receive(:perform_async).with("StatusMessage", post.id, [eve.id])
         Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [eve.person]).dispatch
       end
 
       it "queues receive local job for a specific subscriber id" do
-        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, [eve.id])
+        expect(ReceiveLocalWorker).to receive(:perform_async).with("StatusMessage", post.id, [eve.id])
         Diaspora::Federation::Dispatcher.build(alice, post, subscriber_ids: [eve.person.id]).dispatch
       end
     end
