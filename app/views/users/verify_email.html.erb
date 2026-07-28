@@ -1,0 +1,18 @@
+<div class="modern-design">
+  <main class="small-container">
+    <header>
+      <h1><%= t(".title") %></h1>
+    </header>
+    <section>
+      <p><%= t(".explanation", email: content_tag(:strong, current_user.email)).html_safe %></p>
+      <%= button_to t(".resend"), resend_verification_email_path, class: "btn btn-primary" %>
+    </section>
+    <section>
+      <p><%= t(".wrong_email") %></p>
+      <%= form_for "user", url: edit_user_path, html: {method: :put, class: "form-inline"} do |f| %>
+        <%= f.text_field :email, value: current_user.email, class: "form-control" %>
+        <%= f.submit t("users.edit.change_email"), class: "btn btn-primary" %>
+      <% end %>
+    </section>
+  </main>
+</div>

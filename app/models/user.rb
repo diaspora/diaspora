@@ -228,8 +228,17 @@ class User < ApplicationRecord
 
   def confirm_email(token)
     return false if token.blank? || token != confirm_email_token
-    self.email = unconfirmed_email
+
+    self.email = unconfirmed_email if unconfirmed_email.present?
+    self.confirm_email_token = nil
     save
+  end
+
+  # The address is considered verified while no confirmation is pending: both
+  # the welcome email (registration) and the change-email flow set this token
+  # and clear it once the link is followed
+  def email_verified?
+    confirm_email_token.blank?
   end
 
   ######## Posting ########
@@ -351,6 +360,8 @@ class User < ApplicationRecord
   ######### Mailer #######################
   def mail(job, *args)
     return unless job.present?
+    return unless email_verified?
+
     pref = job.to_s.gsub('Workers::Mail::', '').underscore
     if(self.disable_mail == false && !self.user_preferences.exists?(:email_type => pref))
       job.perform_async(*args)
@@ -453,18 +464,9 @@ class User < ApplicationRecord
     aq
   end
 
-  def send_welcome_message
-    return unless AppConfig.settings.welcome_message.enabled? && AppConfig.admins.account?
-    sender_username = AppConfig.admins.account.get
-    sender = User.find_by(username: sender_username)
-    return if sender.nil?
-    conversation = sender.build_conversation(
-      participant_ids: [sender.person.id, person.id],
-      subject:         AppConfig.settings.welcome_message.subject.get,
-      message:         {text: AppConfig.settings.welcome_message.text.get % {username: username}}
-    )
-
-    Diaspora::Federation::Dispatcher.build(sender, conversation).dispatch if conversation.save
+  def send_welcome_email
+    update!(confirm_email_token: SecureRandom.hex(15))
+    WelcomeMailer.send_welcome_email(self).deliver_now
   end
 
   def encryption_key

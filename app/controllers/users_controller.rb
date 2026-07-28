@@ -6,6 +6,7 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: %i(new create public)
+  skip_before_action :require_verified_email, only: %i(confirm_email update verify_email resend_verification_email)
   respond_to :html
 
   def edit
@@ -99,6 +100,16 @@ class UsersController < ApplicationController
 
   def download_photos
     redirect_to current_user.exported_photos_file.url
+  end
+
+  def verify_email
+    redirect_to current_user_redirect_path if current_user.email_verified?
+  end
+
+  def resend_verification_email
+    current_user.send_welcome_email
+    flash[:notice] = I18n.t("users.verify_email.resent", email: current_user.email)
+    redirect_to verify_email_path
   end
 
   def confirm_email

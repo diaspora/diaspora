@@ -1,0 +1,70 @@
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #eee;
+  padding: 1rem;
+}
+main {
+  margin: auto;
+  padding: 2rem;
+  background-color: #fff;
+  max-width: 800px;
+  border-radius: 10px;
+}
+h1 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+strong {
+  white-space: nowrap;
+}
+.button-container {
+  text-align: center;
+  margin: 1.5rem;
+}
+.button-container a {
+  border-radius: 5px;
+  color: #fff;
+  background-color: #0088e6;
+  padding: 8px 16px;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+</style>
+
+<main>
+  <h1>
+    <%= t("registrations.welcome_email.member") %>
+  </h1>
+  <p>
+    <% pod_url = AppConfig.pod_uri.site %>
+    <%= t("registrations.welcome_email.part_of_network",
+      pod_url: link_to(pod_url, pod_url), username: content_tag(:strong, @user.username)).html_safe %>
+  </p>
+  <p>
+    <%= t("registrations.welcome_email.your_id", id: content_tag(:strong, @user.person.diaspora_handle)).html_safe %>
+  </p>
+  <p>
+    <%= t("registrations.welcome_email.verify") %>
+  </p>
+  <p class="button-container">
+    <%= link_to t("registrations.welcome_email.verify_link"), confirm_email_url(token: @user.confirm_email_token) %>
+  </p>
+  <% if @podmin_message.present? %>
+  <p>
+    <%= @podmin_message %>
+  </p>
+  <% end %>
+  <p>
+    <%= t("registrations.welcome_email.help",
+      tutorials_link: link_to(
+        t("registrations.welcome_email.tutorials_link_text"), "https://diasporafoundation.org/tutorials")
+    ).html_safe %>
+  </p>
+  <p>
+    <em><%= t("registrations.welcome_email.welcome") %></em>
+  </p>
+</main>

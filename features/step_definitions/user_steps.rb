@@ -148,8 +148,8 @@ When /^I post a limited status with the text "([^\"]*)"$/ do |text|
 end
 
 And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
-  email_text = Devise.mailer.deliveries.first.body.to_s
-  email_text = Devise.mailer.deliveries.first.html_part.body.raw_source if email_text.blank?
+  email_text = Devise.mailer.deliveries.last.body.to_s
+  email_text = Devise.mailer.deliveries.last.html_part.body.raw_source if email_text.blank?
   doc = Nokogiri("<div>" + email_text + "</div>")
 
   links = doc.css("a")
@@ -181,6 +181,25 @@ Then /^"([^"]*)" should have received an email with subject "([^"]*)"$/ do |user
   email = ActionMailer::Base.deliveries.last
   expect(email.to).to have_content(user_email)
   expect(email.subject).to have_content(subject)
+end
+
+Then /^the last sent email should have a plain text and an HTML part$/ do
+  email = ActionMailer::Base.deliveries.last
+  expect(email.text_part).to be_present
+  expect(email.html_part).to be_present
+end
+
+Then /^the last sent email should have the reply-to address "([^"]*)"$/ do |address|
+  expect(ActionMailer::Base.deliveries.last.reply_to).to include(address)
+end
+
+Then /^my email address should( not)? be verified$/ do |negate|
+  user = User.find_by(username: @username)
+  if negate
+    expect(user).not_to be_email_verified
+  else
+    expect(user).to be_email_verified
+  end
 end
 
 When /^"([^\"]+)" has posted a (public )?status message with a photo$/ do |email, public_status|

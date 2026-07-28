@@ -43,6 +43,13 @@ describe ApplicationController, type: :request do
         put edit_user_path, params: {user: {language: "en"}}
       end
 
+      it "doesn't send an email if the current user's email address is not verified" do
+        alice.update!(confirm_email_token: SecureRandom.hex(15))
+        expect_any_instance_of(UsersController).to receive(:verified_request?).and_return(false)
+        expect(Workers::Mail::CsrfTokenFail).not_to receive(:perform_async)
+        put edit_user_path, params: {user: {language: "en"}}
+      end
+
       it "doesn't sign out users if the token was correct" do
         expect_any_instance_of(UsersController).to receive(:verified_request?).and_return(true)
         put edit_user_path, params: {user: {language: "en"}}

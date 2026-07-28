@@ -7,6 +7,7 @@
 class SessionsController < Devise::SessionsController
   # rubocop:disable Rails/LexicallyScopedActionFilter
   before_action :authenticate_with_2fa, only: :create
+  skip_before_action :require_verified_email
   # rubocop:enable Rails/LexicallyScopedActionFilter
 
   def find_user

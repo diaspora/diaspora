@@ -112,6 +112,8 @@ Rails.application.routes.draw do
     get "public/:username"          => :public,                  :as => :users_public
     get "getting_started"           => :getting_started,         :as => :getting_started
     get "confirm_email/:token"      => :confirm_email,           :as => :confirm_email
+    get "verify_email"              => :verify_email,            :as => :verify_email
+    post "resend_verification_email" => :resend_verification_email, :as => :resend_verification_email
     get "privacy"                   => :privacy_settings,        :as => :privacy_settings
     put "privacy"                   => :update_privacy_settings, :as => :update_privacy_settings
     get "getting_started_completed" => :getting_started_completed

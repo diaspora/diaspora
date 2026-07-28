@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::InvalidAuthenticityToken do
     if user_signed_in?
       logger.warn "#{current_user.diaspora_handle} CSRF token fail. referer: #{request.referer || 'empty'}"
-      Workers::Mail::CsrfTokenFail.perform_async(current_user.id)
+      Workers::Mail::CsrfTokenFail.perform_async(current_user.id) if current_user.email_verified?
       sign_out current_user
     end
     flash[:error] = I18n.t("error_messages.csrf_token_fail")
@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_diaspora_header
   before_action :mobile_switch
+  before_action :require_verified_email
   before_action :gon_set_current_user
   before_action :gon_set_appconfig
   before_action :gon_set_preloads
@@ -132,6 +133,12 @@ class ApplicationController < ActionController::Base
     else
       stream_path
     end
+  end
+
+  def require_verified_email
+    return unless AppConfig.settings.require_email_verification? && user_signed_in?
+
+    redirect_to verify_email_path unless current_user.email_verified?
   end
 
   def gon_set_appconfig
