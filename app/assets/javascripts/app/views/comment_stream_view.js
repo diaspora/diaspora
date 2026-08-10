@@ -67,6 +67,7 @@ app.views.CommentStream = app.views.Base.extend({
         this.mdEditor.hidePreview();
         this.closeForm();
         autosize.update(this.commentBox);
+        this.$("form").trigger("checkform.areYouSure");
       }.bind(this),
       error: function() {
         this.enableCommentBox();
