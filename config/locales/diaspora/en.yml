@@ -1114,7 +1114,16 @@ en:
       find_pods: "There’s a list of pods you can sign up to at %{fediverse_observer}."
       other_questions: "If you have any other questions regarding choosing a pod, check out our %{wiki}."
     invalid_invite: "The invite link you provided is no longer valid!"
-
+    welcome_email:
+      subject: "Welcome to the diaspora* community!"
+      member: "Congratulations! You now are a member of the diaspora* community!"
+      part_of_network: "You have registered with %{pod_url}, one of the many nodes (called a “pod”) in the diaspora* network. To access the diaspora* network, you will need to sign in to that same pod using your username, %{username}, and password. Once signed in, you will be able to reach the whole diaspora* network, even people registered with other pods."
+      your_id: "Your diaspora* id is %{id}. This includes your home pod name and helps diaspora*'s software to locate you in the network. Share this with everyone you want to connect with in diaspora*."
+      verify: "Please confirm that this is really your email address. Until you do, we won’t send you any notification emails."
+      verify_link: "Verify my email address"
+      help: "If you need any help, have a look at our %{tutorials_link} or the in-app help section, which can be found via the user menu in the header bar. If you don’t find the information you need there, post a public message with the #question tag so that members of our amazing community can help you."
+      tutorials_link_text: "tutorials for new community members"
+      welcome: "Welcome aboard, and enjoy diaspora*!"
   reshares:
     create:
       error: "Failed to reshare."
@@ -1248,7 +1257,8 @@ en:
       your_email: "Your email"
       your_email_private: "Your email will never be seen by other users"
       change_email: "Change email"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. You will not receive any notifications until you follow this link and activate the new address."
+      email_not_verified: "Your email address is not verified. You will not receive notification emails from diaspora* until you verify it."
       change_password: "Change password"
       new_password: "New password"
       current_password: "Current password"

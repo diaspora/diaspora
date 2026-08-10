@@ -79,6 +79,15 @@ Given /^the registrations are closed$/ do
   AppConfig.settings.enable_registrations = false
 end
 
+Given /^the podmin contact address is "([^"]*)"$/ do |address|
+  AppConfig.admins.podmin_email = address
+end
+
+Given /^the podmin welcome message is "([^"]*)"$/ do |message|
+  AppConfig.settings.welcome_message.enabled = true
+  AppConfig.settings.welcome_message.text = message
+end
+
 When /^I fill in the new user form$/ do
   fill_in_new_user_form
 end
