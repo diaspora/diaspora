@@ -180,7 +180,7 @@ shared_examples_for "migration scenarios with local user rename" do
     invited_user = FactoryBot.create(:user, invited_by: old_user)
     aspect = FactoryBot.create(:aspect, user: old_user, name: r_str)
     contact = FactoryBot.create(:contact, user: old_user)
-    pref = UserPreference.create!(user: old_user, email_type: "also_commented")
+    pref = NotificationSetting.create!(user: old_user, type: "also_commented")
     tag_following = FactoryBot.create(:tag_following, user: old_user)
     block = FactoryBot.create(:block, user: old_user)
     notification = FactoryBot.create(:notification, recipient: old_user)

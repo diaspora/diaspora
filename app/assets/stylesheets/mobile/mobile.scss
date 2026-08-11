@@ -19,6 +19,8 @@
 @import 'markdown-editor';
 @import 'mobile/markdown_editor';
 
+@import 'notification_settings';
+
 @import 'typography';
 
 // New design, can be used adding the .modern-design class to a <div> around the page which is ported
@@ -860,7 +862,7 @@ input#q.search {
   word-wrap: break-word;
 }
 
-#email_prefs {
+.notification-settings {
   .checkbox{
     margin: 15px 0;
   }

@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
 class NotificationService
-  NOTIFICATION_TYPES = {
-    Comment       => [Notifications::MentionedInComment, Notifications::CommentOnPost, Notifications::AlsoCommented],
-    Like          => [Notifications::Liked, Notifications::LikedComment],
-    StatusMessage => [Notifications::MentionedInPost],
-    Conversation  => [Notifications::PrivateMessage],
-    Message       => [Notifications::PrivateMessage],
-    Reshare       => [Notifications::Reshared],
-    Contact       => [Notifications::StartedSharing]
+  NOTIFICATION_SERVICES = {
+    Comment       => [
+      Notifications::MentionedInCommentService,
+      Notifications::CommentOnPostService,
+      Notifications::AlsoCommentedService
+    ],
+    Like          => [Notifications::LikedService, Notifications::LikedCommentService],
+    StatusMessage => [Notifications::MentionedInPostService],
+    Conversation  => [Notifications::PrivateMessageService],
+    Message       => [Notifications::PrivateMessageService],
+    Reshare       => [Notifications::ResharedService],
+    Contact       => [Notifications::StartedSharingService]
   }.freeze
 
   NOTIFICATIONS_JSON_TYPES = {
@@ -52,8 +56,18 @@ class NotificationService
     true
   end
 
+  def mail(job, *args)
+    return if job.blank?
+
+    pref = job.to_s.gsub("Mail::", "").underscore.sub(/_worker\z/, "")
+    email_enabled = (user.disable_mail == false) &&
+      NotificationSettingsService.new(user).email_enabled?(pref)
+
+    job.perform_async(*args) if email_enabled
+  end
+
   def notify(object, recipient_user_ids)
-    notification_types(object).each {|type| type.notify(object, recipient_user_ids) }
+    notification_services(object).each {|type| type.notify(object, recipient_user_ids) }
   end
 
   def read_all_only_involving(person)
@@ -70,7 +84,9 @@ class NotificationService
 
   private
 
-  def notification_types(object)
-    NOTIFICATION_TYPES.fetch(object.class, [])
+  attr_reader :user
+
+  def notification_services(object)
+    NOTIFICATION_SERVICES.fetch(object.class, [])
   end
 end

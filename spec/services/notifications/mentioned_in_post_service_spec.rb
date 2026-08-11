@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Notifications::MentionedInPost, type: :model do
+describe Notifications::MentionedInPostService do
   let(:sm) {
     FactoryBot.create(:status_message, author: alice.person, text: "hi @{bob; #{bob.diaspora_handle}}", public: true)
   }
@@ -12,14 +12,13 @@ describe Notifications::MentionedInPost, type: :model do
         bob, sm.mentions.first, sm.author
       ).and_return(mentioned_notification)
 
-      Notifications::MentionedInPost.notify(sm, [])
+      Notifications::MentionedInPostService.notify(sm, [])
     end
 
     it "sends an email to the mentioned person" do
-      allow(Notifications::MentionedInPost).to receive(:create_notification).and_return(mentioned_notification)
-      expect(bob).to receive(:mail).with(Mail::MentionedWorker, bob.id, sm.author.id, sm.mentions.first.id)
+      expect(Mail::MentionedWorker).to receive(:perform_async).with(bob.id, sm.author.id, sm.mentions.first.id)
 
-      Notifications::MentionedInPost.notify(sm, [])
+      Notifications::MentionedInPostService.notify(sm, [])
     end
 
     it "does nothing if the mentioned person is not local" do
@@ -31,17 +30,41 @@ describe Notifications::MentionedInPost, type: :model do
       )
       expect(Notifications::MentionedInPost).not_to receive(:create_notification)
 
-      Notifications::MentionedInPost.notify(sm, [])
+      Notifications::MentionedInPostService.notify(sm, [])
     end
 
-    it "does not notify if the author of the post is ignored" do
+    it "does not create a notification if the author of the post is ignored" do
       bob.blocks.create(person: sm.author)
 
-      expect_any_instance_of(Notifications::MentionedInPost).not_to receive(:email_the_user)
-
-      Notifications::MentionedInPost.notify(sm, [])
+      Notifications::MentionedInPostService.notify(sm, [])
 
       expect(Notifications::MentionedInPost.where(target: sm.mentions.first)).not_to exist
+    end
+
+    it "does not create a notification if it already exists" do
+      Notifications::MentionedInPost.create(recipient: bob, target: sm.mentions.first, actors: [sm.author])
+
+      expect(Notifications::MentionedInPost).not_to receive(:create_notification)
+
+      Notifications::MentionedInPostService.notify(sm, [])
+    end
+
+    context "when user disabled in app notification" do
+      before do
+        bob.notification_settings.create(
+          type:           "mentioned",
+          email_enabled:  true,
+          in_app_enabled: false
+        )
+      end
+
+      it "does not create a notification but still sends the email" do
+        expect(Mail::MentionedWorker).to receive(:perform_async).with(bob.id, sm.author.id, sm.mentions.first.id)
+
+        Notifications::MentionedInPostService.notify(sm, [])
+
+        expect(Notifications::MentionedInPost.where(target: sm.mentions.first)).not_to exist
+      end
     end
 
     context "with private post" do
@@ -61,13 +84,13 @@ describe Notifications::MentionedInPost, type: :model do
           bob, private_sm.mentions.first, private_sm.author
         ).and_return(mentioned_notification)
 
-        Notifications::MentionedInPost.notify(private_sm, [bob.id])
+        Notifications::MentionedInPostService.notify(private_sm, [bob.id])
       end
 
       it "does not call create_notification if the mentioned person is not a recipient of the post" do
         expect(Notifications::MentionedInPost).not_to receive(:create_notification)
 
-        Notifications::MentionedInPost.notify(private_sm, [alice.id])
+        Notifications::MentionedInPostService.notify(private_sm, [alice.id])
       end
     end
   end

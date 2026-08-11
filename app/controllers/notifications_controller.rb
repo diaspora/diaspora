@@ -95,4 +95,9 @@ class NotificationsController < ApplicationController
       }
     }.as_json
   end
+
+  def types
+    NotificationService::NOTIFICATIONS_JSON_TYPES
+  end
+  helper_method :types
 end

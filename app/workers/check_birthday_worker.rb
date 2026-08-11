@@ -9,7 +9,7 @@ class CheckBirthdayWorker < BaseWorker
                .where("EXTRACT(DAY FROM birthday) = ?", Time.zone.today.day)
     profiles.find_each do |profile|
       profile.person.contacts.where(sharing: true, receiving: true).find_each do |contact|
-        Notifications::ContactsBirthday.notify(contact, [])
+        Notifications::ContactsBirthdayService.notify(contact)
       end
     end
   end

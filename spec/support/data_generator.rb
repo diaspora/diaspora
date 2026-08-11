@@ -53,7 +53,7 @@ class DataGenerator
 
   def preferences
     %w[mentioned liked reshared].each do |pref|
-      user.user_preferences.create!(email_type: pref)
+      user.notification_settings.create!(type: pref)
     end
   end
 
