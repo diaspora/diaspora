@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    set_email_preferences
+    set_notification_settings
   end
 
   def privacy_settings
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       update_user(user_params)
     end
 
-    set_email_preferences
+    set_notification_settings
     render :edit
   end
 
@@ -125,7 +125,7 @@ class UsersController < ApplicationController
       :post_default_public,
       :exported_photos_file,
       :export,
-      email_preferences: UserPreference::VALID_EMAIL_TYPES.to_h {|type| [type.to_sym, %i[mail in_app]] }
+      notification_settings: NotificationSetting::VALID_NOTIFICATION_TYPES.to_h {|type| [type.to_sym, %i[email in_app]] }
     )
   end
 
@@ -138,8 +138,8 @@ class UsersController < ApplicationController
   end
 
   def update_user(user_data)
-    if user_data[:email_preferences]
-      change_email_preferences(user_data)
+    if user_data[:notification_settings]
+      change_notification_settings(user_data)
     elsif user_data[:language]
       change_language(user_data)
     elsif user_data[:email]
@@ -180,8 +180,8 @@ class UsersController < ApplicationController
   end
 
   # change email notifications
-  def change_email_preferences(user_data)
-    @user.update_user_preferences(user_data[:email_preferences])
+  def change_notification_settings(user_data)
+    @user.update_notification_settings(user_data[:notification_settings])
     flash.now[:notice] = t("users.update.email_notifications_changed")
   end
 
@@ -236,17 +236,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def set_email_preferences
-    @email_prefs = @user.user_preferences.to_h do |pref|
+  def set_notification_settings
+    @notification_settings = @user.notification_settings.to_h do |setting|
       [
-        pref.email_type, {
-          mail:   pref.email_enabled,
-          in_app: pref.in_app_enabled
+        setting.type, {
+          email:  setting.email_enabled,
+          in_app: setting.in_app_enabled
         }
       ]
     end
-    @email_prefs.default = {
-      mail:   true,
+    @notification_settings.default = {
+      email:  true,
       in_app: true
     }
   end

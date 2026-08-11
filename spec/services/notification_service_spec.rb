@@ -49,8 +49,8 @@ describe NotificationService do
 
       context "with \"mentioned in comment\" email turned off" do
         before do
-          alice.user_preferences.create(email_type: "mentioned_in_comment")
-          eve.user_preferences.create(email_type: "mentioned_in_comment")
+          alice.notification_settings.create(type: "mentioned_in_comment")
+          eve.notification_settings.create(type: "mentioned_in_comment")
         end
 
         it "calls appropriate mail worker instead" do
@@ -84,7 +84,7 @@ describe NotificationService do
     end
 
     it "does not enqueue a mail job if the correct corresponding job has a preference entry" do
-      alice.user_preferences.create(email_type: "started_sharing")
+      alice.notification_settings.create(type: "started_sharing")
       expect(Mail::StartedSharingWorker).not_to receive(:perform_async)
       NotificationService.new(alice).mail(Mail::StartedSharingWorker, alice.id, "contactrequestid")
     end

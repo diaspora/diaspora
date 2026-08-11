@@ -4,7 +4,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-describe Notifications::PrivateMessage, type: :model do
+describe Notifications::PrivateMessageService do
   let(:conversation) {
     conv_guid = Fabricate.sequence(:guid)
 
@@ -21,32 +21,24 @@ describe Notifications::PrivateMessage, type: :model do
   describe ".notify" do
     it "does not save the notification" do
       expect {
-        Notifications::PrivateMessage.notify(msg, [alice.id])
+        Notifications::PrivateMessageService.notify(msg, [alice.id])
       }.not_to change(Notification, :count)
     end
 
     it "does email the user when receiving a conversation" do
-      expect(Notifications::PrivateMessage).to receive(:new).and_wrap_original do |m, *args|
-        expect(args.first[:recipient].id).to eq(bob.id)
-        m.call(recipient: bob)
-      end
-      expect(bob).to receive(:mail).with(Mail::PrivateMessageWorker, bob.id, alice.person.id, msg.id)
+      expect(Mail::PrivateMessageWorker).to receive(:perform_async).with(bob.id, alice.person.id, msg.id)
 
-      Notifications::PrivateMessage.notify(conversation, [bob.id])
+      Notifications::PrivateMessageService.notify(conversation, [bob.id])
     end
 
     it "does email the user when receiving a message" do
-      expect(Notifications::PrivateMessage).to receive(:new).and_wrap_original do |m, *args|
-        expect(args.first[:recipient].id).to eq(bob.id)
-        m.call(recipient: bob)
-      end
-      expect(bob).to receive(:mail).with(Mail::PrivateMessageWorker, bob.id, alice.person.id, msg.id)
+      expect(Mail::PrivateMessageWorker).to receive(:perform_async).with(bob.id, alice.person.id, msg.id)
 
-      Notifications::PrivateMessage.notify(msg, [bob.id])
+      Notifications::PrivateMessageService.notify(msg, [bob.id])
     end
 
     it "increases user unread count" do
-      Notifications::PrivateMessage.notify(msg, [bob.id])
+      Notifications::PrivateMessageService.notify(msg, [bob.id])
 
       expect(ConversationVisibility.where(conversation_id: conversation.id,
                                           person_id:       bob.person.id).first.unread).to eq(1)
@@ -56,7 +48,7 @@ describe Notifications::PrivateMessage, type: :model do
       message = conversation.messages.build(text: "foo bar", author: bob.person)
       message.save
 
-      Notifications::PrivateMessage.notify(message, [alice.id])
+      Notifications::PrivateMessageService.notify(message, [alice.id])
 
       expect(ConversationVisibility.where(conversation_id: conversation.id,
                                           person_id:       alice.person.id).first.unread).to eq(1)

@@ -25,10 +25,10 @@ class NotificationSettingsService
 
   attr_reader :user
 
-  delegate :user_preferences, to: :user
+  delegate :notification_settings, to: :user
 
   def notification_enabled?(notification_type, pref_method)
-    pref = user_preferences.find_by(email_type: notification_type)
+    pref = notification_settings.find_by(type: notification_type)
     return true if pref.nil?
 
     pref.public_send pref_method

@@ -246,16 +246,16 @@ describe UsersController, :type => :controller do
     end
 
     describe "email settings" do
-      UserPreference::VALID_EMAIL_TYPES.each do |email_type|
-        context "for #{email_type}" do
+      NotificationSetting::VALID_NOTIFICATION_TYPES.each do |type|
+        context "for #{type}" do
           it "lets the user turn off mail" do
             par = {
               id:   @user.id,
               user: {
-                email_preferences: {
-                  email_type => {
-                    in_app: "true",
-                    mail:   "true"
+                notification_settings: {
+                  type => {
+                    in_app: "false",
+                    email:  "false"
                   }
                 }
               }
@@ -263,10 +263,10 @@ describe UsersController, :type => :controller do
 
             expect {
               put :update, params: par
-            }.to change(@user.user_preferences, :count).by(1)
+            }.to change(@user.notification_settings, :count).by(1)
 
             expect(
-              @user.user_preferences.find_by(email_type: email_type)
+              @user.notification_settings.find_by(type: type)
             ).to have_attributes(
               email_enabled:  false,
               in_app_enabled: false
@@ -274,14 +274,14 @@ describe UsersController, :type => :controller do
           end
 
           it "lets the user get mail again" do
-            @user.user_preferences.create(email_type: email_type)
+            @user.notification_settings.create(type: type)
             par = {
               id:   @user.id,
               user: {
-                email_preferences: {
-                  email_type => {
-                    in_app: "false",
-                    mail:   "false"
+                notification_settings: {
+                  type => {
+                    in_app: "true",
+                    email:  "true"
                   }
                 }
               }
@@ -289,10 +289,10 @@ describe UsersController, :type => :controller do
 
             expect {
               put :update, params: par
-            }.to change(@user.user_preferences, :count).by(0)
+            }.to change(@user.notification_settings, :count).by(0)
 
             expect(
-              @user.user_preferences.find_by(email_type: email_type)
+              @user.notification_settings.find_by(type: type)
             ).to have_attributes(
               email_enabled:  true,
               in_app_enabled: true
@@ -336,10 +336,10 @@ describe UsersController, :type => :controller do
     end
 
     it 'set @email_pref to false when there is a user pref' do
-      @user.user_preferences.create(:email_type => 'mentioned')
+      @user.notification_settings.create(:type => 'mentioned')
       get :edit, params: {id: @user.id}
-      expect(assigns[:email_prefs]["mentioned"][:mail]).to be false
-      expect(assigns[:email_prefs]["mentioned"][:in_app]).to be true
+      expect(assigns[:notification_settings]["mentioned"][:email]).to be false
+      expect(assigns[:notification_settings]["mentioned"][:in_app]).to be true
     end
 
     it "displays all notification settings with disabled email checkboxes when mail is disabled" do
@@ -347,13 +347,13 @@ describe UsersController, :type => :controller do
       get :edit, params: {id: @user.id}
       doc = Nokogiri::HTML(response.body)
 
-      in_app_checkbox = doc.at_css('input[type="checkbox"][name="user[email_preferences][mentioned][in_app]"]')
+      in_app_checkbox = doc.at_css('input[type="checkbox"][name="user[notification_settings][mentioned][in_app]"]')
       expect(in_app_checkbox["disabled"]).to be_nil
 
-      mail_checkbox = doc.at_css('input[type="checkbox"][name="user[email_preferences][mentioned][mail]"]')
+      mail_checkbox = doc.at_css('input[type="checkbox"][name="user[notification_settings][mentioned][email]"]')
       expect(mail_checkbox["disabled"]).to be_present
       expect(
-        doc.at_css('label[for="user_email_preferences_mentioned_mail"]')["title"]
+        doc.at_css('label[for="user_notification_settings_mentioned_email"]')["title"]
       ).to eq(I18n.t("users.edit.email_notifications_disabled"))
     end
 
@@ -362,9 +362,9 @@ describe UsersController, :type => :controller do
       get :edit, params: {id: @user.id}
       doc = Nokogiri::HTML(response.body)
 
-      mail_checkbox = doc.at_css('input[type="checkbox"][name="user[email_preferences][mentioned][mail]"]')
+      mail_checkbox = doc.at_css('input[type="checkbox"][name="user[notification_settings][mentioned][email]"]')
       expect(mail_checkbox["disabled"]).to be_nil
-      expect(doc.at_css('label[for="user_email_preferences_mentioned_mail"]')["title"]).to be_nil
+      expect(doc.at_css('label[for="user_notification_settings_mentioned_email"]')["title"]).to be_nil
     end
   end
 

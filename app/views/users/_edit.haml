@@ -123,8 +123,10 @@
         %h3
           = t(".receive_notifications")
         = form_for "user", url: edit_user_path, html: {method: :put} do |f|
-          = f.fields_for :email_preferences do |type|
-            .email-prefs
+          = f.fields_for :notification_settings do |type|
+            -# checkbox values must be strings: a boolean false unchecked_value makes
+            -# Rails omit the hidden field, so unchecking would submit nothing
+            .notification-settings
               .icon-cell
                 = t(".in_app_notifications")
               .icon-cell
@@ -134,13 +136,13 @@
                 .icon-cell
                   %i.entypo-bell.hidden-bell
                 .icon-cell
-                  = type.label :someone_reported_mail, class: "icon-checkbox",
+                  = type.label :someone_reported_email, class: "icon-checkbox",
                     title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                    = type.check_box :someone_reported_mail,
-                        {checked: email_prefs["someone_reported"][:mail],
-                         name: "user[email_preferences][someone_reported][mail]",
+                    = type.check_box :someone_reported_email,
+                        {checked: notification_settings["someone_reported"][:email],
+                         name: "user[notification_settings][someone_reported][email]",
                          disabled: !AppConfig.mail.enable?},
-                        false, true
+                        "true", "false"
                     %i.entypo-mail
 
                 .notification-text
@@ -149,19 +151,19 @@
               .icon-cell
                 = type.label :started_sharing_in_app, class: "icon-checkbox" do
                   = type.check_box :started_sharing_in_app,
-                    {checked: email_prefs["started_sharing"][:in_app],
-                     name: "user[email_preferences][started_sharing][in_app]"},
-                    false, true
+                    {checked: notification_settings["started_sharing"][:in_app],
+                     name: "user[notification_settings][started_sharing][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :started_sharing_mail, class: "icon-checkbox",
+                = type.label :started_sharing_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :started_sharing_mail,
-                    {checked: email_prefs["started_sharing"][:mail],
-                     name: "user[email_preferences][started_sharing][mail]",
+                  = type.check_box :started_sharing_email,
+                    {checked: notification_settings["started_sharing"][:email],
+                     name: "user[notification_settings][started_sharing][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -170,19 +172,19 @@
               .icon-cell
                 = type.label :mentioned_in_app, class: "icon-checkbox" do
                   = type.check_box :mentioned_in_app,
-                    {checked: email_prefs["mentioned"][:in_app],
-                     name: "user[email_preferences][mentioned][in_app]"},
-                    false, true
+                    {checked: notification_settings["mentioned"][:in_app],
+                     name: "user[notification_settings][mentioned][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :mentioned_mail, class: "icon-checkbox",
+                = type.label :mentioned_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :mentioned_mail,
-                    {checked: email_prefs["mentioned"][:mail],
-                     name: "user[email_preferences][mentioned][mail]",
+                  = type.check_box :mentioned_email,
+                    {checked: notification_settings["mentioned"][:email],
+                     name: "user[notification_settings][mentioned][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -191,19 +193,19 @@
               .icon-cell
                 = type.label :mentioned_in_comment_in_app, class: "icon-checkbox" do
                   = type.check_box :mentioned_in_comment_in_app,
-                    {checked: email_prefs["mentioned_in_comment"][:in_app],
-                     name: "user[email_preferences][mentioned_in_comment][in_app]"},
-                    false, true
+                    {checked: notification_settings["mentioned_in_comment"][:in_app],
+                     name: "user[notification_settings][mentioned_in_comment][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :mentioned_in_comment_mail, class: "icon-checkbox",
+                = type.label :mentioned_in_comment_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :mentioned_in_comment_mail,
-                    {checked: email_prefs["mentioned_in_comment"][:mail],
-                      name: "user[email_preferences][mentioned_in_comment][mail]",
+                  = type.check_box :mentioned_in_comment_email,
+                    {checked: notification_settings["mentioned_in_comment"][:email],
+                      name: "user[notification_settings][mentioned_in_comment][email]",
                       disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -212,19 +214,19 @@
               .icon-cell
                 = type.label :liked_in_app, class: "icon-checkbox" do
                   = type.check_box :liked_in_app,
-                    {checked: email_prefs["liked"][:in_app],
-                     name: "user[email_preferences][liked][in_app]"},
-                    false, true
+                    {checked: notification_settings["liked"][:in_app],
+                     name: "user[notification_settings][liked][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :liked_mail, class: "icon-checkbox",
+                = type.label :liked_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :liked_mail,
-                    {checked: email_prefs["liked"][:mail],
-                     name: "user[email_preferences][liked][mail]",
+                  = type.check_box :liked_email,
+                    {checked: notification_settings["liked"][:email],
+                     name: "user[notification_settings][liked][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -233,19 +235,19 @@
               .icon-cell
                 = type.label :liked_comment_in_app, class: "icon-checkbox" do
                   = type.check_box :liked_comment_in_app,
-                    {checked: email_prefs["liked_comment"][:in_app],
-                     name: "user[email_preferences][liked_comment][in_app]"},
-                    false, true
+                    {checked: notification_settings["liked_comment"][:in_app],
+                     name: "user[notification_settings][liked_comment][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :liked_comment_mail, class: "icon-checkbox",
+                = type.label :liked_comment_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :liked_comment_mail,
-                    {checked: email_prefs["liked_comment"][:mail],
-                     name: "user[email_preferences][liked_comment][mail]",
+                  = type.check_box :liked_comment_email,
+                    {checked: notification_settings["liked_comment"][:email],
+                     name: "user[notification_settings][liked_comment][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -254,19 +256,19 @@
               .icon-cell
                 = type.label :reshared_in_app, class: "icon-checkbox" do
                   = type.check_box :reshared_in_app,
-                    {checked: email_prefs["reshared"][:in_app],
-                     name: "user[email_preferences][reshared][in_app]"},
-                    false, true
+                    {checked: notification_settings["reshared"][:in_app],
+                     name: "user[notification_settings][reshared][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :reshared_mail, class: "icon-checkbox",
+                = type.label :reshared_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :reshared_mail,
-                    {checked: email_prefs["reshared"][:mail],
-                     name: "user[email_preferences][reshared][mail]",
+                  = type.check_box :reshared_email,
+                    {checked: notification_settings["reshared"][:email],
+                     name: "user[notification_settings][reshared][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -275,19 +277,19 @@
               .icon-cell
                 = type.label :comment_on_post_in_app, class: "icon-checkbox" do
                   = type.check_box :comment_on_post_in_app,
-                    {checked: email_prefs["comment_on_post"][:in_app],
-                     name: "user[email_preferences][comment_on_post][in_app]"},
-                    false, true
+                    {checked: notification_settings["comment_on_post"][:in_app],
+                     name: "user[notification_settings][comment_on_post][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :comment_on_post_mail, class: "icon-checkbox",
+                = type.label :comment_on_post_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :comment_on_post_mail,
-                    {checked: email_prefs["comment_on_post"][:mail],
-                     name: "user[email_preferences][comment_on_post][mail]",
+                  = type.check_box :comment_on_post_email,
+                    {checked: notification_settings["comment_on_post"][:email],
+                     name: "user[notification_settings][comment_on_post][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -296,19 +298,19 @@
               .icon-cell
                 = type.label :also_commented_in_app, class: "icon-checkbox" do
                   = type.check_box :also_commented_in_app,
-                    {checked: email_prefs["also_commented"][:in_app],
-                     name: "user[email_preferences][also_commented][in_app]"},
-                    false, true
+                    {checked: notification_settings["also_commented"][:in_app],
+                     name: "user[notification_settings][also_commented][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :also_commented_mail, class: "icon-checkbox",
+                = type.label :also_commented_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :also_commented_mail,
-                    {checked: email_prefs["also_commented"][:mail],
-                     name: "user[email_preferences][also_commented][mail]",
+                  = type.check_box :also_commented_email,
+                    {checked: notification_settings["also_commented"][:email],
+                     name: "user[notification_settings][also_commented][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -318,13 +320,13 @@
                 %i.entypo-bell.hidden-bell
 
               .icon-cell
-                = type.label :private_message_mail, class: "icon-checkbox",
+                = type.label :private_message_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :private_message_mail,
-                    {checked: email_prefs["private_message"][:mail],
-                     name: "user[email_preferences][private_message][mail]",
+                  = type.check_box :private_message_email,
+                    {checked: notification_settings["private_message"][:email],
+                     name: "user[notification_settings][private_message][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
@@ -333,25 +335,25 @@
               .icon-cell
                 = type.label :contacts_birthday_in_app, class: "icon-checkbox" do
                   = type.check_box :contacts_birthday_in_app,
-                    {checked: email_prefs["contacts_birthday"][:in_app],
-                     name: "user[email_preferences][contacts_birthday][in_app]"},
-                    false, true
+                    {checked: notification_settings["contacts_birthday"][:in_app],
+                     name: "user[notification_settings][contacts_birthday][in_app]"},
+                    "true", "false"
                   %i.entypo-bell
 
               .icon-cell
-                = type.label :contacts_birthday_mail, class: "icon-checkbox",
+                = type.label :contacts_birthday_email, class: "icon-checkbox",
                   title: (t(".email_notifications_disabled") unless AppConfig.mail.enable?) do
-                  = type.check_box :contacts_birthday_mail,
-                    {checked: email_prefs["contacts_birthday"][:mail],
-                     name: "user[email_preferences][contacts_birthday][mail]",
+                  = type.check_box :contacts_birthday_email,
+                    {checked: notification_settings["contacts_birthday"][:email],
+                     name: "user[notification_settings][contacts_birthday][email]",
                      disabled: !AppConfig.mail.enable?},
-                    false, true
+                    "true", "false"
                   %i.entypo-mail
 
               .notification-text
                 = t(".birthday")
 
-          .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right", id: "change_email_preferences"
+          .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right", id: "change_notification_settings"
     %hr
 
     .row

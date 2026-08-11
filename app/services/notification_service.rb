@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NotificationService
-  NOTIFICATION_TYPES = {
+  NOTIFICATION_SERVICES = {
     Comment       => [
       Notifications::MentionedInCommentService,
       Notifications::CommentOnPostService,
@@ -67,7 +67,7 @@ class NotificationService
   end
 
   def notify(object, recipient_user_ids)
-    notification_types(object).each {|type| type.notify(object, recipient_user_ids) }
+    notification_services(object).each {|type| type.notify(object, recipient_user_ids) }
   end
 
   def read_all_only_involving(person)
@@ -86,7 +86,7 @@ class NotificationService
 
   attr_reader :user
 
-  def notification_types(object)
-    NOTIFICATION_TYPES.fetch(object.class, [])
+  def notification_services(object)
+    NOTIFICATION_SERVICES.fetch(object.class, [])
   end
 end

@@ -19,7 +19,7 @@
 @import 'markdown-editor';
 @import 'mobile/markdown_editor';
 
-@import 'user_preferences';
+@import 'notification_settings';
 
 @import 'typography';
 
@@ -862,7 +862,7 @@ input#q.search {
   word-wrap: break-word;
 }
 
-.email-prefs {
+.notification-settings {
   .checkbox{
     margin: 15px 0;
   }
