@@ -14,6 +14,14 @@ You don't have to install diaspora\* to use the network. There are many servers 
 
 Want to own your data and install diaspora\*? Whether you just want to try it out, want to install it on your server or want to contribute and need a development setup, our [installation guides](https://wiki.diasporafoundation.org/Installation) will get you started!
 
+## One-Click Deploy
+
+<a href="https://repocloud.io/details/Diaspora/"><img src="https://d16t0pc4846x52.cloudfront.net/deploylobe.svg" alt="Deploy on RepoCloud" height="42"></a>
+<a href="https://railway.com/deploy/diaspora"><img src="https://railway.com/button.svg" alt="Deploy on Railway" height="42"></a>
+
+- RepoCloud: One-click template, no other instructions required.
+- Railway: Set `ADMIN_USERNAME`, `ADMIN_EMAIL` and `ADMIN_PASSWORD` while deploying (or read the generated values from the service's variables), then sign in at the public URL ([template page](https://railway.com/deploy/diaspora)).
+
 ## Questions?
 
 Have a look at our FAQs [for users](https://wiki.diasporafoundation.org/FAQ_for_users), [for pod administrators](https://wiki.diasporafoundation.org/FAQ_for_pod_maintainers) or [for developers](https://wiki.diasporafoundation.org/FAQ_for_developers).
