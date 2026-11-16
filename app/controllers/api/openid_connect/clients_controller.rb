@@ -10,7 +10,8 @@ module Api
       end
 
       rescue_from OpenIDConnect::ValidationFailed,
-                  ActiveRecord::RecordInvalid, Api::OpenidConnect::Error::InvalidSectorIdentifierUri do |e|
+                  ActiveRecord::RecordInvalid, Api::OpenidConnect::Error::InvalidSectorIdentifierUri,
+                  Api::OpenidConnect::Error::InvalidJwks do |e|
         validation_fail_as_json(e)
       end
 

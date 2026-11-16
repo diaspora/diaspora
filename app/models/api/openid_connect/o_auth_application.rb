@@ -98,6 +98,17 @@ module Api
           raise Api::OpenidConnect::Error::InvalidRedirectUri.new
         end
 
+        def sanitize_jwks(string)
+          json = JSON.parse(string)
+          keys = json["keys"] if json.is_a?(Hash)
+          valid = keys.is_a?(Array) && keys.all? {|key| key.is_a?(Hash) && key["kty"].is_a?(String) }
+          raise Api::OpenidConnect::Error::InvalidJwks.new unless valid
+
+          {keys: keys}.to_json
+        rescue JSON::ParserError, TypeError
+          raise Api::OpenidConnect::Error::InvalidJwks.new
+        end
+
         def supported_metadata
           %i(client_name response_types grant_types application_type
              contacts logo_uri client_uri policy_uri tos_uri redirect_uris
@@ -113,10 +124,10 @@ module Api
               attr[:ppid] = (value == "pairwise")
             when :jwks_uri
               response = SsrfFilter.get(value)
-              attr[:jwks] = response.body
+              attr[:jwks] = sanitize_jwks(response.body)
               attr[:jwks_uri] = value
             when :jwks
-              attr[:jwks] = value.to_json
+              attr[:jwks] = sanitize_jwks(value.to_json)
             else
               attr[key] = value
             end

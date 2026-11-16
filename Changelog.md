@@ -1,5 +1,9 @@
 # unreleased
 
+## Security
+
+* Reworked OpenID Connect client registration to only return sanitized JWKS in the response. Technically, this wasn't a real security issue since we already prevented the endpoint from reaching private networks, but an automated bot kept annoyingly trying to exploit it.
+
 ## Refactor
 
 * Drop legacy google analytics integration [#8479](https://github.com/diaspora/diaspora/pull/8479)
