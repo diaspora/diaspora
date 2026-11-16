@@ -2,6 +2,7 @@
 
 ## Security
 
+* Fixed a possible cross-site scripting vulnerability via maliciously crafted OpenGraph video URLs. Reported by Zachariah Mithani (AploSec).
 * Reworked OpenID Connect client registration to only return sanitized JWKS in the response. Technically, this wasn't a real security issue since we already prevented the endpoint from reaching private networks, but an automated bot kept annoyingly trying to exploit it.
 * Fixed a vulnerability in the account importer where a maliciously crafted photos archive could write files to an unexpected location. Reported by @iaohkut-from-NightWolf-Team and Zachariah Mithani (AploSec).
 

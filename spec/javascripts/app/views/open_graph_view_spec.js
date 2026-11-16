@@ -67,6 +67,15 @@ describe("app.views.OpenGraph", function() {
         expect($("iframe").length).toBe(1);
         expect($("iframe").attr("src")).toBe(this.openGraphCache.video_url);
       });
+
+      it("does not naively pass an unescaped iframe URL into the frontend", function() {
+        this.view.render();
+        spec.content().html(this.view.$el);
+        $(".video-overlay").attr("data-video-url", "http://example.com/' onload='window.meow=true");
+        $(".video-overlay").trigger("click");
+        expect($("iframe").attr("onload")).toBeUndefined();
+        expect($("iframe").attr("src")).toBe("http://example.com/' onload='window.meow=true");
+      });
     });
   });
 });
