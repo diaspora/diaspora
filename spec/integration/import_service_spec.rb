@@ -30,6 +30,28 @@ describe ImportService do
       expect(imported_photo.remote_photo_path).to eq("#{AppConfig.pod_uri}uploads/images/")
     end
 
+    it "does not extract entries with paths that escape the destination folder" do
+      malicious_zip = Tempfile.new(%w[malicious .zip])
+      Zip::OutputStream.open(malicious_zip.path) do |zip|
+        zip.put_next_entry("../escaped.txt")
+        zip.write("pawned mrowww")
+      end
+
+      destination = malicious_zip.path.delete_suffix(".zip")
+      escaped_path = File.expand_path("../escaped.txt", destination)
+
+      begin
+        ImportService.new.send(:unzip_photos_file, malicious_zip.path)
+
+        expect(File.exist?(escaped_path)).to be false
+      ensure
+        FileUtils.rm_rf(destination)
+        FileUtils.rm_f(escaped_path)
+        malicious_zip.close
+        malicious_zip.unlink
+      end
+    end
+
     it "imports the photo with a new random name if a conflicting photo already exists" do
       old_random_string = photo.random_string
       photo_archive_path = photo_archive.current_path

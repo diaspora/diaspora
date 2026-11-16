@@ -84,9 +84,15 @@ class ImportService
 
   def unzip_photos_file(photo_file_path)
     folder = create_folder(photo_file_path)
+    destination = File.realpath(folder)
     Zip::File.open(photo_file_path) do |zip_file|
       zip_file.each do |file|
-        target_name = "#{folder}#{Pathname::SEPARATOR_LIST}#{file}"
+        target_name = File.expand_path(file.name, destination)
+        unless target_name == destination || target_name.start_with?(destination + File::SEPARATOR)
+          logger.error "Skipping unsafe path in photos archive: #{file.name}"
+          next
+        end
+
         zip_file.extract(file, target_name) unless File.exist?(target_name)
       rescue Errno::ENOENT => e
         logger.error e.to_s
