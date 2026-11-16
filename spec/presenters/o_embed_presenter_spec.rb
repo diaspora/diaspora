@@ -15,6 +15,12 @@ describe OEmbedPresenter do
       expect(oembed[:width]).to  eq(200)
       expect(oembed[:height]).to eq(300)
     end
+
+    it "correctly truncates invalid maxheight + maxwidth values" do
+      oembed = OEmbedPresenter.new(FactoryBot.create(:status_message), maxwidth: "200aaa", maxheight: "300bbb").as_json
+      expect(oembed[:width]).to eq(200)
+      expect(oembed[:height]).to eq(300)
+    end
   end
 
   describe "#iframe_html" do
