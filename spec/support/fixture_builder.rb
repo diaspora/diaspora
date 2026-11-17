@@ -34,6 +34,9 @@ def create_basic_users
   peters_aspect = peter.aspects.where(name: "generic").first
 
   peter.contacts.create!(person: alice.person, aspects: [peters_aspect], sharing: false, receiving: true)
+
+  # extra user with two underscores in the handle for testing
+  FactoryBot.create(:user_with_aspect, username: "cat_under_score")
 end
 
 FixtureBuilder.configure do |fbuilder|

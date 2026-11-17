@@ -53,6 +53,10 @@ def peter
   @peter ||= User.find_by(username: "peter")
 end
 
+def cat_under_score
+  @cat_under_score ||= User.find_by(username: "cat_under_score")
+end
+
 def photo_fixture_name
   @photo_fixture_name = File.join(File.dirname(__FILE__), "fixtures", "button.png")
 end
