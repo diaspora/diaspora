@@ -8,6 +8,7 @@
 * Fixed a vulnerability in the account importer where a maliciously crafted photos archive could write files to an unexpected location. Reported by @iaohkut-from-NightWolf-Team and Zachariah Mithani (AploSec).
 * Fixed a vulnerability in the account importer where a maliciously crafted profile archive could publish image files from other locations on the server.
 * Fixed a vulnerability in the account importer where a maliciously crafted archive could overwrite the scaled versions of other users' photos, including their profile pictures.
+* Fixed a vulnerability in the account importer where a user could replace the photos of other users' public posts by resharing them.
 * Fixed a minor issue where the inviter's name in the invite email would be interpreted as markdown. Reported by Zachariah Mithani (AploSec).
 
 ## Refactor

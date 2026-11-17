@@ -53,6 +53,26 @@ describe ImportService do
       second_archive.close!
     end
 
+    it "does not import photos of other people from reshared posts" do
+      archive = Tempfile.new(%w[photos .zip])
+      remote_post = FactoryBot.create(:status_message, author: FactoryBot.create(:person), public: true)
+      remote_photo = FactoryBot.create(:remote_photo, author: remote_post.author, status_message: remote_post)
+      remote_photo.update!(unprocessed_image: nil)
+      FactoryBot.create(:reshare, root: remote_post, author: user.person)
+
+      Zip::OutputStream.open(archive.path) do |zip|
+        zip.put_next_entry(remote_photo.remote_photo_name)
+        zip.write(Rails.root.join("spec/fixtures/button.png").binread)
+      end
+
+      expect {
+        inlined_jobs { ImportService.new.import_by_files(nil, archive.path, user.username) }
+      }.not_to(change { remote_photo.reload.attributes })
+    ensure
+      FileUtils.rm_rf(archive.path.delete_suffix(".zip"))
+      archive.close!
+    end
+
     it "does not extract entries with paths that escape the destination folder" do
       malicious_zip = Tempfile.new(%w[malicious .zip])
       Zip::OutputStream.open(malicious_zip.path) do |zip|

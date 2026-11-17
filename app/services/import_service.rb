@@ -55,6 +55,7 @@ class ImportService
   def import_photos_for_posts(user, posts, source_dir)
     posts.each do |post|
       post.photos.each do |photo|
+        next unless photo.author_id == user.person.id # reshares return the photos of the root post
         next if photo.unprocessed_image_identifier.present? # already stored on this pod
 
         uploaded_file = photo_file_in_archive(source_dir, photo.remote_photo_name)
