@@ -55,13 +55,15 @@ class ImportService
   def import_photos_for_posts(user, posts, source_dir)
     posts.each do |post|
       post.photos.each do |photo|
+        next if photo.unprocessed_image_identifier.present? # already stored on this pod
+
         uploaded_file = photo_file_in_archive(source_dir, photo.remote_photo_name)
         next unless uploaded_file
 
         # Don't overwrite existing photos if they have the same filename.
         # Generate a new random filename if a conflict exists and re-federate the photo to update on remote pods.
         random_string = File.basename(uploaded_file, ".*")
-        conflicting_photo_exists = Photo.where.not(id: photo.id).exists?(random_string: random_string)
+        conflicting_photo_exists = conflicting_photo_exists?(photo, random_string, File.extname(uploaded_file))
         random_string = SecureRandom.hex(10) if conflicting_photo_exists
 
         store_and_process_photo(photo, uploaded_file, random_string)
@@ -77,6 +79,16 @@ class ImportService
 
     path = File.join(source_dir, photo_name)
     path if File.file?(path)
+  end
+
+  # Also checks the storage, because the scaled versions of other photos and photos from before 2011
+  # have file names that don't match the random_string of any photo.
+  def conflicting_photo_exists?(photo, random_string, extension)
+    return true if Photo.where.not(id: photo.id).exists?(random_string: random_string)
+
+    uploader = UnprocessedImage.new(photo, :unprocessed_image)
+    uploader.retrieve_from_store!(random_string + extension)
+    [uploader, *uploader.versions.values].any? {|version| version.file.exists? }
   end
 
   def store_and_process_photo(photo, uploaded_file, random_string)

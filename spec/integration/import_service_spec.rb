@@ -30,6 +30,29 @@ describe ImportService do
       expect(imported_photo.remote_photo_path).to eq("#{AppConfig.pod_uri}uploads/images/")
     end
 
+    it "skips photos that are already stored on this pod" do
+      second_archive = Tempfile.new(%w[photos .zip])
+      old_random_string = photo.random_string
+      inlined_jobs { ImportService.new.import_by_files(nil, photo_archive.current_path, user.username) }
+      imported_path = photo.reload.unprocessed_image.path
+      expect(imported_path).to include(old_random_string)
+      imported_digest = Digest::SHA256.file(imported_path).hexdigest
+
+      Zip::OutputStream.open(second_archive.path) do |zip|
+        zip.put_next_entry(photo.remote_photo_name)
+        zip.write(Rails.root.join("spec/fixtures/exif.jpg").binread)
+      end
+      expect(Diaspora::Federation::Dispatcher).not_to receive(:build)
+
+      inlined_jobs { ImportService.new.import_by_files(nil, second_archive.path, user.username) }
+
+      expect(photo.reload.unprocessed_image.path).to eq(imported_path)
+      expect(Digest::SHA256.file(imported_path).hexdigest).to eq(imported_digest)
+    ensure
+      FileUtils.rm_rf(second_archive.path.delete_suffix(".zip"))
+      second_archive.close!
+    end
+
     it "does not extract entries with paths that escape the destination folder" do
       malicious_zip = Tempfile.new(%w[malicious .zip])
       Zip::OutputStream.open(malicious_zip.path) do |zip|
@@ -92,6 +115,35 @@ describe ImportService do
       expect(imported_photo.processed_image.path).to include(new_random_string)
       expect(imported_photo.remote_photo_name).to include(new_random_string)
       expect(imported_photo.remote_photo_path).to eq("#{AppConfig.pod_uri}uploads/images/")
+    end
+
+    it "imports the photo with a new random name if a file with the same name already exists" do
+      archive = Tempfile.new(%w[photos .zip])
+      other_photo = FactoryBot.create(:photo)
+      version_name = "thumb_small_#{other_photo.unprocessed_image_identifier}"
+      version_path = other_photo.unprocessed_image.thumb_small.path
+      version_digest = Digest::SHA256.file(version_path).hexdigest
+
+      photo.update!(unprocessed_image: nil, random_string: nil, remote_photo_name: version_name,
+                    remote_photo_path: "https://old.example.com/uploads/images/")
+      Zip::OutputStream.open(archive.path) do |zip|
+        zip.put_next_entry(version_name)
+        zip.write(Rails.root.join("spec/fixtures/exif.jpg").binread)
+      end
+
+      dispatcher = double
+      expect(Diaspora::Federation::Dispatcher).to receive(:build).with(user, photo).and_return(dispatcher)
+      expect(dispatcher).to receive(:dispatch)
+
+      inlined_jobs { ImportService.new.import_by_files(nil, archive.path, user.username) }
+
+      expect(Digest::SHA256.file(version_path).hexdigest).to eq(version_digest)
+      new_random_string = photo.reload.random_string
+      expect(new_random_string).not_to include(other_photo.random_string)
+      expect(photo.unprocessed_image.path).to include(new_random_string)
+    ensure
+      FileUtils.rm_rf(archive.path.delete_suffix(".zip"))
+      archive.close!
     end
   end
 end
