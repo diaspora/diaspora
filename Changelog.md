@@ -6,6 +6,7 @@
 * Fixed a potential cross-site scripting vulnerability _on other sites_ when other sites embed diaspora\* content via our OEmbed endpoint. Reported by Zachariah Mithani (AploSec) and 0xpack.
 * Reworked OpenID Connect client registration to only return sanitized JWKS in the response. Technically, this wasn't a real security issue since we already prevented the endpoint from reaching private networks, but an automated bot kept annoyingly trying to exploit it.
 * Fixed a vulnerability in the account importer where a maliciously crafted photos archive could write files to an unexpected location. Reported by @iaohkut-from-NightWolf-Team and Zachariah Mithani (AploSec).
+* Fixed a vulnerability in the account importer where a maliciously crafted profile archive could publish image files from other locations on the server.
 * Fixed a minor issue where the inviter's name in the invite email would be interpreted as markdown. Reported by Zachariah Mithani (AploSec).
 
 ## Refactor

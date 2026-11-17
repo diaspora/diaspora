@@ -52,6 +52,21 @@ describe ImportService do
       end
     end
 
+    it "does not import files from outside the archive" do
+      photo_archive_path = photo_archive.current_path
+      outside_file = File.join(File.dirname(photo_archive_path), "outside.png")
+      FileUtils.cp(Rails.root.join("spec/fixtures/button.png"), outside_file)
+      photo.update!(remote_photo_name: "../outside.png")
+
+      inlined_jobs { ImportService.new.import_by_files(nil, photo_archive_path, user.username) }
+
+      imported_photo = photo.reload
+      expect(imported_photo.unprocessed_image).to be_blank
+      expect(imported_photo.remote_photo_path).to eq("https://old.example.com/uploads/images/")
+    ensure
+      FileUtils.rm_f(outside_file) if outside_file
+    end
+
     it "imports the photo with a new random name if a conflicting photo already exists" do
       old_random_string = photo.random_string
       photo_archive_path = photo_archive.current_path

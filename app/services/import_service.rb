@@ -55,8 +55,8 @@ class ImportService
   def import_photos_for_posts(user, posts, source_dir)
     posts.each do |post|
       post.photos.each do |photo|
-        uploaded_file = "#{source_dir}/#{photo.remote_photo_name}"
-        next unless File.exist?(uploaded_file) && photo.remote_photo_name.present?
+        uploaded_file = photo_file_in_archive(source_dir, photo.remote_photo_name)
+        next unless uploaded_file
 
         # Don't overwrite existing photos if they have the same filename.
         # Generate a new random filename if a conflict exists and re-federate the photo to update on remote pods.
@@ -69,6 +69,14 @@ class ImportService
         Diaspora::Federation::Dispatcher.build(user, photo).dispatch if conflicting_photo_exists
       end
     end
+  end
+
+  # remote_photo_name comes from the user's archive, so it must not point outside of source_dir
+  def photo_file_in_archive(source_dir, photo_name)
+    return if photo_name.blank? || File.basename(photo_name) != photo_name
+
+    path = File.join(source_dir, photo_name)
+    path if File.file?(path)
   end
 
   def store_and_process_photo(photo, uploaded_file, random_string)
