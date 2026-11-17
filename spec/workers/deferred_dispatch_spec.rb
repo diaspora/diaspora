@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Workers::DeferredDispatch do
+describe DeferredDispatchWorker do
   it "handles non existing records gracefully" do
     expect {
       described_class.new.perform(alice.id, "Comment", 0, {})

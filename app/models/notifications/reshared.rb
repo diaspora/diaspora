@@ -3,7 +3,7 @@
 module Notifications
   class Reshared < Notification
     def mail_job
-      Workers::Mail::Reshared
+      Mail::ResharedWorker
     end
 
     def popup_translation_key

@@ -185,9 +185,9 @@ app.views.OpenGraph = app.views.Base.extend({
   },
 
   loadVideo: function() {
-    this.$(".opengraph-container").html(
-      "<iframe src='" + this.$(".video-overlay").attr("data-video-url") + "' frameBorder=0 width='100%'></iframe>"
-    );
+    var iframe = $("<iframe>", {frameBorder: 0, width: "100%"});
+    iframe.attr("src", this.$(".video-overlay").attr("data-video-url"));
+    this.$(".opengraph-container").empty().append(iframe);
   }
 });
 

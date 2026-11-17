@@ -601,8 +601,21 @@ describe Notifier, type: :mailer do
     it "has the inviter id if the name is nil" do
       bob.person.profile.update(first_name: "", last_name: "")
       mail = Notifier.invite(alice.email, bob, "1234", "en")
-      expect(email.body.encoded).to_not include("#{bob.name} (#{bob.diaspora_handle})")
+      expect(mail.body.encoded).to_not include("#{bob.name} (#{bob.diaspora_handle})")
       expect(mail.body.encoded).to include(bob.person.diaspora_handle)
+    end
+
+    it "escapes markdown from the inviter name" do
+      bob.person.profile.update(first_name: "**bob**", last_name: "`*_{}[]()#+-.!:|&<>^~=")
+      mail = Notifier.invite(alice.email, bob, "1234", "en")
+      expect(mail.body.encoded).to_not include("<strong>bob</strong>")
+      expect(mail.body.encoded).to include("by **bob** `*_{}[]()#+-.!:|&<>^~=")
+    end
+
+    it "escapes markdown from the handles" do
+      mail = Notifier.invite(alice.email, cat_under_score, "1234", "en")
+      expect(mail.body.encoded).to_not include("<em>under</em>")
+      expect(mail.body.encoded).to include(cat_under_score.diaspora_handle)
     end
 
     it "has the invitation code in the body" do

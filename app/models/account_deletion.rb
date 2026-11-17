@@ -15,7 +15,7 @@ class AccountDeletion < ApplicationRecord
   delegate :diaspora_handle, to: :person
 
   def queue_delete_account
-    Workers::DeleteAccount.perform_async(id)
+    DeleteAccountWorker.perform_async(id)
   end
 
   def perform!

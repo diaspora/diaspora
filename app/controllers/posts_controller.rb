@@ -10,11 +10,11 @@ class PostsController < ApplicationController
 
   respond_to :html, :mobile, :json
 
-  rescue_from Diaspora::NonPublic do
+  rescue_from Diaspora::Exceptions::NonPublic do
     authenticate_user!
   end
 
-  rescue_from Diaspora::NotMine do
+  rescue_from Diaspora::Exceptions::NotMine do
     render plain: I18n.t("posts.show.forbidden"), status: 403
   end
 

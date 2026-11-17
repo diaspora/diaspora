@@ -55,13 +55,16 @@ class ImportService
   def import_photos_for_posts(user, posts, source_dir)
     posts.each do |post|
       post.photos.each do |photo|
-        uploaded_file = "#{source_dir}/#{photo.remote_photo_name}"
-        next unless File.exist?(uploaded_file) && photo.remote_photo_name.present?
+        next unless photo.author_id == user.person.id # reshares return the photos of the root post
+        next if photo.unprocessed_image_identifier.present? # already stored on this pod
+
+        uploaded_file = photo_file_in_archive(source_dir, photo.remote_photo_name)
+        next unless uploaded_file
 
         # Don't overwrite existing photos if they have the same filename.
         # Generate a new random filename if a conflict exists and re-federate the photo to update on remote pods.
         random_string = File.basename(uploaded_file, ".*")
-        conflicting_photo_exists = Photo.where.not(id: photo.id).exists?(random_string: random_string)
+        conflicting_photo_exists = conflicting_photo_exists?(photo, random_string, File.extname(uploaded_file))
         random_string = SecureRandom.hex(10) if conflicting_photo_exists
 
         store_and_process_photo(photo, uploaded_file, random_string)
@@ -69,6 +72,24 @@ class ImportService
         Diaspora::Federation::Dispatcher.build(user, photo).dispatch if conflicting_photo_exists
       end
     end
+  end
+
+  # remote_photo_name comes from the user's archive, so it must not point outside of source_dir
+  def photo_file_in_archive(source_dir, photo_name)
+    return if photo_name.blank? || File.basename(photo_name) != photo_name
+
+    path = File.join(source_dir, photo_name)
+    path if File.file?(path)
+  end
+
+  # Also checks the storage, because the scaled versions of other photos and photos from before 2011
+  # have file names that don't match the random_string of any photo.
+  def conflicting_photo_exists?(photo, random_string, extension)
+    return true if Photo.where.not(id: photo.id).exists?(random_string: random_string)
+
+    uploader = UnprocessedImage.new(photo, :unprocessed_image)
+    uploader.retrieve_from_store!(random_string + extension)
+    [uploader, *uploader.versions.values].any? {|version| version.file.exists? }
   end
 
   def store_and_process_photo(photo, uploaded_file, random_string)
@@ -84,9 +105,15 @@ class ImportService
 
   def unzip_photos_file(photo_file_path)
     folder = create_folder(photo_file_path)
+    destination = File.realpath(folder)
     Zip::File.open(photo_file_path) do |zip_file|
       zip_file.each do |file|
-        target_name = "#{folder}#{Pathname::SEPARATOR_LIST}#{file}"
+        target_name = File.expand_path(file.name, destination)
+        unless target_name == destination || target_name.start_with?(destination + File::SEPARATOR)
+          logger.error "Skipping unsafe path in photos archive: #{file.name}"
+          next
+        end
+
         zip_file.extract(file, target_name) unless File.exist?(target_name)
       rescue Errno::ENOENT => e
         logger.error e.to_s

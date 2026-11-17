@@ -171,7 +171,7 @@ describe LikeService do
         LikeService.new(alice).create_for_post(post.id)
         expect {
           LikeService.new.find_for_post(post.id)
-        }.to raise_error Diaspora::NonPublic
+        }.to raise_error Diaspora::Exceptions::NonPublic
       end
     end
 
@@ -231,7 +231,7 @@ describe LikeService do
         LikeService.new(alice).create_for_comment(alice_comment.id)
         expect {
           LikeService.new.find_for_comment(alice_comment.id)
-        }.to raise_error Diaspora::NonPublic
+        }.to raise_error Diaspora::Exceptions::NonPublic
       end
     end
   end

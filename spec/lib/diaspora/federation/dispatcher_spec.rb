@@ -2,7 +2,7 @@
 
 describe Diaspora::Federation::Dispatcher do
   let(:post) { FactoryBot.create(:status_message, author: alice.person, text: "hello", public: true) }
-  let(:opts) { {service_types: "Services::Twitter"} }
+  let(:opts) { {} }
 
   describe ".build" do
     it "creates a public dispatcher for a public post" do
@@ -57,7 +57,7 @@ describe Diaspora::Federation::Dispatcher do
 
   describe ".defer_dispatch" do
     it "queues a job for dispatch" do
-      expect(Workers::DeferredDispatch)
+      expect(DeferredDispatchWorker)
         .to receive(:perform_async).with(alice.id, "StatusMessage", post.id, opts.deep_stringify_keys)
       described_class.defer_dispatch(alice, post, opts)
     end

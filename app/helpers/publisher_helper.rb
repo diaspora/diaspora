@@ -5,26 +5,6 @@
 #   the COPYRIGHT file.
 
 module PublisherHelper
-  def available_services
-    current_user.services.select {|service| AppConfig.configured_services.map(&:to_s).include? service.provider }
-  end
-
-  def service_button(service)
-    provider_title = I18n.t("services.index.share_to", provider: service.provider.titleize)
-    content_tag :div,
-                class:   "btn btn-link service_icon dim",
-                title:   "#{provider_title} (#{service.nickname})",
-                id:      service.provider,
-                maxchar: service.class::MAX_CHARACTERS,
-                data:    {toggle: "tooltip", placement: "bottom"} do
-      if service.provider == "wordpress"
-        content_tag(:span, "", class: "social-media-logos-wordpress-16x16")
-      else
-        content_tag(:i, "", class: "entypo-social-#{service.provider} small")
-      end
-    end
-  end
-
   def public_selected?(selected_aspects)
     "public" == selected_aspects.try(:first) || publisher_boolean?(:public)
   end

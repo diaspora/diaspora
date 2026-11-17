@@ -138,6 +138,38 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
       end
     end
 
+    context "when jwks_uri does not return a valid jwks" do
+      ["<html>meow</html>", "[]", "{\"foo\":\"bar\"}", "{\"keys\":[\"a\"]}", "{\"keys\":[{\"e\":\"AQAB\"}]}"].each do |body|
+        it "should return an invalid_client_metadata error for #{body}" do
+          stub_request(:get, "https://example.com/api/openid_connect/jwks.json").to_return(status: 200, body: body)
+          expect {
+            post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
+                 jwks_uri: "https://example.com/api/openid_connect/jwks.json"}
+          }.not_to change(Api::OpenidConnect::OAuthApplication, :count)
+          expect(response.status).to eq(400)
+          expect(JSON.parse(response.body)["error"]).to eq("invalid_client_metadata")
+        end
+      end
+
+      it "should only store and return the keys member" do
+        stub_request(:get, "https://example.com/api/openid_connect/jwks.json")
+          .to_return(status: 200, body: "{\"keys\":[{\"kty\":\"RSA\",\"e\":\"AQAB\",\"n\":\"qpW\"}],\"extra\":\"x\"}")
+        post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
+             jwks_uri: "https://example.com/api/openid_connect/jwks.json"}
+        jwks = JSON.parse(JSON.parse(response.body)["jwks"])
+        expect(jwks.keys).to eq(["keys"])
+      end
+    end
+
+    context "when an invalid jwks is passed" do
+      it "should return an invalid_client_metadata error" do
+        post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
+             jwks: {foo: "bar"}}
+        expect(response.status).to eq(400)
+        expect(JSON.parse(response.body)["error"]).to eq("invalid_client_metadata")
+      end
+    end
+
     context "when a private network jwks_uri is passed" do
       it "should refuse to connect" do
         expect {

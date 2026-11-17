@@ -83,7 +83,7 @@ shared_examples_for "messages which are indifferent about sharing fact" do
       }
 
       it "treats participation receive correctly" do
-        expect(Workers::ReceiveLocal).to receive(:perform_async)
+        expect(ReceiveLocalWorker).to receive(:perform_async)
         post_message(generate_payload(entity, sender, recipient), recipient)
 
         received_entity = Participation.find_by(guid: entity.guid)
@@ -92,7 +92,7 @@ shared_examples_for "messages which are indifferent about sharing fact" do
       end
 
       it "rejects a participations for a remote parent" do
-        expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+        expect(ReceiveLocalWorker).not_to receive(:perform_async)
         entity = create_relayable_entity(:participation_entity, remote_parent, sender_id)
 
         post_message(generate_payload(entity, sender, recipient), recipient)

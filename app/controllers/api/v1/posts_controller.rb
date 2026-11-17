@@ -37,7 +37,7 @@ module Api
       def destroy
         post_service.destroy(params[:id], private_modify?)
         head :no_content
-      rescue Diaspora::NotMine, Diaspora::NonPublic
+      rescue Diaspora::Exceptions::NotMine, Diaspora::Exceptions::NonPublic
         render_error 403, "Not allowed to delete the post"
       end
 

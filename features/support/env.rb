@@ -58,6 +58,8 @@ Capybara.default_max_wait_time = 30
 ActionController::Base.allow_rescue = false
 
 DatabaseCleaner.strategy = :truncation
+# Ensure we always start from a clean DB state, even after interrupted runs.
+DatabaseCleaner.clean_with(:truncation)
 Cucumber::Rails::Database.autorun_database_cleaner = true
 Cucumber::Rails::World.use_transactional_tests = false
 

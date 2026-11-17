@@ -13,6 +13,11 @@ module Api
           super "Invalid sector identifier uri"
         end
       end
+      class InvalidJwks < ::ArgumentError
+        def initialize
+          super "Invalid jwks"
+        end
+      end
     end
   end
 end

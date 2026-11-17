@@ -18,11 +18,11 @@ module Notifications
 
     def mail_job
       if !recipient.user_preferences.exists?(email_type: "mentioned_in_comment")
-        Workers::Mail::MentionedInComment
+        Mail::MentionedInCommentWorker
       elsif shareable.author.owner_id == recipient_id
-        Workers::Mail::CommentOnPost
+        Mail::CommentOnPostWorker
       elsif shareable.participants.local.where(owner_id: recipient_id)
-        Workers::Mail::AlsoCommented
+        Mail::AlsoCommentedWorker
       end
     end
 

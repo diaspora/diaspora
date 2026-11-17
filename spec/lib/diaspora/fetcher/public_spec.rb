@@ -34,17 +34,17 @@ describe Diaspora::Fetcher::Public do
 
   describe "#queue_for" do
     it "queues a new job" do
-      @person.fetch_status = Diaspora::Fetcher::Public::Status_Initial
+      @person.fetch_status = Diaspora::Fetcher::Public::STATUS_INITIAL
 
-      expect(Workers::FetchPublicPosts).to receive(:perform_async).with(@person.diaspora_handle)
+      expect(FetchPublicPostsWorker).to receive(:perform_async).with(@person.diaspora_handle)
 
       Diaspora::Fetcher::Public.queue_for(@person)
     end
 
     it "queues no job if the status is not initial" do
-      @person.fetch_status = Diaspora::Fetcher::Public::Status_Done
+      @person.fetch_status = Diaspora::Fetcher::Public::STATUS_DONE
 
-      expect(Workers::FetchPublicPosts).not_to receive(:perform_async).with(@person.diaspora_handle)
+      expect(FetchPublicPostsWorker).not_to receive(:perform_async).with(@person.diaspora_handle)
 
       Diaspora::Fetcher::Public.queue_for(@person)
     end
@@ -61,8 +61,8 @@ describe Diaspora::Fetcher::Public do
 
     it "sets the operation status on the person" do
       @person.reload
-      expect(@person.fetch_status).not_to eql(Diaspora::Fetcher::Public::Status_Initial)
-      expect(@person.fetch_status).to eql(Diaspora::Fetcher::Public::Status_Fetched)
+      expect(@person.fetch_status).not_to eql(Diaspora::Fetcher::Public::STATUS_INITIAL)
+      expect(@person.fetch_status).to eql(Diaspora::Fetcher::Public::STATUS_FETCHED)
     end
 
     it "sets the @data variable to the parsed JSON data" do
@@ -126,8 +126,8 @@ describe Diaspora::Fetcher::Public do
       }
 
       @person.reload
-      expect(@person.fetch_status).not_to eql(Diaspora::Fetcher::Public::Status_Initial)
-      expect(@person.fetch_status).to eql(Diaspora::Fetcher::Public::Status_Processed)
+      expect(@person.fetch_status).not_to eql(Diaspora::Fetcher::Public::STATUS_INITIAL)
+      expect(@person.fetch_status).to eql(Diaspora::Fetcher::Public::STATUS_PROCESSED)
     end
 
     context "created post" do
@@ -187,7 +187,7 @@ describe Diaspora::Fetcher::Public do
 
       it "returns false if the person is unfetchable" do
         expect(public_fetcher.instance_eval {
-          @person = FactoryBot.create(:person, fetch_status: Diaspora::Fetcher::Public::Status_Unfetchable)
+          @person = FactoryBot.create(:person, fetch_status: Diaspora::Fetcher::Public::STATUS_UNFETCHABLE)
           qualifies_for_fetching?
         }).to be false
       end
@@ -198,12 +198,12 @@ describe Diaspora::Fetcher::Public do
           @person = user.person
           qualifies_for_fetching?
         }).to be false
-        expect(user.person.fetch_status).to eql Diaspora::Fetcher::Public::Status_Unfetchable
+        expect(user.person.fetch_status).to eql Diaspora::Fetcher::Public::STATUS_UNFETCHABLE
       end
 
       it "returns false if the person is processing already (or has been processed)" do
         person = FactoryBot.create(:person)
-        person.fetch_status = Diaspora::Fetcher::Public::Status_Fetched
+        person.fetch_status = Diaspora::Fetcher::Public::STATUS_FETCHED
         person.save
         expect(public_fetcher.instance_eval {
           @person = person
@@ -220,19 +220,19 @@ describe Diaspora::Fetcher::Public do
       end
     end
 
-    describe "#set_fetch_status" do
+    describe "#update_fetch_status" do
       it "sets the current status of fetching on the person" do
         person = @person
         public_fetcher.instance_eval {
           @person = person
-          set_fetch_status Diaspora::Fetcher::Public::Status_Unfetchable
+          update_fetch_status(Diaspora::Fetcher::Public::STATUS_UNFETCHABLE)
         }
-        expect(@person.fetch_status).to eql Diaspora::Fetcher::Public::Status_Unfetchable
+        expect(@person.fetch_status).to eql Diaspora::Fetcher::Public::STATUS_UNFETCHABLE
 
         public_fetcher.instance_eval {
-          set_fetch_status Diaspora::Fetcher::Public::Status_Initial
+          update_fetch_status(Diaspora::Fetcher::Public::STATUS_INITIAL)
         }
-        expect(@person.fetch_status).to eql Diaspora::Fetcher::Public::Status_Initial
+        expect(@person.fetch_status).to eql Diaspora::Fetcher::Public::STATUS_INITIAL
       end
     end
 

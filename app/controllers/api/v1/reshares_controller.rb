@@ -15,7 +15,7 @@ module Api
         render_error 404, "Post with provided guid could not be found"
       end
 
-      rescue_from Diaspora::NonPublic do
+      rescue_from Diaspora::Exceptions::NonPublic do
         render_error 404, "Post with provided guid could not be found"
       end
 

@@ -397,14 +397,6 @@ footer {
 #new_status_message {
   margin: 0;
 
-  .service_icon {
-    cursor: pointer;
-
-    &.dim {
-      opacity: .6;
-    }
-  }
-
   .counter {
     font-size: 14px;
   }

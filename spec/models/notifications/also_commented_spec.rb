@@ -22,7 +22,7 @@ describe Notifications::AlsoCommented, type: :model do
       expect(Notifications::AlsoCommented).to receive(:concatenate_or_create).with(
         bob, sm, comment.author
       ).and_return(notification)
-      expect(bob).to receive(:mail).with(Workers::Mail::AlsoCommented, bob.id, comment.author.id, comment.id)
+      expect(bob).to receive(:mail).with(Mail::AlsoCommentedWorker, bob.id, comment.author.id, comment.id)
 
       Notifications::AlsoCommented.notify(comment, [])
     end

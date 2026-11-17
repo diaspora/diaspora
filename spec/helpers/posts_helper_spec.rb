@@ -39,7 +39,11 @@ describe PostsHelper, :type => :helper do
     end
 
     it "returns an iframe containing the post" do
-      expect(post_iframe_url(@post.id)).to include "src='#{AppConfig.url_to(post_path(@post))}'"
+      expect(post_iframe_url(@post.id)).to include %(src="#{AppConfig.url_to(post_path(@post))}")
+    end
+
+    it "correctly truncates invalid width and height attributes" do
+      expect(post_iframe_url(@post.id, {width: "123abc", height: "456def"})).to include 'width="123" height="456"'
     end
   end
 end

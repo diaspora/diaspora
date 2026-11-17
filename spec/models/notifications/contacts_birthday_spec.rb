@@ -15,7 +15,7 @@ describe Notifications::ContactsBirthday, type: :model do
 
     it "sends an email to the contacts owner person" do
       allow(Notifications::ContactsBirthday).to receive(:create_notification).and_return(birthday_notification)
-      expect(alice).to receive(:mail).with(Workers::Mail::ContactsBirthday, recipient.id, actor.id, actor.id)
+      expect(alice).to receive(:mail).with(Mail::ContactsBirthdayWorker, recipient.id, actor.id, actor.id)
 
       Notifications::ContactsBirthday.notify(contact, [])
     end

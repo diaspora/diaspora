@@ -140,21 +140,6 @@ describe StatusMessagesController, :type => :controller do
       end
     end
 
-    it "dispatches the post to the specified services" do
-      alice.services << Services::Twitter.new
-      status_message_hash[:services] = ["twitter"]
-      service_types = Service.titles(status_message_hash[:services])
-      expect(alice).to receive(:dispatch_post).with(anything, hash_including(service_types: service_types))
-      post :create, params: status_message_hash
-    end
-
-    it "works if services is a string" do
-      alice.services << Services::Twitter.new
-      status_message_hash[:services] = "twitter"
-      expect(alice).to receive(:dispatch_post).with(anything, hash_including(service_types: ["Services::Twitter"]))
-      post :create, params: status_message_hash
-    end
-
     it "doesn't overwrite author_id" do
       status_message_hash[:status_message][:author_id] = bob.person.id
       post :create, params: status_message_hash

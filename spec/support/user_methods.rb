@@ -32,7 +32,7 @@ class User
 
       if p.save!
         self.aspects.reload
-        dispatch_post(p, url: Rails.application.routes.url_helpers.post_url(p, host: AppConfig.pod_uri.to_s))
+        dispatch_post(p)
       end
       unless opts[:created_at]
         p.created_at = Time.now - 1
@@ -48,8 +48,8 @@ class User
 
   def disable_send_workers
     RSpec.current_example&.example_group_instance&.instance_eval do
-      allow(Workers::SendPrivate).to receive(:perform_async)
-      allow(Workers::SendPublic).to receive(:perform_async)
+      allow(SendPrivateWorker).to receive(:perform_async)
+      allow(SendPublicWorker).to receive(:perform_async)
     end
   end
 end

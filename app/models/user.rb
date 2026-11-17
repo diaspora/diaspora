@@ -70,8 +70,6 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
 
-  has_many :services
-
   has_many :user_preferences
 
   has_many :tag_followings
@@ -175,7 +173,7 @@ class User < ApplicationRecord
   alias_method :send_reset_password_instructions!, :send_reset_password_instructions
 
   def send_reset_password_instructions
-    Workers::ResetPassword.perform_async(self.id)
+    ResetPasswordWorker.perform_async(id)
   end
 
   def update_user_preferences(pref_hash)
@@ -313,7 +311,7 @@ class User < ApplicationRecord
 
   def queue_export
     update exporting: true, export: nil, exported_at: nil
-    Workers::ExportUser.perform_async(id)
+    ExportUserWorker.perform_async(id)
   end
 
   def perform_export!
@@ -339,7 +337,7 @@ class User < ApplicationRecord
 
   def queue_export_photos
     update exporting_photos: true, exported_photos_file: nil, exported_photos_at: nil
-    Workers::ExportPhotos.perform_async(id)
+    ExportPhotosWorker.perform_async(id)
   end
 
   def perform_export_photos!
@@ -353,7 +351,7 @@ class User < ApplicationRecord
   ######### Mailer #######################
   def mail(job, *args)
     return unless job.present?
-    pref = job.to_s.gsub('Workers::Mail::', '').underscore
+    pref = job.to_s.gsub("Mail::", "").underscore.sub(/_worker\z/, "")
     if(self.disable_mail == false && !self.user_preferences.exists?(:email_type => pref))
       job.perform_async(*args)
     end
@@ -361,12 +359,12 @@ class User < ApplicationRecord
 
   def send_confirm_email
     return if unconfirmed_email.blank?
-    Workers::Mail::ConfirmEmail.perform_async(id)
+    Mail::ConfirmEmailWorker.perform_async(id)
   end
 
   ######### Posts and Such ###############
   def retract(target)
-    retraction = Retraction.for(target)
+    retraction = Diaspora::Federated::Retraction.for(target)
     retraction.defer_dispatch(self)
     retraction.perform
   end
@@ -388,10 +386,6 @@ class User < ApplicationRecord
     else
       false
     end
-  end
-
-  def update_profile_with_omniauth( user_info )
-    update_profile( self.profile.from_omniauth_hash( user_info ) )
   end
 
   def deliver_profile_update(opts={})

@@ -225,7 +225,7 @@ class UsersController < ApplicationController
       flash.now[:error] = "Your account migration could not be scheduled for the following reason:"\
                           " #{@user.errors.full_messages}"
     end
-    Workers::ImportUser.perform_async(@user.id)
+    ImportUserWorker.perform_async(@user.id)
   end
 
   def change_settings(user_data, successful="users.update.settings_updated", error="users.update.settings_not_updated")

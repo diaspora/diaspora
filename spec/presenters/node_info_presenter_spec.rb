@@ -31,7 +31,7 @@ describe NodeInfoPresenter do
         },
         "services"          => {
           "inbound"  => [],
-          "outbound" => AppConfig.configured_services.map(&:to_s)
+          "outbound" => []
         },
         "openRegistrations" => AppConfig.settings.enable_registrations?,
         "usage"             => {
@@ -46,43 +46,6 @@ describe NodeInfoPresenter do
           }
         }
       )
-    end
-
-    context "when services are enabled" do
-      before do
-        AppConfig.services = {
-          "twitter"   => {"enable" => true},
-          "wordpress" => {"enable" => false},
-          "tumblr"    => {
-            "enable"     => true,
-            "authorized" => false
-          }
-        }
-      end
-
-      it "provides services" do
-        expect(hash).to include "services" => include("outbound" => ["twitter"])
-      end
-    end
-
-    context "when some services are set to username authorized" do
-      before do
-        AppConfig.services = {
-          "twitter"   => {"enable" => true},
-          "wordpress" => {
-            "enable"     => true,
-            "authorized" => "alice"
-          },
-          "tumblr"    => {
-            "enable"     => true,
-            "authorized" => false
-          }
-        }
-      end
-
-      it "it doesn't list those" do
-        expect(hash).to include "services" => include("outbound" => ["twitter"])
-      end
     end
 
     context "when counts are enabled" do
@@ -154,7 +117,7 @@ describe NodeInfoPresenter do
           "protocols"         => ["diaspora"],
           "services"          => {
             "inbound"  => [],
-            "outbound" => AppConfig.configured_services.map(&:to_s)
+            "outbound" => []
           },
           "openRegistrations" => AppConfig.settings.enable_registrations?,
           "usage"             => {
@@ -185,7 +148,7 @@ describe NodeInfoPresenter do
           "protocols"         => ["diaspora"],
           "services"          => {
             "inbound"  => [],
-            "outbound" => AppConfig.configured_services.map(&:to_s)
+            "outbound" => []
           },
           "openRegistrations" => AppConfig.settings.enable_registrations?,
           "usage"             => {

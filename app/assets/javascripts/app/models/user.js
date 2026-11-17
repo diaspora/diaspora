@@ -15,13 +15,8 @@ app.models.User = Backbone.Model.extend({
     return "/people/" + app.currentUser.get("guid") + "?ex=true";
   },
 
-  isServiceConfigured : function(providerName) {
-    return _.include(this.get("configured_services"), providerName);
-  },
-
   isAuthorOf: function(model) {
     return this.authenticated() && model.get("author").id === this.id;
   }
 });
 // @license-end
-

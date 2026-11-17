@@ -78,11 +78,11 @@ class StatusMessage < Post
   end
 
   def queue_gather_oembed_data
-    Workers::GatherOEmbedData.perform_async(self.id, self.oembed_url)
+    GatherOEmbedDataWorker.perform_async(id, oembed_url)
   end
 
   def queue_gather_open_graph_data
-    Workers::GatherOpenGraphData.perform_async(self.id, self.open_graph_url)
+    GatherOpenGraphDataWorker.perform_async(id, open_graph_url)
   end
 
   def contains_oembed_url_in_text?
@@ -133,4 +133,3 @@ class StatusMessage < Post
     errors.add(:base, "Cannot create a StatusMessage without content") if text_and_photos_blank?
   end
 end
-

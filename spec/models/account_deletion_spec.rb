@@ -12,7 +12,7 @@ describe AccountDeletion, type: :model do
   end
 
   it "fires a job after creation" do
-    expect(Workers::DeleteAccount).to receive(:perform_async).with(anything)
+    expect(DeleteAccountWorker).to receive(:perform_async).with(anything)
     AccountDeletion.create(person: alice.person)
   end
 

@@ -135,10 +135,6 @@ gem "secure_headers", "7.2.0"
 
 gem "omniauth",                       "2.1.4"
 gem "omniauth-rails_csrf_protection", "2.0.1"
-gem "omniauth-tumblr",                "1.2"
-gem "omniauth-twitter",               "1.4.0"
-gem "omniauth-wordpress",             "0.2.2"
-gem "twitter",                        "8.0.0"
 
 # OpenID Connect
 gem "openid_connect", "2.3.1"
@@ -179,6 +175,8 @@ gem "multi_json", "1.15.0"
 # Logging
 
 gem "logging-rails", "0.6.0", require: "logging/rails"
+gem "syslog",        "0.4.0"
+
 
 # Reading and writing zip files
 
@@ -196,7 +194,6 @@ gem "versionist", "2.0.1"
 group :production do # we don"t install these on travis to speed up test runs
   # Analytics
 
-  gem "rack-google-analytics", "1.2.0"
   gem "rack-piwik",            "0.3.0",  require: "rack/piwik"
 
   # Process management
@@ -206,7 +203,6 @@ group :production do # we don"t install these on travis to speed up test runs
   # Redirects
 
   gem "rack-rewrite", "1.5.1", require: false
-  gem "rack-ssl",     "1.4.1", require: "rack/ssl"
 
   # Third party asset hosting
 

@@ -3,7 +3,7 @@
 module Notifications
   class PrivateMessage < Notification
     def mail_job
-      Workers::Mail::PrivateMessage
+      Mail::PrivateMessageWorker
     end
 
     def popup_translation_key

@@ -17,8 +17,6 @@ atom_feed("xmlns:thr"       => "http://purl.org/syndication/thread/1.0",
   feed.updated @posts[0].created_at if @posts.length > 0
   feed.tag! :link, :rel => 'avatar', :type => 'image/jpeg', 'media:width' => '100',
 	    'media:height' => '100', :href => "#{@user.image_url}"
-  feed.tag! :link, :href => "#{AppConfig.environment.pubsub_server}", :rel => 'hub'
-
   add_activitystreams_author(feed, @user.person)
 
   @posts.each do |post|

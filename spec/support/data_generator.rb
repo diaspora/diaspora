@@ -36,7 +36,6 @@ class DataGenerator
     preferences
     notifications
     blocks
-    service
     private_post_as_receipient
     tag_following
     generic_person_data
@@ -72,10 +71,6 @@ class DataGenerator
   def blocks
     user.blocks.create!(person: eve.person)
     eve.blocks.create!(person: person)
-  end
-
-  def service
-    FactoryBot.create(:service, user: user)
   end
 
   def private_post_as_receipient

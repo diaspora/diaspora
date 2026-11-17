@@ -5,7 +5,7 @@ module Notifications
     include Notifications::Commented
 
     def mail_job
-      Workers::Mail::CommentOnPost
+      Mail::CommentOnPostWorker
     end
 
     def popup_translation_key

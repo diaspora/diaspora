@@ -15,7 +15,7 @@ describe Notifications::StartedSharing, type: :model do
 
     it "sends an email to the contacted user" do
       allow(Notifications::StartedSharing).to receive(:create_notification).and_return(started_sharing_notification)
-      expect(alice).to receive(:mail).with(Workers::Mail::StartedSharing, alice.id, bob.person.id, bob.person.id)
+      expect(alice).to receive(:mail).with(Mail::StartedSharingWorker, alice.id, bob.person.id, bob.person.id)
 
       Notifications::StartedSharing.notify(contact, [])
     end

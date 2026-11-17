@@ -39,7 +39,7 @@ class User
         raise "FATAL: user entry is missing from the DB. Aborting" if contact.person.owner.nil?
         contact.person.owner.disconnected_by(contact.user.person)
       else
-        ContactRetraction.for(contact).defer_dispatch(self)
+        Diaspora::Federated::ContactRetraction.for(contact).defer_dispatch(self)
       end
 
       contact.aspect_memberships.delete_all

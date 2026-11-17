@@ -45,7 +45,7 @@ class AccountDeleter
 
   # user deletions
   def normal_ar_user_associates_to_delete
-    %i[tag_followings services aspects user_preferences
+    %i[tag_followings aspects user_preferences
        notifications blocks authorizations o_auth_applications pairwise_pseudonymous_identifiers]
   end
 

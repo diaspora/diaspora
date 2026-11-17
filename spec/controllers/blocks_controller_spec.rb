@@ -35,7 +35,7 @@ describe BlocksController, :type => :controller do
 
     it "sends a message" do
       retraction = double
-      expect(ContactRetraction).to receive(:for).with(@block).and_return(retraction)
+      expect(Diaspora::Federated::ContactRetraction).to receive(:for).with(@block).and_return(retraction)
       expect(retraction).to receive(:defer_dispatch).with(alice)
       delete :destroy, params: {id: @block.id}
     end

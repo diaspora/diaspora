@@ -26,7 +26,7 @@ class BlockService
 
   def remove_block(block)
     block.destroy
-    ContactRetraction.for(block).defer_dispatch(@user)
+    Diaspora::Federated::ContactRetraction.for(block).defer_dispatch(@user)
   end
 
   private

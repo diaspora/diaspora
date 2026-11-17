@@ -17,7 +17,7 @@ describe Notifications::MentionedInPost, type: :model do
 
     it "sends an email to the mentioned person" do
       allow(Notifications::MentionedInPost).to receive(:create_notification).and_return(mentioned_notification)
-      expect(bob).to receive(:mail).with(Workers::Mail::Mentioned, bob.id, sm.author.id, sm.mentions.first.id)
+      expect(bob).to receive(:mail).with(Mail::MentionedWorker, bob.id, sm.author.id, sm.mentions.first.id)
 
       Notifications::MentionedInPost.notify(sm, [])
     end

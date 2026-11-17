@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 When(/^I activate the first hovercard$/) do
-  page.execute_script("$('.hovercardable').first().trigger('mouseenter');")
+  find(".hovercardable", match: :first).hover
 end
 
 Then(/^I should see a hovercard$/) do

@@ -2,7 +2,14 @@
 
 require_relative "boot"
 
-require "rails/all"
+require "rails"
+# Only include the frameworks we need:
+require "active_model/railtie"
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_view/railtie"
+require "action_mailer/railtie"
+require "sprockets/railtie"
 
 require_relative "bundler_helper"
 
@@ -18,9 +25,6 @@ module Diaspora
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # Use classic autoloader for now
-    config.autoloader = :classic
-
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -30,7 +34,6 @@ module Diaspora
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths      += %W[#{config.root}/app]
     config.autoload_once_paths += %W[#{config.root}/lib]
 
     # Allow to decode Time from serialized columns

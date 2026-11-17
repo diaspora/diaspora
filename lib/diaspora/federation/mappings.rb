@@ -26,25 +26,27 @@ module Diaspora
 
       # used in Diaspora::Federation::Entities
       def self.builder_for(diaspora_entity)
+        # rubocop:disable Lint/DuplicateBranch
         case diaspora_entity
-        when AccountMigration  then :account_migration
-        when AccountDeletion   then :account_deletion
-        when Block             then :block
-        when Comment           then :comment
-        when Contact           then :contact
-        when Conversation      then :conversation
-        when Like              then :like
-        when Message           then :message
-        when Participation     then :participation
-        when Photo             then :photo
-        when PollParticipation then :poll_participation
-        when Profile           then :profile
-        when Reshare           then :reshare
-        when Retraction        then :retraction
-        when ContactRetraction then :retraction
-        when StatusMessage     then :status_message
+        when AccountMigration                       then :account_migration
+        when AccountDeletion                        then :account_deletion
+        when Block                                  then :block
+        when Comment                                then :comment
+        when Contact                                then :contact
+        when Conversation                           then :conversation
+        when Like                                   then :like
+        when Message                                then :message
+        when Participation                          then :participation
+        when Photo                                  then :photo
+        when PollParticipation                      then :poll_participation
+        when Profile                                then :profile
+        when Reshare                                then :reshare
+        when Diaspora::Federated::Retraction        then :retraction
+        when Diaspora::Federated::ContactRetraction then :retraction
+        when StatusMessage                          then :status_message
         else not_found(diaspora_entity.class)
         end
+        # rubocop:enable Lint/DuplicateBranch
       end
 
       def self.model_class_for(entity_name)

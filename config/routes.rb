@@ -186,16 +186,6 @@ Rails.application.routes.draw do
   # doctor.example would not try to render the user `doctor` in `example` format.
   get "/u/:username" => "people#show", :as => "user_profile", :constraints => {username: %r{[^/]+}}
 
-  # External
-
-  resources :services, :only => [:index, :destroy]
-  controller :services do
-    scope "/auth", :as => "auth" do
-      get ':provider/callback' => :create
-      get :failure
-    end
-  end
-
   get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
   # Mobile site
 
