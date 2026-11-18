@@ -1,3 +1,9 @@
+# 0.10.1
+
+## Bug fixes
+
+* Fix a regression that scheduled background jobs were not executed anymore [#8491](https://github.com/diaspora/diaspora/pull/8491)
+
 # 0.10.0
 
 ## Security
