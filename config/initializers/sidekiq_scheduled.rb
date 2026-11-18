@@ -56,11 +56,16 @@ def valid_config?(path)
   return false unless File.exist?(path)
 
   current_config = YAML.load_file(path)
+  default_config = default_job_config
 
   # If they key don't match the current default config keys, a new job has
   # been added, so we nede to regenerate the config to have the new job
   # running
-  return false unless current_config.keys == default_job_config.keys
+  return false unless current_config.keys == default_config.keys
+
+  # Worker classes can be renamed (e.g. Workers::CheckBirthday became
+  # CheckBirthdayWorker in 0.10.0), so regenerate if any class is outdated
+  return false unless current_config.all? {|name, job| job[:class] == default_config[name][:class] }
 
   # If recurring_pod_check is still running at midnight UTC, the config file
   # is probably from a previous version, and that's bad, so we need to
