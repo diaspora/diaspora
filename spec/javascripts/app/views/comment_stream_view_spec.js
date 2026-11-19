@@ -170,6 +170,12 @@ describe("app.views.CommentStream", function(){
           this.request.respondWith({status: 200, responseText: "[]"});
           expect(this.view.closeForm).toHaveBeenCalled();
         });
+
+        it("removes the areYouSure dirty flag from the form", function() {
+          this.view.$("form").addClass("dirty");
+          this.request.respondWith({status: 200, responseText: "[]"});
+          expect(this.view.$("form").hasClass("dirty")).toBe(false);
+        });
       });
 
       context("on error", function() {
