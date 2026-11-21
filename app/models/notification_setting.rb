@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-class UserPreference < ApplicationRecord
+class NotificationSetting < ApplicationRecord
+  self.inheritance_column = nil
+
   belongs_to :user
 
-  validate :must_be_valid_email_type
+  validate :must_be_valid_type
 
-  VALID_EMAIL_TYPES =
+  VALID_NOTIFICATION_TYPES =
     %w[
       someone_reported
       mentioned
@@ -20,9 +22,9 @@ class UserPreference < ApplicationRecord
       contacts_birthday
     ].freeze
 
-  def must_be_valid_email_type
-    unless VALID_EMAIL_TYPES.include?(self.email_type)
-      errors.add(:email_type, 'supplied mail type is not a valid or known email type')
+  def must_be_valid_type
+    unless VALID_NOTIFICATION_TYPES.include?(self.type)
+      errors.add(:type, 'supplied type is not a valid or known notification type')
     end
   end
 end

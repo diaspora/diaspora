@@ -10,7 +10,7 @@ describe Mention, type: :model do
       sm = alice.post(:status_message, text: "hi", to: alice.aspects.first)
       mention = Mention.create!(person: bob.person, mentions_container: sm)
 
-      Notifications::MentionedInPost.notify(sm, [bob.id])
+      Notifications::MentionedInPostService.notify(sm, [bob.id])
 
       expect {
         mention.destroy

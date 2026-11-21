@@ -70,7 +70,7 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
 
-  has_many :user_preferences
+  has_many :notification_settings
 
   has_many :tag_followings
   has_many :followed_tags, -> { order('tags.name') }, :through => :tag_followings, :source => :tag
@@ -176,22 +176,14 @@ class User < ApplicationRecord
     ResetPasswordWorker.perform_async(id)
   end
 
-  def update_user_preferences(pref_hash)
-    if self.disable_mail
-      UserPreference::VALID_EMAIL_TYPES.each{|x| self.user_preferences.find_or_create_by(email_type: x)}
-      self.disable_mail = false
-      self.save
-    end
-
+  def update_notification_settings(pref_hash)
     pref_hash.keys.each do |key|
-      if pref_hash[key] == 'true'
-        self.user_preferences.find_or_create_by(email_type: key)
-      else
-        block = user_preferences.find_by(email_type: key)
-        if block
-          block.destroy
-        end
-      end
+      attributes = {in_app_enabled: pref_hash[key]["in_app"] == "true"}
+      # the email column is not rendered when AppConfig.mail.enable? is false
+      attributes[:email_enabled] = pref_hash[key]["email"] == "true" if pref_hash[key].key?("email")
+      notification_settings
+        .find_or_create_by(type: key) {|pref| pref.email_enabled = true }
+        .update(attributes)
     end
   end
 
@@ -349,13 +341,6 @@ class User < ApplicationRecord
   end
 
   ######### Mailer #######################
-  def mail(job, *args)
-    return unless job.present?
-    pref = job.to_s.gsub("Mail::", "").underscore.sub(/_worker\z/, "")
-    if(self.disable_mail == false && !self.user_preferences.exists?(:email_type => pref))
-      job.perform_async(*args)
-    end
-  end
 
   def send_confirm_email
     return if unconfirmed_email.blank?

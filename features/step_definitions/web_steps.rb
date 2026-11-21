@@ -80,7 +80,7 @@ end
 
 When /^(?:|I )uncheck "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
   with_scope(selector) do
-    uncheck(field)
+    find("label[for='#{field}']").click
   end
 end
 
@@ -153,7 +153,7 @@ end
 
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |label, selector|
   with_scope(selector) do
-    expect(find_field(label)["checked"]).to be_falsey
+    expect(find_field(label, visible: false)["checked"]).to be_falsey
   end
 end
 

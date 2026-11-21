@@ -10,7 +10,7 @@ shared_examples_for "deletes all of the user data" do
 
     expect {
       account_removal_method
-    }.to change(nil, "user preferences empty?") { UserPreference.where(user_id: user.id).empty? }
+    }.to change(nil, "notification settings empty?") { NotificationSetting.where(user_id: user.id).empty? }
       .to(be_truthy)
       .and(change(nil, "notifications empty?") { Notification.where(recipient_id: user.id).empty? }.to(be_truthy))
       .and(change(nil, "blocks empty?") { Block.where(user_id: user.id).empty? }.to(be_truthy))

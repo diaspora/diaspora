@@ -1,0 +1,39 @@
+.icon-checkbox {
+  i {
+    color: $medium-gray;
+    cursor: pointer;
+    font-size: 32px;
+  }
+
+  [type="checkbox"] {
+    display: none;
+  }
+
+  [type="checkbox"]:checked ~ i {
+    color: $black;
+  }
+
+  [type="checkbox"][disabled] ~ i {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+}
+
+.notification-text {
+  margin-left: 16px;
+}
+
+.hidden-bell {
+  color: transparent;
+  font-size: 32px;
+}
+
+.notification-settings {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 60px 60px auto;
+
+  .icon-cell {
+    justify-self: center;
+  }
+}

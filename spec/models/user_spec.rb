@@ -444,24 +444,45 @@ describe User, type: :model do
     end
   end
 
-  describe "update_user_preferences" do
-    before do
-      @pref_count = UserPreference::VALID_EMAIL_TYPES.count
-    end
-
-    it "unsets disable mail and makes the right amount of prefs" do
-      alice.disable_mail = true
+  describe "update_notification_settings" do
+    it "creates records for notification preferences" do
       expect {
-        alice.update_user_preferences({})
-      }.to change(alice.user_preferences, :count).by(@pref_count)
-    end
+        alice.update_notification_settings(
+          "mentioned"         => {
+            "email"  => "true",
+            "in_app" => "true"
+          },
+          "contacts_birthday" => {
+            "email"  => "true",
+            "in_app" => "true"
+          },
+          "private_message"   => {
+            "email"  => "false",
+            "in_app" => "true"
+          }
+        )
+      }.to change(alice.notification_settings, :count).by(3)
 
-    it "still sets new prefs to false on update" do
-      alice.disable_mail = true
-      expect {
-        alice.update_user_preferences({"mentioned" => false})
-      }.to change(alice.user_preferences, :count).by(@pref_count - 1)
-      expect(alice.reload.disable_mail).to be false
+      expect(
+        alice.notification_settings.find_by(type: "mentioned")
+      ).to have_attributes(
+        email_enabled:  true,
+        in_app_enabled: true
+      )
+
+      expect(
+        alice.notification_settings.find_by(type: "contacts_birthday")
+      ).to have_attributes(
+        email_enabled:  true,
+        in_app_enabled: true
+      )
+
+      expect(
+        alice.notification_settings.find_by(type: "private_message")
+      ).to have_attributes(
+        email_enabled:  false,
+        in_app_enabled: true
+      )
     end
   end
 
@@ -552,30 +573,6 @@ describe User, type: :model do
       expect {
         alice.destroy
       }.to raise_error "Never destroy users!"
-    end
-  end
-
-  describe "#mail" do
-    it "enqueues a mail job" do
-      alice.disable_mail = false
-      alice.save
-
-      expect(Mail::StartedSharingWorker).to receive(:perform_async).with(alice.id, "contactrequestid").once
-      alice.mail(Mail::StartedSharingWorker, alice.id, "contactrequestid")
-    end
-
-    it "does not enqueue a mail job if the correct corresponding job has a preference entry" do
-      alice.user_preferences.create(email_type: "started_sharing")
-      expect(Mail::StartedSharingWorker).not_to receive(:perform_async)
-      alice.mail(Mail::StartedSharingWorker, alice.id, "contactrequestid")
-    end
-
-    it "does not send a mail if disable_mail is set to true" do
-      alice.disable_mail = true
-      alice.save
-      alice.reload
-      expect(Mail::StartedSharingWorker).not_to receive(:perform_async)
-      alice.mail(Mail::StartedSharingWorker, alice.id, "contactrequestid")
     end
   end
 

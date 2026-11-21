@@ -8,8 +8,8 @@ describe NotificationsHelper, type: :helper do
     @person = FactoryBot.create(:person)
     @post = FactoryBot.create(:status_message, author: @user.person)
     @person2 = FactoryBot.create(:person)
-    Notifications::Liked.notify(FactoryBot.create(:like, author: @person, target: @post), [])
-    Notifications::Liked.notify(FactoryBot.create(:like, author: @person2, target: @post), [])
+    Notifications::LikedService.notify(FactoryBot.create(:like, author: @person, target: @post), [])
+    Notifications::LikedService.notify(FactoryBot.create(:like, author: @person2, target: @post), [])
 
     @notification = Notifications::Liked.find_by(target: @post, recipient: @user)
   end
@@ -99,7 +99,7 @@ describe NotificationsHelper, type: :helper do
 
     describe "when mentioned in status message" do
       it "should include correct wording and post link" do
-        Notifications::MentionedInPost.notify(status_message, [bob.id])
+        Notifications::MentionedInPostService.notify(status_message, [bob.id])
         notification = Notifications::MentionedInPost.last
         expect(notification).not_to be_nil
 
@@ -112,7 +112,7 @@ describe NotificationsHelper, type: :helper do
     describe "when mentioned in comment" do
       it "should include correct wording, post link and comment link" do
         comment = FactoryBot.create(:comment, author: bob.person, text: text_mentioning(alice), post: status_message)
-        Notifications::MentionedInComment.notify(comment, [alice.id])
+        Notifications::MentionedInCommentService.notify(comment, [alice.id])
         notification = Notifications::MentionedInComment.last
         expect(notification).not_to be_nil
 

@@ -4,7 +4,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-describe Notifications::AlsoCommented, type: :model do
+describe Notifications::AlsoCommentedService do
   let(:sm) { FactoryBot.build(:status_message, author: alice.person, public: true) }
   let(:comment) { FactoryBot.create(:comment, commentable: sm) }
   let(:notification) { Notifications::AlsoCommented.new(recipient: bob) }
@@ -13,7 +13,7 @@ describe Notifications::AlsoCommented, type: :model do
     it "does not notify the commentable author" do
       expect(Notifications::AlsoCommented).not_to receive(:concatenate_or_create)
 
-      Notifications::AlsoCommented.notify(comment, [])
+      Notifications::AlsoCommentedService.notify(comment, [])
     end
 
     it "notifies a local participant" do
@@ -22,9 +22,9 @@ describe Notifications::AlsoCommented, type: :model do
       expect(Notifications::AlsoCommented).to receive(:concatenate_or_create).with(
         bob, sm, comment.author
       ).and_return(notification)
-      expect(bob).to receive(:mail).with(Mail::AlsoCommentedWorker, bob.id, comment.author.id, comment.id)
+      expect(Mail::AlsoCommentedWorker).to receive(:perform_async).with(bob.id, comment.author.id, comment.id)
 
-      Notifications::AlsoCommented.notify(comment, [])
+      Notifications::AlsoCommentedService.notify(comment, [])
     end
 
     it "does not notify the a remote participant" do
@@ -32,7 +32,7 @@ describe Notifications::AlsoCommented, type: :model do
 
       expect(Notifications::AlsoCommented).not_to receive(:concatenate_or_create)
 
-      Notifications::AlsoCommented.notify(comment, [])
+      Notifications::AlsoCommentedService.notify(comment, [])
     end
 
     it "does not notify the author of the comment" do
@@ -41,7 +41,7 @@ describe Notifications::AlsoCommented, type: :model do
 
       expect(Notifications::AlsoCommented).not_to receive(:concatenate_or_create)
 
-      Notifications::AlsoCommented.notify(comment, [])
+      Notifications::AlsoCommentedService.notify(comment, [])
     end
 
     it "does not notify if the commentable is hidden" do
@@ -50,18 +50,36 @@ describe Notifications::AlsoCommented, type: :model do
 
       expect(Notifications::AlsoCommented).not_to receive(:concatenate_or_create)
 
-      Notifications::AlsoCommented.notify(comment, [])
+      Notifications::AlsoCommentedService.notify(comment, [])
     end
 
-    it "does not notify if the author of the comment is ignored" do
+    it "does not create a notification if the author of the comment is ignored" do
       bob.participate!(sm)
       bob.blocks.create(person: comment.author)
 
-      expect_any_instance_of(Notifications::AlsoCommented).not_to receive(:email_the_user)
-
-      Notifications::AlsoCommented.notify(comment, [])
+      Notifications::AlsoCommentedService.notify(comment, [])
 
       expect(Notifications::AlsoCommented.where(target: sm)).not_to exist
+    end
+
+    context "when user disabled in app notification" do
+      before do
+        bob.notification_settings.create(
+          type:           "also_commented",
+          email_enabled:  true,
+          in_app_enabled: false
+        )
+      end
+
+      it "does not create a notification but still sends the email" do
+        bob.participate!(sm)
+
+        expect(Mail::AlsoCommentedWorker).to receive(:perform_async).with(bob.id, comment.author.id, comment.id)
+
+        Notifications::AlsoCommentedService.notify(comment, [])
+
+        expect(Notifications::AlsoCommented.where(target: sm)).not_to exist
+      end
     end
   end
 end

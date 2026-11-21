@@ -15,7 +15,7 @@ describe NotificationPresenter do
 
   it "returns target on mentioned" do
     mentioned_post = FactoryBot.create(:status_message_in_aspect, author: alice.person, text: text_mentioning(bob))
-    Notifications::MentionedInPost.notify(mentioned_post, [bob.id])
+    Notifications::MentionedInPostService.notify(mentioned_post, [bob.id])
     notification = Notifications::MentionedInPost.last
     json = NotificationPresenter.new(notification).as_api_json
     expect(json[:target][:guid]).to eq(mentioned_post.guid)
@@ -24,7 +24,7 @@ describe NotificationPresenter do
   it "returns target on mentioned in comment" do
     post = FactoryBot.create(:status_message, public: true)
     mentioned_comment = FactoryBot.create(:comment, post: post, author: alice.person, text: text_mentioning(bob))
-    Notifications::MentionedInComment.notify(mentioned_comment, [bob.id])
+    Notifications::MentionedInCommentService.notify(mentioned_comment, [bob.id])
     notification = Notifications::MentionedInComment.last
     json = NotificationPresenter.new(notification).as_api_json
     expect(json[:target][:guid]).to eq(mentioned_comment.post.guid)
@@ -34,7 +34,7 @@ describe NotificationPresenter do
     post = FactoryBot.create(:status_message)
     bob.comment!(post, "cool")
     comment2 = FactoryBot.create(:comment, post: post)
-    Notifications::AlsoCommented.notify(comment2, [])
+    Notifications::AlsoCommentedService.notify(comment2, [])
     notification = Notifications::AlsoCommented.last
     json = NotificationPresenter.new(notification).as_api_json
     expect(json[:target][:guid]).to eq(post.guid)
@@ -42,7 +42,7 @@ describe NotificationPresenter do
 
   it "returns no target on started_sharing" do
     contact = FactoryBot.create(:contact)
-    Notifications::StartedSharing.notify(contact, [bob.id])
+    Notifications::StartedSharingService.notify(contact, [bob.id])
     notification = Notifications::StartedSharing.last
     json = NotificationPresenter.new(notification).as_api_json
     expect(json[:target]).to be_nil
@@ -50,7 +50,7 @@ describe NotificationPresenter do
 
   it "returns no target on contacts_birthday" do
     contact = FactoryBot.create(:contact)
-    Notifications::ContactsBirthday.notify(contact, [bob.id])
+    Notifications::ContactsBirthdayService.notify(contact, [bob.id])
     notification = Notifications::ContactsBirthday.last
     json = NotificationPresenter.new(notification).as_api_json
     expect(json[:target]).to be_nil
