@@ -27,7 +27,9 @@
               = f.text_field :email, value: @user.unconfirmed_email || @user.email, class: "form-control"
           .clearfix= f.submit t(".change_email"), class: "btn btn-primary pull-right"
         - if @user.unconfirmed_email.present?
-          %div= t(".email_awaiting_confirmation", email: @user.email, unconfirmed_email: @user.unconfirmed_email)
+          %div= t(".email_awaiting_confirmation", unconfirmed_email: @user.unconfirmed_email)
+        - unless @user.email_verified?
+          %div= t(".email_not_verified")
     %hr
 
     .row

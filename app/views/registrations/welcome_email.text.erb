@@ -1,0 +1,19 @@
+<%= t("registrations.welcome_email.member") %>
+
+<%= t("registrations.welcome_email.part_of_network", pod_url: AppConfig.pod_uri.site, username: @user.username) %>
+
+<%= t("registrations.welcome_email.your_id", id: @user.person.diaspora_handle) %>
+
+<%= t("registrations.welcome_email.verify") %>
+
+<%= confirm_email_url(token: @user.confirm_email_token) %>
+
+<% if @podmin_message.present? %>
+<%= @podmin_message %>
+<% end %>
+
+<% tutorials_text = t("registrations.welcome_email.tutorials_link_text") %>
+<%= t("registrations.welcome_email.help",
+      tutorials_link: "#{tutorials_text} (https://diasporafoundation.org/tutorials)") %>
+
+<%= t("registrations.welcome_email.welcome") %>

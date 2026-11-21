@@ -817,57 +817,34 @@ describe User, type: :model do
     end
   end
 
-  describe "#send_welcome_message" do
+  describe "#send_welcome_email" do
     let(:user) { FactoryBot.create(:user) }
-    let(:podmin) { FactoryBot.create(:user) }
 
-    context "with welcome message enabled" do
-      before do
-        AppConfig.settings.welcome_message.enabled = true
-      end
-
-      it "should send welcome message from podmin account" do
-        AppConfig.admins.account = podmin.username
-        expect {
-          user.send_welcome_message
-        }.to change(user.conversations, :count).by(1)
-        expect(user.conversations.first.author.owner.username).to eq podmin.username
-      end
-
-      it "should send welcome message text from config" do
-        AppConfig.admins.account = podmin.username
-        AppConfig.settings.welcome_message.text = "Hello %{username}, welcome!" # rubocop:disable Style/FormatStringToken
-        user.send_welcome_message
-        expect(user.conversations.first.messages.first.text).to eq "Hello #{user.username}, welcome!"
-      end
-
-      it "should use subject from config" do
-        AppConfig.settings.welcome_message.subject = "Welcome Message"
-        AppConfig.admins.account = podmin.username
-        user.send_welcome_message
-        expect(user.conversations.first.subject).to eq "Welcome Message"
-      end
-
-      it "should send no welcome message if no podmin is specified" do
-        AppConfig.admins.account = ""
-        user.send_welcome_message
-        expect(user.conversations.count).to eq 0
-      end
-
-      it "should send no welcome message if podmin is invalid" do
-        AppConfig.admins.account = "invalid"
-        user.send_welcome_message
-        expect(user.conversations.count).to eq 0
-      end
+    it "sends the welcome email to the address the user registered with" do
+      expect { user.send_welcome_email }.to change(ActionMailer::Base.deliveries, :count).by(1)
+      expect(ActionMailer::Base.deliveries.last.to).to eq [user.email]
     end
 
-    context "with welcome message disabled" do
-      it "shouldn't send a welcome message" do
-        AppConfig.settings.welcome_message.enabled = false
-        AppConfig.admins.account = podmin.username
-        user.send_welcome_message
-        expect(user.conversations.count).to eq 0
-      end
+    it "verifies the address once the user follows the link, and lets mail through" do
+      user.send_welcome_email
+      expect(user.confirm_email(user.reload.confirm_email_token)).to be true
+      expect(user.reload).to be_email_verified
+      expect(Mail::MentionedWorker).to receive(:perform_async)
+      user.mail(Mail::MentionedWorker, user.id, user.id, user.id)
+    end
+
+    it "keeps address unverified when an unverified user requests an email change instead" do
+      user.send_welcome_email
+      user.update!(unconfirmed_email: "changed-but-never-confirmed@example.org")
+      expect(user.reload).not_to be_email_verified
+    end
+
+    it "adds the podmin's message when they configured some" do
+      AppConfig.settings.welcome_message.enabled = true
+      AppConfig.settings.welcome_message.text = "Message from your podmin"
+      user.send_welcome_email
+      expect(ActionMailer::Base.deliveries.last.text_part.body.raw_source)
+        .to include("Message from your podmin")
     end
   end
 

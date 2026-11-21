@@ -183,6 +183,25 @@ Then /^"([^"]*)" should have received an email with subject "([^"]*)"$/ do |user
   expect(email.subject).to have_content(subject)
 end
 
+Then /^the last sent email should have a plain text and an HTML part$/ do
+  email = ActionMailer::Base.deliveries.last
+  expect(email.text_part).to be_present
+  expect(email.html_part).to be_present
+end
+
+Then /^the last sent email should have the reply-to address "([^"]*)"$/ do |address|
+  expect(ActionMailer::Base.deliveries.last.reply_to).to include(address)
+end
+
+Then /^my email address should( not)? be verified$/ do |negate|
+  user = User.find_by(username: @username)
+  if negate
+    expect(user).not_to be_email_verified
+  else
+    expect(user).to be_email_verified
+  end
+end
+
 When /^"([^\"]+)" has posted a (public )?status message with a photo$/ do |email, public_status|
   user = User.find_for_database_authentication(username: email)
   post = FactoryBot.create(

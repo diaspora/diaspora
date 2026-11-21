@@ -4,12 +4,23 @@ Feature: New user registration
   As a desktop user
   I want to register an account
 
-  Scenario: user signs up and goes to getting started
-    Given I am on the new user registration page
+  Scenario: user signs up, goes to getting started and receives a welcome email verifying their address
+    Given the podmin contact address is "podmin@example.org"
+    And the podmin welcome message is "Welcome to my little pod!"
+    And I am on the new user registration page
     When I fill in the new user form
     And I press "Create account"
     Then I should be on the getting started page
     And I should see the 'getting started' contents
+    And I should have 1 email delivery
+    And "ohai@example.com" should have received an email with subject "Welcome to the diaspora* community!"
+    And I should see "ohai" in the last sent email
+    And I should see "Welcome to my little pod!" in the last sent email
+    And the last sent email should have a plain text and an HTML part
+    And the last sent email should have the reply-to address "podmin@example.org"
+    And my email address should not be verified
+    When I follow the "Verify my email address" link from the last sent email
+    Then my email address should be verified
 
   Scenario: registrations are closed, user is informed
     Given the registrations are closed
