@@ -63,5 +63,16 @@ describe Notifications::Mentioned do
       expect(TestNotification).not_to receive(:create_notification)
       TestNotification.notify(status_message, nil)
     end
+
+    it "doesn't create a notification for a mention in a comment of an already deleted post" do
+      post = FactoryGirl.create(:status_message, public: true)
+      comment = FactoryGirl.create(:comment, commentable: post, text: text_mentioning(alice))
+      post.delete
+      comment.reload
+
+      expect {
+        Notifications::MentionedInComment.notify(comment, [alice])
+      }.to_not change(Notification, :count)
+    end
   end
 end
